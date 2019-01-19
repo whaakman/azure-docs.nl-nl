@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634860"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412305"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Toegang beheren met RBAC en Azure Portal
 
@@ -33,7 +33,7 @@ De **toegangsbeheer (IAM)** blade, ook wel bekend als identiteits- en toegangsbe
 
 1. Klik op de specifieke resource die u wilt bekijken of beheren.
 
-1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op **Toegangsbeheer (IAM)**.
 
     Hieronder ziet u een voorbeeld van de blade toegangsbeheer (IAM) voor een abonnement.
 
@@ -65,21 +65,21 @@ Volg deze stappen om de toegang voor een enkele gebruiker, groep, service-princi
 
 1. Open **toegangsbeheer (IAM)** met een bereik, zoals de beheergroep, abonnement, resourcegroep of resource, waar u om weer toegang te geven.
 
-1. Klik op de **toegang controleren** tabblad.
+1. Klik op het tabblad **Toegang controleren**.
 
-    ![Access control - tabblad controle-toegang](./media/role-assignments-portal/access-control-check-access.png)
+    ![Toegangsbeheer - Tabblad Toegang controleren](./media/role-assignments-portal/access-control-check-access.png)
 
-1. In de **vinden** , selecteert u het type beveiligings-principal die u wilt controleren van toegang voor.
+1. Selecteer in de lijst **Zoeken** het type beveiligings-principal waarvoor u de toegang wilt controleren.
 
-1. Voer een tekenreeks om te zoeken naar de map voor weergavenamen, e-mailadressen of object-id's in het zoekvak.
+1. Voer in het zoekvak een tekenreeks in om de map te doorzoeken op weergavenamen, e-mailadressen of object-id's.
 
-    ![De selectielijst toegang controleren](./media/role-assignments-portal/check-access-select.png)
+    ![De toegangsselectielijst controleren](./media/role-assignments-portal/check-access-select.png)
 
-1. Klik op de beveiligings-principal te openen de **toewijzingen** deelvenster.
+1. Klik op de beveiligings-principal om het deelvenster **Toewijzingen** te openen.
 
-    ![venster toewijzingen](./media/role-assignments-portal/check-access-assignments.png)
+    ![Deelvenster Toewijzingen](./media/role-assignments-portal/check-access-assignments.png)
 
-    In dit deelvenster ziet u de rollen die zijn toegewezen aan de geselecteerde beveiligings-principal en het bereik. Als er een toewijzingen op dit bereik weigeren of overgenomen op dit bereik, worden deze weergegeven.
+    In dit deelvenster ziet u de rollen die zijn toegewezen aan de geselecteerde beveiligings-principal en het bereik. Als er een in dit bereik toewijzingen zijn geweigerd of zijn overgenomen, worden deze weergegeven.
 
 ### <a name="view-all-role-assignments-at-a-scope"></a>Alle roltoewijzingen weergegeven bij een bereik weergeven
 
@@ -103,9 +103,9 @@ In RBAC, als u wilt toegang verlenen u een rol toewijzen aan een gebruiker, groe
 
 1. Klik op **roltoewijzing toevoegen** om het deelvenster toevoegen rol toewijzing te openen.
 
-   Als u geen machtigingen voor het toewijzen van rollen hebt, kunt u de optie voor toewijzing rol toevoegen, uitgeschakeld.
+   Als u niet bent gemachtigd voor het toewijzen van rollen, is de optie Roltoewijzing toevoegen uitgeschakeld.
 
-   ![Toewijzingsdeelvenster rol toevoegen](./media/role-assignments-portal/add-role-assignment.png)
+   ![Deelvenster Roltoewijzing toevoegen](./media/role-assignments-portal/add-role-assignment.png)
 
 1. Selecteer in de vervolgkeuzelijst **Rol** een rol, zoals **Inzender voor virtuele machines**.
 
@@ -119,19 +119,19 @@ In RBAC, als u wilt toegang verlenen u een rol toewijzen aan een gebruiker, groe
 
 Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [eigenaar](built-in-roles.md#owner) rol op het abonnementsbereik. De rol eigenaar geeft de gebruiker volledige toegang tot alle resources in het abonnement, waaronder het recht op toegang aan anderen delegeren. Deze stappen zijn hetzelfde als elke andere roltoewijzing.
 
-1. Klik in de Azure-portal op **alle services** en vervolgens **abonnementen**.
+1. Klik in de Azure-portal op de optie **Alle services** en vervolgens op **Abonnementen**.
 
 1. Klik op het abonnement waar u om toegang te verlenen.
 
-1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op **Toegangsbeheer (IAM)**.
 
 1. Klik op de **roltoewijzingen** tabblad om de roltoewijzingen voor dit abonnement.
 
 1. Klik op **roltoewijzing toevoegen** om het deelvenster toevoegen rol toewijzing te openen.
 
-   Als u geen machtigingen voor het toewijzen van rollen hebt, kunt u de optie voor toewijzing rol toevoegen, uitgeschakeld.
+   Als u niet bent gemachtigd voor het toewijzen van rollen, is de optie Roltoewijzing toevoegen uitgeschakeld.
 
-   ![Toewijzingsdeelvenster rol toevoegen](./media/role-assignments-portal/add-role-assignment.png)
+   ![Deelvenster Roltoewijzing toevoegen](./media/role-assignments-portal/add-role-assignment.png)
 
 1. In de **rol** vervolgkeuzelijst, selecteer de **eigenaar** rol.
 
@@ -165,7 +165,7 @@ Als u in RBAC de toegang wilt intrekken voor een rol, verwijdert u de roltoewijz
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Zelfstudie: Toegang voor een gebruiker met behulp van RBAC en de Azure-portal](quickstart-assign-role-user-portal.md)
-* [Quickstart: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md) (Snelstartgids: Toegang verlenen aan een gebruiker met RBAC en Azure PowerShell)
-* [Ingebouwde rollen](built-in-roles.md)
+* [Zelfstudie: Toegang verlenen voor een gebruiker met behulp van RBAC en de Azure-portal](quickstart-assign-role-user-portal.md)
+* [Zelfstudie: Toegang verlenen voor een gebruiker met RBAC en Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [RBAC in Azure oplossen](troubleshooting.md)
 * [Resources organiseren met beheergroepen voor Azure](../azure-resource-manager/management-groups-overview.md)

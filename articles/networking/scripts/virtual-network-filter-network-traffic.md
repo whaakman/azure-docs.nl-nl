@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-voorbeeldscript - Filter VM-netwerkverkeer | Microsoft Docs
-description: Azure CLI-script steekproef - binnenkomend en uitgaand netwerkverkeer voor VM filteren.
+title: Azure CLI-voorbeeldscript - VM-netwerkverkeer filteren | Microsoft Docs
+description: Azure CLI-voorbeeldscript - binnenkomend en uitgaand VM-netwerkverkeer filteren.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 07211d7b6dccd377f94308da5c572255ba5727c6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5c5175ab03e32c167a1cbbb618157ed98e13dcda
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29849977"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54409789"
 ---
-# <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filteren van binnenkomende en uitgaande netwerkverkeer voor VM
+# <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Binnenkomend en uitgaand VM-netwerkverkeer filteren
 
-Dit voorbeeldscript wordt een virtueel netwerk gemaakt met front-end en back-end-subnetten. Binnenkomend netwerkverkeer naar de front-end-subnet is beperkt tot HTTP, HTTPS en SSH, terwijl uitgaand verkeer naar Internet van de back-end-subnet is niet toegestaan. Nadat het script is uitgevoerd, hebt u één virtuele machine met twee NIC's. Elke NIC is verbonden met een ander subnet.
+Met dit voorbeeldscript wordt een virtueel netwerk met front-end- en back-end-subnetten gemaakt. Binnenkomend netwerkverkeer naar het front-end-subnet is beperkt tot HTTP, HTTPS en SSH, terwijl uitgaand verkeer naar Internet vanuit de back-end-subnet is niet toegestaan. Nadat het script is uitgevoerd, hebt u een virtuele machine met twee NIC's. Elke NIC is verbonden met een ander subnet.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -45,23 +45,23 @@ az group delete --name MyResourceGroup --yes
 
 ## <a name="script-explanation"></a>Uitleg van het script
 
-Dit script maakt gebruik van de volgende opdrachten voor het maken van een resourcegroep, het virtuele netwerk en netwerkbeveiligingsgroepen. Elke opdracht in de tabel is een koppeling naar opdracht-specifieke documentatie.
+In dit script worden de volgende opdrachten gebruikt voor het maken van een resourcegroep, een virtueel netwerk en netwerkbeveiligingsgroepen. Elke opdracht in de tabel is een koppeling naar opdracht-specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ network vnet maken](/cli/azure/network/vnet#az_network_vnet_create) | Maakt een virtueel Azure-netwerk en de front-end-subnet. |
-| [AZ netwerksubnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Maakt een back-end-subnet. |
-| [AZ network vnet subnet bijwerken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) | Nsg's koppelt aan subnetten. |
-| [AZ netwerk openbare ip-maken](/cli/azure/network/public-ip#az_network_public_ip_create) | Hiermee maakt u een openbaar IP-adres voor toegang tot de virtuele machine via het Internet. |
-| [AZ netwerk nic maken](/cli/azure/network/nic#az_network_nic_create) | Virtuele netwerkinterfaces maakt en gekoppeld aan het virtuele netwerk front-end en back-end-subnetten. |
-| [nsg voor AZ netwerk maken](/cli/azure/network/nsg#az_network_nsg_create) | Netwerk maakt beveiligingsgroepen (NSG) die gekoppeld aan de front-end en back-end subnetten zijn. |
-| [AZ netwerk nsg regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Maakt NSG-regels die bepaalde poorten tot specifieke subnetten blokkeren of toestaan. |
-| [AZ vm maken](/cli/azure/vm#az_vm_create) | Hiermee maakt u virtuele machines en een NIC koppelt aan elke virtuele machine. Deze opdracht geeft ook aan de installatiekopie van de virtuele machine te gebruiken en de beheerdersreferenties. |
-| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep en alle resources die deze bevat. |
+| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Hiermee maakt u een virtueel Azure-netwerk en front-end-subnet. |
+| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Hiermee maakt u een back-end-subnet. |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) | Hiermee koppelt u NSG's aan subnetten. |
+| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Hiermee maakt u een openbaar IP-adres voor toegang tot de virtuele machine via Internet. |
+| [az network nic create](/cli/azure/network/nic) | Hiermee maakt u virtuele netwerkinterfaces en koppelt u ze aan de front-end- en back-end-subnetten van het virtuele netwerk. |
+| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Hiermee maakt u netwerkbeveiligingsgroepen (NSG's) die zijn gekoppeld aan de front-end- en back-end-subnetten. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Hiermee maakt u NSG-regels die bepaalde poorten tot specifieke subnetten blokkeren of toestaan. |
+| [az vm create](/cli/azure/vm#az_vm_create) | Hiermee maakt u virtuele machines en koppelt u een NIC aan elke virtuele machine. Met deze opdracht geeft u ook de installatiekopie van de virtuele machine op die moet worden gebruikt, evenals de beheerdersreferenties. |
+| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep en de bijhorende resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg de [documentatie van Azure CLI](/cli/azure) voor meer informatie over de Azure CLI.
 
-Aanvullende netwerken CLI scriptvoorbeelden vindt u in de [overzicht netwerken van Azure-documentatie](../cli-samples.md)
+Aanvullende netwerken CLI-voorbeeldscripts vindt u de [netwerken overzicht van Azure-documentatie](../cli-samples.md)

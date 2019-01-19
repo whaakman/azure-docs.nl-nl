@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 88f7135cea00b3e8c6cf30a1abd2b94297681c4c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: dbbff7644d0c9375a4d2a145769d09a786b01c25
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391119"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412322"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve vaardigheden
 
@@ -37,7 +37,7 @@ De **OCR** vaardigheid haalt tekst op uit de afbeeldingsbestanden. Ondersteunde 
 > [!NOTE]
 > Vanaf December 21 mei 2018, kunt u [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) met een Azure Search-vaardigheden. Dit kan we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
 >
-> Uitvoering van de ingebouwde vaardigheden is een Cognitive Services-kosten in rekening gebracht op de bestaande [betaalt u Ga prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen zijn de kosten van een Azure Search, momenteel in rekening gebracht op de preview-prijzen zoals beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). 
+> [Ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) uitvoering in rekening gebracht tegen de [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services), op hetzelfde tarief als u de taak rechtstreeks heeft uitgevoerd. Uitpakken van de installatiekopie is een gratis Azure Search, momenteel aangeboden tegen een preview-prijzen. Zie voor meer informatie, de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400) of [hoe het factureren werkt](search-sku-tier.md#how-billing-works).
 
 ## <a name="skill-parameters"></a>Kwalificatie parameters
 

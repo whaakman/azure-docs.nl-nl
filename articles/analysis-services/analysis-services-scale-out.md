@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190813"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411676"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -107,7 +107,7 @@ Voor SSMS, SSDT en verbindingsreeksen in PowerShell, Azure-functie-apps en AMO, 
 
 **Probleem:** Gebruikers krijgen fout **kan geen server vinden '\<naam van de server >' exemplaar in de verbindingsmodus 'Alleen-lezen'.**
 
-**Oplossing:** Bij het selecteren van de **scheiden van de verwerkingsserver van de querypool** optie, client-verbindingen met behulp van de standaard-verbindingsreeks (zonder: rw) worden omgeleid naar de pool queryreplica's. Als de replica's in de groep van de query nog niet zijn nog online omdat synchronisatie niet is voltooid, wordt omgeleid clientverbindingen kunnen mislukken. Om te voorkomen dat een mislukte verbindingen, kies niet voor het scheiden van de verwerkingsserver van de querypool totdat een bewerking waarbij de scale-out en synchroniseren zijn voltooid. U kunt de metrische gegevens over geheugen en QPU gebruiken voor het bewaken van de synchronisatiestatus.
+**Oplossing:** Bij het selecteren van de **scheiden van de verwerkingsserver van de querypool** optie, client-verbindingen met behulp van de standaard-verbindingsreeks (zonder: rw) worden omgeleid naar de pool queryreplica's. Als de replica's in de groep van de query nog niet zijn nog online omdat synchronisatie niet is voltooid, wordt omgeleid clientverbindingen kunnen mislukken. Om te voorkomen dat een mislukte verbindingen, moet er ten minste twee servers in de query-groep bij het uitvoeren van een synchronisatie. Elke server afzonderlijk gesynchroniseerd terwijl anderen online blijven. Als u niet beschikt over de verwerkingsserver in de query van toepassingen tijdens de verwerking, kunt u de te verwijderen uit de groep voor verwerking en nadat de verwerking is voltooid, maar voordat de synchronisatie toevoegen terug naar de pool. Metrische gegevens over geheugen en QPU gebruiken voor het bewaken van de synchronisatiestatus.
 
 ## <a name="related-information"></a>Gerelateerde informatie
 

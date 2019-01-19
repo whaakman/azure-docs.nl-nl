@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405611"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412045"
 ---
 # <a name="custom-roles-in-azure"></a>Aangepaste rollen in Azure
 
@@ -84,35 +84,36 @@ Wanneer u een aangepaste rol maakt, wordt deze weergegeven in de Azure-portal me
 
     Nadat u uw aangepaste rol hebt, hebt u testen om te controleren of deze werkt zoals verwacht. Als u wilt de wijzigingen later aanbrengen, kunt u de aangepaste rol bijwerken.
 
-Zie voor een stapsgewijze zelfstudie voor het maken van een aangepaste rol [zelfstudie: maken van een aangepaste rol die met behulp van Azure PowerShell](tutorial-custom-role-powershell.md) of [zelfstudie: een aangepaste rol die met behulp van Azure CLI maken](tutorial-custom-role-cli.md).
+Zie voor een stapsgewijze zelfstudie voor het maken van een aangepaste rol [zelfstudie: Maken van een aangepaste rol die met behulp van Azure PowerShell](tutorial-custom-role-powershell.md) of [zelfstudie: Maken van een aangepaste rol die met behulp van Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Eigenschappen van de aangepaste rol
 
 Een aangepaste rol heeft de volgende eigenschappen.
 
-| Eigenschap | Vereist | Type | Beschrijving |
+| Eigenschap | Vereist | Type | Description |
 | --- | --- | --- | --- |
 | `Name` | Ja | Reeks | De weergavenaam van de aangepaste rol. De roldefinitie van een is een resource op abonnementsniveau, kan een roldefinitie kan worden gebruikt in meerdere abonnementen die de dezelfde Azure AD-directory delen. Deze weergavenaam moet uniek zijn in het bereik van de Azure AD-directory. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 128. |
 | `Id` | Ja | Reeks | De unieke ID van de aangepaste rol. Voor Azure PowerShell en Azure CLI, worden deze ID wordt automatisch gegenereerd bij het maken van een nieuwe rol. |
 | `IsCustom` | Ja | Reeks | Geeft aan of dit een aangepaste rol. Ingesteld op `true` voor aangepaste rollen. |
 | `Description` | Ja | Reeks | De beschrijving van de aangepaste rol. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 1024. |
-| `Actions` | Ja | String] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die de rol kan worden uitgevoerd. Zie voor meer informatie, [acties](role-definitions.md#actions). |
-| `NotActions` | Nee | String] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die zijn uitgesloten van het toegestane aantal `Actions`. Zie voor meer informatie, [NotActions](role-definitions.md#notactions). |
-| `DataActions` | Nee | String] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Zie voor meer informatie, [DataActions (Preview)](role-definitions.md#dataactions-preview). |
-| `NotDataActions` | Nee | String] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen voor gegevens die zijn uitgesloten van het toegestane aantal `DataActions`. Zie voor meer informatie, [NotDataActions (Preview)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Ja | String] | Een matrix met tekenreeksen die de scopes geeft die de aangepaste rol beschikbaar voor toewijzing is. Op dit moment niet worden ingesteld op het bereik van de hoofdmap (`"/"`) of een beheerbereik van de groep. Zie voor meer informatie, [AssignableScopes](role-definitions.md#assignablescopes) en [organiseren van uw resources met Azure-beheergroepen](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `Actions` | Ja | String[] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die de rol kan worden uitgevoerd. Zie voor meer informatie, [acties](role-definitions.md#actions). |
+| `NotActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die zijn uitgesloten van het toegestane aantal `Actions`. Zie voor meer informatie, [NotActions](role-definitions.md#notactions). |
+| `DataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Zie voor meer informatie, [DataActions (Preview)](role-definitions.md#dataactions-preview). |
+| `NotDataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen voor gegevens die zijn uitgesloten van het toegestane aantal `DataActions`. Zie voor meer informatie, [NotDataActions (Preview)](role-definitions.md#notdataactions-preview). |
+| `AssignableScopes` | Ja | String[] | Een matrix met tekenreeksen die de scopes geeft die de aangepaste rol beschikbaar voor toewijzing is. Op dit moment niet worden ingesteld op het bereik van de hoofdmap (`"/"`) of een beheerbereik van de groep. Zie voor meer informatie, [AssignableScopes](role-definitions.md#assignablescopes) en [organiseren van uw resources met Azure-beheergroepen](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Wie kunt maken, verwijderen, bijwerken of weergeven van een aangepaste rol
 
 Net als ingebouwde rollen, de `AssignableScopes` -eigenschap geeft de scopes die de functie beschikbaar voor toewijzing is. De `AssignableScopes` eigenschap voor een aangepaste rol bepaalt ook die kunt maken, verwijderen, bijwerken of weergeven van de aangepaste rol.
 
-| Taak | Bewerking | Beschrijving |
+| Taak | Bewerking | Description |
 | --- | --- | --- |
 | Een aangepaste rol maken/verwijderen | `Microsoft.Authorization/ roleDefinition/write` | Gebruikers die deze bewerking op alle krijgen de `AssignableScopes` van de aangepaste rol kunt maken (of verwijderen) aangepaste rollen voor gebruik in deze bereiken. Bijvoorbeeld, [eigenaren](built-in-roles.md#owner) en [beheerders van de gebruiker toegang](built-in-roles.md#user-access-administrator) van abonnementen, resourcegroepen en resources. |
 | Een aangepaste rol bijwerken | `Microsoft.Authorization/ roleDefinition/write` | Gebruikers die deze bewerking op alle krijgen de `AssignableScopes` van de aangepaste rol die aangepaste rollen in deze bereiken kunt bijwerken. Bijvoorbeeld, [eigenaren](built-in-roles.md#owner) en [beheerders van de gebruiker toegang](built-in-roles.md#user-access-administrator) van abonnementen, resourcegroepen en resources. |
 | Een aangepaste rol weergeven | `Microsoft.Authorization/ roleDefinition/read` | Gebruikers die deze bewerking met een bereik worden verleend, kunnen de aangepaste rollen die beschikbaar voor toewijzing op dat bereik zijn bekijken. Alle ingebouwde rollen kunnen aangepaste rollen zijn beschikbaar voor toewijzing. |
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Maken van aangepaste rollen met behulp van Azure PowerShell](custom-roles-powershell.md)
+- [Aangepaste rollen maken met behulp van Azure PowerShell](custom-roles-powershell.md)
 - [Aangepaste rollen maken met Azure CLI](custom-roles-cli.md)
 - [Roldefinities begrijpen](role-definitions.md)
+- [RBAC in Azure oplossen](troubleshooting.md)

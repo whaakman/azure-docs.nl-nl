@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d61810adb24bb56b849a0a07ad1f097a1c33744
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198079"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410486"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
-Dit artikel wordt beschreven hoe u als ontwikkelaar apparaat om een algemene Node.js-toepassing die een fysiek apparaat naar uw Microsoft Azure IoT Central-toepassing verbinding te maken.
+Dit artikel wordt beschreven hoe u als ontwikkelaar apparaat om een algemene Node.js-toepassing die een echt apparaat naar uw Microsoft Azure IoT Central-toepassing verbinding te maken.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -64,7 +64,7 @@ Voeg de volgende gebeurtenis in de **metingen** pagina:
 
 | Weergavenaam | Veldnaam  | Severity |
 | ------------ | ----------- | -------- |
-| Oververhitting  | oververhit    | Fout    |
+| Oververhitting  | overheat    | Fout    |
 
 > [!NOTE]
   Het gegevenstype van de meting van de gebeurtenis is een tekenreeks.
@@ -97,7 +97,7 @@ Voeg een echt apparaat van de sjabloon van het apparaat u maken en noteer de app
 
 ### <a name="create-a-nodejs-application"></a>Een Node.js-toepassing maken
 
-De volgende stappen laten zien over het maken van een clienttoepassing die het echte apparaat dat u hebt toegevoegd aan de toepassing implementeert. Hier staat de Node.js-toepassing voor het echt fysiek apparaat. 
+De volgende stappen laten zien over het maken van een clienttoepassing die het echte apparaat dat u hebt toegevoegd aan de toepassing implementeert. Hier geeft de Node.js-toepassing echt apparaat. 
 
 1. Maak de map `connected-air-conditioner-adv` op uw computer. Navigeer naar die map in uw opdrachtregelomgeving.
 

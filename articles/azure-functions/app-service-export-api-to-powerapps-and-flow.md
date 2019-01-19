@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 53aa40c047b2b5201cd74c0409d56e97d2880eb0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602848"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413931"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Een Azure gehoste API exporteren naar PowerApps en Microsoft Flow
 
@@ -156,7 +156,7 @@ Wanneer u Azure AD, moet u twee Azure AD-toepassingsregistraties: één voor de 
 
 - Gebruik voor het configureren van inschrijving voor de API de [App Service-verificatie/autorisatie](../app-service/configure-authentication-provider-aad.md) functie.
 
-- Volg de stappen in om u te registreren voor de connector configureert, [toevoegen van een Azure AD-toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). De registratie moet gedelegeerde toegang tot uw API en een antwoord-URL van `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- Volg de stappen in om u te registreren voor de connector configureert, [toevoegen van een Azure AD-toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). De registratie moet gedelegeerde toegang tot uw API en een antwoord-URL van `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
 Zie voor meer informatie, de Azure AD-registratie-voorbeelden voor [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) en [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). Deze voorbeelden als de API, Azure Resource Manager gebruiken vervangen door uw API als u de stappen volgen.
 

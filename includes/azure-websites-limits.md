@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 6bb7db5d57508d448f88a30623b7f30e88a0a821
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d66f36e737e100a0d8e60b85b51f6dcf632e6d3e
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736753"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404672"
 ---
 | Resource | Gratis | Gedeeld | Basic | Standard | Premium (v2) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Web, mobiele Apps of API apps](https://azure.microsoft.com/services/app-service/) per [App Service-plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Onbeperkte<sup>2</sup> |Onbeperkte<sup>2</sup> |Onbeperkte<sup>2</sup> |Onbeperkte<sup>2</sup>|
-| [App Service-plan](../articles/app-service/overview-hosting-plans.md) |1 per regio |10 per resourcegroep |100 per resourcegroep |100 per resourcegroep |100 per resourcegroep |100 per resourcegroep|
+| [App Service-plan](../articles/app-service/overview-hosting-plans.md) |10 per regio |10 per resourcegroep |100 per resourcegroep |100 per resourcegroep |100 per resourcegroep |100 per resourcegroep|
 | COMPUTE exemplaartype |Gedeeld |Gedeeld |Toegewezen<sup>3</sup> |Toegewezen<sup>3</sup> |Toegewezen<sup>3</sup></p> |Toegewezen<sup>3</sup>|
 | [Scale-Out](../articles/app-service/web-sites-scale.md) (max. exemplaren) |1 gedeeld |1 gedeeld |3 toegewezen<sup>3</sup> |10 toegewezen<sup>3</sup> |20 toegewezen<sup>3</sup>|100 toegewezen<sup>4</sup>|
 | Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
@@ -22,7 +22,7 @@ ms.locfileid: "53736753"
 | CPU-tijd (dag)<sup>6</sup> |60 minuten |240 minuten |Onbeperkte, betaal normale [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |Onbeperkte, betaal normale [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |Onbeperkte, betaal normale [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |Onbeperkte, betaal normale [tarieven](https://azure.microsoft.com/pricing/details/app-service/)</a> |
 | Geheugen (1 uur) |1024 MB per App Service-plan |1024 MB per app |N/A |N/A |N/A |N/A |
 | Bandbreedte |165 MB |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |Onbeperkte, [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) toepassen |
-| Toepassingsarchitectuur |32-bits |32-bits |32-bits/64-bits |32-bits/64-bits |32-bits/64-bits |32-bits/64-bits |
+| Toepassingsarchitectuur |32-bits |32-bits |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Web-Sockets per exemplaar<sup>7</sup> |5 |35 |350 |Onbeperkt |Onbeperkt |Onbeperkt |
 | Gelijktijdige [verbindingen het foutopsporingsprogramma](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per toepassing |1 |1 |1 |5 |5 |5 |
 | App Service-certificaten per abonnement<sup>10</sup>| Niet ondersteund | Niet ondersteund |10 |10 |10 |10 |

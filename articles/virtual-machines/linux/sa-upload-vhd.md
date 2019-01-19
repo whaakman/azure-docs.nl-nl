@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1ca6f2a0f8246e730206ea2a431f7968273a6e8d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966500"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412339"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Uploaden en een Linux-VM maken van een aangepaste schijf met de Azure CLI
 
@@ -35,13 +35,13 @@ Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïn
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen `myResourceGroup`, `mystorageaccount`, en `mydisks`.
 
-Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `WestUs` locatie:
+Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `WestUs`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Maak een opslagaccount voor het opslaan van de virtuele schijven met [az storage-account maken](/cli/azure/storage/account#az_storage_account_create). Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`:
+Maak een opslagaccount voor het opslaan van de virtuele schijven met [az storage-account maken](/cli/azure/storage/account). Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -124,7 +124,7 @@ Zie ook de **[opmerkingen bij de installatie van Linux](create-upload-generic.md
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 Resourcegroepen samenbrengen logisch alle Azure-resources ter ondersteuning van uw virtuele machines, zoals de virtuele netwerken en opslag. Zie voor meer informatie resourcegroepen, [resourcegroepen overzicht](../../azure-resource-manager/resource-group-overview.md). Voordat u uw aangepaste schijf uploaden en het maken van virtuele machines, moet u eerst een resourcegroep maken met [az-groep maken](/cli/azure/group#az_group_create).
 
-Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westus` locatie:
+In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -132,7 +132,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Maak een opslagaccount voor uw aangepaste schijf en VM's met [az storage-account maken](/cli/azure/storage/account#az_storage_account_create). Virtuele machines met niet-beheerde schijven die u van uw aangepaste schijf moet maakt zich in hetzelfde opslagaccount als de schijf. 
+Maak een opslagaccount voor uw aangepaste schijf en VM's met [az storage-account maken](/cli/azure/storage/account). Virtuele machines met niet-beheerde schijven die u van uw aangepaste schijf moet maakt zich in hetzelfde opslagaccount als de schijf. 
 
 Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount` in de resourcegroep die eerder hebt gemaakt:
 

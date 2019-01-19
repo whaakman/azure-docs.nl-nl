@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: f0ae48cadf2e90dc685a24aff54d89f86a11c287
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494290"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413818"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Oracle Golden Gate implementeren op een Azure Linux-VM 
 
@@ -43,7 +43,7 @@ Hier volgt een samenvatting van de configuratie van de omgeving:
 > | **Oracle-release** |Oracle 12c Release 2 – (12.1.0.2) |Oracle 12c Release 2 – (12.1.0.2)|
 > | **Naam van de computer** |myVM1 |myVM2 |
 > | **Besturingssysteem** |Oracle Linux 6.x |Oracle Linux 6.x |
-> | **Oracle-SID** |CDB1 |CDB1 |
+> | **Oracle SID** |CDB1 |CDB1 |
 > | **Schema voor replicatie** |TEST|TEST |
 > | **Golden Gate eigenaar/repliceren** |C##GGADMIN |REPUSER |
 > | **Golden Gate-proces** |EXTORA |REPORA|
@@ -59,7 +59,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container in welke Azure-resources worden geïmplementeerd en die ze kunnen worden beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). Een Azure-resourcegroep is een logische container in welke Azure-resources worden geïmplementeerd en die ze kunnen worden beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`.
 

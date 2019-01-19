@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 0fa695218bb1112324ef2ddac80e52f927a5971b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045293"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402316"
 ---
 # <a name="u-sql-programmability-guide"></a>Handleiding voor het programmeren van U-SQL
 
@@ -426,7 +426,7 @@ Het uitvoerbestand is als volgt:
 
 In dit voorbeeld ziet u een meer complexe gebruiksscenario's waarop we een globale variabele gebruiken in een code-behind-sectie die wordt toegepast op de hele geheugen-rijenset.
 
-## <a name="use-user-defined-types-udt"></a>Gebruik van de gebruiker gedefinieerde typen: UDT
+## <a name="use-user-defined-types-udt"></a>Gebruik de gebruiker gedefinieerde typen: UDT
 Gebruiker gedefinieerde typen of UDT, is een andere programmeerbaarheidsfunctie van U-SQL. U-SQL-UDT fungeert als een reguliere C# gebruiker gedefinieerd type. C# is een sterk getypeerde taal waarin het gebruik van ingebouwde en aangepaste gebruiker gedefinieerde typen.
 
 U-SQL kan niet impliciet serialiseren of deserialiseren willekeurige UDT's wanneer de UDT tussen hoekpunten in rijensets wordt doorgegeven. Dit betekent dat de gebruiker heeft te bieden van een expliciete indelingsfunctie met behulp van de IFormatter-interface. Dit biedt U-SQL met het serialiseren en deserialiseren methoden voor het UDT.
@@ -504,7 +504,7 @@ De constructor van de klasse:
 
 * SqlUserDefinedTypeAttribute (type-indeling)
 
-* Typ indelingsfunctie: vereiste parameter voor het definiëren van een indelingsfunctie UDT--name, het type van de `IFormatter` interface hier moet worden doorgegeven.
+* Type-indeling: Vereiste parameter voor het definiëren van een indelingsfunctie UDT--name, het type van de `IFormatter` interface hier moet worden doorgegeven.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -529,17 +529,17 @@ De `IFormatter` interface serialiseert en gedeserialiseerd een objectgrafiek met
 
 \<typeparam name = "T" > het root-type voor de objectgrafiek voor het serialiseren en deserialiseren.
 
-* **Deserialiseren**: gedeserialiseerd op de gegevens op de opgegeven stroom en reconstitutes van de graph-objecten.
+* **Deserialiseren**: Gedeserialiseerd op de gegevens op de opgegeven stroom en reconstitutes van de graph-objecten.
 
-* **Serialiseren**: een object, of een grafiek van objecten met de opgegeven hoofdmap van de opgegeven stroom serialiseert.
+* **Serialiseren**: Serialiseert een object, of een grafiek van objecten met de opgegeven hoofdmap van de opgegeven stroom.
 
-`MyType` exemplaar: exemplaar van het type.  
-`IColumnWriter` schrijver / `IColumnReader` lezer: de onderliggende kolom-stroom.  
-`ISerializationContext` context: Enum die definieert een set van vlaggen waarmee de bron- of -context voor de stroom tijdens de serialisatie.
+`MyType` Exemplaar: Het exemplaar van het type.  
+`IColumnWriter` schrijver / `IColumnReader` lezer: De stroom van de onderliggende kolommen.  
+`ISerializationContext` Context: Enum die definieert een set van vlaggen waarmee de bron- of -context voor de stroom tijdens de serialisatie.
 
 * **Tussenliggende**: Hiermee geeft u de bron- of -context is een persistente archief.
 
-* **Persistentie**: geeft aan dat de bron- of -context een persistente archief is.
+* **Persistentie**: Hiermee geeft u op dat de bron- of -context een persistente archief is.
 
 Als een reguliere C#-type, de definitie van een U-SQL-UDT kunt opnemen onderdrukkingen voor operators zoals +/ == /! =. Het kan ook betekenen statische methoden. Bijvoorbeeld, als we gaan deze UDT gebruiken als een parameter voor een statistische functie MIN U-SQL, we hebben voor het definiëren van < operator overschrijven.
 
@@ -895,7 +895,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a>Gebruik van de gebruiker gedefinieerde aggregaties: UDAGG
+## <a name="use-user-defined-aggregates-udagg"></a>Gebruik de gebruiker gedefinieerde aggregaties: UDAGG
 De gebruiker gedefinieerde verzamelingen zijn een aggregatie-functies die zijn verzonden niet out-of-the-box met U-SQL. Het voorbeeld is een statistische functie uit te voeren aangepaste wiskundige berekeningen, samenvoegingen van tekenreeksen, bewerkingen met tekenreeksen, enzovoort.
 
 De definitie van de gebruiker gedefinieerde cumulatieve basisklasse is als volgt:
@@ -946,7 +946,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: De eerste parameter voor het verzamelen
-* Tijdstip T2: De eerste parameter voor het verzamelen
+* T2: De eerste parameter voor het verzamelen
 * TResult: Retourtype van beëindigen
 
 Bijvoorbeeld:
@@ -1025,7 +1025,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 In dit scenario use-casescenario samenvoegen we klasse GUID's voor de specifieke gebruikers.
 
-## <a name="use-user-defined-objects-udo"></a>Gebruik van de gebruiker gedefinieerde objecten: UDO
+## <a name="use-user-defined-objects-udo"></a>Gebruik de gebruiker gedefinieerde objecten: UDO
 U-SQL kunt u aangepaste programmeerbaarheid objecten, die worden aangeroepen gebruiker gedefinieerde objecten of UDO definiëren.
 
 Hier volgt een lijst met UDO in U-SQL:
@@ -1067,11 +1067,11 @@ UDO wordt doorgaans expliciet genoemd in U-SQL-script als onderdeel van de volge
 ## <a name="use-user-defined-extractors"></a>Gebruik van de gebruiker gedefinieerde extractors
 U-SQL kunt u externe gegevens importeren met behulp van een instructie EXTRAHEREN. Een instructie EXTRACT kunt ingebouwde UDO extractors gebruiken:  
 
-* *Extractors.Text()*: extractie van tekstbestanden met scheidingstekens van verschillende coderingen biedt.
+* *Extractors.Text()*: Extractie van tekstbestanden met scheidingstekens van verschillende coderingen biedt.
 
-* *Extractors.Csv()*: extraheren uit met door komma's gescheiden waarden (CSV)-bestanden van verschillende coderingen biedt.
+* *Extractors.Csv()*: Extractie uit met door komma's gescheiden waarden biedt (CSV)-bestanden van verschillende coderingen.
 
-* *Extractors.Tsv()*: extractie van tabblad gescheiden waarden (TSV)-bestanden van verschillende coderingen biedt.
+* *Extractors.Tsv()*: Extractie van tabblad gescheiden waarden biedt (TSV)-bestanden van verschillende coderingen.
 
 Kan het nuttig zijn voor het ontwikkelen van een aangepaste extractor. Dit kan nuttig zijn tijdens het importeren van gegevens als we willen een van de volgende taken:
 
@@ -1097,7 +1097,7 @@ De **SqlUserDefinedExtractor** kenmerk geeft aan dat het type moet worden geregi
 
 SqlUserDefinedExtractor is een optioneel kenmerk voor de definitie van opnemen. Het wordt gebruikt voor het definiëren van AtomicFileProcessing-eigenschap voor het object uit.
 
-* BOOL AtomicFileProcessing   
+* bool     AtomicFileProcessing   
 
 * **de waarde True** = geeft aan dat voor deze extractor atomic invoerbestanden (JSON, XML,...) is vereist
 * **de waarde False** = geeft aan dat deze extractor kunt omgaan met splitsen / gedistribueerde bestanden (CSV, SEQ,...)
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Gebruik van de gebruiker gedefinieerde outputters
 Gebruiker gedefinieerde outputter is nog een U-SQL-UDO waarmee u de ingebouwde U-SQL-functionaliteit uitbreiden. Net als bij de extractor, er zijn verschillende ingebouwde outputters.
 
-* *Outputters.Text()*: schrijft gegevens naar tekstbestanden met scheidingstekens van verschillende coderingen.
-* *Outputters.Csv()*: schrijft gegevens naar een door komma's gescheiden waarden (CSV)-bestanden van verschillende coderingen.
-* *Outputters.Tsv()*: schrijft gegevens naar het tabblad gescheiden waarden (TSV)-bestanden van verschillende coderingen.
+* *Outputters.Text()*: Schrijft gegevens naar tekstbestanden met scheidingstekens van verschillende coderingen.
+* *Outputters.Csv()*: Schrijft gegevens naar een door komma's gescheiden waarden (CSV)-bestanden van verschillende coderingen.
+* *Outputters.Tsv()*: Schrijft gegevens naar het tabblad gescheiden waarden (TSV)-bestanden van verschillende coderingen.
 
 Aangepaste outputter kunt u gegevens in een aangepaste gedefinieerde indeling wilt schrijven. Dit kan nuttig zijn voor de volgende taken zijn:
 
@@ -1275,7 +1275,7 @@ public class MyOutputter : IOutputter
 
 SqlUserDefinedOutputter is een optioneel kenmerk voor de definitie van een gebruiker gedefinieerde outputter. Wordt gebruikt om de eigenschap AtomicFileProcessing te definiëren.
 
-* BOOL AtomicFileProcessing   
+* bool     AtomicFileProcessing   
 
 * **de waarde True** = geeft aan dat voor deze outputter atomic uitvoerbestanden (JSON, XML,...) is vereist
 * **de waarde False** = geeft aan dat deze outputter kunt omgaan met splitsen / gedistribueerde bestanden (CSV, SEQ,...)
@@ -1300,7 +1300,7 @@ string val = row.Get<string>(col.Name)
 
 Deze aanpak kunt u een flexibele outputter voor elke metagegevensschema bouwen.
 
-De uitvoergegevens worden geschreven naar het bestand met behulp van `System.IO.StreamWriter`. De stream-parameter is ingesteld op `output.BaseStrea` als onderdeel van `IUnstructuredWriter output`.
+De uitvoergegevens worden geschreven naar het bestand met behulp van `System.IO.StreamWriter`. De stream-parameter is ingesteld op `output.BaseStream` als onderdeel van `IUnstructuredWriter output`.
 
 Houd er rekening mee dat het is belangrijk om de gegevensbuffer voor het bestand leegmaken na elke iteratie rij. Bovendien de `StreamWriter` object moet worden gebruikt met de beschikbare kenmerk ingeschakeld (standaard) en de **met behulp van** sleutelwoord:
 
@@ -1775,7 +1775,7 @@ In deze use-casescenario fungeert applier zelfgedefinieerde als een door komma's
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 

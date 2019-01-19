@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789904"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411744"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
@@ -141,6 +141,14 @@ De lijst van besturingssystemen en versies van de kernel wordt ondersteund door 
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Opstart- en systeempartities / -volumes zijn niet dezelfde schijf (Aanroepstatus: 95309)
 
 Voordat u 9.20 versie, opstart- en systeempartities / volumes op verschillende schijven is een niet-ondersteunde configuratie. Van [9.20 versie](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), deze configuratie wordt ondersteund. Gebruik de meest recente versie voor deze ondersteuning.
+
+## <a name="boot-disk-not-found-errorid-95310"></a>Opstartschijf is niet gevonden (Aanroepstatus: 95310)
+
+Een virtuele machine zonder een opstartschijf kan niet worden beveiligd. Dit is om ervoor te zorgen goede herstel van virtuele machine tijdens de failover-bewerking. Afwezigheid van opstartschijf resulteert in de machine worden opgestart na een failover is mislukt. Zorg ervoor dat de virtuele machine opstartschijf bevat en probeer het opnieuw. Merk ook op meerdere opstartschijven op dezelfde computer wordt niet ondersteund.
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>Meerdere opstartschijven gevonden (Aanroepstatus: 95311)
+
+Een virtuele machine met meerdere opstartschijven is niet een [configuratie ondersteund](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>De systeempartitie op meerdere schijven (Aanroepstatus: 95313)
 

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 621cc79c23fa21401f9ec11ee15b84ae3b9b1288
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961498"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411101"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Maken van virtuele netwerkinterfacekaarten en interne DNS gebruiken voor VM-naamomzetting in Azure
 
@@ -34,7 +34,7 @@ De vereisten zijn:
 ## <a name="quick-commands"></a>Snelle opdrachten
 Als u snel uitvoeren van de taak wilt, de volgende sectie wordt beschreven de opdrachten die nodig zijn. Meer gedetailleerde informatie en -context voor elke stap u in de rest van het document vindt [Hier beginnen](#detailed-walkthrough). Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
-Randvoorwaarden voor: De resourcegroep, virtueel netwerk en subnet, Netwerkbeveiligingsgroep met SSH binnenkomende.
+Randvoorwaarden voor: Resourcegroep, virtueel netwerk en subnet, Netwerkbeveiligingsgroep met SSH-verkeer.
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Maken van een virtuele netwerkinterfacekaart met een statische interne DNS-naam
 Maken van de vNic met [az network nic maken](/cli/azure/network/nic#az_network_nic_create). De `--internal-dns-name` CLI-vlag is voor het instellen van het DNS-label, waarmee u de statische DNS-naam voor de virtuele netwerkinterfacekaart (vNic). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbindt u deze naar de `myVnet` virtueel netwerk, en maakt een interne DNS-naam-record met de naam `jenkins`:
@@ -70,7 +70,7 @@ Interne DNS-namen zijn alleen omgezet in een Azure-netwerk. Omdat de DNS-namen i
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten `myResourceGroup`, `myNic`, en `myVM`.
 
 ## <a name="create-the-resource-group"></a>De resourcegroep maken
-Maak eerst de resourcegroep met [az-groep maken](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westus` locatie:
+Maak eerst de resourcegroep met [az-groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location westus
 
 De volgende stap is het bouwen van een virtueel netwerk om te starten van de virtuele machines in. Het virtuele netwerk bevat één subnet voor dit scenario. Zie voor meer informatie over virtuele netwerken van Azure, [maken van een virtueel netwerk](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Maken van het virtuele netwerk met [az network vnet maken](/cli/azure/network/vnet#az_network_vnet_create). Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` en subnet met de naam `mySubnet`:
+Maken van het virtuele netwerk met [az network vnet maken](/cli/azure/network/vnet). Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` en subnet met de naam `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network nsg create \
 ```
 
 ## <a name="add-an-inbound-rule-to-allow-ssh"></a>Voeg een binnenkomende regel zodat SSH
-Voeg een binnenkomende regel voor de netwerkbeveiligingsgroep met [az network nsg-regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Het volgende voorbeeld wordt een regel met de naam `myRuleAllowSSH`:
+Voeg een binnenkomende regel voor de netwerkbeveiligingsgroep met [az network nsg-regel maken](/cli/azure/network/nsg/rule). Het volgende voorbeeld wordt een regel met de naam `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \

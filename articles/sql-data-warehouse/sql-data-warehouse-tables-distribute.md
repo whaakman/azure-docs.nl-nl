@@ -10,17 +10,17 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575375"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413869"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Richtlijnen voor het ontwerpen van gedistribueerde tabellen in Azure SQL Data Warehouse
 Aanbevelingen voor het ontwerpen van gedistribueerde hash- en round robin gedistribueerde tabellen in Azure SQL Data Warehouse.
 
-In dit artikel wordt ervan uitgegaan dat u bekend bent met de verdeling van de gegevens en gegevens verplaatsingen concepten in SQL Data Warehouse.  Zie voor meer informatie, [Azure SQL Data Warehouse - architectuur van zeer (Massively Parallel Processing)](massively-parallel-processing-mpp-architecture.md). 
+In dit artikel wordt ervan uitgegaan dat u bekend bent met de verdeling van de gegevens en gegevens verplaatsingen concepten in SQL Data Warehouse.  Zie voor meer informatie, [Azure SQL Data Warehouse - architectuur van zeer (Massively Parallel Processing)](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Wat is een distributietabel?
 Een distributietabel wordt weergegeven als één tabel, maar de rijen in 60 distributies zijn opgeslagen. De rijen worden gedistribueerd met een hash- of round robin-algoritme.  
@@ -29,11 +29,11 @@ Een distributietabel wordt weergegeven als één tabel, maar de rijen in 60 dist
 
 Een andere optie voor tabelopslag is een kleine tabel gerepliceerd naar de rekenknooppunten. Zie voor meer informatie, [ontwerprichtlijnen voor gerepliceerde tabellen](design-guidance-for-replicated-tables.md). Als u wilt snel kunt u kiezen tussen de drie opties, Zie gedistribueerde tabellen in de [tabellen overzicht](sql-data-warehouse-tables-overview.md). 
 
-Als onderdeel van het tabelontwerp, krijg inzicht in zo veel mogelijk over uw gegevens en hoe de gegevens in query wordt uitgevoerd.  Bijvoorbeeld, kunt u overwegen deze vragen:
+Als onderdeel van het tabelontwerp, krijg inzicht in zo veel mogelijk over uw gegevens en hoe de gegevens in query wordt uitgevoerd.  Bijvoorbeeld, kunt u overwegen deze vragen:
 
-- Hoe groot is de tabel?   
-- Hoe vaak wordt de tabel vernieuwd?   
-- Heb ik feiten- en dimensietabellen tabellen in een datawarehouse?   
+- Hoe groot is de tabel?   
+- Hoe vaak wordt de tabel vernieuwd?   
+- Heb ik feiten- en dimensietabellen tabellen in een datawarehouse?   
 
 
 ### <a name="hash-distributed"></a>Hash gedistribueerd
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;
@@ -216,7 +216,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Gebruik een van deze instructies voor het maken van een distributietabel:
 
-- [TABEL (Azure SQL datawarehouse) maken](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [TABLE AS SELECT (Azure SQL datawarehouse maken](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

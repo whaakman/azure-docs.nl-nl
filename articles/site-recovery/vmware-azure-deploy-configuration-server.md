@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 41511b27a84731df203d37d70d20df40f85af4fb
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794351"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410758"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -67,13 +67,16 @@ Het certificaat dat is opgegeven met OVA-sjabloon is een geldig gedurende 180 da
 3. In **bron selecteren**, geef de locatie van de gedownloade OVF.
 4. In **Beoordelingsdetails**, selecteer **volgende**.
 5. In **naam en map selecteren** en **configuratie selecteren**, accepteer de standaardinstellingen.
-6. Selecteer in **Opslag selecteren** **Thick Provision Eager Zeroed** in **Indeling virtuele schijf selecteren**.
+6. Selecteer in **Opslag selecteren** **Thick Provision Eager Zeroed** in **Indeling virtuele schijf selecteren**. Gebruik van thin provisioning optie heeft mogelijk invloed op de prestaties van de configuratieserver.
 7. Accepteer de standaardinstellingen in de rest van de wizardpagina’s.
 8. In **Klaar om te voltooien**:
 
     * Selecteer **Inschakelen na de implementatie** > **Voltooien** om de VM in te stellen met de standaardinstellingen.
 
     * Als u wilt toevoegen een extra netwerkinterface, schakelt u **inschakelen na de implementatie**, en selecteer vervolgens **voltooien**. Standaard wordt de configuratieserversjabloon met één NIC geïmplementeerd. Na de implementatie kunt u meer NIC’s toevoegen.
+
+> [!IMPORTANT]
+> Wijzig resourceconfiguraties (kernen/geheugen/CPU-beperking), de services wijzigen/verwijderen geïnstalleerd of de bestanden op de configuratieserver niet na de implementatie. Dit heeft gevolgen voor de registratie van de configuratieserver met Azure-services en de prestaties van de configuratieserver.
 
 ## <a name="add-an-additional-adapter"></a>Een extra adapter toevoegen
 
@@ -119,7 +122,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 
 ## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
 
-Als u de configuratieserver bijwerken naar de nieuwste versie, volgt u deze [stappen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Als u de configuratieserver bijwerken naar de nieuwste versie, volgt u deze [stappen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Klik voor gedetailleerde instructies voor het upgraden van alle onderdelen van Site Recovery op [hier](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 
 ## <a name="manage-the-configuration-server"></a>De configuratieserver beheren
 
@@ -141,20 +144,26 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
     Raadpleeg [VMware naar Azure-replicatie-architectuur](vmware-azure-architecture.md) voor meer informatie over de configuratieserver en de functionaliteiten.
 5. Waar vind ik de meest recente versie van de configuratieserver
 
-    Zie voor stappen voor het bijwerken van de configuratieserver via de portal, [Upgrade van de configuratieserver](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). U kunt ook rechtstreeks downloaden vanaf [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    Zie voor stappen voor het bijwerken van de configuratieserver via de portal, [Upgrade van de configuratieserver](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). U kunt ook rechtstreeks downloaden vanaf [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Raadpleeg voor gedetailleerde instructies voor het upgraden van alle onderdelen van Site Recovery [hier](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 6. Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
 
     Raadpleeg [in dit artikel](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) voor het downloaden van de wachtwoordzin.
-7. Waar kan ik registratiesleutels kluis downloaden?
+7. Kan ik de wachtwoordzin wijzigen?
+
+    **Geen**, bent u **u met klem aangeraden niet wijzigen van de wachtwoordzin** van de configuratieserver. Wijziging in de wachtwoordzin voor replicatie van beveiligde machines verbroken en leidt tot een kritieke status heeft.
+8. Waar kan ik registratiesleutels kluis downloaden?
 
     In de **Recovery Services-kluis**, **beheren** > **infrastructuur voor Site Recovery** > **configuratieservers**. Selecteer in de Servers, **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
-8. Kan ik klonen van een bestaande configuratieserver en gebruiken voor het indelen van replicatie?
+9. Kan ik klonen van een bestaande configuratieserver en gebruiken voor het indelen van replicatie?
 
     **Geen**, gebruik van een gekloonde onderdeel van de configuratieserver wordt niet ondersteund.
 
-9. Kan ik het IP-adres van de configuratieserver wijzigen?
+10. Kan ik het IP-adres van de configuratieserver wijzigen?
 
     **Geen**, het wordt sterk aanbevolen niet wijzigen het IP-adres van een configuratieserver. Zorg ervoor dat alle IP-adressen toegewezen aan de configuratieserver worden statische IP-adressen en geen DHCP IP-adressen.
+11. Kan ik de configuratieserver in Azure instellen?
+
+    Het verdient aanbeveling voor het instellen van de configuratieserver op on-premises-omgeving met rechtstreekse regel van verbinding met Vcenter- en data transfer latentie te minimaliseren. U kunt geplande back-ups van de configuratieserver voor nemen [failback doeleinden](vmware-azure-manage-configuration-server.md#failback-requirements).
 
 ## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
 

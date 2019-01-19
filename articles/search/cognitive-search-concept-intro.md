@@ -7,42 +7,42 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d30a6446f40105985388d3c2ee077b36af32f208
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633790"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412203"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is 'cognitive search' in Azure Search?
 
-Cognitief zoeken maakt doorzoekbare gegevens buiten niet-doorzoekbare inhoud samenvoegt met AI-algoritmen te koppelen aan een pijplijn voor indexering. AI-integratie is via *cognitieve vaardigheden*, brondocumenten onderweg naar een search-index uit te breiden. 
+Cognitive search is een AI-functie in Azure Search gebruikt om tekst te extraheren uit afbeeldingen, blobs en andere ongestructureerde gegevensbronnen - verrijken van de inhoud naar meer doorzoekbaar maken in een Azure Search-index worden gebruikt. Extractie en verrijking worden geïmplementeerd via *cognitieve vaardigheden* die is gekoppeld aan een pijplijn voor indexering. AI enrichments worden ondersteund in de volgende manieren: 
 
-**Verwerking van natuurlijke taal** vaardigheden opnemen [entiteit erkenning](cognitive-search-skill-named-entity-recognition.md), taaldetectie, [sleutel vindt er sleuteltermextractie plaats](cognitive-search-skill-keyphrases.md), tekstbewerkingen en detectie van gevoelens. Met deze kennis van wordt ongestructureerde tekst gestructureerd, wordt toegewezen aan doorzoekbare en filterbare velden in een index.
++ **Verwerking van natuurlijke taal** vaardigheden opnemen [entiteit erkenning](cognitive-search-skill-entity-recognition.md), [taaldetectie](cognitive-search-skill-language-detection.md), [sleutel vindt er sleuteltermextractie plaats](cognitive-search-skill-keyphrases.md), tekstbewerkingen en [gevoelsdetectie](cognitive-search-skill-sentiment.md). Met deze kennis van ongestructureerde tekst kunt ervan uitgaan dat nieuwe formulieren, toegewezen als doorzoekbaar en filterbare velden in een index.
 
-**Verwerking van afbeeldingen** bevat [OCR](cognitive-search-skill-ocr.md) en identificatie van [visuele kenmerken](cognitive-search-skill-image-analysis.md), zoals gezichtsdetectie, afbeelding interpretatie, image recognition (beroemdheden en oriëntatiepunten) of kenmerken zoals kleuren of afdrukstand. U kunt tekst-representaties van afbeeldingsinhoud, kan worden doorzocht met behulp van de querymogelijkheden van Azure Search maken.
++ **Verwerking van afbeeldingen** vaardigheden opnemen [optische tekenherkenning (OCR)](cognitive-search-skill-ocr.md) en identificatie van [visuele kenmerken](cognitive-search-skill-image-analysis.md), zoals gezichtsdetectie, interpretatie van afbeeldingen, afbeelding recognition ( beroemdheden en oriëntatiepunten) of kenmerken, zoals kleuren of afbeelding richting. U kunt tekst-representaties van afbeeldingsinhoud, kan worden doorzocht met behulp van de querymogelijkheden van Azure Search maken.
 
 ![Overzichtsdiagram van gegevenspijplijn cognitief zoeken](./media/cognitive-search-intro/cogsearch-architecture.png "overzicht van de pijplijn Cognitief zoeken")
 
-De cognitieve vaardigheden in Azure Search zijn gebaseerd op de dezelfde AI-algoritmen in Cognitive Services API's gebruikt: [Met de naam van entiteit Recognition-API](cognitive-search-skill-named-entity-recognition.md), [API van Key woordgroep extractie](cognitive-search-skill-keyphrases.md), en [OCR API](cognitive-search-skill-ocr.md) zijn een paar. 
+Cognitieve vaardigheden in Azure Search zijn gebaseerd op machine learning-modellen in Cognitive Services API's: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) en [Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 Natuurlijke taal en verwerking van afbeeldingen wordt toegepast tijdens de fase van de gegevensopname met steeds deel van de samenstelling van een document in een doorzoekbare index in Azure Search resultaten. Gegevens worden als een Azure data source en vervolgens via een indexing-pijplijn met behulp van afhankelijk van wat wordt gepusht [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) u nodig hebt. De architectuur worden uitgebreid, zodat als de ingebouwde vaardigheden niet voldoende, kunt u maken en koppelen [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) aangepaste verwerking te integreren. Voorbeelden zijn een aangepaste entiteit module of document classificatie die gericht is op een specifiek domein, zoals Financiën, wetenschappelijke publicaties of diergeneeskunde.
 
 > [!NOTE]
-> Met ingang van 21 december 2018 kunt u een Cognitive Services-resource koppelen aan een vaardighedenset van Azure Search. Hierdoor kunnen we beginnen met het factureren van kosten voor het uitvoeren van vaardighedensets. Vanaf deze datum gaan we ook kosten in rekening brengen voor het extraheren van afbeeldingen als onderdeel van de fase waarin de documenten kunnen worden gekraakt. Het extraheren van tekst uit documenten blijft gratis.
+> Vanaf December 21 mei 2018, kunt u [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) met een Azure Search-vaardigheden. Dit kan we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
 >
-> Het uitvoeren van ingebouwde vaardigheden wordt in rekening gebracht tegen de huidige [betalen per gebruik-prijs van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Het extraheren van afbeeldingen wordt tegen de prijs voor een preview in rekening gebracht en wordt beschreven op de [pagina met prijzen voor Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Meer](cognitive-search-attach-cognitive-services.md) informatie.
+> Uitvoering van de ingebouwde vaardigheden is een Cognitive Services-kosten in rekening gebracht op de bestaande [betaalt u Ga prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen zijn de kosten van een Azure Search, momenteel in rekening gebracht op de preview-prijzen zoals beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="components-of-cognitive-search"></a>Onderdelen van cognitief zoeken
 
-Cognitive search is een preview-functie van [Azure Search](search-what-is-azure-search.md), beschikbaar op alle lagen in Zuid-centraal VS en West-Europa. 
+Cognitive search is een preview-functie van [Azure Search](search-what-is-azure-search.md), ondersteund in [deze regio's](#where-do-i-start). 
 
 De pijplijn cognitief zoeken is gebaseerd op [Azure Search *indexeerfuncties* ](search-indexer-overview.md) die gegevensbronnen verkennen en verwerking van de end-to-end-index. Vaardigheden zijn nu gekoppeld aan indexeerfuncties, onderscheppen en verrijkende documenten op basis van de vaardigheden die u definieert. Nadat geïndexeerd, u toegang tot inhoud via search-aanvragen via alle [query's uitvoeren die worden ondersteund door Azure Search](search-query-overview.md).  Als u niet bekend bent met indexeerfuncties, doorloopt in deze sectie u de stappen.
 
-### <a name="source-data-and-document-cracking-phase"></a>Brongegevens en het document kraken fase
+### <a name="step-1-connection-and-document-cracking-phase"></a>Stap 1: Verbinding en het document kraken fase
 
 Aan het begin van de pijplijn, beschikt u over ongestructureerde tekst of niet-tekstuele inhoud (zoals afbeeldingen en gescande documenten JPEG-bestanden). Gegevens moeten zich in een Azure data storage-service die kan worden geopend door een indexeerfunctie. Indexeerfuncties kunnen 'gekraakt' brondocumenten om uit te pakken tekst van de brongegevens.
 
@@ -50,7 +50,7 @@ Aan het begin van de pijplijn, beschikt u over ongestructureerde tekst of niet-t
 
  Ondersteunde bronnen omvatten Azure blob-opslag, Azure table storage, Azure SQL Database en Azure Cosmos DB. Inhoud op basis van tekst kan worden geëxtraheerd uit de volgende bestandstypen: PDF-bestanden, Word, PowerPoint, CSV-bestanden. Zie voor een volledige lijst [ondersteunde indelingen](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="cognitive-skills-and-enrichment-phase"></a>Cognitieve vaardigheden en verrijking fase
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Stap 2: Cognitieve vaardigheden en verrijking fase
 
 Verrijking is via *cognitieve vaardigheden* atomische bewerkingen uitvoeren. Bijvoorbeeld, wanneer u de tekstinhoud van een PDF-bestand hebt, kunt u toepassen entiteit erkenning taaldetectie of sleutel vindt er sleuteltermextractie plaats voor het produceren van nieuwe velden in de index die niet beschikbaar systeemeigen in de bron zijn. Kan worden overgeslagen, de verzameling van vaardigheden die wordt gebruikt in de pijplijn heet een *vaardigheden*.  
 
@@ -60,7 +60,7 @@ Een set vaardigheden is gebaseerd op [vooraf gedefinieerde cognitieve vaardighed
 
 Intern, genereert de pijplijn een verzameling verrijkt documenten. U kunt bepalen welke onderdelen van de geavanceerde documenten moeten worden toegewezen aan indexeerbare velden in uw search-index. Als u de extractie van sleuteluitdrukkingen en de vaardigheden die entiteit erkenning toegepast, klikt u vervolgens die nieuwe velden deel van de geavanceerde document zou worden en ze kunnen worden toegewezen aan de velden in uw index. Zie [aantekeningen](cognitive-search-concept-annotations-syntax.md) voor meer informatie over i/o-ontstaan wachtrijen.
 
-### <a name="search-index-and-query-based-access"></a>Search-index en query's gebaseerde toegang
+### <a name="step-3-search-index-and-query-based-access"></a>Stap 3: Search-index en query's gebaseerde toegang
 
 Wanneer de verwerking is voltooid, hebt u een zoekverzameling die bestaan uit geavanceerde documenten, tekst-zoekacties in Azure Search. [Query's in de index](search-query-overview.md) is hoe ontwikkelaars en gebruikers toegang de verrijkt inhoud worden gegenereerd door de pijplijn tot. 
 
@@ -88,10 +88,11 @@ Indexen zijn gegenereerd op basis van een indexschema waarin de velden, kenmerke
 | Gegevensbron  | Een object dat wordt gebruikt door een indexeerfunctie om te verbinden met een externe gegevensbron van de ondersteunde typen in Azure. | Zie [indexeerfuncties](search-indexer-overview.md) |
 | Index | Een permanente zoekverzameling in Azure Search, gebouwd op basis van een indexschema dat veld structuur en het gebruik definieert. | [Indexen in Azure Search](search-what-is-an-index.md) | 
 
+<a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>Waar moet ik beginnen?
 
-**Stap 1: Maken van een service voor zoeken in een regio die de API 's** 
+**Stap 1: [Maak een Azure Search-resource](search-create-service-portal.md) in een regio die de API's** 
 
 + US - west-centraal
 + US - zuid-centraal
@@ -124,7 +125,7 @@ Op dit moment worden alleen REST-API's geleverd. Gebruik `api-version=2017-11-11
 | [Index maken](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Een schema aan een Azure Search-index. Velden in de index toewijzen aan velden in de brongegevens of aan velden die tijdens de fase verrijking (bijvoorbeeld een veld voor organisatienamen die zijn gemaakt door herkenning entiteit). |
 | [Indexeerfunctie maken (api-version = 2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource voor het definiëren van onderdelen die worden gebruikt tijdens het indexeren: met inbegrip van een gegevensbron, een set vaardigheden, Veldkoppelingen van de bron- en om gegevens tussentijds structuren met doelindex en de index zelf. De indexeerfunctie wordt uitgevoerd, wordt de trigger voor gegevensopname en verrijking. De uitvoer is een zoekverzameling op basis van het indexschema, ingevuld met de brongegevens, verrijkt via kennis en vaardigheden.  |
 
-**Controlelijst: Een werkstroom**
+**Checklist: Een werkstroom**
 
 1. Deel uw Azure-brongegevens in een representatieve steekproef. Indexeren van wordt tijd dus beginnen met een kleine, representatieve gegevensset en vervolgens dit gebeurt stapsgewijs omhoog als uw oplossing zich verder ontwikkelt.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 128e389a8d6928f9f133fe9d649d0fc7e982e4df
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265410"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402352"
 ---
 # <a name="about-azure-vm-backup"></a>Over Azure VM backup
 
@@ -69,11 +69,11 @@ Als u momentopnamen wanneer apps worden uitgevoerd, wordt back-up van Azure app-
 
 De volgende tabel beschrijft de verschillende typen consistentie.
 
-**momentopname** | **Op basis van VSS** | **Details** | **Recovery**
+**momentopname** | **Details** | **Recovery** | **Overweging**
 --- | --- | --- | ---
-**Toepassingsconsistent** | Ja (alleen Windows) | App-consistente back-ups vastleggen geheugen inhoud en i/o-bewerkingen in behandeling. App-consistente momentopnamen gebruiken VSS-schrijver (of pre-/ post-script voor Linux) die ervoor zorgen dat de consistentie van de app-gegevens voordat u een back-up plaatsvindt. | Tijdens het herstellen van met een app-consistente momentopname, de VM wordt opgestart. Er is geen beschadigde gegevens of gegevensverlies. De apps starten in een consistente status.
-**Bestandssysteemconsistent** | Ja (alleen Windows) |  Bestand toepassingsconsistente back-ups bieden consistente back-ups van schijf-bestanden door het maken van een momentopname van alle bestanden op hetzelfde moment.<br/><br/> Azure back-up herstelpunten zijn consistent zijn voor bestand:<br/><br/> -Linux VM's, back-ups die geen pre/post-scripts, of die script hebt dat is mislukt.<br/><br/> -Windows-VM back-ups waar de VSS is mislukt. | Tijdens het herstellen van met een bestand-consistente momentopname, de VM wordt opgestart. Er is geen beschadigde gegevens of gegevensverlies. Apps moeten voor het implementeren van hun eigen mechanisme 'bijwerken' om ervoor te zorgen dat de herstelde gegevens consistent is.
-**Crash-consistente** | Nee | Crashconsistentie gebeurt vaak als een Azure-VM uitgeschakeld op het moment van back-up wordt.  Alleen de gegevens die al op de schijf op het moment van back-up bestaat is vastgelegd en een back-up.<br/><br/> Een crash-consistente herstelpunt biedt geen garantie voor de consistentie van gegevens voor het besturingssysteem of de app. | Er zijn geen garanties, maar meestal de VM wordt opgestart, en volgt met een schijf controleren op Beschadigingsfouten te herstellen. Een in-memory-gegevens of schrijven die niet zijn overgebracht naar schijf gaan verloren. Apps implementeren voor de controle van hun eigen gegevens. Bijvoorbeeld, voor een database-app als een transactielogboek heeft vermeldingen die zich niet in de database, de databasesoftware wordt getotaliseerd tot gegevens consistent is.
+**Toepassingsconsistent** | App-consistente back-ups vastleggen geheugen inhoud en i/o-bewerkingen in behandeling. App-consistente momentopnamen gebruiken VSS-schrijver (of pre-/ post-script voor Linux) die ervoor zorgen dat de consistentie van de app-gegevens voordat u een back-up plaatsvindt. | Tijdens het herstellen van met een app-consistente momentopname, de VM wordt opgestart. Er is geen beschadigde gegevens of gegevensverlies. De apps starten in een consistente status. | Windows: Alle VSS-schrijvers is voltooid<br/><br/> Linux: Vooraf/post zijn scripts geconfigureerd en is voltooid
+**Bestandssysteemconsistent** | Bestand toepassingsconsistente back-ups bieden consistente back-ups van schijf-bestanden door het maken van een momentopname van alle bestanden op hetzelfde moment.<br/><br/> | Tijdens het herstellen van met een bestand-consistente momentopname, de VM wordt opgestart. Er is geen beschadigde gegevens of gegevensverlies. Apps moeten voor het implementeren van hun eigen mechanisme 'bijwerken' om ervoor te zorgen dat de herstelde gegevens consistent is. | Windows: Bepaalde VSS-schrijvers is mislukt <br/><br/> Linux: Standaard (als pre/post-scripts zijn niet geconfigureerd of mislukt)
+**Crash-consistente** | Crashconsistentie gebeurt vaak als een Azure-VM uitgeschakeld op het moment van back-up wordt.  Alleen de gegevens die al op de schijf op het moment van back-up bestaat is vastgelegd en een back-up.<br/><br/> Een crash-consistente herstelpunt biedt geen garantie voor de consistentie van gegevens voor het besturingssysteem of de app. | Er zijn geen garanties, maar meestal de VM wordt opgestart, en volgt met een schijf controleren op Beschadigingsfouten te herstellen. Een in-memory-gegevens of schrijven die niet zijn overgebracht naar schijf gaan verloren. Apps implementeren voor de controle van hun eigen gegevens. Bijvoorbeeld, voor een database-app als een transactielogboek heeft vermeldingen die zich niet in de database, de databasesoftware wordt getotaliseerd tot gegevens consistent is. | Virtuele machine zich in afsluitingsstaat
 
 
 ## <a name="service-and-subscription-limits"></a>Limieten voor service en -abonnement

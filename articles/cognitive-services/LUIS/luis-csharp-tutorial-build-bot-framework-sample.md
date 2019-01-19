@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c3e142c65cdfe00fb26694063f7733d62882cc0c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5be96fc93a5a6636ccac6faf456458b3bcb8423a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267365"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413716"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot in C# met Bot Framework 3.x en de Azure-Web-app-bot
 
@@ -153,7 +153,7 @@ Klik in de Azure-portal op **testen in Web Chat** voor het testen van de bot. Ty
 > U kunt uw LUIS-app zonder wijzigingen in de code van uw bot opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en testen van uw LUIS-app](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>De bot voor foutopsporing downloaden
-Als uw bot niet werkt, het project hebt gedownload naar uw lokale computer en verder [foutopsporing](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
+Als uw bot niet werkt, het project hebt gedownload naar uw lokale computer en verder [foutopsporing](https://docs.microsoft.com/bot-framework/bot-service-debug-bot). 
 
 ## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot Framework
 Meer informatie over [Bot Framework](https://dev.botframework.com/) en de [3.x](https://github.com/Microsoft/BotBuilder) en [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK's.
@@ -162,7 +162,7 @@ Meer informatie over [Bot Framework](https://dev.botframework.com/) en de [3.x](
 
 Voeg de LUIS intents en Bot service dialoogvensters voor het verwerken van **Help**, **annuleren**, en **begroeting** intents. Houd er rekening mee te trainen, publiceren en [bouwen](#build-the-bot) de web-app-bot. LUIS zowel de bot moet hebben de dezelfde intents.
 
-Zie voor meer informatie [voorbeelden](https://github.com/Microsoft/AI) met eigen bots. 
+Bekijk meer [voorbeelden](https://github.com/Microsoft/AI) met gespreksbots. 
 
 > [!div class="nextstepaction"]
 > [Intents toevoegen](./luis-how-to-add-intents.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: d4b706a088769530e3994d8813b28f99d5a56df5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636608"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411965"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Algemene vereisten voor het implementeren van OpenShift in Azure
 
@@ -101,7 +101,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>Een service-principal maken 
 OpenShift communiceert met Azure met behulp van een gebruikersnaam en wachtwoord of een service-principal. Een Azure service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's, zoals OpenShift gebruiken kunt. U bepaalt en definiëren van de machtigingen over welke bewerkingen de service-principal in Azure kunt uitvoeren. Het is raadzaam om het bereik van de machtigingen van de service-principal aan specifieke resourcegroepen in plaats van het hele abonnement te.
 
-Een service-principal met maken [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) en de uitvoer van de referenties die OpenShift nodig heeft.
+Een service-principal met maken [az ad sp create-for-rbac](/cli/azure/ad/sp) en de uitvoer van de referenties die OpenShift nodig heeft.
 
 Het volgende voorbeeld maakt u een service principal en Inzender-rechten toegewezen aan een resourcegroep met de naam openshiftrg.
 

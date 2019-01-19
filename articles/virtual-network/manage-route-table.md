@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 45c7a07231cbdcdc64ec348ed425a62b63bd822a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d50e1b0f5d9c965ba9562eae1f06dd51341731ad
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016559"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412237"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
-Azure automatisch verkeer routeert tussen Azure-subnetten, virtuele netwerken en on-premises netwerken. Als u wijzigen van het Azure-standaard routering wilt, kunt u dat doen door het maken van een routetabel. Als u geen ervaring met routering in virtuele netwerken, kunt u meer informatie over het in de [overzicht routering](virtual-networks-udr-overview.md) of door te voeren een [zelfstudie](tutorial-create-route-table-portal.md).
+Azure routeert automatisch verkeer tussen Azure-subnetten, virtuele netwerken en on-premises netwerken. Als u wijzigen van het Azure-standaard routering wilt, kunt u dat doen door het maken van een routetabel. Als u geen ervaring met routering in virtuele netwerken, kunt u meer informatie over het in de [overzicht routering](virtual-networks-udr-overview.md) of door te voeren een [zelfstudie](tutorial-create-route-table-portal.md).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -36,7 +36,7 @@ Het account dat u zich aanmelden bij of verbinding maken met Azure, moet worden 
 
 ## <a name="create-a-route-table"></a>Een routetabel maken
 
-Er is een limiet aan het aantal routetabellen u per Azure-locatie en abonnement kunt maken. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.
+Er kan maar een beperkt aantal routetabellen worden gemaakt voor elke Azure-locatie en elk Azure-abonnement. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.
 
 1. Selecteer in de linkerbovenhoek van de portal **+ een resource maken**.
 2. Selecteer **netwerken**en selecteer vervolgens **routetabel**.
@@ -64,7 +64,7 @@ Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wann
     *   [Activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md)
     *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    *   [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **Opdrachten**
@@ -84,7 +84,7 @@ Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wann
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Een routetabel aan een subnet koppelen
 
-Een subnet kan nul of één routetabel die is gekoppeld aan deze hebben. Een routetabel kan worden gekoppeld aan nul of meerdere subnetten. Aangezien routetabellen niet gekoppeld aan virtuele netwerken zijn, moet u een routetabel aan elk subnet dat u wilt dat de tabel van de route die is gekoppeld aan koppelen. Al het verkeer het subnet verlaat wordt doorgestuurd op basis van routes die u hebt gemaakt in routetabellen, [standaardsysteemroutes](virtual-networks-udr-overview.md#default), en routes doorgegeven vanuit een on-premises netwerk, als het virtuele netwerk is verbonden met een virtueel Azure-netwerk ()-gateway ExpressRoute of VPN-, als het gebruik van BGP met een VPN-gateway). U kunt alleen een routetabel aan subnetten in virtuele netwerken die zijn opgenomen in de dezelfde Azure-locatie en abonnement als de routetabel koppelen.
+Een subnet kan worden gekoppeld aan geen enkele of één routetabel. Een routetabel kan worden gekoppeld aan geen enkele of meerdere subnetten. Aangezien routetabellen niet worden gekoppeld aan virtuele netwerken, moet u afzonderlijke routetabellen koppelen aan de gewenste subnetten. Al het verkeer dat het subnet verlaat, wordt doorgestuurd op basis van de routes die u in routetabellen hebt gemaakt, [standaardroutes](virtual-networks-udr-overview.md#default) en routes die zijn doorgegeven vanuit een on-premises netwerk, als het virtuele netwerk is verbonden met een gateway van een virtueel Azure-netwerk (ExpressRoute of VPN, als BGP wordt gebruikt met een VPN-gateway). U kunt routetabellen alleen koppelen aan subnetten in virtuele netwerken die zich op dezelfde Azure-locatie en in hetzelfde abonnement bevinden als de routetabel.
 
 1. Voer in het zoekvak boven aan de portal, *virtuele netwerken* in het zoekvak in. Wanneer **virtuele netwerken** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer het virtuele netwerk in de lijst met het subnet dat u wilt een routetabel aan koppelen.
@@ -99,7 +99,7 @@ Als uw virtuele netwerk is verbonden met een Azure VPN-gateway, koppelt u geen r
 - Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
-## <a name="dissociate-a-route-table-from-a-subnet"></a>Een routetabel van een subnet ontkoppelen
+## <a name="dissociate-a-route-table-from-a-subnet"></a>Een routetabel ontkoppelen van een subnet
 
 Wanneer u een routetabel van een subnet ontkoppelen, stuurt Azure verkeer op basis van de [standaardsysteemroutes](virtual-networks-udr-overview.md#default).
 
@@ -116,7 +116,7 @@ Wanneer u een routetabel van een subnet ontkoppelen, stuurt Azure verkeer op bas
 
 ## <a name="delete-a-route-table"></a>Een routetabel verwijderen
 
-Als u een routetabel is gekoppeld aan subnetten, kan niet worden verwijderd. [Ontkoppelen](#dissociate-a-route-table-from-a-subnet) een routetabel van alle subnetten voordat u probeert te verwijderen.
+Als er een routetabel is gekoppeld aan subnetten, kan deze niet worden verwijderd. [Koppel een routetabel los](#dissociate-a-route-table-from-a-subnet) van alle subnetten voordat u deze probeert te verwijderen.
 
 1. Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wanneer **routetabellen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer **...**  aan de rechterkant van de routetabel die u wilt verwijderen.
@@ -136,7 +136,7 @@ Er is een limiet aan het aantal routes per routetabel per Azure-locatie en abonn
 3. Selecteer **Routes**onder **instellingen**.
 4. Selecteer **+ Toevoegen**.
 5. Voer een unieke **naam** voor de route in de routetabel.
-6. Voer de **adresvoorvoegsel**, in CIDR-notatie, waarop u wilt dat verkeer naar routeert. Het voorvoegsel kan niet worden gedupliceerd in meer dan één route in de routetabel, hoewel het voorvoegsel kan zich in een ander voorvoegsel. Als u 10.0.0.0/16 gedefinieerd als een voorvoegsel in één route, kunt u bijvoorbeeld nog steeds een andere route met het adresvoorvoegsel 10.0.0.0/24 definiëren. Azure selecteert een route voor verkeer op basis van de langste voorvoegselovereenkomst. Zie voor meer informatie over hoe Azure routes selecteert, [routeringoverzicht](virtual-networks-udr-overview.md#how-azure-selects-a-route).
+6. Voer de **adresvoorvoegsel**, in CIDR-notatie, waarop u wilt dat verkeer naar routeert. Het voorvoegsel kan niet in meer dan één route in de routetabel worden gedupliceerd, hoewel het voorvoegsel zich wel in een ander voorvoegsel kan bevinden. Als u 10.0.0.0/16 gedefinieerd als een voorvoegsel in één route, kunt u bijvoorbeeld nog steeds een andere route met het adresvoorvoegsel 10.0.0.0/24 definiëren. Azure selecteert een route voor verkeer op basis van de langste voorvoegselovereenkomst. Zie voor meer informatie over hoe Azure routes selecteert, [routeringoverzicht](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Selecteer een **volgende hoptype**. Zie voor een gedetailleerde beschrijving van alle volgende hoptypen [routeringoverzicht](virtual-networks-udr-overview.md).
 8. Voer een IP-adres voor **adres van volgende hop**. U kunt alleen een adres invoeren als u hebt geselecteerd *virtueel apparaat* voor **volgende hoptype**.
 9. Selecteer **OK**.
@@ -144,7 +144,7 @@ Er is een limiet aan het aantal routes per routetabel per Azure-locatie en abonn
 **Opdrachten**
 
 - Azure CLI: [az network route-table route maken](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
-- PowerShell: [Nieuwe AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Routes weergeven
 
@@ -156,7 +156,7 @@ Een routetabel bevat nul of meerdere routes. Zie voor meer informatie over de ge
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
+- Azure CLI: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>Details van een route weergeven

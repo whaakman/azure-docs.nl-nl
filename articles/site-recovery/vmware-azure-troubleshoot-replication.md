@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/18/2019
 ms.author: ramamill
-ms.openlocfilehash: c53dc81da9469c0628adbd3751dc818997fa4d05
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063675"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411472"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Problemen met replicatie voor virtuele VMware-machines en fysieke servers
 
@@ -109,14 +109,19 @@ De volgende lijst toont manieren waarop u op de processerver controleren kunt:
 
 Wanneer u probeert om te selecteren van de bronmachine replicatie in te schakelen met behulp van Site Recovery, de computer mogelijk niet beschikbaar voor een van de volgende redenen:
 
-*  Als twee virtuele machines onder het vCenter hetzelfde exemplaar UUID hebt, wordt de eerste virtuele machine is gedetecteerd door de configuratieserver wordt weergegeven in de Azure-portal. U lost dit probleem, zorg ervoor dat er geen twee virtuele machines hetzelfde exemplaar UUID.
-*  Zorg ervoor dat u de referenties van de juiste vCenter toegevoegd bij het instellen van de configuratieserver met behulp van de OVF-sjabloon of geïntegreerde setup. Als u wilt controleren of de referenties die u hebt toegevoegd tijdens de installatie, Zie [referenties wijzigen voor automatische detectie](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-*  Als de machtigingen voor toegang tot vCenter die niet de vereiste machtigingen hebt, is mislukt voor het detecteren van virtuele machines kan optreden. Zorg ervoor dat de machtigingen die worden beschreven in [een account voorbereiden voor automatische detectie](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) worden toegevoegd aan het account van de vCenter-gebruiker.
-*  Als de virtuele machine is al beveiligd met Site Recovery, de virtuele machine niet beschikbaar om te selecteren voor beveiliging in de portal. Zorg ervoor dat de virtuele machine die u in de portal zoekt al is niet beveiligd door een andere gebruiker of onder een ander abonnement.
+* **Twee virtuele machines met hetzelfde exemplaar UUID**: Als twee virtuele machines onder het vCenter hetzelfde exemplaar UUID hebt, wordt de eerste virtuele machine is gedetecteerd door de configuratieserver wordt weergegeven in de Azure-portal. U lost dit probleem, zorg ervoor dat er geen twee virtuele machines hetzelfde exemplaar UUID. Dit scenario is gemeenschappelijk zichtbaar in gevallen waar een back-virtuele machine actief en is aangemeld bij onze discovery-gegevens. Raadpleeg [Azure Site Recovery van VMware naar Azure: Het opschonen van dubbele of verouderde vermeldingen](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) om op te lossen.
+* **Onjuiste vCenter gebruikersreferenties**: Zorg ervoor dat u de referenties van de juiste vCenter toegevoegd bij het instellen van de configuratieserver met behulp van de OVF-sjabloon of geïntegreerde setup. Als u wilt controleren of de referenties die u hebt toegevoegd tijdens de installatie, Zie [referenties wijzigen voor automatische detectie](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* **onvoldoende bevoegdheden voor vCenter**: Als de machtigingen voor toegang tot vCenter die niet de vereiste machtigingen hebt, is mislukt voor het detecteren van virtuele machines kan optreden. Zorg ervoor dat de machtigingen die worden beschreven in [een account voorbereiden voor automatische detectie](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) worden toegevoegd aan het account van de vCenter-gebruiker.
+* **Azure Site Recovery-beheerservers**: Als de virtuele machine wordt gebruikt als de beheerserver in een of meer van de volgende rollen - configuratie server /scale-out processerver / Master-doelserver, en vervolgens kunt u zich niet kiezen van de virtuele machine uit de portal. Beheerservers kunnen niet worden gerepliceerd.
+* **Al beveiligd/een failover via Azure Site Recovery-services**: Als de virtuele machine is al beveiligd of failover met Site Recovery, wordt de virtuele machine niet beschikbaar om te selecteren voor beveiliging in de portal. Zorg ervoor dat de virtuele machine die u in de portal zoekt al is niet beveiligd door een andere gebruiker of onder een ander abonnement.
+* **niet verbonden vCenter**: Controleer of vCenter verbonden status heeft is. Als u wilt controleren, gaat u naar de Recovery Services-kluis > Site Recovery-infrastructuur > configuratieservers > Klik op de server van de desbetreffende configuratie > Er wordt een blade geopend aan de rechterkant met details van gekoppelde servers. Controleer of vCenter is verbonden. Als u in de status 'Niet verbonden' los het probleem en vervolgens [vernieuwen van de configuratieserver](vmware-azure-manage-configuration-server.md#refresh-configuration-server) in de portal. Na deze wordt virtuele machine weergegeven op de portal.
+* **ESXi uitgeschakeld**: Als ESXi-host waarop de virtuele machine zich bevindt zich in de status, uitgeschakeld vervolgens virtuele machine, worden niet weergegeven of niet worden geselecteerd in de Azure portal. Inschakelen van de ESXi-host [vernieuwen van de configuratieserver](vmware-azure-manage-configuration-server.md#refresh-configuration-server) in de portal. Na deze wordt virtuele machine weergegeven op de portal.
+* **Opnieuw opstarten**: Als er een opnieuw opstarten in behandeling op de virtuele machine, zal klikt u vervolgens u niet mogelijk om te selecteren van de machine in Azure portal. Zorg ervoor dat voor het voltooien van de activiteiten opnieuw opstarten in behandeling [vernieuwen van de configuratieserver](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Na deze wordt virtuele machine weergegeven op de portal.
+* **IP is niet gevonden**: Als de virtuele machine niet een geldig IP-adres dat is gekoppeld, klikt u vervolgens kunt u zich niet kunt selecteren van de machine in Azure portal. Zorg ervoor dat u een geldig IP-adres toewijzen aan de virtuele machine, [vernieuwen van de configuratieserver](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Na deze wordt virtuele machine weergegeven op de portal.
 
-## <a name="protected-virtual-machines-arent-available-in-the-portal"></a>Beveiligde virtuele machines zijn niet beschikbaar in de portal
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Beveiligde virtuele machines uit grijs worden weergegeven in de portal
 
-Virtuele machines die worden gerepliceerd in Site Recovery niet beschikbaar zijn in de Azure-portal als er dubbele vermeldingen in het systeem. Zie voor meer informatie over het verwijderen van verouderde vermeldingen en los het probleem, [Azure Site Recovery van VMware naar Azure: Het opschonen van dubbele of verouderde vermeldingen](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+Virtuele machines die worden gerepliceerd in Site Recovery niet beschikbaar zijn in de Azure-portal als er dubbele vermeldingen in het systeem. Raadpleeg voor meer informatie over het verwijderen van verouderde vermeldingen en los het probleem, [Azure Site Recovery van VMware naar Azure: Het opschonen van dubbele of verouderde vermeldingen](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
 

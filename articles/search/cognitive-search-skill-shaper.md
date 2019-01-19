@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b8cc69c45332d0779c6e57b5d74145ee1f5140cd
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391005"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410112"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper cognitieve vaardigheden
 
@@ -29,7 +29,7 @@ Standaard ondersteunt deze techniek objecten die een niveau zijn. Voor meer comp
 In het antwoord, is de naam van de uitvoer altijd 'uitvoeren'. Intern, de pijplijn kunt toewijzen voor een andere naam, zoals 'analyzedText' in de voorbeelden hieronder om de "uitvoeren", maar de **Shaper** vaardigheid zelf wordt 'uitvoer' in het antwoord geretourneerd. Dit kan belangrijk zijn als u foutopsporing verrijkt documenten en u ziet de naamgevingsconventie afwijking, of als u een aangepaste vaardigheden ontwikkelen en zijn structureren van het antwoord zelf.
 
 > [!NOTE]
-> Deze kwalificatie is niet gebonden aan een Cognitive Services-API en er zijn geen kosten die zijn gekoppeld aan deze kwalificatie. U moet echter [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) toch voor de onderdrukking van de optie gratis resource die u beperkt tot een klein aantal dagelijkse enrichments.
+> Deze kwalificatie is niet gebonden aan een Cognitive Services-API en u niet worden in rekening gebracht voor het gebruik ervan. U moet nog steeds [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md), echter overschrijven de **gratis** resource-optie waarmee u een klein aantal dagelijkse enrichments per dag wordt beperkt.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

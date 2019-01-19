@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f16bf06d03511223b54542ad7a389f78d37f3ea9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 06db540600be323b3129d64d18739582f6d9f2d0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235068"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412639"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Fouten opsporen in uw Service Fabric-toepassing met behulp van Visual Studio
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "51235068"
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>Fouten opsporen in een lokale Service Fabric-toepassing
-U kunt tijd en geld besparen door te implementeren en opsporen van fouten in uw Azure Service Fabric-toepassing in een cluster van de ontwikkeling van lokale computer. Visual Studio 2017 of Visual Studio 2015 kunt de toepassing implementeren in het lokale cluster en het foutopsporingsprogramma automatisch verbinding te maken met alle exemplaren van uw toepassing.
+U kunt tijd en geld besparen door te implementeren en opsporen van fouten in uw Azure Service Fabric-toepassing in een cluster van de ontwikkeling van lokale computer. Visual Studio 2017 of Visual Studio 2015 kunt de toepassing implementeren in het lokale cluster en het foutopsporingsprogramma automatisch verbinding te maken met alle exemplaren van uw toepassing. Visual Studio moet worden uitgevoerd als beheerder om het foutopsporingsprogramma verbinding te maken.
 
 1. Een lokaal ontwikkelcluster starten met de volgende stappen in [instellen van uw Service Fabric-ontwikkelomgeving](service-fabric-get-started.md).
 2. Druk op **F5** of klik op **Debug** > **Start Debugging**.

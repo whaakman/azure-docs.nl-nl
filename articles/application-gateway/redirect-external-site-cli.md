@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 4483d71ba745cc5cbb49d22420d83c3b2ceae0ad
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bdbaa9154f12c8b66a4c1d801671e7b21756e0f7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157017"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412730"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met de externe omleiding met de Azure CLI
 
@@ -65,7 +65,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-U kunt [az network application-gateway create](/cli/azure/network/application-gateway#create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De application gateway is toegewezen aan *myAGSubnet* en *myPublicIPAddress* die u eerder hebt gemaakt. 
+U kunt [az network application-gateway create](/cli/azure/network/application-gateway#create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myPublicIPAddress*, die u zojuist hebt gemaakt. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Een listener en een regel voor doorsturen toevoegen
 
-Een listener is vereist voor het inschakelen van de toepassingsgateway het routeren van verkeer op de juiste wijze. Maken van de listener met behulp van [az network application-gateway http-listener maken](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) met de frontend-poort die zijn gemaakt met [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). Een regel is vereist voor de listener weten waar ze om binnenkomend verkeer te verzenden. Maak een eenvoudige regel met de naam *redirectRule* met behulp van [az network application-gateway-regel maken](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+Een listener is vereist voor het inschakelen van de toepassingsgateway het routeren van verkeer op de juiste wijze. Maken van de listener met behulp van [az network application-gateway http-listener maken](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) met de frontend-poort die zijn gemaakt met [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway). Een regel is vereist voor de listener weten waar ze om binnenkomend verkeer te verzenden. Maak een eenvoudige regel met de naam *redirectRule* met behulp van [az network application-gateway-regel maken](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

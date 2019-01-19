@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 87c605feeab742ae589cf8d5d9a98c8e53ccf662
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090428"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410452"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Verifiëren van Stream Analytics voor Azure Data Lake Storage Gen1 met behulp van beheerde identiteiten (Preview)
 
@@ -21,9 +21,9 @@ Azure Stream Analytics biedt ondersteuning voor verificatie met Azure Data Lake 
 
 Ga naar de [acht nieuwe functies in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogbericht om u te registreren voor deze Preview-versie en lees meer over nieuwe functies.
 
-Dit artikel ziet u twee manieren om in te schakelen beheerde identiteit voor een Azure Stream Analytics-taak die op een Azure Data Lake Storage Gen1 uitvoert: via de Azure-portal en sjabloonimplementatie van Azure Resource Manager-.
+In dit artikel ziet u twee manieren om in te schakelen beheerde identiteit voor een Azure Stream Analytics-taak die op een Azure Data Lake Storage Gen1 via de Azure portal, de sjabloonimplementatie van Azure Resource Manager-en de Azure Stream Analytics-hulpprogramma's voor Visual Studio uitvoert.
 
-## <a name="enable-managed-identity-with-azure-portal"></a>Beheerde identiteit inschakelen met Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 1. Begin met het maken van een nieuwe Stream Analytics-taak of door het openen van een bestaande taak in Azure portal. Selecteer in de menubalk aan de linkerkant van het scherm bevindt, **beheerde identiteit (preview)** bevindt zich onder **configureren**.
 
@@ -64,6 +64,28 @@ Dit artikel ziet u twee manieren om in te schakelen beheerde identiteit voor een
    ![Stream Analytics toegang krijgen tot de lijst in de portal](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Zie voor meer informatie over Data Lake Storage Gen1 bestandssysteemmachtigingen [toegangsbeheer in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+## <a name="stream-analytics-tools-for-visual-studio"></a>Stream Analytics-hulpprogramma's voor Visual Studio
+
+1. Stel in JobConfig.json, **gebruik door het systeem toegewezen identiteit** te **waar**.
+
+   ![Stream Analytics-taakconfiguratie beheerde identiteiten](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
+
+2. Klik op de verificatiemodus vervolgkeuzelijst en selecteer in het venster van de eigenschappen van uitvoer van de uitvoerlocatie ADLS Gen1 **beheerde identiteit (preview)**.
+
+   ![ADLS uitvoer beheerde identiteiten](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
+
+3. Vul de rest van de eigenschappen, en klikt u op **opslaan**.
+
+4. Klik op **verzenden naar Azure** in de query-editor.
+
+   Wanneer u de taak verzendt, wordt met de hulpprogramma's voor twee dingen doen:
+
+   * Maakt automatisch een service principal voor de identiteit van de Stream Analytics-taak in Azure Active Directory. De levenscyclus van de identiteit van de zojuist gemaakte worden beheerd door Azure. Wanneer de Stream Analytics-taak wordt verwijderd, wordt de identiteit van de bijbehorende (dat wil zeggen, de service-principal) wordt automatisch verwijderd door Azure.
+
+   * Automatisch ingesteld **schrijven** en **Execute** machtigingen voor het ADLS-Gen1 voorvoegsel van pad dat wordt gebruikt in de taak en deze toewijzen aan deze map en alle onderliggende objecten.
+
+5. U kunt de Resource Manager-sjablonen met de volgende eigenschap via genereren [Stream Analytics-CI. CD Nuget-pakket](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) versie 1.5.0 of hoger op een machine build (buiten Visual Studio). Volg de Resource Manager sjabloon in de volgende sectie implementatiestappen voor het ophalen van de service principal en Verleen toegang tot de service-principal via PowerShell.
 
 ## <a name="resource-manager-template-deployment"></a>Sjabloonimplementatie van Resource Manager
 
@@ -153,3 +175,5 @@ Dit artikel ziet u twee manieren om in te schakelen beheerde identiteit voor een
 ## <a name="next-steps"></a>Volgende stappen
 
 * [De uitvoer van een Data lake Store maken met stream analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Stream Analytics-query's met Visual Studio lokaal testen](stream-analytics-vs-tools-local-run.md)
+* [Testen van live gegevens lokaal met behulp van Azure Stream Analytics-hulpprogramma's voor Visual Studio](stream-analytics-live-data-local-testing.md) 

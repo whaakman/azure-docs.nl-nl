@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2c0fd7bd811445cd6bda8315c9c90ff6646d2be0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542506"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413903"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -161,7 +161,7 @@ De pijlen in de volgende tabel stroomrichting de performative.
 | Client | Service Bus |
 | --- | --- |
 | --> (koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang},<br/>rol =**afzender**,<br/>bron = {client koppeling ID}<br/>doel = {naam van de entiteit}<br/>) |Geen actie |
-| Geen actie |<--(koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang},<br/>rol =**ontvanger**,<br/>bron = null,<br/>doel = null<br/>)<br/><br/><--(loskoppelen<br/>verwerken = {numerieke ingang},<br/>gesloten =**waar**,<br/>Fout = {foutgegevens}<br/>) |
+| Geen actie |<--(koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang},<br/>rol =**ontvanger**,<br/>source=null,<br/>target=null<br/>)<br/><br/><--(loskoppelen<br/>verwerken = {numerieke ingang},<br/>gesloten =**waar**,<br/>Fout = {foutgegevens}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Bericht sluiten ontvanger/afzender
 
@@ -175,20 +175,20 @@ De pijlen in de volgende tabel stroomrichting de performative.
 | Client | Service Bus |
 | --- | --- |
 | overdracht (--><br/>Delivery-id = {numerieke ingang},<br/>Delivery-tag = {binaire ingang},<br/>verrekend =**false**,, meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |Geen actie |
-| Geen actie |<--toestand (<br/>rol = ontvanger<br/>eerst = {delivery-ID}<br/>laatste = {delivery-ID}<br/>verrekend =**waar**,<br/>status =**geaccepteerd**<br/>) |
+| Geen actie |<--toestand (<br/>role=receiver,<br/>eerst = {delivery-ID}<br/>laatste = {delivery-ID}<br/>verrekend =**waar**,<br/>status =**geaccepteerd**<br/>) |
 
 #### <a name="send-error"></a>Verzenden (fout)
 
 | Client | Service Bus |
 | --- | --- |
 | overdracht (--><br/>Delivery-id = {numerieke ingang},<br/>Delivery-tag = {binaire ingang},<br/>verrekend =**false**,, meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |Geen actie |
-| Geen actie |<--toestand (<br/>rol = ontvanger<br/>eerst = {delivery-ID}<br/>laatste = {delivery-ID}<br/>verrekend =**waar**,<br/>status =**geweigerd**()<br/>Fout = {foutgegevens}<br/>)<br/>) |
+| Geen actie |<--toestand (<br/>role=receiver,<br/>eerst = {delivery-ID}<br/>laatste = {delivery-ID}<br/>verrekend =**waar**,<br/>status =**geweigerd**()<br/>Fout = {foutgegevens}<br/>)<br/>) |
 
 #### <a name="receive"></a>Ontvangen
 
 | Client | Service Bus |
 | --- | --- |
-| stroom (--><br/>koppeling tegoed = 1<br/>) |Geen actie |
+| stroom (--><br/>link-credit=1<br/>) |Geen actie |
 | Geen actie |< (overdragen<br/>Delivery-id = {numerieke ingang},<br/>Delivery-tag = {binaire ingang},<br/>verrekend =**false**,<br/>meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |
 | toestand (--><br/>rol =**ontvanger**,<br/>eerst = {delivery-ID}<br/>laatste = {delivery-ID}<br/>verrekend =**waar**,<br/>status =**geaccepteerd**<br/>) |Geen actie |
 
@@ -196,11 +196,11 @@ De pijlen in de volgende tabel stroomrichting de performative.
 
 | Client | Service Bus |
 | --- | --- |
-| stroom (--><br/>koppeling tegoed = 3<br/>) |Geen actie |
+| stroom (--><br/>link-credit=3<br/>) |Geen actie |
 | Geen actie |< (overdragen<br/>Delivery-id = {numerieke ingang},<br/>Delivery-tag = {binaire ingang},<br/>verrekend =**false**,<br/>meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |
 | Geen actie |< (overdragen<br/>Delivery-id = {numerieke ingang + 1},<br/>Delivery-tag = {binaire ingang},<br/>verrekend =**false**,<br/>meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |
 | Geen actie |< (overdragen<br/>Delivery-id = {numerieke ingang + 2},<br/>Delivery-tag = {binaire ingang},<br/>verrekend =**false**,<br/>meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |
-| toestand (--><br/>rol = ontvanger<br/>eerst = {delivery-ID}<br/>laatste = {delivery-ID + 2},<br/>verrekend =**waar**,<br/>status =**geaccepteerd**<br/>) |Geen actie |
+| toestand (--><br/>role=receiver,<br/>eerst = {delivery-ID}<br/>laatste = {delivery-ID + 2},<br/>verrekend =**waar**,<br/>status =**geaccepteerd**<br/>) |Geen actie |
 
 ### <a name="messages"></a>Berichten
 
@@ -215,7 +215,7 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 | duurzame |- |- |
 | priority |- |- |
 | ttl |Time to live voor dit bericht |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
-| eerste overnemende |- |- |
+| first-acquirer |- |- |
 | aantal bezorgingspogingen |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
 #### <a name="properties"></a>properties
@@ -227,12 +227,12 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 | tot |Toepassingsspecifieke doel-id niet geïnterpreteerd door Service Bus. |[Aan](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | onderwerp |Bericht toepassingsspecifieke doel-id, niet geïnterpreteerd door Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Antwoordadres |Antwoord-path toepassingsspecifieke indicator niet geïnterpreteerd door Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlatie-id |Toepassingsspecifieke correlatie-id niet geïnterpreteerd door Service Bus. |[correlationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| inhoudstype |Toepassingsspecifieke inhoudstype indicator voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
-| inhoud coderen |Toepassingsspecifieke indicator codering van inhoud voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
-| absolute verlooptijd |Geeft aan op welke absolute instant het bericht is verlopen. Op de invoer (koptekst TTL wordt waargenomen), genegeerd gezaghebbende op uitvoer. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
-| tijd voor het maken |Verklaart op dat moment het bericht is gemaakt. Niet gebruikt door Service Bus |Niet toegankelijk zijn via de Service Bus-API. |
-| groep-id |Toepassingsspecifieke id voor een gerelateerde set berichten. Gebruikt voor Service Bus-sessies. |[sessie-id](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| correlatie-id |Toepassingsspecifieke correlatie-id niet geïnterpreteerd door Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| inhoudstype |Toepassingsspecifieke inhoudstype indicator voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| content-encoding |Toepassingsspecifieke indicator codering van inhoud voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
+| absolute-expiry-time |Geeft aan op welke absolute instant het bericht is verlopen. Op de invoer (koptekst TTL wordt waargenomen), genegeerd gezaghebbende op uitvoer. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| creation-time |Verklaart op dat moment het bericht is gemaakt. Niet gebruikt door Service Bus |Niet toegankelijk zijn via de Service Bus-API. |
+| groep-id |Toepassingsspecifieke id voor een gerelateerde set berichten. Gebruikt voor Service Bus-sessies. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | volgorde van de groep |Teller voor het identificeren van de relatieve volgnummer van het bericht in een sessie. Genegeerd door Servicebus. |Niet toegankelijk zijn via de Service Bus-API. |
 | antwoord-naar-groep-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
@@ -242,14 +242,14 @@ Er zijn enkele andere service bus-bericht-eigenschappen, maken geen deel uit van
 
 | Aantekening kaart sleutel | Gebruik | API-naam |
 | --- | --- | --- |
-| x-opt-gepland-in de wachtrij plaatsen-tijd | Verklaart op dat moment het bericht op de entiteit moet worden weergegeven |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partitie-key | Toepassingsspecifieke sleutel die welke partitie bepaalt het bericht moet worden neergezet in. | [partitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partitiesleutel | Toepassing gedefinieerde partitiesleutel waarde als een transactie moet worden gebruikt voor het verzenden van berichten uit via een wachtrij voor overdracht. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-in de wachtrij-tijd | Service gedefinieerde UTC-tijd dat de werkelijke tijd van het bericht enqueuing vertegenwoordigt. Op de invoer wordt genegeerd. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt--volgnummer | Service gedefinieerde unieke nummer toegewezen aan een bericht. | [sequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | Verklaart op dat moment het bericht op de entiteit moet worden weergegeven |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt-partition-key | Toepassingsspecifieke sleutel die welke partitie bepaalt het bericht moet worden neergezet in. | [partitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | Toepassing gedefinieerde partitiesleutel waarde als een transactie moet worden gebruikt voor het verzenden van berichten uit via een wachtrij voor overdracht. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-enqueued-time | Service gedefinieerde UTC-tijd dat de werkelijke tijd van het bericht enqueuing vertegenwoordigt. Op de invoer wordt genegeerd. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt-sequence-number | Service gedefinieerde unieke nummer toegewezen aan een bericht. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
 | x-opt-offset | Service is gedefinieerd in de wachtrij geplaatste volgnummer van het bericht. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
 | x-opt-vergrendeld-pas | Service-gedefinieerd. De datum en tijd waarop het bericht vergrendeld in de wachtrij /-abonnement. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-onbestelbare berichten-bron | Service-gedefinieerd. Als het bericht wordt ontvangen van de wachtrij voor onbestelbare berichten, de bron van het oorspronkelijke bericht. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-deadletter-source | Service-gedefinieerd. Als het bericht wordt ontvangen van de wachtrij voor onbestelbare berichten, de bron van het oorspronkelijke bericht. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
 
 ### <a name="transaction-capability"></a>Transactie-mogelijkheid
 
@@ -268,10 +268,10 @@ Om te beginnen transactioneel werk. het verkrijgen van de domeincontroller moet 
 
 | Client (Controller) | | Servicebus (coördinator) |
 | --- | --- | --- |
-| (koppelen<br/>naam = {naam van de koppeling}<br/>... ,<br/>rol =**afzender**,<br/>doel =**Coordinator**<br/>) | ------> |  |
-|  | <------ | (koppelen<br/>naam = {naam van de koppeling}<br/>... ,<br/>TARGET=Coordinator()<br/>) |
-| overdracht (<br/>Delivery-id = 0,...)<br/>{AmqpValue (**Declare()**)}| ------> |  |
-|  | <------ | toestand ( <br/> eerst = 0, 0, laatste = <br/>status =**Declared**()<br/>**transacties-id**= {transactie-ID}<br/>))|
+| attach(<br/>naam = {naam van de koppeling}<br/>... ,<br/>rol =**afzender**,<br/>doel =**Coordinator**<br/>) | ------> |  |
+|  | <------ | attach(<br/>naam = {naam van de koppeling}<br/>... ,<br/>target=Coordinator()<br/>) |
+| overdracht (<br/>Delivery-id = 0,...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | toestand ( <br/> first=0, last=0, <br/>status =**Declared**()<br/>**transacties-id**= {transactie-ID}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Gebruik van een transactie
 
@@ -281,11 +281,11 @@ De controller is de transactioneel werk door te sturen een `discharge` bericht a
 
 | Client (Controller) | | Servicebus (coördinator) |
 | --- | --- | --- |
-| overdracht (<br/>Delivery-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
-|  | <------ | toestand ( <br/> eerst = 0, 0, laatste = <br/>status gedeclareerde () =<br/>transacties-id = {transactie-ID}<br/>))|
+| overdracht (<br/>Delivery-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | toestand ( <br/> first=0, last=0, <br/>state=Declared(<br/>transacties-id = {transactie-ID}<br/>))|
 | | . . . <br/>Transactioneel werk<br/>op andere koppelingen<br/> . . . |
-| overdracht (<br/>Delivery-id = 57,...)<br/>{AmqpValue)<br/>**Managers (transacties-id = 0,<br/>mislukt = false)**)}| ------> |  |
-| | <------ | toestand ( <br/> eerst = 57, laatste = 57, <br/>status =**Accepted()**)|
+| overdracht (<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Managers (transacties-id = 0,<br/>mislukt = false)**)}| ------> |  |
+| | <------ | toestand ( <br/> first=57, last=57, <br/>state=**Accepted()**)|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Verzenden van een bericht in een transactie
 
@@ -293,10 +293,10 @@ Alle transactioneel werk gedaan met de status van de transactionele levering `tr
 
 | Client (Controller) | | Servicebus (coördinator) |
 | --- | --- | --- |
-| overdracht (<br/>Delivery-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
-|  | <------ | toestand ( <br/> eerst = 0, 0, laatste = <br/>status gedeclareerde () =<br/>transacties-id = {transactie-ID}<br/>))|
-| overdracht (<br/>verwerken = 1,<br/>Delivery-id = 1, <br/>**status =<br/>TransactionalState (<br/>transacties-id = 0)**)<br/>{de nettolading van}| ------> |  |
-| | <------ | toestand ( <br/> eerst = 1, laatste = 1, <br/>status =**TransactionalState (<br/>transacties-id = 0,<br/>outcome=Accepted()**))|
+| overdracht (<br/>Delivery-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | toestand ( <br/> first=0, last=0, <br/>state=Declared(<br/>transacties-id = {transactie-ID}<br/>))|
+| overdracht (<br/>verwerken = 1,<br/>Delivery-id = 1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{de nettolading van}| ------> |  |
+| | <------ | toestand ( <br/> eerst = 1, laatste = 1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Een bericht in een transactie wordt verwijderd
 
@@ -304,10 +304,10 @@ Bericht toestand omvat bewerkingen zoals `Complete`  /  `Abandon`  /  `DeadLette
 
 | Client (Controller) | | Servicebus (coördinator) |
 | --- | --- | --- |
-| overdracht (<br/>Delivery-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
-|  | <------ | toestand ( <br/> eerst = 0, 0, laatste = <br/>status gedeclareerde () =<br/>transacties-id = {transactie-ID}<br/>))|
-| | <------ |overdracht (<br/>verwerken = 2,<br/>Delivery-id = 11 <br/>status = null)<br/>{de nettolading van}|  
-| toestand ( <br/> eerst = 11, laatste = 11 <br/>status =**TransactionalState (<br/>transacties-id = 0,<br/>outcome=Accepted()**))| ------> |
+| overdracht (<br/>Delivery-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | toestand ( <br/> first=0, last=0, <br/>state=Declared(<br/>transacties-id = {transactie-ID}<br/>))|
+| | <------ |overdracht (<br/>handle=2,<br/>Delivery-id = 11 <br/>status = null)<br/>{de nettolading van}|  
+| toestand ( <br/> eerst = 11, laatste = 11 <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Geavanceerde mogelijkheden voor Service Bus
@@ -327,10 +327,10 @@ Alle deze gebaren vereisen een verzoek/reactie-interactie tussen de client en de
 
 | Logische-bewerking | Client | Service Bus |
 | --- | --- | --- |
-| Antwoord Aanvraagpad maken |--> (koppelen<br/>naam = {*koppelingnaam*},<br/>verwerken = {*numerieke ingang*},<br/>rol =**afzender**,<br/>bron =**null**,<br/>TARGET = "management myentity / $"<br/>) |Geen actie |
-| Antwoord Aanvraagpad maken |Geen actie |\<--(koppelen<br/>naam = {*koppelingnaam*},<br/>verwerken = {*numerieke ingang*},<br/>rol =**ontvanger**,<br/>bron = null,<br/>TARGET = "myentity"<br/>) |
-| Antwoord Aanvraagpad maken |--> (koppelen<br/>naam = {*koppelingnaam*},<br/>verwerken = {*numerieke ingang*},<br/>rol =**ontvanger**,<br/>bron = 'myentity / $management',<br/>TARGET = "id myclient$"<br/>) | |
-| Antwoord Aanvraagpad maken |Geen actie |\<--(koppelen<br/>naam = {*koppelingnaam*},<br/>verwerken = {*numerieke ingang*},<br/>rol =**afzender**,<br/>bron = "myentity"<br/>TARGET = "id myclient$"<br/>) |
+| Antwoord Aanvraagpad maken |--> (koppelen<br/>naam = {*koppelingnaam*},<br/>verwerken = {*numerieke ingang*},<br/>rol =**afzender**,<br/>bron =**null**,<br/>target=”myentity/$management”<br/>) |Geen actie |
+| Antwoord Aanvraagpad maken |Geen actie |\<--(koppelen<br/>naam = {*koppelingnaam*},<br/>verwerken = {*numerieke ingang*},<br/>rol =**ontvanger**,<br/>source=null,<br/>target=”myentity”<br/>) |
+| Antwoord Aanvraagpad maken |--> (koppelen<br/>naam = {*koppelingnaam*},<br/>verwerken = {*numerieke ingang*},<br/>rol =**ontvanger**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
+| Antwoord Aanvraagpad maken |Geen actie |\<--(koppelen<br/>naam = {*koppelingnaam*},<br/>verwerken = {*numerieke ingang*},<br/>rol =**afzender**,<br/>bron = "myentity"<br/>target=”myclient$id”<br/>) |
 
 Met deze combinatie van koppelingen in plaats, de aanvraag/antwoord-uitvoering is vrij eenvoudig: er wordt een aanvraag een bericht verzonden naar een entiteit in de infrastructuur voor berichten die werkt met dit patroon. In deze aanvraagbericht de *antwoordadres* veld in de *eigenschappen* sectie is ingesteld op de *doel* -id voor de koppeling waarop u het antwoord leveren. De entiteit verwerking verwerkt de aanvraag, en levert u vervolgens het antwoord op de koppeling waarvan *doel* -id overeenkomt met de opgegeven *antwoordadres* id.
 
@@ -372,7 +372,7 @@ De *naam* eigenschap identificeert de entiteit waarmee het token gekoppeld worde
 | --- | --- | --- | --- |
 | amqp:jwt |JSON Webtoken (JWT) |AMQP-waarde (tekenreeks) |Nog niet beschikbaar. |
 | amqp:SWT |Eenvoudige Webtoken (SWT) |AMQP-waarde (tekenreeks) |Alleen ondersteund voor SWT-tokens die zijn uitgegeven door de AAD/ACS |
-| servicebus.Windows.NET:sastoken |Service Bus SAS-Token |AMQP-waarde (tekenreeks) |- |
+| servicebus.windows.net:sastoken |Service Bus SAS-Token |AMQP-waarde (tekenreeks) |- |
 
 Tokens verleent rechten. Service Bus op de hoogte van drie fundamentele rechten: 'Verzenden' kunnen worden verzonden, "Listen" kunnen ontvangen, en manipuleren entiteiten 'Beheren' kunnen. Deze rechten bevatten SWT-tokens die zijn uitgegeven door de AAD/ACS expliciet als claims. Service Bus SAS-tokens Raadpleeg regels die zijn geconfigureerd op de naamruimte of de entiteit en deze regels zijn geconfigureerd met rechten. Het token ondertekenen met de sleutel die is gekoppeld aan deze regel dus kunt u de token snelle de respectieve rechten. Het token dat is gekoppeld aan een entiteit met *put-token* toestaat de verbonden client om te communiceren met de entiteit per token rechten. Een koppeling waar de client wordt op de *afzender* rol vereist de "verzenden" rechts; op de *ontvanger* rol vereist het "Listen" rechts.
 
@@ -403,8 +403,8 @@ Met deze functionaliteit, die u maakt een afzender en tot stand brengen van de k
 
 | Client | | Service Bus |
 | --- | --- | --- |
-| (koppelen<br/>naam = {naam van de koppeling}<br/>rol = afzender<br/>bron = {client koppeling ID}<br/>doel =**{via entity}**,<br/>**Eigenschappen van kaart = [(<br/>com.microsoft:transfer doeladres =<br/>{doelentiteit})]** ) | ------> | |
-| | <------ | (koppelen<br/>naam = {naam van de koppeling}<br/>rol = ontvanger<br/>bron = {client koppeling ID}<br/>doel = {via-entiteit},<br/>Eigenschappen van kaart [() =<br/>com.Microsoft:Transfer doeladres =<br/>{Doelentiteit})] ) |
+| attach(<br/>naam = {naam van de koppeling}<br/>rol = afzender<br/>bron = {client koppeling ID}<br/>doel =**{via entity}**,<br/>**Eigenschappen van kaart = [(<br/>com.microsoft:transfer doeladres =<br/>{doelentiteit})]** ) | ------> | |
+| | <------ | attach(<br/>naam = {naam van de koppeling}<br/>role=receiver,<br/>bron = {client koppeling ID}<br/>doel = {via-entiteit},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{Doelentiteit})] ) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

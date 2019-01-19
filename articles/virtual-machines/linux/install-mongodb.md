@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: zarhoads
-ms.openlocfilehash: f1f8db985917b8eae6a5f301379af3c1bf09021f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 138435664222ff268069465aa98a53f0902a9f99
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465420"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412696"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Installeren en configureren van MongoDB op een Linux VM
 
@@ -31,9 +31,9 @@ ms.locfileid: "49465420"
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Handmatig installeren en configureren van MongoDB op een virtuele machine
-MongoDB [installatie-instructies bieden](https://docs.mongodb.com/manual/administration/install-on-linux/) voor Linux-distributies zoals Red Hat / CentOS, SUSE, Ubuntu en Debian. Het volgende voorbeeld wordt een *CentOS* VM. Voor het maken van deze omgeving, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+MongoDB [installatie-instructies bieden](https://docs.mongodb.com/manual/administration/install-on-linux/) voor Linux-distributies zoals Red Hat / CentOS, SUSE, Ubuntu en Debian. Het volgende voorbeeld wordt een *CentOS* VM. Voor het maken van deze omgeving, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
-Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Maak een resourcegroep maken met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -121,7 +121,7 @@ U kunt een eenvoudige MongoDB-exemplaar maken op een enkele CentOS-virtuele mach
 
 * [Basic MongoDB-exemplaar op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-Voor het maken van deze omgeving, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login). Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Voor het maken van deze omgeving, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index). Maak eerst een resourcegroep met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -134,7 +134,7 @@ az group deployment create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-Meld u op de virtuele machine met behulp van de openbare DNS-adres van uw virtuele machine. U vindt het openbare DNS-adres met [az vm show](/cli/azure/vm#az_vm_show):
+Meld u op de virtuele machine met behulp van de openbare DNS-adres van uw virtuele machine. U vindt het openbare DNS-adres met [az vm show](/cli/azure/vm):
 
 ```azurecli
 az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
@@ -172,7 +172,7 @@ U kunt een complexe MongoDB shard cluster met behulp van de volgende Azure-snels
 > [!WARNING]
 > Implementeren van deze complexe shard MongoDB-cluster moet meer dan 20 kernen, dit is doorgaans het standaardaantal core per regio voor een abonnement. Open een Azure-ondersteuningsaanvraag voor het verhogen van het aantal kernen.
 
-Voor het maken van deze omgeving, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login). Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Voor het maken van deze omgeving, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index). Maak eerst een resourcegroep met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

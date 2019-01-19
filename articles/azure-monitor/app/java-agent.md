@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262129"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412392"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Afhankelijkheden, uitzonderingen onderschept en methode uitvoertijd in Java-web-apps bewaken
 
@@ -96,6 +96,23 @@ Standaard `reportExecutionTime` is ingesteld op true en `reportCaughtExceptions`
 
 > [!NOTE]
 > AI-Agent.xml en de agent jar-bestand moeten zich in dezelfde map. Ze worden vaak samen geplaatst de `/resources` map van het project. 
+
+### <a name="spring-rest-template"></a>Spring Rest-sjabloon
+
+In de volgorde voor Application Insights is softwareontwikkelaars HTTP-aanroepen met behulp van de Spring Rest-sjabloon, is het gebruik van de Apache HTTP-Client vereist. Spring van Rest-sjabloon is standaard niet geconfigureerd voor het gebruik van de Apache HTTP-Client. Door op te geven [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html) in de constructor van een sjabloon van de Rest Spring Apache HTTP wordt gebruikt.
+
+Hier volgt een voorbeeld van hoe u dit doet met Spring bonen. Dit is een zeer eenvoudig voorbeeld dat gebruikmaakt van de standaardinstellingen van de klasse factory.
+
+```java
+@bean
+public ClientHttpRequestFactory httpRequestFactory() {
+return new HttpComponentsClientHttpRequestFactory()
+}
+@Bean(name = 'myRestTemplate')
+public RestTemplate dcrAccessRestTemplate() {
+    return new RestTemplate(httpRequestFactory())
+}
+```
 
 #### <a name="enable-w3c-distributed-tracing"></a>W3C gedistribueerde tracering inschakelen
 

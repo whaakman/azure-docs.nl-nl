@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: a533bd6ee447479f08add23833bf5acdde5c4d40
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a55e77853a1c9466892f686f34d17a5e84b11ba7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155096"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411282"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Real-time sensorgegevens uit Azure IoT Hub met behulp van Power BI visualiseren
 
@@ -57,13 +57,13 @@ Laten we beginnen met het maken van een Stream Analytics-taak. Nadat u de taak h
 
 2. Voer de volgende informatie in voor de taak.
 
-   **Taaknaam**: de naam van de taak. De naam moet wereldwijd uniek zijn.
+   **Taaknaam**: De naam van de taak. De naam moet wereldwijd uniek zijn.
 
-   **Resourcegroep**: gebruik dezelfde resourcegroep die gebruikmaakt van uw IoT-hub.
+   **Resourcegroep**: Gebruik dezelfde resourcegroep bevinden die gebruikmaakt van uw IoT-hub.
 
-   **Locatie**: gebruik dezelfde locatie als uw resourcegroep.
+   **Locatie**: Gebruik de dezelfde locatie als uw resourcegroep.
 
-   **Vastmaken aan dashboard**: vink deze optie aan voor eenvoudige toegang tot uw IoT-hub vanuit het dashboard.
+   **Vastmaken aan dashboard**: Schakel deze optie voor eenvoudige toegang voor uw IoT-hub vanuit het dashboard.
 
    ![Een Stream Analytics-taak maken in Azure](./media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
@@ -75,13 +75,15 @@ Laten we beginnen met het maken van een Stream Analytics-taak. Nadat u de taak h
 
 2. Klik onder **Taaktopologie** op **Invoer**.
 
-3. In de **invoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie:
+3. In de **invoer** deelvenster, klikt u op **Stroominvoer toevoegen**, en voer de volgende informatie:
 
-   **De invoeralias**: de unieke alias voor de invoer.
+   **Invoeralias**: De unieke alias voor de invoer en selecteer **bieden IoT Hub-instellingen handmatig** hieronder.
 
    **Bron**: Selecteer **IoT-hub**.
+   
+   **Eindpunt**: Klik op **Messaging**.
 
-   **Consumentengroep**: Selecteer de consumentengroep die u zojuist hebt gemaakt.
+   **Consumentengroep**: Selecteer de consumergroep die u zojuist hebt gemaakt.
 
 4. Klik op **Create**.
 
@@ -91,23 +93,19 @@ Laten we beginnen met het maken van een Stream Analytics-taak. Nadat u de taak h
 
 1. Klik onder **Taaktopologie** op **Uitvoer**.
 
-2. In de **uitvoer** deelvenster, klikt u op **toevoegen**, en voer de volgende informatie:
+2. In de **uitvoer** deelvenster, klikt u op **toevoegen** en **Power BI**, en voer de volgende informatie:
 
-   **Uitvoeralias**: de alias die uniek is voor de uitvoer.
-
-   **Sink-**: Selecteer **Power BI**.
-
-3. Klik op **autoriseren**, en vervolgens meldt u zich bij uw Power BI-account.
-
-4. Na autorisatie, voer de volgende informatie:
+   **Uitvoeralias**: De alias die uniek is voor de uitvoer.
 
    **Werkruimte groep**: Selecteer de groepswerkruimte van uw doel.
 
    **Naam van de gegevensset**: Voer een naam van de gegevensset.
 
-   **Tabelnaam**: Geef een tabelnaam wordt opgegeven.
+   **Tabelnaam**: Voer een tabelnaam in.
 
-5. Klik op **Create**.
+3. Klik op **autoriseren**, en vervolgens meldt u zich bij uw Power BI-account.
+
+4. Klik op **Create**.
 
    ![Uitvoer toevoegen aan een Stream Analytics-taak in Azure](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -135,13 +133,13 @@ Klik in de Stream Analytics-taak op **Start** > **Nu** > **Start**. Zodra de taa
 
 2. Meld u aan bij uw [Power BI](https://powerbi.microsoft.com/en-us/)-account.
 
-3. Ga naar de groepswerkruimte die u hebt ingesteld toen u de uitvoer voor de Stream Analytics-taak gemaakt.
+3. Klik op de werkruimte die u hebt gebruikt, **mijn werkruimte**.
 
-4. Klik op **Streaminggegevenssets**.
+4. Klik op **Gegevenssets**.
 
-   U zou de vermelde gegevensset moeten zien die u hebt opgegeven toen u de uitvoer voor de Stream Analytics-taak hebt gemaakt.
+   U ziet de gegevensset die u hebt opgegeven tijdens het maken van de uitvoer voor de Stream Analytics-taak.
 
-5. Klik onder **ACTION** op het eerste pictogram om een rapport te maken.
+5. Voor de gegevensset die u hebt gemaakt, klikt u op **rapport toevoegen** (het eerste pictogram aan de rechterkant van de naam van de gegevensset).
 
    ![Een Microsoft Power BI-rapport maken](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
@@ -165,9 +163,11 @@ Klik in de Stream Analytics-taak op **Start** > **Nu** > **Start**. Zodra de taa
 
 8. Klik op **Opslaan** om het rapport op te slaan.
 
-9. Klik op **bestand** > **publiceren op Internet**.
+9. Klik op **rapporten** in het linkerdeelvenster en klik vervolgens op het rapport dat u zojuist hebt gemaakt.
 
-10. Klik op **invoegcode maken**, en klik vervolgens op **publiceren**.
+10. Klik op **bestand** > **publiceren op Internet**.
+
+11. Klik op **invoegcode maken**, en klik vervolgens op **publiceren**.
 
 Krijgt u de koppeling naar het rapport dat u met iedereen voor toegang tot rapporten en een codefragment delen kunt voor het integreren van het rapport in uw blog of website.
 

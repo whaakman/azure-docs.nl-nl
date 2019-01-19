@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7d593a992d0ff189d23185b3422dee86a55308d1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ff45ecc00d1c5c810015c8007d194b882f32f3da
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309447"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412565"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -57,7 +57,7 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Windows IoT C
 
 ### <a name="what-youll-need"></a>Wat u nodig hebt
 
-Als u een fysiek apparaat met Windows 10 IoT Core instelt, moet u eerst een apparaat met Windows 10 IoT Core hebben. Meer informatie over het instellen van een apparaat met Windows 10 IoT Core [hier](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+Als u een echt apparaat met Windows 10 IoT Core instelt, moet u eerst een apparaat met Windows 10 IoT Core hebben. Meer informatie over het instellen van een apparaat met Windows 10 IoT Core [hier](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 U moet ook een clienttoepassing die met Azure IoT Central communiceren kan. U kunt uw eigen aangepaste toepassing met behulp van de Azure SDK bouwen en implementeren op uw apparaat met behulp van Visual Studio, maar u kunt downloaden een [vooraf gemaakte voorbeeld](https://developer.microsoft.com/windows/iot/samples) gewoon implementeren en uitvoeren op het apparaat. 
 
@@ -105,7 +105,7 @@ Een toepassing gemaakt op basis van de **voorbeeld Devkits** toepassingssjabloon
 | Veldnaam     | Eenheden  | Minimum | Maximum | Aantal decimalen |
 | -------------- | ------ | ------- | ------- | -------------- |
 | vochtigheid       | %      | 0       | 100     | 0              |
-| TEMP           | ° C     | -40     | 120     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 
 ### <a name="settings"></a>Instellingen

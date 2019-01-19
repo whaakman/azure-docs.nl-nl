@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4d37d8b3bb52853885ab406a49154f8e70f54b56
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a2bf61c167211e1ff62abe1453ac62227a137d53
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388188"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411370"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Entiteit herkenning van cognitieve vaardigheden
 
@@ -25,7 +25,7 @@ De **entiteit erkenning** vaardigheid entiteiten van verschillende typen geëxtr
 > [!NOTE]
 > Vanaf December 21 mei 2018, kunt u [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) met een Azure Search-vaardigheden. Dit kan we beginnen kosten te bereken voor uitvoering van vaardigheden. Op deze datum begon wordt ook kosten in rekening gebracht voor het ophalen van de afbeelding als onderdeel van de fase documenten kraken. Tekst extractie van documenten blijft zonder extra kosten worden aangeboden.
 >
-> Uitvoering van de ingebouwde vaardigheden is een Cognitive Services-kosten in rekening gebracht op de bestaande [betaalt u Ga prijs](https://azure.microsoft.com/pricing/details/cognitive-services/) . Afbeelding extractie prijzen zijn de kosten van een Azure Search, momenteel in rekening gebracht op de preview-prijzen zoals beschreven op de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400). 
+> [Ingebouwde cognitieve vaardigheden](cognitive-search-predefined-skills.md) uitvoering in rekening gebracht tegen de [Cognitive Services betaalt u go prijs](https://azure.microsoft.com/pricing/details/cognitive-services), op hetzelfde tarief als u de taak rechtstreeks heeft uitgevoerd. Uitpakken van de installatiekopie is een gratis Azure Search, momenteel aangeboden tegen een preview-prijzen. Zie voor meer informatie, de [Azure Search-pagina met prijzen](https://go.microsoft.com/fwlink/?linkid=2042400) of [hoe het factureren werkt](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -67,7 +67,7 @@ Alleen _en_, _es_ ondersteuning voor extractie van `"Quantity"`, `"Datetime"`, `
 | datum/tijd  | Een matrix met tekenreeksen, waarbij elke tekenreeks een datum/tijd vertegenwoordigt (zoals deze wordt weergegeven in de tekst) waarde. |
 | URL 's | Een matrix met tekenreeksen, waarbij elke tekenreeks een URL vertegenwoordigt |
 | e-mails | Een matrix met tekenreeksen, waarbij elke tekenreeks een e-mailbericht vertegenwoordigt |
-| namedEntities | Een matrix van complexe typen die de volgende velden bevatten: <ul><li>category</li> <li>waarde (de naam van de werkelijke entiteit)</li><li>offset (de locatie waar deze is gevonden in de tekst)</li><li>vertrouwen (wordt niet gebruikt voor nu. Wordt ingesteld op een waarde van-1)</li></ul> |
+| namedEntities | Een matrix van complexe typen die de volgende velden bevat: <ul><li>category</li> <li>waarde (de naam van de werkelijke entiteit)</li><li>offset (de locatie waar deze is gevonden in de tekst)</li><li>vertrouwen (wordt niet gebruikt voor nu. Wordt ingesteld op een waarde van-1)</li></ul> |
 | entiteiten | Een matrix van complexe typen die uitgebreide informatie over de entiteiten die zijn geëxtraheerd uit tekst, met de volgende velden bevat <ul><li> naam (de naam van de werkelijke entiteit. Hiermee wordt een formulier "genormaliseerde")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (een koppeling naar Wikipedia-pagina voor de entiteit)</li><li>bingId</li><li>type (de categorie van de entiteit herkend)</li><li>subType (alleen beschikbaar voor bepaalde categorieën, dit biedt een meer gedetailleerd overzicht van het entiteitstype)</li><li> komt overeen met (een complexe verzameling met)<ul><li>tekst (de onbewerkte tekst voor de entiteit)</li><li>offset (de locatie waar deze is gevonden)</li><li>lengte (de lengte van de entiteit onbewerkte tekst)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Van voorbeelddefinitie

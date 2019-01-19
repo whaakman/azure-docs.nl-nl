@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 76bfcd5e1b7e0215cfea7fbbfe1c51726d305fbc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 68691430621c0055b3465b9428a8206c6a544a97
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969836"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412526"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Een CI/CD-pijplijn instellen voor Azure Data Lake Analytics  
 
@@ -41,8 +41,8 @@ Voordat u een taak maken voor een U-SQL project instelt, zorg er dan voor dat u 
 
 Als dat niet het geval is, hebt u twee opties voor het migreren van het project:
 
-- Optie 1: De oude importeren-item wijzigt naar het vorige item.
-- Optie 2: Open het oude project in de Azure Data Lake Tools voor Visual Studio. Gebruik een versie is nieuwer dan 2.3.3000.0. De oude projectsjabloon worden automatisch bijgewerkt naar de nieuwste versie. Nieuwe projecten die zijn gemaakt met versie nieuwer is dan 2.3.3000.0 gebruikgemaakt van de nieuwe sjabloon.
+- Optie 1: De oude importeren item wijzigt naar het vorige item.
+- Optie 2: Het oude project openen in de Azure Data Lake Tools voor Visual Studio. Gebruik een versie is nieuwer dan 2.3.3000.0. De oude projectsjabloon worden automatisch bijgewerkt naar de nieuwste versie. Nieuwe projecten die zijn gemaakt met versie nieuwer is dan 2.3.3000.0 gebruikgemaakt van de nieuwe sjabloon.
 
 ### <a name="get-nuget"></a>NuGet ophalen
 
@@ -79,9 +79,9 @@ De definitie van de argumenten en waarden zijn als volgt:
 
 * **USQLSDKPath = < U-SQL-Nuget-pakket > \build\runtime**. Deze parameter verwijst naar het installatiepad van het NuGet-pakket voor de U-SQL-taalservice.
 * **USQLTargetType = samenvoegen of SyntaxCheck**:
-    * **Samenvoegen**. Modus compileert code-behind-bestanden samenvoegen. Voorbeelden zijn **.cs**, **.py**, en **.r** bestanden. Deze inlines de resulterende zelfgedefinieerde-codebibliotheek in de U-SQL-script. Voorbeelden zijn een DLL-bestand binair, Python of R code.
+    * **Merge**. Modus compileert code-behind-bestanden samenvoegen. Voorbeelden zijn **.cs**, **.py**, en **.r** bestanden. Deze inlines de resulterende zelfgedefinieerde-codebibliotheek in de U-SQL-script. Voorbeelden zijn een DLL-bestand binair, Python of R code.
     * **SyntaxCheck**. Code-behind-bestanden samengevoegd SyntaxCheck modus eerst in de U-SQL-script. Vervolgens wordt de U-SQL-script voor het valideren van uw code gecompileerd.
-* **DataRoot =<DataRoot path>**. DataRoot is alleen nodig voor SyntaxCheck modus. Wanneer deze SyntaxCheck modus voor het script wordt gemaakt, controleert MSBuild de verwijzingen naar objecten in de database in het script. Voordat u gebouw, instellen van een overeenkomende lokale omgeving waarin de waarnaar wordt verwezen, objecten uit de U-SQL-database in de map DataRoot van de build-machine. U kunt ook de databaseafhankelijkheden door beheren [verwijst naar een U-SQL-database-project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild alleen verwijzingen in de database-object, bestanden niet gecontroleerd.
+* **DataRoot=<DataRoot path>**. DataRoot is alleen nodig voor SyntaxCheck modus. Wanneer deze SyntaxCheck modus voor het script wordt gemaakt, controleert MSBuild de verwijzingen naar objecten in de database in het script. Voordat u gebouw, instellen van een overeenkomende lokale omgeving waarin de waarnaar wordt verwezen, objecten uit de U-SQL-database in de map DataRoot van de build-machine. U kunt ook de databaseafhankelijkheden door beheren [verwijst naar een U-SQL-database-project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild alleen verwijzingen in de database-object, bestanden niet gecontroleerd.
 * **EnableDeployment = true** of **false**. EnableDeployment wordt aangegeven als het is toegestaan om te distribueren waarnaar wordt verwezen, U-SQL-databases tijdens het bouwproces. Als u verwijst naar een project U-SQL-database en de database-objecten in uw U-SQL-script gebruiken, stel deze parameter in op **waar**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Continue integratie met Azure-pijplijnen
@@ -246,7 +246,7 @@ Gebruik de [Azure PowerShell-taak](https://docs.microsoft.com/azure/devops/pipel
 param(
     [Parameter(Mandatory=$true)][string]$ADLSName, # ADLS account name to upload U-SQL scripts
     [Parameter(Mandatory=$true)][string]$ArtifactsRoot, # Root folder of U-SQL project build output
-    [Parameter(Mandatory=$false)][string]$DesitinationFolder = "USQLScriptSource" # Desitination folder in ADLS
+    [Parameter(Mandatory=$false)][string]$DestinationFolder = "USQLScriptSource" # Destination folder in ADLS
 )
 
 Function UploadResources()
@@ -261,7 +261,7 @@ Function UploadResources()
     foreach($file in $files)
     {
         Write-Host "Uploading file: $($file.Name)"
-        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DesitinationFolder $file)" -Force
+        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DestinationFolder $file)" -Force
     }
 }
 
@@ -452,33 +452,33 @@ De volgende stappen voor het instellen van een taak database implementatie in Az
 
 #### <a name="common-parameters"></a>Algemene parameters
 
-| Parameter | Beschrijving | Standaardwaarde | Vereist |
+| Parameter | Description | Standaardwaarde | Vereist |
 |---------|-----------|-------------|--------|
-|Pakket|Het pad van het implementatiepakket voor U-SQL-database om te worden geïmplementeerd.|Null|true|
+|Pakket|Het pad van het implementatiepakket voor U-SQL-database om te worden geïmplementeerd.|null|true|
 |Database|De naam van de database moet worden geïmplementeerd naar of gemaakt.|model|false|
-|Logboekbestand|Het pad van het bestand voor logboekregistratie. Standaard standard uit (console).|Null|false|
-|LogLevel|Meld u niveau: uitgebreide, normaal, waarschuwing of fout.|LogLevel.Normal|false|
+|LogFile|Het pad van het bestand voor logboekregistratie. Standaard standard uit (console).|null|false|
+|LogLevel|Logboekniveau: Uitgebreide, normaal, waarschuwing of fout.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>{De parameter voor lokale implementatie
 
-|Parameter|Beschrijving|Standaardwaarde|Vereist|
+|Parameter|Description|Standaardwaarde|Vereist|
 |---------|-----------|-------------|--------|
-|DataRoot|Het pad van de hoofdmap van de lokale gegevens.|Null|true|
+|DataRoot|Het pad van de hoofdmap van de lokale gegevens.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parameters voor de implementatie van Azure Data Lake Analytics
 
-|Parameter|Beschrijving|Standaardwaarde|Vereist|
+|Parameter|Description|Standaardwaarde|Vereist|
 |---------|-----------|-------------|--------|
-|Account|Geeft aan welk Azure Data Lake Analytics-account om te implementeren op met de accountnaam.|Null|true|
-|ResourceGroup|De groepsnaam van de Azure-resource voor de Azure Data Lake Analytics-account.|Null|true|
-|SubscriptionId|De Azure-abonnement-ID voor de Azure Data Lake Analytics-account.|Null|true|
-|Tenant|Naam van de tenant is de domeinnaam van de Azure Active Directory (Azure AD). Deze vinden op de pagina voor het beheer van abonnementen in Azure portal.|Null|true|
-|AzureSDKPath|Het pad naar het afhankelijke assembly's zoeken in de Azure SDK.|Null|true|
+|Account|Geeft aan welk Azure Data Lake Analytics-account om te implementeren op met de accountnaam.|null|true|
+|ResourceGroup|De groepsnaam van de Azure-resource voor de Azure Data Lake Analytics-account.|null|true|
+|SubscriptionId|De Azure-abonnement-ID voor de Azure Data Lake Analytics-account.|null|true|
+|Tenant|Naam van de tenant is de domeinnaam van de Azure Active Directory (Azure AD). Deze vinden op de pagina voor het beheer van abonnementen in Azure portal.|null|true|
+|AzureSDKPath|Het pad naar het afhankelijke assembly's zoeken in de Azure SDK.|null|true|
 |Interactief|Al dan niet de interactieve modus gebruiken voor verificatie.|false|false|
-|ClientId|De Azure AD-toepassings-ID is vereist voor niet-interactieve verificatie.|Null|Vereist voor niet-interactieve verificatie.|
-|Secrete|De secrete of het wachtwoord voor niet-interactieve verificatie. Deze moet worden gebruikt alleen in een betrouwbare en veilige omgeving.|Null|Vereist voor niet-interactieve verificatie, anders gebruik SecreteFile.|
-|SecreteFile|Het bestand wordt opgeslagen de secrete of het wachtwoord voor niet-interactieve verificatie. Zorg ervoor dat u het leesbare houden alleen door de huidige gebruiker.|Null|Vereist voor niet-interactieve verificatie, anders gebruik Secrete.|
-|CertBestand|Het bestand wordt opgeslagen x.509-certificaat voor niet-interactieve verificatie. De standaardwaarde is het gebruik van de client secrete verificatie.|Null|false|
+|ClientId|De Azure AD-toepassings-ID is vereist voor niet-interactieve verificatie.|null|Vereist voor niet-interactieve verificatie.|
+|Secrete|De secrete of het wachtwoord voor niet-interactieve verificatie. Deze moet worden gebruikt alleen in een betrouwbare en veilige omgeving.|null|Vereist voor niet-interactieve verificatie, anders gebruik SecreteFile.|
+|SecreteFile|Het bestand wordt opgeslagen de secrete of het wachtwoord voor niet-interactieve verificatie. Zorg ervoor dat u het leesbare houden alleen door de huidige gebruiker.|null|Vereist voor niet-interactieve verificatie, anders gebruik Secrete.|
+|CertFile|Het bestand wordt opgeslagen x.509-certificaat voor niet-interactieve verificatie. De standaardwaarde is het gebruik van de client secrete verificatie.|null|false|
 | JobPrefix | Het voorvoegsel voor de implementatie van de database van een U-SQL-DDL-taak. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Volgende stappen

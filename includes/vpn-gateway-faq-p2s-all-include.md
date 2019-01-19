@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/21/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 55c9d9942272821de5724568ff58fe27c1641eb2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9fd64e4a9eb100b00dc4597042321b21466f2c7d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54012098"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54414464"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hoeveel VPN-clienteindpunten kan mijn punt-naar-site-configuratie hebben?
 
@@ -70,7 +70,7 @@ Nee. U kunt alleen de systeemeigen VPN-client van Windows voor SSTP en de systee
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Biedt Azure ondersteuning voor IKEv2-VPN met Windows?
 
-IKEv2 wordt ondersteund op Windows 10 en Server 2016. Als u IKEv2 wilt gebruiken, moet u lokaal updates installeren en een registersleutelwaarde instellen. Besturingssysteemversies voor Windows 10 worden niet ondersteund en kunnen alleen SSTP gebruiken.
+IKEv2 wordt ondersteund op Windows 10 en Server 2016. Als u IKEv2 wilt gebruiken, moet u lokaal updates installeren en een registersleutelwaarde instellen. OS-versies voorafgaand aan Windows 10 worden niet ondersteund en kunnen alleen SSTP of OpenVPN-protocol gebruiken.
 
 Windows 10 of Server 2016 voorbereiden voor IKEv2:
 
@@ -80,7 +80,7 @@ Windows 10 of Server 2016 voorbereiden voor IKEv2:
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10 versie 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 versie 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-   | Windows 10 versie 1709 | 22 maart 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   | Windows 10 Version 1709 | 22 maart 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
 2. De registersleutelwaarde instellen. Maak of stel de REG_DWORD-sleutel 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload' in het register in op 1.

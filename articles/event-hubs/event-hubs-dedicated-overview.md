@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091023"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402333"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Overzicht van Eventhubs Dedicated
 
@@ -32,7 +32,7 @@ De volgende tabel vergelijkt de beschikbare service-lagen van Event Hubs. De aan
 | --- |:---:|:---:|:---:|
 | Ingangsgebeurtenissen | Betaal per miljoen gebeurtenissen | Inbegrepen |
 | Throughput unit (1 MB/s ingang, 2 MB per seconde uitgaand verkeer) | Betalen per uur | Inbegrepen |
-| Berichtgrootte | 256 kB | 1 MB |
+| Berichtgrootte | 1 MB | 1 MB |
 | Beleid voor uitgevers | Ja | Ja |   
 | Consumergroepen | 20 | 20 |
 | Berichtherhaling | Ja | Ja |
@@ -47,11 +47,10 @@ De volgende tabel vergelijkt de beschikbare service-lagen van Event Hubs. De aan
 De volgende voordelen zijn beschikbaar bij het gebruik van Event Hubs Dedicated:
 
 * Één tenant hosten met geen ruis van andere tenants.
-* Grootte van het bericht wordt verhoogd naar 1 MB in vergelijking met 256 KB voor Standard.
 * Herhaalbare prestaties telkens.
 * Capaciteit om te voldoen aan de behoeften van uw burst gegarandeerd.
 * Bevat de [vastleggen](event-hubs-capture-overview.md) functie van Event Hubs, om integratie met microbatches als langdurige opslag te bieden.
-* Onderhoud nul: de service beheert taakverdeling, OS-updates, beveiligingspatches en partitioneren.
+* Geen onderhoud is vereist: De service beheert taakverdeling, OS-updates, beveiligingspatches en partitioneren.
 * Vaste prijzen per uur.
 * Bewaarperiode van bericht van 7 dagen zonder extra kosten.
 

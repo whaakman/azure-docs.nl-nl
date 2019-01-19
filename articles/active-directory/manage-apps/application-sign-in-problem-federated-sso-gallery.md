@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2794f45bf9d9d8d60f9be286fdf0e4d288a969fa
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356837"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412288"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing in de galerie geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -66,7 +66,7 @@ Nadat u de id-waarde in Azure AD hebt bijgewerkt en wordt deze die overeenkomt m
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres op dat komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing.
 
-*Fout AADSTS50011: Het antwoordadres op dat de https://contoso.com' komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing*
+*Fout AADSTS50011: Het antwoordadres https://contoso.com' komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing*
 
 **Mogelijke oorzaak**
 
@@ -99,7 +99,7 @@ Nadat u de antwoord-URL-waarde in Azure AD hebt bijgewerkt en wordt deze die ove
 
 ## <a name="user-not-assigned-a-role"></a>Gebruiker met een niet toegewezen
 
-*Fout AADSTS50105: De aangemelde gebruiker 'brian@contoso.com' is niet toegewezen aan een rol voor de toepassing*.
+*Error AADSTS50105: De aangemelde gebruiker 'brian@contoso.com' is niet toegewezen aan een rol voor de toepassing*.
 
 **Mogelijke oorzaak**
 
@@ -133,7 +133,7 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de 
 
 11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo om toe te voegen van de gebruiker naar de **geselecteerde** lijst.
 
-12. **Optioneel:** als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
+12. **Optioneel:** Als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** het zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
 
 13. Wanneer u klaar bent met gebruikers te selecteren, klikt u op de **Selecteer** knop aan de lijst met gebruikers en groepen die moeten worden toegewezen aan de toepassing wilt toevoegen.
 
@@ -228,7 +228,7 @@ Als optie 1 hierboven niet werkt, probeert u de toepassing is verwijderd uit de 
 
 ## <a name="certificate-or-key-not-configured"></a>Certificaat of de sleutel niet geconfigureerd
 
-*Fout AADSTS50003: Er is geen ondertekeningssleutel geconfigureerd.*
+*Fout AADSTS50003: Er is geen ondertekeningssleutel die is geconfigureerd.*
 
 **Mogelijke oorzaak**
 
@@ -261,6 +261,19 @@ Als u wilt verwijderen en maak een nieuw certificaat, de volgende stappen uit te
 10. Controleer **nieuw certificaat activeren** voor de onderdrukking van het actieve certificaat. Klik vervolgens op **opslaan** aan de bovenkant van het deelvenster en accepteer om het rollovercertificaat te activeren.
 
 11. Onder de **SAML-handtekeningcertificaat** sectie, klikt u op **verwijderen** verwijderen van de **ongebruikt** certificaat.
+
+## <a name="saml-request-not-present-in-the-request"></a>SAML-aanvraag is niet aanwezig in de aanvraag
+
+*Fout AADSTS750054: SAMLRequest of SAMLResponse zijn aanwezig als tekenreeks queryparameters in HTTP-aanvraag voor het omleiden van SAML-binding.*
+
+**Mogelijke oorzaak**
+
+Er is geen Azure AD kunnen identificeren van de SAML-aanvraag in de URL-parameters in de HTTP-aanvraag. Dit kan gebeuren als de toepassing is niet met behulp van HTTP omleiden Binding voor het verzenden van de SAML-aanvraag naar Azure AD.
+
+**Resolutie**
+
+De toepassing nodig heeft voor het verzenden van de SAML-aanvraag in de location-header met behulp van HTTP-Binding omleiden gecodeerd. Voor meer informatie over het implementeren, leest u de sectie HTTP omleiden Binding in de [SAML-protocol-specificatiedocument](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Probleem bij het aanpassen van de SAML-claims verzonden naar een toepassing
 

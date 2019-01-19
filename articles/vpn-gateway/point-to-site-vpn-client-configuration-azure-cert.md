@@ -5,26 +5,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11d23102ca807ab1ddf41f1d0e72aed8a8513ac8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636642"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412062"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Maken en VPN-clientconfiguratiebestanden voor native Azure certificate authentication P2S-configuraties installeren
 
-VPN-clientconfiguratiebestanden zijn opgenomen in een zip-bestand. Configuratiebestanden bevatten de instellingen die vereist zijn voor een systeemeigen Windows-, Mac IKEv2 VPN- of Linux-clients verbinding maken met een VNet via punt-naar-Site-verbindingen die gebruikmaken van systeemeigen Azure certificaatverificatie. Voor meer informatie over point-to-site-verbindingen leest u [About Point-to-Site VPN](point-to-site-about.md) (Over point-to-site-VPN).
+VPN-clientconfiguratiebestanden zijn opgenomen in een zip-bestand. Configuratiebestanden bevatten de instellingen die vereist zijn voor een systeemeigen Windows-, Mac IKEv2 VPN- of Linux-clients verbinding maken met een VNet via punt-naar-Site-verbindingen die gebruikmaken van systeemeigen Azure certificaatverificatie.
+
+Client-configuratiebestanden zijn specifiek voor de VPN-configuratie voor het VNet. Als er wijzigingen in de punt-naar-Site VPN-configuratie na het genereren van de VPN-client-configuratiebestanden, zoals het VPN-protocol-type of verificatie, moet u voor het genereren van nieuwe VPN-clientconfiguratiebestanden voor uw apparaten van gebruikers. 
+
+* Voor meer informatie over point-to-site-verbindingen leest u [About Point-to-Site VPN](point-to-site-about.md) (Over point-to-site-VPN).
+* Zie voor instructies OpenVPN [OpenVPN configureren voor P2S](vpn-gateway-howto-openvpn.md) en [OpenVPN configureren clients](vpn-gateway-howto-openvpn-clients.md).
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
-
->[!NOTE]
->Client-configuratiebestanden zijn specifiek voor de VPN-configuratie voor het VNet. Als er wijzigingen in de punt-naar-Site VPN-configuratie na het genereren van de VPN-client-configuratiebestanden, zoals het VPN-protocol-type of verificatie, moet u voor het genereren van nieuwe VPN-clientconfiguratiebestanden voor uw apparaten van gebruikers.
->
 >
 
 ## <a name="generate"></a>Configuratiebestanden voor VPN-clients genereren
@@ -160,7 +160,7 @@ De volgende instructies zijn gemaakt via strongSwan 5.5.1 op Ubuntu 17.0.4. Ubun
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 
-### <a name="install-strongswan"></a>StrongSwan installeren
+### <a name="install-strongswan"></a>Install strongSwan
 
 U kunt de volgende CLI-opdrachten gebruiken of gebruik de strongSwan-stappen in de [GUI](#install) strongSwan installeren.
 

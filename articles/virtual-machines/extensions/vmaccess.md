@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452051"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413835"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Beheren van gebruikers met beheerdersrechten, SSH en controleer of het herstellen van schijven op virtuele Linux-machines met behulp van de VMAccess-extensie met de Azure CLI
 ## <a name="overview"></a>Overzicht
@@ -53,7 +53,7 @@ Er zijn twee manieren waarop u de VMAccess-extensie op uw Linux-VM's gebruiken k
 * Gebruik de Azure CLI en de vereiste parameters.
 * [Gebruik van onbewerkte JSON-bestanden die de VMAccess-extensie verwerken](#use-json-files-and-the-vmaccess-extension) en vervolgens actie ondernemen op.
 
-De volgende voorbeelden gebruiken [az vm gebruiker](/cli/azure/vm/user) opdrachten. Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+De volgende voorbeelden gebruiken [az vm gebruiker](/cli/azure/vm/user) opdrachten. Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
 ## <a name="update-ssh-key"></a>SSH-sleutel bijwerken
 Het volgende voorbeeld wordt de SSH-sleutel voor de gebruiker bijgewerkt `azureuser` op de virtuele machine met de naam `myVM`:
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **Opmerking:** de `az vm user update` opdracht wordt de nieuwe openbare sleutel tekst naar de `~/.ssh/authorized_keys` -bestand voor de gebruiker met beheerdersrechten op de virtuele machine. Dit niet vervangen of verwijderen van bestaande SSH-sleutels. Hiermee wordt eerdere sleutels die zijn ingesteld op implementatie of een latere updates via de VMAccess-extensie niet verwijderd.
+> **OPMERKING:** De `az vm user update` opdracht wordt de nieuwe openbare sleutel tekst naar de `~/.ssh/authorized_keys` -bestand voor de gebruiker met beheerdersrechten op de virtuele machine. Dit niet vervangen of verwijderen van bestaande SSH-sleutels. Hiermee wordt eerdere sleutels die zijn ingesteld op implementatie of een latere updates via de VMAccess-extensie niet verwijderd.
 
 ## <a name="reset-password"></a>Wachtwoord opnieuw instellen
 Het volgende voorbeeld wordt het wachtwoord voor de gebruiker `azureuser` op de virtuele machine met de naam `myVM`:

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1a0be03c278a152ea56fe0dac5277c39a0878057
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579218"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412487"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>U-SQL-taken met behulp van SQL Server Integration Services (SSIS) plannen
 
@@ -40,13 +40,13 @@ U kunt de U-SQL-script ophalen uit verschillende plaatsen met behulp van ingebou
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Scenario 1-gebruik inline script aanroep tvf's en opgeslagen procedures
 
-Configureren in Azure Data Lake Analytics taak Editor **SourceType** als **DiretInput**, en plaats de U-SQL-instructies in **USQLStatemnt**.
+Configureren in Azure Data Lake Analytics taak Editor **SourceType** als **DirectInput**, en plaats de U-SQL-instructies in **USQLStatemnt**.
 
-Voor eenvoudige maintainence en het codebeheer, alleen korte U-SQL-script plaatsen als inline-scripts, bijvoorbeeld, kunt u aanroepen bestaande functies met tabelwaarden en opgeslagen procedures in uw U-SQL-databases. 
+Voor eenvoudig onderhoud en codebeheer, alleen korte U-SQL-script plaatsen als inline-scripts, bijvoorbeeld, kunt u aanroepen bestaande functies met tabelwaarden en opgeslagen procedures in uw U-SQL-databases. 
 
 ![Inline-U-SQL-script in de SSIS-taak bewerken](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
-Verwant artikel: [parameter doorgeven opgeslagen procedures](#scenario-6-pass-parameters-to-u-sql-script)
+Verwant artikel: [Parameter doorgeven aan de opgeslagen procedures](#scenario-6-pass-parameters-to-u-sql-script)
 
 ## <a name="scenario-2-use-u-sql-files-in-azure-data-lake-store"></a>Scenario 2: gebruik U-SQL-gegevensbestanden in Azure Data Lake Store
 
@@ -64,7 +64,7 @@ In de ontwerpweergave van SSIS-pakket toevoegen een **systeemtaak van Azure Data
 
 1. Stel **bewerking** naar **CopyFromADLS**.
 2. Instellen van **AzureDataLakeConnection**, meer informatie over [Azure Data Lake Store Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
-3. Stel **AzureDataLakeDirectory**. Verwijzen naar de map voor het opslaan van uw U-SQL-scripts. Relatief pad ten opzichte van de hoofdmap van de Azure Data Lake Store-account gebruiken.
+3. Set **AzureDataLakeDirectory**. Verwijzen naar de map voor het opslaan van uw U-SQL-scripts. Relatief pad ten opzichte van de hoofdmap van de Azure Data Lake Store-account gebruiken.
 4. Stel **bestemming** naar een map die de gedownloade U-SQL-scripts in de cache opslaat. Pad naar deze map wordt gebruikt in Foreach-lus Container voor het indienen van U-SQL-taak. 
 
 ![Azure Data Lake Store-bestand systeemtaak configureren](./media/data-lake-analytics-schedule-jobs-ssis/configure-azure-data-lake-store-file-system-task.png)
@@ -119,7 +119,7 @@ In de ontwerpweergave van SSIS-pakket toevoegen een **systeemtaak van Azure Data
 
 U kunt U-SQL-bestanden in Azure Blob Storage gebruiken met behulp van **Azure Blob downloaden taak** in Azure Feature Pack. Deze methode kunt u met behulp van de scripts op de cloud.
 
-De stappen zijn vergelijkbaar met [Scnario 2: gebruik U-SQL-bestanden in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Wijzigt de systeemtaak is Azure Data Lake Store-bestand in Azure Blob downloadtaak. [Meer informatie over Azure Blob downloaden taak](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+De stappen zijn vergelijkbaar met [Scenario 2: U-SQL-bestanden gebruiken in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Wijzigt de systeemtaak is Azure Data Lake Store-bestand in Azure Blob downloadtaak. [Meer informatie over Azure Blob downloaden taak](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 De Controlestroom is, zoals hieronder.
 

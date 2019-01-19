@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 50e70ab9be87c15816dc6471a2a29afd0f17d907
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1a1da9fd0fff09bab027c4b4cc4e3085c5439f2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301242"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411103"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en compute Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het ideale aantal datawarehouse units (dwu's, cDWUs) om te optimaliseren prijs en prestaties en het wijzigen van het aantal eenheden. 
@@ -90,6 +90,8 @@ SQL Data Warehouse is een scale-out-systeem die grote hoeveelheden reken- en aan
 ## <a name="permissions"></a>Machtigingen
 
 De machtigingen die worden beschreven in de datawarehouse-eenheden wijzigen vereist [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
+
+Ingebouwde rollen voor Azure-resources, zoals ' SQL DB Contributor ' en Inzender voor SQL Server kunnen DWU-instellingen wijzigen. 
 
 ## <a name="view-current-dwu-settings"></a>De huidige DWU-instellingen weergeven
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54242341"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404662"
 ---
 U kunt profiteren van veel mogelijkheden voor het bewaken van uw virtuele machines te verzamelen, weergeven en analyseren van diagnostische en logboekgegevens. Eenvoudige doen [bewaking](../articles/azure-monitor/overview.md) van uw virtuele machine, kunt u het scherm overzicht voor de virtuele machine in Azure portal. U kunt [extensies](../articles/virtual-machines/windows/extensions-features.md) voor het configureren van diagnostische gegevens op uw VM's voor het verzamelen van aanvullende metrische gegevens. U kunt ook meer geavanceerde controle-opties, zoals gebruiken [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) en [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -60,13 +60,11 @@ Enkele van de dingen die u met diagnostische logboeken doen kunt zijn onder ande
 
 - [Opslaan naar een opslagaccount](../articles/azure-monitor/platform/archive-diagnostic-logs.md) voor controle of handmatige controle. U kunt de bewaartijd (in dagen) met behulp van de instellingen voor Resourcediagnose opgeven.
 - [Deze Stream naar Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
-- Analyseren met [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
+- Analyseren met [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Geavanceerde controle
 
-- [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) biedt mogelijkheden voor bewaking, waarschuwingen en meldingen herstel zowel in de cloud en on-premises assets. U kunt een extensie installeren op een [Linux-VM](../articles/virtual-machines/linux/extensions-oms.md) of een [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) die de OMS-agent wordt geïnstalleerd, en de virtuele machine voor een bestaande OMS-werkruimte worden ingeschreven.
-
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) is een service in OMS die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
+- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) is een service die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. U kunt een extensie installeren op een [Linux-VM](../articles/virtual-machines/linux/extensions-oms.md) of een [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) die de Log Analytics-agent wordt geïnstalleerd, en de virtuele machine voor een bestaande Log Analytics-werkruimte worden ingeschreven.
 
     Voor Windows en Linux-VM's is de aanbevolen methode voor het verzamelen van Logboeken en metrische gegevens door de Log Analytics-agent te installeren. De eenvoudigste manier om de Log Analytics-agent installeren op een virtuele machine is via de [Log Analytics VM-extensie](../articles/log-analytics/log-analytics-azure-vm-extension.md). De extensie vereenvoudigt het installatieproces en configureert automatisch de agent voor het verzenden van gegevens naar de Log Analytics-werkruimte die u opgeeft. De agent wordt bovendien automatisch bijgewerkt, zodat u over de nieuwste functies en correcties beschikt.
 

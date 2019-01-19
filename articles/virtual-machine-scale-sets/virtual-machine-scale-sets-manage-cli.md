@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c86ea4ca5353207d091d3e6edb13f1f3eba59175
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465656"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410656"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Een virtuele-machineschaalset met de Azure CLI beheren
 Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. Dit artikel worden enkele van de algemene Azure CLI-opdrachten waarmee u kunnen deze taken uitvoeren.
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Virtuele machines weergeven in een schaalset
-Een overzicht van VM-exemplaar in een schaalset, gebruikt u [az vmss list-instances](/cli/azure/vmss#list-instances). Het volgende voorbeeld worden alle VM-exemplaren in de schaalset met de naam *myScaleSet* in de *myResourceGroup* resourcegroep. Geef uw eigen waarden op voor deze namen:
+Een overzicht van VM-exemplaar in een schaalset, gebruikt u [az vmss list-instances](/cli/azure/vmss). Het volgende voorbeeld worden alle VM-exemplaren in de schaalset met de naam *myScaleSet* in de *myResourceGroup* resourcegroep. Geef uw eigen waarden op voor deze namen:
 
 ```azurecli
 az vmss list-instances \
@@ -108,7 +108,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Virtuele machines in een schaalset starten
-Gebruiken om een of meer virtuele machines starten in een schaalset, [az vmss start](/cli/azure/vmss#az_vmss_start). Met de parameter `--instance-ids` kunt u een of meer VM's opgeven om te starten. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestart. Voor het starten van meerdere virtuele machines, scheidt u elke instantie-ID met een spatie.
+Gebruiken om een of meer virtuele machines starten in een schaalset, [az vmss start](/cli/azure/vmss). Met de parameter `--instance-ids` kunt u een of meer VM's opgeven om te starten. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestart. Voor het starten van meerdere virtuele machines, scheidt u elke instantie-ID met een spatie.
 
 Het volgende voorbeeld start exemplaar *0* in de schaalset met de naam *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 

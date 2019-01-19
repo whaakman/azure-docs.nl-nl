@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4fc17daf640e95ab028150cec029471a0c7bc565
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 6ec59108652fa928dbbc2a3cbb04c51ae0440dde
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062992"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402389"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hoge beschikbaarheid met Azure Cosmos DB
 
@@ -34,8 +34,8 @@ Als een wereldwijd gedistribueerde database biedt Cosmos DB uitgebreide Sla's le
 
 |Bewerkingstype  | Één regio |Meerdere regio's (schrijfbewerkingen in één regio)|Meerdere regio's (schrijfbewerkingen in meerdere regio's) |
 |---------|---------|---------|-------|
-|Schrijfbewerkingen    | 99,99    |99,99   |99,999|
-|Leesbewerkingen     | 99,99    |99,999  |99,999|
+|Schrijfbewerkingen    | 99.99    |99.99   |99.999|
+|Leesbewerkingen     | 99.99    |99.999  |99.999|
 
 > [!NOTE]
 > De beschikbaarheid van de werkelijke schrijven voor gebonden veroudering, sessie, consistent voorvoegsel en uiteindelijke consistentiemodellen is in de praktijk aanzienlijk hoger is dan de gepubliceerde Sla's. De werkelijke leesbeschikbaarheid voor alle consistentieniveaus is aanzienlijk hoger dan de gepubliceerde Sla's.
@@ -48,7 +48,7 @@ Regionale storingen niet ongebruikelijk en Azure Cosmos DB zorgt ervoor dat de d
 
 - Accounts voor meerdere regio's geconfigureerd met meerdere schrijfregio's is maximaal beschikbaar zijn voor zowel schrijfbewerkingen en leesbewerkingen. Regionale failovers worden onmiddellijk en eventuele wijzigingen van de toepassing vereisen.
 
-- Accounts voor meerdere regio's met een één-schrijfregio: Tijdens een storing in de regio schrijven, wordt deze accounts hoge mate beschikbaar blijven voor leesbewerkingen. Echter, wordt het schrijven van moet u 'inschakelen automatische failover' op uw Cosmos-account voor de failover de betrokken regio naar een andere regio die is gekoppeld. De failover wordt uitgevoerd in volgorde van de regio prioriteit die u hebt opgegeven. Uiteindelijk, wanneer het betrokken gebied weer online is, wordt de niet-gerepliceerde gegevens aanwezig zijn in de betrokken schrijfregio gedurende de storing beschikbaar gesteld via de feed conflicten. Toepassingen kunnen lezen de conflicten feed, de conflicten op basis van toepassingsspecifieke logica en de bijgewerkte gegevens teruggeschreven naar de container van Cosmos waar nodig. Zodra de eerder betrokken schrijfregio wordt hersteld, wordt deze automatisch beschikbaar gesteld als een leesregio. U kunt aanroepen van een handmatige failover en het configureren van de betrokken regio als de schrijfregio. U kunt een handmatige failover doen met behulp van [Azure CLI of Azure-portal](how-to-manage-database-account.md#manual-failover).  
+- Accounts voor meerdere regio's met een één-schrijfregio: Tijdens een storing in de regio schrijven, wordt deze accounts hoge mate beschikbaar blijven voor leesbewerkingen. Echter, wordt het schrijven van moet u 'inschakelen automatische failover' op uw Cosmos-account voor de failover de betrokken regio naar een andere regio die is gekoppeld. De failover wordt uitgevoerd in volgorde van de regio prioriteit die u hebt opgegeven. Uiteindelijk, wanneer het betrokken gebied weer online is, wordt de niet-gerepliceerde gegevens aanwezig zijn in de betrokken schrijfregio gedurende de storing beschikbaar gesteld via de feed conflicten. Toepassingen kunnen lezen de conflicten feed, de conflicten op basis van toepassingsspecifieke logica en de bijgewerkte gegevens teruggeschreven naar de container van Cosmos waar nodig. Zodra de eerder betrokken schrijfregio wordt hersteld, wordt deze automatisch beschikbaar gesteld als een leesregio. U kunt aanroepen van een handmatige failover en het configureren van de betrokken regio als de schrijfregio. U kunt een handmatige failover doen met behulp van [Azure CLI of Azure-portal](how-to-manage-database-account.md#manual-failover). Er is **zonder verlies van gegevens of beschikbaarheid** voor, tijdens of na de handmatige failover. Uw toepassing nog steeds maximaal beschikbaar. 
 
 - Accounts voor meerdere regio's met een één-schrijfregio: Deze accounts wordt tijdens een storing leesregio hoge mate beschikbaar blijven voor lees- en schrijfbewerkingen. Het betrokken gebied automatisch vanuit de schrijfregio wordt afgebroken en offline worden gemarkeerd. De Cosmos DB SDK's worden gelezen aanroepen naar de volgende beschikbare regio in de lijst met voorkeursregio omgeleid. Als geen van de regio's in de lijst met voorkeursregio beschikbaar is, terugvallen gesprekken automatisch op de huidige schrijfregio. Er zijn geen wijzigingen zijn vereist in uw toepassingscode om af te handelen leesregio onderbreking. Uiteindelijk, wanneer het betrokken gebied weer online is, de eerder betrokken leesregio wordt automatisch een synchronisatie met de huidige schrijfregio en beschikbaar opnieuw om te lezen aanvragen verwerken. Opeenvolgende leesbewerkingen worden omgeleid naar de herstelde regio zonder wijzigingen in uw toepassingscode. Tijdens de failover zowel lukt van een eerder mislukte regio, blijven lezen consistentiegarantie worden herkend door Cosmos DB.
 

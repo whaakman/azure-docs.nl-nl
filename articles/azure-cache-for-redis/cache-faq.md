@@ -3,7 +3,7 @@ title: Azure voor veelgestelde vragen over Redis-Cache | Microsoft Docs
 description: Meer van de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Cache voor Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: wesmc
-ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: yegu
+ms.openlocfilehash: 3a0fb06acd9fc798f1528a1487ae0682135187ca
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199913"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402388"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Veelgestelde vragen over Azure Cache voor Redis
 Informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Cache voor Redis.
@@ -137,11 +137,11 @@ We kunnen de volgende conclusies te trekken uit deze tabel:
 | --- | --- | --- | --- | --- | --- |
 | **Standaard cachegrootte** | | |**Megabits per seconde (Mb/s) / MB per seconde (MB/s)** |**Aanvragen per seconde (RPS) niet-SSL** |**Aanvragen per seconde (RPS) SSL** |
 | C0 |250 MB |Gedeeld |100 / 12.5 |15.000 |7.500 |
-| C1 |1 GB |1 |500 / 62.5 |38.000 |20,720 |
+| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102.000 |93,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
 | **Premium-cachegrootte** | |**CPU-kernen per shard** | **Megabits per seconde (Mb/s) / MB per seconde (MB/s)** |**Aanvragen per seconde (RPS) niet-SSL, per shard** |**Aanvragen per seconde (RPS) SSL, per shard** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
@@ -210,7 +210,7 @@ De standaardwaarden van de client zijn meestal voldoende. U kunt de opties op ba
       * In deze richtlijnen kan leiden tot meer latentie per gestroomlijnd `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Welke Azure Cache voor Redis-clients kan ik gebruiken?
-Een van de geweldige dingen over Redis is dat er veel clients ondersteunt veel verschillende programmeertalen. Zie voor een huidige lijst van clients, [Redis-clients](https://redis.io/clients). Zie voor een zelfstudie die betrekking hebben op meerdere verschillende talen en -clients, [over het gebruik van Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en klik op de gewenste taal van de wisselaar taal aan de bovenkant van het artikel.
+Een van de geweldige dingen over Redis is dat er veel clients ondersteunt veel verschillende programmeertalen. Zie voor een huidige lijst van clients, [Redis-clients](https://redis.io/clients). Zie voor een zelfstudie die betrekking hebben op meerdere verschillende talen en -clients, [over het gebruik van Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en de artikelen op hetzelfde niveau in de tabel van de inhoud van.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -259,7 +259,7 @@ U kunt de opdrachten die wordt vermeld op [Redis-opdrachten](https://redis.io/co
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Waarom niet Azure voor Redis-Cache hebt u een MSDN-klassebibliotheekverwijzing zoals enkele van de andere Azure-services?
 Microsoft Azure Cache voor Redis is gebaseerd op de populaire open source Azure Cache voor Redis- en kan worden geopend door een groot aantal verschillende [Redis-clients](https://redis.io/clients) voor veel programmeertalen. Elke client heeft een eigen API waarmee aanroepen naar de Azure-Cache voor het gebruik van Redis-exemplaar [Redis-opdrachten](https://redis.io/commands).
 
-Omdat elke client anders is, er is niet een gecentraliseerde klassenverwijzing op MSDN en elke client een eigen naslagdocumentatie onderhoudt. Naast de naslagdocumentatie zijn er verschillende zelfstudies waarin wordt beschreven hoe u aan de slag met Azure Cache voor Redis met behulp van verschillende talen en clients in de cache. Voor toegang tot deze zelfstudies, Zie [over het gebruik van Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en klik op de gewenste taal van de wisselaar taal aan de bovenkant van het artikel.
+Omdat elke client anders is, er is niet een gecentraliseerde klassenverwijzing op MSDN en elke client een eigen naslagdocumentatie onderhoudt. Naast de naslagdocumentatie zijn er verschillende zelfstudies waarin wordt beschreven hoe u aan de slag met Azure Cache voor Redis met behulp van verschillende talen en clients in de cache. Voor toegang tot deze zelfstudies, Zie [over het gebruik van Azure Cache voor Redis](cache-dotnet-how-to-use-azure-redis-cache.md) en de artikelen op hetzelfde niveau in de tabel van inhoud.
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>Kan ik Azure Cache voor Redis gebruiken als de cache van een PHP-sessie?
 Ja, voor het gebruik van Azure Cache voor Redis als de cache van een PHP-sessie, geef de verbindingsreeks naar uw Azure-Cache voor Redis-exemplaar in `session.save_path`.

@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 216a2e31074f7afe944611de12fe2d45d9d236cf
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050112"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413750"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET
 
@@ -55,7 +55,7 @@ Voor .NET-toepassingen, de eenvoudigste manier om te werken met een beheerde ide
 
 De `AzureServiceTokenProvider` klasse in de cache van het token in het geheugen opgeslagen en opgehaald uit Azure AD net voordat het verloopt. Als gevolg hiervan, u hoeft niet langer om te controleren is verlopen voordat de `GetAccessTokenAsync` methode. Roept de methode als u wilt dat het token wordt gebruikt. 
 
-De `GetAccessTokenAsync` methode vereist een resource-id. Zie voor meer informatie, [welke Azure-services ondersteunen beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+De `GetAccessTokenAsync` methode vereist een resource-id. Zie voor meer informatie, [welke Azure-services ondersteunen beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
 
 <a name="samples"></a>

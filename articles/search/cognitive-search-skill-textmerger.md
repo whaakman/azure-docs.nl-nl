@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 2ef5d285c19900fd2896279edde8841581d7e947
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: f5e29f29a02509775347b491b8a11816cbbacd05
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388169"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413770"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Tekst samenvoegen cognitieve vaardigheden
 
 De **tekst samenvoegen** vaardigheid consolideert tekst uit een verzameling van velden in één veld. 
 
 > [!NOTE]
-> Deze kwalificatie is niet gebonden aan een Cognitive Services-API en er zijn geen kosten die zijn gekoppeld aan deze kwalificatie. U moet echter [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md) toch voor de onderdrukking van de optie gratis resource die u beperkt tot een klein aantal dagelijkse enrichments.
+> Deze kwalificatie is niet gebonden aan een Cognitive Services-API en u niet worden in rekening gebracht voor het gebruik ervan. U moet nog steeds [een Cognitive Services-resource koppelen](cognitive-search-attach-cognitive-services.md), echter overschrijven de **gratis** resource-optie waarmee u een klein aantal dagelijkse enrichments per dag wordt beperkt.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

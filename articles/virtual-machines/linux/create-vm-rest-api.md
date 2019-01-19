@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433477"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412186"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Een Linux-machine die gebruikmaakt van SSH-verificatie met de REST-API maken
 
@@ -35,7 +35,7 @@ Dit artikel leest u hoe de REST-API gebruiken om te maken van een Linux-VM waaro
 Voordat u maken en de aanvraag indienen, gaat u te werk:
 
 * De `{subscription-id}` voor uw abonnement
-  * Als u meerdere abonnementen hebt, raadpleegt u [met meerdere abonnementen werken](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+  * Als u meerdere abonnementen hebt, raadpleegt u [met meerdere abonnementen werken](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * Een `{resourceGroupName}` u vooraf hebt gemaakt
 * Een [virtuele netwerkinterface](../../virtual-network/virtual-network-network-interface.md) in dezelfde resourcegroep bevinden
 * Een SSH-sleutelpaar (u kunt [een nieuw token genereren](mac-create-ssh-keys.md) als u geen een hebt)
@@ -52,7 +52,7 @@ Naast de `{subscription-id}` en `{resourceGroupName}` parameters, moet u om op t
 
 De volgende headers zijn vereist:
 
-| Aanvraagheader   | Beschrijving |
+| Aanvraagheader   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | Vereist. Ingesteld op `application/json`. |
 | *Autorisatie:* | Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
@@ -63,11 +63,11 @@ Raadpleeg voor algemene informatie over het werken met REST API-aanvragen [onder
 
 De volgende algemene definities worden gebruikt voor het bouwen van een aanvraagtekst:
 
-| Naam                       | Vereist | Type                                                                                | Beschrijving  |
+| Name                       | Vereist | Type                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | tekenreeks                                                                              | Resourcelocatie. |
-| naam                       |          | tekenreeks                                                                              | Naam voor de virtuele machine. |
-| properties.hardwareProfile |          | [Het HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Hiermee geeft u de hardware-instellingen voor de virtuele machine. |
+| location                   | True     | string                                                                              | Resourcelocatie. |
+| naam                       |          | string                                                                              | Naam voor de virtuele machine. |
+| properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Hiermee geeft u de hardware-instellingen voor de virtuele machine. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Hiermee geeft u de opslaginstellingen voor de virtuele-machineschijven. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Hiermee geeft u de instellingen van het besturingssysteem voor de virtuele machine. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Hiermee geeft u de netwerkinterfaces van de virtuele machine. |
@@ -137,7 +137,7 @@ U kunt de client van uw voorkeur voor het verzenden van deze HTTP-aanvraag. U ku
 
 Er zijn twee gelukt-antwoorden voor de bewerking voor het maken of bijwerken van een virtuele machine:
 
-| Naam        | Type                                                                              | Beschrijving |
+| Name        | Type                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201-gemaakt | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Gemaakt     |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c5667d5fafdc01e8568f459b675d91ace9b8869a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1916144ab2c8d5b5f0ae8f5ec87bfbf03cf4629d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023750"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413886"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -87,7 +87,7 @@ U kunt weergeven en wijzigen van de meeste instellingen voor een netwerkinterfac
     - **Effectieve routes:** Routes worden weergegeven als de netwerkinterface is gekoppeld aan een actieve virtuele machine. De routes zijn een combinatie van de Azure standaardroutes, een door de gebruiker gedefinieerde routes en een BGP-routes die mogelijk aanwezig zijn voor het subnet dat de netwerkinterface wordt toegewezen aan. Zie voor meer informatie over wat wordt weergegeven, [effectieve routes weergeven](#view-effective-routes). Zie voor meer informatie over Azure standaardroutes en de gebruiker gedefinieerde routes, [routeringoverzicht](virtual-networks-udr-overview.md).
     - **Algemene Azure Resource Manager-instellingen:**  Zie voor meer informatie over algemene Azure Resource Manager-instellingen, [activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md), [toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), en [ Automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
-<a name="view-settings-commands"></a>**Opdrachten**
+<a name="view-settings-commands"></a>**Commands**
 
 Als een IPv6-adres is toegewezen aan een netwerkinterface, retourneert de PowerShell-uitvoer het feit dat het adres wordt toegewezen, maar de App het toegewezen adres niet retourneren. Op dezelfde manier de CLI geeft als resultaat van het feit dat het adres is toegewezen, maar retourneert *null* in de uitvoer van het adres.
 
@@ -105,14 +105,14 @@ De DNS-server wordt toegewezen door de Azure DHCP-server aan de netwerkinterface
 3. Selecteer **DNS-servers** onder **instellingen**.
 4. Selecteer een:
     - **Overnemen van virtueel netwerk**: Selecteer deze optie overgenomen van de DNS-serverinstellingen voor het virtuele netwerk dat de netwerkinterface wordt toegewezen aan gedefinieerd. Op het niveau van het virtuele netwerk, is een aangepaste DNS-server of de Azure DNS-server gedefinieerd. De Azure DNS-server kan omzetten van hostnamen voor resources die zijn toegewezen aan hetzelfde virtuele netwerk. FQDN-naam moet worden gebruikt om op te lossen voor resources in verschillende virtuele netwerken zijn toegewezen.
-    - **Aangepaste**: U kunt uw eigen DNS-server voor het omzetten van namen aan meerdere virtuele netwerken configureren. Voer het IP-adres van de server die u wilt gebruiken als een DNS-server. Het adres van de DNS-server u geeft alleen voor deze netwerkinterface wordt toegewezen, en overschrijft alle DNS-instellingen voor het virtuele netwerk dat de netwerkinterface wordt toegewezen aan.
+    - **Aangepast**: U kunt uw eigen DNS-server voor het omzetten van namen aan meerdere virtuele netwerken configureren. Voer het IP-adres van de server die u wilt gebruiken als een DNS-server. Het adres van de DNS-server u geeft alleen voor deze netwerkinterface wordt toegewezen, en overschrijft alle DNS-instellingen voor het virtuele netwerk dat de netwerkinterface wordt toegewezen aan.
 5. Selecteer **Opslaan**.
 
 **Opdrachten**
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>In- of uitschakelen van doorsturen via IP
@@ -133,7 +133,7 @@ De instelling moet worden ingeschakeld voor elke netwerkinterface die is gekoppe
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Subnettoewijzing wijzigen
@@ -167,7 +167,7 @@ U kunt alleen een netwerkinterface toevoegen of verwijderen van een netwerkinter
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="associate-or-dissociate-a-network-security-group"></a>Koppelen of ontkoppelen van een netwerkbeveiligingsgroep
@@ -199,7 +199,7 @@ Wanneer u een netwerkinterface verwijdert, worden alle MAC of het IP-adressen wo
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic delete](/cli/azure/network/nic#az_network_nic_delete)|
+|CLI|[AZ network nic delete](/cli/azure/network/nic)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="resolve-connectivity-issues"></a>Verbindingsproblemen oplossen

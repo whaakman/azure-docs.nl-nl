@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 024cf099dd65db036ae0b68d7094a60427ffa69c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f16dbd743f7e5bb659d05325f85255223feb677d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119881"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411513"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Over het maken van een virtuele Linux-machine in Azure met meerdere netwerkinterfacekaarten
 
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Maken en configureren van meerdere NIC 's
-Maak twee NIC's met [az network nic maken](/cli/azure/network/nic#az_network_nic_create). Het volgende voorbeeld maakt u twee NIC's, met de naam *myNic1* en *myNic2*, de netwerkbeveiligingsgroep die zijn verbonden met één NIC verbinding te maken met elk subnet:
+Maak twee NIC's met [az network nic maken](/cli/azure/network/nic). Het volgende voorbeeld maakt u twee NIC's, met de naam *myNic1* en *myNic2*, de netwerkbeveiligingsgroep die zijn verbonden met één NIC verbinding te maken met elk subnet:
 
 ```azurecli
 az network nic create \
@@ -105,7 +105,7 @@ Routering tabellen toevoegen aan het gastbesturingssysteem te installeren via de
 ## <a name="add-a-nic-to-a-vm"></a>Een NIC toevoegen aan een virtuele machine
 De vorige stappen een virtuele machine met meerdere NIC's gemaakt. U kunt ook NIC's toevoegen aan een bestaande virtuele machine met de Azure CLI. Verschillende [VM-grootten](sizes.md) een verschillend aantal NIC's ondersteunen, dus het formaat van uw virtuele machine dienovereenkomstig. Indien nodig, kunt u [vergroten of verkleinen van een virtuele machine](change-vm-size.md).
 
-Maak een andere NIC met [az network nic maken](/cli/azure/network/nic#az_network_nic_create). Het volgende voorbeeld wordt een NIC met de naam *myNic3* verbonden met het subnet en netwerk-beveiligingsgroep van back-end, die in de vorige stappen is gemaakt:
+Maak een andere NIC met [az network nic maken](/cli/azure/network/nic). Het volgende voorbeeld wordt een NIC met de naam *myNic3* verbonden met het subnet en netwerk-beveiligingsgroep van back-end, die in de vorige stappen is gemaakt:
 
 ```azurecli
 az network nic create \
