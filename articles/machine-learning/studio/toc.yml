@@ -57,34 +57,13 @@ items:
     href: r-quickstart.md
 - name: Voorbeelden
   items:
+  - name: Voorbeeldexperimenten
+    displayName: gallery
+    href: sample-experiments.md
   - name: Voorbeeldgegevenssets
     href: use-sample-datasets.md
-  - name: Voorbeeld van klantverloop
-    href: azure-ml-customer-churn-scenario.md
   - name: Azure AI-galerie
-    items:
-    - name: Overzicht
-      href: gallery-how-to-use-contribute-publish.md
-    - name: Voorbeeldexperimenten
-      href: sample-experiments.md
-    - name: Bedrijfstakken
-      href: gallery-industries.md
-    - name: Oplossingen
-      href: gallery-solutions.md
-    - name: Experimenten
-      href: gallery-experiments.md
-    - name: Jupyter Notebooks
-      href: gallery-jupyter-notebooks.md
-    - name: Wedstrijden
-      href: gallery-competitions.md
-    - name: Veelgestelde vragen over wedstrijden
-      href: competition-faq.md
-    - name: Zelfstudies
-      href: gallery-tutorials.md
-    - name: Verzamelingen
-      href: gallery-collections.md
-    - name: Aangepaste modules
-      href: gallery-custom-modules.md
+    href: gallery-how-to-use-contribute-publish.md
 - name: Concepten
   items:
   - name: Modelbeheer
@@ -102,9 +81,6 @@ items:
       href: troubleshooting-creating-ml-workspace.md
     - name: Implementeren met ARM
       href: deploy-with-resource-manager-template.md
-    - name: Studio-accountgegevens weergeven en verwijderen
-      displayName: export
-      href: export-delete-personal-data-dsr.md
   - name: Trainingsgegevens importeren
     items:
     - name: Overzicht
@@ -127,16 +103,10 @@ items:
     - name: PowerShell gebruiken om modellen te maken
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
-    - name: Algoritmen selecteren
-      items:
-      - name: Algoritmen kiezen
-        href: algorithm-choice.md
-      - name: Overzichtskaart algoritmen
-        href: algorithm-cheat-sheet.md
-      - name: Lineaire regressie gebruiken
-        href: linear-regression-in-azure.md
-      - name: Tekstanalyse gebruiken
-        href: text-analytics-module-tutorial.md
+    - name: Algoritmen kiezen
+      href: algorithm-choice.md
+    - name: Overzichtskaart algoritmen
+      href: algorithm-cheat-sheet.md
     - name: Resultaten evalueren en interpreteren
       items:
       - name: Prestaties evalueren
@@ -212,7 +182,19 @@ items:
       href: consume-web-service-with-web-app-template.md
     - name: Een Batch-pool gebruiken
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Accountgegevens weergeven en verwijderen
+  - name: Voorbeelden
+    items:
+    - name: Klantverloop
+      href: azure-ml-customer-churn-scenario.md
+    - name: Sentimentanalyse
+      href: text-analytics-module-tutorial.md
+    - name: Analytics vanuit Excel naar Studio migreren
+      href: linear-regression-in-azure.md
+  - name: Studio-gegevens weergeven en verwijderen
+    displayName: export
+    href: export-delete-personal-data-dsr.md
+  - name: Galeriegegevens weergeven en verwijderen
+    displayName: export
     href: ai-gallery-control-personal-data-dsr.md
 - name: Naslaginformatie
   items:
@@ -244,9 +226,9 @@ items:
     href: azure-ml-netsharp-reference-guide.md
   - name: Onze ML-producten vergelijken
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 821a6ffb787aef0d75dbc0f9e1ab331ad35dafa0
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a79ff2e7b2fba67e5c341468b462eacd07e2693c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389922"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401942"
