@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3bbd9bc7f213f117b2389f0a2526a75fef6f0234
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 71911c3e196a05b9e10c719afe8f3b44522e6b02
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318681"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437909"
 ---
 # <a name="getting-compliance-data"></a>Nalevingsgegevens ophalen
 
@@ -283,7 +283,7 @@ Zie voor meer informatie over het uitvoeren van query's Beleidsgebeurtenissen, d
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-De Azure PowerShell-module voor het beleid is beschikbaar op de PowerShell Gallery als [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). U PowerShellGet gebruikt, kunt u Installeer de module met `Install-Module -Name AzureRM.PolicyInsights` (Zorg ervoor dat u hebt de meest recente [Azure PowerShell](/powershell/azure/install-azurerm-ps) geïnstalleerd):
+De Azure PowerShell-module voor het beleid is beschikbaar op de PowerShell Gallery als [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). U PowerShellGet gebruikt, kunt u Installeer de module met `Install-Module -Name AzureRM.PolicyInsights` (Zorg ervoor dat u hebt de meest recente [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) geïnstalleerd):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet

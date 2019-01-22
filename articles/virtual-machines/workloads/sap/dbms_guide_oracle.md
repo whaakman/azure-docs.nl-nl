@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 65c685936fabab65698a077f22c2dfde17469055
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435681"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436413"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Oracle Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
 
@@ -235,7 +235,7 @@ ms.locfileid: "53435681"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -363,10 +363,10 @@ Voor het identificeren van de ondersteunde typen Azure VM's, verwijzen naar SAP-
 Minimale configuratie:
 | Onderdeel | Schijf | Caching | Opslaggroep |
 | --- | ---| --- | --- |
-| \oracle\<SID > \origlogaA & mirrlogB | Premium | Geen | Niet nodig |
+| \oracle\<SID>\origlogaA & mirrlogB | Premium | Geen | Niet nodig |
 | \oracle\<SID > \origlogaB & mirrlogA | Premium | Geen | Niet nodig |
-| \oracle\<SID > \sapdata1...n | Premium | Alleen-lezen | Kan worden gebruikt |
-| \oracle\<SID > \oraarch | Standard | Geen | Niet nodig |
+| \oracle\<SID>\sapdata1...n | Premium | Alleen-lezen | Kan worden gebruikt |
+| \oracle\<SID>\oraarch | Standard | Geen | Niet nodig |
 | Oracle thuis, saptrace... | Besturingssysteemschijf | | Niet nodig |
 
 
@@ -375,13 +375,13 @@ Schijven selecteren voor het hosten van Logboeken van de online opnieuw moet wor
 Prestaties configureren:
 | Onderdeel | Schijf | Caching | Opslaggroep |
 | --- | ---| --- | --- |
-| \oracle\<SID > \origlogaA | Premium | Geen | Kan worden gebruikt  |
-| \oracle\<SID > \origlogaB | Premium | Geen | Kan worden gebruikt |
-| \oracle\<SID > \mirrlogAB | Premium | Geen | Kan worden gebruikt |
-| \oracle\<SID > \mirrlogBA | Premium | Geen | Kan worden gebruikt |
-| \oracle\<SID > \sapdata1...n | Premium | Alleen-lezen | Aanbevolen  |
-| \oracle\SID\sapdata(n+1) * | Premium | Geen | Kan worden gebruikt |
-| \oracle\<SID > \oraarch* | Premium | Geen | Niet nodig |
+| \oracle\<SID>\origlogaA | Premium | Geen | Kan worden gebruikt  |
+| \oracle\<SID>\origlogaB | Premium | Geen | Kan worden gebruikt |
+| \oracle\<SID>\mirrlogAB | Premium | Geen | Kan worden gebruikt |
+| \oracle\<SID>\mirrlogBA | Premium | Geen | Kan worden gebruikt |
+| \oracle\<SID>\sapdata1...n | Premium | Alleen-lezen | Aanbevolen  |
+| \oracle\SID\sapdata(n+1)* | Premium | Geen | Kan worden gebruikt |
+| \oracle\<SID>\oraarch* | Premium | Geen | Niet nodig |
 | Oracle thuis, saptrace... | Besturingssysteemschijf | Niet nodig |
 
 *(n+1) - systeem, TEMP en ongedaan maken tabelruimten hosten. De i/o-patroon van systeem en ongedaan maken tabelruimten zijn anders dan andere tabelruimten die als host fungeert voor toepassingsgegevens. Geen caching, is de beste optie voor prestaties van de tabelruimten systeem- en ongedaan maken.
@@ -448,7 +448,7 @@ Zoals uitgelegd in document [overwegingen voor Azure Virtual Machines DBMS-imple
 Voor het identificeren van de ondersteunde typen Azure VM's, verwijzen naar SAP-notitie [1928533]
 
 Minimale configuratie:
-| Onderdeel | Schijf | Caching | Verwijderen van oude * |
+| Onderdeel | Schijf | Caching | Stripping* |
 | --- | ---| --- | --- |
 | /Oracle/<SID>/origlogaA & mirrlogB | Premium | Geen | Niet nodig |
 | /Oracle/<SID>/origlogaB & mirrlogA | Premium | Geen | Niet nodig |
@@ -461,14 +461,14 @@ Minimale configuratie:
 De schijfselectie voor het hosten van Logboeken voor de Oracle-online opnieuw moet worden aangestuurd door IOPS-vereisten. Het is mogelijk voor het opslaan van alle sapdata1... n (tabelruimten) op één enkele gekoppelde schijf zolang volume, IOPS en doorvoer voldoet aan de vereisten. 
 
 Prestaties configureren:
-| Onderdeel | Schijf | Caching | Verwijderen van oude * |
+| Onderdeel | Schijf | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /Oracle/<SID>/origlogaA | Premium | Geen | Kan worden gebruikt  |
-| /Oracle/<SID>/origlogaB | Premium | Geen | Kan worden gebruikt |
+| /oracle/<SID>/origlogaA | Premium | Geen | Kan worden gebruikt  |
+| /oracle/<SID>/origlogaB | Premium | Geen | Kan worden gebruikt |
 | /Oracle/<SID>/mirrlogAB | Premium | Geen | Kan worden gebruikt |
 | /Oracle/<SID>/mirrlogBA | Premium | Geen | Kan worden gebruikt |
 | /Oracle/<SID>/sapdata1...n | Premium | Alleen-lezen | Aanbevolen  |
-| /Oracle/SID/sapdata(n+1)* | Premium | Geen | Kan worden gebruikt |
+| /oracle/SID/sapdata(n+1)* | Premium | Geen | Kan worden gebruikt |
 | /Oracle/<SID>/oraarch* | Premium | Geen | Niet nodig |
 | Oracle thuis, saptrace... | Besturingssysteemschijf | Niet nodig |
 

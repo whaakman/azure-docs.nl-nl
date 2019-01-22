@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e8aaf7b3d0ff17682d0288939136cc6d2f1bfd89
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298571"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437620"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-factor Authentication-Server configureren voor maximale beschikbaarheid
 
@@ -37,7 +37,7 @@ Na een succesvolle verificatie met AD communiceert de MFA-Server met de MFA-Serv
 
 Als de hoofd-MFA-server offline gaat, worden verificaties nog steeds kunnen worden verwerkt, maar bewerkingen waarvoor wijzigingen in de MFA-database kunnen niet worden verwerkt. (Voorbeelden zijn onder meer: het toevoegen van gebruikers, selfservice PINCODE wijzigen en wijzigen van gebruikersgegevens)
 
-## <a name="deployment"></a>Distributie
+## <a name="deployment"></a>Implementatie
 
 Houd rekening met de volgende belangrijke punten voor taakverdeling van Azure MFA-Server en de bijbehorende onderdelen.
 

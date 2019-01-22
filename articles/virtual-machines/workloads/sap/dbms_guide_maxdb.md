@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5f71e104e97ab886483d50760f0a42936a16717
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 26159c4b563d5f60c40cce9b0b805abe0a7195fd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157306"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436634"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB liveCache en implementatie van de Server voor webinhoud op Azure Virtual machines
 
@@ -235,7 +235,7 @@ ms.locfileid: "54157306"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -469,7 +469,7 @@ Als u de SAP-Server voor webinhoud voor het opslaan van bestanden in de database
 
 Als u de SAP-Server voor webinhoud voor het opslaan van bestanden in het bestandssysteem is geconfigureerd, wordt een optie is voor het uitvoeren van handmatige back-up of herstellen van de structuur van het hele bestand waar de documenten moeten zich bevinden. Net als bij SAP MaxDB back-up/herstel, het is aanbevolen dat een toegewezen schijfvolume voor back-doel. 
 
-#### <a name="other"></a>Anders
+#### <a name="other"></a>Overige
 Andere inhoud SAP-Server-instellingen zijn transparant voor de Azure-VM's en worden beschreven in verschillende documenten en SAP-opmerkingen:
 
 * <https://service.sap.com/contentserver> 

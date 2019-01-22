@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f720cdf369e7377f16bb2ea9cba7e898097cc29
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 4dfe4140fbc4238af014d838d31aae167cdd1c16
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359779"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438759"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profiel web-apps die worden uitgevoerd op een Azure-machine of een virtuele-machineschaalset instellen met behulp van Application Insights Profiler
 
@@ -29,7 +29,7 @@ U kunt ook Azure Application Insights Profiler implementeren voor deze services:
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Profiler implementeren op een virtuele machine of een virtuele-machineschaalset
 In dit artikel wordt beschreven hoe u Application Insights Profiler wordt uitgevoerd op uw virtuele Azure-machine (VM) of Azure virtuele-machineschaalset ophalen. Profiler is geïnstalleerd met de Azure Diagnostics-extensie voor VM's. De uitbreiding voor het uitvoeren van Profiler configureren en de Application Insights SDK inbouwen in uw toepassing.
 
-1. Voeg de Application Insights-SDK op uw [ASP.NET-toepassing](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) of gewone [.NET-toepassing](https://docs.microsoft.com/azure/application-insights/windows-services?toc=/azure/azure-monitor/toc.json).  
+1. Voeg de Application Insights-SDK op uw [ASP.NET-toepassing](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) of gewone [.NET-toepassing](windows-services.md?toc=/azure/azure-monitor/toc.json).  
   Als u profielen voor het aanvragen, moet u aanvraagtelemetrie verzenden naar Application Insights.
 
 1. Azure Diagnostics-extensie installeren op uw virtuele machine. Zie voor sjabloonvoorbeelden in de volledige Resource Manager:  
@@ -88,6 +88,6 @@ Er zijn geen plannen voor de ondersteuning van Application Insights Profiler voo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Genereren van verkeer naar uw toepassing (bijvoorbeeld: launch een [beschikbaarheidstest](https://docs.microsoft.com/azure/application-insights/monitor-web-app-availability)). Wacht 10 tot 15 minuten voor traceringen om te worden verzonden naar de Application Insights-exemplaar.
-- Zie [Profiler-traceringen](https://docs.microsoft.com/azure/application-insights/profiler-overview?toc=/azure/azure-monitor/toc.json) in Azure portal.
+- Genereren van verkeer naar uw toepassing (bijvoorbeeld: launch een [beschikbaarheidstest](monitor-web-app-availability.md)). Wacht 10 tot 15 minuten voor traceringen om te worden verzonden naar de Application Insights-exemplaar.
+- Zie [Profiler-traceringen](profiler-overview.md?toc=/azure/azure-monitor/toc.json) in Azure portal.
 - Zie voor hulp bij het oplossen van problemen van Profiler, [Profiler probleemoplossing](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

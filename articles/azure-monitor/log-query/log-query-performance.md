@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: bwren
-ms.openlocfilehash: f7eca75c6c445f801ad5c4dbc080d2ece9dc23f9
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 25d6b582ed4d4e24df3841f4191471296e25abd8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392229"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436329"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>Efficiënte logboeken-query's schrijven in Azure Monitor
 In dit artikel bevat aanbevelingen voor het schrijven van efficiënte logboeken-query's in Azure Monitor. Met behulp van deze strategieën, kunt u ervoor dat uw query's wordt uitgevoerd, snel en met minimale overheard.
@@ -41,7 +41,7 @@ search in (exceptions) "The server was not found"
 search in (exceptions, customEvents) "timeout"
 ```
 
-Gebruik [union](/kusto/query/unionoperator) query uitvoeren op meerdere tabellen als volgt:
+Gebruik [union](/azure/kusto/query/unionoperator) query uitvoeren op meerdere tabellen als volgt:
 
 ``` Kusto
 union requests, traces | ...

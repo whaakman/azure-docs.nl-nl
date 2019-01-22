@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1b488e938cf314eef18117ffd33f582319260162
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427724"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438776"
 ---
-# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Hoe: inschakelen voor wachtwoord opnieuw instellen van Windows 7, 8 en 8.1
+# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedure: Wachtwoord opnieuw instellen van Windows 7, 8 en 8.1 inschakelen
 
 Als een beheerder u selfservice voor wachtwoordherstel (SSPR) hebt ingeschakeld, maar gebruikers blijven aanroepen van de helpdesk om hun wachtwoord opnieuw instellen omdat ze geen toegang hebt tot een browservenster geopend voor toegang tot de [SSPR-portal](https://aka.ms/sspr). Voor Windows 10-computers, kunt u de koppeling 'Wachtwoord opnieuw instellen' op het aanmeldingsscherm met behulp van de zelfstudie [Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm](tutorial-sspr-windows.md), de volgende richtlijnen, helpt u bij het inschakelen van Windows 7, 8 en 8.1 gebruikers opnieuw in te stellen het wachtwoord met behulp van self-service voor Wachtwoordherstel op het aanmeldingsscherm van Windows.
 
@@ -74,7 +74,7 @@ Als aanvullende logboekregistratie vereist is, kan een registersleutel op de mac
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
 ```
 
-* Voor uitgebreide logboekregistratie inschakelen, maakt u een REG_DWORD: 'EnableLogging', en stel deze in op 1.
+* Maak een REG_DWORD zodat uitgebreide logboekregistratie: 'EnableLogging', en stel deze in op 1.
 * Voor uitgebreide logboekregistratie uitschakelen, wijzigt u de REG_DWORD "EnableLogging" in 0.
 
 Als uw Windows 7, 8 en 8.1 machines achter een proxyserver of firewall, moet de HTTPS-verkeer (443) naar passwordreset.microsoftonline.com worden toegestaan.

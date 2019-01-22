@@ -3,18 +3,18 @@ title: VM's starten/stoppen buiten kantooruren oplossing
 description: Deze oplossing voor het beheer van virtuele machine wordt gestart en stopt met uw virtuele machines van Azure Resource Manager volgens een planning en proactief bewaakt vanuit Log Analytics.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f1ed355e7df6a58096743fd57ca1cbc65578d285
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194263"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439133"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -101,7 +101,7 @@ Dit scenario is de standaardconfiguratie wanneer u eerst de oplossing implemente
 > [!NOTE]
 > De tijdzone is uw huidige tijdzone bij het configureren van de parameter van de tijd plannen. Het is echter opgeslagen in UTC-notatie in Azure Automation. U hoeft niet te doen een tijdzoneconversie als dit wordt afgehandeld tijdens de implementatie.
 
-U bepalen welke VM's binnen het bereik zijn door het configureren van de volgende variabelen: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, en **External_ExcludeVMNames**.
+U bepalen welke VM's binnen het bereik zijn door het configureren van de volgende variabelen: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, and **External_ExcludeVMNames**.
 
 U kunt inschakelen die gericht is op de actie op basis van een abonnement en resourcegroep of die zijn gericht op een specifieke lijst met virtuele machines, maar niet beide.
 
@@ -191,7 +191,7 @@ Alle bovenliggende runbooks bevatten de _WhatIf_ parameter. Als de waarde **waar
 |Bootstrap_Main | geen | Één keer gebruikt voor het instellen van de bootstrap-configuraties, zoals webhookURI, die doorgaans niet toegankelijk vanuit Azure Resource Manager. Dit runbook wordt automatisch verwijderd na de implementatie is voltooid.|
 |ScheduledStartStop_Child | VM-naam <br> Actie: Starten of stoppen <br> ResourceGroupName | Met de naam van het bovenliggende runbook. Een actie starten of stoppen voor de geplande stoppen wordt uitgevoerd.|
 |ScheduledStartStop_Parent | Actie: Starten of stoppen <br>VMList <br> WhatIf: De waarde True of False | Deze instelling is van invloed op alle virtuele machines in het abonnement. Bewerk de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames** gericht alleen uitvoeren op deze resourcegroepen. U kunt ook specifieke virtuele machines uitsluiten door het bijwerken van de **External_ExcludeVMNames** variabele.<br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_.<br> _WhatIf_ valideert de runbooklogica zonder uit te voeren.|
-|SequencedStartStop_Parent | Actie: Starten of stoppen <br> WhatIf: De waarde True of False<br>VMList| Met de naam-tags maken **klikvolgorde** en **sequencestop** op elke virtuele machine waarvoor u te sequence starten/stoppen-activiteit wenst. De namen van deze tags zijn hoofdlettergevoelig. De waarde van de tag moet een positief geheel getal zijn (1, 2, 3) die overeenkomt met de volgorde waarin u wilt starten of stoppen. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_. <br> _WhatIf_ valideert de runbooklogica zonder uit te voeren. <br> **Houd er rekening mee**: Virtuele machines moeten zich binnen de resourcegroepen die zijn gedefinieerd als External_Start_ResourceGroupNames External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen. Ze beschikken over de juiste tags voor acties die moeten worden van kracht.|
+|SequencedStartStop_Parent | Actie: Starten of stoppen <br> WhatIf: De waarde True of False<br>VMList| Met de naam-tags maken **klikvolgorde** en **sequencestop** op elke virtuele machine waarvoor u te sequence starten/stoppen-activiteit wenst. De namen van deze tags zijn hoofdlettergevoelig. De waarde van de tag moet een positief geheel getal zijn (1, 2, 3) die overeenkomt met de volgorde waarin u wilt starten of stoppen. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_. <br> _WhatIf_ valideert de runbooklogica zonder uit te voeren. <br> **Opmerking**: VMs must be within resource groups defined as External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables. Ze beschikken over de juiste tags voor acties die moeten worden van kracht.|
 
 ### <a name="variables"></a>Variabelen
 
@@ -226,8 +226,8 @@ U moet alle schema's is niet inschakelen omdat dit mogelijk overlappende schema-
 |Schedule_AutoStop_CreateAlert_Parent | Om de 8 uur | Wordt uitgevoerd het AutoStop_CreateAlert_Parent runbook om de 8 uur, wat op zijn beurt voorkomt dat de waarden op basis van een virtuele machine in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen. U kunt ook kunt u een door komma's gescheiden lijst met virtuele machines met behulp van de parameter VMList.|
 |Scheduled_StopVM | Door de gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van _stoppen_ elke dag om de opgegeven tijd. Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door asset variabelen automatisch gestopt. Inschakelen van het bijbehorende schema **geplande StartVM**.|
 |Scheduled_StartVM | Door de gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van _Start_ elke dag om de opgegeven tijd. Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door de betreffende variabelen wordt automatisch gestart. Inschakelen van het bijbehorende schema **geplande StopVM**.|
-|Gesequentieerd StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van _stoppen_ elke vrijdag op het opgegeven tijdstip. Sequentieel worden verwerkt (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StartVM**.|
-|Gesequentieerd StartVM | 1:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van _Start_ elke maandag op het opgegeven tijdstip. Sequentieel worden verwerkt alle virtuele machines (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StopVM**.|
+|Sequenced-StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van _stoppen_ elke vrijdag op het opgegeven tijdstip. Sequentieel worden verwerkt (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StartVM**.|
+|Sequenced-StartVM | 1:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van _Start_ elke maandag op het opgegeven tijdstip. Sequentieel worden verwerkt alle virtuele machines (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen. Zie de sectie Runbooks voor meer informatie over tagwaarden en variabelen voor de asset. Inschakelen van het bijbehorende schema **geordende StopVM**.|
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
 
@@ -281,8 +281,8 @@ De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords di
 
 |Query’s uitvoeren | Description|
 |----------|----------|
-|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | waar (RunbookName_s == "ScheduledStartStop_Parent") | waar (ResultType == "Voltooid")  | samenvatten |AggregatedValue = count() by ResultType, bin (TimeGenerated, 1 uur) | sorteren op TimeGenerated desc'' '|
-|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | waar (RunbookName_s == "SequencedStartStop_Parent") | waar (ResultType == "Voltooid") | samenvatten |AggregatedValue = count() by ResultType, bin (TimeGenerated, 1 uur) | sorteren op TimeGenerated desc'' '|
+|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | waar (ResultType == "Voltooid")  | samenvatten |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sorteren op TimeGenerated desc'' '|
+|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | waar (ResultType == "Voltooid") | samenvatten |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sorteren op TimeGenerated desc'' '|
 
 ## <a name="viewing-the-solution"></a>De oplossing bekijken
 

@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 085923dd124a4f973a709f0e59a07ad4137c6901
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577943"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438493"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Hoe: uitgeschakeld Access Control Service naamruimten opnieuw activeren
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedure: Uitgeschakelde naamruimten van de Access Control Service opnieuw activeren
 
 In November 2017, hebben we aangekondigd dat Microsoft Azure Access Control Service (ACS), een service van Azure Active Directory (Azure AD), wordt stopgezet op 7 November 2018.
 
@@ -32,7 +32,7 @@ Op 3 oktober 2018, hebben we aangekondigd (via e-mail en [een blogbericht](https
 
 ## <a name="why-your-namespace-is-disabled"></a>Waarom uw naamruimte is uitgeschakeld
 
-Als u dit nog niet hebt aangemeld voor de extensie, gaan we het uitschakelen van ACS-naamruimten vanaf 7 November 2018. Als u de communicatie gemist en er nog opt-in voor de uitbreiding voor 4 februari 2019, volgt u de instructies in de volgende secties.
+Als u dit nog niet hebt aangemeld voor de extensie, gaan we het uitschakelen van ACS-naamruimten vanaf 7 November 2018. U moet hebt aangevraagd de extensie voor 4 februari 2019 al; anders niet mogelijk om in te schakelen van de naamruimten via PowerShell.
 
 > [!NOTE]
 > U moet een servicebeheerder of medebeheerder van het abonnement voor het uitvoeren van de PowerShell-opdrachten en verlengen.
@@ -57,7 +57,7 @@ U kunt PowerShell ACS lijst met alle ACS-naamruimten en opnieuw activeren die zi
 
         Hulp op een specifieke opdracht uitvoeren:
 
-        ```
+        ```powershell
         Get-Help [Command-Name] -Full
         ```
     
@@ -79,18 +79,45 @@ U kunt PowerShell ACS lijst met alle ACS-naamruimten en opnieuw activeren die zi
 
 ## <a name="request-an-extension"></a>Een verlenging van aanvragen
 
-1. Navigeer naar de ACS-naamruimte-beheerportal door te gaan naar `https://{your-namespace}.accesscontrol.windows.net`.
-1. Selecteer de **voorwaarden lezen** knop lezen de [bijgewerkt gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/access-control/), die wordt u doorgeleid naar een pagina met de bijgewerkte gebruiksvoorwaarden.
+We nemen nieuwe extensieaanvragen vanaf 21 januari 2019.
 
-    [![Selecteer de knop voorwaarden lezen](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+Gaan we het uitschakelen van naamruimten voor klanten die uitbreidingen voor 4 februari 2019 hebt aangevraagd. U kunt nog steeds naamruimten via PowerShell weer inschakelen, maar de naamruimten wordt uitgeschakeld na 48 uur opnieuw.
 
-1. Selecteer **aanvragen extensie** op de banner boven aan de pagina. De knop wordt alleen worden ingeschakeld nadat u de [gebruiksvoorwaarden bijgewerkt](https://azure.microsoft.com/support/legal/access-control/).
+Na 4 maart 2019 wordt klanten niet langer opnieuw inschakelen van alle naamruimten via PowerShell.
 
-    [![Selecteer de knop Request-extensie](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+Verder wordt niet meer automatisch worden goedgekeurd. Als u meer tijd om te migreren, neem dan contact op met [ondersteuning van Azure](https://portal.azure.com/#create/Microsoft.Support) voor een gedetailleerde migratie-tijdlijn.
 
-1. Nadat de aanvraag voor de domeinnaamextensie is geregistreerd, wordt de pagina wordt vernieuwd met een nieuwe banner boven aan de pagina.
+### <a name="to-request-an-extension"></a>Om aan te vragen van een uitbreiding
 
-    [![Bijgewerkte pagina met vernieuwd banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+1. Meld u aan bij de Azure-portal en maak een [nieuwe ondersteuningsaanvraag](https://portal.azure.com/#create/Microsoft.Support).
+1. Vul in nieuw aanvraagformulier voor de ondersteuning, zoals weergegeven in het volgende voorbeeld.
+
+    | Ondersteuning voor het veld | Waarde |
+    |-----------------------|--------------------|
+    | **Probleemtype** | `Technical` |
+    | **Abonnement** | Ingesteld op uw abonnement |
+    | **Service** | `All services` |
+    | **Resource** | `General question/Resource not available` |
+    | **Probleemtype** | `ACS to SAS Migration` |
+    | **Onderwerp** | Het probleem beschrijven |
+
+  ![Nieuwe aanvraag voor technische ondersteuning](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+
+<!--
+
+1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
+1. Select the **Read Terms** button to read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/), which will direct you to a page with the updated Terms of Use.
+
+    [![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+
+1. Select **Request Extension** on the banner at the top of the page. The button will only be enabled after you read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/).
+
+    [![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+
+1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
+
+    [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+-->
 
 ## <a name="help-and-support"></a>Help en ondersteuning
 
@@ -99,4 +126,4 @@ U kunt PowerShell ACS lijst met alle ACS-naamruimten en opnieuw activeren die zi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees de informatie over ACS buiten gebruik stellen in [hoe: migreren van de Azure Access Control Service](active-directory-acs-migration.md).
+- Lees de informatie over ACS buiten gebruik stellen in [het: Migreren van de Azure Access controleservice](active-directory-acs-migration.md).

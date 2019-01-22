@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 4ced3aa9b7d37543b4942bbfa9a5605058a614d8
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014732"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438808"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -57,7 +57,7 @@ Zie voor meer informatie over de beschikbare Azure-regio's, [Azure-regio's](http
 Azure maakt gebruik van een model op basis van categorieën van de service aan klanten aangeboden voor cloudcomputing. De drie categorieën van de service zijn Infrastructure as a Service (IaaS), Platform as a Service (PaaS) en Software as a Service (SaaS). Leveranciers delen sommige of alle van de verantwoordelijkheid voor onderdelen in de stack of in elk van deze categorieën. Laten we eens in elk van de categorieën voor cloud computing.
 ![Cloud Computing Stack vergelijking](./media/cloud-computing-comparison.png)
 
-#### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infrastructuur als een service
+#### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infrastructure as a Service
 
 Een IaaS-cloudleverancier wordt uitgevoerd en beheert alle fysieke resources en de vereiste software om in te schakelen van computer-virtualisatie. Een klant van deze service wordt geïmplementeerd voor virtuele machines in deze gehoste datacenters. Hoewel de virtuele machines bevinden zich in een datacenter op een externe locatie, heeft de IaaS-consument controle over de configuratie en beheer van het besturingssysteem verlaten van de onderliggende infrastructuur aan de cloudleverancier van de.
 
@@ -65,13 +65,13 @@ Azure bevat diverse IaaS-oplossingen, met inbegrip van virtuele machines, virtue
 
 Schaalsets voor virtuele machines zijn gebouwd boven op Azure Virtual Machines en bieden een eenvoudige manier om clusters van identieke VM's implementeren. Virtuele-machineschaalsets bieden ook ondersteuning voor automatisch schalen, zodat de nieuwe virtuele machines automatisch kunnen worden geïmplementeerd als vereist. Dit maakt virtuele-machineschaalsets een ideaal platform voor de host op een hoger niveau microservice rekenclusters, zoals Azure Service Fabric en Azure Container Service.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform als een service
+#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a Service
 
 Met PaaS implementeert u uw toepassing in een omgeving waarin de leverancier van de cloud biedt. De leverancier wordt alle infrastructuurbeheer zodat u zich op de ontwikkeling van toepassingen richten kunt en gegevens beheren.
 
 Azure biedt dat verschillende PaaS compute-aanbiedingen, met inbegrip van de functie Web Apps van Azure App Service en Azure Cloud Services (web- en werkrollen rollen). Ontwikkelaars hebben in beide gevallen meerdere manieren voor het implementeren van hun toepassing zonder te weten niets van de nuts en bolts die dit ondersteunen. Ontwikkelaars hoeven niet te maken van virtuele machines (VM's), Remote Desktop Protocol (RDP) zich aanmeldt bij elkaar te gebruiken of de toepassing te installeren. Ze alleen klikt u op een (of deze in de buurt) en de hulpprogramma's van Microsoft voor de virtuele machines inrichten en implementeren en installeren van de toepassing op deze.
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Software als een service
+#### <a name="saas-software-as-a-service"></a>SaaS: Software as a Service
 
 SaaS is software die centraal wordt gehost en beheerd. Dit wordt meestal op basis van een architectuur met meerdere tenants, één versie van de toepassing wordt gebruikt voor alle klanten. Het kan worden uitgebreid naar meerdere exemplaren om de beste prestaties op alle locaties. SaaS-software wordt doorgaans via een abonnement maandelijkse of jaarlijkse licentie. SaaS-software wordt doorgaans via een abonnement maandelijkse of jaarlijkse licentie. SaaS-softwareleveranciers zijn verantwoordelijk voor alle onderdelen van de softwarestack zodat u beheert de services die worden geleverd.
 
@@ -169,7 +169,7 @@ Naast het maken, beheren en -resources verwijderen met behulp van Azure portal, 
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell is een set van modules die cmdlets voor het beheren van Azure. U kunt de cmdlets gebruiken om te maken, beheren en verwijderen van Azure-services. De cmdlets kunt u consistente, herhaalbare en zonder implementaties kunt bereiken. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) voor meer informatie.
+Azure PowerShell is een set van modules die cmdlets voor het beheren van Azure. U kunt de cmdlets gebruiken om te maken, beheren en verwijderen van Azure-services. De cmdlets kunt u consistente, herhaalbare en zonder implementaties kunt bereiken. Zie [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie.
 
 #### <a name="azure-command-line-interface"></a>Azure-opdrachtregelinterface
 
@@ -191,17 +191,17 @@ Een abonnement is een logische groepering van Azure-services die is gekoppeld aa
 
 Voordat u met Azure-services werken kunt, moet u een abonnement. Verschillende typen van de abonnementen zijn beschikbaar.
 
-**Gratis accounts**: de koppeling om u te registreren voor een gratis account is op de [Azure-website](https://azure.microsoft.com/). Dit biedt u een tegoed dat u in de loop van 30 dagen om te proberen een combinatie van resources in Azure. Als u uw tegoed overschrijdt, wordt uw account is geblokkeerd. Aan het einde van de proefversie van uw services buiten gebruik zijn gesteld en werkt niet meer. U kunt upgraden naar een betalen per gebruik-abonnement op elk gewenst moment.
+**Gratis accounts**: De koppeling om u te registreren voor een gratis account is op de [Azure-website](https://azure.microsoft.com/). Dit biedt u een tegoed dat u in de loop van 30 dagen om te proberen een combinatie van resources in Azure. Als u uw tegoed overschrijdt, wordt uw account is geblokkeerd. Aan het einde van de proefversie van uw services buiten gebruik zijn gesteld en werkt niet meer. U kunt upgraden naar een betalen per gebruik-abonnement op elk gewenst moment.
 
-**MSDN-abonnementen**: als u een MSDN-abonnement hebt, krijgt u een bepaald bedrag in Azure-tegoed per maand. Bijvoorbeeld, als u een Microsoft Visual Studio Enterprise met MSDN-abonnement hebt, krijgt u \$150 per maand in de Azure-tegoed.
+**MSDN-abonnementen**: Als u een MSDN-abonnement hebt, krijgt u een bepaald bedrag in Azure-tegoed die elke maand. Bijvoorbeeld, als u een Microsoft Visual Studio Enterprise met MSDN-abonnement hebt, krijgt u \$150 per maand in de Azure-tegoed.
 
 Als u de hoeveelheid tegoed overschrijdt, wordt uw service zijn uitgeschakeld totdat de volgende maand wordt gestart. U kunt de bestedingslimiet uitschakelen en toevoegen van een creditcard moet worden gebruikt voor de extra kosten. Sommige van deze kosten gelden kortingen voor MSDN-accounts. Bijvoorbeeld, u de Linux prijs betalen voor virtuele machines waarop Windows Server wordt uitgevoerd en er zijn geen extra kosten voor Microsoft-servers zoals Microsoft SQL Server. Dit zijn MSDN-accounts ideaal voor scenario's voor ontwikkelen en testen.
 
-**BizSpark-accounts**: het Microsoft BizSpark-programma biedt veel voordelen voor Start-UPS. Een van deze voordelen is toegang tot alle Microsoft-software voor ontwikkel- en testomgevingen voor maximaal vijf MSDN-accounts. U $150 Azure-tegoed voor elk van deze vijf MSDN-accounts, waarna u betalen een gereduceerd tarief voor verschillende Azure-services, zoals virtuele Machines.
+**BizSpark-accounts**: Het Microsoft BizSpark-programma biedt veel voordelen voor Start-UPS. Een van deze voordelen is toegang tot alle Microsoft-software voor ontwikkel- en testomgevingen voor maximaal vijf MSDN-accounts. U $150 Azure-tegoed voor elk van deze vijf MSDN-accounts, waarna u betalen een gereduceerd tarief voor verschillende Azure-services, zoals virtuele Machines.
 
-**Betalen per gebruik**: met dit abonnement, u betaalt voor wat u gebruikt door het koppelen van een creditcard of betaalpas aan het account. Als u een organisatie, kunt u ook worden goedgekeurd voor facturering.
+**Pay-as-you-go**: U betaalt voor wat u gebruikt door het koppelen van een creditcard of betaalpas aan het account met dit abonnement. Als u een organisatie, kunt u ook worden goedgekeurd voor facturering.
 
-**Enterprise-overeenkomsten**: met een enterprise agreement, die u doorvoert voor het gebruik van een bepaald aantal services in Azure in het volgende jaar, en u die hoeveelheid tevoren betaalt. De toezegging die u aanbrengt, wordt gedurende het jaar verbruikt. Als u het toezeggingsbedrag overschrijdt, kunt u de overschrijding te betalen achteraf in rekening gebracht. Afhankelijk van de grootte van de toezegging krijgt u een korting op de services in Azure.
+**Enterprise-overeenkomsten**: Met een enterprise agreement, u door te voeren op een bepaald aantal services in Azure via het komende jaar en u dit bedrag vooraf betaalt. De toezegging die u aanbrengt, wordt gedurende het jaar verbruikt. Als u het toezeggingsbedrag overschrijdt, kunt u de overschrijding te betalen achteraf in rekening gebracht. Afhankelijk van de grootte van de toezegging krijgt u een korting op de services in Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Beheerderstoegang verlenen tot een Azure-abonnement
 
@@ -273,21 +273,21 @@ Resource Manager-sjablonen definiëren declaratief de resources en resourceconfi
 
 Resource Manager-sjabloon bestaat uit vier secties:
 
-- **Parameters**: dit zijn de invoer voor de implementatie. Parameterwaarden kunnen worden geleverd door een mens of een geautomatiseerd proces. Een voorbeeld van de parameter is mogelijk een beheerdersnaam en het wachtwoord voor een virtuele Windows-machine. De parameterwaarden worden gebruikt tijdens de implementatie als ze zijn opgegeven.
+- **Parameters**: Dit zijn de invoer voor de implementatie. Parameterwaarden kunnen worden geleverd door een mens of een geautomatiseerd proces. Een voorbeeld van de parameter is mogelijk een beheerdersnaam en het wachtwoord voor een virtuele Windows-machine. De parameterwaarden worden gebruikt tijdens de implementatie als ze zijn opgegeven.
 
-- **Variabelen**: deze worden gebruikt voor het opslaan van waarden die worden gebruikt tijdens de implementatie. In tegenstelling tot parameters, is een variabele waarde niet opgegeven tijdens de implementatie. In plaats daarvan is het moeilijk gecodeerd of dynamisch gegenereerd.
+- **Variabelen**: Deze worden gebruikt voor het opslaan van waarden die worden gebruikt tijdens de implementatie. In tegenstelling tot parameters, is een variabele waarde niet opgegeven tijdens de implementatie. In plaats daarvan is het moeilijk gecodeerd of dynamisch gegenereerd.
 
-- **Resources**: in deze sectie van de sjabloon definieert de resources om te worden geïmplementeerd, zoals virtuele machines, opslagaccounts en virtuele netwerken.
+- **Resources**: In deze sectie van de sjabloon definieert de resources om te worden geïmplementeerd, zoals virtuele machines, opslagaccounts en virtuele netwerken.
 
-- **Uitvoer**: nadat een implementatie is voltooid, Resource Manager gegevens, zoals dynamisch gegenereerde verbindingsreeksen kunt terugkeren.
+- **Uitvoer**: Nadat een implementatie is voltooid, kan de Resource Manager gegevens, zoals dynamisch gegenereerde verbindingsreeksen retourneren.
 
 De volgende mechanismen zijn beschikbaar voor automatisering van implementatie:
 
 - **Functies**: U kunt verschillende functies gebruiken in Resource Manager-sjablonen. Hieronder vallen bewerkingen zoals het converteren van een tekenreeks naar kleine letters, implementatie van meerdere exemplaren van een bepaalde resource en de doelresourcegroep dynamisch te retourneren. Resource Manager-functies kunnen opbouwen van dynamische implementaties.
 
-- **Bronafhankelijkheden**: wanneer u meerdere resources, sommige resources implementeert, heeft een afhankelijkheid op de andere. Om te kunnen implementeren, kunt u een afhankelijkheidsverklaring zodat afhankelijke resources worden geïmplementeerd voordat u de andere.
+- **Bronafhankelijkheden**: Wanneer u meerdere resources implementeert, is sommige resources een afhankelijkheid op anderen. Om te kunnen implementeren, kunt u een afhankelijkheidsverklaring zodat afhankelijke resources worden geïmplementeerd voordat u de andere.
 
-- **Sjabloon koppelen**: vanuit binnen één Resource Manager-sjabloon, u kunt een koppeling naar een andere sjabloon. Hiermee wordt uitgevouwen implementatie in een set van gerichte, doel-specifieke sjablonen.
+- **Sjabloon koppelen**: Vanuit binnen één Resource Manager-sjabloon, u kunt een koppeling naar een andere sjabloon. Hiermee wordt uitgevouwen implementatie in een set van gerichte, doel-specifieke sjablonen.
 
 U kunt Resource Manager-sjablonen in een teksteditor kunt bouwen. De Azure SDK voor Visual Studio bevat echter hulpprogramma's om u te helpen. Met behulp van Visual Studio, kunt u resources toevoegen aan de sjabloon die via een wizard, en vervolgens implementeren en fouten opsporen in de sjabloon rechtstreeks vanuit Visual Studio. Zie voor meer informatie, [Authoring Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md).
 
@@ -301,17 +301,17 @@ Om toegang te verlenen, kunt u een rol toewijzen aan de gebruiker of groep. Er z
 
 Hier volgen enkele voorbeeld [ingebouwde rollen in Azure](../../role-based-access-control/built-in-roles.md):
 
-- **De eigenaar van**: een gebruiker met deze rol kan alles beheren, inclusief toegang.
+- **De eigenaar van**: Een gebruiker met deze rol kan alles beheren, inclusief toegang.
 
-- **Lezer**: een gebruiker met deze rol kunnen bronnen van alle typen (met uitzondering van geheimen) lezen, maar kan geen wijzigingen aanbrengen.
+- **Lezer**: Een gebruiker met deze rol kan bronnen van alle typen (met uitzondering van geheimen) lezen, maar kan geen wijzigingen aanbrengen.
 
-- **Inzender voor virtuele machines**: een gebruiker met deze rol virtuele machines kunt beheren, maar niet het virtuele netwerk te beheren die zijn verbonden of het opslagaccount waarin het VHD-bestand zich bevindt.
+- **Inzender voor virtuele machines**: Een gebruiker met deze rol virtuele machines kunt beheren, maar niet het virtuele netwerk te beheren die zijn verbonden of het opslagaccount waarin het VHD-bestand zich bevindt.
 
-- **' SQL DB Contributor '**: een gebruiker met deze rol SQL-databases, maar niet hun beveiligingsbeleid kunt beheren.
+- **' SQL DB Contributor '**: Een gebruiker met deze rol kan SQL-databases, maar niet hun beveiligingsbeleid beheren.
 
-- **SQL Security Manager**: een gebruiker met deze rol kan het beveiligingsbeleid van de SQL-servers en databases beheren.
+- **SQL-beveiligingsbeheer**: Een gebruiker met deze rol kan het beveiligingsbeleid van de SQL-servers en databases beheren.
 
-- **Inzender voor Opslagaccounts**: een gebruiker met deze rol kan opslagaccounts beheren, maar niet de toegang tot de storage-accounts beheren.
+- **Inzender voor Opslagaccounts**: Een gebruiker met deze rol storage-accounts kunt beheren, maar kan geen toegang tot de storage-accounts beheren.
 
 Zie voor meer informatie, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
 
@@ -359,7 +359,7 @@ Ten slotte, net als bij het beheer van elk computersysteem, moet u zelf beveilig
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Azure Storage is een service voor Microsoft beheerde die duurzaam, schaalbaar en redundant storage biedt. U kunt een Azure storage-account toevoegen als een resource naar een resourcegroep met behulp van de implementatiemethode van elke resource. Azure bevat vier opslagtypen: Blob storage, File Storage, Table storage en Queue storage. Bij het implementeren van een storage-account, worden de twee accounttypen beschikbaar zijn voor algemeen gebruik en blob-opslag. Een algemeen opslagaccount hebt u toegang tot alle vier opslagtypen. BLOB storage-accounts zijn vergelijkbaar met accounts voor algemeen gebruik, maar gespecialiseerde blobs met warme en koude toegangslagen bevatten. Zie voor meer informatie over blob-opslag, [Azure Blob-opslag](../../storage/blobs/storage-blob-storage-tiers.md).
+Azure Storage is een service voor Microsoft beheerde die duurzaam, schaalbaar en redundant storage biedt. U kunt een Azure storage-account toevoegen als een resource naar een resourcegroep met behulp van de implementatiemethode van elke resource. Azure bevat vier opslagtypen: BLOB storage, File Storage, Table storage en Queue storage. Bij het implementeren van een storage-account, worden de twee accounttypen beschikbaar zijn voor algemeen gebruik en blob-opslag. Een algemeen opslagaccount hebt u toegang tot alle vier opslagtypen. BLOB storage-accounts zijn vergelijkbaar met accounts voor algemeen gebruik, maar gespecialiseerde blobs met warme en koude toegangslagen bevatten. Zie voor meer informatie over blob-opslag, [Azure Blob-opslag](../../storage/blobs/storage-blob-storage-tiers.md).
 
 Azure storage-accounts kunnen worden geconfigureerd met verschillende niveaus van redundantie:
 
@@ -481,9 +481,9 @@ Er zijn verschillende opties voor het implementeren van een virtueel netwerk.
 
 - Azure Resource Manager-sjablonen
 
->**Wanneer u**: telkens wanneer u met virtuele machines in Azure werkt, werkt u met virtuele netwerken. Hiermee wordt voor het segmenteren van uw virtuele machines in openbare en particuliere subnetten vergelijkbaar on-premises datacenters.
+>**Wanneer u**: Telkens wanneer u met virtuele machines in Azure werkt, werkt u met virtuele netwerken. Hiermee wordt voor het segmenteren van uw virtuele machines in openbare en particuliere subnetten vergelijkbaar on-premises datacenters.
 
->**Aan de slag**: een Azure-netwerk implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw virtueel netwerk implementeren in een nieuwe of bestaande resourcegroep. Wanneer u een nieuwe virtuele machine vanuit de portal maakt, kunt u een bestaand virtueel netwerk selecteren of een nieuwe maken. Aan de slag en [een virtueel netwerk maken met de Azure-portal](../../virtual-network/quick-create-portal.md).
+>**Aan de slag**: Een Azure-netwerk implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw virtueel netwerk implementeren in een nieuwe of bestaande resourcegroep. Wanneer u een nieuwe virtuele machine vanuit de portal maakt, kunt u een bestaand virtueel netwerk selecteren of een nieuwe maken. Aan de slag en [een virtueel netwerk maken met de Azure-portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Toegang en beveiliging voor virtuele netwerken
 

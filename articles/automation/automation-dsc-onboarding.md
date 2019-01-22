@@ -3,18 +3,18 @@ title: Onboarding van machines voor beheer met Azure Automation State Configurat
 description: Het instellen van machines voor beheer met Azure Automation State Configuration
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 74587d05ec27e87d87aa3647c22f5c90a9cdcf58
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284809"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436387"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding van machines voor beheer met Azure Automation State Configuration
 
@@ -25,7 +25,7 @@ Zoals [PowerShell Desired State Configuration](/powershell/dsc/overview), Status
 Configuratie van Azure Automation-status kan worden gebruikt voor het beheren van verschillende machines:
 
 - Virtuele Azure-machines (geïmplementeerd in het klassieke implementatiemodel en Azure Resource Manager-implementatiemodel)
-- Amazon Web Services (AWS) EC2-instanties
+- Amazon Web Services (AWS) EC2 instances
 - Fysieke/virtuele Windows-machines on-premises of in een andere cloud dan Azure/AWS
 - Fysieke/virtuele Linux-machines on-premises, in Azure, of in een andere cloud dan Azure
 

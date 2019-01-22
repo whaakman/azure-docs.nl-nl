@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: cfbe1ce39d7f68dd6ea2510b5c6cbddf4eb71710
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 0610116967a483c811746327c35632951741b201
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331993"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439167"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure Monitor implementeren voor virtuele machines (preview)
 In dit artikel wordt beschreven hoe u Azure Monitor instellen voor VM's. De service controleert de status van het besturingssysteem van uw Azure virtual machines (VM's) en virtuele-machineschaalsets en de virtuele machines in uw omgeving. Deze bewaking bevat de detectie en toewijzing van afhankelijkheden voor toepassingen die op deze kan worden gehost. 
@@ -407,7 +407,7 @@ Op basis van de resultaten van de beleidsregels die zijn opgenomen in het initia
 ### <a name="enable-with-powershell"></a>Inschakelen met PowerShell
 Om in te schakelen Azure Monitor voor VM's voor meerdere virtuele machines of virtuele-machineschaalsets, kunt u het PowerShell-script [installeren VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), beschikbaar is via de Azure PowerShell Gallery. Met dit script doorloopt elke virtuele machine en de virtuele machine schaalset in uw abonnement, in de groep binnen het bereik resource die opgegeven door *ResourceGroup*, of aan een enkele virtuele machine of VM-schaalset die opgegeven door *Naam*. Voor elke virtuele machine of VM-schaalset het script wordt gecontroleerd of de VM-extensie al is geïnstalleerd. Als de VM-extensie is niet geïnstalleerd, wordt het script probeert te installeren. Als de VM-extensie is geïnstalleerd, installeert het script de Log Analytics- en Afhankelijkheidsmonitors agent VM-extensies.
 
-Dit script moet Azure PowerShell-moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Dit script moet Azure PowerShell-moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 Uitvoeren als u een lijst van het script argument details en een voorbeeld, `Get-Help`.
 

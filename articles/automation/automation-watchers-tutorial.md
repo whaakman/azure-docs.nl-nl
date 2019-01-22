@@ -3,17 +3,17 @@ title: Een watcher-taak maken in de Azure Automation-account
 description: Informatie over het maken van een watcher-taak in de Azure Automation-account om te bekijken voor nieuwe bestanden die zijn gemaakt in een map.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282769"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436753"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Maak een Azure Automation-watcher-taken voor het bijhouden van wijzigingen in bestanden op een lokale computer
 
@@ -90,7 +90,7 @@ De watcher-taak bestaat uit twee delen. De watcher- en de actie. De watcher word
 1. Voer de volgende waarden voor parameters:
 
    ***EVENTDATA** -leeg laten. Gegevens worden doorgegeven van het watcher-runbook.  
-   ***Uitvoeringsinstellingen** ** -laat Azure terwijl dit runbook wordt uitgevoerd in de Automation-service.
+   ***Uitvoeringsinstellingen** -laat Azure terwijl dit runbook wordt uitgevoerd in de Automation-service.
 
 1. Klik op **OK**, en selecteer vervolgens om terug te keren naar de watcher-pagina.
 1. Klik op **OK** te maken van de watcher-taak.
@@ -153,3 +153,4 @@ Volg deze koppeling voor meer informatie over het ontwerpen van uw eigen runbook
 
 > [!div class="nextstepaction"]
 > [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md).
+

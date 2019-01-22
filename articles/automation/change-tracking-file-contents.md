@@ -3,18 +3,18 @@ title: Wijzigingen van bestandsinhoud weergeven met Azure Automation
 description: Gebruik de functie voor het wijzigen van de inhoud van bestand van wijzigingen bijhouden om weer te geven van de inhoud van een bestand dat is gewijzigd.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871756"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437998"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Inhoud van een bestand dat wordt bijgehouden met wijzigingen bijhouden weergeven
 
@@ -42,7 +42,7 @@ Inhoud bijhouden bestand kunt u de inhoud van een bestand weergeven voor en na e
 
 5. Eenmaal is ingeschakeld, worden de storage-account en de SAS-URI's weergegeven. De SAS-URI's 365 dagen na het verlopen en opnieuw kunnen worden gemaakt door te klikken op de **opnieuw genereren** knop.
 
-   ![een lijst met accountsleutels](./media/change-tracking-file-contents/account-keys.png)
+   ![Een lijst met accountsleutels](./media/change-tracking-file-contents/account-keys.png)
 
 ## <a name="add-a-file"></a>Een bestand toevoegen
 
@@ -62,7 +62,7 @@ De volgende stappen helpen u bij het inschakelen van bijhouden van wijzigingen v
 
 1. Op de **details wijzigen** pagina, ziet u de standaard voor en na de informatie in de linkerbovenhoek het bestand, klikt u op **wijzigingen van bestandsinhoud weergeven** om te zien van de inhoud van het bestand.
 
-  ![details wijzigen](./media/change-tracking-file-contents/change-details.png)
+  ![Details wijzigen](./media/change-tracking-file-contents/change-details.png)
 
 1. De nieuwe pagina ziet u de inhoud van het bestand in een side-by-side-weergave. U kunt ook selecteren **Inline** om een inline-weergave van de wijzigingen te zien.
 
@@ -76,3 +76,4 @@ Ga naar de zelfstudie over het bijhouden van wijzigingen voor meer informatie ov
 > [Problemen met wijzigingen in uw omgeving oplossen](automation-tutorial-troubleshoot-changes.md)
 
 * Gebruik [zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde bijhouden van gegevens weer te geven.
+

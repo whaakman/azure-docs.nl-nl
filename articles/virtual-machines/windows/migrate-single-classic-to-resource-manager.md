@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a662a61d737dbb620d07fa6d114649e70c082796
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b69cc0bcff8f791e0740b30f5521a2a7b36af3b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329766"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437654"
 ---
 # <a name="migrate-a-classic-vm-to-use-a-managed-disk"></a>Migreren van een klassieke virtuele machine voor het gebruik van een beheerde schijf maken 
 
@@ -93,7 +93,7 @@ Uw toepassing voorbereiden voor uitvaltijd. U hebt hiervoor een schone migratie 
 
 Uw toepassing voorbereiden voor uitvaltijd. U hebt hiervoor een schone migratie stoppen van de verwerking in het huidige systeem. Alleen dan kunt u deze ophalen naar consistente staat die u naar het nieuwe platform migreren kunt. Duur van uitvaltijd is afhankelijk van de hoeveelheid gegevens in de schijven om te migreren.
 
-Dit onderdeel is vereist voor de Azure PowerShell-moduleversie 6.0.0 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). U moet ook `Connect-AzureRmAccount` uitvoeren om een verbinding met Azure tot stand te brengen.
+Dit onderdeel is vereist voor de Azure PowerShell-moduleversie 6.0.0 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). U moet ook `Connect-AzureRmAccount` uitvoeren om een verbinding met Azure tot stand te brengen.
 
 
 Variabelen voor de algemene parameters maken.

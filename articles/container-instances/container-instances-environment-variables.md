@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ce6c3364c594bc515abd9f0c02bd69bf500e4f4e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238145"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436566"
 ---
 # <a name="set-environment-variables"></a>Omgevingsvariabelen instellen
 
@@ -20,9 +20,9 @@ Omgevingsvariabelen instellen in uw container instances kunt u dynamische config
 
 Als u bijvoorbeeld de [aci-microsoft-wordcount] [ aci-wordcount] containerinstallatiekopie, kunt u het gedrag wijzigen door de volgende omgevingsvariabelen op te geven:
 
-*NumWords*: het aantal woorden die worden verzonden naar de STDOUT.
+*NumWords*: Het aantal woorden die worden verzonden naar de STDOUT.
 
-*MinLength*: het minimale aantal tekens in een woord om te worden geteld. Hoe hoger de waarde wordt genegeerd voor veelvoorkomende woorden als 'van' en 'de'.
+*MinLength*: Het minimale aantal tekens in een woord om te worden geteld. Hoe hoger de waarde wordt genegeerd voor veelvoorkomende woorden als 'van' en 'de'.
 
 Als u nodig hebt om door te geven van geheimen als omgevingsvariabelen, Azure Container Instances biedt ondersteuning voor [waarden secure](#secure-values) voor zowel Windows als Linux-containers.
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Als u wilt wijzigen van de uitvoer, start u een tweede container met de `--environment-variables` argument toegevoegd, waarden opgeven voor de *NumWords* en *MinLength* variabelen:
+Als u wilt wijzigen van de uitvoer, start u een tweede container met de `--environment-variables` argument toegevoegd, waarden opgeven voor de *NumWords* en *MinLength* variabelen. (In dit voorbeeld wordt ervan uitgegaan dat u de CLI uitvoert in een Bash-shell of Azure Cloud Shell. Als u de opdrachtprompt van Windows gebruikt, geef de variabelen met dubbele aanhalingstekens, bijvoorbeeld `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -255,6 +255,6 @@ Taakgebaseerde scenario's, zoals een grote gegevensset met meerdere containers v
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c99ee1f520496148e22e540fa1f41f9bd74ae6a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023082"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436209"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -61,7 +61,7 @@ Fout 53 of Systeemfout 67 kan zich voordoen als poort 445 uitgaande communicatie
 
 Gebruik om te controleren als poort 445 wordt geblokkeerd door uw firewall of Internet-provider, de [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) hulpprogramma of `Test-NetConnection` cmdlet. 
 
-Gebruik de `Test-NetConnection` cmdlet, de AzureRM PowerShell-module moet worden geïnstalleerd, Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resoure-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
+Gebruik de `Test-NetConnection` cmdlet, de AzureRM PowerShell-module moet worden geïnstalleerd, Zie [Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resoure-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -239,7 +239,7 @@ Als u wilt een bestand kopiëren via het netwerk, moet u het eerst ontsleutelen.
 - Stel de volgende registersleutel:
   - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Waardetype = DWORD
-  - Naam = CopyFileAllowDecryptedRemoteDestination
+  - Name = CopyFileAllowDecryptedRemoteDestination
   - Waarde = 1
 
 Let erop dat de registersleutel instellen van invloed is op alle kopieerbewerkingen die worden aangebracht in netwerkshares.

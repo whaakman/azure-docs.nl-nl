@@ -12,18 +12,18 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 69bc2bb5fa06f4edc0283961063d2302c7905b4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724941"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438997"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Azure AD-directory-rollen in PIM toewijzen
 
 Met Azure Active Directory (Azure AD), een globale beheerder kunnen er **permanente** directory-roltoewijzingen. Deze roltoewijzingen kunnen worden gemaakt met de [Azure-portal](../users-groups-roles/directory-assign-admin-roles.md) of met behulp van [PowerShell-opdrachten](/powershell/module/azuread#directory_roles).
 
-De service Azure AD Privileged Identity Management (PIM) kunnen ook beheerders met bevoegdheid kunnen roltoewijzingen permanente directory. Beheerders met bevoegdheid kunnen bovendien zodat gebruikers **in aanmerking komende** voor directory-rollen. Een in aanmerking komende beheerder kan de rol kunt activeren wanneer ze deze nodig hebben, en vervolgens hun machtigingen verlopen wanneer ze klaar bent. Zie voor meer informatie over de functies die u kunt beheren met PIM [Azure AD-directory-rollen in PIM kunt u beheren](pim-roles.md).
+De service Azure AD Privileged Identity Management (PIM) kunnen ook Privileged Role Administrators om permanente directory-roltoewijzingen. Bovendien Privileged Role Administrators kunnen moet u gebruikers **in aanmerking komende** voor directory-rollen. Een in aanmerking komende beheerder kan de rol kunt activeren wanneer ze deze nodig hebben, en vervolgens hun machtigingen verlopen wanneer ze klaar bent.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Een gebruiker in aanmerking voor een rol maken
 

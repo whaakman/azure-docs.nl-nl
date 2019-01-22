@@ -13,16 +13,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c2ee0834b0c6872d96bebe71231f1a9424ff261a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387077"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438147"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
-De beveiliging van de meeste of alle bedrijfsassets in de moderne organisatie, is afhankelijk van de integriteit van de bevoegde accounts waarmee IT-systemen worden beheerd. Kwaadwillende actoren vaak met inbegrip van cyberaanvallers richten beheerdersaccounts en andere elementen van bevoegde toegang proberen te snel toegang krijgen tot gevoelige gegevens en systemen met behulp van referentie diefstal aanvallen. Zijn de gezamenlijke verantwoordelijkheden van de cloudserviceprovider en de klant voor cloud services, voorkomen en de reactie. Zie voor meer informatie over de nieuwste bedreigingen van eindpunten en de cloud, de [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx). In dit artikel kunt u bij ontwikkelen van een schema voor het sluiten van de tussenruimte tussen uw huidige plannen en de richtlijnen die hier worden beschreven.
+De beveiliging van de meeste of alle bedrijfsassets in de moderne organisatie, is afhankelijk van de integriteit van de bevoegde accounts waarmee IT-systemen worden beheerd. Kwaadwillende actoren vaak met inbegrip van cyberaanvallers richten beheerdersaccounts en andere elementen van bevoegde toegang proberen te snel toegang krijgen tot gevoelige gegevens en systemen met behulp van referentie diefstal aanvallen. Zijn de gezamenlijke verantwoordelijkheden van de cloudserviceprovider en de klant voor cloud services, voorkomen en de reactie. Zie voor meer informatie over de nieuwste bedreigingen van eindpunten en de cloud, de [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report). In dit artikel kunt u bij ontwikkelen van een schema voor het sluiten van de tussenruimte tussen uw huidige plannen en de richtlijnen die hier worden beschreven.
 
 > [!NOTE] 
 > Microsoft streeft naar het hoogste niveau van vertrouwen, transparantie, conformiteit met de normen en naleving van regelgeving. Meer informatie over hoe het team van Microsoft wereldwijd reageren op incidenten vermindert de gevolgen van aanvallen op cloudservices en hoe de beveiliging is ingebouwd in zakelijke Microsoft-producten en cloudservices op [Microsoft Trust Center - beveiliging](https://www.microsoft.com/trustcenter/security)en Microsoft naleving doelen op [Microsoft Trust Center - naleving](https://www.microsoft.com/trustcenter/compliance).

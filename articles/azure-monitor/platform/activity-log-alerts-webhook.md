@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.component: alerts
-ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 79d10a02b02ecb69f656e5b3d7b0c9ae986504d1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582300"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438963"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor waarschuwingen voor activiteitenlogboeken van Azure
 U kunt webhook-eindpunten voor het ontvangen van waarschuwingsmeldingen voor activiteit log configureren als onderdeel van de definitie van een actiegroep. Met webhooks, kunt u deze meldingen doorsturen naar andere systemen voor na verwerking of aangepaste acties. Dit artikel leest hoe de nettolading voor de HTTP POST naar een webhook eruitziet.
@@ -168,7 +168,7 @@ Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboek
 | De naam van element | Description |
 | --- | --- |
 | status |Gebruikt voor het metrische waarschuwingen. Altijd ingesteld op 'actief' voor waarschuwingen voor activiteitenlogboeken. |
-| Context |De context van de gebeurtenis. |
+| context |De context van de gebeurtenis. |
 | resourceProviderName |De resourceprovider van de betrokken resource. |
 | conditionType |Altijd 'gebeurtenis'. |
 | naam |De naam van de waarschuwingsregel. |
@@ -186,7 +186,7 @@ Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboek
 | correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde grotere actie en meestal een correlationId delen. |
 | eventDescription |De beschrijving van de statische tekst van de gebeurtenis. |
 | eventDataId |De unieke id voor de gebeurtenis. |
-| Gebeurtenisbron |Naam van de Azure-service of de infrastructuur die de gebeurtenis is gegenereerd. |
+| eventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis is gegenereerd. |
 | httpRequest |De aanvraag bevat meestal de clientRequestId, clientIpAddress en HTTP-methode (bijvoorbeeld plaatsen). |
 | niveau |Een van de volgende waarden: Kritiek, fout, waarschuwing en ter informatie. |
 | operationId |Meestal een GUID gedeeld tussen de gebeurtenissen die overeenkomt met één bewerking. |
@@ -201,3 +201,4 @@ Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboek
 * [Een logische app gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een waarschuwing voor activiteitenlogboek.
 * [Een logische app gebruiken op een Slack-bericht verzenden vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een waarschuwing voor activiteitenlogboek.
 * [Gebruik van een logische app een bericht verzenden naar een Azure-wachtrij vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een waarschuwing voor activiteitenlogboek.
+

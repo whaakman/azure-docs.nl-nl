@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/5/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 01693f16b0af59881c22fefb6ec8abe0c4fb3874
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 278c31f3f1880a3df561038d2710a2b5cc3d68e6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996624"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437838"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Eigenschappen van de gebruiker van een Azure Active Directory B2B-samenwerking
 
@@ -25,7 +25,7 @@ Afhankelijk van de behoeften van de uitnodigende organisatie, kan de gebruiker v
 
 - Status 1: Homed in een extern exemplaar van Azure AD en weergegeven als een gastgebruiker in de organisatie. In dit geval zich de B2B-gebruiker aanmeldt met een Azure AD-account die deel uitmaakt van de uitgenodigde tenant. Als de andere organisatie geen Azure AD gebruikt, wordt de gastgebruiker in Azure AD nog steeds gemaakt. De vereisten zijn dat ze hun uitnodiging inwisselen en Azure AD verifieert u het e-mailadres. Deze benadering wordt ook een just-in-time (JIT) tenants of een 'viraal' tenants genoemd.
 
-- Status van 2: Homed in een door Microsoft of een andere account en wordt weergegeven als een gastgebruiker in de organisatie van de host. In dit geval de gastgebruiker zich aanmeldt met een Microsoft-account of een sociaal account (google.com of vergelijkbaar). De identiteit van de uitgenodigde gebruiker is gemaakt als een Microsoft-account in de adreslijst van de uitnodigende organisatie tijdens de inschrijving van de aanbieding.
+- Status van 2: In een door Microsoft of een andere account homed en weergegeven als een gastgebruiker in de organisatie van de host. In dit geval de gastgebruiker zich aanmeldt met een Microsoft-account of een sociaal account (google.com of vergelijkbaar). De identiteit van de uitgenodigde gebruiker is gemaakt als een Microsoft-account in de adreslijst van de uitnodigende organisatie tijdens de inschrijving van de aanbieding.
 
 - Status van 3: Homed in van de organisatie van de host on-premises Active Directory en gesynchroniseerd met de host-organisatie in Azure AD. U kunt Azure AD Connect gebruiken voor het synchroniseren van de partneraccounts naar de cloud als Azure AD B2B-gebruikers met UserType = Gast. Zie [verlenen partner lokaal beheerde accounts toegang tot cloudbronnen](hybrid-on-premises-to-cloud.md).
 
@@ -69,11 +69,11 @@ Deze eigenschap geeft aan dat de relatie van de gebruiker op de host-tenants. De
 ### <a name="source"></a>Bron
 Deze eigenschap geeft aan hoe de gebruiker zich aanmeldt.
 
-- Uitgenodigd gebruiker: Deze gebruiker is uitgenodigd maar een uitnodiging nog niet is ingewisseld.
+- Uitgenodigde gebruiker: Deze gebruiker is uitgenodigd maar een uitnodiging nog niet is ingewisseld.
 
 - Externe Active Directory: Deze gebruiker is toegewezen in een externe organisatie en verifieert met behulp van een Azure AD-account die deel uitmaakt van de andere organisatie. Dit type aanmelding komt overeen met de status van 1.
 
-- Microsoft-account: deze gebruiker is toegewezen in een Microsoft-account en verifieert met behulp van een Microsoft-account. Dit type aanmelding komt overeen met de status 2.
+- Microsoft-account: Deze gebruiker is toegewezen in een Microsoft-account en verifieert met behulp van een Microsoft-account. Dit type aanmelding komt overeen met de status 2.
 
 - Windows Server Active Directory: Deze gebruiker is aangemeld vanuit on-premises Active Directory die deel uitmaakt van deze organisatie. Dit type aanmelding komt overeen met de status 3.
 

@@ -3,18 +3,18 @@ title: Referentieassets in Azure Automation
 description: Referentieassets in Azure Automation bevatten beveiligingsreferenties op die kunnen worden gebruikt om de resources die worden gebruikt door het runbook of DSC-configuratie te verifiëren. In dit artikel wordt beschreven hoe u referentieassets maken en deze gebruiken in een runbook of DSC-configuratie.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233436"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439184"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
 
@@ -29,7 +29,7 @@ Een Automation-referentieasset bevat een object dat beveiligingsreferenties, zoa
 
 De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van automation-referentie-assets met Windows PowerShell.  Ze geleverd als onderdeel van de [Azure PowerShell-module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
-| Cmdlets | Beschrijving |
+| Cmdlets | Description |
 |:--- |:--- |
 | [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Haalt informatie op over een referentie-element. U kunt alleen de referentie op die zelf ophalen uit **Get-AutomationPSCredential** activiteit. |
 | [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Hiermee maakt u een nieuw Automation-referentie. |
@@ -40,7 +40,7 @@ De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van au
 
 De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren van automation-referentie-assets met Windows PowerShell.  Ze geleverd als onderdeel van de [AzureRM.Automation module](/powershell/azure/overview) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuraties.
 
-| Cmdlets | Beschrijving |
+| Cmdlets | Description |
 |:--- |:--- |
 | [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Haalt informatie op over een referentie-element.  |
 | [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Hiermee maakt u een nieuw Automation-referentie. |
@@ -51,7 +51,7 @@ De cmdlets in de volgende tabel worden gebruikt voor AzureRM, maken en beheren v
 
 De activiteiten in de volgende tabel worden gebruikt voor toegang tot de referenties in een runbook en DSC-configuraties.
 
-| Activiteiten | Beschrijving |
+| Activiteiten | Description |
 |:--- |:--- |
 | Get-AutomationPSCredential |Hiermee haalt u een referentie op die moet worden gebruikt in een runbook of DSC-configuratie. Retourneert een [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) object. |
 
@@ -62,7 +62,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot de referen
 
 De functie in de volgende tabel wordt gebruikt voor toegang tot de referenties in een Python2-runbook.
 
-| Functie | Beschrijving |
+| Function | Description |
 |:---|:---|
 | automationassets.get_automation_credential | Haalt informatie op over een referentie-element. |
 
@@ -142,4 +142,5 @@ print cred["password"]
 * Zie [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) om aan de slag te gaan met grafische runbooks
 * Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks 
 * Als u wilt beginnen met Python2-runbooks, Zie [Mijn eerste Python2-runbook](automation-first-runbook-textual-python2.md) 
+
 

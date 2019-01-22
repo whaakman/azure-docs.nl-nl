@@ -3,18 +3,18 @@ title: Een Azure Automation-runbook starten met een webhook
 description: Een webhook waarmee een client van een runbook in Azure Automation starten vanuit een HTTP-aanroep.  Dit artikel wordt beschreven hoe u een webhook maakt en over het aanroepen van een voor het starten van een runbook.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 19a771d75cd1f2a2a18a3a4c42fcc34e55afb111
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016688"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438844"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Een Azure Automation-runbook starten met een webhook
 
@@ -61,7 +61,7 @@ Bijvoorbeeld, als u de volgende runbook vanuit de Azure-portal starten zijn en e
 Voor de volgende runbook, hebt u de volgende eigenschappen voor de parameter WebhookData:
 
 * WebhookName: *MyWebhook*
-* RequestBody: *[{'ResourceGroup': 'myResourceGroup', 'Name': "vm01"}, {'ResourceGroup': 'myResourceGroup', 'Name': "vm02"}]*
+* RequestBody: *[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*
 
 Vervolgens wilt u de volgende JSON-waarde in de gebruikersinterface voor de parameter WebhookData doorgeven. Retourneert het volgende voorbeeld door de regelterugloop en regeltekens komt overeen met de indeling die wordt doorgegeven vanuit een webhook.
 
@@ -226,3 +226,4 @@ De volgende afbeelding ziet u de aanvraag is verzonden vanaf de Windows PowerShe
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer informatie over het gebruik van Azure Automation actie te ondernemen op Azure-waarschuwingen, [gebruik van een waarschuwing voor het activeren van een Azure Automation-runbook](automation-create-alert-triggered-runbook.md).
+

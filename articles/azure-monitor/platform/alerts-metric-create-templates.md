@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: bdda6f583e38c262eabedba4b5a003a7353c03b4
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: alerts
+ms.openlocfilehash: 6590d57a6b38f91d095dff9301a8e53d087f64ae
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105981"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437688"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
 
@@ -1375,3 +1375,4 @@ az group deployment create \
 * Meer informatie over [waarschuwingen in Azure](alerts-overview.md)
 * Meer informatie over het [een actiegroep maken met Resource Manager-sjablonen](action-groups-create-resource-manager-template.md)
 * Zie voor de JSON-syntaxis en eigenschappen, [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) verwijzing naar de sjabloon.
+
