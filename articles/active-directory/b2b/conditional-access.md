@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 47d41884a50450399df6273502096e0e630dbcf3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981759"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432044"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Voorwaardelijke toegang voor gebruikers van B2B-samenwerking
 
@@ -84,7 +84,7 @@ Bovendien, zelfs als Contoso MFA mogelijkheid heeft, is het niet altijd dat het 
 
 Tot slot werkt resource tenant MFA ook voor MSA's en sociale-id's en partner organisaties waarvoor geen MFA instellen.
 
-Daarom is de aanbeveling voor MFA voor B2B-gebruikers altijd om MFA te vereisen in de uitnodigende tenant. Deze vereiste kan leiden tot dubbele MFA in sommige gevallen, maar wanneer u toegang wilt tot de uitnodigende tenant, de ervaring voor eindgebruikers voorspelbare is: Sandra moet registreren voor MFA bij de uitnodigende tenant.
+Daarom is de aanbeveling voor MFA voor B2B-gebruikers altijd om MFA te vereisen in de uitnodigende tenant. Deze vereiste kan leiden tot dubbele MFA in sommige gevallen, maar wanneer u toegang wilt tot de uitnodigende tenant, de ervaring voor eindgebruikers voorspelbare is: Sandra moet aan de uitnodigende tenant worden geregistreerd voor MFA.
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Op basis van apparaat, op basis van locatie en risico's gebaseerde voorwaardelijke toegang voor B2B-gebruikers
 
@@ -105,5 +105,5 @@ Op dit moment kunnen niet aanmelden risicobeleid voor B2B-gebruikers worden toeg
 Zie de volgende artikelen op Azure AD B2B-samenwerking:
 
 * [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
-* [Licentieverlening voor Azure AD B2B collaboration](licensing-guidance.md)
-* [Azure Active Directory B2B-samenwerking Veelgestelde vragen (FAQ)](faq.md)
+* [Licenties voor Azure AD B2B-samenwerking](licensing-guidance.md)
+* [Veelgestelde vragen over Azure Active Directory B2B-samenwerking](faq.md)

@@ -3,18 +3,18 @@ title: Invoerparameters voor runbook
 description: Invoerparameters voor Runbook verhoogt de flexibiliteit van runbooks met zodat u kunt gegevens doorgeven aan een runbook wanneer deze wordt gestart. Dit artikel beschrijft de verschillende scenario's waarin invoerparameters worden gebruikt in runbooks.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 650effed388dde4419e2ff6aede2f0468551a959
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d22a2de29e170979d9ab5d61c7f21a47d6aee99c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276683"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433438"
 ---
 # <a name="runbook-input-parameters"></a>Invoerparameters voor runbook
 
@@ -31,7 +31,7 @@ PowerShell en [PowerShell Workflow-runbooks](automation-first-runbook-textual.md
 | **Eigenschap** | **Beschrijving** |
 |:--- |:--- |
 | Type |Vereist. Het gegevenstype voor de parameterwaarde verwacht. Elk type .NET is geldig. |
-| Naam |Vereist. De naam van de parameter. Dit moet uniek zijn binnen het runbook en kunnen bevatten alleen letters, cijfers of onderstrepingstekens. Deze moet beginnen met een letter. |
+| Name |Vereist. De naam van de parameter. Dit moet uniek zijn binnen het runbook en kunnen bevatten alleen letters, cijfers of onderstrepingstekens. Deze moet beginnen met een letter. |
 | Verplicht |Optioneel. Hiermee geeft u op of moet een waarde worden opgegeven voor de parameter. Als u dit instellen op **$true**, en vervolgens moet een waarde worden opgegeven wanneer het runbook wordt gestart. Als u dit instellen op **$false**, en vervolgens een waarde optioneel is. |
 | Standaardwaarde |Optioneel. Hiermee geeft u een waarde die wordt gebruikt voor de parameter als een waarde niet wordt doorgegeven wanneer het runbook wordt gestart. Een standaardwaarde voor elke parameter kan worden ingesteld en wordt automatisch de parameter optioneel maken, ongeacht de verplichte instelling. |
 
@@ -96,8 +96,8 @@ U kunt de [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.as
    
    | **Eigenschap** | **Beschrijving** |
    |:--- |:--- |
-   | Naam |Vereist. De naam van de parameter. Dit moet uniek zijn binnen het runbook en kunnen bevatten alleen letters, cijfers of onderstrepingstekens. Deze moet beginnen met een letter. |
-   | Beschrijving |Optioneel. Beschrijving over het doel van de invoerparameter. |
+   | Name |Vereist. De naam van de parameter. Dit moet uniek zijn binnen het runbook en kunnen bevatten alleen letters, cijfers of onderstrepingstekens. Deze moet beginnen met een letter. |
+   | Description |Optioneel. Beschrijving over het doel van de invoerparameter. |
    | Type |Optioneel. Het gegevenstype dat wordt verwacht voor de waarde van parameter. Ondersteunde parametertypen zijn **tekenreeks**, **Int32**, **Int64**, **decimaal**, **Booleaanse**,  **Datum-/**, en **Object**. Als een gegevenstype dat niet is geselecteerd, wordt standaard **tekenreeks**. |
    | Verplicht |Optioneel. Hiermee geeft u op of moet een waarde worden opgegeven voor de parameter. Als u ervoor kiest **Ja**, en vervolgens moet een waarde worden opgegeven wanneer het runbook wordt gestart. Als u ervoor kiest **geen**, en vervolgens een waarde niet vereist is als het runbook wordt gestart en kan een standaardwaarde worden ingesteld. |
    | Standaardwaarde |Optioneel. Hiermee geeft u een waarde die wordt gebruikt voor de parameter als een waarde niet wordt doorgegeven wanneer het runbook wordt gestart. Een standaardwaarde kan worden ingesteld voor een parameter die is niet verplicht. Als u wilt een standaardwaarde instelt, kiest u **aangepaste**. Deze waarde wordt gebruikt, tenzij een andere waarde is opgegeven als het runbook wordt gestart. Kies **geen** als u niet wilt bieden een standaardwaarde. |
@@ -108,12 +108,12 @@ U kunt de [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.as
    * **Parameter1:**
      
      * Naam van de-VMName
-     * Type - tekenreeks
+     * Type - String
      * Verplichte - Nee
    * **Parameter2:**
      
-     * Naam van de-resourceGroupName
-     * Type - tekenreeks
+     * Name - resourceGroupName
+     * Type - String
      * Verplichte - Nee
      * Standaardwaarde: aangepaste
      * Aangepaste standaardwaarde - \<naam van de resourcegroep met de virtuele machines >
@@ -151,7 +151,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Een gepubliceerd runbook start met behulp van PowerShell-cmdlets en parameters toewijzen
 
-* **Azure Resource Manager-cmdlets:** kun u een Automation-runbook dat is gemaakt in een resourcegroep gemaakt met behulp van [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook).
+* **Azure Resource Manager-cmdlets:** U kunt een Automation-runbook dat is gemaakt in een resourcegroep gemaakt met behulp van starten [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook).
   
   **Voorbeeld:**
   
@@ -160,7 +160,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Cmdlets voor Azure classic deployment model:** kun u een automation-runbook dat is gemaakt in een standaard-resourcegroep met behulp van [Start AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
+* **Cmdlets voor Azure classic deployment model:** U kunt een automation-runbook dat is gemaakt in een standaard-resourcegroep met behulp van starten [Start AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
   **Voorbeeld:**
   
@@ -177,7 +177,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Een runbook start met behulp van een SDK en parameters toe te wijzen
 
-* **Azure Resource Manager-methode:** kunt u een runbook start met behulp van de SDK van een programmeertaal. Hieronder ziet u een C#-codefragment voor het starten van een runbook in uw Automation-account. U vindt de code aan onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+* **Azure Resource Manager-methode:** U kunt een runbook start met behulp van de SDK van een programmeertaal. Hieronder ziet u een C#-codefragment voor het starten van een runbook in uw Automation-account. U vindt de code aan onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -196,7 +196,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
       return response.Job;
       }
   ```
-* **Klassieke Azure-implementatie model methode:** kunt u een runbook start met behulp van de SDK van een programmeertaal. Hieronder ziet u een C#-codefragment voor het starten van een runbook in uw Automation-account. U vindt de code aan onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Klassieke Azure-implementatie model methode:** U kunt een runbook start met behulp van de SDK van een programmeertaal. Hieronder ziet u een C#-codefragment voor het starten van een runbook in uw Automation-account. U vindt de code aan onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -235,15 +235,15 @@ Een runbook-taak kan worden gemaakt en gestart met de REST-API van Azure Automat
 
 In de aanvraag-URI, vervangt u de volgende parameters:
 
-* **abonnement-id:** uw Azure-abonnement-ID.  
-* **cloud-service-name:** de naam van de cloud-service die de aanvraag moet worden verzonden.  
-* **Automation-account-name:** de naam van uw automation-account dat wordt gehost binnen de opgegeven cloudservice.  
-* **taak-id:** de GUID voor de taak. GUID's in PowerShell kunnen worden gemaakt met behulp van de **[GUID]::NewGuid(). ToString()** opdracht.
+* **abonnement-id:** Uw Azure-abonnement-ID.  
+* **cloud-service-name:** De naam van de cloudservice waarop de aanvraag moet worden verzonden.  
+* **Automation-account-name:** De naam van uw automation-account dat wordt gehost binnen de opgegeven cloudservice.  
+* **job-id:** De GUID voor de taak. GUID's in PowerShell kunnen worden gemaakt met behulp van de **[GUID]::NewGuid(). ToString()** opdracht.
 
 Gebruik de hoofdtekst van de aanvraag om de parameters doorgeven aan de runbooktaak. Het duurt voordat de volgende twee eigenschappen die is opgegeven in JSON-indeling:
 
-* **Naam van Runbook:** vereist. De naam van het runbook voor de taak wordt gestart.  
-* **Runbookparameters:** optioneel. Een woordenlijst met de lijst met parameters in (naam, waarde)-indeling waarin de naam moet van het type tekenreeks en waarde is geldige JSON-waarde.
+* **Runbooknaam:** Vereist. De naam van het runbook voor de taak wordt gestart.  
+* **Runbook-parameters:** Optioneel. Een woordenlijst met de lijst met parameters in (naam, waarde)-indeling waarin de naam moet van het type tekenreeks en waarde is geldige JSON-waarde.
 
 Als u wilt beginnen de **Get-AzureVMTextual** runbook dat eerder is gemaakt met **VMName** en **resourceGroupName** als parameters, gebruik de volgende JSON-indeling voor de hoofdtekst van de aanvraag.
 
@@ -285,4 +285,5 @@ Wanneer het uitvoeren van een runbook met behulp van een webhook, de vooraf gede
 * Zie voor meer informatie over de verschillende manieren om een runbook te starten, [een runbook starten](automation-starting-a-runbook.md).
 * Als u wilt een tekstuele runbook bewerken, verwijzen naar [tekstrunbooks bewerken](automation-edit-textual-runbook.md).
 * Als u wilt een grafisch runbook bewerken, verwijzen naar [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
+
 

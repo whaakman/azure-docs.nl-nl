@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 1332a06cf955be3fe2a77194f455c9315993998c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: dc44394bda1208eb2dab0a02dd73152e51788d4c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159907"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424891"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 
@@ -109,7 +109,7 @@ ms.locfileid: "54159907"
 [dbms-guide-figure-900]:media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
 [deployment-guide]:deployment-guide.md (Azure Virtual Machines-implementatie voor SAP)
-[deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP-resources)
+[deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP resources)
 [deployment-guide-3.1.2]:deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Een virtuele machine implementeren met behulp van een aangepaste installatiekopie)
 [deployment-guide-3.2]:deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Een virtuele machine in Azure Marketplace implementeren voor SAP)
 [deployment-guide-3.3]:deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scenario 2: Een virtuele machine met een aangepaste installatiekopie implementeren voor SAP)
@@ -207,7 +207,7 @@ ms.locfileid: "54159907"
 [planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Concepten van Cloud-Only-implementatie van SAP-instanties)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure-oplossing voor de controle voor SAP)
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
-[planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Beheerde schijven)
+[planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Managed Disks)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -234,7 +234,7 @@ ms.locfileid: "54159907"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure-netwerken)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Opslag: Microsoft Azure Storage- en gegevensschijven)
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
@@ -361,7 +361,7 @@ Kent de volgende informatie, de grootte van de SAP instelt:
 
 In Azure Resource Manager, u kunt resourcegroepen gebruiken voor het beheren van alle toepassingsresources in uw Azure-abonnement. Zie voor meer informatie, [overzicht van Azure Resource Manager][resource-group-overview].
 
-## <a name="resources"></a>Bronnen
+## <a name="resources"></a>Resources
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>SAP-resources
 
@@ -492,7 +492,7 @@ Voer de volgende parameters voor de sjabloon in de Azure-portal:
     Voor grotere systemen raden wij met behulp van Azure Premium Storage. Zie de volgende bronnen voor meer informatie over soorten opslag:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS-instantie][2367194]
       * [Opslagstructuur van een virtuele machine voor RDBMS-implementaties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure][storage-premium-storage-preview-portal]
       * [Inleiding tot Microsoft Azure Storage][storage-introduction]
   * **Gebruikersnaam van beheerder** en **beheerderswachtwoord**: Een gebruikersnaam en wachtwoord.
     Een nieuwe gebruiker is gemaakt, voor aanmelding bij de virtuele machine.
@@ -628,7 +628,7 @@ Voer de volgende parameters voor de sjabloon in de Azure-portal:
     Voor grotere systemen raden wij met behulp van Azure Premium Storage. Zie de volgende bronnen voor meer informatie over soorten opslag:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS-instantie][2367194]
       * [Opslagstructuur van een virtuele machine voor RDBMS-implementaties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele machine van Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: Opslag met hoge prestaties voor werkbelastingen van de virtuele machine van Azure][storage-premium-storage-preview-portal]
       * [Inleiding tot Microsoft Azure Storage][storage-introduction]
   * **VHD-URI van de gebruikersinstallatiekopie** (alleen voor niet-beheerde schijf afbeelding sjabloon): De URI van de persoonlijke OS VHD, bijvoorbeeld: https:// image&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
   * **Storage-account van gebruiker installatiekopie** (alleen voor niet-beheerde schijf afbeelding sjabloon): De naam van het opslagaccount waar de persoonlijke installatiekopie van het besturingssysteem wordt opgeslagen, bijvoorbeeld &lt;accountname > in https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
@@ -720,7 +720,7 @@ Voer de volgende parameters voor de sjabloon in de Azure-portal:
     Voor grotere systemen raden wij met behulp van Azure Premium Storage. Zie de volgende bronnen voor meer informatie over soorten opslag:
       * [Gebruik van Azure Premium-SSD-opslag voor SAP DBMS-instantie][2367194]
       * [Opslagstructuur van een virtuele machine voor RDBMS-implementaties](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure][storage-premium-storage-preview-portal]
       * [Inleiding tot Microsoft Azure Storage][storage-introduction]
   * **OS-schijf VHD-URI** (alleen voor niet-beheerde schijf-sjabloon): De URI van de persoonlijke besturingssysteemschijf, bijvoorbeeld: https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
   * **Beheerde schijf-Id van de besturingssysteemschijf** (alleen voor beheerde schijf-sjabloon): De Id van de beheerde schijf besturingssysteemschijf, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
@@ -1036,7 +1036,7 @@ Deze controle zorgt ervoor dat alle maatstaven voor prestaties die worden weerge
 
 1.  Aanmelden bij de virtuele machine van Azure (met een beheerdersaccount is niet nodig).
 1.  Open een opdrachtpromptvenster.
-1.  Wijzig bij de opdrachtprompt de map naar de installatiemap van de Azure uitgebreide controle-extensie voor SAP: C:\\pakketten\\invoegtoepassingen\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versie >\\verwijderen
+1.  Wijzig bij de opdrachtprompt de map naar de installatiemap van de Azure uitgebreide controle-extensie voor SAP: C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version>\\drop
 
   De *versie* in het pad naar de controle-extensie kan variëren. Als u mappen voor meerdere versies van de controle-extensie in de installatiemap ziet, Controleer de configuratie van de AzureEnhancedMonitoring Windows-service en ga vervolgens naar de map die is aangeduid als *pad naar uitvoerbaar bestand* .
 

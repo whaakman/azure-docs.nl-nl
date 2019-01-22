@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1e3dc984de15fa2c94fc5150020f1af1579e2c5c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620378"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434101"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes van verificatie- en autorisatiefouten
 
@@ -32,7 +32,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 
 ## <a name="aadsts-error-codes"></a>AADSTS-foutcodes
 
-| Fout | Beschrijving |
+| Fout | Description |
 |---|---|
 | AADSTS16000 | SelectUserAccount - dit is een interrupt gegenereerd door Azure AD, wat in een gebruikersinterface waarmee de gebruiker resulteert te kiezen uit meerdere geldige SSO-sessies. Deze fout is redelijk gebruikelijk en kunnen worden geretourneerd naar de toepassing als `prompt=none` is opgegeven. |
 | AADSTS16001 | UserAccountSelectionInvalid - ziet u deze fout als de gebruiker klikt op een tegel met de optie logica van de sessie is afgewezen. Wanneer ze worden geactiveerd, kan deze fout de gebruiker om te herstellen door verzamelen vanuit een bijgewerkte lijst van tegels/sessies, of door het kiezen van een ander account. Deze fout kan optreden vanwege een code defect of race-voorwaarde. |
@@ -92,10 +92,10 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS50087 | SasRetryableError - de service is tijdelijk niet beschikbaar. Probeer het opnieuw. |
 | AADSTS50089 | Stroomtoken verlopen, verificatie is mislukt. Laat de gebruiker aanmelden met gebruikersnaam opnieuw proberen-wachtwoord. |
 | AADSTS50097 | DeviceAuthenticationRequired - apparaatverificatie is vereist. |
-| AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - de JWT-handtekening is ongeldig. |
+| AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - The JWT signature is invalid. |
 | AADSTS50105 | EntitlementGrantsNotFound - de aangemelde gebruiker is niet toegewezen aan een rol voor de aangemelde app. De gebruiker toewijzen aan de app. Voor meer informatie:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role). |
 | AADSTS50107 | InvalidRealmUri - de aangevraagde federation realm object bestaat niet. Neem contact op met de beheerder van de tenant. |
-| AADSTS50120 | ThresholdJwtInvalidJwtFormat - probleem met JWT-header. Neem contact op met de beheerder van de tenant. |
+| AADSTS50120 | ThresholdJwtInvalidJwtFormat - Issue with JWT header. Neem contact op met de beheerder van de tenant. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter - claimtransformatie bevat ongeldige invoerparameter. Neem contact op met de tenantbeheerder om het beleid bij te werken. |
 | AADSTS50125 | PasswordResetRegistrationRequiredInterrupt - aanmelding is onderbroken vanwege een wachtwoord opnieuw instellen of de registratie van wachtwoordinvoer. |
 | AADSTS50126 | InvalidUserNameOrPassword - fout bij het valideren van referenties vanwege een ongeldige gebruikersnaam of wachtwoord. |
@@ -105,7 +105,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS50131 | ConditionalAccessFailed - geeft aan verschillende fouten voor voorwaardelijke toegang, zoals slechte status van het apparaat voor Windows, aanvraag geblokkeerd vanwege verdachte activiteiten, toegangsbeleid of beveiliging voor beleidsbeslissingen. |
 | AADSTS50132 | SsoArtifactInvalidOrExpired - de sessie is niet geldig vanwege het verlopen van wachtwoorden of recente wachtwoord wijzigen. |
 | AADSTS50133 | SsoArtifactRevoked - de sessie is niet geldig vanwege het verlopen van wachtwoorden of recente wachtwoord wijzigen. |
-| AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - onjuiste gegevens center. Als u wilt toestaan dat een aanvraag die is gestart door een app in de stroom voor OAuth 2.0-apparaat, moet de autorisatie partij in hetzelfde Datacenter waar de oorspronkelijke aanvraag zich bevindt. |
+| AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - Wrong data center. Als u wilt toestaan dat een aanvraag die is gestart door een app in de stroom voor OAuth 2.0-apparaat, moet de autorisatie partij in hetzelfde Datacenter waar de oorspronkelijke aanvraag zich bevindt. |
 | AADSTS50135 | PasswordChangeCompromisedPassword - wachtwoordwijziging is vereist om account gevaar. |
 | AADSTS50136 | RedirectMsaSessionToApp - één MSA-sessie gedetecteerd. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - de sessie is ongeldig vanwege een ontbrekende externe vernieuwingstoken. |
@@ -254,6 +254,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - de resource is niet geconfigureerd voor het apparaat alleen-lezen-tokens accepteren. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - de gebruiker is niet geautoriseerd voor het registreren van apparaten in Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - de id_token kan niet worden gebruikt als `urn:ietf:params:oauth:grant-type:jwt-bearer` verlenen.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - de toepassing is niet gevonden in de map/tenant. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of toegestaan door een gebruiker in de tenant. U mogelijk de id-waarde voor de toepassing onjuist geconfigureerd of de verificatieaanvraag naar de verkeerde tenant verzonden. |
 | AADSTS700020 | InteractionRequired - interactie is vereist door het verlenen van toegang. |
 | AADSTS700022 | InvalidMultipleResourcesScope - de opgegeven waarde voor het bereik van de invoerparameter is niet geldig omdat deze meer dan één resource bevat. |
 | AADSTS700023 | InvalidResourcelessScope - de opgegeven waarde voor het bereik van de invoerparameter is niet geldig wanneer de aanvraag een toegangstoken. |

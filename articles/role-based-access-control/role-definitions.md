@@ -15,12 +15,12 @@ ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 065695f9ce0f0d8dfbb9a43877131c8ab7fada5e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ea022ce9b02fd54be7959f5e9521ca5dc34e4e7b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354311"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426418"
 ---
 # <a name="understand-role-definitions"></a>Roldefinities begrijpen
 
@@ -165,7 +165,7 @@ Als u wilt weergeven en werken met gegevensbewerkingen, moet u de juiste versie 
 
 | Hulpprogramma  | Versie  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 of hoger |
+| [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) | 5.6.0 of hoger |
 | [Azure-CLI](/cli/azure/install-azure-cli) | 2.0.30 of hoger |
 | [Azure voor .NET](/dotnet/azure/) | 2.8.0-Preview of hoger |
 | [Azure SDK voor Go](/go/azure/azure-sdk-go-install) | 15.0.0 of hoger |

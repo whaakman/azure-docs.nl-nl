@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: ergreenl
-ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ce6d3815e562e5ada2a70ebaff04f9abc20b714c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240253"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426536"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Azure Active Directory Domain Services met behulp van PowerShell inschakelen
 Dit artikel laat u het inschakelen van Azure Active Directory (AD) Domain Services met behulp van PowerShell.
@@ -31,7 +31,7 @@ Dit artikel laat u het inschakelen van Azure Active Directory (AD) Domain Servic
 Volg de instructies in het artikel [installeren van de Azure AD PowerShell-module en maak verbinding met Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
-Volg de instructies in het artikel [installeren van de Azure PowerShell-module en maak verbinding met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Volg de instructies in het artikel [installeren van de Azure PowerShell-module en maak verbinding met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Taak 2: De vereiste service-principal in uw Azure AD-directory maken
@@ -117,7 +117,7 @@ $Vnet=New-AzureRmVirtualNetwork `
 ```
 
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Taak 7: Richt het Azure AD Domain Services beheerde domein
+## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Taak 7: Inrichten van het Azure AD Domain Services beheerde domein
 Typ de volgende PowerShell-opdracht uit om Azure AD Domain Services voor uw directory:
 
 ```powershell

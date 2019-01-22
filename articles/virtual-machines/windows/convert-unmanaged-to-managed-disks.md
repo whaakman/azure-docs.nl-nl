@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 26ddc1df8353a8a8b0e0c54a0c906c8d8b6b45b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fecf17d95231cc37a141cfb72397f44ce2e980b5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495328"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435597"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Een Windows virtuele machine van niet-beheerde schijven converteren naar managed disks
 
 Als u bestaande Windows virtuele machines (VM's) die gebruikmaken van niet-beheerde schijven hebt, kunt u de virtuele machines voor het gebruik van beheerde schijven via converteren de [Azure Managed Disks](managed-disks-overview.md) service. Dit proces converteert zowel schijf met het besturingssysteem en eventuele gekoppelde gegevensschijven.
 
-In dit artikel wordt beschreven hoe u virtuele machines converteren met behulp van Azure PowerShell. Als u wilt installeren of upgraden, raadpleegt [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps).
+In dit artikel wordt beschreven hoe u virtuele machines converteren met behulp van Azure PowerShell. Als u wilt installeren of upgraden, raadpleegt [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

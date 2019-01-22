@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: b58b7c7ebc3547153f805f762c4caf3511a5a709
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717498"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429766"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
 U kunt streamen de [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) in bijna realtime voor elke toepassing door een van beide:
@@ -102,4 +102,5 @@ Het schema voor het activiteitenlogboek is beschikbaar in [abonnement activiteit
 * [Het activiteitenlogboek naar een opslagaccount archiveren](../../azure-monitor/platform/archive-activity-log.md)
 * [Lees het overzicht van de Azure-activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md)
 * [Instellen van een waarschuwing op basis van een activiteitenlogboek-gebeurtenis](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

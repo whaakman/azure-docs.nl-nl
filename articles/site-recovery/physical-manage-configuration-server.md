@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 62a9fd6eee15618e7153fd84030840b429e214ed
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9a5a20ffd5065f155fff6342937e1c17a1905797
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833513"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430480"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
 
@@ -37,7 +37,7 @@ De tabel bevat een overzicht van aan de vereisten voor het implementeren van de 
 | IIS | -Er zijn geen bestaande standaardwebsite <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Er is geen bestaande website/toepassing luistert op poort 443<br>|
 | Type NIC | VMXNET3 (indien geïmplementeerd als een VMware-VM) |
 | Type IP-adres | Statisch |
-| Toegang tot het internet | De server moet toegang hebben tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (niet vereist voor Scale-out processervers) <br> - time.nist.gov <br> - time.windows.com |
+| Toegang tot het internet | De server moet toegang hebben tot deze URL's: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (niet vereist voor Scale-out processervers) <br> - time.nist.gov <br> - time.windows.com |
 | Poorten | 443 (Orchestration-besturingselement)<br>9443 (Gegevenstransport)|
 
 ## <a name="download-the-latest-installation-file"></a>Download het recentste installatiebestand
@@ -106,7 +106,7 @@ Voer het bestand voor installatie als volgt uit:
 
 ### <a name="parameters"></a>Parameters
 
-|Parameternaam| Type | Beschrijving| Waarden|
+|Parameternaam| Type | Description| Waarden|
 |-|-|-|-|
 | /ServerMode|Vereist|Hiermee wordt aangegeven of zowel de configuratieserver als de processerver moet worden geïnstalleerd, of alleen de processerver|CS<br>PS|
 |/InstallLocation|Vereist|De map waarin de onderdelen worden geïnstalleerd| Een map op de computer|
@@ -172,7 +172,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
   2. Start de cspsconfigtool.exe met behulp van de snelkoppeling op het bureaublad.
   3. Klik op de **kluis registratie** tabblad.
   4. Een nieuwe registratiebestand downloaden via de portal en geef deze als invoer voor het hulpprogramma.
-        ![register-configuratie-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
   5. Geef de details van de proxyserver en klikt u op de **registreren** knop.  
   6. Open een opdrachtvenster Admin PowerShell.
   7. De volgende opdracht uitvoeren
@@ -264,7 +264,7 @@ De server als volgt bijwerken:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Verwijderen of de registratie van een configuratieserver (PowerShell)
 
-1. [Installeer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-module
+1. [Installeer](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-module
 2. Meld u aan bij uw Azure-account met de opdracht
     
     `Connect-AzureRmAccount`

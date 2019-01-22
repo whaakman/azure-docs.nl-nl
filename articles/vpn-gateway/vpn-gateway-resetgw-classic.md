@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: d23ed383bee3346cfbb20c6935dd3630e137c179
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 72e990516ce6ae3276c6db6f12d1a5dda4d0386f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573894"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432503"
 ---
 # <a name="reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
 
@@ -62,7 +62,7 @@ U kunt een Resource Manager-VPN-gateway met behulp van de Azure portal opnieuw. 
 
 ### <a name="resource-manager-deployment-model"></a>Resource Manager-implementatiemodel
 
-De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzureRmVirtualNetworkGateway**. Voordat u een opnieuw instellen, zorg ervoor dat u hebt de nieuwste versie van de [Resource Manager PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). Het volgende voorbeeld wordt een virtuele netwerkgateway met de naam VNet1GW in de resourcegroep TestRG1:
+De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzureRmVirtualNetworkGateway**. Voordat u een opnieuw instellen, zorg ervoor dat u hebt de nieuwste versie van de [Resource Manager PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0). Het volgende voorbeeld wordt een virtuele netwerkgateway met de naam VNet1GW in de resourcegroep TestRG1:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 32298b78f3b98afb6754e07ad63467f4f995d84f
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 4e53351d4581791df77dbb64d9eb0f25815204f5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382909"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426723"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -98,7 +98,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Basic SKU en openbare IP kunnen worden verplaatst. Standaard SKU en openbare IP kan niet worden verplaatst.
-* Recovery Services-kluis: u moet worden geregistreerd een [beperkte openbare preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Recovery Services-kluis: Registreer uw abonnement voor [beperkte openbare preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Azure Cache voor Redis op: als de Azure-Cache voor Redis-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
 * Search - u kunt verschillende zoeken resources niet verplaatsen in verschillende regio's in één bewerking. In plaats daarvan deze verplaatsen in aparte bewerkingen.
@@ -305,7 +305,7 @@ De bewerking kan enkele minuten uitgevoerd.
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-beperkingen
 
-Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven de [beperkte openbare preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Uw abonnement voor registreren voor het verplaatsen van een Recovery Services-kluis, [beperkte openbare preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 Op dit moment kunt u een Recovery Services-kluis verplaatsen per regio, op een tijdstip. U kunt kluizen dat voor back-up Azure Files of Azure File Sync SQL IaaS virtuele machines niet verplaatsen.
 

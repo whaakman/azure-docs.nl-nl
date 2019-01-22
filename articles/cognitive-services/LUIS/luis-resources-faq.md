@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3c0d7d3aed08c6dbbcac5f25e91edd8e27e64440
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246548"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429358"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding Frequently Asked Questions (FAQ)
 
@@ -75,7 +75,7 @@ Controleer de [aanbevolen procedures](luis-concept-best-practices.md) voor meer 
 LUIS [basis van woordgrenzen](luis-glossary.md#token) de utterance op basis van de [cultuur](luis-language-support.md#tokenization). Zowel de oorspronkelijke waarde en de waarde van de tokens zijn beschikbaar voor [gegevensextractie](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Hoe ik maken en toewijzen van een LUIS eindpuntsleutel?
-[Maken van de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure voor uw [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) niveau. [Toewijzen van de sleutel](luis-how-to-manage-keys.md#assign-endpoint-key) op de **[sleutels en eindpunten](luis-how-to-manage-keys.md)** pagina. Er is geen overeenkomende API voor deze actie. Vervolgens moet u de HTTP-aanvraag naar het eindpunt naar [gebruikt u de nieuwe eindpuntsleutel](luis-concept-keys.md#use-endpoint-key-in-query).
+[Maken van de eindpuntsleutel](luis-how-to-azure-subscription.md) in Azure voor uw [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) niveau. [Toewijzen van de sleutel](luis-how-to-azure-subscription.md) op de **[sleutels en eindpunten](luis-how-to-azure-subscription.md)** pagina. Er is geen overeenkomende API voor deze actie. Vervolgens moet u de HTTP-aanvraag naar het eindpunt naar [gebruikt u de nieuwe eindpuntsleutel](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Hoe ik LUIS scores worden geïnterpreteerd?
 Uw systeem moet de hoogste score intentie, ongeacht de waarde ervan gebruiken. Bijvoorbeeld, betekent een score lager (minder dan 50%) 0,5 niet noodzakelijkerwijs dat LUIS weinig vertrouwen heeft. Biedt meer training gegevens kunt verhogen de [score](luis-concept-prediction-score.md) van het meest waarschijnlijk doel.

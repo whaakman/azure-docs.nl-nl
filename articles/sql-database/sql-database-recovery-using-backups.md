@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 8785ef50cd7bd27e866b1fa546317021eed5da01
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 301b0179c8222bfdff3b07f7962a74a4cc83b8f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599098"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432282"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 
@@ -85,17 +85,15 @@ U kunt in het algemeen een database herstellen naar een eerder tijdstip voor her
 
 Als u wilt herstellen van een enkele, gegroepeerde of beheerde exemplaar in de database naar een tijdstip met behulp van de Azure-portal, open de pagina voor uw database en klik op **herstellen** op de werkbalk.
 
-![punt-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
+![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 > [!IMPORTANT]
 > Programmatisch database herstellen vanuit een back-up, Zie [via een programma uitvoeren recovery met behulp van geautomatiseerde back-ups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## <a name="deleted-database-restore"></a>Verwijderde database herstellen
 
-U kunt een verwijderde database herstellen naar de tijd van verwijdering van een verwijderde database op dezelfde logische server met behulp van Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST (createMode = terugzetten)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). U kunt een verwijderde database herstellen naar een eerder tijdstip tijdens de bewaarperiode via [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+U kunt een verwijderde database herstellen naar de tijd van verwijdering van een verwijderde database op dezelfde logische server met behulp van Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST (createMode = terugzetten)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). U kunt [verwijderde database herstellen in het beheerde exemplaar met behulp van PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). U kunt een verwijderde database herstellen naar een eerder tijdstip tijdens de bewaarperiode via [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
-> [!Note]
-> Het herstellen van verwijderde database is niet beschikbaar in het beheerde exemplaar.
 > [!TIP]
 > Zie voor een voorbeeld van PowerShell-script waarin wordt getoond hoe een verwijderde database herstellen, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
 > [!IMPORTANT]
@@ -121,7 +119,7 @@ U kunt een SQL-database op elke server in een Azure-regio van de meest recente g
 
 Geo-restore is de standaardoptie voor herstel wanneer de database is niet beschikbaar vanwege een incident in de regio waar de database wordt gehost. Als een grootschalige incident in een regio, resulteert in niet-beschikbaarheid van uw databasetoepassing, kunt u een database herstellen vanuit back-ups via geo-replicatie naar een server in een andere regio. Er is een vertraging tussen wanneer een back-up is gemaakt en wanneer het zich geo-replicatie naar een Azure blob in een andere regio. Deze vertraging mag maximaal een uur, dus als er zich een noodgeval voordoet, kan er van één uur gegevens verloren gaan. De volgende afbeelding ziet het herstellen van de database van de laatste beschikbare back-up in een andere regio.
 
-![Geo-herstel](./media/sql-database-geo-restore/geo-restore-2.png)
+![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
 > [!TIP]
 > Zie voor een voorbeeld van PowerShell-script waarin wordt getoond hoe om uit te voeren van een geo-restore, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -161,7 +159,7 @@ Een enkele of gegroepeerde om database te herstellen met behulp van de REST-API:
 
 | API | Description |
 | --- | --- |
-| [REST (createMode = Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Hiermee herstelt u een database |
+| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Hiermee herstelt u een database |
 | [Get maken of bijwerken van de Status van Database](https://docs.microsoft.com/rest/api/sql/operations) |De status geretourneerd tijdens een herstelbewerking |
 
 ### <a name="azure-cli"></a>Azure-CLI

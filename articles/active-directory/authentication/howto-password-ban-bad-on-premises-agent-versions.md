@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1d27aa46148e0169909a7aaf05baaac18b050a34
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913633"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423660"
 ---
-# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Voorbeeld: Versiegeschiedenis van Azure AD wachtwoord protection agent
+# <a name="preview--azure-ad-password-protection-agent-version-history"></a>Preview:  Azure AD wachtwoord protection agent versiegeschiedenis
 
 |     |
 | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "50913633"
 
 ## <a name="12250"></a>1.2.25.0
 
-Releasedatum: 01-11-2018
+Uitgebracht op: 11/01/2018
 
 Opgelost:
 
@@ -43,7 +43,7 @@ Wijzigingen in:
 
 ## <a name="12100"></a>1.2.10.0
 
-Releasedatum: 17-8-2018
+Uitgebracht op: 8/17/2018
 
 Opgelost:
 
@@ -67,7 +67,7 @@ Opgelost:
 
 ## <a name="11103"></a>1.1.10.3
 
-Uitgebracht op: 15-6-2018
+Uitgebracht op: 6/15/2018
 
 Eerste openbare preview-versie
 

@@ -4,7 +4,7 @@ description: Een zelfstudie waarin wordt uitgelegd hoe u een Windows-virtuele ma
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 2091fb75e07b9ed01394621af2d82c02f5598430
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6997812565e5e797e65d8e833a7f0f83db593923
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721320"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423881"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Een Windows VM door het systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage via SAS-referenties
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Gebruik van een Windows VM door het systeem toegewezen beheerde identiteit voor toegang tot Azure Storage via SAS-referenties
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -68,7 +68,7 @@ Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  
 
 1. Navigeer terug naar het zojuist gemaakte opslagaccount.   
 2. Klik op de koppeling **Toegangsbeheer (IAM)** in het linkerpaneel.  
-3. Klik op **+ roltoewijzing toevoegen** boven op de pagina om een nieuwe roltoewijzing voor de virtuele machine
+3. Klik op **+ Roltoewijzing toevoegen** boven aan de pagina om een nieuwe roltoewijzing voor de VM toe te voegen
 4. Stel **Rol** in op 'Inzender voor opslagaccounts', aan de rechterkant van de pagina.  
 5. Stel in de volgende vervolgkeuzelijst **Toegang toewijzen aan** de resource in op Virtuele machine.  
 6. Controleer vervolgens of het juiste abonnement wordt weergegeven in de vervolgkeuzelijst **Abonnement**, en stel **Resourcegroep** in op Alle resourcegroepen.  

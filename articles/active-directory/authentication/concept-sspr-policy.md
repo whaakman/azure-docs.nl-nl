@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1d7f364ac5863c70cd0034d9c458e94cfb164cba
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 2b0e96186221908352771a80803c17b772d660be
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116956"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431845"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -68,7 +68,7 @@ Elke gebruikersaccount die u zich moet aanmelden bij Azure AD moet een unieke ge
 
 | Eigenschap | UserPrincipalName-vereisten |
 | --- | --- |
-| Toegestane tekens |<ul> <li>A-Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
+| Toegestane tekens |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Zijn niet toegestaan |<ul> <li>Een "\@ \" teken dat niet van de gebruikersnaam van het domein scheiden wordt.</li> <li>Mag een periode teken niet bevatten "." direct vóór de '\@ \" symbool</li></ul> |
 | Lengtebeperkingen |<ul> <li>De totale lengte mag niet groter zijn dan 113 tekens</li><li>Er mag maximaal 64 tekens vóór de '\@ \" symbool</li><li>Er mag maximaal 48 tekens na het '\@ \" symbool</li></ul> |
 
@@ -78,7 +78,7 @@ De volgende tabel beschrijft de beschikbare wachtwoord-beleidsinstellingen die k
 
 | Eigenschap | Vereisten |
 | --- | --- |
-| Toegestane tekens |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
+| Toegestane tekens |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Zijn niet toegestaan |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Alleen sterke wachtwoorden: Mag een punt-teken niet bevatten "." Direct vóór de '\@ \" symbool ".</li></ul> |
 | Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 16 tekens bestaan.</li><li>Alleen sterke wachtwoorden: Moet drie van vier van de volgende opties:<ul><li>Kleine letters.</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>De symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
 | Duur van de wachtwoord-vervaldatum |<ul><li>Standaardwaarde: **90** dagen.</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet uit de Azure Active Directory-Module voor Windows PowerShell.</li></ul> |

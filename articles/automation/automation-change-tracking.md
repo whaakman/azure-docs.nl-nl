@@ -3,19 +3,19 @@ title: Wijzigingen bijhouden met een Azure Automation
 description: De oplossing wijzigingen bijhouden kunt u software en wijzigingen in de Windows-Service die zich in uw omgeving voordoen identificeren.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213209"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433013"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -38,7 +38,7 @@ De volgende Linux-distributies zijn officieel ondersteund. De Linux-agent kan ec
 * CentOS 6 en 7
 * Amazon Linux 2017.09
 * Oracle Linux 6 en 7
-* Red Hat Enterprise Linux Server 6 en 7
+* Red Hat Enterprise Linux Server 6 and 7
 * Debian GNU/Linux 8 en 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS en 18.04 LTS
 * SUSE Linux Enterprise Server 12
@@ -202,7 +202,7 @@ Het doel van de bewaking van wijzigingen in de registersleutels is op de spelden
 > |---------|
 > |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors algemene autostart vermeldingen die rechtstreeks in Windows Verkenner en gewoonlijk uitgevoerd in-process met Explorer.exe van een toepassing aansluiten.    |
-> |**HKEY\_lokale\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
+> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors scripts die worden uitgevoerd bij het opstarten.     |
 > |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors scripts die worden uitgevoerd bij het afsluiten.     |
@@ -222,29 +222,29 @@ Het doel van de bewaking van wijzigingen in de registersleutels is op de spelden
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors voor nieuwe browser helper object invoegtoepassingen voor Internet Explorer. Gebruikt voor toegang tot het Document Object Model (DOM) van de huidige pagina en de navigatie.|
 > |**HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper-objecten**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors voor nieuwe browser helper object invoegtoepassingen voor Internet Explorer. Gebruikt voor toegang tot het Document Object Model (DOM) van de huidige pagina en de navigatie voor 32-bits programma's die worden uitgevoerd op 64-bits computers.|
-> |**HKEY\_lokale\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
+> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors voor nieuwe Internet Explorer-uitbreidingen, zoals aangepaste hulpprogramma's en aangepaste knoppen.|
-> |**HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
+> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors voor nieuwe Internet Explorer-uitbreidingen, zoals aangepaste hulpprogramma's en aangepaste knoppen voor 32-bits programma's die worden uitgevoerd op 64-bits computers.|
-> |**HKEY\_lokale\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De 32-bits stuurprogramma's die zijn gekoppeld aan wavemapper, wave1 en wave2 msacm.imaadpcm, .msadpcm, .msgsm610 en vidc bewaakt. Dit is vergelijkbaar met de sectie [drivers] in het systeem. INI-bestand.|
-> |**HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors de 32-bits stuurprogramma's die zijn gekoppeld aan wavemapper, wave1 en wave2 msacm.imaadpcm, .msadpcm, .msgsm610 en vidc voor 32-bits programma's die worden uitgevoerd op 64-bits computers. Dit is vergelijkbaar met de sectie [drivers] in het systeem. INI-bestand.|
 > |**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Controleert de lijst met bekende of gebruikte systeem-dll's; Dit systeem wordt voorkomen dat mensen misbruik van zwakke Toepassingsmachtigingen voor directory door slepen en neerzetten in Trojaans paard versies van systeem-dll's.|
-> |**HKEY\_lokale\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
+> |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De lijst met pakketten kunnen ontvangen van meldingen van gebeurtenissen van Winlogon, het model van de ondersteuning voor interactief aanmelden voor het besturingssysteem Windows controleert.|
 
 ## <a name="network-requirements"></a>Netwerkvereisten
 
 De volgende adressen moeten specifiek voor wijzigingen bijhouden. Communicatie met deze adressen wordt gedaan via poort 443.
 
-|Azure openbaar  |Azure Government  |
+|Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.Azure-automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Gebruik bijhouden
 
@@ -279,3 +279,4 @@ Ga naar de zelfstudie over het bijhouden van wijzigingen voor meer informatie ov
 > [Problemen met wijzigingen in uw omgeving oplossen](automation-tutorial-troubleshoot-changes.md)
 
 * Gebruik [zoekopdrachten in Logboeken in Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde bijhouden van gegevens weer te geven.
+

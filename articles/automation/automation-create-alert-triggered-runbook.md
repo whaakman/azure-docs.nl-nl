@@ -3,18 +3,18 @@ title: Gebruik van een waarschuwing voor het activeren van een Azure Automation-
 description: Informatie over het activeren van een runbook worden uitgevoerd wanneer een Azure-waarschuwing wordt gegenereerd.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d35d2bfdf379d5bf02ebb4b2fd71fb85519c741a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 88fe7740170638e9e0d7398a02dcf83ab81f6ffc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581639"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421680"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Gebruik van een waarschuwing voor het activeren van een Azure Automation-runbook
 
@@ -232,3 +232,4 @@ Een klassieke waarschuwing maken:
 * Zie voor meer informatie over de verschillende manieren om een runbook te starten, [een runbook starten](automation-starting-a-runbook.md).
 * Zie voor meer informatie over het maken van een waarschuwing voor activiteitenlogboek, [waarschuwingen voor activiteitenlogboek maken](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Zie voor meer informatie over het maken van een waarschuwing voor bijna realtime, [een waarschuwingsregel maken in Azure portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+

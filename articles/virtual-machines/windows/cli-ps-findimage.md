@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: danlep
-ms.openlocfilehash: 5934e955d2a18d111c625670bced134df37ef045
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ff4ccdf28be9d28798fff0e9f66bbb2c860166b7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409591"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424537"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Windows-VM-installatiekopieën zoeken in de Azure Marketplace met Azure PowerShell
 
@@ -28,7 +28,7 @@ In dit artikel wordt beschreven hoe u Azure PowerShell gebruiken voor het VM-ins
 
 U kunt ook bladeren beschikbare installatiekopieën en aanbiedingen met behulp van de [Azure Marketplace](https://azuremarketplace.microsoft.com/) winkel, de [Azure-portal](https://portal.azure.com), of de [Azure CLI](../linux/cli-ps-findimage.md). 
 
-Zorg ervoor dat u hebt geïnstalleerd en geconfigureerd, de meest recente [Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
+Zorg ervoor dat u hebt geïnstalleerd en geconfigureerd, de meest recente [Azure PowerShell-module](/powershell/azure/azurerm/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -43,7 +43,7 @@ Zorg ervoor dat u hebt geïnstalleerd en geconfigureerd, de meest recente [Azure
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2017 WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2017-WS2016 |Enterprise |
 | MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>De installatiekopieën doorzoeken

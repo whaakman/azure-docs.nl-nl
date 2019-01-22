@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426201"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435716"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Hoe het werkt: Azure AD Self-service voor wachtwoord opnieuw instellen
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Het werkt als volgt: Azure AD-selfservice wachtwoord opnieuw instellen
 
 Hoe werkt selfservice wachtwoordherstel (SSPR)? Wat betekent dat optie in de interface? Lees voor meer informatie over Azure Active Directory (Azure AD) SSPR verder.
 
@@ -150,13 +150,13 @@ Als deze optie is ingesteld op **Ja**, gebruikers hun wachtwoord opnieuw instell
 
 Als deze optie is ingesteld op **Ja**, klikt u vervolgens *alle beheerders* ontvangt een e-mail naar het primaire e-mailadres in het bestand in Azure AD. Het e-mailbericht dat de melding verschijnt dat een andere beheerder het wachtwoord is gewijzigd met behulp van self-service voor Wachtwoordherstel.
 
-Voorbeeld: Zijn er vier beheerders in een omgeving. Hun wachtwoord opnieuw instellen via Self-service voor Wachtwoordherstel van een beheerder. Beheerders B, C en D ontvangen een e-mailbericht waarschuwingen van het wachtwoord opnieuw instellen.
+Voorbeeld: Er zijn vier beheerders in een omgeving. Hun wachtwoord opnieuw instellen via Self-service voor Wachtwoordherstel van een beheerder. Beheerders B, C en D ontvangen een e-mailbericht waarschuwingen van het wachtwoord opnieuw instellen.
 
 ## <a name="on-premises-integration"></a>On-premises integratie
 
 Als u installeren, configureren en Azure AD Connect inschakelen, hebt u de volgende aanvullende opties voor on-premises integraties. Als deze opties lichter gekleurd weergegeven zijn, is klikt u vervolgens Write-back niet juist geconfigureerd. Zie voor meer informatie, [configuratie van wachtwoord terugschrijven](howto-sspr-writeback.md).
 
-![Write-back][Writeback]
+![Writeback][Writeback]
 
 Deze pagina vindt u een snel de status van de on-premises Write-backclient, een van de volgende berichten wordt weergegeven op basis van de huidige configuratie:
 
@@ -185,9 +185,9 @@ Dit besturingselement Hiermee wordt aangegeven of gebruikers die gaat u naar de 
 
 Wachtwoord opnieuw instellen en wijzigen worden volledig ondersteund in alle configuraties met business-to-business (B2B). Wachtwoorden opnieuw instellen van B2B-gebruikers wordt ondersteund in de volgende drie gevallen:
 
-   * **Gebruikers van de partnerorganisatie van een met een bestaande Azure AD-tenant**: als de organisatie die u zijn een partnerschap aangegaan met een bestaande Azure AD-tenant, we *respecteren ongeacht wachtwoord opnieuw instellen van beleidsregels zijn ingeschakeld op deze tenant*. Voor wachtwoord opnieuw instellen om te werken, moet de partnerorganisatie alleen om ervoor te zorgen dat Azure AD SSPR is ingeschakeld. Er zijn geen extra kosten voor Office 365-klanten en kan worden ingeschakeld met de volgende stappen in onze [aan de slag met wachtwoordbeheer](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) handleiding.
-   * **Gebruikers die zich aanmelden via** self-service-aanmelding: als de organisatie u zijn een partnerschap aangegaan met gebruikt de [self-service-aanmelding](../users-groups-roles/directory-self-service-signup.md) functie om op te halen in een tenant, laat Microsoft ze opnieuw instellen van het wachtwoord met het e-mailbericht ze geregistreerd.
-   * **B2B-gebruikers**: een nieuwe B2B-gebruikers die zijn gemaakt met behulp van de nieuwe [Azure AD B2B-mogelijkheden](../active-directory-b2b-what-is-azure-ad-b2b.md) worden ook opnieuw instellen van wachtwoorden met het e-mailbericht ze tijdens de uitnodiging hebt geregistreerd.
+   * **Gebruikers van de partnerorganisatie van een met een bestaande Azure AD-tenant**: Als de organisatie die u zijn een partnerschap aangegaan met een bestaande Azure AD-tenant, we *respecteren ongeacht wachtwoord opnieuw instellen van beleidsregels zijn ingeschakeld op deze tenant*. Voor wachtwoord opnieuw instellen om te werken, moet de partnerorganisatie alleen om ervoor te zorgen dat Azure AD SSPR is ingeschakeld. Er zijn geen extra kosten voor Office 365-klanten en kan worden ingeschakeld met de volgende stappen in onze [aan de slag met wachtwoordbeheer](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) handleiding.
+   * **Gebruikers die zich aanmelden via** self-service-aanmelding: Als de organisatie samenwerking met gebruikt de [self-service-aanmelding](../users-groups-roles/directory-self-service-signup.md) functie om op te halen in een tenant, laat Microsoft ze opnieuw instellen van het wachtwoord met het e-mailbericht ze geregistreerd.
+   * **B2B-gebruikers**: Een nieuwe B2B-gebruikers die zijn gemaakt met behulp van de nieuwe [Azure AD B2B-mogelijkheden](../active-directory-b2b-what-is-azure-ad-b2b.md) worden ook opnieuw instellen van wachtwoorden met het e-mailbericht ze tijdens de uitnodiging hebt geregistreerd.
 
 Als u wilt testen in dit scenario, gaat u naar https://passwordreset.microsoftonline.com met een van deze gebruikers van partnerorganisaties. Als ze hebben een alternatief e-mailadres of verificatieadres die zijn gedefinieerd, heeft wachtwoord opnieuw instellen werkt zoals verwacht.
 

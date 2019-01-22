@@ -3,18 +3,18 @@ title: Integratie van broncodebeheer in Azure Automation
 description: Dit artikel wordt de integratie van broncodebeheer met GitHub in Azure Automation beschreven.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330763"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430191"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
@@ -144,3 +144,4 @@ Selecteer het bron-besturingselement dat u wilt verwijderen. Op de **samenvattin
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Azure Automation-runbooktypen](automation-runbook-types.md) voor meer informatie over runbooktypen, hun voordelen en beperkingen
+

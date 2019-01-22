@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: cffc3ac8808992f7884839329e5bf152d318820c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: alerts
+ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789361"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429443"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Waarschuwingen voor het oplossen van problemen in Azure Monitor  
 
@@ -33,7 +33,7 @@ Hier zijn enkele veelvoorkomende redenen waarom een geconfigureerde [waarschuwin
 
 ### <a name="data-ingestion-time-for-logs"></a>Gegevens opnemen tijd voor logboeken
 
-Waarschuwing wordt periodiek uitgevoerd voor de query op basis van [Log Analytics](../learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/analytics.md). Omdat de Log Analytics verwerkt vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld, is de service is vatbaar voor verschillende vertraging. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../platform/data-ingestion-time.md).
+Waarschuwing wordt periodiek uitgevoerd voor de query op basis van [Log Analytics](../learn/tutorial-viewdata.md) of [Application Insights](../../azure-monitor/app/analytics.md). Omdat de Log Analytics verwerkt vele terabytes aan gegevens van duizenden klanten uit verschillende bronnen over de hele wereld, is de service is vatbaar voor verschillende vertraging. Zie [Gegevensopnametijd in Log Analytics](../platform/data-ingestion-time.md) voor meer informatie.
 
 Als u wilt beperken gegevensopname vertraging, het systeem moet wachten en probeert de Waarschuwingsquery meerdere keren opnieuw als er dat nog niet de benodigde gegevens worden opgenomen. Het systeem heeft een exponentieel toenemende wachttijd instellen. Het logboek waarschuwing alleen triggers nadat de gegevens beschikbaar zijn, zodat ze vertraging kunnen worden veroorzaakt door trage logboekgegevens opnemen. 
 
@@ -84,7 +84,7 @@ Gedetailleerde volgende worden enkele veelvoorkomende redenen waarom een geconfi
 
 ### <a name="alert-triggered-by-partial-data"></a>Waarschuwing geactiveerd door gegevens gedeeltelijk
 
-Levert het vermogen voor Log Analytics en Application Insights Analytics zijn afhankelijk van vertragingen van gegevensopname en -verwerking; vanwege die op het moment wanneer opgegeven logboekwaarschuwingsquery wordt uitgevoerd - mogelijk zijn er een aanvraag van geen gegevens beschikbaar worden gesteld of alleen bepaalde gegevens beschikbaar worden gesteld. Zie voor meer informatie, [gegevensopname tijd in Log Analytics](../platform/data-ingestion-time.md).
+Levert het vermogen voor Log Analytics en Application Insights Analytics zijn afhankelijk van vertragingen van gegevensopname en -verwerking; vanwege die op het moment wanneer opgegeven logboekwaarschuwingsquery wordt uitgevoerd - mogelijk zijn er een aanvraag van geen gegevens beschikbaar worden gesteld of alleen bepaalde gegevens beschikbaar worden gesteld. Zie [Gegevensopnametijd in Log Analytics](../platform/data-ingestion-time.md) voor meer informatie.
 
 Afhankelijk van hoe de waarschuwingsregel is geconfigureerd, kunnen er verkeerd firing als er geen of gedeeltelijke gegevens in Logboeken op het moment van uitvoering van de waarschuwing. In dergelijke gevallen adviseren we u om de Waarschuwingsquery of de configuratie te wijzigen. 
 

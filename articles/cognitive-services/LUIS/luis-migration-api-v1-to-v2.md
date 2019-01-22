@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138820"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427505"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1, v2-Migratiehandleiding LUIS-apps
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's zijn afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
@@ -112,7 +112,7 @@ De abonnement-eindpuntsleutel API's zijn afgeschaft, retourneren 410 verwijderd.
 |1|/Luis/V1.0/Prog/Subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [eindpunt sleutels](luis-how-to-azure-subscription.md) worden gegenereerd in Azure portal. Toewijzen van de sleutel aan een LUIS-app op de **[publiceren](luis-how-to-manage-keys.md)** pagina. U hoeft niet te weten de werkelijke waarde van de sleutel. LUIS wordt de naam van het abonnement te maken van de toewijzing. 
+Azure [eindpunt sleutels](luis-how-to-azure-subscription.md) worden gegenereerd in Azure portal. Toewijzen van de sleutel aan een LUIS-app op de **[publiceren](luis-how-to-azure-subscription.md)** pagina. U hoeft niet te weten de werkelijke waarde van de sleutel. LUIS wordt de naam van het abonnement te maken van de toewijzing. 
 
 ## <a name="new-versioning-route"></a>Nieuwe versiebeheer route
 De v2-model is nu opgenomen in een [versie](luis-how-to-manage-versions.md). De versienaam van een is 10 tekens in de route. De standaardversie is '0.1'.

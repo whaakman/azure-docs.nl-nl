@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 95d443eeebf2fe5a8fad185210f88576a5f21f6a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188756"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435292"
 ---
 # <a name="url-path-based-routing-overview"></a>Overzicht van op URL-pad gebaseerde routering
 
@@ -19,11 +19,11 @@ Met op URL-pad gebaseerde routering kunt u verkeer routeren naar back-endserverp
 
 Een van de scenario's is het routeren van aanvragen voor verschillende inhoudstypen naar verschillende back-endserverpools.
 
-In het volgende voorbeeld fungeert Application Gateway bijvoorbeeld verkeer voor contoso.com van drie back-end servergroepen: VideoServerPool, ImageServerPool en DefaultServerPool.
+In het volgende voorbeeld fungeert Application Gateway bijvoorbeeld verkeer voor contoso.com van drie back-end servergroepen: VideoServerPool, ImageServerPool, and DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Aanvragen voor http://contoso.com/video/* worden doorgestuurd naar VideoServerPool, en http://contoso.com/images/* worden doorgestuurd naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
+Aanvragen voor http\://contoso.com/video/* worden gerouteerd naar VideoServerPool en HTTP-\://contoso.com/images/* worden gerouteerd naar ImageServerPool. Als geen van de padpatronen overeenkomen, wordt DefaultServerPool geselecteerd.
 
 > [!IMPORTANT]
 > Regels worden verwerkt in de volgorde die wordt weergegeven in de portal. Het is raadzaam om eerst listeners voor meerdere locaties te configureren voordat u een basislistener configureert.  Dit zorgt ervoor dat verkeer naar de juiste back-end wordt geleid. Als een basislistener als eerste wordt weergegeven en overeenkomt met een inkomende aanvraag, wordt deze door die listener verwerkt.
@@ -67,7 +67,7 @@ PathPattern is een lijst van padpatronen. Elk hiervan moet beginnen met / en de 
 
 De ondersteunde patronen, is afhankelijk van of u Application Gateway v1 of v2 implementeert:
 
-#### <a name="v1"></a>V1
+#### <a name="v1"></a>v1
 
 Padregels zijn niet hoofdlettergevoelig.
 

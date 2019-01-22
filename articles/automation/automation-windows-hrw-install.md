@@ -3,18 +3,18 @@ title: Hybrid Runbook Worker voor Azure Automation in Windows
 description: In dit artikel bevat informatie over het installeren van een Azure Automation Hybrid Runbook Worker die u gebruiken kunt om uit te voeren van runbooks op Windows gebaseerde computers in uw lokale datacenter of cloudomgeving.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a0e0000c4baa22ccc1c26c0e40ec62bb277104af
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2d9f1b99407f5c94581a3108c785292e9928cbb4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993905"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432317"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Een Windows Hybrid Runbook Worker implementeren
 
@@ -53,12 +53,12 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
 
    Het script New-OnPremiseHybridWorker.ps1 moet de volgende parameters tijdens de uitvoering:
 
-   * *AutomationAccountName* (verplicht): de naam van uw Automation-account.
-   * *AAResourceGroupName* (verplicht): de naam van de resourcegroep die is gekoppeld aan uw Automation-account.
-   * *OMSResourceGroupName* (optioneel): de naam van de resourcegroep voor de Log Analytics-werkruimte. Als deze resourcegroep niet opgegeven is, *AAResourceGroupName* wordt gebruikt.
-   * *HybridGroupName* (verplicht): de naam van een Hybrid Runbook Worker-groep die u opgeeft als een doel voor de runbooks die ondersteuning bieden voor dit scenario.
-   * *Abonnements-id* (verplicht): de Azure-abonnements-ID die uw Automation-account.
-   * *WorkspaceName* (optioneel): naam van de Log Analytics-werkruimte. Als u een Log Analytics-werkruimte hebt, wordt het script maakt en configureert een.
+   * *AutomationAccountName* (verplicht): De naam van uw Automation-account.
+   * *AAResourceGroupName* (verplicht): De naam van de resourcegroep die is gekoppeld aan uw Automation-account.
+   * *OMSResourceGroupName* (optioneel): De naam van de resourcegroep voor de Log Analytics-werkruimte. Als deze resourcegroep niet opgegeven is, *AAResourceGroupName* wordt gebruikt.
+   * *HybridGroupName* (verplicht): De naam van een Hybrid Runbook Worker-groep die u opgeeft als een doel voor de runbooks die ondersteuning bieden voor dit scenario.
+   * *Abonnements-id* (verplicht): De Azure-abonnement-ID die uw Automation-account.
+   * *WorkspaceName* (optioneel): De naam van de Log Analytics-werkruimte. Als u een Log Analytics-werkruimte hebt, wordt het script maakt en configureert een.
 
      > [!NOTE]
      > Op dit moment de enige Automation-regio's ondersteund voor integratie met Log Analytics zijn **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en  **West-Europa**. Als uw Automation-account zich niet in een van deze regio's, wordt het script maakt u een Log Analytics-werkruimte maar waarschuwt u dat deze niet kan ze aan elkaar koppelen.
@@ -146,3 +146,4 @@ Zie voor aanvullende stappen over het oplossen van problemen met updatebeheer [u
 
 * Zie voor informatie over het configureren van uw runbooks om processen in uw on-premises datacenter of andere cloudomgeving te automatiseren, [runbooks uitvoeren op een Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Zie voor instructies over het verwijderen van Hybrid Runbook Workers [verwijderen Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+

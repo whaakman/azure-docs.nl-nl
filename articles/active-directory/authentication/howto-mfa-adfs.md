@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: afb28488fc47f018b6d192eb1b65a54499ac8ff9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 868af1903623f612a7a987c1247bd138bcf26002
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666360"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430531"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
 
@@ -63,7 +63,7 @@ Het eerste wat we moeten doen is de AD FS-claims configureren. U maakt twee clai
    ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
 5. Selecteer in de wizard Transformatieclaimregels toevoegen **Passthrough of Een binnenkomende claim filteren** in de vervolgkeuzelijst en klik op **Volgende**.
    ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
-6. Geef de claimregel een naam in het vak bij Naam claimregel. Bijvoorbeeld: BinnenBedrijfsNet.
+6. Geef de claimregel een naam in het vak bij Naam claimregel. Bijvoorbeeld: InsideCorpNet.
 7. In de vervolgkeuzelijst naast Binnenkomend claimtype, selecteert u **Binnen bedrijfsnetwerk**.
    ![Cloud](./media/howto-mfa-adfs/trustedip4.png)
 8. Klik op **Voltooien**.

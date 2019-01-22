@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4c1f115061dfba36a37da1647c34dd4587857377
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354549"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427471"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -63,7 +63,7 @@ De meeste klanten Breng slechts een deel van de totale capaciteit online, met de
 
 ### <a name="billing-for-image-extraction-in-cognitive-search"></a>Facturering voor het ophalen van de afbeelding in cognitief zoeken
 
-Als u installatiekopieën van de bestanden in een cognitief zoeken pijplijn indexeren uitpakken wilt, in rekening gebracht voor de bewerking op uw factuur voor Azure Search. De parameter die wordt geactiveerd extractie van de installatiekopie is **imageAction** in een [configuratie van de indexeerfunctie](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Als **imageAction** is ingesteld op none (standaard), er zijn geen kosten voor het ophalen van de installatiekopie.
+Als u installatiekopieën van de bestanden in een cognitief zoeken pijplijn indexeren uitpakken wilt, in rekening gebracht voor de bewerking op uw factuur voor Azure Search. De parameter die wordt geactiveerd extractie van de installatiekopie is **imageAction** in een [configuratie van de indexeerfunctie](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters). Als **imageAction** is ingesteld op none (standaard), er zijn geen kosten voor het ophalen van de installatiekopie.
 
 Prijs is onderhevig aan wijzigingen, maar wordt altijd beschreven op de [prijsinformatie](https://azure.microsoft.com/pricing/details/search/) pagina voor Azure Search. 
 

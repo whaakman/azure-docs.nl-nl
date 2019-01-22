@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b0fdfa52d194dfa111c7bacf648c45f6e64fca13
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062064"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430918"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte met een Azure Resource Manager-sjabloon maken
 In deze snelstartgids maakt u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte van het type **Messaging** met een **Standard** SKU. Het artikel definieert ook de parameters die zijn opgegeven voor het uitvoeren van de implementatie. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen. Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen. Zie voor de volledige sjabloon, de [Service Bus-naamruimte sjabloon] [ Service Bus namespace template] op GitHub.
@@ -44,7 +44,7 @@ Voor het maken en de sjabloon handmatig implementeren, gaat u de volgende sectie
 ## <a name="prerequisites"></a>Vereisten
 U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-Als u wilt gebruiken **Azure PowerShell** om de Resource Manager-sjabloon te implementeren [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+Als u wilt gebruiken **Azure PowerShell** om de Resource Manager-sjabloon te implementeren [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 Als u wilt gebruiken **Azure CLI** om de Resource Manager-sjabloon te implementeren [Azure CLI installeren]( /cli/azure/install-azure-cli).
 

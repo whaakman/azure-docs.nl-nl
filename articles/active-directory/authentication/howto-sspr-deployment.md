@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622317"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431653"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
@@ -24,7 +24,7 @@ De meeste klanten voeren de volgende stappen uit voor een goede implementatie va
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
 1. Voer de implementatie van een prototype van met een kleine subset van uw organisatie.
-   * Meer informatie over het pilot vindt u de [zelfstudie: implementeer Complete een prototype van Azure AD Self-service voor wachtwoord opnieuw instellen van](tutorial-sspr-pilot.md).
+   * Meer informatie over het pilot vindt u de [zelfstudie: Implementeer complete een prototype van Azure AD Self-service voor wachtwoord opnieuw instellen van](tutorial-sspr-pilot.md).
 1. Leer uw helpdesk.
    * Hoe kunnen ze uw gebruikers?
    * Forceert u gebruikers SSPR gebruiken en niet toestaan dat uw helpdesk om gebruikers te helpen?
@@ -41,12 +41,12 @@ De meeste klanten voeren de volgende stappen uit voor een goede implementatie va
 
 Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, de eenvoudigste manier om gebruikers selfservice voor wachtwoordherstel te laten gebruiken. [We hebben gemaakt met eenvoudige e-mailberichten en andere activa die u als sjabloon gebruiken kunt om te helpen bij uw implementatie](https://www.microsoft.com/download/details.aspx?id=56768):
 
-* **Binnenkort beschikbaar**: Een e-mailsjabloon die in de weken of dagen vóór implementatie moet worden gebruikt om gebruikers te laten weten dat ze iets moeten gaan doen.
-* **Nu beschikbaar**: Een e-mailsjabloon die moet worden gebruikt op de dag van de lancering om gebruikers ertoe over te halen zich te registreren en hun verificatiegegevens te bevestigen. Als de gebruikers zich nu registreren, kunnen ze selfservice voor wachtwoordherstel gebruiken wanneer het nodig is.
-* **Herinnering voor aanmelding**: Een e-mailsjabloon die enkele weken of dagen na de implementatie moet worden gebruikt om gebruikers eraan te herinneren dat ze zich moeten registreren en hun verificatiegegevens moeten bevestigen.
+* **Binnenkort**: Een e-mailsjabloon die u in de weken of dagen vóór implementatie gebruiken om gebruikers te informeren dat ze iets moeten gaan doen.
+* **Nu beschikbaar**: Een e-mailsjabloon dat u de dag van het programma start station gebruikers zich registreren en hun verificatiegegevens te bevestigen. Als de gebruikers zich nu registreren, kunnen ze selfservice voor wachtwoordherstel gebruiken wanneer het nodig is.
+* **Herinnering voor aanmelding**: Een e-mailsjabloon voor een paar dagen tot een paar weken na de implementatie te herinneren dat gebruikers zich registreren en hun verificatiegegevens te bevestigen.
 * **SSPR-Posters**: Posters die u kunt aanpassen en weergeven over uw organisatie in de dagen en leidt tot weken en na de implementatie.
-* **SSPR naambordjes**: tabel kaarten die u kunt plaatsen in de ruimte op lunch, vergaderruimten, of op eigen bureau ter bevordering van uw gebruikers om registratie te voltooien.
-* **SSPR Stickers**: Sticker sjablonen kunt u aanpassen en afdrukken als u wilt plaatsen, laptops, monitors, toetsenborden of mobiele telefoons om te weten hoe u toegang krijgen tot SSPR.
+* **SSPR naambordjes**: Tabel kaarten die u kunt plaatsen in de ruimte op lunch, vergaderruimten, of op eigen bureau ter bevordering van uw gebruikers kunnen de inschrijving voltooien.
+* **SSPR Stickers**: Sticker sjablonen die u kunt aanpassen en afdrukken als u wilt plaatsen, laptops, monitors, toetsenborden of mobiele telefoons om te weten hoe u toegang krijgen tot SSPR.
 
 ![Voorbeelden van SSPR-e-mailadres][Email]
 

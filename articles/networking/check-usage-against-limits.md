@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385512"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421603"
 ---
 # <a name="check-resource-usage-against-limits"></a>Brongebruik op basis van limieten controleren
 
@@ -34,9 +34,9 @@ In dit artikel leert u hoe u om te zien van het aantal van elk resourcetype die 
 4. Selecteer de naam van het abonnement dat u wilt weergeven voor informatie over het gebruik.
 5. Onder **instellingen**, selecteer **gebruik + quota**.
 6. U kunt de volgende opties selecteren:
-    - **Resourcetypen**: U kunt alle resourcetypen selecteren, of Selecteer de specifieke typen resources die u wilt weergeven.
+    - **Resourcetypen**: U kunt alle resourcetypen selecteren, of de specifieke typen resources die u wilt weergeven.
     - **Providers**: U kunt alle resourceproviders selecteren, of selecteer **Compute**, **netwerk**, of **opslag**.
-    - **Locaties**: U kunt alle Azure-locaties selecteren of specifieke locaties selecteren.
+    - **Locaties**: U kunt alle Azure-locaties selecteren, of specifieke locaties.
     - U kunt selecteren om weer te geven van alle resources of alleen de resources waarop ten minste één wordt geïmplementeerd.
 
     Het voorbeeld in de volgende afbeelding ziet u alle van de netwerkbronnen met ten minste één resource in de VS-Oost geïmplementeerd:
@@ -47,7 +47,7 @@ In dit artikel leert u hoe u om te zien van het aantal van elk resourcetype die 
 
 ## <a name="powershell"></a>PowerShell
 
-U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.0.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` aanmelden bij Azure.
+U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.0.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` aanmelden bij Azure.
 
 Uw gebruik op basis van limieten met bekijken [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). Het volgende voorbeeld wordt het gebruik van resources waarop ten minste één resource wordt geïmplementeerd op de locatie VS-Oost:
 

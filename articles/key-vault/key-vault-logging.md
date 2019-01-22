@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7229cedf2ad5e211847054b53c34e54f633f57e0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159958"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434764"
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
 
@@ -221,7 +221,7 @@ We gaan zo kijken wat er precies in de logboeken staat. Maar eerst behandelen we
 
 ## <a id="interpret"></a>De Sleutelkluis-logboekgegevens interpreteren
 
-Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. Actief
+Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. In uitvoering
 
 ```PowerShell
 Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
@@ -280,7 +280,7 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 
 | operationName | REST-API-opdracht |
 | --- | --- |
-| Authenticatie |Via het Azure Active Directory-eindpunt |
+| Verificatie |Via het Azure Active Directory-eindpunt |
 | VaultGet |[Informatie over een sleutelkluis ophalen](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | VaultPut |[Een sleutelkluis maken of bijwerken](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | VaultDelete |[Een sleutelkluis verwijderen](https://msdn.microsoft.com/library/azure/mt620022.aspx) |

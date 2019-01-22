@@ -1,5 +1,5 @@
 ---
-title: 'Uw on-premises netwerk verbinden met een virtueel Azure-netwerk: site-naar-site-VPN: PowerShell | Microsoft Docs'
+title: 'Uw on-premises netwerk verbinden met een Azure-netwerk: Site-naar-Site-VPN: PowerShell | Microsoft Docs'
 description: Stappen voor het maken van een IPSec-verbinding van uw on-premises netwerk met een virtueel Azure-netwerk via het openbare internet. Deze stappen helpen u een cross-premises site-naar-site-VPN-gatewayverbinding te maken met PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4df7353016f33e4525c27536ba862f0412ebf82f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1501ebe2df1ff6fa3505bf637896f6f3e7c827aa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953566"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427726"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Een VNet met een site-naar-site-VPN-verbinding maken met PowerShell
 
@@ -44,7 +44,7 @@ Controleer voordat u met de configuratie begint of u aan de volgende criteria he
 
 Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u de nieuwste versie van de Azure Resource Manager PowerShell-cmdlets installeren. PowerShell-cmdlets worden regelmatig bijgewerkt. Doorgaans moet u PowerShell-cmdlets bijwerken om de meest recente functionaliteit op te halen. Als u de PowerShell-cmdlets niet bijwerkt, kunnen de opgegeven waarden mislukken. 
 
-Als u wilt weten welke versie u gebruikt, voert u Get-Module -ListAvailable AzureRM uit. Zie [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) als u een upgrade wilt uitvoeren. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie.
+Als u wilt weten welke versie u gebruikt, voert u Get-Module -ListAvailable AzureRM uit. Zie [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps) als u een upgrade wilt uitvoeren. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie.
 Als u PowerShell lokaal uitvoert, moet u ook 'Connect-AzureRmAccount' uitvoeren om een verbinding met Azure te maken.
 
 
@@ -57,19 +57,19 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
 
 VnetName                = VNet1
 ResourceGroup           = TestRG1
-Location                = East US 
-AddressSpace            = 10.1.0.0/16 
-SubnetName              = Frontend 
-Subnet                  = 10.1.0.0/24 
+Location                = East US 
+AddressSpace            = 10.1.0.0/16 
+SubnetName              = Frontend 
+Subnet                  = 10.1.0.0/24 
 GatewaySubnet           = 10.1.255.0/27
 LocalNetworkGatewayName = Site1
-LNG Public IP           = <On-premises VPN device IP address> 
+LNG Public IP           = <On-premises VPN device IP address> 
 Local Address Prefixes  = 10.101.0.0/24, 10.101.1.0/24
 Gateway Name            = VNet1GW
 PublicIP                = VNet1GWPIP
-Gateway IP Config       = gwipconfig1 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+Gateway IP Config       = gwipconfig1 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite1
 
 ```

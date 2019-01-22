@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d8d7850e7d5253cfec4431fed3e09f4007995494
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 90eb9177ec679fdf8007b734848a5bc3c72e5974
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249690"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430327"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -60,23 +60,23 @@ Als u vragen over de beveiliging gebruikt, raden wij deze gebruikt in combinatie
 ### <a name="predefined-questions"></a>Vooraf gedefinieerde vragen
 
 * In welke stad hebt u uw eerste partner ontmoet?
-* In welke stad hebben uw ouders elkaar leren kennen?
+* In welke plaats hebben uw ouders elkaar leren kennen?
 * In welke stad woont uw jongste of oudste broer of zus?
-* In welke stad is uw vader geboren?
+* In welke plaats is uw vader geboren?
 * In welke plaats hebt u uw eerste baan gehad?
-* In welke stad is uw moeder geboren?
-* In welke plaats was u op oudejaarsavond in 2000?
+* In welke plaats is uw moeder geboren?
+* In welke plaats bevond u zich op nieuwjaarsavond 2000?
 * Wat is de achternaam van uw favoriete leraar op de middelbare school?
 * Voor welke universiteit bent u uitgeloot?
 * Waar hebt u uw trouwreceptie gehouden?
-* Wat is de tweede naam van uw vader?
+* Wat is de tweede voornaam van uw vader?
 * Wat is uw lievelingseten?
-* Wat zijn de voor- en achternaam van uw oma van moederskant?
-* Wat is de tweede naam van uw moeder?
+* Wat zijn de voor- en achternaam van uw grootmoeder van moeders kant?
+* Wat is de tweede voornaam van uw moeder?
 * Wat is uw oudste Broer of zus geboren maand en jaar? (bijvoorbeeld November 1985.)
-* Wat is de tweede naam van uw oudste broer of zus?
-* Wat zijn de voor- en achternaam van uw opa van vaderskant?
-* Wat is de tweede naam van uw jongste broer of zus?
+* Wat is de tweede voornaam van uw oudste broer of zus?
+* Wat zijn de voor- en achternaam van uw grootvader van vaders kant?
+* Wat is de tweede voornaam van uw jongste broer of zus?
 * Op welke school zat u in de brugklas?
 * Wat zijn de voor- en achternaam van uw beste jeugdvriend?
 * Wat zijn de voor- en achternaam van uw eerste partner?

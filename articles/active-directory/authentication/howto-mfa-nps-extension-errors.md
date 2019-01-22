@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 861dfacb556b646a288ce7cf7c749cec858f8bd5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634223"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432656"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen
 
@@ -84,7 +84,7 @@ Als u een van deze fouten ondervindt, raden we u [contact op met ondersteuning](
 | **InvalidParameter** | De opgegeven tenant-id is niet in de juiste indeling |
 | **InvalidParameter** | Sessie-id mag geen null of leeg zijn |
 | **InvalidParameter** | Kan ProofData van aanvraag of Msods niet omzetten. De ProofData is onbekend |
-| **Activiteits-id** |  |
+| **InternalError** |  |
 | **OathCodePinIncorrect** |  |
 | **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |

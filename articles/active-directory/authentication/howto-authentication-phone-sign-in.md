@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963944"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434186"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Zonder wachtwoord aanmelden via telefoon met de Microsoft Authenticator-app (preview-versie)
 
@@ -37,16 +37,21 @@ Voor preview-versie, moet een beheerder eerst via powershell om gebruik van de r
 
 ### <a name="steps-to-enable"></a>Stappen voor het inschakelen
 
-Zorg ervoor dat u hebt de nieuwste versie van de openbare Preview-versie van Azure Active Directory V2 PowerShell-Module. U kunt desgewenst verwijderen en opnieuw installeren om dit te controleren door het uitvoeren van de volgende opdrachten:
+1. Zorg ervoor dat u hebt de nieuwste versie van de openbare Preview-versie van de Azure Active Directory V2 PowerShell-Module. U kunt desgewenst verwijderen en opnieuw installeren om dit te controleren door het uitvoeren van de volgende opdrachten:
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Verifiëren bij Azure AD-tenant te gebruiken van de Azure AD V2 PowerShell-module. De account die gebruikt moet een beveiligingsbeheerder of globale beheerder.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-U kunt het zonder wachtwoord telefoon aanmelden preview met behulp van de volgende PowerShell-opdrachten inschakelen:
-
-1. `Connect-AzureAD`
-   1. Meld u aan met een account in de tenant in het dialoogvenster voor verificatie. Het account moet een beveiligingsbeheerder of globale beheerder.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. Maak het beleid Authenticator aanmelden:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hoe kan mijn eindgebruikers aanmelden via telefoon inschakelen?
 
@@ -64,11 +69,11 @@ Zodra de gebruiker de MFA-account met pushmeldingen in de Microsoft Authenticato
 
 ## <a name="known-issues"></a>Bekende problemen
 
-### <a name="ad-fs-integration"></a>AD FS-integratie
+### <a name="ad-fs-integration"></a>AD FS Integration
 
 Wanneer een gebruiker heeft de referentie op die geen wachtwoord meer Microsoft Authenticator ingeschakeld, wordt altijd verificatie voor die gebruiker standaard een melding voor goedkeuring verzonden. Deze logica wordt voorkomen dat gebruikers in een hybride-tenant niet worden doorgestuurd naar AD FS voor aanmelding bij verificatie zonder dat de gebruiker een extra stap te klikken op "Uw wachtwoord gebruiken in plaats daarvan." Dit proces wordt ook een on-premises-beleid voor voorwaardelijke toegang en stromen van Pass through-verificatie overslaan. De uitzondering op dit proces is als een login_hint is opgegeven, een gebruiker wordt automatisch doorgestuurd naar AD FS en overslaan van de optie voor het gebruik van de referentie zonder wachtwoord.
 
-### <a name="azure-mfa-server"></a>Azure MFA-server
+### <a name="azure-mfa-server"></a>Azure MFA server
 
 Eindgebruikers die zijn ingeschakeld voor MFA via on-premises Azure MFA-server van een organisatie kan nog steeds maken en een eenmalige aanmelding telefoon aanmelden referentie gebruiken. Als de gebruiker probeert om meerdere installaties (5 +) van de Microsoft Authenticator met de referenties van een upgrade uitvoert, kan deze wijziging resulteert in een fout.  
 

@@ -4,18 +4,18 @@ description: Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toega
 keywords: automatisering rbac, rolgebaseerde toegangscontrole, azure rbac
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727899"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424316"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
@@ -35,8 +35,8 @@ In Azure Automation wordt toegang verleend door de juiste RBAC-rol toe te wijzen
 |Operator voor Automation-runbook|De rol Operator voor Automation-Runbook kunt u de naam en de eigenschappen van een runbook weergeven.|
 | Inzender van Log Analytics | De rol Inzender van Log Analytics kunt u alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor VM's, het lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure-opslag, het maken en configureren van Automation-accounts, oplossingen toe te voegen en Azure diagnostics configureren op alle Azure-resources.|
 | Lezer van Log Analytics | De rol Lezer van Log Analytics kunt u bekijken en zoeken van alle bewaking gegevens, evenals controle-instellingen weergeven. Dit omvat de configuratie van Azure diagnostics op alle Azure-resources bekijken. |
-| Controlebijdrager | De rol Inzender controle kunt u lezen alle bewakingsgegevens en controle-instellingen bijwerken.|
-| Controlelezer | De rol van lezer controle kunt u alle controlegegevens lezen. |
+| Bijdrager voor bewaking | De rol Inzender controle kunt u lezen alle bewakingsgegevens en controle-instellingen bijwerken.|
+| Lezer voor bewaking | De rol van lezer controle kunt u alle controlegegevens lezen. |
 | Beheerder van gebruikerstoegang |De beheerdersrol gebruiker toegang kunt u gebruikerstoegang tot Azure Automation-accounts beheren. |
 
 ## <a name="role-permissions"></a>Rolmachtigingen
@@ -47,7 +47,7 @@ De volgende tabellen beschrijven de specifieke machtigingen die aan elke rol. Di
 
 Een eigenaar kan alles beheren, inclusief toegang. De volgende tabel ziet u de machtigingen voor de rol:
 
-|Acties|Beschrijving|
+|Acties|Description|
 |---|---|
 |Microsoft.Automation/automationAccounts/|Maken en beheren van resources van alle typen.|
 
@@ -162,7 +162,7 @@ Een lezer van Log Analytics kunt bekijken en zoeken van alle bewakingsgegevens e
 |**Geen acties**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Kan de gedeelde toegangssleutel gelezen.|
 
-### <a name="monitoring-contributor"></a>Controlebijdrager
+### <a name="monitoring-contributor"></a>Bijdrager voor bewaking
 
 Een bijdrager bewaking kan alle controlegegevens lezen en controle-instellingen bijwerken. De volgende tabel ziet u de machtigingen voor de rol:
 
@@ -188,7 +188,7 @@ Een bijdrager bewaking kan alle controlegegevens lezen en controle-instellingen 
 |Microsoft.Support/*|Maak en ondersteuningstickets beheren.|
 |Microsoft.WorkloadMonitor/workloads/*|Workloads beheren.|
 
-### <a name="monitoring-reader"></a>Controlelezer
+### <a name="monitoring-reader"></a>Lezer voor bewaking
 
 Een lezer bewaking kan alle controlegegevens lezen. De volgende tabel ziet u de machtigingen voor de rol:
 
@@ -334,7 +334,7 @@ AssignableScopes : {/}
 ```
 
 [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) worden Azure AD RBAC-roltoewijzingen bij het opgegeven bereik. Zonder parameters worden met deze opdracht alle roltoewijzingen geretourneerd die onder het abonnement zijn gemaakt. Gebruik de parameter **ExpandPrincipalGroups** om toegangstoewijzingen voor de opgegeven gebruiker weer te geven en voor de groepen waarvan de gebruiker lid is.
-    **Voorbeeld:** gebruik de volgende opdracht om alle gebruikers en de bijbehorende rollen binnen een Automation-account weer te geven.
+    **Voorbeeld:** Gebruik de volgende opdracht om alle gebruikers en de bijbehorende rollen binnen een automation-account weer te geven.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -355,7 +355,7 @@ ObjectType         : User
 ```
 
 [Nieuwe-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) toegang toewijzen aan gebruikers, groepen en toepassingen naar een bepaald bereik.
-    **Voorbeeld:** gebruik van de volgende opdracht om toe te wijzen de rol 'Automation-Operator' voor een gebruiker in het Automation-accountbereik.
+    **Voorbeeld:** Gebruik de volgende opdracht om toe te wijzen de rol 'Automation-Operator' voor een gebruiker in het Automation-accountbereik.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -376,7 +376,7 @@ ObjectType         : User
 ```
 
 Gebruik [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) toegang van een opgegeven gebruiker, groep of toepassing verwijderen uit een bepaald bereik.
-    **Voorbeeld:** gebruik van de volgende opdracht om de gebruiker verwijderen uit de rol 'Automation-Operator' in het Automation-accountbereik.
+    **Voorbeeld:** Gebruik de volgende opdracht om de gebruiker verwijderen uit de rol 'Automation-Operator' in het Automation-accountbereik.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -428,3 +428,4 @@ Wanneer een gebruiker, die aan de rol Automation-Operator in het bereik instelle
 * Raadpleeg [RBAC met Azure PowerShell beheren](../role-based-access-control/role-assignments-powershell.md) voor informatie over verschillende manieren om RBAC voor Azure Automation te configureren.
 * Zie [Een runbook starten](automation-starting-a-runbook.md) voor informatie over verschillende manieren om een runbook te starten.
 * Raadpleeg [Azure Automation-runbooktypen](automation-runbook-types.md) voor informatie over verschillende typen runbooks
+

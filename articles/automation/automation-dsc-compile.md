@@ -3,18 +3,18 @@ title: Configuraties in Azure Automation-staat configuratie compileren
 description: In dit artikel wordt beschreven hoe u configuraties voor Azure Automation Desired State Configuration (DSC) worden gecompileerd.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257153"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423405"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>DSC-configuraties in Azure Automation-staat configuratie compileren
 
@@ -130,7 +130,7 @@ Zie voor meer informatie over het PSCredentials doorgeven als parameters [Refere
 
 ## <a name="composite-resources"></a>Samengestelde Resources
 
-**Samengestelde Resources** kunt u gebruikmaken van DSC-configuraties als ingesloten resources binnen een configuratie. Hiermee kunt u meerdere configuraties toepassen op één resource. Zie [samengestelde bronnen: met behulp van een DSC-configuratie als een resource](/powershell/dsc/authoringresourcecomposite) voor meer informatie over **samengestelde Resources**.
+**Samengestelde Resources** kunt u gebruikmaken van DSC-configuraties als ingesloten resources binnen een configuratie. Hiermee kunt u meerdere configuraties toepassen op één resource. Zie [samengestelde bronnen: Met behulp van een DSC-configuratie als een resource](/powershell/dsc/authoringresourcecomposite) voor meer informatie over **samengestelde Resources**.
 
 > [!NOTE]
 > Opdat **samengestelde Resources** correct compileren, moet u eerst ervoor zorgen dat alle DSC-Resources die afhankelijk van de samengestelde eerst in de opslagplaats voor Azure Automation-Account-Modules zijn geïnstalleerd of deze correct wordt niet geïmporteerd.
@@ -197,7 +197,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-De voorgaande DSC-configuratie met PowerShell, kunt u compileren. De volgende PowerShell configuraties met twee knooppunten toevoegen aan de Azure Automation-staat configuratie Pull-Server: **ConfigurationDataSample.MyVM1** en **ConfigurationDataSample.MyVM3**:
+De voorgaande DSC-configuratie met PowerShell, kunt u compileren. De volgende PowerShell toegevoegd configuraties met twee knooppunten met de Azure Automation-configuratie Pull-Server: **ConfigurationDataSample.MyVM1** en **ConfigurationDataSample.MyVM3**:
 
 ```powershell
 $ConfigData = @{
@@ -261,7 +261,7 @@ Configuration CredentialSample
 }
 ```
 
-De voorgaande DSC-configuratie met PowerShell, kunt u compileren. De volgende PowerShell configuraties met twee knooppunten toevoegen aan de Azure Automation-staat configuratie Pull-Server: **CredentialSample.MyVM1** en **CredentialSample.MyVM2**.
+De voorgaande DSC-configuratie met PowerShell, kunt u compileren. De volgende PowerShell toegevoegd configuraties met twee knooppunten met de Azure Automation-configuratie Pull-Server: **CredentialSample.MyVM1** en **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{
@@ -283,7 +283,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```
 
 > [!NOTE]
-> Als compilatie voltooid is krijgt u mogelijk een foutbericht waarin wordt gemeld: **de module 'Microsoft.PowerShell.Management' is niet geïmporteerd omdat de module 'Microsoft.PowerShell.Management' is al geïmporteerd.** Deze waarschuwing kan veilig worden genegeerd.
+> Als de compilatie is voltooid krijgt u mogelijk een foutbericht weergegeven: **De module 'Microsoft.PowerShell.Management' is niet geïmporteerd omdat de module 'Microsoft.PowerShell.Management' is al geïmporteerd.** Deze waarschuwing kan veilig worden genegeerd.
 
 ## <a name="importing-node-configurations"></a>Knooppuntconfiguraties importeren
 

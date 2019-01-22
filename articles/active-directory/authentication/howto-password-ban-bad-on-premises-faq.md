@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: d3d42a3c81153d54690f0825368eaa950dbac18e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9046090a45d52a283d28d1c4cc79b44503cb5a9d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314776"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427590"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Voorbeeld: Azure AD-beveiliging on-premises wachtwoord - Veelgestelde vragen
+# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Preview: Azure AD-beveiliging on-premises wachtwoord - Veelgestelde vragen
 
 |     |
 | --- |
@@ -26,19 +26,19 @@ ms.locfileid: "52314776"
 
 ## <a name="general-questions"></a>Algemene vragen
 
-**V: wanneer wordt Azure AD-wachtwoordbeveiliging algemene beschikbaarheid (GA) bereiken?**
+**V: Wanneer wordt Azure AD-wachtwoordbeveiliging algemene beschikbaarheid (GA) bereikt?**
 
 We hebben een datum GA nog niet aangekondigd.
 
-**V: wordt on-premises beveiliging met Azure AD wachtwoorden in niet-openbare clouds worden ondersteund?**
+**V: Kan on-premises beveiliging met Azure AD wachtwoorden in niet-openbare clouds worden ondersteund?**
 
 Nee, on-premises Azure AD wachtwoordbeveiliging wordt alleen ondersteund in de openbare cloud.
 
-**V: hoe kan ik voordelen van Azure AD wachtwoord beveiliging toepassen op een subset van mijn on-premises gebruikers?**
+**V: Hoe kan ik de voordelen van Azure AD wachtwoord beveiliging toepassen op een subset van mijn on-premises gebruikers?**
 
 Wordt niet ondersteund. Eenmaal geïmplementeerd en ingeschakeld, Azure AD-wachtwoordbeveiliging geen onderscheid - ontvangen gelijk beveiligingsvoordelen van alle gebruikers.
 
-**Vraag: is dit dan ondersteund voor het installeren van Azure AD-wachtwoordbeveiliging naast andere producten op basis van wachtwoord-filter?**
+**V: Is dit dan ondersteund voor het installeren van Azure AD-wachtwoordbeveiliging naast andere producten op basis van wachtwoord-filter?**
 
 Ja. Ondersteuning voor meerdere geregistreerde wachtwoord filter-dll's een functie van de Windows core is en niet specifiek voor Azure AD-wachtwoordbeveiliging. Alle geregistreerde wachtwoord filter dll-bestanden moet accepteren voordat een wachtwoord wordt geaccepteerd.
 
@@ -52,11 +52,11 @@ Zie de volgende artikelen voor meer informatie:
 
 [Het einde is Nigh voor FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
-**V: Waarom wordt opnieuw opstarten vereist om te installeren of upgraden van de DC-agentsoftware?**
+**V: Waarom is opnieuw opstarten vereist om te installeren of upgraden van de DC-agentsoftware?**
 
 Deze vereiste wordt veroorzaakt door core Windows gedrag.
 
-**V: is er manier om een DC-agent voor het gebruik van een bepaalde proxyserver te configureren?**
+**V: Is er manier om een DC-agent voor het gebruik van een bepaalde proxyserver te configureren?**
 
 Nee.
 

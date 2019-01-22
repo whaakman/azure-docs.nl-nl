@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383269"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431670"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>Configureer ExpressRoute globaal bereik (preview)
 Dit artikel helpt u bij het configureren van ExpressRoute globale bereiken met behulp van PowerShell. Zie voor meer informatie, [ExpressRouteRoute globaal bereik](expressroute-global-reach.md).
@@ -26,7 +26,7 @@ Dit artikel helpt u bij het configureren van ExpressRoute globale bereiken met b
 
 Voordat u de configuratie begint, controleert u het volgende:
 
-* Dat kunt u de meest recente versie van Azure PowerShell hebt geïnstalleerd. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) voor meer informatie.
+* Dat kunt u de meest recente versie van Azure PowerShell hebt geïnstalleerd. Zie [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie.
 * Dat u bekend bent met het inrichten van het ExpressRoute-circuit [werkstromen](expressroute-workflows.md).
 * Dat uw ExpressRoute-circuits status ingericht zijn.
 * Dat persoonlijke Azure-peering is geconfigureerd op uw ExpressRoute-circuits.  

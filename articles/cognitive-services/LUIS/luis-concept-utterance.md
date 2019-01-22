@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae090a8cd812868f63c9805b2f5b59769a715090
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 638020ab4f64d800bd9d42f226cb36701720f8d0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975267"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427187"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Inzicht in wat goede uitingen zijn voor uw LUIS-app
 
@@ -88,7 +88,7 @@ Training is in het algemeen niet-deterministisch: de voorspelling utterance kan 
 
 ## <a name="testing-utterances"></a>Uitingen testen 
 
-Ontwikkelaars moeten beginnen met het testen van hun LUIS-toepassing met echte verkeer door te sturen uitingen naar de [voorspelling eindpunt](luis-how-to-manage-keys.md) URL. Deze uitingen worden gebruikt voor het verbeteren van de prestaties van de intenties en entiteiten met [bekijken uitingen](luis-how-to-review-endoint-utt.md). Tests verzonden met het testen van deelvenster LUIS-website niet via het eindpunt zijn verzonden, en dus niet bijdragen tot actief leren. 
+Ontwikkelaars moeten beginnen met het testen van hun LUIS-toepassing met echte verkeer door te sturen uitingen naar de [voorspelling eindpunt](luis-how-to-azure-subscription.md) URL. Deze uitingen worden gebruikt voor het verbeteren van de prestaties van de intenties en entiteiten met [bekijken uitingen](luis-how-to-review-endoint-utt.md). Tests verzonden met het testen van deelvenster LUIS-website niet via het eindpunt zijn verzonden, en dus niet bijdragen tot actief leren. 
 
 ## <a name="review-utterances"></a>Uitingen bekijken
 

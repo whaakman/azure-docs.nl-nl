@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 243aecbe3627a6cc72de1bc98c301e8fa632ec36
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 31008c61856801785f1277c7baee955ee3f5be60
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076173"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424724"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP ASE Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
 
@@ -235,7 +235,7 @@ ms.locfileid: "39076173"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -372,9 +372,9 @@ Voor SAP-systemen, die SAP ASE zijn als databaseplatform worden gebruikt, is de 
 
 Als met on-premises systemen zijn verschillende stappen vereist om alle SAP NetWeaver-functionaliteit die worden gebruikt door de Webdynpro uitvoering van de DBACockpit te schakelen. Ga als volgt de SAP-notitie [1245200] voor het gebruik van webdynpros inschakelen en het genereren van de vereiste velden. Wanneer u de instructies in de notities van de bovenstaande configureren u ook de Internet-Communicatiemanager (icm), samen met de poorten die worden gebruikt voor http en https-verbindingen. De standaardinstelling voor HTTP-lijkt:
 
-> ICM/server_port_0 = b = HTTP, poort 8000, PROCTIMEOUT = = 600, time-out = 600
+> icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
-> ICM/server_port_1 = b = HTTPS, poort 443$ $, PROCTIMEOUT = = 600, time-out = 600
+> icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
 > 
 > 
 
@@ -527,9 +527,9 @@ Voor SAP-systemen, die SAP ASE zijn als databaseplatform worden gebruikt, is de 
 
 Als met on-premises systemen zijn verschillende stappen vereist om alle SAP NetWeaver-functionaliteit die worden gebruikt door de Webdynpro uitvoering van de DBACockpit te schakelen. Ga als volgt de SAP-notitie [1245200] voor het gebruik van webdynpros inschakelen en het genereren van de vereiste velden. Wanneer u de instructies in de notities van de bovenstaande configureren u ook de Internet-Communicatiemanager (icm), samen met de poorten die worden gebruikt voor http en https-verbindingen. De standaardinstelling voor HTTP-ziet er zo uit:
 
-> ICM/server_port_0 = b = HTTP, poort 8000, PROCTIMEOUT = = 600, time-out = 600
+> icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
 > 
-> ICM/server_port_1 = b = HTTPS, poort 443$ $, PROCTIMEOUT = = 600, time-out = 600
+> icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
 > 
 > 
 

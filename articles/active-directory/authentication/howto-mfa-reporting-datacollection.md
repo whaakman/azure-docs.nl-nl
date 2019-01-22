@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1b380bc20c9f80710ca62672b99649ce3498a8e8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dd12acb1212e52eb413dfbf35945cd17902d8db7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223759"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433880"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure multi-factor Authentication-gebruiker gegevens verzamelen
 
@@ -29,7 +29,7 @@ MFA-Server, de NPS-extensie en de Windows Server 2016 Azure MFA AD FS-Adapter ve
 
 Verificatiepogingen (gebruikt voor rapportage en probleemoplossing):
 
-- Timestamp
+- Tijdstempel
 - Gebruikersnaam
 - Voornaam
 - Achternaam
@@ -42,7 +42,7 @@ Verificatiepogingen (gebruikt voor rapportage en probleemoplossing):
 - Modus voor mobiele App (Standard, PIN)
 - Modus OATH-Token (Standard, PIN)
 - Authenticatietype
-- Toepassingsnaam
+- Naam van toepassing
 - De aanroep van de primaire landcode
 - Aanroep van het primaire telefoonnummer
 - De aanroep van de primaire extensie
@@ -70,7 +70,7 @@ Verificatiepogingen (gebruikt voor rapportage en probleemoplossing):
 Activeringen (pogingen om een account in de mobiele Microsoft Authenticator-app te activeren):
 - Gebruikersnaam
 - Accountnaam
-- Timestamp
+- Tijdstempel
 - Resultaat van de activering Code ophalen
 - Succes activeren
 - Fout bij activeren

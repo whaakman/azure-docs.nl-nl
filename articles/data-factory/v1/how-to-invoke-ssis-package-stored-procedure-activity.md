@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275578"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427556"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Aanroepen van een SSIS-pakket met behulp van opgeslagen procedure-activiteit in Azure Data Factory
 In dit artikel wordt beschreven hoe u een SSIS-pakket van een Azure Data Factory-pijplijn aanroepen met behulp van een opgeslagen procedure-activiteit. 
@@ -32,7 +32,7 @@ In dit artikel wordt beschreven hoe u een SSIS-pakket van een Azure Data Factory
 De procedures in dit artikel maakt gebruik van een Azure SQL-database die als host fungeert voor de SSIS-catalogus. U kunt ook een Azure SQL Database Managed Instance.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Een Azure SSIS Integration Runtime maken
-Een Azure-SSIS integratieruntime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: implementeren van SSIS-pakketten](../tutorial-create-azure-ssis-runtime-portal.md). U kunt Data Factory versie 1 niet gebruiken voor het maken van een Azure-SSIS integratieruntime. 
+Een Azure-SSIS integratieruntime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: SSIS-pakketten implementeren](../tutorial-create-azure-ssis-runtime-portal.md). U kunt Data Factory versie 1 niet gebruiken voor het maken van een Azure-SSIS integratieruntime. 
 
 ## <a name="azure-portal"></a>Azure Portal
 In deze sectie gebruikt u de Azure-portal te maken van een Data Factory-pijplijn met een opgeslagen procedure-activiteit die een SSIS-pakket aanroept.
@@ -115,7 +115,7 @@ Dit wordt een dummy-gegevensset die het schema van de pijplijn stuurt. U ziet da
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Een pijplijn maken met de opgeslagen procedure-activiteit 
 In deze stap maakt maken u een pijplijn met een opgeslagen procedure-activiteit. De activiteit roept de sp_executesql opgeslagen procedure voor het uitvoeren van uw SSIS-pakket. 
 
-1. Klik in het linkerdeelvenster op **... Meer** en vervolgens op **Nieuwe pijplijn.
+1. Klik in het linkerdeelvenster op **... Meer** en vervolgens op **Nieuwe pijplijn**.
 2. Kopieer de volgende JSON-fragment in de JSON-editor: 
 
     > [!IMPORTANT]
@@ -165,7 +165,7 @@ Zie voor meer informatie over het controleren van pijplijnen [bewaken en beheren
 ## <a name="azure-powershell"></a>Azure PowerShell
 In deze sectie kunt u Azure PowerShell gebruiken voor het maken van een Data Factory-pijplijn met een opgeslagen procedure-activiteit die een SSIS-pakket aanroept.
 
-Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps).
+Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 De volgende procedure bevat stappen voor het maken van een data factory. U maakt een pijplijn met een activiteit opgeslagen procedure in deze data factory. De activiteit opgeslagen procedure wordt een opgeslagen procedure uitgevoerd in de SSISDB-database om uit te voeren van uw SSIS-pakket.
@@ -227,7 +227,7 @@ Een gekoppelde service koppelt uw Azure SQL-database die als host fungeert de SS
         }
     ```
 2. In **Azure PowerShell**, Ga naar de **C:\ADF\RunSSISPackage** map.
-3. Voer de **New-AzureRmDataFactoryLinkedService** cmdlet voor het maken van de gekoppelde service: **AzureSqlDatabaseLinkedService**. 
+3. Voer de cmdlet **New-AzureRmDataFactoryLinkedService** uit om de gekoppelde service te maken: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -294,7 +294,7 @@ In deze stap maakt maken u een pijplijn met een opgeslagen procedure-activiteit.
     }    
     ```
 
-2. Om de pijplijn te maken: **RunSSISPackagePipeline**, voert de **New-AzureRmDataFactoryPipeline** cmdlet.
+2. Maak de pijplijn: **RunSSISPackagePipeline**, voert de **New-AzureRmDataFactoryPipeline** cmdlet.
 
     ```powershell
     $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"

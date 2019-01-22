@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 321f6fc043147c0a1559c93fb5ada3d33d9e3dd9
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 60f04ac857079a1019ca744f3b26b0d05ae6ca6c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359966"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426927"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Over het inrichten van SQL Server-machines met Azure PowerShell
 
@@ -29,7 +29,7 @@ Deze handleiding beschrijft uw opties voor het maken van SQL Server-VM's van Win
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-In dit artikel is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+In dit artikel is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="configure-your-subscription"></a>Uw abonnement configureren
 

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 3172ba12fbbd0135d1a5a3684145787c83aad040
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7d8c0a837f5618580c5e76e5ca97e19844b95698
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242412"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427165"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Aan de slag met verificatie op basis van certificaten in Azure Active Directory
 
@@ -133,7 +133,7 @@ Als u wilt wijzigen van een vertrouwde certificeringsinstantie, gebruikt u de [S
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>Stap 3: Configureer intrekken
+## <a name="step-3-configure-revocation"></a>Stap 3: Intrekking configureren
 
 Als u wilt een clientcertificaat intrekt, Azure Active Directory worden opgehaald van de certificaatintrekkingslijst (CRL) via de URL's geüpload als onderdeel van de informatie over certificeringsinstantie en opgeslagen in het cachegeheugen. De laatste tijdstempel publiceren (**ingangsdatum** eigenschap) in de CRL wordt gebruikt om te controleren of de CRL is nog geldig. De CRL wordt periodiek verwezen om in te trekken van toegang tot de certificaten die deel van de lijst uitmaken.
 

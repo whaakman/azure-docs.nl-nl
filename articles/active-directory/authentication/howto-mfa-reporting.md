@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628831"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431721"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in de Azure multi-factor Authentication
 
 Azure multi-factor Authentication biedt verschillende rapporten die kunnen worden gebruikt door u en uw organisatie die toegankelijk zijn via Azure portal. De volgende tabel bevat de beschikbare rapporten:
 
-| Rapport | Locatie | Beschrijving |
+| Rapport | Locatie | Description |
 |:--- |:--- |:--- |
 | Geschiedenis geblokkeerde gebruikers | Azure AD > MFA-Server > gebruikers blokkeren/deblokkeren | Geeft de geschiedenis van aanvragen voor het blokkeren of deblokkeren van gebruikers. |
-| Gebruik en fraude waarschuwingen | Azure AD >-aanmeldingen | Bevat informatie over algemene gebruik, overzicht van gebruikers en de details van de gebruiker; Als een geschiedenis van Fraudewaarschuwingen die zijn ingediend in het opgegeven datumbereik. |
+| Gebruik en fraude waarschuwingen | Azure AD > Sign-ins | Bevat informatie over algemene gebruik, overzicht van gebruikers en de details van de gebruiker; Als een geschiedenis van Fraudewaarschuwingen die zijn ingediend in het opgegeven datumbereik. |
 | Gebruik voor on-premises onderdelen | Azure AD > MFA-Server > activiteitenrapport | Bevat informatie over algemene gebruik voor MFA via de NPS-extensie, ADFS, en de MFA-server. |
 | Geschiedenis overgeslagen gebruikers | Azure AD > MFA-Server > eenmalige bypass | Biedt een geschiedenis van aanvragen voor het overslaan van multi-factor Authentication voor een gebruiker. |
 | Serverstatus | Azure AD > MFA-Server > status van de Server | Hiermee wordt de status van multi-factor Authentication-Servers die zijn gekoppeld aan uw account. |
@@ -58,9 +58,9 @@ Deze gegevens zijn beschikbaar via de [Azure-portal](https://portal.azure.com) e
 
 De rapporten voor aanmeldingsactiviteiten voor MFA bieden u toegang tot de volgende informatie:
 
-**MFA is vereist:** of MFA is vereist voor aanmelding of niet. MFA kan worden vereist vanwege MFA per gebruiker, voorwaardelijke toegang of andere redenen. Mogelijke waarden zijn **Ja** of **Nee**.
+**MFA vereist:** Of MFA is vereist voor de aanmelding of niet. MFA kan worden vereist vanwege MFA per gebruiker, voorwaardelijke toegang of andere redenen. Mogelijke waarden zijn **Ja** of **Nee**.
 
-**MFA-resultaat:** meer informatie over of MFA is voldaan of geweigerd:
+**MFA-resultaat:** Meer informatie over of MFA is voldaan of geweigerd:
 
 - Als MFA is voldaan, bevat deze kolom meer informatie over hoe dit is gebeurd.
    - Azure Multi-Factor Authentication
@@ -103,7 +103,7 @@ De rapporten voor aanmeldingsactiviteiten voor MFA bieden u toegang tot de volge
       - gebruiker is niet gevonden
       - verificatiecode is al gebruikt
 
-**MFA-verificatiemethode:** de verificatiemethode die de gebruiker heeft gebruikt om MFA te voltooien. Mogelijke waarden:
+**MFA-verificatiemethode:** De verificatiemethode de gebruiker gebruikt om MFA te voltooien. Mogelijke waarden:
 
 - Sms-bericht
 - Meldingen via mobiele app
@@ -112,7 +112,7 @@ De rapporten voor aanmeldingsactiviteiten voor MFA bieden u toegang tot de volge
 - Telefonische oproep (telefoon op het werk)
 - Telefonische oproep (verificatie via telefoonnummer)
 
-**Detail van MFA-verificatie:** verwijderde versie van het telefoonnummer, bijvoorbeeld: + X XXXXXXXX64.
+**Detail van MFA-verificatie:** Verwijderde versie van het telefoonnummer, bijvoorbeeld: + X XXXXXXXX64.
 
 **Voorwaardelijke toegang** informatie vinden over beleid voor voorwaardelijke toegang die gevolgen van de aanmeldingspoging, waaronder ondervinden:
 

@@ -3,7 +3,7 @@ title: Beveiligde score in Azure Security Center | Microsoft Docs
 description: " Uw aanbevelingen voor beveiliging met behulp van de beveiligde score in Azure Security Center een prioriteit geven. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: monhaber
+ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261295"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425884"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Verbetering van uw beveiligde score in Azure Security Center
 
@@ -45,7 +45,7 @@ Uw algemene beveiligde score weergeven:
 2. Bovenaan ziet u Secure score belangrijke functies:
    - De **secure totale score** vertegenwoordigt de score per beleid per geselecteerde abonnement
    - **Score beveiligen op categorie** ziet u welke resources de meeste aandacht nodig
-   - **Belangrijkste aanbevelingen beveiligen door score impact** biedt u een lijst met aanbevelingen die uw beveiligde score verbeteren de meeste als u ze herstellen.
+   - **Belangrijkste aanbevelingen beveiligen door score impact** biedt u een lijst met aanbevelingen die uw beveiligde score verbeteren de meeste als u ze implementeert.
  
    ![beveiligen van score](./media/security-center-secure-score/secure-score-dashboard.png)
 

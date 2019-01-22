@@ -3,28 +3,28 @@ title: Azure Automation-taakgegevens doorsturen naar Log Analytics
 description: In dit artikel laat zien hoe u met het verzenden van taakstatus en runbook-taakstromen met Azure Log Analytics om meer inzicht en beheer te bieden.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269563"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432962"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taakstromen van Automation doorsturen naar Log Analytics
 
 Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analytics-werkruimte. Dit proces wordt geen gebruikgemaakt van het koppelen van de werkruimte en is volledig onafhankelijk. Taaklogboeken en taakstromen zijn zichtbaar in de Azure portal of met PowerShell, voor afzonderlijke taken en deze kunt u eenvoudige onderzoek uitvoeren. Met Log Analytics kunt u nu:
 
-* Krijg inzicht in uw Automation-taken.
+* Inzicht verwerven in uw Automation-taken.
 * De trigger is een e-mailadres of de waarschuwing op basis van uw runbook job status (voor bijvoorbeeld mislukte of onderbroken).
-* Geavanceerde query's schrijven over uw taakstromen.
-* Combineer taken van Automation-accounts.
-* Visualiseer uw Taakgeschiedenis na verloop van tijd.
+* Geavanceerde query's voor verschillende taakstromen schrijven.
+* Taken voor verschillende Automation-accounts aan elkaar te relateren.
+* Uw taakgeschiedenis in de loop van de tijd visualiseren.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Vereisten en overwegingen voor implementatie
 
@@ -91,7 +91,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 | Caller_s |Wie de bewerking heeft gestart. Mogelijke waarden zijn een e-mailadres of het systeem voor geplande taken. |
 | Tenant_g | De GUID die de tenant voor de oproepende functie identificeert. |
 | JobId_g |De GUID die de id van de runbooktaak is. |
-| resultType |De status van de runbooktaak. Mogelijke waarden zijn:<br>-Nieuwe<br>- Gestart<br>- Gestopt<br>- Onderbroken<br>- Mislukt<br>-Voltooid |
+| ResultType |De status van de runbooktaak. Mogelijke waarden zijn:<br>-Nieuwe<br>- Gestart<br>- Gestopt<br>- Onderbroken<br>- Mislukt<br>-Voltooid |
 | Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobLogs. |
 | OperationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd. Voor Automation is is de waarde van taak. |
 | Resource | Naam van het Automation-account |
@@ -114,7 +114,7 @@ Diagnostische gegevens van Azure Automation worden twee typen records gemaakt in
 | StreamType_s |Het type taakstroom. Mogelijke waarden zijn:<br>- Voortgang<br>- Uitvoer<br>- Waarschuwing<br>- Fout<br>- Foutopsporing<br>- Uitgebreid |
 | Tenant_g | De GUID die de tenant voor de oproepende functie identificeert. |
 | JobId_g |De GUID die de id van de runbooktaak is. |
-| resultType |De status van de runbooktaak. Mogelijke waarden zijn:<br>-Wordt uitgevoerd |
+| ResultType |De status van de runbooktaak. Mogelijke waarden zijn:<br>-Wordt uitgevoerd |
 | Categorie | Classificatie van het type gegevens. Voor Automation is de waarde JobStreams. |
 | OperationName | Hiermee wordt het type bewerking opgegeven dat in Azure wordt uitgevoerd. Voor Automation is is de waarde van taak. |
 | Resource | Naam van het Automation-account |
@@ -183,3 +183,4 @@ Log Analytics biedt tevens grotere operationele zichtbaarheid aan uw Automation-
 * Zie voor meer informatie over het maken en ophalen van de uitvoer en foutberichten van runbooks, [Runbook-uitvoer en berichten](automation-runbook-output-and-messages.md).
 * Zie [Runbooktaken bijhouden](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details.
 * Zie voor meer informatie over Log Analytics en gegevensverzamelingsbronnen [verzamelen van Azure storage-gegevens in Log Analytics-overzicht](../azure-monitor/platform/collect-azure-metrics-logs.md).
+

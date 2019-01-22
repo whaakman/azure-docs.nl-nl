@@ -3,18 +3,18 @@ title: Updates voor meerdere virtuele machines in Azure beheren
 description: In dit artikel wordt beschreven hoe u updates beheren voor virtuele machines van Azure.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214025"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427420"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -39,7 +39,7 @@ Updatebeheer wordt ondersteund op de volgende besturingssystemen:
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken evaluaties.         |
-|Windows Server 2008 R2 SP1 en hoger     |Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid. ([Downloaden van WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
+|Windows Server 2008 R2 SP1 en hoger     |Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid. ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
@@ -198,3 +198,4 @@ Selecteer **Fouten** voor gedetailleerde informatie over fouten die zijn opgetre
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over updatebeheer, waaronder Logboeken, uitvoer en fouten, [oplossing voor updatebeheer in Azure](../operations-management-suite/oms-solution-update-management.md).
+

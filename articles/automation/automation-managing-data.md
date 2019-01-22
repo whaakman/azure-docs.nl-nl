@@ -3,18 +3,18 @@ title: Azure Automation-gegevens beheren
 description: In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.  Momenteel omvat het bewaren van gegevens en back-ups van Azure Automation-noodherstel in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054033"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428474"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation-gegevens beheren
 In dit artikel bevat meerdere onderwerpen voor het beheren van een Azure Automation-omgeving.
@@ -76,4 +76,5 @@ De volgende tabel toont de beschikbare primaire en secundaire regiokoppelingen.
 | Japan - oost |Japan - west |
 
 In het onwaarschijnlijke geval dat een primaire regiogegevens verloren gegaan zijn, probeert Microsoft om het te herstellen. Als de primaire gegevens kan niet worden hersteld, vervolgens geo-failover wordt uitgevoerd en de betrokken klanten worden ontvangen over dit via hun abonnement.
+
 

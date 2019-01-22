@@ -3,18 +3,18 @@ title: Oplossing voor updatebeheer in Azure
 description: In dit artikel is bedoeld om te begrijpen hoe u kunt de oplossing Update Management van Azure gebruiken om updates voor uw Windows- en Linux-computers te beheren.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8635d943120f0e79b8efcfe1f9be0b74d8bb4fac
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214994"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433897"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -69,7 +69,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken evaluaties.         |
-|Windows Server 2008 R2 SP1 en hoger (inclusief Windows Server 2012- en 2016)    |.NET framework 4.5.1 of later is vereist. ([.NET Framework downloaden](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid.  ([Downloaden van WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 en hoger (inclusief Windows Server 2012- en 2016)    |.NET framework 4.5.1 of later is vereist. ([.NET Framework downloaden](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Patch toepassen op classificatie gebaseerde vereist 'yum' om terug te keren beveiligingsgegevens CentOS hoeft niet dezelfde kant.         |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
@@ -324,12 +324,12 @@ Beheer van updates is afhankelijk van WSUS of Windows Update voor het patchen va
 
 De volgende adressen zijn vereist voor het beheer van updates. Communicatie met deze adressen vindt plaats via poort 443.
 
-|Azure openbaar  |Azure Government  |
+|Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.Azure-automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 Zie voor meer informatie over de poorten die vereist dat de Hybrid Runbook Worker [Hybrid Worker-rol poorten](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
@@ -615,3 +615,4 @@ Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw
 * [Waarschuwingen maken](automation-tutorial-update-management.md#configure-alerts) voor de status van de implementatie.
 
 * Zie voor meer informatie over de communicatie met updatebeheer via de REST-API, [configuraties van Software-Update](/rest/api/automation/softwareupdateconfigurations)
+

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984225"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424639"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Een probleem VM-netwerk-verkeersfilter vaststellen
 
@@ -44,8 +44,8 @@ De volgende stappen wordt ervan uitgegaan dat u hebt een bestaande virtuele mach
 
    De regels die u ziet die worden vermeld in de vorige afbeelding zijn voor een netwerkinterface met de naam **myVMVMNic**. U ziet dat er **regels voor binnenkomende poort** voor de netwerkinterface van twee verschillende netwerkbeveiligingsgroepen:
    
-   - **mySubnetNSG**: die is gekoppeld aan het subnet waarin de netwerkinterface zich bevindt.
-   - **myVMNSG**: die zijn gekoppeld aan de netwerkinterface op de virtuele machine met de naam **myVMVMNic**.
+   - **mySubnetNSG**: Gekoppeld aan het subnet waarin de netwerkinterface zich bevindt.
+   - **myVMNSG**: Dat is gekoppeld aan de netwerkinterface op de virtuele machine met de naam **myVMVMNic**.
 
    De regel met de naam **DenyAllInBound** is wat voorkomt dat binnenkomende communicatie met de virtuele machine via poort 80, het internet, zoals beschreven in de [scenario](#scenario). De regel voor een lijst met *0.0.0.0/0* voor **bron**, waaronder het internet. Er zijn geen andere regel met een hogere prioriteit (lager nummer) poort 80 wordt toegestaan binnenkomend verkeer. Om toe te staan van poort 80 inkomend verkeer naar de virtuele machine van het internet, Zie [problemen op te lossen](#resolve-a-problem). Zie voor meer informatie over de beveiligingsregels voor verbindingen en hoe Azure toegepast, [Netwerkbeveiligingsgroepen](security-overview.md).
 
@@ -72,12 +72,12 @@ De volgende stappen wordt ervan uitgegaan dat u hebt een bestaande virtuele mach
    In tegenstelling tot de **myVMVMNic** netwerkinterface, de **myVMVMNic2** netwerkinterface heeft geen een netwerkbeveiligingsgroep zijn gekoppeld. Elke netwerkinterface en het subnet kan nul, of een NSG die is gekoppeld aan deze. De NSG die is gekoppeld aan elke netwerkinterface of subnet kan niet hetzelfde zijn, of een ander. Als u kiest, kunt u de dezelfde netwerkbeveiligingsgroep aan zo veel netwerkinterfaces en subnetten koppelen.
 
 Hoewel de effectieve beveiligingsregels zijn weergegeven via de virtuele machine, kunt u ook effectieve beveiligingsregels via een afzonderlijke bekijken:
-- **Netwerkinterface**: meer informatie over het [weergeven van een netwerkinterface](virtual-network-network-interface.md#view-network-interface-settings).
-- **NSG**: meer informatie over het [weergeven van een NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
+- **Netwerkinterface**: Meer informatie over het [weergeven van een netwerkinterface](virtual-network-network-interface.md#view-network-interface-settings).
+- **NSG**: Meer informatie over het [weergeven van een NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Vaststellen met behulp van PowerShell
 
-U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.0.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` aan te melden bij Azure met een account met de [benodigde machtigingen](virtual-network-network-interface.md#permissions)].
+U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.0.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` aan te melden bij Azure met een account met de [benodigde machtigingen](virtual-network-network-interface.md#permissions)].
 
 De effectieve beveiligingsregels ophalen voor een netwerkinterface met [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). Het volgende voorbeeld wordt de effectieve beveiligingsregels voor een netwerkinterface met de naam *myVMVMNic*, dat wil zeggen in een resourcegroep met de naam *myResourceGroup*:
 
@@ -154,9 +154,9 @@ In de uitvoer van de vorige naam van de netwerk-interface is *myVMVMNic interfac
 
 Ongeacht of u gebruikt de [PowerShell](#diagnose-using-powershell), of de [Azure CLI](#diagnose-using-azure-cli) om de oorzaak van het probleem, ontvangt u uitvoer met de volgende informatie:
 
-- **NetworkSecurityGroup**: de ID van de netwerkbeveiligingsgroep.
-- **Koppeling**: of de netwerkbeveiligingsgroep is gekoppeld aan een *NetworkInterface* of *Subnet*. Als een NSG gekoppeld aan beide is, wordt de uitvoer geretourneerd met **NetworkSecurityGroup**, **koppeling**, en **EffectiveSecurityRules**, voor elke NSG. Als de NSG is gekoppeld of losgekoppeld direct vóór het uitvoeren van de opdracht om de effectieve beveiligingsregels weer te geven, moet u mogelijk Wacht een paar seconden om de wijziging doorgevoerd in de uitvoer van de opdracht.
-- **EffectiveSecurityRules**: een uitleg van elke eigenschap wordt beschreven in [maken van een beveiligingsregel](manage-network-security-group.md#create-a-security-rule). Regel namen die worden voorafgegaan door *defaultSecurityRules /* zijn standaard beveiligingsregels die aanwezig zijn in elke NSG. Regel namen die worden voorafgegaan door *securityRules /* zijn regels die u hebt gemaakt. Regels die specificeren een [servicetag](security-overview.md#service-tags), zoals **Internet**, **VirtualNetwork**, en **AzureLoadBalancer** voor de  **destinationAddressPrefix** of **sourceAddressPrefix** eigenschappen, hebben ook waarden voor de **expandedDestinationAddressPrefix** eigenschap. De **expandedDestinationAddressPrefix** eigenschap geeft een lijst van alle adresvoorvoegsels vertegenwoordigd door de servicetag.
+- **NetworkSecurityGroup**: De ID van de netwerkbeveiligingsgroep.
+- **Koppeling**: Of de netwerkbeveiligingsgroep is gekoppeld aan een *NetworkInterface* of *Subnet*. Als een NSG gekoppeld aan beide is, wordt de uitvoer geretourneerd met **NetworkSecurityGroup**, **koppeling**, en **EffectiveSecurityRules**, voor elke NSG. Als de NSG is gekoppeld of losgekoppeld direct vóór het uitvoeren van de opdracht om de effectieve beveiligingsregels weer te geven, moet u mogelijk Wacht een paar seconden om de wijziging doorgevoerd in de uitvoer van de opdracht.
+- **EffectiveSecurityRules**: Een uitleg van elke eigenschap wordt beschreven in [maken van een beveiligingsregel](manage-network-security-group.md#create-a-security-rule). Regel namen die worden voorafgegaan door *defaultSecurityRules /* zijn standaard beveiligingsregels die aanwezig zijn in elke NSG. Regel namen die worden voorafgegaan door *securityRules /* zijn regels die u hebt gemaakt. Regels die specificeren een [servicetag](security-overview.md#service-tags), zoals **Internet**, **VirtualNetwork**, en **AzureLoadBalancer** voor de  **destinationAddressPrefix** of **sourceAddressPrefix** eigenschappen, hebben ook waarden voor de **expandedDestinationAddressPrefix** eigenschap. De **expandedDestinationAddressPrefix** eigenschap geeft een lijst van alle adresvoorvoegsels vertegenwoordigd door de servicetag.
 
 Als u dubbele regels die worden vermeld in de uitvoer ziet, is omdat een NSG gekoppeld aan de netwerkinterface en het subnet is. Zowel met nsg's hebben de dezelfde standaardregels en mogelijk extra dubbele regels, als u uw eigen regels die hetzelfde als in beide nsg's zijn hebt gemaakt.
 
@@ -175,7 +175,7 @@ Of het gebruik van de Azure [portal](#diagnose-using-azure-portal), [PowerShell]
 | Protocol                | TCP                                                                                |
 | Bewerking                  | Toestaan                                                                              |
 | Prioriteit                | 100                                                                                |
-| Naam                    | Toestaan-HTTP-All                                                                     |
+| Name                    | Allow-HTTP-All                                                                     |
 
 Nadat u de regel maakt, is toegestaan voor poort 80 inkomend verkeer van internet, omdat de prioriteit van de regel hoger dan de standaard-beveiligingsregel met de naam is *DenyAllInBound*, dat het verkeer weigeren. Meer informatie over het [maken van een beveiligingsregel](manage-network-security-group.md#create-a-security-rule). Als verschillende nsg's gekoppeld aan de netwerkinterface en het subnet zijn, moet u dezelfde regel in beide nsg's maken.
 

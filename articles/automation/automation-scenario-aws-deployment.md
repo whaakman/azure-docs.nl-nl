@@ -3,18 +3,18 @@ title: Implementatie van een virtuele machine in Amazon Web Services automatiser
 description: In dit artikel ziet u hoe u Azure Automation gebruiken voor het maken van een virtuele machine van Amazon Web Service automatiseren
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a5b34cd92f3afd166d5d67ca445c99a52c684e2
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 348c28f6a2d72048e34f117e802abf243597b458
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290889"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425217"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario: een AWS-machine inrichten
 In dit artikel leert u hoe u kunt gebruikmaken van Azure Automation voor het inrichten van een virtuele machine in uw abonnement Amazon Web Service (AWS) en geef die virtuele machine een specifieke naam – AWS verwijst naar als 'codering' van de virtuele machine.
@@ -105,4 +105,5 @@ Voordat u doorgaat met het runbook testen, moet u een aantal zaken controleren. 
 * Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
 * Zie [Azure Automation-runbooktypen](automation-runbook-types.md) voor meer informatie over runbooktypen, hun voordelen en beperkingen
 * Zie [Systeemeigen PowerShell-scriptondersteuning in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) voor meer informatie over de functie voor PowerShelll-scriptondersteuning
+
 

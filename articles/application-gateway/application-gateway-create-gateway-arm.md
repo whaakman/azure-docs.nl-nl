@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: 1ad0fcd135e664b2b97fd16ebe851c817f567d7f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e7d6732bb051ccc34f61ee36fe68e726af8cea61
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38468203"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428288"
 ---
 # <a name="create-an-application-gateway-using-azure-powershell"></a>Maak een toepassingsgateway met behulp van Azure PowerShell
 
@@ -27,7 +27,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudie moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudie moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -66,7 +66,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 ### <a name="create-two-virtual-machines"></a>Twee virtuele machines maken
 
-Maak een netwerkinterfacekaart met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Maak een virtuele-machineconfiguratie met [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). Wanneer u de volgende opdrachten uitvoert, wordt u gevraagd referenties op te geven. Voer *azureuser* voor de gebruikersnaam en *Azure123456!* als het wachtwoord. Maak de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Maak een netwerkinterfacekaart met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Maak een virtuele-machineconfiguratie met [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). Wanneer u de volgende opdrachten uitvoert, wordt u gevraagd referenties op te geven. Voer *azureuser* in als gebruikersnaam en *Azure123456!* als het wachtwoord. Maak de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet

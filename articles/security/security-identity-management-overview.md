@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d1933e58cae522b03ced29183440e226d47dfdf9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255878"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435053"
 ---
 # <a name="azure-identity-management-security-overview"></a>Overzicht van Azure identity management-beveiliging
 
@@ -101,11 +101,11 @@ Beveiligingsbewaking, meldingen en machine learning gebaseerde rapporten die inc
 
 In de Azure-portal rapporten kunnen worden onderverdeeld in de volgende categorieën:
 
-* **Anomaliedetectie rapporten**: aanmeldingsgebeurtenissen waarop we gevonden worden afwijkende bevatten. Ons doel is het u op de hoogte van deze activiteit maken en kunt u bepalen of een gebeurtenis verdacht is.
-* **Geïntegreerde toepassing rapporten**: inzicht geven in hoe cloud-toepassingen in uw organisatie worden gebruikt. Azure AD biedt integratie met duizenden cloudtoepassingen.
-* **Foutenrapporten**: duiden op fouten die optreden bij het inrichten van accounts voor externe toepassingen.
-* **Rapporten voor specifieke gebruikers**: apparaat aanmeldingsactiviteiten gegevens voor een specifieke gebruiker worden weergegeven.
-* **Activiteitenlogboeken**: bevatten een record van alle gecontroleerde gebeurtenissen binnen de afgelopen 24 uur, afgelopen 7 dagen of afgelopen 30 dagen en groep is gewijzigd en het wachtwoord opnieuw instellen en registratie-activiteit.
+* **Anomaliedetectie rapporten**: Aanmeldingsgebeurtenissen waarop we gevonden worden afwijkende bevatten. Ons doel is het u op de hoogte van deze activiteit maken en kunt u bepalen of een gebeurtenis verdacht is.
+* **Geïntegreerde toepassing rapporten**: Bieden inzicht in hoe cloud-toepassingen in uw organisatie worden gebruikt. Azure AD biedt integratie met duizenden cloudtoepassingen.
+* **Foutenrapporten**: Fouten die zich voordoen kunnen bij het inrichten van accounts voor externe toepassingen aangeven.
+* **Rapporten voor specifieke gebruikers**: Apparaat aanmeldingsactiviteiten gegevens weergeven voor een specifieke gebruiker.
+* **Activiteitenlogboeken**: Een record van alle gecontroleerde gebeurtenissen binnen de afgelopen 24 uur, afgelopen 7 dagen of afgelopen 30 dagen en groep is gewijzigd en het wachtwoord opnieuw instellen en registratie activiteit bevatten.
 
 Meer informatie:
 
@@ -124,7 +124,7 @@ Wanneer u Azure AD B2C gebruikt, kunnen uw consumenten zich registreren voor uw 
 Meer informatie:
 
 * [Wat is Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C preview: aanmelden en consumenten in uw toepassingen aanmelden](../active-directory-b2c/active-directory-b2c-overview.md)
+* [Azure Active Directory B2C preview: Registreren en aanmelden bij de consumenten in uw toepassingen](../active-directory-b2c/active-directory-b2c-overview.md)
 * [Azure Active Directory B2C Preview: Soorten toepassingen](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Apparaatregistratie
@@ -154,9 +154,8 @@ Met Azure AD Privileged Identity Management, kunt u het volgende doen:
 
 Meer informatie:
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Rollen in Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [Wat is Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md)
+* [Azure AD-directory-rollen in PIM toewijzen](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Identiteitsbeveiliging
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 30c5a3cf623a16395ad8c09c813d631c10e2dedf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423114"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433474"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -141,7 +141,7 @@ In deze sectie wordt ervan uitgegaan dat u de functie Network Policy and Access 
 ### <a name="register-server-in-active-directory"></a>Server registreren in Active Directory
 Werkt alleen goed in dit scenario, als moet de NPS-server worden geregistreerd in Active Directory.
 
-1. Open Serverbeheer.
+1. Open Server Manager.
 
 2. Selecteer in Serverbeheer **extra**, en selecteer vervolgens **Network Policy Server**. 
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 73d14ebf8ed365659ec547469cd903d5db22c561
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092454"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428610"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Voer een SSIS-pakket met de activiteit uitvoeren van SSIS-pakket in Azure Data Factory
 Dit artikel wordt beschreven hoe u een SSIS-pakket uitvoert in een Azure Data Factory-pijplijn met behulp van een activiteit uitvoeren van SSIS-pakket. 
@@ -28,7 +28,7 @@ Dit artikel wordt beschreven hoe u een SSIS-pakket uitvoert in een Azure Data Fa
 **Azure SQL-database**. De procedures in dit artikel maakt gebruik van een Azure SQL-database die als host fungeert voor de SSIS-catalogus. U kunt ook een Azure SQL Database Managed Instance.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Een Azure SSIS Integration Runtime maken
-Een Azure-SSIS integratieruntime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: implementeren van SSIS-pakketten](tutorial-create-azure-ssis-runtime-portal.md).
+Een Azure-SSIS integratieruntime maken als u geen volgt u de stapsgewijze instructies in de [zelfstudie: SSIS-pakketten implementeren](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Een pakket worden uitgevoerd in Azure portal
 In deze sectie kunt u Data Factory-gebruikersinterface gebruiken om te maken van een Data Factory-pijplijn met een SSIS-pakket uitvoeren-activiteit die wordt uitgevoerd een SSIS-pakket.
@@ -137,7 +137,7 @@ U kunt ook een geplande trigger maken voor uw pijplijn, zodat de pijplijn wordt 
 ## <a name="run-a-package-with-powershell"></a>Uitvoeren van een pakket met PowerShell
 In deze sectie kunt u Azure PowerShell gebruiken om te maken van een Data Factory-pijplijn met een SSIS-pakket uitvoeren-activiteit die wordt uitgevoerd een SSIS-pakket. 
 
-Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps). 
+Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ### <a name="create-a-data-factory"></a>Een gegevensfactory maken
 U kunt de dezelfde data factory met de Azure-SSIS-IR gebruiken of een afzonderlijke data factory maken. De volgende procedure bevat stappen voor het maken van een data factory. Maakt u een pijplijn met een activiteit uitvoeren van SSIS-pakket in deze data factory. De activiteit uitvoeren van SSIS-pakket wordt uitgevoerd voor uw SSIS-pakket. 
@@ -180,7 +180,7 @@ Houd rekening met de volgende punten:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen **Inzender** of **Eigenaar**, of moet dit een **beheerder** van het Azure-abonnement zijn.
-* Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+* Voor een lijst met Azure-regio's waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio's waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Een pijplijn maken met een activiteit uitvoeren van SSIS-pakket 
 In deze stap maakt maken u een pijplijn met een activiteit uitvoeren van SSIS-pakket. De activiteit wordt uitgevoerd voor uw SSIS-pakket. 

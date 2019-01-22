@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: be9f8079480438b194f0d5779ac0da50328b5dd3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 8235ba65d9e2e000995d338c200a61845911fbff
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585277"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426740"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
 
@@ -54,7 +54,7 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 |Microsoft.Network/loadBalancers (alleen voor standaard-SKU's)| Ja| [Load Balancers](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[Openbare IP-adressen](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.PowerBIDedicated/capacities | N/A | [Capaciteit](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
-|Microsoft.Network/trafficManagerProfiles | Ja | [Traffic Manager-profielen](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.Network/trafficManagerProfiles | Ja | [Traffic Manager Profiles](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.Search/searchServices     |   N/A      |[Search-services](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  Ja       |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Ja     | [Opslagaccounts](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
@@ -63,7 +63,7 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 | Microsoft.Web/serverfarms | Ja | [App Service-plannen](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)  |
 | Microsoft.Web/sites | Ja | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) en [functies](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
 | Microsoft.Web/sites/slots | Ja | [App Service-sleuven](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
-|Microsoft.OperationalInsights/workspaces| Ja|[Log Analytics-werkruimten](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft.OperationalInsights/workspaces| Ja|[Log Analytics workspaces](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 
 
 
@@ -124,3 +124,4 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in 
 * Meer informatie over de nieuwe [ervaring waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Meer informatie over [waarschuwingen in Azure](../../azure-monitor/platform/alerts-overview.md).
+

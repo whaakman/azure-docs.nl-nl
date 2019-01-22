@@ -1,5 +1,5 @@
 ---
-title: Azure MFA-Server bijwerken
+title: Azure MFA Server upgrade
 description: Stappen en richtlijnen voor het bijwerken van de Azure multi-factor Authentication-Server naar een nieuwere versie.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: e0f3ec3ffa541e028835b0415201521c67eb7efa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: df0fd6258836bcd5053e5c526310e629b59b7880
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613814"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426757"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Een upgrade uitvoert naar de meest recente Azure multi-factor Authentication-Server
 

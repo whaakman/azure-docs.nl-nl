@@ -6,13 +6,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: b8252e6575ec7acb46fb69563720cc38796964ce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584300"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425065"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van metrische waarschuwingen met behulp van Azure Monitor
 
@@ -117,13 +117,13 @@ In de vorige secties beschreven hoe u kunt maken, weergeven en beheren van waars
 6. U kunt een waarschuwingsregel voor metrische gegevens met behulp van de volgende opdracht uitschakelen.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. U kunt een waarschuwingsregel voor metrische gegevens met behulp van de volgende opdracht verwijderen.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -131,3 +131,4 @@ In de vorige secties beschreven hoe u kunt maken, weergeven en beheren van waars
 - [Metrische waarschuwingen met behulp van Azure Resource Manager-sjablonen maken](../../azure-monitor/platform/alerts-enable-template.md).
 - [Begrijpen hoe metrische waarschuwingen werk](alerts-metric-overview.md).
 - [Inzicht in de web-hook-schema voor metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+

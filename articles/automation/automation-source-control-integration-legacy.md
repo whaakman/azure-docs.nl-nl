@@ -3,18 +3,18 @@ title: Integratie van broncodebeheer in Azure Automation - verouderd
 description: Dit artikel wordt de integratie van broncodebeheer met GitHub in Azure Automation beschreven.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a6ae91ba768f9aa002c2814133b26dd152c7ef25
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784805"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434866"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integratie van broncodebeheer in Azure Automation - verouderd
 
@@ -65,7 +65,7 @@ Als u al hebt een GitHub-account en een opslagplaats die u wilt koppelen aan Azu
      
      | **Parameter** | **Waarde** |
      |:--- |:--- |
-     | Naam |Microsoft.Azure.Automation.SourceControl.Connection |
+     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
      | Type |Reeks |
      | Waarde |{'Vertakking':\<*de naam van uw vertakking*>, "RunbookFolderPath":\<*pad naar de Runbookmap*>, "ProviderType":\<*heeft een waarde 1 voor GitHub*>, 'Opslagplaats':\<*naam van uw opslagplaats*>, 'Gebruikersnaam':\<*uw GitHub-gebruikersnaam*>} |
 
@@ -73,13 +73,13 @@ Als u al hebt een GitHub-account en een opslagplaats die u wilt koppelen aan Azu
 
     |**Parameter**            |**Waarde** |
     |:---|:---|
-    | Naam  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+    | Name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Type | Unknown(Encrypted) |
     | Waarde | <*Versleutelde OAuthToken*> |  
 
     ![Variabelen](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Automation-broncodebeheer** wordt toegevoegd als een gemachtigde toepassing naar uw GitHub-account. Om de toepassing weer te geven: vanuit uw GitHub-startpagina, navigeert u naar uw **profiel** > **instellingen** > **toepassingen**. Deze toepassing kunt Azure Automation om te synchroniseren van uw GitHub-opslagplaats aan een Automation-account.  
+    * **Automation-broncodebeheer** wordt toegevoegd als een gemachtigde toepassing naar uw GitHub-account. De toepassing weergeven: Vanuit uw GitHub-startpagina, navigeert u naar uw **profiel** > **instellingen** > **toepassingen**. Deze toepassing kunt Azure Automation om te synchroniseren van uw GitHub-opslagplaats aan een Automation-account.  
 
     ![GIT-toepassing](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
@@ -99,7 +99,7 @@ Runbook inchecken kunt u de wijzigingen die u hebt aangebracht in een runbook in
 1. Wanneer u klikt op **inchecken**, wordt u gevraagd met een bevestigingsbericht wordt weergegeven, klikt u op **Ja** om door te gaan.  
    
     ![Check-inbericht](media/automation-source-control-integration-legacy/automation_07_CheckinMessage.png)
-2. Inchecken wordt de bron-besturingselement-runbook wordt gestart: **synchronisatie MicrosoftAzureAutomationAccountToGitHubV1**. Dit runbook maakt verbinding met GitHub en wijzigingen in Azure Automation gepusht naar uw opslagplaats. Als u wilt de ingeschakeld in de taakgeschiedenis bekijken, gaat u terug naar de **integratie van broncodebeheer** tabblad en klik op om de synchronisatie van de opslagplaats-pagina te openen. Deze pagina bevat alle uw resourcebeheertaken.  Selecteer de taak die u wilt weergeven en klikt u op om de details weer te geven.  
+2. Start het besturingselement bron runbook inchecken: **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. Dit runbook maakt verbinding met GitHub en wijzigingen in Azure Automation gepusht naar uw opslagplaats. Als u wilt de ingeschakeld in de taakgeschiedenis bekijken, gaat u terug naar de **integratie van broncodebeheer** tabblad en klik op om de synchronisatie van de opslagplaats-pagina te openen. Deze pagina bevat alle uw resourcebeheertaken.  Selecteer de taak die u wilt weergeven en klikt u op om de details weer te geven.  
    
     ![Runbook inchecken](media/automation-source-control-integration-legacy/automation_08_CheckinRunbook.png)
    
@@ -110,7 +110,7 @@ Runbook inchecken kunt u de wijzigingen die u hebt aangebracht in een runbook in
 3. De naam van het gewijzigde runbook wordt verzonden als invoerparameter voor de geselecteerde in runbook. U kunt [de taakdetails weergeven](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) door het uitbreiden van runbook in **Bibliotheeksynchronisatie** pagina.  
    
     ![Inchecken invoer](media/automation-source-control-integration-legacy/automation_09_CheckinInput.png)
-4. Uw GitHub-opslagplaats vernieuwen nadat de taak is voltooid om de wijzigingen weer te geven.  Er moet een wijziging in uw opslagplaats met een doorvoerbericht: **bijgewerkt *Runbooknaam* in Azure Automation.**  
+4. Uw GitHub-opslagplaats vernieuwen nadat de taak is voltooid om de wijzigingen weer te geven.  Er moet een wijziging in uw opslagplaats met een commit-bericht: **Bijgewerkt *Runbooknaam* in Azure Automation.**  
 
 ### <a name="sync-runbooks-from-source-control-to-azure-automation"></a>Runbooks synchroniseren vanuit bronbeheer naar Azure Automation
 De knop synchroniseren op de pagina Bibliotheeksynchronisatie kunt u voor het ophalen van alle runbooks in het pad naar de runbookmap van uw opslagplaats naar uw Automation-account. Dezelfde opslagplaats kan worden gesynchroniseerd met meer dan één Automation-account. Hieronder vindt u de stappen voor het synchroniseren van een runbook:
@@ -118,7 +118,7 @@ De knop synchroniseren op de pagina Bibliotheeksynchronisatie kunt u voor het op
 1. Open in het Automation-account waar u bronnenbeheer instelt, de **Source Control integratie/Bibliotheeksynchronisatie** pagina en klik op **synchronisatie**.  U wordt gevraagd met een bevestigingsbericht wordt weergegeven, klikt u op **Ja** om door te gaan.  
    
     ![Knop synchroniseren](media/automation-source-control-integration-legacy/automation_10_SyncButtonwithMessage.png)
-2. Synchronisatie van het runbook wordt gestart: **synchronisatie MicrosoftAzureAutomationAccountFromGitHubV1**. Dit runbook maakt verbinding met GitHub en haalt de wijzigingen uit uw opslagplaats voor Azure Automation. U ziet een nieuwe taak op de **Bibliotheeksynchronisatie** pagina voor deze actie. Als u wilt meer informatie over de sync-taak weergeven, klikt u op om te openen van de pagina met details van de taak.  
+2. Synchronisatie van begint het runbook: **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. Dit runbook maakt verbinding met GitHub en haalt de wijzigingen uit uw opslagplaats voor Azure Automation. U ziet een nieuwe taak op de **Bibliotheeksynchronisatie** pagina voor deze actie. Als u wilt meer informatie over de sync-taak weergeven, klikt u op om te openen van de pagina met details van de taak.  
    
     ![Synchronisatie-Runbook](media/automation-source-control-integration-legacy/automation_11_SyncRunbook.png)
 
@@ -142,4 +142,5 @@ Zie voor meer informatie over de integratie van broncodebeheer, de volgende bron
 * [Azure Automation: Integratie van broncodebeheer in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [Stem voor uw favoriete bronbeheersysteem](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 * [Azure Automation: Integratie van broncodebeheer van Runbook met behulp van Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+
 

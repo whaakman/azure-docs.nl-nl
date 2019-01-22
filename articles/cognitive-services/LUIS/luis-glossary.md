@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b0bbd3300e48e82e44a7b7fac05f89c8d25e007f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8cddea1757b37ca462611874af7ace1af70c9646
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603494"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425170"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Language understanding verklarende woordenlijst van algemene vocabulaire en concepten
 De Language Understanding (LUIS) verklarende woordenlijst wordt uitgelegd dat de voorwaarden die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.
@@ -74,7 +74,7 @@ In de context van LUIS, een **domein** is een gebied van kennis. Uw domein is sp
 
 ## <a name="endpoint"></a>Eindpunt
 
-De [LUIS eindpunt](https://aka.ms/luis-endpoint-apis) -URL is waar het indienen van LUIS-query's na de [LUIS-app](#luis-app) is geautoriseerd en gepubliceerd. De eindpunt-URL bevat de regio van de gepubliceerde app, evenals de app-ID. U vindt het eindpunt op de **[sleutels en eindpunten](luis-how-to-manage-keys.md)** pagina van uw app, of u krijgt de eindpunt-URL van de [App-informatie ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+De [LUIS eindpunt](https://aka.ms/luis-endpoint-apis) -URL is waar het indienen van LUIS-query's na de [LUIS-app](#luis-app) is geautoriseerd en gepubliceerd. De eindpunt-URL bevat de regio van de gepubliceerde app, evenals de app-ID. U vindt het eindpunt op de **[sleutels en eindpunten](luis-how-to-azure-subscription.md)** pagina van uw app, of u krijgt de eindpunt-URL van de [App-informatie ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Een eindpunt voorbeeld lijkt:
 
@@ -177,7 +177,7 @@ Hetzelfde als [programmatische sleutel](#programmatic-key), hernoemd in Authorin
 
 ## <a name="subscription-key"></a>Abonnementssleutel
 
-De abonnementssleutel is de **eindpunt** sleutel die is gekoppeld met de service LUIS [u hebt gemaakt in Azure](luis-how-to-azure-subscription.md). Deze sleutel is niet de [ontwerpen sleutel](#programmatic-key). Als u een eindpuntsleutel hebt, moet het worden gebruikt voor een eindpunt-aanvragen in plaats van de sleutel van de ontwerphandleiding. U kunt uw huidige eindpuntsleutel binnen de eindpunt-URL aan de onderkant van zien [ **sleutels en eindpunten** pagina](luis-how-to-manage-keys.md) in [LUIS](luis-reference-regions.md) website. Dit is de waarde van **-abonnementssleutel** naam/waarde-paar.
+De abonnementssleutel is de **eindpunt** sleutel die is gekoppeld met de service LUIS [u hebt gemaakt in Azure](luis-how-to-azure-subscription.md). Deze sleutel is niet de [ontwerpen sleutel](#programmatic-key). Als u een eindpuntsleutel hebt, moet het worden gebruikt voor een eindpunt-aanvragen in plaats van de sleutel van de ontwerphandleiding. U kunt uw huidige eindpuntsleutel binnen de eindpunt-URL aan de onderkant van zien [ **sleutels en eindpunten** pagina](luis-how-to-azure-subscription.md) in [LUIS](luis-reference-regions.md) website. Dit is de waarde van **-abonnementssleutel** naam/waarde-paar.
 
 ## <a name="test"></a>Test
 

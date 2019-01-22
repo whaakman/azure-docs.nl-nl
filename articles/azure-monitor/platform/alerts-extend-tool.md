@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: bdc3646116dfd5f16c0c039c4fb95d11c6593adf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: alerts
+ms.openlocfilehash: dc8c1733f506870765523b17c1fc3e283ff9cbdb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120990"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423272"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuwingen. Als onderdeel van deze overgang, wordt de waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics worden uitgebreid naar Azure. Als u niet wachten tot deze worden automatisch verplaatst naar Azure wilt, kunt u het proces starten:
@@ -37,7 +37,7 @@ De volgende stappen wordt beschreven hoe u waarschuwingen voor de werkruimte van
 ![Schermafbeelding van de Operations Management Suite waarschuwingsinstellingen portalpagina met uitbreiden naar Azure is gemarkeerd](media/alerts-extend-tool/ExtendInto.png)
 6. Een wizard drie stappen wordt weergegeven de **waarschuwingen** deelvenster. Lees het overzicht en selecteer **volgende**.
 ![Schermafbeelding van stap 1 van de wizard](media/alerts-extend-tool/ExtendStep1.png)  
-7. In de tweede stap ziet u een overzicht van voorgestelde wijzigingen aanbieding juiste [actiegroepen](../../azure-monitor/platform/action-groups.md) voor de waarschuwingen. Als dezelfde acties zijn waargenomen in meer dan één waarschuwing, wordt de wizard een groep met één actie koppelen aan al deze voorstelt.  De naamconventie is als volgt: *WorkspaceName_AG_ #Number*. Om door te gaan, selecteert u **volgende**.
+7. In de tweede stap ziet u een overzicht van voorgestelde wijzigingen aanbieding juiste [actiegroepen](../../azure-monitor/platform/action-groups.md) voor de waarschuwingen. Als dezelfde acties zijn waargenomen in meer dan één waarschuwing, wordt de wizard een groep met één actie koppelen aan al deze voorstelt.  De naamconventie is als volgt: *WorkspaceName_AG_#Number*. Om door te gaan, selecteert u **volgende**.
 ![Schermafbeelding van stap 2 van de wizard](media/alerts-extend-tool/ExtendStep2.png)  
 8. Selecteer in de laatste stap van de wizard, **voltooien**, en controleer of wanneer u wordt gevraagd het proces te starten. Geef eventueel een e-mailadres, zodat u wordt gewaarschuwd wanneer het proces is voltooid en alle waarschuwingen zijn verplaatst naar Azure-waarschuwingen.
 ![Schermafbeelding van stap 3 van de wizard](media/alerts-extend-tool/ExtendStep3.png)
@@ -52,7 +52,7 @@ Waarschuwingen worden weergegeven in de Operations Management Suite-portal, zelf
 ## <a name="option-2-use-the-alertsversion-api"></a>Optie 2: De AlertsVersion API gebruiken
 De Log Analytics AlertsVersion API kunt u waarschuwingen van Log Analytics in Azure-waarschuwingen uitbreiden van een willekeurige client die een REST-API kunt aanroepen. U kunt toegang tot de API vanuit PowerShell met behulp van [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma. U kunt de resultaten in JSON.  
 
-Voor het gebruik van de API, moet u eerst een GET-aanvraag maken. Dit wordt geëvalueerd en retourneert een samenvatting van de voorgestelde wijzigingen voordat u daadwerkelijk uitbreiden naar Azure met behulp van een POST-aanvraag. De lijst met resultaten uw waarschuwingen en een voorgestelde lijst [actiegroepen](../../azure-monitor/platform/action-groups.md), in JSON-indeling. Als dezelfde acties zijn waargenomen in meer dan één waarschuwing, wordt de service al deze koppelen aan een groep met één actie. De naamconventie is als volgt: *WorkspaceName_AG_ #Number*.
+Voor het gebruik van de API, moet u eerst een GET-aanvraag maken. Dit wordt geëvalueerd en retourneert een samenvatting van de voorgestelde wijzigingen voordat u daadwerkelijk uitbreiden naar Azure met behulp van een POST-aanvraag. De lijst met resultaten uw waarschuwingen en een voorgestelde lijst [actiegroepen](../../azure-monitor/platform/action-groups.md), in JSON-indeling. Als dezelfde acties zijn waargenomen in meer dan één waarschuwing, wordt de service al deze koppelen aan een groep met één actie. De naamconventie is als volgt: *WorkspaceName_AG_#Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
@@ -481,3 +481,4 @@ Hier volgen de herstelstappen uit voor elke fout:
 
 * Meer informatie over de nieuwe [ervaren Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen](alerts-unified-log.md).
+

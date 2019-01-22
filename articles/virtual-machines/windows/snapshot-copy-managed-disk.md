@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a853df2aba0fb8b1ca2449c70794d974151c2546
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232576"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428831"
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken
 
@@ -43,7 +43,7 @@ Als u de momentopname gebruiken wilt voor het maken van een nieuwe virtuele mach
 
 De volgende stappen laten zien hoe u de VHD-schijf kopiëren, de configuratie van de momentopnamen maken en een momentopname van de schijf met behulp van de [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
-Voordat u begint, zorg ervoor dat u hebt de nieuwste versie van de AzureRM.Compute PowerShell-module versie 5.7.0 moet of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, voert u [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) voor het maken van een verbinding met Azure.
+Voordat u begint, zorg ervoor dat u hebt de nieuwste versie van de AzureRM.Compute PowerShell-module versie 5.7.0 moet of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, voert u [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) voor het maken van een verbinding met Azure.
 
 1. Sommige parameters instellen: 
 

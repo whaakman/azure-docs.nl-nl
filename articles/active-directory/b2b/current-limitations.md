@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 4e997e33eaccc6938209937d3157498db8bf4781
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f338d587759748e64a6cb4822494e7b6da367feb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982337"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426995"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Beperkingen van Azure AD B2B-samenwerking
 Azure Active Directory (Azure AD) B2B-samenwerking is momenteel onderhevig aan de beperkingen die in dit artikel wordt beschreven.

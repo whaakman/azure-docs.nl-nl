@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 0ab496b884506b013c6a4abb2dff1e1feff4fc72
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342983"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432027"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hoe kunt u complexe acties met Azure Monitor-waarschuwingen activeren
 
@@ -298,3 +298,4 @@ Logic Apps heeft een aantal andere connectors waarmee u kunt acties van de trigg
 * Krijgen een [overzicht van waarschuwingen voor activiteitenlogboeken van Azure](../../azure-monitor/platform/alerts-overview.md) en leer hoe u waarschuwingen ontvangt.  
 * Meer informatie over het [waarschuwingen configureren wanneer er een melding van Azure Service Health is geplaatst](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Meer informatie over [actiegroepen](../../azure-monitor/platform/action-groups.md).
+

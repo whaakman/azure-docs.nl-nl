@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994714"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429631"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Een VM-routeringsprobleem vaststellen
 
@@ -49,12 +49,12 @@ De volgende stappen wordt ervan uitgegaan dat u hebt een bestaande virtuele mach
     In het voorbeeld in de vorige afbeelding wordt weergegeven, zijn de routes in de lijst standaardroutes die Azure voor elk subnet maakt. De lijst met kan ten minste deze routes heeft, maar aanvullende routes, afhankelijk van de mogelijkheden die u mogelijk hebt ingeschakeld voor het virtuele netwerk, zoals deze wordt gekoppeld aan een ander virtueel netwerk of verbonden met uw on-premises netwerk via een Azure VPN-gateway. Zie voor meer informatie over elk van de routes en andere routes u voor de netwerkinterface ziet mogelijk, [routering van verkeer van virtuele netwerken](virtual-networks-udr-overview.md). Als uw lijst een groot aantal routes bevat, wellicht vindt u het eenvoudiger om te selecteren **downloaden**om te downloaden van een CSV-bestand met de lijst van routes.
 
 Hoewel de effectieve routes via de virtuele machine in de vorige stappen zijn bekeken, kunt u ook effectieve routes via weergeven een:
-- **Afzonderlijke netwerkinterfaces**: meer informatie over het [weergeven van een netwerkinterface](virtual-network-network-interface.md#view-network-interface-settings).
-- **Afzonderlijke routetabel**: meer informatie over het [weergeven van een routetabel](manage-route-table.md#view-details-of-a-route-table).
+- **Afzonderlijke netwerkinterfaces**: Meer informatie over het [weergeven van een netwerkinterface](virtual-network-network-interface.md#view-network-interface-settings).
+- **Afzonderlijke routetabel**: Meer informatie over het [weergeven van een routetabel](manage-route-table.md#view-details-of-a-route-table).
 
 ## <a name="diagnose-using-powershell"></a>Vaststellen met behulp van PowerShell
 
-U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.0.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` aan te melden bij Azure met een account met de [benodigde machtigingen](virtual-network-network-interface.md#permissions).
+U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.0.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` aan te melden bij Azure met een account met de [benodigde machtigingen](virtual-network-network-interface.md#permissions).
 
 De effectieve routes ophalen voor een netwerkinterface met [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable). Het volgende voorbeeld wordt de effectieve routes voor een netwerkinterface met de naam *myVMVMNic*, dat wil zeggen in een resourcegroep met de naam *myResourceGroup*:
 

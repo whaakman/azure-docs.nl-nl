@@ -4,7 +4,7 @@ description: Stap voor stap beheerd instructies over het maken, weergeven en ver
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 86d2f013567d768437e589df366c5c131e1bcf50
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9ac036b11734e40d0f601f2416ef4892646e6390
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421908"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425466"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen beheerde identiteit met behulp van REST-API aanroepen
 
@@ -59,14 +59,14 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Aanvraagheaders**
 
-|Aanvraagheader  |Beschrijving  |
+|Aanvraagheader  |Description  |
 |---------|---------|
 |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
 |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |
 
 **Aanvraagtekst**
 
-|Naam  |Beschrijving  |
+|Name  |Description  |
 |---------|---------|
 |location     | Vereist. Resourcelocatie.        |
 
@@ -82,7 +82,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-|Aanvraagheader  |Beschrijving  |
+|Aanvraagheader  |Description  |
 |---------|---------|
 |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
 |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |
@@ -102,7 +102,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ```HTTP
 DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
-|Aanvraagheader  |Beschrijving  |
+|Aanvraagheader  |Description  |
 |---------|---------|
 |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
 |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |

@@ -3,18 +3,18 @@ title: Grafisch ontwerpen in Azure Automation
 description: Grafisch ontwerpen, kunt u runbooks voor Azure Automation maken zonder het werken met code. Dit artikel bevat een inleiding tot het grafisch ontwerpen en alle informatie die nodig zijn om te beginnen met het maken van een grafisch runbook.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233674"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427233"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisch ontwerpen in Azure Automation
 
@@ -44,7 +44,7 @@ U kunt de besturingselementen aan de onderkant van het canvas in-en uitzoomen.
 
 Het besturingselement bibliotheek is waar u het selecteert [activiteiten](#activities) om toe te voegen aan uw runbook. U toevoegen ze aan het papier waar u deze aan andere activiteiten verbinden. Het bevat vier secties wordt beschreven in de volgende tabel:
 
-| Sectie | Beschrijving |
+| Sectie | Description |
 |:--- |:--- |
 | Cmdlets |Bevat alle cmdlets die kunnen worden gebruikt in uw runbook. Cmdlets zijn ingedeeld door de module. Alle modules die u hebt geïnstalleerd in uw automation-account zijn beschikbaar. |
 | Runbooks |Bevat de runbooks in uw automation-account. Deze runbooks kunnen worden toegevoegd aan het canvas om te worden gebruikt als onderliggende runbooks. Alleen runbooks van hetzelfde type als het runbook wordt bewerkt core worden weergegeven; Grafische worden runbooks alleen op PowerShell gebaseerde runbooks weergegeven, terwijl voor grafische PowerShell Workflow-runbooks alleen PowerShell-werkstroom runbooks worden weergegeven. |
@@ -109,9 +109,9 @@ In het volgende voorbeeld bevat de cmdlet Get-AzureRmVM drie parametersets. U ku
 
 Als u een waarde voor een parameter opgeeft, selecteert u een gegevensbron om te bepalen hoe de waarde is opgegeven. De gegevensbronnen die beschikbaar zijn voor een bepaalde parameter, is afhankelijk van de geldige waarden voor deze parameter. Bijvoorbeeld: Null is niet een beschikbare optie voor een parameter die null-waarden zijn niet toegestaan.
 
-| Gegevensbron | Beschrijving |
+| Gegevensbron | Description |
 |:--- |:--- |
-| Constante waarde |Typ een waarde voor de parameter. Dit is alleen beschikbaar voor de volgende gegevenstypen: Int32, Int64, tekenreeks, Boole-waarde, DateTime, Switch. |
+| Constante waarde |Typ een waarde voor de parameter. Dit is alleen beschikbaar voor de volgende gegevenstypen: Int32, Int64, String,Boolean,DateTime,Switch. |
 | Uitvoer van activiteit |De uitvoer van een activiteit die voorafgaat aan de huidige activiteit in de werkstroom. Alle geldige activiteiten worden weergegeven. Selecteer alleen de activiteit met de uitvoer voor de waarde van parameter. Als de uitvoer van de activiteit een object met meerdere eigenschappen, kunt u opgeven de naam van de eigenschap na het selecteren van de activiteit. |
 | Runbookinvoer |Selecteer een runbook-invoerparameter als invoer voor de parameter van de activiteit. |
 | Variabeleasset |Selecteer een Automation-variabele als invoer. |
@@ -139,7 +139,7 @@ De voorwaarde voor opnieuw proberen is een PowerShell-expressie die wordt geëva
 
 De voorwaarde opnieuw kunt gebruiken een variabele met de naam $RetryData die toegang tot informatie over de activiteit nieuwe pogingen biedt. Deze variabele heeft de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
 | NumberOfAttempts |Het aantal keren dat de activiteit is uitgevoerd. |
 | Uitvoer |De uitvoer van de laatste uitvoering van de activiteit. |
@@ -191,7 +191,7 @@ Maak een koppeling tussen twee activiteiten op basis van de bronactiviteit selec
 
 Selecteer de koppeling naar de eigenschappen ervan configureren in de blade van de configuratie. Dit omvat het koppelingstype, die wordt beschreven in de volgende tabel:
 
-| Type koppeling | Beschrijving |
+| Type koppeling | Description |
 |:--- |:--- |
 | Pijplijn |De doelactiviteit wordt eenmaal uitgevoerd voor elk objectuitvoer van de bronactiviteit. De doelactiviteit wordt niet uitgevoerd als de bronactiviteit in geen uitvoer resulteert. Uitvoer van de bronactiviteit is beschikbaar als een object. |
 | Volgorde |De doelactiviteit wordt slechts één keer uitgevoerd. Ontvangt deze een matrix met objecten uit de bronactiviteit. Uitvoer van de bronactiviteit is beschikbaar als een matrix met objecten. |
@@ -272,7 +272,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 U kunt instellen [controlepunten](automation-powershell-workflow.md#checkpoints) in een grafische PowerShell Workflow-runbook door te selecteren *runbookcontrolepunt* voor elke activiteit. Dit zorgt ervoor dat een controlepunt worden ingesteld nadat de activiteit is uitgevoerd.
 
-![Controlepunt](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Check Point](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Controlepunten worden alleen ingeschakeld in grafische PowerShell Workflow-runbooks, is niet beschikbaar in grafische runbooks. Als het runbook maakt gebruik van Azure-cmdlets, moet u een controlepunt activiteit met een Connect-AzureRmAccount volgen in het geval het runbook wordt onderbroken en opnieuw wordt opgestart vanaf dit controlepunt op een andere werknemer.
 
@@ -288,7 +288,7 @@ De activiteit uitvoeren als-verbinding ophalen (dat wil zeggen, Get-AutomationCo
 
 De volgende activiteit, Connect-AzureRmAccount, voegt de geverifieerde uitvoeren als-account voor gebruik in het runbook.
 
-![Connect-AzureRmAccount-parameterset](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
+![Connect-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
 > [!IMPORTANT]
 > **Add-AzureRmAccount** is nu een alias voor **Connect-AzureRMAccount**. Wanneer uw bibliotheek zoeken items, als u niet ziet **Connect-AzureRMAccount**, kunt u **Add-AzureRmAccount**, of u kunt uw modules bijwerken in uw Automation-Account.
@@ -322,10 +322,10 @@ Hiermee opent u de **invoer en uitvoer** besturingselement kunt u een bestaande 
 
 Elke invoerparameter wordt gedefinieerd door de eigenschappen in de volgende tabel:
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 |:--- |:--- |
-| Naam |De unieke naam van de parameter. Dit mag alleen alfanumerieke tekens en mag geen spatie bevatten. |
-| Beschrijving |Een optionele beschrijving voor de invoerparameter. |
+| Name |De unieke naam van de parameter. Dit mag alleen alfanumerieke tekens en mag geen spatie bevatten. |
+| Description |Een optionele beschrijving voor de invoerparameter. |
 | Type |Het gegevenstype voor de parameterwaarde verwacht. De Azure portal biedt een juiste besturingselement voor het gegevenstype voor elke parameter tijdens het vragen om invoer. |
 | Verplicht |Hiermee geeft u op of moet een waarde worden opgegeven voor de parameter. Het runbook kan niet worden gestart als u geen waarde opgeeft voor de verplichte parameter waarmee de heeft geen standaardwaarde gedefinieerd. |
 | Standaardwaarde |Hiermee geeft u op welke waarde voor de parameter wordt gebruikt als niet is opgegeven. Dit kan ofwel Null of een specifieke waarde zijn. |

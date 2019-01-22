@@ -3,22 +3,22 @@ title: Uitvoeren van Runbook in Azure Automation
 description: Hierin wordt beschreven in de details van hoe een runbook in Azure Automation wordt verwerkt.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb6236203a1165361505c8699ba94bff54e41c2a
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 859ef4c28b858b00fcc9c7c73a3a706a11225113
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247347"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430718"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
-Wanneer u een runbook in Azure Automation starten, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers kunnen worden gedeeld door veel Azure-accounts, zijn-taken vanaf andere Automation-accounts geïsoleerd van elkaar. U hebt niet bepalen over welke worker-services de aanvraag voor uw taak. Een enkele runbook kan hebben veel taken in één keer worden uitgevoerd. De uitvoeringsomgeving voor taken van hetzelfde Automation-Account kan opnieuw worden gebruikt. Meer taken die u uitvoert op hetzelfde moment, hoe vaak ze kunnen worden verzonden naar de sandbox. Taken die worden uitgevoerd in hetzelfde sandbox-proces kunnen invloed hebben op elkaar, bijvoorbeeld wordt uitgevoerd de `Disconnect-AzureRMAccount` cmdlet. Deze cmdlet wordt uitgevoerd, zou elke runbooktaak in de gedeelde sandbox-proces verbreken. Wanneer u de lijst met runbooks in Azure portal bekijkt, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook voor het bijhouden van de status van elke weergeven. Taaklogboeken worden opgeslagen voor een maximum van 30 dagen. Voor een beschrijving van de status van een andere taak [taakstatus](#job-statuses).
+Wanneer u een runbook in Azure Automation starten, wordt een taak gemaakt. Een taak is één uitvoeringsexemplaar van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers kunnen worden gedeeld door veel Azure-accounts, zijn-taken vanaf andere Automation-accounts geïsoleerd van elkaar. U hebt niet bepalen over welke worker-services de aanvraag voor uw taak. Een enkele runbook kan hebben veel taken in één keer worden uitgevoerd. De uitvoeringsomgeving voor taken van hetzelfde Automation-Account kan opnieuw worden gebruikt. Meer taken die u uitvoert op hetzelfde moment, hoe vaak ze kunnen worden verzonden naar de sandbox. Taken die worden uitgevoerd in hetzelfde sandbox-proces kunnen invloed hebben op elkaar, bijvoorbeeld wordt uitgevoerd de `Disconnect-AzureRMAccount` cmdlet. Deze cmdlet wordt uitgevoerd, zou elke runbooktaak in de gedeelde sandbox-proces verbreken. Wanneer u de lijst met runbooks in Azure portal bekijkt, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook voor het bijhouden van de status van elke weergeven. Taaklogboeken worden opgeslagen voor een maximum van 30 dagen. Voor een beschrijving van de status van een andere taak [taakstatus](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -34,21 +34,21 @@ Uw taken hebben toegang tot uw Azure-resources door het maken van een verbinding
 
 ## <a name="job-statuses"></a>Status van een taak
 
-De volgende tabel beschrijft de verschillende statussen die mogelijk voor een taak zijn. PowerShell heeft twee soorten fouten, afsluitfouten als niet-afsluitfouten. De runbookstatus van de beëindigen fouten instellen op **mislukt** als ze zich voordoen. Niet-afsluitfouten kunnen het script om door te gaan, zelfs nadat deze zich voordoen. Een voorbeeld van een niet-afsluitfout wordt met behulp van de `Get-ChildItem` cmdlet door een bestaand pad bestaat niet. PowerShell ziet dat het pad niet bestaat, treedt er een fout en de volgende map blijft. Deze fout wouldn't de runbookstatus van het niet instellen op **mislukt** en kunnen worden gemarkeerd als **voltooid**. Als u wilt afdwingen dat een runbook op een niet-afsluitfout te stoppen, kunt u `-ErrorAction Stop` over de cmdlet.
+In de volgende tabel wordt beschreven welke status een taak kan hebben. PowerShell heeft twee soorten fouten, afsluitfouten als niet-afsluitfouten. De runbookstatus van de beëindigen fouten instellen op **mislukt** als ze zich voordoen. Niet-afsluitfouten kunnen het script om door te gaan, zelfs nadat deze zich voordoen. Een voorbeeld van een niet-afsluitfout wordt met behulp van de `Get-ChildItem` cmdlet door een bestaand pad bestaat niet. PowerShell ziet dat het pad niet bestaat, treedt er een fout en de volgende map blijft. Deze fout wouldn't de runbookstatus van het niet instellen op **mislukt** en kunnen worden gemarkeerd als **voltooid**. Als u wilt afdwingen dat een runbook op een niet-afsluitfout te stoppen, kunt u `-ErrorAction Stop` over de cmdlet.
 
-| Status | Beschrijving |
+| Status | Description |
 |:--- |:--- |
 | Voltooid |De taak is voltooid. |
 | Mislukt |Voor [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md), het runbook kan niet worden gecompileerd. Voor [runbooks voor PowerShell-Script](automation-runbook-types.md), het runbook kan niet worden gestart of de taak heeft een uitzondering. |
 | Is mislukt, wachten op resources |De taak is mislukt omdat het bereikt de [evenredige deel](#fair-share) drie keer beperken en vanaf het dezelfde controlepunt of vanaf het begin van het runbook gestart elke keer. |
-| In wachtrij |De taak is bronnen wacht op een Automation worker beschikbaar zodat het kan worden gestart. |
+| In wachtrij |De taak wacht totdat de bronnen op een Automation Worker beschikbaar zijn, zodat de taak kan worden gestart. |
 | Starten |De taak is toegewezen aan een werknemer en het systeem wordt gestart. |
 | Hervatten |Het systeem is de taak wordt hervat nadat deze is onderbroken. |
 | In uitvoering |De taak wordt uitgevoerd. |
 | Wordt uitgevoerd, wachten op resources |De taak is verwijderd omdat het bereikt de [evenredige deel](#fair-share) limiet. Het wordt hervat over enkele ogenblikken vanaf de laatste controlepunt. |
-| Gestopt |De taak is gestopt door de gebruiker voordat deze was voltooid. |
+| Gestopt |De gebruiker heeft de taak gestopt voordat deze is voltooid. |
 | Stoppen |Het systeem wordt de taak gestopt. |
-| Uitgesteld |De taak is onderbroken door de gebruiker, door het systeem of door een opdracht in het runbook. Als een runbook niet beschikt over een controlepunt, begint deze vanaf het begin van het runbook. Als er een controlepunt, kan deze opnieuw starten en hervat vanaf het laatste controlepunt. Het runbook is alleen door het systeem worden onderbroken wanneer er een uitzondering optreedt. ErrorActionPreference is standaard ingesteld op **doorgaan**, wat inhoudt dat de taak wordt uitgevoerd op een fout. Als deze voorkeursvariabele is ingesteld op **stoppen**, en vervolgens de taak wordt onderbroken op een fout. Is van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
+| Uitgesteld |De taak is door de gebruiker, door het systeem of door een opdracht in het runbook onderbroken. Als een runbook niet beschikt over een controlepunt, begint deze vanaf het begin van het runbook. Als er een controlepunt, kan deze opnieuw starten en hervat vanaf het laatste controlepunt. Het runbook is alleen door het systeem worden onderbroken wanneer er een uitzondering optreedt. ErrorActionPreference is standaard ingesteld op **doorgaan**, wat inhoudt dat de taak wordt uitgevoerd op een fout. Als deze voorkeursvariabele is ingesteld op **stoppen**, en vervolgens de taak wordt onderbroken op een fout. Is van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
 | Onderbreken |Het systeem probeert te onderbreken van de taak op verzoek van de gebruiker. Het runbook moet het volgende controlepunt bereiken voordat deze kan worden onderbroken. Als deze de laatste controlepunt al doorgegeven en vervolgens het proces is voltooid voordat deze kan worden onderbroken. Is van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Status van de Azure-portal weergeven
@@ -79,7 +79,7 @@ U kunt ook overzichtsgegevens van taak voor een specifiek runbook weergeven door
 
 Hier vindt u een lijst van alle taken die zijn gemaakt voor een bepaald runbook en hun meest recente status. U kunt deze lijst op de taakstatus en het datumbereik voor de laatste wijziging aan de job filteren. Als u wilt de gedetailleerde informatie en de uitvoer bekijken, klikt u op de naam van een taak. De gedetailleerde weergave van de taak bevat de waarden voor de runbookparameters die zijn opgegeven voor die taak.
 
-U kunt de volgende stappen uit om de taken voor een runbook weer te geven.
+U kunt de volgende stappen gebruiken om de taken voor een runbook weer te geven.
 
 1. Selecteer in de Azure portal, **Automation** en selecteer vervolgens de naam van een Automation-account.
 2. Selecteer in de hub, **Runbooks** en klik vervolgens op de **Runbooks** pagina selecteert u een runbook in de lijst.
@@ -144,3 +144,4 @@ Een andere optie is het optimaliseren van het runbook met behulp van de onderlig
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor meer informatie over de verschillende methoden die kunnen worden gebruikt om een runbook in Azure Automation starten, [een runbook starten in Azure Automation](automation-starting-a-runbook.md)
+

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: f0b13480c06e154b85300f4a8a2f8a84db04c31b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5424448207bca3e6db253245ce7197feae5fba21
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582374"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424979"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -105,7 +105,7 @@ Deze stap kan al zijn voltooid voor uw tenant, maar het is goed om te controlere
 2. Selecteer **Azure Active Directory** > **Azure AD Connect**
 3. Controleer of de synchronisatiestatus **ingeschakeld** en dat de laatste synchronisatie minder dan een uur geleden.
 
-Als u wilt een vliegende start een nieuwe ronde van synchronisatie ons de instructies in [Azure AD Connect sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+Als u wilt een vliegende start een nieuwe ronde van synchronisatie ons de instructies in [Azure AD Connect-synchronisatie: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>Bepalen welke verificatiemethoden die uw gebruikers kunnen gebruiken
 

@@ -3,18 +3,18 @@ title: Doorsturen van Azure Automation State Configuration rapportagegegevens me
 description: In dit artikel ziet u hoe u voor het verzenden van Desired State Configuration (DSC) rapportagegegevens van Azure Automation State Configuration naar Log Analytics om meer inzicht en beheer te bieden.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88805f26869ad75830cef1aa074cd90cb947e76f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681735"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425171"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Doorsturen van Azure Automation State Configuration rapportagegegevens met Log Analytics
 
@@ -119,15 +119,15 @@ Diagnostische gegevens van Azure Automation wordt onderverdeeld in twee records 
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | TimeGenerated |Datum en tijd waarop de controle op naleving wordt uitgevoerd. |
 | OperationName |DscNodeStatusData |
-| resultType |Of het knooppunt is compatibel. |
+| ResultType |Of het knooppunt is compatibel. |
 | NodeName_s |De naam van het beheerd knooppunt. |
 | NodeComplianceStatus_s |Of het knooppunt is compatibel. |
 | DscReportStatus |Of de controle op naleving is uitgevoerd. |
-| ConfigurationMode | Hoe de configuratie wordt toegepast op het knooppunt. Mogelijke waarden zijn __"ApplyOnly"__,__"ApplyandMonitior"__, en __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC geldt de configuratie en doet niets meer, tenzij er een nieuwe configuratie wordt doorgestuurd naar het doelknooppunt of wanneer een nieuwe configuratie wordt opgehaald uit een server. Na de eerste toepassing van een nieuwe configuratie DSC controleert niet op afwijking van een eerder geconfigureerde status. DSC wordt geprobeerd om toe te passen van de configuratie totdat hij erin slaagt voordat __ApplyOnly__ wordt van kracht. </li><li> __ApplyAndMonitor__: dit is de standaardwaarde. De LCM geldt voor alle nieuwe configuraties. Als het doelknooppunt drifts van de gewenste status, rapporteert DSC na de eerste toepassing van een nieuwe configuratie, het verschil in Logboeken. DSC wordt geprobeerd om toe te passen van de configuratie totdat hij erin slaagt voordat __ApplyAndMonitor__ wordt van kracht.</li><li>__ApplyAndAutoCorrect__: DSC eventuele nieuwe configuraties van toepassing. Na de eerste toepassing van een nieuwe configuratie als het doelknooppunt drifts van de gewenste status, DSC rapporteert het verschil in Logboeken en vervolgens opnieuw de huidige configuratie.</li></ul> |
+| ConfigurationMode | Hoe de configuratie wordt toegepast op het knooppunt. Mogelijke waarden zijn __"ApplyOnly"__,__"ApplyandMonitior"__, en __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC geldt de configuratie en doet niets meer, tenzij er een nieuwe configuratie wordt doorgestuurd naar het doelknooppunt of wanneer een nieuwe configuratie wordt opgehaald uit een server. Na de eerste toepassing van een nieuwe configuratie DSC controleert niet op afwijking van een eerder geconfigureerde status. DSC wordt geprobeerd om toe te passen van de configuratie totdat hij erin slaagt voordat __ApplyOnly__ wordt van kracht. </li><li> __ApplyAndMonitor__: Dit is de standaardwaarde. De LCM geldt voor alle nieuwe configuraties. Als het doelknooppunt drifts van de gewenste status, rapporteert DSC na de eerste toepassing van een nieuwe configuratie, het verschil in Logboeken. DSC wordt geprobeerd om toe te passen van de configuratie totdat hij erin slaagt voordat __ApplyAndMonitor__ wordt van kracht.</li><li>__ApplyAndAutoCorrect__: DSC geldt voor alle nieuwe configuraties. Na de eerste toepassing van een nieuwe configuratie als het doelknooppunt drifts van de gewenste status, DSC rapporteert het verschil in Logboeken en vervolgens opnieuw de huidige configuratie.</li></ul> |
 | HostName_s | De naam van het beheerd knooppunt. |
 | IP-adres | Het IPv4-adres van de beheerde knooppunten. |
 | Categorie | DscNodeStatus |
@@ -150,11 +150,11 @@ Diagnostische gegevens van Azure Automation wordt onderverdeeld in twee records 
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Eigenschap | Beschrijving |
+| Eigenschap | Description |
 | --- | --- |
 | TimeGenerated |Datum en tijd waarop de controle op naleving wordt uitgevoerd. |
 | OperationName |DscResourceStatusData|
-| resultType |Of de resource is compatibel. |
+| ResultType |Of de resource is compatibel. |
 | NodeName_s |De naam van het beheerd knooppunt. |
 | Categorie | DscNodeStatus |
 | Resource | De naam van de Azure Automation-account. |

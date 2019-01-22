@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846655"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424146"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Schakel replicatie naar Azure voor VMware-VM 's
 
@@ -39,7 +39,7 @@ Bij het repliceren van virtuele VMware-machines:
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
-1. Klik op **Stap 2: toepassing repliceren** > **Bron**. Wanneer u replicatie voor het eerst inschakelt, klikt u in de kluis op **+Repliceren** om replicatie in te schakelen voor aanvullende machines.
+1. Klik op **stap 2: Toepassing repliceren** > **bron**. Wanneer u replicatie voor het eerst inschakelt, klikt u in de kluis op **+Repliceren** om replicatie in te schakelen voor aanvullende machines.
 2. In de **bron** pagina > **bron**, selecteer de configuratieserver.
 3. In **type Machine**, selecteer **virtuele Machines** of **fysieke Machines**.
 4. Selecteer in **vCenter/vSphere-hypervisor** de vCenter-server waarmee de vSphere-host wordt beheerd, of selecteer de host. Deze instelling is niet relevant als u bij het repliceren van fysieke computers.
@@ -59,7 +59,7 @@ Bij het repliceren van virtuele VMware-machines:
 8. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden geactiveerd. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. Als u een netwerk hebt, moet u [maakt u er een](#set-up-an-azure-network). Voor het maken van een netwerk met behulp van Resource Manager, klikt u op **nieuw**. Selecteer een subnet, indien van toepassing, en klik vervolgens op **OK**.
 
     ![Instelling voor het doel van replicatie inschakelen](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
+9. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**. Als u niet kunt weergeven of een bepaalde virtuele machine te selecteren, klikt u op [hier](https://aka.ms/doc-plugin-VM-not-showing) om het probleem te verhelpen.
 
     ![Inschakelen van replicatie virtuele machines selecteren](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. In **eigenschappen** > **eigenschappen configureren**, selecteert u de account die door de processerver wordt gebruikt voor het installeren van de Mobility-Service automatisch op de machine.  

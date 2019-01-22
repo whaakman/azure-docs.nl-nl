@@ -3,18 +3,18 @@ title: Overzicht van het runbook in Azure Automation Grpahical SDK
 description: In dit artikel wordt beschreven hoe u de SDK voor Azure Automation Runbook grafische
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 702af8311887afc94e7127704d3377e944503324
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239883"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434254"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Gebruik de SDK een Azure Automation grafisch runbook
 
@@ -103,7 +103,7 @@ Activiteiten zijn geïmplementeerd door de volgende klassen in de `Orchestrator.
 |WorkflowScriptActivity     | Voert een blok van code van PowerShell of PowerShell-werkstroom (afhankelijk van het runbooktype) in de context van het runbook. Dit is een krachtig hulpprogramma, maar niet overmatig gebruik deze: de gebruikersinterface ziet u deze scriptblok als tekst. de engine voor het uitvoeren wordt het opgegeven blok behandelen als een zwart vak en doen geen pogingen om de inhoud, met uitzondering van een selectievakje basissyntaxis analyseren. Als u slechts één PowerShell-opdracht aanroepen moet, krijgt u CommandActivity voorkeur.        |
 
 > [!NOTE]
-> Voer niet uw eigen activiteiten afgeleid van de opgegeven klassen: Azure Automation niet mogelijk het gebruik van runbooks met aangepaste activiteitstypen.
+> Niet uw eigen activiteiten afgeleid van de opgegeven klassen: Azure Automation wordt pas weer runbooks met typen aangepaste activiteiten gebruiken.
 
 Parameters CommandActivity en InvokeRunbookActivity moeten worden opgegeven als waarde descriptors, waarden niet direct. Waarde descriptors opgeven hoe de waarden van de feitelijke parameter moeten worden gemaakt. De volgende waarde descriptors zijn momenteel beschikbaar:
 
@@ -119,7 +119,7 @@ Parameters CommandActivity en InvokeRunbookActivity moeten worden opgegeven als 
 |PowerShellExpressionValueDescriptor     | Hiermee geeft u een PowerShell-expressie voor vrije tekst die wordt geëvalueerd vlak voor het aanroepen van de activiteit.  <br/>Dit is een krachtig hulpprogramma, maar niet overmatig gebruik deze: de gebruikersinterface wordt weergegeven in deze expressie als tekst. de engine voor het uitvoeren wordt het opgegeven blok behandelen als een zwart vak en doen geen pogingen om de inhoud, met uitzondering van een selectievakje basissyntaxis analyseren. Indien mogelijk meer specifieke waarde descriptors de voorkeur.      |
 
 > [!NOTE]
-> Voer uw eigen waarde descriptors niet afgeleid van de opgegeven klassen: Azure Automation niet mogelijk het gebruik van runbooks met aangepaste waarde descriptor typen.
+> Uw eigen waarde descriptors niet afgeleid van de opgegeven klassen: Azure Automation wordt niet mogelijk het gebruik van runbooks met aangepaste waarde descriptor typen.
 
 Exemplaar maken van koppelingen activiteiten verbinding te maken en toe te voegen aan het runbook:
 
@@ -146,3 +146,4 @@ De geserialiseerde indeling kan worden gewijzigd in de toekomst versies van `Orc
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over grafische Runbooks in Azure Automation, [inleiding grafisch ontwerpen](automation-graphical-authoring-intro.md)
+

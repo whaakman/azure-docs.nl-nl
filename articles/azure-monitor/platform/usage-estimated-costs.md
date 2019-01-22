@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1b679e333ba3a84e2d1ffd90a3f47f48a46e236e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001614"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427760"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Gebruik en geschatte kosten bewaken
 
@@ -112,7 +112,7 @@ Voor het verplaatsen van een abonnement naar het nieuwe prijsmodel, drukt u op h
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Verplaatsen naar het nieuwe prijsmodel automatiseren
 
-De scripts hieronder is de Azure PowerShell-Module vereist. Om te controleren of u de meest recente versie Zie [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+De scripts hieronder is de Azure PowerShell-Module vereist. Om te controleren of u de meest recente versie Zie [Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.1.0).
 
 Zodra u de meest recente versie van Azure PowerShell hebt, moet u eerst om uit te voeren ``Connect-AzureRmAccount``.
 

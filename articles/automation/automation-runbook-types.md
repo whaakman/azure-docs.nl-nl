@@ -3,24 +3,24 @@ title: Azure Automation-Runbooktypen
 description: 'Beschrijft de verschillende typen runbooks die u in Azure Automation en overwegingen waarmee u rekening houden gebruiken kunt moet bij het bepalen van welk type te gebruiken. '
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad24f53c7ca58756aa4028c8af2e4a83cfcfe76a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 572d887a14aa25e45f0ad74660c5d3fbb1d32851
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984319"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425625"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation-runbooktypen
 
 Azure Automation biedt ondersteuning voor verschillende typen runbooks die worden kort beschreven in de volgende tabel.  De onderstaande secties bevatten meer informatie over elk waarbij u rekening houdt van het moment waarop het gebruik van elk type.
 
-| Type | Beschrijving |
+| Type | Description |
 |:--- |:--- |
 | [Grafisch](#graphical-runbooks) |Op basis van Windows PowerShell en gemaakt en bewerkt volledig in grafische editor in Azure portal. |
 | [Grafische PowerShell-werkstroom](#graphical-runbooks) |Op basis van Windows PowerShell-werkstroom en gemaakt en bewerkt volledig in de grafische editor in Azure portal. |
@@ -115,3 +115,4 @@ U moet rekening houden de volgende aanvullende overwegingen bij het bepalen van 
 * Zie voor meer informatie over het ontwerpen van een grafisch runbook, [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md)
 * Om te weten wat de verschillen tussen PowerShell en PowerShell-werkstromen voor runbooks, Zie [Windows PowerShell-werkstroom leren](automation-powershell-workflow.md)
 * Zie voor meer informatie over het maken of importeren van een Runbook [een Runbook maken of importeren](automation-creating-importing-runbook.md)
+

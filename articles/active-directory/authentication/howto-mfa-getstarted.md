@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1a5a5dc04f9ac663fe2e29fd81df5201435c1bc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167525"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430159"
 ---
-# <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementeren van cloud-gebaseerde Azure multi-factor Authentication
+# <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication op basis van cloud implementeren
 
 Aan de slag met Azure multi-factor Authentication (Azure MFA) is een eenvoudig proces.
 
@@ -77,11 +77,11 @@ Voordat u Azure multi-factor Authentication inschakelt, moet uw organisatie te b
    * AANBEVOLEN: Op de **uitsluiten** tabblad, schakel het selectievakje voor **gebruikers en groepen** en kiest u een groep moet worden gebruikt voor uitsluitingen wanneer gebruikers geen toegang tot hun verificatiemethoden.
    * Klik op **Gereed**.
 1. Onder **Cloud-apps**, selecteer de **alle cloud-apps** keuzerondje.
-   * Optioneel: Op de **uitsluiten** tabblad, kiest u cloud-apps die uw organisatie geen MFA voor vereist.
+   * (OPTIONEEL): Op de **uitsluiten** tabblad, kiest u cloud-apps die uw organisatie geen MFA voor vereist.
    * Klik op **Gereed**.
 1. Onder **voorwaarden** sectie:
-   * (Optioneel): Als u Azure Identity Protection hebt ingeschakeld, kunt u aanmeldingsrisico beoordelen als onderdeel van het beleid.
-   * (Optioneel): Als u hebt geconfigureerd vertrouwde locaties of benoemde locaties, kunt u opgeven als u wilt opnemen of uitsluiten van deze locaties van het beleid.
+   * (OPTIONEEL): Als u Azure Identity Protection hebt ingeschakeld, kunt u aanmeldingsrisico beoordelen als onderdeel van het beleid.
+   * (OPTIONEEL): Als u de vertrouwde locaties hebt geconfigureerd of benoemde locaties, u opgeven kunt als u wilt opnemen of uitsluiten van deze locaties van het beleid.
 1. Onder **verlenen**, zorg ervoor dat de **toegang verlenen** keuzerondje is geselecteerd.
     * Schakel het selectievakje voor **meervoudige verificatie vereisen**.
     * Klik op **Selecteren**.

@@ -3,18 +3,18 @@ title: Servers configureren met een gewenste status en afwijkingen beheren met A
 description: Zelfstudie - server-configuraties met Azure Automation State Configuration beheren
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 000875e4e591bcfe94ec99f8b16c8ec40bf52cf4
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cb070b57b6d84f87e467b53369420bdc463e0bd8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629879"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434952"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Servers configureren met een gewenste status en afwijking beheren
 
@@ -33,7 +33,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 - Een Azure Automation-account. Zie [Azure Uitvoeren-als-account](automation-sec-configure-azure-runas-account.md) voor instructies over het maken van een Azure Automation Uitvoeren-als-account.
 - Een Azure Resource Manager VM (niet klassiek) met Windows Server 2008 R2 of hoger. Zie [Uw eerste virtuele Windows-machine maken met behulp van Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor instructies voor het maken van een VM
-- Azure PowerShell-moduleversie 3.6 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+- Azure PowerShell-moduleversie 3.6 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
 - Als u bekend bent met Desired State Configuration (DSC). Zie voor meer informatie over DSC [Windows PowerShell Desired State Configuration-overzicht](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.

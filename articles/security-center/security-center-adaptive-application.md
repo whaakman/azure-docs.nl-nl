@@ -3,7 +3,7 @@ title: Adaptieve toepassingsbesturingselementen in Azure Security Center | Micro
 description: In dit document leert u hoe u adaptieve toepassingsbesturingselementen in Azure Security Center gebruikt om toepassingen die op virtuele Azure-machines worden uitgevoerd, in de whitelist op te nemen.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/21/2019
+ms.author: monhaber
+ms.openlocfilehash: b7a27dea9f521f14bfb4278eada636cb7e30c581
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262894"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427131"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center
 Lees hoe u toepassingsbeheer configureert in Azure Security Center met behulp van dit stapsgewijze overzicht.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Wat zijn adaptieve toepassingsbesturingselementen in Security Center?
-Besturingselementen voor adaptieve toepassingen is een oplossing voor het in de whitelist van intelligente, geautomatiseerde end-to-end-toepassingen van Azure Security Center. Hiermee kunt u bepalen welke toepassingen kunnen worden uitgevoerd op uw virtuele machines die zich in Azure, die onder andere voordelen hiervan is dat uw virtuele machines tegen schadelijke software. Security Center maakt gebruik van machine learning voor het analyseren van de toepassingen die worden uitgevoerd op uw virtuele machines en helpt u bij het toepassen van de specifieke basis van deze informatie in de whitelist. Deze mogelijkheid vereenvoudigt het proces van het configureren en onderhouden van beleidsregels voor toepassingen in een whitelist opnemen, zodat u kunt:
+Adaptieve toepassingsbesturingselementen is een oplossing voor het in de whitelist van intelligente, geautomatiseerde end-to-end-toepassingen van Azure Security Center. Hiermee kunt u bepalen welke toepassingen kunnen worden uitgevoerd op uw virtuele machines die zich in Azure, die onder andere voordelen, helpt de beveiliging van uw virtuele machines tegen schadelijke software. Security Center maakt gebruik van machine learning voor het analyseren van de toepassingen die worden uitgevoerd op uw virtuele machines en helpt u bij het toepassen van de specifieke basis van deze informatie in de whitelist. Deze mogelijkheid vereenvoudigt het proces van het configureren en onderhouden van beleidsregels voor toepassingen in een whitelist opnemen, zodat u kunt:
 
 - Blokkeren of waarschuwing op pogingen tot uitvoering van schadelijke toepassingen, waaronder pogingen die anders mogelijk worden gemist door antimalwareoplossingen.
 - Voldoen aan het beveiligingsbeleid van uw organisatie waarin alleen het gebruik van gelicentieerde software is toegestaan.
@@ -73,7 +73,7 @@ De sectie **Groepen virtuele machines** bevat drie tabbladen:
 
   ![Regels voor toepassingsbeheer](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-3. In de **VM's selecteren**, Controleer de lijst met aanbevolen virtuele machines en schakel uit wat u niet wilt dat een toepassing whitelising beleid toepassen op. Vervolgens ziet u twee lijsten:
+3. In de **VM's selecteren**, Controleer de lijst met aanbevolen virtuele machines en schakel uit wat u niet wilt dat een toepassing in de whitelist aan beleid toepassen op. Vervolgens ziet u twee lijsten:
 
   - **Aanbevolen toepassingen**: een lijst met toepassingen die vaak op de virtuele machines in deze groep, en worden aanbevolen om mag worden uitgevoerd.
   - **Meer toepassingen**: een lijst met toepassingen die minder frequent op de virtuele machines in deze groep of die worden aangeduid als Exploitables (Zie hieronder meer), en aanbevolen voor controle.
@@ -87,7 +87,6 @@ De sectie **Groepen virtuele machines** bevat drie tabbladen:
 
 5. Selecteer **Maken** nadat u uw selecties hebt gemaakt. <br>
 Nadat u maken selecteert, maakt Azure Security Center automatisch de juiste regels boven op de ingebouwde toepassing opname in de whitelist oplossing die beschikbaar op Windows-servers (AppLocker).
-
 
 > [!NOTE]
 > - Security Center heeft minimaal twee weken aan gegevens nodig om een basislijn te maken en de unieke aanbevelingen per groep virtuele machines te vullen. Voor nieuwe klanten van de Security Center-standaardcategorie worden groepen virtuele machines in het begin weergegeven op het tabblad *Geen aanbeveling*.
@@ -122,7 +121,7 @@ Nadat u maken selecteert, maakt Azure Security Center automatisch de juiste rege
    > - Zoals eerder vermeld, wordt een nieuw beleid voor toepassingsbeheer altijd standaard geconfigureerd in de modus *Controle*. 
    >
 
-4. Onder **beleidsuitbreiding**, kunt u een pad naar toepassing die u wilt toestaan dat toevoegen. Nadat u deze paden hebt toegevoegd, kan Security Center werkt het beleid van de toepassing in de whitelist aan op de virtuele machines in de geselecteerde groep van virtuele machines en maakt de juiste regels voor deze toepassingen, naast de regels die al aanwezig.
+4. Onder **beleidsuitbreiding**, voegt u een toepassingspad die u wilt toestaan. Nadat u deze paden hebt toegevoegd, kan Security Center werkt het beleid van de toepassing in de whitelist aan op de virtuele machines in de geselecteerde groep van virtuele machines en maakt de juiste regels voor deze toepassingen, naast de regels die al aanwezig.
 
 5. Bekijk de actuele overtredingen vermeld in de **recente waarschuwingen** sectie. Klik op elke regel worden omgeleid naar de **waarschuwingen** pagina in Azure Security Center en alle waarschuwingen die zijn gedetecteerd door Azure Security Center op de bijbehorende virtuele machines weergeven.
   - **Waarschuwingen**: eventuele schendingen die zijn geregistreerd.

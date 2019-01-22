@@ -3,19 +3,19 @@ title: Een JSON-object doorgeven aan een Azure Automation-runbook
 description: Hoe u kunt parameters doorgeven aan een runbook als een JSON-object
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-keywords: PowerShell runbook, json, azure automation
-ms.openlocfilehash: 5e1ab8d6bd2de24251851cfc60d270a2fef4090d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+keywords: powershell,  runbook, json, azure automation
+ms.openlocfilehash: 65f3bfcebdde50352d5e9e2748036d4522b2a991
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918815"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424890"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Een JSON-object doorgeven aan een Azure Automation-runbook
 
@@ -26,13 +26,13 @@ Om dit te doen, moet u de JSON converteren naar een tekenreeks en vervolgens de 
 In dit voorbeeld maken we een PowerShell-script aanroept [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) naar een PowerShell-runbook, de inhoud van de JSON wordt doorgegeven aan het runbook te starten.
 De PowerShell-runbook start een Azure-VM ophalen van de parameters voor de virtuele machine uit de JSON die is doorgegeven.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Azure-abonnement. Als u een nog geen hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [zich registreren voor een gratis account](https://azure.microsoft.com/free/).
 * [Automation-account](automation-sec-configure-azure-runas-account.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
 * Een virtuele machine van Azure. We stoppen en starten deze machine, dus het mag geen productiemachine zijn.
-* Azure Powershell is geïnstalleerd op een lokale computer. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het ophalen van Azure PowerShell.
+* Azure Powershell is geïnstalleerd op een lokale computer. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het ophalen van Azure PowerShell.
 
 ## <a name="create-the-json-file"></a>Het JSON-bestand maken
 
@@ -90,7 +90,7 @@ Voer de volgende PowerShell-opdrachten:
 
 1. De inhoud van het JSON-bestand ophalen en deze converteren naar een tekenreeks:
     ```powershell
-    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
+    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
     `JsonPath` is het pad waar u het JSON-bestand hebt opgeslagen.
 1. Converteren van de inhoud van de tekenreeks van `$json` naar een PowerShell-object:
@@ -118,5 +118,6 @@ Het runbook maakt gebruik van de waarden van het JSON-bestand om te starten van 
 
 * Zie voor meer informatie over het bewerken van PowerShell en PowerShell Workflow-runbooks met een teksteditor, [tekstrunbooks in Azure Automation bewerken](automation-edit-textual-runbook.md) 
 * Zie voor meer informatie over het maken en importeren van runbooks [maken of importeren van een runbook in Azure Automation](automation-creating-importing-runbook.md)
+
 
 

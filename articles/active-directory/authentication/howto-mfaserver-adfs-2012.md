@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 663ed2f42f59093252506fc5bb5fe2581d4dd200
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6e5c85345939d23cb4fccf422c9e3f151e9fdbeb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160209"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425404"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication-server configureren om met AD FS in Windows Server te werken
 
@@ -47,8 +47,8 @@ Houd rekening met de volgende informatie voordat u begint:
    
    <center>![Cloud](./media/howto-mfaserver-adfs-2012/server.png)</center>
 
-5. Als het Active Directory-venster wordt weergegeven, betekent dit twee dingen. Uw computer is lid van een domein en de Active Directory-configuratie voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische Active Directory-configuratie overslaan en instellingen handmatig configureren** in. Klik op **Volgende**.
-6. Als het venster Lokale groep wordt weergegeven, betekent dit twee dingen. Uw computer is geen lid van een domein en de configuratie van de lokale groep voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische lokale groep-configuratie overslaan en instellingen handmatig configureren** in. Klik op **Volgende**.
+5. Als het Active Directory-venster wordt weergegeven, betekent dit twee dingen. Uw computer is lid van een domein en de Active Directory-configuratie voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische Active Directory-configuratie overslaan en instellingen handmatig configureren** in. Klik op **volgende**.
+6. Als het venster Lokale groep wordt weergegeven, betekent dit twee dingen. Uw computer is geen lid van een domein en de configuratie van de lokale groep voor de beveiliging van de communicatie tussen de AD FS-adapter en de Multi-Factor Authentication-service is niet voltooid. Klik op **Volgende** om deze configuratie automatisch te voltooien of schakel het selectievakje **Automatische lokale groep-configuratie overslaan en instellingen handmatig configureren** in. Klik op **volgende**.
 7. Klik in de installatiewizard op **Volgende**. Azure Multi-Factor Authentication-server maakt de PhoneFactor Admins-groep en voegt de AD FS-serviceaccount toe aan de PhoneFactor Admins-groep.
    <center>![Cloud](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. Klik op de pagina **Installatieprogramma uitvoeren** op **Volgende**.

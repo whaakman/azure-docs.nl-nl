@@ -4,7 +4,7 @@ description: Stap voor stap beheerde instructies voor het configureren van ident
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 0a6440b7fffe1aec26ba4755f21fa2f56935887e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c71663b0e0b569d32aad525be1a89e4824c05280
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377578"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422283"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configureren van beheerde identiteiten voor Azure-resources op een VM-schaalset met behulp van de Azure-portal
 
@@ -58,7 +58,7 @@ De door het systeem toegewezen beheerde identiteit op een virtuele-machineschaal
 
 3. Onder **systeem toegewezen**, **Status**, selecteer **op** en klik vervolgens op **opslaan**:
 
-   ![Schermafbeelding van de pagina configuratie](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](./Media/MSI-Qs-Configure-Portal-Windows-vmss/Create-Windows-vmss-Portal-Configuration-blade.PNG#lightbox)  
+   ![Schermafbeelding van de pagina configuratie](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Verwijder de door het systeem toegewezen beheerde identiteit van een virtuele-machineschaalset
 

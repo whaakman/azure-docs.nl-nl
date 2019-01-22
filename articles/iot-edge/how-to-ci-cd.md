@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 519b9e73e63285f167fca76061f84752ff676916
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359150"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431500"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
@@ -81,7 +81,7 @@ In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automat
     
     ![Build-module installatiekopieën taak configureren](./media/how-to-ci-cd/build-and-push.png)
 
-1. In de tweede **Azure IoT Edge** taak, bij te werken de **weergavenaam** naar **Azure IoT Edge - Push-module installatiekopieën**, en klik in de **actie** vervolgkeuzelijst in de lijst met **module installatiekopieën pushen**. Type Containerregister kiezen, zorg ervoor dat u configureert en selecteert u de dezelfde register in uw code(module.json). In de **. template.json-bestand** besturingselement, schakelt de **deployment.template.json** -bestand, dat wordt uw IoT Edge-oplossing beschreven. Kies vervolgens **standaard platform**, zorg ervoor dat u hetzelfde platform voor de installatiekopieën van de ingebouwde module selecteert. Deze taak kunt u alle installatiekopieën van de module verzenden naar het containerregister dat u hebt geselecteerd. En ook toevoegen container registry-referenties in de **deployment.json** -bestand, kunt u het pad naar het vinden in de variabelen voor de uitvoer. De alias ingesteld op `edge` voor deze variabele. Als u meerdere containerregisters voor het hosten van uw installatiekopieën module hebt, moet u het dupliceren van deze taak, selecteert u andere container registry en gebruiken **overslaan van modules die zijn** in de geavanceerde instellingen om de installatiekopieën die niet voor dit over te slaan specifieke register.
+1. In de tweede **Azure IoT Edge** taak, bij te werken de **weergavenaam** naar **Azure IoT Edge - Push-module installatiekopieën**, en klik in de **actie** vervolgkeuzelijst in de lijst met **module installatiekopieën pushen**. Type Containerregister kiezen, zorg ervoor dat u configureert en selecteert u de dezelfde register in uw code(module.json). In de **. template.json-bestand** besturingselement, schakelt de **deployment.template.json** -bestand, dat wordt uw IoT Edge-oplossing beschreven. Kies vervolgens **standaard platform**, zorg ervoor dat u hetzelfde platform voor de installatiekopieën van de ingebouwde module selecteert. Deze taak kunt u alle installatiekopieën van de module verzenden naar het containerregister dat u hebt geselecteerd. En ook toevoegen container registry-referenties in de **deployment.json** bestand. Als u meerdere containerregisters voor het hosten van uw installatiekopieën module hebt, moet u het dupliceren van deze taak, selecteert u andere container registry en gebruiken **overslaan van modules die zijn** in de geavanceerde instellingen om de installatiekopieën die niet voor dit over te slaan specifieke register.
 
     ![Push-module installatiekopieën taak configureren](./media/how-to-ci-cd/push.png)
 

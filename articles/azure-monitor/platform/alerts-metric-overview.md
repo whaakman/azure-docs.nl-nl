@@ -6,13 +6,13 @@ ms.author: snmuvva
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: alerts
-ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 40cf37c08705384fb664402c3d40efa229cbbcdf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580039"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422793"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Begrijpen hoe metriek werk waarschuwingen in Azure Monitor
 
@@ -27,7 +27,7 @@ Stel dat u hebt een eenvoudige waarschuwingsregel voor metrische gegevens als vo
 - Meetwaarde: Percentage CPU
 - Tijdverzameling (statistiek die wordt uitgevoerd via onbewerkte metrische waarden. Ondersteunde tijd aggregaties zijn Min, Max, Gem, totaal): Gemiddeld
 - Periode (het uiterlijk back venster via welk metrische gegeven waarden worden gecontroleerd):      Gedurende de laatste 5 minuten
-- Frequentie (de frequentie waarmee de waarschuwing voor metrische gegevens controleert als de voorwaarden wordt voldaan): 1 minuut
+- Frequentie (de frequentie waarmee de waarschuwing voor metrische gegevens controleert als de voorwaarden wordt voldaan): 1 min
 - Operator:     Greater Than
 - Drempelwaarde:      70
 
@@ -55,7 +55,7 @@ Stel dat u een App Service-plan hebt voor uw website. U wilt bewaken van CPU-geb
   - Exemplaar InstanceName1, InstanceName2 =
 - Tijdverzameling: Gemiddeld
 - Periode: Gedurende de laatste 5 minuten
-- Frequentie van: 1 minuut
+- Frequentie van: 1 min
 - Operator: GreaterThan
 - Drempelwaarde: 70
 
@@ -69,7 +69,7 @@ Stel, u hebt een web-app die zeer grote vraag te zien en moet u meer instanties 
   - Instantie = *
 - Tijdverzameling: Gemiddeld
 - Periode: Gedurende de laatste 5 minuten
-- Frequentie van: 1 minuut
+- Frequentie van: 1 min
 - Operator: GreaterThan
 - Drempelwaarde: 70
 
@@ -136,3 +136,4 @@ Als u bent al gebruikmaken van de klassieke metrische waarschuwingen en informat
 - [Meer informatie over het maken, weergeven en beheren van metrische waarschuwingen in Azure](alerts-metric.md)
 - [Informatie over het implementeren van metrische waarschuwingen met behulp van Azure Resource Manager-sjablonen](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Meer informatie over actiegroepen](action-groups.md)
+

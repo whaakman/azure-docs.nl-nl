@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6f8bed8aba43d77cdfad49f4fe62a4c7aa2c5ce3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a37eb68d135d156c25c58bf91489d5b50ac2c170
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368066"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423117"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualiseer en Analyseer uw Azure IoT Central-gegevens in Power BI-dashboard
 
@@ -29,7 +29,7 @@ Gebruik de sjabloon van de Azure IoT Central Analytics Power BI-oplossing te mak
 
 Deze oplossingssjabloon stelt u de pijplijn die de gegevens in uw Azure Blob storage-account van neemt [voortdurende gegevensexport](howto-export-data.md). Deze gegevens stromen via Azure Functions, Azure Data Factory en Azure SQL Database de gegevens te verwerken en transformeren. De uitvoer kan worden gevisualiseerd en geanalyseerd in een Power BI-rapport dat u als een PBIX-bestand downloaden kunt. Al deze resources worden gemaakt in uw Azure-abonnement, zodat u elk onderdeel aan de behoeften van uw behoeften kunt aanpassen. Deze oplossingssjabloon is volledig open-source, zodat u kunt meer informatie over de architectuur en breid de oplossing door naar de pagina uit de [GitHub-opslagplaats](https://aka.ms/iotcentralgithubpowerbisolutiontemplate).
 
-## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Krijgen de [oplossingssjabloon voor Azure IoT Central Analytics](https://aka.ms/iotcentralpowerbisolutiontemplate) uit Microsoft AppSource
+## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsbpsolutiontemplatescomnamemicrosoft-iotcontinuousdataexporttemplate-from-microsoft-appsource"></a>Krijgen de [oplossingssjabloon voor Azure IoT Central Analytics](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate) uit Microsoft AppSource.
 
 ## <a name="prerequisites"></a>Vereisten
 Instellen van de sjabloon vereist het volgende:
@@ -52,7 +52,7 @@ De tweede lijst dives dieper in gebeurtenissen en ziet u een historisch overzich
 
 ## <a name="resources"></a>Resources
 
-Ga naar AppSource om op te halen de [oplossingssjabloon voor Azure IoT Central Analytics](https://aka.ms/iotcentralpowerbisolutiontemplate).
+Ga naar AppSource om op te halen de [oplossingssjabloon voor Azure IoT Central Analytics](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate).
 
 Ga naar de [GitHub-opslagplaats](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) voor meer informatie over de architectuur en breid de oplossing uit.
 

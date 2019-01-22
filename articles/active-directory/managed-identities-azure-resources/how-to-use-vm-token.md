@@ -4,7 +4,7 @@ description: Stapsgewijze beheerde instructies en voorbeelden voor het gebruik v
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 10cc8007c4f54808b5d7eb41ad2caa008b5c7107
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d737f1b17322d4b2ea0ab00a8e0bd386e8cb1747
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078997"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422403"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen 
 
@@ -377,7 +377,7 @@ In deze sectie worden de mogelijke foutberichten. Een "200 OK ' status is een ge
 | 401-niet toegestaan | unknown_source | Onbekende bron  *\<URI\>* | Controleer of uw aanvraag HTTP GET-URI is ingedeeld. De `scheme:host/resource-path` deel moet worden opgegeven als `http://localhost:50342/oauth2/token`. Zie de aanvraag"voorbeeld" in de [voorgaande sectie REST](#rest) voor een voorbeeld.|
 |           | invalid_request | De aanvraag ontbreekt een vereiste parameter, bevat een ongeldige parameter-waarde, bevat een parameter meer dan één keer of anders is onjuist gevormd. |  |
 |           | unauthorized_client | De client is niet gemachtigd om aan te vragen van een toegangstoken met deze methode. | Veroorzaakt door een aanvraag die lokale loopback hebt gebruikt voor het aanroepen van de extensie, of op een virtuele machine die geen beheerde identiteiten voor Azure-resources juist geconfigureerd. Zie [configureren beheerde identiteiten voor een Azure-resources op een virtuele machine met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie. |
-|           | ACCESS_DENIED | De resource-eigenaar of autorisatieserver server heeft de aanvraag geweigerd. |  |
+|           | access_denied | De resource-eigenaar of autorisatieserver server heeft de aanvraag geweigerd. |  |
 |           | unsupported_response_type | De autorisatie-server biedt geen ondersteuning voor het verkrijgen van een toegangstoken met deze methode. |  |
 |           | invalid_scope | Het aangevraagde bereik is ongeldig, onbekend of onjuist gevormd. |  |
 | 500 Interne serverfout | onbekend | Kan geen token ophalen uit de Active directory. Zie voor meer informatie de logboeken in  *\<bestandspad\>* | Controleer of dat beheerde identiteiten voor Azure-resources op de virtuele machine is ingeschakeld. Zie [configureren beheerde identiteiten voor een Azure-resources op een virtuele machine met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie.<br><br>Controleer ook of dat uw aanvraag HTTP GET-URI is juist opgemaakt, met name de URI die is opgegeven in de querytekenreeks resource. Zie de aanvraag"voorbeeld" in de [voorgaande sectie REST](#rest) voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD-verificatie](services-support-msi.md) voor een lijst met services en hun respectieve resource-id's.

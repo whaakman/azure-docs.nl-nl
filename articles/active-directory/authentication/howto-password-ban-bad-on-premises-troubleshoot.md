@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: d9f3ba642a5d00594aa6bdef597d5db43c2fc121
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 008fba2fd6052ac9043de6ec217cb71d17f3ecce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188977"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427097"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Preview: Azure AD wachtwoord beveiliging bewaking, rapportage en probleemoplossing
 
@@ -38,9 +38,9 @@ Gebeurtenissen worden vastgelegd door de verschillende DC-agent-onderdelen met b
 
 |Onderdeel |Gebeurtenis-ID-bereik|
 | --- | --- |
-|DC-Agent wachtwoord filter dll-bestand| 10000 19999|
+|DC-Agent wachtwoord filter dll-bestand| 10000-19999|
 |Hostproces van de DC-agent-service| 20000-29999|
-|Validatielogica van DC-agent-service-beleid| 30000 39999|
+|Validatielogica van DC-agent-service-beleid| 30000-39999|
 
 Voor een geslaagde bewerking voor validatie, er is doorgaans een gebeurtenis vastgelegd van de DC-agent wachtwoord filter-dll. Voor een mislukte validatie-bewerking wachtwoord, er zijn doorgaans twee gebeurtenissen vastgelegd, één van de DC-agent-service en één van de DC Agent wachtwoord filter-dll-bestand.
 
@@ -153,7 +153,7 @@ Traceerlogboekregistratie is standaard uitgeschakeld.
 
 De DC-agent-service kan worden geconfigureerd om te schrijven naar een logboek met tekst door in te stellen van de volgende registerwaarde:
 
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters! EnableTextLogging = 1 (REG_DWORD-waarde)
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 
 Logboekregistratie in een tekstbestand is standaard uitgeschakeld. Het opnieuw opstarten van de DC-agent-service is vereist voor wijzigingen in deze waarde pas van kracht. Wanneer de domeincontroller ingeschakeld agent-service worden geschreven naar een logboekbestand bevindt zich onder:
 
@@ -188,7 +188,7 @@ Traceerlogboekregistratie is standaard uitgeschakeld.
 
 De Proxy-service kan worden geconfigureerd om te schrijven naar een logboek met tekst door in te stellen van de volgende registerwaarde:
 
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters! EnableTextLogging = 1 (REG_DWORD-waarde)
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 
 Logboekregistratie in een tekstbestand is standaard uitgeschakeld. Het opnieuw opstarten van de Proxy-service is vereist voor wijzigingen in deze waarde pas van kracht. Wanneer de service worden geschreven naar een logboekbestand bevindt zich onder Proxy ingeschakeld:
 

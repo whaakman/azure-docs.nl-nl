@@ -4,7 +4,7 @@ description: Stap voor stap beheerd instructies en voorbeelden voor het gebruik 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: bf363e4b03fb604e1b9af0d30b6e4ac471a41821
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980284"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423184"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM voor aanmelden 
 
@@ -83,8 +83,8 @@ Zie [Azure-services die ondersteuning voor Azure AD-verificatie](services-suppor
 
 Antwoorden, zoals het volgende kunnen duiden dat de beheerde identiteit van de virtuele machine voor Azure-resources niet correct geconfigureerd:
 
-- PowerShell: *Invoke-WebRequest: kan geen verbinding maken met de externe server*
-- CLI: *MSI: kan niet ophalen van een token van 'http://localhost:50342/oauth2/token' met een fout van ' HTTPConnectionPool (host = 'localhost', poort = 50342)* 
+- PowerShell: *Invoke-WebRequest: Kan geen verbinding maken met de externe server*
+- CLI: *MSI: Kan niet ophalen van een token van 'http://localhost:50342/oauth2/token' met een fout van ' HTTPConnectionPool (host = 'localhost', poort = 50342)* 
 
 Als u een van deze fouten ontvangt, terug naar de Azure-VM in de [Azure-portal](https://portal.azure.com) en:
 

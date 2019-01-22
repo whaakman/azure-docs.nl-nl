@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: b59157b0f17380dbe4386fbd9ac75776e22f749e
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: f5ddc4a85148cee3e8c8b4d2bf1955f233ebdbc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713972"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426519"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Een virtuele machine maken met een statisch openbaar IP-adres met behulp van PowerShell
 
@@ -28,7 +28,7 @@ U kunt een virtuele machine maken met een statisch openbaar IP-adres. Een openba
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-U kunt de volgende stappen uitvoeren vanaf uw lokale computer of met behulp van de Azure Cloud Shell. Voor het gebruik van uw lokale computer, zorg ervoor dat u hebt de [Azure PowerShell is geïnstalleerd](/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Selecteer voor het gebruik van de Azure Cloud Shell, **uitproberen** in de rechterbovenhoek van een willekeurige opdracht box die volgt. De Cloud Shell meldt u zich bij Azure.
+U kunt de volgende stappen uitvoeren vanaf uw lokale computer of met behulp van de Azure Cloud Shell. Voor het gebruik van uw lokale computer, zorg ervoor dat u hebt de [Azure PowerShell is geïnstalleerd](/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Selecteer voor het gebruik van de Azure Cloud Shell, **uitproberen** in de rechterbovenhoek van een willekeurige opdracht box die volgt. De Cloud Shell meldt u zich bij Azure.
 
 1. Als de Cloud Shell gebruikt, gaat u verder met stap 2. Open een sessie en meld u in Azure met `Connect-AzureRmAccount`.
 2. Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een resourcegroep gemaakt in de regio Oost VS Azure:

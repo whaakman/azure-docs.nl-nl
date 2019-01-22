@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9edbb9d916840f348a7df589c6e7cb2110419cb3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 587303e8be4155b1b01228ad4606829ad8921560
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262400"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436583"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 
@@ -235,7 +235,7 @@ ms.locfileid: "51262400"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -337,20 +337,20 @@ Zie voor aanvullende bronnen hoofdstuk [Resources] [ planning-guide-1.2] in dit 
 In het hele document gebruiken we de volgende voorwaarden:
 
 * IaaS: Infrastructure as a Service
-* PaaS: Platform as a Service
+* PaaS: Platform als een Service
 * SaaS: Software as a Service
 * SAP-onderdeel: een afzonderlijke SAP-toepassing, zoals ECC, BW, Manager van de oplossing of EP  SAP-onderdelen kunnen worden gebaseerd op de traditionele ABAP- of Java-technologieën of een toepassing NetWeaver op basis van zoals zakelijke objecten.
 * SAP-omgeving: een of meer onderdelen van SAP logisch zijn gegroepeerd om uit te voeren van een zakelijke-functie, zoals ontwikkeling, QAS, Training, herstel na Noodgevallen of productie.
 * SAP-landschap: Deze term heeft betrekking op de gehele SAP-elementen in een klant IT landschap. De SAP-landschap bevat alle productie- en niet-productieomgevingen.
 * SAP-systeem: De combinatie van DBMS-laag en niveau van de toepassing van bijvoorbeeld een ontwikkelsysteem SAP ERP, SAP BW-testsysteem, SAP CRM productiesysteem, enzovoort. In de Azure-implementaties, is het niet ondersteund voor het delen van deze twee lagen tussen on-premises en Azure. On-premises betekent dat die een SAP-systeem is geïmplementeerd of deze is geïmplementeerd in Azure. U kunt echter de verschillende systemen van SAP-landschap dat in Azure of on-premises implementeren. U kunt bijvoorbeeld implementeert de SAP CRM-ontwikkeling en testen van systemen in Azure, maar de SAP CRM productie system on-premises.
-* Alleen-cloud-implementatie: een implementatie waarbij het Azure-abonnement niet is verbonden via een site-naar-site of een ExpressRoute-verbinding met de on-premises netwerkinfrastructuur. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als 'Cloud-Only'-implementaties. Virtuele Machines die worden geïmplementeerd met deze methode zijn toegankelijk via internet en een openbaar IP-adres en/of een openbare DNS-naam toegewezen aan de virtuele machines in Azure. Voor Microsoft Windows, de on-premises Active Directory (AD) en DNS is niet uitgebreid naar Azure in deze typen implementaties. De virtuele machines zijn daarom geen onderdeel van de on-premises Active Directory. Hetzelfde geldt voor Linux-implementaties met behulp van bijvoorbeeld OpenLDAP + Kerberos.
+* Alleen-cloud-implementatie: Een implementatie waarbij het Azure-abonnement niet is verbonden via een site-naar-site of een ExpressRoute-verbinding met de on-premises netwerkinfrastructuur. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als 'Cloud-Only'-implementaties. Virtuele Machines die worden geïmplementeerd met deze methode zijn toegankelijk via internet en een openbaar IP-adres en/of een openbare DNS-naam toegewezen aan de virtuele machines in Azure. Voor Microsoft Windows, de on-premises Active Directory (AD) en DNS is niet uitgebreid naar Azure in deze typen implementaties. De virtuele machines zijn daarom geen onderdeel van de on-premises Active Directory. Hetzelfde geldt voor Linux-implementaties met behulp van bijvoorbeeld OpenLDAP + Kerberos.
 
 > [!NOTE]
 > Alleen-cloud-implementatie in dit document wordt gedefinieerd als complete SAP-landschappen worden uitgevoerd in Azure zonder de extensie van Active Directory uitsluitend / OpenLDAP of naamomzetting van on-premises naar openbare cloud. Alleen-cloud-configuraties worden niet ondersteund voor productie SAP-systemen of configuraties waarbij SAP stm of andere on-premises bronnen worden gebruikt tussen die worden gehost op Azure en bronnen die zich moeten on-premises SAP-systemen.
 >
 >
 
-* Cross-premises: Beschrijving van een scenario waarbij virtuele machines worden geïmplementeerd naar een Azure-abonnement dat site-naar-site, meerdere locaties of ExpressRoute-connectiviteit tussen de on-premises clientresources en Azure. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als cross-premises scenario's. De reden voor de verbinding is om de on-premises domeinen, on-premises Active Directory/OpenLDAP en on-premises DNS uitbreiden naar Azure. Het on-premises-landschap is uitgebreid naar de Azure-assets van het abonnement. Met deze extensie, kunnen de virtuele machines deel uitmaken van de on-premises domein. Gebruikers van een domein van de on-premises domein toegang tot de servers en services kunnen worden uitgevoerd op deze VM's (zoals DBMS-services). Communicatie en naamomzetting tussen de geïmplementeerde virtuele machines on-premises en Azure geïmplementeerde VM's is het mogelijk. Dit is de meest voorkomende en bijna exclusief case activa SAP implementeren in Azure. Zie voor meer informatie, [dit] [ vpn-gateway-cross-premises-options] artikel en [dit][vpn-gateway-site-to-site-create].
+* Cross-premises: Beschrijft een scenario waarbij virtuele machines worden geïmplementeerd naar een Azure-abonnement dat site-naar-site, meerdere locaties of ExpressRoute-connectiviteit tussen de on-premises clientresources en Azure. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als cross-premises scenario's. De reden voor de verbinding is om de on-premises domeinen, on-premises Active Directory/OpenLDAP en on-premises DNS uitbreiden naar Azure. Het on-premises-landschap is uitgebreid naar de Azure-assets van het abonnement. Met deze extensie, kunnen de virtuele machines deel uitmaken van de on-premises domein. Gebruikers van een domein van de on-premises domein toegang tot de servers en services kunnen worden uitgevoerd op deze VM's (zoals DBMS-services). Communicatie en naamomzetting tussen de geïmplementeerde virtuele machines on-premises en Azure geïmplementeerde VM's is het mogelijk. Dit is de meest voorkomende en bijna exclusief case activa SAP implementeren in Azure. Zie voor meer informatie, [dit] [ vpn-gateway-cross-premises-options] artikel en [dit][vpn-gateway-site-to-site-create].
 
 > [!NOTE]
 > Cross-premises implementaties van SAP-systemen waarbij Azure Virtual Machines met SAP-systemen lid van een on-premises domein zijn worden ondersteund voor productie SAP-systemen. Cross-premises configuraties worden ondersteund voor het implementeren van onderdelen of uitvoeren van SAP-landschappen in Azure. De volledige SAP-landschap dat zelfs uitvoeren in Azure vereist dat deze virtuele machines die deel uit van de on-premises domein en ADVERTENTIES/OpenLDAP. In vorige versies van de documentatie, we hebben het gehad over hybride IT-scenario's waarin de term *hybride* verankerd ligt in het feit dat er een cross-premises-connectiviteit tussen on-premises en Azure. Bovendien is het feit dat de virtuele machines in Azure deel uit van de on-premises Active Directory maken / OpenLDAP.
@@ -375,15 +375,15 @@ De volgende SAP-opmerkingen zijn gerelateerd aan het onderwerp van SAP op Azure:
 
 | Houd er rekening mee getal | Titel |
 | --- | --- |
-| [1928533] |SAP-toepassingen op Azure: ondersteunde producten en grootte |
-| [2015553] |SAP op Microsoft Azure: vereisten voor ondersteuning |
+| [1928533] |SAP-toepassingen op Azure: Ondersteunde producten en -grootte |
+| [2015553] |SAP op Microsoft Azure: Vereisten voor ondersteuning |
 | [1999351] |Het oplossen van uitgebreide Azure-bewaking voor SAP |
 | [2178632] |Sleutel metrische gegevens controleren voor SAP op Microsoft Azure |
-| [1409604] |Virtualisatie in Windows: uitgebreide bewaking |
-| [2191498] |SAP op Linux met Azure: uitgebreide bewaking |
-| [2243692] |Linux op Microsoft Azure (IaaS) virtuele machine: problemen met SAP-licentie |
+| [1409604] |Virtualisatie in Windows: Uitgebreide bewaking |
+| [2191498] |SAP op Linux met Azure: Uitgebreide bewaking |
+| [2243692] |Linux op Microsoft Azure (IaaS) virtuele machine: Problemen met SAP-licentie |
 | [1984787] |SUSE LINUX Enterprise Server 12: Opmerkingen bij de installatie |
-| [2002167] |Red Hat Enterprise Linux 7.x: installatie en Upgrade |
+| [2002167] |Red Hat Enterprise Linux 7.x: Installatie en Upgrade |
 | [2069760] |Oracle Linux 7.x SAP-installatie en Upgrade |
 | [1597355] |Wisselruimte aanbeveling voor Linux |
 
@@ -525,7 +525,7 @@ Domeinen met fouten vertegenwoordigen een fysieke eenheid van de fout, nauw verw
 
 Wanneer u meerdere virtuele Machines als onderdeel van een SAP-systeem in Microsoft Azure-Services voor virtuele Machine implementeert, kunt u het implementeren van uw toepassing in verschillende domeinen met fouten, waardoor voldoen aan de vereisten van de Azure-Infrastructuurcontroller bepalen de Microsoft Azure SLA. De distributie van domeinen met fouten over een Azure-schaaleenheid (verzameling van honderden rekenknooppunten of Storage-knooppunten en netwerken) of de toewijzing van VM's naar een specifieke Foutdomein is echter iets waarover u geen directe controle. Om te kunnen direct de Azure-infrastructuurcontroller een set van virtuele machines via verschillende Foutdomeinen te implementeren, moet u een Azure-Beschikbaarheidsset toewijzen aan de virtuele machines tijdens de implementatie. Zie voor meer informatie over Beschikbaarheidssets van Azure, hoofdstuk [Beschikbaarheidssets van Azure] [ planning-guide-3.2.3] in dit document.
 
-#### <a name="fc1ac8b2-e54a-487c-8581-d3cc6625e560"></a>Upgrade-domeinen
+#### <a name="fc1ac8b2-e54a-487c-8581-d3cc6625e560"></a>Upgrade Domains
 Upgradedomeinen vertegenwoordigen een logische eenheid die helpt bij het bepalen hoe een virtuele machine binnen een SAP-systeem, die uit de SAP-exemplaren die in meerdere virtuele machines worden uitgevoerd bestaat, wordt bijgewerkt. Wanneer er een upgrade optreedt, gaat u met Microsoft Azure doorloopt het proces voor het bijwerken van deze Upgradedomeinen één voor één. Door te spreiden VM's tijdens de implementatie via verschillende domeinen met een upgrade uitvoert, kunt u uw SAP-systeem beveiligen gedeeltelijk van potentiële downtime. Om af te dwingen Azure voor het implementeren van de virtuele machines van een SAP-systeem verdeeld over verschillende domeinen upgraden, moet u een specifiek kenmerk ingesteld tijdens de implementatie van elke virtuele machine. Net als bij domeinen met fouten, een Azure-schaaleenheid is onderverdeeld in meerdere domeinen upgraden. Om te kunnen direct de Azure-infrastructuurcontroller een set van virtuele machines implementeren via verschillende domeinen upgraden, moet u een Azure-Beschikbaarheidsset toewijzen aan de virtuele machines tijdens de implementatie. Zie voor meer informatie over Beschikbaarheidssets van Azure, hoofdstuk [Beschikbaarheidssets van Azure] [ planning-guide-3.2.3] hieronder.
 
 #### <a name="18810088-f9be-4c97-958a-27996255c665"></a>Azure-Beschikbaarheidssets
@@ -535,7 +535,7 @@ Lees voor meer informatie over het concept van Beschikbaarheidssets van Azure en
 
 Zie voor het definiëren van beschikbaarheidssets voor Azure Resource Manager via een json-sjabloon [de rest-api-specificaties](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) en zoek naar 'beschikbaarheid'.
 
-### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Opslag: De Microsoft Azure Storage en de gegevensschijven
+### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Opslag: Microsoft Azure Storage en de gegevensschijven
 Microsoft Azure Virtual Machines gebruikmaken van verschillende opslagtypen. Bij het implementeren van SAP op Azure Virtual Machine-Services, is het belangrijk te weten wat de verschillen tussen deze twee soorten opslag:
 
 * Niet-permanente, vluchtige opslag.
@@ -556,7 +556,7 @@ Azure-VM's bieden een niet-permanente schijven na de implementatie van een virtu
 
 - - -
 
-Microsoft Azure Storage biedt permanente opslag en de normale niveaus van beveiliging en redundantie gezien op SAN-opslag. Op basis van Azure Storage-schijven zijn virtuele harde schijf (VHD's) zich in de Azure Storage-Services. De lokale OS-schijf (C: Windows\, Linux/dev/sda1) is opgeslagen op de Azure-opslag, en extra Volumes/schijven die zijn gekoppeld aan de virtuele machine ophalen die zijn opgeslagen, te.
+Microsoft Azure Storage biedt permanente opslag en de normale niveaus van beveiliging en redundantie gezien op SAN-opslag. Op basis van Azure Storage-schijven zijn virtuele harde schijf (VHD's) zich in de Azure Storage-Services. De lokale OS-schijf (Windows C:\, Linux/dev/sda1) wordt opgeslagen op de Azure-opslag en extra Volumes/schijven die zijn gekoppeld aan de virtuele machine ophalen die zijn opgeslagen, te.
 
 Het is mogelijk om te uploaden van een bestaande VHD van on-premises of lege mappen uit in Azure maken en koppelen van de geïmplementeerde VM's.
 
@@ -615,7 +615,7 @@ In Azure volgt de naam van een VHD in de volgende naamgevingsconventie verbindin
 
 De bovenstaande tekenreeks moet voor het aanduiden van de VHD die is opgeslagen in Azure Storage.
 
-#### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Beheerde schijven
+#### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
 
 Managed Disks is een nieuwe brontype in Azure Resource Manager die kunnen worden gebruikt in plaats van VHD's die zijn opgeslagen in Azure Storage-Accounts. Beheerde schijven automatisch uitgelijnd met de Beschikbaarheidsset van de virtuele machine die zijn gekoppeld aan en dus de beschikbaarheid van uw virtuele machine en de services die worden uitgevoerd op de virtuele machine te verhogen. Lees voor meer informatie de [overzichtsartikel](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 
@@ -769,19 +769,19 @@ Als een ruwe beslissingsstructuur om te bepalen of een SAP-systeem in Azure-Serv
 
 ![Beslissingsstructuur om te bepalen van de mogelijkheid tot het implementeren van SAP op Azure][planning-guide-figure-700]
 
-**Stap 1**: de belangrijkste informatie is te beginnen met de vereiste SAP's voor een bepaald SAP-systeem. De vereisten voor SAP's moeten worden onderverdeeld in het gedeelte DBMS en de SAP-toepassing-onderdeel, zelfs als de SAP-systeem al on-premises geïmplementeerd in een tier-2-configuratie is. Voor bestaande systemen, kunnen de SAP's vaak met betrekking tot de hardware gebruikt worden bepaald of geschat op basis van bestaande SAP benchmarks. De resultaten vindt u hier: <https://sap.com/about/benchmark.html>.
+**Stap 1**: De belangrijkste informatie is te beginnen met de vereiste SAP's voor een bepaald SAP-systeem. De vereisten voor SAP's moeten worden onderverdeeld in het gedeelte DBMS en de SAP-toepassing-onderdeel, zelfs als de SAP-systeem al on-premises geïmplementeerd in een tier-2-configuratie is. Voor bestaande systemen, kunnen de SAP's vaak met betrekking tot de hardware gebruikt worden bepaald of geschat op basis van bestaande SAP benchmarks. De resultaten vindt u hier: <https://sap.com/about/benchmark.html>.
 Voor de zojuist geïmplementeerde SAP-systemen, moet u hebben doorlopen een oefening grootte, die de vereisten voor SAP's van het systeem te bepalen.
 Zie ook deze blog en bijgevoegde document voor schaling voor SAP op Azure: <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
-**Stap 2**: voor bestaande systemen, de i/o-volume en de i/o-bewerkingen per seconde op de DBMS-server moeten worden gemeten. Voor nieuwe geplande systemen geeft de grootte oefening voor het nieuwe systeem ook ruwe ideeën van de i/o-vereisten aan de DBMS-systemen. Als u niet zeker, moet u uw voor het uitvoeren van een Proof of Concept.
+**Stap 2**: Voor bestaande systemen, moeten de i/o-volume en i/o-bewerkingen per seconde op de DBMS-server worden gemeten. Voor nieuwe geplande systemen geeft de grootte oefening voor het nieuwe systeem ook ruwe ideeën van de i/o-vereisten aan de DBMS-systemen. Als u niet zeker, moet u uw voor het uitvoeren van een Proof of Concept.
 
-**Stap 3**: de vereiste SAP's voor de DBMS-server met de SAP's u de verschillende typen van de virtuele machine van Azure krijgt vergelijken. De gegevens van SAP's van de verschillende typen Azure VM's wordt beschreven in de SAP-notitie [1928533]. De focus moet eerst op de DBMS-VM worden omdat de databaselaag is de laag in een SAP NetWeaver-systeem dat komt niet in de meeste implementaties worden uitgebreid. Daarentegen kan aan de SAP-toepassingslaag worden uitgebreid. Als geen van de SAP wordt ondersteund typen Azure VM's kunnen de vereiste SAP's leveren, de werkbelasting van de geplande SAP-systeem kan niet worden uitgevoerd op Azure. U moet een implementatie van het systeem on-premises of u wilt wijzigen van het volume van de werkbelasting voor het systeem.
+**Stap 3**: Vergelijk de vereiste SAP's voor de DBMS-server met de SAP's u de verschillende typen van de virtuele machine van Azure krijgt. De gegevens van SAP's van de verschillende typen Azure VM's wordt beschreven in de SAP-notitie [1928533]. De focus moet eerst op de DBMS-VM worden omdat de databaselaag is de laag in een SAP NetWeaver-systeem dat komt niet in de meeste implementaties worden uitgebreid. Daarentegen kan aan de SAP-toepassingslaag worden uitgebreid. Als geen van de SAP wordt ondersteund typen Azure VM's kunnen de vereiste SAP's leveren, de werkbelasting van de geplande SAP-systeem kan niet worden uitgevoerd op Azure. U moet een implementatie van het systeem on-premises of u wilt wijzigen van het volume van de werkbelasting voor het systeem.
 
-**Stap 4**: zoals wordt beschreven [hier (Linux)] [ virtual-machines-sizes-linux] en [hier (Windows)][virtual-machines-sizes-windows], Azure dwingt een quotum IOP's per schijf onafhankelijke of u Standard Storage of Premium-opslag gebruiken. Afhankelijk van het type virtuele machine, verschilt van het aantal gegevensschijven, die kunnen worden gekoppeld. Als gevolg hiervan kunt u het maximum aantal IOP's die kan worden bereikt met elk van de verschillende VM-typen berekenen. Afhankelijk van de database-bestandsindeling, u kunt stripe-schijven om te worden van een volume in het gastbesturingssysteem te installeren. Echter, als het huidige volume IOPS van een geïmplementeerde SAP-systeem de berekende grenzen van de grootste VM-type van Azure en overschrijdt als er is geen kans om te compenseren met meer geheugen, de werkbelasting van de SAP-systeem kan worden beïnvloed ernstige problemen. In dergelijke gevallen kunt u een punt waar u moet het systeem op Azure niet implementeren bereikt.
+**Stap 4**: Zoals beschreven [hier (Linux)] [ virtual-machines-sizes-linux] en [hier (Windows)][virtual-machines-sizes-windows], Azure een quotum IOP's per schijf onafhankelijke wordt afgedwongen of u nu standaard Opslag- of Premium-opslag. Afhankelijk van het type virtuele machine, verschilt van het aantal gegevensschijven, die kunnen worden gekoppeld. Als gevolg hiervan kunt u het maximum aantal IOP's die kan worden bereikt met elk van de verschillende VM-typen berekenen. Afhankelijk van de database-bestandsindeling, u kunt stripe-schijven om te worden van een volume in het gastbesturingssysteem te installeren. Echter, als het huidige volume IOPS van een geïmplementeerde SAP-systeem de berekende grenzen van de grootste VM-type van Azure en overschrijdt als er is geen kans om te compenseren met meer geheugen, de werkbelasting van de SAP-systeem kan worden beïnvloed ernstige problemen. In dergelijke gevallen kunt u een punt waar u moet het systeem op Azure niet implementeren bereikt.
 
-**Stap 5**: in SAP-systemen, die on-premises geïmplementeerd in Tier-2-configuraties, met name de kans is dat het systeem mogelijk moeten worden geconfigureerd in Azure in een configuratie met 3-Laagse. In deze stap moet u controleren of er een onderdeel van de SAP-toepassingslaag is, die niet worden uitgebreid en die niet zou passen in de CPU en geheugen resources die de verschillende typen Azure VM's bieden. Als er inderdaad een dergelijke component, kunnen niet de SAP-systeem en de belasting worden geïmplementeerd in Azure. Maar als u de SAP-toepassingsonderdelen naar meerdere Azure-VM's uitschalen kunt, het systeem kan worden geïmplementeerd in Azure.
+**Stap 5**: Met name in SAP-systemen, on-premises in Tier-2-configuraties die zijn geïmplementeerd, wordt de kans is dat het systeem mogelijk moeten worden geconfigureerd in Azure in een configuratie met 3-Laagse. In deze stap moet u controleren of er een onderdeel van de SAP-toepassingslaag is, die niet worden uitgebreid en die niet zou passen in de CPU en geheugen resources die de verschillende typen Azure VM's bieden. Als er inderdaad een dergelijke component, kunnen niet de SAP-systeem en de belasting worden geïmplementeerd in Azure. Maar als u de SAP-toepassingsonderdelen naar meerdere Azure-VM's uitschalen kunt, het systeem kan worden geïmplementeerd in Azure.
 
-**Stap 6**: als de DBMS-systemen en SAP laag toepassingsonderdelen kunnen worden uitgevoerd in Azure VM's, de configuratie moet worden gedefinieerd met betrekking tot:
+**Stap 6**: Als de DBMS-systemen en SAP laag toepassingsonderdelen kunnen worden uitgevoerd in Azure VM's, moet de configuratie worden gedefinieerd met betrekking tot:
 
 * Aantal virtuele machines in Azure
 * VM-typen voor de afzonderlijke onderdelen
@@ -853,7 +853,7 @@ Microsoft Azure biedt verschillende manieren om virtuele machines en gekoppelde 
 
 #### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Een virtuele machine verplaatsen van on-premises naar Azure met een schijf niet gegeneraliseerd
 
-U van plan bent een specifieke SAP-systeem van on-premises naar Azure te verplaatsen. Dit kan worden gedaan door het uploaden van de VHD, die het besturingssysteem, de SAP-binaire bestanden en binaire bestanden voor DBMS bevat plus de VHD's met de gegevens en logboekbestanden bestanden van de DBMS-systemen naar Azure. In tegenstelling tot [scenario #2 hieronder][planning-guide-5.1.2], houdt u de hostnaam, SAP-SID en SAP-gebruiker-accounts in de Azure-VM zoals ze zijn geconfigureerd in de on-premises omgeving. Generaliseren van de installatiekopie is daarom niet nodig. Zie de hoofdstukken [voorbereiding voor een virtuele machine verplaatsen van on-premises naar Azure met een schijf niet gegeneraliseerd] [ planning-guide-5.2.1] van dit document voor voorbereidingsstappen voor on-premises en uploaden van niet-gegeneraliseerde VM's of VHD's naar Azure. Lezen hoofdstuk [Scenario 3: een virtuele machine verplaatsen van on-premises met behulp van een Azure niet gegeneraliseerde VHD met SAP] [ deployment-guide-3.4] in de [Deployment Guide] [ deployment-guide] voor gedetailleerde procedure voor het implementeren van dergelijke een installatiekopie in Azure.
+U van plan bent een specifieke SAP-systeem van on-premises naar Azure te verplaatsen. Dit kan worden gedaan door het uploaden van de VHD, die het besturingssysteem, de SAP-binaire bestanden en binaire bestanden voor DBMS bevat plus de VHD's met de gegevens en logboekbestanden bestanden van de DBMS-systemen naar Azure. In tegenstelling tot [scenario #2 hieronder][planning-guide-5.1.2], houdt u de hostnaam, SAP-SID en SAP-gebruiker-accounts in de Azure-VM zoals ze zijn geconfigureerd in de on-premises omgeving. Generaliseren van de installatiekopie is daarom niet nodig. Zie de hoofdstukken [voorbereiding voor een virtuele machine verplaatsen van on-premises naar Azure met een schijf niet gegeneraliseerd] [ planning-guide-5.2.1] van dit document voor voorbereidingsstappen voor on-premises en uploaden van niet-gegeneraliseerde VM's of VHD's naar Azure. Lezen hoofdstuk [Scenario 3: Een virtuele machine verplaatsen van on-premises met behulp van een Azure niet gegeneraliseerde VHD met SAP] [ deployment-guide-3.4] in de [Deployment Guide] [ deployment-guide] voor gedetailleerde procedure voor het implementeren van dergelijke een installatiekopie in Azure.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Een virtuele machine met een installatiekopie klantspecifieke
 
@@ -862,7 +862,7 @@ De opgegeven in de Azure Marketplace-installatiekopieën mogelijk vanwege een pa
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Lees hier meer informatie: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> de Windows-instellingen (zoals Windows SID en hostnaam) moet op de on-premises VM via de opdracht sysprep geabstraheerd/gegeneraliseerd.
+> Lees hier meer informatie: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> De Windows-instellingen (zoals Windows SID en hostnaam) moet op de on-premises VM via de opdracht sysprep geabstraheerd/gegeneraliseerd.
 >
 >
 > ![Linux][Logo_Linux] Linux
@@ -872,11 +872,11 @@ De opgegeven in de Azure Marketplace-installatiekopieën mogelijk vanwege een pa
 >
 
 - - -
-Als u al SAP-inhoud in uw on-premises VM (met name voor Tier-2-systemen) hebt geïnstalleerd, kunt u de instellingen van het SAP aanpassen nadat de implementatie van de virtuele Azure-machine via het exemplaar procedure ondersteund door het SAP Software inrichting Manager (SAP wijzigen Houd er rekening mee [1619720]). Zie de hoofdstukken [voorbereiding voor het implementeren van een virtuele machine met een installatiekopie klantspecifieke voor SAP] [ planning-guide-5.2.2] en [uploaden van een VHD van on-premises naar Azure] [ planning-guide-5.3.2]van dit document voor voorbereidingsstappen voor on-premises en uploaden van een gegeneraliseerde VM in Azure. Lezen hoofdstuk [Scenario 2: een virtuele machine met een aangepaste installatiekopie implementeren voor SAP] [ deployment-guide-3.3] in de [Deployment Guide] [ deployment-guide] voor gedetailleerde stappen van de implementatie van dergelijke een installatiekopie in Azure.
+Als u al SAP-inhoud in uw on-premises VM (met name voor Tier-2-systemen) hebt geïnstalleerd, kunt u de instellingen van het SAP aanpassen nadat de implementatie van de virtuele Azure-machine via het exemplaar procedure ondersteund door het SAP Software inrichting Manager (SAP wijzigen Houd er rekening mee [1619720]). Zie de hoofdstukken [voorbereiding voor het implementeren van een virtuele machine met een installatiekopie klantspecifieke voor SAP] [ planning-guide-5.2.2] en [uploaden van een VHD van on-premises naar Azure] [ planning-guide-5.3.2]van dit document voor voorbereidingsstappen voor on-premises en uploaden van een gegeneraliseerde VM in Azure. Lezen hoofdstuk [Scenario 2: Een virtuele machine met een aangepaste installatiekopie implementeren voor SAP] [ deployment-guide-3.3] in de [Deployment Guide] [ deployment-guide] voor gedetailleerde stappen voor het implementeren van dergelijke een installatiekopie in Azure.
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Een virtuele machine buiten de Azure Marketplace
 
-U wilt gebruikmaken van een Microsoft of derden opgegeven VM-installatiekopie uit de Azure Marketplace om uw VM te implementeren. Nadat u uw virtuele machine in Azure geïmplementeerd, volgt u dezelfde richtlijnen en hulpprogramma's voor het installeren van de SAP-software en/of de DBMS-systemen binnen uw virtuele machine net zoals u in een on-premises-omgeving doen zou. Zie voor meer beschrijving van implementatie gedetailleerde, hoofdstuk [Scenario 1: een virtuele machine buiten de Azure Marketplace voor SAP] [ deployment-guide-3.2] in de [Deployment Guide] [ deployment-guide].
+U wilt gebruikmaken van een Microsoft of derden opgegeven VM-installatiekopie uit de Azure Marketplace om uw VM te implementeren. Nadat u uw virtuele machine in Azure geïmplementeerd, volgt u dezelfde richtlijnen en hulpprogramma's voor het installeren van de SAP-software en/of de DBMS-systemen binnen uw virtuele machine net zoals u in een on-premises-omgeving doen zou. Zie voor meer beschrijving van implementatie gedetailleerde, hoofdstuk [Scenario 1: Een virtuele machine buiten de Azure Marketplace voor SAP] [ deployment-guide-3.2] in de [Deployment Guide][deployment-guide].
 
 ### <a name="6ffb9f41-a292-40bf-9e70-8204448559e7"></a>Virtuele machines met SAP voorbereiden voor Azure
 
@@ -913,7 +913,7 @@ Vereisten bij het voorbereiden van uw eigen Azure-VM-schijf zijn:
 - - -
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Voorbereiding voor het implementeren van een virtuele machine met een installatiekopie klantspecifieke voor SAP
 
-VHD-bestanden met een gegeneraliseerde OS worden opgeslagen in containers op Azure Storage-Accounts of als beheerde schijf-installatiekopieën. U kunt een nieuwe virtuele machine uit een dergelijke afbeelding implementeren die verwijst naar de installatiekopie van het VHD- of beheerde schijf als een bron in uw implementatie-sjabloonbestanden zoals beschreven in het hoofdstuk [Scenario 2: een virtuele machine met een aangepaste installatiekopie implementeren voor SAP] [ deployment-guide-3.3]van de [Implementatiehandleiding][deployment-guide].
+VHD-bestanden met een gegeneraliseerde OS worden opgeslagen in containers op Azure Storage-Accounts of als beheerde schijf-installatiekopieën. U kunt een nieuwe virtuele machine uit een dergelijke afbeelding implementeren die verwijst naar de installatiekopie van het VHD- of beheerde schijf als een bron in uw implementatie-sjabloonbestanden zoals beschreven in het hoofdstuk [Scenario 2: Een virtuele machine met een aangepaste installatiekopie implementeren voor SAP] [ deployment-guide-3.3] van de [Deployment Guide][deployment-guide].
 
 Vereisten bij het voorbereiden van uw eigen Azure-VM-installatiekopie zijn:
 
@@ -1082,7 +1082,7 @@ Tijdens het ophalen van de download niet kan de virtuele harde schijven of Manag
 
 Een SAP-systeem of zelfs een speciale DBMS-server ondersteunt een SAP-toepassingslaag zal waarschijnlijk bestaan uit meerdere schijven, die het besturingssysteem met de binaire bestanden of de gegevens en logboekbestanden bestanden van de SAP-database bevatten. De functionaliteit van Azure kopiëren van schijven noch de functionaliteit van Azure schijven op te slaan op een lokale schijf heeft een mechanisme voor synchronisatie, welke momentopnamen meerdere schijven in een consistente manier. Daarom is de status van de schijven die zijn gekopieerd of opgeslagen, zelfs als die zijn gekoppeld op basis van dezelfde virtuele machine anders. Dit betekent dat in het geval concrete van verschillende gegevens en logfile(s) die deel uitmaken van de verschillende schijven met de database in de end inconsistent zijn zou.
 
-**Conclusie: Als u wilt kopiëren of opslaan van schijven die deel van de configuratie van een SAP-systeem uitmaken moet u stoppen van de SAP-systeem en moet ook de geïmplementeerde virtuele machine af. U kunt alleen vervolgens kopiëren of downloaden van de set van schijven kunt u een kopie van de SAP-systeem maken in Azure of on-premises.**
+**Conclusie: Als u wilt kopiëren of opslaan van schijven die deel van de configuratie van een SAP-systeem uitmaken die u wilt stoppen van de SAP-systeem en moet ook de geïmplementeerde virtuele machine af. U kunt alleen vervolgens kopiëren of downloaden van de set van schijven kunt u een kopie van de SAP-systeem maken in Azure of on-premises.**
 
 Gegevensschijven kunnen worden opgeslagen als VHD-bestanden in een Azure Storage-Account en rechtstreeks kunnen worden gekoppeld aan een virtuele machine of worden gebruikt als een afbeelding. In dit geval wordt de VHD gekopieerd naar een andere locatie voordat het wordt gekoppeld aan de virtuele machine. De volledige naam van het VHD-bestand in Azure moet uniek zijn binnen Azure. Zoals al eerder vermeld, is de naam van de soort in het geval van een driedelige-naam die lijkt op:
 
@@ -1274,7 +1274,7 @@ Voor nog meer suggesties en meer details, specifiek voor de DBMS-VM's, moet u de
 
 In de meeste gevallen moet u extra schijven maken als u wilt implementeren de SAP-database in de virtuele machine. We hebben het gehad over de overwegingen voor het aantal schijven in het hoofdstuk [structuur van een virtuele machine/schijf voor SAP-implementaties] [ planning-guide-5.5.1] van dit document. De Azure-portal kunt koppelen en loskoppelen van schijven, wanneer een basis-VM is geïmplementeerd. De schijven kunnen worden gekoppeld/losgekoppeld wanneer de virtuele machine actief is en wordt uitgevoerd en wanneer deze is gestopt. Bij het toevoegen van een schijf, wordt de Azure-portal biedt een lege schijf of een bestaande schijf, die op dit moment is niet gekoppeld aan een andere virtuele machine koppelen.
 
-**Houd er rekening mee**: schijven kunnen alleen worden gekoppeld aan één virtuele machine op een bepaald moment.
+**Opmerking**: Schijven kunnen alleen worden gekoppeld aan één virtuele machine op een bepaald moment.
 
 ![Koppelen / loskoppelen van schijven met Azure Standard-opslag][planning-guide-figure-1400]
 
@@ -1668,7 +1668,7 @@ In de tabel onder normale SAP worden communicatiepoorten weergegeven. Het is in 
 
 *) nn = getal voor SAP-exemplaar
 
-**) beveiligings-id = SAP-systeem-ID
+*) beveiligings-id = SAP-systeem-ID
 
 Meer gedetailleerde informatie over de poorten die nodig zijn voor verschillende SAP-producten of services van SAP-producten vindt u hier <http://scn.sap.com/docs/DOC-17124>.
 Met dit document moet u het volgende kunnen toegewezen poorten openen in de VPN-apparaat die nodig zijn voor specifieke SAP-producten en -scenario's.
@@ -1841,7 +1841,7 @@ SAP-exemplaren die worden uitgevoerd in Azure moeten toegankelijk zijn vanaf SAP
 Een SAProuter kunt het TCP/IP-communicatie tussen de deelnemende systemen als er geen directe IP-verbinding. Dit biedt het voordeel dat er geen end-to-end-verbinding tussen de partners voor communicatie nodig op netwerkniveau is. De SAProuter luistert 3299 standaard poort.
 Als u wilt verbinding maken met instanties van SAP via een SAProuter moet u de SAProuter tekenreeks en host-naam met elke poging om verbinding te maken.
 
-## <a name="sap-netweaver-as-java"></a>SAP NetWeaver-AS-Java
+## <a name="sap-netweaver-as-java"></a>SAP NetWeaver AS Java
 
 Heeft de focus van het document SAP NetWeaver tot nu toe in het algemeen zijn of de SAP NetWeaver ABAP-stack. In deze sectie klein zijn specifieke aandachtspunten voor de SAP-Java-stack worden weergegeven. Een van de belangrijkste uitsluitend op basis van SAP NetWeaver Java-toepassingen is de SAP-Enterprise-Portal. Andere SAP NetWeaver-toepassingen zoals SAP PI en SAP-oplossing Manager de SAP NetWeaver ABAP en Java-stacks. Er natuurlijk is daarom moet rekening houden met specifieke aspecten met betrekking tot de SAP NetWeaver-Java-stack.
 
@@ -1986,7 +1986,7 @@ Herstel-functionaliteit voor hoge beschikbaarheid en noodherstel voor DBMS in he
 
 Hier volgen twee voorbeelden van een complete SAP NetWeaver HA-architectuur in Azure - één voor Windows en één voor Linux.
 
-Niet-beheerde schijven alleen: de concepten zoals hieronder wordt uitgelegd mogelijk iets is wanneer u veel SAP-systemen implementeert en het aantal virtuele machines geïmplementeerd de maximumlimiet van Storage-Accounts per abonnement overschrijden. In dergelijke gevallen moet de VHD's van virtuele machines kunnen worden gecombineerd in één Opslagaccount. Doorgaans wilt u dat doen door een combinatie van VHD's van de SAP-toepassingslaag virtuele machines van verschillende SAP-systemen.  We ook samengevoegd verschillende VHD's van verschillende DBMS-virtuele machines van verschillende SAP-systemen in één Azure Storage-Account. De IOPS-limieten van Azure Storage-Accounts waardoor waarmee u rekening moet houden (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
+Alleen niet-beheerde schijven: De concepten zoals hieronder wordt uitgelegd mogelijk enigszins worden aangetast wanneer u veel SAP-systemen implementeert en het aantal virtuele machines geïmplementeerd de maximumlimiet van Storage-Accounts per abonnement overschrijden. In dergelijke gevallen moet de VHD's van virtuele machines kunnen worden gecombineerd in één Opslagaccount. Doorgaans wilt u dat doen door een combinatie van VHD's van de SAP-toepassingslaag virtuele machines van verschillende SAP-systemen.  We ook samengevoegd verschillende VHD's van verschillende DBMS-virtuele machines van verschillende SAP-systemen in één Azure Storage-Account. De IOPS-limieten van Azure Storage-Accounts waardoor waarmee u rekening moet houden (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
 
 
 ##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] Hoge beschikbaarheid in Windows

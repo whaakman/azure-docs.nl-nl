@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992199"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428156"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>De topologie van een Azure-netwerk weergeven
 
@@ -46,7 +46,7 @@ U kunt de [Azure-portal](#azure-portal), wordt de [Azure CLI](#azure-cli), of [P
 
 6. Selecteer **topologie downloaden** voor het downloaden van de afbeelding als een bestand worden bewerkt in SVG-indeling.
 
-De resources die worden weergegeven in het diagram vormen een subset van de netwerkonderdelen in het virtuele netwerk. Bijvoorbeeld, terwijl een netwerkbeveiligingsgroep wordt weergegeven, worden de beveiligingsregels in het niet weergegeven in het diagram. Hoewel het niet allemaal een andere in het diagram, de regels vertegenwoordigen een van twee relaties: *Containment* of *die zijn gekoppeld*. De volledige lijst van resources in het virtuele netwerk en het type van de relatie tussen de bronnen wilt bekijken, genereren de topologie met [PowerShell](#powershell) of de [Azure CLI](#azure-cli).
+De resources die worden weergegeven in het diagram vormen een subset van de netwerkonderdelen in het virtuele netwerk. Bijvoorbeeld, terwijl een netwerkbeveiligingsgroep wordt weergegeven, worden de beveiligingsregels in het niet weergegeven in het diagram. Hoewel het niet allemaal een andere in het diagram, wordt de regels vertegenwoordigen een van twee relaties: *Containment* of *die zijn gekoppeld*. De volledige lijst van resources in het virtuele netwerk en het type van de relatie tussen de bronnen wilt bekijken, genereren de topologie met [PowerShell](#powershell) of de [Azure CLI](#azure-cli).
 
 ## <a name = "azure-cli"></a>Topologie - Azure CLI bekijken
 
@@ -85,7 +85,7 @@ Het account dat u gebruikt ze beschikken over de benodigde [machtigingen](requir
 
 U kunt de opdrachten in de volgende stappen uitvoeren:
 - In de Azure Cloud Shell, door te selecteren **uitproberen** aan de bovenkant van elke opdracht. De Azure Cloud Shell is een gratis interactieve shell die algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account heeft.
-- Door te voeren PowerShell vanaf uw computer. Als u PowerShell vanaf uw computer uitvoeren, de stappen in dit artikel is versie 5.7.0 vereist of hoger van de AzureRm-module. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Door te voeren PowerShell vanaf uw computer. Als u PowerShell vanaf uw computer uitvoeren, de stappen in dit artikel is versie 5.7.0 vereist of hoger van de AzureRm-module. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 Het account dat u gebruikt ze beschikken over de benodigde [machtigingen](required-rbac-permissions.md).
 
@@ -132,18 +132,18 @@ Alle resources die worden geretourneerd in een topologie met hebben een van de v
 | Relatietype | Voorbeeld                                                                                                |
 | ---               | ---                                                                                                    |
 | Containment       | Een virtueel netwerk bevat een subnet. Een subnet bevat een netwerkinterface.                            |
-| Dat is gekoppeld        | Een netwerkinterface is gekoppeld aan een virtuele machine. Een openbaar IP-adres is gekoppeld aan een netwerkinterface. |
+| Gekoppeld        | Een netwerkinterface is gekoppeld aan een virtuele machine. Een openbaar IP-adres is gekoppeld aan een netwerkinterface. |
 
-## <a name="properties"></a>Eigenschappen
+## <a name="properties"></a>Properties
 
 Alle resources die worden geretourneerd in een topologie met hebben de volgende eigenschappen:
 
-- **Naam**: de naam van de resource
-- **Id**: de URI van de resource.
-- **Locatie**: de Azure-regio die de resource deel uitmaakt.
-- **Koppelingen**: een lijst met koppelingen naar het object waarnaar wordt verwezen. Elke koppeling heeft de volgende eigenschappen:
-    - **AssociationType**: verwijst naar de relatie tussen het onderliggende object en het bovenliggende item. Geldige waarden zijn *bevat* of *gekoppelde*.
-    - **Naam**: de naam van de bron waarnaar wordt verwezen.
+- **Naam**: De naam van de resource
+- **Id**: De URI van de resource.
+- **Locatie**: De Azure-regio die de resource deel uitmaakt.
+- **Koppelingen**: Een lijst met koppelingen naar het object waarnaar wordt verwezen. Elke koppeling heeft de volgende eigenschappen:
+    - **AssociationType**: Verwijst naar de relatie tussen het onderliggende object en het bovenliggende item. Geldige waarden zijn *bevat* of *gekoppelde*.
+    - **Naam**: De naam van de bron waarnaar wordt verwezen.
     - **ResourceId**:-de URI van de resource waarnaar wordt verwezen in de koppeling.
 
 ## <a name="next-steps"></a>Volgende stappen

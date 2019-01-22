@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: f45774d8afc8760d0a02cb0c863c9ef100ef1365
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.subservice: alerts
+ms.openlocfilehash: 48fb9d8eaf2003834a420b48d649c830c608fd6e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381871"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421212"
 ---
 # <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>Waarschuwingen beheren van SCOM, Zabbix en Nagios in Azure Monitor
 
@@ -32,3 +32,4 @@ Nadat u het importeren in Log Analytics hebt geconfigureerd, kunt u weergeven va
 >  1. Alle exemplaren van geactiveerde waarschuwingen zijn beschikbaar in Azure Monitor en Azure Log Analytics. Er is momenteel geen manier om te kiezen tussen de twee of alleen specifieke waarschuwingen geactiveerde voor opnemen.
 >  1. Alle waarschuwingen van SCOM, Zabbix en Nagios hebben de signaaltype 'Onbekend' omdat het onderliggende telemetrietype niet beschikbaar is.
 >  1. Nagios-meldingen zijn bijvoorbeeld niet stateful – de [voorwaarde controleren](https://aka.ms/azure-alerts-overview) van een waarschuwing niet verandert van 'Fired' in 'Opgelost'. In plaats daarvan worden de "Fired" en "Opgelost" als afzonderlijke exemplaren van de waarschuwing weergegeven. 
+

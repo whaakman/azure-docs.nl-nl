@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022985"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434237"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure-SSIS Integratieruntime in Azure Data Factory maken
 Dit artikel bevat stappen voor inrichting Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). Vervolgens kunt u SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) gebruiken om te implementeren en SQL Server Integration Services (SSIS)-pakketten uitvoeren in deze integratieruntime in Azure. 
@@ -50,7 +50,7 @@ Als u Azure-SSIS IR inricht, worden ook Azure Feature Pack voor SSIS en de Acces
     - U kunt SSISDB worden gehost in Azure SQL Database-server met service-eindpunten voor virtueel netwerk of in het beheerde exemplaar in een virtueel netwerk. 
     - U wilt verbinding maken met on-premises gegevens gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd op uw Azure-SSIS-IR. 
 
-- **Azure PowerShell**. Volg de instructies op [hoe u Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps), als u wilt uitvoeren van een PowerShell-script voor het inrichten van Azure-SSIS IR. 
+- **Azure PowerShell**. Volg de instructies op [hoe u Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps), als u wilt uitvoeren van een PowerShell-script voor het inrichten van Azure-SSIS IR. 
 
 ### <a name="region-support"></a>Ondersteuning voor regio
 Zie voor een overzicht van Azure-regio's, waarin ADF en Azure-SSIS IR momenteel beschikbaar is zijn, [ADF + SSIS-IR beschikbaarheid per regio](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
@@ -127,9 +127,9 @@ In deze sectie gebruikt u Azure portal, specifiek ADF gebruikersinterface (UI) /
 
     e. Selecteer bij **Aantal knooppunten** het aantal knooppunten in het integratieruntimecluster. Alleen ondersteunde knooppuntaantallen worden weergegeven. Selecteer een groot cluster met veel knooppunten (uitschalen), als u veel pakketten parallel wilt uitvoeren. 
 
-    f. Voor **licentie-editie**, selecteert u SQL Server-editie/licentie voor uw integratieruntime: Standard of Enterprise. Selecteer Enterprise als u geavanceerde/premium functies in de integratieruntime wilt gebruiken. 
+    f. Selecteer bij **Editie/licentie** de SQL Server-editie/licentie voor uw integratie runtime: Standard of Enterprise. Selecteer Enterprise als u geavanceerde/premium functies in de integratieruntime wilt gebruiken. 
 
-    g. Voor **geld besparen**, Azure Hybrid Benefit (AHB) de optie voor uw integratieruntime: Ja of nee. Selecteer Ja als u uw eigen SQL Server-licentie met Software Assurance wilt gebruiken om te profiteren van de kostenbesparingen met hybride gebruik. 
+    g. Selecteer bij **Geld besparen** de optie Azure Hybrid Benefit (AHB) voor uw integratieruntime: Ja of Nee. Selecteer Ja als u uw eigen SQL Server-licentie met Software Assurance wilt gebruiken om te profiteren van de kostenbesparingen met hybride gebruik. 
 
     h. Klik op **volgende**. 
 
@@ -143,13 +143,13 @@ In deze sectie gebruikt u Azure portal, specifiek ADF gebruikersinterface (UI) /
 
     c. Selecteer bij het **Eindpunt voor de Catalog-databaseserver** het eindpunt van uw databaseserver voor het hosten van SSISDB. Op basis van de geselecteerde databaseserver kan SSISDB namens u worden gemaakt als een enkele database, als onderdeel van een elastische pool of in een beheerd exemplaar. Deze is toegankelijk in een openbaar netwerk of kan worden toegevoegd aan een virtueel netwerk. 
 
-    d. Op **gebruik AAD-verificatie...**  selectievakje, selecteer de verificatiemethode voor de database-server host SSISDB: SQL- of Azure Active Directory (AAD) met de beheerde identiteit voor uw Azure Data Factory. Als u dit selectievakje inschakelt, moet u de beheerde identiteit voor uw ADF toevoegen aan een AAD-groep met machtigingen voor toegang tot de database-server, Zie [inschakelen AAD-verificatie voor Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+    d. Selecteer op het selectievakje **AAD-verificatie gebruiken...**  de verificatiemethode voor de databaseserver voor het hosten van SSISDB: SQL- of Azure Active Directory (AAD) met de beheerde identiteit voor uw Azure Data Factory. Als u dit selectievakje inschakelt, moet u de beheerde identiteit voor uw ADF toevoegen aan een AAD-groep met machtigingen voor toegang tot de database-server, Zie [inschakelen AAD-verificatie voor Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
     e. Voer bij **Gebruikersnaam van beheerder** de gebruikersnaam voor SQL-verificatie voor uw databaseserver voor het hosten van SSISDB in. 
 
     f. Voer bij **Beheerderswachtwoord** het wachtwoord voor SQL-verificatie voor uw databaseserver voor het hosten van SSISDB in. 
 
-    g. Voor **Catalog Database-servicelaag**, selecteert u de servicelaag voor uw database-server host SSISDB: Basic/Standard/Premium-laag of de naam van de elastische pool. 
+    g. Selecteer bij **Serverlaag catalogusdatabase** de servicelaag voor uw databaseserver voor het hosten van SSISDB: Basic-/Standard-/Premium-laag of de naam van een elastische pool. 
 
     h. Klik op **Verbinding testen**. Als dit lukt, klikt u op **Volgende**. 
 

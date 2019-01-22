@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0c78974eb9775506f2ccbc6158eb03aa0c73be49
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161550"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431534"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Gebruikersportal voor de Azure Multi-Factor Authentication-server
 
@@ -88,7 +88,7 @@ Als uw organisatie gebruikmaakt van de Microsoft Authenticator-app als een van d
 
 Voor de installatie van de gebruikersportal op een andere server dan de Azure Multi-Factor Authentication-server moeten de volgende stappen worden uitgevoerd:
 
-1. Blader **op de MFA-server** naar het installatiepad (voorbeeld: C:\Program Files\Multi-Factor Authentication-Server) en kopieer het bestand **MultiFactorAuthenticationUserPortalSetup64** naar een locatie die toegankelijk is voor de internetgerichte server waarop u het wilt installeren.
+1. **Op de MFA-Server**, blader naar het installatiepad (voorbeeld: C:\Program Files\Multi-Factor Authentication-Server), en kopieer het bestand **MultiFactorAuthenticationUserPortalSetup64** naar een locatie die toegankelijk is op de internetgerichte server waarop u deze wilt installeren.
 2. Voer **op de internetgerichte webserver** het installatiebestand MultiFactorAuthenticationUserPortalSetup64 uit als beheerder, wijzig de site desgewenst en wijzig de naam van de virtuele map eventueel in een korte naam.
 3. Bind een SSL-certificaat aan de site in IIS.
 
@@ -125,7 +125,7 @@ Optionele configuratie:
 
 De Azure Multi-Factor Authentication-server biedt verschillende opties voor de gebruikersportal. De volgende tabel geeft een lijst van deze opties en een verklaring van de taak waarvoor ze worden gebruikt.
 
-| Instellingen van gebruikersportal | Beschrijving |
+| Instellingen van gebruikersportal | Description |
 |:--- |:--- |
 | URL gebruikersportal | Hiermee kunt u de URL invoeren van de locatie waar de portal wordt gehost. |
 | Primaire authenticatie | Hiermee kunt u opgeven welk verificatietype moet worden gebruikt bij de aanmelding bij de portal. Windows-, Radius- of LDAP-authenticatie. |

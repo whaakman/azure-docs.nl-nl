@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 565c35b296e2734df264942b9eab0a067626c368
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77709ab9ffd86e599046ddf332213582505f625d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427179"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433234"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Building multi-factor Authentication in aangepaste Apps (SDK)
 
@@ -40,7 +40,7 @@ Downloaden van de SDK van Azure multi-factor Authentication vereist een [Azure m
 ## <a name="whats-in-the-sdk"></a>Wat is er in de SDK
 De SDK bevat de volgende items:
 
-* **LEESMIJ-BESTAND**. Wordt uitgelegd hoe u de multi-factor Authentication-API's in een nieuwe of bestaande toepassing.
+* **README**. Wordt uitgelegd hoe u de multi-factor Authentication-API's in een nieuwe of bestaande toepassing.
 * **De bronbestanden** voor meervoudige verificatie
 * **Clientcertificaat** die u gebruikt om te communiceren met de multi-factor Authentication-service
 * **Persoonlijke sleutel** voor het certificaat

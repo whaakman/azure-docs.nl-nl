@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2035d342a89ace6d286fc205c346591b29646c5d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270131"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427399"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Pakketopname gebruiken voor proactieve netwerkbewaking met waarschuwingen en Azure Functions
 
@@ -35,7 +35,7 @@ Met behulp van Network Watcher, waarschuwingen en functies van binnen het Azure-
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De nieuwste versie van [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* De nieuwste versie van [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * Een bestaand exemplaar van Network Watcher. Als u er nog geen hebt, [Maak een instantie van Network Watcher](network-watcher-create.md).
 * Een bestaande virtuele machine in dezelfde regio als Network Watcher met de [Windows extensie](../virtual-machines/windows/extensions-nwa.md) of [Linux virtuele machine-extensie](../virtual-machines/linux/extensions-nwa.md).
 
@@ -207,7 +207,7 @@ De client-ID is de toepassings-ID van een toepassing in Azure Active Directory.
 
 1. Selecteer in de Azure portal, **abonnementen**. Selecteer het abonnement wilt gebruiken, en selecteer vervolgens **toegangsbeheer (IAM)**.
 
-    ![Functies IAM][functions9]
+    ![Functions IAM][functions9]
 
 1. Kiezen welk account wilt gebruiken, en selecteer vervolgens **eigenschappen**. Kopieer de toepassings-ID.
 
@@ -348,7 +348,7 @@ Ga naar een bestaande virtuele machine en vervolgens een waarschuwingsregel toev
   |**Gegevens**|TCP-segmenten verzonden| De metrische gegevens te gebruiken om de waarschuwing te activeren. |
   |**voorwaarde**|Groter dan| De voorwaarde om te gebruiken bij het evalueren van de metrische gegevens.|
   |**Drempelwaarde**|100| De waarde van de metrische gegevens die de waarschuwing wordt geactiveerd. Deze waarde moet worden ingesteld op een geldige waarde voor uw omgeving.|
-  |**Periode**|In de afgelopen vijf minuten| Bepaalt de periode waarin om te zoeken naar de drempelwaarde voor de metrische gegevens.|
+  |**Period**|In de afgelopen vijf minuten| Bepaalt de periode waarin om te zoeken naar de drempelwaarde voor de metrische gegevens.|
   |**Webhook**|[webhook-URL van de functie-app]| De webhook-URL van de functie-app die in de vorige stappen is gemaakt.|
 
 > [!NOTE]

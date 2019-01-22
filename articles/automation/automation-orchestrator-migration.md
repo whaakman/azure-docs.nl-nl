@@ -3,18 +3,18 @@ title: Migreren vanuit Orchestrator naar Azure Automation
 description: Beschrijft hoe u System Center Orchestrator-runbooks en integration packs migreren naar Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275279"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432894"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migreren vanuit Orchestrator naar Azure Automation (bèta)
 Runbooks in [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) zijn gebaseerd op de activiteiten uit integratiepakketten die specifiek voor Orchestrator zijn geschreven, terwijl runbooks in Azure Automation zijn gebaseerd op Windows PowerShell.  [Grafische runbooks](automation-runbook-types.md#graphical-runbooks) in Azure Automation hebt u een vergelijkbare weergave voor Orchestrator-runbooks met hun activiteiten voor PowerShell-cmdlets, onderliggende runbooks en activa.
@@ -134,3 +134,4 @@ Runbooks in Orchestrator start andere runbooks met de **Runbook aanroepen** acti
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Standaardactiviteiten voor orchestrator](https://technet.microsoft.com/library/hh403832.aspx)
 * [Download System Center Orchestrator Migratietoolkit](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
+

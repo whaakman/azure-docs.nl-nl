@@ -1,6 +1,6 @@
 ---
-title: Azure AD directory-rollen in PIM kunt u beheren | Microsoft Docs
-description: Hierin wordt beschreven in de Azure AD-maprollen die u in Azure AD Privileged Identity Management (PIM beheren kunt).
+title: Functies die u niet in PIM - Azure beheren | Microsoft Docs
+description: Beschrijving van de rollen die u niet in Azure AD Privileged Identity Management (PIM beheren).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,104 +10,39 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 531d19925d24930b6a2bd642a8ff0ec55bd6d16f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e4c60c6ecdc586ba97a01fa42cd80b8ed541fa61
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841571"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434935"
 ---
-# <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Azure AD-maprollen die kunt u in PIM beheren
-<!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
+# <a name="roles-you-cannot-manage-in-pim"></a>Rollen die in PIM kunt u niet beheren
 
-U kunt gebruikers toewijzen in uw organisatie aan andere beheerdersrollen in Azure AD. Deze roltoewijzingen beheren welke taken, zoals het toevoegen of verwijderen van gebruikers of wijzigen van service-instellingen, de gebruikers kunnen uitvoeren op Azure AD, Office 365 en andere Microsoft Online Services en verbonden toepassingen.  
+Azure AD Privileged Identity Management (PIM) kunt u voor het beheren van alle [Azure AD-maprollen](../users-groups-roles/directory-assign-admin-roles.md) en alle [Azure-resourcerollen](../../role-based-access-control/built-in-roles.md). Deze rollen bevatten ook uw aangepaste rollen die zijn gekoppeld aan uw beheergroepen, abonnementen, resourcegroepen en resources. Er zijn echter enkele functies die u niet kunt beheren. Dit artikel beschrijft de rollen die in PIM kunt u niet beheren.
 
-Een globale beheerder zijn van gebruikers kunt bijwerken **permanent** toegewezen aan rollen in Azure AD via de portal, zoals beschreven in [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) of met behulp van [ PowerShell-opdrachten](/powershell/module/azuread#directory_roles).
+## <a name="classic-subscription-administrator-roles"></a>Klassieke abonnementsbeheerdersrollen
 
-Beleid voor bevoegde toegang voor gebruikers van beheert Azure AD Privileged Identity Management (PIM) in Azure AD. PIM gebruikers toegewezen aan een of meer rollen in Azure AD en u iemand zich permanent in de rol, of die in aanmerking komen voor de rol kunt toewijzen. Wanneer een gebruiker permanent wordt toegewezen aan een rol of een in aanmerking komende roltoewijzing activeren en vervolgens deze Active Directory van Azure, Office 365 en andere toepassingen met de machtigingen worden toegewezen aan hun rollen beheren kunnen.
+U kunt de volgende klassiek abonnement beheerdersrollen in PIM niet beheren:
 
-Er is geen verschil in de toegang voor iemand met een permanente ten opzichte van een in aanmerking komende roltoewijzing. Het enige verschil is dat sommige gebruikers hebben geen die toegang nodig voortdurend. Ze zijn gemaakt in aanmerking komen voor de rol, en kunnen inschakelen en uitschakelen wanneer ze nodig hebben om.
+- Accountbeheerder
+- Servicebeheerder
+- Medebeheerder
 
-## <a name="roles-managed-in-pim"></a>Rollen in PIM beheerd
-Privileged Identity Management kunt u gebruikers toewijzen aan de algemene beheerdersrollen, met inbegrip van:
+Zie voor meer informatie over de beheerdersrollen klassiek abonnement [klassiek abonnement beheerder functies, Azure RBAC-rollen en Azure AD-beheerdersrollen](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-* **Globale beheerder** (ook wel bekend als Company Administrator) heeft toegang tot alle beheerfuncties. U kunt meer dan één globale beheerder hebben in uw organisatie. De persoon die zich aanmeldt om aan te schaffen Office 365 automatisch wordt een globale beheerder.
-* **Rol van beheerder in beschermde modus** beheert Azure AD PIM en updates van roltoewijzingen voor andere gebruikers.  
-* **Factureringsbeheerder** doet aankopen, beheert abonnementen, beheert ondersteuningstickets en bewaakt de servicestatus.
-* **Wachtwoordbeheerder** stelt wachtwoorden opnieuw, beheert serviceaanvragen en bewaakt de servicestatus. Wachtwoordbeheerders zijn beperkt tot het opnieuw instellen van wachtwoorden voor gebruikers.
-* **Servicebeheerder** beheert serviceaanvragen en bewaakt de servicestatus.
-  
-  > [!NOTE]
-  > Als u van Office 365 gebruikmaakt, vervolgens alvorens de rol servicebeheerder toe te wijzen aan een gebruiker, eerst gebruiker met beheerdersrechten machtigingen toewijzen aan een service, zoals Exchange Online.
-  > 
-  > 
-* **Gebruikersbeheerder** stelt wachtwoorden opnieuw, bewaakt de servicestatus en beheert gebruikersaccounts, gebruikersgroepen en serviceaanvragen. De beheerder van de gebruiker kan een globale beheerder verwijderen, andere beheerdersrollen maken of wachtwoorden opnieuw instellen voor globale, facturerings- en servicebeheerders.
-* **Exchange-beheerder** over beheerderstoegang beschikt tot Exchange Online via de Exchange-beheercentrum (tijdens elke Exportactie), en bijna alle taken kunt uitvoeren in Exchange Online.
-* **SharePoint-servicebeheerder** over beheerderstoegang beschikt tot SharePoint Online via de SharePoint Online-beheercentrum, en bijna alle taken kunt uitvoeren in SharePoint Online. In aanmerking komende gebruikers kunnen met behulp van deze rol in SharePoint na het activeren van in PIM vertragingen optreden.
-* **Skype voor bedrijven-beheerder** over beheerderstoegang beschikt tot Skype voor bedrijven via het Skype voor bedrijven-beheercentrum, en bijna alle taken kunt uitvoeren in Skype voor bedrijven Online.
+## <a name="what-about-office-365-admin-roles"></a>Hoe zit het met Office 365-beheerdersrollen?
 
-Lees deze artikelen voor meer informatie over [beheerdersrollen toewijzen in Azure AD](../users-groups-roles/directory-assign-admin-roles.md) en [beheerdersrollen toewijzen in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Rollen in Exchange Online of SharePoint Online, met uitzondering van de beheerder van Exchange en SharePoint-beheerder, worden niet weergegeven in Azure AD en dus kunnen niet worden beheerd in PIM. Zie voor meer informatie over deze Office 365-services, [Office 365-beheerdersrollen](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
 
-<!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
+> [!NOTE]
+> SharePoint-beheerder heeft beheerderstoegang tot SharePoint Online via de SharePoint Online-beheercentrum, en bijna alle taken kunt uitvoeren in SharePoint Online. In aanmerking komende gebruikers kunnen met behulp van deze rol in SharePoint na het activeren van in PIM vertragingen optreden.
 
-
-In PIM, kunt u [deze rollen toewijzen aan een gebruiker](pim-how-to-add-role-to-user.md) zodat de gebruiker kan [activeren van de rol wanneer dat nodig is](pim-how-to-activate-role.md).
-
-Als u een andere gebruikerstoegang geven wilt tot PIM zelf beheren, de rollen waarmee PIM vereist dat de gebruiker zijn beschreven in [hoe u toegang geven tot PIM](pim-how-to-give-access-to-pim.md).
-
-<!-- ## The PIM Security Administrator Role **PLACEHOLDER: Need description of the Security Administrator role.**-->
-
-## <a name="roles-not-managed-in-pim"></a>Functies die niet worden beheerd in PIM
-Rollen in Exchange Online of SharePoint Online, met uitzondering van die hierboven vermeld, worden niet weergegeven in Azure AD en dus zijn niet zichtbaar in PIM. Zie voor meer informatie over het wijzigen van fijnmazig roltoewijzingen in deze Office 365-services, [machtigingen in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
-
-<!--**The above links might be replaced by ones that are from within this documentation repository **-->
-
-
-## <a name="user-roles-and-signing-in"></a>Gebruikersrollen en meldt u zich
-Voor sommige Microsoft-services en toepassingen, een gebruiker toewijzen aan een rol mogelijk niet voldoende zijn om een beheerder zijn voor die gebruiker.
-
-Toegang tot de Azure-portal vereist de gebruiker eigenaar van een Azure-abonnement, zelfs als de gebruiker niet hoeft voor het beheren van de Azure-abonnementen.  Bijvoorbeeld, voor het beheren van configuratie-instellingen voor Azure AD, een gebruiker moet een globale beheerder in Azure AD en een eigenaar van een Azure-abonnement.  Zie voor meer gebruikers toevoegen aan Azure-abonnementen, [toegang met RBAC en de Azure-portal beheren](../..//role-based-access-control/role-assignments-portal.md).
-
-Toegang tot Microsoft Online Services mogelijk de gebruiker ook een licentie worden toegewezen voordat ze kunnen openen van de service-portal of administratieve taken uitvoeren.
-
-## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Een licentie toewijzen aan een gebruiker in Azure AD
-
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een rol globale beheerder of eigenaar.
-
-1. Selecteer de Azure AD-directory die u wilt werken en die licenties die zijn gekoppeld aan deze heeft.
-
-1. Klik in het linkernavigatievenster op **Azure Active Directory**.
-
-1. Klik op **licenties**. De lijst met beschikbare licenties wordt weergegeven.
-
-    ![Licenties voor Azure Active Directory](./media/pim-roles/licenses-overview.png)
-
-1. Klik op uw **Product**.
-
-1. Klik op het licentieabonnement waarin de licenties die u wilt distribueren.
-
-    ![Producten met licenties](./media/pim-roles/licenses-products.png)
-
-1. Klik op **toewijzen** om de licentie toewijzen deelvenster te openen.
-
-    ![Gebruikers met licenties](./media/pim-roles/licenses-licensed-users.png)
-
-1. Selecteer de gebruiker of groep die u wilt een licentie toewijzen.
-
-    ![Licentie toewijzen](./media/pim-roles/licenses-assign-license.png)
-
-1. Klik op **toewijzingsopties** om uw toewijzingsopties te configureren.
-
-    ![Toewijzingsopties](./media/pim-roles/licenses-assignment-options.png)
-
-1. Klik op **toewijzen** de licentie toewijzen. De gebruiker heeft nu de licentie.
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Beginnen met PIM](pim-getting-started.md)
 - [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
-
+- [Azure-resource-rollen in PIM toewijzen](pim-resource-roles-assign-roles.md)

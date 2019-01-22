@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 21baa89293c74ec49720bffc2506e20789fe9e55
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b897b50edf4d5a7eeabacc6da1505e165f2bb21a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410996"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431738"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? December 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in December 2018.
@@ -53,6 +53,9 @@ Zie het artikel voor meer informatie over Query Store in Azure SQL Data Warehous
 Lagere rekenlagen biedt nu ondersteuning voor Azure SQL Data Warehouse Gen2. Klanten kunnen ondervinden Azure SQL Data Warehouse van toonaangevende prestaties, flexibiliteit en beveiligingsfuncties die beginnen met 100 cDWU ([Data Warehouse Units](https://docs.microsoft.com/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)) en de schaal aan 30.000 cDWU in minuten. Vanaf half December 2018, klanten kunnen profiteren van Gen2 prestaties en flexibiliteit in combinatie met lagere lagen in compute [regio's](https://docs.microsoft.com/azure/sql-data-warehouse/gen2-lower-tier-regions), met de rest van de regio's beschikbaar zijn tijdens de 2019.
 
 Door slepen en neerzetten het toegangspunt voor datawarehouses bij een volgende generatie, geeft Microsoft de mogelijkheid op waarde gebaseerde klanten die willen evalueren van alle voordelen van een veilige, krachtige datawarehouse zonder te raden welke evaluatieomgeving voor hen het beste is. Klanten kunnen beginnen slechts 100 cDWU omlaag vanaf het huidige 500 cDWU-beginpunt. SQL Data Warehouse Gen2 blijft ondersteuning voor onderbreken en hervatten van bewerkingen en inhoudt dan alleen de flexibiliteit in compute. Gen2 biedt ook ondersteuning voor columnstore is onbeperkte opslagcapaciteit samen met 2,5 keer zoveel geheugen per query maximaal 128 gelijktijdige query's en [adaptieve cache-opslag](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/) functies. Deze functies op gemiddelde Breng vijf keer betere prestaties in vergelijking met de dezelfde Data Warehouse Unit op Gen1 tegen dezelfde prijs. Geografisch redundante back-ups worden standaard voor Gen2 met ingebouwde gegarandeerde gegevensbeveiliging. Azure SQL Data Warehouse Gen2 is gereed om te schalen wanneer u bent.
+
+## <a name="columnstore-background-merge"></a>Columnstore achtergrond samenvoegen
+Standaard, Azure SQL Data Warehouse (Azure SQL DW) gegevens worden opgeslagen in kolommen indeling met micro-partities met de naam [Rijgroepen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression). Soms vanwege geheugen beperkt bij index build of gegevens laadtijd, de Rijgroepen mogelijk met minder dan de optimale grootte van één miljoen rijen worden gecomprimeerd. Rijgroepen raken ook gefragmenteerd vanwege verwijdert. Kleine of gefragmenteerde Rijgroepen leiden tot hogere geheugenverbruik, evenals inefficiënt queryuitvoering. Met deze versie van Azure SQL DW voegt de onderhoudstaak van de columnstore-achtergrond kleine gecomprimeerde Rijgroepen voor het maken van grotere Rijgroepen beter gebruik van geheugen en uitvoeren van query's versnellen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [maken van een SQL Data Warehouse][create a SQL Data Warehouse]. Als u niet bekend bent met Azure, vindt u de [Azure-woordenlijst] [ Azure glossary] handig zijn bij het leren van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  

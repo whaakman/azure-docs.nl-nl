@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d339908b9347843da891dd1c7fa038c45cee1dcb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382830"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429086"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -173,7 +173,7 @@ Selecteer de volgende opties, zoals wordt weergegeven in de afbeelding:
 
 Herhaal de vorige stappen voor alle andere nsg's waarvoor u wilt inschakelen van traffic analytics voor. Gegevens uit logboeken van de stroom wordt verzonden naar de werkruimte, dus zorg ervoor dat de lokale wetten en regelgeving in uw land/regio toestaan dat de opslag van gegevens in de regio waar de werkruimte zich bevindt.
 
-U kunt ook configureren voor traffic analytics met behulp van de [Set AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell-cmdlet in AzureRm PowerShell-moduleversie 6.2.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` te vinden van de geïnstalleerde versie. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+U kunt ook configureren voor traffic analytics met behulp van de [Set AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell-cmdlet in AzureRm PowerShell-moduleversie 6.2.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` te vinden van de geïnstalleerde versie. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="view-traffic-analytics"></a>Verkeersanalyse weergeven
 

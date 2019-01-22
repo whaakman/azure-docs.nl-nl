@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78ad40796a31e0c803b892e0c1b50e66b32c2b0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430167"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425873"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 
@@ -235,7 +235,7 @@ ms.locfileid: "49430167"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -328,9 +328,9 @@ In de volgende secties worden onderdelen van onderdelen van de documentatie onde
 
 Er is een SQL-Server in IaaS specifieke gegevens die u voordat u doorgaat weten moet:
 
-* **Ondersteuning voor de versie van SQL**: voor SAP-klanten, SQL Server 2008 R2 en hoger wordt ondersteund op Microsoft Azure-Machine. Eerdere versies worden niet ondersteund. Bekijk deze algemene [ondersteuningsverklaring](https://support.microsoft.com/kb/956893) voor meer informatie. In het algemeen, wordt SQL Server 2008 door Microsoft ook ondersteund. Maar vanwege een belangrijke functionaliteit voor SAP, die is geïntroduceerd in SQL Server 2008 R2, SQL Server 2008 R2 de minimale versie voor SAP is. In het algemeen moet u rekening houden met behulp van de meest recente SQL Server-versies voor het uitvoeren van SAP-workloads in Azure IaaS. De meest recente versies van SQL Server bieden betere integratie in enkele van de Azure-services en -functionaliteit. Of over de wijzigingen die in een Azure IaaS-infrastructuur optimaliseren. Het document is daarom beperkt tot de SQL Server 2016 en SQL Server 2017.
+* **Ondersteuning voor de versie van SQL**: Voor SAP-klanten, SQL Server 2008 R2 en hoger wordt ondersteund op Microsoft Azure-Machine. Eerdere versies worden niet ondersteund. Bekijk deze algemene [ondersteuningsverklaring](https://support.microsoft.com/kb/956893) voor meer informatie. In het algemeen, wordt SQL Server 2008 door Microsoft ook ondersteund. Maar vanwege een belangrijke functionaliteit voor SAP, die is geïntroduceerd in SQL Server 2008 R2, SQL Server 2008 R2 de minimale versie voor SAP is. In het algemeen moet u rekening houden met behulp van de meest recente SQL Server-versies voor het uitvoeren van SAP-workloads in Azure IaaS. De meest recente versies van SQL Server bieden betere integratie in enkele van de Azure-services en -functionaliteit. Of over de wijzigingen die in een Azure IaaS-infrastructuur optimaliseren. Het document is daarom beperkt tot de SQL Server 2016 en SQL Server 2017.
 * **SQL-prestaties**: Microsoft Azure gehoste virtuele Machines goed in vergelijking met andere openbare cloud virtualization aanbiedingen, maar de afzonderlijke resultaten uitvoeren kunnen variëren. Zie het artikel [aanbevolen procedures voor prestaties voor SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
-* **Met installatiekopieën uit Azure Marketplace**: de snelste manier om een nieuwe Microsoft Azure-VM implementeren is het gebruik van een installatiekopie van de Azure Marketplace. Er zijn in de Azure Marketplace-installatiekopieën die de meest recente versies van SQL Server bevatten. De afbeeldingen waarop SQL Server al is geïnstalleerd worden niet onmiddellijk gebruikt voor SAP NetWeaver-toepassingen. De reden is dat de standaardsortering van SQL Server is geïnstalleerd in de afbeeldingen en niet de sortering die zijn vereist voor SAP NetWeaver-systemen. Als u wilt gebruiken die afbeeldingen, controleert u de stappen die zijn beschreven in het hoofdstuk [met behulp van een installatiekopie van SQL Server buiten de Microsoft Azure Marketplace][dbms-guide-5.6]. 
+* **Met behulp van installatiekopieën van Azure Marketplace**: De snelste manier om een nieuwe Microsoft Azure-VM implementeren is het gebruik van een installatiekopie van de Azure Marketplace. Er zijn in de Azure Marketplace-installatiekopieën die de meest recente versies van SQL Server bevatten. De afbeeldingen waarop SQL Server al is geïnstalleerd worden niet onmiddellijk gebruikt voor SAP NetWeaver-toepassingen. De reden is dat de standaardsortering van SQL Server is geïnstalleerd in de afbeeldingen en niet de sortering die zijn vereist voor SAP NetWeaver-systemen. Als u wilt gebruiken die afbeeldingen, controleert u de stappen die zijn beschreven in het hoofdstuk [met behulp van een installatiekopie van SQL Server buiten de Microsoft Azure Marketplace][dbms-guide-5.6]. 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Aanbevelingen voor virtuele machine/VHD-structuur voor SAP-gerelateerde SQL Server-implementaties
@@ -422,8 +422,8 @@ Automatische back-up biedt een automatische back-upservice voor SQL Server Stand
 
 Meer informatie over de mogelijkheden van deze methode kunnen worden gevonden in deze artikelen:
 
-- SQL Server 2014: [automatische back-up voor virtuele Machines (Resource Manager) voor SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
-- SQL Server 2016/2017: [automatische back-up v2 voor virtuele Azure-Machines (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
+- SQL Server 2014: [Automatische back-up voor virtuele Machines (Resource Manager) voor SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
+- SQL Server 2016/2017: [Automatische back-up v2 voor virtuele Azure-Machines (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
 
 Zoek in de documentatie, kunt u zien dat de functionaliteit met de meest recente versies van SQL Server is verbeterd. Sommige meer informatie over SQL Server automatische back-ups worden vrijgegeven in het artikel [SQL Server Managed Backup naar Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). De theoretische limiet voor back-up is 12 TB.  De automatische back-ups kunnen een geschikte methode voor back-up van de grootte van maximaal 12 TB zijn. Omdat meerdere blobs naar parallel worden geschreven, kunt u verwachten dat een doorvoer van groter is dan 100 MB per seconde. 
  
@@ -450,7 +450,7 @@ Aangezien de SQL Server-installatiekopieën in de Azure Marketplace zijn niet in
 
 * Open een Windows-opdrachtvenster als beheerder.
 * Wijzig de map in C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
-* De opdracht niet uitvoeren: Setup.exe/quiet/Action = REBUILDDATABASE InstanceName = MSSQLSERVER /SQLSYSADMINACCOUNTS =`<local_admin_account_name`> /SQLCOLLATION SQL_Latin1_General_Cp850_BIN2 =   
+* Voer de opdracht uit: Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`> is de account die is gedefinieerd als het administrator-account bij het implementeren van de virtuele machine voor het eerst via de galerie.
 
 Het proces duurt slechts enkele minuten. Als u wilt controleren of de stap is het juiste resultaat, moet u de volgende stappen uitvoeren:
@@ -491,7 +491,7 @@ Als een domein niet mogelijk is, kunt een certificaten ook gebruiken voor het sp
 
 Een zelfstudie voor het instellen van het spiegelen van de Database in Azure vindt u hier: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
-### <a name="sql-server-always-on"></a>SQL Server AlwaysOn
+### <a name="sql-server-always-on"></a>SQL Server Always On
 Zoals altijd op voor SAP on-premises wordt ondersteund (Zie SAP-notitie [1772688]), wordt ondersteund in combinatie met SAP in Azure. Er zijn enkele speciale overwegingen voor het implementeren van de SQL Server-Listener voor beschikbaarheidsgroep (niet te verwarren met de Azure-Beschikbaarheidsset) omdat Azure op dit moment niet toe het maken van een AD-en DNS-object dat staat omdat deze mogelijk on-premises. Daarom zijn sommige stappen van de andere installatie nodig zijn om te strijden tegen het bepaald gedrag van Azure.
 
 Er zijn enkele overwegingen met behulp van een Listener voor beschikbaarheidsgroep:

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2f132bc14e62636a3ddd269323497733de1007b7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 76b0d1728b46834270e9a5b53709de62b4a8b3fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021149"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429375"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Een gedeelde zelf-hostende integratieruntime maken in Azure Data Factory met PowerShell
 
@@ -32,7 +32,7 @@ Deze stapsgewijze handleiding laat zien hoe u een gedeelde zelf-hostende integra
 
 - **Azure-abonnement**. Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint. 
 
-- **Azure PowerShell**. Volg de instructies in [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). U kunt PowerShell gebruiken om uit te voeren een script voor het maken van een zelf-hostende integratieruntime die kan worden gedeeld met andere data factory's. 
+- **Azure PowerShell**. Volg de instructies in [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.11.0). U kunt PowerShell gebruiken om uit te voeren een script voor het maken van een zelf-hostende integratieruntime die kan worden gedeeld met andere data factory's. 
 
 > [!NOTE]  
 > Voor een lijst van Azure-regio's waarin Data Factory momenteel beschikbaar is is, selecteert u de regio's waarin u geïnteresseerd bent in [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).

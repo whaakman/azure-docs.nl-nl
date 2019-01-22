@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437015"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428112"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Maken van aangepaste rollen met behulp van Azure PowerShell
 
@@ -30,7 +30,7 @@ Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke beh
 Voor het maken van aangepaste rollen, hebt u het volgende nodig:
 
 - Machtigingen voor het maken van aangepaste rollen, zoals [Eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell lokaal geïnstalleerd](/powershell/azure/install-azurerm-ps)
+- [Azure PowerShell lokaal geïnstalleerd](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="list-custom-roles"></a>Aangepaste rollen opvragen
 

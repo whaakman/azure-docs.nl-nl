@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 09a19b92a496650f94be208d4f463f1fb3fa4256
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d95ede3b6e99d6791a2642c6059281dedca3fcf2
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001852"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423157"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault-firewalls en virtuele netwerken configureren
 
@@ -79,7 +79,7 @@ Dit is hoe u Key Vault-firewalls en virtuele netwerken configureren met behulp v
 
 Dit is het configureren van Key Vault-firewalls en virtuele netwerken met behulp van PowerShell:
 
-1. Installeer de meest recente [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps), en [aanmelden](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Installeer de meest recente [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps), en [aanmelden](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Lijst met beschikbare virtual network-regels. Als u niet alle regels voor deze key vault hebt ingesteld, is de lijst niet leeg zijn.
    ```PowerShell
@@ -115,7 +115,7 @@ Dit is het configureren van Key Vault-firewalls en virtuele netwerken met behulp
 ## <a name="references"></a>Verwijzingen
 
 * Azure CLI 2.0-opdrachten: [az keyvault-regel van het netwerk](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Azure PowerShell-cmdlets: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [toevoegen AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [Update AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
+* Azure PowerShell-cmdlets: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [Add-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [Update-AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Volgende stappen
 

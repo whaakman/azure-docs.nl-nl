@@ -3,18 +3,18 @@ title: Azure Automation Hybrid Runbook Worker
 description: In dit artikel bevat informatie over het installeren en gebruiken van Hybrid Runbook Worker, dat is een functie van Azure Automation kunt u runbooks uitvoeren op virtuele machines in uw lokale datacenter of cloudprovider.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d42a9458afa6244e0b6d8e7deb420a8ac49a130f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3525a3ad3d0e539e0bab5ee0ed9ba0adca1a68c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634163"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428627"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -138,11 +138,11 @@ Voor een lijst met IP-adressen in plaats van regionamen regio, downloadt u de [A
 
 De volgende adressen worden boven op de standard-adressen en poorten die vereist voor de Hybrid Runbook Worker, vereist voor het beheer van updates. Communicatie met deze adressen wordt gedaan via poort 443.
 
-|Azure openbaar  |Azure Government  |
+|Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
@@ -151,3 +151,4 @@ Zie voor informatie over het oplossen van de Hybrid Runbook Workers, [probleemop
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor informatie over het configureren van uw runbooks om processen in uw on-premises datacenter of andere cloudomgeving te automatiseren, [runbooks uitvoeren op een Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+

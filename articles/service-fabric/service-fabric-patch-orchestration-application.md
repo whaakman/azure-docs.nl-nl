@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 6bd71b7cecfb8a5decd3049152a2293dc7867bde
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382738"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427930"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -142,6 +142,9 @@ Automatische updates voor Windows kunnen leiden tot verlies van beschikbaarheid,
 Toepassing echter samen met scripts voor installatie kan worden gedownload vanaf [archief koppeling](https://go.microsoft.com/fwlink/?linkid=869566).
 
 Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
+
+> [!IMPORTANT]
+> De v1.3.0 (recentste) van de Patch Orchestration-toepassing heeft een bekend probleem die worden uitgevoerd op Windows Server 2012. Als u Windows Server 2012 worden uitgevoerd, download v1.2.2 van de toepassing [hier](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). Koppeling SFPkg [hier](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
 
 ## <a name="configure-the-app"></a>De app configureren
 

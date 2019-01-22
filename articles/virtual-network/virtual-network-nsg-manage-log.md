@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 63dd7b0aad3ce42eff3c135bd2fdccc8fcb4ed61
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3d2f07a2a5f660a6f22256fa528c2a308fde81ad
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014077"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435359"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostische logboekregistratie voor een netwerkbeveiligingsgroep
 
@@ -49,12 +49,12 @@ U kunt de [Azure Portal](#azure-portal), [PowerShell](#powershell), of de [Azure
     | ---------                                                                                   |---------                                                       |
     | Name                                                                                        | De naam van uw keuze.  Bijvoorbeeld: *myNsgDiagnostics*      |
     | **Archiveren naar een opslagaccount**, **Stream naar een event hub**, en **verzenden naar Log Analytics** | U kunt zo veel bestemmingen als u kiest. Zie voor meer informatie over elk [melden bestemmingen](#log-destinations).                                                                                                                                           |
-    | LOGBOEK                                                                                         | Selecteer een van beide of beide logboekcategorieën. Zie voor meer informatie over de gegevens die zijn geregistreerd voor elke categorie, [categorieën zich](#log-categories).                                                                                                                                             |
+    | LOG                                                                                         | Selecteer een van beide of beide logboekcategorieën. Zie voor meer informatie over de gegevens die zijn geregistreerd voor elke categorie, [categorieën zich](#log-categories).                                                                                                                                             |
 6. Logboeken bekijken en analyseren. Zie voor meer informatie, [weergeven en logboeken analyseren](#view-and-analyze-logs).
 
 ### <a name="powershell"></a>PowerShell
 
-U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.1.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` zich aanmeldt bij Azure met een account met de [benodigde machtigingen](virtual-network-network-interface.md#permissions)].
+U kunt de opdrachten die volgen in uitvoeren de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. De Azure Cloud Shell is een gratis interactieve shell. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Als u PowerShell vanaf uw computer uitvoeren, moet u de *AzureRM* PowerShell-module, versie 6.1.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` op uw computer, de geïnstalleerde versie te vinden. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Login-AzureRmAccount` zich aanmeldt bij Azure met een account met de [benodigde machtigingen](virtual-network-network-interface.md#permissions)].
 
 Als u wilt vastleggen van diagnostische gegevens inschakelen, moet u de Id van een bestaande NSG. Als u een bestaande NSG hebt, kunt u maken met [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
 

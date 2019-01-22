@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Maak een Azure SQL datawarehouse - Azure Powershell | Microsoft Docs'
+title: 'Quickstart: Maken van een Azure SQL datawarehouse - Azure Powershell | Microsoft Docs'
 description: Maak snel een logische SQL Database-server, firewallregel op serverniveau en datawarehouse met Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852636"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433608"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>QuickStart: Maken en het opvragen van een Azure SQL datawarehouse met Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Quickstart: Maken en het opvragen van een Azure SQL datawarehouse met Azure PowerShell
 
 Maak snel een Azure SQL datawarehouse met behulp van Azure PowerShell.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-Voor deze zelfstudie is moduleversie 5.1.1 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te zien welke versie u momenteel hebt. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
+Voor deze zelfstudie is moduleversie 5.1.1 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te zien welke versie u momenteel hebt. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). 
 
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Als u wilt zien welk abonnement u gebruikt, [Get-AzureRmSubscription](/powershel
 Get-AzureRmSubscription
 ```
 
-Als u gebruiken een ander abonnement dan de standaard wilt, voert u [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Als u een ander abonnement dan het standaardabonnement wilt gebruiken, voert u [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext) uit.
 
 ```powershell
 Set-AzureRmContext -SubscriptionName "MySubscription"
@@ -102,7 +102,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL-Database en SQL Data Warehouse communiceren via poort 1433. Als u probeert verbinding maken vanaf vanuit een bedrijfsnetwerk, is uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. Als dit het geval is, kunt u zich niet verbinden met uw Azure SQL-server als uw IT-afdeling poort 1433 openstelt.
+> SQL-Database en SQL Data Warehouse communiceren via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. Als dit het geval is, kunt u zich niet verbinden met uw Azure SQL-server als uw IT-afdeling poort 1433 openstelt.
 >
 
 
@@ -122,16 +122,16 @@ New-AzureRmSqlDatabase `
 
 De vereiste parameters zijn:
 
-* **RequestedServiceObjectiveName**: de hoeveelheid [datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) u aanvragen. Dit bedrag verhoogt, kosten. Zie voor een lijst van ondersteunde waarden, [limieten voor geheugen en gelijktijdigheid](memory-and-concurrency-limits.md).
-* **DatabaseName**: de naam van de SQL Data Warehouse die u maakt.
-* **ServerName**: de naam van de server die u voor het maken van gebruikt.
-* **ResourceGroupName**: resourcegroep die u gebruikt. Gebruik Get-AzureResource om beschikbare resourcegroepen in uw abonnement te zoeken.
-* **Edition**: moet DataWarehouse zijn, als u een SQL Data Warehouse wilt maken.
+* **RequestedServiceObjectiveName**: De hoeveelheid [datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) u aanvragen. Dit bedrag verhoogt, kosten. Zie voor een lijst van ondersteunde waarden, [limieten voor geheugen en gelijktijdigheid](memory-and-concurrency-limits.md).
+* **DatabaseName**: De naam van de SQL Data Warehouse die u maakt.
+* **ServerName**: De naam van de server die u voor het maken van gebruikt.
+* **ResourceGroupName**: De resourcegroep die u gebruikt. Gebruik Get-AzureResource om beschikbare resourcegroepen in uw abonnement te zoeken.
+* **Editie**: 'DataWarehouse' moet zijn om te maken van een SQL Data Warehouse.
 
 De optionele parameters zijn:
 
-- **CollationName**: de standaardsortering, indien niet opgegeven, is COLLATE SQL_Latin1_General_CP1_CI_AS. Sortering kan niet worden gewijzigd voor een database.
-- **MaxSizeBytes**: de maximale grootte van een database is standaard 10 GB.
+- **Sorteringnaam**: De standaardsortering, indien niet opgegeven is SQL_Latin1_General_CP1_CI_AS. Sortering kan niet worden gewijzigd voor een database.
+- **MaxSizeBytes**: De standaard maximale grootte van een database is 10 GB.
 
 Zie voor meer informatie over de parameteropties [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
 

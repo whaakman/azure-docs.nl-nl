@@ -3,18 +3,18 @@ title: Azure Automation State Configuration doorlopende implementatie met Chocol
 description: DevOps continue implementatie met Statusconfiguratie van Azure Automation DSC en Chocolatey Pakketbeheer.  Voorbeeld met volledige JSON Resource Manager-sjabloon en PowerShell-bron.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53ecff7df849d19ff7fe1d4c1c8dbd472326b06e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284792"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424452"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Voorbeeld van gebruik: Continue implementatie voor virtuele Machines met behulp van de configuratie van de Automation-status en Chocolatey
 
@@ -58,9 +58,9 @@ Dat deze twee keer worden opgeslagen: eenmaal als tekst zonder opmaak en zodra g
 
 U bent de bits op de bovenkant of de meeste van deze waarschijnlijk al doet. Het maken van de nuspec, te compileren en in een NuGet-server op te slaan is een kleine ding. En u al beheert virtuele machines. Neemt de volgende stap met continue implementatie is vereist, instellen van de pull-server (één keer), registreert uw knooppunten (één keer), en het maken en opslaan van de configuratie er (in eerste instantie). Vernieuw vervolgens wanneer pakketten worden bijgewerkt en geïmplementeerd naar de opslagplaats, de configuratie en de configuratie van knooppunten in de pull-server (Herhaal indien nodig).
 
-Als u begint niet met een Resource Manager-sjabloon, maar dat is ook OK. Er zijn PowerShell-cmdlets die zijn ontworpen om u te helpen u uw VM's registreren met de pull-server en alle van de rest. Zie voor meer informatie in dit artikel: [Onboarding van machines voor beheer met Azure Automation State Configuration](automation-dsc-onboarding.md).
+Als u begint niet met een Resource Manager-sjabloon, maar dat is ook OK. Er zijn PowerShell-cmdlets die zijn ontworpen om u te helpen u uw VM's registreren met de pull-server en alle van de rest. Raadpleeg dit artikel voor meer informatie: [Onboarding van machines voor beheer met Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Stap 1: Het pull-server en het automation-account instellen
+## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Stap 1: Instellen van de pull-server en het automation-account
 
 Op een geverifieerde (`Connect-AzureRmAccount`) PowerShell-opdrachtregel: (kan een paar minuten duren terwijl de pull-server is ingesteld)
 
@@ -69,14 +69,14 @@ New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-
 New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-U kunt uw automation-account in een van de volgende regio's (ook wel locatie) plaatsen: VS-Oost 2, Zuid-centraal VS, VS (overheid) Virginia, West-Europa, Zuidoost-Azië, Japan-Oost, centraal-India en Australië-Zuidoost, Canada centraal, Noord-Europa.
+U kunt uw automation-account in een van de volgende regio's (ook wel locatie) plaatsen: VS-Oost 2, VS Zuid-centraal, VS (overheid) Virginia, West-Europa, Zuidoost-Azië, Japan-Oost, centraal-India en Australië-Zuidoost, Canada centraal, Noord-Europa.
 
 ## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Stap 2: VM-extensie correcties aan de Resource Manager-sjabloon
 
 Details voor de VM-registratie (met behulp van de PowerShell DSC-VM-extensie) opgegeven in deze [Azure Quickstart-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
 Deze stap wordt de nieuwe virtuele machine geregistreerd met de pull-server in de lijst van status configureren-knooppunten. Onderdeel van deze registratie met het opgeven van de knooppuntconfiguratie moet worden toegepast op het knooppunt. De configuratie van deze knooppunten beschikt niet over nog bestaan in de pull-server, zodat u OK die stap 4 wanneer dit wordt gedaan voor de eerste keer. Maar hier in stap 2 u hoeft te hebben besloten de naam van het knooppunt en de naam van de configuratie. In dit voorbeeld gebruik het knooppunt is 'isvbox' en de configuratie is 'ISVBoxConfig'. De naam van de knooppuntconfiguratie (om te worden opgegeven in DeploymentTemplate.json) is dus 'ISVBoxConfig.isvbox'.
 
-## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>Stap 3: Vereiste DSC-resources toevoegen aan de pull-server
+## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>Stap 3: Vereiste DSC-resources toe te voegen aan de pull-server
 
 De PowerShell Gallery is geïnstrumenteerd voor het installeren van DSC-resources in uw Azure Automation-account.
 Navigeer naar de resource die u wilt en klik op de knop 'Implementeren naar Azure Automation'.
@@ -86,7 +86,7 @@ Navigeer naar de resource die u wilt en klik op de knop 'Implementeren naar Azur
 Een andere methode die onlangs zijn toegevoegd aan de Azure-Portal kunt u nieuwe modules verzamelen of bestaande-modules bijwerken. Klik op de resource van het Automation-Account, de tegel Assets en ten slotte de tegel Modules. Het pictogram bladeren in galerie kunt u zien van de lijst met modules in de galerie, Inzoomen op details en uiteindelijk importeren in uw Automation-Account. Dit is een uitstekende manier om uw modules up-to-date te houden van tijd tot tijd. En de importfunctie wordt gecontroleerd of afhankelijkheden met andere modules om ervoor te zorgen dat er niets wordt niet gesynchroniseerd.
 
 Of er is de handmatige methode. De mapstructuur van een PowerShell-integratie-Module voor een Windows-computer is enigszins verschillen van de mapstructuur die werd verwacht door de Azure Automation.
-Hiervoor moet een beetje aanpassen aan uw kant. Maar het is niet moeilijk en dit wordt gedaan slechts één keer per resource (tenzij u in de toekomst een upgrade uitvoert.) Zie dit artikel voor meer informatie over het ontwerpen van PowerShell-integratiemodules: [integratiemodules ontwerpen voor Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+Hiervoor moet een beetje aanpassen aan uw kant. Maar het is niet moeilijk en dit wordt gedaan slechts één keer per resource (tenzij u in de toekomst een upgrade uitvoert.) Raadpleeg dit artikel voor meer informatie over het ontwerpen van integratiemodules PowerShell: [Integratiemodules ontwerpen voor Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - De module die u nodig hebt op uw werkstation, als volgt installeren:
   - Installeer [Windows Management Framework, v5](https://aka.ms/wmf5latest) (niet nodig voor Windows 10)
@@ -105,7 +105,7 @@ Hiervoor moet een beetje aanpassen aan uw kant. Maar het is niet moeilijk en dit
 
 De opgenomen voorbeeld voert deze stappen voor cChoco en xNetworking. Zie de [opmerkingen bij de](#notes) voor speciale handelingen voor cChoco.
 
-## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>Stap 4: De configuratie van de knooppunten toevoegen aan de pull-server
+## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>Stap 4: De configuratie van de knooppunten toe te voegen aan de pull-server
 
 Er zijn geen speciale over de eerste keer dat u de configuratie in de pull-server en de compilatie importeren. Alle volgende importeren/compileert met dezelfde configuratie er precies hetzelfde. Telkens wanneer u uw pakket bijwerken en pusht naar productie wilt uitvoert u deze stap nadat u hebt gecontroleerd van dat het configuratiebestand juist is, inclusief de nieuwe versie van het pakket. Dit is de configuratie van bestands- en PowerShell:
 

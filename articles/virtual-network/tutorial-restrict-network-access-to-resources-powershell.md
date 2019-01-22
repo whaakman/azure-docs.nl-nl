@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b3977e045751165947243c67291e81b998b5fcb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e70a17271dee9f78f13c06ca2fd24dc39b20c6a4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606110"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425200"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Netwerktoegang tot PaaS-resources beperken met virtual network-service-eindpunten met behulp van PowerShell
 
@@ -39,7 +39,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor dit artikel versie 5.4.1 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor dit artikel versie 5.4.1 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
@@ -203,7 +203,7 @@ $storageContext = New-AzureStorageContext $storageAcctName $storageAcctKey
 
 Maak een bestandsshare met [New-AzureStorageShare](/powershell/module/azure.storage/new-azurestorageshare):
 
-$share = New-AzureStorageShare mijn-bestandsshare - Context $storageContext
+$share = New-AzureStorageShare my-file-share -Context $storageContext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Alle toegang tot het netwerk naar een opslagaccount weigeren
 
@@ -361,7 +361,7 @@ Get-AzureStorageFile `
   -Context $storageContext
 ```
 
-De toegang is geweigerd en u ontvangt een *Get-AzureStorageFile: de externe server heeft een fout geretourneerd: (403)-verboden. HTTP-statuscode: 403 - HTTP-foutbericht: deze aanvraag is niet gemachtigd voor deze bewerking* fout, omdat de computer zich niet in de *persoonlijke* subnet van de *MyVirtualNetwork* virtueel netwerk.
+De toegang is geweigerd en u ontvangt een *Get-AzureStorageFile: De externe server heeft een fout geretourneerd: (403)-verboden. HTTP-statuscode: 403 - HTTP foutmelding: Deze aanvraag is niet gemachtigd voor deze bewerking* fout, omdat de computer zich niet in de *persoonlijke* subnet van de *MyVirtualNetwork* virtueel netwerk.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

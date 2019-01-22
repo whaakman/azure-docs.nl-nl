@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 06f05da839ebca2ae53e255acce7f07d1989673c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6da222086f29c4b492652d924b4d98e9780eaa53
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539768"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434594"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Maken van een IoT-hub met behulp van de resourceprovider REST-API (.NET)
 
@@ -23,7 +23,7 @@ ms.locfileid: "38539768"
 U kunt de [REST API voor IoT Hub-resourceprovider] [ lnk-rest-api] maken en beheren van Azure IoT-hubs via een programma. Deze zelfstudie leert u hoe u met de IoT Hub resourceprovider REST-API te maken van een IoT-hub uit een C#-programma.
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Azure Resource Manager en klassiek](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel bevat informatie over het Azure Resource Manager-implementatiemodel.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources:  [Azure Resource Manager en klassieke](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel bevat informatie over het Azure Resource Manager-implementatiemodel.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
@@ -188,7 +188,7 @@ Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 

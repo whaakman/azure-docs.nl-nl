@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 15a6a7f4753d51118d23d2e3c021010218d2d2d7
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451830"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434986"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy gebruiken voor het beperken van extensies installatie op Windows-VM 's
 
 Als u voorkomen dat het gebruik of de installatie van bepaalde uitbreidingen op uw Windows-VM's wilt, kunt u een Azure-beleid met behulp van PowerShell om te beperken van extensies voor virtuele machines binnen een resourcegroep maken. 
 
-In deze zelfstudie wordt Azure PowerShell in Cloud Shell, die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 3.6 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
+In deze zelfstudie wordt Azure PowerShell in Cloud Shell, die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 3.6 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ## <a name="create-a-rules-file"></a>Maak een regelbestand
 
@@ -139,7 +139,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Het beleid testen
 
-Als u wilt testen van het beleid, probeert u de extensie voor VM-toegang. De volgende zou moeten mislukken met het bericht ' Set-AzureRmVMAccessExtension: Resource 'myVMAccess' is niet toegestaan door het beleid. "
+Als u wilt testen van het beleid, probeert u de extensie voor VM-toegang. De volgende zou moeten mislukken met het bericht ' Set-AzureRmVMAccessExtension: Resource 'myVMAccess' is niet toegestaan door het beleid."
 
 ```azurepowershell-interactive
 Set-AzureRmVMAccessExtension `

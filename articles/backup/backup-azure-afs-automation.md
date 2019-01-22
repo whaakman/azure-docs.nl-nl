@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bbeccd03fffb699c95d52d50ec5c45e38b43ef51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051217"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430395"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>PowerShell gebruiken om te back-up en herstellen van Azure-bestandsshares
 
@@ -34,7 +34,7 @@ Om weer te geven de **AzureRm.RecoveryServices.Backup** naslagdocumentatie voor 
 ## <a name="setup-and-registration"></a>Installatie en registratie
 
 > [!NOTE]
-> Zoals vermeld in [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), ondersteuning voor nieuwe functies in de module in November 2018 eindigt AzureRM. Er wordt ondersteuning geboden voor back-up van Azure-bestandsshares met de nieuwe Az PowerShell-module die is nu algemeen beschikbaar.
+> Zoals vermeld in [installeren van de Azure PowerShell-module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), ondersteuning voor nieuwe functies in de module in November 2018 eindigt AzureRM. Er wordt ondersteuning geboden voor back-up van Azure-bestandsshares met de nieuwe Az PowerShell-module die is nu algemeen beschikbaar.
 
 Volg deze stappen om te beginnen.
 

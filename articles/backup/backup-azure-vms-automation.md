@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 847adc9f304e9da62129948616f0a3485b33ee7b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199524"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424509"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>PowerShell gebruiken voor back-up en herstellen van virtuele machines
 
@@ -41,7 +41,7 @@ Voor de naslaginformatie over AzureRm.RecoveryServices.Backup PowerShell-cmdlets
 
 Om te beginnen met:
 
-1. [Download de nieuwste versie van PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (de minimaal vereiste versie is: 1.4.0)
+1. [Download de nieuwste versie van PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (de minimaal vereiste versie is: 1.4.0)
 
 2. De beschikbare Azure Backup PowerShell-cmdlets vinden door de volgende opdracht te typen:
 
@@ -55,7 +55,7 @@ Om te beginnen met:
 3. Aanmelden bij uw Azure-account met **Connect-AzureRmAccount**. Deze cmdlet wordt een webpagina vraagt u om referenties voor uw account:
 
     * U kunt ook uw accountreferenties opnemen als een parameter in de **Connect-AzureRmAccount** cmdlet, met behulp van de **-referentie** parameter.
-    * Als u de CSP-partner werken namens een tenant bent, geeft u de klant als een tenant met behulp van de naam van de primaire domeincontroller tenant-id of tenant. Bijvoorbeeld: **Connect-AzureRmAccount-Tenant "fabrikam.com"**
+    * Als u de CSP-partner werken namens een tenant bent, geeft u de klant als een tenant met behulp van de naam van de primaire domeincontroller tenant-id of tenant. Bijvoorbeeld: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 
 4. Koppel het abonnement dat u gebruiken met het account wilt, omdat een account kan meerdere abonnementen hebben:
 

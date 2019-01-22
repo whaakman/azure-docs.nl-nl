@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 1ec190380fb07530c0c2b8ca3213b8b647fc05b3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: alerts
+ms.openlocfilehash: dfc61bdb596687abfea932ad6084d9a05d1569a4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102887"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423422"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Metrische waarschuwingen maken voor logboeken in Azure Monitor  
 
@@ -45,7 +45,7 @@ Metrische gegevens van populaire Logboeken is doorgesluisd voordat deze wordt ve
 
 ## <a name="prerequisites-for-metric-alert-for-logs"></a>Vereisten voor de waarschuwing voor metrische gegevens voor logboeken
 Voordat u metrische gegevens voor logboeken verzameld op Log Analytics data werkt, moet het volgende worden ingesteld en beschikbaar is:
-1. **Actieve Log Analytics-werkruimte**: Een geldig en actief Log Analytics-werkruimte moet aanwezig zijn. Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
+1. **Active Log Analytics Workspace**: Een geldig en actief Log Analytics-werkruimte moet aanwezig zijn. Zie voor meer informatie, [een Log Analytics-werkruimte maken in Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
 2. **Agent is geconfigureerd voor Log Analytics-werkruimte**: Agent moet worden geconfigureerd voor virtuele Azure-machines (en/of) On-premises VM's om gegevens te verzenden naar de Log Analytics-werkruimte in de vorige stap gebruikt. Zie voor meer informatie, [Log Analytics - overzicht](../../azure-monitor/platform/agents-overview.md).
 3. **Ondersteunde Log Analytics-oplossingen is geïnstalleerd**: Log Analytics-oplossing moet worden geconfigureerd en verzenden van gegevens in Log Analytics-werkruimte - ondersteunde oplossingen zijn [prestatiemeteritems voor Windows en Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [Heartbeat-records voor de status van Agent](../../azure-monitor/insights/solution-agenthealth.md) , [Updatebeheer, en [gebeurtenisgegevens](../../azure-monitor/platform/data-sources-windows-events.md).
 4. **Meld u Analytics-oplossingen die zijn geconfigureerd voor het verzenden van logboeken**: Log Analytics-oplossing moet de vereiste Logboeken/gegevens die overeenkomt met [metrische gegevens die worden ondersteund voor Log Analytics-werkruimten](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) ingeschakeld. Bijvoorbeeld: voor *% beschikbaar geheugen* teller hiervan moet worden geconfigureerd in [prestatiemeteritems](../../azure-monitor/platform/data-sources-performance-counters.md) oplossing eerste.
@@ -357,3 +357,4 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 * Meer informatie over de [ metrische waarschuwingen](https://aka.ms/createmetricalert).
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Meer informatie over [waarschuwingen in Azure](alerts-overview.md).
+

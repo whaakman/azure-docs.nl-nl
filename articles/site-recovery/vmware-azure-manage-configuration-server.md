@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 0d45d460b56f956a97779b46a72d0e4cd97a6b41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 81f775d8deccb9fb8b23e811a6ca89886576f55f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849697"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431636"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>De configuratieserver voor VMware-VM-noodherstel beheren
 
@@ -65,7 +65,7 @@ Als u referenties toevoegen tijdens de implementatie van de configuratieserver, 
 
 1. Na [aanmelden](#access-configuration-server), selecteer **referenties voor virtuele machine beheren**.
 2. Klik op **referenties voor virtuele machine toevoegen**.
-    ![toevoegen-mobility-referenties](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Geef de nieuwe referenties op en klik op **toevoegen**.
 
 U kunt ook referenties via CSPSConfigtool.exe toevoegen.
@@ -96,7 +96,7 @@ Als u wilt, kunt u de configuratieserver in dezelfde kluis registreren. Hebt u e
   1. Open in de kluis **beheren** > **Site Recovery-infrastructuur** > **configuratieservers**.
   2. In **Servers**, selecteer **registratiesleutel downloaden** voor het downloaden van het bestand met kluisreferenties.
   3. Aanmelden bij de configuratie van server-machine.
-  4. In **%ProgramData%\ASR\home\svsystems\bin**Open **cspsconfigtool.exe**.
+  4. In **%ProgramData%\ASR\home\svsystems\bin**, open **cspsconfigtool.exe**.
   5. Op de **kluis registratie** tabblad **Bladeren**, en Ga naar het bestand met kluisreferenties die u hebt gedownload.
   6. Indien nodig, bieden u proxy-server-gegevens. Selecteer vervolgens **Registreren**.
   7. Open een admin PowerShell-opdrachtvenster en voer de volgende opdracht uit:
@@ -174,7 +174,7 @@ De server als volgt bijwerken:
 
 U kunt eventueel de configuratieserver verwijderen met behulp van PowerShell.
 
-1. [Installeer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) de Azure PowerShell-module.
+1. [Installeer](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) de Azure PowerShell-module.
 2. Meld u aan uw Azure-account met de volgende opdracht:
 
     `Connect-AzureRmAccount`

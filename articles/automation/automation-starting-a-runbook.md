@@ -3,27 +3,27 @@ title: Een runbook starten in Azure Automation
 description: Geeft een overzicht van de verschillende methoden die kunnen worden gebruikt om een runbook in Azure Automation starten en biedt details over het gebruik van de Azure-portal en de Windows PowerShell.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2aea370d7de063805eb584cd7d90395ca725b4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 41ea6e6a8c09217c0bb34e07bb911329121f8b7b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275484"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424962"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Een runbook starten in Azure Automation
 De volgende tabel om te bepalen de methode voor het starten van een runbook in Azure Automation die het meest geschikt is voor uw specifieke scenario. Dit artikel bevat informatie over het starten van een runbook met de Azure-portal en met Windows PowerShell. Meer informatie over de andere methoden zijn beschikbaar in andere documentatie die toegankelijk is via de onderstaande koppelingen.
 
-| **METHODE** | **KENMERKEN** |
+| **METHODE** | **CHARACTERISTICS** |
 | --- | --- |
 | [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>De eenvoudigste methode met interactieve gebruikersinterface.<br> <li>Formulier voor eenvoudige parameterwaarden.<br> <li>Taakstatus probleem gemakkelijk bijhouden.<br> <li>De toegang is geverifieerd met Azure-aanmelding. |
 | [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook) |<li>Aanroepen vanaf de opdrachtregel met Windows PowerShell-cmdlets.<br> <li>Kan worden opgenomen in geautomatiseerde oplossing met meerdere stappen.<br> <li>Aanvraag is geverifieerd met certificaat of de OAuth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven.<br> <li>Taakstatus bijhouden.<br> <li>De client is vereist ter ondersteuning van PowerShell-cmdlets. |
-| [Azure Automation-API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Meest flexibele methode, maar ook de meeste complexe.<br> <li>Aanroepen van aangepaste code die de HTTP-aanvragen kunt maken.<br> <li>Aanvraag geverifieerd met certificaat of de Oauth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven. *Als u een Python-runbook met behulp van de API aanroept, moet de JSON-nettolading worden geserialiseerd.*<br> <li>Taakstatus bijhouden. |
+| [Azure Automation API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Meest flexibele methode, maar ook de meeste complexe.<br> <li>Aanroepen van aangepaste code die de HTTP-aanvragen kunt maken.<br> <li>Aanvraag geverifieerd met certificaat of de Oauth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven. *Als u een Python-runbook met behulp van de API aanroept, moet de JSON-nettolading worden geserialiseerd.*<br> <li>Taakstatus bijhouden. |
 | [Webhooks](automation-webhooks.md) |<li>Runbook starten vanuit één HTTP-aanvraag.<br> <li>Geverifieerd met de security-token in URL.<br> <li>Client kan geen parameterwaarden opgegeven tijdens het webhook overschrijven. Runbook kunt definiëren één parameter die is gevuld met de details van de HTTP-aanvraag.<br> <li>Er is geen mogelijkheid om bij te houden van de taakstatus via webhook-URL. |
 | [Reageren op Azure waarschuwing](../log-analytics/log-analytics-alerts.md) |<li>Een runbook starten in reactie op Azure-waarschuwing.<br> <li>Webhook voor het runbook en een koppeling naar de waarschuwing te configureren.<br> <li>Geverifieerd met de security-token in URL. |
 | [Planning](automation-schedules.md) |<li>Runbook automatisch gestart op basis van per uur, dagelijks, wekelijks of maandelijks schema.<br> <li>Bewerken via Azure portal, PowerShell-cmdlets of -API van Azure.<br> <li>Geef parameterwaarden met planning moet worden gebruikt. |
@@ -179,4 +179,5 @@ jsmith
 ## <a name="next-steps"></a>Volgende stappen
 * De runbook-architectuur in het huidige artikel biedt een overzicht op hoog niveau van beheer van runbooks in Azure en on-premises met de Hybrid Runbook Worker. Raadpleeg voor meer informatie over het uitvoeren van Automation-runbooks in uw datacenter, [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
 * Raadpleeg voor meer informatie over het maken, modulaire runbooks moet worden gebruikt door andere runbooks voor specifieke of algemene functies, [onderliggende Runbooks](automation-child-runbooks.md).
+
 

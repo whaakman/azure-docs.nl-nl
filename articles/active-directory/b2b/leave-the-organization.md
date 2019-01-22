@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: cea882bd1ba2ba12d34690fb47ec1afd6edf5c4c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 423de49faa20289a7c5663ae621f890b63a5752c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982167"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428508"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Een organisatie als gastgebruiker verlaten
 
@@ -44,7 +44,7 @@ Wanneer een gebruiker een organisatie verlaat, het gebruikersaccount dat is 'sof
 Indien gewenst, kunt een tenantbeheerder permanent verwijderen van het account op elk gewenst moment tijdens de periode van 30 dagen. Om dit te doen:
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer **Azure Active Directory**.
-2. Onder **beheren**, selecteer **gebruikers**.
+2. Onder **Beheren**, selecteer **Gebruikers**.
 3. Selecteer **verwijderde gebruikers**.
 4. Schakel het selectievakje in naast een verwijderde gebruiker en selecteer vervolgens **definitief verwijderen**.
 

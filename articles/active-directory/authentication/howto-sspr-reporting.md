@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a936626301c8e1a866817264342cc2c84130e158
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025002"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425907"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportage-opties voor Azure AD-wachtwoordbeheer
 
@@ -63,10 +63,10 @@ Als u de openbare preview van geconvergeerde registratie deelneemt, gegevens ove
 
 De volgende lijst wordt elk van de kolommen in de Azure portal in detail uitgelegd:
 
-* **Gebruiker**: bewerking voor de registratie door de gebruiker die heeft geprobeerd een wachtwoord opnieuw instellen.
-* **Rol**: de rol van de gebruiker in de map.
-* **Datum en tijd**: de datum en tijd van de poging.
-* **Gegevens geregistreerd**: de verificatiegegevens die registratie van de gebruiker is opgegeven tijdens het wachtwoord opnieuw instellen.
+* **Gebruiker**: De gebruiker die heeft geprobeerd een wachtwoord opnieuw instellen van bewerking voor de registratie.
+* **Rol**: De rol van de gebruiker in de map.
+* **Datum en tijd**: De datum en tijd van de poging.
+* **Gegevens die zijn geregistreerd**: Registratie van de verificatiegegevens die de gebruiker tijdens het wachtwoord opgegeven opnieuw instellen.
 
 ## <a name="description-of-the-report-values-in-the-azure-portal"></a>Beschrijving van de waarden van het rapport in de Azure-portal
 
@@ -74,101 +74,101 @@ De volgende tabel beschrijft de verschillende waarden die dat u kunt instellen v
 
 | Kolom | Toegestane waarden en hun betekenis |
 | --- | --- |
-| Gegevens die zijn geregistreerd |**Alternatief e-mailadres**: de gebruiker een alternatief e-mailadres of verificatieadres gebruikt om te verifiëren.<p><p>**Telefoon (werk)**: de gebruiker een telefoon (werk) gebruikt om te verifiëren.<p>**Mobiele telefoon**: de gebruiker een mobiele telefoon of telefoon voor authenticatie gebruikt om te verifiëren.<p>**Vragen over de beveiliging**: de gebruiker vragen over de beveiliging gebruikt om te verifiëren.<p>**Een combinatie van de vorige methoden, bijvoorbeeld, alternatief e-mail + mobiele telefoon**: treedt op wanneer een beleid voor twee-poort is opgegeven en ziet u welke twee methoden voor de gebruiker gebruikt voor verificatie verzoek hun wachtwoord opnieuw instellen. |
+| Gegevens die zijn geregistreerd |**Alternatief e-mailadres**: De gebruiker gebruikt een alternatief e-mailadres of verificatieadres voor verificatie.<p><p>**Telefoon (werk)**: De gebruiker gebruikt een telefoon (werk) om te verifiëren.<p>**Mobiele telefoon**: De gebruiker gebruikt een mobiele telefoon of telefoon voor authenticatie voor verificatie.<p>**Vragen over de beveiliging**: De gebruiker gebruikt vragen over de beveiliging voor verificatie.<p>**Een combinatie van de vorige methoden, bijvoorbeeld, alternatief e-mail + mobiele telefoon**: Treedt op wanneer een beleid voor twee-poort is opgegeven en ziet u welke twee methoden voor de gebruiker gebruikt voor verificatie verzoek hun wachtwoord opnieuw instellen. |
 
 ## <a name="self-service-password-management-activity-types"></a>Selfservice wachtwoordbeheer activiteitstypen
 
 De volgende activiteitstypen worden weergegeven in de **Self-Service wachtwoordbeheer** categorie audit-gebeurtenis:
 
-* [Self-service voor wachtwoord opnieuw instellen geblokkeerd](#activity-type-blocked-from-self-service-password-reset): geeft aan dat een gebruiker heeft geprobeerd een wachtwoord opnieuw instellen, gebruikt u een specifieke poort of een telefoonnummer in dat meer dan vijf totale aantal keren dat in 24 uur valideren.
-* [Wachtwoord (selfservice) wijzigen](#activity-type-change-password-self-service): geeft aan dat een gebruiker vrijwillig uitgevoerd of (als gevolg van verlopen geforceerde) wachtwoord wijzigen.
-* [Wachtwoord opnieuw instellen (door beheerder)](#activity-type-reset-password-by-admin): geeft aan dat een beheerder een namens een gebruiker vanuit de Azure-portal voor wachtwoordherstel uitgevoerd.
-* [Wachtwoord opnieuw instellen (selfservice)](#activity-type-reset-password-self-service): geeft aan dat een gebruiker is hun wachtwoord opnieuw instellen van de [Azure AD portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com).
-* [Self-service voor wachtwoord opnieuw instellen van stroomactiviteitvoortgang](#activity-type-self-serve-password-reset-flow-activity-progress): geeft aan dat elke specifieke stap van een gebruiker wordt uitgevoerd in, zoals een specifiek wachtwoord te geven verificatiepoort, opnieuw worden ingesteld als onderdeel van het proces voor wachtwoordherstel.
-* [Gebruikersaccount ontgrendelen (selfservice)](#activity-type-unlock-user-account-self-service): geeft aan dat een gebruiker het Active Directory-account is ontgrendeld zonder hun wachtwoord opnieuw in te stellen de [Azure AD portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com) met behulp van de actieve Directory-functie van account ontgrendelen zonder opnieuw instellen.
-* [De gebruiker geregistreerd voor selfservice voor wachtwoordherstel](#activity-type-user-registered-for-self-service-password-reset): geeft aan dat een gebruiker de vereiste informatie om te kunnen hun wachtwoord in overeenstemming met het hulpprogramma voor het opnieuw instellen van de opgegeven tenant-wachtwoordbeleid is geregistreerd.
+* [Self-service voor wachtwoord opnieuw instellen geblokkeerd](#activity-type-blocked-from-self-service-password-reset): Geeft aan dat een gebruiker heeft geprobeerd een wachtwoord opnieuw instellen, gebruikt u een specifieke poort of een telefoonnummer in dat meer dan vijf totale aantal keren dat in 24 uur valideren.
+* [Wachtwoord wijzigen (selfservice)](#activity-type-change-password-self-service): Geeft aan dat een gebruiker vrijwillig uitgevoerd of (als gevolg van verlopen geforceerde) wachtwoord wijzigen.
+* [Wachtwoord opnieuw instellen (door beheerder)](#activity-type-reset-password-by-admin): Geeft aan dat een beheerder een namens een gebruiker vanuit de Azure-portal voor wachtwoordherstel uitgevoerd.
+* [Wachtwoord opnieuw instellen (selfservice)](#activity-type-reset-password-self-service): Geeft aan dat een gebruiker is hun wachtwoord opnieuw instellen van de [Azure AD portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com).
+* [Self-service voor wachtwoord opnieuw instellen van stroomactiviteitvoortgang](#activity-type-self-serve-password-reset-flow-activity-progress): Geeft aan dat elke specifieke stap die van een gebruiker wordt uitgevoerd in, zoals een specifiek wachtwoord te geven verificatiepoort, opnieuw worden ingesteld als onderdeel van het proces voor wachtwoordherstel.
+* [Gebruikersaccount ontgrendelen (selfservice)](#activity-type-unlock-user-account-self-service): Geeft aan dat een gebruiker het Active Directory-account is ontgrendeld zonder hun wachtwoord opnieuw in te stellen de [Azure AD portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com) met behulp van de functie Active Directory van account ontgrendelen zonder opnieuw instellen.
+* [De gebruiker geregistreerd voor selfservice voor wachtwoordherstel](#activity-type-user-registered-for-self-service-password-reset): Geeft aan dat een gebruiker de vereiste informatie om te kunnen hun wachtwoord in overeenstemming met het hulpprogramma voor het opnieuw instellen van de opgegeven tenant-wachtwoordbeleid is geregistreerd.
 
-### <a name="activity-type-blocked-from-self-service-password-reset"></a>Activiteitstype: self-service voor wachtwoord opnieuw instellen geblokkeerd
+### <a name="activity-type-blocked-from-self-service-password-reset"></a>Activiteitstype: Selfservice voor wachtwoord opnieuw instellen geblokkeerd
 
 De volgende lijst wordt deze activiteit in detail uitgelegd:
 
-* **Beschrijving van de activiteit**: geeft aan dat een gebruiker heeft geprobeerd een wachtwoord opnieuw instellen, gebruikt u een specifieke poort of een telefoonnummer in dat meer dan vijf totale aantal keren dat in 24 uur valideren.
-* **Activiteit actor**: de gebruiker die wordt beperkt uit te voeren als u meer bewerkingen opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
-* **Doel van de activiteit**: de gebruiker die wordt beperkt uit te voeren als u meer bewerkingen opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Beschrijving van de activiteit**: Geeft aan dat een gebruiker heeft geprobeerd een wachtwoord opnieuw instellen, gebruikt u een specifieke poort of een telefoonnummer in dat meer dan vijf totale aantal keren dat in 24 uur valideren.
+* **Activiteit actor**: De gebruiker die wordt beperkt uit te voeren extra resetbewerkingen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Doel van de activiteit**: De gebruiker die wordt beperkt uit te voeren extra resetbewerkingen. De gebruiker kan een eindgebruiker of een beheerder zijn.
 * **Activiteitsstatus**:
-  * _Succes_: geeft aan dat een gebruiker van een extra opnieuw instellen van wachtwoorden uitvoeren, probeert een extra verificatiemethoden of eventuele extra telefoonnummers valideren voor de volgende 24 uur wordt beperkt.
-* **Activiteit status van de reden van fout**: niet van toepassing.
+  * _Succes_: Geeft aan dat een gebruiker van een extra opnieuw instellen van wachtwoorden uitvoeren, probeert een extra verificatiemethoden of eventuele extra telefoonnummers valideren voor de volgende 24 uur wordt beperkt.
+* **Activiteit status van de reden van fout**: Niet van toepassing.
 
-### <a name="activity-type-change-password-self-service"></a>Activiteitstype: wachtwoord wijzigen (selfservice)
+### <a name="activity-type-change-password-self-service"></a>Activiteitstype: Wachtwoord wijzigen (selfservice)
 
 De volgende lijst wordt deze activiteit in detail uitgelegd:
 
-* **Beschrijving van de activiteit**: geeft aan dat een gebruiker vrijwillig uitgevoerd of (als gevolg van verlopen geforceerde) wachtwoord wijzigen.
-* **Activiteit actor**: de gebruiker die hun wachtwoord gewijzigd. De gebruiker kan een eindgebruiker of een beheerder zijn.
-* **Doel van de activiteit**: de gebruiker die hun wachtwoord gewijzigd. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Beschrijving van de activiteit**: Geeft aan dat een gebruiker vrijwillig uitgevoerd of (als gevolg van verlopen geforceerde) wachtwoord wijzigen.
+* **Activiteit actor**: De gebruiker die hun wachtwoord gewijzigd. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Doel van de activiteit**: De gebruiker die hun wachtwoord gewijzigd. De gebruiker kan een eindgebruiker of een beheerder zijn.
 * **Status van de activiteit**:
-  * _Succes_: geeft aan dat een gebruiker het wachtwoord is gewijzigd.
-  * _Fout_: geeft aan dat een gebruiker is mislukt om hun wachtwoord te wijzigen. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
+  * _Succes_: Geeft aan dat een gebruiker het wachtwoord is gewijzigd.
+  * _Fout_: Geeft aan dat een gebruiker is mislukt om hun wachtwoord te wijzigen. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
 * **Activiteit status van de reden van fout**: 
-  * _FuzzyPolicyViolationInvalidPassword_: de gebruiker een wachtwoord dat automatisch is geblokkeerd omdat de detectiemogelijkheden Microsoft verboden wachtwoord gevonden worden te veel voorkomt of vooral zwakke worden geselecteerd.
+  * _FuzzyPolicyViolationInvalidPassword_: De gebruiker een wachtwoord dat automatisch is geblokkeerd omdat de detectiemogelijkheden Microsoft verboden wachtwoord gevonden worden te veel voorkomt of vooral zwakke worden geselecteerd.
 
-### <a name="activity-type-reset-password-by-admin"></a>Activiteitstype: wachtwoord opnieuw instellen (door beheerder)
-
-De volgende lijst wordt deze activiteit in detail uitgelegd:
-
-* **Beschrijving van de activiteit**: geeft aan dat een beheerder een namens een gebruiker vanuit de Azure-portal voor wachtwoordherstel uitgevoerd.
-* **Activiteit actor**: de beheerder van het wachtwoord opnieuw instellen van namens een andere gebruiker of beheerder uitgevoerd. Moet een globale beheerder, wachtwoordbeheerder, Gebruikerbeheerder, of helpdesk-beheerder.
-* **Doel van de activiteit**: de gebruiker waarvan het wachtwoord is opnieuw ingesteld. De gebruiker kan een eindgebruiker of een andere beheerder zijn.
-* **Status van de activiteit**:
-  * _Succes_: geeft aan dat een beheerder is opnieuw ingesteld wachtwoord van een gebruiker.
-  * _Fout_: geeft aan dat een beheerder kan niet worden gewijzigd wachtwoord van een gebruiker. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
-
-### <a name="activity-type-reset-password-self-service"></a>Activiteitstype: wachtwoord opnieuw instellen (selfservice)
+### <a name="activity-type-reset-password-by-admin"></a>Activiteitstype: Wachtwoord opnieuw instellen (door beheerder)
 
 De volgende lijst wordt deze activiteit in detail uitgelegd:
 
-* **Beschrijving van de activiteit**: geeft aan dat een gebruiker is hun wachtwoord opnieuw instellen van de [Azure AD portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com).
-* **Activiteit actor**: de gebruiker die hun wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
-* **Doel van de activiteit**: de gebruiker die hun wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Beschrijving van de activiteit**: Geeft aan dat een beheerder een namens een gebruiker vanuit de Azure-portal voor wachtwoordherstel uitgevoerd.
+* **Activiteit actor**: De beheerder van het wachtwoord opnieuw instellen van namens een andere gebruiker of beheerder uitgevoerd. Moet een globale beheerder, wachtwoordbeheerder, Gebruikerbeheerder, of helpdesk-beheerder.
+* **Doel van de activiteit**: De gebruiker waarvan het wachtwoord is opnieuw ingesteld. De gebruiker kan een eindgebruiker of een andere beheerder zijn.
 * **Status van de activiteit**:
-  * _Succes_: geeft aan dat een gebruiker is hun eigen wachtwoord opnieuw.
-  * _Fout_: geeft aan dat een gebruiker kan niet opnieuw instellen van hun eigen wachtwoord. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
+  * _Succes_: Geeft aan dat een beheerder is opnieuw ingesteld wachtwoord van een gebruiker.
+  * _Fout_: Geeft aan dat een beheerder kan niet worden gewijzigd wachtwoord van een gebruiker. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
+
+### <a name="activity-type-reset-password-self-service"></a>Activiteitstype: Wachtwoord opnieuw instellen (selfservice)
+
+De volgende lijst wordt deze activiteit in detail uitgelegd:
+
+* **Beschrijving van de activiteit**: Geeft aan dat een gebruiker is hun wachtwoord opnieuw instellen van de [Azure AD portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com).
+* **Activiteit actor**: De gebruiker die hun wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Doel van de activiteit**: De gebruiker die hun wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Status van de activiteit**:
+  * _Succes_: Geeft aan dat een gebruiker is hun eigen wachtwoord opnieuw.
+  * _Fout_: Geeft aan dat een gebruiker kan niet opnieuw instellen van hun eigen wachtwoord. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
 * **Activiteit status van de reden van fout**: 
-  * _FuzzyPolicyViolationInvalidPassword_: de beheerder een wachtwoord dat automatisch is geblokkeerd omdat de detectiemogelijkheden Microsoft verboden wachtwoord gevonden worden te veel voorkomt of vooral zwakke worden geselecteerd.
+  * _FuzzyPolicyViolationInvalidPassword_: De beheerder een wachtwoord dat automatisch is geblokkeerd omdat de detectiemogelijkheden Microsoft verboden wachtwoord gevonden worden te veel voorkomt of vooral zwakke worden geselecteerd.
 
-### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Activiteitstype: eigen wachtwoord opnieuw instellen van stroomactiviteitvoortgang beheer
+### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Activiteitstype: Eigen beheer stroomactiviteitvoortgang voor wachtwoordherstel
 
 De volgende lijst wordt deze activiteit in detail uitgelegd:
 
-* **Beschrijving van de activiteit**: geeft aan dat elke specifieke stap van een gebruiker wordt uitgevoerd in (zoals het doorgeven van een specifiek wachtwoord opnieuw instellen van de verificatiepoort) als onderdeel van het proces voor wachtwoordherstel.
-* **Activiteit actor**: de gebruiker die heeft uitgevoerd, onderdeel van het wachtwoord opnieuw instellen van flow. De gebruiker kan een eindgebruiker of een beheerder zijn.
-* **Doel van de activiteit**: de gebruiker die heeft uitgevoerd, onderdeel van het wachtwoord opnieuw instellen van flow. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Beschrijving van de activiteit**: Geeft aan dat elke specifieke stap die van een gebruiker wordt uitgevoerd in (zoals het doorgeven van een specifiek wachtwoord opnieuw instellen van de verificatiepoort) als onderdeel van het proces voor wachtwoordherstel.
+* **Activiteit actor**: De gebruiker die heeft uitgevoerd, onderdeel van het wachtwoord opnieuw instellen van flow. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Doel van de activiteit**: De gebruiker die heeft uitgevoerd, onderdeel van het wachtwoord opnieuw instellen van flow. De gebruiker kan een eindgebruiker of een beheerder zijn.
 * **Status van de activiteit**:
-  * _Succes_: geeft aan dat een specifieke stap van de stroom van wachtwoord opnieuw instellen die door een gebruiker is voltooid.
-  * _Fout_: geeft aan dat een specifieke stap van het wachtwoord opnieuw instellen van stroom is mislukt. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
-* **Activiteit statusredenen**: Zie de volgende tabel voor [alle toegestane reset activiteit statusredenen](#allowed-values-for-details-column).
+  * _Succes_: Geeft aan dat een specifieke stap van de stroom van wachtwoord opnieuw instellen die door een gebruiker is voltooid.
+  * _Fout_: Geeft aan dat een specifieke stap van het wachtwoord opnieuw instellen van stroom is mislukt. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
+* **Activiteit statusredenen**:   Zie de volgende tabel voor [alle toegestane reset activiteit statusredenen](#allowed-values-for-details-column).
 
-### <a name="activity-type-unlock-a-user-account-self-service"></a>Activiteitstype: een gebruikersaccount ontgrendelen (selfservice)
-
-De volgende lijst wordt deze activiteit in detail uitgelegd:
-
-* **Beschrijving van de activiteit**: geeft aan dat een gebruiker het Active Directory-account is ontgrendeld zonder hun wachtwoord opnieuw in te stellen de [Azure AD portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com) met behulp van de functie Active Directory van account ontgrendelen zonder opnieuw instellen.
-* **Activiteit actor**: de gebruiker die hun account ontgrendelen zonder hun wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
-* **Doel van de activiteit**: de gebruiker die hun account ontgrendelen zonder hun wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
-* **Activiteit statussen toegestaan**:
-  * _Succes_: geeft aan dat een gebruiker is hun eigen account ontgrendeld.
-  * _Fout_: geeft aan dat een gebruiker is mislukt om hun account te ontgrendelen. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
-
-### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Activiteitstype: gebruiker geregistreerd voor selfservice voor wachtwoord opnieuw instellen
+### <a name="activity-type-unlock-a-user-account-self-service"></a>Activiteitstype: Een gebruikersaccount ontgrendelen (selfservice)
 
 De volgende lijst wordt deze activiteit in detail uitgelegd:
 
-* **Beschrijving van de activiteit**: geeft aan dat een gebruiker de vereiste informatie om te kunnen hun wachtwoord in overeenstemming met het hulpprogramma voor het opnieuw instellen van de opgegeven tenant-wachtwoordbeleid is geregistreerd. 
-* **Activiteit actor**: de gebruiker die zich hebben geregistreerd voor wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
-* **Doel van de activiteit**: de gebruiker die zich hebben geregistreerd voor wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Beschrijving van de activiteit**: Geeft aan dat een gebruiker het Active Directory-account is ontgrendeld zonder hun wachtwoord opnieuw in te stellen de [Azure AD portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com) met behulp van de functie Active Directory van account ontgrendelen zonder opnieuw instellen.
+* **Activiteit actor**: De gebruiker die hun account ontgrendelen zonder hun wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Doel van de activiteit**: De gebruiker die hun account ontgrendelen zonder hun wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
 * **Activiteit statussen toegestaan**:
-  * _Succes_: geeft aan dat een gebruiker is geregistreerd voor wachtwoord opnieuw instellen in overeenstemming met het huidige beleid. 
-  * _Fout_: geeft aan dat een gebruiker kan niet registreren voor wachtwoord opnieuw instellen. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden. 
+  * _Succes_: Geeft aan dat een gebruiker is hun eigen account ontgrendeld.
+  * _Fout_: Geeft aan dat een gebruiker is mislukt om hun account te ontgrendelen. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden.
+
+### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Activiteitstype: Door gebruiker geregistreerd voor selfservice voor het opnieuw instellen van een wachtwoord
+
+De volgende lijst wordt deze activiteit in detail uitgelegd:
+
+* **Beschrijving van de activiteit**: Geeft aan dat een gebruiker de vereiste informatie om te kunnen hun wachtwoord in overeenstemming met het hulpprogramma voor het opnieuw instellen van de opgegeven tenant-wachtwoordbeleid is geregistreerd. 
+* **Activiteit actor**: De gebruiker die zich hebben geregistreerd voor wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Doel van de activiteit**: De gebruiker die zich hebben geregistreerd voor wachtwoord opnieuw instellen. De gebruiker kan een eindgebruiker of een beheerder zijn.
+* **Activiteit statussen toegestaan**:
+  * _Succes_: Geeft aan dat een gebruiker is geregistreerd voor wachtwoord opnieuw instellen in overeenstemming met het huidige beleid. 
+  * _Fout_: Geeft aan dat een gebruiker kan niet registreren voor wachtwoord opnieuw instellen. U kunt de rij om te zien de **reden van de activiteit status** categorie voor meer informatie over waarom de fout is opgetreden. 
 
      >[!NOTE]
      >Fout betekent niet dat een gebruiker zich niet op hun eigen wachtwoord opnieuw instellen. Dit betekent dat ze het registratieproces is niet voltooid. Als er niet-geverifieerde gegevens op het account dat klopt, zoals een telefoonnummer op dat niet wordt gevalideerd, zelfs als ze dit telefoonnummer niet hebben geverifieerd, kan nog steeds worden gebruikt voor hun wachtwoord opnieuw instellen. Zie voor meer informatie, [wat er gebeurt wanneer een gebruiker registreert?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).

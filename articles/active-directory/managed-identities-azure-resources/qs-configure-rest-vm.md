@@ -4,7 +4,7 @@ description: Stapsgewijze instructies voor het configureren van een systeem en d
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 6f147aa7066db19c1be451b0a5ac49bfce9f571b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5240d46c1d754ec09f9d83a86424fdbd3cfaadb7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422930"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433302"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configureren van beheerde identiteiten voor een Azure-resources op een Azure-VM met behulp van REST-API aanroepen
 
@@ -79,7 +79,7 @@ Voor het maken van een Azure-VM met de ingeschakeld door het systeem toegewezen 
    ```
    
    **Aanvraagheaders**
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -167,7 +167,7 @@ Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtue
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **Aanvraagheaders**
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -199,7 +199,7 @@ Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtue
    ```
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -234,7 +234,7 @@ Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtue
     
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -276,7 +276,7 @@ Als u wilt uitschakelen door het systeem toegewezen beheerde identiteit op een v
    ```
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -319,7 +319,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    az account get-access-token
    ``` 
 
-4. Maken van een gebruiker toegewezen beheerde identiteit met behulp van de instructies hier vinden: [maken van een gebruiker toegewezen beheerde identiteit](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Maak een gebruiker toegewezen beheerde identiteit met behulp van de instructies hier vinden: [Maken van een gebruiker toegewezen beheerde identiteit](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 5. Een virtuele machine met CURL om aan te roepen van het Azure Resource Manager REST-eindpunt maken. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* in de resourcegroep *myResourceGroup* met een gebruiker toegewezen beheerde identiteit `ID1`, zoals vermeld in de hoofdtekst van de aanvraag door de waarde `"identity":{"type":"UserAssigned"}`. Vervang `<ACCESS TOKEN>` met de waarde u hebt ontvangen in de vorige stap wanneer u een Bearer-toegangstoken aangevraagd en de `<SUBSCRIPTION ID>` waarde als geschikt is voor uw omgeving.
  
@@ -335,7 +335,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
 
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -416,7 +416,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
 
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -506,7 +506,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **Aanvraagheaders**
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.
 
@@ -527,7 +527,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    ```
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        |
@@ -559,7 +559,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -595,7 +595,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -634,7 +634,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
 
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -674,7 +674,7 @@ Als u wilt verwijderen van een gebruiker toegewezen identiteit aan een virtuele 
    ```
 
    **Aanvraagheaders**
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.
@@ -697,7 +697,7 @@ Als u wilt verwijderen van een gebruiker toegewezen identiteit aan een virtuele 
 
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -729,7 +729,7 @@ Als u wilt verwijderen van een gebruiker toegewezen identiteit aan een virtuele 
 
    **Aanvraagheaders**
 
-   |Aanvraagheader  |Beschrijving  |
+   |Aanvraagheader  |Description  |
    |---------|---------|
    |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
    |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.        | 
@@ -759,7 +759,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Aanvraagheaders**
 
-|Aanvraagheader  |Beschrijving  |
+|Aanvraagheader  |Description  |
 |---------|---------|
 |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
 |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken. | 
@@ -786,7 +786,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Aanvraagheaders**
 
-|Aanvraagheader  |Beschrijving  |
+|Aanvraagheader  |Description  |
 |---------|---------|
 |*Content-Type*     | Vereist. Ingesteld op `application/json`.        |
 |*Autorisatie*     | Vereist. Ingesteld op een geldige `Bearer` toegangstoken.| 

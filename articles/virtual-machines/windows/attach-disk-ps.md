@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
-ms.openlocfilehash: cd11bb8ae8f22705feb7eebeafde385fcf11fdcd
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d606009ea378de4addb06f9123baf3282637cf85
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637082"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423371"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Een gegevensschijf koppelen aan een Windows-VM met PowerShell
 
@@ -28,11 +28,11 @@ In dit artikel wordt beschreven hoe u zowel nieuwe als bestaande schijven koppel
 
 Bekijk eerst de volgende tips:
 * De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie, [grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Voor het gebruik van Premium-opslag, moet u een Premium-opslag ingeschakeld VM-type, zoals de DS-reeks of GS-serie virtuele machine. Zie voor meer informatie, [Premium Storage: hoogwaardige opslag voor Azure Virtual Machine-werkbelasting](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Voor het gebruik van Premium-opslag, moet u een Premium-opslag ingeschakeld VM-type, zoals de DS-reeks of GS-serie virtuele machine. Zie voor meer informatie, [Premium Storage: Opslag met hoge prestaties voor workloads van virtuele Azure-machines](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u wilt installeren en gebruiken van de PowerShell lokaal, in deze zelfstudie moduleversie 6.0.0 van Azure PowerShell vereist of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Connect-AzureRmAccount` voor het maken van een verbinding met Azure.
+Als u wilt installeren en gebruiken van de PowerShell lokaal, in deze zelfstudie moduleversie 6.0.0 van Azure PowerShell vereist of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook om uit te voeren `Connect-AzureRmAccount` voor het maken van een verbinding met Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Een lege gegevensschijf toevoegen aan een virtuele machine

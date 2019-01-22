@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d89fb86209af2074794d5a5abcdcebadec904799
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867507"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434271"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Licentierichtlijnen voor B2B-samenwerking van Azure Active Directory
 
@@ -50,4 +50,4 @@ In beide scenario's, betere oplossing is de B2B-API gebruikt om uit te nodigen v
 Zie de volgende bronnen op Azure AD B2B-samenwerking:
 
 * [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
-* [Azure Active Directory B2B-samenwerking Veelgestelde vragen (FAQ)](faq.md)
+* [Veelgestelde vragen over Azure Active Directory B2B-samenwerking](faq.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06e0509f05352a023651d7121aa89e18e375ef32
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043784"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428322"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ De sjabloon die wordt gebruikt, is beschikbaar op de [voorbeeldsjablonen van Azu
 De volgende opdracht kunt maken beide Windows of Linux-clusters, moet u het besturingssysteem dienovereenkomstig opgeven. De PowerShell/CLI-opdrachten wordt ook het certificaat in de opgegeven *CertificateOutputFolder*, maar zorg ervoor dat certificatenmap al hebt gemaakt. De opdracht wordt ook andere parameters, zoals VM-SKU.
 
 > [!NOTE]
-> De volgende PowerShell-opdracht werkt alleen met Azure Resource Manager PowerShell versie 6.1 >. Om te controleren of de huidige versie van Azure Resource Manager PowerShell-versie, voer de volgende PowerShell-opdracht 'Get-Module AzureRM'. Ga als volgt [deze koppeling](/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0) uw Azure Resource Manager PowerShell-versie bijwerken. 
+> De volgende PowerShell-opdracht werkt alleen met Azure Resource Manager PowerShell versie 6.1 >. Om te controleren of de huidige versie van Azure Resource Manager PowerShell-versie, voer de volgende PowerShell-opdracht 'Get-Module AzureRM'. Ga als volgt [deze koppeling](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0) uw Azure Resource Manager PowerShell-versie bijwerken. 
 >
 >
 
@@ -292,7 +292,7 @@ Op dit moment hebt u een beveiligd cluster worden uitgevoerd in Azure. Volgende 
 Zie voor de JSON-syntaxis en de eigenschappen van een sjabloon wilt gebruiken, [Microsoft.ServiceFabric/clusters sjabloonverwijzing](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[azure-powershell]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
