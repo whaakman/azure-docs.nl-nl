@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064692"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352922"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snelstart: gegevens uit Event Hub opnemen in Azure Data Explorer
 
@@ -189,7 +189,7 @@ Nu de app gegevens genereert, kunt u de stroom van die gegevens vanuit de event 
     ![Berichtresultatenset](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > ADX heeft een aggregatiebeleid (batchverwerking) voor gegevensopname, ontworpen om de gegevensopname te optimaliseren. Het beleid is ingesteld op vijf minuten; u kunt dus enige latentie ondervinden.
+    > Azure Data Explorer heeft een aggregatiebeleid (batchverwerking) voor gegevensopname, dat is ontworpen om de gegevensopname te optimaliseren. Het beleid is ingesteld op vijf minuten; u kunt dus enige latentie ondervinden.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

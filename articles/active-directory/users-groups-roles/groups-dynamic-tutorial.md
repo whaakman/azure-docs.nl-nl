@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor het automatisch toevoegen/verwijderen van gebruikers en dynamische groepslidmaatschappen in Azure Active Directory
+title: Zelfstudie voor het toevoegen/verwijderen van gebruikers en dynamische groepslidmaatschappen in Azure Active Directory
 description: In deze zelfstudie gebruikt u groepen met gebruikerslidmaatschapsregels voor het automatisch toevoegen of verwijderen van gebruikers
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 08/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2119bb60cbdc36f62623ce0db52885e17f3d3006
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6efb649142f43a98ea08c99ae853de0fc0c8ea3c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40209148"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321259"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Zelfstudie: Automatisch groepsleden toevoegen of verwijderen
 

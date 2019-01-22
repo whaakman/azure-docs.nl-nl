@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 22678a44cda38b52982e977281d3310efde15831
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135335"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247252"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Zelfstudie: Berichtroutering configureren met IoT Hub
 
@@ -629,4 +629,4 @@ In deze zelfstudie hebt u geleerd hoe u met berichtroutering IoT Hub-berichten n
 Ga door naar de volgende zelfstudie voor informatie over het beheren van de toestand van een IoT-apparaat. 
 
 > [!div class="nextstepaction"]
-[Uw apparaten configureren vanaf een back-endservice](tutorial-device-twins.md)
+[Metrische gegevens en diagnostische gegevens instellen en gebruiken met een IoT Hub](tutorial-use-metrics-and-diags.md)

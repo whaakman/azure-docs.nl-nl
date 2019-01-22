@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 493ca6018a7eb94181deff946c6542463507761a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437977"
+---
 # [Documentatie voor Database Migration Service](index.yml)
 
 # Overzicht
@@ -25,16 +33,27 @@
 ## [Status van het databasemigratiescenario](resource-scenario-status.md)
 ## [Overzicht van vereisten](pre-reqs.md)
 ## [Netwerktopologieën voor migraties van met Azure SQL-database beheerde exemplaren](resource-network-topologies.md)
-## [Bekende problemen - Online migratie naar Azure SQL DB](known-issues-azure-sql-online.md)
-## [Bekende problemen - Online migratie naar Azure DB voor MySQL](known-issues-azure-mysql-online.md)
-## [Bekende problemen - Online migratie naar Azure DB voor PostgreSQL](known-issues-azure-postgresql-online.md)
-## [Services en hulpprogramma's voor gegevensmigratiescenario's](dms-tools-matrix.md)
+## Bekende problemen
+### [Bekende problemen - Online migratie naar Azure SQL DB](known-issues-azure-sql-online.md)
+### [Bekende problemen - Online migratie naar Azure DB voor MySQL](known-issues-azure-mysql-online.md)
+### [Bekende problemen - Online migratie naar Azure DB voor PostgreSQL](known-issues-azure-postgresql-online.md)
+## Video's
+### [De handleiding voor databasemigratie gebruiken](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
+### [Het migratieproces en aanbevolen hulpprogramma's/services](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
+### [Adresvereisten en een DMS-exemplaar maken](https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/)
+### [SQL Server 2008 migreren naar Azure SQL Database Managed Instance](https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/)
+### [PostgreSQL online migreren naar Azure Database for PostgreSQL](https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/)
+### [Een online migratie bewaken en cutover uitvoeren](https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/)
+### [Oracle migreren naar Azure SQL Database](https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/)
+### [MongoDB migreren naar Azure Cosmos DB](https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/)
+## Hulpprogramma's en richtlijnen
+### [Services en hulpprogramma's voor gegevensmigratiescenario's](dms-tools-matrix.md)
+### [Handleiding voor databasemigratie](https://aka.ms/datamigration)
+### [Gegevensmigratieassistent](https://aka.ms/dma)
+### [SQL Server Migration Assistant](https://aka.ms/ssma)
+### [Database Experimentation Assistant](https://aka.ms/dea-docs)
 ## [Veelgestelde vragen](faq.md)
 ## [Feedback van gebruikers](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Prijzen](https://aka.ms/dms-pricing)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=database-migration)
-## [Handleiding voor databasemigratie](https://aka.ms/datamigration)
-## [Gegevensmigratieassistent](https://aka.ms/dma)
-## [SQL Server Migration Assistant](https://aka.ms/ssma)
-## [Database Experimentation Assistant](https://aka.ms/dea-docs)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)

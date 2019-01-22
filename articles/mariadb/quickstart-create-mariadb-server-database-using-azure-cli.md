@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190325"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359320"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Een Azure Database for MariaDB-server maken met behulp van de Azure CLI
 
@@ -59,10 +59,10 @@ versie | **10.2** | De versie van de hoofd-engine van MariaDB.
 admin-user | **myadmin** | De gebruikersnaam voor aanmelding als beheerder. De parameter voor **admin-user** kan niet **azure_superuser**, **admin**, **administrator**, **root**, **guest** of **public** zijn.
 admin-password | *Uw wachtwoord* | Het wachtwoord van het beheerdersaccount. Uw wachtwoord moet tussen 8 en 128 tekens bevatten. Het moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers en niet-alfanumerieke tekens.
 
-De parameterwaarde voor de **sku-naam** volgt de conventie *prijscategorie*\_*compute-bewerking*\_*vCores*, zoals te zien is in de onderstaande voorbeelden:
-+ `--sku-name B_Gen5_4` wordt toegewezen aan de prijscategorie Basic, de Gen 5-bewerking voor compute en 4 vCores.
-+ `--sku-name GP_Gen5_32` wordt toegewezen aan de prijscategorie Algemeen gebruik, de Gen 5-bewerking voor compute en 32 vCores.
-+ `--sku-name MO_Gen5_2` wordt toegewezen aan de prijscategorie Geoptimaliseerd voor geheugen, de Gen 5-bewerking voor compute en 2 vCores.
+De parameterwaarde voor de sku-naam volgt de conventie {prijscategorie} \_{compute-generatie}\_{vCores}, zoals in de onderstaande voorbeelden:
++ `--sku-name B_Gen5_1` komt overeen met Basic, Gen 5 en 1 vCore. Deze optie is de kleinst beschikbare SKU.
++ `--sku-name GP_Gen5_32` komt overeen met Algemeen gebruik, Gen 5 en 32 vCores.
++ `--sku-name MO_Gen5_2` komt overeen met Geoptimaliseerd voor geheugen, Gen 5 en 2 vCores.
 
 Zie [Prijscategorieën](./concepts-pricing-tiers.md) voor meer informatie over geldige waarden per regio en voor de categorieën.
 

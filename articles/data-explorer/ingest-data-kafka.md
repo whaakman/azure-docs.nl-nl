@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b53c26f265cc5d944c8e15ae5bf436e8f71dcc2f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117364"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352730"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Quickstart: Gegevens uit Kafka opnemen in Azure Data Explorer
  
-Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (het laden van gegevens) uit Kafka. Kafka is een gedistribueerd streamingplatform voor het bouwen van pijplijnen voor realtime streaminggegevens, waarmee gegevens op betrouwbare wijze worden verplaatst tussen systemen of toepassingen. 
+Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Azure Data Explorer biedt opname (het laden van gegevens) uit Kafka. Kafka is een gedistribueerd streamingplatform voor het bouwen van pijplijnen voor realtime streaminggegevens, waarmee gegevens op betrouwbare wijze worden verplaatst tussen systemen of toepassingen.
  
 ## <a name="prerequisites"></a>Vereisten
  
@@ -30,9 +30,11 @@ Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logb
 * [Visual Studio 2017-versie 15.3.2 of groter](https://www.visualstudio.com/vs/) om de voorbeeld-app uit te voeren
  
 ## <a name="kafka-connector-setup"></a>Kafka-connector instellen
+
 Kafka Connect is een hulpprogramma voor het schaalbaar en betrouwbaar streamen van gegevens tussen Apache Kafka en andere systemen. Hiermee kunt u eenvoudig en snel connectors definiëren die grote verzamelingen gegevens naar en van Kafka verplaatsen. De ADX Kafka Sink fungeert als de connector vanuit Kafka.
  
-### <a name="bundle"></a>Bundel 
+### <a name="bundle"></a>Bundel
+
 Kafka kan een `.jar` laden als een invoegtoepassing die als een aangepaste connector zal fungeren. Voor het produceren van een dergelijke `.jar`, wordt de code lokaal gekloond en gecompileerd met behulp van Maven. 
 
 #### <a name="clone"></a>Klonen
@@ -41,7 +43,7 @@ Kafka kan een `.jar` laden als een invoegtoepassing die als een aangepaste conne
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
- 
+
 #### <a name="build"></a>Ontwikkelen
 
 Compileer lokaal met Maven om een `.jar`, compleet met afhankelijkheden te produceren.
@@ -55,9 +57,9 @@ Voor in de basismap *kafka-sink-azure-kusto* het volgende uit:
 ```bash
 mvn clean compile assembly:single
 ```
- 
+
 ### <a name="deploy"></a>Implementeren 
- 
+
 Laad de invoegtoepassing in Kafka. Een implementatievoorbeeld met behulp van docker kunt u vinden in [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
 
@@ -112,13 +114,16 @@ Maak een tabel in ADX waarnaar Kafka gegevens kan verzenden. Maak de tabel in he
 Nu het Kafka-cluster is verbonden met ADX, gebruikt u de [voorbeeld-app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) die u hebt gedownload om gegevens te genereren.
 
 ### <a name="clone"></a>Klonen
+
 U kunt als volgt de voorbeeld-app lokaal klonen:
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
+
 ### <a name="run-the-app"></a>De app uitvoeren
+
 1. Open de voorbeeld-app in Visual Studio.
 
 1. Wijzig in het bestand `Program.cs` de constante `connectionString` in uw Kafka-verbindingsreeks.
@@ -131,7 +136,7 @@ cd ./azure-kusto-samples-dotnet/kafka/
 
 1. Wanneer de app een aantal berichten heeft verzonden, gaat u verder met de volgende stap.
  
-## <a name="query-and-review-the-data"></a>Query's uitvoeren en de gegevens controleren 
+## <a name="query-and-review-the-data"></a>Query's uitvoeren en de gegevens controleren
 
 1. U controleert als volgt of er tijdens de opname geen fouten zijn opgetreden:
 

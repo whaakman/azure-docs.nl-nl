@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089799"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230557"
 ---
 # <a name="what-is-azure-iot-edge"></a>Wat is Azure IoT Edge?
 
@@ -27,7 +27,7 @@ Azure IoT Edge verplaatst cloud-analyse en aangepaste bedrijfslogica naar appara
 Analyses stimuleren bedrijfswaarde in IoT-oplossingen, maar niet alle analyses hoeven zich in de cloud te bevinden. Als u wilt dat een apparaat zo snel mogelijk op noodsituaties reageert, kunt u anomaliedetectie uitvoeren op het apparaat zelf. Op dezelfde manier kunt u bandbreedtekosten verlagen en de overdracht van terabytes van onbewerkte gegevens voorkomen door lokaal gegevensopschoning en aggregatie uit te voeren. Verzend de inzichten vervolgens naar de cloud. 
 
 Azure IoT Edge bestaat uit drie onderdelen:
-* IoT Edge-modules zijn containers die Azure-services, services van derden of uw eigen code uitvoeren. Ze zijn geïmplementeerd op IoT Edge-apparaten en voeren lokaal uit op deze apparaten. 
+* IoT Edge-modules zijn containers die Azure-services, services van derden of uw eigen code uitvoeren. De modules zijn geïmplementeerd op IoT Edge-apparaten en worden lokaal uitgevoerd op deze apparaten. 
 * De IoT Edge-runtime wordt op elk IoT Edge-apparaat uitgevoerd en beheert de modules die op elk apparaat zijn geïmplementeerd. 
 * Met een cloudinterface kunt u op afstand de IoT Edge-apparaten controleren en beheren.
 
@@ -41,31 +41,29 @@ Met Azure IoT Edge kunt u verwerking van complexe gebeurtenissen, machine learni
 
 ### <a name="bring-your-own-code"></a>Uw eigen code gebruiken
 
-Als u uw eigen code op uw apparaten wilt implementeren, ondersteunt Azure IoT Edge deze ook. Azure IoT Edge bevat hetzelfde programmeermodel als de andere Azure IoT-services. Dezelfde code kan worden uitgevoerd op een apparaat of in de cloud. Azure IoT Edge ondersteunt Linux en Windows, dus u kunt coderen voor het platform van uw keuze. Het programma biedt ondersteuning voor Java, .NET Core 2.0, Node.js, C en Python. Uw ontwikkelaars kunnen dus in een taal coderen die ze al kennen en bestaande bedrijfslogica gebruiken zonder deze helemaal zelf te schrijven.
+Als u uw eigen code op uw apparaten wilt implementeren, ondersteunt Azure IoT Edge deze ook. Azure IoT Edge bevat hetzelfde programmeermodel als de andere Azure IoT-services. Dezelfde code kan worden uitgevoerd op een apparaat of in de cloud. Azure IoT Edge ondersteunt Linux en Windows, dus u kunt coderen voor het platform van uw keuze. Het programma biedt ondersteuning voor Java, .NET Core 2.0, Node.js, C en Python. Uw ontwikkelaars kunnen dus in een taal coderen die ze al kennen en bestaande bedrijfslogica gebruiken.
 
 ## <a name="iot-edge-runtime"></a>IoT Edge-runtime
 
 De Azure IoT Edge-runtime maakt aangepaste en cloudlogica op IoT Edge-apparaten mogelijk. Deze bevindt zich op het IoT Edge-apparaat en voert beheer- en communicatiebewerkingen uit. De runtime voert verschillende functies uit:
 
-* Installeert workloads op het apparaat en werkt deze bij.
-* Onderhoudt de Azure IoT Edge-beveiligingsstandaarden op het apparaat.
-* Zorgt ervoor dat de IoT Edge-modules altijd worden uitgevoerd.
-* Rapporteert de status van de module aan de cloud voor externe bewaking.
-* Vergemakkelijkt de communicatie tussen downstream leaf-apparaten en het IoT Edge-apparaat.
-* Vergemakkelijkt de communicatie tussen modules op het IoT Edge-apparaat.
-* Vergemakkelijkt de communicatie tussen het IoT Edge-apparaat en de cloud.
+* Workloads op het apparaat installeren en bijwerken.
+* De Azure IoT Edge-beveiligingsstandaarden op het apparaat onderhouden.
+* Ervoor zorgen dat de IoT Edge-modules altijd worden uitgevoerd.
+* De status van de module aan de cloud rapporteren voor externe bewaking.
+* De communicatie tussen downstream bladknooppuntapparaten en een IoT Edge-apparaat, tussen modules op een IoT Edge-apparaat en tussen een IoT Edge-apparaat en de cloud beheren.
 
 ![IoT Edge-runtime verzendt inzichten en rapportages naar IoT Hub](./media/about-iot-edge/runtime.png)
 
-Hoe u een Azure IoT Edge-apparaat gebruikt, is volledig aan u. De runtime wordt vaak gebruikt voor de implementatie van AI in gateways die gegevens van meerdere andere lokale apparaten aggregeren en verwerken. Dit is echter slechts één optie. Leaf-apparaten kunnen ook Azure IoT Edge-apparaten zijn, ongeacht of ze zijn aangesloten op een gateway of rechtstreeks verbonden zijn met de cloud.
+Hoe u een Azure IoT Edge-apparaat gebruikt, is aan u. De runtime wordt vaak gebruikt voor de implementatie van AI in gateways die gegevens van meerdere andere lokale apparaten aggregeren en verwerken. Dit implementatiemodel is echter slechts één optie. Leaf-apparaten kunnen ook Azure IoT Edge-apparaten zijn, ongeacht of ze zijn aangesloten op een gateway of rechtstreeks verbonden zijn met de cloud.
 
-De Azure IoT Edge-runtime wordt uitgevoerd op een groot aantal IoT-apparaten, zodat u de runtime op tal van manieren kunt gebruiken. Deze biedt ondersteuning voor Linux- en Windows-besturingssystemen en abstraheert hardwaregegevens. Gebruik een apparaat dat kleiner is dan een Raspberry Pi 3 als u niet veel gegevens verwerkt of schaal omhoog tot een geïndustrialiseerde server om resource-intensieve workloads uit te voeren.
+De Azure IoT Edge-runtime wordt uitgevoerd op een groot aantal IoT-apparaten, zodat u de runtime op tal van manieren kunt gebruiken. Deze biedt ondersteuning voor Linux- en Windows-besturingssystemen en abstraheert hardwaregegevens. Gebruik een apparaat dat kleiner is dan een Raspberry Pi 3 als u niet veel gegevens verwerkt of gebruik een geïndustrialiseerde server om resource-intensieve workloads uit te voeren.
 
 ## <a name="iot-edge-cloud-interface"></a>Cloudinterface van IoT Edge
 
 Het beheer van de softwarelevenscyclus voor bedrijfsapparaten is ingewikkeld. Het beheer van de softwarelevenscyclus voor miljoenen heterogene IoT-apparaten is nog moeilijker. Workloads moeten voor een bepaald type apparaat worden gemaakt en geconfigureerd, moeten op schaal op miljoenen apparaten in uw oplossing worden geïmplementeerd en moeten worden gecontroleerd om apparaten die zich niet normaal gedragen eruit te halen. Deze activiteiten kunnen niet per apparaat worden uitgevoerd, maar moeten op schaal worden uitgevoerd.
 
-Azure IoT Edge integreert naadloos met Azure IoT-oplossingsversnellers en biedt één controlelaag voor de behoeften van uw oplossing. Met cloudservices kunnen gebruikers het volgende doen:
+Azure IoT Edge integreert naadloos met Azure IoT-oplossingsversnellers en biedt één controlelaag voor de behoeften van uw oplossing. Met cloudservices kunt u het volgende doen:
 
 * een workload maken en configureren die op een specifiek type apparaat wordt uitgevoerd;
 * een workload verzenden naar een reeks apparaten;

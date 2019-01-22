@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741637"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242944"
 ---
 # <a name="what-is-azure-custom-vision"></a>Wat is Azure Custom Vision?
 
@@ -27,7 +27,7 @@ De Custom Vision Service gebruikt een Machine Learning-algoritme om afbeeldingen
 
 ### <a name="classification-and-object-detection"></a>Classificatie- en objectdetectie
 
-Custom Vision-functionaliteit kan worden onderverdeeld in twee functies. Met **Afbeeldingsclassificatie** wordt een verdeling van classificaties toegewezen aan elke afbeelding. **Objectdetectie** is vergelijkbaar, maar hiermee worden ook de coördinaten van de afbeelding geretourneerd waar de toegepaste tags kunnen worden gevonden.
+Custom Vision-functionaliteit kan worden onderverdeeld in twee functies. Met **Afbeeldingsclassificatie** wordt een verdeling van classificaties toegewezen aan elke afbeelding. Classificatiemodellen met meerdere klassen (één tag per afbeelding) en meerdere labels (een willekeurig aantal tags per afbeelding) worden beide ondersteund. **Objectdetectie** is vergelijkbaar met classificatie met meerdere labels, maar hiermee worden ook de coördinaten van de afbeelding geretourneerd waar de toegepaste labels kunnen worden gevonden.
 
 ### <a name="optimization"></a>Optimalisatie
 
@@ -39,6 +39,10 @@ Daarnaast kunt u kiezen uit verschillende Custom Vision-algoritmen die zijn geop
 De Custom Vision Service is beschikbaar als een set met systeemeigen SDK’s of via een webinterface op de [Custom Vision-startpagina](https://customvision.ai/). U kunt een model of een interface maken, testen en trainen, of beide.
 
 ![Custom Vision-startpagina in een Chrome-browservenster](media/browser-home.png)
+
+## <a name="data-privacy-and-security"></a>Gegevensprivacy en -beveiliging
+
+Zoals geldt voor alle Cognitive Services, dienen ontwikkelaars die de Custom Vision-service gebruiken op de hoogte te zijn van het beleid van Microsoft inzake klantgegevens. Zie de [pagina Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) (Engelstalig) in het Microsoft Trust Center voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

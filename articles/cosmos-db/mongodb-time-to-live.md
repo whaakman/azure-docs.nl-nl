@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 1bfe79c502361e6cf9616c3ba61e781fb7ce92ac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 390cd17d667785c7bf9531d86dab00bc922a2df5
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032853"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351723"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Gegevens automatisch laten verlopen met de Azure Cosmos DB-API voor MongoDB
 
@@ -55,7 +55,7 @@ De TTL-waarde moet van het type int32 zijn. Alternatieven zijn een int64 die pas
 
 De TTL-waarde voor het document is optioneel. Er kunnen ook documenten zonder een TTL-waarde worden ingevoegd in de verzameling.  In dit geval wordt de TTL-waarde van de verzameling gebruikt. 
 
-De volgende documenten hebben geldige TTL waarden. Zodra de documenten zijn ingevoegd, vervangen de TTL-waarden van het document de TTL-waarden van de verzameling. Dit houdt in dat de documenten na 20 seconden worden verwijderd.  
+De volgende documenten hebben geldige TTL waarden. Zodra de documenten zijn ingevoegd, vervangen de TTL-waarden van het document de TTL-waarden van de verzameling. Dit houdt in dat de documenten na 20 seconden worden verwijderd.   
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 

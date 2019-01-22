@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a05ab716c8aea958e13ebba0dc9ceb09bf3d7cce
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b873dbd3132e549c529280400d5a9644174232f9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913526"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259019"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Snelstart: Translator Speech-API met C# 
 <a name="HOLTop"></a>
@@ -26,7 +26,7 @@ In dit artikel leest u hoe de Translator Speech-API gebruikt voor het vertalen v
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.) Als u Mac OS of Linux gebruikt, kunt u ook de teksteditor [Visual Studio Code] gebruiken (https://code.visualstudio.com/Download) als alternatief.
+U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.) Als u Mac OS of Linux gebruikt, kunt u ook de teksteditor [Visual Studio Code](https://code.visualstudio.com/Download) gebruiken als alternatief.
 
 In de map met het uitvoerbare bestand dat u maakt op basis van de volgende code moet ook een WAV-bestand staan met de naam speak.wav. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono.
 

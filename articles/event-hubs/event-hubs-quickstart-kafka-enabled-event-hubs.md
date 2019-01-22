@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: d6e293b80df1ab227a3100040a54b189f48d8027
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19d903a4083c432ac3932189ad8a6890be9014fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102806"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354226"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Streamen naar Event Hubs voor Apache Kafka
 Deze snelstart laat zien hoe u kunt streamen naar Event Hubs waarvoor Kafka is ingeschakeld zonder uw protocolclients te wijzigen of uw eigen clusters uit te voeren. U leert hoe u uw producenten kunt gebruiken en consumenten met Event Hubs waarvoor Kafka is ingeschakeld, kunnen praten met slechts een configuratiewijziging in uw toepassingen. Azure Event Hubs ondersteunt [Apache Kafka versie 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -34,13 +34,13 @@ Zorg ervoor dat u aan de volgende vereisten voldoet om deze snelstart uit te voe
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken waarvoor Kafka is ingeschakeld
 
-1. Meld u aan bij de [Azure-portal] [Azure-portal] en klik linksboven in het scherm op **Een resource maken**.
+1. Meld u aan bij de [Microsoft Azure-portal](https://portal.azure.com) en klik op **Een resource maken** linksboven in het scherm.
 
 2. Zoek naar Event Hubs en selecteer de hier getoonde opties:
     
     ![Zoeken naar Event Hubs in de portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Geef een unieke naam op en schakel Kafka in op de naamruimte. Klik op **Create**.
+3. Geef een unieke naam op en schakel Kafka in op de naamruimte. Klik op **Create**. Opmerking: Event Hubs voor Kafka wordt alleen ondersteund door Event Hubs van de categorie Standard en Dedicated. Door Event Hubs van de categorie Basic wordt een onderwerpautorisatiefout geretourneerd als reactie op Kafka-bewerkingen.
     
     ![Een naamruimte maken](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

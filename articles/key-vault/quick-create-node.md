@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2b114a4aed812a91a9f6c4ed43f57411e47ea677
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714391"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260025"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app 
 
@@ -27,7 +27,7 @@ In deze snelstart wordt getoond hoe u een geheim in Key Vault kunt opslaan en he
 > * Een geheim opslaan in Key Vault.
 > * Een geheim lezen uit Key Vault.
 > * Een Azure-webtoepassing maken.
-> * Schakel een [beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) in voor de web-app.
+> * Schakel een [Beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) in voor de web-app.
 > * De vereiste machtigingen verlenen aan de webtoepassing om gegevens te lezen uit Key Vault.
 
 Controleer voordat u verdergaat of u bekend bent met de [basisbeginselen](key-vault-whatis.md#basic-concepts).

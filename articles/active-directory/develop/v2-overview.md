@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88904b27e114c27dc7b1051c755d3c831c90554f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286687"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232463"
 ---
 # <a name="about-v20"></a>Over v2.0
 
@@ -30,13 +30,13 @@ Het v2.0-eindpunt en -platform verkeren in de preview-fase en worden voortdurend
 > [!NOTE]
 > De functies voor MSAL Android, iOS en .NET zijn nog in ontwikkeling. U kunt ze gebruiken voor het bouwen van toepassingen en ons feedback geven.
 
-De ontwikkelaarservaring van Azure Portal is aanzienlijk bijgewerkt en omvat nu al uw toepassingen die zijn gebouwd met ADAL of MSAL. Daarnaast is de bruikbaarheid verbeterd.
+De [App-registraties (preview)](quickstart-register-app.md)-ervaring in de Azure-portal is aanzienlijk bijgewerkt en omvat nu al uw met ADAL of MSAL gebouwde toepassingen. Daarnaast is de bruikbaarheid verbeterd.
 
 In het verleden moesten toepassingsontwikkelaars die zowel persoonlijke Microsoft-accounts als werkaccounts wilden ondersteunen vanuit Azure Active Directory (Azure AD) hun toepassingen integreren in twee afzonderlijke systemen. Het v2.0-eindpunt en -platform biedt een API-versie voor verificatie die dit proces vereenvoudigt. Deze maakt aanmelding vanaf beide typen accounts mogelijk met behulp van een eenmalige integratie. Toepassingen die het v2.0-eindpunt gebruiken, kunnen met een van beide accounttypen ook gebruikmaken van de REST API's van de [Microsoft Graph API](https://developer.microsoft.com/graph).
 
 ## <a name="getting-started"></a>Aan de slag
 
-Kies uw favoriete platform in de volgende lijst om een toepassing te bouwen met behulp van de open-source bibliotheken en frameworks van Microsoft. U kunt ook de protocollen OAuth 2.0 en OpenID Connect gebruiken om protocolberichten rechtstreeks te verzenden en te ontvangen, zonder een verificatiebibliotheek te gebruiken.
+Kies uw favoriete platform in de volgende lijst om een toepassing te bouwen met behulp van de open-source bibliotheken en frameworks van Microsoft:
 
 [!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -46,14 +46,12 @@ Meer informatie over wat u met het Azure AD v2.0-eindpunt kunt doen:
 
 * Ontdek de [typen toepassingen die u met het Azure AD v2.0-eindpunt kunt maken](v2-app-types.md).
 * Inzicht in de [beperkingen](active-directory-v2-limitations.md) met het Azure AD v2.0-eindpunt.
-* Bekijk deze video voor een overzicht van het Azure AD v2.0-eindpunt:
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 Gedetailleerde informatie over v2.0 verkennen:
 
+* [Over het Microsoft Identity Platform](about-microsoft-identity-platform.md)
 * [Naslaginformatie over v2.0-protocollen](active-directory-v2-protocols.md)
 * [Naslaginformatie voor Access-tokens](access-tokens.md)
 * [Naslaginformatie voor id-tokens](id-tokens.md)

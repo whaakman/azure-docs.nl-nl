@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: een werkstroom uitvoeren via Microsoft Genomics'
+title: 'Quickstart: Een werkstroom uitvoeren via Microsoft Genomics'
 description: In de snelstartgids wordt uitgelegd hoe u invoergegevens kunt laden in Azure Blob Storage en een werkstroom kunt uitvoeren via de service Microsoft Genomics.
 services: genomics
 author: grhuynh
@@ -7,26 +7,26 @@ manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: 152aa51c6dee12216dc9e5fac70f43f638c2c8da
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/11/2019
+ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242854"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261686"
 ---
-# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snelstartgids: een werkstroom uitvoeren via de service Microsoft Genomics
+# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snelstart: Een werkstroom uitvoeren via de Microsoft Genomics-service
 
 In deze snelstartgids wordt uitgelegd hoe u invoergegevens kunt laden in Azure Blob Storage en een werkstroom kunt uitvoeren via de service Microsoft Genomics. Microsoft Genomics is een schaalbare, veilige service voor secundaire analyse waarbij genomen snel kunnen worden verwerkt. Hierbij wordt begonnen met onbewerkte leesbewerkingen en worden vervolgens uitgelijnde leesbewerkingen en variant-aanroepen geproduceerd. 
 
 Ga in een paar stappen aan de slag: 
-1.  Instellen: maak een Genomics Microsoft-account via Azure Portal en installeer de Python-client voor Microsoft Genomics in uw lokale omgeving. 
-2.  Invoergegevens uploaden: maak een Microsoft Azure-opslagaccount via Azure Portal en upload vervolgens de invoerbestanden. De invoerbestanden moeten leesbewerkingen voor eindsequenties zijn (fastq- of bam-bestanden).
-3.  Uitvoeren: gebruik de opdrachtregelinterface van Microsoft Genomics voor het uitvoeren van werkstromen via de service Microsoft Genomics. 
+1.  Instellen: Maak een Microsoft Genomics-account via de Azure-portal en installeer de Python-client voor Microsoft Genomics in uw lokale omgeving. 
+2.  Invoergegevens uploaden: Maak een Microsoft Azure-opslagaccount via de Azure-portal en upload vervolgens de invoerbestanden. De invoerbestanden moeten leesbewerkingen voor eindsequenties zijn (fastq- of bam-bestanden).
+3.  Uitvoeren: Gebruik de opdrachtregelinterface van Microsoft Genomics voor het uitvoeren van werkstromen via de service Microsoft Genomics. 
 
 Zie [Wat is Microsoft Genomics?](overview-what-is-genomics.md) voor meer informatie over Microsoft Genomics.
 
-## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Instellen: een Microsoft Genomics-account in Azure Portal maken
+## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Instellen: Een Microsoft Genomics-account maken in de Azure-portal
 
 Ga voor het maken van een Microsoft Genomics-account naar [Azure Portal](https://portal.azure.com/#create/Microsoft.Genomics). Als u nog geen Azure-abonnement hebt, maakt u er een voordat u een Microsoft Genomics-account maakt. 
 
@@ -38,9 +38,9 @@ Configureer uw Genomics-account met de volgende informatie, zoals weergegeven in
 
  |**Instelling**          |  **Voorgestelde waarde**  | **Beschrijving van veld** |
  |:-------------       |:-------------         |:----------            |
- |Accountnaam         | MyGenomicsAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
  |Abonnement         | De naam van uw abonnement|Dit is de factureringseenheid voor uw Azure-services; zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
  |Resourcegroep       | MyResourceGroup       |  Met resourcegroepen kunt u meerdere Azure-resources (opslagaccount, Genomics-account enzovoort) in één groep indelen voor eenvoudig beheer. Zie [Resourcegroepen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) voor meer informatie. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
+ |Accountnaam         | MyGenomicsAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
  |Locatie                   | US - west 2                    |    De service is beschikbaar in US - west 2, Europa - west en Azië - zuidoost |
 
 
@@ -51,7 +51,7 @@ U kunt in de bovenste menubalk op Meldingen klikken om het implementatieproces t
 
 
 
-## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Instellen: de Python-client voor Microsoft Genomics installeren
+## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Instellen: De Python-client voor Microsoft Genomics installeren
 
 Gebruikers moeten Python en de Python-client voor Microsoft Genomics installeren in hun lokale omgeving. 
 
@@ -59,7 +59,7 @@ Gebruikers moeten Python en de Python-client voor Microsoft Genomics installeren
 
 De Python-client voor Microsoft Genomics is compatibel met Python 2.7. versie 12 of hoger 2.7.xx; 2.7.15 is de meest recente versie op het moment van dit artikel; 2.7.14 is de aanbevolen versie. U vindt de download [hier](https://www.python.org/downloads/). 
 
-Opmerking: Python 3.x is niet compatibel met Python 2.7.xx.  MSGen is een Python 2.7-toepassing. Zorg er bij het uitvoeren van MSGen voor dat uw actieve Python-omgeving een 2.7.xx-versie van Python gebruikt. Er treden mogelijk fouten op bij gebruik van MSGen met een 3.x-versie van Python.
+OPMERKING: Python 3.x is niet compatibel met Python 2.7.xx.  MSGen is een Python 2.7-toepassing. Zorg er bij het uitvoeren van MSGen voor dat uw actieve Python-omgeving een 2.7.xx-versie van Python gebruikt. Er treden mogelijk fouten op bij gebruik van MSGen met een 3.x-versie van Python.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>De Microsoft Genomics-client installeren
@@ -112,28 +112,22 @@ Als u uw gegevens al in een Azure-opslagaccount hebt, hoeft u alleen ervoor te z
 
 ![Blade maken opslag](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Blade maken opslag")
 
-Configureer uw Storage-account met de volgende informatie, zoals weergegeven in de vorige afbeelding. Gebruik de meeste van de standaardopties voor een opslagaccount en geef alleen op dat het account blob-opslag is en niet algemeen. Blob-opslag kan twee tot vijf keer sneller zijn voor downloads en uploads. 
+Configureer uw Storage-account met de volgende informatie, zoals weergegeven in de vorige afbeelding. Gebruik de meeste van de standaardopties voor een opslagaccount en geef alleen op dat het account blob-opslag is en niet algemeen. Blob-opslag kan twee tot vijf keer sneller zijn voor downloads en uploads.  Het standaardimplementatiemodel, Resource Manager, wordt aanbevolen.  
 
 
  |**Instelling**          |  **Voorgestelde waarde**  | **Beschrijving van veld** |
  |:-------------------------       |:-------------         |:----------            |
- |Naam         | MyStorageAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
- |Implementatiemodel         | Resource Manager| Resource Manager is het aanbevolen implementatiemodel. Zie [Understanding Resource Manager deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) (Resource Manager-implementatie begrijpen) voor meer informatie. |      
- |Soort account       | Blob Storage       |  Blob-opslag kan twee tot vijf keer sneller zijn dan algemeen gebruik voor downloads en uploads. |
- |Prestaties                  | Standard                   | Standard is de standaardinstelling. Zie [Kennismaking met Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) voor meer informatie over standaard- en premium-opslagaccounts.    |
- |Replicatie                  | Lokaal redundante opslag                  | Lokaal redundante opslag repliceert uw gegevens in het datacenter in de regio waarin u uw opslagaccount hebt gemaakt. Zie [Azure Storage-replicatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy) voor meer informatie.    |
- |Veilige overdracht vereist                  | Uitgeschakeld                 | Uitgeschakeld is de standaardinstelling. Zie [Veilige overdracht vereisen](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) voor meer informatie over de beveiliging van gegevensoverdracht.    |
- |Toegangslaag                  | Warm                   | De toegangslaag Hot geeft aan dat de objecten in het opslagaccount regelmatig worden gebruikt.    |
  |Abonnement         | Uw Azure-abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
  |Resourcegroep       | MyResourceGroup       |  U kunt dezelfde resourcegroep als voor uw Genomics-account gebruiken. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
- |Locatie                  | US - west 2                  | Gebruik dezelfde locatie als de locatie van uw Genomics-account om uitvoerkosten te verminderen en latentie te beperken. De Genomics-service is beschikbaar in US - west 2, US - oost 2, Europa - west en Azië - zuidoost    |
- |Virtuele netwerken                | Uitgeschakeld                   | Uitgeschakeld is de standaardinstelling. Zie [Virtuele netwerken van Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) voor meer informatie.    |
+ |Naam van opslagaccount         | MyStorageAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
+ |Locatie                  | US - west 2                  | Gebruik dezelfde locatie als de locatie van uw Genomics-account om uitvoerkosten te verminderen en latentie te beperken.  | 
+ |Prestaties                  | Standard                   | Standard is de standaardinstelling. Zie [Kennismaking met Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) voor meer informatie over standaard- en premium-opslagaccounts.    |
+ |Soort account       | Blob Storage       |  Blob-opslag kan twee tot vijf keer sneller zijn dan algemeen gebruik voor downloads en uploads. |
+ |Replicatie                  | Lokaal redundante opslag                  | Lokaal redundante opslag repliceert uw gegevens in het datacenter in de regio waarin u uw opslagaccount hebt gemaakt. Zie [Azure Storage-replicatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy) voor meer informatie.    |
+ |Toegangslaag                  | Warm                   | De toegangslaag Hot geeft aan dat de objecten in het opslagaccount regelmatig worden gebruikt.    |
 
 
-
-
-
-Klik vervolgens op Maken om het opslagaccount te maken. Net als bij het maken van uw Genomics-account, kunt u in de bovenste menubalk op Meldingen klikken om het implementatieproces te controleren. 
+Klik vervolgens op `Review + create` om het opslagaccount te maken. Net als bij het maken van uw Genomics-account, kunt u in de bovenste menubalk op Meldingen klikken om het implementatieproces te controleren. 
 
 
 ## <a name="upload-input-data-to-your-storage-account"></a>De invoergegevens naar uw opslagaccount uploaden
@@ -156,6 +150,11 @@ Open het bestand config.txt dat u van uw Genomics-account hebt gedownload. De ge
 
 
 ![Config Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Config Genomics")
+
+
+Als u graag GATK4 wilt uitvoeren, stelt u de parameter `process_name` in op gatk4 of gatk4-promo. Ga naar [deze pagina](https://aka.ms/msgatk4) voor meer informatie over de GATK4-promotie.
+
+De Genomics-service voert standaard VCF-bestanden uit. Als u graag gVCF-uitvoer wilt in plaats van VCF-uitvoer (gelijk aan `-emitRefConfidence` in GATK 3.x en `emit-ref-confidence` in GATK 4.x), voegt u de parameter `emit_ref_confidence` toe aan uw `config.txt` en stelt u deze in op `gvcf`, zoals wordt weergegeven in de bovenstaande afbeelding.  Als u weer terug wilt naar VCF-uitvoer, verwijdert u deze uit het bestand `config.txt` of stelt u de parameter `emit_ref_confidence` in op `none`. 
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>De werkstroom in de service Microsoft Genomics verzenden met de client voor Microsoft Genomics
 

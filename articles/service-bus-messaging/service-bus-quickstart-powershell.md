@@ -1,6 +1,6 @@
 ---
-title: Snelstart - Berichten verzenden naar en ontvangen van Azure Service Bus | Microsoft Docs
-description: In deze snelstart leert u hoe u met behulp van PowerShell en de .NET Standard-client Service Bus-berichten verzendt en ontvangt
+title: 'Quickstart: Azure PowerShell gebruiken om een Service Bus-wachtrij te maken | Microsoft Docs'
+description: In deze quickstart leert u hoe u Azure PowerShell gebruikt om een Service Bus-wachtrij te maken. Vervolgens gebruikt u een voorbeeldtoepassing om berichten te verzenden naar en te ontvangen van de wachtrij.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242429"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259662"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Snelstart: Berichten verzenden en ontvangen met Azure PowerShell en .NET
-
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Quickstart: Azure PowerShell gebruiken om een Service Bus-wachtrij te maken
 Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en absoluut betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen en het overbrengen van status- of gegevenswijzigingen. Dergelijke scenario's kunnen betrekking hebben op het plannen van meerdere batchtaken in andere toepassingen of services, of het activeren van de orderafhandeling. Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een back-office of regionaal distributiecentrum verzenden voor het aanvullen en bijwerken van de voorraad. In dit scenario verzendt en ontvangt de client-app berichten naar en van een Service Bus-wachtrij.
 
 ![wachtrij](./media/service-bus-quickstart-powershell/quick-start-queue.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 9efb3c9bae790efed3d09274b1a77d7b8161d479
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9e425662a698f077c3a1b9b3ff1270384fd61374
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165234"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261244"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Overzicht van Azure DevOps Projects
 
@@ -35,7 +35,7 @@ ms.locfileid: "52165234"
 
 U kunt DevOps Projects gebruiken om:
 
-* Snel een toepassing te implementeren in Azure
+* Snel een toepassing implementeren in Azure
 * De installatie van een VSTS CI/CD-pijplijn te automatiseren
 * Te bekijken en begrijpen hoe u een CI/CD-pijplijn correct instelt
 * De release-pijplijnen verder aan te passen op basis van uw specifieke scenario's

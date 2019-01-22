@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713604"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246208"
 ---
 # <a name="overview-of-azure-notebooks"></a>Overzicht van Azure Notebooks
 
@@ -57,7 +57,7 @@ Kortom, met Azure Notebooks kunt u uw werk efficiënter uitvoeren en dus meer vo
 
 Azure Notebooks is een gratis service, maar elk project heeft een beperkt geheugen (4 GB) en een beperkte hoeveelheid gegevens (1 GB) om misbruik te voorkomen. Legitieme gebruikers die deze quota overschrijden, krijgen een captcha aangeboden als ze notebooks willen blijven gebruiken.
 
-Als u alle beperkingen wilt opheffen, koppelt u uw account aan een Azure-abonnement, waarna u Premium-rekenlagen kunt selecteren.
+Als u alle beperkingen wilt opheffen, meld u zich met behulp van Azure Active Directory aan bij Azure Notebooks met een account (bijvoorbeeld een zakelijk account). Als dit account is gekoppeld aan een Azure-abonnement, kunt u Azure Data Science Virtual Machine-rekenlagen gebruiken.
 
 ## <a name="available-kernels-and-environments"></a>Beschikbare kernels en omgevingen
 

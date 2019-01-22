@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/22/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 076948e7434802af7f0ad47f279335009817d40e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f7fef00cfff9295036d7545470f86e27314e6451
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209581"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258694"
 ---
 # <a name="what-is-azure-content-moderator"></a>Wat is Azure Content Moderator?
 
@@ -58,6 +58,9 @@ De Content Moderator-service bevat ook het webgebaseerde [hulpprogramma voor men
 
 Met de Beoordelen-API's kunt u teambeoordelingen instellen van tekst, afbeeldingen en video-inhoud, op basis van filters die u opgeeft. Daarna kunnen menselijke moderators de uiteindelijke toezichtsbeslissingen nemen. De service wordt niet getraind door menselijke invoer, maar de combinatie van het werk van de service en de menselijke beoordelingsteams zorgt voor een juiste balans tussen de efficiëntie en de nauwkeurigheid.
 
+## <a name="data-privacy-and-security"></a>Gegevensprivacy en -beveiliging
+Zoals geldt voor alle services van Cognitive Services, dienen ontwikkelaars die de Content Moderator-service gebruiken op de hoogte te zijn van het beleid van Microsoft inzake klantgegevens. Zie de [pagina Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) (Engelstalig) in het Microsoft Trust Center voor meer informatie.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Volg de [snelstart](quick-start.md) om aan de slag te gaan met Content Moderator.
+Ga aan de slag met de Content Moderator-service door de instructies in [Content Moderator op het web proberen](quick-start.md) te volgen.

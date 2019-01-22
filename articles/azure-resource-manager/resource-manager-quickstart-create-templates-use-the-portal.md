@@ -10,34 +10,38 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 15940d952dad62b3f71bfef6aa1cd8598d044605
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f989a006251313a8439432861477dc133374af35
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104723"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304666"
 ---
-# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snelstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal
+# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Quickstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal
 
-Leer hoe u uw eerste Azure Resource Manager-sjabloon maakt door er een via de Azure-portal te maken en hoe u de sjabloon vanuit de Azure-portal bewerkt en implementeert. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Met de instructies in deze zelfstudie wordt een Azure Storage-account gemaakt. U kunt dezelfde procedure gebruiken om andere Azure-resources te maken.
+Leer hoe u een Resource Manager-sjabloon kunt genereren met behulp van de Azure-portal, en hoe u de sjabloon vanuit de portal bewerkt en implementeert. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
+
+Na het voltooien van de zelfstudie implementeert u een Azure Storage-account. Hetzelfde proces kan worden gebruikt voor het implementeren van andere Azure-resources.
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="generate-a-template-using-the-portal"></a>Een sjabloon maken via de portal
 
-In deze sectie maakt u een Storage-account via Azure Portal. Voordat u het Storage-account implementeert, hebt u de optie de sjabloon te bekijken die op basis van uw configuraties in de portal is gemaakt. U kunt de sjabloon opslaan voor later gebruik.
+Het maken van een geheel nieuwe Resource Manager-sjabloon is geen gemakkelijke taak, vooral als Azure-implementatie nieuw voor u is en u niet bekend bent met de JSON-indeling. Met behulp van de Azure-portal kunt u een resource configureren, bijvoorbeeld een Azure Storage-account. Voordat u de resource implementeert, kunt u uw configuratie exporteren naar een Resource Manager-sjabloon. U kunt de sjabloon opslaan voor later gebruik.
+
+Veel ervaren sjabloonontwikkelaars gebruiken deze methode om werkende sjablonen te genereren wanneer ze proberen Azure-resources te implementeren waarmee ze niet vertrouwd zijn.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **Een resource maken** > **Opslag** > **Opslagaccount - blob, bestand, tabel, wachtrij**.
 
     ![Een Azure Storage-account in Azure Portal maken](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
-3. Voer de volgende informatie in. 
+3. Voer de volgende informatie in:
 
-    - **Resourcegroep**: maak een nieuwe Azure-resourcegroep met een naam naar keuze. In de schermafbeelding is de naam van de resourcegroep *mystorage1016rg*.
-    - **Naam**: geef het opslagaccount een unieke naam. In de schermafbeelding is de naam *mystorage1016*.
+    - **Resourcegroep**: Selecteer **Nieuwe maken** en geef een resourcegroepnaam naar keuze op. In de schermafbeelding is de naam van de resourcegroep *mystorage1016rg*. Een resourcegroep is een container voor Azure-resources. Een resourcegroep maakt het gemakkelijker Azure-resources te beheren.
+    - **Naam**: geef uw opslagaccount een unieke naam. In de schermafbeelding is de naam *mystorage1016*.
 
     Voor de overige eigenschappen kunt u de standaardwaarden gebruiken.
 
@@ -46,14 +50,14 @@ In deze sectie maakt u een Storage-account via Azure Portal. Voordat u het Stora
     > [!NOTE]
     > Sommige geëxporteerde sjablonen moeten worden bewerkt voordat u ze implementeren.
 
-4. Selecteer **Controleren + maken** onderaan in het scherm. 
+4. Selecteer **Controleren + maken** onderaan in het scherm.
 5. Selecteer **Een sjabloon voor automatisering downloaden** onderaan in het scherm. In de portal wordt de gegenereerde sjabloon weergegeven:
 
     ![Een sjabloon genereren via de portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    In het hoofdvenster wordt de sjabloon getoond. Het is een JSON-bestand met vier elementen van het hoogste niveau: `schema`, `contentVersion`, `parameters` en `resources`. Zie [Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen](./resource-group-authoring-templates.md) voor meer informatie
+    In het hoofdvenster wordt de sjabloon getoond. Het is een JSON-bestand met vier elementen van het hoogste niveau: `schema`, `contentVersion`, `parameters`, `variables`, `resources` en `output`. Zie [Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen](./resource-group-authoring-templates.md) voor meer informatie
 
-    Er zijn zes parameters gedefinieerd. Een van deze parameters heet **storageAccountName**. In het tweede gemarkeerde gedeelte ziet u hoe u deze parameter in de sjabloon gebruikt. In het volgende gedeelte bewerkt u de sjabloon zodat er voor het opslagaccount gebruik wordt gemaakt van een gegenereerde naam.
+    Er zijn zes parameters gedefinieerd. Een van deze parameters heet **storageAccountName**. In het tweede gemarkeerde gedeelte van de bovenstaande schermopname ziet u hoe u in de sjabloon naar deze parameter kunt verwijzen. In het volgende gedeelte bewerkt u de sjabloon zodat er voor het opslagaccount gebruik wordt gemaakt van een gegenereerde naam.
 
     In de sjabloon is er één Azure-resource gedefinieerd. Deze is van het type [Microsoft.Storage/storageAccounts]. Bekijk hoe de resource wordt gedefinieerd en wat de definitiestructuur is.
 6. Selecteer **Download**. Sla **template.json** uit het gedownloade pakket op op uw computer. In het volgende gedeelte gebruikt u een implementatiehulpprogramma voor sjablonen om de sjabloon te bewerken.
@@ -61,13 +65,13 @@ In deze sectie maakt u een Storage-account via Azure Portal. Voordat u het Stora
 
     ![Een sjabloon genereren via de portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    Met behulp van zowel de sjabloon- als de parameterbestanden kunt u een Azure Storage-account maken.
+    Met behulp van zowel de sjabloon- als de parameterbestanden kunt u een resource maken: in deze zelfstudie een Azure-opslagaccount.
 
 ## <a name="edit-and-deploy-the-template"></a>De sjabloon bewerken en implementeren
 
-U kunt de Azure-portal gebruiken om eenvoudige wijzigingen door te voeren in sjablonen. In deze snelstart gebruikt u het portalhulpprogramma *Sjabloonimplementatie*. Als u een complexere sjabloon wilt bewerken, kunt u gebruikmaken van [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md). Dit biedt meer functionaliteit.
+U kunt de Azure-portal gebruiken om eenvoudige wijzigingen door te voeren in sjablonen. In deze quickstart gebruikt u het portalhulpprogramma *Sjabloonimplementatie*. In deze zelfstudie wordt *Sjabloonimplementatie* gebruikt, zodat u de hele zelfstudie kunt doen met behulp van één interface: de Azure-portal. Als u een complexere sjabloon wilt bewerken, kunt u gebruikmaken van [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), dat meer bewerkingsfuncties heeft.
 
-Azure vereist dat elke Azure-service een unieke naam heeft. De implementatie mislukt als u de naam van een opslagaccount invoert dat al bestaat. Om dit probleem te vermijden, kunt u een sjabloon voor functieaanroepen, `uniquestring()`, gebruiken voor het genereren van een unieke opslagaccountnaam.
+Azure vereist dat elke Azure-service een unieke naam heeft. De implementatie mislukt als u de naam van een opslagaccount invoert dat al bestaat. Om dit probleem te vermijden, voegt u een aanroep naar de sjabloonfunctie `uniquestring()` toe aan de sjabloon om een unieke naam voor de opslagaccount te genereren.
 
 1. Selecteer in Azure Portal **Een resource maken**.
 2. In **Marketplace doorzoeken** typt u **sjabloonimplementatie**. Druk vervolgens op **ENTER**.
@@ -84,7 +88,7 @@ Azure vereist dat elke Azure-service een unieke naam heeft. De implementatie mis
     ```
     ![Azure Resource Manager-sjablonen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Er worden hier twee functies gebruikt: `concat()` en `uniqueString()`.
+    Er worden hier twee sjabloonfuncties gebruikt: `concat()` en `uniqueString()`.
 
 8. Verwijder de parameter **storageAccountName** die in de vorige schermafbeelding is gemarkeerd.
 9. Werk het naamelement bij van de resource **Microsoft.Storage/storageAccounts** voor gebruik van de nieuw gedefinieerde variabele in plaats van de parameter:
@@ -142,13 +146,13 @@ Azure vereist dat elke Azure-service een unieke naam heeft. De implementatie mis
 7. Selecteer **Opslaan**.
 8. Voer de volgende waarden in:
 
-    - **Resourcegroep**: geef de resourcegroep een unieke naam.
-    - **Locatie**: selecteer een locatie voor de resourcegroep.
-    - **Locatie**: selecteer een locatie voor het opslagaccount.  U kunt dezelfde locatie gebruiken als voor de resourcegroep.
-    - **Accounttype**: voer voor deze snelstart **Standard_LRS** in.
-    - **Soort**: voer voor deze snelstart **StorageV2** in.
-    - **Toegangslaag**: voer voor deze snelstart **Dynamisch** in.
-    - **Alleen HTTPS-verkeer ingeschakeld**.  Selecteer voor deze snelstart **true**.
+    - **Resourcegroep**: selecteer **Nieuwe maken** en geef de resourcegroep een unieke naam.
+    - **Locatie**: selecteer een locatie voor de resourcegroep. Bijvoorbeeld **US - centraal**. 
+    - **Locatie**: selecteer een locatie voor het opslagaccount. Bijvoorbeeld **US - centraal**.
+    - **Accounttype**: voer voor deze quickstart **Standard_LRS** in.
+    - **Soort**: voer voor deze quickstart **StorageV2** in.
+    - **Toegangslaag**: voer voor deze quickstart **Dynamisch** in.
+    - **Alleen HTTPS-verkeer ingeschakeld**.  Selecteer voor deze quickstart **true**.
     - **Ik ga akkoord met de bovenstaande voorwaarden**: (selecteren)
 
     Dit is een schermafbeelding van een voorbeeldimplementatie:
@@ -156,7 +160,7 @@ Azure vereist dat elke Azure-service een unieke naam heeft. De implementatie mis
     ![Implementatie van Azure Resource Manager-sjablonen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
 
 10. Selecteer **Aankoop**.
-11. Selecteer het belpictogram (meldingen) boven in het scherm om de implementatiestatus te zien. Wacht tot de implementatie is voltooid.
+11. Selecteer het belpictogram (meldingen) boven in het scherm om de implementatiestatus te zien. U ziet **Implementatie wordt uitgevoerd**. Wacht tot de implementatie is voltooid.
 
     ![Notificatie van implementatie van Azure Resource Manager-sjablonen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
 
@@ -177,7 +181,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een sjabloon genereert in Azure Portal en hoe u de sjabloon via de portal implementeert. De gebruikte sjabloon in deze snelstart is een eenvoudige sjabloon met één Azure-resource. Als de sjabloon complex is, kunt u beter Visual Studio Code of Visual Studio gebruiken om de sjabloon te ontwikkelen. In de volgende snelstart ziet u hoe u sjablonen ook kunt implementeren met Azure PowerShell en de Azure-opdrachtregelinterface (CLI).
+In deze zelfstudie hebt u geleerd hoe u een sjabloon genereert in Azure Portal en hoe u de sjabloon via de portal implementeert. De gebruikte sjabloon in deze quickstart is een eenvoudige sjabloon met één Azure-resource. Als de sjabloon complex is, kunt u beter Visual Studio Code of Visual Studio gebruiken om de sjabloon te ontwikkelen. In de volgende quickstart ziet u hoe u sjablonen ook kunt implementeren met Azure PowerShell en de Azure-opdrachtregelinterface (CLI).
 
 > [!div class="nextstepaction"]
 > [Create templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) (Sjablonen maken met Visual Studio Code)

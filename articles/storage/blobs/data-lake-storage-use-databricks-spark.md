@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548983"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321803"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Data Lake Storage Gen2 Preview-gegevens met Azure Databricks met behulp van Spark
 
@@ -36,12 +36,31 @@ In deze zelfstudie wordt getoond hoe u de vluchtgegevens kunt gebruiken en doorz
 2. Selecteer **Downloaden** en sla de resultaten op de computer op.
 3. Noteer de bestandsnaam en het pad voor de download. Deze gegevens hebt u nodig in een latere stap.
 
-U hebt een opslagaccount met analytische mogelijkheden nodig om deze zelfstudie te voltooien. We raden u aan om onze [quickstart](data-lake-storage-quickstart-create-account.md) over het onderwerp te voltooien om een nieuw opslagaccount te maken. Als u dit hebt gedaan, navigeert u vervolgens naar het opslagaccount om de configuratie-instellingen op te halen.
+U hebt een opslagaccount met analytische mogelijkheden nodig om deze zelfstudie te voltooien. We raden u aan om onze [quickstart](data-lake-storage-quickstart-create-account.md) over het onderwerp te voltooien om een nieuw opslagaccount te maken. 
 
-1. Selecteer bij **Instellingen** de optie **Toegangssleutels**.
-2. Selecteer naast **key1** de knop **Kopiëren** om de sleutelwaarde te kopiëren.
+## <a name="set-aside-storage-account-configuration"></a>Opslagaccountconfiguratie instellen
 
-Zowel de accountnaam als de sleutel hebt u nodig in latere stappen in deze zelfstudie. Open een teksteditor en noteer de accountnaam en sleutel voor later gebruik.
+U hebt de naam van uw opslagaccount en een eindpunt-URI voor het bestandssysteem nodig.
+
+Als u de naam van uw opslagaccount in de Azure-portal wilt ophalen, kiest u **Alle services** en filtert u op de term *opslag*. Selecteer vervolgens **Opslagaccounts** en zoek het opslagaccount.
+
+Als u de eindpunt-URI voor het bestandssysteem wilt ophalen, kiest u **Eigenschappen** en zoekt u de waarde van het veld **Primair eindpunt van het ADLS-bestandssysteem** in het deelvenster met de eigenschappen.
+
+Plak beide waarden in een tekstbestand. U hebt deze binnenkort nodig.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Een service-principal maken
+
+Maak een service-principal aan de hand van de instructies in dit onderwerp: [Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Er zijn enkele specifieke zaken die u moet doen terwijl u de stappen in dat artikel uitvoert.
+
+:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Een Azure Active Directory-toepassing maken](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) van het artikel, moet u er voor zorgen dat het veld **Aanmeldings-URL** van het dialoogvenster **Maken** is ingesteld op de eindpunt-URI die u zojuist hebt verkregen.
+
+:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [De toepassing aan een rol toewijzen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u er voor zorgen dat u de toepassing toewijst aan de **rol van inzender voor Blob Storage**.
+
+:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
 
 ## <a name="create-a-databricks-cluster"></a>Een Databricks-cluster maken
 
@@ -63,22 +82,24 @@ De volgende stap is het maken van een Databricks-cluster om een gegevenswerkruim
 14. Kies een naam, voer deze in het veld **Naam** in, en selecteer **Python** als taal.
 15. U kunt in alle andere velden de standaardwaarden laten staan.
 16. Selecteer **Maken**.
-17. Plak de volgende code in de cel **Cmd 1**. Vervang de tijdelijke aanduidingen tussen haken in het voorbeeld door uw eigen waarden:
+17. Kopieer en plak het volgende codeblok in de eerste cel, maar voer deze code nog niet uit.
 
-    ```scala
-    %python%
+    ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-        
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<application-id>",
+           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
     dbutils.fs.mount(
-        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
-        mount_point = "/mnt/flightdata",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
     ```
-18. Druk op **SHIFT+ENTER** om de codecel uit te voeren.
+18. In dit codeblok vervangt u de tijdelijke aanduidingen `storage-account-name`, `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in de secties [Opslagaccountconfiguratie instellen](#config) en [Een service-principal maken](#service-principal) van dit artikel. Vervang de tijdelijke aanduiding `file-system-name` door de naam die u aan uw bestandssysteem wilt geven.
+
+19. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 
 ## <a name="ingest-data"></a>Gegevens opnemen
 

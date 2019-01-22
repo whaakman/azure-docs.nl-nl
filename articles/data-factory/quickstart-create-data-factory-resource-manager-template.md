@@ -12,36 +12,36 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5e0d13593fb807f95ba024d527b6720b6abb4a86
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042730"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306145"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Zelfstudie: een Azure Data Factory maken op basis van een Azure Resource Manager-sjabloon
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [Huidige versie](quickstart-create-data-factory-resource-manager-template.md) 
+> * [Huidige versie](quickstart-create-data-factory-resource-manager-template.md)
 
-In deze QuickStart wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Azure Data Factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Meer informatie over het **transformeren** van gegevens met behulp van Azure Data Factory vindt u in [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md). 
+In deze QuickStart wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Azure Data Factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Meer informatie over het **transformeren** van gegevens met behulp van Azure Data Factory vindt u in [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md).
 
 > [!NOTE]
 > Dit artikel is geen gedetailleerde introductie tot de Data Factory-service. Zie [Inleiding tot Azure Data Factory](introduction.md) voor een inleiding tot Azure Data Factory-service.
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Installeer de nieuwste Azure PowerShell-modules met de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps).
 
 ## <a name="resource-manager-templates"></a>Resource Manager-sjablonen
-Zie [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over Azure Resource Manager-sjablonen. 
+Zie [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over Azure Resource Manager-sjablonen.
 
 In de volgende sectie vindt u de volledige Resource Manager-sjabloon voor het definiëren van Data Factory-entiteiten zodat u de zelfstudie snel kunt doorlopen en de sjabloon kunt testen. Raadpleeg de sectie [Data Factory-entiteiten in de sjabloon](#data-factory-entities-in-the-template) om te lezen hoe elke Data Factory-entiteit wordt gedefinieerd.
 
 Zie [Microsoft.DataFactory resource types](/azure/templates/microsoft.datafactory/allversions) (Microsoft.DataFactory-resourcetypen) voor informatie over de JSON-syntaxis en de eigenschappen voor Data Factory-resources in een sjabloon.
 
-## <a name="data-factory-json"></a>JSON van data factory 
+## <a name="data-factory-json"></a>JSON van data factory
 Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFTutorial** en voeg de volgende inhoud toe:
 
 ```json
@@ -265,11 +265,11 @@ Maak een JSON-bestand met de naam **ADFTutorialARM.json** in de map **C:\ADFTuto
 ```
 
 ## <a name="parameters-json"></a>JSON-bestand met parameters
-Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat parameters voor de Azure Resource Manager-sjabloon bevat.  
+Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat parameters voor de Azure Resource Manager-sjabloon bevat.
 
 > [!IMPORTANT]
-> - Geef de naam en sleutel van uw Azure Storage-account op voor de parameters **storageAccountName** en **storageAccountKey** in dit parameterbestand. U hebt de container adftutorial gemaakt en het voorbeeldbestand (emp.txt) geüpload naar de invoermap in deze Azure-blobopslag. 
-> - Geef een wereldwijd unieke naam voor de data factory op voor de parameter **dataFactoryName**. Bijvoorbeeld: ARMTutorialFactoryJohnDoe11282017. 
+> - Geef de naam en sleutel van uw Azure Storage-account op voor de parameters **storageAccountName** en **storageAccountKey** in dit parameterbestand. U hebt de container adftutorial gemaakt en het voorbeeldbestand (emp.txt) geüpload naar de invoermap in deze Azure-blobopslag.
+> - Geef een wereldwijd unieke naam voor de data factory op voor de parameter **dataFactoryName**. Bijvoorbeeld: ARMTutorialFactoryJohnDoe11282017.
 > - Geef voor **triggerStartTime** de huidige dag op in de notatie: `2017-11-28T00:00:00`.
 > - Geef voor **triggerEndTime** de volgende dag op in de notatie: `2017-11-29T00:00:00`. U kunt ook de huidige UTC-tijd controleren en de volgende een of twee uur opgeven als eindtijd. Als de huidige UTC-tijd bijvoorbeeld 1:32 AM is, geeft u `2017-11-29:03:00:00` op als eindtijd. In dit geval voert de trigger de pijplijn tweemaal uit (om 2 uur en om 3 uur).
 
@@ -280,7 +280,7 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
   "parameters": {
     "dataFactoryName": {
       "value": "<datafactoryname>"
-    },    
+    },
     "dataFactoryLocation": {
       "value": "East US"
     },
@@ -316,16 +316,16 @@ Maak een JSON-bestand met de naam **ADFTutorialARM-Parameters.json** dat paramet
 ```
 
 > [!IMPORTANT]
-> Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren. 
+> Mogelijk beschikt u over afzonderlijke JSON-bestanden met parameters voor ontwikkel-, test- en productieomgevingen die u met dezelfde JSON-sjabloon voor Data Factory kunt gebruiken. U kunt met behulp van een Power Shell-script het implementeren van Data Factory-entiteiten in deze omgevingen automatiseren.
 
-## <a name="deploy-data-factory-entities"></a>Data Factory-entiteiten implementeren 
-Voer de volgende opdracht uit in PowerShell om Data Factory-entiteiten te implementeren met behulp van de Resource Manager-sjabloon die u eerder in deze QuickStart hebt gemaakt. 
+## <a name="deploy-data-factory-entities"></a>Data Factory-entiteiten implementeren
+Voer de volgende opdracht uit in PowerShell om Data Factory-entiteiten te implementeren met behulp van de Resource Manager-sjabloon die u eerder in deze QuickStart hebt gemaakt.
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
-De uitvoer ziet eruit als in het volgende voorbeeld: 
+De uitvoer ziet eruit als in het volgende voorbeeld:
 
 ```
 DeploymentName          : MyARMDeployment
@@ -355,21 +355,21 @@ DeploymentDebugLogLevel :
 
 ## <a name="start-the-trigger"></a>De trigger starten
 
-De sjabloon implementeert de volgende Data Factory-entiteiten: 
+De sjabloon implementeert de volgende Data Factory-entiteiten:
 
 - Een gekoppelde Azure Storage-service
 - Azure Blob-gegevenssets (invoer en uitvoer)
 - Pijplijn met een kopieeractiviteit
 - Trigger om de pijplijn te activeren
 
-De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te starten, is met de PowerShell-cmdlet **Start-AzureRmDataFactoryV2Trigger**. De volgende procedure bevat gedetailleerde stappen: 
+De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te starten, is met de PowerShell-cmdlet **Start-AzureRmDataFactoryV2Trigger**. De volgende procedure bevat gedetailleerde stappen:
 
-1. Maak in het PowerShell-venster een variabele voor de naam van de resourcegroep. Kopieer de volgende opdracht naar het PowerShell-venster en druk op ENTER. Als u de naam van een andere resourcegroep hebt opgegeven voor de opdracht New-AzureRmResourceGroupDeployment, moet u de waarde hier bijwerken. 
+1. Maak in het PowerShell-venster een variabele voor de naam van de resourcegroep. Kopieer de volgende opdracht naar het PowerShell-venster en druk op ENTER. Als u de naam van een andere resourcegroep hebt opgegeven voor de opdracht New-AzureRmResourceGroupDeployment, moet u de waarde hier bijwerken.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
-    ``` 
-1. Maak een variabele voor de naam van de data factory. Geef dezelfde naam op die u hebt opgegeven in het bestand ADFTutorialARM-Parameters.json.   
+    ```
+1. Maak een variabele voor de naam van de data factory. Geef dezelfde naam op die u hebt opgegeven in het bestand ADFTutorialARM-Parameters.json.
 
     ```powershell
     $dataFactoryName = "<yourdatafactoryname>"
@@ -385,7 +385,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
-    Hier volgt een voorbeeld van uitvoer: 
+    Hier volgt een voorbeeld van uitvoer:
 
     ```json
     TriggerName       : ArmTemplateTestTrigger
@@ -395,14 +395,14 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     RuntimeState      : Stopped
     ```
     
-    Zoals u ziet, is de runtimestatus van de trigger **Gestopt**. 
-5. **Start de trigger**. De trigger voert de pijplijn die in de sjabloon is gedefinieerd, uit op het hele uur. Dat wil zeggen dat als u deze opdracht uitvoert om 14:25 uur, de trigger de pijplijn voor het eerst uitvoert om 15:00 uur. Vervolgens wordt de pijplijn elk uur uitgevoerd totdat de opgegeven eindtijd voor de trigger is bereikt. 
+    Zoals u ziet, is de runtimestatus van de trigger **Gestopt**.
+5. **Start de trigger**. De trigger voert de pijplijn die in de sjabloon is gedefinieerd, uit op het hele uur. Dat wil zeggen dat als u deze opdracht uitvoert om 14:25 uur, de trigger de pijplijn voor het eerst uitvoert om 15:00 uur. Vervolgens wordt de pijplijn elk uur uitgevoerd totdat de opgegeven eindtijd voor de trigger is bereikt.
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
-    Hier volgt een voorbeeld van uitvoer: 
+    Hier volgt een voorbeeld van uitvoer:
     
     ```
     Confirm
@@ -410,7 +410,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Controleer of de trigger is gestart door de opdracht Get-AzureRmDataFactoryV2Trigger nogmaals uit te voeren.  
+6. Controleer of de trigger is gestart door de opdracht Get-AzureRmDataFactoryV2Trigger nogmaals uit te voeren.
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -430,37 +430,37 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
 1. Nadat u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com/), klikt u op **Alle services**, zoekt u met een trefwoord zoals **gegeve**, en selecteert u **Gegevensfabrieken**.
 
     ![Door het menu met data factory's bladeren](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
-2. Klik op de pagina **Data factory's** op de data factory die u hebt gemaakt. Filter de lijst zo nodig op de naam van uw data factory.  
+2. Klik op de pagina **Data factory's** op de data factory die u hebt gemaakt. Filter de lijst zo nodig op de naam van uw data factory.
 
     ![Data factory selecteren](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
-3. Klik op de pagina Data factory op de tegel **Controleren en beheren**. 
+3. Klik op de pagina Data factory op de tegel **Controleren en beheren**.
 
     ![De tegel Controleren en beheren](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
-4. De **toepassing voor gegevensintegratie** moet worden geopend op een afzonderlijk tabblad in de webbrowser. Als het controletabblad niet actief is, schakelt u over naar het **controletabblad**. U ziet dat de uitvoering van de pijplijn is geactiveerd door een **geplande trigger**. 
+4. De **toepassing voor gegevensintegratie** moet worden geopend op een afzonderlijk tabblad in de webbrowser. Als het controletabblad niet actief is, schakelt u over naar het **controletabblad**. U ziet dat de uitvoering van de pijplijn is geactiveerd door een **geplande trigger**.
 
-    ![De uitvoering van de pijplijn controleren](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
+    ![De uitvoering van de pijplijn controleren](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
 
     > [!IMPORTANT]
-    > Zoals u ziet, wordt de pijplijn alleen uitgevoerd op het hele uur (bijvoorbeeld om 4:00 uur, 5:00 uur, 6:00 uur, enzovoort). Klik op **Vernieuwen** op de werkbalk om de lijst te vernieuwen wanneer het volgende uur wordt bereikt. 
-5. Klik op de koppeling in de kolom **Acties**. 
+    > Zoals u ziet, wordt de pijplijn alleen uitgevoerd op het hele uur (bijvoorbeeld om 4:00 uur, 5:00 uur, 6:00 uur, enzovoort). Klik op **Vernieuwen** op de werkbalk om de lijst te vernieuwen wanneer het volgende uur wordt bereikt.
+5. Klik op de koppeling in de kolom **Acties**.
 
     ![Koppeling voor pijplijnacties](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. U ziet de uitvoering van de activiteiten die zijn gekoppeld aan de pijplijnuitvoering. In deze QuickStart heeft de pijplijn slechts één activiteit en wel van het type Kopiëren. Daarom ziet u een uitvoering voor die activiteit. 
+6. U ziet de uitvoering van de activiteiten die zijn gekoppeld aan de pijplijnuitvoering. In deze QuickStart heeft de pijplijn slechts één activiteit en wel van het type Kopiëren. Daarom ziet u een uitvoering voor die activiteit.
 
     ![Uitvoering van activiteiten](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-1. Klik op de koppeling onder de kolom **Uitvoer**. U ziet de uitvoer van de kopieerbewerking in het venster **Uitvoer**. Klik op de knop Maximaliseren om de volledige uitvoer te bekijken. U kunt het gemaximaliseerde uitvoervenster sluiten. 
+1. Klik op de koppeling onder de kolom **Uitvoer**. U ziet de uitvoer van de kopieerbewerking in het venster **Uitvoer**. Klik op de knop Maximaliseren om de volledige uitvoer te bekijken. U kunt het gemaximaliseerde uitvoervenster sluiten.
 
     ![Uitvoervenster](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
-7. Stop de trigger zodra u ziet dat de uitvoering is geslaagd/mislukt. De trigger voert de pijplijn eenmaal per uur uit. Bij elke uitvoering kopieert de pijplijn hetzelfde bestand uit de invoermap naar de uitvoermap. Als u de trigger wilt stoppen, voert u de volgende opdracht uit in het PowerShell-venster. 
+7. Stop de trigger zodra u ziet dat de uitvoering is geslaagd/mislukt. De trigger voert de pijplijn eenmaal per uur uit. Bij elke uitvoering kopieert de pijplijn hetzelfde bestand uit de invoermap naar de uitvoermap. Als u de trigger wilt stoppen, voert u de volgende opdracht uit in het PowerShell-venster.
     
     ```powershell
     Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## <a name="data-factory-entities-in-the-template"></a> JSON-definities voor entiteiten
-De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd: 
+De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd:
 
 - [Een gekoppelde Azure Storage-service](#azure-storage-linked-service)
 - [De Azure Blob-invoergegevensset](#azure-blob-input-dataset)
@@ -469,7 +469,7 @@ De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd:
 - [Trigger](#trigger)
 
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
-De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfactory. U hebt een container gemaakt en gegevens naar dit opslagaccount geüpload als onderdeel van de vereisten. In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [Een gekoppelde Azure Storage-service](connector-azure-blob-storage.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure Storage-service. 
+De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfactory. U hebt een container gemaakt en gegevens naar dit opslagaccount geüpload als onderdeel van de vereisten. In deze sectie geeft u de naam en sleutel van uw Azure Storage-account op. Zie [Een gekoppelde Azure Storage-service](connector-azure-blob-storage.md#linked-service-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure Storage-service.
 
 ```json
 {
@@ -492,108 +492,102 @@ De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfacto
 }
 ```
 
-De tekenreeks connectionString maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon. 
+De tekenreeks connectionString maakt gebruik van de parameters storageAccountName en storageAccountKey. De waarden voor deze parameters worden doorgegeven met behulp van een configuratiebestand. De definitie maakt ook gebruik van variabelen: azureStorageLinkedService en dataFactoryName die zijn gedefinieerd in de sjabloon.
 
 #### <a name="azure-blob-input-dataset"></a>Azure Blob-invoergegevensset
-De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Factory-service tijdens runtime gebruikt om verbinding te maken met uw Azure-opslagaccount. In de gegevenssetdefinitie van de Azure-blob geeft u de namen op van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset. 
+De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Factory-service tijdens runtime gebruikt om verbinding te maken met uw Azure-opslagaccount. In de gegevenssetdefinitie van de Azure-blob geeft u de namen op van de blobcontainer, map en het bestand met de invoergegevens op. Zie [Eigenschappen van de Azure Blob-gegevensset](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset.
 
 ```json
 {
     "type": "datasets",
     "name": "[variables('inputDatasetName')]",
     "dependsOn": [
-    "[parameters('dataFactoryName')]",
-    "[variables('azureStorageLinkedServiceName')]"
+        "[parameters('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]"
     ],
     "apiVersion": "2017-09-01-preview",
     "properties": {
-    "type": "AzureBlob",
-    "typeProperties": {
-        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
-        "fileName": "[parameters('inputBlobName')]"
-    },
-    "linkedServiceName": {
-        "referenceName": "[variables('azureStorageLinkedServiceName')]",
-        "type": "LinkedServiceReference"
-    }
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
+            "fileName": "[parameters('inputBlobName')]"
+        },
+        "linkedServiceName": {
+            "referenceName": "[variables('azureStorageLinkedServiceName')]",
+            "type": "LinkedServiceReference"
+        }
     }
 },
 
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Azure Blob-uitvoergegevensset
-U geeft de naam op van de map in de Azure-blobopslag die de gekopieerde gegevens uit de invoermap bevat. Zie [Eigenschappen van de Azure Blob-gegevensset](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset. 
+U geeft de naam op van de map in de Azure-blobopslag die de gekopieerde gegevens uit de invoermap bevat. Zie [Eigenschappen van de Azure Blob-gegevensset](connector-azure-blob-storage.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset.
 
 ```json
 {
     "type": "datasets",
     "name": "[variables('outputDatasetName')]",
     "dependsOn": [
-    "[parameters('dataFactoryName')]",
-    "[variables('azureStorageLinkedServiceName')]"
+        "[parameters('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]"
     ],
     "apiVersion": "2017-09-01-preview",
     "properties": {
-    "type": "AzureBlob",
-    "typeProperties": {
-        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
-        "fileName": "[parameters('outputBlobName')]"
-    },
-    "linkedServiceName": {
-        "referenceName": "[variables('azureStorageLinkedServiceName')]",
-        "type": "LinkedServiceReference"
-    }
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
+            "fileName": "[parameters('outputBlobName')]"
+        },
+        "linkedServiceName": {
+            "referenceName": "[variables('azureStorageLinkedServiceName')]",
+            "type": "LinkedServiceReference"
+        }
     }
 }
 ```
 
 #### <a name="data-pipeline"></a>Gegevenspijplijn
-U definieert een pijplijn waarmee gegevens uit de ene Azure Blob-gegevensset naar de andere Azure Blob-gegevensset worden gekopieerd. Zie [JSON-bestand voor een pijplijn](concepts-pipelines-activities.md#pipeline-json) voor beschrijvingen van JSON-elementen die worden gebruikt voor het definiëren van een pijplijn in dit voorbeeld. 
+U definieert een pijplijn waarmee gegevens uit de ene Azure Blob-gegevensset naar de andere Azure Blob-gegevensset worden gekopieerd. Zie [JSON-bestand voor een pijplijn](concepts-pipelines-activities.md#pipeline-json) voor beschrijvingen van JSON-elementen die worden gebruikt voor het definiëren van een pijplijn in dit voorbeeld.
 
 ```json
 {
     "type": "pipelines",
     "name": "[variables('pipelineName')]",
     "dependsOn": [
-    "[parameters('dataFactoryName')]",
-    "[variables('azureStorageLinkedServiceName')]",
-    "[variables('inputDatasetName')]",
-    "[variables('outputDatasetName')]"
+        "[parameters('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]",
+        "[variables('inputDatasetName')]",
+        "[variables('outputDatasetName')]"
     ],
     "apiVersion": "2017-09-01-preview",
     "properties": {
-    "activities": [
-        {
-        "type": "Copy",
-        "typeProperties": {
-            "source": {
-            "type": "BlobSource"
+        "activities": [{
+            "type": "Copy",
+            "typeProperties": {
+                "source": {
+                    "type": "BlobSource"
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
             },
-            "sink": {
-            "type": "BlobSink"
-            }
-        },
-        "name": "MyCopyActivity",
-        "inputs": [
-            {
-            "referenceName": "[variables('inputDatasetName')]",
-            "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-            "referenceName": "[variables('outputDatasetName')]",
-            "type": "DatasetReference"
-            }
-        ]
-        }
-    ]
+            "name": "MyCopyActivity",
+            "inputs": [{
+                "referenceName": "[variables('inputDatasetName')]",
+                "type": "DatasetReference"
+            }],
+            "outputs": [{
+                "referenceName": "[variables('outputDatasetName')]",
+                "type": "DatasetReference"
+            }]
+        }]
     }
 }
 ```
 
 #### <a name="trigger"></a>Trigger
-U definieert een trigger die de pijplijn eenmaal per uur uitvoert. De geïmplementeerde trigger is gestopt. Start de trigger via de cmdlet **Start-AzureRmDataFactoryV2Trigger**. Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers) voor meer informatie over triggers. 
+U definieert een trigger die de pijplijn eenmaal per uur uitvoert. De geïmplementeerde trigger is gestopt. Start de trigger via de cmdlet **Start-AzureRmDataFactoryV2Trigger**. Zie het artikel [Pijplijnen uitvoeren en triggers](concepts-pipeline-execution-triggers.md#triggers) voor meer informatie over triggers.
 
 ```json
 {
@@ -615,7 +609,7 @@ U definieert een trigger die de pijplijn eenmaal per uur uitvoert. De geïmpleme
                 "interval": 1,
                 "startTime": "2017-11-28T00:00:00",
                 "endTime": "2017-11-29T00:00:00",
-                "timeZone": "UTC"               
+                "timeZone": "UTC"
             }
         },
         "pipelines": [{
@@ -630,9 +624,9 @@ U definieert een trigger die de pijplijn eenmaal per uur uitvoert. De geïmpleme
 ```
 
 ## <a name="reuse-the-template"></a>De sjabloon hergebruiken
-U hebt in de zelfstudie een sjabloon voor het definiëren van Data Factory-entiteiten en een sjabloon voor het doorgeven van waarden voor parameters gemaakt. Als u dezelfde sjabloon wilt gebruiken voor het implementeren van Data Factory-entiteiten in verschillende omgevingen, maakt u een parameterbestand voor elke omgeving en gebruikt u dit bij het implementeren in die omgeving.     
+U hebt in de zelfstudie een sjabloon voor het definiëren van Data Factory-entiteiten en een sjabloon voor het doorgeven van waarden voor parameters gemaakt. Als u dezelfde sjabloon wilt gebruiken voor het implementeren van Data Factory-entiteiten in verschillende omgevingen, maakt u een parameterbestand voor elke omgeving en gebruikt u dit bij het implementeren in die omgeving.
 
-Voorbeeld:  
+Voorbeeld:
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
@@ -641,10 +635,9 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
-De eerste opdracht maakt gebruik van het parameterbestand voor de ontwikkelomgeving, de tweede voor de testomgeving en de derde voor de productieomgeving.  
+De eerste opdracht maakt gebruik van het parameterbestand voor de ontwikkelomgeving, de tweede voor de testomgeving en de derde voor de productieomgeving.
 
-U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U kunt bijvoorbeeld veel data factory's maken met een of meer pijplijnen die dezelfde logica implementeren, waarbij elke data factory echter gebruikmaakt van andere Azure Storage-accounts. In dit scenario gebruikt u dezelfde sjabloon in dezelfde omgeving (voor het ontwikkelen, testen of de productie) met andere parameterbestanden om de gegevensfactory's te maken. 
-
+U kunt de sjabloon ook hergebruiken om herhaalde taken uit te voeren. U kunt bijvoorbeeld veel data factory's maken met een of meer pijplijnen die dezelfde logica implementeren, waarbij elke data factory echter gebruikmaakt van andere Azure Storage-accounts. In dit scenario gebruikt u dezelfde sjabloon in dezelfde omgeving (voor het ontwikkelen, testen of de productie) met andere parameterbestanden om de gegevensfactory's te maken.
 
 ## <a name="next-steps"></a>Volgende stappen
-Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's. 
+Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Doorloop de [zelfstudies](tutorial-copy-data-dot-net.md) voor meer informatie over het gebruiken van Data Factory in andere scenario's.

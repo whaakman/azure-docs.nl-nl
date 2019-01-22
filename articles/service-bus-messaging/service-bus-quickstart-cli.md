@@ -1,22 +1,22 @@
 ---
-title: Snelstart - Azure CLI en Java gebruiken om berichten te verzenden en te ontvangen van Azure Service Bus | Microsoft Docs
-description: In deze snelstart leert u hoe u met Azure CLI en een voorbeeld-Java-toepassing Azure Service Bus-berichten verzendt en ontvangt
+title: 'Quickstart: de Azure-CLI gebruiken om een Service Bus-wachtrij te maken | Microsoft Docs'
+description: In deze quickstart leert u hoe u de Azure-CLI gebruikt om een Service Bus-wachtrij te maken. Vervolgens gebruikt u een voorbeeld-Java-toepassing om berichten te verzenden naar en te ontvangen van de wachtrij.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998673"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258321"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Quickstart: berichten verzenden en ontvangen met behulp van Azure CLI en Java
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Quickstart: De Azure-CLI gebruiken om een Service Bus-wachtrij te maken
 
 Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen (toepassingen hoeven niet op hetzelfde moment online zijn), het overbrengen van status- of gegevenswijzigingen en het verzenden van berichten tussen de toepassingen. 
 
@@ -24,7 +24,7 @@ Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een 
 
 ![wachtrij](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-In deze snelstart wordt beschreven hoe u berichten verzendt en ontvangt met Service Bus, met behulp van Azure CLI en de Service Bus-Java-bibliotheek. Als u ook bent geïnteresseerd in meer technische informatie, dan kunt u [de uitleg lezen](#understand-the-sample-code) van de belangrijkste elementen van de voorbeeldcode.
+In deze quickstart wordt beschreven hoe u berichten verzendt en ontvangt met Service Bus met behulp van Azure CLI en de Service Bus-Java-bibliotheek. Als u ook bent geïnteresseerd in meer technische informatie, dan kunt u [de uitleg lezen](#understand-the-sample-code) van de belangrijkste elementen van de voorbeeldcode.
 
 Als u nog geen abonnement op Azure hebt, kunt u een [gratis account][] maken voordat u begint.
 
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, kunt u een [gratis account][] maken voo
 
 Klik op de knop Cloud Shell in het menu in de rechterbovenhoek van Azure Portal en kies **Bash** in de vervolgkeuzelijst **Omgeving selecteren**. 
 
-## <a name="use-cli-to-create-resources"></a>CLI gebruiken om resources te maken
+## <a name="use-the-azure-cli-to-create-resources"></a>De Azure-CLI gebruiken om resources te maken
 
 Geef in Cloud-Shell bij de Bash-prompt de volgende opdrachten voor het inrichten van Service Bus-resources. Zorg dat u alle tijdelijke aanduidingen vervangt door de juiste waarden:
 
@@ -266,7 +266,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden en ontvangen van berichten in een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, gaat u naar de volgende zelfstudie over Service Bus:
 
 > [!div class="nextstepaction"]
-> [Inventaris bijwerken met CLI en Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Inventaris bijwerken met behulp van de Azure-CLI en Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

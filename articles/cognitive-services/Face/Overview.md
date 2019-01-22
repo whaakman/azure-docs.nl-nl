@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633458"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231883"
 ---
 # <a name="what-is-the-azure-face-api"></a>Wat is de Azure Face-API?
 
@@ -75,7 +75,11 @@ De volgende voorbeeldtoepassingen tonen een aantal manieren waarop de Face-API k
 - [Microsoft Face-API: Windows Clientbibliotheek en voorbeeld](https://github.com/Microsoft/Cognitive-Face-Windows): een WPF-app in verschillende scenario's voor gezichtsdetectie, -analyse en -identificatie.
 - [FamilyNotes UWP-app](https://github.com/Microsoft/Windows-appsample-familynotes): een UWP-app (Universal Windows Platform) die gebruikmaakt van gezichtsidentificatie gecombineerd met spraak, Cortana, inkt en camera in een familiescenario waarin notities worden gedeeld.
 
+## <a name="data-privacy-and-security"></a>Gegevensprivacy en -beveiliging
+
+Zoals geldt voor alle services van Cognitive Services, dienen ontwikkelaars die de Face-service gebruiken op de hoogte te zijn van het beleid van Microsoft inzake klantgegevens. Zie de [pagina Cognitive Services](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) (Engelstalig) in het Microsoft Trust Center voor meer informatie.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Volg een snelstart voor het implementeren van een eenvoudig scenario voor gezichtsdetectie in code.
-- [Snelstart: Gezichten in een afbeelding detecteren met behulp van de .NET SDK met C#](quickstarts/csharp.md) (in diverse talen beschikbaar)
+- [Snelstart: gezichten in een afbeelding detecteren met behulp van de .NET SDK met C#](quickstarts/csharp.md) (in diverse talen beschikbaar)

@@ -4,17 +4,17 @@ description: Gebruik Azure Blueprints om artefacten te maken, te definiëren en 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311419"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320681"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Een Azure Blueprint definiëren en toewijzen met REST API
 
@@ -68,7 +68,7 @@ De eerste stap bij het definiëren van een standaardpatroon voor naleving bestaa
 
 In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die u moet vervangen door uw eigen waarden:
 
-- Vervang `{YourMG}` door de naam van uw beheergroep
+- Vervang `{YourMG}` door de ID van uw beheergroep
 - Vervang `{subscriptionId}` door uw abonnements-ID
 
 1. Maak het eerste _blauwdruk_object. De **Aanvraagbody** bevat eigenschappen van de blauwdruk, te maken resourcegroepen en alle parameters op blauwdrukniveau. De parameters worden tijdens het toewijzen ingesteld en gebruikt door de artefacten die in latere stappen worden toegevoegd.
@@ -130,7 +130,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
      }
      ```
 
-1. Voeg de roltoewijzing toe aan het abonnement. De **Aanvraagbody** definieert het _soort_ artefact en de eigenschappen die zijn afgestemd op de roldefinitie-id en de principal-identiteiten worden doorgegeven als een matrix met waarden. In het onderstaande voorbeeld worden de principal-identiteiten en de opgegeven rol geconfigureerd in een parameter die wordt ingesteld tijdens de toewijzing van de blauwdruk.
+1. Voeg de roltoewijzing toe aan het abonnement. De **Aanvraagbody** definieert het _soort_ artefact en de eigenschappen die zijn afgestemd op de roldefinitie-id en de principal-identiteiten worden doorgegeven als een matrix met waarden. In het onderstaande voorbeeld worden de principal-identiteiten en de opgegeven rol geconfigureerd in een parameter die wordt ingesteld tijdens de toewijzing van de blauwdruk. In dit voorbeeld wordt de ingebouwde rol van _Inzender_ met een GUID van `b24988ac-6180-42a0-ab88-20f7382dd24c` gebruikt.
 
    - REST API-URI
 
@@ -150,7 +150,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
      }
      ```
 
-1. Voeg de beleidstoewijzing toe aan het abonnement. De **Aanvraagbody** definieert het _soort_ artefact, de eigenschappen die zijn afgestemd op een beleid of een initiatiefdefinitie, en configureert de beleidstoewijzing, zodat deze de gedefinieerde blauwdrukparameters kan gebruiken die tijdens het toewijzen van de blauwdruk moeten worden geconfigureerd.
+1. Voeg de beleidstoewijzing toe aan het abonnement. De **Aanvraagbody** definieert het _soort_ artefact, de eigenschappen die zijn afgestemd op een beleid of een initiatiefdefinitie, en configureert de beleidstoewijzing, zodat deze de gedefinieerde blauwdrukparameters kan gebruiken die tijdens het toewijzen van de blauwdruk moeten worden geconfigureerd. In dit voorbeeld wordt het ingebouwde beleid _Tag met standaardwaarde op resourcegroepen toepassen_ met een GUID van `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` gebruikt.
 
    - REST API-URI
 
@@ -178,7 +178,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
      }
      ```
 
-1. Voeg nog een beleidstoewijzing toe voor de Storage-tag (gebruik hierbij de parameter _storageAccountType_ opnieuw) aan het abonnement. Deze aanvullende beleidstoewijzingsartefact laat zien dat een in de blauwdruk gedefinieerde parameter door meer dan één artefact kan worden gebruikt. In dit voorbeeld wordt **storageAccountType** gebruikt voor het instellen van een tag op de resourcegroep. Deze waarde geeft informatie over het opslagaccount dat in de volgende stap wordt gemaakt.
+1. Voeg nog een beleidstoewijzing toe voor de Storage-tag (gebruik hierbij de parameter _storageAccountType_ opnieuw) aan het abonnement. Deze aanvullende beleidstoewijzingsartefact laat zien dat een in de blauwdruk gedefinieerde parameter door meer dan één artefact kan worden gebruikt. In dit voorbeeld wordt **storageAccountType** gebruikt voor het instellen van een tag op de resourcegroep. Deze waarde geeft informatie over het opslagaccount dat in de volgende stap wordt gemaakt. In dit voorbeeld wordt het ingebouwde beleid _Tag met standaardwaarde op resourcegroepen toepassen_ met een GUID van `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71` gebruikt.
 
    - REST API-URI
 
@@ -292,7 +292,7 @@ In elke REST API-URI zijn er verschillende variabelen die worden gebruikt en die
      }
      ```
 
-1. Voeg een roltoewijzing toe onder resourcegroep. Net als bij de vorige vermelding van een roltoewijzing wordt in het onderstaande voorbeeld de definitie-id van de rol **Eigenaar** gebruikt en krijgt deze een andere parameter van de blauwdruk.
+1. Voeg een roltoewijzing toe onder resourcegroep. Net als bij de vorige vermelding van een roltoewijzing wordt in het onderstaande voorbeeld de definitie-id van de rol **Eigenaar** gebruikt en krijgt deze een andere parameter van de blauwdruk. In dit voorbeeld wordt de ingebouwde rol van _Eigenaar_ met een GUID van `8e3af657-a8ff-443c-a75c-2fe8c4bcb635` gebruikt.
 
    - REST API-URI
 

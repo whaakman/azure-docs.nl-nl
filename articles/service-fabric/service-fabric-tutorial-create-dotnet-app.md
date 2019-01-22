@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078491"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321735"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: Een toepassing met een ASP.NET Core web-API front-endservice en een stateful back-endservice maken en implementeren
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: Een toepassing met een ASP.NET Core web-API front-end service en een stateful back-endservice maken en implementeren
 
 Deze zelfstudie is deel één van een serie.  U leert hoe u een Azure Service Fabric-toepassing met een front-end van ASP.NET Core web-API en een stateful back-endservice maakt voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core-web-front-end die stemresultaten opslaat in een stateful back-endservice in het cluster. Als u de stemtoepassing niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en verdergaan met [Het voorbeeld van een stemtoepassing doorlopen](#walkthrough_anchor).  Als u dat liever doet, kunt u ook een [video](https://channel9.msdn.com/Events/Connect/2017/E100) van deze zelfstudie bekijken.
 
@@ -326,8 +326,6 @@ Open in Solution Explorer *VotingWeb/PackageRoot/ServiceManifest.xml*.  Zoek het
 
 Werk ook de eigenschapswaarde van de toepassings-URL in het stemproject bij, zodat een webbrowser op de juiste poort opent wanneer u fouten in de toepassing opspoort.  Selecteer in Solution Explorer het project **Voting** en wijzig de eigenschap **Application URL** in **8080**.
 
-![Toepassings-URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### <a name="deploy-and-run-the-voting-application-locally"></a>De stemtoepassing lokaal implementeren en uitvoeren
 U kunt nu verder gaan en de stemtoepassing uitvoeren voor foutopsporing. Druk in Visual Studio op **F5** om de toepassing in de foutopsporingsmodus te implementeren in uw lokale Service Fabric-cluster. De toepassing mislukt als u Visual Studio niet eerder **als administrator** hebt geopend.
 
@@ -454,12 +452,7 @@ In deze stap verbindt u de twee services en zorgt u dat de front-endwebtoepassin
 
 Service Fabric biedt volledige flexibiliteit in hoe u met betrouwbare services communiceert. Binnen één toepassing hebt u mogelijk services die toegankelijk zijn via TCP. Andere services die mogelijk toegankelijk zijn via een HTTP REST-API en nog andere services kunnen toegankelijk zijn via websockets. Zie [Communiceren met services](service-fabric-connect-and-communicate-with-services.md) voor achtergrondinformatie over de beschikbare opties en betrokken afwegingen.
 
-In deze zelfstudie worden [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) en de [omgekeerde proxy van Service Fabric](service-fabric-reverseproxy.md) gebruikt, zodat de front-endwebservice VotingWeb kan communiceren met de back-endgegevensservice VotingData. De omgekeerde proxy is standaard geconfigureerd voor gebruik van poort 19081 en werkt voor deze zelfstudie. De poort is ingesteld in de ARM-sjabloon die wordt gebruikt voor het instellen van het cluster. Als u wilt weten welke poort er wordt gebruikt, zoekt u in de clustersjabloon in de resource **Microsoft.ServiceFabric/clusters** of bekijkt u het element HttpApplicationGatewayEndpoint in het cluster Manifest.
-
-> [!NOTE]
-> De omgekeerde proxy wordt alleen ondersteund op een cluster met Windows 8 en hoger of Windows Server 2012 en hoger.
-
-<u>Resource Microsoft.ServiceFabric/clusters reverseProxyEndpointPort</u>
+In deze zelfstudie worden [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) en de [omgekeerde proxy van Service Fabric](service-fabric-reverseproxy.md) gebruikt, zodat de front-endwebservice VotingWeb kan communiceren met de back-endgegevensservice VotingData. De omgekeerde proxy is standaard geconfigureerd voor gebruik van poort 19081 en werkt voor deze zelfstudie. De omgekeerde-proxypoort is ingesteld in het Azure Resource Manager-sjabloon dat is gebruikt voor het instellen van het cluster. Om uit te zoeken welke poort wordt gebruikt, kijkt u in de clustersjabloon in de resource **Microsoft.ServiceFabric/clusters**: 
 
 ```json
 "nodeTypes": [
@@ -472,13 +465,10 @@ In deze zelfstudie worden [ASP.NET Core Web API](service-fabric-reliable-service
           }
         ],
 ```
-Ga als volgt te werk om het element HttpApplicationGatewayEndpoint weer te geven in het lokale Service Fabric-clustermanifest:
-1. Open een browservenster en ga naar http://localhost:19080.
-2. Klik op **Manifest**.
+Als u de omgekeerde proxy-poort wilt zoeken die wordt gebruikt in uw lokale ontwikkelcluster, raadpleegt u het element **HttpApplicationGatewayEndpoint** in het manifest van het lokale Service Fabric-cluster:
+1. Open een browservenster en ga naar http://localhost:19080 om het hulpprogramma Service Fabric Explorer te openen.
+2. Selecteer **Cluster -> Manifest**.
 3. Noteer de poort van het element HttpApplicationGatewayEndpoint. Deze is standaard 19081. Als de poort niet 19081 is, moet u de poort in de methode GetProxyAddress van de volgende VotesController.cs-code wijzigen.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -622,9 +612,9 @@ Als u met Visual Studio fouten opspoort in de toepassing, gebruikt u daarvoor ee
 
 Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
 
-1. Open het bestand **VotingWeb\VotesController.cs** en stel in de methode **Put** van de web-API (regel 63) een onderbrekingspunt in.
+1. Open het bestand **VotingWeb\VotesController.cs** en stel in de methode **Put** van de web-API (regel 72) een onderbrekingspunt in.
 
-2. Open het bestand **VotingData\VoteDataController.cs** en stel in de methode **Put** van de web-API (regel 53) een onderbrekingspunt in.
+2. Open het bestand **VotingData\VoteDataController.cs** en stel in de methode **Put** van de web-API (regel 54) een onderbrekingspunt in.
 
 3. Druk op **F5** om de toepassing te starten in de foutopsporingsmodus.
 

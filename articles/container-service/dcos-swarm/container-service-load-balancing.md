@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993555"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331024"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(AFGESCHAFT) Taken over containers verdelen in een DC/OS-cluster in Azure Container Service
 
@@ -97,7 +97,7 @@ Maak vervolgens een bestand met de naam *hello-web.json* en kopieer de volgende 
 }
 ```
 
-Gebruik de DC/OS CLI om de toepassing uit te voeren. Met Marathon wordt de toepassing standaard geïmplementeerd in het persoonlijke cluster. Dit betekent dat de bovenstaande implementatie alleen toegankelijk is via de load balancer (dit is meestal het gewenste gedrag).
+Gebruik de DC/OS CLI om de toepassing uit te voeren. Met Marathon wordt de toepassing standaard geïmplementeerd in het privecluster. Dit betekent dat de bovenstaande implementatie alleen toegankelijk is via de load balancer (dit is meestal het gewenste gedrag).
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

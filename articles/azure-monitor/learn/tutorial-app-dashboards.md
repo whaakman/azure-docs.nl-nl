@@ -3,19 +3,19 @@ title: Aangepaste dashboards maken in Azure Application Insights | Microsoft Doc
 description: Zelfstudie over het maken van aangepaste KPI-dashboards met behulp van Azure Application Insights.
 keywords: ''
 services: application-insights
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 09/20/2017
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 01/11/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: e008a53ce71a55b344dfc3a76bdb4ae39b954c46
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104876"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318420"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Aangepaste KPI-dashboards maken met behulp van Azure Application Insights
 
@@ -42,90 +42,68 @@ Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azur
 ## <a name="create-a-new-dashboard"></a>Een nieuw dashboard maken
 Een dashboard kan resources uit meerdere toepassingen, resourcegroepen en abonnementen bevatten.  Begin deze zelfstudie met het maken van een nieuw dashboard voor uw toepassing.  
 
-2.  Selecteer in het hoofdvenster van de portal **Nieuw dashboard**.
+2.  Selecteer in het dashboarddeelvenster de optie **Nieuw dashboard**.
 
-    ![Nieuw dashboard](media/tutorial-app-dashboards/new-dashboard.png)
+    ![Nieuw dashboard](media/tutorial-app-dashboards/1newdashboard.png)
 
 3. Typ een naam voor het dashboard.
 4. Bekijk de **Tegelgalerie** voor de verschillende tegels die u aan het dashboard kunt toevoegen.  U kunt niet alleen tegels uit de galerie toevoegen, maar ook grafieken en andere weergaven rechtstreeks vanuit Application Insights aan het dashboard vastmaken.
 5. Zoek de tegel **Markdown** en sleep deze naar uw dashboard.  Met deze tegel kunt u tekst opmaken in Markdown, wat ideaal is om beschrijvende tekst toe te voegen aan uw dashboard.
 6. Voeg tekst toe aan de tegeleigenschappen en wijzig het formaat van de tegel op het canvas van het dashboard.
     
-    ![Tegel Markdown bewerken](media/tutorial-app-dashboards/edit-markdown.png)
+    ![Tegel Markdown bewerken](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Klik op **Aanpassen voltooid** bovenaan het scherm om de modus voor het aanpassen van tegels af te sluiten en selecteer vervolgens **Wijzigingen publiceren** om uw wijzigingen op te slaan.
-
-    ![Dashboard met tegel Markdown](media/tutorial-app-dashboards/dashboard-01.png)
-
+6. Klik op **Aanpassen voltooid** boven aan het scherm om de modus voor het aanpassen van tegels af te sluiten.
 
 ## <a name="add-health-overview"></a>Statusoverzicht toevoegen
 Een dashboard met alleen statische tekst is niet erg interessant. Voeg daarom een tegel toe vanuit Application Insights die informatie over uw toepassing weergeeft.  U kunt Application Insights-tegels toevoegen uit de Tegelgalerie of ze rechtstreeks vanuit Application Insights-schermen vastmaken.  Hiermee kunt u grafieken en weergaven die u al kent, configureren voordat u ze aan uw dashboard vastmaakt.  Voeg eerst het standaardstatusoverzicht voor uw toepassing toe.  Hiervoor is geen configuratie vereist en er is minimale aanpassing mogelijk in het dashboard.
 
 
-1. Selecteer **Application Insights** in het menu van Azure en selecteer vervolgens uw toepassing.
-2. Selecteer in **Overzicht tijdlijn** het contextmenu en klik op **Vastmaken aan dashboard**.  Hierdoor wordt de tegel toegevoegd aan het laatste dashboard dat u hebt weergegeven.  
+1. Open uw **Application Insights**-resource op het startscherm.
+2. In het deelvenster **Overzicht** klikt u op het punaisepictogram om de tegel toe te voegen aan het laatste dashboard dat u hebt weergegeven.  
 
-    ![Overzicht tijdlijn vastmaken](media/tutorial-app-dashboards/pin-overview-timeline.png)
+    ![Overzicht tijdlijn vastmaken](media/tutorial-app-dashboards/3overview.png)
  
-3. Klik bovenaan het scherm op **Dashboard weergeven** om naar het dashboard terug te keren.
-4. Overzicht tijdlijn wordt nu aan uw dashboard toegevoegd.  Klik erop en sleep de tegel naar de gewenste positie. Klik vervolgens op **Aanpassen voltooid** en **Wijzigingen publiceren**.  Uw dashboard heeft nu een tegel met nuttige informatie.
+3. In de rechterbovenhoek wordt de melding weergegeven dat de tegel is vastgemaakt aan uw dashboard. Klik op **Aan dashboard vastgemaakt** in de melding om terug te keren naar het dashboard of om het dashboarddeelvenster te gebruiken.
+4. De tegel is nu aan uw dashboard toegevoegd. Selecteer **Bewerken** om de plaatsing van de tegel te wijzigen. Klik erop en sleep de tegel naar de gewenste positie. Klik vervolgens op **Aanpassen voltooid**. Uw dashboard heeft nu een tegel met nuttige informatie.
 
-    ![Dashboard met Overzicht tijdlijn](media/tutorial-app-dashboards/dashboard-02.png)
+    ![Dashboard met Overzicht tijdlijn](media/tutorial-app-dashboards/4dashboard-edit.png)
 
 
 
 ## <a name="add-custom-metric-chart"></a>Aangepaste grafiek met metrische gegevens toevoegen
 In het venster **Metrische gegevens** kunt u waarden die gedurende een periode door Application Insights zijn verzameld, met optionele filters en groepering in een grafiek weergeven.  Net als alle andere items in Application Insights kunt u deze grafiek aan het dashboard toevoegen.  Hiervoor is wel enige aanpassing vereist.
 
-1. Selecteer **Application Insights** in het menu van Azure en selecteer vervolgens uw toepassing.
+1. Open uw **Application Insights**-resource in het startscherm.
 1. Selecteer **Metrische gegevens**.  
 2. Er is al een lege grafiek gemaakt en u wordt gevraagd een waarde toe te voegen.  Voeg een waarde toe aan de grafiek en eventueel een filter en groepering.  In het volgende voorbeeld ziet u het aantal serververzoeken gegroepeerd op of ze geslaagd zijn.  Het resultaat is een actieve weergave van geslaagde en mislukte aanvragen.
 
-    ![Waarde toevoegen](media/tutorial-app-dashboards/metrics-chart.png)
+    ![Waarde toevoegen](media/tutorial-app-dashboards/5sumserverrequests.png)
 
-4. Selecteer het contextmenu voor de grafiek en selecteer **Aan dashboard vastmaken**.  Hierdoor wordt de weergave toegevoegd aan het laatste dashboard dat u hebt gebruikt.
+4. Selecteer **Vastmaken aan dashboard** aan de rechterkant. Hierdoor wordt de weergave toegevoegd aan het laatste dashboard dat u hebt gebruikt.
 
-    ![Metrische grafiek vastmaken](media/tutorial-app-dashboards/pin-metrics-chart.png)
+    ![Metrische grafiek vastmaken](media/tutorial-app-dashboards/6sumserverrequests-pin.png)
 
-3. Klik bovenaan het scherm op **Dashboard weergeven** om naar het dashboard terug te keren.
+3.  In de rechterbovenhoek wordt de melding weergegeven dat de tegel is vastgemaakt aan uw dashboard. Klik op **Aan dashboard vastgemaakt** in de melding om terug te keren naar het dashboard of om de dashboardblade te gebruiken.
 
-4. De Tijdlijngrafiek met metrische gegevens wordt nu aan uw dashboard toegevoegd. Klik erop en sleep deze naar de gewenste positie en klik vervolgens op **Aanpassen voltooid** en op **Wijzigingen publiceren**. 
+4. De tegel is nu aan uw dashboard toegevoegd. Selecteer **Bewerken** om de plaatsing van de tegel te wijzigen. Klik erop en sleep de tegel naar de gewenste positie. Klik vervolgens op **Aanpassen voltooid**.
 
-    ![Dashboard met metrische gegevens](media/tutorial-app-dashboards/dashboard-03.png)
-
-
-## <a name="metrics-explorer"></a>Metrics Explorer
-**Metrics Explorer** is vergelijkbaar met Metrische gegevens, maar biedt aanzienlijk meer aanpassingsmogelijkheden wanneer deze functie aan het dashboard wordt toegevoegd.  Welk hulpmiddel u gebruikt om uw metrische gegevens in een grafiek weer te geven, is afhankelijk van uw voorkeuren en vereisten.
-
-1. Selecteer **Application Insights** in het menu van Azure en selecteer vervolgens uw toepassing.
-1. Selecteer **Metrics Explorer**. 
-2. Klik op de grafiek om deze te bewerken en selecteer een of meer waarden en eventueel een gedetailleerde configuratie.  In het voorbeeld ziet u een lijndiagram dat de gemiddelde reactietijd per pagina bijhoudt.
-3. Klik op het speldpictogram in de rechterbovenhoek om de grafiek aan uw dashboard toe te voegen en sleep deze naar de gewenste positie.
-
-    ![Metrics Explorer](media/tutorial-app-dashboards/metrics-explorer.png)
-
-4. De tegel Metrics Explorer biedt meer aanpassingsmogelijkheden wanneer deze aan het dashboard is toegevoegd.  Klik met de rechtermuisknop op de tegel en selecteer **Titel bewerken** om een aangepaste titel toe te voegen.  U kunt andere aanpassingen maken als u dat wilt.
-
-    ![Dashboard met Metrics Explorer](media/tutorial-app-dashboards/dashboard-04a.png)
-
-5. U hebt nu de Metrics Explorer-grafiek aan uw dashboard toegevoegd.
-
-    ![Dashboard met Metrics Explorer](media/tutorial-app-dashboards/dashboard-04.png)
+    ![Dashboard met metrische gegevens](media/tutorial-app-dashboards/7dashboard-edit2.png)
 
 ## <a name="add-analytics-query"></a>Analytics-query toevoegen
 Azure Application Insights Analytics biedt een uitgebreide querytaal om alle met Application Insights verzamelde gegevens te analyseren.  Net als andere weergaven en grafieken kunt u de uitvoer van een Analytics-query aan uw dashboard toevoegen.   
 
-Aangezien Azure Application Insights Analytics een afzonderlijke service is, dient u uw dashboard te delen voordat u er een Analytics-query in kunt opnemen.  Wanneer u een Azure-dashboard deelt, kunt u het publiceren als een Azure-resource en het beschikbaar maken voor andere gebruikers en resources.  
+Aangezien Azure Application Insights Analytics een afzonderlijke service is, dient u uw dashboard te delen voordat u er een Analytics-query in kunt opnemen. Wanneer u een Azure-dashboard deelt, kunt u het publiceren als een Azure-resource en het beschikbaar maken voor andere gebruikers en resources.  
 
 1. Klik bovenaan het dashboardscherm op **Delen**.
 
-    ![Dashboard publiceren](media/tutorial-app-dashboards/publish-dashboard.png)
+    ![Dashboard publiceren](media/tutorial-app-dashboards/8dashboard-share.png)
 
 2. Behoud de **Dashboardnaam** en selecteer de **Abonnementsnaam** om het dashboard te delen.  Klik op **Publish**.  Het dashboard is nu beschikbaar voor andere services en abonnementen.  Desgewenst kunt u specifieke gebruikers opgeven die toegang tot het dashboard moeten krijgen.
-1. Selecteer **Application Insights** in het menu van Azure en selecteer vervolgens uw toepassing.
+1. Open uw **Application Insights**-resource in het startscherm.
 2. Klik bovenaan het scherm op **Analytics** om de Analytics-portal te openen.
 
-    ![Analytics starten](media/tutorial-app-dashboards/start-analytics.png)
+    ![Analytics starten](media/tutorial-app-dashboards/9analytics.png)
 
 3. Typ de volgende query die de 10 meest aangevraagde pagina's en het bijbehorende aantal aanvragen retourneert:
 
@@ -136,10 +114,10 @@ Aangezien Azure Application Insights Analytics een afzonderlijke service is, die
     | take 10 
     ```
 
-4. Klik op **Start** om de resultaten van de query te valideren.
-5. Klik op het speldpictogram en selecteer de naam van het dashboard.  De reden dat u bij deze optie een dashboard dient te selecteren, in tegenstelling tot de vorige stappen waarbij het laatste dashboard werd gebruikt, is dat de Analytics-console een afzonderlijke service is en moet kiezen uit alle beschikbare gedeelde dashboards.
+4. Klik op **Uitvoeren** om de resultaten van de query te valideren.
+5. Klik op het speldpictogram en selecteer de naam van het dashboard. De reden dat u bij deze optie een dashboard dient te selecteren, in tegenstelling tot de vorige stappen waarbij het laatste dashboard werd gebruikt, is dat de Analytics-console een afzonderlijke service is en moet kiezen uit alle beschikbare gedeelde dashboards.
 
-    ![Analytics-query vastmaken](media/tutorial-app-dashboards/analytics-pin.png)
+    ![Analytics-query vastmaken](media/tutorial-app-dashboards/10query.png)
 
 5. Voordat u teruggaat naar het dashboard, voegt u nog een query toe, maar deze keer geeft u het dashboard weer als een diagram. Zo kunt u de verschillende manieren zien waarop u een Analytics-query in een dashboard kunt weergeven.  Begin met de volgende query die de top 10 bewerkingen met de meeste uitzonderingen weergeeft.
 
@@ -152,15 +130,15 @@ Aangezien Azure Application Insights Analytics een afzonderlijke service is, die
 
 6. Selecteer **Grafiek** en schakel vervolgens over naar een **Ringdiagram** om de uitvoer weer te geven.
 
-    ![Analytics-grafiek](media/tutorial-app-dashboards/analytics-chart.png)
+    ![Analytics-grafiek](media/tutorial-app-dashboards/11querychart.png)
 
 6. Klik op het speldpictogram om de grafiek aan uw dashboard vast te maken. Selecteer deze keer de link om naar uw dashboard terug te gaan.
-4. De resultaten van de query's worden nu aan uw dashboard toegevoegd in de indeling die u hebt geselecteerd.  Klik en sleep elke query naar de gewenste plek en klik vervolgens op **Klaar met bewerken**.
-5. Klik met de rechtermuisknop op elk van de tegels en selecteer **Titel bewerken** om ze een beschrijvende titel te geven.
+4. De resultaten van de query's worden nu aan uw dashboard toegevoegd in de indeling die u hebt geselecteerd.  Klik en sleep elke query naar de gewenste plek en klik vervolgens op **Aanpassen voltooid**.
+5. Selecteer het potloodpictogram bij elke titel om een beschrijvende titel toe te voegen.
 
-    ![Dashboard met Analytics](media/tutorial-app-dashboards/dashboard-05.png)
+    ![Dashboard met Analytics](media/tutorial-app-dashboards/12edit-title.png)
 
-5. Klik op **Wijzigingen publiceren** om de wijzigingen op uw dashboard op te slaan. Dit bevat nu verschillende grafieken en visualisaties vanuit Application Insights.
+5. Selecteer **Delen** om de wijzigingen op uw dashboard opnieuw te publiceren. Dit bevat nu verschillende grafieken en visualisaties vanuit Application Insights.
 
 
 ## <a name="next-steps"></a>Volgende stappen

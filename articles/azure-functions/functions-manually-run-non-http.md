@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 00a72c8c7fb42c763a8b0bad1fa3914ac27c496f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406927"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247109"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Handmatig een niet door HTTP geactiveerde functie uitvoeren
 
@@ -51,19 +51,20 @@ Nadat u de hoofdsleutel hebt gekopieerd, klikt u op de functienaam om terug te g
 
 Open Postman en volg deze stappen:
 
-1. Voer de **aanvraaglocatie in het URL-tekstvak in**. 
-2. **Klik** op het tabblad **Headers**.
-3. Voer **x-functions-key** in als de eerste **sleutel** en plak de hoofdsleutel (vanaf het klembord) in het vak **waarde**.
-4. Voer **Content-Type** in als de tweede **sleutel** en voer **application/json** in als de **waarde**.
+1. Voer de **aanvraaglocatie in het URL-tekstvak in**.
+2. Zorg ervoor dat de HTTP-methode is ingesteld op **POST**.
+3. **Klik** op het tabblad **Headers**.
+4. Voer **x-functions-key** in als de eerste **sleutel** en plak de hoofdsleutel (vanaf het klembord) in het vak **waarde**.
+5. Voer **Content-Type** in als de tweede **sleutel** en voer **application/json** in als de **waarde**.
 
     ![Instellingen voor de Postman-headers](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-5. **Klik** op het tabblad **Hoofdtekst**.
-6. Voer **{ "input": "test" }** in als de hoofdtekst voor de aanvraag.
+6. **Klik** op het tabblad **Hoofdtekst**.
+7. Voer **{ "input": "test" }** in als de hoofdtekst voor de aanvraag.
 
     ![Instellingen voor de Postman-hoofdtekst](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-7. Klik op **Verzenden**.
+8. Klik op **Verzenden**.
 
     ![Een aanvraag verzenden met Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584017"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229775"
 ---
 # <a name="what-is-computer-vision"></a>Wat is Computer Vision?
 
@@ -70,9 +70,13 @@ Met Computer Vision kunt u afbeeldingen analyseren die voldoen aan de volgende v
 - De afmetingen van de afbeelding moet groter zijn dan 50 x 50 pixels  
   Voor OCR moet de afbeelding tussen de 50 x 50 en 4200 x 4200 pixels groot zijn
 
+## <a name="data-privacy-and-security"></a>Gegevensprivacy en -beveiliging
+
+Zoals geldt voor alle Cognitive Services, dienen ontwikkelaars die de Computer Vision-service gebruiken op de hoogte te zijn van het beleid van Microsoft inzake klantgegevens. Zie de [pagina Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) (Engelstalig) in het Microsoft Trust Center voor meer informatie.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees onze snelstartgidsen om snel aan de slag te gaan met Computer Vision:
+Gebruik onze quickstarts om snel aan de slag te gaan met Computer Vision:
 
 - [Een afbeelding analyseren](quickstarts-sdk/csharp-analyze-sdk.md)
 - [Handgeschreven tekst extraheren](quickstarts-sdk/csharp-hand-text-sdk.md)

@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: d676af42b80d12ac0e537ce0c2bc008e196990c6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: bf9cf931964fec9b2089cce100757e044788a972
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586270"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262316"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Een instelling maken voor automatisch schalen van Azure-resources op basis van prestatiegegevens of een planning
 
@@ -63,7 +63,7 @@ De volgende stappen helpen u met het invullen van het scherm Automatisch schalen
   ![Navigeer naar de instellingen voor Automatisch schalen](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrance-profile"></a>Herhalingsprofiel maken
+## <a name="create-recurrence-profile"></a>Terugkeerpatroonprofiel maken
 
 1. Klik op de link **Een schaalvoorwaarde toevoegen** onder het standaardprofiel.
 

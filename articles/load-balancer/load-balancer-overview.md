@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120832"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246565"
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -153,7 +153,13 @@ Met een interne Load Balancer zijn de volgende typen taakverdeling mogelijk:
 *Afbeelding: Taakverdeling die wordt toegepast op toepassingen met meerdere lagen waarvoor zowel een openbare als een interne load balancer wordt gebruikt*
 
 ## <a name="pricing"></a>Prijzen
-Het gebruik van Standard Load Balancer wordt in rekening gebracht op basis van het aantal geconfigureerde regels voor taakverdeling en de hoeveelheid verwerkte inkomende en uitgaande gegevens. Ga naar de pagina [Prijs van Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) voor informatie over de prijs van Standard Load Balancer.
+
+Gebruik van Standard Load Balancer wordt in rekening gebracht.
+
+- Aantal geconfigureerde load-balancing en uitgaande regels (inkomende NAT-regels worden niet meegeteld in het totale aantal regels)
+- Hoeveelheid verwerkte inkomende en uitgaande gegevens, ongeacht de regel. 
+
+Ga naar de pagina [Prijs van Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) voor informatie over de prijs van Standard Load Balancer.
 
 Basic Load Balancer wordt gratis aangeboden.
 
@@ -168,4 +174,4 @@ Ga naar de pagina [Load Balancer-SLA](https://aka.ms/lbsla) voor informatie over
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt nu een algemeen beeld van Azure Load Balancer. Om een Load Balancer te kunnen gebruiken, moet u er eerst een maken, maakt u vervolgens virtuele machines met daarop een aangepaste IIS-extensie geïnstalleerd, en past u taakverdeling toe op de web-app tussen de VM's. Zie de snelstart[Een Basic Load Balancer maken](quickstart-create-basic-load-balancer-portal.md) voor meer informatie.
+U hebt nu een algemeen beeld van Azure Load Balancer. Om een Load Balancer te kunnen gebruiken, moet u er eerst een maken, maakt u vervolgens virtuele machines met daarop een aangepaste IIS-extensie geïnstalleerd, en past u taakverdeling toe op de web-app tussen de VM's. Zie de quickstart[Een Basic Load Balancer maken](quickstart-create-basic-load-balancer-portal.md) voor meer informatie.

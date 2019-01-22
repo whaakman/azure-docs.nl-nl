@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716103"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332061"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -380,7 +380,7 @@ In deze sectie configureert u Azure Storage- en SQL-verbindingsreeksen om lokaal
 3. Klik in het project ContosoAdsCloudService met de rechtermuisknop op ContosoAdsWeb (onder **Roles**) en klik vervolgens op **Properties**.
 
     ![Roleigenschappen](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Klik in het eigenschappenvenster van **ContosAdsWeb [rol]** op het tabblad **Settings** en vervolgens op **Add Setting**.
+4. Klik in het eigenschappenvenster van **ContosoAdsCommon [rol]** op het tabblad **Settings** en vervolgens op **Add Setting**.
 
     Laat **Service Configuration** ingesteld op **All Configurations**.
 5. Voeg een instelling toe met de naam *StorageConnectionString*. Stel **Type** in op *ConnectionString*. Stel **Value** in op *UseDevelopmentStorage=true*.
@@ -775,7 +775,7 @@ Zie [Microsoft Azure Storage - nieuwe functies, aanbevolen procedures en patrone
 
 Zie de volgende bronnen voor meer informatie:
 
-* [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/) (Engelstalig)
+* [Azure Cloud Services Part 1: Inleiding](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloud Services beheren](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Een cloudserviceprovider kiezen](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

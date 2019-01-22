@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034315"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359456"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Uw eerste duurzame functie maken in JavaScript
 
@@ -94,7 +94,7 @@ Er is een orchestrator toegevoegd om de activiteitsfuncties te coördineren. Nu 
 
 ## <a name="create-an-activity-function"></a>Een Activiteitsfunctie maken
 
-1. Herhaal de stappen uit de vorige sectie om een derde functie te maken met behulp van de HTTP-triggersjabloon. Maar deze keer geeft u de functie de naam `SayHello`.
+1. Herhaal de stappen uit de vorige sectie om een derde functie te maken met behulp van de HTTP-triggersjabloon. Maar deze keer geeft u de functie de naam `E1_SayHello`.
 
 2. Open het index.js-bestand voor de nieuwe functie en vervang de inhoud door de volgende code:
 
@@ -121,9 +121,11 @@ Met Azure Functions Core-hulpprogramma's kunt u een Azure Functions-project uitv
 
     ![Lokale Azure-uitvoer](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Plak de URL van de HTTP-aanvraag in de adresbalk van de browser. U ziet nu de status van de indeling.
+4. Vervang `{functionName}` door `OrchestratorFunction`.
 
-5. Als u wilt stoppen met fouten opsporen, drukt u op Shift+F1.
+5. Verzend met behulp van een hulpprogramma zoals [Postman](https://www.getpostman.com/) of [cURL](https://curl.haxx.se/) een HTTP POST-aanvraag naar het URL-eindpunt.
+
+6. Als u wilt stoppen met het opsporen van fouten, drukt u op Shift+F1 in VS Code.
 
 Nadat u hebt gecontroleerd of de functie correct wordt uitgevoerd op uw lokale computer, is het tijd om het project te publiceren in Azure.
 

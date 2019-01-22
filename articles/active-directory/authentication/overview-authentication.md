@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162955"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232546"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Welke verificatiemethoden zijn er beschikbaar?
 
 Je leest in het nieuws steeds dat wachtwoorden worden gestolen en dat er met identiteiten wordt geknoeid. Door een tweede verificatiefactor naast een wachtwoord te gebruiken, wordt uw organisatie meteen een stuk beter beveiligd. Microsoft Azure Active Directory (Azure AD) bevat functies, zoals Azure Multi-Factor Authentication (Azure MFA) en de selfservice voor wachtwoordherstel (SSPR) van Azure AD, die beheerders helpen om hun organisaties en gebruikers in staat te stellen zich beter te beveiligen met behulp van aanvullende verificatiemethoden.
 
-Als gebruikers toegang willen krijgen tot een gevoelige toepassing, hun wachtwoord opnieuw willen instellen of Windows Hallo willen inschakelen, wordt hen mogelijk gevraagd aanvullende verificatiegegevens te verstrekken om te bewijzen dat ze zijn wie ze zeggen te zijn.
+Er zijn veel scenario's waarin het volgende gebeurt: aanmelden bij een toepassing, het wachtwoord opnieuw instellen, Windows Hello instellen en meer. Mogelijk wordt uw gebruikers gevraagd om op aanvullende manieren te verifiëren dat ze zijn wie ze beweren te zijn.
 
 Aanvullende verificatie kan de vorm hebben van verificatiemethoden zoals:
 
@@ -34,7 +34,7 @@ Aanvullende verificatie kan de vorm hebben van verificatiemethoden zoals:
 
 Met Azure MFA en de selfservice voor het opnieuw instellen van wachtwoorden van Azure AD, hebben beheerders een betere controle over de configuratie, het beleid, bewaking en rapportagemogelijkheden om hun organisatie te beveiligen via Azure AD en Azure Portal.
 
-## <a name="self-service-password-reset"></a>Selfservice voor wachtwoord opnieuw instellen
+## <a name="self-service-password-reset"></a>Self-service voor wachtwoord opnieuw instellen
 
 De selfservice voor het opnieuw instellen van wachtwoorden biedt uw gebruikers de mogelijkheid om waar en wanneer ze dat willen hun wachtwoord opnieuw in te stellen zonder dat er een beheerder bij te pas komt.
 
@@ -42,9 +42,9 @@ De selfservice voor het opnieuw instellen van wachtwoorden biedt uw gebruikers d
 
 De selfservice voor het opnieuw instellen van wachtwoorden omvat onder andere:
 
-* **Wachtwoord wijzigen:** ik weet mijn wachtwoord maar wil het wijzigen.
-* **Wachtwoord opnieuw instellen:** ik kan me niet aanmelden en wil mijn wachtwoord met behulp van een of meer goedgekeurde verificatiemethoden opnieuw instellen.
-* **Account ontgrendelen:** ik kan me niet aanmelden omdat mijn account is vergrendeld en ik wil dit ontgrendelen met behulp van een of meer goedgekeurde verificatiemethoden.
+* **Wachtwoord wijzigen:** Ik weet mijn wachtwoord maar wil het wijzigen.
+* **Wachtwoord opnieuw instellen:** Ik kan me niet aanmelden en wil mijn wachtwoord met behulp van een of meer goedgekeurde verificatiemethoden opnieuw instellen.
+* **Account ontgrendelen:** Ik kan me niet aanmelden omdat mijn account is vergrendeld en ik wil dit ontgrendelen met behulp van een of meer goedgekeurde verificatiemethoden.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -56,6 +56,6 @@ De volgende stap is dieper in te gaan op de selfservice voor het opnieuw instell
 
 Lees het [snelstart-artikel Selfservice voor het opnieuw instellen van wachtwoorden inschakelen](quickstart-sspr.md) als u aan de slag wilt met de functie voor het opnieuw instellen van wachtwoorden .
 
-U vindt meer informatie over de selfservice voor het opnieuw instellen van wachtwoorden in het artikel [How it works: Azure AD self-service password reset](concept-sspr-howitworks.md) (Hoe het werkt: De selfservice voor het opnieuw instellen van wachtwoorden in Azure AD).
+U vindt meer informatie over de selfservice voor het opnieuw instellen van wachtwoorden in het artikel [How it works: Azure AD self-service password reset](concept-sspr-howitworks.md) (Hoe het werkt: De selfservice voor het opnieuw instellen van wachtwoorden in Azure AD)
 
 Lees het artikel [How it works: Azure Multi-Factor Authentication](concept-mfa-howitworks.md) (Hoe het werkt: Azure Multi-Factor Authentication) als u meer wilt weten over Azure Multi-Factor Authentication.

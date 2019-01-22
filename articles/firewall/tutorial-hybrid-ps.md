@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435562"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261465"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Zelfstudie: Azure Firewall implementeren en configureren in een hybride netwerk met Azure PowerShell
 
@@ -49,9 +49,9 @@ Voor deze zelfstudie moet u PowerShell lokaal uitvoeren. Versie 6.12.0 of hoger 
 
 Er zijn drie belangrijke vereisten voor de correcte werking van dit scenario:
 
-- Een door de gebruiker gedefinieerde route op het spoke-subnet die verwijst naar het IP-adres van Azure Firewall als de standaardgateway. Doorgifte van BGP-route moet zijn **Uitgeschakeld** voor deze routetabel.
-- Een door de gebruiker gedefinieerde route op het subnet van de hubgateway moet verwijzen naar het IP-adres van de firewall als de volgende hop naar de spoke-netwerken.
-- Er is geen door de gebruiker gedefinieerde route nodig in het Azure Firewall-subnet, omdat het de routes overneemt van BGP.
+- Een door de gebruiker gedefinieerde route (UDR) in het spoke-subnet die verwijst naar het IP-adres van Azure Firewall als de standaardgateway. Doorgifte van BGP-route moet zijn **Uitgeschakeld** voor deze routetabel.
+- Een door de gebruiker gedefinieerde route (UDR) in het subnet van de hubgateway moet verwijzen naar het IP-adres van de firewall als de volgende hop naar de spoke-netwerken.
+- Er is geen door de gebruiker gedefinieerde route (UDR) nodig in het Azure Firewall-subnet, omdat het de routes overneemt van BGP.
 - Zorg dat u **AllowGatewayTransit** instelt voor de peering van VNet-Hub naar VNet-Spoke en **UseRemoteGateways** voor de peering van VNet-Spoke naar VNet-Hub.
 
 Zie het gedeelte [Routes maken](#create-routes) in deze zelfstudie voor informatie over hoe deze routes worden gemaakt.
@@ -60,7 +60,7 @@ Zie het gedeelte [Routes maken](#create-routes) in deze zelfstudie voor informat
 >Azure Firewall moeten directe verbinding met internet hebben. Als u geforceerde tunnels naar on-premises hebt ingeschakeld via ExpressRoute of Application Gateway, moet u UDR 0.0.0.0/0 configureren met de waarde **NextHopType** ingeschakeld als **Internet** en deze vervolgens toewijzen aan **AzureFirewallSubnet**.
 
 >[!NOTE]
->Verkeer tussen rechtstreeks gepeerde VNets wordt rechtstreeks gerouteerd, zelfs als de UDE naar Azure Firewall wijst als standaardgateway. Als u in dit scenario subnet-naar-subnet-verkeer wilt verzenden, moet UDR het voorvoegsel van het doelsubnetwerk expliciet op beide subnetten bevatten.
+>Verkeer tussen rechtstreeks gepeerde VNets wordt rechtstreeks gerouteerd, zelfs als de UDR naar Azure Firewall als standaardgateway wijst. Als u in dit scenario subnet-naar-subnet-verkeer wilt verzenden, moet een UDR het voorvoegsel van het doelsubnetwerk expliciet op beide subnetten bevatten.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 

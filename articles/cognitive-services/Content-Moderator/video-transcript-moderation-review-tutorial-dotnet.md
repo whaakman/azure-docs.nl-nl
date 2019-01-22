@@ -1,27 +1,27 @@
 ---
 title: "Zelfstudie: Video's en transcripties beoordelen in .NET - Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: Leer hoe u Content Moderator gebruikt voor het beoordelen van video's en transcripties in .NET.
+description: In deze zelfstudie leert u hoe u een complete oplossing voor het beoordelen van video's en transcripties bouwt die resulteert in een beoordeling die deels automatisch tot stand komt en deels wordt uitgevoerd door menselijke beoordelaars.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118571"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332690"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Zelfstudie: Video's en transcripties beoordelen
 
 Met behulp van de video-API's van Content Moderator kunt u video's beoordelen en videobeoordelingen maken in het hulpprogramma voor menselijke beoordeling. 
 
-In deze gedetailleerde zelfstudie leert u hoe u een complete oplossing voor het beoordelen van video's en transcripties bouwt die resulteert in een beoordeling die deels automatisch tot stand komt en deels wordt uitgevoerd door menselijke beoordelaars.
+In deze zelfstudie leert u hoe u een complete oplossing voor het beoordelen van video's en transcripties bouwt die resulteert in een beoordeling die deels automatisch tot stand komt en deels wordt uitgevoerd door menselijke beoordelaars.
 
 Download de [C#-consoletoepassing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) voor deze zelfstudie. De consoletoepassing maakt gebruik van de SDK en de bijbehorende pakketten om de volgende taken uit te voeren:
 
@@ -241,7 +241,7 @@ De code voert de volgende stappen uit:
 
 - Controleert of de configuratie in `App.config` alle benodigde gegevens bevat
 - Controleert of het binaire bestand `ffmpeg` aanwezig is
-- Stelt de naam van het uitvoerbestand samen door `_c.mp4` toe te voegen aan de basisnaam van het bestand (zoals `Example.mp4` -> `E>xample_c.mp4`)
+- Stelt de naam van het uitvoerbestand samen door `_c.mp4` toe te voegen aan de basisnaam van het bestand (zoals `Example.mp4` -> `Example_c.mp4`)
 - Stelt een opdrachtregeltekenreeks samen om de conversie uit te voeren
 - Start een proces `ffmpeg` vanaf de opdrachtregel
 - Wacht tot de video is verwerkt

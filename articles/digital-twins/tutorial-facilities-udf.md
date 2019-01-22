@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556098"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229393"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Zelfstudie: Uw gebouw inrichten en uw werkomstandigheden controleren met Azure Digital Twins
 
@@ -30,6 +30,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 In deze zelfstudie wordt ervan uitgegaan dat u de [Azure Digital Twins-installatie hebt uitgevoerd](tutorial-facilities-setup.md). Voordat u doorgaat, moet u ervoor zorgen voor dat u beschikt over:
+
 - Een [Azure-account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Een actief exemplaar van Digital Twins. 
 - De gedownloade en uitgepakte [Digital Twins C#-voorbeelden](https://github.com/Azure-Samples/digital-twins-samples-csharp) op een werkcomputer. 
@@ -37,6 +38,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u de [Azure Digital Twins-installat
 - [Visual Studio Code](https://code.visualstudio.com/) om de voorbeeldcode mee te verkennen. 
 
 ## <a name="define-conditions-to-monitor"></a>Werkomstandigheden definiëren die gecontroleerd moeten worden
+
 U kunt een reeks specifieke omstandigheden definiëren die in het apparaat of sensorgegevens moeten worden bewaakt. Deze worden *matchers* genoemd. Vervolgens kunt u functies definiëren die *door de gebruiker gedefinieerde functies* worden genoemd. Door de gebruiker gedefinieerde functies voeren aangepaste logica uit op gegevens die afkomstig zijn van uw ruimten en apparaten, wanneer de omstandigheden zich voordoen die overeenkomen met wat er als matchers is opgegeven. Lees [Gegevensverwerking en door gebruikers gedefinieerde functies](concepts-user-defined-functions.md) voor meer informatie. 
 
 Open vanuit het voorbeeldproject **occupancy-quickstart** het bestand **src\actions\provisionSample.yaml** in Visual Studio Code. Let op de sectie die begint met het type **matchers**. Elk item onder dit type maakt een matcher met de opgegeven **Naam**. De matcher bewaakt een sensor van het type **dataTypeValue**. Kijk hoe deze zich verhoudt tot de ruimte met de naam *Focus Room A1*, die een knooppunt **devices** heeft waarin zich een aantal sensoren bevinden. Als u een matcher wilt inrichten om een van deze sensoren te volgen, moet u ervoor zorgen dat de bijbehorende **dataTypeValue** overeenkomt met het **dataType** van de sensor. 
@@ -48,14 +50,15 @@ Voeg de volgende matcher toe onder de bestaande matchers. Zorg ervoor dat de sle
         dataTypeValue: Temperature
 ```
 
-Deze matcher volgt de sensor SAMPLE_SENSOR_TEMPERATURE die u in [de eerste zelfstudie](tutorial-facilities-setup.md) hebt toegevoegd. Deze regels zijn ook aanwezig in het bestand *provisionSample.yaml* in de vorm van commentaarregels. U kunt er coderegels van maken door het teken `#` aan het begin van elke regel te verwijderen. 
+Deze matcher volgt de sensor SAMPLE_SENSOR_TEMPERATURE die u in [de eerste zelfstudie](tutorial-facilities-setup.md) hebt toegevoegd. Deze regels zijn ook aanwezig in het bestand *provisionSample.yaml* in de vorm van commentaarregels. U kunt er coderegels van maken door het teken `#` aan het begin van elke regel te verwijderen.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>Een door de gebruiker gedefinieerde functie maken
+
 Met behulp van door gebruikers gedefinieerde functies kunt u aanpassen hoe uw sensorgegevens worden verwerkt. Ze bestaan uit aangepaste JavaScript-code die in uw Azure Digital Twins-instantie wordt uitgevoerd als er zich omstandigheden voordoen die door de matchers worden beschreven. U kunt matchers en door gebruikers gedefinieerde functies maken voor elke sensor die u wilt controleren. Lees [Gegevensverwerking en door gebruikers gedefinieerde functies](concepts-user-defined-functions.md) voor meer informatie. 
 
-Zoek in het voorbeeldbestand provisionSample.yaml naar een sectie die begint met het type **userdefinedfunctions**. In deze sectie wordt een door de gebruiker gedefinieerde functie met een bepaalde **Naam** ingericht. Deze UDF werkt met de lijst met matchers onder **matcherNames**. Kijk ook hoe u een eigen JavaScript-kunt gebruiken als **script** voor de door de gebruiker gedefinieerde functie. 
+Zoek in het voorbeeldbestand provisionSample.yaml naar een sectie die begint met het type **userdefinedfunctions**. In deze sectie wordt een door de gebruiker gedefinieerde functie met een bepaalde **Naam** ingericht. Deze UDF werkt met de lijst met matchers onder **matcherNames**. Kijk ook hoe u een eigen JavaScript-kunt gebruiken als **script** voor de door de gebruiker gedefinieerde functie.
 
 Let ook op de sectie met de naam **roleassignments**. Hiermee wordt de rol van Space Administrator toegewezen aan de door de gebruiker gedefinieerde functie. Met deze rol wordt toegang verkregen tot de gebeurtenissen die afkomstig zijn van een van de ingerichte ruimtes. 
 
@@ -188,7 +191,7 @@ Let ook op de sectie met de naam **roleassignments**. Hiermee wordt de rol van S
 > [!TIP]
 > Als er tijdens het inrichtingsproces een foutbericht wordt weergegeven dat lijkt op 'De I/O-bewerking is afgebroken vanwege een afgesloten thread of een toepassingsaanvraag', moet u de opdracht opnieuw uitvoeren. Dit kan gebeuren als er een time-out van de HTTP-client heeft plaatsgevonden vanwege een netwerkprobleem.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Sensorgegevens simuleren
 
@@ -202,13 +205,13 @@ In deze sectie gebruikt u het project met de naam *device-connectivity* in het v
     dotnet restore
     ```
 
-1. Open het bestand **appSettings.json** in een editor en bewerk de volgende waarden:
+1. Open het bestand [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) in een editor en bewerk de volgende waarden:
 
    a. **DeviceConnectionString**: wijs de waarde van `ConnectionString` toe in het uitvoervenster uit het vorige gedeelte. Kopieer de volledige tekenreeks (tussen de aanhalingstekens), zodat de simulator correct verbinding maakt met de IoT-hub.
 
    b. **HardwareId** binnen de matrix **Sensors**: aangezien u gebeurtenissen van sensoren simuleert die zijn ingericht voor uw instantie van Digital Twins, moeten de hardware-ID en de namen van de sensoren in dit bestand overeenkomen met het knooppunt `sensors` van het bestand provisionSample.yaml.
 
-      Voeg een nieuwe vermelding voor de temperatuursensor toe. Het knooppunt **Sensoren** in appSettings.json ziet er als volgt uit:
+      Voeg een nieuwe vermelding voor de temperatuursensor toe. Het knooppunt **Sensoren** in appsettings.json ziet er als volgt uit:
 
       ```JSON
       "Sensors": [{
@@ -233,6 +236,7 @@ In deze sectie gebruikt u het project met de naam *device-connectivity* in het v
    > Omdat het simulatievoorbeeld niet rechtstreeks met uw instantie van Digital Twins communiceert, hoeft u zich niet te verifiëren.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Resultaten ophalen van een door de gebruiker gedefinieerde functie
+
 De door de gebruiker gedefinieerde functie wordt telkens uitgevoerd als uw instantie gegevens van het apparaat en de sensor ontvangt. In deze sectie voert de Azure Digital Twins-instantie een query uit om de resultaten van de door de gebruiker gedefinieerde functie op te halen. In bijna realtime ziet u wanneer een kamer beschikbaar is, dat de lucht vers is en dat de temperatuur klopt. 
 
 1. Open het opdrachtvenster dat u heb gebruikt voor het inrichten van het voorbeeld, of open een nieuw opdrachtvenster, en ga weer naar de map **occupancy-quickstart\src** van het voorbeeld.

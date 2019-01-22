@@ -1,21 +1,21 @@
 ---
 title: 'Zelfstudie: Facebook-inhoud controleren - Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Facebook-pagina's controleren met Content Moderator
+description: In deze zelfstudie leert u hoe u met behulp van machine learning en Content Moderator berichten en opmerkingen voor Facebook kunt controleren.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255428"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260433"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Zelfstudie: Facebook-inhoud controleren met Azure Content Moderator
 
@@ -35,7 +35,7 @@ In de volgende afbeelding ziet u de bouwstenen van de oplossing.
 
 ## <a name="create-a-content-moderator-team"></a>Een Content Moderator-team samenstellen
 
-Raadpleeg de [snelstartgids](quick-start.md) voor informatie over hoe u zich aanmeldt voor Content Moderator en een team samenstelt.
+Raadpleeg de quickstart [Content Moderator op internet proberen](quick-start.md) voor informatie over hoe u zich aanmeldt voor Content Moderator en een team samenstelt.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>Werkstroom voor controle van afbeeldingen configureren (drempelwaarde)
 
@@ -152,10 +152,6 @@ De oplossing verzendt alle afbeeldingen en tekst die op uw Facebook-pagina worde
 ## <a name="license"></a>Licentie
 
 Alle SDK's en voorbeelden van Microsoft Cognitive Services worden gelicentieerd met de MIT-licentie. Zie de [LICENTIE](https://microsoft.mit-license.org/) voor meer informatie.
-
-## <a name="developer-code-of-conduct"></a>Gedragscode voor ontwikkelaars
-
-Ontwikkelaars die gebruikmaken van Cognitive Services, inclusief deze clientbibliotheek en dit voorbeeld, worden geacht de 'gedragscode voor ontwikkelaars voor Microsoft Cognitive Services' te volgen, te vinden op http://go.microsoft.com/fwlink/?LinkId=698895 (Engelstalig).
 
 ## <a name="next-steps"></a>Volgende stappen
 

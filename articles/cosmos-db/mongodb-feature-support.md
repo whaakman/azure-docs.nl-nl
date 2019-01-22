@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039160"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359065"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>De API van Azure Cosmos DB voor MongoDB-ondersteuning voor MongoDB-functies en syntaxis
 
@@ -20,13 +20,13 @@ Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van 
 
 Door gebruik te maken van de API van Azure Cosmos DB voor MongoDB hebt u de beschikking over de voordelen van de vertrouwde MongoDB, met alle zakelijke mogelijkheden die Cosmos DB biedt: [wereldwijde distributie](distribute-data-globally.md), [automatische sharding](partition-data.md), garanties voor beschikbaarheid en latentie, automatisch indexeren van alle velden, versleuteling van niet-actieve gegevens, het maken van back-ups, en meer.
 
-## <a name="mongodb-protocol-support"></a>Protocolondersteuning voor MongoDB
+## <a name="protocol-support"></a>Ondersteuning voor protocol
 
 De API van Azure Cosmos DB voor MongoDB is standaard compatibel met MongoDB-serverversie **3.2**. De ondersteunde operators en eventuele beperkingen of uitzonderingen worden hieronder vermeld. Toegevoegde functies of operators voor query's in MongoDB-versie **3.4** zijn momenteel beschikbaar als preview-functie. Elk clientstuurprogramma dat deze protocollen kent, kan verbinding maken met de API van Azure Cosmos DB voor MongoDB.
 
 De [MongoDB-samenvoegingspijplijn](#aggregation-pipeline) is ook beschikbaar als een afzonderlijke preview-functie.
 
-## <a name="mongodb-query-language-support"></a>Ondersteuning voor MongoDB-querytaal
+## <a name="query-language-support"></a>Ondersteuning voor querytaal
 
 De API van Azure Cosmos DB voor MongoDB biedt uitgebreide ondersteuning voor MongoDB-querytaalconstructs. Hieronder ziet u de gedetailleerde lijst met momenteel ondersteunde bewerkingen, operators, fasen, opdrachten en opties.
 

@@ -3,7 +3,7 @@ title: Een SQL Server-VM voor Windows maken met Azure PowerShell | Microsoft Doc
 description: In deze zelfstudie ziet u hoe u een virtuele SQL Server 2017-machine voor Windows kunt maken met Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
-ms.author: jroth
-ms.openlocfilehash: bebb153d5ff840a0eed7d6afffccd03a5236592d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 12/21/2018
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: aa4ea4e724ec383fc9f22bd56572d2fd0e844abc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42023419"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332435"
 ---
-# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snelstartgids: een virtuele SQL Server-machine voor Windows maken met Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Quickstart: Een virtuele SQL Server-machine voor Windows maken met Azure PowerShell
 
 In deze snelstartgids gaat u een virtuele SQL Server-machine maken met Azure PowerShell.
 
@@ -47,11 +48,11 @@ Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereis
    Connect-AzureRmAccount
    ```
 
-1. Als het goed is, ziet u nu een aanmeldingsscherm waar u uw referenties kunt invoeren. Gebruik hetzelfde e-mailadres en wachtwoord waarmee u zich aanmeldt bij Azure Portal.
+1. Als het goed is, ziet u nu een scherm waarin u uw referenties kunt invoeren. Gebruik hetzelfde e-mailadres en wachtwoord waarmee u zich aanmeldt bij Azure Portal.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-1. Definieer een variabele met een unieke naam voor de resourcegroep. In de andere opdrachten wordt deze naam gebruikt voor alle overige resourcenamen om de rest van de snelstartgids te vereenvoudigen.
+1. Definieer een variabele met een unieke naam voor de resourcegroep. In de andere opdrachten wordt deze naam gebruikt voor alle overige resourcenamen om de rest van de quickstart te vereenvoudigen.
 
    ```PowerShell
    $ResourceGroupName = "sqlvm1"
@@ -122,11 +123,11 @@ Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereis
 
 ## <a name="create-the-sql-vm"></a>De SQL-VM maken
 
-1. Definieer uw referenties om u aan te melden bij de VM. De gebruikersnaam is: azureadmin. Wijzig het wachtwoord voordat u de opdracht uitvoert.
+1. Definieer uw referenties om u aan te melden bij de VM. De gebruikersnaam is 'azureadmin'. Wijzig \<password> voordat u de opdracht uitvoert.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -136,7 +137,7 @@ Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereis
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -150,7 +151,7 @@ Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereis
 
 ## <a name="install-the-sql-iaas-agent"></a>SQL IaaS-agent installeren
 
-Voor integratie met de portal en voor de functies van de SQL-VM, moet u de [extensie voor de SQL Server IaaS-agent](virtual-machines-windows-sql-server-agent-extension.md) installeren. Als u de agent wilt installeren op de nieuwe VM, voert u de volgende opdracht uit nadat deze is gemaakt.
+Voor integratie met de portal en voor de functies van de SQL-VM, moet u de [extensie voor de SQL Server IaaS-agent](virtual-machines-windows-sql-server-agent-extension.md) installeren. Als u de agent wilt installeren op de nieuwe VM, voert u de volgende opdracht uit nadat de VM is gemaakt.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -158,25 +159,25 @@ Voor integratie met de portal en voor de functies van de SQL-VM, moet u de [exte
 
 ## <a name="remote-desktop-into-the-vm"></a>Extern bureaublad op de VM
 
-1. Met de volgende opdracht wordt het openbare IP-adres opgehaald voor de nieuwe VM.
+1. Gebruik de volgende opdracht om het openbare IP-adres voor de nieuwe VM op te halen.
 
    ```PowerShell
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. Geef vervolgens het geretourneerde IP-adres als opdrachtregelparameter door aan **mstsc** om een Extern bureaublad-sessie te starten op de nieuwe VM.
+1. Geef het geretourneerde IP-adres als opdrachtregelparameter door aan **mstsc** om een Extern bureaublad-sessie te starten op de nieuwe VM.
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. Wanneer u om referenties wordt gevraagd, voert u de referenties in voor een ander account. Voer de gebruikersnaam voorafgegaan door een backslash, (bijvoorbeeld `\azureadmin`), en het wachtwoord in dat u eerder in deze snelstartgids hebt ingesteld.
+1. Wanneer u om referenties wordt gevraagd, voert u de referenties in voor een ander account. Voer de gebruikersnaam voorafgegaan door een backslash, (bijvoorbeeld `\azureadmin`), en het wachtwoord in dat u eerder in deze quickstart hebt ingesteld.
 
 ## <a name="connect-to-sql-server"></a>Verbinding maken met SQL Server
 
 1. Nadat u bent aangemeld bij de Extern bureaublad-sessie, start u **SQL Server Management Studio 2017** vanuit het startmenu.
 
-1. Laat de standaardwaarden in het dialoogvenster **Verbinding maken met server** staan. De servernaam is de naam van de VM. Verificatie is ingesteld op **Windows-verificatie**. Klik op **Verbinden**.
+1. Laat de standaardwaarden in het dialoogvenster **Verbinding maken met server** staan. De servernaam is de naam van de VM. Verificatie is ingesteld op **Windows-verificatie**. Selecteer **Verbinden**.
 
 U hebt nu lokaal verbinding met SQL Server. Als u extern verbinding wilt maken, moet u [connectiviteit handmatig of vanuit de portal configureren](virtual-machines-windows-sql-connect.md).
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/14/2019
 ms.author: mstewart
 ms.custom: seodec18
-ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f94ec1a64108cde6ff69a572559960a988a1b7c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087861"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261278"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Snelstartgids: Een Windows Iaas-VM versleutelen met Azure PowerShell
 
@@ -30,9 +30,9 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="prerequisites"></a>Vereisten
 
 - Windows PowerShell ISE
-- De [nieuwste versie van Azure PowerShell](/powershell/azure/install-azurerm-ps) installeren of bijwerken
+- De [nieuwste versie van de AzureRM PowerShell-module](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0) installeren of bijwerken
     - De versie van de AzureRM-module moet 6.0.0 of hoger zijn. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
-- Een kopie van het [script met vereisten voor Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+- Een kopie van het [script met vereisten voor Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
     - Als u dit script al hebt, downloadt u een nieuw exemplaar omdat deze onlangs is gewijzigd. 
     - Gebruik **Ctrl-A** om alle tekst te selecteren en gebruik vervolgens **Ctrl-C** om alle tekst te kopiëren naar Kladblok.
     - Sla het bestand op als **ADEPrereqScript.ps1**
@@ -41,7 +41,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 1. Klik met de rechtermuisknop op **Windows PowerShell ISE** en klik op **Als administrator uitvoeren**.
-1. Klik in het venster **Administrator:  Windows PowerShell ISE** op **Weergeven** en vervolgens op **Scriptvenster weergeven**.
+1. Klik in het venster **Administrator: Windows PowerShell ISE** op **Weergeven** en vervolgens op **Scriptvenster weergeven**.
 1. Typ de volgende cmdlet in het scriptvenster: 
 
      ```azurepowershell
@@ -55,7 +55,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="bkmk_PrereqScript"></a> Het script met vereisten voor Azure Disk Encryption uitvoeren
  Met behulp van **ADEPrereqScript.ps1** wordt er een resourcegroep en een sleutelkluis gemaakt en wordt het toegangsbeleid voor de sleutelkluis ingesteld. Met het script wordt er ook een resourcevergrendeling voor de sleutelkluis gemaakt om het te beveiligen tegen onopzettelijk verwijderen.  
 
-1. Klik in het venster **Administrator:  Windows PowerShell ISE** op **Bestand** en klik vervolgens op **Openen**. Ga naar het bestand **ADEPrereqScript.ps1** en dubbelklik hierop. Het script wordt geopend in het scriptvenster.
+1. Klik in het venster **Administrator: Windows PowerShell ISE** op **Bestand** en vervolgens op **Openen**. Ga naar het bestand **ADEPrereqScript.ps1** en dubbelklik hierop. Het script wordt geopend in het scriptvenster.
 2. Klik op de groene pijl voor **Script uitvoeren** of gebruik F5 om het script uit te voeren. 
 3. Typ de naam van een nieuwe **resourcegroep** en een nieuwe **sleutelkluis**. Gebruik geen bestaande resourcegroep of sleutelkluis voor deze snelstart omdat we de resourcegroep later verwijderen. 
 4. Typ de locatie waarop u de resources wilt maken, zoals **EastUS**. Haal een locatielijst op met `Get-AzureRMLocation`.
@@ -69,7 +69,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken 
 Nu moet u een virtuele machine maken, zodat u de schijf kunt versleutelen. Met het script dat u gebruikt, wordt een Windows Server 2016-VM met 8 GB RAM en een besturingssysteemschijf van 30 GB gemaakt. 
 
-1. Kopieer het script in het scriptvenster **Administrator:  Windows PowerShell ISE** en wijzig de belangrijkste drie variabelen. De resourcegroep en locatie moeten hetzelfde zijn als de resourcegroep en locatie die u hebt gebruikt voor het [script met vereisten](#bkmk_PrereqScript).  
+1. Kopieer het script in het scriptvenster **Administrator: Windows PowerShell ISE** en wijzig de belangrijkste drie variabelen. De resourcegroep en locatie moeten hetzelfde zijn als de resourcegroep en locatie die u hebt gebruikt voor het [script met vereisten](#bkmk_PrereqScript).  
 
    ```azurepowershell
     # Variables for common values

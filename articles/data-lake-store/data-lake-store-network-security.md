@@ -1,6 +1,6 @@
 ---
 title: Netwerkbeveiliging in Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Begrijpen hoe de IP-firewall en integratie van virtuele netwerken werken in Azure Data Lake Storage Gen1
+description: Begrijpen hoe de integratie van virtueel netwerk werkt in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287996"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359303"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integratie van virtuele netwerken voor Azure Data Lake Storage Gen1 - Preview
 
-In dit artikel komt u meer te weten over de integratie van virtuele netwerken in Azure Data Lake Storage Gen1 (preview-versie). Bij het integreren van virtuele netwerken kunt u uw accounts zodanig configureren dat alleen verkeer van specifieke virtuele netwerken en subnetten wordt geaccepteerd. 
+In dit artikel komt u meer te weten over de integratie van virtuele netwerken in Azure Data Lake Storage Gen1. Bij het integreren van virtuele netwerken kunt u uw accounts zodanig configureren dat alleen verkeer van specifieke virtuele netwerken en subnetten wordt geaccepteerd. 
 
 Deze functie helpt bij het beveiligen van uw Data Lake Storage-account tegen externe bedreigingen.
 
@@ -65,25 +65,25 @@ Naast het beveiligen van de toegang tot Data Lake Storage-accounts voor toegang 
 Gebruik hiervoor een firewalloplossing in uw virtuele netwerk voor het filteren van uitgaand verkeer op basis van de URL van het doelaccount. Verleen alleen toegang aan goedgekeurde Data Lake Storage Gen1-accounts.
 
 Een aantal beschikbare opties zijn:
-- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): [implementeer en configureer een Azure-firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) voor uw virtuele netwerk. Beveilig het uitgaande Data Lake Storage-verkeer en beperk het tot de bekende en goedgekeurde account-URL.
-- [Firewall voor het virtuele netwerkapparaat](https://azure.microsoft.com/solutions/network-appliances/): de beheerder staat mogelijk alleen het gebruik van bepaalde commerciële firewalls toe. Gebruik een firewalloplossing voor virtuele-netwerkapparaten die beschikbaar is in Azure Marketplace en waarmee dezelfde functie kan worden vervuld.
+- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): [Implementeer en configureer een Azure-firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) voor uw virtuele netwerk. Beveilig het uitgaande Data Lake Storage-verkeer en beperk het tot de bekende en goedgekeurde account-URL.
+- [Firewall voor het virtuele netwerkapparaat](https://azure.microsoft.com/solutions/network-appliances/): De beheerder staat mogelijk alleen het gebruik van bepaalde commerciële firewalls toe. Gebruik een firewalloplossing voor virtuele-netwerkapparaten die beschikbaar is in Azure Marketplace en waarmee dezelfde functie kan worden vervuld.
 
 > [!NOTE]
 > Door firewalls te gebruiken in het gegevenspad wordt er een extra sprong in het gegevenspad gecreëerd. Dit kan van invloed zijn op de netwerkprestaties voor end-to-endgegevensuitwisseling. De doorvoerbeschikbaarheid en verbindingslatentie kunnen worden beïnvloed. 
 
 ## <a name="limitations"></a>Beperkingen
 
-- HDI-clusters die zijn gemaakt vóórdat ondersteuning van Data Lake Storage Gen1-virtuele-netwerkintegratie beschikbaar was, moeten opnieuw worden gemaakt zodat er ondersteuning wordt geboden voor de nieuwe functie.
+- HDInsight-clusters die zijn gemaakt vóórdat ondersteuning van Data Lake Storage Gen1-virtuele-netwerkintegratie beschikbaar was, moeten opnieuw worden gemaakt zodat er ondersteuning wordt geboden voor de nieuwe functie.
  
-- Wanneer u een nieuw HDInsight-cluster maakt en u een Data Lake Storage Gen1-account selecteert waarvoor virtuele-netwerkintegratie is ingeschakeld, mislukt het proces. Schakel om te beginnen de virtuele-netwerkregel uit. U kunt ook op de blade **Firewall en virtuele netwerken** van het Data Lake Storage-account de optie **Toegang vanuit alle netwerken en services toestaan** selecteren. Raadpleeg de sectie [Uitzonderingen](##Exceptions) voor meer informatie.
+- Wanneer u een nieuw HDInsight-cluster maakt en u een Data Lake Storage Gen1-account selecteert waarvoor virtuele-netwerkintegratie is ingeschakeld, mislukt het proces. Schakel om te beginnen de virtuele-netwerkregel uit. U kunt ook op de blade **Firewall en virtuele netwerken** van het Data Lake Storage-account de optie **Toegang vanuit alle netwerken en services toestaan** selecteren. Maak vervolgens het HDInsight-cluster voordat u de regel voor het virtuele netwerk opnieuw inschakelt of **Toegang uit alle netwerken en services** deselecteert. Raadpleeg de sectie [Uitzonderingen](##Exceptions) voor meer informatie.
 
-- De preview van virtuele-netwerkintegratie voor Data Lake Storage Gen1 werkt niet in combinatie met [beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- De van virtuele-netwerkintegratie voor Data Lake Storage Gen1 werkt niet in combinatie met [beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
 - Bestands- en mapgegevens in uw Data Lake Storage Gen1-account met virtuele-netwerkfunctionaliteit zijn niet toegankelijk vanuit de portal. Deze beperking omvat toegang vanuit een VM in het virtuele netwerk en activiteiten zoals het gebruik van Data Explorer. Accountbeheeractiviteiten blijven werken. Bestands- en mapgegevens in uw Data Lake Storage-account met virtuele-netwerkfunctionaliteit zijn toegankelijk via alle niet-portalresources. Deze resources omvatten bijvoorbeeld SDK-toegang, PowerShell-scripts en andere Azure-services als deze niet afkomstig zijn uit de portal. 
 
 ## <a name="configuration"></a>Configuratie
 
-### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Stap 1: uw virtuele netwerk configureren voor het gebruik van een Azure AD-service-eindpunt
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Stap 1: Uw virtuele netwerk configureren voor het gebruik van een Azure AD-service-eindpunt
 
 1.  Ga naar de Azure-portal en meld u aan bij uw account.
  
@@ -107,7 +107,7 @@ Een aantal beschikbare opties zijn:
  
     ![Geslaagde toevoeging van het service-eindpunt](media/data-lake-store-network-security/config-vnet-4.png)
 
-### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Stap 2: het toegestane virtuele netwerk of subnet instellen voor uw Data Lake Storage Gen1-account
+### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Stap 2: Het toegestane virtuele netwerk of subnet instellen voor uw Data Lake Storage Gen1-account
 
 1.  Wanneer u uw virtuele netwerk hebt geconfigureerd, [maakt u een nieuw account voor Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) in uw abonnement. U kunt ook naar een bestaand Data Lake Storage Gen1-account gaan. Het Data Lake Storage Gen1-account moet zich in dezelfde regio bevinden als het virtuele netwerk.
  

@@ -1,5 +1,5 @@
 ---
-title: 'Snelstartgids: Beoordelingstaken starten met behulp van .NET - Content Moderator'
+title: 'Quickstart: Beoordelingstaken starten met behulp van .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Leer hoe u beoordelingstaken start met behulp van de Azure Content Moderator SDK voor .NET.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f55906aa9de6faa5979ecedbc3ef288f164fd6c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227422"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261942"
 ---
-# <a name="quickstart-start-moderation-jobs-using-net"></a>Snelstartgids: Beoordelingstaken starten met behulp van .NET
+# <a name="quickstart-start-moderation-jobs-using-net"></a>Quickstart: Beoordelingstaken starten met behulp van .NET
 
 In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en het volgende te doen:
  
@@ -30,12 +30,11 @@ In dit artikel wordt ervan uitgegaan dat u al bekend bent met Visual Studio en C
 
 ## <a name="sign-up-for-content-moderator"></a>Aanmelden voor Content Moderator
 
-Voordat u de Content Moderator-services via de REST-API of de SDK kunt gebruiken, hebt u een abonnementssleutel nodig.
-Raadpleeg de [snelstartgids](quick-start.md) voor informatie over hoe u de sleutel kunt verkrijgen.
+Om de Content Moderator-services via de REST-API of de SDK te kunnen gebruiken, hebt u een abonnementssleutel nodig. Volg de instructies in [Een Cognitive Services-account maken](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om u te abonneren op Content Moderator en uw sleutel op te halen.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Aanmelden voor een account voor het beoordelingsprogramma als dat niet in de vorige stap is gedaan
 
-Als u Content Moderator hebt gedownload via de Azure-portal, [schrijf u dan ook in voor het account voor het beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een taak te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
+Als u uw Content Moderator via de Azure-portal hebt gekregen, [schrijf u dan ook in voor het account voor een beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een taak te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Instellen dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 
@@ -54,7 +53,7 @@ U gebruikt de naam van de werkstroom in uw code waarmee de beoordelingstaak word
 
 ## <a name="create-your-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. Voeg een nieuw project van het type **Console-app (.NET Framework)** toe aan uw oplossing.
+1. Voeg een nieuw project van het type **Console app (.NET Framework)** toe aan uw oplossing.
 
    Geef het project de naam **CreateReviews** in de voorbeeldcode.
 
@@ -321,4 +320,4 @@ U ziet een reactie zoals in het volgende voorbeeld:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Download de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere snelstartgidsen over Content Moderator voor .NET en begin met de integratie.
+Download de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere snelstarts over Content Moderator voor .NET en begin met de integratie.

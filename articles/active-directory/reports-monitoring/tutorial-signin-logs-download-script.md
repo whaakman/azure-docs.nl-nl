@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622802"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213091"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Zelfstudie: Een script downloaden en gebruiken voor toegang tot aanmeldingslogboeken
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u hoe u een script genereert om alle aanmeldingslogboek
 
 U hebt nodig
 
-* Een Azure Active Directory-tenant met een premium-licentie (P1/P2). 
+* Een Azure Active Directory-tenant met een premium-licentie (P1/P2). Als er vóór de upgrade nog geen activiteitgegevens waren, duurt het na het upgraden naar een premium-licentie enkele dagen voordat er gegevens worden weergegeven in de rapporten. 
 * Een gebruiker die de rol **Globale beheerder**, **Beveiligingsbeheerder**, **Beveiligingslezer** of **Rapportlezer** voor de tenant heeft. Bovendien kan elke gebruiker toegang krijgen tot eigen aanmeldingen. 
 * Als u het gedownloade script wilt uitvoeren op een Windows 10-computer, [stelt u de AzureRM-module en het uitvoeringsbeleid in](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 

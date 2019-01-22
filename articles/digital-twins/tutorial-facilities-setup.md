@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: b21e5a87561757e2991a7b9addce0d1f3383204f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557713"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212189"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Zelfstudie: Azure Digital Twins implementeren en een ruimtelijke grafiek configureren
 
@@ -33,9 +33,7 @@ In de eerste zelfstudie van deze reeks leert u het volgende:
 > * Een voorbeeld-app van Digital Twins wijzigen.
 > * Het gebouw inrichten.
 
-
 In deze zelfstudies worden dezelfde voorbeelden gebruikt en aangepast als in de [quickstart om beschikbare ruimten te vinden](quickstart-view-occupancy-dotnet.md), voor een meer gedetailleerde en uitgebreide uitleg van de concepten.
-
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,7 +43,7 @@ In deze zelfstudies worden dezelfde voorbeelden gebruikt en aangepast als in de 
 
 - [Visual Studio Code](https://code.visualstudio.com/) om de voorbeeldcode mee te verkennen. 
 
-<a id="deploy" />
+<a id="deploy"></a>
 
 ## <a name="deploy-digital-twins"></a>Azure Digital Twins implementeren
 
@@ -53,8 +51,7 @@ Maak een nieuw exemplaar van de Azure Digital Twins-service met behulp van de st
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
-
-<a id="permissions" />
+<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Machtigingen verlenen aan uw app
 
@@ -64,19 +61,20 @@ Als u al over een app-registratie beschikt, kunt u deze opnieuw gebruiken voor u
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
-
 ## <a name="configure-the-digital-twins-sample"></a>Het Digital Twins-voorbeeld configureren
 
 In deze sectie ziet u hoe een Azure Digital Twins-toepassing communiceert met de [REST-API's van Digital Twins](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index). 
 
 ### <a name="download-the-sample"></a>Het voorbeeld downloaden
+
 Als u de voorbeelden voor de [quickstart om beschikbare ruimten te vinden](quickstart-view-occupancy-dotnet.md) al hebt gedownload, kunt u deze stappen overslaan.
 
-1. Download de [.NET-voorbeelden van Digital Twins](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). 
-2. Pak de inhoud van de gecomprimeerde map uit op uw computer. 
+1. Download de [.NET-voorbeelden van Digital Twins](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip).
+2. Pak de inhoud van de gecomprimeerde map uit op uw computer.
 
 ### <a name="explore-the-sample"></a>Het voorbeeld verkennen
-Open het bestand **digital-twins-samples-csharp\digital-twins-samples.code-workspace** uit de uitgepakte voorbeeldmap in Visual Studio Code. Dit bestand bevat twee projecten: 
+
+Open het bestand **digital-twins-samples-csharp\digital-twins-samples.code-workspace** uit de uitgepakte voorbeeldmap in Visual Studio Code. Dit bestand bevat twee projecten:
 
 * U kunt het inrichtingsvoorbeeld **occupancy-quickstart** gebruiken voor het configureren en inrichten van een [ruimtelijke informatiegrafiek](concepts-objectmodel-spatialgraph.md#graph). Deze grafiek is de digitale kopie van uw fysieke ruimten en de resources in die ruimten. Hiervoor wordt een [objectmodel](concepts-objectmodel-spatialgraph.md#model) gebruikt waarin objecten voor een slim gebouw worden gedefinieerd. Ga voor een volledige lijst van objecten en REST-API's van Digital Twins naar [deze REST API-documentatie](https://docs.westcentralus.azuresmartspaces.net/management/swagger) of de URL van de Beheer API die is gemaakt voor uw [exemplaar](#deploy).
 
@@ -89,6 +87,7 @@ Open het bestand **digital-twins-samples-csharp\digital-twins-samples.code-works
 * Het simulatievoorbeeld **device-connectivity** simuleert sensorgegevens en verzendt deze naar de IoT-hub die is ingericht voor uw exemplaar van Digital Twins. U gebruikt dit voorbeeld in [de volgende zelfstudie nadat u de ruimtelijke grafiek hebt ingericht](tutorial-facilities-udf.md#simulate). De sensor- en apparaat-id's die u gebruikt voor het configureren van dit voorbeeld moeten gelijk zijn aan de id's die u gebruikt voor het inrichten van de grafiek.
 
 ### <a name="configure-the-provisioning-sample"></a>Het inrichtingsvoorbeeld configureren
+
 1. Open een opdrachtvenster en ga naar het gedownloade voorbeeld. Voer de volgende opdracht uit:
 
     ```cmd/sh
@@ -101,10 +100,10 @@ Open het bestand **digital-twins-samples-csharp\digital-twins-samples.code-works
     dotnet restore
     ```
 
-1. Open in Visual Studio Code het bestand **appSettings.json** van het project **occupancy-quickstart**. Werk de volgende waarden bij:
+1. Open in Visual Studio Code het bestand [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) van het project **occupancy-quickstart**. Werk de volgende waarden bij:
    * **ClientId**: voer de toepassings-id van uw Azure AD-app-registratie in. U hebt deze id genoteerd in de sectie voor het [instellen van app-machtigingen](#permissions).
    * **Tenant**: voer de map-id van uw [Azure AD-tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in. U hebt deze id ook genoteerd in de sectie voor het [instellen van app-machtigingen](#permissions).
-   * **BaseUrl**: voer de URL van uw exemplaar van Digital Twins in. Hiertoe vervangt u de tijdelijke aanduidingen in deze URL door de waarden voor uw exemplaar: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. U kunt deze URL ook verkrijgen door de URL van de Beheer API uit [de implementatiesectie](#deploy) te wijzigen. Vervang **swagger/** door **api/v1.0/**.
+   * **BaseUrl**: voer de URL van uw exemplaar van Digital Twins in. Hiertoe vervangt u de tijdelijke aanduidingen in deze URL door de waarden voor uw exemplaar: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. U kunt deze URL ook verkrijgen door de URL van de Beheer API uit [de implementatiesectie](#deploy) te wijzigen. Vervang **swagger/** door **api/v1.0/**.
 
 1. Bekijk een lijst met functies van Digital Twins die u kunt verkennen met behulp van het voorbeeld. Voer de volgende opdracht uit:
 
@@ -112,10 +111,11 @@ Open het bestand **digital-twins-samples-csharp\digital-twins-samples.code-works
     dotnet run
     ```
 
-<a id="provision-spaces" />
+<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Inzicht in het inrichtingsproces
-In deze sectie wordt beschreven hoe u met het voorbeeld een ruimtelijke grafiek van een gebouw inricht. 
+
+In deze sectie wordt beschreven hoe u met het voorbeeld een ruimtelijke grafiek van een gebouw inricht.
 
 Ga in Visual Studio Code naar de map **occupancy-quickstart\src\actions** en open het bestand **provisionSample.cs**. Let op de volgende functie:
 
@@ -137,15 +137,16 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Deze functie maakt gebruik van het bestand **provisionSample.yaml** in dezelfde map. Open dit bestand en bekijk de hiërarchie van een kantoorgebouw: *locatie*, *verdieping*, *gebied* en *ruimten*. Elk van deze fysieke ruimten kan *devices* en *sensors* bevatten. Elk vermelding heeft een vooraf gedefinieerde `type`&mdash;, bijvoorbeeld Verdieping, Ruimte. 
+Deze functie maakt gebruik van het bestand [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) in dezelfde map. Open dit bestand en bekijk de hiërarchie van een kantoorgebouw: *locatie*, *verdieping*, *gebied* en *ruimten*. Elk van deze fysieke ruimten kan *devices* en *sensors* bevatten. Elk vermelding heeft een vooraf gedefinieerde `type`&mdash;, bijvoorbeeld Verdieping, Ruimte.
 
 Het **yaml**-voorbeeldbestand bevat een ruimtelijke grafiek die gebruikmaakt van het Digital Twins-objectmodel `Default`. Dit model bevat algemene namen voor de meeste typen. Algemene namen zijn voldoende voor een gebouw. Voorbeelden hiervan zijn Temperatuur voor SensorDataType en Toewijzen voor SpaceBlobType. Een voorbeeld van een type ruimte is Ruimte met de subtypen Concentratieruimte, Vergaderruimte, enzovoort. 
 
 Als u een ruimtelijke grafiek voor een ander type locatie wilt maken (zoals een fabriek) hebt u wellicht een ander objectmodel nodig. Als u wilt weten welke modellen beschikbaar zijn, voert u de opdracht `dotnet run GetOntologies` uit vanaf de opdrachtregel voor het inrichtingsvoorbeeld. 
 
-Lees voor meer informatie over ruimtelijke grafieken en de objectmodellen [Inzicht in Digital Twins-objectmodellen en ruimtelijke informatiegrafiek](concepts-objectmodel-spatialgraph.md). 
+Lees voor meer informatie over ruimtelijke grafieken en de objectmodellen [Inzicht in Digital Twins-objectmodellen en ruimtelijke informatiegrafiek](concepts-objectmodel-spatialgraph.md).
 
 ### <a name="modify-the-sample-spatial-graph"></a>Het voorbeeld van de ruimtelijke grafiek wijzigen
+
 Het bestand **provisionSample.yaml** bevat de volgende knooppunten:
 
 - **resources**: het knooppunt `resources` maakt een Azure IoT Hub-resource om te communiceren met de apparaten in uw installatie. Een IoT-hub in het hoofdknooppunt van uw grafiek kan communiceren met alle apparaten en sensoren in uw grafiek.  
@@ -168,22 +169,19 @@ Sla het bestand provisionSample.yaml op en sluit het. In de volgende zelfstudie 
 > [!TIP]
 > U kunt de ruimtelijke grafiek bekijken en aanpassen met de [Graph Viewer voor Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u Azure Digital Twins niet verder wilt verkennen, kunt u de resources die in deze zelfstudie zijn gemaakt, gerust verwijderen:
 
 1. Klik in het linkermenu in de [Azure-portal](http://portal.azure.com) op **Alle resources**, selecteer de Digital Twins-resourcegroep en selecteer **Verwijderen**.
-   
+
     > [!TIP]
     > Als u problemen hebt bij het verwijderen van uw Digital Twins-exemplaar, is er een service-update met de oplossing hiervoor beschikbaar. Probeer opnieuw of u het exemplaar kunt verwijderen.
 
-1. Verwijder zo nodig de voorbeeldtoepassing van uw werkcomputer. 
-
+1. Verwijder zo nodig de voorbeeldtoepassing van uw werkcomputer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Ga voor meer informatie over het implementeren van aangepaste logica voor het bewaken van de omstandigheden in uw voorbeeldgebouw naar de volgende zelfstudie in de reeks: 
 > [!div class="nextstepaction"]
 > [Zelfstudie: uw gebouw inrichten en uw werkomstandigheden controleren](tutorial-facilities-udf.md)
-

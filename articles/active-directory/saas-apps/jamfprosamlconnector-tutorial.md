@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e30ede3e69711fefcf5026202ed7b004d00cb02e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ebd9f2115116e8f9cf976c86e4914f0b7f6beb39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810811"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Zelfstudie: Azure Active Directory-integratie met Jamf Pro
 
@@ -104,7 +104,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Jamf Pro moet u de v
 
     ![Informatie over eenmalige aanmelding bij het Jamf Pro-domein en Jamf Pro-URL's](common/idp-intiated.png)
 
-    a. Typ in het tekstvak **Id** een URL met de volgende notatie: `https://<subdomain>.jamfcloud.com/saml/metadata`
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<subdomain>.jamfcloud.com/saml/metadata`
 
     b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<subdomain>.jamfcloud.com/saml/SSO`
 
@@ -117,7 +117,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Jamf Pro moet u de v
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, de antwoord-URL en aanmeldings-URL. U vindt de werkelijke id-waarde van de sectie **eenmalige aanmelding** in de Jamf Pro-portal, op de manier die verderop in de zelfstudie wordt uitgelegd. U kunt de werkelijke **subdomein**-waarde uit de id-waarde extraheren en deze **subdomein**-informatie gebruiken in de aanmeldings-URL en antwoord-URL. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-6. Ga op de pagina **Eenmalige aanmelding met SAML instellen** naar de sectie **SAML-handtekeningcertificaat** en klik op de knop Kopiëren om de **URL voor federatieve metagegevens van de app** te kopiëren en deze op te slaan op uw computer.
+6. Op de pagina **Eenmalige aanmelding met SAML instellen** in het gedeelte **SAML-handtekeningcertificaat** klikt u op de kopieerknop om de **URL voor federatieve metagegevens van de app** te kopiëren en slaat u deze op uw computer op.
 
     ![De link om het certificaat te downloaden](common/copy-metadataurl.png)
 
@@ -155,7 +155,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met Jamf Pro moet u de v
 
     e. Plak de waarde `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` in het tekstvak **Naam groepskenmerk**.
 
-7. Schuif op dezelfde pagina omlaag naar **id-provider** onder de sectie **Eenmalige aanmelding** en voer de volgende stappen uit:
+7. Schuif op dezelfde pagina naar **ID-PROVIDER** onder de sectie **Eenmalige aanmelding** en voer de volgende stappen uit:
 
     ![Configuratie van Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 

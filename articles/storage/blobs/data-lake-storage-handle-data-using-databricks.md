@@ -6,14 +6,14 @@ author: jamesbak
 ms.service: storage
 ms.author: jamesbak
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 6b2812e31174c4e5d61ae9941563e39357de9522
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e4e75c65178c4bbedcf781c2fbf2149a94a702cd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107086"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321191"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met Azure Databricks
 
@@ -37,11 +37,35 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Maak een Azure SQL-datawarehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Volg de instructies in het artikel [Quick Start: een Azure SQL Data Warehouse maken](../../sql-data-warehouse/create-data-warehouse-portal.md).
+* Maak een Azure SQL-datawarehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Volg de instructies in het artikel [Quickstart: Een Azure SQL Data Warehouse maken](../../sql-data-warehouse/create-data-warehouse-portal.md).
 * Maak een databasehoofdsleutel voor de Azure SQL-datawarehouse. Volg de instructies in het artikel [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) (Een databasehoofdsleutel maken).
 * [Een Azure Data Lake Storage Gen2-account maken](data-lake-storage-quickstart-create-account.md).
 * Download (**small_radio_json.json**) van de opslagplaatsen [U-SQL-voorbeelden en problemen bijhouden](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) en noteer het pad waar u het bestand opslaat.
 * Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+## <a name="set-aside-storage-account-configuration"></a>Opslagaccountconfiguratie instellen
+
+U hebt de naam van uw opslagaccount en een eindpunt-URI voor het bestandssysteem nodig.
+
+Als u de naam van uw opslagaccount in de Azure-portal wilt ophalen, kiest u **Alle services** en filtert u op de term *opslag*. Selecteer vervolgens **Opslagaccounts** en zoek het opslagaccount.
+
+Als u de eindpunt-URI voor het bestandssysteem wilt ophalen, kiest u **Eigenschappen** en zoekt u de waarde van het veld **Primair eindpunt van het ADLS-bestandssysteem** in het deelvenster met de eigenschappen.
+
+Plak beide waarden in een tekstbestand. U hebt deze binnenkort nodig.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Een service-principal maken
+
+Maak een service-principal aan de hand van de instructies in dit onderwerp: [Procedure: Gebruik de portal voor het maken van een Azure AD-toepassing en service-principal die toegang hebben tot resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Er zijn enkele specifieke zaken die u moet doen terwijl u de stappen in dat artikel uitvoert.
+
+:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Een Azure Active Directory-toepassing maken](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) van het artikel, moet u er voor zorgen dat het veld **Aanmeldings-URL** van het dialoogvenster **Maken** is ingesteld op de eindpunt-URI die u zojuist hebt verkregen.
+
+:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [De toepassing aan een rol toewijzen](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) van het artikel, moet u er voor zorgen dat u de toepassing toewijst aan de **rol van inzender voor Blob Storage**.
+
+:heavy_check_mark: Als u de stappen gaat uitvoeren in de sectie [Waarden ophalen voor het aanmelden](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) van het artikel, plakt u de waarden van de tenant-id, de toepassings-id en de verificatiesleutel in een tekstbestand. U hebt deze binnenkort nodig.
 
 ## <a name="create-the-workspace"></a>De werkruimte maken
 
@@ -101,35 +125,36 @@ Eerst maakt u een notitieblok in de Azure Databricks-werkruimte en vervolgens vo
 
 1. Ga in de [Azure-portal](https://portal.azure.com) naar de Azure Databricks-werkruimte die u hebt gemaakt en selecteer **Werkruimte starten**.
 
-1. Selecteer aan de linkerkant **Werkruimte**. Selecteer in de **Werkruimte**-vervolgkeuzelijst, **Notitieblok** > **maken**.
+2. Selecteer aan de linkerkant **Werkruimte**. Selecteer in de **Werkruimte**-vervolgkeuzelijst, **Notitieblok** > **maken**.
 
     ![Een notitieblok maken in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Een notitieblok maken in Databricks")
 
-1. Voer in het dialoogvenster **Notitieblok maken** een naam voor het notitieblok in. Selecteer **Scala** als taal en selecteer het Spark-cluster dat u eerder hebt gemaakt.
+3. Voer in het dialoogvenster **Notitieblok maken** een naam voor het notitieblok in. Selecteer **Scala** als taal en selecteer het Spark-cluster dat u eerder hebt gemaakt.
 
     ![Details opgeven voor een notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Details opgeven voor een notebook in Databricks")
 
     Selecteer **Maken**.
 
-1. Voer de volgende code in de eerste cel van het notebook in en voer de code uit. Vervang de tijdelijke aanduidingen tussen haken in het voorbeeld door uw eigen waarden:
+4. Kopieer en plak het volgende codeblok in de eerste cel, maar voer deze code nog niet uit.
 
     ```scala
-    %python%
-    configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-     
+    val configs = Map(
+    "fs.azure.account.auth.type" -> "OAuth",
+    "fs.azure.account.oauth.provider.type" -> "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+    "fs.azure.account.oauth2.client.id" -> "<application-id>",
+    "fs.azure.account.oauth2.client.secret" -> "<authentication-key>"),
+    "fs.azure.account.oauth2.client.endpoint" -> "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+    "fs.azure.createRemoteFileSystemDuringInitialization"->"true")
+
     dbutils.fs.mount(
-        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-        mount_point = "/mnt/<mount-name>",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>",
+    mountPoint = "/mnt/<mount-name>",
+    extraConfigs = configs)
     ```
 
-1. Selecteer de toetsen Shift+Enter om de code uit te voeren.
+5. In dit codeblok vervangt u de tijdelijke aanduidingen `storage-account-name`, `application-id`, `authentication-id` en `tenant-id` door de waarden die u hebt verkregen bij het uitvoeren van de stappen in de secties [Opslagaccountconfiguratie instellen](#config) en [Een service-principal maken](#service-principal) van dit artikel. Stel de waarden voor de tijdelijke aanduidingen `file-system-name`, `directory-name` en `mount-name` in op de namen die u het bestandssysteem, de directory en het koppelpunt wilt geven.
 
-Nu is het bestandssysteem voor het opslagaccount gemaakt.
+6. Druk op de toetsen **Shift + Enter** om de code in dit blok uit te voeren.
 
 ## <a name="upload-the-sample-data"></a>De voorbeeldgegevens uploaden
 

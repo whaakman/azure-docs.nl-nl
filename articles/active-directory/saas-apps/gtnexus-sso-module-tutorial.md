@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Flex Global View | Microsoft Docs'
-description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Flex Global View configureert.
+title: 'Zelfstudie: Azure Active Directory-integratie met GTNexus SSO System | Microsoft Docs'
+description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active Directory en GTNexus SSO System.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 646c9b1c3a1f10cae678e6788379eb6bbd144e78
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54067495"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263489"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>Zelfstudie: Azure Active Directory-integratie met Flex Global View
+# <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Zelfstudie: Azure Active Directory-integratie met GTNexus SSO System
 
-In deze zelfstudie leert u hoe u Flex Global View kunt integreren met Azure Active Directory (Azure AD).
-De integratie van Flex Global View met Azure AD biedt de volgende voordelen:
+In deze zelfstudie leert u hoe u GTNexus SSO System integreert met Azure Active Directory (Azure AD).
+De integratie van GTNexus SSO System met Azure AD heeft de volgende voordelen:
 
-* U kunt in Azure AD bepalen wie er toegang heeft tot Flex Global View.
-* U kunt instellen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Flex Global View (eenmalige aanmelding).
+* U kunt in Azure AD beheren wie toegang heeft tot GTNexus SSO System.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij GTNexus SSO System (eenmalige aanmelding).
 * U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
@@ -35,22 +35,22 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om Azure AD-integratie te configureren met Flex Global View hebt u het volgende nodig:
+Voor de configuratie van Azure AD-integratie met GTNexus SSO System hebt u het volgende nodig:
 
 * Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
-* Een abonnement op Flex Global View waarvoor eenmalige aanmelding is ingeschakeld
+* GTNexus SSO System-abonnement waarbij eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
 In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-* Flex Global View biedt ondersteuning voor door **IDP** geïnitieerde eenmalige aanmelding
+* GTNexus SSO System ondersteunt door **IDP** gestarte SSO
 
-## <a name="adding-flex-global-view-from-the-gallery"></a>Flex Global View toevoegen vanuit de galerie
+## <a name="adding-gtnexus-sso-system-from-the-gallery"></a>GTNexus SSO System toevoegen vanuit de galerie
 
-Om de integratie van Flex Global View te configureren in Azure AD, moet u Flex Global View vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Voor de configuratie van de integratie van GTNexus SSO System in Azure AD, moet u GTNexus SSO System toevoegen vanuit de galerie aan uw lijst met beheerde SaaS-apps.
 
-**Voer de volgende stappen uit om Flex Global View vanuit de galerie toe te voegen:**
+**Voer de volgende stappen uit om GTNexus SSO System toe te voegen vanuit de galerie:**
 
 1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
@@ -64,31 +64,31 @@ Om de integratie van Flex Global View te configureren in Azure AD, moet u Flex G
 
     ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-4. Typ **Flex Global View** in het zoekvak, selecteer **Flex Global View** in het deelvenster met resultaten en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
+4. Typ in het zoekvak **GTNexus SSO System**, selecteer **GTNexus SSO System** in het resultaatvenster en klik vervolgens op de knop **Toevoegen** om de toepassing toe te voegen.
 
-     ![Flex Global View toevoegen vanuit de galerie](common/search-new-app.png)
+     ![GTNexus SSO System in de resultatenlijst](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In dit gedeelte configureert en test u eenmalige aanmelding van Azure AD met Flex Global View op basis van een testgebruiker met de naam **Britta Simon**.
-Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Flex Global View tot stand is gebracht.
+In deze sectie gaat u Azure AD-eenmalige aanmelding met GTNexus SSO System configureren en testen met behulp van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in GTNexus SSO System tot stand is gebracht.
 
-Om eenmalige aanmelding van Azure AD met Flex Global View te configureren en testen, moet u de volgende procedures voltooien:
+Als u Azure AD-eenmalige aanmelding met GTNexus SSO System wilt configureren en testen, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
-2. **[Eenmalige aanmelding voor Flex Global View configureren](#configure-flex-global-view-single-sign-on)**: de instellingen voor eenmalige aanmelding aan de clientzijde configureren.
+2. **[Eenmalige aanmelding voor GTNexus SSO System configureren](#configure-gtnexus-sso-system-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
-5. **[Een testgebruiker voor Flex Global View maken](#create-flex-global-view-test-user)**: als u een tegenhanger van Britta Simon in Flex Global View wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+5. **[Een testgebruiker maken in GTNexus SSO System](#create-gtnexus-sso-system-test-user)**: om in GTNexus SSO System een tegenhanger van Britta Simon te hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configureren met Flex Global View:
+Voor de configuratie van eenmalige aanmelding in Azure AD met GTNexus SSO System moet u de volgende stappen uitvoeren:
 
-1. Ga in de [Azure-portal](https://portal.azure.com/) naar de pagina van de integratie van **Flex Global View** en selecteer **Eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/) selecteert u op de integratiepagina van de **GTNexus SSO System**-toepassing de optie **Eenmalige aanmelding**.
 
     ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![image](common/browse-upload-metadata.png)
 
-    c. Zodra het bestand met metagegevens is geüpload, worden de waarde voor **Id** en **Antwoord-URL** automatisch ingevuld in de sectie Standaard SAML-configuratie voor Flex Global View:
+    c. Zodra het bestand met metagegevens is geüpload, worden de waarde voor **Id** en **Antwoord-URL** automatisch ingevuld in de sectie Standaard SAML-configuratie voor GTNexus SSO System:
 
     ![image](common/idp-intiated.png)
 
@@ -121,9 +121,9 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![De link om het certificaat te downloaden](common/metadataxml.png)
 
-### <a name="configure-flex-global-view-single-sign-on"></a>Eenmalige aanmelding configureren voor Flex Global View
+### <a name="configure-gtnexus-sso-system-single-sign-on"></a>Eenmalige aanmelding in GTNexus SSO System configureren
 
-Om eenmalige aanmelding te configureren in **Flex Global View**, moet u het **XML-bestand met federatieve metagegevens** verzenden naar het [ondersteuningsteam van Flex Global View](mailto:support@gtnexus.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
+Om eenmalige aanmelding te configureren in **GTNexus SSO System**, moet u het **XML-bestand met federatieve metagegevens** verzenden naar het [ondersteuningsteam van GTNexus SSO System](mailto:support@gtnexus.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -152,15 +152,15 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot Flex Global View.
+In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige aanmelding met Azure door haar toegang te geven tot GTNexus SSO System.
 
-1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **Flex Global View**.
+1. Selecteer in de Azure-portal achtereenvolgens **Bedrijfstoepassingen**, **Alle toepassingen** en **GTNexus SSO System**.
 
     ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-2. Selecteer **Flex Global View** in de lijst met toepassingen.
+2. Selecteer **GTNexus SSO System** in de lijst met toepassingen.
 
-    ![De koppeling naar Flex Global View in de lijst met toepassingen](common/all-applications.png)
+    ![De GTNexus SSO System-koppeling in de toepassingenlijst](common/all-applications.png)
 
 3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
@@ -176,15 +176,15 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-flex-global-view-test-user"></a>Een testgebruiker maken voor Flex Global View
+### <a name="create-gtnexus-sso-system-test-user"></a>Een testgebruiker voor GTNexus SSO System maken
 
-In deze sectie gaat u in Flex Global View een gebruiker maken met de naam Britta Simon. Neem contact op met met [ondersteuningsteam van Flex Global View](mailto:support@gtnexus.com) om de gebruikers toe te voegen aan het platform van Flex Global View. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+In deze sectie gaat u een gebruiker maken met de naam Britta Simon in GTNexus SSO System. Werk samen met het  [GTNexus SSO System-ondersteuningsteam](mailto:support@gtnexus.com) om de gebruikers toe te voegen in het GTNexus SSO System-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
-Wanneer u in het toegangsvenster op de tegel Flex Global View klikt, wordt u automatisch aangemeld bij de instantie van Flex Global View waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u op de tegel GTNexus SSO System in het toegangsvenster klikt, wordt u automatisch aangemeld bij het GTNexus SSO System-exemplaar waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822463"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332469"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met de Azure Portal
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met behulp van de Microsoft Azure-portal
 
 Met een NSG (netwerkbeveiligingsgroep) kunt u inkomend verkeer naar en uitgaand verkeer van een VM (virtuele machine) filteren. U kunt netwerkverkeer dat via een NSG stroomt, vastleggen in een NSG-stroomlogboek van Network Watcher. In deze zelfstudie leert u het volgende:
 
@@ -38,7 +38,7 @@ Met een NSG (netwerkbeveiligingsgroep) kunt u inkomend verkeer naar en uitgaand 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 > [!NOTE] 
-> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Configuratie is beschikbaar via de Azure-portal en REST API. Als u Versie 2-logboeken inschakelt in een niet-ondersteunde regio worden de Versie 1-logboeken opgeslagen in uw opslagaccount.
+> Versie 2 van stroomlogboeken is alleen beschikbaar in de regio US - west-centraal. Als u Versie 2-logboeken inschakelt in een niet-ondersteunde regio worden de Versie 1-logboeken uitgevoerd naar uw opslagaccount.
 
 ## <a name="create-a-vm"></a>Een virtuele machine maken
 

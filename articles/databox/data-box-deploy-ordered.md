@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 00c001b5c0c2c3dab86477fca798ec651f7b6c93
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189963"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359116"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Zelfstudie: Azure Data Box bestellen
 
@@ -22,7 +22,7 @@ Azure Data Box is een hybride oplossing waarmee u uw on-premises gegevens snel, 
 In deze zelfstudie wordt beschreven hoe u een Azure Data Box bestelt. In deze zelfstudie komen deze onderwerpen aan bod:
 
 > [!div class="checklist"]
-> * Registreren voor Data Box
+> * Vereisten om Data Box te implementeren
 > * Een Data Box bestellen
 > * De bestelling volgen
 > * De bestelling annuleren
@@ -63,7 +63,7 @@ Voer de volgende stappen uit in de Azure-portal om een apparaat te bestellen.
 4. Controleer of de Data Box-service beschikbaar is in uw regio. Voer de volgende gegevens in of selecteer deze en klik op **Toepassen**. 
     |Instelling  |Waarde  |
     |---------|---------|
-    |Abonnement     | Selecteer een EA-, CSP- of Betalen per gebruik-abonnement voor de Data Box-service. <br> Het abonnement is gekoppeld aan uw factureringsrekening.       |
+    |Abonnement     | Selecteer een EA-, CSP- of Azure Sponsorship-abonnement voor de Data Box-service. <br> Het abonnement is gekoppeld aan uw factureringsrekening.       |
     |Type overdracht     | Selecteer **Importeren in Azure**.        |
     |Bronland     |   Selecteer het land/de regio waar uw gegevens momenteel worden bewaard.         |
     |Doel-Azure-regio     |     Selecteer de Azure-regio waarnaar u uw gegevens wilt overdragen.        |
@@ -79,7 +79,7 @@ Voer de volgende stappen uit in de Azure-portal om een apparaat te bestellen.
     |Naam     |  Geef een beschrijvende naam op om de bestelling te volgen. <br> De naam kan tussen 3 en 24 tekens bevatten (letters, cijfers en afbreekstreepjes). <br> De naam moet beginnen en eindigen met een letter of cijfer.      |
     |Resourcegroep     |   Gebruik een bestaande of maak een nieuwe. <br> Een resourcegroep is een logische container voor resources die samen kunnen worden beheerd of geïmplementeerd.         |
     |Doel-Azure-regio     | Selecteer een regio voor uw opslagaccount. <br> Ga naar [Beschikbaarheid in de regio](data-box-overview.md#region-availability) voor meer informatie.        |
-    |Opslagaccount(s)     | Selecteer een of meer opslagaccounts in de gefilterde lijst van een bestaand opslagaccount, gebaseerd op de opgegeven Azure-regio. Data Box kan worden gekoppeld aan maximaal 10 opslagaccounts. <br> U kunt ook een nieuw account voor **Algemeen gebruik v1**, **Algemeen gebruik v2** of **Blob-opslag** maken.        |
+    |Opslagaccount(s)     | Selecteer een of meer opslagaccounts in de gefilterde lijst van een bestaand opslagaccount, gebaseerd op de opgegeven Azure-regio. Data Box kan worden gekoppeld aan maximaal 10 opslagaccounts. <br> U kunt ook een nieuw account voor **Algemeen gebruik v1**, **Algemeen gebruik v2** of **Blob-opslag** maken. U kunt geen opslagaccounts gebruiken waarvoor regels zijn geconfigureerd. De opslagaccounts moeten **toegang vanaf alle netwerken toestaan**. Dit is te configureren in het gedeelte voor firewalls en virtuele netwerken.|
     
 7. Bij **Verzendadres** geeft u uw voor- en achternaam, de naam en het postadres van het bedrijf en een geldig telefoonnummer op. Klik op **Adres valideren**. De service controleert of de service beschikbaar is voor de regio van het verzendadres. Als de service beschikbaar is voor het opgegeven verzendadres, ontvangt u daarover een melding. Klik op **Volgende**.
 
@@ -94,7 +94,7 @@ Voer de volgende stappen uit in de Azure-portal om een apparaat te bestellen.
 
 ## <a name="track-the-order"></a>De bestelling volgen
 
-Nadat u uw bestelling hebt geplaatst, kunt u de status van de bestelling volgen via de Azure-portal. Ga naar uw bestelling en vervolgens naar **Overzicht** om de status te bekijken. In de portal ziet u dat de bestelling de status **Besteld** heeft.
+Nadat u uw bestelling hebt geplaatst, kunt u de status van de bestelling volgen via de Azure-portal. Ga naar uw Data Box-bestelling en vervolgens naar **Overzicht** om de status te bekijken. In de portal ziet u dat de bestelling de status **Besteld** heeft.
 
 Als het apparaat niet beschikbaar is, ontvangt u een melding. Als het apparaat wel beschikbaar is, identificeert Microsoft het apparaat dat moet worden verzonden en bereidt Microsoft de verzending voor. Tijdens de voorbereiding van het apparaat vinden de volgende acties plaats:
 
