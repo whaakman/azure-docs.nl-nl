@@ -75,7 +75,7 @@ Messaging-integratie richt zich op het uitvoeren en monitoren van transacties me
 
 In deze sectie bekijken we patronen die zijn gericht op de aspecten van op de berichten gebaseerde API die transacties naar een gedistribueerd grootboek kan verzenden en patronen die gebeurtenisberichten vertegenwoordigen die worden weergegeven door het onderliggende gedistribueerde grootboek.
 
-### <a name="one-way-event-delivery-from-a-smart-contract-to-an-event-consumer"></a>Eenzijdige gebeurtenisverzending uit een slimme contract aan een gebeurtenisconsumer 
+### <a name="one-way-event-delivery-from-a-smart-contract-to-an-event-consumer"></a>Eenzijdige gebeurtenisverzending uit een smart contract aan een gebeurtenisconsumer 
 
 In dit scenario vindt een gebeurtenis plaats binnen een smart contract, bijvoorbeeld een statuswijziging of de uitvoering van een specifiek type transactie. Deze gebeurtenis wordt verzonden via een Event Grid naar downstream-consumenten, en die consumenten nemen vervolgens passende acties.
 
