@@ -4,7 +4,7 @@ description: Waarom een object niet kan worden gesynchroniseerd naar Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b66aeb0832058c56e63c56c0420c7793eb2a632a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312422"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478651"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Een object dat niet kan worden gesynchroniseerd naar Azure AD oplossen
 
@@ -103,7 +103,7 @@ U kunt ook zien de **PasswordSync** kolom die het inkomende connectorgebied kan 
 
 Op het tabblad afkomst u toegang hebt tot de metaverse door te klikken op [eigenschappen van het Metaverseobject](#mv-attributes).
 
-Aan de onderkant van alle tabbladen worden twee knoppen: **Preview** en **Log**.
+Aan de onderkant van alle tabbladen worden twee knoppen: **Preview-versie** en **Log**.
 
 ### <a name="preview"></a>Preview
 De pagina voor Preview-versie wordt gebruikt voor het synchroniseren van één enkel object. Het is handig als u bepaalde aangepaste synchronisatieregels oplossen wilt en wilt zien van het effect van een wijziging op een enkel object. U kunt kiezen tussen **Full sync** en **Deltasynchronisatie**. U kunt ook selecteren tussen **Preview genereren**, die alleen de wijziging houdt in het geheugen en **doorvoeren Preview**, die de metaverse bijgewerkt en alle wijzigingen in de doel-connectorspaces fasen.  

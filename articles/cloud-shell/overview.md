@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869360"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447204"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure Cloudshell
 Azure Cloud Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -57,11 +57,16 @@ Cloudshell biedt een geïntegreerde grafische teksteditor op basis van de open-s
 
 [Meer informatie over de Cloud Shell-editor](using-cloud-shell-editor.md).
 
+### <a name="integrated-with-docsmicrosoftcom"></a>Geïntegreerd met docs.microsoft.com
+
+U kunt Cloud Shell rechtstreeks vanuit de documentatie die wordt gehost op [docs.microsoft.com](https://docs.microsoft.com). Het is geïntegreerd in [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) en [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure) -Klik op de knop 'Try It' in een codefragment de overweldigende shell openen ervaring. 
+
 ### <a name="multiple-access-points"></a>Meerdere toegangspunten
 Cloudshell is een flexibele hulpprogramma dat kan worden gebruikt vanuit:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI 'Nu uitproberen'-documentatie](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Azure CLI-documentatie](https://docs.microsoft.com/cli/azure)
+* [Documentatie voor Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Mobiele Apps van Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure-accountextensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

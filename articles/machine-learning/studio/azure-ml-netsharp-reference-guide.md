@@ -245,7 +245,7 @@ Zie de volgende artikelen voor meer informatie over groepsgewijze verbindingen l
 
 ## <a name="response-normalization-bundles"></a>Antwoord normalisering bundels
 
-**Antwoord normalisering** is een lokale normalisering schema die is geïntroduceerd door Geoffrey Hinton, et al., in het document [ImageNet Classiﬁcation met uitgebreide Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
+**Antwoord normalisering** is een lokale normalisering schema die is geïntroduceerd door Geoffrey Hinton, et al., in het document [ImageNet classificatie met Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
 
 Antwoord normalisering wordt gebruikt om u te helpen generalisatie in neurale netwerken. Wanneer één neuron wordt uitgevoerd op het Activeringsniveau van een zeer hoge, wordt in een lokale antwoord normalisering laag het Activeringsniveau van de omringende neurons onderdrukt. Dit wordt gedaan met behulp van de drie parameters (`α`, `β`, en `k`) en een convolutional structuur (of de groep vorm). Elke neuron in de doellaag **y** komt overeen met een neuron **x** in de bronlaag. Het Activeringsniveau van **y** wordt bepaald door de volgende formule, waarbij `f` is het Activeringsniveau van een neuron en `Nx` is de kernel (of de set met de neurons in de groep van **x**), zoals gedefinieerd door de volgende convolutional structuur:  
 

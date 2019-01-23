@@ -2,21 +2,21 @@
 title: Azure Event Grid blob storage-gebeurtenisschema
 description: Beschrijft de eigenschappen die beschikbaar zijn voor gebeurtenissen van blob storage met Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055320"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469729"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid-gebeurtenisschema voor Blob-opslag
 
-Dit artikel bevat de eigenschappen en het schema voor gebeurtenissen van blob storage. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
+Dit artikel bevat de eigenschappen en het schema voor gebeurtenissen van blob storage. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
 Zie voor een lijst met zelfstudies en voorbeelden van scripts, [opslag gebeurtenisbron](event-sources.md#storage).
 
@@ -24,7 +24,7 @@ Zie voor een lijst met zelfstudies en voorbeelden van scripts, [opslag gebeurten
 
 BLOB-opslag, verzendt de volgende typen gebeurtenissen:
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.Storage.BlobCreated | Treedt op wanneer een blob wordt gemaakt. |
 | Microsoft.Storage.BlobDeleted | Treedt op wanneer een blob wordt verwijderd. |
@@ -83,35 +83,35 @@ Het schema voor een blob verwijderd gebeurtenis lijkt:
   "metadataVersion": "1"
 }]
 ```
- 
+ 
 ## <a name="event-properties"></a>Eigenschappen van gebeurtenis
 
 Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
+| id | string | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens voor BLOB-opslag. |
-| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| api | tekenreeks | De bewerking waarmee de gebeurtenis geactiveerd. |
-| clientRequestId | tekenreeks | Een client is gegenereerd, ondoorzichtig waarde met een tekenlimiet van 1 KB. Wanneer u opslaganalyse, logboekregistratie hebt ingeschakeld, wordt deze vastgelegd in de analytics-Logboeken. |
-| aanvraag-id | tekenreeks | De unieke id voor de aanvraag. Deze gebruiken voor het oplossen van de aanvraag. |
-| eTag | tekenreeks | De waarde die u gebruiken kunt voor het uitvoeren van bewerkingen voorwaardelijk. |
-| contentType | tekenreeks | Het inhoudstype dat is opgegeven voor de blob. |
+| api | string | De bewerking waarmee de gebeurtenis geactiveerd. |
+| clientRequestId | string | Een client is gegenereerd, ondoorzichtig waarde met een tekenlimiet van 1 KB. Wanneer u opslaganalyse, logboekregistratie hebt ingeschakeld, wordt deze vastgelegd in de analytics-Logboeken. |
+| requestId | string | De unieke id voor de aanvraag. Deze gebruiken voor het oplossen van de aanvraag. |
+| eTag | string | De waarde die u gebruiken kunt voor het uitvoeren van bewerkingen voorwaardelijk. |
+| contentType | string | Het inhoudstype dat is opgegeven voor de blob. |
 | contentLength | geheel getal | De grootte van de blob in bytes. |
-| blobType | tekenreeks | Het type van de blob. Geldige waarden zijn 'BlockBlob' of 'PageBlob'. |
-| url | tekenreeks | Het pad naar de blob. |
-| sequencer | tekenreeks | Een door de gebruiker beheerde waarde die u gebruiken kunt om aanvragen te volgen. |
+| blobType | string | Het type van de blob. Geldige waarden zijn 'BlockBlob' of 'PageBlob'. |
+| url | string | Het pad naar de blob. |
+| sequencer | string | Een door de gebruiker beheerde waarde die u gebruiken kunt om aanvragen te volgen. |
 | storageDiagnostics | object | Informatie over de diagnostische gegevens. |
  
 ## <a name="next-steps"></a>Volgende stappen

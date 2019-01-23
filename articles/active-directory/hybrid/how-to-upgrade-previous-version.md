@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Upgraden van een vorige versie | Microsoft Docs'
+title: 'Azure AD Connect: Een upgrade uitvoeren voor een eerdere versie | Microsoft Docs'
 description: De verschillende methoden om te upgraden naar de nieuwste versie van Azure Active Directory Connect, met inbegrip van een in-place upgrade en een swingmigratie uitgelegd.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
@@ -15,21 +15,21 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 17333f6a5e78fb6da607e93cf696bfc766daf3ae
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ca1fc4677f0d9a5391973a965faae4e283c4710
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314788"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462535"
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Upgraden van een eerdere versie naar de nieuwste versie
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Upgrade van een vorige versie naar de nieuwste versie
 Dit onderwerp beschrijft de verschillende methoden die u kunt uw Azure Active Directory (Azure AD) Connect-installatie bijwerken naar de nieuwste versie. U wordt aangeraden dat u zelf actueel met de versies van Azure AD Connect houden. U ook de stappen in de [Swingmigratie](#swing-migration) sectie bij het maken van een aanzienlijke configuratie wijzigen.
 
 Als u upgraden van DirSync wilt, Zie [upgraden van Azure AD-synchronisatiehulpprogramma (DirSync)](how-to-dirsync-upgrade-get-started.md) in plaats daarvan.
 
 Er zijn een paar verschillende strategieën die u gebruiken kunt om te upgraden van Azure AD Connect.
 
-| Methode | Beschrijving |
+| Methode | Description |
 | --- | --- |
 | [Automatische upgrade](how-to-connect-install-automatic-upgrade.md) |Dit is de eenvoudigste methode voor klanten met een snelle installatie. |
 | [In-place upgrade](#in-place-upgrade) |Als u één server hebt, kunt u de installatie van ter plekke op dezelfde server bijwerken. |

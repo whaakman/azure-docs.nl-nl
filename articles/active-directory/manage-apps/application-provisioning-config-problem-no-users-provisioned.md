@@ -4,7 +4,7 @@ description: Het oplossen van veelvoorkomende problemen met het er geen gebruike
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 3874e6ff6586726577a2c89e3cf45bbd3343b821
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fd5d833656d4ba395857c84ee8386bc7fb6d704e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040683"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465393"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Er zijn geen gebruikers worden ingericht tot een toepassing met Azure AD-galerie
 Nadat de automatische inrichting is geconfigureerd voor een toepassing (met inbegrip van verifiëren dat de opgegeven naar Azure AD om verbinding maken met de app app-referenties geldig zijn), zijn vervolgens gebruikers en/of groepen ingericht met de app. Inrichting wordt bepaald door de volgende zaken:
@@ -56,8 +56,8 @@ Wanneer een gebruiker wordt weergegeven als 'overgeslagen' in de controlelogboek
 - **Een bereikfilter is geconfigureerd** **die is gefilterd op de gebruiker op basis van een kenmerkwaarde**. Zie voor meer informatie over het bereikfilters [bereikfilters](define-conditional-rules-for-provisioning-user-accounts.md).
 - **De gebruiker is "niet effectief recht".** Als u dit bericht specifieke fout ziet, is omdat er een probleem met de gebruiker een record die zijn opgeslagen in Azure AD. Los dit probleem op door de gebruiker (of groep) uit de app intrekken en opnieuw toewijzen. Zie voor meer informatie over toewijzing [gebruiker of groep toegang toewijzen](assign-user-or-group-access-portal.md).
 - **Een vereist kenmerk is ontbreekt of niet ingevuld voor een gebruiker.** Een belangrijke dingen om te overwegen bij het instellen van de inrichting is om te controleren en configureren van de kenmerktoewijzingen en werkstromen die welke gebruiker (of groep) eigenschappen stroom van Azure AD aan de toepassing definiëren. Deze configuratie omvat het instellen de 'overeenkomende eigenschap"dat wordt gebruikt voor unieke identificatie en overeenkomen met de gebruikers/groepen tussen de twee systemen. Zie voor meer informatie over dit belangrijk proces [aanpassen inrichting kenmerk gebruikerstoewijzingen voor de SaaS-toepassingen in Azure Active Directory](customize-application-attributes.md).
-- **Kenmerktoewijzingen voor groepen:** inrichting van de groepsnaam en de Groepsdetails, naast de leden, als dit wordt ondersteund voor sommige toepassingen. U kunt inschakelen of uitschakelen van deze functionaliteit met in- of uitschakelen de **toewijzing** voor groepsobjecten worden weergegeven in de **Provisioning** tabblad. Als u groepen inrichten is ingeschakeld, worden de kenmerktoewijzingen om te controleren of dat het juiste veld wordt gebruikt voor de "overeenkomende ID" Lees. De overeenkomende ID is de naam of e-mailalias van weergave. De groep en de bijbehorende leden zijn niet ingericht als de overeenkomende eigenschap leeg of niet ingevuld voor een groep in Azure AD is.
+- **Kenmerktoewijzingen voor groepen:** Inrichting van de groepsnaam en de Groepsdetails, naast de leden, als dit wordt ondersteund voor sommige toepassingen. U kunt inschakelen of uitschakelen van deze functionaliteit met in- of uitschakelen de **toewijzing** voor groepsobjecten worden weergegeven in de **Provisioning** tabblad. Als u groepen inrichten is ingeschakeld, worden de kenmerktoewijzingen om te controleren of dat het juiste veld wordt gebruikt voor de "overeenkomende ID" Lees. De overeenkomende ID is de naam of e-mailalias van weergave. De groep en de bijbehorende leden zijn niet ingericht als de overeenkomende eigenschap leeg of niet ingevuld voor een groep in Azure AD is.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Azure AD Connect-synchronisatie: inzicht in declaratieve inrichting](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Azure AD Connect-synchronisatie: Informatie over declaratieve inrichting](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

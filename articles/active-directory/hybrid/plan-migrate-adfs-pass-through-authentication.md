@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Migreren van Federatie naar pass-through-verificatie v
 description: In dit artikel bevat informatie over het verplaatsen van uw hybride identiteit omgeving van Federatie naar pass-through-verificatie.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 52acac64180ae7d6d545ec5edaa1473e47290020
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fe2ff3697d362119db2df682aacd89ebcf073059
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438640"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465629"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migreren van Federatie naar pass-through-verificatie voor Azure Active Directory
 

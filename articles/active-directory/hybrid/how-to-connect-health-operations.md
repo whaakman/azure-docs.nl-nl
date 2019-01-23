@@ -4,7 +4,7 @@ description: Dit artikel wordt beschreven aanvullende bewerkingen die kunnen wor
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7e0e2e19f2f21fa3199cbc4911fed3427cbc162c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 35bbc44a8a54071530806576294163cb7ba627ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280507"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478294"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health-bewerkingen
 Dit onderwerp beschrijft de verschillende bewerkingen die u uitvoeren kunt met behulp van Azure Active Directory (Azure AD) Connect Health.
@@ -64,6 +64,7 @@ Azure AD Connect Health voor Active Directory Federatieservices (AD FS) en Azure
 
 1. Open de **Server** blade van de **serverlijst** blade door de naam van de server moet worden verwijderd.
 2. Op de **Server** blade in de actiebalk, klikt u op **verwijderen**.
+![Schermafbeelding van de Azure AD Connect Health verwijderen-server](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Controleer of door de servernaam te typen in het bevestigingsvenster.
 4. Klik op **Verwijderen**.
 
@@ -86,8 +87,9 @@ Wanneer u een service-exemplaar wilt verwijderen, houd rekening met het volgende
 * Deze actie hebt uitgevoerd als u beginnen met controleren van de service wilt, verwijderen en opnieuw installeren van de Health-Agent op alle servers. Deze actie hebt uitgevoerd als u beginnen met dezelfde server opnieuw te controleren wilt, verwijderen, opnieuw installeren en registreren van de Health-Agent op die server.
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Verwijderen van een service-exemplaar van de Azure AD Connect Health-service
-1. Open de **Service** blade van de **servicelijst** blade door het selecteren van de service-id (farmnaam) die u wilt verwijderen.
-2. Op de **Server** blade in de actiebalk, klikt u op **verwijderen**.
+1. Open de **Service** blade van de **servicelijst** blade door het selecteren van de service-id (farmnaam) die u wilt verwijderen. 
+2. Op de **Service** blade in de actiebalk, klikt u op **verwijderen**. 
+![Schermafbeelding van de Azure AD Connect Health verwijderen-service](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Controleer of door de servicenaam te typen in het bevestigingsvenster (bijvoorbeeld: sts.contoso.com).
 4. Klik op **Verwijderen**.
    <br><br>
@@ -110,8 +112,8 @@ Alle andere functies (zoals gebruiker toegang beheerders of gebruikers van DevTe
 ### <a name="access-scope"></a>Toegangsbereik
 Azure AD Connect Health biedt ondersteuning voor beheren van toegang op twee niveaus:
 
-* **Alle exemplaren van de service**: dit is de aanbevolen procedure in de meeste gevallen. Hiermee kunt u toegang voor alle exemplaren van de service (bijvoorbeeld een AD FS-farm) voor alle rollen-typen die door Azure AD Connect Health worden bewaakt.
-* **Service-exemplaar**: In sommige gevallen moet u wellicht toegang op basis van roltypen of door een service-exemplaar te scheiden. In dit geval kunt u de toegang op het niveau van de service-exemplaar beheren.  
+* **Alle exemplaren van de service**: Dit is de aanbevolen pad in de meeste gevallen. Hiermee kunt u toegang voor alle exemplaren van de service (bijvoorbeeld een AD FS-farm) voor alle rollen-typen die door Azure AD Connect Health worden bewaakt.
+* **Service-exemplaar**: In sommige gevallen moet u mogelijk toegang op basis van roltypen of door een service-exemplaar te scheiden. In dit geval kunt u de toegang op het niveau van de service-exemplaar beheren.  
 
 Machtiging is verleend als een eindgebruiker toegang op de map of de service heeft level-exemplaar.
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970396"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470644"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Bewaking op afstand gegevens visualiseren met Power BI
 
@@ -40,7 +40,7 @@ In deze zelfstudie begeleidt u stapsgewijs door van hoe u aan te sluiten in uw o
 
     ![Resourcegroep](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
-5. In het paneel aan de linkerkant, klik op de sectie 'Sleutels' en noteer de volgende waarden om te worden gebruikt in Power BI:
+5. In het paneel aan de linkerkant, klik op de sectie 'Sleutels' en noteer de volgende waarden op die moet worden gebruikt in Power BI:
 
     - URI
     - Primaire sleutel
@@ -84,11 +84,11 @@ In deze zelfstudie begeleidt u stapsgewijs door van hoe u aan te sluiten in uw o
 
 ## <a name="creating-a-dashboard"></a>Een dashboard maken
 
-Als de stroom is verbonden, bent u klaar om uw persoonlijke dashboards te maken! Het dashboard Hieronder volgt een voorbeeld rekening gehouden met de telemetrie wordt immmited door onze gesimuleerde apparaten en het weergeven van verschillende rond het zoals opengaat: 
+Als de stroom is verbonden, bent u klaar om uw persoonlijke dashboards te maken! Het dashboard Hieronder volgt een voorbeeld van het nemen van de telemetrie wordt verzonden door onze gesimuleerde apparaten en andere gegevensfuncties rond het zoals weergegeven: 
 
 * Locatie van het apparaat op een kaart (rechts)
 * Apparaten met hun status en ernst. (linksboven)
-* Apparaten met regels aanwezig is, en als er waarschuwingen gaan uitschakelen voor deze (onderaan, links)
+* Apparaten met regels aanwezig is, en als er geen waarschuwingen gaan uitschakelen voor deze (onderaan, links)
 
 ![Power BI-visualisatie](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

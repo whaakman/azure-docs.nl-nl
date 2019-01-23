@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect sync: Scheduler | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Scheduler | Microsoft Docs'
 description: Dit onderwerp beschrijft de functie ingebouwde scheduler in Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d8deb03d03446c1452d73a7c08df4cf14ffcd5b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8099194feed3761e32686ab15e8738b10ffd4e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311022"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462314"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect sync: Scheduler
+# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-synchronisatie: Scheduler
 In dit onderwerp beschrijft de ingebouwde scheduler in Azure AD Connect-synchronisatie (ook wel) synchronisatie-engine).
 
 Deze functie is ingevoerd in de build 1.1.105.0 (uitgebracht februari 2016).
@@ -101,7 +101,7 @@ Een delta-synchronisatiecyclus bevat de volgende stappen uit:
 Kan het zijn dat u hebt een urgent wijzigen die onmiddellijk moet worden gesynchroniseerd daarom moet u een cyclus handmatig uitvoeren. Als u nodig hebt om uit te voeren een cyclus handmatig vervolgens vanuit PowerShell uitvoeren `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 **Volledige synchronisatiecyclus**  
-Als u een van de volgende configuratiewijzigingen hebt aangebracht, moet u uit te voeren een volledige synchronisatie (ook wel) Eerste):
+Als u een van de volgende configuratiewijzigingen hebt aangebracht, moet u uit te voeren een volledige synchronisatie (ook wel) Initial):
 
 * Meer objecten of kenmerken moeten worden geïmporteerd uit een bronmap toegevoegd
 * Wijzigingen aangebracht in de synchronisatieregels
@@ -123,7 +123,7 @@ Als een synchronisatiecyclus wordt momenteel door de scheduler worden uitgevoerd
 Wanneer een synchronisatiecyclus wordt uitgevoerd, kunt u wijzigingen in de configuratie kan niet maken. U kunt wachten totdat de scheduler het proces is voltooid, maar u ook dat deze voorkomen kunt, zodat u onmiddellijk uw wijzigingen kunt aanbrengen. De huidige cyclus stoppen, is geen schadelijke en wijzigingen in behandeling worden verwerkt door de volgende keer wordt uitgevoerd.
 
 1. Gestart door de scheduler om te stoppen van de huidige cyclus met de PowerShell-cmdlet te vertellen `Stop-ADSyncSyncCycle`.
-2. Als u een build voordat 1.1.281, stopt klikt u vervolgens het stoppen van de scheduler niet de huidige Connector van de huidige taak. Als u wilt afdwingen dat de Connector om te stoppen, de volgende acties uitvoeren: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Als u een build voordat 1.1.281, stopt klikt u vervolgens het stoppen van de scheduler niet de huidige Connector van de huidige taak. Als u wilt afdwingen dat de Connector om te stoppen, moet u de volgende acties uitvoeren: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Start **Synchronization Service** vanuit het startmenu. Ga naar **Connectors**, markeert u de Connector met de status **met**, en selecteer **stoppen** uit de acties.
 
 De scheduler nog steeds actief is en start opnieuw op de eerstvolgende gelegenheid installeren.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: concepts
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: 44507e919b7ed827eb3c08101a04849faf92293c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ec814bf641dea6f47b907e9f9e2646dfcf84ade1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310232"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451745"
 ---
 # <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen
 
@@ -56,7 +56,7 @@ Op dit moment biedt Azure toegewezen HSM alleen HSM's met verificatie op basis v
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>VRAAG: Azure toegewezen HSM host Mijn HSM's voor mij?
 
-Microsoft biedt de Gemalto SafeNet Luna netwerk-HSM via de toegewezen HSM-service en kan geen host voor elke klant met een opgegeven apparaten alleen.
+Microsoft biedt de Gemalto SafeNet Luna netwerk-HSM via de toegewezen HSM-service alleen en kan geen host zijn geen apparaten klant worden geleverd.
 
 ### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>VRAAG: Ondersteunt Azure toegewezen HSM PINCODE/ETF functies of voldoen aan de vereisten van PCI HSM v1 of v2-certificering?
 
@@ -87,7 +87,7 @@ Ja, als u on-premises Gemalto SafeNet HSM's. Er zijn meerdere methoden. Raadplee
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>VRAAG: Welke besturingssystemen worden ondersteund door de clientsoftware van toegewezen HSM?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtuele: VMware en Hyper-v, Xen, KVM
+* Virtual: VMware, hyperv, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>VRAAG: Hoe configureer ik mijn-clienttoepassing voor het maken van een maximaal beschikbaarheidsconfiguratie met meerdere partities uit meerdere HSM's?
 
@@ -235,7 +235,7 @@ Toegewezen HSM-service bepalingen SafeNet netwerk-HSM-7-apparaten. Ze bieden ond
   * CAST
   * Digest/HMAC hash/bericht: SHA-1, SHA-2, SM3
   * Afgeleide sleutel: SP800 108 prestatiemeteritem modus
-  * Sleutel verpakken: SP800 38F
+  * Key Wrapping: SP800-38F
   * Genereren van willekeurige getallen: FIPS 140-2 goedgekeurd DRBG (SP 800-90 CTR modus), die voldoet aan Institution DRG.4
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>VRAAG: Is toegewezen HSM FIPS 140-2 Level 3 is gevalideerd?
@@ -257,7 +257,7 @@ Voordat u aanvraagt ongedaan maken van inrichting, moet de HSM Gemalto opgegeven
 Toegewezen HSM bepalingen SafeNet netwerk-HSM-7-apparaten (model A790). Hier volgt een samenvatting van de maximale prestaties voor bepaalde bewerkingen: 
 
 * RSA-2048: 10.000 transacties per seconde
-* ECC-P256: 20.000 transacties per seconde
+* ECC P256: 20.000 transacties per seconde
 * AES-GCM: 17.000 transacties per seconde
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>VRAAG: Het aantal partities kunnen worden gemaakt in de toegewezen HSM?

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 3f9a3746417e278b720230b6125650c4a86557de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378116"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466817"
 ---
-# <a name="how-to-configure-the-user-risk-policy"></a>Procedure: Het beleid voor gebruikersrisico's configureren
+# <a name="how-to-configure-the-user-risk-policy"></a>Procedures: Het beleid voor gebruikersrisico’s configureren
 
 Met het gebruikersrisico vaststelt Azure AD dat de kans dat een gebruikersaccount verdacht is. U kunt als beheerder, gebruiker risico beleid voor voorwaardelijke toegang, automatisch reageren op een specifieke gebruiker risiconiveau configureren.
  

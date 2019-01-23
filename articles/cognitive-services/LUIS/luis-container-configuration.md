@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975506"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468332"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding docker-containers configureren 
 
@@ -35,6 +35,7 @@ Deze container heeft de volgende configuratie-instellingen:
 |Ja|[Facturering](#billing-setting)|Hiermee geeft u de URI van de bron van de service-eindpunt op Azure.|
 |Ja|[Gebruiksrechtovereenkomst](#eula-setting)| Geeft aan dat u de licentie voor de container hebt geaccepteerd.|
 |Nee|[Fluentd](#fluentd-settings)|Logboek schrijven en, optioneel, metrische gegevens naar een Fluentd-server.|
+|Nee|[HTTP-Proxy](#http-proxy-credentials-settings)|Configureer een HTTP-proxy voor uitgaande aanvragen.|
 |Nee|[Logboekregistratie](#logging-settings)|ASP.NET Core logboekregistratie van ondersteuning voor de container biedt. |
 |Ja|[Hiermee wordt gekoppeld](#mount-settings)|Gegevens lezen en schrijven van hostcomputer naar de container en naar de container weer met hostcomputer.|
 
@@ -77,6 +78,10 @@ Deze instelling kan worden gevonden in de volgende locaties:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>HTTP-proxy-instellingen voor referenties
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Instellingen voor logboekregistratie
  
@@ -189,3 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Beoordeling [over het installeren en uitvoeren van containers](luis-container-howto.md)
 * Raadpleeg [Veelgestelde vragen (FAQ)](luis-resources-faq.md) het oplossen van problemen met betrekking tot LUIS-functionaliteit.
+* Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)

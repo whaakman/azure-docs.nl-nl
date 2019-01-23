@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,22 +16,22 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 75d8503e6179b8ef3578a4a8c62ef1b288657a7b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 73b76561829e6d50918881427894ea310920fce6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576813"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465195"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Wat is Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection is een functie van de Azure AD Premium P2-editie waarmee u kunt:
+Azure Active Directory Identity Protection is een functie van de Premium P2-versie van Azure AD, waarmee u de volgende zaken kunt doen:
 
 - Detecteren van mogelijke beveiligingsproblemen die betrekking hebben op de identiteiten van uw organisatie
 
 - Automatische antwoorden op gedetecteerde verdachte activiteit die betrekking op de identiteiten van uw organisatie hebben configureren  
 
-- Verdachte incidenten onderzoeken en onderneem gepaste actie op te lossen   
+- Verdachte incidenten onderzoeken en gepaste maatregelen treffen om deze problemen op te lossen   
 
 
 ## <a name="get-started"></a>Aan de slag
@@ -110,7 +110,7 @@ Uw reis via Identity Protection wordt doorgaans begint met het dashboard Identit
 
 ![Herstel](./media/overview/1000.png "herstel")
 
-Het dashboard biedt u toegang hebt tot:
+Het dashboard biedt u toegang tot:
 
 * Rapporten, zoals **gebruikers die zijn gemarkeerd voor risico's**, **Risicogebeurtenissen** en **beveiligingsproblemen**
 * Instellingen zoals de configuratie van uw **beveiligingsbeleid**, **meldingen** en **registratie voor meervoudige verificatie**

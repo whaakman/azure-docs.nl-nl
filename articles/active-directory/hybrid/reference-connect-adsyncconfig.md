@@ -1,21 +1,21 @@
 ---
-title: 'Azure AD Connect: ADSyncConfig PowerShell-referentie | Microsoft Docs'
+title: 'Azure AD Connect: ADSyncConfig PowerShell Reference | Microsoft Docs'
 description: Dit document bevat referentie-informatie voor de ADSyncConfig.psm1 PowerShell-module.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84be07eeb112711de35853162b798b5f6ed0b2aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 015823ee9674c2c704cdea13e44ced06e5b9644c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422759"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463521"
 ---
-# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell-referentie
+# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell Reference
 De volgende documentatie bevat referentie-informatie voor de ADSyncConfig.psm1 PowerShell-Module die is opgenomen in Azure AD Connect.
 
 
@@ -61,25 +61,25 @@ Zoekt in de parameter SearchBase vanaf AD en retourneert alle objecten, gefilter
 Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled--zoekbasis 'Contoso'
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
 
 #### <a name="example-2"></a>VOORBEELD 2
 ```
 Find 'user' objects with disabled inheritance in 'Contoso' domain
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled--zoekbasis 'Contoso' - objectklasse 'user'
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
 
 #### <a name="example-3"></a>VOORBEELD 3
 ```
 Find all types of objects with disabled inheritance in a OU
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled--zoekbasis organisatie-eenheid = AzureAD, DC = Contoso, DC = com - objectklasse ' *'
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 
 ### <a name="parameters"></a>PARAMETERS
 
-#### <a name="-searchbase"></a>--Zoekbasis
+#### <a name="-searchbase"></a>-SearchBase
 De SearchBase voor de LDAP-query die een DistinguishedName AD-domein of een FQDN-naam worden kan
 
 ```yaml
@@ -94,7 +94,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-objectclass"></a>-Objectklasse
+#### <a name="-objectclass"></a>-ObjectClass
 De klasse van de objecten te zoeken die kan worden ' *' (voor elke objectklasse), 'user', 'groep', 'container', enzovoort. Deze functie wordt standaard zoeken voor de objectklasse 'organizationalUnit'.
 
 ```yaml
@@ -1380,7 +1380,7 @@ Show-ADSyncADObjectPermissions -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
-{{ADobjectDN beschrijving vullen}}
+{{Fill ADobjectDN Description}}
 
 ```yaml
 Type: String

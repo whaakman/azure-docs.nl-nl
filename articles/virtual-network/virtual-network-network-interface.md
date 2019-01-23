@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: a26deba97d1ed61f2a6f3b54dafe9f651167ab5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424367"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474516"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -38,7 +38,7 @@ Het account dat u zich aanmelden bij of verbinding maken met Azure, moet worden 
 
 ## <a name="create-a-network-interface"></a>Een netwerkinterface maken
 
-Bij het maken van een virtuele machine met behulp van de Azure portal, wordt de portal een netwerkinterface gemaakt met de standaardinstellingen voor u. Als in plaats daarvan u alle instellingen van uw netwerkinterface geeft, kunt u een netwerkinterface met aangepaste instellingen maken en de netwerkinterface koppelen aan een virtuele machine bij het maken van de virtuele machine (met behulp van PowerShell of Azure CLI). U kunt ook een netwerkinterface maken en toe te voegen aan een bestaande virtuele machine (met behulp van PowerShell of Azure CLI). Als u wilt weten hoe u een virtuele machine maken met een bestaande netwerkinterface of als u wilt toevoegen aan of verwijderen van netwerkinterfaces van een bestaande virtuele machines, Zie [toevoegen of verwijderen van netwerkinterfaces](virtual-network-network-interface-vm.md). Voordat u een netwerkinterface maken, hebt u een bestaande [virtueel netwerk](manage-virtual-network.md#create-a-virtual-network) in dezelfde locatie en abonnement die u maakt een netwerkinterface in.
+Bij het maken van een virtuele machine met behulp van de Azure portal, wordt de portal een netwerkinterface gemaakt met de standaardinstellingen voor u. Als in plaats daarvan u alle instellingen van uw netwerkinterface geeft, kunt u een netwerkinterface met aangepaste instellingen maken en de netwerkinterface koppelen aan een virtuele machine bij het maken van de virtuele machine (met behulp van PowerShell of Azure CLI). U kunt ook een netwerkinterface maken en toe te voegen aan een bestaande virtuele machine (met behulp van PowerShell of Azure CLI). Als u wilt weten hoe u een virtuele machine maken met een bestaande netwerkinterface of als u wilt toevoegen aan of verwijderen van netwerkinterfaces van een bestaande virtuele machines, Zie [toevoegen of verwijderen van netwerkinterfaces](virtual-network-network-interface-vm.md). Voordat u een netwerkinterface maken, hebt u een bestaande [virtueel netwerk](manage-virtual-network.md) in dezelfde locatie en abonnement die u maakt een netwerkinterface in.
 
 1. In het vak met de tekst *zoeken naar resources* aan de bovenkant van de Azure-portal, typt u *netwerkinterfaces*. Wanneer **netwerkinterfaces** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer **+ toevoegen** onder **netwerkinterfaces**.
@@ -69,7 +69,7 @@ De portal biedt niet de optie voor het toewijzen van de netwerkinterface aan bev
 |Hulpprogramma|Opdracht|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
-|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface#create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Netwerkinterface-instellingen weergeven
 
@@ -158,7 +158,7 @@ U kunt het subnet, maar niet het virtuele netwerk, dat een netwerkinterface word
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Toevoegen aan of verwijderen van beveiligingsgroepen voor toepassing
 
-U kunt alleen een netwerkinterface toevoegen of verwijderen van een netwerkinterface van een toepassingsbeveiligingsgroep met behulp van de portal als de netwerkinterface is gekoppeld aan een virtuele machine. U kunt PowerShell of Azure CLI om toe te voegen een netwerkinterface om te gebruiken of een netwerkinterface verwijderen uit de beveiligingsgroep van een toepassing, of de netwerkinterface is gekoppeld aan een virtuele machine of niet. Meer informatie over [toepassingsbeveiligingsgroepen](security-overview.md#application-security-groups) en hoe u [Maak een toepassingsbeveiligingsgroep](manage-network-security-group.md#create-an-application-security-group).
+U kunt alleen een netwerkinterface toevoegen of verwijderen van een netwerkinterface van een toepassingsbeveiligingsgroep met behulp van de portal als de netwerkinterface is gekoppeld aan een virtuele machine. U kunt PowerShell of Azure CLI om toe te voegen een netwerkinterface om te gebruiken of een netwerkinterface verwijderen uit de beveiligingsgroep van een toepassing, of de netwerkinterface is gekoppeld aan een virtuele machine of niet. Meer informatie over [toepassingsbeveiligingsgroepen](security-overview.md#application-security-groups) en hoe u [Maak een toepassingsbeveiligingsgroep](manage-network-security-group.md).
 
 1. In de *resources, services en documenten zoeken* vak aan de bovenkant van de portal, te beginnen met het typen van de naam van een virtuele machine waarvoor een netwerkinterface die u wilt toevoegen aan of verwijderen uit een toepassingsbeveiligingsgroep. Wanneer de naam van uw virtuele machine wordt weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer onder **INSTELLINGEN** de optie **Netwerken**.  Selecteer **configureren van de beveiligingsgroepen voor toepassing**, selecteert u de toepassing-beveiligingsgroepen die u wilt toevoegen van de netwerkinterface op of hef de selectie van de toepassing-beveiligingsgroepen die u wilt verwijderen van de netwerkinterface van en selecteer vervolgens **opslaan**. Alleen de netwerkinterfaces die zijn opgenomen in hetzelfde virtuele netwerk kunnen worden toegevoegd aan de dezelfde toepassingsbeveiligingsgroep. De toepassingsbeveiligingsgroep moet zich in dezelfde locatie als de netwerkinterface.

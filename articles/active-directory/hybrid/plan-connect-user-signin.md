@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Meld u gebruiker | Microsoft Docs'
+title: 'Azure AD Connect: Aanmelden van gebruikers | Microsoft Docs'
 description: Azure AD Connect aanmelden van gebruikers voor aangepaste instellingen.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 57f1879e79dfdfe8eff421deb466b3098f5a5c60
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365839"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463453"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-aanmelden-gebruikersopties
 Azure Active Directory (Azure AD) Connect kan uw gebruikers zich aanmelden bij zowel cloud en on-premises resources met behulp van dezelfde wachtwoorden. Dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel aan bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
@@ -59,16 +59,16 @@ Bovendien kunt u inschakelen [naadloze eenmalige aanmelding](how-to-connect-sso.
 
 Zie voor meer informatie de [wachtwoord-hashsynchronisatie](how-to-connect-password-hash-synchronization.md) artikel.
 
-### <a name="pass-through-authentication"></a>Pass Through-verificatie
+### <a name="pass-through-authentication"></a>Pass-through-verificatie
 Wachtwoord van de gebruiker is gevalideerd met Pass through-verificatie, op basis van de on-premises Active Directory-domeincontroller. Het wachtwoord hoeft niet aanwezig zijn in Azure AD in welke vorm. Hiermee wordt voor on-premises-beleid, zoals aanmelding uur beperkingen, moet worden geëvalueerd tijdens de verificatie naar de cloud services.
 
 Pass through-verificatie maakt gebruik van een eenvoudige agent op een Windows Server 2012 R2 domein machine in de on-premises omgeving. Deze agent luistert naar aanvragen voor wachtwoord-validatie. Er is inkomende poorten open zijn voor het Internet geen vereist.
 
 Bovendien kunt u ook eenmalige aanmelding voor gebruikers op een domein machines die zich op het bedrijfsnetwerk bevinden. Met eenmalige aanmelding hoeft ingeschakelde gebruikers in te voeren van een gebruikersnaam om hen te helpen veilig toegang tot cloud-bronnen.
-![Pass through-verificatie](./media/plan-connect-user-signin/pta.png)
+![Pass-through-verificatie](./media/plan-connect-user-signin/pta.png)
 
 Zie voor meer informatie:
-- [Pass through-verificatie](how-to-connect-pta.md)
+- [Pass-through-verificatie](how-to-connect-pta.md)
 - [Eenmalige aanmelding](how-to-connect-sso.md)
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federation die gebruikmaakt van een nieuwe of bestaande-farm met AD FS in Windows Server 2012 R2
@@ -123,9 +123,9 @@ De Azure Active Directory-aanmeldingservaring, is afhankelijk van of in Azure AD
 Azure AD Connect bevat de UPN-achtervoegsels die zijn gedefinieerd voor de domeinen en er wordt geprobeerd deze overeenkomen met een aangepast domein in Azure AD. Vervolgens kunt u met de juiste actie die moet worden ondernomen.
 De aanmeldingspagina van Azure AD bevat de UPN-achtervoegsels die zijn gedefinieerd voor on-premises Active Directory en de bijbehorende status voor elk achtervoegsel wordt weergegeven. De waarden van de status kunnen zijn dat een van de volgende:
 
-| Status | Beschrijving | Actie vereist |
+| Status | Description | Actie vereist |
 |:--- |:--- |:--- |
-| Geverifieerd |Azure AD Connect gevonden dat een overeenkomende geverifieerd domein in Azure AD. Alle gebruikers voor dit domein kunnen zich aanmelden met behulp van hun on-premises referenties. |Er is geen actie nodig. |
+| Geverifieerd |Azure AD Connect gevonden dat een overeenkomende geverifieerd domein in Azure AD. Alle gebruikers voor dit domein kunnen zich aanmelden met behulp van hun on-premises referenties. |U hoeft geen actie te ondernemen. |
 | Niet gecontroleerd |Azure AD Connect een overeenkomende aangepaste domein in Azure AD worden gevonden, maar deze is niet geverifieerd. Het UPN-achtervoegsel van de gebruikers van dit domein wordt gewijzigd in de standaard. het achtervoegsel onmicrosoft.com na synchronisatie als het domein is niet geverifieerd. | [Controleer of het aangepaste domein in Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Niet toegevoegd |Azure AD Connect niet een aangepast domein dat kwam met het UPN-achtervoegsel overeen niet vinden. Het UPN-achtervoegsel van de gebruikers van dit domein wordt gewijzigd in de standaardinstelling. achtervoegsel onmicrosoft.com als het domein is niet toegevoegd en gecontroleerd in Azure. | [Toevoegen en controleer of een aangepast domein die overeenkomt met het UPN-achtervoegsel.](../fundamentals/add-custom-domain.md) |
 

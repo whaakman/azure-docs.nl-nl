@@ -1,6 +1,6 @@
 ---
-title: Virtuele machines in Azure te migreren naar beheerde schijven | Microsoft Docs
-description: Migreren van virtuele machines in Azure gemaakt met behulp van niet-beheerde schijven in opslagaccounts beheerd schijven te gebruiken.
+title: Azure-VM's migreren naar Managed Disks | Microsoft Docs
+description: Migreer Azure virtuele machines die zijn gemaakt met behulp van niet-beheerde schijven in de storage-accounts naar beheerde schijven.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,83 +15,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: d280ad1180949167bb8ebfc6b21521736db0f55d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: disks
+ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777143"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474214"
 ---
-# <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Virtuele machines in Azure te migreren naar beheerde schijven in Azure
+# <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure-VM's migreren naar Managed Disks in Azure
 
-Azure-beheerde schijven vereenvoudigt het beheer van uw opslag door het verwijderen van de noodzaak voor het beheren van afzonderlijk storage-accounts.  U kunt uw bestaande Azure-virtuele machines ook migreren naar schijven beheerd profiteren van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Dit zorgt ervoor dat de schijven van andere virtuele machines in een Beschikbaarheidsset voldoende los van elkaar om te voorkomen dat één punt van fouten. Schijven met een andere virtuele machines automatisch geplaatst in een Beschikbaarheidsset in verschillende opslagunits (stempels) Hiermee beperkt u het effect van één opslag scale unit storingen veroorzaakt door de hardware en software.
-Op basis van uw behoeften, kunt u kiezen uit twee soorten opties voor opslag:
+Azure Managed Disks vereenvoudigt het beheer van uw opslag door het verwijderen van de noodzaak voor het storage-accounts afzonderlijk beheren.  U kunt ook uw bestaande Azure-VM's migreren naar Managed Disks profiteren van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Dit zorgt ervoor dat de schijven van verschillende virtuele machines in een Beschikbaarheidsset voldoende geïsoleerd van elkaar om te voorkomen dat één punt van fouten. Deze plaatst automatisch schijven van verschillende virtuele machines in een Beschikbaarheidsset in verschillende kasten (stempels) zodat ze worden beperkt de gevolgen van één opslag scale unit storingen veroorzaakt door hardware en software.
+Op basis van uw behoeften, kunt u kiezen uit twee typen opslag:
 
-- [Premium-schijven beheerd](premium-storage.md) Solid State station (SSD) op basis van opslagmedia die hoge prestaties, lage latentie schijfondersteuning voor virtuele machines met I/O-intensieve werkbelastingen biedt. U kunt profiteren van de snelheid en prestaties van deze schijven nemen door te migreren naar de Premium-schijven worden beheerd.
+- [Premium Managed Disks](premium-storage.md) Solid State Drive (SSD) op basis van opslagmedia die voorziet in hoogwaardige schijfondersteuning met lage latentie voor virtuele machines met I/O-intensieve workloads. U kunt profiteren van de snelheid en prestaties van deze schijven uitvoeren door te migreren naar Premium Managed Disks.
 
-- [Standard-beheerde schijven](standard-storage.md) opslagmedia harde schijf (HDD) op basis van gebruik en geschikt zijn voor het ontwikkelen en testen en andere werkbelastingen incidentele toegang die minder gevoelig voor prestaties variabiliteit zijn.
+- [Standard Managed Disks](standard-storage.md) gebruik van vasteschijfstations (HDD) op basis van opslagmedia en zijn bij uitstek geschikt voor Dev/Test- en andere onregelmatige toegangsbewerkingen die minder gevoelig zijn voor variaties in prestaties.
 
-U kunt migreren naar schijven beheerd in de volgende scenario's:
+U kunt migreren naar Managed Disks in de volgende scenario's:
 
-| Migreren...                                            | Koppeling van documentatie                                                                                                                                                                                                                                                                  |
+| Migreren...                                            | Koppeling voor documentatie                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Zelfstandige virtuele machines en virtuele machines in een beschikbaarheidsset naar beheerde schijven converteren   | [Virtuele machines voor het gebruik van beheerde schijven converteren](convert-unmanaged-to-managed-disks.md) |
 | Een enkele virtuele machine van klassiek naar Resource Manager op beheerde schijven     | [Een enkele virtuele machine migreren](migrate-single-classic-to-resource-manager.md)  | 
-| Alle virtuele machines in een vNet van klassieke, naar Resource Manager op beheerde schijven     | [Migreren van IaaS-middelen van klassiek naar Resource Manager](migration-classic-resource-manager-ps.md) en vervolgens [een virtuele machine van niet-beheerde schijven converteren naar beheerde schijven](convert-unmanaged-to-managed-disks.md) | 
+| Alle virtuele machines in een vNet van het klassieke implementatiemodel, naar Resource Manager op beheerde schijven     | [Migreren van IaaS-resources van klassiek naar Resource Manager](migration-classic-resource-manager-ps.md) en vervolgens [een VM van niet-beheerde schijven converteren naar beheerde schijven](convert-unmanaged-to-managed-disks.md) | 
 
 
 
 
 
 
-## <a name="plan-for-the-conversion-to-managed-disks"></a>Plan voor de conversie naar schijven beheerd
+## <a name="plan-for-the-conversion-to-managed-disks"></a>Plan voor de conversie naar beheerde schijven
 
-Deze sectie helpt u bij het maken van de beste beslissing op schijf en VM-typen.
+In deze sectie helpt u bij het maken van de beste beslissing op schijf en VM-typen.
 
 
 ## <a name="location"></a>Locatie
 
-Kies een locatie waar Azure beheerd schijven beschikbaar zijn. Als u naar Premium-schijven worden beheerd overstapt, ook voor zorgen dat de Premium-opslag beschikbaar is in de regio waar u van plan bent om naar te verplaatsen. Zie [Azure-Services per regio](https://azure.microsoft.com/regions/#services) voor actuele informatie over beschikbare locaties.
+Kies een locatie waar Azure Managed Disks beschikbaar zijn. Als u naar Premium Managed Disks overstapt, zorg er ook voor Premium storage is beschikbaar in de regio waar u van plan bent om naar te verplaatsen. Zie [Azure Services per regio](https://azure.microsoft.com/regions/#services) voor actuele informatie over de beschikbare locaties.
 
 ## <a name="vm-sizes"></a>Formaten van virtuele machines
 
-Als u naar Premium-schijven worden beheerd migreert, hebt u voor het bijwerken van de grootte van de virtuele machine naar de Premium-opslag kunnen grootte beschikbaar in de regio waar de VM zich bevindt. Bekijk de VM-grootten Premium-opslag die geschikt zijn. De Azure VM-grootte specificaties worden vermeld in [grootten voor virtuele machines](sizes.md).
-Bekijk de prestatiekenmerken van virtuele machines die geschikt is voor Premium-opslag en kiest u de meest geschikte VM-grootte die het beste past bij uw workload. Zorg ervoor dat er voldoende bandbreedte beschikbaar op de virtuele machine is om het verkeer van de schijf.
+Als u naar Premium Managed Disks migreert, hebt u de grootte van de virtuele machine bijwerken naar Premium Storage kunnen grootte beschikbaar in de regio waar de virtuele machine zich bevindt. Bekijk de VM-grootten die Premium-opslag die geschikt zijn. De specificaties van de grootte van virtuele Azure-machine vindt u in [grootten voor virtuele machines](sizes.md).
+Bekijk de prestatiekenmerken van virtuele machines die werken met Premium Storage en kiest u de meest geschikte VM-grootte die het beste bij uw workload. Zorg ervoor dat er voldoende bandbreedte beschikbaar op de virtuele machine is om het schijfverkeer te stimuleren.
 
 ## <a name="disk-sizes"></a>Schijfformaten
 
-**Premium beheerde schijven**
+**Premium Managed Disks**
 
-Er zijn zeven soorten beheerde premium-schijven die kunnen worden gebruikt met uw virtuele machine en elke principal heeft bepaalde IOPs en doorvoerlimieten limieten. In overweging nemen deze limieten bij het kiezen van het type Premium-schijf voor de virtuele machine op basis van de behoeften van uw toepassing in termen van capaciteit, prestaties, schaalbaarheid en piek worden geladen.
+Er zijn zeven typen premium-beheerde schijven die kunnen worden gebruikt met de virtuele machine en elk heeft specifieke IOPs en doorvoer limieten. In overweging nemen deze limieten bij het kiezen van het schijftype voor Premium voor uw virtuele machine op basis van de behoeften van uw toepassing in termen van capaciteit, prestaties, schaalbaarheid en piek wordt geladen.
 
-| Premium-schijven Type  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOP's per schijf       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
-| Doorvoer per schijf | 25 MB per seconde  | 50 MB per seconde  | 100 MB per seconde | 125 MB per seconde |150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde |
+| Schijfgrootte           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOP's per schijf       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Doorvoer per schijf | 25 MB per seconde  | 50 MB per seconde  | 100 MB per seconde | 125 MB per seconde |150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde |
 
-**Beheerde standaardschijven**
+**Standaard beheerde schijven**
 
-Er zijn zeven soorten beheerde standaardschijven die kunnen worden gebruikt met uw virtuele machine. Elk van deze andere capaciteit hebben maar dezelfde IOPS en doorvoerlimieten hebben. Kies het type van de Standard-beheerde schijven op basis van de capaciteitsbehoeften van uw toepassing.
+Er zijn zeven typen van standard beheerde schijven die kunnen worden gebruikt met de virtuele machine. Elk van deze andere capaciteit hebben maar dezelfde IOPS en doorvoerlimieten. Kies het type Standard beheerde schijven op basis van de capaciteitsbehoeften van uw toepassing.
 
-| Standard-schijftype  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+| Standard-schijftype  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Schijfgrootte           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| IOP's per schijf       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Schijfgrootte           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| IOP's per schijf       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Doorvoer per schijf | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde |60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 
 
-## <a name="disk-caching-policy"></a>Het beleid voor schijf
+## <a name="disk-caching-policy"></a>Beleid voor caching schijf
 
-**Premium beheerde schijven**
+**Premium Managed Disks**
 
-Beleid voor de schijfcache is standaard *alleen-lezen* voor alle Premium gegevensschijven, en *lezen-schrijven* voor de Premium-schijf is gekoppeld aan de VM. Deze configuratieinstelling wordt aanbevolen de optimale prestaties voor uw toepassing IOs bereiken. Voor schijven schrijven zware of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden), uitschakelen schijfcache, zodat u kunt betere prestaties bereiken.
+Beleid voor caching schijf is standaard *alleen-lezen* voor alle Premium gegevensschijven, en *lezen / schrijven* voor de Premium-schijf die is gekoppeld aan de virtuele machine. Deze configuratieinstelling wordt aanbevolen om de optimale prestaties voor IOs van uw toepassing. Voor schijven schrijfintensief of alleen-schrijven gegevens (zoals SQL Server-logboekbestanden) uitschakelen in schijfcache zodat u betere prestaties van toepassingen kunt bereiken.
 
 ## <a name="pricing"></a>Prijzen
 
-Controleer de [prijzen voor schijven beheerd](https://azure.microsoft.com/pricing/details/managed-disks/). Prijzen van beheerde Premium-schijven is hetzelfde als het niet-beheerde Premium-schijven. Maar prijzen voor beheerde standaardschijven is anders dan standaardschijven zonder begeleiding.
+Controleer de [prijzen voor Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Prijzen van Premium Managed Disks is hetzelfde als de niet-beheerde Premium-schijven. Maar de prijzen voor Standard Managed Disks is anders dan standaard niet-beheerde schijven.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [schijven beheerd](managed-disks-overview.md)
+- Meer informatie over [Managed Disks](managed-disks-overview.md)

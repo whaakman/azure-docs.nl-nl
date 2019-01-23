@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bfe2b0c70c8b912f6489ed461f5bcf6f233ed60d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4bf11c0a084cb0241125a1ed546f48c1c5455de3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809764"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449449"
 ---
 <a name="update-an-existing-offer-for-azure-marketplace"></a>Een bestaande aanbieding bijwerken voor Azure Marketplace
 ==============================================
@@ -87,7 +87,7 @@ Als u een nieuwe SKU voor uw bestaande aanbieding, volg de onderstaande stappen.
 
 1.  Meld u aan bij de [Cloud Partner-Portal](https://cloudpartner.azure.com/).
 2.  Onder **alle aanbiedingen** vinden van de aanbieding die u wilt bijwerken.
-3.  Onder de **SKU's** formulier, clik op **toevoegen van nieuwe Voorraadeenheid** en bieden een **SKU-ID** in het pop-upvenster.
+3.  Onder de **SKU's** vormen, klikt u op **toevoegen van nieuwe Voorraadeenheid** en bieden een **SKU-ID** in het pop-upvenster.
 4.  Volg de rest van de stappen die worden beschreven [publiceren van een virtuele machine op Azure Marketplace](./cloud-partner-portal-publish-virtual-machine.md).
 5.  Klik op **publiceren** naar een vliegende start de werkstroom publiceren om uw nieuwe Voorraadeenheid live gaan.
 
@@ -130,10 +130,10 @@ Hebt u tot 1 November 2018 om in te stellen van een nieuwe prijs voor de regio's
 
 | Land/regio                  | ISO-2-Code | Vereenvoudigde factureringsvaluta |
 |--------------------------|-----------|-----------------------------|
-| **Algerije**              | DZ        | USD                         |
+| **Algeria**              | DZ        | USD                         |
 | **Argentinië**            | AR        | USD                         |
 | **Bahrein**              | BH        | USD                         |
-| **Belarus**              | DOOR        | USD                         |
+| **Belarus**              | BY        | USD                         |
 | **Brazilië**               | BR        | BRL                         |
 | **Bulgarije**             | BG        | EUR                         |
 | **Chili**                | CL        | USD                         |
@@ -141,7 +141,7 @@ Hebt u tot 1 November 2018 om in te stellen van een nieuwe prijs voor de regio's
 | **Costa Rica**           | CR        | USD                         |
 | **Kroatië**              | HR        | EUR                         |
 | **Tsjechische Republiek**       | CZ        | EUR                         |
-| **Egypte**                | BIJVOORBEELD        | USD                         |
+| **Egypte**                | EG        | USD                         |
 | **Guatemala**            | GT        | USD                         |
 | **Hongkong SAR**            | HK        | USD                         |
 | **Hongarije**              | HU        | EUR                         |
@@ -154,12 +154,12 @@ Hebt u tot 1 November 2018 om in te stellen van een nieuwe prijs voor de regio's
 | **Koeweit**               | KW        | USD                         |
 | **Liechtenstein**        | LI        | EUR                         |
 | **Macedonië (FYROM)**     | MK        | USD                         |
-| **Maleisië**             | MIJN        | USD                         |
+| **Maleisië**             | MY        | USD                         |
 | **Mexico**               | MX        | USD                         |
-| **Montenegro**           | MIJ        | USD                         |
-| **Marokko**              | MA        | USD                         |
+| **Montenegro**           | ME        | USD                         |
+| **Morocco**              | MA        | USD                         |
 | **Nigeria**              | NG        | USD                         |
-| **Oman**                 | OPERATIONS MANAGER        | USD                         |
+| **Oman**                 | OM        | USD                         |
 | **Pakistan**             | PK        | USD                         |
 | **Paraguay**             | PY        | USD                         |
 | **Peru**                 | PE        | USD                         |
@@ -169,9 +169,9 @@ Hebt u tot 1 November 2018 om in te stellen van een nieuwe prijs voor de regio's
 | **Roemenië**              | RO        | EUR                         |
 | **Saudi-Arabië**         | SA        | USD                         |
 | **Servië**               | RS        | USD                         |
-| **Singapore**            | BEVEILIGINGSGROEP        | USD                         |
+| **Singapore**            | SG        | USD                         |
 | **Zuid-Afrika**         | ZA        | USD                         |
-| **Thailand**             | DO        | USD                         |
+| **Thailand**             | TH        | USD                         |
 | **Trinidad enTobago**  | TT        | USD                         |
 | **Tunesië**              | TN        | USD                         |
 | **Turkije**               | TR        | USD                         |

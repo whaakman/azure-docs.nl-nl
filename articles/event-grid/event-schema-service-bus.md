@@ -6,18 +6,18 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: babanisa
-ms.openlocfilehash: afb85f20c49821ca98e078791730a3376198e9e5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060169"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467737"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Azure Event Grid-gebeurtenisschema voor Service Bus
 
-Dit artikel bevat de eigenschappen en het schema voor Service Bus-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
+Dit artikel bevat de eigenschappen en het schema voor Service Bus-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
 Zie voor een lijst met zelfstudies en voorbeelden van scripts, [Service Bus-gebeurtenisbron](event-sources.md#service-bus).
 
@@ -25,7 +25,7 @@ Zie voor een lijst met zelfstudies en voorbeelden van scripts, [Service Bus-gebe
 
 Service Bus verzendt de volgende typen gebeurtenissen:
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Treedt op wanneer er zich actieve berichten in een wachtrij of abonnement en er geen ontvangers luisteren. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Treedt op wanneer er actieve berichten in een wachtrij voor onbestelbare berichten en er zijn geen actieve listeners zijn. |
@@ -80,27 +80,27 @@ Het schema voor een gebeurtenis dead-letter-wachtrij is vergelijkbaar:
 
 Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
+| id | string | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens voor BLOB-opslag. |
-| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| namespaceName | tekenreeks | De Service Bus-naamruimte de resource bestaat in. |
-| requestUri | tekenreeks | De URI naar de specifieke wachtrij of abonnement dat verzendt de gebeurtenis. |
-| EntityType | tekenreeks | Het type van Service Bus-entiteit voor het verzenden van gebeurtenissen (wachtrij of abonnement). |
-| queueName | tekenreeks | De wachtrij met de actieve berichten als u zich abonneert op een wachtrij. Null-waarde als onderwerpen / abonnementen. |
-| topicName | tekenreeks | Het onderwerp het Service Bus-abonnement met de actieve berichten behoort tot. De waarde null als het gebruik van een wachtrij. |
-| subscriptionName | tekenreeks | Het Service Bus-abonnement met de actieve berichten. De waarde null als het gebruik van een wachtrij. |
+| namespaceName | string | De Service Bus-naamruimte de resource bestaat in. |
+| requestUri | string | De URI naar de specifieke wachtrij of abonnement dat verzendt de gebeurtenis. |
+| entityType | string | Het type van Service Bus-entiteit voor het verzenden van gebeurtenissen (wachtrij of abonnement). |
+| queueName | string | De wachtrij met de actieve berichten als u zich abonneert op een wachtrij. Null-waarde als onderwerpen / abonnementen. |
+| topicName | string | Het onderwerp het Service Bus-abonnement met de actieve berichten behoort tot. De waarde null als het gebruik van een wachtrij. |
+| subscriptionName | string | Het Service Bus-abonnement met de actieve berichten. De waarde null als het gebruik van een wachtrij. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

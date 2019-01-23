@@ -4,7 +4,7 @@ description: Informatie over het gebruik van expressietoewijzingen kenmerkwaarde
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61aeb6a80d492a82dffa66491742899df0acc237
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973720"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470049"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -28,7 +28,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 * De volledige expressie moet worden gedefinieerd in termen van functies, die bestaan uit een naam, gevolgd door argumenten tussen haakjes: <br>
   *Functienaam (`<<argument 1>>`,`<<argument N>>`)*
-* Functies in elkaar kan worden genest. Bijvoorbeeld: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
+* Functies in elkaar kan worden genest. Bijvoorbeeld: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * U kunt drie verschillende typen argumenten doorgeven in functies:
   
   1. Kenmerken moeten tussen rechte haakjes worden geplaatst. Bijvoorbeeld: [attributeName]
@@ -267,8 +267,8 @@ U wilt bijvoorbeeld datums voor ServiceNow.
 
 **Voorbeeld van invoer/uitvoer:**
 
-* **INVOER** (extensionAttribute1): "20150123105347.1Z"
-* **UITVOER**:  "23-01-2015"
+* **INPUT** (extensionAttribute1): "20150123105347.1Z"
+* **UITVOER**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Vervangen door een waarde op basis van vooraf gedefinieerde set opties
 
@@ -298,8 +298,8 @@ Gebaseerd op van de gebruiker voornaam, de tweede voornaam en achternaam, moet u
 
 **Voorbeeld van invoer/uitvoer:**
 
-* **INVOER** (PreferredFirstName): "John"
-* **INVOER** (PreferredLastName): 'Smith'
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): 'Smith'
 * **UITVOER**: "John.Smith@contoso.com' als UPN-waarde van John.Smith@contoso.com nog niet bestaat in de map
 * **UITVOER**: "J.Smith@contoso.com' als UPN-waarde van John.Smith@contoso.com al bestaat in de map
 * **UITVOER**: "Jo.Smith@contoso.com' als de bovenstaande twee UPN-waarden al in de map bestaat

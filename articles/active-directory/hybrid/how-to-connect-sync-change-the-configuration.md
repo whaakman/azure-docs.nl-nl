@@ -4,7 +4,7 @@ description: Helpt u bij het maken van een wijziging aan de configuratie in Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190626"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463368"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: Breng een wijziging aan in de standaardconfiguratie
 Het doel van dit artikel is waarmee u stapsgewijs hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure Active Directory (Azure AD) Connect-synchronisatie. Het biedt stappen voor enkele algemene scenario's. Met deze kennis moet u het volgende kunnen eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -270,8 +270,8 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
     | Name | *Geef een naam* | Bijvoorbeeld, *In uit Active Directory-gebruiker UserType* |
     | Description | *Geef een beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises AD-connector* |  |
-    | Verbonden systeem objecttype | **Gebruiker** |  |
-    | Metaverse-objecttype | **Persoon** |  |
+    | Verbonden systeem objecttype | **User** |  |
+    | Metaverse-objecttype | **Person** |  |
     | Type koppeling | **Koppelen** |  |
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatieregels. Een waarde die wordt gebruikt door een andere regel voor synchronisatie niet verzamelen. |
 
@@ -312,8 +312,8 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
     | Name | *Geef een naam* | Bijvoorbeeld, *Out voor AAD-gebruiker UserType* |
     | Description | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de AAD-connector* ||
-    | Verbonden systeem objecttype | **Gebruiker** ||
-    | Metaverse-objecttype | **Persoon** ||
+    | Verbonden systeem objecttype | **User** ||
+    | Metaverse-objecttype | **Person** ||
     | Type koppeling | **Koppelen** ||
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatieregels. Een waarde die wordt gebruikt door een andere regel voor synchronisatie niet verzamelen. |
 

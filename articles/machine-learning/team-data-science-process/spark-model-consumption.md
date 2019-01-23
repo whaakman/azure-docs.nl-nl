@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: eb66e5c84542127f63b6311a887494f1e2ba394c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135302"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448785"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Met Spark gebouwde machine learning-modellen
 
@@ -120,7 +120,7 @@ Voor meer informatie over de kernels voor Jupyter notebooks en de vooraf gedefin
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Opname van gegevens en een opgeschoonde gegevensframe maken
 In deze sectie bevat de code voor een reeks taken die vereist zijn voor opname van de gegevens die moeten worden beoordeeld. Lees in een gekoppelde 0,1% voorbeeld van het taxi reis- en tarief-bestand (opgeslagen als een bestand .tsv) indeling de gegevens en maakt vervolgens een schone gegevensframe.
 
-De taxi reis- en tarief-bestanden zijn toegevoegd op basis van de procedure die is opgegeven in de: [het Team Data Science Process in actie: met behulp van HDInsight Hadoop-clusters](hive-walkthrough.md) onderwerp.
+De taxi reis- en tarief-bestanden zijn toegevoegd op basis van de procedure die is opgegeven in de: [Het Team Data Science Process in actie: met behulp van HDInsight Hadoop-clusters](hive-walkthrough.md) onderwerp.
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -279,7 +279,7 @@ Het bevat ook code die laat hoe u zien voor het schalen van gegevens met de `Sta
                              line.trip_distance, line.fare_amount])
         return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Spark-modellen gebruiken via een webinterface.
-Spark biedt een mechanisme om in te dienen op afstand batch-taken of interactieve query's via een REST-interface met een component, genaamd Livy. Livy is standaard ingeschakeld op uw HDInsight Spark-cluster. Zie voor meer informatie over Livy: [indienen Spark-taken op afstand met behulp van Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+Spark biedt een mechanisme om in te dienen op afstand batch-taken of interactieve query's via een REST-interface met een component, genaamd Livy. Livy is standaard ingeschakeld op uw HDInsight Spark-cluster. Zie voor meer informatie over Livy: [Indienen van Spark-taken op afstand met behulp van Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 U kunt Livy gebruiken om in te dienen op afstand een taak die door de batch scores een bestand dat is opgeslagen in een Azure-blob en vervolgens schrijft de resultaten naar een andere blob. U doet dit door uploaden u de Python-script uit  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) naar de blob van het Spark-cluster. U kunt een hulpprogramma zoals **Microsoft Azure Storage Explorer** of **AzCopy** het script kopiëren naar de cluster-blob. In ons geval wordt het script hebt geüpload ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -555,7 +555,7 @@ Hier volgt de Python-code voor de HTTP-aanroep:
 
     import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
+    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
     import httplib, urllib, base64
 
     # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER

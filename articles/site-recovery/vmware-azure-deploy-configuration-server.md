@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: 41511b27a84731df203d37d70d20df40f85af4fb
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 01/22/2018
+ms.author: ramamill
+ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410758"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468400"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -144,7 +144,7 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
     Raadpleeg [VMware naar Azure-replicatie-architectuur](vmware-azure-architecture.md) voor meer informatie over de configuratieserver en de functionaliteiten.
 5. Waar vind ik de meest recente versie van de configuratieserver
 
-    Zie voor stappen voor het bijwerken van de configuratieserver via de portal, [Upgrade van de configuratieserver](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). U kunt ook rechtstreeks downloaden vanaf [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Raadpleeg voor gedetailleerde instructies voor het upgraden van alle onderdelen van Site Recovery [hier](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+    Zie voor stappen voor het bijwerken van de configuratieserver via de portal, [Upgrade van de configuratieserver](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Raadpleeg voor gedetailleerde instructies voor het upgraden van alle onderdelen van Site Recovery [hier](https://aka.ms/asr_how_to_upgrade).
 6. Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
 
     Raadpleeg [in dit artikel](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) voor het downloaden van de wachtwoordzin.
@@ -164,6 +164,8 @@ Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adre
 11. Kan ik de configuratieserver in Azure instellen?
 
     Het verdient aanbeveling voor het instellen van de configuratieserver op on-premises-omgeving met rechtstreekse regel van verbinding met Vcenter- en data transfer latentie te minimaliseren. U kunt geplande back-ups van de configuratieserver voor nemen [failback doeleinden](vmware-azure-manage-configuration-server.md#failback-requirements).
+
+Raadpleeg voor meer veelgestelde vragen over configuratieserver, onze [documentatie over veelgestelde vragen over configuratie server](vmware-azure-common-questions.md#configuration-server) .
 
 ## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3bc7dd8103bed9a5a04566d08a1daec0708a59c4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: fc78e6381c3e3bae0d1806f85b4d7038ad11e799
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285030"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452402"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Wat is de wat als hulpprogramma voor de voorwaardelijke toegang van Azure Active Directory?
 
@@ -32,7 +32,7 @@ In dit artikel wordt uitgelegd hoe u dit hulpprogramma kunt gebruiken voor het t
 
 ## <a name="what-it-is"></a>Wat is het?
 
-De **voor voorwaardelijke toegang in wat als beleid hulpprogramma** kunt u begrijp de gevolgen van het beleid voor voorwaardelijke toegang in uw omgeving. In plaats van de test het beleid door het uitvoeren van meerdere aanmeldingen handmatig te stimuleren, kunt dit hulpprogramma u een gesimuleerde aanmelding van een gebruiker evalueren. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport. Het rapport alleen de lijst bevat niet de toegepaste voorwaardelijke toegangsbeleid, maar ook [klassieke beleidsregels](policy-migration.md#classic-policies) als deze bestaan.    
+De **voor voorwaardelijke toegang in wat als beleid hulpprogramma** kunt u begrijp de gevolgen van het beleid voor voorwaardelijke toegang in uw omgeving. In plaats van uw beleid te testen door handmatig meerdere aanmeldingen uit te voeren, kunt u met dit hulpprogramma een gesimuleerde gebruikersaanmelding evalueren. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport. Het rapport alleen de lijst bevat niet de toegepaste voorwaardelijke toegangsbeleid, maar ook [klassieke beleidsregels](policy-migration.md#classic-policies) als deze bestaan.    
 
 Wat bepalen als hulpprogramma's biedt ook een manier om snel de beleidsregels die betrekking hebben op een specifieke gebruiker. U kunt de informatie, bijvoorbeeld gebruiken als u nodig hebt om een probleem te verhelpen.  
 

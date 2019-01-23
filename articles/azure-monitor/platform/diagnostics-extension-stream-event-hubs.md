@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: ddef3ba2f1fa14445b0a06670d8f18abe76911ab
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: c2d577bd4c89046136a3465ff554e9662dd0ce19
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230353"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478124"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming van Azure Diagnostics-gegevens in het dynamische pad met behulp van Event Hubs
 Diagnostische gegevens van Azure biedt flexibele manieren voor het verzamelen van Logboeken en metrische gegevens van virtuele machines (VM's) voor cloud services en resultaten overbrengen naar Azure Storage. Vanaf het tijdsbestek van maart 2016 (SDK 2.9 gebruikt), kunt u diagnostische gegevens verzenden naar aangepaste gegevensbronnen en gegevensoverdracht snelpad binnen enkele seconden met behulp van [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -514,3 +514,4 @@ U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 
 <!-- Images. -->
 [0]: ../../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png
+

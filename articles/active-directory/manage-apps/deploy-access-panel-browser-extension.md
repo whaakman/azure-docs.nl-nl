@@ -4,7 +4,7 @@ description: Het gebruik van Groepsbeleid voor het implementeren van de Internet
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3a48b2ce4689490b3a38917edfb776a6ea28c478
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877473"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463436"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid
 Deze zelfstudie laat zien hoe u kunt Groepsbeleid gebruiken om de extensie van het toegangsvenster voor Internet Explorer op afstand installeren op uw gebruikers virtuele machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers die u moeten zich aanmelden bij apps die zijn geconfigureerd met behulp van [wachtwoord gebaseerde eenmalige aanmelding](what-is-single-sign-on.md#password-based-sso).
@@ -33,7 +33,7 @@ De extensie van het toegangsvenster is ook beschikbaar voor [Chrome](https://go.
 * U hebt ingesteld [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), en u hebt uw gebruikers machines toegevoegd aan uw domein.
 * U moet de machtiging 'Instellingen bewerken' voor het bewerken van het groepsbeleidsobject (GPO) hebben. Standaard hebben leden van de volgende beveiligingsgroepen deze machtiging: Domeinadministrators, Ondernemingsadministrators en beveiligingsgroep Maker Eigenaar Groepsbeleid. [Meer informatie.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
-## <a name="step-1-create-the-distribution-point"></a>Stap 1: Het distributiepunt maken
+## <a name="step-1-create-the-distribution-point"></a>Stap 1: Maken van het distributiepunt.
 Eerst moet u het installer-pakket plaatsen op een netwerklocatie die toegankelijk is voor de machines die u de extensie wilt op afstand te installeren. Voer de volgende stappen uit om dit te doen:
 
 1. Meld u aan bij de server als beheerder
@@ -44,7 +44,7 @@ Eerst moet u het installer-pakket plaatsen op een netwerklocatie die toegankelij
    
     ![Geopende bestanden en Storage-Services](./media/deploy-access-panel-browser-extension/shares.png)
 4. Voltooi de **Wizard Nieuwe Share** en instellen van machtigingen om ervoor te zorgen dat deze van uw gebruikers-machines kan worden geopend. [Meer informatie over de shares.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Download het volgende pakket voor Microsoft Windows Installer (MSI-bestand): [toegang deelvenster Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
+5. Download het volgende pakket voor Microsoft Windows Installer (MSI-bestand): [Toegang tot deelvenster Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Kopieer het installatiepakket op de gewenste locatie op de share.
    
     ![Kopieer het MSI-bestand naar de share.](./media/deploy-access-panel-browser-extension/copy-package.png)
@@ -80,7 +80,7 @@ Eerst moet u het installer-pakket plaatsen op een netwerklocatie die toegankelij
 3. Met de rechtermuisknop op **Software-installatie**en selecteer vervolgens **nieuw** > **pakket...**
    
     ![Maak een nieuwe software-installatiepakket](./media/deploy-access-panel-browser-extension/new-package.png)
-4. Ga naar de gedeelde map met het installatiepakket uit [stap 1: maken van het distributiepunt](#step-1-create-the-distribution-point), selecteert u het MSI-bestand en klik op **Open**.
+4. Ga naar de gedeelde map met het installatiepakket uit [stap 1: Maken van het distributiepunt](#step-1-create-the-distribution-point), selecteert u het MSI-bestand en klik op **Open**.
    
    > [!IMPORTANT]
    > Als de share zich op deze server bevindt, controleert u of dat u het MSI-bestand via het bestandspad van het netwerk, in plaats van het lokale bestandspad openen wilt.
@@ -94,10 +94,10 @@ Eerst moet u het installer-pakket plaatsen op een netwerklocatie die toegankelij
 
 De extensie is nu geïmplementeerd in de organisatie-eenheid die u hebt geselecteerd. [Meer informatie over Software-installatie in Groepsbeleid.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
-## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Stap 4: Automatisch inschakelen voor de extensie voor Internet Explorer
+## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Stap 4: Auto-Enable de extensie voor Internet Explorer
 Naast het installatieprogramma uitvoert, moet elke uitbreiding voor Internet Explorer ingeschakeld zijn voordat deze kan worden gebruikt. Volg de stappen hieronder om het deelvenster-extensie voor toegang met behulp van Groepsbeleid inschakelen:
 
-1. In de **Editor voor Groepsbeleidsbeheer** venster, Ga naar een van de volgende paden, afhankelijk van welk type configuratie u hebt gekozen in [stap 3: toewijzen van het installatiepakket](#step-3-assign-the-installation-package):
+1. In de **Editor voor Groepsbeleidsbeheer** venster, Ga naar een van de volgende paden, afhankelijk van welk type configuratie u hebt gekozen in [stap 3: Toewijzen van het installatiepakket](#step-3-assign-the-installation-package):
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -151,7 +151,7 @@ Gebruikers wordt niet langer hun referenties of gebruik automatisch aanvullen vo
 ## <a name="step-6-testing-the-deployment"></a>Stap 6: De implementatie testen
 Volg de stappen hieronder om te controleren of als de implementatie van de uitbreiding geslaagd is:
 
-1. Als u hebt geïmplementeerd met behulp van **Computerconfiguratie**, meld u aan bij een clientcomputer die deel uitmaakt van de organisatie-eenheid die u hebt geselecteerd in [stap 2: maken van de Group Policy Object](#step-2-create-the-group-policy-object). Als u hebt geïmplementeerd met behulp van **Gebruikersconfiguratie**, zorg ervoor dat u zich aanmeldt als een gebruiker die lid is van organisatie-eenheid.
+1. Als u hebt geïmplementeerd met behulp van **Computerconfiguratie**, meld u aan bij een clientcomputer die deel uitmaakt van de organisatie-eenheid die u hebt geselecteerd in [stap 2: Maken van de Group Policy Object](#step-2-create-the-group-policy-object). Als u hebt geïmplementeerd met behulp van **Gebruikersconfiguratie**, zorg ervoor dat u zich aanmeldt als een gebruiker die lid is van organisatie-eenheid.
 2. Het duurt een paar aanmelding modules voor het Groepsbeleid volledig bijwerken met deze machine. Als u wilt afdwingen dat de update, opent u een **opdrachtprompt** venster en voer de volgende opdracht: `gpupdate /force`
 3. U moet de computer voor de installatie kan plaatsvinden opnieuw opstarten. Opstartstatus kan aanzienlijk langer duren dan normaal tijdens de extensie wordt geïnstalleerd.
 4. Na het opnieuw opstarten, open **Internet Explorer**. Klik in de rechterbovenhoek van het venster op **extra** (het tandwielpictogram), en selecteer vervolgens **invoegtoepassingen beheren**.

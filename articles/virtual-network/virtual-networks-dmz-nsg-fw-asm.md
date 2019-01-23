@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdc4885c079a3659d394517f0a10394eff0720c8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 19e9690905fd993d59b186d59cc257b6b57e78b2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119150"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449823"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Voorbeeld 2: een DMZ toepassingen met een Firewall en nsg's te beschermen bouwen
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -87,7 +87,7 @@ De hierboven besproken NSG-regels zijn vergelijkbaar met de NSG-regels in [voorb
 ## <a name="firewall-rules"></a>Firewallregels
 Een management-client moet worden geïnstalleerd op een PC voor het beheren van de firewall en het maken van de configuraties die nodig zijn. Zie de documentatie van uw firewall (of andere NVA)-leverancier over het beheren van het apparaat. De rest van deze sectie beschrijft de configuratie van de firewall zelf, via de leveranciers management-client (dat wil zeggen niet in de Azure portal of PowerShell).
 
-Instructies voor de client downloaden en verbinding maken met de Barracuda gebruikt in dit voorbeeld kunt u hier vinden: [Barracuda NG-beheerder](https://techlib.barracuda.com/NG61/NGAdmin)
+Instructies voor de client downloaden en verbinding maken met de Barracuda gebruikt in dit voorbeeld kunt u hier vinden: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 Op de firewall moet regels voor doorsturen worden gemaakt. Omdat in dit voorbeeld worden alleen verkeer van internet in-gebonden aan de firewall en vervolgens naar de webserver routes, wordt slechts één doorsturen NAT-regel die nodig zijn. Op de Barracuda NextGen Firewall gebruikt in dit voorbeeld zou de regel een bestemming NAT-regel ("Dst NAT') om door te geven dat het verkeer.
 
@@ -422,7 +422,7 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 

@@ -3,19 +3,19 @@ title: 'Zelfstudie:  Integratie van één AD-forest naar Azure met behulp van Pa
 description: Demonstreert hoe u een hybride identiteit instellen met behulp van Pass through-verificatie.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6bbf9cbea0671aaa73ddc5402f3102eea3154e6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165450"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467903"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Zelfstudie:  Een enkele AD-forest integreren met pass-through-verificatie (PTA)
 
@@ -226,7 +226,7 @@ Het is nu tijd om te downloaden en installeren van Azure AD Connect.  Zodra deze
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
 7. Voer de gebruikersnaam en het wachtwoord van de globale beheerder, die eerder is gemaakt op het scherm verbinding maken met Azure AD, en klik op **volgende**.
 2. Klik op het scherm van uw directory's verbinding maken **map toevoegen**.  Selecteer vervolgens **nieuw AD-account maken** contoso\Administrator gebruikersnaam en wachtwoord invoeren en op **OK**.
-3. Klik op **Volgende**.
+3. Klik op **volgende**.
 4. Selecteer op het scherm van de configuratie van aanmelding bij Azure AD **doorgaan zonder bijbehorende alle UPN-achtervoegsels voor geverifieerde domeinen** en klikt u op **volgende.**
 5. Klik op het domein en OE filteren scherm **volgende**.
 6. Over het uniek identificeren van het scherm van uw gebruikers, klikt u op **volgende**.

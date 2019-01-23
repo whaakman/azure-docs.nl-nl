@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: ''
+ms.openlocfilehash: 90ad5306c1594381409ed2bcbe767e2ffd055531
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106661"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473959"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor-partnerintegraties
 | Partners |  |  |
@@ -23,7 +23,7 @@ ms.locfileid: "54106661"
 | [**CloudHealth**<br/>![Logo van partners][cloudhealth-logo]][cloudhealth-anchor] | [**CloudMonix** <br/> ![Logo van partners][cloudmonix-logo]][cloudmonix-anchor] | [**Datadog**<br/>![Logo van partners][datadog-logo]][datadog-anchor] |
 | [**Dynatrace** <br/> ![Logo van partners][dynatrace-logo]][dynatrace-anchor] | [**Elastische**<br/>![Logo van partners][elastic-logo]][elastic-anchor] | [**Grafana**<br/>![Logo van partners][grafana-logo]][grafana-anchor] |
 | [**Influxdata**<br/>![Logo van partners][influxdata-logo]][influxdata-anchor] | [**Monitor voor logische**<br/>![Logo van partners][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![Logo van partners][moogsoft-logo]][moogsoft-anchor] |
-| [**NewRelic**<br/>![Logo van partners][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Logo van partners][opsgenie-logo]][opsgenie-anchor] | [**PagerDuty**<br/>![Logo van partners][pagerduty-logo]][pagerduty-anchor] |
+| [**NewRelic**<br/>![Logo van partners][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner Logo][opsgenie-logo]][opsgenie-anchor] | [**PagerDuty**<br/>![Partner Logo][pagerduty-logo]][pagerduty-anchor] |
 | [**QRadar**<br/>![Logo van partners][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Logo van partners][sciencelogic-logo]][sciencelogic-anchor] | [**SignalFx**<br/>![Logo van partners][signalfx-logo]<br/>][signalfx-anchor] |
 | [**SIGNL4**<br/>![Logo van partners][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [**Splunk** <br/> ![Logo van partners][splunk-logo]][splunk-anchor] |
 | [**Sumo logische**<br/>![Logo van partners][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Logo van partners][turbonomic-logo]][turbonomic-anchor] |
@@ -180,11 +180,11 @@ Turbonomic voorziet in automatisering van workloads voor hybride clouds door teg
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
-[elastic-anchor]: #elastic "Elastische"
+[elastic-anchor]: #elastic "Elastic"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
 [influxdata-anchor]: #Influxdata "Influxdata"
-[logicmonitor-anchor]: #logic-monitor "Logische-Monitor"
+[logicmonitor-anchor]: #logic-monitor "Logic Monitor"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
@@ -249,3 +249,4 @@ Turbonomic voorziet in automatisering van workloads voor hybride clouds door teg
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentatie."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentatie."
 [turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic inleiding."
+

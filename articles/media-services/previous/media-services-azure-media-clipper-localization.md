@@ -1,23 +1,23 @@
 ---
-title: Azure Media openen lokalisatie configureren | Microsoft Docs
-description: Meer informatie over Azure Media openen ondersteunde talen en lokalisatieondersteuning
+title: Azure Media Clipper lokalisatie configureren | Microsoft Docs
+description: Meer informatie over Azure Media Clipper ondersteunde talen en lokalisatieondersteuning voor
 services: media-services
-keywords: clip; subclip; codering; media
+keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788142"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448663"
 ---
 # <a name="configure-localization"></a>Lokalisatie configureren
-Azure Media openen is beschikbaar in 18 talen. Als u wilt de widget-taal instellen, moet u de `language` parameter tijdens de initialisatie. In de gewenste taal codetekenreeks doorgeven in de volgende lijst:
+Azure Media Clipper is beschikbaar in 18 talen. Als u wilt de taal van de widget instellen, moet u definiëren de `language` parameter tijdens de initialisatie. In de gewenste taal code-tekenreeks doorgeven in de volgende lijst:
 - Chinees (Vereenvoudigd): zh-hans
 - Chinees (Traditioneel): zh-hant
 - Tsjechisch: cs
@@ -37,7 +37,7 @@ Azure Media openen is beschikbaar in 18 talen. Als u wilt de widget-taal instell
 - Zweeds: sv
 - Turks: tr
 
-Als u wilt een aangepaste woordenlijst instellen of uitbreiden van de standaard taalwoordenlijst, definieert u de `languages` of `extraLanguages` parameter, respectievelijk. Doorgeven in een aangepaste woordenlijst met de volgende JSON-indeling:
+Als u een aangepaste woordenlijst instellen of uitbreiden van de standaard-woordenlijst, definieert u de `languages` of `extraLanguages` parameter, respectievelijk. Doorgeven in een aangepaste woordenlijst met de volgende JSON-indeling:
 
 ```javascript
 {
@@ -49,7 +49,7 @@ Als u wilt een aangepaste woordenlijst instellen of uitbreiden van de standaard 
 }
 ```
 
-Bijvoorbeeld, definieert het volgende voorbeeld de gelokaliseerde tekenreeksen Engelse:
+Bijvoorbeeld, definieert het volgende voorbeeld de gelokaliseerde tekenreeksen in de Engelse:
 
 ```javascript
 {
@@ -104,7 +104,7 @@ Bijvoorbeeld, definieert het volgende voorbeeld de gelokaliseerde tekenreeksen E
         'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
         'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
         'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-        'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
+        'AssetsPanel.loadingError': 'Failed to retrieve assets from server.',
         'AssetsPanel.retry': 'Retry?',
         'CommandBar.prevFrameTitle': 'Move one frame backwards',
         'CommandBar.prevKeyFrameTitle': 'Move one GOP backwards',
@@ -139,7 +139,7 @@ Bijvoorbeeld, definieert het volgende voorbeeld de gelokaliseerde tekenreeksen E
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende stappen voor het configureren van Azure Media openen:
-- [Laden van assets in Azure Media openen](media-services-azure-media-clipper-load-assets.md)
-- [Aangepaste sneltoetsen configureren](media-services-azure-media-clipper-keyboard-shortcuts.md)
-- [Verzenden van taken van de openen knippen](media-services-azure-media-clipper-submit-job.md)
+Zie de volgende stappen voor het configureren van Azure Media Clipper:
+- [Het laden van assets in Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+- [Aangepaste toetscombinaties configureren](media-services-azure-media-clipper-keyboard-shortcuts.md)
+- [Kniptaken uit de Clipper verzenden](media-services-azure-media-clipper-submit-job.md)

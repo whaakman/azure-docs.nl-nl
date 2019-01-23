@@ -4,7 +4,7 @@ description: Fouten die tijdens het proces optreden kunnen van een toepassing en
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 70413d3467b2f9d5591e6138ed1a7347db58264b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 362671e255f8dc36f9474fd2d4e3117e4cc0c1e4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356698"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477716"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Onverwachte fout bij het uitvoeren van toestemming voor een toepassing
 
@@ -36,17 +36,17 @@ Bepaalde voorwaarden worden voldaan voor een gebruiker akkoord gaan met de macht
 Deze fout treedt op wanneer een gebruiker die geen beheerder van een bedrijf probeert te gebruiken van een toepassing die de machtigingen die alleen een beheerder kan verlenen aanvraagt. Deze fout kan worden opgelost door een beheerder toegang verlenen tot de toepassing namens hun organisatie.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Beleid voorkomt u dat het verlenen van machtigingen fout
-* **AADSTS90093:** een beheerder van &lt;tenantDisplayName&gt; heeft een beleid waarmee wordt voorkomen u verleent dat ingesteld &lt;naam van de app&gt; de aangevraagde machtigingen. Neem contact op met de beheerder van &lt;tenantDisplayName&gt;, die machtigingen kunt verlenen voor deze app op uw rekening.
+* **AADSTS90093:** Een beheerder van &lt;tenantDisplayName&gt; heeft een beleid waarmee wordt voorkomen u verleent dat ingesteld &lt;naam van de app&gt; de aangevraagde machtigingen. Neem contact op met de beheerder van &lt;tenantDisplayName&gt;, die machtigingen kunt verlenen voor deze app op uw rekening.
 
 Deze fout treedt op wanneer een bedrijfsbeheerder uitgeschakeld voor de gebruikers instemmen met toepassingen de mogelijkheid wordt en vervolgens een niet-beheerder-gebruiker probeert te gebruiken van een toepassing die toestemming nodig heeft. Deze fout kan worden opgelost door een beheerder toegang verlenen tot de toepassing namens hun organisatie.
 
 ## <a name="intermittent-problem-error"></a>Onregelmatig terugkerend probleem fout
-* **AADSTS90090:** lijkt het aanmeldingsproces een onregelmatig terugkerend probleem op te nemen de machtigingen die u hebt geprobeerd te verlenen aan aangetroffen &lt;clientAppDisplayName&gt;. Probeer het later opnieuw.
+* **AADSTS90090:** Het lijkt erop dat het aanmeldingsproces een onregelmatig terugkerend probleem op te nemen de machtigingen die u hebt geprobeerd te verlenen aan aangetroffen &lt;clientAppDisplayName&gt;. Probeer het later opnieuw.
 
 Deze fout geeft aan dat er een probleem met onregelmatige service aan de clientzijde opgetreden. Het kan worden opgelost door akkoord gaan met de toepassing opnieuw probeert.
 
 ## <a name="resource-not-available-error"></a>Resource niet beschikbaar-fout
-* **AADSTS65005:** de app &lt;clientAppDisplayName&gt; aangevraagd machtigingen voor toegang tot een resource &lt;resourceAppDisplayName&gt; die niet beschikbaar is. 
+* **AADSTS65005:** De app &lt;clientAppDisplayName&gt; aangevraagd machtigingen voor toegang tot een resource &lt;resourceAppDisplayName&gt; die niet beschikbaar is. 
 
 Neem contact op met de ontwikkelaar van de toepassing.
 
@@ -56,7 +56,7 @@ Neem contact op met de ontwikkelaar van de toepassing.
 Zorg ervoor dat deze resource beschikbaar is of neem contact op met de beheerder van &lt;tenantDisplayName&gt;.
 
 ## <a name="permissions-mismatch-error"></a>Fout met niet overeenkomende machtigingen
-* **AADSTS65005:** de app toestemming voor toegang tot resource aangevraagd &lt;resourceAppDisplayName&gt;. Deze aanvraag is mislukt omdat deze komt niet overeen met hoe de app is vooraf geconfigureerd tijdens de appregistratie. Neem contact op met de app vendor.* *
+* **AADSTS65005:** De app toestemming voor toegang tot resource aangevraagd &lt;resourceAppDisplayName&gt;. Deze aanvraag is mislukt omdat deze komt niet overeen met hoe de app is vooraf geconfigureerd tijdens de appregistratie. Neem contact op met de app vendor.* *
 
 Deze fouten die alle optreden wanneer de toepassing die een gebruiker probeert toegang te laten geven machtigingen aanvraagt voor toegang tot een resourcetoepassing die niet is gevonden in de map van de organisatie (tenant). Dit kan gebeuren om verschillende redenen:
 

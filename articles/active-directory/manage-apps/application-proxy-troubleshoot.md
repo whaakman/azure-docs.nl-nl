@@ -4,7 +4,7 @@ description: Bevat informatie over het oplossen van fouten in Azure AD-toepassin
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 2904de3243e37d7ee575a504934d5975789c00ef
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b440965fa3acb6c08c4827dce941247b8921b98b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135063"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473466"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met Application Proxy- en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD Application Proxy correct werkt:
@@ -49,12 +49,12 @@ Als u de Connector-fout in het gebeurtenislogboek hebt gevonden, kunt u deze tab
 
 | Fout | Aanbevolen stappen |
 | ----- | ----------------- |
-| Registratie van de connector is mislukt: Zorg ervoor dat u Application Proxy in de Azure Management Portal en of u uw Active Directory-gebruikersnaam en wachtwoord juist ingevoerd ingeschakeld. Fout: 'een of meer fouten opgetreden.' | Als u het registratie-venster gesloten zonder dat naar Azure AD bent aangemeld, wordt de Connector-wizard opnieuw uitvoeren en registreert u de Connector. <br><br> Als de registratie-venster wordt geopend en klikt u vervolgens onmiddellijk wordt gesloten zonder dat u zich aanmelden, krijgt u waarschijnlijk deze fout. Deze fout treedt op wanneer er een netwerkfout op uw systeem. Zorg ervoor dat het is mogelijk verbinding maken tussen een browser en een openbare website en dat de poorten zijn geopend die zijn opgegeven in [Application Proxy-vereisten](application-proxy-add-on-premises-application.md). |
+| Registratie van de connector is mislukt: Zorg ervoor dat u Application Proxy in de Azure Management Portal en of u uw Active Directory-gebruikersnaam en wachtwoord juist ingevoerd ingeschakeld. Fout: 'Een of meer fouten opgetreden.' | Als u het registratie-venster gesloten zonder dat naar Azure AD bent aangemeld, wordt de Connector-wizard opnieuw uitvoeren en registreert u de Connector. <br><br> Als de registratie-venster wordt geopend en klikt u vervolgens onmiddellijk wordt gesloten zonder dat u zich aanmelden, krijgt u waarschijnlijk deze fout. Deze fout treedt op wanneer er een netwerkfout op uw systeem. Zorg ervoor dat het is mogelijk verbinding maken tussen een browser en een openbare website en dat de poorten zijn geopend die zijn opgegeven in [Application Proxy-vereisten](application-proxy-add-on-premises-application.md). |
 | Schakel fout wordt weergegeven in het venster van de registratie. Kan niet worden voortgezet | Als deze fout wordt weergegeven en vervolgens het venster wordt gesloten, u hebt ingevoerd de onjuiste gebruikersnaam of het wachtwoord. Probeer het opnieuw. |
-| Registratie van de connector is mislukt: Zorg ervoor dat u Application Proxy in de Azure Management Portal en of u uw Active Directory-gebruikersnaam en wachtwoord juist ingevoerd ingeschakeld. Fout: ' AADSTS50059: Er is geen tenant-identificatiegegevens gevonden in een van de aanvraag of impliciet door een opgegeven referenties en zoeken op service principal URI is mislukt. | U probeert aan te melden met een Microsoft-Account en niet van een domein dat deel uitmaakt van de organisatie-ID van de map die u probeert te openen. Zorg ervoor dat de beheerder maakt deel uit van dezelfde domeinnaam als de tenantdomein, bijvoorbeeld, als de Azure AD-domein contoso.com is, moet de beheerder admin@contoso.com. |
+| Registratie van de connector is mislukt: Zorg ervoor dat u Application Proxy in de Azure Management Portal en of u uw Active Directory-gebruikersnaam en wachtwoord juist ingevoerd ingeschakeld. Fout: 'AADSTS50059: Er is geen tenant-identificatiegegevens gevonden in een van de aanvraag of impliciet door een opgegeven referenties en zoeken op service principal URI is mislukt. | U probeert aan te melden met een Microsoft-Account en niet van een domein dat deel uitmaakt van de organisatie-ID van de map die u probeert te openen. Zorg ervoor dat de beheerder maakt deel uit van dezelfde domeinnaam als de tenantdomein, bijvoorbeeld, als de Azure AD-domein contoso.com is, moet de beheerder admin@contoso.com. |
 | Kan niet ophalen van het huidige beleid worden uitgevoerd voor het uitvoeren van PowerShell-scripts. | Als de installatie van de Connector is mislukt, controleert u om ervoor te zorgen dat de PowerShell-uitvoeringsbeleid niet is uitgeschakeld. <br><br>1. Open de Editor voor Groepsbeleid.<br>2. Ga naar **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Windows PowerShell** en dubbelklikt u op **uitvoering van Script inschakelen**.<br>3. Het uitvoeringsbeleid kan worden ingesteld op **niet geconfigureerd** of **ingeschakeld**. Indien ingesteld op **ingeschakeld**, zorg ervoor dat onder Opties voor het uitvoeringsbeleid is ingesteld op **scripts voor lokale en externe ondertekende scripts toestaan** of **alle scripts toestaan**. |
 | Downloaden van de configuratie van de connector is mislukt. | De client-certificaat van de Connector, die wordt gebruikt voor verificatie, is verlopen. Dit kan ook gebeuren als u de Connector is geïnstalleerd achter een proxy. In dit geval de Connector geen toegang tot het Internet en is niet mogelijk om toegang te bieden aan externe gebruikers. Vernieuwen van de vertrouwensrelatie handmatig met de `Register-AppProxyConnector` cmdlet in Windows PowerShell. Als uw Connector zich achter een proxy bevindt, is het nodig zijn om toegang te verlenen voor toegang tot het Internet naar de Connector-accounts 'Netwerkservices' en 'Lokaal systeem'. Dit kan worden bereikt door hen toegang verlenen tot de Proxy of door het instellen van deze naar de proxy overslaan. |
-| Registratie van de connector is mislukt: Zorg ervoor dat u een globale beheerder van uw Active Directory om de Connector te registreren. Fout: 'de aanvraag voor functieregistratie is geweigerd.' | De alias die u probeert aan te melden met is niet een beheerder zijn van dit domein. De Connector is altijd geïnstalleerd voor de map die eigenaar is van het domein van de gebruiker. Zorg ervoor dat het beheerdersaccount dat u zich aanmelden wilt met algemene machtigingen voor de Azure AD-tenant heeft. |
+| Registratie van de connector is mislukt: Zorg ervoor dat u een globale beheerder van uw Active Directory om de Connector te registreren. Fout: 'De aanvraag voor functieregistratie is geweigerd.' | De alias die u probeert aan te melden met is niet een beheerder zijn van dit domein. De Connector is altijd geïnstalleerd voor de map die eigenaar is van het domein van de gebruiker. Zorg ervoor dat het beheerdersaccount dat u zich aanmelden wilt met algemene machtigingen voor de Azure AD-tenant heeft. |
 
 ## <a name="kerberos-errors"></a>Kerberos-fouten
 

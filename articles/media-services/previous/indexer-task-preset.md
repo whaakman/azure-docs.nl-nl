@@ -1,6 +1,6 @@
 ---
 title: Taak vooraf voor Azure Media Indexer
-description: In dit onderwerp geeft een overzicht van taak vooraf voor Azure Media Indexer.
+description: In dit onderwerp biedt een overzicht van taak vooraf voor Azure Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -13,28 +13,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 65b4e2da2cb019c46ee566cd14f0a576c2376db2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788268"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463083"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Taak vooraf voor Azure Media Indexer
 
-Azure Media Indexer is een Processor Media die u kunt de volgende taken uitvoeren: doorzoekbaar maken van media-bestanden en inhoud, gesloten closed captioning houdt en trefwoorden genereren, index assetbestanden die deel van uw asset uitmaken.
+Azure Media Indexer is een Mediaverwerkingsprogramma dat u kunt de volgende taken uitvoeren: Maak media-bestanden en inhoud doorzoekbaar, gesloten closed captioning worden bijgehouden en trefwoorden genereren, index assetbestanden die deel van uw asset uitmaken.
 
-Dit onderwerp beschrijft de taak vooraf ingesteld dat u moet doorgeven aan de indexing-taak. Zie voor een compleet voorbeeld [mediabestanden met Azure Media Indexer indexeren](media-services-index-content.md).
+De taak wordt beschreven in dit onderwerp vooraf ingesteld dat u wilt doorgeven aan uw indexeringstaak. Zie voor een compleet voorbeeld [indexeren van mediabestanden met Azure Media Indexer](media-services-index-content.md).
 
-## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer-configuratie-XML
+## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer configuratie-XML
 
 De volgende tabel beschrijft de elementen en kenmerken van de configuratie-XML.
 
-|Naam|Require|Beschrijving|
+|Name|Require|Description|
 |---|---|---|
-|Invoer|true|Asset-bestanden die u wilt indexeren.<br/>Azure Media Indexer ondersteunt de volgende bestandsindelingen van media: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Kunt u de bestandsnaam (s) in de **naam** of **lijst** kenmerk van de **invoer** element (zoals hieronder wordt weergegeven). Als u niet welke assetbestand naar index opgeeft, wordt het primaire bestand opgenomen. Als er geen primaire assetbestand is ingesteld, wordt het eerste bestand in de invoer asset geïndexeerd.<br/><br/>Geef expliciet de bestandsnaam van de asset door het volgende te doen:<br/>```<input name="TestFile.wmv" />```<br/><br/>U kunt ook meerdere assetbestanden tegelijk (maximaal 10) index. Om dit te doen:<br/>-Maak een tekstbestand (manifestbestand) en geef deze extensie .lst.<br/>-Een lijst met alle namen van de asset-bestand in uw invoer asset toevoegen aan deze manifestbestand.<br/>-(Uploaden) thanifest bestand toevoegen aan de asset.<br/>-Geef de naam van het manifestbestand in de invoer lijst kenmerk.<br/>```<input list="input.lst">```<br/><br/>**Opmerking:** als u meer dan 10 bestanden aan het manifestbestand toevoegt, de indexering taak mislukt met foutcode 2006.|
-|metagegevens|false|De metagegevens voor de opgegeven asset-bestanden.<br/>```<metadata key="..." value="..." />```<br/><br/>U kunt waarden voor vooraf gedefinieerde sleutels opgeven. <br/><br/>Op dit moment wordt worden de volgende sleutels ondersteund:<br/><br/>**titel** en **beschrijving** : wordt gebruikt voor het taalmodel voor een betere nauwkeurigheid van de spraakherkenning bijwerken.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**gebruikersnaam** en **wachtwoord** : wordt gebruikt voor verificatie bij het downloaden van internet-bestanden via http of https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>De gebruikersnaam en wachtwoord waarden van toepassing op alle media-URL's in het manifest van de invoer.|
-|database<br/><br/>Toegevoegd in versie 1.2. De enige ondersteunde functie is momenteel spraakherkenning ('ASR').|false|De functie Spraakherkenning heeft de sleutels van de volgende instellingen:<br/><br/>Taal:<br/>-De natuurlijke taal in het bestand multimedia worden herkend.<br/>-Engels en Spaans<br/><br/>CaptionFormats:<br/>-een door puntkomma's gescheiden lijst van de gewenste uitvoer bijschrift indelingen (indien aanwezig)<br/>-ttml; sami; webvtt<br/><br/><br/>GenerateAIB:<br/>-Een Booleaanse vlag die aangeeft of een AIB-bestand (voor gebruik met SQL Server en de klant indexeerfunctie IFilter) vereist is. Zie voor meer informatie, met behulp van AIB bestanden met Azure Media Indexer en SQL Server.<br/>-Waar is; De waarde False<br/><br/>GenerateKeywords:<br/>-Een Booleaanse vlag die aangeeft of een sleutelwoord XML-bestand vereist is.<br/>-Waar is; De waarde False.|
+|Invoer|true|Asset-bestanden die u wilt indexeren.<br/>Azure Media Indexer biedt ondersteuning voor de volgende indelingen voor media: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>U kunt de naam van het bestand (s) opgeven de **naam** of **lijst** kenmerk van de **invoer** element (zoals hieronder wordt weergegeven). Als u niet welke assetbestand index opgeeft, wordt het primaire bestand opgehaald. Als er geen primaire assetbestand is ingesteld, wordt het eerste bestand in het invoeractivum geïndexeerd.<br/><br/>Als u wilt de naam van het asset expliciet opgeven, doet u het:<br/>```<input name="TestFile.wmv" />```<br/><br/>U kunt ook meerdere assetbestanden in één keer (maximaal 10) index. Om dit te doen:<br/>-Maak een tekstbestand (manifest-bestand) en wijs hieraan de extensie .lst.<br/>-Een lijst met alle namen van de asset-bestand in uw invoeractivum toevoegen aan deze manifestbestand.<br/>-(Uploaden) het manifest-bestand toevoegen aan de asset.<br/>-Geef de naam van het manifestbestand in kenmerk van de invoer.<br/>```<input list="input.lst">```<br/><br/>**Opmerking:** Als u meer dan 10 bestanden aan het manifestbestand toevoegt, mislukt de indexeringstaak met foutcode 2006.|
+|metagegevens|false|Metagegevens voor de opgegeven asset-bestanden.<br/>```<metadata key="..." value="..." />```<br/><br/>U kunt waarden voor vooraf gedefinieerde sleutels opgeven. <br/><br/>De volgende sleutels worden momenteel ondersteund:<br/><br/>**titel** en **beschrijving** : wordt gebruikt voor het bijwerken van het taalmodel ter verbetering van spraakherkenning.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**gebruikersnaam** en **wachtwoord** : wordt gebruikt voor verificatie bij het downloaden van internet-bestanden via http of https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>De gebruikersnaam en wachtwoord voor waarden van toepassing op alle media-URL's in het manifest van de invoer.|
+|database<br/><br/>Toegevoegd in versie 1.2. Op dit moment is het enige ondersteunde kenmerk spraakherkenning ('ASR').|false|De functie voor spraakherkenning heeft de volgende instellingen voor sleutels:<br/><br/>Taal:<br/>-De natuurlijke taal moet worden herkend in het multimediabestand.<br/>-Engels, Spaans<br/><br/>CaptionFormats:<br/>-een door puntkomma's gescheiden lijst van het bijschrift van de gewenste uitvoer opgemaakt (indien aanwezig)<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB:<br/>-Een Booleaanse vlag die aangeeft of een AIB-bestand (voor gebruik met SQL Server en de klant indexeerfunctie IFilter) vereist is. Zie voor meer informatie, AIB-bestanden met behulp van Azure Media Indexer en SQL Server.<br/>- True; False<br/><br/>GenerateKeywords:<br/>-Een Booleaanse vlag die aangeeft of de XML-bestand van een sleutelwoord vereist is.<br/>- True; False.|
 
 ## <a name="azure-media-indexer-configuration-xml-example"></a>Azure Media Indexer configuration XML-voorbeeld
 
@@ -64,5 +64,5 @@ De volgende tabel beschrijft de elementen en kenmerken van de configuratie-XML.
   
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [mediabestanden met Azure Media Indexer indexeren](media-services-index-content.md).
+Zie [indexeren van mediabestanden met Azure Media Indexer](media-services-index-content.md).
 

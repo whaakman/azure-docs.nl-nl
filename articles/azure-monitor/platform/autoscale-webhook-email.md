@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: c655f117009c0c7c682ad92a951edc7e12255bc2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326107"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463305"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook-meldingen van waarschuwingen in Azure Monitor
 Dit artikel leest u hoe triggers zo instellen dat u kunt specifieke web-URL's aanroepen of verzenden van e-mailberichten op basis van de acties voor automatisch schalen in Azure.  
@@ -65,7 +65,7 @@ Wanneer met de REST-API of Resource Manager-sjabloon, neemt u de meldingen-eleme
 | sendToSubscriptionAdministrator |ja |waarde moet 'true' of 'false' |
 | sendToSubscriptionCoAdministrators |ja |waarde moet 'true' of 'false' |
 | customEmails |ja |waarde mag null [] of string-matrix van e-mailberichten |
-| Webhooks |ja |waarde kan null zijn of een geldige Uri zijn |
+| webhooks |ja |waarde kan null zijn of een geldige Uri zijn |
 | serviceUri |ja |een geldig https-Uri |
 | properties |ja |waarde moet leeg zijn {} of sleutel / waarde-paren kan bevatten |
 
@@ -106,7 +106,7 @@ Wanneer de melding voor automatisch schalen wordt gegenereerd, wordt de volgende
 | --- | --- | --- |
 | status |ja |De status die aangeeft dat een actie voor automatisch schalen is gegenereerd |
 | bewerking |ja |Voor een verhoging van de exemplaren worden 'Scale Out' en voor een afname in exemplaren, is 'Schaal In' |
-| Context |ja |De context van de actie voor automatisch schalen |
+| context |ja |De context van de actie voor automatisch schalen |
 | tijdstempel |ja |Tijdstempel wanneer het voor automatisch schalen is geactiveerd |
 | id |Ja |Resource Manager-ID van de instelling voor automatisch schalen |
 | naam |Ja |De naam van de instelling voor automatisch schalen |
@@ -120,3 +120,4 @@ Wanneer de melding voor automatisch schalen wordt gegenereerd, wordt de volgende
 | oldCapacity |Ja |Het huidige (oude) aantal instanties wanneer automatisch schalen een schaalactie heeft |
 | newCapacity |Ja |De nieuwe versie van het aantal instanties dat automatisch schalen geschaald de resource |
 | Properties |Nee |Optioneel. Set < sleutel, waarde > paren (bijvoorbeeld, Dictionary < String, String >). Het eigenschappenveld is optioneel. In een aangepaste gebruikersinterface of de werkstroom voor logische Apps die zijn gebaseerd, kunt u sleutels en waarden die kunnen worden doorgegeven met behulp van de nettolading. Een alternatieve manier om door te geven van aangepaste eigenschappen terug naar de uitgaande webhook-aanroep is het gebruik van de webhook URI zelf (zoals queryparameters) |
+

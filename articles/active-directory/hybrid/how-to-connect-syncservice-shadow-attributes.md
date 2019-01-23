@@ -4,7 +4,7 @@ description: Beschrijving van de werking van de kenmerken in Azure AD Connect sy
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 62278fa031c28fb32f882e438df0194c4db04efd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 12067b4413924717228547fccdc3ef07d07beaf8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315222"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470372"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync-service de kenmerken van
 De meeste kenmerken worden dezelfde manier weergegeven in Azure AD zoals in uw on-premises Active Directory. Maar bepaalde kenmerken enkele speciale verwerking hebben en de waarde van het kenmerk in Azure AD is mogelijk anders dan wat Azure AD Connect synchroniseert.
@@ -40,7 +40,7 @@ Een gebruiker heeft de volgende kenmerkwaarden in een niet-gecontroleerd domein:
 | Kenmerk | Waarde |
 | --- | --- |
 | on-premises userPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD-shadowUserPrincipalName | lee.sperry@fabrikam.com |
+| Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
 
 Het kenmerk userPrincipalName is de waarde die u ziet wanneer u met behulp van PowerShell.

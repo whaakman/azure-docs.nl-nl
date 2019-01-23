@@ -3,7 +3,7 @@ title: Toevoegen of verwijderen van een groep uit een andere groep - Azure Activ
 description: Instructies over het toevoegen of verwijderen van een groep uit een andere groep met behulp van Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: c13be8cbe9c05b9dcf513588825a22722c66e529
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 8decffd25f8c29e6430b30d1bb634ac9add63cbb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061892"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450436"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Toevoegen of verwijderen van een groep uit een andere groep met behulp van Azure Active Directory
 In dit artikel helpt u bij het toevoegen en verwijderen van een groep van een andere groep met behulp van Azure Active Directory.

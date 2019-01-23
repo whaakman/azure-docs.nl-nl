@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
-ms.openlocfilehash: 2a5066a2dcb74051088b2fc67b5089e95ae4dd3f
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410350"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446779"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Metagegevens van artefacten in integratieaccounts met Azure Logic Apps en Enterprise Integration Pack beheren
 
@@ -47,7 +47,7 @@ U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren
 
 1. Als u klaar bent, kiest u **Done**.
 
-1. U kunt deze metagegevens bekijken in de definitie van JavaScript Object Notation (JSON) voor het integratieaccount **bewerken as JSON** zodat die JSON-editor wordt geopend: 
+1. U kunt deze metagegevens bekijken in de definitie van JavaScript Object Notation (JSON) voor het integratieaccount **bewerken as JSON** zodat de JSON-editor wordt geopend: 
 
    ![JSON voor de metagegevens van de partner](media/logic-apps-enterprise-integration-metadata/partner-metadata.png)
 

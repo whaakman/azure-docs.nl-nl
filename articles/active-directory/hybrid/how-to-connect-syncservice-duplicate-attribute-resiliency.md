@@ -4,7 +4,7 @@ description: Nieuwe gedrag van het verwerken van objecten met de UPN of ProxyAdd
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3460520b8914a25807c77f631aa4c64f3b2efb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406191"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464864"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren
 Tolerantie van dubbele kenmerk is een functie in Azure Active Directory die wordt veroorzaakt door problemen elimineren **UserPrincipalName** en **ProxyAddress** veroorzaakt een conflict bij het uitvoeren van een van de Microsoft hulpprogramma's voor synchronisatie.
@@ -133,7 +133,7 @@ Hier volgt een voorbeeld van hoe het e-mailmelding voor een conflict ProxyAddres
 ## <a name="resolving-conflicts"></a>Het oplossen van conflicten
 Het oplossen van de strategie en de resolutie tactieken voor deze fouten moet niet verschillen van de manier waarop dubbel kenmerk fouten in het verleden zijn verwerkt. Het enige verschil is dat de taak timer vervalmechanisme via de tenant aan de servicezijde automatisch het kenmerk in kwestie aan het juiste object toevoegen nadat het conflict opgelost is.
 
-Het volgende artikel geeft een overzicht van de verschillende strategieën gehanteerd oplossen van problemen: [dubbele of ongeldige kenmerken te voorkomen dat de directory-synchronisatie in Office 365](https://support.microsoft.com/kb/2647098).
+Het volgende artikel geeft een overzicht van de verschillende strategieën gehanteerd oplossen van problemen: [Dubbele of ongeldige kenmerken te voorkomen dat de directory-synchronisatie in Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Bekende problemen
 Geen van deze bekende problemen zorgt ervoor dat gegevens verloren gaan of de service degradatie. Sommige hiervan zijn aesthetic, anderen ertoe leiden dat standaard "*vooraf tolerantie*" dubbel kenmerk fouten moeten worden gegenereerd in plaats van het conflict-kenmerk en een andere in quarantaine plaatsen zorgt ervoor dat bepaalde fouten vereist extra handmatig bijwerken.

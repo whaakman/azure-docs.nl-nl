@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect Pass through-verificatie, installatie van Active Directory, vereiste onderdelen voor Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -16,14 +16,14 @@ ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ba5c3704d89f75617683ae886da1857d51251631
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23a9efa5388e0089fd4e6297061ea7bf19b54b06
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312233"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468468"
 ---
-# <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Pass through-verificatie: Upgrade preview verificatie-Agents
+# <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Pass through-verificatie: Voorbeeld van verificatie-Agents bijwerken
 
 ## <a name="overview"></a>Overzicht
 
@@ -59,18 +59,18 @@ Volg deze instructies om te controleren of de versies van de verificatie-Agents,
 
 Voordat u een upgrade uitvoert, moet u de volgende items hebt in plaats:
 
-1. **Maken van cloud-only hoofdbeheerdersaccount**: upgrade niet uitvoeren zonder een alleen-cloud globale beheerdersaccount te gebruiken in noodsituaties waar uw Pass through-verificatie-Agents niet goed werken. Meer informatie over [toevoegen van een alleen-cloud globale beheerdersaccount](../active-directory-users-create-azure-portal.md). U deze stap uitvoert, is van essentieel belang en zorgt ervoor dat u geen toegang meer hebt tot uw tenant.
-2.  **Zorg voor hoge beschikbaarheid**: als u niet eerder is voltooid, installeert u een tweede zelfstandige verificatie-Agent voor hoge beschikbaarheid van aanmeldingsaanvragen, gebruik van deze [instructies](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+1. **Maken van cloud-only hoofdbeheerdersaccount**: Geen upgrade uitvoer zonder een alleen-cloud globale beheerdersaccount te gebruiken in noodsituaties waar uw Pass through-verificatie-Agents niet goed werken. Meer informatie over [toevoegen van een alleen-cloud globale beheerdersaccount](../active-directory-users-create-azure-portal.md). U deze stap uitvoert, is van essentieel belang en zorgt ervoor dat u geen toegang meer hebt tot uw tenant.
+2.  **Zorg voor hoge beschikbaarheid**: Als u niet eerder is voltooid, installeert u een tweede zelfstandige verificatie-Agent voor hoge beschikbaarheid van aanmeldingsaanvragen, gebruik van deze [instructies](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Bijwerken van de verificatie-Agent op uw Azure AD Connect-server
 
 U moet Azure AD Connect upgraden vóór de upgrade van de verificatie-Agent op dezelfde server. Volg deze stappen op uw primaire- en staging-Azure AD Connect-servers:
 
-1. **Azure AD Connect upgraden**: Volg deze [artikel](how-to-upgrade-previous-version.md) en een upgrade uit naar de nieuwste versie van Azure AD Connect.
-2. **De preview-versie van de verificatie-Agent verwijderen**: downloaden [dit PowerShell-script](https://aka.ms/rmpreviewagent) en uitvoeren als beheerder op de server.
-3. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)**: aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de [servicevoorwaarden](https://aka.ms/authagenteula) en download de nieuwste versie van de verificatie-Agent. U kunt ook de verificatie-Agent vanuit downloaden [hier](https://aka.ms/getauthagent).
+1. **Upgrade uitvoeren van Azure AD Connect**: Volg deze [artikel](how-to-upgrade-previous-version.md) en een upgrade uit naar de nieuwste versie van Azure AD Connect.
+2. **De preview-versie van de verificatie-Agent verwijderen**: Download [dit PowerShell-script](https://aka.ms/rmpreviewagent) en uitvoeren als beheerder op de server.
+3. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)**: Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de [servicevoorwaarden](https://aka.ms/authagenteula) en download de nieuwste versie van de verificatie-Agent. U kunt ook de verificatie-Agent vanuit downloaden [hier](https://aka.ms/getauthagent).
 4. **Installeer de nieuwste versie van de verificatie-Agent**: Voer het uitvoerbare bestand in stap 3 hebt gedownload. Bieden van uw tenant-hoofdbeheerder referenties wanneer hierom wordt gevraagd.
-5. **Controleer of de meest recente versie is geïnstalleerd**: zoals wordt weergegeven vóór, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en controleer of er een vermelding voor '**Microsoft Azure AD Connect Verificatie-Agent**'.
+5. **Controleer of de meest recente versie is geïnstalleerd**: Zoals eerder, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en controleer of er een vermelding voor '**Microsoft Azure AD Connect Authentication-Agent**'.
 
 >[!NOTE]
 >Als u de blade Pass through-verificatie inschakelt op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) na het voltooien van de voorgaande stappen, ziet u twee Verificatieagent vermeldingen per server - één vermelding weergegeven van de verificatie Agent als **Active** en andere als **inactieve**. Dit is _verwacht_. De **inactief** vermelding wordt automatisch verbroken na een paar dagen.
@@ -79,10 +79,10 @@ U moet Azure AD Connect upgraden vóór de upgrade van de verificatie-Agent op d
 
 Volg deze stappen voor het upgraden van verificatie-Agents op andere servers (waarop Azure AD Connect is niet geïnstalleerd):
 
-1. **De preview-versie van de verificatie-Agent verwijderen**: downloaden [dit PowerShell-script](https://aka.ms/rmpreviewagent) en uitvoeren als beheerder op de server.
-2. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)**: aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de voorwaarden van de service en de nieuwste versie downloaden.
+1. **De preview-versie van de verificatie-Agent verwijderen**: Download [dit PowerShell-script](https://aka.ms/rmpreviewagent) en uitvoeren als beheerder op de server.
+2. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)**: Aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de voorwaarden van de service en de nieuwste versie downloaden.
 3. **Installeer de nieuwste versie van de verificatie-Agent**: Voer het uitvoerbare bestand in stap 2 hebt gedownload. Bieden van uw tenant-hoofdbeheerder referenties wanneer hierom wordt gevraagd.
-4. **Controleer of de meest recente versie is geïnstalleerd**: zoals wordt weergegeven vóór, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en controleer of er een vermelding die met de naam **Microsoft Azure AD Connect Verificatie-Agent**.
+4. **Controleer of de meest recente versie is geïnstalleerd**: Zoals eerder, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en controleer of er een vermelding die met de naam **Microsoft Azure AD Connect Authentication-Agent**.
 
 >[!NOTE]
 >Als u de blade Pass through-verificatie inschakelt op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) na het voltooien van de voorgaande stappen, ziet u twee Verificatieagent vermeldingen per server - één vermelding weergegeven van de verificatie Agent als **Active** en andere als **inactieve**. Dit is _verwacht_. De **inactief** vermelding wordt automatisch verbroken na een paar dagen.

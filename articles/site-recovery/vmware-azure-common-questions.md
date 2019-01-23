@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 90f3a4571e485e52a47eda34eacf6367aef35933
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320987"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478092"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -43,7 +43,23 @@ U moet een LRS of GRS-opslagaccount. GRS wordt aanbevolen, omdat de gegevens dan
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Mijn Azure-account moet machtigingen voor het maken van virtuele machines?
 Als u een abonnementsbeheerder bent, hebt u de replicatiemachtigingen die u nodig hebt. Als u niet bent, moet u machtigingen voor het maken van een Azure-VM in de resourcegroep en het virtuele netwerk dat u opgeeft bij het configureren van Site Recovery en machtigingen voor het schrijven naar het geselecteerde opslagaccount. [Meer informatie](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
+## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery-onderdelen bijwerken
 
+### <a name="my-mobility-agentconfiguration-serverprocess-server-version-is-very-old-and-my-upgrade-has-failed-how-should-i-upgrade-to-latest-version"></a>De Mobility-agent/Configuration Server/versie van de processerver is zeer verouderd en wordt mijn upgrade is mislukt. Hoe moet ik een upgrade uitvoeren naar de nieuwste versie?
+
+Azure Site Recovery volgt N-4 ondersteuningsmodel. Raadpleeg onze [ondersteuningsverklaring](https://aka.ms/asr_support_statement) om te begrijpen van de informatie over hoe u een upgrade van zeer oude versies.
+
+### <a name="where-can-i-find-the-release-notesupdate-rollups-of-azure-site-recovery"></a>Waar vind ik de release-opmerkingen/updatepakketten van Azure Site Recovery?
+
+Raadpleeg de [document](https://aka.ms/asr_update_rollups) voor release-opmerkingen bij de informatie. Koppelingen van de installatie van de betreffende onderdelen vindt u in elke update totaliseren.
+
+### <a name="how-should-i-upgrade-site-recovery-components-for-on-premises-vmware-or-physical-site-to-azure"></a>Hoe moet ik een upgrade Site Recovery-onderdelen voor on-premises VMware of fysieke-site naar Azure?
+
+Raadpleeg onze richtlijnen voor het opgegeven [hier](https://aka.ms/asr_vmware_upgrades) uw onderdelen te upgraden.
+
+## <a name="is-reboot-of-source-machine-mandatory-for-each-upgrade"></a>Opnieuw opstarten van de bronmachine verplicht is voor elke upgrade?
+
+Hoewel aanbevolen, is dit het niet verplicht voor elke upgrade. Raadpleeg [hier](https://aka.ms/asr_vmware_upgrades) wissen voor richtlijnen.
 
 ## <a name="on-premises"></a>On-premises
 
@@ -142,7 +158,7 @@ Nee. Om dit te doen, moet u voor het instellen van een configuratieserver in elk
 Tijdens het mogelijk is moet de virtuele Azure-machine waarop de configuratieserver wordt uitgevoerd om te communiceren met uw on-premises VMware-infrastructuur en virtuele machines. Dit kunt latenties toevoegen en voortdurende replicatie van invloed zijn op.
 
 ### <a name="how-do-i-update-the-configuration-server"></a>Hoe kan ik de configuratieserver bijwerken?
-[Meer informatie over](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) bijwerken van de configuratieserver. U vindt de meest recente update-informatie in de [updates van de Azure-pagina](https://azure.microsoft.com/updates/?product=site-recovery). U kunt ook rechtstreeks downloaden de nieuwste versie van de configuratieserver in [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+[Meer informatie over](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) bijwerken van de configuratieserver. U vindt de meest recente update-informatie in de [updates van de Azure-pagina](https://azure.microsoft.com/updates/?product=site-recovery). U kunt ook rechtstreeks downloaden de nieuwste versie van de configuratieserver in [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Als uw versie ouder dan 4 versies van de huidige versie is, raadpleegt u onze [ondersteuningsverklaring](https://aka.ms/asr_support_statement) voor richtlijnen voor upgrades.
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>Moet ik back-up van het geïmplementeerde configuratie-server?
 We raden u aan om regelmatig geplande back-ups van de configuratieserver. Voor succesvolle failback wordt de virtuele machine wordt een failback moet aanwezig zijn in de database van de configuratieserver en de configuratieserver moet worden uitgevoerd en een verbonden status heeft. U kunt meer informatie over algemene beheertaken voor configuration server [hier](vmware-azure-manage-configuration-server.md).

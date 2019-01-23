@@ -1,22 +1,22 @@
 ---
-title: Lezen-replica's in Azure Database for PostgreSQL
+title: Leesreplica's in Azure Database for PostgreSQL
 description: Dit artikel beschrijft lezen-replica's in Azure Database voor PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 7aecfdedba04502ffdc68876635611a2f26d9896
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/22/2019
+ms.openlocfilehash: cb02f0b786ff6f1c7dbef5471fb95ce6516f824c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383498"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466071"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Lezen-replica's in Azure Database for PostgreSQL
 De replica voor lezen-functie kunt u voor het repliceren van gegevens uit een Azure Database for PostgreSQL-server (master) op maximaal vijf alleen-lezen-servers (lezen replica's) binnen dezelfde Azure-regio. Lezen-replica's worden asynchroon bijgewerkt met de PostgreSQL-engine systeemeigen Replicatietechnologie.
 
-Replica's zijn nieuwe servers die kunnen worden beheerd op vergelijkbare wijze als normale zelfstandige Azure Database for PostgreSQL-servers. Replica's gelden dezelfde snelheid als een zelfstandige server.
+Replica's zijn nieuwe servers die kunnen worden beheerd op vergelijkbare wijze als normale zelfstandige Azure Database for PostgreSQL-servers. U wordt gefactureerd voor elke lezen replica voor de ingerichte Computing in vCores en ingerichte opslag in GB/maand.
 
 ## <a name="when-to-use-read-replicas"></a>Wanneer u meer replica 's
 De functie lezen replica is gericht op helpen verbeteren de prestaties en schaal van lees-intensieve werkbelastingen. Bijvoorbeeld, kunnen de lees-workloads worden geïsoleerd in de replica's, terwijl schrijven workloads kunnen worden omgeleid naar het hoofdniveau.
@@ -117,7 +117,7 @@ Nadat een replica is gemaakt, de prijscategorie (met uitzondering van en naar Ba
 > [!IMPORTANT]
 > Voordat de configuratie van de server van een model is bijgewerkt met nieuwe waarden, moet de configuratie van de replica's worden bijgewerkt naar waarden gelijk zijn aan of groter zijn. Dit zorgt ervoor dat de replica's kunnen blijven van wijzigingen in het model zijn.
 
-In het bijzonder moet Postgres de waarde van de hoofdserver voor max_connections moet groter zijn dan de waarde van de replica anders dat de replica kan niet worden gestart. De max_connections-waarde is ingesteld in Azure Database for PostgreSQL, afhankelijk van de sku. Lees voor meer informatie, [het document limieten](concepts-limits.md). 
+In het bijzonder moet Postgres de waarde van de replica voor de parameter max_connections moet groter dan of gelijk zijn aan de waarde van het model anders dat de replica kan niet worden gestart. De max_connections-waarde is ingesteld in Azure Database for PostgreSQL, afhankelijk van de sku. Lees voor meer informatie, [het document limieten](concepts-limits.md). 
 
 Er wordt geprobeerd een update die in strijd is met dit doen zal leiden tot een fout.
 

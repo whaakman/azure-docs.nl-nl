@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Een SAML 2.0-id-Provider worden gebruikt voor eenmalig
 description: Dit document beschrijft met behulp van een SAML 2.0 compatibele id-provider voor eenmalige aanmelding op.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8f8503f560985e1170105199212734dd704d81c1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d7211cdec2e1de1aafd8d81289ab399f25b3c26a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743524"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463130"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Een SAML 2.0-id-Provider (IdP) gebruiken voor eenmalige aanmelding op
 
@@ -38,7 +38,7 @@ Microsoft biedt ondersteuning voor deze aanmelding als de integratie van een Mic
     - Verschillende Google Android-apparaten
     - Windows Phone 7, Windows Phone 7.8 en Windows Phone 8.0
     - E-mailclient van Windows 8 en Windows 8.1-e-mailclient
-    - E-mailclient van Windows 10
+    - Windows 10 Mail Client
 
 Alle andere clients zijn niet beschikbaar in dit scenario aanmelding met uw SAML 2.0-id-Provider. Bijvoorbeeld, kan de bureaubladclient Lync 2010 niet aan te melden bij de service met uw SAML 2.0-identiteitsprovider geconfigureerd voor eenmalige aanmelding.
 

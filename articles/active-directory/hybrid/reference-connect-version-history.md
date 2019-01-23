@@ -4,7 +4,7 @@ description: In dit artikel geeft een lijst van alle versies van Azure AD Connec
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e5d98b1d10051fee6ee5299fcdd8376434109603
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608440"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469759"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Releasegeschiedenis van versie
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -41,7 +41,7 @@ Downloaden | [Azure AD Connect downloaden](https://go.microsoft.com/fwlink/?Link
 
 ### <a name="release-status"></a>Releasestatus
 
-12-18/2018: Die zijn uitgebracht voor downloaden
+12/18/2018: Die zijn uitgebracht voor downloaden
 
 ### <a name="fixed-issues"></a>Problemen opgelost
 
@@ -51,7 +51,7 @@ Deze versie werkt het niet-standaard-connectors (bijvoorbeeld algemene LDAP-Conn
 ## <a name="12690"></a>1.2.69.0
 
 ### <a name="release-status"></a>Releasestatus
-11-12/2018: Die zijn uitgebracht voor downloaden
+12/11/2018: Die zijn uitgebracht voor downloaden
 
 ### <a name="fixed-issues"></a>Problemen opgelost
 Deze hotfix-versie kan de gebruiker een doeldomein in het opgegeven forest, voor de container RegisteredDevices bij het inschakelen van Write-back van apparaat selecteren.  In de vorige versies met de nieuwe functionaliteit van de opties voor apparaten (1.1.819.0 – 1.2.68.0), de locatie van de container RegisteredDevices is beperkt tot het foresthoofddomein en staat niet toe dat onderliggende domeinen.  Deze beperking alleen gemanifesteerd zelf op nieuwe implementaties – in-place upgrades zijn niet beïnvloed.  
@@ -165,7 +165,7 @@ Azure AD Connect upgraden mislukt als altijd op beschikbaarheid van SQL is gecon
 
 ### <a name="release-status"></a>Releasestatus
 
-14-5/2018: Die zijn uitgebracht voor automatische upgrade en downloaden.
+5/14/2018: Die zijn uitgebracht voor automatische upgrade en downloaden.
 
 ### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 
@@ -673,7 +673,7 @@ CBool(
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|certThumbprint|CertExtensionOids|
+    |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecteer|
@@ -690,12 +690,12 @@ CBool(
 
   * Volgende kenmerken zijn toegevoegd aan Azure AD-Connector schema:
     * Groep: OnPremisesSamAccountName
-    * Groep: NetBIOS-naam
-    * Groep: DNS-domeinnaam
+    * Groep: NetBiosName
+    * Groep: DnsDomainName
     * Gebruiker: OnPremisesDistinguishedName
 
 * Het script van de cmdlet ADSyncDomainJoinedComputerSync heeft nu een nieuwe optionele parameter met de naam Azure-omgeving. De parameter wordt gebruikt om op te geven welke regio waarin de bijbehorende Azure Active Directory-tenant wordt gehost in. Geldige waarden zijn:
-  * AzureCloud (standaard)
+  * AzureCloud (default)
   * AzureChinaCloud
   * AzureGermanyCloud
   * USGovernment

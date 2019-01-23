@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 9714cb8ce1c3380ac74150148c8d84bd410e3fc4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: d9abfe90296b27918594c41a207befe2b59027b9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715208"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461593"
 ---
 # <a name="archive-the-azure-activity-log"></a>De Azure-activiteitenlogboek archiveren
 In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets of platformoverschrijdende CLI gebruiken kunt om te archiveren uw [ **Azure Activity Log** ](../../azure-monitor/platform/activity-logs-overview.md) in een storage-account. Deze optie is handig als u wilt behouden het activiteitenlogboek is langer dan 90 dagen (met volledige controle over het bewaarbeleid) voor de controle-, statische analysis- of back-up opgenomen. Als u hoeft alleen de gebeurtenissen worden bewaard gedurende 90 dagen of minder u niet hoeft om in te stellen archiveren naar een opslagaccount, omdat gebeurtenissen in activiteitenlogboeken worden bewaard in de Azure-platform voor 90 dagen zonder in te schakelen archivering.
@@ -164,7 +164,7 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix "records
 | resourceId |Resource-ID van de betrokken resource. |
 | operationName |Naam van de bewerking. |
 | category |Categorie van de actie, bijvoorbeeld. Schrijven, lezen, actie. |
-| resultType |Het type van het resultaat, bijvoorbeeld. Bewerking is geslaagd, mislukt, Start |
+| resultType |Het type van het resultaat, bijvoorbeeld. Success, Failure, Start |
 | resultSignature |Afhankelijk van het resourcetype. |
 | durationMs |Duur van de bewerking in milliseconden |
 | callerIpAddress |IP-adres van de gebruiker die de bewerking, UPN-claim of op basis van beschikbaarheid SPN-claim heeft uitgevoerd. |
@@ -184,4 +184,5 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix "records
 * [Downloaden van blobs voor analyse](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Stream het activiteitenlogboek naar Eventhubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 * [Meer informatie over het activiteitenlogboek](../../azure-monitor/platform/activity-logs-overview.md)
+
 

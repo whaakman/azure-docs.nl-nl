@@ -5,7 +5,7 @@ services: active-directory
 keywords: Enterprise state roaming, windows-cloud, enterprise state roaming inschakelen
 documentationcenter: ''
 author: tanning
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 9dc223015f85d83278d48494bf05693c7932bdde
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3e6b2d09c2b3c204fc62428ab53a4d4e33d57eac
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50097865"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448377"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [productpagina van Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -75,9 +75,9 @@ Gegevens die zijn gesynchroniseerd met de Microsoft-cloud met behulp van Enterpr
 ### <a name="explicit-deletion"></a>Expliciet verwijderen
 Expliciet verwijderen is als een Azure-beheerder Hiermee verwijdert u een gebruiker of een map of anders expliciet aanvragen dat gegevens worden verwijderd.
 
-* **Gebruiker verwijderen**: wanneer een gebruiker wordt verwijderd in Azure AD, het gebruikersaccount roaminggegevens na 90 tot 180 dagen wordt verwijderd. 
-* **Map verwijderen**: verwijderen van een volledige map in Azure AD is een directe bewerking. Alle instellingsgegevens die zijn gekoppeld aan die directory na 90 tot 180 dagen wordt verwijderd. 
-* **Op aanvraag verwijderen**: als de Azure AD-beheerder wil handmatig verwijderen van de gegevens of instellingsgegevens van een specifieke gebruiker, de beheerder kan een ticket indienen bij [ondersteuning van Azure](https://azure.microsoft.com/support/). 
+* **Gebruiker verwijderen**: Wanneer een gebruiker wordt verwijderd in Azure AD, wordt het gebruikersaccount roaminggegevens na 90 tot 180 dagen verwijderd. 
+* **Map verwijderen**: Het verwijderen van een volledige map in Azure AD is een directe bewerking. Alle instellingsgegevens die zijn gekoppeld aan die directory na 90 tot 180 dagen wordt verwijderd. 
+* **Op aanvraag verwijderen**: Als de Azure AD-beheerder wil handmatig verwijderen van de gegevens of instellingsgegevens van een specifieke gebruiker, de beheerder kan een ticket indienen bij [ondersteuning van Azure](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Verouderde gegevens verwijderen
 Gegevens die niet is geopend voor één jaar ("de bewaarperiode') wordt beschouwd als verouderd en kan worden verwijderd uit de Microsoft-cloud. De bewaarperiode kan worden gewijzigd, maar is niet minder dan 90 dagen. De verouderde gegevens mogelijk een specifieke set Windows/toepassings- of alle instellingen voor een gebruiker. Bijvoorbeeld:

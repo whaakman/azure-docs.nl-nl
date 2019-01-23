@@ -4,7 +4,7 @@ description: Beschrijving van service naast functies voor Azure AD Connect sync-
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5a251c3e867035ecc00d449c4fbc1cf980a4f1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242990"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461209"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Functies van Azure AD Connect sync-service
 De synchronisatiefunctie van Azure AD Connect bestaat uit twee onderdelen:
@@ -60,13 +60,13 @@ De volgende instellingen zijn geconfigureerd door Azure AD Connect en kan niet w
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Hiermee kunt een kenmerk in quarantaine geplaatst wanneer dit is een duplicaat van een ander object in plaats van het gehele object mislukt tijdens het exporteren. |
 | Wachtwoordhashsynchronisatie |[Implementatie van wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](how-to-connect-password-hash-synchronization.md) |
 |Pass-through-verificatie|[Gebruikersaanmelding met Pass Through-verificatie in Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Voorbeeld: Groep terugschrijven](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |[Voorbeeld: Write-back van groep](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Momenteel niet ondersteund. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Tolerantie van dubbele kenmerken
 In plaats van mislukt voor het inrichten van objecten met dubbele UPN's / proxyAddresses, dubbel kenmerk 'quarantaine' en een tijdelijke waarde is toegewezen. Wanneer het conflict is opgelost, wordt de tijdelijke UPN automatisch gewijzigd in de juiste waarde. Zie voor meer informatie, [duplicatiekenmerken identificeren voor synchronisatie- en](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="userprincipalname-soft-match"></a>UserPrincipalName zachte match
+## <a name="userprincipalname-soft-match"></a>UserPrincipalName soft match
 Wanneer deze functie is ingeschakeld, zachte match is ingeschakeld voor de UPN in aanvulling op de [primaire SMTP-adres](https://support.microsoft.com/kb/2641663), dat altijd is ingeschakeld. Zachte match wordt zodat deze overeenkomen met bestaande cloudgebruikers in Azure AD met on-premises gebruikers gebruikt.
 
 Als u wilt vergelijken on-premises AD-accounts met bestaande accounts die zijn gemaakt in de cloud en u geen gebruikmaakt van Exchange Online, wordt deze functie is handig. In dit scenario hebben niet u over het algemeen een reden voor het instellen van de SMTP-kenmerk in de cloud.

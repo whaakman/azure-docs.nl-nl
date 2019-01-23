@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119438"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448463"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Voorbeeld 3: een DMZ netwerken met een Firewall, UDR en NSG beschermen bouwen
 [Ga terug naar de grens Best Practices pagina][HOME]
@@ -31,8 +31,8 @@ In dit voorbeeld wordt een DMZ met firewall, vier windows-servers, gebruiker ged
 ## <a name="environment-setup"></a>Omgeving instellen
 In dit voorbeeld is er een abonnement dat u het volgende bevat:
 
-* Drie cloudservices: "SecSvc001", "FrontEnd001" en "BackEnd001"
-* Een Virtueelnetwerk 'CorpNetwork', met drie subnetten: 'SecNet', 'FrontEnd' en 'Back-end'
+* Drie cloudservices: “SecSvc001”, “FrontEnd001”, and “BackEnd001”
+* Een Virtueelnetwerk 'CorpNetwork', met drie subnetten: “SecNet”, “FrontEnd”, and “BackEnd”
 * Een virtueel netwerkapparaat, in dit voorbeeld een firewall, die is verbonden met het subnet SecNet
 * Een Windows-Server die staat voor een toepassing webserver ("IIS01")
 * Twee windows-servers die staan voor toepassing back end servers ("AppVM01", "AppVM02")
@@ -110,7 +110,7 @@ In dit voorbeeld de volgende opdrachten worden gebruikt om te maken van de route
 
 1. De basis-routeringstabel moet eerst worden gemaakt. Dit fragment toont het maken van de tabel voor de back-end-subnet. In het script wordt ook een bijbehorende tabel gemaakt voor de front-end-subnet.
    
-     Nieuwe AzureRouteTable-naam $BERouteTableName '
+     New-AzureRouteTable -Name $BERouteTableName `
    
          -Location $DeploymentLocation `
          -Label "Route table for $BESubnet subnet"
@@ -134,7 +134,7 @@ In dit voorbeeld de volgende opdrachten worden gebruikt om te maken van de route
             -NextHopType VNETLocal
 5. Ten slotte, met de routeringstabel gemaakt en gevuld met een gebruiker gedefinieerde routes, de tabel moet nu worden gebonden aan een subnet. De routetabel front-end is in het script ook gebonden aan het Frontend-subnet. Dit is het script van de binding voor de back-end-subnet.
    
-     Set-AzureSubnetRouteTable - VirtualNetworkName $VNetName '
+     Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
    
         -SubnetName $BESubnet `
         -RouteTableName $BERouteTableName
@@ -153,7 +153,7 @@ Instellen van het doorsturen via IP is slechts één opdracht en tijdens de aanm
 
 1. Aanroepen van het VM-exemplaar dat in dit geval is van uw virtueel apparaat, de firewall en doorsturen via IP inschakelen (Houd er rekening mee; een item in rood die begint met een dollarteken (bijvoorbeeld: $VMName[0]) is een door de gebruiker gedefinieerde variabele van het script in de sectie Verwijzingen van dit document. De op nul tussen vierkante haken, [0] Hiermee geeft u de eerste virtuele machine in de matrix van virtuele machines, voor de voorbeeldscript om te werken zonder aanpassingen, de eerste virtuele machine (VM 0) moet de firewall):
    
-     Get-AzureVM-naam $VMName [0] - ServiceName $ServiceName [0] | `
+     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
    
         Set-AzureIPForwarding -Enable
 
@@ -241,7 +241,7 @@ Hoewel het niet duidelijk hier weergegeven vanwege het gebruik van variabelen, m
 
 Een management-client moet worden geïnstalleerd op een PC voor het beheren van de firewall en het maken van de configuraties die nodig zijn. Zie de documentatie van uw firewall (of andere NVA)-leverancier over het beheren van het apparaat. De rest van deze sectie en de volgende sectie, Firewall-regels maken, wordt de configuratie van de firewall zelf, via de leveranciers management-client (dat wil zeggen niet in de Azure portal of PowerShell) beschreven.
 
-Instructies voor de client downloaden en verbinding maken met de Barracuda gebruikt in dit voorbeeld kunt u hier vinden: [Barracuda NG-beheerder](https://techlib.barracuda.com/NG61/NGAdmin)
+Instructies voor de client downloaden en verbinding maken met de Barracuda gebruikt in dit voorbeeld kunt u hier vinden: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 Wanneer u bent aangemeld bij de firewall, maar voordat u het maken van firewallregels, zijn er twee vereiste objectklassen waardoor het maken van de regels gemakkelijker; Netwerk- en Service-objecten.
 
@@ -312,10 +312,10 @@ De details van elke regel vereist voor het voltooien van dit voorbeeld worden al
      
      | Regelnaam | Server | Service | De lijst van doel |
      | --- | --- | --- | --- |
-     | RDP-naar-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
-     | RDP-naar-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
-     | RDP-naar-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
-     | RDP-naar-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
+     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
+     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
+     | RDP-to-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
+     | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
 > Het bereik van de bron- en Service-velden technologiegebied vermindert de kwetsbaarheid voor aanvallen. De meest beperkte mogelijkheden die zorgen functionaliteit dat ervoor moet worden gebruikt.
@@ -777,7 +777,7 @@ Dit PowerShell-script moet lokaal op worden uitgevoerd dat een internet verbonde
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 

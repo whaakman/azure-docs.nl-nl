@@ -1,5 +1,5 @@
 ---
-title: 'Snelstart: Een Standard Load Balancer maken - Azure PowerShell'
+title: 'Quickstart: Een Standard Load Balancer maken - Azure PowerShell'
 titlesuffix: Azure Load Balancer
 description: In deze snelstart vindt u meer informatie over het maken van een Standard Load Balancer met behulp PowerShell
 services: load-balancer
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 93bcf30010b6fecd302342d262080fcfe18ed0ce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 62ccf86d138ff71706aca4c19f548f175e6c09ce
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425234"
+ms.locfileid: "54447612"
 ---
 # <a name="get-started"></a>Snelstart: Maken van een Standard Load Balancer met behulp van Azure PowerShell
 In deze snelstart vindt u meer informatie over het maken van een Standard Load Balancer met behulp Azure PowerShell. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Windows-server wordt uitgevoerd en waarbij de taken van een webapp gelijkelijk over de VM's worden verdeeld. Zie [Wat is Standard Load Balancer](load-balancer-standard-overview.md) voor meer informatie over Standard Load Balancer.
@@ -281,7 +281,7 @@ Door de parameter `-AsJob` wordt de VM gemaakt als achtergrondtaak, zodat u weer
  
 Installeer IIS als volgt met een aangepaste webpagina op beide back-end-VM's:
 
-1. Haal het openbare IP-adres van de load balancer op. Haal het openbare IP-adres van de load balancer op met behulp van `Get-AzureRmPublicIPAdress`.
+1. Haal het openbare IP-adres van de load balancer op. Haal het openbare IP-adres van de load balancer op met behulp van `Get-AzureRmPublicIPAddress`.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

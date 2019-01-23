@@ -4,7 +4,7 @@ description: Wordt uitgelegd wat een Azure AD-tenant is en hoe u Azure beheert v
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: infrastructure-services
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957925"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461192"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Azure Active Directory-aanmelding in gedrag voor een toepassing met behulp van een Thuisrealmdetectie-beleid configureren
 
@@ -63,9 +63,9 @@ De syntaxis van de domein-hint is afhankelijk van het protocol dat wordt gebruik
 
 **WS-Federation**: whr=contoso.com in de querytekenreeks.
 
-**SAML**: hetzij een SAML-verificatie-aanvraag die een geheugensteun voor het domein of een whr=contoso.com query-tekenreeks bevat.
+**SAML**:  Een van beide een SAML-verificatie-aanvraag die een geheugensteun voor het domein of een whr=contoso.com query-tekenreeks bevat.
 
-**Open ID Connect**: een domain_hint=contoso.com query-tekenreeks. 
+**Open ID Connect**: Een query-tekenreeks domain_hint=contoso.com. 
 
 Als een geheugensteun voor het domein is opgenomen in de verificatieaanvraag van de toepassing en de tenant is gefedereerd met het desbetreffende domein, probeert Azure AD aanmelden omleiden naar de id-provider die geconfigureerd voor het domein. 
 
@@ -168,7 +168,7 @@ In de volgende voorbeelden u maken, bijwerken, koppelen en verwijderen van belei
 
 Als er niets wordt geretourneerd, betekent dat u hebt geen beleidsregels die zijn gemaakt in uw tenant.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Voorbeeld: Stel HRD-beleid voor een toepassing 
+### <a name="example-set-hrd-policy-for-an-application"></a>Voorbeeld: HRD-beleid instellen voor een toepassing 
 
 In dit voorbeeld maken u een beleid dat als deze is toegewezen aan een toepassing een: 
 - Automatisch versnelt-gebruikers aan een AD FS-aanmeldingsscherm wanneer ze bij een toepassing aanmeldt zich wanneer er een enkel domein in uw tenant. 
@@ -204,12 +204,12 @@ Get-AzureADPolicy
 
 Als u wilt het HRD-beleid wordt toegepast nadat u deze hebt gemaakt, kunt u deze toewijzen aan meerdere service-principals van toepassing.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Stap 2: Ga naar de service-principal waarop het beleid toewijzen  
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Stap 2: Zoek de service-principal waarop het beleid toewijzen  
 U moet de **ObjectID** van de service-principals die u wilt toewijzen van het beleid. Er zijn verschillende manieren zoeken naar de **ObjectID** van service-principals.    
 
 U kunt de portal of u kunt een query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). U kunt ook gaan naar de [Graph Explorer hulpprogramma](https://developer.microsoft.com/graph/graph-explorer) en aanmelden bij uw Azure AD-account om te zien van de service-principals van uw organisatie. Omdat u met behulp van PowerShell, kunt u de cmdlet get-azureadserviceprincipal namelijk niet kunt gebruiken om de service-principals en hun-id's weer te geven.
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Stap 3: Het beleid toewijzen aan uw service-principal  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Stap 3: Wijs het beleid toe aan uw service-principal  
 Nadat u hebt de **ObjectID** van de service-principal van de toepassing waarvoor u wilt configureren van automatische-versnelling, de volgende opdracht uitvoeren. Met deze opdracht wordt gekoppeld aan het HRD-beleid dat u in stap 1 hebt gemaakt met de service-principal die u in stap 2.
 
 ``` powershell
@@ -220,7 +220,7 @@ U kunt deze opdracht herhalen voor elke service-principal die u wilt toevoegen v
 
 In het geval waarbij een toepassing al een HomeRealmDiscovery beleid is toegewezen heeft, kunt u zich niet aan het toevoegen van een tweede account.  In dat geval wordt de definitie van het Thuisrealmdetectie-beleid dat is toegewezen aan de toepassing toe te voegen extra parameters wijzigen.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Stap 4: Controleren welke service-principals van toepassing uw HRD-beleid is toegewezen aan
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Stap 4: Controleer welke service-principals van toepassing uw HRD-beleid is toegewezen aan
 Om te controleren welke toepassingen hebben HRD-beleid dat is geconfigureerd, gebruikt u de **Get-AzureADPolicyAppliedObject** cmdlet. Geeft die door de **ObjectID** van het beleid dat u controleren wilt op.
 
 ``` powershell
@@ -229,9 +229,9 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 #### <a name="step-5-youre-done"></a>Stap 5: U bent klaar.
 Probeer de toepassing om te controleren of het nieuwe beleid werkt.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Voorbeeld: Een lijst de toepassingen voor welke HRD beleid is geconfigureerd
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Voorbeeld: Lijst van de toepassingen voor welke HRD beleid is geconfigureerd
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Stap 1: Lijst met alle beleidsregels die zijn gemaakt in uw organisatie 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Stap 1: Lijst van alle beleidsregels die zijn gemaakt in uw organisatie 
 
 ``` powershell
 Get-AzureADPolicy
@@ -239,7 +239,7 @@ Get-AzureADPolicy
 
 Houd er rekening mee de **ObjectID** van het beleid dat u de lijst met toewijzingen voor wilt.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 2: Lijst met de service-principals waarop het beleid is toegewezen  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 2: Lijst van de service-principals waarop het beleid is toegewezen  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
@@ -255,7 +255,7 @@ Het vorige voorbeeld gebruiken om op te halen de **ObjectID** van het beleid en 
 Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 3: Controleer verwijderen door de service-principals waarop het beleid is toegewezen weer te geven 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Stap 3: Selectievakje verwijderen door de service-principals waarop het beleid is toegewezen weer te geven 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>

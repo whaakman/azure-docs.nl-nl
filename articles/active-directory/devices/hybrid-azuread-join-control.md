@@ -4,7 +4,7 @@ description: Meer informatie over het beheren van de hybride Azure AD join van u
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: a2ae1d3f4166bfaa035902aaa5dc101636a98646
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fd6da7e0c350ef7da02b885973f1386edc7cbc48
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117534"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451422"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>De hybride Azure AD-deelname van uw apparaten beheren
 
@@ -36,7 +36,7 @@ In dit artikel wordt ervan uitgegaan dat u bekend met bent:
 
 -  [Inleiding tot apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
  
--  [Uw hybride Azure Active Directory join-implementatie plannen](hybrid-azuread-join-plan.md)
+-  [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
 
 -  [Configure hybride Azure Active Directory join voor beheerde domeinen](hybrid-azuread-join-managed-domains.md) of [configureren hybride Azure Active Directory join voor federatieve domeinen](hybrid-azuread-join-federated-domains.md)
 

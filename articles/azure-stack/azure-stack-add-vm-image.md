@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306077"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474367"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
@@ -42,21 +41,21 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
     > [!IMPORTANT]  
     >  Azure Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Risico's te beperken, door de virtuele machine te verwijderen zonder te verwijderen van de VM schijf, een VHD-blob in een storage-account. Het omzetten van de VHD van een dynamische schijf naar een vaste schijf en de virtuele machine opnieuw te maken.
 
-   * Is het efficiënter een afbeelding uploaden naar Azure Stack blob-opslag dan naar Azure blob-opslag omdat kost het minder tijd aan de installatiekopie pushen naar de opslagplaats voor installatiekopieën van Azure Stack.
+   - Is het efficiënter een afbeelding uploaden naar Azure Stack blob-opslag dan naar Azure blob-opslag omdat kost het minder tijd aan de installatiekopie pushen naar de opslagplaats voor installatiekopieën van Azure Stack.
 
-   * Wanneer u uploadt de [Windows VM-installatiekopie](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), zorg ervoor dat u vervangen door de **Meld u aan bij Azure** stap met de [configureren van de Azure Stack-operators PowerShell-omgeving](azure-stack-powershell-configure-admin.md) stap.  
+   - Wanneer u uploadt de [Windows VM-installatiekopie](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), zorg ervoor dat u vervangen door de **Meld u aan bij Azure** stap met de [configureren van de Azure Stack-operators PowerShell-omgeving](azure-stack-powershell-configure-admin.md) stap.  
 
-   * Maak een notitie van de blob-opslag-URI waar u de installatiekopie uploadt. De URI van de blob-opslag heeft de volgende indeling: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
+   - Maak een notitie van de blob-opslag-URI waar u de installatiekopie uploadt. De URI van de blob-opslag heeft de volgende indeling: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
-   * Als u de blob anoniem toegankelijk is, gaat u naar de storage-account blob-container waarnaar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. U kunt eventueel genereren van een shared access signature voor de container en opnemen als onderdeel van de blob-URI. Deze stap zorgt ervoor dat de blob is beschikbaar om te worden gebruikt voor het toevoegen van dit als een afbeelding. Als de blob niet anoniem toegankelijk is, wordt de VM-installatiekopie te worden gemaakt in een foutstatus.
+   - Als u de blob anoniem toegankelijk is, gaat u naar de storage-account blob-container waarnaar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. U kunt eventueel genereren van een shared access signature voor de container en opnemen als onderdeel van de blob-URI. Deze stap zorgt ervoor dat de blob is beschikbaar om te worden gebruikt voor het toevoegen van dit als een afbeelding. Als de blob niet anoniem toegankelijk is, wordt de VM-installatiekopie te worden gemaakt in een foutstatus.
 
-   ![Ga naar opslagaccountblobs](./media/azure-stack-add-vm-image/image1.png)
+    ![Ga naar opslagaccountblobs](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Blob-toegang instellen op openbaar](./media/azure-stack-add-vm-image/image2.png)
+    ![Blob-toegang instellen op openbaar](./media/azure-stack-add-vm-image/image2.png)
 
-2. Meld u met Azure Stack als operator. Selecteer in het menu **alle services**. Klik vervolgens onder de **beheer** categorie selecteren **Compute** > **VM-installatiekopieën** > **toevoegen**.
+2. Meld u met Azure Stack als operator. Selecteer in het menu **alle services** > **installatiekopieën** onder **Compute** > **toevoegen**.
 
-3. Onder **toevoegen van een VM-installatiekopie**, voer de uitgever, aanbieding, SKU en versie van de installatiekopie van de virtuele machine. Deze segmenten naam verwijzen naar de VM-installatiekopie in Resource Manager-sjablonen. Zorg ervoor dat u selecteert de **osType** correct-waarde. Voor **Blob-URI van OS-schijf**, voer de Blob-URI waarnaar de afbeelding is geüpload. Selecteer **maken** om te beginnen met het maken van de VM-installatiekopie.
+3. Onder **afbeelding maken**, voer de naam, abonnement, resourcegroep, locatie, de schijf met besturingssysteem, type besturingssysteem, opslag-blob URI, accounttype, en te hosten in cache opslaan. Selecteer **maken** om te beginnen met het maken van de VM-installatiekopie.
 
    ![Begin met het maken van de installatiekopie](./media/azure-stack-add-vm-image/image4.png)
 
@@ -154,7 +153,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 3. Meld u met Azure Stack als een operator. Zie voor instructies [aanmelden bij Azure Stack als operator](azure-stack-powershell-configure-admin.md).
 
-4. Een storage-account maken in de globale Azure of Azure Stack voor het opslaan van uw aangepaste VM-installatiekopie. Zie voor instructies [Quick Start: Blobs uploaden, downloaden, en lijst met behulp van de Azure-portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+4. Een storage-account maken in de globale Azure of Azure Stack voor het opslaan van uw aangepaste VM-installatiekopie. Zie voor instructies [Quick Start: blobs uploaden, downloaden en vermelden met behulp van Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 5. Voorbereiden van de installatiekopie voor een Windows of Linux-besturingssysteem in VHD-indeling (de VHDX niet), de installatiekopie uploaden naar uw storage-account en de URI waar de VM-installatiekopie kan worden opgehaald door PowerShell.  
 

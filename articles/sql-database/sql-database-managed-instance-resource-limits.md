@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.date: 01/22/2019
+ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584493"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450878"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
@@ -39,7 +39,8 @@ Azure SQL Database Managed Instance kunnen worden geïmplementeerd op twee hardw
 | Hardware | Intel E5-2673 v3-processors 2,4 GHz (Haswell) gekoppeld SSD vCore = 1 PP (fysieke kernen) | Intel E5-2673 v4-processors 2,3 GHz (Broadwell) snel eNVM SSD, vCore = 1 LP (hyper-thread) |
 | Compute | 8, 16, 24 vCores | 8, 16, 24 uur per dag, 32, 40, 64, 80 vCores |
 | Geheugen | 7 GB per vCore | 5.1 GB per vCore |
-| Maximale opslag (Business-kritische) | 1 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
+| Maximale opslag (Algemeen) |  8 TB | 1 TB |
+| Maximale opslag (Business-kritische) | 8 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
 
 ### <a name="service-tier-characteristics"></a>Service tier kenmerken
 
@@ -47,14 +48,13 @@ Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en bedrijfskritiek. 
 
 | **Functie** | **Algemeen gebruik** | **Bedrijfskritiek** |
 | --- | --- | --- |
-| Het aantal vCores\* | Gen4: 8, 16, 24 uur per dag<br/>Gen5: 8, 16, 24 uur per dag, 32, 40, 64, 80 | Gen4: 8, 16, 24 uur per dag, 32 <br/> Gen5: 8, 16, 24 uur per dag, 32, 40, 64, 80 |
-| Geheugen | Gen4: 56GB - 156GB<br/>Gen5: 44GB - 440GB<br/>\*In verhouding staan tot het aantal vCores | Gen4: 56GB - 156GB <br/> Gen5: 41GB - 408GB<br/>\*In verhouding staan tot het aantal vCores |
+| Het aantal vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
+| Geheugen | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*In verhouding staan tot het aantal vCores | Gen4: 56GB-156GB <br/> Gen5: 41GB-408GB<br/>\*In verhouding staan tot het aantal vCores |
 | Maximumgrootte van opslag | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>-1 TB voor 8, 16 vcores uitvoert<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
 | Maximum aantal bestanden per exemplaar | Maximaal 280 | 32.767 bestanden per database |
-| Gegevens/Log IOPS (bij benadering) | 500-7500 per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
-| Exemplaar Log doorvoer | 22MB/s per exemplaar | 3MB/s per vCore<br/>Max 48MB/s |
+| Gegevens/Log IOPS (bij benadering) | 500-7500 per bestand<br/>\*[Is afhankelijk van de bestandsgrootte] (https://docs.microsoft.com/azure/virtual-machines ce Log doorvoer | 22MB/s per exemplaar | 3MB/s per vCore<br/>Max 48MB/s |
 | Doorvoer van gegevens (bij benadering) | 100-250 MB/s per bestand<br/>\*[Afhankelijk van de bestandsgrootte](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s per vCore |
 | I/o-latentie (bij benadering) | 5-10 ms | 1-2 ms |
 | Maximumgrootte van tempDB | 192 1920 GB (24 GB per vCore) | Er zijn geen beperkingen - beperkt door de grootte van de maximale sessie |
@@ -72,7 +72,7 @@ Beheerde Instanced kan alleen worden gemaakt in [ondersteunde regio's](https://a
 Beheerd exemplaar ondersteunt momenteel implementatie alleen op de volgende typen abonnementen:
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Cloud serviceprovider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
@@ -91,11 +91,11 @@ In de volgende tabel worden weergegeven regionale standaardlimieten voor onderst
 
 |Abonnementstype| Maximumaantal Managed Instance-subnetten | Maximumaantal exemplaren |Maximumaantal GP beheerde exemplaren *|Maximumaantal BC beheerde exemplaren *|
 | :---| :--- | :--- |:--- |:--- |
-|Betalen naar gebruik|1 *|4 *|4 *|1 *|
-|CSP |1 *|4 *|4 *|1 *|
-|Pay-as-you-go Dev/Test|1 *|4 *|4 *|1 *|
-|Enterprise Dev/Test|1 *|4 *|4 *|1 *|
-|EA|3 **|12 **|12 **|3 **|
+|Betalen naar gebruik|1*|4*|4*|1*|
+|CSP |1*|4*|4*|1*|
+|Pay-as-you-go Dev/Test|1*|4*|4*|1*|
+|Enterprise Dev/Test|1*|4*|4*|1*|
+|EA|3**|12**|12**|3**|
 
 \* U kunt ofwel 1 BC of 4 GP-exemplaren in één subnet implementeren, zodat het totaal aantal 'exemplaar eenheden' in het subnet nooit meer dan 4.
 
@@ -119,10 +119,10 @@ De volgende voorbeelden betrekking op implementatie gevallen met niet-lege subne
 |:---|:---|:---|:---|
 |1|BC 1 en maximaal 8 GP<br>BC 2 en maximaal 4 GP|N/A| N/A|
 |2|0 BC, tot 4 GP|1 BC, tot 4 GP<br>2 BC, 0 GP|N/A|
-|2|BC 1, 0 GP|0 BC, tot maximaal 8 GP<br>1 BC, tot 4 GP|N/A|
+|2|1 BC, 0 GP|0 BC, tot maximaal 8 GP<br>1 BC, tot 4 GP|N/A|
 |2|2 BC, 0 GP|0 BC, tot 4 GP|N/A|
-|3|BC 1, 0 GP|BC 1, 0 GP|0 BC, tot 4 GP|
-|3|BC 1, 0 GP|0 BC, tot 4 GP|0 BC, tot 4 GP|
+|3|1 BC, 0 GP|1 BC, 0 GP|0 BC, tot 4 GP|
+|3|1 BC, 0 GP|0 BC, tot 4 GP|0 BC, tot 4 GP|
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Het ophalen van een grotere quotum voor beheerd exemplaar van SQL
 

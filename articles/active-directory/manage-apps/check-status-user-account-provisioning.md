@@ -4,7 +4,7 @@ description: Informatie over de status van automatische gebruikersaccount inrich
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356781"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463062"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Zelfstudie: Rapportage over het inrichten van automatische gebruikersaccounts
 
@@ -40,9 +40,9 @@ Inrichting connectors zijn ingesteld en geconfigureerd met behulp van de [Azure-
 
 In dit artikel wordt gebruikgemaakt van de volgende voorwaarden is hieronder gedefinieerd:
 
-* **Bronsysteem** -de opslagplaats van de gebruikers die de Azure AD-inrichtingsservice synchroniseert uit. Azure Active Directory is het bronsysteem voor het merendeel van vooraf geïntegreerde inrichting connectors, maar er zijn enkele uitzonderingen (voorbeeld: synchronisatie van Workday Inbound).
+* **Bronsysteem** -de opslagplaats van de gebruikers die de Azure AD-inrichtingsservice synchroniseert uit. Azure Active Directory is het bronsysteem voor het merendeel van vooraf geïntegreerde inrichting connectors, maar er zijn enkele uitzonderingen (voorbeeld: WorkDay inkomende synchronisatie).
 
-* **Doelsysteem** -de opslagplaats van de gebruikers die de Azure AD-inrichtingsservice synchroniseert op. Dit is meestal een SaaS-toepassing (voorbeelden: Salesforce, ServiceNow, Google Apps, Dropbox voor bedrijven), maar in sommige gevallen kan een on-premises systeem, zoals Active Directory (voorbeeld: Workday inkomende synchronisatie naar Active Directory).
+* **Doelsysteem** -de opslagplaats van de gebruikers die de Azure AD-inrichtingsservice synchroniseert op. Dit is meestal een SaaS-toepassing (voorbeelden: SalesForce, ServiceNow, Google Apps, Dropbox voor bedrijven), maar in sommige gevallen kan een on-premises systeem, zoals Active Directory (voorbeeld: WorkDay inkomende synchronisatie naar Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Ophalen van de inrichting van rapporten in de Azure management portal
@@ -68,7 +68,7 @@ Het overzichtsrapport van de inrichting is zichtbaar in de **Provisioning** tabb
 
 Het overzichtsrapport van de inrichting, moet de eerste plaats beheerders bekijken om te controleren op de operationele status van de taak.
 
- ![Samenvattend rapport](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Samenvattend rapport](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>Controlelogboeken voor inrichting
 Alle activiteiten die worden uitgevoerd door de inrichtingsservice worden vastgelegd in de auditlogboeken van Azure AD, dat kunnen worden weergegeven in de **auditlogboeken** tabblad onder de **Accountinrichting** categorie. Geregistreerde activiteit gebeurtenistypen zijn onder andere:
@@ -83,13 +83,13 @@ Alle activiteiten die worden uitgevoerd door de inrichtingsservice worden vastge
 
 Wanneer het inrichten van gebeurtenissen voor een afzonderlijke gebruiker bekijkt, worden de gebeurtenissen normaal plaats in de aangegeven volgorde:
 
-1. Importeren van gebeurtenis: gebruiker wordt opgehaald uit het bronsysteem.
+1. Gebeurtenis importeren: Gebruiker wordt opgehaald uit het bronsysteem.
 
-2. Importeren van gebeurtenis: doelsysteem wordt gevraagd om te controleren of er sprake van de gebruiker opgehaald.
+2. Gebeurtenis importeren: Doelsysteem wordt gevraagd om te controleren of er sprake van de gebruiker opgehaald.
 
-3. Synchronisatie regel gebeurtenis: gebruikersgegevens van de bron en doel-systemen worden geëvalueerd op basis van de geconfigureerde kenmerktoewijzing regels en bereikfilters toevoegen om te bepalen welke actie, indien van toepassing, moet worden uitgevoerd.
+3. Gebeurtenis van de regel voor synchronisatie: Gebruikersgegevens van de bron en doel-systemen worden geëvalueerd op basis van de geconfigureerde kenmerktoewijzing regels en bereikfilters toevoegen om te bepalen welke actie, indien van toepassing, moet worden uitgevoerd.
 
-4. Exporteren van gebeurtenis: als de gebeurtenis van de regel voor synchronisatie bepaald dat een actie moet worden uitgevoerd (toevoegen, bijwerken, verwijderen), en vervolgens de resultaten van de actie worden vastgelegd in een uitvoer-gebeurtenis.
+4. Gebeurtenis exporteren: Als de gebeurtenis van de regel voor synchronisatie bepaald dat een actie moet worden uitgevoerd (toevoegen, bijwerken, verwijderen), en vervolgens de resultaten van de actie worden vastgelegd in een uitvoer-gebeurtenis.
 
 ![Het maken van een Azure AD-testgebruiker](./media/check-status-user-account-provisioning/audit_logs.PNG)
 
@@ -127,14 +127,14 @@ Voor de beste leesbaarheid in Azure portal, selecteert u de **kolommen** knop en
 * **Reden van de status** -een samenvatting van wat is er gebeurd in de inrichting gebeurtenis.
 
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 De inrichting logboeken voor het rapport en controle van samenvatting spelen een belangrijke rol helpt beheerders verschillende gebruikersaccount inrichten problemen oplossen.
 
 Zie voor instructies over het automatisch inrichten van gebruikers oplossen scenario's gebaseerde [problemen bij het configureren en inrichten van gebruikers voor een toepassing](application-provisioning-config-problem.md).
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

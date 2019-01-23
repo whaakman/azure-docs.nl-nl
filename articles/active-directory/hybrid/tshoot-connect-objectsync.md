@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: objectsynchronisatie oplossen | Microsoft Docs'
+title: 'Azure AD Connect: Objectsynchronisatie oplossen | Microsoft Docs'
 description: Dit onderwerp bevat stappen voor het oplossen van problemen met objectsynchronisatie met behulp van de taak voor het oplossen van problemen.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfd963ae38d42d245f2eec1ddb76c7af316039ba
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ed13014dd5ad559ed3793ff52ae410be9174ae2b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961124"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461311"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Objectsynchronisatie met Azure AD Connect-synchronisatie oplossen
 Dit artikel bevat stappen voor het oplossen van problemen met objectsynchronisatie met behulp van de taak voor het oplossen van problemen. Als u wilt zien hoe u problemen oplossen in Azure Active Directory (Azure AD) Connect werkt, Bekijk [in deze korte video](https://aka.ms/AADCTSVideo).
@@ -84,11 +84,11 @@ Object is buiten het bereik als het domein, ontbreekt uitgevoerd werk profielen/
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>Object wordt vervaldatum gefilterd op OE filteren
 Het object is niet gesynchroniseerd bereik vanwege een OE-filters gebruiken om configuratie. In het volgende voorbeeld wordt het object deel uitmaakt van organisatie-eenheid = NoSync, DC = bvtadwbackdc, DC = com.  Deze organisatie-eenheid is niet opgenomen in het bereik van gegevenssynchronisatie.</br>
 
-![ORGANISATIE-EENHEID](./media/tshoot-connect-objectsync/objsynch7.png)
+![OU](./media/tshoot-connect-objectsync/objsynch7.png)
 
 ## <a name="linked-mailbox-issue"></a>Gekoppelde Postvak probleem
 Een gekoppeld postvak moet worden gekoppeld aan een externe hoofdaccount zich in een ander vertrouwde accountforest. Als er geen dergelijke externe hoofdaccount is, wordt Azure AD Connect zal de gebruiker niet synchroniseren rekening komt overeen met de gekoppelde postvak in het Exchange-forest met de Azure AD-tenant.</br>
-![Gekoppeld postvak](./media/tshoot-connect-objectsync/objsynch12.png)
+![Linked Mailbox](./media/tshoot-connect-objectsync/objsynch12.png)
 
 ## <a name="dynamic-distribution-group-issue"></a>Dynamische distributiegroep probleem
 Als gevolg van diverse verschillen tussen on-premises synchroniseert Active Directory en Azure Active Directory, Azure AD Connect niet dynamisch distributiegroepen met de Azure AD-tenant.

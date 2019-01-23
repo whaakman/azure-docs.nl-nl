@@ -5,7 +5,7 @@ services: active-directory
 keywords: Enterprise state roaming, windows-cloud
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 351a982fa9ca3c0975c425137220ec9872f0de04
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189271"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448122"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Naslaginformatie over roaminginstellingen voor Windows 10
 Hier volgt een volledige lijst van alle instellingen die worden verplaatste of een back-up in Windows 10. 
@@ -125,11 +125,11 @@ Instellingen die niet kunnen worden gebruikt of sync behoren niet tot een groep.
 | **Internet Explorer**: domein taal: Chinees (CHS) QWERTY - inschakelen zelf leren |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - inschakelen van de dynamische candidate rangorde |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - char-set vereenvoudigd Chinees |Synchronisatie |X |Taal |
-| **Taal**: CHS QWERTY - char-set traditioneel Chinees |Synchronisatie |X |Taal |
+| **Taal**: CHS QWERTY - char-set Traditional Chinese |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - fuzzy pinyin |Synchronisatie |Back-up |Taal |
-| **Taal**: CHS QWERTY - fuzzy paren |Synchronisatie |Back-up |Taal |
-| **Taal**: CHS QWERTY - volledige pinyin |Synchronisatie |X |Taal |
-| **Taal**: CHS QWERTY - dubbele pinyin |Synchronisatie |X |Taal |
+| **Taal**: CHS QWERTY - fuzzy pairs |Synchronisatie |Back-up |Taal |
+| **Taal**: CHS QWERTY - full pinyin |Synchronisatie |X |Taal |
+| **Taal**: CHS QWERTY - double pinyin |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - automatische correctie lezen |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - sleutel voor C/E-switch, shift |Synchronisatie |X |Taal |
 | **Taal**: CHS QWERTY - C/E schakelen Ctrl-toets |Synchronisatie |X |Taal |

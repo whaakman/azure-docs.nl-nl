@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580634"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465663"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Hebt u een klassieke waarschuwing voor metrische gegevens op de hoogte stellen een niet-Azure-systeem met behulp van een webhook
 U kunt webhooks gebruiken voor het routeren van een Azure waarschuwingsmelding met andere systemen voor na verwerking of aangepaste acties. U kunt een webhook gebruiken op een waarschuwing aan het wordt doorgestuurd naar services die de SMS-berichten, om aan te melden bugs, om de hoogte van een team via chatten of berichtenservices, of voor verschillende andere acties te verzenden. 
@@ -72,7 +72,7 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 | Veld | Verplicht | Vaste set waarden | Opmerkingen |
 |:--- |:--- |:--- |:--- |
 | status |J |Geactiveerd, is opgelost |De status van de waarschuwing op basis van de voorwaarden die u instelt. |
-| Context |J | |De context van de waarschuwing. |
+| context |J | |De context van de waarschuwing. |
 | tijdstempel |J | |De tijd waarop de waarschuwing is geactiveerd. |
 | id |J | |Elke waarschuwingsregel heeft een unieke ID. |
 | naam |J | |De naam van de waarschuwing. |
@@ -80,12 +80,12 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 | conditionType |J |Metrische gegevens, gebeurtenis |Twee typen waarschuwingen worden ondersteund: metrische gegevens en gebeurtenissen. Metrische waarschuwingen zijn gebaseerd op een metrische gegevens. Waarschuwingen zijn gebaseerd op een gebeurtenis in het activiteitenlogboek. Gebruik deze waarde om te controleren of de waarschuwing is gebaseerd op een metrische waarde of op een gebeurtenis. |
 | voorwaarde |J | |De specifieke velden om te controleren op basis van de **conditionType** waarde. |
 | MetricName |Voor metrische waarschuwingen | |De naam van de metrische gegevens die definieert wat de regel controleert. |
-| metricUnit |Voor metrische waarschuwingen |Bytes, BytesPerSecond, aantal, CountPerSecond, procent, seconden |De eenheid die is toegestaan in de metrische gegevens. Zie [toegestane waarden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |Voor metrische waarschuwingen |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |De eenheid die is toegestaan in de metrische gegevens. Zie [toegestane waarden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Voor metrische waarschuwingen | |De werkelijke waarde van de metrische gegevens die de waarschuwing heeft veroorzaakt. |
 | Drempelwaarde |Voor metrische waarschuwingen | |De drempelwaarde waarmee de waarschuwing is geactiveerd. |
-| Venstergrootte |Voor metrische waarschuwingen | |De periode die wordt gebruikt voor het bewaken van waarschuwingsactiviteit op basis van de drempelwaarde. De waarde moet tussen 5 minuten en 1 dag. De waarde moet in ISO 8601-notatie voor de duur. |
+| windowSize |Voor metrische waarschuwingen | |De periode die wordt gebruikt voor het bewaken van waarschuwingsactiviteit op basis van de drempelwaarde. De waarde moet tussen 5 minuten en 1 dag. De waarde moet in ISO 8601-notatie voor de duur. |
 | timeAggregation |Voor metrische waarschuwingen |Gemiddelde, laatste, Maximum, Minimum, None, totaal |Hoe moeten de gegevens die worden verzameld worden gecombineerd na verloop van tijd. De standaardwaarde is de gemiddelde. Zie [toegestane waarden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| Operator |Voor metrische waarschuwingen | |De operator die wordt gebruikt voor de huidige metrische gegevens vergelijken met de ingestelde drempelwaarde. |
+| operator |Voor metrische waarschuwingen | |De operator die wordt gebruikt voor de huidige metrische gegevens vergelijken met de ingestelde drempelwaarde. |
 | subscriptionId |J | |De Azure-abonnement-ID. |
 | resourceGroupName |J | |De naam van de resourcegroep voor de betreffende resource. |
 | resourceName |J | |De resourcenaam van de betreffende resource. |
@@ -106,3 +106,4 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle waa
 * Meer informatie over het [een logische app gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Meer informatie over het [gebruik van een logische app een Slack-bericht verzenden vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Meer informatie over het [gebruik van een logische app een bericht verzenden naar een Azure-wachtrij vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+

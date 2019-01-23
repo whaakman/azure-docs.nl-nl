@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Inzicht krijgen in de declaratieve inrichting | Microsoft Docs'
+title: 'Azure AD Connect: Informatie over declaratieve inrichting | Microsoft Docs'
 description: Verklaart de declaratieve inrichting configuratiemodel in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315033"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471769"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synchronisatie: inzicht in declaratieve inrichting
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synchronisatie: Inzicht in declaratieve inrichting
 In dit onderwerp wordt uitgelegd dat het configuratiemodel in Azure AD Connect. Het model wordt genoemd declaratieve inrichting en deze kunt u een configuratiewijziging met gemak. Groot aantal dingen die worden beschreven in dit onderwerp zijn geavanceerde en niet vereist voor de meeste klantscenario's.
 
 ## <a name="overview"></a>Overzicht
@@ -52,7 +52,7 @@ Het bereik in deze afbeelding moet worden gelezen als (afdeling IT en land = = D
 
 De scope-module biedt ondersteuning voor de volgende bewerkingen.
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | GELIJK, NOTEQUAL |Het vergelijken van een tekenreeks die wordt geëvalueerd als de waarde is gelijk aan de waarde in het kenmerk. Zie ISIN en ISNOTIN voor meerwaardige kenmerken. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |De vergelijken van een tekenreeks die wordt geëvalueerd als de waarde is dan de waarde in het kenmerk. |
@@ -91,7 +91,7 @@ Een metaverse-object blijft zolang er is een synchronisatieregel binnen het bere
 Wanneer een metaverse-object wordt verwijderd, alle objecten die zijn gekoppeld aan een synchronisatieregel voor uitgaande gemarkeerd voor **inrichten** zijn gemarkeerd voor verwijderen.
 
 ## <a name="transformations"></a>Transformaties
-De transformaties worden gebruikt om te bepalen hoe kenmerken moeten stromen van de bron naar het doel. De stromen kunnen hebben een van de volgende **flow typen**: Direct, -constante of -expressie. Een directe stroom een kenmerkwaarde als stromen-is geen aanvullende transformaties. Een constante waarde wordt ingesteld voor de opgegeven waarde. Een expressie maakt gebruik van de declaratieve inrichting expressietaal Express hoe de transformatie moet worden. De details voor de expressietaal kunnen worden gevonden de [begrijpen declaratieve inrichting expressietaal](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) onderwerp.
+De transformaties worden gebruikt om te bepalen hoe kenmerken moeten stromen van de bron naar het doel. De stromen kunnen hebben een van de volgende **flow typen**: Directe,-constante of -expressie. Een directe stroom een kenmerkwaarde als stromen-is geen aanvullende transformaties. Een constante waarde wordt ingesteld voor de opgegeven waarde. Een expressie maakt gebruik van de declaratieve inrichting expressietaal Express hoe de transformatie moet worden. De details voor de expressietaal kunnen worden gevonden de [begrijpen declaratieve inrichting expressietaal](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) onderwerp.
 
 ![Inrichten of join](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -158,9 +158,9 @@ Voor dit scenario moet u het bereik van de synchronisatieregels wijzigen, zodat 
 
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 
 **Onderwerpen met naslaginformatie**
 
-* [Azure AD Connect-synchronisatie: functieverwijzing](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect-synchronisatie: Functieverwijzing](reference-connect-sync-functions-reference.md)

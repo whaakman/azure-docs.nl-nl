@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f8565fcecab2c17794f94f5a051cc2f269a9d1c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104917"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451033"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning-integratie in Stream Analytics
 Stream Analytics ondersteunt de gebruiker gedefinieerde functies die met Azure Machine Learning-eindpunten aanroepen. REST-API-ondersteuning voor deze functie wordt beschreven in de [REST-API voor Stream Analytics-bibliotheek](https://msdn.microsoft.com/library/azure/dn835031.aspx). In dit artikel bevat aanvullende informatie die nodig zijn voor een succesvolle implementatie van deze mogelijkheid in Stream Analytics. Een zelfstudie is ook geboekt en is beschikbaar [hier](stream-analytics-machine-learning-integration-tutorial.md).
@@ -21,10 +21,10 @@ Stream Analytics ondersteunt de gebruiker gedefinieerde functies die met Azure M
 ## <a name="overview-azure-machine-learning-terminology"></a>Overzicht: Azure Machine Learning-terminologie
 Microsoft Azure Machine Learning biedt een gezamenlijke slepen en neerzetten waarmee u kunt bouwen, testen en implementeren van predictive analytics-oplossingen voor uw gegevens. Dit hulpprogramma heet de *Azure Machine Learning Studio*. De studio wordt gebruikt om te communiceren met de Machine Learning-resources eenvoudig bouwen, testen en herhalen op uw ontwerp. Deze resources en de bijbehorende definities staan hieronder.
 
-* **Werkruimte**: de *werkruimte* is een container met alle andere Machine Learning-resources samen in een container voor controle en beheer.
-* **Experiment**: *experimenten* zijn gemaakt door de datawetenschappers gebruikmaken van gegevenssets en een machine learning-model te trainen.
-* **Eindpunt**: *eindpunten* zijn van de Azure Machine Learning-object gebruikt voor functies als invoer, toepassen van een opgegeven machine learning-model en retourneren ze beoordeelde uitvoer.
-* **Scoring-Webservice**: A *scoring-webservice* is een verzameling van eindpunten, zoals hierboven vermeld.
+* **Workspace**: De *werkruimte* is een container met alle andere Machine Learning-resources samen in een container voor controle en beheer.
+* **Experiment**: *Experimenten* zijn gemaakt door de datawetenschappers gebruikmaken van gegevenssets en een machine learning-model te trainen.
+* **Eindpunt**: *Eindpunten* zijn van de Azure Machine Learning-object gebruikt voor functies als invoer, toepassen van een opgegeven machine learning-model en retourneren ze beoordeelde uitvoer.
+* **Scoring-Webservice**: Een *scoring-webservice* is een verzameling van eindpunten, zoals hierboven vermeld.
 
 Elk eindpunt heeft API's voor Batchuitvoering en synchrone uitvoering. Stream Analytics maakt gebruik van synchrone uitvoering. De specifieke service heet een [aanvraag/antwoord Service](../machine-learning/studio/consume-web-services.md) in AzureML studio.
 
@@ -69,7 +69,7 @@ Voorbeeld van de aanvraag hoofdtekst:
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Aanroep RetrieveDefaultDefinition-eindpunt voor standaard UDF
-Zodra het basisproject UDF is gemaakt wordt de volledige definitie van de UDF nodig. Het eindpunt RetreiveDefaultDefinition krijgt u de standaarddefinitie voor een scalaire functie die is gekoppeld aan een Azure Machine Learning-eindpunt. De nettolading van de onderstaande moet u de standaard UDF-definitie voor een scalaire functie die is gekoppeld aan een Azure Machine Learning-eindpunt ophalen. Hierin worden de werkelijke eindpunt niet opgegeven als deze al is opgegeven tijdens de PUT-aanvraag. Stream Analytics roept het eindpunt dat is opgegeven in de aanvraag als het expliciet is opgegeven. Als deze wordt gebruikt met een oorspronkelijk waarnaar wordt verwezen. De UDF-wordt één parameter (een zin) en retourneert één uitvoer van het type tekenreeks tekenreeks hier wat het label 'gevoel' voor de zin dat aangeeft.
+Zodra het basisproject UDF is gemaakt wordt de volledige definitie van de UDF nodig. Het eindpunt van de RetrieveDefaultDefinition krijgt u de standaarddefinitie voor een scalaire functie die is gekoppeld aan een Azure Machine Learning-eindpunt. De nettolading van de onderstaande moet u de standaard UDF-definitie voor een scalaire functie die is gekoppeld aan een Azure Machine Learning-eindpunt ophalen. Hierin worden de werkelijke eindpunt niet opgegeven als deze al is opgegeven tijdens de PUT-aanvraag. Stream Analytics roept het eindpunt dat is opgegeven in de aanvraag als het expliciet is opgegeven. Als deze wordt gebruikt met een oorspronkelijk waarnaar wordt verwezen. De UDF-wordt één parameter (een zin) en retourneert één uitvoer van het type tekenreeks tekenreeks hier wat het label 'gevoel' voor de zin dat aangeeft.
 
 ````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>

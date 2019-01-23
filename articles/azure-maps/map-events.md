@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b9174d98dd6d4dfb5353d6976d074bb4c91373dc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 16455719f05688793e2aee6f10fa00a707d553c0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678318"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469531"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>In de kaart - muisgebeurtenissen werken
 
-In dit artikel leest u hoe u [klasse toewijzen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [gebeurtenissen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) eigenschap markeren van gebeurtenissen op de kaart en op verschillende lagen van de kaart. Deze ook wordt beschreven hoe u met behulp van de kaart klasse gebeurtenissen eigenschap gebeurtenissen wanneer u met een HTML-markering communiceert markeren.
+In dit artikel leest u hoe u [klasse toewijzen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [gebeurtenissen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) eigenschap markeren van gebeurtenissen op de kaart en op verschillende lagen van de kaart. Deze ook wordt beschreven hoe u met behulp van de kaart klasse gebeurtenissen eigenschap gebeurtenissen wanneer u met een HTML-markering communiceert markeren.
 
 ## <a name="interact-with-the-map"></a>In de kaart werken
 

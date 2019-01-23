@@ -9,19 +9,19 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 9b952bd96828c4f2c140cb2d75cecb9379895a63
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746640"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450448"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Overzicht van Event Hubs .NET Standard-API
 
 In dit artikel vindt u een samenvatting van de sleutel Azure Event Hubs [.NET Standard client-API's](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Er zijn momenteel twee .NET Standard-clientbibliotheken voor Event Hubs:
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): biedt alle basic runtime-bewerkingen.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): extra functionaliteit waarmee het bijhouden van de verwerkte gebeurtenissen, en is de eenvoudigste manier om te lezen van een event hub wordt toegevoegd.
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): Biedt alle basic runtime-bewerkingen.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): Extra functionaliteit waarmee het bijhouden van de verwerkte gebeurtenissen, en is de eenvoudigste manier om te lezen van een event hub wordt toegevoegd.
 
 ## <a name="event-hubs-client"></a>Event Hubs-client
 
@@ -65,7 +65,7 @@ De aanbevolen manier om u te ontvangen van gebeurtenissen van Event Hubs gebruik
 
 #### <a name="create-a-receiver"></a>Een ontvanger maken
 
-Ontvangers zijn gekoppeld aan specifieke partities, dus als u wilt ontvangen van alle gebeurtenissen in een event hub, moet u meerdere exemplaren maken. Het is raadzaam voor de partitie-informatie via de programmacode, in plaats van hard-coding de partitie-id. Als u wilt doen, kunt u de [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) methode.
+Ontvangers zijn gekoppeld aan specifieke partities, dus als u wilt ontvangen van alle gebeurtenissen in een event hub, moet u meerdere exemplaren maken. Het is raadzaam voor de partitie-informatie via een programma, in plaats van hard-coding de partitie-id. Als u wilt doen, kunt u de [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) methode.
 
 ```csharp
 // Create a list to keep track of the receivers

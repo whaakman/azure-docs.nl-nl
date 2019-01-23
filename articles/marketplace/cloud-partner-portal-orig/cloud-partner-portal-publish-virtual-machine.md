@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9a2512c488ac368205da11d79de479a888735729
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078113"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448700"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Een virtuele machine op Azure Marketplace publiceren
 
@@ -84,7 +84,7 @@ Een SKU wordt weergegeven onder de bovenliggende aanbieding in Azure Marketplace
     - Aanbiedingsinstellingen
     - Voorraadeenheden
     - Marketplace
-    - Ondersteuning voor die elke weergave bevat een set velden voor u om in te vullen. Vereiste velden worden aangegeven met een rode akterisksymbool (\*)
+    - Ondersteuning voor die elke weergave bevat een set velden voor u om in te vullen. Vereiste velden worden aangegeven met een rood sterretje (\*)
 
 ## <a name="to-configure-offer-settings"></a>Het configureren van instellingen bieden
 
@@ -134,11 +134,11 @@ Gebruik deze instelling voor het beheren van inzicht SKU. Als 'Deze SKU verberge
 
 Dit veld kunt u de beschikbaarheid van uw SKU definiëren in de verschillende Azure-Clouds.
 
-**Openbare Azure**
+**Public Azure**
 
 Deze SKU kan worden geïmplementeerd voor klanten in alle openbare Azure-regio's die geïntegreerd met Marketplace is.
 
-**Azure Government-Cloud**
+**Azure Government Cloud**
 
 Deze SKU kan worden geïmplementeerd in de Azure Government-Cloud. Voordat u publiceren naar [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), wordt aangeraden uitgevers testen en valideren van de oplossing werkt zoals verwacht. Fase te testen, [een proefaccount aanvragen](https://azure.microsoft.com/offers/ms-azr-usgov-0044p). 
 

@@ -1,6 +1,6 @@
 ---
 title: Data-entiteiten | Microsoft Docs
-description: Een overzicht van diensten voor gegevens.
+description: Een overzicht van data-entiteiten.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7b321ab04df405c56cab0952942b0d6e142da6d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 579856ab87aaf8d051f2e3c161bb2d0e2f693ed5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809852"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446575"
 ---
 # <a name="data-entities"></a>Data-entiteiten
 
@@ -29,7 +29,7 @@ In dit artikel worden gedefinieerd en biedt een overzicht van data-entiteiten. H
 
 Een gegevensentiteit is een abstractie van de fysieke implementatie van databasetabellen. Bijvoorbeeld, in genormaliseerde tabellen veel van de gegevens voor elke klant kan worden opgeslagen in een tabel van de klant en vervolgens de rest kan zijn verdeeld over een kleine set van gerelateerde tabellen. In dit geval de gegevensentiteit voor de klant-concept wordt weergegeven als één denormalisatie weergave, waarin elke rij de gegevens uit de tabel van de klant en de gerelateerde tabellen bevat. Een gegevensentiteit ingekapseld het bedrijfsconcept van een naar een indeling die ontwikkelings- en integratie gemakkelijker maakt. De abstracte aard van een gegevensentiteit kunt vereenvoudigen de ontwikkeling van toepassingen en aanpassing. De abstrahering schermt later ook toepassingscode van het onvermijdelijk verloop van de fysieke tabellen tussen versies.
 
-Om samen te vatten: gegevensentiteit biedt conceptuele abstractie en inkapseling (de gedenormaliseerde weergeven) van de onderliggende tabel schema's om weer te geven van belangrijke gegevens concepten en functies.
+Samenvatting: Gegevensentiteit biedt conceptuele abstractie en inkapseling (de gedenormaliseerde weergeven) van de onderliggende tabel schema's om weer te geven van belangrijke gegevens concepten en functies.
 
 ## <a name="capabilities"></a>Functionaliteit
 

@@ -4,7 +4,7 @@ description: Demonstreert hoe u een hybride identiteit instellen met behulp van 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ed8b2ec0c31adebac72e105ecfc4c5ec28e7b74b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164691"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471868"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Zelfstudie:  Een enkele AD-forest integreren met synchronisatie van wachtwoord-hashes (PHS)
 
@@ -205,8 +205,8 @@ Het is nu tijd om te downloaden en installeren van Azure AD Connect.  Zodra deze
 3. Selecteer in het welkomstscherm het vakje waarmee u aangeeft akkoord te gaan met de licentievoorwaarden en klik op **Doorgaan**.  
 4. Klik in het scherm Expresinstellingen op **Expresinstellingen gebruiken**.</br>  
 ![Maken](media/tutorial-password-hash-sync/express1.png)</br>
-5. Voer op het scherm verbinding maken met Azure AD, de gebruikersnaam en het wachtwoord van de algemene beheerder voor Azure AD. Klik op **Volgende**.  
-6. Voer in het scherm Verbinding maken met Azure AD de gebruikersnaam en het wachtwoord in voor een enterprisebeheerdersaccount. Klik op **Volgende**.  
+5. Voer op het scherm verbinding maken met Azure AD, de gebruikersnaam en het wachtwoord van de algemene beheerder voor Azure AD. Klik op **volgende**.  
+6. Voer in het scherm Verbinding maken met Azure AD de gebruikersnaam en het wachtwoord in voor een enterprisebeheerdersaccount. Klik op **volgende**.  
 7. Klik in het venster Gereed om te configureren op **Installeren**.
 8. Wanneer de installatie is voltooid, klikt u op **Afsluiten**.
 9. Nadat de installatie is voltooid, meldt u zich af en opnieuw aanmelden voordat u de Synchronization Service Manager of Synchronization Rule Editor gebruiken.

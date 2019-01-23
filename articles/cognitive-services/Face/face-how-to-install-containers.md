@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474809"
 ---
 # <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
 
@@ -55,9 +55,9 @@ Als uw aanvraag is goedgekeurd, ontvangt u vervolgens een e-mailbericht met inst
 
 Als u wilt de Face-container gebruiken, moet u een resource Face maken op Azure. Nadat u de resource gemaakt, u vervolgens de URL van abonnement sleutel en het eindpunt van de resource gebruiken voor het instantiëren van de container. Zie voor meer informatie over het instantiëren van een container, [exemplaar maken van een container van een gedownloade containerinstallatiekopie](#instantiate-a-container-from-a-downloaded-container-image).
 
-Voer de volgende stappen uit om te maken en gegevens ophalen uit een bron voor Face:
+Voer de volgende stappen uit om te maken en gegevens ophalen uit een resource Face:
 
-1. Maak een Face-resource in Azure portal.  
+1. Een resource Face maken in Azure portal.  
    Als u de Face-container gebruiken wilt, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie [Snelstart: Een Cognitive Services-account maken in Azure portal](../cognitive-services-apis-create-account.md).
 
 1. De eindpunt-URL en abonnement-sleutel voor de Azure-resource ophalen.  
@@ -178,3 +178,4 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 * Beoordeling [Face overzicht](Overview.md) voor meer informatie over het opsporen en identificeren van gezichten  
 * Raadpleeg de [Face-API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) voor meer informatie over de methoden die wordt ondersteund door de container.
 * Raadpleeg [Veelgestelde vragen (FAQ)](FAQ.md) het oplossen van problemen met betrekking tot Face-functionaliteit.
+* Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)

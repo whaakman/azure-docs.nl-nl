@@ -2,10 +2,10 @@
 title: Azure AD Connect - Update het SSL-certificaat voor AD FS-farm | Microsoft Docs
 description: De Documentdetails van dit van de stappen voor het bijwerken van het SSL-certificaat van AD FS-farm met behulp van Azure AD Connect.
 services: active-directory
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory
+ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.component: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
-ms.openlocfilehash: 8320eae9e1c12123a4379887124dee810998c4e3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cd9d20065c0be580c415100fae470b362b19a3de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314501"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474597"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>De SSL-certificaat voor een Active Directory Federation Services (AD FS)-farm bijwerken
 
@@ -72,7 +72,7 @@ Nadat u het certificaat hebt opgegeven, wordt Azure AD Connect gaat via een reek
 -   De vertrouwensketen van het certificaat is geldig.
 -   Het certificaat is beveiligd met een wachtwoord.
 
-## <a name="step-3-select-servers-for-the-update"></a>Stap 3: Servers voor de update selecteren
+## <a name="step-3-select-servers-for-the-update"></a>Stap 3: Selecteer voor de update-servers
 
 Selecteer de servers die u moeten het SSL-certificaat dat is bijgewerkt in de volgende stap. Servers die offline zijn, kunnen niet worden geselecteerd voor de update.
 

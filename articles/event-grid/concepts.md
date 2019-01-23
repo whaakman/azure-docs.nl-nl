@@ -2,17 +2,17 @@
 title: Azure Event Grid-concepten
 description: Beschrijving van Azure Event Grid en de concepten ervan. Hiermee definieert u enkele belangrijke onderdelen van Event Grid.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: tomfitz
-ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.author: spelluru
+ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747555"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474350"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event Grid
 
@@ -62,7 +62,7 @@ Zie voor meer informatie over het ophalen van uw huidige event grid-abonnementen
 
 De [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor Azure CLI kunt u instellen dat een verlopen bij het maken van een gebeurtenisabonnement datum. Als u de REST-API gebruiken `api-version=2018-09-15-preview`
 
-Het gebeurtenisabonnement is automatisch verlopen na die datum. Instellen dat een verlopen voor gebeurtenisabonnementen die alleen nodig zijn voor een beperkte periode en u niet wilt zorgen maken over het opruimen van deze abonnementen. Bij het maken van een gebeurtenisabonnement voor het testen van een scenario, wilt u mogelijk een verloopdatum instellen. 
+Het gebeurtenisabonnement is na die datum automatisch verlopen. Instellen dat een verlopen voor gebeurtenisabonnementen die alleen nodig zijn voor een beperkte periode en u niet wilt zorgen maken over het opruimen van deze abonnementen. Bij het maken van een gebeurtenisabonnement voor het testen van een scenario, wilt u mogelijk een verloopdatum instellen. 
 
 Zie voor een voorbeeld van het instellen van een verlopen [abonneren met geavanceerde filters](how-to-filter-events.md#subscribe-with-advanced-filters).
 

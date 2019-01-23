@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 67bfde828287d9892ad404f3d950dbe373503a56
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5172ba9881f80e202bdc69689e67befb79101dc0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828340"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450657"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Een IoT Edge-apparaat toevoegt aan uw oplossingsverbetering voor externe controle
 
@@ -24,9 +24,9 @@ Om toe te voegen een [IoT Edge](../iot-edge/about-iot-edge.md) apparaat naar uw 
 
 ## <a name="add-the-iot-edge-device"></a>De IoT Edge-apparaat toevoegen
 
-Een IoT Edge-apparaat toevoegen aan de oplossingsverbetering voor externe controle, gaat u naar de **apparaten** pagina in de web-UI en op **+ nieuwe apparaat**.
+Als u een IoT Edge-apparaat wilt toevoegen aan de oplossingsverbetering voor Externe bewaking, gaat u naar de pagina **Apparaten** in de webgebruikersinterface en klikt u op **+ Nieuw apparaat**.
 
-In de **nieuw apparaat** deelvenster, kiest u **IoT Edge-apparaat**. U kunt de standaardwaarden voor de overige instellingen op te laten. Klik vervolgens op **Toepassen**:
+In de **nieuw apparaat** deelvenster, kiest u **IoT Edge-apparaat**. Voor de overige instellingen kunt u de standaardwaarden gebruiken. Klik vervolgens op **Toepassen**:
 
 ![IoT Edge-apparaat toevoegen](media/iot-accelerators-remote-monitoring-add-edge-device/addedgedevice.png)
 
@@ -42,7 +42,7 @@ Wanneer u een apparaat rechtstreeks met de IoT hub in de oplossingsverbetering v
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge-runtime installeren
 
-Voordat u modules voor uw Edge-apparaat implementeren kunt, moet u de IoT Edge-runtime installeren op het fysieke apparaat. De volgende handleidingen ziet u hoe u de runtime op algemene apparaatplatformen installeert:
+Voordat u modules voor uw Edge-apparaat implementeren kunt, moet u de IoT Edge-runtime installeren op de echt apparaat. De volgende handleidingen ziet u hoe u de runtime op algemene apparaatplatformen installeert:
 
 - [De Azure IoT Edge-runtime installeren in Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
 - [Azure IoT Edge-runtime installeren in Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)

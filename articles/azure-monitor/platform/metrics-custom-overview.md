@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: aacfc98a9132a59c90a8f67d5a3877b75fa59dfe
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.subservice: metrics
+ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605582"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467891"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Aangepaste metrische gegevens in Azure Monitor
 
@@ -32,7 +32,7 @@ Wanneer u aangepaste metrische gegevens verzenden naar Azure Monitor, elk gegeve
 ### <a name="authentication"></a>Verificatie
 Om in te dienen aangepaste metrische gegevens naar Azure Monitor, de entiteit die is ingediend door de metrische gegevens moet een geldig Azure Active Directory (Azure AD)-token in de **Bearer** -header van de aanvraag. Er zijn enkele ondersteunde manieren om een geldige bearer-token verkrijgen:
 1. [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Geeft een identiteit die tot een Azure-resource zelf, zoals een virtuele machine. Beheerde Service Identity (MSI) is ontworpen om u te machtigen voor resources bepaalde bewerkingen uitvoeren. Een voorbeeld toe dat er een resource om te verzenden van metrische gegevens over zelf. Een resource of het MSI-bestand, kan worden verleend **bewaking metrische gegevens Publisher** machtigingen op een andere resource. Met deze machtiging beschikt, kan het MSI-bestand metrische gegevens voor andere resources ook verzenden.
-2. [Azure AD-Service-Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In dit scenario, een Azure AD-toepassing of service, kunnen machtigingen worden toegewezen om te verzenden van metrische gegevens over een Azure-resource.
+2. [Azure AD Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In dit scenario, een Azure AD-toepassing of service, kunnen machtigingen worden toegewezen om te verzenden van metrische gegevens over een Azure-resource.
 Azure Monitor wordt het toepassingstoken voor de verificatie van de aanvraag heeft gevalideerd met behulp van openbare sleutels van Azure AD. De bestaande **bewaking metrische gegevens Publisher** rol al over deze machtiging beschikt. Het is beschikbaar in Azure portal. De service-principal, afhankelijk van welke resources er aangepaste metrische gegevens voor, verzendt kan worden opgegeven die de **Publisher van metrische gegevens controleren** rol bij het bereik dat is vereist. Voorbeelden zijn een abonnement, resourcegroep of specifieke resource.
 
 > [!NOTE]  
@@ -80,7 +80,7 @@ Bij het publiceren van een metrische waarde, kunt u alleen een waarde van één 
 Azure Monitor slaat alle metrische gegevens met granulariteit van één minuut intervallen. We begrijpen dat gedurende een bepaalde minuut een metrische waarde moet mogelijk meerdere keren worden verzameld. Een voorbeeld is de CPU-gebruik. Of misschien nodig zijn voor veel afzonderlijke gebeurtenissen worden gemeten. Een voorbeeld is aanmelden transactie latenties. Als u wilt beperken het nummer van ruwe waarden die u moet verzenden en te betalen in Azure Monitor, kunt u lokaal vooraf aggregeren en hoe de waarden:
 
 * **Min**: De minimale waargenomen waarde van de voorbeelden en metingen in de minuut.
-* **Maximale**: De maximale waargenomen waarde van de voorbeelden en metingen in de minuut.
+* **Max**: De maximale waargenomen waarde van de voorbeelden en metingen in de minuut.
 * **Som**: De som van alle waarden in de voorbeelden en metingen waargenomen in de minuut.
 * **Aantal**: Het aantal voorbeelden en metingen in de minuut.
 
@@ -92,13 +92,13 @@ Bijvoorbeeld, als er zijn 4 aanmelden transacties aan uw app gedurende een opgeg
 |
 
 Vervolgens zou de resulterende metrische publicatie naar Azure Monitor als volgt zijn:
-* Min.: 4
+* Min: 4
 * Max.: 16
 * Som: 40
 * Aantal: 4
 
 Als uw toepassing kan niet worden vooraf aggregeren lokaal en moet elke afzonderlijke voorbeeld of gebeurtenis onmiddellijk na verzameling verzenden, kunt u de onbewerkte meetwaarden kan verzenden. Bijvoorbeeld, telkens wanneer een transactie aanmelding wordt uitgevoerd op uw app u metrische gegevens publiceren naar Azure Monitor met alleen een meting. Dus voor een aanmelding transactie die 12 ms duurde, zou de metrische publicatie zijn als volgt:
-* Min.: 12
+* Min: 12
 * Max.: 12
 * Som: 12
 * Aantal: 1

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bc044c8b59c939163336ecab01546fc26a7a2643
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e5bcd6d9923b4051d44d51ff1a2534bc5e02f41
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809961"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445657"
 ---
 <a name="publish-an-azure-managed-application-to-azure-marketplace"></a>Een Azure beheerde toepassing in Azure Marketplace publiceren 
 ========================================================
@@ -88,7 +88,7 @@ Een SKU wordt weergegeven onder de bovenliggende aanbieding in Azure Marketplace
 
 3.  Een nieuwe aanbieding \"Editor\" weergave wordt nu geopend en kunt u gaan ontwerpen.
 
-4.  De \"formulieren\" die moeten worden ingevuld zijn zichtbaar aan de linkerkant binnen de \"Editor\" weergeven. Elke \"formulier\" bestaat uit een set velden die moeten worden ingevuld. Vereiste velden zijn gemarkeerd met een rode akterisksymbool (\*).
+4.  De \"formulieren\" die moeten worden ingevuld zijn zichtbaar aan de linkerkant binnen de \"Editor\" weergeven. Elke \"formulier\" bestaat uit een set velden die moeten worden ingevuld. Vereiste velden zijn gemarkeerd met een rood sterretje (\*).
 
     > Er zijn 4 hoofdformulieren voor het ontwerpen van een beheerde toepassing
 

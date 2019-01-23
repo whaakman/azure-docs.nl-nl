@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect-synchronisatie: het wachtwoord van het AD DS-account wijzigen | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie:  Het wachtwoord van het AD DS-account wijzigen | Microsoft Docs'
 description: Dit document onderwerp wordt beschreven hoe u Azure AD Connect bijwerken nadat het wachtwoord van het AD DS-account is gewijzigd.
 services: active-directory
 keywords: AD DS-account, Active Directory-account, wachtwoord
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 051ff6aa4e650f884a4712376b5dc420cc86fc3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1b487651e938beadcada78eaf51b3f50beb7acf1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311673"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470532"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Het wachtwoord van het AD DS-account wijzigen
 De AD DS-account verwijst naar het gebruikersaccount dat door Azure AD Connect gebruikt om te communiceren met on-premises Active Directory. Als u het wachtwoord van het AD DS-account wijzigt, moet u Azure AD Connect-synchronisatieservice bijwerken met het nieuwe wachtwoord. Anders wordt de synchronisatie kan niet meer correct synchroniseren met de on-premises Active Directory en u de volgende fouten optreden:
@@ -54,6 +54,6 @@ De synchronisatieservice bijwerken met het nieuwe wachtwoord:
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
 
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)

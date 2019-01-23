@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790755"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471647"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-extensie configuration schema-versies en de geschiedenis
 Deze pagina indexen Azure Diagnostics-extensie schema versies geleverd als onderdeel van de Microsoft Azure SDK.  
@@ -210,3 +210,4 @@ Als u uw project van Azure SDK 2.4 naar Azure SDK 2.5 of hoger bijwerkt, u moet 
 * **Diagnostische gegevens voor cloudtoepassingen van de service kan alleen worden geconfigureerd op het rolniveau van de, niet op het exemplaarniveau van het.**
 * **Telkens wanneer u uw app implementeert, de configuratie van de diagnostische gegevens wordt bijgewerkt** – Hierdoor kunnen problemen met de functiepariteit als u de configuratie van uw diagnostische gegevens vanuit Server Explorer wijzigen en implementeert u uw app opnieuw.
 * **In de Azure SDK 2.5 of hoger, crashdumps zijn geconfigureerd in het configuratiebestand van de diagnostische gegevens niet in de code** – als u crashdumps die zijn geconfigureerd in de code hebt, hebt u handmatig de configuratie van code overbrengen naar het configuratiebestand, omdat de crashdumps worden niet overgedragen tijdens de migratie naar Azure SDK 2.6.
+

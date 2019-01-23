@@ -4,7 +4,7 @@ description: Een lijst met kenmerken die zijn gesynchroniseerd met Azure Active 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251795"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468604"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: kenmerken gesynchroniseerd naar Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: Kenmerken gesynchroniseerd naar Azure Active Directory
 In dit onderwerp worden de kenmerken die door Azure AD Connect-synchronisatie worden gesynchroniseerd.  
 De kenmerken zijn gegroepeerd op de bijbehorende Azure AD-app.
 
@@ -61,7 +61,7 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | CO |X |X | | |
 | Bedrijf |X |X | | |
 | countryCode |X |X | | |
-| Afdeling |X |X | | |
+| department |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -142,7 +142,7 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
-| msOrg IsOrganizational | | |X | |
+| msOrg-IsOrganizational | | |X | |
 | objectSID |X | |X |mechanische eigenschap. AD gebruikers-id gebruikt voor het onderhouden van de synchronisatie tussen Azure AD en AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
@@ -183,7 +183,7 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | CO |X |X | | |
 | Bedrijf |X |X | | |
 | countryCode |X |X | | |
-| Afdeling |X |X | | |
+| department |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -263,7 +263,7 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | algemene naam |X | |X | |
 | CO |X |X | | |
 | Bedrijf |X |X | | |
-| Afdeling |X |X | | |
+| department |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
@@ -409,7 +409,7 @@ Een Windows 10 domein computer(device) worden enkele kenmerken naar Azure AD ges
 | ms-DS-CreatorSID |X |Ook wel registeredOwnerReference genoemd. |
 | objectGUID |X |Ook wel de apparaat-id genoemd. |
 | objectSID |X |Ook wel onPremisesSecurityIdentifier genoemd. |
-| het besturingssysteem |X |Ook wel deviceOSType genoemd. |
+| operatingSystem |X |Ook wel deviceOSType genoemd. |
 | operatingSystemVersion |X |Ook wel deviceOSVersion genoemd. |
 | userCertificate |X | |
 
@@ -424,15 +424,15 @@ Deze kenmerken voor **gebruiker** worden naast de andere apps die u hebt geselec
 ## <a name="exchange-hybrid-writeback"></a>Exchange hybrid Write-back
 Deze kenmerken worden teruggeschreven van Azure AD naar on-premises Active Directory wanneer u selecteert om in te schakelen **Exchange hybride**. Afhankelijk van uw versie van Exchange mogelijk minder kenmerken worden gesynchroniseerd.
 
-| De naam van het kenmerk (verbinding maken met de gebruikersinterface) |De naam van het kenmerk (On-premises AD) | Gebruiker | Contactpersoon | Groep | Opmerking |
+| De naam van het kenmerk (verbinding maken met de gebruikersinterface) |Attribute Name (On-premises AD) | Gebruiker | Contactpersoon | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Afgeleid van de waarde voor cloudAnchor in Azure AD. Dit kenmerk is er nieuw in Exchange 2016 en Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online archief: Kunnen klanten voor het archiveren van e-mail. |
 | msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filteren: Schrijft terug on-premises filteren en online veilige en geblokkeerde afzender gegevens van clients. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Inschakelen van Unified Messaging (UM) - Online voicemail: gebruikt door Microsoft Lync Server integratie om aan te geven voor Lync Server ter plaatse dat de gebruiker voicemail in de online services heeft. |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Rechtszaak wachtstand: Hiermee cloudservices om te bepalen welke gebruikers zijn onder gerechtelijke procedures bevatten. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Unified Messaging (UM) - Online voicemail inschakelen: Gebruikt door Microsoft Lync Server integratie om aan te geven voor Lync Server ter plaatse dat de gebruiker voicemail in de online services heeft. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Wachtstand gerechtelijke procedures: Hiermee cloud services om te bepalen welke gebruikers zijn onder gerechtelijke procedures bevatten. |
 | proxyAddresses| proxyAddresses |X |X |X |Alleen de x500 adres van Exchange Online wordt ingevoegd. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Hiermee kunt een Exchange Online-postbus SendOnBehalfTo rechten voor gebruikers met een on-premises Exchange-postvak worden verleend. Azure AD Connect build 1.1.552.0 vereist of na. |
 
@@ -455,9 +455,9 @@ Apparaatobjecten zijn gemaakt in Active Directory. Deze objecten kunnen worden t
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |
-| DN-naam |X | |
+| dn |X | |
 | msDS-CloudAnchor |X | |
-| msDS-apparaat-id |X | |
+| msDS-DeviceID |X | |
 | msDS-DeviceObjectVersion |X | |
 | msDS-DeviceOSType |X | |
 | msDS-DeviceOSVersion |X | |

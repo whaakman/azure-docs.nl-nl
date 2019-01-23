@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 69e3708ef4c31e2dd91b5f50baecc46ea129cf33
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346194"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452221"
 ---
-# <a name="device-simulation-solution-accelerator-overview"></a>Overzicht van apparaat simulatie van de oplossingsversneller
+# <a name="device-simulation-solution-accelerator-overview"></a>Overzicht van de oplossingsversneller voor apparaatsimulatie
 
 In een cloud-gebaseerde IoT-oplossing verbinden uw apparaten met een cloudeindpunt voor het verzenden van telemetriegegevens zoals temperatuur, de locatie en status. Uw oplossing verbruikt deze telemetrische gegevens, zodat u kunt het uitvoeren van acties of inzichten die zijn afgeleid van het.
 
@@ -28,7 +28,7 @@ Wanneer u een IoT-oplossing ontwikkelt, zijn experimenteren en daarvan te testen
 
 ![Voorbeeld drone simulatie](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
 
-Met Apparaatsimulatie, kunt u modellen voor apparaten om te simuleren van uw fysieke apparaten definiëren. Dit model bevat berichtindelingen, dubbeleigenschappen en methoden. U kunt ook complexe apparaatgedrag met JavaScript simuleren.
+Met Apparaatsimulatie, kunt u modellen voor apparaten om te simuleren uw echte apparaten definiëren. Dit model bevat berichtindelingen, dubbeleigenschappen en methoden. U kunt ook complexe apparaatgedrag met JavaScript simuleren.
 
 U kunt simulaties uitvoeren voor één tot duizenden apparaten die verbinding maken met een IoT-hub. Om u te helpen bij het testen, kunt u eventueel een IoT-hub, samen met Apparaatsimulatie voor een zelfstandige omgeving implementeren.
 

@@ -1,6 +1,6 @@
 ---
 title: Instellen van uw toepassing in de Portal voor publiceren | Microsoft Docs
-description: De instructies in het instellen van uw toepassingen in de Cloud-Portal voor publiceren.
+description: De instructies in het instellen van uw toepassing in de Cloud-Portal voor publiceren.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809475"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448480"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Instellen van uw toepassing in de Portal voor publiceren
 
@@ -59,7 +59,7 @@ bijvoorbeeld, als een uitgever **'contoso'** uitgevers maakt u een aanbieding me
 
 Deze vervolgkeuzelijst kunt u de uitgeverprofiel dat u wilt publiceren, deze aanbieding onder kiezen. Dit veld is vergrendeld zodra een aanbieding live meteen.
 
-### <a name="name"></a>Naam
+### <a name="name"></a>Name
 
 Dit is de weergavenaam voor uw aanbieding. Dit is de naam die wordt weergegeven in de [AppSource](https://appsource.microsoft.com/). De naam mag maximaal 50 tekens bevatten.
 
@@ -82,15 +82,15 @@ De meeste uitgevers laat deze velden met de standaardwaarden, gebruiker, Nee, ge
 
 Hier volgt een uitleg voor deze velden:
 
-* Bestandsnaam van het pakket: de naam van het bestand dat u hebt gemaakt in de bovenstaande stap bij het maken van het zip-bestand dat is uw CRM AppSource-pakket. In het bovenstaande voorbeeld is ' Microsoft\_SamplePackage.zip '.
-* URL van de locatie van uw pakket: dit is de URL naar de Azure Storage-account met de naam van het pakket opgegeven hierboven. Het is de URL in stap 9 van de voorgaande sectie hebt gemaakt.
-* Is er meer dan één crm-pakket in uw pakketbestand: Selecteer Ja **alleen** als u ondersteuning voor meerdere versies van crm met verschillende pakketten bieden. Dit is voor de meeste partners "Nee". Als u Ja selecteert, moet u AppSource om pakketten te maken voor elke versie van uw oplossing. _Opmerking: Dit is niet gevraagd om als er meerdere **zip** bestanden. Als u meerdere solution.zip bestanden, maar slechts één versie hebt, moet u nog steeds selecteren 'Nee '. Het hulpprogramma verpakking wordt Breng deze samen in automatisch._
+* Naam van uw pakket: Naam van het bestand u gemaakt in de bovenstaande stap bij het maken van het zip-bestand dat is uw CRM AppSource-pakket. In het bovenstaande voorbeeld is ' Microsoft\_SamplePackage.zip '.
+* URL van de locatie van uw pakket: Dit is de URL van de Azure Storage-account met de naam van het pakket opgegeven hierboven. Het is de URL in stap 9 van de voorgaande sectie hebt gemaakt.
+* Is er meer dan één crm-pakket in uw pakketbestand: Selecteer Ja **alleen** als u ondersteuning voor meerdere versies van crm met verschillende pakketten bieden. Dit is voor de meeste partners "Nee". Als u Ja selecteert, moet u AppSource om pakketten te maken voor elke versie van uw oplossing. _Opmerking: Dit wordt niet gevraagd om als er meerdere **zip** bestanden. Als u meerdere solution.zip bestanden, maar slechts één versie hebt, moet u nog steeds selecteren 'Nee '. Het hulpprogramma verpakking wordt Breng deze samen in automatisch._
 
 ### <a name="crm-package-availability"></a>Beschikbaarheid van CRM-pakket
 
 In deze sectie, selecteer welke regio's van uw pakket wordt beschikbaar gesteld aan CRM. Zie de koppeling voor informatie op welke regio's welke landen bedienen: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
 
-Opmerking: Voor Duitsland implementeren 'Onafhankelijke en VS (overheid)-Cloud' onafhankelijke vereist speciale MACHTIGINGEN en validatie tijdens de certificering
+Opmerking: Implementeren naar Duitsland 'Onafhankelijke en VS (overheid)-Cloud' onafhankelijke vereist speciale MACHTIGINGEN en validatie tijdens de certificering
 
 ## <a name="storefront-details"></a>StoreFront Details
 
@@ -184,7 +184,7 @@ Voer de URL voor ondersteuning voor uw app.
 
 ### <a name="lead-destination"></a>Bestemming leiden
 
-Selecteer een CRM-systeem indien u leiden worden, opgeslagen. 'Azure Table' Hier selecteert, hebt u een van de volgende CRM-systemen: Salesforce, Marketo, Microsoft Dynamics CRM. De CRM-systeem die u hier selecteert, wordt waar we de details van eindgebruikers die uw Apps weer op AppSource (leads proberen) worden geschreven. Afhankelijk van de CRM-systeem dat u selecteert, klikt u op de bijbehorende URL hieronder voor meer informatie over het uitvoeren van de volgende set met velden
+Selecteer een CRM-systeem indien u leiden worden, opgeslagen. Selecteer 'Azure Table' hier hebt u een van de volgende CRM-systemen: Salesforce, Marketo, Microsoft Dynamics CRM. De CRM-systeem die u hier selecteert, wordt waar we de details van eindgebruikers die uw Apps weer op AppSource (leads proberen) worden geschreven. Afhankelijk van de CRM-systeem dat u selecteert, klikt u op de bijbehorende URL hieronder voor meer informatie over het uitvoeren van de volgende set met velden
 
 * [Azure-tabel](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

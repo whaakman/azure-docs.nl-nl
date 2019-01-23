@@ -4,7 +4,7 @@ description: Identificeer de bedrijfsbehoeften van het bedrijf die u voor het de
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 756d55fe535d424bf796e24968cfdc9c82721c1c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9be8ddb6869a4872ff3eae9b589584f850c7dc96
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312758"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463603"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Bepaal de identiteitsvereisten voor voor uw oplossing voor hybride identiteit
 De eerste stap bij het ontwerpen van een oplossing voor hybride identiteit is om te bepalen van de vereisten voor de organisatie van de bedrijven die zal worden gebruik te maken van deze oplossing.  Hybride identiteit wordt gestart als een ondersteunende rol uitvoeren (deze ondersteunt alle cloudoplossingen door verificatie te bieden) en gaat op nieuwe en interessante mogelijkheden die voor gebruikers van nieuwe werkbelasting ontgrendelen.  Deze werkbelastingen of services die u wilt vaststellen voor uw gebruikers worden bepaald door de vereisten voor het ontwerp van de hybride identiteit.  Deze werkbelastingen en services moeten gebruikmaken van hybride identiteit zowel on-premises en in de cloud.  
@@ -69,7 +69,7 @@ Vervolgens moet u de identity Integratievereisten evalueren. Deze evaluatie is b
 * Een vereiste voor Federatie is?  Vanwege de volgende:
   * Eenmalige aanmelding op basis van Kerberos
   * Uw bedrijf heeft een on-premises toepassingen (een ingebouwd interne of 3rd party) die gebruikmaakt van SAML of soortgelijke Federatie-mogelijkheden.
-  * MFA via smartcards. RSA SecurID, enzovoort.
+  * MFA via smartcards. RSA SecurID, etc.
   * Toegangsregels voor clients die de onderstaande vragen verhelpen:
     1. Kan ik alle externe toegang tot Office 365 op basis van het IP-adres van de client blokkeren?
     2. Kan ik alle externe toegang tot Office 365, met uitzondering van Exchange ActiveSync blokkeren?

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: a19b06e1297b86610ecee01a4e84150813cdb208
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261614"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452395"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Een oplossingssjabloon publiceren in Azure Marketplace
 
@@ -84,7 +84,7 @@ Een SKU wordt weergegeven onder de bovenliggende aanbieding in Azure Marketplace
     - Marketplace
     - Ondersteuning
 
-Elke weergave bevat een set velden voor u om in te vullen. Vereiste velden worden aangegeven met een rode akterisksymbool (\*)
+Elke weergave bevat een set velden voor u om in te vullen. Vereiste velden worden aangegeven met een rood sterretje (\*)
 
 ## <a name="to-configure-offer-settings"></a>Het configureren van instellingen bieden
 
@@ -139,7 +139,7 @@ Geef de volgende instellingen voor de SKU.
 - **Titel** -een titel voor de SKU. Deze titel wordt weergegeven in de galerie voor dit item.
 - **Samenvatting** : een korte samenvatting beschrijving van de SKU. (Maximale lengte is 100 tekens.)
 - **Beschrijving** : een gedetailleerde beschrijving van de SKU.
-- **SKU-Type** -een vervolgkeuzelijst met deze waarden: 'Managed-toepassing (Preview)' en 'Oplossingssjabloon'. Selecteer voor dit scenario **oplossingssjabloon**.
+- **SKU-Type** -een vervolgkeuzelijst met deze waarden: "Beheerde toepassing (Preview)" en 'Oplossingssjabloon'. Selecteer voor dit scenario **oplossingssjabloon**.
 - **Beschikbaarheid in de cloud** -de locatie van de SKU. De standaardwaarde is **openbare Azure**.
 
 ### <a name="package-details"></a>Pakketdetails

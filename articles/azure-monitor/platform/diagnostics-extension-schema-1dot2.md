@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 69caec10c1be067cf9e8fc7ad83c8daeaced2bda
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 6a0061c03a10f5a5bd518c9ea01d8edd542e4e39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106683"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470559"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure Diagnostics 1.2 configuratieschema
 > [!NOTE]
@@ -102,7 +102,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**StorageAccount**|De naam van de Azure Storage-account voor het opslaan van de gegevens in. Dit kan ook worden opgegeven als parameter bij het uitvoeren van de cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**LocalResourceDirectory**|De map op de virtuele machine moet worden gebruikt door de Monitoring Agent voor het opslaan van gebeurtenisgegevens. Als dat niet is ingesteld, de standaard-map wordt gebruikt:<br /><br /> Voor een rol Worker/webservice: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Voor een virtuele Machine: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Vereiste kenmerken zijn:<br /><br /> -                      **pad** -de map op het systeem moet worden gebruikt door Azure Diagnostics.<br /><br /> -                      **expandEnvironment** -bepaalt of omgevingsvariabelen worden uitgebreid in het padnaam.|  
 
-## <a name="wadcfg-element"></a>WadCFG-Element  
+## <a name="wadcfg-element"></a>WadCFG Element  
 Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen. De volgende tabel beschrijft de onderliggende elementen:  
 
 |De naam van element|Description|  
@@ -130,7 +130,7 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 
 |De naam van element|Description|  
 |------------------|-----------------|  
-|**Gegevensbronnen**|Een lijst met mappen om te controleren.|  
+|**DataSources**|Een lijst met mappen om te controleren.|  
 |**FailedRequestLogs**|Met inbegrip van dit element in de configuratie kunt verzamelen van logboeken over mislukte aanvragen voor een IIS-site of toepassing. U moet ook traceringsopties onder inschakelen **system. WebServer** in **Web.config**.|  
 |**IISLogs**|Met inbegrip van dit element in de configuratie kunt u het verzamelen van IIS-logboeken:<br /><br /> **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van de IIS-logboeken.|  
 
@@ -141,7 +141,7 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 |------------------|-----------------|  
 |**DirectoryConfiguration**|Vereist. Vereist kenmerk:<br /><br /> **containerName** -de naam van de blob-container in uw Azure Storage-account moet worden gebruikt voor het opslaan van de logboekbestanden.|  
 
-## <a name="directoryconfiguration-element"></a>DirectoryConfiguration-Element  
+## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
  **DirectoryConfiguration** omvat mogelijk een de **Absolute** of **LocalResource** element, maar niet beide. De volgende tabel beschrijft de onderliggende elementen:  
 
 |De naam van element|Description|  
@@ -149,7 +149,7 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 |**Absolute**|Het absolute pad naar de map om te controleren. De volgende kenmerken zijn vereist:<br /><br /> -                     **Pad** -het absolute pad naar de map om te controleren.<br /><br /> -                      **expandEnvironment** -configureert u of omgevingsvariabelen in het pad worden uitgevouwen.|  
 |**LocalResource**|Het pad relatief ten opzichte van een lokale bron om te controleren. Vereiste kenmerken zijn:<br /><br /> -                     **Naam** -de lokale resource die de map voor het bewaken van bevat<br /><br /> -                     **relativePath** -het pad relatief ten opzichte van de naam die de map voor het bewaken van bevat|  
 
-## <a name="etwproviders-element"></a>EtwProviders-Element  
+## <a name="etwproviders-element"></a>EtwProviders Element  
  Hiermee configureert u verzamelen van ETW-gebeurtenissen uit de gebeurtenisbron en/of ETW Manifest op basis van de providers. De volgende tabel beschrijft de onderliggende elementen:  
 
 |De naam van element|Description|  
@@ -157,7 +157,7 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 |**EtwEventSourceProviderConfiguration**|Hiermee configureert u verzamelen van gebeurtenissen die zijn gegenereerd op basis van [EventSource klasse](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Vereist kenmerk:<br /><br /> **provider** -de naam van de klasse van de gebeurtenis gebeurtenisbron.<br /><br /> Optionele kenmerken zijn:<br /><br /> -                     **scheduledTransferLogLevelFilter** -het minimale ernstniveau om over te dragen naar uw opslagaccount.<br /><br /> -                     **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [duur van het gegevenstype XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**EtwManifestProviderConfiguration**|Vereist kenmerk:<br /><br /> **provider** -de GUID van de gebeurtenisprovider<br /><br /> Optionele kenmerken zijn:<br /><br /> - **scheduledTransferLogLevelFilter** -het minimale ernstniveau om over te dragen naar uw opslagaccount.<br /><br /> -                     **scheduledTransferPeriod** -het interval tussen de geplande overdrachten naar de opslag naar boven afgerond op de dichtstbijzijnde minuut. De waarde is een [duur van het gegevenstype XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
-## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration-Element  
+## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
  Hiermee configureert u verzamelen van gebeurtenissen die zijn gegenereerd op basis van [EventSource klasse](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). De volgende tabel beschrijft de onderliggende elementen:  
 
 |De naam van element|Description|  
@@ -165,7 +165,7 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 |**DefaultEvents**|Optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
 |**Gebeurtenis**|Vereist kenmerk:<br /><br /> **id** -de id van de gebeurtenis.<br /><br /> Optionele kenmerk:<br /><br /> **eventDestination** -de naam van de tabel voor het opslaan van de gebeurtenissen in|  
 
-## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration-Element  
+## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
  De volgende tabel beschrijft de onderliggende elementen:  
 
 |De naam van element|Description|  
@@ -194,9 +194,10 @@ Definieert de configuratie-instellingen voor de telemetriegegevens te verzamelen
 |------------------|-----------------|  
 |**Aantekening**|Vereist kenmerk:<br /><br /> **displayName** -de weergavenaam voor de teller<br /><br /> Optionele kenmerk:<br /><br /> **landinstelling** -de landinstelling die moet worden gebruikt bij het weergeven van de naam van het prestatiemeteritem|  
 
-## <a name="windowseventlog-element"></a>WindowsEventLog-Element  
+## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  De volgende tabel beschrijft de onderliggende elementen:  
 
 |De naam van element|Description|  
 |------------------|-----------------|  
-|**Gegevensbron**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '.|
+|**DataSource**|De Windows-gebeurtenislogboeken te verzamelen. Vereist kenmerk:<br /><br /> **naam** : de XPath-query met een beschrijving van de windows-gebeurtenissen te verzamelen. Bijvoorbeeld:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Geef voor het verzamelen van alle gebeurtenissen, ' * '.|
+

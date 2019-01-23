@@ -5,7 +5,7 @@ services: active-directory
 keywords: Wat is Azure AD Connect, Active Directory installeren onderdelen vereist voor Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aab7929539fb4a4b9001da89770730d8afbe286
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: aea83029ea5576886ab3eefd065c3f6db62ddc5f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244662"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465564"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: Snel starten
 
@@ -184,7 +184,7 @@ Mozilla Firefox niet automatisch Kerberos-verificatie gebruiken. Elke gebruiker 
 4. Voer `https://autologon.microsoftazuread-sso.com` in het veld.
 5. Selecteer **OK** en Open de browser.
 
-#### <a name="safari-macos"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (macOS)
 
 Zorg ervoor dat de machine met de macOS is gekoppeld aan AD. Instructies voor het lidmaatschap van AD uw macOS-apparaat is buiten het bereik van dit artikel.
 

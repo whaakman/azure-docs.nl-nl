@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 63eb894c64919826922fa60f4e12894542a97c69
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994162"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447357"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Over het gebruik van Twilio voor spraak en SMS-mogelijkheden in Python
 Deze handleiding laat zien hoe u algemene programming taken met de Twilio API-service op Azure uitvoeren. De behandelde scenario's omvatten een telefonische oproep maken en verzenden van een bericht Short Message Service (SMS). Zie voor meer informatie over Twilio en het gebruik van spraak en SMS-berichten in uw toepassingen, de [Vervolgstappen](#NextSteps) sectie.
@@ -46,8 +46,8 @@ De API maakt gebruik van Twilio termen; bijvoorbeeld, de **&lt;zeg&gt;** term ge
 
 Hier volgt een lijst met Twilio-bewerkingen. Meer informatie over de andere bewerkingen en mogelijkheden via [Twilio Markup Language documentatie][twiml].
 
-* **&lt;Externe&gt;**: De oproepende functie verbindt met een ander telefoonnummer.
-* **&lt;Verzamel&gt;**: Verzamelt cijfers ingevoerd op het telefoonnummer.
+* **&lt;Dial&gt;**: De oproepende functie verbindt met een ander telefoonnummer.
+* **&lt;Gather&gt;**: Verzamelt cijfers ingevoerd op het telefoonnummer.
 * **&lt;Ophangen&gt;**: Een gesprek is beëindigd.
 * **&lt;Onderbreken&gt;**: Wacht op de achtergrond gedurende een opgegeven aantal seconden.
 * **&lt;Afspelen&gt;**: Hiermee wordt een geluidsbestand afgespeeld.
@@ -56,7 +56,7 @@ Hier volgt een lijst met Twilio-bewerkingen. Meer informatie over de andere bewe
 * **&lt;Omleiden&gt;**: Het besturingselement van de overdracht van een telefoongesprek of SMS aan de TwiML op een andere URL.
 * **&lt;Afwijzen&gt;**: Een binnenkomende oproep naar uw Twilio-getal afwijzen zonder facturering u.
 * **&lt;Stel dat&gt;**: Converteert tekst naar spraak die wordt gemaakt op een aanroep.
-* **&lt;SMS&gt;**: Verzendt een SMS-bericht.
+* **&lt;Sms&gt;**: Verzendt een SMS-bericht.
 
 ### <a id="TwiML"></a>TwiML
 TwiML is een set op basis van de Twilio-termen die Twilio van het verwerken van een oproep of SMS op de hoogte op basis van een XML-instructies.
@@ -89,7 +89,7 @@ Eerste, [instellen een nieuwe Azure Linux VM] [azure_vm_setup] om te fungeren al
 
 ### <a name="set-the-dns-name-label"></a>Stel de DNS-naamlabel
   1. Ga naar de pagina [het openbare IP-adressen] [azure_ips].
-  2. Selecteer het openbare IP-adres dat correspends met uw virtuele Machine.
+  2. Selecteer de openbare IP-adres dat overeenkomt met uw virtuele Machine.
   3. Stel de **DNS-naamlabel** in de **configuratie** sectie. In het geval van dit voorbeeld wordt het resultaat er ongeveer als volgt *uw-domeinlabel*. centralus.cloudapp.azure.com
 
 Wanneer u bent geen verbinding maken via SSH met de virtuele Machine kunt u de Web-Framework van uw keuze (de twee meest bekende in Python wordt [Flask](http://flask.pocoo.org/) en [Django](https://www.djangoproject.com)). U kunt een van beide installeren door te voeren de `pip install` opdracht.
@@ -233,7 +233,7 @@ Nu dat u de basisprincipes van de Twilio-service hebt geleerd, volgt u deze kopp
 * [Twilio-beveiligingsrichtlijnen][twilio_security_guidelines]
 * [Twilio-HowTo handleidingen en voorbeeldcode][twilio_howtos]
 * [Twilio zelfstudies][twilio_quickstarts]
-* [Twilio op GitHub][twilio_on_github]
+* [Twilio on GitHub][twilio_on_github]
 * [Neem contact op met ondersteuning voor Twilio][twilio_support]
 
 [special_offer]: https://ahoy.twilio.com/azure

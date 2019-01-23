@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853dc443a994601e3900ed16da534254f6af07db
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247514"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452437"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van back-end C en C-apparaat
 
@@ -32,7 +32,7 @@ Aan het einde van deze zelfstudie hebt u twee C-apps:
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
-* Een IoT-Hub.
+* An IoT Hub.
 * De meest recente [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 U hebt nu uw IoT Hub gemaakt en u hebt de hostnaam en de IoT Hub-verbindingsreeks die u nodig hebt voor de rest van deze handleiding.
@@ -176,7 +176,7 @@ Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van 
 
 In deze sectie maakt u een app C op uw gesimuleerde apparaat die updates van de moduledubbel gerapporteerde eigenschappen.
 
-1. **Haal de verbindingsreeks van uw module** --als u zich aanmelden bij nu [Azure-portal](https://portal.azure.com). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoek naar MyFirstDevice, open het apparaat en u ziet dat myFirstModule is gemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
+1. **Haal de verbindingsreeks van uw module** --als u zich aanmelden bij nu [Azure-portal](https://portal.azure.com). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoeken naar myFirstDevice, open deze en u ziet myFirstModule is aangemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
 
     ![Details van de Azure Portal-module](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 

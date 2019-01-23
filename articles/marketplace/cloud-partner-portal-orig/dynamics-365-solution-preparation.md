@@ -1,6 +1,6 @@
 ---
 title: Dynamics 365 oplossing voorbereiden | Microsoft Docs
-description: Framewrok voor packaing, installeren en unstalling-onderdelen
+description: Framework voor het verpakken, installeren en verwijderen van onderdelen
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1e9c831681867e6a6238159599af39cbab10b7e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 2ea62a826b9f99e264cb1b2242f8d8108453d8e7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810043"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448767"
 ---
-# <a name="dynamics-365-solution-preparation"></a>Voorbereiding voor Dynamics 365-oplossing
+# <a name="dynamics-365-solution-preparation"></a>Dynamics 365 Solution Preparation
 
 Het Dynamics 365 solutioning-systeem is een structuur voor het verpakken, installeren en verwijderen van onderdelen die specifieke bedrijfsfunctionaliteit leveren. Oplossingen worden gebruikt door ISV's en andere partners Microsoft Dynamics 365 voor het distribueren van extensies die ze maken.
 
@@ -29,7 +29,7 @@ Als u een bestaande Dynamics 365 (xRM) ISV bent, hebt u waarschijnlijk al hebt g
 
 ![CRMScreenShot1](media/CRMScreenShot1.png)
 
-_**Opmerking:** In het volgende voorbeeld pakket wordt ervan uitgegaan naam van de oplossing is "SampleSolution.zip"_
+_**Opmerking:** In het volgende voorbeeld pakket wordt ervan uitgegaan dat naam van de oplossing is "SampleSolution.zip"_
 
 Als u een nieuwe ISV bent, krijgt u meer informatie over het maken van een oplossing hier: [https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 422c0477accab65b53071d22d067d96547bfeb8a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135471"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450559"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Met Spark verkennen en modelleren van geavanceerde gegevens
 
@@ -52,11 +52,11 @@ Installatiestappen uit en code vindt u in dit scenario voor het gebruik van een 
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6-laptops
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): bevat onderwerpen in de notebook #1 en de ontwikkeling van het model met behulp van hyperparameter afstemmen en kruisvalidatie.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Bevat onderwerpen in de notebook #1 en de ontwikkeling van het model met behulp van hyperparameter afstemmen en kruisvalidatie.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0-laptops
 
-[Spark2.0-pySpark3-machine-Learning-Data-Science-Spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): dit bestand bevat informatie over het uitvoeren van de gegevens verkennen, modelleren en scoring in clusters van Spark 2.0.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Dit bestand bevat informatie over het uitvoeren van de gegevens verkennen, modelleren en scoring in clusters van Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -403,7 +403,7 @@ Dit is de code om te indexeren en het coderen van tekstfuncties voor de binaire 
         labPt = LabeledPoint(line.tipped, features)
         return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -998,9 +998,9 @@ Deze modellen zijn beschreven in de inleiding. Elke sectie met voorbeeldcode bou
 2. **Model voor evaluatie** op een verzameling test met metrische gegevens
 3. **Model opslaan** in blob voor toekomstig gebruik   
 
-> AZURE Opmerking: Kruisvalidatie wordt niet gebruikt met de drie regressiemodellen in deze sectie, omdat dit werd weergegeven in de details voor de logistieke regressiemodellen. Een voorbeeld waarin wordt getoond hoe het gebruik van CV met elastische Net voor lineaire regressie is opgegeven in de bijlage van dit onderwerp.
+> AZURE NOTE: Kruisvalidatie wordt niet gebruikt met de drie regressiemodellen in deze sectie, omdat dit werd weergegeven in de details voor de logistieke regressiemodellen. Een voorbeeld waarin wordt getoond hoe het gebruik van CV met elastische Net voor lineaire regressie is opgegeven in de bijlage van dit onderwerp.
 > 
-> AZURE Opmerking: In onze ervaring kunnen er problemen met bijeenkomst van de LinearRegressionWithSGD modellen en parameters moeten worden gewijzigd/geoptimaliseerd zorgvuldig voor het verkrijgen van een geldig model. Schalen van variabelen aanzienlijk helpt bij de convergentie. Elastische net regressie, die wordt weergegeven in de bijlage aan dit onderwerp, kan ook worden gebruikt in plaats van LinearRegressionWithSGD.
+> AZURE NOTE: In onze ervaring kunnen er problemen met bijeenkomst van de LinearRegressionWithSGD modellen en parameters moeten worden gewijzigd/geoptimaliseerd zorgvuldig voor het verkrijgen van een geldig model. Schalen van variabelen aanzienlijk helpt bij de convergentie. Elastische net regressie, die wordt weergegeven in de bijlage aan dit onderwerp, kan ook worden gebruikt in plaats van LinearRegressionWithSGD.
 > 
 > 
 
@@ -1198,7 +1198,7 @@ Hier volgt de code voor het tekenen van de gegevens met behulp van de Jupyter-se
 
 ![Werkelijke-vs-voorspeld-tip-bedragen](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
-## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Bijlage: Extra regressie taken met de parameter sweeps met behulp van cross-validatie
+## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Bijlage: Aanvullende regressie taken met de parameter sweeps met behulp van cross-validatie
 Deze bijlage bevat de code wordt weergegeven hoe u met elastische net voor lineaire regressie CV doet en hoe u CV doet met parameteropschoning met behulp van aangepaste code voor willekeurige forest regressie.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>Kruisvalidatie elastische net voor lineaire regressie gebruiken
@@ -1438,5 +1438,5 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 ## <a name="whats-next"></a>Volgende stappen
 Nu u een regressie en classificatie-modellen met de MlLib Spark hebt gemaakt, bent u klaar om te leren hoe u kunt beoordelen en evalueren van deze modellen.
 
-**Model voor verbruik:** voor informatie over het beoordelen en evalueren van de classificatie- en regressiemodellen modellen die in dit onderwerp hebt gemaakt, Zie [Score en evalueren met Spark gebouwde machine learning-modellen](spark-model-consumption.md).
+**Model-verbruik:** Zie voor informatie over het beoordelen en evalueren van de classificatie- en regressiemodellen modellen die in dit onderwerp hebt gemaakt, [Score en evalueren met Spark gebouwde machine learning-modellen](spark-model-consumption.md).
 

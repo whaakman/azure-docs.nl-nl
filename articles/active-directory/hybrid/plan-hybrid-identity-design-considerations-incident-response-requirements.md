@@ -4,7 +4,7 @@ description: Bepalen van de mogelijkheden voor bewaking en rapportage voor de op
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: baa1d1fec6438b937ba783adcc86c4f74fa1a6db
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5a5b166e9b90ede5f5c51b2c288ce1d2d6290ba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312058"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464830"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Bepaal de vereisten voor respons op incidenten voor uw oplossing voor hybride identiteit
 Grote of middelgrote organisaties waarschijnlijk heeft een [reageren op beveiligingsincidenten](https://technet.microsoft.com/library/cc700825.aspx) om u te helpen IT dienovereenkomstig te handelen op het niveau van het incident. Het beheersysteem voor identiteit is een belangrijk onderdeel van het proces voor respons op incidenten, omdat deze kan worden gebruikt om te identificeren die een specifieke actie op het doel is uitgevoerd. De oplossing voor hybride identiteit moet kunnen bieden mogelijkheden voor controle- en rapportagefuncties die kunnen worden gebruikt door IT maatregelen kunt herkennen en verminderen een mogelijke bedreiging. In een typische reactieplan hebt u de volgende fasen als onderdeel van het abonnement:
@@ -51,7 +51,7 @@ Het beheersysteem voor identiteit moet helpen IT-beheerders om te bepalen en rap
 * Heeft uw bedrijf nodig om te controleren van de toegang en de actie van de gebruiker?
 * Moet uw bedrijf weet wanneer een gebruiker hun wachtwoord opnieuw instellen?
 
-## <a name="policy-enforcement"></a>Afdwingen van beleid
+## <a name="policy-enforcement"></a>Beleidsafdwinging
 Tijdens de beschadiging van het en risico's verminderen-fase is het belangrijk dat u snel de werkelijke en de mogelijke gevolgen van een aanval worden beperkt. Deze actie die u onderneemt kunt op dit moment het verschil tussen een minderjarige en een grote maken. De daadwerkelijke reactie is afhankelijk van uw organisatie en de aard van de aanval waarmee u wordt geconfronteerd. Als de eerste beoordeling gesloten dat een account is aangetast, moet u het afdwingen van beleid voor het blokkeren van dit account. Dat is slechts een voorbeeld waarin het beheersysteem voor identiteit zal worden gebruikt. Gebruik de onderstaande vragen om u te helpen bij het ontwerpen van uw oplossing voor hybride identiteit terwijl u in aanmerking hoe beleid wordt afgedwongen om te reageren op een actieve incident:
 
 * Uw bedrijf heeft beleid in plaats om te voorkomen dat gebruikers van toegang tot het netwerk indien nodig?

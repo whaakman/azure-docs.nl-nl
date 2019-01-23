@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS-beheer, AAD Connect, verbinding maken, zich aanmeld
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244454"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463895"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Beheren en aanpassen van Active Directory Federation Services met behulp van Azure AD Connect
 Dit artikel wordt beschreven hoe u kunt beheren en aanpassen van Active Directory Federation Services (AD FS) met behulp van Azure Active Directory (Azure AD) Connect. Dit omvat ook andere algemene AD FS-taken die u moet uitvoeren voor een volledige configuratie van AD FS-farm.
@@ -76,8 +76,8 @@ Het wordt aanbevolen dat de on-premises gebruiker-Principal Name(UPN) en de User
 ![Alternatieve id-kenmerk selecteren](./media/how-to-connect-fed-management/attributeselection.png)
 
 Configureren van alternatieve aanmeldings-ID voor AD FS bestaat uit twee belangrijke stappen:
-1. **Configureren van de juiste set uitgifte claims**: de claimregels voor uitgifte in de Azure AD relying party vertrouwt voor het gebruik van het geselecteerde kenmerk UserPrincipalName als de alternatieve ID van de gebruiker worden gewijzigd.
-2. **Alternatieve aanmeldings-ID in de AD FS-configuratie inschakelen**: de AD FS-configuratie is bijgewerkt, zodat de AD FS kunt opzoeken van de gebruikers in de juiste forests met behulp van de alternatieve-ID. Deze configuratie wordt ondersteund voor AD FS in Windows Server 2012 R2 (met KB2919355) of hoger. Als de AD FS-servers 2012 R2 zijn, wordt Azure AD Connect controleert op de aanwezigheid van de vereiste KB. Als de KB niet wordt gedetecteerd, wordt een waarschuwing weergegeven nadat de configuratie is voltooid, zoals hieronder wordt weergegeven:
+1. **Configureren van de juiste set uitgifte claims**: De claimregels voor uitgifte in de Azure AD-vertrouwensrelatie voor relying party zijn gewijzigd voor het gebruik van het geselecteerde kenmerk UserPrincipalName als de alternatieve ID van de gebruiker.
+2. **Alternatieve aanmeldings-ID in de AD FS-configuratie inschakelen**: De AD FS-configuratie is bijgewerkt, zodat de AD FS kunt opzoeken van de gebruikers in de juiste forests met behulp van de alternatieve-ID. Deze configuratie wordt ondersteund voor AD FS in Windows Server 2012 R2 (met KB2919355) of hoger. Als de AD FS-servers 2012 R2 zijn, wordt Azure AD Connect controleert op de aanwezigheid van de vereiste KB. Als de KB niet wordt gedetecteerd, wordt een waarschuwing weergegeven nadat de configuratie is voltooid, zoals hieronder wordt weergegeven:
 
     ![Waarschuwing voor ontbrekende KB op 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 
@@ -175,7 +175,7 @@ Het is gemakkelijk om toe te voegen van een domein dat gefedereerd met Azure AD 
 
     Nadat u het domein hebt gekozen, de wizard kunt u met de juiste informatie over verdere acties die de wizard gaat ondernemen en het effect van de configuratie. In sommige gevallen, als u een domein dat nog niet is geverifieerd in Azure AD, selecteert biedt de wizard u informatie om te controleren of het domein. Zie [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory-domains-add-azure-portal.md) voor meer informatie.
 
-5. Klik op **Volgende**. De **klaar om te configureren** pagina bevat een lijst van acties die door Azure AD Connect wordt uitgevoerd. Klik op **installeren** om de configuratie te voltooien.
+5. Klik op **volgende**. De **klaar om te configureren** pagina bevat een lijst van acties die door Azure AD Connect wordt uitgevoerd. Klik op **installeren** om de configuratie te voltooien.
 
    ![Klaar om te configureren](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
@@ -227,7 +227,7 @@ Ook met behulp van **toevoegen** en niet **probleem**, u voorkomen dat een uitga
 
 Deze regel wordt gedefinieerd een tijdelijke vlag met de naam **idflag** die is ingesteld op **useguid** als er geen **ms-ds-consistencyguid** ingevuld voor de gebruiker. De logica achter dit is het feit dat AD FS leeg claims niet toegestaan. Dit het geval is bij het toevoegen van claims http://contoso.com/ws/2016/02/identity/claims/objectguid en http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid in regel 1, krijgt u uiteindelijk met een **msdsconsistencyguid** claim alleen als de waarde voor de gebruiker is ingevuld. Als dit niet is ingevuld, wordt AD FS ziet dat het een lege waarde heeft en onmiddellijk zakt. Alle objecten hebben **objectGuid**, zodat deze claim wordt altijd er nadat de regel 1 wordt uitgevoerd.
 
-**Regel 3: Ms-ds-consistencyguid uitgeven als onveranderbare ID indien aanwezig**
+**Regel 3: Ms-ds-consistencyguid uitgeven als onveranderbare ID, indien aanwezig**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);

@@ -4,7 +4,7 @@ description: Bekijk een overzicht van de ondersteunde instellingen in een Azure 
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.component: conditional-access
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408575"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452136"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -130,8 +130,8 @@ Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatb
 | Windows 7              | Internet Explorer, Chrome           | ![Selecteren][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Selecteren][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Selecteren][1] |
-| Windows Phone          | Internet Explorer en Microsoft Edge             | ![Selecteren][1] |
-| Windows Server 2016    | Internet Explorer en Microsoft Edge             | ![Selecteren][1] |
+| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Selecteren][1] |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Selecteren][1] |
 | Windows Server 2016    | Chrome                              | Binnenkort beschikbaar |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
@@ -149,7 +149,7 @@ Voor het automatisch implementeren met deze extensie voor Chrome browsers, maken
 |--- | ---|
 |Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |Name | 1 |
-|Type | REG_SZ (tekenreeks) |
+|Type | REG_SZ (String) |
 |Gegevens | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersleutel:
@@ -158,7 +158,7 @@ Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersle
 |--- | ---|
 |Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Name | 1 |
-|Type | REG_SZ (tekenreeks) |
+|Type | REG_SZ (String) |
 |Gegevens | {"patroon": "https://device.login.microsoftonline.com',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}}|
 
 Deze browsers ondersteunen verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privémodus. 
@@ -214,7 +214,7 @@ Deze instelling geldt voor de volgende client-apps:
 
 - Microsoft Intune Managed Browser
 - Microsoft PowerBI
-- Facturering van Microsoft
+- Microsoft Invoicing
 - Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
@@ -225,7 +225,7 @@ Deze instelling geldt voor de volgende client-apps:
 - Microsoft Planner
 - Microsoft PowerPoint
 - Microsoft SharePoint
-- Microsoft Skype voor bedrijven
+- Microsoft Skype voor Bedrijven
 - Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio

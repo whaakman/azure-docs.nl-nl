@@ -1,21 +1,21 @@
 ---
-title: 'Azure AD Connect: Naslagdocumentatie voor PowerShell-ADSyncTools | Microsoft Docs'
+title: 'Azure AD Connect: ADSyncTools PowerShell Reference | Microsoft Docs'
 description: Dit document bevat referentie-informatie voor de ADSyncTools.psm1 PowerShell-module.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b98686730a0fbd65cd5fd64fe91d8c6fa06286e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054959"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478209"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Naslagdocumentatie voor PowerShell-ADSyncTools
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell Reference
 De volgende documentatie bevat referentie-informatie voor de ADSyncTools.psm1 PowerShell-Module die is opgenomen in Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -65,7 +65,7 @@ Accept wildcard characters: False
 Deze cmdlet biedt ondersteuning voor de meest gebruikte parameters: -Debug, - ErrorAction, - ErrorVariable, - InformationAction, -InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable - Verbose, - WarningAction en -WarningVariable.
 Zie about_CommonParameters voor meer informatie (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-adsynctoolsadmoduleloaded"></a>Controleer of ADSyncToolsADModuleLoaded
+## <a name="confirm-adsynctoolsadmoduleloaded"></a>Confirm-ADSyncToolsADModuleLoaded
 
 ### <a name="synopsis"></a>SAMENVATTING
 {{Vult u de samenvatting}}
@@ -88,7 +88,7 @@ PS C:\> {{ Add example code here }}
 
 {{Toevoegen voorbeeld beschrijving hier}}
 
-## <a name="connect-adsyncdatabase"></a>Verbinding maken met AdSyncDatabase
+## <a name="connect-adsyncdatabase"></a>Connect-AdSyncDatabase
 
 ### <a name="synopsis"></a>SAMENVATTING
 {{Vult u de samenvatting}}
@@ -175,7 +175,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-username"></a>-UserName
-{{UserName beschrijving vullen}}
+{{Fill UserName Description}}
 
 ```yaml
 Type: String
@@ -193,7 +193,7 @@ Accept wildcard characters: False
 Deze cmdlet biedt ondersteuning voor de meest gebruikte parameters: -Debug, - ErrorAction, - ErrorVariable, - InformationAction, -InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable - Verbose, - WarningAction en -WarningVariable.
 Zie about_CommonParameters voor meer informatie (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="export-adsynctoolsconsistencyguidmigration"></a>Exporteren-ADSyncToolsConsistencyGuidMigration
+## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>SAMENVATTING
 ConsistencyGuid rapport exporteren
@@ -311,7 +311,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARAMETERS
 
-#### <a name="-hostname"></a>-Hostnaam
+#### <a name="-hostname"></a>-hostName
 {{Vullen hostnaam beschrijving}}
 
 ```yaml
@@ -537,7 +537,7 @@ Query's AAD Connect Run History functioneren en uitvoer van alle gebruikers die 
 
 $sourcePath = Read-Host - Prompt 'Voer uw pad naar logboekbestand met de bestandsnaam van het ' # '\<Source_Path\>"$outputPath = Read-Host-vragen ' Voer uw out bestandspad met bestandsnaam ' # '\<Out_Path\>"
  
- Get-ADSyncToolsUsersSourceAnchorChanged - sourcePath $sourcePath - outputPath $outputPath
+ Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### <a name="example-2"></a>VOORBEELD 2
 ```
@@ -644,7 +644,7 @@ Deze cmdlet biedt ondersteuning voor de meest gebruikte parameters: -Debug, - Er
 Zie about_CommonParameters voor meer informatie (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-## <a name="invoke-adsyncdatabasequery"></a>Aanroepen AdSyncDatabaseQuery
+## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
 
 ### <a name="synopsis"></a>SAMENVATTING
 {{Vult u de samenvatting}}
@@ -728,18 +728,18 @@ Elk certificaat worden back-ups voor een gescheiden filename: Het script ObjectC
 Check all users in target OU - Expired Certificates will be copied to separated files and no certificates will be removed
 ```
 
-Remove-ADSyncToolsExpiredCertificates-{TargetOU "organisatie-eenheid = Users, organisatie-eenheid = Corp, DC = Contoso, DC = com" - objectklasse gebruiker
+Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Users,OU=Corp,DC=Contoso,DC=com" -ObjectClass user
 
 #### <a name="example-2"></a>VOORBEELD 2
 ```
 Delete Expired Certs from all Computer objects in target OU - Expired Certificates will be copied to files and removed from AD
 ```
 
-Remove-ADSyncToolsExpiredCertificates-{TargetOU "OU = Computers, organisatie-eenheid = Corp, DC = Contoso, DC = com" - objectklasse computer - BackupOnly $false
+Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Computers,OU=Corp,DC=Contoso,DC=com" -ObjectClass computer -BackupOnly $false
 
 ### <a name="parameters"></a>PARAMETERS
 
-#### <a name="-targetou"></a>-{TargetOU
+#### <a name="-targetou"></a>-TargetOU
 Doel organisatie-eenheid lookup voor AD-objecten
 
 ```yaml
@@ -769,7 +769,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-objectclass"></a>-Objectklasse
+#### <a name="-objectclass"></a>-ObjectClass
 Filter voor object-klasse
 
 ```yaml
@@ -788,7 +788,7 @@ Accept wildcard characters: False
 Deze cmdlet biedt ondersteuning voor de meest gebruikte parameters: -Debug, - ErrorAction, - ErrorVariable, - InformationAction, -InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable - Verbose, - WarningAction en -WarningVariable.
 Zie about_CommonParameters voor meer informatie (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="repair-adsynctoolsautoupgradestate"></a>Herstellen-ADSyncToolsAutoUpgradeState
+## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
 ### <a name="synopsis"></a>SAMENVATTING
 Korte beschrijving
@@ -814,7 +814,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-## <a name="resolve-adsynchostaddress"></a>Los ADSyncHostAddress
+## <a name="resolve-adsynchostaddress"></a>Resolve-ADSyncHostAddress
 
 ### <a name="synopsis"></a>SAMENVATTING
 {{Vult u de samenvatting}}
@@ -839,7 +839,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARAMETERS
 
-#### <a name="-hostname"></a>-Hostnaam
+#### <a name="-hostname"></a>-hostName
 {{Vullen hostnaam beschrijving}}
 
 ```yaml
@@ -967,7 +967,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARAMETERS
 
-#### <a name="-hostname"></a>-Hostnaam
+#### <a name="-hostname"></a>-hostName
 {{Vullen hostnaam beschrijving}}
 
 ```yaml
@@ -982,7 +982,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-port"></a>-poort
+#### <a name="-port"></a>-port
 {{Vullen poort beschrijving}}
 
 ```yaml
@@ -1027,7 +1027,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectorxml"></a>-ADConnectorXML
-{{ADConnectorXML beschrijving vullen}}
+{{Fill ADConnectorXML Description}}
 
 ```yaml
 Type: String
@@ -1072,7 +1072,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-filter"></a>-filter
-Foresthoofddomein DN-naam
+Forest Root DN
 
 ```yaml
 Type: String

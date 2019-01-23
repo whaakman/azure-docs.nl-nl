@@ -4,7 +4,7 @@ description: Algemene problemen met het aanmelden bij de eerste partij Microsoft
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379261"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468734"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
@@ -34,11 +34,11 @@ Er zijn drie manieren dat een gebruiker toegang tot een Microsoft gepubliceerde 
 
 -   Voor toepassingen die Microsoft of een 3e partij publiceert naar eigen inzicht voor iedereen, gebruikers kunnen ook toegang worden verleend via **administrator toestemming**. Dit betekent dat een beheerder de toepassing kan worden gebruikt door iedereen in de organisatie, zodat ze zich aanmelden bij de toepassing met een account voor globale beheerders en toegang aan iedereen in de organisatie verlenen heeft bepaald.
 
-Voor het oplossen van uw probleem, beginnen met de [algemene probleemgebieden met toegang tot de toepassing om te overwegen](#general-problem-areas-with-application-access-to-consider) en lees vervolgens de [Walkthrough: stappen voor het oplossen van Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access) toegang te krijgen tot de meer informatie.
+Voor het oplossen van uw probleem, beginnen met de [algemene probleemgebieden met toegang tot de toepassing om te overwegen](#general-problem-areas-with-application-access-to-consider) en lees vervolgens de [scenario: Stappen voor het oplossen van Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access) toegang te krijgen tot de gegevens.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Algemene probleemgebieden met toegang tot de toepassing om te overwegen
 
-Hieronder volgt een lijst van de algemene probleemgebieden die u inzoomen kunt op als u een idee van waar u hebben wilt beginnen, maar wij raden u deze stapsgewijze Kennismaking voor snel aan de slag te lezen: [Walkthrough: stappen voor het oplossen van Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Hieronder volgt een lijst van de algemene probleemgebieden die u inzoomen kunt op als u een idee van waar u hebben wilt beginnen, maar wij raden dat u deze stapsgewijze Kennismaking voor snel aan de slag te lezen: [Walkthrough: Stappen voor het oplossen van Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problemen met het account van de gebruiker](#problems-with-the-users-account)
 
@@ -204,7 +204,7 @@ Als u wilt controleren van een gebruiker multi-factor authentication-status, de 
 
 9.  Selecteer de gebruiker in de lijst met gebruikers en **inschakelen**, **uitschakelen**, of **afdwingen** meervoudige verificatie naar wens.
 
-  * **Houd er rekening mee**: als een gebruiker zich in een **afgedwongen** staat, deze kan worden ingesteld op **uitgeschakelde** tijdelijk wilt laten terug bij hun account. Nadat zij zich terug in, kunt u vervolgens hun status om te wijzigen **ingeschakeld** opnieuw voor moet de gebruiker opnieuw registreren hun contactgegevens tijdens de volgende aanmelding in. U kunt ook u kunt de stappen in de [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info) om te controleren of instellen dat deze gegevens voor hen.
+  * **Opmerking**: Als een gebruiker zich in een **afgedwongen** staat, deze kan worden ingesteld op **uitgeschakelde** tijdelijk wilt laten terug bij hun account. Nadat zij zich terug in, kunt u vervolgens hun status om te wijzigen **ingeschakeld** opnieuw voor moet de gebruiker opnieuw registreren hun contactgegevens tijdens de volgende aanmelding in. U kunt ook u kunt de stappen in de [contactgegevens voor verificatie van een gebruiker controleren](#check-a-users-authentication-contact-info) om te controleren of instellen dat deze gegevens voor hen.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Contactgegevens voor verificatie van een gebruiker controleren
 

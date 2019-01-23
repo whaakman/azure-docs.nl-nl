@@ -4,7 +4,7 @@ description: Helpt bij het definiëren van de beheertaken voor hybride identitei
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5590f1fc3716582da090b8429f8bcf4fc7911dbe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6512cb71cc8ca973a778b7e172afcd9e056421ed
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251760"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478379"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Acceptatiestrategie voor voor de levenscyclus van de identiteit van de hybride bepalen
 In deze taak definieert u de strategie voor het beheer van identiteit voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in [beheertaken voor hybride identiteit bepalen](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -44,7 +44,7 @@ Toegang op basis van rollen (RBAC) maakt gebruik van rollen beheren en beleidsre
 Azure AD RBAC beschikt het bedrijf om te beperken van het aantal bewerkingen die een persoon doen kunt wanneer hij toegang tot de Azure-portal heeft. Met RBAC voor het beheren van toegang tot de portal kunnen IT-beheerders ca toegang delegeren met behulp van de volgende methoden voor access management:
 
 * **Op basis van een groep roltoewijzing**: U kunt toegang toewijzen aan Azure AD-groepen die kunnen worden gesynchroniseerd vanuit uw lokale Active Directory. Hiermee kunt u gebruikmaken van bestaande investeringen die uw organisatie heeft aangebracht in de hulpprogramma's en processen voor het beheren van groepen. U kunt ook de functie voor het beheer van groepen met gemachtigden van Azure AD Premium gebruiken.
-* **Maak gebruik van ingebouwde rollen in Azure**: kunt u drie rollen: eigenaar, Inzender en lezer, om ervoor te zorgen dat gebruikers en groepen gemachtigd alleen de taken die ze nodig hebben om hun werk te doen.
+* **Maak gebruik van ingebouwde rollen in Azure**: U kunt drie rollen: eigenaar, Inzender en lezer, om ervoor te zorgen dat gebruikers en groepen gemachtigd alleen de taken die ze nodig hebben om hun werk te doen.
 * **Gedetailleerde toegang tot resources**: U kunt rollen toewijzen aan gebruikers en groepen voor een bepaald abonnement, resourcegroep of een afzonderlijke Azure-resource, zoals een website of de database. Op deze manier kunt u ervoor zorgen dat gebruikers hebben toegang tot alle bronnen die ze nodig hebben en geen toegang tot resources die ze niet hoeven te beheren.
 
 ## <a name="provisioning-and-other-customization-options"></a>Inrichting en andere opties voor het aanpassen
@@ -93,7 +93,7 @@ Bekijk de volgende tabel als u wilt vergelijken van de synchronisatie-opties:
 
 | Optie voor synchronisatie | Voordelen | Nadelen |
 | --- | --- | --- |
-| Synchronisatie op basis van (door middel van DirSync of AADConnect) |Gebruikers en groepen die zijn gesynchroniseerd vanaf on-premises en cloud <br>  **Beheer van beleidsregels**: accountbeleid kunnen worden ingesteld via Active Directory, waarmee de beheerder de mogelijkheid voor het beheren van beleid voor wachtwoorden, werkstation, beperkingen, lock-out besturingselementen, en meer, zonder dat extra taken in uit te voeren de cloud.  <br>  **Toegangsbeheer**: toegang beperken met de cloudservice, zodat de services kunnen worden geopend via de bedrijfsomgeving, via de online-servers, of beide. <br>  Minder ondersteuningsaanvragen worden ingediend: als gebruikers minder wachtwoorden te onthouden, ze zijn minder waarschijnlijk, deze vergeet. <br>  Beveiliging: Gebruikers-id's en gegevens worden beveiligd, omdat alle servers en services die worden gebruikt in de eenmalige aanmelding, worden beheerd en on-premises beheerd. <br>  Ondersteuning voor sterke verificatie: kunt u sterke verificatie (ook wel tweeledige verificatie genoemd) met de cloudservice. Echter, als u sterke verificatie, moet u eenmalige aanmelding. | |
+| Synchronisatie op basis van (door middel van DirSync of AADConnect) |Gebruikers en groepen die zijn gesynchroniseerd vanaf on-premises en cloud <br>  **Beheer van beleidsregels**: Accountbeleid kunnen worden ingesteld via Active Directory, waardoor de beheerder de mogelijkheid voor het beheren van beleid voor wachtwoorden, werkstation, beperkingen, lock-out besturingselementen en meer, zonder aanvullende taken uitvoert in de cloud.  <br>  **Toegangsbeheer**: Kan toegang beperken met de cloudservice zodat de services kunnen worden geopend via de bedrijfsomgeving, via de online-servers, of beide. <br>  Minder ondersteuningsaanvragen worden ingediend: Als gebruikers minder wachtwoorden te onthouden, zijn ze minder waarschijnlijk, deze vergeet. <br>  Beveiliging: Gebruikers-id's en gegevens worden beveiligd, omdat alle servers en services die worden gebruikt in de eenmalige aanmelding, worden beheerd en on-premises beheerd. <br>  Ondersteuning voor sterke verificatie: Sterke verificatie (ook wel tweeledige verificatie genoemd) kunt u met de cloudservice. Echter, als u sterke verificatie, moet u eenmalige aanmelding. | |
 | Op basis van Federation (via AD FS) |Ingeschakeld door een beveiligingstokenservice (STS). Wanneer u een STS eenmalige aanmelding in om toegang te bieden met een Microsoft cloud-service configureert, maakt u een federatieve vertrouwensrelatie tussen uw on-premises STS en de federatieve domein dat u hebt opgegeven in uw Azure AD-tenant. <br> Hiermee kunnen eindgebruikers de dezelfde set referenties gebruiken om te verkrijgen van toegang tot meerdere resources <br>eindgebruikers hoeft te onderhouden van meerdere sets met referenties. Nog, de gebruikers hebben hun referenties aan elk van de deelnemende resources., B2B en B2C-scenario's ondersteund. |Gespecialiseerde personeel is vereist voor de implementatie en het onderhoud van toegewezen on-premises AD FS-servers. Er gelden beperkingen voor het gebruik van sterke verificatie als u van plan bent te gebruiken van AD FS voor de STS. Zie voor meer informatie, [geavanceerde opties configureren voor AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]

@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synchronisatie: operationele taken en overwegingen | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Operationele taken en overwegingen | Microsoft Docs'
 description: Dit onderwerp beschrijft operationele taken voor het Azure AD Connect-synchronisatie en hoe u voorbereidt voor dit onderdeel uitgevoerd.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 11390f1ad777d20e31c263b4a694ae5cb31f3fd3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c4dc5ae107cc8babbd425edd6c5de428e130fc3a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311897"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467533"
 ---
-# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synchronisatie: operationele taken en overwegingen
+# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synchronisatie: Operationele taken en afwegingen
 Het doel van dit onderwerp is om te beschrijven van operationele taken voor Azure AD Connect-synchronisatie.
 
 ## <a name="staging-mode"></a>Faseringsmodus
@@ -74,8 +74,8 @@ U hebt nu gefaseerd uitvoer wordt gewijzigd in Azure AD en on-premises AD (als u
 
 #### <a name="verify"></a>Verifiëren
 1. Start een opdrachtprompt en Ga naar `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Uitvoeren: `csexport "Name of Connector" %temp%\export.xml /f:x` de naam van de Connector kan worden gevonden in Synchronization Service. Er is een naam die lijkt op 'contoso.com – AAD' voor Azure AD.
-3. Uitvoeren: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` hebt u een bestand in % temp % met de naam export.csv die kunnen worden onderzocht in Microsoft Excel. Dit bestand bevat alle wijzigingen die moeten worden geëxporteerd.
+2. Uitvoeren: `csexport "Name of Connector" %temp%\export.xml /f:x` De naam van de Connector kan worden gevonden in Synchronization Service. Er is een naam die lijkt op 'contoso.com – AAD' voor Azure AD.
+3. Uitvoeren: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` U hebt een bestand in % temp % met de naam export.csv die kunnen worden onderzocht in Microsoft Excel. Dit bestand bevat alle wijzigingen die moeten worden geëxporteerd.
 4. Noodzakelijke wijzigingen aanbrengen in de gegevens of configuratie en voer deze stappen opnieuw (importeren en synchroniseren en controleren) totdat de wijzigingen die moeten worden geëxporteerd naar verwachting.
 
 **Inzicht krijgen in het bestand export.csv** grootste deel van het bestand is geen uitleg. Sommige afkortingen te begrijpen van de inhoud:
@@ -152,9 +152,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency
@@ -271,5 +271,5 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**  
 
-* [Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen](how-to-connect-sync-whatis.md)  
+* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)  
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)  

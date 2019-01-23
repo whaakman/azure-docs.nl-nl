@@ -4,7 +4,7 @@ description: Beperkte Kerberos-delegering configuraties voor Application Proxy o
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 99f756489c04637d37de5e1baff7e4fe46c3947a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134655"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462688"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Kerberos-beperkte overdracht configuraties voor Application Proxy oplossen
 
@@ -64,7 +64,7 @@ Wat er wordt een probleem met KCD? Er zijn verschillende algemene aanwijzingen K
 
    ![Autorisatie is mislukt vanwege ontbrekende machtigingen](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Beide van deze installatiekopieën de dezelfde symptoom weergeven: fout met eenmalige aanmelding. Gebruikerstoegang tot de toepassing is geweigerd.
+Beide van deze installatiekopieën weergeven de dezelfde symptoom: Eenmalige aanmelding is mislukt. Gebruikerstoegang tot de toepassing is geweigerd.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

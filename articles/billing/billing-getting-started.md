@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9d755d1a3d9ae54d33331eff9b547de70a5fd77f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582420"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452887"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -90,7 +90,7 @@ Nadat u uw services die worden uitgevoerd, moet u regelmatig controleren hoeveel
 
     ![Schermafbeelding van de weergave van de kosten voor analyse in Azure portal](./media/billing-getting-started/cost-analysis.PNG)
 
-4. U kunt filteren op verschillende eigenschappen, zoals [tags](#tags), resourcegroep en de periode. Klik op **toepassen** om te bevestigen van de filters en **downloaden** als u wilt de weergave exporteren naar een bestand Comma-Separated waarden (.csv).
+4. U kunt filteren op verschillende eigenschappen, zoals [tags](#tags), resourcetype, resourcegroep en duur. Klik op **toepassen** om te bevestigen van de filters en **downloaden** als u wilt de weergave exporteren naar een bestand Comma-Separated waarden (.csv).
 
 5. Bovendien kunt u een resource om te zien van uw dagelijkse geschiedenis en hoeveel de resourcekosten per dag.
 

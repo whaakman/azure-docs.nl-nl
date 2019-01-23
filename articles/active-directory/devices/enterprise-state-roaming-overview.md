@@ -5,7 +5,7 @@ services: active-directory
 keywords: Wat is Enterprise State Roaming, synchronisatie, enterprise, windows-cloud
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 69cc1ab09c5c0462503b4d72961ac46df542738d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 82e3a4c43b008a70e8078297dc32777c4ec0b810
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50097872"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450061"
 ---
-# <a name="what-is-enterprise-state-roaming"></a>Wat is enterprise state roaming?
+# <a name="what-is-enterprise-state-roaming"></a>Wat is Enterprise State Roaming?
 
 Met Windows 10, [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) gebruikers krijgen de mogelijkheid hun gebruikersinstellingen en gegevens van de toepassing-instellingen naar de cloud veilig te synchroniseren. Enterprise State Roaming biedt gebruikers een uniforme ervaring op hun Windows-apparaten en vermindert de tijd die nodig is voor het configureren van een nieuw apparaat. Enterprise State Roaming werkt die vergelijkbaar is met de standaard [consumer-instellingen synchroniseren](https://go.microsoft.com/fwlink/?linkid=2015135) die is geïntroduceerd in Windows 8. Daarnaast biedt Enterprise State Roaming:
 
@@ -33,7 +33,7 @@ Met Windows 10, [Azure Active Directory (Azure AD)](../fundamentals/active-direc
 
 Enterprise State Roaming is beschikbaar in meerdere Azure-regio's. U kunt de bijgewerkte lijst met beschikbare regio's vinden op de [Azure-Services per regio's](https://azure.microsoft.com/regions/#services) pagina onder Azure Active Directory.
 
-| Artikel | Beschrijving |
+| Artikel | Description |
 | --- | --- |
 | [Enterprise State Roaming in Azure Active Directory inschakelen](enterprise-state-roaming-enable.md) |Enterprise State Roaming is beschikbaar voor elke organisatie met een Premium Azure Active Directory (Azure AD)-abonnement. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [Azure AD-product](https://azure.microsoft.com/services/active-directory) pagina. |
 | [Instellingen en gegevensroaming Veelgestelde vragen](enterprise-state-roaming-faqs.md) |In dit onderwerp vindt u antwoorden op enkele vragen die IT-beheerders mogelijk over de instellingen en app-gegevens synchroniseren. |

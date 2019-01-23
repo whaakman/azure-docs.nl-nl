@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d24cf56a898a4f4f8317246cbc2317e926256a77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809900"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447272"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Beheren van gebruikers in de cloud partner-portal
 ======================================
@@ -36,14 +36,14 @@ Naar **gebruikers toevoegen en toewijzen van rollen** voor aanbieding publiceren
 <a name="step-2-click-add-user"></a>Stap 2. Klik op gebruiker toevoegen.
 -----------------------
 
-![Selecteer Adducer](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
+![Gebruiker toevoegen selecteren](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
 <a name="step-3-type-email-address-and-select-a-role-assignment"></a>Stap 3. Typ e-mailadres en selecteer een roltoewijzing.
 --------------------------------------------------------
 
 U kunt de nieuwe gebruiker als 'eigenaar' of 'Inzender toevoegen.
 
-**E-mailbericht**: het e-mailadressen van de teamleden die werkt over het publiceren van de aanbieding toevoegen. Microsoft-accounts (zoals Outlook, Hotmail en Live) en organisatie-id's worden ondersteund.
+**e-mailbericht**: De e-mailadressen van de teamleden die werkt over het publiceren van de aanbieding toevoegen. Microsoft-accounts (zoals Outlook, Hotmail en Live) en organisatie-id's worden ondersteund.
 
 o een 'groep team/e-alias/beveiligingsgroep toevoegen ' in het geval de afzonderlijke werken op de aanbieding voor de organisatie verlaat.
 
@@ -59,7 +59,8 @@ Op dit moment alleen eigenaars hebben toegang tot de Azure-betalingen en Azure-k
 <a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Stap 4. Selecteer de naam van de uitgever die u wilt toevoegen aan de nieuwe gebruiker en vervolgens klikt u op toevoegen om toevoeging van de gebruiker te voltooien.
 ----------------------------------------------------------------------------------------------------------------------------
 
-> `NOTE: The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> [!NOTE]
+> De 'de namen van uitgevers waarvoor uw e-mailadres wordt toegevoegd als een eigenaar of bijdrager worden weergegeven in de vervolgkeuzelijst van uitgever voor selectie.'
 
 ![Rol - Selecteer publisher toe te wijzen](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

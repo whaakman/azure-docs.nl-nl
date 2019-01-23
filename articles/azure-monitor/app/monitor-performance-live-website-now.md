@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f84be4dffb601d3748d951da15050e381e1cecc1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199382"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464847"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Web-apps instrumenteren tijdens runtime met Application Insights Status Monitor
 
@@ -32,11 +32,12 @@ Statusmonitor wordt gebruikt voor het instrumenteren van een .NET-toepassing die
 
 ![Schermopname van App Insights-overzicht grafieken met informatie over mislukte aanvragen, serverreactietijd en serveraanvragen](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-U kunt kiezen uit drie routes om Application Insights toe te passen op uw .NET-webtoepassingen:
+Hebt u een keuze uit twee routes voor het toepassen van Application Insights voor uw .NET-webtoepassingen:
 
 * **Buildtime:** [Voeg de Application Insights-SDK] [ greenbrown] toe aan uw web-app-code.
 * **Uitvoeringstijd:** Instrumenteer uw web-app op de server, zoals hieronder wordt beschreven, zonder opnieuw te bouwen en de code opnieuw te implementeren.
-* **Beide:** De SDK bouwen in de code van uw web-app en de runtime-extensies zijn ook van toepassing. Zo profiteert u van het beste van beide opties.
+> [!NOTE]
+> Als u de runtime-instrumentatiesleutel build gebruikt, voert u tijd instrumention niet werkt, zelfs als deze is ingeschakeld.
 
 Hier volgt een samenvatting van wat elke route u biedt:
 

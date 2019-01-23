@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 73bd86591f2d8604e0eb9553f99c311b6d421603
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9e13b8872fab89bef6ec952fe2ee0b901a25092e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424022"
+ms.locfileid: "54452544"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Maken van een strategie voor flexibele toegang beheren met Azure Active Directory
 
@@ -199,7 +199,7 @@ De volgorde van de activering:
 
 1. SalesAdmins en SalesforceContingency uitsluiten van het bestaande apparaatnalevingsbeleid voor Salesforce. Controleer of dat een gebruiker in de groep SalesforceContingency toegang tot Salesforce.
 2. Beleid 1 inschakelen: Controleer of gebruikers buiten SalesContingency heeft geen toegang tot Salesforce. Controleer of gebruikers in de SalesAdmins en SalesforceContingency hebben toegang tot Salesforce.
-3. Beleid 2 inschakelen: Controleer of gebruikers in de groep SalesContigency geen toegang tot Salesforce vanaf hun laptops Windows/Mac, maar kunnen nog steeds toegang tot vanaf hun mobiele apparaten. Controleer of dat salesadmin kunt nog steeds toegang tot Salesforce vanaf elk apparaat.
+3. Beleid 2 inschakelen: Controleer of gebruikers in de groep SalesContingency geen toegang tot Salesforce vanaf hun laptops Windows/Mac, maar kunnen nog steeds toegang tot vanaf hun mobiele apparaten. Controleer of dat salesadmin kunt nog steeds toegang tot Salesforce vanaf elk apparaat.
 4. Het bestaande apparaatnalevingsbeleid uitschakelen voor Salesforce.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Synchronisatie van wachtwoordhashes implementeren, zelfs als u een federatief zijn of Pass through-verificatie gebruiken

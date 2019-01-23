@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1ca6f2a0f8246e730206ea2a431f7968273a6e8d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412339"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468179"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Uploaden en een Linux-VM maken van een aangepaste schijf met de Azure CLI
 
@@ -69,7 +69,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Geef de URI naar de schijf (`--image`) met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met behulp van de virtuele schijf eerder hebt geüpload:
+Geef de URI naar de schijf (`--image`) met [az vm maken](/cli/azure/vm). Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met behulp van de virtuele schijf eerder hebt geüpload:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -186,9 +186,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>De virtuele machine maken
-Voor het maken van een virtuele machine met niet-beheerde schijven, geeft u de URI naar de schijf (`--image`) met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met behulp van de virtuele schijf eerder hebt geüpload:
+Voor het maken van een virtuele machine met niet-beheerde schijven, geeft u de URI naar de schijf (`--image`) met [az vm maken](/cli/azure/vm). Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met behulp van de virtuele schijf eerder hebt geüpload:
 
-U geeft de `--image` parameter met de [az vm maken](/cli/azure/vm#az_vm_create) om te verwijzen naar uw aangepaste schijf. Zorg ervoor dat `--storage-account` komt overeen met de storage-account waar uw aangepaste schijf wordt opgeslagen. U hoeft niet te gebruiken dezelfde container als de aangepaste schijf voor het opslaan van uw virtuele machines. Zorg ervoor dat u het maken van andere containers op dezelfde manier als de eerdere stappen voordat u uw aangepaste schijf uploadt.
+U geeft de `--image` parameter met de [az vm maken](/cli/azure/vm) om te verwijzen naar uw aangepaste schijf. Zorg ervoor dat `--storage-account` komt overeen met de storage-account waar uw aangepaste schijf wordt opgeslagen. U hoeft niet te gebruiken dezelfde container als de aangepaste schijf voor het opslaan van uw virtuele machines. Zorg ervoor dat u het maken van andere containers op dezelfde manier als de eerdere stappen voordat u uw aangepaste schijf uploadt.
 
 Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` van uw aangepaste schijf:
 

@@ -1,24 +1,17 @@
 ---
-title: Overzicht van Azure DNS-delegatie | Microsoft Docs
+title: Overzicht van Azure DNS delegeren
 description: Lees hoe u de domeindelegering wijzigt en DNS-naamservers kunt gebruiken om domeinen te hosten.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: a00cc00dee3a505f88abef3ecf99f49aa027c30b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: HT
+ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170501"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461023"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegatie van DNS-zones met Azure DNS
 
@@ -58,13 +51,16 @@ In de volgende afbeelding ziet u een voorbeeld van een DNS-query. Contoso.net en
 ![DNS-naamserver](./media/dns-domain-delegation/image1.png)
 
 1. De client vraagt `www.partners.contoso.net` aan van zijn lokale DNS-server.
-1. De lokale DNS-server beschikt niet over de record en vraagt deze daarom op bij de hoofdnaamserver.
-1. De hoofdnaamserver beschikt niet over de record, maar kent het adres van de `.net`-naamserver. Dit adres wordt aan de DNS-server doorgegeven
-1. De DNS-server stuurt de aanvraag naar de `.net`-naamserver. Deze beschikt niet over de record, maar kent het adres van de naamserver van contoso.net. In dit geval betreft het een DNS-zone die wordt gehost in Azure DNS.
-1. De zone `contoso.net` beschikt niet over de record, maar kent de naamserver voor `partners.contoso.net` en retourneert deze. In dit geval betreft het een DNS-zone die wordt gehost in Azure DNS.
-1. De DNS-server vraagt het IP-adres van `partners.contoso.net` op bij de zone `partners.contoso.net`. Deze bevat de A-record en antwoordt met het IP-adres.
-1. De DNS-server verstrekt het IP-adres aan de client
-1. De client maakt verbinding met de website `www.partners.contoso.net`.
+2. De lokale DNS-server beschikt niet over de record en vraagt deze daarom op bij de hoofdnaamserver.
+3. De hoofdnaamserver beschikt niet over de record, maar kent het adres van de `.net`-naamserver. Dit adres wordt aan de DNS-server doorgegeven
+4. De lokale DNS-server stuurt de aanvraag naar de `.net` naamserver.
+5. De `.net` naamserver beschikt niet over de record, maar weet het adres van de `contoso.net` naamserver. In dit geval reageert met het adres van de naamserver voor de DNS-zone die wordt gehost in Azure DNS.
+6. De lokale DNS-server verzendt de aanvraag naar de naamserver voor de `contoso.net` zone die wordt gehost in Azure DNS.
+7. De zone `contoso.net` beschikt niet over de record, maar kent de naamserver voor `partners.contoso.net` en reageert met het adres. In dit geval is het een DNS-zone die wordt gehost in Azure DNS.
+8. De lokale DNS-server verzendt de aanvraag naar de naamserver voor de `partners.contoso.net` zone.
+9. De `partners.contoso.net` zone heeft de A-record en antwoordt met het IP-adres.
+10. De lokale DNS-server biedt het IP-adres voor de client
+11. De client maakt verbinding met de website `www.partners.contoso.net`.
 
 Elke delegering bevat twee kopieën van de NS-records. De ene kopie bevindt zich in de bovenliggende zone en wijst naar de onderliggende zone, terwijl de andere kopie zich in de onderliggende zone zelf bevindt. De zone contoso.net bevat de NS-records voor contoso.net (naast de NS-records in 'net'). Deze records worden gezaghebbende NS-records genoemd en bevinden zich in de apex van de onderliggende zone.
 

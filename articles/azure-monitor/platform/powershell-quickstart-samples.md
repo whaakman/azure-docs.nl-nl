@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 72c50871f0d339d5d8f173a50e03aefc72fdcb36
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: d3bd4d80f167a496c9b980891f31d30bc86a0cb2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585286"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473756"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Voorbeelden om snel aan de slag met Azure Monitor PowerShell
 In dit artikel ziet u PowerShell-opdrachten kunt u toegang tot de functies van Azure Monitor een steekproef.
@@ -145,9 +145,9 @@ De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor h
 | Name |simpletestdiskwrite |
 | Locatie van deze waarschuwingsregel |US - oost |
 | ResourceGroup |montest |
-| TargetResourceId |/Subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName van de waarschuwing die is gemaakt |\Disk \PhysicalDisk (_Totaal) per seconde. Zie de `Get-MetricDefinitions` cmdlet over het ophalen van de exacte metrische namen |
-| Operator |GreaterThan |
+| operator |GreaterThan |
 | De waarde voor drempel (aantal per seconde in voor deze metrische gegevens) |1 |
 | Venstergrootte (uu: mm: indeling) |00:05:00 |
 | aggregator (statistiek op van de metrische gegevens, die in dit geval maakt gebruik van gemiddeld aantal) |Gemiddeld |
@@ -387,3 +387,4 @@ Houd er rekening mee dat de werkruimte-id voor deze eigenschap is de *resource-I
 ```
 
 Deze opdrachten kunnen worden gecombineerd om gegevens te verzenden naar meerdere bestemmingen.
+

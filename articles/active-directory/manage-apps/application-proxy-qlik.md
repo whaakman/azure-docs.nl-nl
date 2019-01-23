@@ -4,7 +4,7 @@ description: Toepassingsproxy inschakelen in Azure portal en installeer de Conne
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d370f9fb7fc67c9df5e08a06de38db8e97c6fb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132751"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471902"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>De toepassingsproxy en Qlik Sense 
 Azure Active Directory-toepassingsproxy en Qlik Sense zijn een partnerschap aangegaan samen om te controleren of dat u zich eenvoudig kunt toepassingsproxy gebruiken voor externe toegang voor uw implementatie Qlik Sense.  
@@ -41,7 +41,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd ov
 3. Selecteer **toevoegen** aan de bovenkant van de blade. 
 4. Selecteer **On-premises toepassing**. 
 5.       Vul de vereiste velden met informatie over de nieuwe app. Gebruik de volgende richtlijnen voor de instellingen: 
-    - **Interne URL**: deze toepassing moet een interne URL de URL is QlikSense zelf. Bijvoorbeeld, **https&#58;//demo.qlikemm.com:4244** 
+    - **Interne URL**: Deze toepassing moet een interne URL de URL is QlikSense zelf hebben. Bijvoorbeeld, **https&#58;//demo.qlikemm.com:4244** 
     - **Methode voor verificatie vooraf**: Azure Active Directory (aanbevolen maar niet vereist) 
 1.       Selecteer **toevoegen** aan de onderkant van de blade. Uw toepassing wordt toegevoegd en het menu Snel starten wordt geopend. 
 2.       Selecteer in het menu snelle start **een gebruiker toewijzen voor het testen van**, en ten minste één gebruiker toevoegen aan de toepassing. Zorg ervoor dat deze testaccount toegang heeft tot de on-premises toepassing. 
@@ -51,8 +51,8 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd ov
 ### <a name="application-2"></a>Toepassing #2: 
 Volg dezelfde stappen als voor de toepassing #1, met de volgende uitzonderingen: 
 
-**Stap 5 van #**: de interne URL de URL van de QlikSense met de verificatiepoort die wordt gebruikt door de toepassing nu moet zijn. De standaardwaarde is **4244** voor HTTPS en 4248 voor HTTP. Bijvoorbeeld: **https&#58;//demo.qlik.com:4244**</br></br>**Stap 10 #:** niet instellen van eenmalige aanmelding, en laat de **eenmalige aanmelding uitgeschakeld** 
-
+**Stap 5 van #**: Nu moet de interne URL de URL van de QlikSense met de verificatiepoort die wordt gebruikt door de toepassing. De standaardwaarde is **4244** voor HTTPS en 4248 voor HTTP. Bijvoorbeeld: **https&#58;//demo.qlik.com:4244**</br></br> 
+**Stap 10 #:** Geen een SSO instellen, en laat de **eenmalige aanmelding uitgeschakeld**
  
  
 ## <a name="testing"></a>Testen 

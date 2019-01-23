@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dfe6184779d3c26273e8e7cabef4890360cf7e76
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567380"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446253"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Gegevens verkennen en visualiseren hulpprogramma's op de Data Science Virtual Machine
 
@@ -32,9 +32,9 @@ Er is een belangrijke stap in de data science om te begrijpen van de gegevens. V
 | Wat is het?   | Open-source SQL query-engine van Big data    |
 | Ondersteunde DSVM-versies      | Windows, Linux  |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?      |  Geïnstalleerd `/dsvm/tools/drill*` in ingesloten alleen in de modus   |
-| Wordt doorgaans gebruikt      |  Gegevensverkenning in situ zonder ETL. Query uitvoeren op verschillende bronnen en indelingen includign CSV, JSON, relationele tabellen, Hadoop     |
+| Wordt doorgaans gebruikt      |  Gegevensverkenning in situ zonder ETL. Query uitvoeren op verschillende gegevensbronnen en vormen, inclusief CSV, JSON, relationele tabellen, Hadoop     |
 | Hoe kan ik gebruik / uitvoeren?      | Snelkoppeling op het bureaublad  <br/> [Aan de slag met inzoomen in 10 minuten](https://drill.apache.org/docs/drill-in-10-minutes/)  |
-| Meer hulpprogramma's op de DSVM      |   Rammelaar, Weka, SQL Server Management Studio      |
+| Meer hulpprogramma's op de DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
 ## <a name="weka"></a>Weka
 |    |           |

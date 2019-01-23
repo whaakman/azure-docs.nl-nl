@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e861d8fe22d4e7acb970990b27998caf923ed6c2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140524"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449639"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Vereisten voor Apple FairPlay-licenties en configuratie 
 
 Azure Media Services kunt u voor het versleutelen van uw HLS-inhoud met **Apple FairPlay** (AES-128 CBC). Media Services biedt ook een service voor het leveren van FairPlay-licenties. Wanneer een speler probeert uw FairPlay beveiligde inhoud af te spelen, wordt een aanvraag verzonden naar de service voor het leveren van licenties om een licentie te verkrijgen. Als de licentieservice de aanvraag goedkeurt, geeft deze de licentie die is verzonden naar de client en wordt gebruikt om te ontsleutelen en de opgegeven inhoud af te spelen.
 
-Media Services biedt ook API's die u gebruiken kunt om uw FairPlay-licenties te configureren. In dit onderwerp gaat over vereisten voor FairPlay-licenties en laat zien hoe u kunt configureren een **FairPlay** met behulp van Media Sercies APIs van licentie. 
+Media Services biedt ook API's die u gebruiken kunt om uw FairPlay-licenties te configureren. In dit onderwerp gaat over vereisten voor FairPlay-licenties en laat zien hoe u kunt configureren een **FairPlay** licentie met behulp van Media Services-API's. 
 
 ## <a name="requirements"></a>Vereisten
 
@@ -35,7 +35,7 @@ Het volgende is vereist als u Media Services voor het versleutelen van uw HLS-in
 * Apple vereist dat de eigenaar van de inhoud verkrijgen van de [implementatiepakket](https://developer.apple.com/contact/fps/). Status die u al sleutel Security Module (KSM) met Media Services hebt geïmplementeerd en dat u het laatste FPS pakket aanvraagt. Er zijn instructies in het definitieve pakket FPS certificering genereren en downloaden van de toepassing geheime sleutel (ASK). VRAAG kunt u FairPlay configureren.
 * De volgende dingen moeten worden ingesteld op aan clientzijde voor levering van Media Services-sleutels/licenties:
 
-    * **App-certificaat (AC)**: dit is een pfx-bestand dat de persoonlijke sleutel bevat. U kunt dit bestand maken en versleutelen met een wachtwoord. Het pfx-bestand shoul worden in Base 64-indeling.
+    * **App-certificaat (AC)**: Dit is een pfx-bestand dat de persoonlijke sleutel bevat. U kunt dit bestand maken en versleutelen met een wachtwoord. Het pfx-bestand moet zich in Base 64-indeling.
 
         De volgende stappen wordt beschreven hoe u een PFX-certificaatbestand voor FairPlay genereren:
 
@@ -49,12 +49,12 @@ Het volgende is vereist als u Media Services voor het versleutelen van uw HLS-in
 
             "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-Exporteer - FairPlay-out.pfx-inkey privatekey.pem-in FairPlay-out.pem - passin file:privatekey-pem-pass.txt
             
-    * **Certificaat voor App-wachtwoord**: het wachtwoord voor het maken van het pfx-bestand.
-    * **VRAAG**: deze sleutel wordt weergegeven wanneer u het certificaat genereert met behulp van de Apple Developer-portal. Elke ontwikkelingsteam ontvangt een unieke vraag. Sla een kopie van de vraag, en sla deze op een veilige plaats. U moet configureren vragen als FairPlayAsk met Media Services.
+    * **Certificaat voor App-wachtwoord**: Het wachtwoord voor het maken van het pfx-bestand.
+    * **VRAAG**: Deze sleutel wordt ontvangen wanneer u het certificaat genereert met behulp van de Apple Developer-portal. Elke ontwikkelingsteam ontvangt een unieke vraag. Sla een kopie van de vraag, en sla deze op een veilige plaats. U moet configureren vragen als FairPlayAsk met Media Services.
     
 * De volgende dingen moeten zijn ingesteld door de client FPS:
 
-  * **App-certificaat (AC)**: dit is een.cer/.der-bestand met de openbare sleutel, die het besturingssysteem wordt gebruikt voor het versleutelen van sommige nettolading. Media Services moet weten over het, omdat deze is vereist voor de speler. De sleutelleveringsservice ontsleutelt deze met behulp van de bijbehorende persoonlijke sleutel.
+  * **App-certificaat (AC)**: Dit is een.cer/.der-bestand met de openbare sleutel, die het besturingssysteem wordt gebruikt voor het versleutelen van sommige nettolading. Media Services moet weten over het, omdat deze is vereist voor de speler. De sleutelleveringsservice ontsleutelt deze met behulp van de bijbehorende persoonlijke sleutel.
 
 * Als u wilt afspelen van een versleutelde FairPlay-stream een echte vraag eerste ophalen en genereer vervolgens een echt certificaat zijn. Dit proces wordt gemaakt van alle drie onderdelen:
 

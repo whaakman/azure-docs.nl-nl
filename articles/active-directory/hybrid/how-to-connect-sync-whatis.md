@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie | Microsoft Docs'
 description: Legt uit hoe Azure AD Connect synchroniseren werkt en hoe u om aan te passen.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 994169d4280c479ffe1b766a309198c8f4d951b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 74973371b3d893c1e0c94024a97c77b59fa570fe
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314655"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461940"
 ---
-# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen
+# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie
 De Azure Active Directory Connect-Synchronisatieservices (Azure AD Connect-synchronisatie) is een belangrijkste onderdeel van Azure AD Connect. Dit zorgt dat alle bewerkingen die zijn gerelateerd aan het synchroniseren van identiteitsgegevens tussen uw on-premises omgeving en Azure AD. Azure AD Connect-synchronisatie is de opvolger van DirSync, Azure AD Sync en Forefront Identity Manager met de Azure Active Directory-Connector geconfigureerd.
 
 In dit onderwerp is de thuisbasis voor **Azure AD Connect-synchronisatie** (ook wel genoemd **synchronisatie-engine**) en een lijst met koppelingen naar alle andere onderwerpen met betrekking tot het. Zie voor koppelingen naar Azure AD Connect [uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md).

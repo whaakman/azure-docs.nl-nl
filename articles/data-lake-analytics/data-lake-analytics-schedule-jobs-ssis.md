@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 1a0be03c278a152ea56fe0dac5277c39a0878057
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412487"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448717"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>U-SQL-taken met behulp van SQL Server Integration Services (SSIS) plannen
 
@@ -40,7 +40,7 @@ U kunt de U-SQL-script ophalen uit verschillende plaatsen met behulp van ingebou
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Scenario 1-gebruik inline script aanroep tvf's en opgeslagen procedures
 
-Configureren in Azure Data Lake Analytics taak Editor **SourceType** als **DirectInput**, en plaats de U-SQL-instructies in **USQLStatemnt**.
+Configureren in Azure Data Lake Analytics taak Editor **SourceType** als **DirectInput**, en plaats de U-SQL-instructies in **USQLStatement**.
 
 Voor eenvoudig onderhoud en codebeheer, alleen korte U-SQL-script plaatsen als inline-scripts, bijvoorbeeld, kunt u aanroepen bestaande functies met tabelwaarden en opgeslagen procedures in uw U-SQL-databases. 
 

@@ -4,7 +4,7 @@ description: Het oplossen van hybride Azure Active Directory gekoppelde downleve
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 546f9054978f0b9fbe6bb9063905c982de627442
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800856"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445283"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory gekoppelde downlevel-apparaten 
 
@@ -37,7 +37,7 @@ Zie voor Windows 10 of Windows Server 2016, [probleemoplossing hybride Azure Act
 
 In dit artikel wordt ervan uitgegaan dat u hebt [geconfigureerde hybride Azure Active Directory gekoppelde apparaten](hybrid-azuread-join-plan.md) ter ondersteuning van de volgende scenario's:
 
-- Voorwaardelijke toegang op basis van apparaat
+- Conditional access op basis van apparaten
 
 
 In dit artikel biedt hulp bij probleemoplossing voor het oplossen van problemen.  
@@ -116,7 +116,7 @@ Als het apparaat niet toegevoegd aan hybrid Azure AD is, kunt u proberen te doen
 
     ![Workplace Join voor Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-U kunt de statusinformatie ook vinden in het gebeurtenislogboek onder: **toepassingen en Services Log\Microsoft-Workplace Join**
+U kunt de statusinformatie ook vinden in het gebeurtenislogboek onder: **Toepassingen en Services Log\Microsoft-werkplek koppelen**
   
 **De meest voorkomende oorzaken voor een mislukte hybride Azure AD join zijn:** 
 

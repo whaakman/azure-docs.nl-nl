@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359269"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450197"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow-indelingen en codecs voor
 
@@ -31,9 +31,9 @@ ms.locfileid: "54359269"
 
 Dit document bevat een overzicht van de invoer- en indelingen en codecs voor die worden ondersteund door de openbare preview-versie van de **Media Encoder Premium Workflow** coderingsprogramma.
 
-[Media Encoder Premium Worflow invoer-indelingen en codecs voor](#input_formats)
+[De invoer-indelingen en codecs voor Media Encoder Premium Workflow](#input_formats)
 
-[Media Encoder Premium Worflow uitvoer indelingen en codecs voor](#output_formats)
+[Media Encoder Premium Workflow uitvoer-indelingen en codecs voor](#output_formats)
 
 **Media Encoder Premium Workflow** ondersteunt ondertiteling in beschreven [dit](#closed_captioning) sectie. 
 

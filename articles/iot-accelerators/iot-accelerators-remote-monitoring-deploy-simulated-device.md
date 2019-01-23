@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: f073637810e9ed1acdf37b0e541ca3f1d518de2a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8491acfd28524ee3bbbd06c788afb668c40c98b9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345076"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450565"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat implementeren
 
@@ -147,4 +147,4 @@ Als u de oplossingsversneller niet meer nodig hebt, verwijderd uit de [ingericht
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Deze handleiding hebt u geleerd u aangepaste modellen implementeren op de oplossingsverbetering voor externe controle. De voorgestelde volgende stap is te leren hoe u [een fysiek apparaat verbinden met uw oplossing voor externe controle](iot-accelerators-connecting-devices-node.md).
+Deze handleiding hebt u geleerd u aangepaste modellen implementeren op de oplossingsverbetering voor externe controle. De voorgestelde volgende stap is te leren hoe u [een echt apparaat verbinden met uw oplossing voor externe controle](iot-accelerators-connecting-devices-node.md).

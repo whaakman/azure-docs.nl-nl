@@ -4,7 +4,7 @@ description: Informatie over het configureren van Azure Active Directory (Azure 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b59e4898f85de7ad93d9172cdb3c551a17799194
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 2df2d716516cb8e451c054fce3e184e1b4bf3f9b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630480"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447595"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedure: Vereist voor toegang tot cloud-Apps met voorwaardelijke toegang te beheren
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedures: Beheerde apparaten vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang
 
 In een wereld mobiliteit, cloud-first kunt Azure Active Directory (Azure AD) single sign-on bij apps en services vanaf elke locatie. Geautoriseerde gebruikers kunnen toegang krijgen tot uw cloud-apps uit een breed scala aan apparaten, waaronder mobiele en ook op persoonlijke apparaten. Veel omgevingen hebben echter ten minste een aantal apps dat alleen moeten worden geopend vanaf apparaten die voldoen aan uw normen voor beveiliging en naleving. Deze apparaten zijn ook wel bekend als beheerde apparaten. 
 
@@ -34,9 +34,9 @@ In dit artikel wordt uitgelegd hoe u beleid voor voorwaardelijke toegang die ver
 
 Beheerde apparaten vereisen voor cloud-app toegang ties **voorwaardelijke toegang voor Azure AD** en **Azure AD-Apparaatbeheer** samen. Als u nog niet bekend bent met een van deze gebieden, moet u eerst de volgende onderwerpen lezen:
 
-- **[Voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) ** -in dit artikel biedt u een conceptueel overzicht van voorwaardelijke toegang en de bijbehorende terminologie.
+- **[Voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -in dit artikel biedt u een conceptueel overzicht van voorwaardelijke toegang en de bijbehorende terminologie.
 
-- **[Inleiding tot Apparaatbeheer in Azure Active Directory](../devices/overview.md) ** -in dit artikel geeft een overzicht van de verschillende opties die u kunt apparaten in organisatie-beheer. 
+- **[Inleiding tot Apparaatbeheer in Azure Active Directory](../devices/overview.md)**  -in dit artikel geeft een overzicht van de verschillende opties die u kunt apparaten in organisatie-beheer. 
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,11 +60,11 @@ Simpel gezegd, beheerde apparaten zijn apparaten die onder *sommige sorteren* va
 
 Als u een apparaat is geregistreerd bij Azure AD, hebt u drie opties:
 
-- **[Azure AD ingeschreven apparaten](../devices/overview.md#azure-ad-registered-devices) ** : als u wilt ophalen van een persoonlijk apparaat is geregistreerd bij Azure AD
+- **[Azure AD ingeschreven apparaten](../devices/overview.md#azure-ad-registered-devices)**  : als u wilt ophalen van een persoonlijk apparaat is geregistreerd bij Azure AD
 
-- **[Azure AD gekoppelde apparaten](../devices/overview.md#azure-ad-joined-devices) ** : als u wilt ophalen van een organisatie-Windows 10-apparaat die niet is gekoppeld aan een on-premises AD geregistreerd bij Azure AD. 
+- **[Azure AD gekoppelde apparaten](../devices/overview.md#azure-ad-joined-devices)**  : als u wilt ophalen van een organisatie-Windows 10-apparaat die niet is gekoppeld aan een on-premises AD geregistreerd bij Azure AD. 
 
-- **[Hybride Azure AD gekoppelde apparaten](../devices/overview.md#hybrid-azure-ad-joined-devices) ** : als u wilt ophalen van een Windows 10 of een ondersteunde downlevel-apparaten die lid van een on-premises is AD geregistreerd bij Azure AD.
+- **[Hybride Azure AD gekoppelde apparaten](../devices/overview.md#hybrid-azure-ad-joined-devices)**  : als u wilt ophalen van een Windows 10 of een ondersteunde downlevel-apparaten die lid van een on-premises is AD geregistreerd bij Azure AD.
 
 Als u wilt worden van een beheerd apparaat, een geregistreerd apparaat moet een **hybride Azure AD toegevoegde apparaat** of een **apparaat dat is gemarkeerd als compatibel**.  
 
