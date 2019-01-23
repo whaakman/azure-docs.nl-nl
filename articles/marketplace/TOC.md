@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: f2561ab6589d5ee18d78bee38eb1386ce9fe8153
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352803"
----
 # [Documentatie voor Azure Marketplace en AppSource](index.md)
 
 ## [Overzicht en voordelen van Azure Marketplace en AppSource](./marketplace-publishers-guide.md)  
