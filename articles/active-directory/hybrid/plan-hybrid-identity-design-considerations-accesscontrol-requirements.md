@@ -4,7 +4,7 @@ description: Bevat informatie over de onderdelen van identiteits- en toegangsver
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f71fc7547ef60cdc3d038705dbb04d396affdf0a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247701"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478226"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Vereisten voor toegangsbeheer voor uw oplossing voor hybride identiteit bepalen
 Wanneer een organisatie hun hybride identiteitsoplossing ontwerpt, kunnen ze deze kans ook gebruiken om te controleren van vereisten voor gegevenstoegang voor de resources die ze van plan bent om het beschikbaar maken voor gebruikers. De toegang tot de cross-alle vier pijlers van identiteit, die zijn:
@@ -59,7 +59,7 @@ Welk model u uw organisatie gaat hanteren, is afhankelijk van hun zakelijke vere
 * Uw organisatie gebruikt eenmalige aanmelding voor apps die zich on-premises of in de cloud?
   * Zo ja, de acceptatie van een model voor hybride identiteit beïnvloedt dit proces?
 
-## <a name="access-control"></a>Access Control
+## <a name="access-control"></a>Toegangsbeheer
 Verificatie en autorisatie zijn core-elementen voor toegang tot zakelijke gegevens via de validatie van de gebruiker, is het ook belangrijk om te bepalen het niveau van toegang dat deze gebruikers hebben en het niveau van de beheerders toegang hebben over de resources dat ze beheren zijn. Uw oplossing voor hybride identiteit moet kunnen bieden gedetailleerde toegang tot resources, overdracht en role base access control. Zorg ervoor dat de volgende vraag is beantwoord met betrekking tot toegangsbeheer:
 
 * Heeft uw bedrijf meer dan één gebruiker met verhoogde bevoegdheden voor het beheren van uw identiteitssysteem?

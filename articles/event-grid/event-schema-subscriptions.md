@@ -2,21 +2,21 @@
 title: Gebeurtenisschema in Azure Event Grid-abonnement
 description: Beschrijft de eigenschappen die beschikbaar zijn voor abonnement-gebeurtenissen met Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ae6513c503b930d9c953f5245a9c98ea096109bb
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 04bb19c074edff08677d759fb386608f6905e979
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310230"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473432"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-gebeurtenisschema voor abonnementen
 
-Dit artikel bevat de eigenschappen en het schema voor gebeurtenissen van de Azure-abonnement. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
+Dit artikel bevat de eigenschappen en het schema voor gebeurtenissen van de Azure-abonnement. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
 Azure-abonnementen en resourcegroepen uitzenden van hetzelfde type als de gebeurtenis. De typen gebeurtenissen zijn gerelateerd aan wijzigingen van resources of acties. Het belangrijkste verschil is dat resourcegroepen-gebeurtenissen voor resources binnen de resourcegroep verzenden en Azure-abonnementen verzenden van gebeurtenissen voor resources in het abonnement.
 
@@ -34,7 +34,7 @@ Zie voor een lijst met zelfstudies en voorbeelden van scripts, [gebeurtenisbron 
 
 Azure-abonnementen introduceren management gebeurtenissen van Azure Resource Manager, zoals wanneer een virtuele machine wordt gemaakt of een storage-account wordt verwijderd.
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | Treedt op wanneer de actie voor de resource is geannuleerd. |
 | Microsoft.Resources.ResourceActionFailure | Treedt op wanneer de actie voor de resource is mislukt. |
@@ -234,31 +234,31 @@ Het volgende voorbeeld ziet u het schema voor een **ResourceActionSuccess** gebe
 
 Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
-| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
+| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
+| id | string | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens van het abonnement. |
-| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
 | Autorisatie | object | De aangevraagde autorisatie voor de bewerking. |
 | claims | object | De eigenschappen van de claims. Zie voor meer informatie, [JWT-specificatie](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | tekenreeks | Een bewerking-ID voor het oplossen van problemen. |
+| correlationId | string | Een bewerking-ID voor het oplossen van problemen. |
 | httpRequest | object | De details van de bewerking. Dit object is alleen opgenomen wanneer u een bestaande resource bijwerkt of een bron te verwijderen. |
-| resourceProvider | tekenreeks | De resourceprovider voor de bewerking. |
-| resourceUri | tekenreeks | De URI van de resource in de bewerking. |
-| operationName | tekenreeks | De bewerking die werd gemaakt. |
-| status | tekenreeks | De status van de bewerking. |
-| subscriptionId | tekenreeks | De abonnements-ID van de resource. |
-| tenant-id | tekenreeks | De tenant-ID van de resource. |
+| resourceProvider | string | De resourceprovider voor de bewerking. |
+| resourceUri | string | De URI van de resource in de bewerking. |
+| operationName | string | De bewerking die werd gemaakt. |
+| status | string | De status van de bewerking. |
+| subscriptionId | string | De abonnements-ID van de resource. |
+| tenantId | string | De tenant-ID van de resource. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

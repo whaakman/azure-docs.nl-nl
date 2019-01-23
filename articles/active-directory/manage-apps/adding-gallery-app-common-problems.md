@@ -4,7 +4,7 @@ description: Inzicht in het gezicht voor mensen van algemene problemen bij het t
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: b44b72c4414314e4329a7de91f4d1a61914afc6f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 29538d4cab4df328ba9cbff2f30c35626b3360dd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424966"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477597"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Probleem met het toevoegen van een toepassing in Azure AD-galerie
 
@@ -120,7 +120,7 @@ Zie de volgende beschrijvingen voor meer informatie over de meldingen.
 
 -   **Object-ID** – **(mag leeg zijn)** de object-ID op basis waarvan de bewerking is uitgevoerd
 
-    -   Voorbeeld: **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+    -   Example – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
 -   **Details** : de gedetailleerde beschrijving van wat is het gevolg van de bewerking
 

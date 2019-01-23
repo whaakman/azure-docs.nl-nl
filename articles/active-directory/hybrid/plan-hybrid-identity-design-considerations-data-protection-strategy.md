@@ -4,7 +4,7 @@ description: U definieert de strategie voor gegevensbescherming voor uw oplossin
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bef5671637b26f4fd0d0c27211edca946c395cdf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865043"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468553"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit definiëren
 In deze taak definieert u de strategie voor gegevensbescherming voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die u hebt gedefinieerd in:
@@ -118,32 +118,32 @@ Zodra de gebruiker is geverifieerd met behulp van Azure AD, is het belangrijk om
 
 Elke interactie in het diagram weergegeven zoals in afbeelding X vertegenwoordigt een scenario van de access control die kan worden volstaan met Azure AD. Hieronder bevat een beschrijving van elk scenario:
 
-  1. Voorwaardelijke toegang voor toepassingen die on-premises gehost: U kunt geregistreerde apparaten gebruiken met beleid voor toegang voor toepassingen die zijn geconfigureerd voor gebruik van AD FS met Windows Server 2012 R2.
+  1. Voorwaardelijke toegang voor toepassingen die on-premises gehost: U kunt geregistreerde apparaten met toegangsbeleid voor toepassingen die zijn geconfigureerd voor gebruik van AD FS met Windows Server 2012 R2.
 
-  2. Beheer van toegang tot de Azure-portal: Azure kunt u ook toegang tot de portal beheren met behulp van op rollen gebaseerd toegangsbeheer (RBAC)). Deze methode kan het bedrijf om te beperken van het aantal bewerkingen die een persoon in de Azure-portal kunt uitvoeren. Met behulp van RBAC voor het beheren van toegang tot de portal, kunnen IT-beheerders toegang delegeren met behulp van de volgende methoden voor access management:
+  2. Toegangsbeheer voor de Azure-portal:  Met Azure kunt u ook toegang tot de portal beheren met behulp van op rollen gebaseerd toegangsbeheer (RBAC)). Deze methode kan het bedrijf om te beperken van het aantal bewerkingen die een persoon in de Azure-portal kunt uitvoeren. Met behulp van RBAC voor het beheren van toegang tot de portal, kunnen IT-beheerders toegang delegeren met behulp van de volgende methoden voor access management:
 
    - Groep op basis van roltoewijzing: U kunt toegang toewijzen aan Azure AD-groepen die kunnen worden gesynchroniseerd vanuit uw lokale Active Directory. Hiermee kunt u de bestaande investeringen die uw organisatie heeft aangebracht in de hulpprogramma's en processen voor het beheren van groepen. U kunt ook de functie voor het beheer van groepen met gemachtigden van Azure AD Premium gebruiken.
-   - Gebruik van ingebouwde rollen in Azure: kunt u drie rollen: eigenaar, Inzender en lezer, om ervoor te zorgen dat gebruikers en groepen gemachtigd alleen de taken die ze nodig hebben om hun werk te doen.
-   -  Gedetailleerde toegang tot resources: U kunt rollen toewijzen aan gebruikers en groepen voor een bepaald abonnement, resourcegroep of een afzonderlijke Azure-resource, zoals een website of de database. Op deze manier kunt u ervoor zorgen dat gebruikers hebben toegang tot alle bronnen die ze nodig hebben en geen toegang tot resources die ze niet hoeven te beheren.
+   - Gebruik de ingebouwde rollen in Azure: U kunt drie rollen: eigenaar, Inzender en lezer, om ervoor te zorgen dat gebruikers en groepen gemachtigd alleen de taken die ze nodig hebben om hun werk te doen.
+   -  Gedetailleerde toegang tot bronnen: U kunt rollen toewijzen aan gebruikers en groepen voor een bepaald abonnement, resourcegroep of een afzonderlijke Azure-resource, zoals een website of de database. Op deze manier kunt u ervoor zorgen dat gebruikers hebben toegang tot alle bronnen die ze nodig hebben en geen toegang tot resources die ze niet hoeven te beheren.
 
    > [!NOTE]
    > Als u toepassingen bouwen en wilt aanpassen van het toegangsbeheer voor hen, is het ook mogelijk met Azure AD-toepassingsrollen voor autorisatie. Controleer deze [WebApp-RoleClaims-DotNet-voorbeeld](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) van het bouwen van uw app voor het gebruik van deze mogelijkheid.
 
 
-  3. Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune: IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang voor het beveiligen van bedrijfsbronnen, terwijl op hetzelfde moment ze IT-medewerkers op compatibele apparaten toegang krijgen tot de services inrichten. 
+  3. Voorwaardelijke toegang voor Office 365-toepassingen met Microsoft Intune:  IT-beheerders kunnen apparaatbeleid voor voorwaardelijke toegang voor het beveiligen van bedrijfsbronnen, terwijl op hetzelfde moment ze IT-medewerkers op compatibele apparaten toegang krijgen tot de services inrichten. 
   
-  4. Voorwaardelijke toegang voor Saas-apps: [deze functie](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kunt u regels voor toegang per toepassing meervoudige verificatie en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. U kunt de multi-factor authentication-regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen. Gebruikers kunnen worden uitgesloten van de vereiste voor meervoudige verificatie als ze de toepassing openen vanaf een IP-adres dat in binnen de organisatie het netwerk.
+  4. Voorwaardelijke toegang voor Saas-apps: [Deze functie](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kunt u regels voor toegang per toepassing meervoudige verificatie en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. U kunt de multi-factor authentication-regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen. Gebruikers kunnen worden uitgesloten van de vereiste voor meervoudige verificatie als ze de toepassing openen vanaf een IP-adres dat in binnen de organisatie het netwerk.
 
 Omdat de opties voor toegangsbeheer gebruiken een gelaagde benadering, vergelijking tussen deze opties zijn niet van toepassing voor deze taak. Zorg ervoor dat u gebruik van alle opties die beschikbaar zijn voor elk scenario dat vereist dat u voor het beheren van toegang tot uw resources.
 
 ## <a name="define-incident-response-options"></a>Opties voor respons op incidenten definiëren
 Azure AD kan helpen IT aan identiteit potentiële beveiligingsrisico's in de omgeving door de bewaking van de activiteit van de gebruiker. IT kunt Azure AD-toegang en gebruiksrapporten meer inzicht verkrijgen in de integriteit en beveiliging van de adreslijst van uw organisatie. Met deze informatie bepalen IT-beheerder beter waar mogelijke beveiligingsrisico's schuilen zodat ze voldoende plannen maken kunnen die risico's te beperken.  [Azure AD Premium-abonnement](../fundamentals/active-directory-get-started-premium.md) bevat een set beveiligingsrapporten die mogelijk IT om deze informatie te verkrijgen. [Azure AD-rapporten](../reports-monitoring/overview-reports.md) als volgt zijn onderverdeeld:
 
-* **Anomaliedetectie rapporten**: aanmeldingsgebeurtenissen die gevonden worden afwijkende bevatten. Het doel is om u op de hoogte van deze activiteit maken en kunt u bepalen of een gebeurtenis verdacht is.
-* **Rapport van de toepassing geïntegreerde**: biedt inzicht in hoe cloud-toepassingen in uw organisatie worden gebruikt. Azure Active Directory biedt integratie met duizenden cloudtoepassingen.
-* **Foutenrapporten**: duiden op fouten die optreden bij het inrichten van accounts voor externe toepassingen.
-* **Rapporten voor specifieke gebruikers**: apparaat/teken weergeven in de activiteitsgegevens voor een specifieke gebruiker.
-* **Activiteitenlogboeken**: bevatten een record van alle gecontroleerde gebeurtenissen binnen de afgelopen 24 uur, afgelopen 7 dagen of afgelopen 30 dagen, evenals groep is gewijzigd en het wachtwoord opnieuw instellen en registratie-activiteit.
+* **Anomaliedetectie rapporten**: Aanmeldingsgebeurtenissen die gevonden worden afwijkende bevatten. Het doel is om u op de hoogte van deze activiteit maken en kunt u bepalen of een gebeurtenis verdacht is.
+* **Rapport van de toepassing geïntegreerde**: Biedt inzicht in hoe cloud-toepassingen in uw organisatie worden gebruikt. Azure Active Directory biedt integratie met duizenden cloudtoepassingen.
+* **Foutenrapporten**: Fouten die zich voordoen kunnen bij het inrichten van accounts voor externe toepassingen aangeven.
+* **Rapporten voor specifieke gebruikers**: Apparaat/teken in de activiteitsgegevens voor een specifieke gebruiker weergeven.
+* **Activiteitenlogboeken**: Een record van alle gecontroleerde gebeurtenissen binnen de afgelopen 24 uur, afgelopen 7 dagen of afgelopen 30 dagen, evenals groep is gewijzigd en het wachtwoord opnieuw instellen en registratie van de activiteit bevatten.
 
 > [!TIP]
 > Een ander rapport waarmee u kunt ook het Incident Response-team werkt aan een aanvraag is de [gebruiker met de referenties zijn gelekt](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) rapport. Dit rapport toont alle overeenkomsten tussen de lijst met de referenties zijn gelekt en uw tenant.

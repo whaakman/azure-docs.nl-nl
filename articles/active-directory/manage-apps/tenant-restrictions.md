@@ -4,7 +4,7 @@ description: Het gebruik van de beperkingen van de Tenant voor het beheren van w
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: yossib
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096703"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478141"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Tenantbeperkingen gebruiken voor het beheren van toegang tot SaaS-cloudtoepassingen
 
@@ -70,7 +70,7 @@ De volgende configuratie is vereist voor het inschakelen van beperkingen voor Te
 
 #### <a name="configuration"></a>Configuratie
 
-Voeg twee HTTP-headers voor elke inkomende aanvraag login.microsoftonline.com, login.microsoft.com en login.windows.net: *Restrict Access aan Tenants* en *Restrict Access Context*.
+Voeg twee HTTP-headers voor elke inkomende aanvraag login.microsoftonline.com, login.microsoft.com en login.windows.net: *Beperken-Access-naar-Tenants* en *beperken de toegang-Context*.
 
 De headers moeten zijn onder andere de volgende elementen: 
 - Voor *Restrict Access aan Tenants*, een waarde van \<tenantlijst toegestaan\>, dit is een door komma's gescheiden lijst met tenants die u wilt toestaan dat gebruikers toegang krijgen tot. Elk domein dat is geregistreerd bij een tenant kan worden gebruikt om de tenant in deze lijst te identificeren. Bijvoorbeeld, om toegang te verlenen aan zowel Contoso en Fabrikam-tenants, lijkt de naam/waarde-paar:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 

@@ -3,7 +3,7 @@ title: Werken met bestaande on-premises proxy-servers en Azure AD | Microsoft Do
 description: Bevat informatie over het werken met bestaande on-premises proxy-servers.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6079f1ac1193568da2806efa27c775f97a6c5f95
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720098"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464031"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Werken met bestaande on-premises proxy-servers
 
@@ -107,11 +107,11 @@ Sta toegang tot de volgende URL's toe:
 
 | URL | Hoe dat wordt gebruikt |
 | --- | --- |
-| \*.msappproxy.net<br>\*. servicebus.windows.net | Communicatie tussen de connector en de Application Proxy-cloudservice |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Communicatie tussen de connector en de Application Proxy-cloudservice |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure gebruikt deze URL's om certificaten te controleren |
 | login.windows.net<br>login.microsoftonline.com | De connector gebruikt deze URL's tijdens het registratieproces. |
 
-Als uw firewall of proxyserver kunt DNS-opname in de whitelist, kunt u verbindingen met geaccepteerde \*. msappproxy.net en \*. servicebus.windows.net. Als u niet het geval is, moet u toegang tot de [Azure DataCenter IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653). De IP-adresbereiken, elke week worden bijgewerkt.
+Als uw firewall of proxyserver opname in een DNS-whitelist toestaat, kunt u verbindingen met \*msappproxy.net en \* in de whitelist opnemen. Als dat niet het geval is, moet u toegang toestaan tot de [IP-bereiken van Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653), die overigens elke week worden bijgewerkt.
 
 
 Als u kunt geen kunt u met FQDN-naam en moet in plaats daarvan IP-adresbereiken opgeven, gebruikt u deze opties:

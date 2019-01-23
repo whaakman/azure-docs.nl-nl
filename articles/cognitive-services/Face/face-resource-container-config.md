@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476917"
 ---
 # <a name="configure-containers"></a>Containers configureren
 
@@ -33,6 +33,7 @@ Hiërarchische configuratie-instellingen in de Face-container en alle containers
 * [CloudAI](#cloudai-configuration-settings)
 * [Gebruiksrechtovereenkomst](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Referentie-instellingen voor HTTP-proxy](#http-proxy-credentials-settings)
 * [Logboekregistratie](#logging-configuration-settings)
 * [Hiermee wordt gekoppeld](#mounts-configuration-settings)
 
@@ -162,6 +163,11 @@ De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund 
 | `TlsConnectionEstablishmentTimeoutMs` | Geheel getal | De time-out in milliseconden, een SSL/TLS-verbinding met de Fluentd-server tot stand brengen. De standaardwaarde is 10000 milliseconden (10 seconden).<br/> Als `UseTLS` is ingesteld op false, deze waarde wordt genegeerd. |
 | `UseTLS` | Booleaans | Geeft aan of SSL/TLS in de container moet worden gebruikt voor communicatie met de Fluentd-server. De standaardwaarde is false. |
 
+
+## <a name="http-proxy-credentials-settings"></a>HTTP-proxy-instellingen voor referenties
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Configuratie-instellingen voor logboekregistratie
 
 De `Logging` configuratie-instellingen beheren van ASP.NET Core logboekregistratie ondersteuning voor de container. U kunt de dezelfde configuratie-instellingen en waarden voor de container die u voor een ASP.NET Core-toepassing kunt gebruiken. De volgende logboekregistratie-providers worden ondersteund door de Face-container:
@@ -212,3 +218,7 @@ De volgende opdracht wordt bijvoorbeeld gedefinieerd voor een koppelpunt van de 
   ```
 
 De Face-container wordt niet gebruikt voor invoer of uitvoer voor het opslaan van gegevens training of database koppelt. In plaats daarvan biedt de Face-container opslag scenario's voor het beheren van gegevens voor training en -database. Zie voor meer informatie over het gebruik van scenario's voor opslag [scenario Opslaginstellingen](#storage-scenario-settings).
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)

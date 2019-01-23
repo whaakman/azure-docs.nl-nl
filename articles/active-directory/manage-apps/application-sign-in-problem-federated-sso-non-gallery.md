@@ -4,7 +4,7 @@ description: Richtlijnen voor de specifieke problemen die zich voordoen kunnen b
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356638"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469709"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een toepassing buiten de galerie geconfigureerd voor federatieve eenmalige aanmelding
 
@@ -66,7 +66,7 @@ Nadat u de id-waarde in Azure AD hebt bijgewerkt en wordt deze die overeenkomt m
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres op dat komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing. 
 
-*Fout AADSTS50011: Het antwoordadres op dat de https://contoso.com' komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing* 
+*Fout AADSTS50011: Het antwoordadres https://contoso.com' komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing* 
 
 **Mogelijke oorzaak** 
 
@@ -100,7 +100,7 @@ Nadat u de antwoord-URL-waarde in Azure AD hebt bijgewerkt en wordt deze die ove
 
 ## <a name="user-not-assigned-a-role"></a>Gebruiker met een niet toegewezen
 
-*Fout AADSTS50105: De aangemelde gebruiker 'brian@contoso.com' is niet toegewezen aan een rol voor de toepassing*
+*Error AADSTS50105: De aangemelde gebruiker 'brian@contoso.com' is niet toegewezen aan een rol voor de toepassing*
 
 **Mogelijke oorzaak**
 
@@ -134,7 +134,7 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de 
 
 11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo om toe te voegen van de gebruiker naar de **geselecteerde** lijst.
 
-12. **Optioneel:** als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
+12. **Optioneel:** Als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** het zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
 
 13. Wanneer u klaar bent met gebruikers te selecteren, klikt u op de **Selecteer** knop aan de lijst met gebruikers en groepen die moeten worden toegewezen aan de toepassing wilt toevoegen.
 
@@ -170,7 +170,7 @@ Ze moeten valideren deze ondersteuning bieden voor de Azure AD-SAML-implementati
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Er is geen resource in de lijst met requiredResourceAccess
 
-*Fout AADSTS65005: De clienttoepassing heeft toegang aangevraagd tot resource ' 00000002-0000-0000-c000-000000000000'. Deze aanvraag is mislukt omdat de client niet voor deze resource in de lijst met requiredResourceAccess opgegeven is*.
+*Error AADSTS65005: De clienttoepassing heeft toegang aangevraagd tot resource ' 00000002-0000-0000-c000-000000000000'. Deze aanvraag is mislukt omdat de client niet voor deze resource in de lijst met requiredResourceAccess opgegeven is*.
 
 **Mogelijke oorzaak**
 
@@ -202,7 +202,7 @@ Na het opnieuw configureren van de toepassing, moet u het volgende kunnen aanmel
 
 ## <a name="certificate-or-key-not-configured"></a>Certificaat of de sleutel niet geconfigureerd
 
-Fout AADSTS50003: Er is geen ondertekeningssleutel geconfigureerd.
+Fout AADSTS50003: Er is geen ondertekeningssleutel die is geconfigureerd.
 
 **Mogelijke oorzaak**
 

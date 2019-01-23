@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753146"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467159"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met de indexeerfunctie Azure Search Blob
 In dit artikel leest u hoe het configureren van een indexeerfunctie Azure Search blob om uit te pakken gestructureerde inhoud uit JSON-blobs in Azure Blob-opslag.
@@ -23,6 +23,9 @@ In dit artikel leest u hoe het configureren van een indexeerfunctie Azure Search
 U kunt de [portal](#json-indexer-portal), [REST-API's](#json-indexer-rest), of [.NET SDK](#json-indexer-dotnet) naar JSON-inhoud indexeren. Gemeenschappelijke alle methoden is JSON-documenten bevinden in een blobcontainer in een Azure Storage-account. Zie voor instructies over het pushen van JSON-documenten in andere niet-Azure-platforms, [gegevens importeren in Azure Search](search-what-is-data-import.md).
 
 JSON-blobs in Azure Blob-opslag zijn doorgaans een enkele JSON-document of een JSON-matrix. De bouw, afhankelijk van hoe u ingesteld kan worden geparseerd in de blob-indexeerfunctie in Azure Search de **parsingMode** parameter voor de aanvraag.
+
+> [!IMPORTANT]
+> Indexeren van JSON-blob is algemeen beschikbaar, maar JsonArray parseren is in openbare preview en mag niet worden gebruikt in een productieomgeving. Zie voor meer informatie, [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 
@@ -293,10 +296,10 @@ Het volgende voorbeeld is de nettolading van een volledig opgegeven indexer, met
 
 De .NET SDK is volledig pariteit met de REST-API. Het is raadzaam om de vorige sectie van de REST-API om te leren van concepten, werkstromen en vereisten te controleren. U kunt vervolgens verwijzen naar de volgende .NET API-referentiedocumentatie voor het implementeren van een JSON-indexeerfunctie in beheerde code.
 
-+ [Microsoft.Azure.Search.models.DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft.Azure.Search.models.DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft.Azure.Search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft.Azure.Search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 ## <a name="see-also"></a>Zie ook
 

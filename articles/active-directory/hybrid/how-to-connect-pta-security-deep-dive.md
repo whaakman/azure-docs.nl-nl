@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect Pass through-verificatie, installatie van Active Directory, vereiste onderdelen voor Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 45f99ac99c54caab17ba7b74dc09a46c335c8fe4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185066"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476339"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory Pass through-verificatie grondig onderzoek van beveiliging
 
@@ -49,8 +49,8 @@ Dit zijn de sleutelbeveiliging aspecten van deze functie:
 ## <a name="components-involved"></a>Onderdelen betrokken
 
 Raadpleeg voor algemene informatie over operationele, Azure AD-service en de beveiliging van gegevens, de [Trust Center](https://azure.microsoft.com/support/trust-center/). De volgende onderdelen betrokken zijn wanneer u Pass-through-verificatie voor aanmelding bij de gebruiker gebruikt:
-- **Azure AD-STS**: Een stateless beveiligingstokenservice (STS) waarmee aanmeldingsaanvragen worden verwerkt en verstrekt beveiligingstokens aan gebruikers browsers, clients of services zoals vereist.
-- **Azure Servicebus**: Biedt cloudcommunicatie met berichtenverzending en relays communicatie waarmee u verbinding maken met on-premises oplossingen met de cloud.
+- **Azure AD STS**: Een stateless beveiligingstokenservice (STS) waarmee aanmeldingsaanvragen worden verwerkt en verstrekt beveiligingstokens aan gebruikers browsers, clients of services zoals vereist.
+- **Azure Service Bus**: Biedt cloudcommunicatie met berichtenverzending en relays communicatie waarmee u verbinding maken met on-premises oplossingen met de cloud.
 - **Azure AD Connect Authentication-Agent**: Een on-premises-component die luistert naar en reageert op aanvragen van wachtwoord-validatie.
 - **Azure SQL Database**: Bevat informatie over van uw tenant verificatie-Agents, inclusief de codes metagegevens en versleuteling.
 - **Active Directory**: On-premises Active Directory, waar de accounts van uw gebruikers en hun wachtwoorden worden opgeslagen.

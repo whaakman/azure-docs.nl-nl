@@ -5,7 +5,7 @@ services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 20beff7accbc987842141fa7ece9c17f11b0032e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415386"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448802"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedure: Vereisen goedgekeurde client-apps voor toegang tot cloud-Apps met voorwaardelijke toegang 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedures: Goedgekeurde client-apps vereisen voor toegang tot cloud-Apps met voorwaardelijke toegang 
 
 Uw werknemers gebruiken mobiele apparaten voor zowel privé- als werktaken. Terwijl te zorgen dat uw werknemers productief zijn kan, wilt u ook om te voorkomen dat gegevens verloren gaan. Met voorwaardelijke toegang van Azure Active Directory (Azure AD), kunt u de toegang beperken tot uw cloud-apps op goedgekeurde client-apps die uw bedrijfsgegevens kunnen beveiligen.  
 
@@ -108,13 +108,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 1. De **naam** van uw beleid voor voorwaardelijke toegang.
 
-2. **Gebruikers en groepen**: elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
+2. **Gebruikers en groepen**: Elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
 
-3. **Cloud-apps:** als cloud-apps, moet u selecteren **Office 365 Exchange Online**.
+3. **Cloud-apps:** Als cloud-apps, moet u selecteren **Office 365 Exchange Online**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **apparaatplatformen** en **Client-apps**:
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **apparaatplatformen** en **Client-apps**:
 
     a. Als **apparaatplatformen**, selecteer **Android** en **iOS**.
 
@@ -137,14 +137,14 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 1. De **naam** van uw beleid voor voorwaardelijke toegang.
 
-2. **Gebruikers en groepen**: elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
+2. **Gebruikers en groepen**: Elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
 
 
-3. **Cloud-apps:** als cloud-apps, moet u selecteren **Office 365 Exchange Online**.
+3. **Cloud-apps:** Als cloud-apps, moet u selecteren **Office 365 Exchange Online**.
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps (preview)**. 
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps (preview)**. 
 
     a. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
@@ -188,14 +188,14 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 1. De **naam** van uw beleid voor voorwaardelijke toegang.
 
-2. **Gebruikers en groepen**: elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
+2. **Gebruikers en groepen**: Elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
 
 
-3. **Cloud-apps:** als cloud-apps, moet u selecteren **Office 365 Exchange Online** en **Office 365 SharePoint Online**. 
+3. **Cloud-apps:** Als cloud-apps, moet u selecteren **Office 365 Exchange Online** en **Office 365 SharePoint Online**. 
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/02.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **apparaatplatformen** en **Client-apps**:
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **apparaatplatformen** en **Client-apps**:
 
     a. Als **apparaatplatformen**, selecteer **Android** en **iOS**.
 
@@ -220,13 +220,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 1. De **naam** van uw beleid voor voorwaardelijke toegang.
 
-2. **Gebruikers en groepen**: elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
+2. **Gebruikers en groepen**: Elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
 
-3. **Cloud-apps:** als cloud-apps, moet u selecteren **Office 365 Exchange Online**. Online 
+3. **Cloud-apps:** Als cloud-apps, moet u selecteren **Office 365 Exchange Online**. Online 
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps**:
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps**:
 
     a. Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
@@ -273,13 +273,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 1. De **naam** van uw beleid voor voorwaardelijke toegang.
 
-2. **Gebruikers en groepen**: elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
+2. **Gebruikers en groepen**: Elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
 
-3. **Cloud-apps:** als cloud-apps, moet u selecteren **Office 365 Exchange Online** en **Office 365 SharePoint Online**. 
+3. **Cloud-apps:** Als cloud-apps, moet u selecteren **Office 365 Exchange Online** en **Office 365 SharePoint Online**. 
 
      ![Voorwaardelijke toegang](./media/app-based-conditional-access/02.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **apparaatplatformen** en **Client-apps**. 
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **apparaatplatformen** en **Client-apps**. 
  
     a. Als **apparaatplatformen**, selecteer **Android** en **iOS**.
 
@@ -309,13 +309,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 1. De **naam** van uw beleid voor voorwaardelijke toegang.
 
-2. **Gebruikers en groepen**: elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
+2. **Gebruikers en groepen**: Elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
 
-3. **Cloud-apps:** als cloud-apps, moet u selecteren **Office 365 Exchange Online**. 
+3. **Cloud-apps:** Als cloud-apps, moet u selecteren **Office 365 Exchange Online**. 
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps**. 
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps**. 
 
     Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 
@@ -369,13 +369,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 1. De **naam** van uw beleid voor voorwaardelijke toegang.
 
-2. **Gebruikers en groepen**: elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
+2. **Gebruikers en groepen**: Elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
 
-3. **Cloud-apps:** als cloud-apps, moet u selecteren **Office 365 Exchange Online** en **Office 365 SharePoint Online**. 
+3. **Cloud-apps:** Als cloud-apps, moet u selecteren **Office 365 Exchange Online** en **Office 365 SharePoint Online**. 
 
      ![Voorwaardelijke toegang](./media/app-based-conditional-access/02.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **apparaatplatformen** en **Client-apps**. 
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **apparaatplatformen** en **Client-apps**. 
  
     a. Als **apparaatplatformen**, selecteer **Android** en **iOS**.
 
@@ -405,13 +405,13 @@ Voor het beleid voor voorwaardelijke toegang in deze stap moet u de volgende ond
 
 1. De **naam** van uw beleid voor voorwaardelijke toegang.
 
-2. **Gebruikers en groepen**: elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
+2. **Gebruikers en groepen**: Elk beleid voor voorwaardelijke toegang moet hebben ten minste één gebruiker of groep geselecteerd.
 
-3. **Cloud-apps:** als cloud-apps, moet u selecteren **Office 365 Exchange Online**. 
+3. **Cloud-apps:** Als cloud-apps, moet u selecteren **Office 365 Exchange Online**. 
 
     ![Voorwaardelijke toegang](./media/app-based-conditional-access/07.png)
 
-4. **Voorwaarden:** als **voorwaarden**, moet u configureren **Client-apps (preview)**. 
+4. **Voorwaarden:** Als **voorwaarden**, moet u configureren **Client-apps (preview)**. 
 
     Als **Client-apps (preview)**, selecteer **mobiele apps en bureaubladclients** en **Exchange ActiveSync-clients**.
 

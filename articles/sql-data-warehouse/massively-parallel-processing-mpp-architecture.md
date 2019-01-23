@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 236b7543772f9e6df9c7ba7f1a9365153593a929
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005747"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473177"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL datawarehouse - krachtige parallelle verwerking (MPP)-architectuur
 Meer informatie over hoe Azure SQL Data Warehouse combineert met massively parallelle verwerking (MPP) met Azure-opslag om hoge prestaties en schaalbaarheid te realiseren. 
@@ -51,7 +51,7 @@ Het beheerknooppunt is het brein van het datawarehouse. Het is de front-end met 
 
 De Compute-knooppunten bieden de rekenkracht. Distributies worden toegewezen aan rekenknooppunten voor verwerking. Als u voor meer rekenresources betaalt, wijst SQL Data Warehouse opnieuw de distributies naar de beschikbare Compute-knooppunten. Het aantal knooppunten kan variëren van 1 tot 60 compute en wordt bepaald door het serviceniveau voor het datawarehouse.
 
-Elk knooppunt heeft een knooppunt-ID die wordt weergegeven in systeemweergaven. U ziet de Compute-knooppunt-ID voor de kolom $node_id in systeemweergaven waarvan de namen met sys.pdw_nodes beginnen. Zie voor een lijst van deze systeemweergaven, [MPP systeemweergaven](sql-data-warehouse-reference-tsql-statements.md).
+Elk knooppunt heeft een knooppunt-ID die wordt weergegeven in systeemweergaven. U ziet de Compute-knooppunt-ID voor de kolom $node_id in systeemweergaven waarvan de namen met sys.pdw_nodes beginnen. Zie voor een lijst van deze systeemweergaven, [MPP systeemweergaven](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### <a name="data-movement-service"></a>Data Movement Service
 Data Movement Service (DMS) is de technologie voor het transport van gegevens die coördineert de verplaatsing van gegevens tussen de rekenknooppunten. Sommige query's is de verplaatsing van gegevens om te controleren of de parallelle query's retourneren nauwkeurige resultaten. Bij het verplaatsen van gegevens is vereist, DMS zorgt ervoor dat de juiste gegevens naar de juiste locatie opgehaald. 

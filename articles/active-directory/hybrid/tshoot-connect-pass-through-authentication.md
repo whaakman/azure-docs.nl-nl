@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect Pass through-verificatie oplossen, Active Directory installeren, vereiste onderdelen voor Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686191"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472769"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Pass through-verificatie voor Azure Active Directory oplossen
 
@@ -43,7 +43,7 @@ Zorg ervoor dat de functie voor Pass through-verificatie nog steeds **ingeschake
 
 Als de gebruiker niet kan zich aanmelden bij het gebruik van Pass through-verificatie, zien zij mogelijk een van de volgende gebruikersgerichte fouten op het aanmeldingsscherm van Azure AD: 
 
-|Fout|Beschrijving|Oplossing
+|Fout|Description|Oplossing
 | --- | --- | ---
 |AADSTS80001|Kan geen verbinding maken met Active Directory|Zorg dat de agentservers deel uitmaken van hetzelfde AD-forest als de gebruikers waarvan de wachtwoorden moeten worden gevalideerd en ze zijn geen verbinding maken met Active Directory.  
 |AADSTS8002|Er is een time-out opgetreden maken van verbinding met Active Directory|Controleren om ervoor te zorgen dat Active Directory beschikbaar is en op aanvragen van de agents reageert.
@@ -66,7 +66,7 @@ Navigeer naar **Azure Active Directory** -> **aanmeldingen** op de [Azure Active
 | 80002 | Er is een time-out opgetreden bij de wachtwoordvalidatie voor de verificatieagent. | Controleer of uw Active Directory bereikbaar is vanaf de verificatie-Agent is.
 | 80003 | Ongeldig antwoord ontvangen door de verificatieagent. | Als het probleem consistent reproduceerbare voor meerdere gebruikers is, controleert u de configuratie van uw Active Directory.
 | 80004 | Onjuiste UPN (user principal name) gebruikt voor aanmeldingsaanvraag. | Vraag de gebruiker zich aanmelden met de juiste gebruikersnaam.
-| 80005 | Verificatieagent: er is een fout opgetreden. | Tijdelijke fout. Probeer het later opnieuw.
+| 80005 | Verificatie-Agent: Er is een fout opgetreden. | Tijdelijke fout. Probeer het later opnieuw.
 | 80007 | Verificatieagent kan geen verbinding maken met Active Directory. | Controleer of uw Active Directory bereikbaar is vanaf de verificatie-Agent is.
 | 80010 | Verificatieagent kan wachtwoord niet ontsleutelen. | Als het probleem consistent reproduceerbare is, installeren en registreren van een nieuwe verificatie-Agent. En de huidige versie verwijderen. 
 | 80011 | Verificatieagent kan ontsleutelingssleutel hier ophalen. | Als het probleem consistent reproduceerbare is, installeren en registreren van een nieuwe verificatie-Agent. En de huidige versie verwijderen.
@@ -95,7 +95,7 @@ Zorg ervoor dat u een account van de globale beheerder alleen in de cloud voor a
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Waarschuwingsbericht wordt weergegeven tijdens het verwijderen van Azure AD Connect
 
-Als u Pass-through-verificatie ingeschakeld in uw tenant hebt en u probeert te verwijderen van Azure AD Connect, wordt deze weergegeven u de volgende waarschuwing weergegeven: "gebruikers zich niet aanmelden bij Azure AD, tenzij u andere Pass through-verificatie-agents geïnstalleerd op hebt andere servers."
+Als u Pass-through-verificatie ingeschakeld in uw tenant hebt en u probeert te verwijderen van Azure AD Connect, wordt deze weergegeven u de volgende waarschuwing weergegeven: "Gebruikers is niet mogelijk om aan te melden bij Azure AD, tenzij u andere Pass through-verificatie-agents geïnstalleerd op andere servers hebt."
 
 Zorg ervoor dat uw setup [maximaal beschikbare](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) voordat u Azure AD Connect om te voorkomen dat belangrijke aanmelden van gebruikers verwijderen.
 
@@ -137,7 +137,7 @@ Om op te lossen gebruiker aanmeldingen dat is toegestaan, zoek naar Logboeken me
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-U kunt beschrijvende informatie van de fout ('1328' in het voorgaande voorbeeld) krijgen door de opdrachtprompt te openen en de volgende opdracht uit (Opmerking: '1328' vervangen door de werkelijke foutnummer die u in uw logboeken ziet):
+U kunt beschrijvende informatie van de fout ('1328' in het voorgaande voorbeeld) krijgen door de opdrachtprompt te openen en de volgende opdracht uit (Opmerking: '1328' vervangen door de werkelijke foutnummer die u ziet in uw Logboeken):
 
 `Net helpmsg 1328`
 

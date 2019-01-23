@@ -4,7 +4,7 @@ description: Bevat informatie over de basisbeginselen van Azure AD Application P
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6476793bc0c7398bb407a8ad2b245f48613717b7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230060"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461549"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Koppelingen naar de vastgelegd voor apps die zijn gepubliceerd met Azure AD Application Proxy omleiden
 
@@ -33,9 +33,9 @@ Als u aangepaste domeinen niet in uw tenant gebruiken, zijn er verschillende opt
 
 **Optie 1: De Managed Browser gebruiken** – deze oplossing is alleen van toepassing als u van plan bent om te aan te bevelen of vereisen dat gebruikers toegang krijgen de toepassing via de Intune Managed Browser tot. Verwerkt alle gepubliceerde URL's. 
 
-**Optie 2: De MyApps-extensie gebruiken** : deze oplossing vereist dat gebruikers een van client-side-browserextensie installeren, maar dit wordt verwerkt alle gepubliceerde URL's en werkt met de meest populaire browsers. 
+**Optie 2: Gebruik de MyApps-extensie** : deze oplossing vereist dat gebruikers een van client-side-browserextensie installeren, maar dit wordt verwerkt alle gepubliceerde URL's en werkt met de meest populaire browsers. 
 
-**Optie 3: De instelling van de vertaling koppeling gebruiken** : dit is een beheerder side-instelling die is zichtbaar voor gebruikers. Dit wordt echter alleen URL's in HTML en CSS verwerkt. Vastgelegde interne URL's die worden gegenereerd via Javascript werkt (bijvoorbeeld) niet.  
+**Optie 3: Gebruik de instelling van de vertaling koppeling** : dit is een beheerder side-instelling die is zichtbaar voor gebruikers. Dit wordt echter alleen URL's in HTML en CSS verwerkt. Vastgelegde interne URL's die worden gegenereerd via Javascript werkt (bijvoorbeeld) niet.  
 
 Deze drie functies houdt uw koppelingen werken ongeacht waar uw gebruikers zich bevinden. Wanneer u apps die rechtstreeks naar interne eindpunten of -poorten verwijzen hebt, kunt u deze interne URL's toewijzen aan de gepubliceerde externe Application Proxy-URL's. 
 
@@ -52,7 +52,7 @@ U kunt de Intune Managed Browser gebruiken verder beschermen van uw toepassing e
 
 Raadpleeg voor meer informatie, inclusief hoe u deze optie configureert de [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) documentatie.  
 
-### <a name="option-2-myapps-browser-extension"></a>Optie 2: MyApps browserextensie 
+### <a name="option-2-myapps-browser-extension"></a>Optie 2: MyApps-Browser-extensie 
 
 Met de extensie van de Browser MyApps zijn alle interne URL's die zijn gepubliceerd met toepassingsproxy wordt herkend door de extensie en omgeleid naar de bijbehorende externe URL. Dit zorgt ervoor dat alle vastgelegde interne URL's werken, en als een gebruiker, wordt omgeleid naar de adresbalk van de browser en de interne URL rechtstreeks van het type, het werkt, zelfs als de gebruiker extern is.  
 
@@ -85,7 +85,7 @@ Er zijn twee algemene typen van interne koppelingen in on-premises toepassingen:
 
 Koppeling vertaling is ingeschakeld voor elke toepassing die u controle over de gebruikerservaring op het niveau van de per-app hebt. Koppeling vertaling voor een app inschakelen als u wilt dat de koppelingen *van* die app worden omgezet, is niet gekoppeld *naar* die app. 
 
-Stel bijvoorbeeld dat u hebt drie toepassingen die zijn gepubliceerd via toepassingsproxy dat alle aan elkaar koppelen: voordelen, kosten en reizen. Er is een vierde app, Feedback, die niet worden gepubliceerd via toepassingsproxy.
+Stel bijvoorbeeld dat u hebt drie toepassingen die zijn gepubliceerd via toepassingsproxy dat alle aan elkaar koppelen: Voordelen, kosten en reizen. Er is een vierde app, Feedback, die niet worden gepubliceerd via toepassingsproxy.
 
 Wanneer u een koppeling vertaling voor de app voordelen inschakelt, wordt de koppeling naar de kosten en reizen worden omgeleid naar de externe URL's voor deze apps, maar de koppeling naar Feedback niet wordt omgeleid omdat er geen externe URL. Koppelingen van uitgaven en reizen naar voordelen werkt niet, omdat de koppeling vertaling is niet ingeschakeld voor deze twee apps.
 

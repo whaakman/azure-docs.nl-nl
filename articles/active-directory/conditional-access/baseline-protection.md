@@ -5,7 +5,7 @@ services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 67f3299bcf5b852e05308a8e71004fcd613e83cf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158700"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446257"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Wat is basislijn protection (preview)?  
 
@@ -56,7 +56,7 @@ Dit beleid biedt u de optie voor het uitsluiten van gebruikers. U mogelijk wilt 
 
 ## <a name="enable-a-baseline-policy"></a>Een beleid inschakelen 
 
-Basislijn-beleidsregels zijn beschikbaar als preview, zijn ze standaard niet geactiveerd. U moet handmatig een beleid inschakelen als u wilt activeren. Als u expliciet de basislijn-beleid in de previewfase inschakelt, worden ze actief blijven wanneer deze functie algemeen beschikbaar wordt. De wijziging geplande gedrag is de reden waarom, om te activeren en deactiveren, hebt u ook een derde optie om de status van een beleid ingesteld: **automatisch inschakelen van beleid in de toekomst**. Als u deze optie selecteert, kunt u laat u de beleidsregels uitgeschakeld tijdens de preview, maar deze automatisch inschakelen wanneer deze functie algemeen beschikbaar wordt aan Microsoft. Als u niet expliciet basislijn beleid nu inschakelt en schakel niet het **automatisch inschakelen van beleid in de toekomst** optie, het beleid blijft uitgeschakeld wanneer deze functie algemeen beschikbaar wordt.
+Basislijn-beleidsregels zijn beschikbaar als preview, zijn ze standaard niet geactiveerd. U moet handmatig een beleid inschakelen als u wilt activeren. Als u expliciet de basislijn-beleid in de previewfase inschakelt, worden ze actief blijven wanneer deze functie algemeen beschikbaar wordt. De wijziging geplande gedrag is de reden waarom, ook als u wilt activeren en deactiveren, u hebt een derde mogelijkheid is om in te stellen van de status van een beleid: **Automatisch inschakelen van beleid in de toekomst**. Als u deze optie selecteert, kunt u laat u de beleidsregels uitgeschakeld tijdens de preview, maar deze automatisch inschakelen wanneer deze functie algemeen beschikbaar wordt aan Microsoft. Als u niet expliciet basislijn beleid nu inschakelt en schakel niet het **automatisch inschakelen van beleid in de toekomst** optie, het beleid blijft uitgeschakeld wanneer deze functie algemeen beschikbaar wordt.
 
 
 **Een Basisbeleid inschakelen:**  

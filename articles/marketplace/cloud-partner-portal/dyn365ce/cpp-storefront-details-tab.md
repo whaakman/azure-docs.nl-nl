@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 62220104329e36fbb2e6f7d3b5b48bcaeaba3660
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082774"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445059"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 voor Customer Engagement Storefront Details tabblad
 
@@ -76,7 +76,7 @@ De volgende tabel beschrijft waar de velden op dit tabblad:
 |      Veld            |    Description                 |
 |  ---------------      |  ---------------               |
 | Logo van de aanbieding (png-indeling, 48 x 48) | Upload een afbeelding die wordt weergegeven op de pagina voor zoeken van uw app. Indeling PNG is en de grootte moet 48 x 48 pixel. |
-| Logo van de aanbieding (png-indeling, 216 x 216) | Upload een afbeelding die wordt disaply op de detailpagina van uw app. Indeling PNG is en de grootte moet 216 x 216 pixel. |
+| Logo van de aanbieding (png-indeling, 216 x 216) | Upload een afbeelding die wordt weergegeven op de detailpagina van uw app. Indeling PNG is en de grootte moet 216 x 216 pixel. |
 | Video's                | Promotie of educatieve video's voor de app, met een maximum van vier uploaden.  Vul de naam van de video, de URL (YouTube of Vimeo alleen) en de bijbehorende miniatuur in de PNG-indeling en grootte 1280 x 720 pixel in voor elke video.  | 
 | Documenten             | Product aanbiedingsprijzen of instructies documenten in PDF-indeling, met een maximum van drie uploaden.  Geef de naam van een document voor elk document.  |
 | Schermopnamen           | Upload een maximum van vijf installatiekopieën van de app UI in PNG-indeling en grootte 1280 x 720 pixels.  Deze schermafbeeldingen wordt weergegeven op de detailpagina van AppSource voor uw app. |

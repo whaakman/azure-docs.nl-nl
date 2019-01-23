@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: fde8892f7a32d7b5405eef6661bbf29098325178
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.component: files
+ms.openlocfilehash: 21c903176b0de3e557d575c448e925cfc95fac15
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958675"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468673"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure File storage koppelen op virtuele Linux-machines met behulp van SMB
 
@@ -70,7 +71,7 @@ STORAGEKEY=$(az storage account keys list \
 
 Maak het bestand met de opslag delen met [az storage share maken](/cli/azure/storage/share#create). 
 
-De namen van shares moeten worden alle kleine letters, cijfers en afbreekstreepjes maar mag niet beginnen met een afbreekstreepje. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
+De namen van shares moeten worden alle kleine letters, cijfers en afbreekstreepjes maar mag niet beginnen met een afbreekstreepje. Zie [Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) voor meer informatie over de naamgeving van bestandsshares en bestanden.
 
 Dit voorbeeld maakt u een share met de naam *myshare* met een quotum van 10 GiB. 
 

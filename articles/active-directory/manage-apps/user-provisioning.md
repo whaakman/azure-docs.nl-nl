@@ -4,7 +4,7 @@ description: Een inleiding tot hoe u Azure AD kunt gebruiken voor het automatisc
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311450"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478481"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 
@@ -57,13 +57,13 @@ Enkele veelvoorkomende redenen voor het gebruik van deze functie zijn onder ande
 De **Azure AD-inrichtingsservice** gebruikers inricht voor SaaS-apps en andere systemen, door verbinding te maken met de eindpunten van gebruiker beheer-API is geleverd door de leverancier van elke toepassing. Deze gebruiker management API-eindpunten kunnen Azure AD via een programma maken, bijwerken en verwijderen van gebruikers. Voor de geselecteerde toepassingen die kunt ook de provisioning-service maken, bijwerken en verwijderen van aanvullende identiteit gerelateerde objecten, zoals groepen en rollen. 
 
 ![Inrichting](./media/user-provisioning/provisioning0.PNG)
-*afbeelding 1: de Azure AD-inrichtingsservice*
+*afbeelding 1: De Provisioning-Service van Azure AD*
 
-![Uitgaande Provisioning](./media/user-provisioning/provisioning1.PNG)
+![Uitgaande inrichting](./media/user-provisioning/provisioning1.PNG)
 *afbeelding 2: "Uitgaande" gebruiker inrichtingswerkstroom van Azure AD met populaire SaaS-toepassingen*
 
 ![Inbound Provisioning](./media/user-provisioning/provisioning2.PNG)
-*afbeelding 3: 'Inkomend' gebruiker inrichtingswerkstroom van populaire Human Capital Management (HCM)-toepassingen naar Azure Active Directory en Windows Server Active Directory*
+*afbeelding 3: "Binnenkomende" inrichten werkstroom van de gebruiker van populaire Human Capital Management (HCM)-toepassingen naar Azure Active Directory en Windows Server Active Directory*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Welke toepassingen en systemen kan ik gebruiken met Azure AD automatisch gebruikers inrichten?
@@ -103,7 +103,7 @@ In het scherm voor het beheren van toepassing inrichting is geconfigureerd in de
 
 * **Beheerdersreferenties** moet worden opgegeven om de Azure AD-inrichtingsservice waarmee deze verbinding maken met de API geleverd door de toepassing voor het Gebruikersbeheer. Deze sectie kunt u het e-mailmeldingen inschakelen als de referenties mislukt of de inrichtingstaak krijgt ook [quarantaine](#quarantine).
 
-* **Kenmerktoewijzingen** kan worden geconfigureerd die opgeven welke velden in het bronsysteem (voorbeeld: Azure AD), hebben hun inhoud gesynchroniseerd velden in het doelsysteem (voorbeeld: ServiceNow). Wanneer de doeltoepassing wordt ondersteund kunt in deze sectie u desgewenst configureren toewijzing van groepen naast gebruikersaccounts. 'Overeenkomende eigenschappen' kunt u selecteren welke velden worden gebruikt zodat deze overeenkomen met accounts tussen de systemen. "[Expressies](functions-for-customizing-application-data.md)' kunt u wijzigen en transformeren van de waarden die zijn opgehaald uit het bronsysteem voordat ze worden geschreven naar het doelsysteem. Zie voor meer informatie, [kenmerktoewijzingen aanpassen](customize-application-attributes.md).
+* **Kenmerktoewijzingen** kan worden geconfigureerd die opgeven welke velden in het bronsysteem (voorbeeld: Azure AD) heeft de inhoud die is gesynchroniseerd met welke velden in het doelsysteem (voorbeeld: ServiceNow). Wanneer de doeltoepassing wordt ondersteund kunt in deze sectie u desgewenst configureren toewijzing van groepen naast gebruikersaccounts. 'Overeenkomende eigenschappen' kunt u selecteren welke velden worden gebruikt zodat deze overeenkomen met accounts tussen de systemen. "[Expressies](functions-for-customizing-application-data.md)' kunt u wijzigen en transformeren van de waarden die zijn opgehaald uit het bronsysteem voordat ze worden geschreven naar het doelsysteem. Zie voor meer informatie, [kenmerktoewijzingen aanpassen](customize-application-attributes.md).
 
 ![Instellingen](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -133,7 +133,7 @@ Wanneer de provisioning-service wordt gestart, wordt de eerste synchronisatie he
 
 1. Query uitvoeren op alle gebruikers en groepen uit het bronsysteem bij het ophalen van alle kenmerken die zijn gedefinieerd de [kenmerktoewijzingen](customize-application-attributes.md).
 2. Filteren van de gebruikers en groepen die zijn geretourneerd, met behulp van een geconfigureerd [toewijzingen](assign-user-or-group-access-portal.md) of [op kenmerken gebaseerde bereikfilters](define-conditional-rules-for-provisioning-user-accounts.md).
-3. Wanneer een gebruiker worden toegewezen is geconstateerd of binnen het bereik voor het inrichten van de service zoekopdrachten uit op het doelsysteem voor een overeenkomende gebruiker met behulp van de aangewezen [die overeenkomt met de kenmerken](customize-application-attributes.md#understanding-attribute-mapping-properties). Voorbeeld: Als de naam van de userPrincipal in het bronsysteem het overeenkomende kenmerk is en toegewezen aan vraagt gebruikersnaam in het doelsysteem en vervolgens de provisioning-service het doelsysteem voor gebruikersnamen die overeenkomen met de naam userPrincipal waarden in het bronsysteem.
+3. Wanneer een gebruiker worden toegewezen is geconstateerd of binnen het bereik voor het inrichten van de service zoekopdrachten uit op het doelsysteem voor een overeenkomende gebruiker met behulp van de aangewezen [die overeenkomt met de kenmerken](customize-application-attributes.md#understanding-attribute-mapping-properties). Voorbeeld: Als de naam van de userPrincipal in het bronsysteem het overeenkomende kenmerk is en toegewezen aan een gebruikersnaam in het doelsysteem en vervolgens de provisioning-service het doelsysteem voor gebruikersnamen die overeenkomen met de naam userPrincipal waarden in het bronsysteem query uitgevoerd.
 4. Als een overeenkomende gebruiker niet in het doelsysteem gevonden is, wordt deze gemaakt met behulp van de kenmerken die door het bronsysteem geretourneerd. Nadat het gebruikersaccount dat is gemaakt, wordt de provisioning-service detecteert en het doelsysteem-ID voor de nieuwe gebruiker, dat wordt gebruikt voor het uitvoeren van alle toekomstige bewerkingen op die gebruiker in de cache opslaat.
 5. Als een overeenkomende gebruiker wordt gevonden, wordt deze bijgewerkt met behulp van de kenmerken die is geleverd door het bronsysteem. Nadat het gebruikersaccount dat is gekoppeld, wordt de provisioning-service detecteert en het doelsysteem-ID voor de nieuwe gebruiker, dat wordt gebruikt voor het uitvoeren van alle toekomstige bewerkingen op die gebruiker in de cache opslaat.
 6. Als de kenmerktoewijzingen 'verwijzing' kenmerken bevatten, uitvoert de service extra updates op het doelsysteem te maken en koppelen van de objecten waarnaar wordt verwezen. Een gebruiker kan bijvoorbeeld een 'Manager'-kenmerk hebben in het doelsysteem, die is gekoppeld aan een andere gebruiker hebt gemaakt in het doelsysteem.
@@ -197,13 +197,13 @@ De volgende tabel geeft een overzicht van synchronisatieschema de synchronisatie
 
 | Scopeconfiguratie | Gebruikers, groepen en leden binnen het bereik | Tijd van de initiële synchronisatie | Tijd van incrementele synchronisatie |
 | -------- | -------- | -------- | -------- |
-| Toegewezen gebruikers en groepen alleen synchroniseren |  < 1000 |  < 30 minuten | < 30 minuten |
+| Toegewezen gebruikers en groepen alleen synchroniseren |  < 1,000 |  < 30 minuten | < 30 minuten |
 | Toegewezen gebruikers en groepen alleen synchroniseren |  1.000 - 10.000 | 142 - 708 minuten | < 30 minuten |
-| Toegewezen gebruikers en groepen alleen synchroniseren |   10.000 - 100.000 | 1,170 - 2,340 minuten | < 30 minuten |
-| Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  < 1000 | < 30 minuten  | < 30 minuten |
+| Toegewezen gebruikers en groepen alleen synchroniseren |   10,000 - 100,000 | 1,170 - 2,340 minuten | < 30 minuten |
+| Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  < 1,000 | < 30 minuten  | < 30 minuten |
 | Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  1.000 - 10.000 | < 30 tot 120 minuten | < 30 minuten |
-| Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  10.000 - 100.000  | 713 - 1,425 minuten | < 30 minuten |
-| Alle gebruikers in Azure AD worden gesynchroniseerd|  < 1000  | < 30 minuten | < 30 minuten |
+| Alle gebruikers en groepen in Azure AD worden gesynchroniseerd |  10,000 - 100,000  | 713 - 1,425 minuten | < 30 minuten |
+| Alle gebruikers in Azure AD worden gesynchroniseerd|  < 1,000  | < 30 minuten | < 30 minuten |
 | Alle gebruikers in Azure AD worden gesynchroniseerd | 1.000 - 10.000  | 43 - 86 minuten | < 30 minuten |
 
 

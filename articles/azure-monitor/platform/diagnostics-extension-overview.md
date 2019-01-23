@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789753"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470508"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
 De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](../../azure-monitor/overview.md).
@@ -85,3 +85,4 @@ Aan de slag op [bewaken van een Service Fabric-toepassing](../../service-fabric/
 ## <a name="general-articles"></a>Algemene artikelen
 * Meer informatie over het [prestatiemeteritems gebruiken in Azure Diagnostics](../../cloud-services/diagnostics-performance-counters.md).
 * Als u problemen bij het starten van diagnostische gegevens ondervindt of raadpleegt u uw gegevens zoeken in Azure storage-tabellen, [het oplossen van Azure Diagnostics](diagnostics-extension-troubleshooting.md)
+

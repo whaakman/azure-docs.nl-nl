@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: af7e280c7dcd82c18e91ded759756c3826342cd3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: autoscale
+ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585278"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474826"
 ---
 # <a name="understand-autoscale-settings"></a>Inzicht in instellingen voor automatisch schalen
 Instellingen voor automatisch schalen kunt u ervoor zorgen dat u hebt de juiste hoeveelheid resources die worden uitgevoerd om de wisselende belasting van uw toepassing te voldoen. U kunt de instellingen voor automatisch schalen op basis van metrische gegevens die wijzen op belasting of prestaties of trigger wordt geactiveerd op een geplande datum en tijd configureren. In dit artikel wordt een gedetailleerde Kijk op de anatomie van een instelling voor automatisch schalen. Het artikel begint met het schema en de eigenschappen van een instelling en klikt u vervolgens helpt bij de verschillende profieltypen die kunnen worden geconfigureerd. Ten slotte het artikel wordt beschreven hoe de functie voor automatisch schalen in Azure evalueert profiel om uit te voeren op een bepaald moment.
@@ -310,3 +310,4 @@ Meer informatie over automatisch schalen door te verwijzen naar het volgende:
 * [Aanbevolen procedures voor automatisch schalen van Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Acties voor automatisch schalen gebruiken voor het verzenden van e-mail en webhook waarschuwingsmeldingen](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API voor automatisch schalen](https://msdn.microsoft.com/library/dn931953.aspx)
+

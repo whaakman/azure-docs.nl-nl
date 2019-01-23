@@ -4,7 +4,7 @@ description: Het oplossen van problemen die u tegenkomen kan bij het installeren
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a4e32697826b37f16bd0eacec3c5bfc34e94f73f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036926"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464643"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Probleem bij het installeren van de connector voor de toepassingsproxyagent
 
@@ -38,7 +38,7 @@ Wanneer de installatie van een connector is mislukt, is de hoofdoorzaak meestal 
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Controleer de verbinding met de Cloud Application Proxy-service en Microsoft Login-pagina
 
-**Doelstelling:** Controleer of de connector-machine verbinding met het eindpunt van het AAD Application Proxy, evenals de Microsoft-aanmeldingspagina maken kunt.
+**Doel:** Controleer of dat de connector-machine verbinding met het eindpunt van het AAD Application Proxy, evenals de Microsoft-aanmeldingspagina maken kunt.
 
 1.  Open een browser en Ga naar de volgende webpagina: <https://aadap-portcheck.connectorporttest.msappproxy.net> , en controleer of de verbinding met VS-centraal en VS-Oost-datacenters met de poorten 80 en 443 werkt.
 
@@ -48,7 +48,7 @@ Wanneer de installatie van een connector is mislukt, is de hoofdoorzaak meestal 
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Controleer of de Machine en back-end-onderdelen ondersteunen voor toepassingsproxy vertrouwensrelatie certificaat
 
-**Doelstelling:** controleren of de connector-machine, back-end-proxy en firewall het certificaat dat is gemaakt door de connector voor toekomstige vertrouwensrelatie kunnen ondersteunen.
+**Doel:** Controleer of de connector-machine, back-end-proxy en firewall het certificaat dat is gemaakt door de connector voor toekomstige vertrouwensrelatie kunnen ondersteunen.
 
 >[!NOTE]
 >De connector probeert te maken van een certificaat SHA512 gebruikt die wordt ondersteund door TLS1.2. Als de machine of de back-end-firewall en proxy wordt niet ondersteund voor TLS1.2, mislukt de installatie.
@@ -63,7 +63,7 @@ Wanneer de installatie van een connector is mislukt, is de hoofdoorzaak meestal 
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Controleer of de beheerder wordt gebruikt om de connector te installeren
 
-**Doelstelling:** Controleer of de gebruiker die probeert te installeren van de connector is een beheerder met de juiste referenties. Op dit moment moet de gebruiker een beheerder van de toepassing of globale beheerder voor de installatie te voltooien.
+**Doel:** Controleer of de gebruiker die probeert te installeren van de connector is een beheerder met de juiste referenties. Op dit moment moet de gebruiker een beheerder van de toepassing of globale beheerder voor de installatie te voltooien.
 
 **Om te controleren of dat de referenties correct zijn:**
 

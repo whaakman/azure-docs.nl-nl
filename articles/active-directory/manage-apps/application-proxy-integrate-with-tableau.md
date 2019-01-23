@@ -3,7 +3,7 @@ title: Azure Active Directory Application Proxy en Tableau | Microsoft Docs
 description: Informatie over het gebruik van Azure Active Directory (Azure AD) Application Proxy om externe toegang voor uw implementatie Tableau te bieden.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8a4231e5d49dad790855293ac50d475e499e0993
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138667"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476152"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy en Tableau 
 
@@ -59,7 +59,7 @@ Voor:
 
 5. Vul de vereiste velden met informatie over de nieuwe app. Gebruik de volgende richtlijnen voor de instellingen: 
 
-    - **Interne URL**: deze toepassing moet een interne URL de URL is Tableau zelf. Bijvoorbeeld `https://adventure-works.tableau.com`. 
+    - **Interne URL**: Deze toepassing moet een interne URL de URL is Tableau zelf hebben. Bijvoorbeeld `https://adventure-works.tableau.com`. 
 
     - **Methode voor verificatie vooraf**: Azure Active Directory (aanbevolen maar niet vereist). 
 

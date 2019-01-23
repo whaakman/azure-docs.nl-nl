@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 4907bbc9ed7a32e74175a4c6a178ac41bc165961
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: df82c66f344b733ef61df35920aa5a702465b245
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085199"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464101"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>Een Azure-Cache maken voor Redis
 
@@ -41,7 +41,7 @@ Met dit script maakt gebruik van de volgende opdrachten om te maken van een reso
 | Opdracht | Opmerkingen |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ redis maken](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Azure Cache voor Redis-exemplaar maken. |
+| [AZ redis maken](https://docs.microsoft.com/cli/azure/redis) | Azure Cache voor Redis-exemplaar maken. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

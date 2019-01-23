@@ -8,14 +8,14 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143570"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475200"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-gebeurtenisschema voor IoT-Hub
 
@@ -27,7 +27,7 @@ Zie voor een lijst met zelfstudies en voorbeelden van scripts, [IoT Hub-gebeurte
 
 Azure IoT Hub verzendt de volgende typen gebeurtenissen:
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Gepubliceerd wanneer een apparaat is geregistreerd bij een IoT-hub. |
 | Microsoft.Devices.DeviceDeleted | Wanneer een apparaat wordt verwijderd uit een IoT-hub gepubliceerd. | 
@@ -111,53 +111,53 @@ Het schema voor gebeurtenissen DeviceCreated en DeviceDeleted hebben dezelfde st
 
 Alle gebeurtenissen bevatten de dezelfde gegevens op het hoogste niveau: 
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| id | tekenreeks | De unieke id voor de gebeurtenis. |
-| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
+| id | string | De unieke id voor de gebeurtenis. |
+| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | gegevens | object | Gebeurtenisgegevens van de IoT Hub.  |
-| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject bevat voor alle gebeurtenissen van IoT Hub, de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| HubName | tekenreeks | De naam van de IoT-Hub waar het apparaat is gemaakt of verwijderd. |
-| deviceId | tekenreeks | De unieke id van het apparaat. Deze hoofdlettergevoelige tekenreeks mag maximaal 128 tekens lang en ondersteunt de ASCII-7-bits alfanumerieke tekens, plus de volgende speciale tekens bevatten: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| hubName | string | De naam van de IoT-Hub waar het apparaat is gemaakt of verwijderd. |
+| deviceId | string | De unieke id van het apparaat. Deze hoofdlettergevoelige tekenreeks mag maximaal 128 tekens lang en ondersteunt de ASCII-7-bits alfanumerieke tekens, plus de volgende speciale tekens bevatten: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeurtenissen. Voor **apparaat aangesloten** en **apparaat losgekoppeld** IoT Hub-gebeurtenissen, het gegevensobject bevat de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| moduleId | tekenreeks | De unieke id van de module. Dit veld wordt uitgevoerd alleen voor apparaten van de module. Deze hoofdlettergevoelige tekenreeks mag maximaal 128 tekens lang en ondersteunt de ASCII-7-bits alfanumerieke tekens, plus de volgende speciale tekens bevatten: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| moduleId | string | De unieke id van de module. Dit veld wordt uitgevoerd alleen voor apparaten van de module. Deze hoofdlettergevoelige tekenreeks mag maximaal 128 tekens lang en ondersteunt de ASCII-7-bits alfanumerieke tekens, plus de volgende speciale tekens bevatten: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | object | Verbinding gebeurtenis informatie over de apparaatstatus
-| sequenceNumber | tekenreeks | Een getal waarmee de volgorde van het apparaat is verbonden of het apparaat geven gebeurtenissen verbroken. Laatste gebeurtenis heeft een volgnummer dat hoger is dan de vorige gebeurtenis. Dit nummer kan worden gewijzigd door meer dan 1, maar alleen toeneemt. Zie [over het gebruik van volgnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+| sequenceNumber | string | Een getal waarmee de volgorde van het apparaat is verbonden of het apparaat geven gebeurtenissen verbroken. Laatste gebeurtenis heeft een volgnummer dat hoger is dan de vorige gebeurtenis. Dit nummer kan worden gewijzigd door meer dan 1, maar alleen toeneemt. Zie [over het gebruik van volgnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeurtenissen. Voor **apparaat gemaakt** en **apparaat verwijderd** IoT Hub-gebeurtenissen, het gegevensobject bevat de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| dubbele | object | Informatie over het dubbele apparaat, de cloud represenation van metagegevens van apparaten van toepassing is. | 
-| apparaat-id | tekenreeks | De unieke id van het dubbele apparaat. | 
-| ETag | tekenreeks | Een validator om ervoor te zorgen consistentie van updates voor een apparaatdubbel. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. |  
-| deviceEtag| tekenreeks | Een validator om ervoor te zorgen consistentie van updates voor een apparaatregister. Elke deviceEtag is gegarandeerd uniek per apparaatregister. |
-| status | tekenreeks | Of het dubbele apparaat is ingeschakeld of uitgeschakeld. | 
-| statusUpdateTime | tekenreeks | De ISO8601-timestamp van de laatste status van het dubbele apparaat bijwerken. |
-| connectionState | tekenreeks | Of het apparaat is verbonden of niet verbonden. | 
-| lastActivityTime | tekenreeks | De ISO8601-timestamp van de laatste activiteit. | 
+| twin | object | Informatie over het dubbele apparaat, de cloud represenation van metagegevens van apparaten van toepassing is. | 
+| deviceID | string | De unieke id van het dubbele apparaat. | 
+| etag | string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatdubbel. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. |  
+| deviceEtag| string | Een validator om ervoor te zorgen consistentie van updates voor een apparaatregister. Elke deviceEtag is gegarandeerd uniek per apparaatregister. |
+| status | string | Of het dubbele apparaat is ingeschakeld of uitgeschakeld. | 
+| statusUpdateTime | string | De ISO8601-timestamp van de laatste status van het dubbele apparaat bijwerken. |
+| connectionState | string | Of het apparaat is verbonden of niet verbonden. | 
+| lastActivityTime | string | De ISO8601-timestamp van de laatste activiteit. | 
 | cloudToDeviceMessageCount | geheel getal | Telling van cloud naar apparaat-berichten verzonden naar dit apparaat. | 
-| authenticationType | tekenreeks | Verificatietype dat wordt gebruikt voor dit apparaat: beide `SAS`, `SelfSigned`, of `CertificateAuthority`. |
-| x509Thumbprint | tekenreeks | De vingerafdruk is een unieke waarde voor de x509 certificaat, meestal gebruikt voor een bepaald certificaat niet vinden in een certificaatarchief. De vingerafdruk wordt dynamisch gegenereerd met behulp van het SHA1-algoritme en bestaat niet fysiek in het certificaat. | 
-| primaryThumbprint | tekenreeks | Primaire vingerafdruk voor de x509 certificaat. |
-| secondaryThumbprint | tekenreeks | Secundaire vingerafdruk voor de x509 certificaat. | 
+| authenticationType | string | Verificatietype dat wordt gebruikt voor dit apparaat: beide `SAS`, `SelfSigned`, of `CertificateAuthority`. |
+| x509Thumbprint | string | De vingerafdruk is een unieke waarde voor de x509 certificaat, meestal gebruikt voor een bepaald certificaat niet vinden in een certificaatarchief. De vingerafdruk wordt dynamisch gegenereerd met behulp van het SHA1-algoritme en bestaat niet fysiek in het certificaat. | 
+| primaryThumbprint | string | Primaire vingerafdruk voor de x509 certificaat. |
+| secondaryThumbprint | string | Secundaire vingerafdruk voor de x509 certificaat. | 
 | versie | geheel getal | Een geheel getal dat wordt verhoogd door één voor elke keer dat het apparaat dubbele wordt bijgewerkt. |
 | gewenste | object | Een gedeelte van de eigenschappen die kunnen worden alleen door de back-endtoepassing geschreven en gelezen door het apparaat. | 
 | gerapporteerd | object | Een gedeelte van de eigenschappen die kunnen worden alleen door het apparaat geschreven en gelezen door back-end van de toepassing. |
-| lastUpdated | tekenreeks | De ISO8601-timestamp van de laatste dubbele eigenschap bijwerken. | 
+| lastUpdated | string | De ISO8601-timestamp van de laatste dubbele eigenschap bijwerken. | 
 
 ## <a name="next-steps"></a>Volgende stappen
 

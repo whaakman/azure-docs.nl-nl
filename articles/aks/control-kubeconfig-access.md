@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: ae45a268536f6a8fcb4ab27336a1281837cf5dc7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 40588ec29eb6f7c33ba5e1d6071caf5c8ed43424
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045777"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450166"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure op rollen gebaseerd toegangsbeheer gebruiken om te definiëren de toegang tot het Kubernetes-configuratiebestand in Azure Kubernetes Service (AKS)
 
-U kunt werken met Kubernetes-clusters met behulp van de `kubectl` hulpprogramma. De Opdrachtregelinterface van Azure biedt een eenvoudige manier om op te halen van de referenties voor toegang en informatie over verbinding maken met uw AKS-clusters met `kubectl`. Om te beperken wie die Kubernetes-configuratie krijgt (*kubeconfig*) informatie en de machtigingen ze vervolgens hebben, kunt u Azure op rollen gebaseerd toegangsbeheer (RBAC).
+U kunt werken met Kubernetes-clusters met behulp van de `kubectl` hulpprogramma. De Opdrachtregelinterface van Azure biedt een eenvoudige manier om op te halen van de referenties voor toegang en informatie over verbinding maken met uw AKS-clusters met `kubectl`. Om te beperken wie die Kubernetes-configuratie krijgt (*kubeconfig*) informatie en om te beperken welke machtigingen ze vervolgens hebt, kunt u Azure op rollen gebaseerd toegangsbeheer (RBAC).
 
 In dit artikel wordt beschreven hoe u RBAC-rollen toewijzen die beperken aan wie de configuratiegegevens voor een AKS-cluster kunt krijgen.
 
@@ -128,7 +128,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor verbeterde beveiliging en toegang tot de AKS-clusters, [Azure Active Directory-verificatie integreren][aad-integration].
+Voor een betere beveiliging van toegang tot de AKS-clusters, [Azure Active Directory-verificatie integreren][aad-integration].
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config

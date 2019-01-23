@@ -4,7 +4,7 @@ description: Bevat informatie over het inschakelen van systeemeigen client-apps 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 472b30b849ef11ae0a42e1b41c25ec5dc341fb27
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135523"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462926"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Systeemeigen client-apps om te communiceren met de proxy-toepassingen inschakelen
 
@@ -51,7 +51,7 @@ Configureer uw systeemeigen toepassing als volgt:
 Zie voor meer informatie over het maken van een nieuwe app-registratie, [toepassingen integreren met Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
-## <a name="step-3-grant-access-to-other-applications"></a>Stap 3: Verlenen toegang tot andere toepassingen
+## <a name="step-3-grant-access-to-other-applications"></a>Stap 3: Toegang verlenen aan andere toepassingen
 De systeemeigen toepassing worden blootgesteld aan andere toepassingen in uw directory inschakelen:
 
 1. Klik in **App-registraties**, selecteer de nieuwe systeemeigen toepassing die u zojuist hebt gemaakt.

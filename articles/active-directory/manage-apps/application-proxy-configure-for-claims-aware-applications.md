@@ -4,7 +4,7 @@ description: Het publiceren van on-premises ASP.NET-toepassingen die AD FS-claim
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6313bc8f3245966d22e904f96a90674b27d396f7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137698"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472925"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Werken met claim-compatibele toepassingen in toepassingsproxy
 [Claimbewuste apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) uitvoeren van een omleiding naar de Security Token Service (STS). De STS vraagt om de referenties van de gebruiker voor een token en vervolgens wordt de gebruiker omgeleid naar de toepassing. Er zijn een aantal manieren Application Proxy om te werken met deze omleidingen in te schakelen. Gebruik dit artikel om uw implementatie van claims-compatibele apps te configureren. 
@@ -41,7 +41,7 @@ U kunt AD FS configureren voor de claim-compatibele apps op twee manieren. De ee
 
 Als alle de interne URL's voor uw toepassingen volledig zijn gekwalificeerde domeinnamen (FQDN's), dan kunt u configureren [aangepaste domeinen](application-proxy-configure-custom-domain.md) voor uw toepassingen. Gebruik de aangepaste domeinen te maken van de externe URL's die hetzelfde als de interne URL's zijn. Als de externe URL's die overeenkomen met uw interne URL's, werken de STS-omleidingen of uw gebruikers zich on-premises of extern. 
 
-### <a name="option-2-ws-federation"></a>Optie 2: WS-Federation
+### <a name="option-2-ws-federation"></a>Optie 2: Webservices-federatie
 
 1. Open AD FS-beheer.
 2. Ga naar **Relying Party-vertrouwensrelaties**, met de rechtermuisknop op de app die u met toepassingsproxy publiceren wilt en kies **eigenschappen**.  

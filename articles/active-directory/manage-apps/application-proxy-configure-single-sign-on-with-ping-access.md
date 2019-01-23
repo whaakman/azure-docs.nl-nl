@@ -4,7 +4,7 @@ description: Publiceren van toepassingen met PingAccess en App-Proxy voor de ond
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 52111d54031b2d458b0bfc727dcb310fbbcbd9ad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140843"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468594"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -73,7 +73,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd ov
 3. Selecteer **toevoegen** aan de bovenkant van de blade.
 4. Selecteer **On-premises toepassing**.
 5. Vul de vereiste velden met informatie over de nieuwe app. Gebruik de volgende richtlijnen voor de instellingen:
-   - **Interne URL**: normaal gesproken bieden u de URL die u naar de aanmeldingspagina van de app gaat wanneer u zich in het bedrijfsnetwerk bevinden. Voor dit scenario moet de connector de proxy PingAccess behandelen als de front-pagina van de app. Gebruik de volgende notatie: `https://<host name of your PA server>:<port>`. De poort is 3000 standaard, maar u kunt deze configureren in PingAccess.
+   - **Interne URL**: Normaal gesproken bieden u de URL die u naar de aanmeldingspagina van de app gaat wanneer u zich in het bedrijfsnetwerk bevinden. Voor dit scenario moet de connector de proxy PingAccess behandelen als de front-pagina van de app. Gebruik de volgende notatie: `https://<host name of your PA server>:<port>`. De poort is 3000 standaard, maar u kunt deze configureren in PingAccess.
 
     > [!WARNING]
     > Voor dit type eenmalige aanmelding, de interne URL moet gebruikmaken van https en http niet gebruiken.

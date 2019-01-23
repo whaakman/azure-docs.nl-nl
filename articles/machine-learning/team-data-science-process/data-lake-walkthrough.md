@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8549a35eed0c1f61c087b9056e4564577170f5f6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c6e88eb2e3f3e1b6e6ce2b7f8984799397af582
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141812"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451610"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Schaalbare Gegevenswetenschap met Azure Data Lake: een end-to-end-overzicht
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Schaalbare Gegevenswetenschap met Azure Data Lake: Een end-to-end-overzicht
 In dit scenario ziet u hoe u Azure Data Lake gegevens verkennen en binaire classificatie-taken op een voorbeeld van de NYC taxi reis en ritbedrag gegevensset om te voorspellen of een tip door een fare wordt betaald. Dit leidt u door de stappen van de [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, in gegevens ophalen als model voor training en vervolgens naar de implementatie van een webservice die het model publiceert.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
@@ -146,7 +146,7 @@ Voor het uitvoeren van U-SQL, Visual Studio openen, klikt u op **bestand--> Nieu
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="ingest"></a>Gegevensopname: Lees gegevens van een openbare blob
+### <a name="ingest"></a>Opname van gegevens: In de gegevens van een openbare blob lezen
 De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()**. Vervangen door uw eigen containernaam en de naam van opslagaccount in de volgende scripts voor container_name@blob_storage_account_name in het wasb-adres. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_data_ {\*\}CSV** in alle 12 reis-bestanden worden gelezen. 
 
     ///Read in Trip data
@@ -300,7 +300,7 @@ De distributie van Gekantelde en niet-punt trips zoeken:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
     USING Outputters.Csv(); 
 
-Vinden van de verdeling van de tip hoeveelheid met afgekapte waarden: 0, 5, 10 en 20 bedragen.
+Zoek de verdeling van de tip hoeveelheid met waarden van de deadline: 0, 5, 10 en 20 bedragen.
 
     //tip class/range distribution
     @tip_class =
@@ -374,7 +374,7 @@ Reis-en fare kunnen worden samengevoegd door straten, hack_license en pickup_tim
 
 Voor elk niveau van de passagiers aantal, het aantal records, gemiddelde tip bedrag, afwijking van tip bedrag, percentage van Gekantelde trips te berekenen.
 
-    // contigency table
+    // contingency table
     @trip_summary8 =
         SELECT passenger_count,
                COUNT(*) AS cnt,
@@ -592,7 +592,7 @@ Wilt u operationeel maken van de machine learning-model nadat deze is gemaakt. D
   
        ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
 
-## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>Optie 2: Maak en implementeer rechtstreeks in Azure Machine Learning-modellen
+## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>Optie 2: Maken en implementeren van modellen rechtstreeks in Azure Machine Learning
 Azure Machine Learning Studio gegevens rechtstreeks vanuit Azure Data Lake Store kan lezen en vervolgens worden gebruikt om te maken en implementeren van modellen. Deze methode maakt gebruik van een Hive-tabel die naar de Azure Data Lake Store verwijst. Dit is vereist dat een afzonderlijke Azure HDInsight-cluster worden ingericht, waarop de Hive-tabel is gemaakt. De volgende secties ziet hoe u dit doet. 
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Een HDInsight-Cluster voor Linux maken

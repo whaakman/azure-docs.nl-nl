@@ -4,7 +4,7 @@ description: In dit onderwerp wordt uitgelegd bepaalde gebieden van implementati
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3d6141ac1fabe1a0391e6ad23276e5bc5ea1afb6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945991"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471775"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
 Het doel van dit document is om te beschrijven van de gebieden die moeten worden beschouwd door tijdens het implementatieontwerp van de van Azure AD Connect. Dit document is een gedetailleerde informatie over bepaalde gebieden en deze concepten worden kort beschreven in andere documenten.
@@ -44,7 +44,7 @@ De kenmerkwaarde moet de volgende regels volgen:
 
 * Minder dan 60 tekens lang
   * Tekens die niet wordt a-z, A-Z en 0-9 zijn gecodeerd en geteld als 3 tekens
-* Een speciaal teken niet bevatten: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ () in combinatie '; : , [ ] " \@ _
+* Een speciaal teken niet bevatten: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
 * Moet globaal uniek zijn
 * Moet een tekenreeks, een geheel getal of een binair bestand
 * Niet moet worden gebaseerd op de naam van gebruiker omdat deze kunnen wijzigen
@@ -119,7 +119,7 @@ Als u Azure AD Connect installeert met de aangepaste modus, biedt de Azure AD Co
 
 ![Aangepaste installatie - sourceAnchor-configuratie](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 | --- | --- |
 | Azure het bronanker voor mij laten beheren | Selecteer deze optie als u wilt dat Azure AD het kenmerk voor u selecteert. Als u deze optie selecteert, Azure AD Connect-wizard geldt dezelfde [sourceAnchor-kenmerk selectie logica wordt gebruikt tijdens de snelle installatie](#express-installation). Net als bij de Express-installatie, de wizard geeft aan welk kenmerk is geselecteerd als het kenmerk Sourceanchor nadat de aangepaste installatie is voltooid. |
 | Een specifiek kenmerk | Selecteer deze optie als u een bestaand AD-kenmerk opgeeft als het kenmerk sourceAnchor. |

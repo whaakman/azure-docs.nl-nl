@@ -3,6 +3,7 @@ Titel: Studio-werkruimte met Azure Resource Manager titleSuffix implementeren: 
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---
+
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio-werkruimte met behulp van Azure Resource Manager implementeren
 
 Met behulp van een Azure Resource Manager-sjabloon voor de implementatie u tijd bespaart doordat u een schaalbare manier om te implementeren met elkaar verbonden onderdelen met een validatie en mechanisme voor opnieuw proberen. Als u Azure Machine Learning-werkruimtes instelt, bijvoorbeeld, moet u een Azure storage-account voor het eerst configureert en implementeert u uw werkruimte. Stel dit handmatig doen voor honderden werkruimten. Eenvoudiger alternatief is het gebruik van een Azure Resource Manager-sjabloon om een Azure Machine Learning-werkruimte en alle afhankelijkheden ervan te implementeren. In dit artikel gaat u door dit stapsgewijze proces. Zie voor een goed overzicht van Azure Resource Manager [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
@@ -83,7 +84,7 @@ Connect-AzureRmAccount
 ```
 Deze stap moet worden herhaald voor elke sessie. Eenmaal is geverifieerd, moet uw abonnementsgegevens worden weergegeven.
 
-![Azure-Account][1]
+![Azure Account][1]
 
 Nu we hebben toegang tot Azure, kunnen we de resourcegroep maken.
 
@@ -97,7 +98,7 @@ $rg
 Controleer of dat de resourcegroep correct is ingericht. **ProvisioningState** moet 'geslaagd zijn."
 Naam van de resourcegroep wordt gebruikt door de sjabloon voor het genereren van de naam van het opslagaccount. De opslagaccountnaam moet tussen 3 en 24 tekens lang zijn en cijfers en kleine letters bevatten.
 
-![Resourcegroep][2]
+![Resource Group][2]
 
 * Met behulp van de implementatie van resourcegroep, een nieuwe Machine Learning-werkruimte implementeren.
 
@@ -125,10 +126,8 @@ Nadat de werkruimte is ingericht, kunt u ook automatiseren veel Azure Machine Le
 * Meer informatie over [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-authoring-templates.md). 
 * Bekijk de [opslagplaats voor Azure Quickstart-sjablonen](https://github.com/Azure/azure-quickstart-templates). 
 * Bekijk deze video over [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
-
-<!--Image references-->
-[1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
-[2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
+* Zie de [verwijzing help voor Resource Manager-sjabloon](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) 
+ <!--Image references--> [1]: [2]./media/deploy-with-resource-manager-template/azuresubscription.png: ./media/deploy-with-resource-manager-template/ resourcegroupprovisioning.PNG
 
 
 <!--Link references-->

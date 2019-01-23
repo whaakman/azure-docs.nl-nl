@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788546"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451218"
 ---
 # <a name="saas-application-technical-info-tab"></a>Tabblad voor SaaS-toepassing technische gegevens
 
@@ -54,7 +54,7 @@ De volgende tabel beschrijft de vereiste velden voor verkopen via Microsoft.
 |     Aan de slag instructies              |   Aanwijzingen voor het delen met uw klanten zodat ze verbinding maken met uw SaaS-app. Eenvoudige HTML-codes zijn toegestaan, bijvoorbeeld: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, enzovoort.                |
 |    URL landingspagina  |   De URL van de site die u worden zodat uw klanten land na het aanschaffen van Azure-portal. Deze URL worden ook het eindpunt dat de API's voor het vereenvoudigen van handel met Microsoft-verbinding wordt ontvangen.                |
 |  Verbinding Webhook    |  Voor alle asynchrone gebeurtenissen die door Microsoft nodig heeft om u te sturen namens de klant (voorbeeld: Azure-abonnement is geworden ongeldige), moet je voor ons een webhook verbinding. Als u nog een webhook-systeem voldaan hebt, wordt de eenvoudigste configuratie is dat de logische App van een HTTP-eindpunt die luisteren naar gebeurtenissen worden gepubliceerd naar deze en klik vervolgens op de juiste manier verwerken. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">aanroepen, trigger of nesten van werkstromen met HTTP-eindpunten in logische apps</a>                |
-|  Azure AD-Tenant-ID en App-ID      |   In Azure portal, vereist een Active Directory-App te maken, zodat de verbinding kan worden gevalideerd tussen de twee services zich achter een geverifieerde communicatie. Voor deze velden een AD-App maken en plak in de bijbehorende Tenant-Id en App-Id vereist. Houd er rekening mee dat de App-id gekoppeld aan yoaur publisherID is. Daarom, zorg ervoor dat dezelfde App-ID zoals in alle aanbiedingen.             |
+|  Azure AD-Tenant-ID en App-ID      |   In Azure portal, vereist een Active Directory-App te maken, zodat de verbinding kan worden gevalideerd tussen de twee services zich achter een geverifieerde communicatie. Voor deze velden een AD-App maken en plak in de bijbehorende Tenant-Id en App-Id vereist. Houd er rekening mee dat de App-id gekoppeld aan uw publisherID is. Daarom, zorg ervoor dat dezelfde App-ID zoals in alle aanbiedingen.             |
 
 
 Ten slotte, als u selecteert **verkopen via Microsoft**, er is een andere nieuwe aanbieding tabblad met de naam **plannen**. 

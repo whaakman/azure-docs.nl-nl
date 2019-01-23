@@ -2,21 +2,21 @@
 title: Azure Event Grid event hubs-gebeurtenisschema
 description: Beschrijft de eigenschappen die beschikbaar zijn voor gebeurtenissen van event hubs met Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: e301f3895126ed52b8d4c1f046f69dfcedb3563c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055313"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475404"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid-gebeurtenisschema voor eventhubs
 
-Dit artikel bevat de eigenschappen en het schema voor event hubs-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
+Dit artikel bevat de eigenschappen en het schema voor event hubs-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
 Zie voor een lijst met zelfstudies en voorbeelden van scripts, [Event Hubs-gebeurtenisbron](event-sources.md#event-hubs).
 
@@ -57,30 +57,30 @@ Deze voorbeeldgebeurtenis ziet u het schema van een event hubs-gebeurtenis treed
 
 Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
+| id | string | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens van de Event hub. |
-| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| fileUrl | tekenreeks | Het pad naar het bestand vastleggen. |
-| Bestandstype | tekenreeks | Het bestandstype van het bestand vastleggen. |
-| PartitionId | tekenreeks | De shard-ID. |
+| fileUrl | string | Het pad naar het bestand vastleggen. |
+| fileType | string | Het bestandstype van het bestand vastleggen. |
+| PartitionId | string | De shard-ID. |
 | sizeInBytes | geheel getal | De bestandsgrootte. |
 | eventCount | geheel getal | Het aantal gebeurtenissen in het bestand. |
 | firstSequenceNumber | geheel getal | Het kleinste volgnummer uit de wachtrij. |
 | lastSequenceNumber | geheel getal | Het laatste volgnummer uit de wachtrij. |
-| firstEnqueueTime | tekenreeks | De eerste keer uit de wachtrij. |
-| lastEnqueueTime | tekenreeks | De laatste keer uit de wachtrij. |
+| firstEnqueueTime | string | De eerste keer uit de wachtrij. |
+| lastEnqueueTime | string | De laatste keer uit de wachtrij. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

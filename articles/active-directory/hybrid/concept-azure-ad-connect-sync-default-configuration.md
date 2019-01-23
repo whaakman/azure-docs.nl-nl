@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synchronisatie: inzicht in de standaardconfiguratie | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Inzicht in de standaardconfiguratie | Microsoft Docs'
 description: Dit artikel beschrijft de standaardconfiguratie in Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bd708d279649138fcb17362491da4eb7539c478b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6de48b0f4c7c69ab0c6acb4099234b853d2c1523
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313955"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478566"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synchronisatie: inzicht in de standaardconfiguratie
+# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synchronisatie: Inzicht in de standaardconfiguratie
 Dit artikel wordt uitgelegd dat de van de out-of-box-configuratieregels. Deze documenten in de regels en hoe deze regels invloed hebben op de configuratie. Ook helpt u bij de standaardconfiguratie van Azure AD Connect-synchronisatie. Het doel is dat de lezer hoe de configuratiemodel begrijpt, met de naam declaratieve inrichting werkt in een voorbeeld van een echte. In dit artikel wordt ervan uitgegaan dat u al hebt geïnstalleerd en Azure AD Connect-synchronisatie met de installatiewizard configureren.
 
 Lees voor meer informatie over de details van het configuratiemodel, [Understanding declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning.md).
@@ -134,7 +134,7 @@ De SRE is een resource kit-hulpprogramma en met Azure AD Connect-synchronisatie 
 
 ![Synchronisatieregels inkomend](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-In dit deelvenster ziet u alle synchronisatieregels die zijn gemaakt voor uw configuratie. Elke regel in de tabel is een regel voor synchronisatie. Aan de linkerkant onder regeltypen, de twee verschillende typen worden weergegeven: binnenkomend en uitgaand. Inkomend en uitgaand afkomstig is van de weergave van de metaverse. Voornamelijk gaat u zich richten op de regels voor binnenkomende verbindingen in dit overzicht. De daadwerkelijke lijst synchronisatieregels is afhankelijk van de gedetecteerde schema in AD. De accountforest (fabrikamonline.com) beschikt niet over services, zoals Exchange en Lync, en geen synchronisatieregels zijn gemaakt voor deze services in de bovenstaande afbeelding. Echter, in de bron-forest (res.fabrikamonline.com) vindt u synchronisatieregels voor deze services. De inhoud van de regels is verschillend, afhankelijk van de versie gedetecteerd. Bijvoorbeeld in een implementatie met Exchange 2013 zijn er meer kenmerkstromen geconfigureerd dan in Exchange 2010/2007.
+In dit deelvenster ziet u alle synchronisatieregels die zijn gemaakt voor uw configuratie. Elke regel in de tabel is een regel voor synchronisatie. Aan de linkerkant onder regeltypen staan de twee verschillende typen: Binnenkomend en uitgaand. Inkomend en uitgaand afkomstig is van de weergave van de metaverse. Voornamelijk gaat u zich richten op de regels voor binnenkomende verbindingen in dit overzicht. De daadwerkelijke lijst synchronisatieregels is afhankelijk van de gedetecteerde schema in AD. De accountforest (fabrikamonline.com) beschikt niet over services, zoals Exchange en Lync, en geen synchronisatieregels zijn gemaakt voor deze services in de bovenstaande afbeelding. Echter, in de bron-forest (res.fabrikamonline.com) vindt u synchronisatieregels voor deze services. De inhoud van de regels is verschillend, afhankelijk van de versie gedetecteerd. Bijvoorbeeld in een implementatie met Exchange 2013 zijn er meer kenmerkstromen geconfigureerd dan in Exchange 2010/2007.
 
 ### <a name="synchronization-rule"></a>Synchronisatieregel
 Een Synchronisatieregel is een configuratieobject met een set kenmerken weergegeven als een voorwaarde wordt voldaan. Het wordt ook gebruikt om te beschrijven hoe een object in een connectorgebied is gerelateerd aan een object in de metaverse, ook wel **join** of **overeenkomen met**. De synchronisatieregels hebben een hogere prioriteitswaarde die aangeeft hoe ze aan elkaar zijn gerelateerd. Een regel voor synchronisatie met een lagere numerieke waarde heeft een hogere prioriteit en een kenmerk stroom conflict optreedt, hogere prioriteit de conflictoplossing wins.
@@ -145,9 +145,9 @@ Omdat met deze regel een regel voor out-of-box wordt, ontvangt u een waarschuwin
 
 ![Synchronisatie van regels voor waarschuwing](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-Een Synchronisatieregel heeft vier configuratiesecties: beschrijving, Scoping filter, lid worden van regels en transformaties.
+Een regel voor synchronisatie heeft vier configuratiesecties: Beschrijving, Scoping-filter, lid worden van regels en transformaties.
 
-#### <a name="description"></a>Beschrijving
+#### <a name="description"></a>Description
 De eerste sectie bevat algemene informatie, zoals een naam en beschrijving.
 
 ![Beschrijving van tabblad synchroon regeleditor ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -187,7 +187,7 @@ Het gedeelte transformatie definieert alle kenmerkstromen die betrekking hebben 
 
 Om deze configuratie in de context in een implementatie met een Account-Resource-forests is het waarschijnlijk een ingeschakeld account in het forest en een uitgeschakeld account vinden in de bron-forest met instellingen voor Exchange en Lync. De Synchronisatieregel die u wilt de kenmerken die vereist zijn voor aanmelding bij bevat en deze kenmerken moeten stromen van het forest waarbij er een ingeschakeld account. Deze kenmerkstromen zijn in één regel voor synchronisatie samengesteld.
 
-Een transformatie kunt hebben verschillende typen: constante en Direct expressie.
+Een transformatie kan verschillende typen hebben: Een constante, Direct, and -expressie.
 
 * Een constante stroom stromen altijd een waarde vastgelegd. In dit geval wordt de waarde altijd ingesteld **waar** in de metaverse-kenmerk met de naam **accountEnabled**.
 * Een directe stroom altijd de waarde van het kenmerk in de bron naar het doelkenmerk als stromen-is.
@@ -216,10 +216,10 @@ U hebt nu een afzonderlijke synchronisatieregels bekeken, maar de regels werken 
 
 De prioriteit voor synchronisatieregels is ingesteld in groepen door de installatiewizard. Alle regels in een groep dezelfde naam hebben, maar ze zijn verbonden met verschillende verbonden mappen. De installatiewizard van de regel biedt **In uit Active Directory-gebruiker toevoegen** hoogste prioriteit en het doorloopt over alle zijn verbonden AD-mappen. Vervolgens gaat door met de volgende groepen van de regels in een vooraf gedefinieerde volgorde. Binnen een groep, worden de regels in de volgorde waarin die de Connectors zijn toegevoegd in de wizard toegevoegd. Als een andere Connector wordt toegevoegd met de wizard, de volgorde van de synchronisatieregels wordt gewijzigd en de nieuwe Connector regels laatst in elke groep worden ingevoegd.
 
-### <a name="putting-it-all-together"></a>Dit alles
+### <a name="putting-it-all-together"></a>Alles samenvoegen
 Weten we nu voldoende van synchronisatieregels kunnen om te begrijpen hoe de configuratie werkt met de andere synchronisatieregels. Als u een gebruiker en de kenmerken die zijn bijgedragen aan de metaverse bekijkt, worden de regels worden toegepast in de volgende volgorde:
 
-| Naam | Opmerking |
+| Name | Opmerking |
 |:--- |:--- |
 | In uit Active Directory: gebruikers lid worden |Regel voor het lidmaatschap van de connector space objecten met de metaverse. |
 | In uit Active Directory-gebruikersaccount is ingeschakeld |Kenmerken die vereist zijn voor aanmelden bij Azure AD en Office 365. We willen deze kenmerken van het account ingeschakeld. |
@@ -236,6 +236,6 @@ Weten we nu voldoende van synchronisatieregels kunnen om te begrijpen hoe de con
 
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 

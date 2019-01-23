@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260461"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449551"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Veelgestelde vragen: Replicatie van Azure naar Azure
 
@@ -101,8 +101,8 @@ De volgende schermafbeelding ziet u het voorbeeld. In de schermafbeelding:
 ### <a name="how-far-back-can-i-recover"></a>Hoe ver terug kan ik gegevens herstellen?
 Het oudste herstelpunt dat u kunt gebruiken is dit 72 uur.
 
-### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-pruned"></a>Wat gebeurt er als ik een beleid voor replicatie van 24 uur en een probleem wordt voorkomen dat Site Recovery genereren herstelpunten gedurende meer dan 24 uur? Wordt mijn vorige herstelpunten worden verwijderd?
-Nee, Site Recovery blijft uw vorige herstelpunten in dit geval. 
+### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Wat gebeurt er als ik een beleid voor replicatie van 24 uur en een probleem wordt voorkomen dat Site Recovery genereren herstelpunten gedurende meer dan 24 uur? Mijn vorige herstelpunten verloren?
+Nee, Site Recovery houdt uw vorige herstelpunten. Afhankelijk van de bewaarperiode voor herstelpunten van herstel, vervangt 24 uur in dit geval, Site Recovery oudste herstelpunt alleen als er een generatie van nieuwe punten. In dit geval, omdat er geen nieuw herstelpunt gegenereerd vanwege een probleem opgetreden tijdens, blijven de oude punten intact wanneer we het venster retentie bereiken.
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Nadat de replicatie is ingeschakeld op een virtuele machine, hoe kan ik wijzigen het replicatiebeleid? 
 Ga naar **Site Recovery-kluis** > **Site Recovery-infrastructuur** > **replicatiebeleid**. Selecteer het beleid dat u wilt bewerken en de wijzigingen niet opslaan. Een wijziging wordt toegepast op alle bestaande replicaties te. 

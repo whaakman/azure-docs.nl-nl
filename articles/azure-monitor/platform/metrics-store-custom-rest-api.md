@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 4765ea62623278b4ee125c9d7201492ec887ef7f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: metrics
+ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723758"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460376"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Aangepaste metrische gegevens voor een Azure-resource verzenden naar de Azure Monitor metrische store met behulp van een REST-API
 
@@ -78,7 +78,7 @@ Sla het toegangstoken op uit het antwoord.
     ``` 
 
 1. In het venster Opdrachtprompt plaatsen de metrische gegevens: 
-    - **Azureregio**. Moet overeenkomen met de implementatieregio van de resource die u bij het verzenden van metrische gegevens voor. 
+    - **azureRegion**. Moet overeenkomen met de implementatieregio van de resource die u bij het verzenden van metrische gegevens voor. 
     - **resourceID**.  Resource-ID van de Azure-resource die u de metrische gegevens tegen bijhoudt.  
     - **AccessToken**. Plak het token dat u eerder hebt verkregen.
 
@@ -119,3 +119,4 @@ Als u een foutbericht weergegeven met een deel van het proces wordt, kunt u de v
  
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [aangepaste metrische gegevens](../../azure-monitor/platform/metrics-custom-overview.md).
+

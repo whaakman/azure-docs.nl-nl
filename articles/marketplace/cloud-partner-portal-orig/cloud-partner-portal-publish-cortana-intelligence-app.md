@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a6357640ceeb7c5f1bde4eea85aa5265990935f4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: dd917136dd777226f421d3ae6315798d36de8dc2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157153"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452051"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Een Cortana Intelligence-aanbieding met behulp van de Cloud Partner-Portal publiceren
 
@@ -31,9 +31,9 @@ De Cloud Partner-Portal biedt ondersteuning voor toegang tot de portal, waarmee 
 
 Voordat een aanbieding kan worden gepubliceerd namens een publisher-account, een van de personen met \"eigenaar\" rol moet instemmen met de [gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/website-terms-of-use/), [privacyverklaring van Microsoft](https://www.microsoft.com/privacystatement/default.aspx), en [Microsoft Azure Certified-Programmaovereenkomst](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
-## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Om te beginnen met het maken van een aanbieding Cortana Inteligence
+## <a name="to-start-creating-a-cortana-intelligence-offer"></a>Om te beginnen met het maken van een Cortana Intelligence-aanbieding
 
-Als alle vereisten wordt voldaan, bent u klaar om te beginnen met het ontwerpen van uw aanbieding Cortana Inteligence.
+Als alle vereisten wordt voldaan, bent u klaar om te beginnen met het ontwerpen van uw aanbieding Cortana Intelligence.
 
 1.  Aanmelden bij de [cloud partner-portal](http://cloudpartner.azure.com/).
 2.  Selecteer op de linker navigatiebalk **+ nieuwe aanbieding**.
@@ -181,7 +181,7 @@ De voorgestelde indeling van de beschrijving is te hebben splitst u de tekst in 
 - [Persoonlijke instellingen Plexure detailhandel](https://appsource.microsoft.com/product/web-apps/plexure.c82dc2fc-817b-487e-ae83-1658c1bc8ff2?tab=Overview)
 - [AvePoint Citizen Services](https://appsource.microsoft.com/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview)
 
-### <a name="industries"></a>Branches
+### <a name="industries"></a>Bedrijfstakken
 
 Selecteer de branche dat uw app is het beste uitgelijnd. Als uw app is gekoppeld aan meerdere branches, laat u dit veld leeg.
 
@@ -281,7 +281,7 @@ U kunt maximaal drie documenten uploaden. Elk document moet de PDF-indeling gebr
 
 Voer de URL voor het privacybeleid van uw app
 
-### <a name="terms-of-use"></a>Gebruiksrechtovereenkomst
+### <a name="terms-of-use"></a>Gebruiksvoorwaarden
 
 Voer de gebruiksvoorwaarden van uw app. AppSource-klanten moeten deze voorwaarden accepteren voordat ze uw app kunnen uitproberen.
 

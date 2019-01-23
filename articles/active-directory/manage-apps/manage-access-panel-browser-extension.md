@@ -4,7 +4,7 @@ description: Het gebruik van Groepsbeleid voor het implementeren van de Internet
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7ccaf272a79268ecd781821593a6041d5653a39b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715037"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471885"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Het oplossen van het Configuratiescherm-extensie voor toegang voor Internet Explorer
 Dit artikel helpt u de volgende problemen op te lossen:
@@ -28,7 +28,7 @@ Dit artikel helpt u de volgende problemen op te lossen:
 * U kunt geen toegang krijgt tot uw apps via de portal mijn Apps tijdens het gebruik van Internet Explorer.
 * U ziet het bericht 'Software installeren', zelfs als u de software al hebt geïnstalleerd.
 
-Als u een beheerder bent, Zie ook: [over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid](deploy-access-panel-browser-extension.md)
+Als u een beheerder bent, ziet u ook: [Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid](deploy-access-panel-browser-extension.md)
 
 ## <a name="run-the-diagnostic-tool"></a>Het diagnostisch hulpprogramma uitvoeren
 Installatieproblemen met de extensie van het Configuratiescherm toegang kunt u onderzoeken door te downloaden en uitvoeren van het toegangsvenster diagnostische hulpprogramma:

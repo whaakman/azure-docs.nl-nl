@@ -4,7 +4,7 @@ description: In dit artikel bevat informatie over het oplossen van problemen met
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 036933c6b6e86856871c5f59f08fea20a0343ad7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314844"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470440"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Problemen met wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie oplossen
 Dit onderwerp bevat stappen voor het oplossen van problemen met wachtwoord-hashsynchronisatie. Als de wachtwoorden zijn niet gesynchroniseerd zoals verwacht, kan het zijn voor een subset van gebruikers of voor alle gebruikers.
@@ -233,7 +233,7 @@ Volg deze stappen om te bepalen waarom er zijn geen wachtwoorden worden gesynchr
 3. Als de functie is niet ingeschakeld in Azure AD of als de synchronisatiestatus van het kanaal is niet ingeschakeld, worden de Connect-installatiewizard uitgevoerd. Selecteer **aanpassen Synchronisatieopties**, en hef de selectie van Wachtwoordsynchronisatie. Deze wijziging wordt de functie tijdelijk uitgeschakeld. Vervolgens de wizard opnieuw uitvoeren en Wachtwoordsynchronisatie opnieuw in te schakelen. Voer het script opnieuw uit om te controleren of de configuratie juist is.
 
 4. Zoek in het gebeurtenislogboek op fouten. Zoeken naar de volgende reeks gebeurtenissen die op een probleem duiden:
-    * Bron: "Adreslijstsynchronisatie" ID: 0, 611, 652, 655 als u deze gebeurtenissen, ziet u een probleem met de connectiviteit hebt. Het bericht van gebeurtenislogboek bevat gegevens van forest waar u een probleem hebt. Zie voor meer informatie, [verbindingsprobleem](#connectivity problem).
+    * Bron: 'Adreslijstsynchronisatie'-ID: 0, 611, 652, 655 als u deze gebeurtenissen, ziet u een probleem met de connectiviteit hebt. Het bericht van gebeurtenislogboek bevat gegevens van forest waar u een probleem hebt. Zie voor meer informatie, [verbindingsprobleem](#connectivity problem).
 
 5. Als er geen heartbeat of als er niets anders heeft gewerkt, [activeren van een volledige synchronisatie van alle wachtwoorden](#trigger-a-full-sync-of-all-passwords). Voer het script slechts één keer.
 
@@ -326,7 +326,7 @@ U kunt eenvoudig problemen met wachtwoord-hash-synchronisatie oplossen aan de ha
 ### <a name="password-sync-log"></a>Synchronisatielogboek wachtwoord
 De statuskolom kan de volgende waarden hebben:
 
-| Status | Beschrijving |
+| Status | Description |
 | --- | --- |
 | Geslaagd |Wachtwoord is gesynchroniseerd. |
 | FilteredByTarget |Wachtwoord is ingesteld op **gebruiker moet wachtwoord bij volgende aanmelding wijzigen**. Wachtwoord is niet gesynchroniseerd. |
@@ -417,5 +417,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Implementatie van wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](how-to-connect-password-hash-synchronization.md)
-* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)

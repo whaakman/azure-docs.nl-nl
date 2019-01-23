@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory identity protection, deblokkeren van gebruiker
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: f8bf983033407bbf597af15f18f28ecf33b7558f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 8eccb4c1618acc88f6a3bdfa6c67d73aad055988
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631681"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476645"
 ---
-# <a name="how-to-unblock-users"></a>Procedure: Gebruikers deblokkeren
+# <a name="how-to-unblock-users"></a>Procedures: Gebruikers deblokkeren
 
 Met Azure Active Directory Identity Protection, kunt u beleid voor het blokkeren van gebruikers als de geconfigureerde voorwaarden is voldaan. Normaal gesproken een geblokkeerde gebruiker contactpersonen helpdesk om te worden opgeheven. In dit artikel worden de stappen beschreven die u kunt uitvoeren om een geblokkeerde gebruiker deblokkeren.
 

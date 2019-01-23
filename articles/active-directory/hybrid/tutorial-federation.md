@@ -4,7 +4,7 @@ description: Demonstreert hoe u het instellen van een hybride identiteit-omgevin
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b813a276c2047a41038408744637b3dd50aff863
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9e13b6aca7fd6302fc521e549b0f5a587ead9ed5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163511"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472463"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Zelfstudie: Een enkele AD-forestomgeving federeren in de cloud
 
@@ -245,7 +245,7 @@ Het is nu tijd om te downloaden en installeren van Azure AD Connect.  Zodra deze
 
 1. Voer de gebruikersnaam en het wachtwoord van de globale beheerder, die eerder is gemaakt op het scherm verbinding maken met Azure AD, en klik op **volgende**.
 2. Klik op het scherm van uw directory's verbinding maken **map toevoegen**.  Selecteer vervolgens **nieuw AD-account maken** contoso\Administrator gebruikersnaam en wachtwoord invoeren en op **OK**.
-3. Klik op **Volgende**.
+3. Klik op **volgende**.
 4. Selecteer op het scherm van de configuratie van aanmelding bij Azure AD **doorgaan zonder bijbehorende alle UPN-achtervoegsels voor geverifieerde domeinen** en klikt u op **volgende.**
 5. Klik op het domein en OE filteren scherm **volgende**.
 6. Over het uniek identificeren van het scherm van uw gebruikers, klikt u op **volgende**.
@@ -255,10 +255,10 @@ Het is nu tijd om te downloaden en installeren van Azure AD Connect.  Zodra deze
 10. Zorg ervoor dat op het scherm voor AD FS-farm **een nieuwe AD FS-farm configureren** is geselecteerd.
 11. Selecteer **gebruik van een certificaat geïnstalleerd op de federatieservers** en klikt u op **Bladeren**.
 12. DC1 invoeren in het zoekvak in en selecteert u deze als dat is gevonden.  Klik op **OK**.
-13. Uit de **certificaatbestand** vervolgkeuzelijst, selecteer **adfs.contoso.com** het certificaat die eerder is gemaakt.  Klik op **Volgende**.
+13. Uit de **certificaatbestand** vervolgkeuzelijst, selecteer **adfs.contoso.com** het certificaat die eerder is gemaakt.  Klik op **volgende**.
 ![Federation](media/tutorial-federation/fed2.png)
 
-1. Klik op het scherm van de AD FS-server, **Bladeren** DC1 invoeren in het zoekvak in en selecteert u deze als dat is gevonden.  Klik op **OK**.  Klik op **Volgende**.
+1. Klik op het scherm van de AD FS-server, **Bladeren** DC1 invoeren in het zoekvak in en selecteert u deze als dat is gevonden.  Klik op **OK**.  Klik op **volgende**.
 ![Federation](media/tutorial-federation/fed3.png)
 
 1. Klik op het scherm Web application Proxy-servers op **volgende**.

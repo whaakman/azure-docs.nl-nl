@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca29526ab8abbfffcf5e58939acbd1c9b4798a51
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140180"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451720"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Technische handleiding aan de sjabloon Cortana Intelligence-oplossing voor predictief onderhoud in de luchtvaart
 
@@ -143,7 +143,7 @@ Dit [pijplijn](../../data-factory/concepts-pipelines-activities.md) bevat één 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 De [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimenteren gebruikt voor deze oplossingssjabloon de resterende bruikbare levensduur (RUL) van een vliegtuigmotor biedt. Het experiment is specifiek voor de gegevensset verbruikt en wijziging vereist of vervanging die specifiek zijn voor de gegevens op.
 
-Zie voor meer informatie over hoe de Azure Machine Learning-experiment is gemaakt, [Voorspellend onderhoud: stap 1 van 3, gegevens voor te bereiden en feature-engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Zie voor meer informatie over hoe de Azure Machine Learning-experiment is gemaakt, [Voorspellend onderhoud: Stap 1 van 3, gegevens voor te bereiden en feature-engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>De voortgang van de
 Nadat u de Gegevensgenerator wordt gestart, de pijplijn begint met het dehydrate en de verschillende onderdelen van uw oplossing start starten in actie volgende de opdrachten die zijn uitgegeven door de data factory. Er zijn twee manieren voor het bewaken van de pijplijn.
@@ -162,7 +162,7 @@ Instellen van een Power BI-dashboard voor het visualiseren van uw Azure Stream A
 ### <a name="set-up-the-cold-path-dashboard"></a>Instellen van het koude pad-dashboard
 In de pijplijn koude pad, wordt het doel is om op te halen van de voorspellende resterende bruikbare Levensduur (de resterende levensduur) van elke vliegtuigmotor zodra de App is een vlucht (cyclus). Het resultaat voorspelling wordt elke drie uur voor het voorspellen van de vliegtuigmotoren die u een vlucht in de afgelopen 3 uur hebt bijgewerkt.
 
-Power BI maakt verbinding met een Azure SQL database als de gegevensbron, waar de voorspellingsresultaten worden opgeslagen. Opmerking: 1) op het implementeren van uw oplossing een voorspelling wordt weergegeven in de database binnen drie uur.
+Power BI maakt verbinding met een Azure SQL database als de gegevensbron, waar de voorspellingsresultaten worden opgeslagen. Opmerking: (1) op het implementeren van uw oplossing weergegeven een voorspelling binnen drie uur in de database.
 Het pbix-bestand met het downloaden van de Generator bevat enkele seedgegevens, zodat u meteen het Power BI-dashboard kunt maken. 2) in deze stap is het vereiste onderdeel is om te downloaden en installeren van de gratis software [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 De volgende stappen leest u hoe u verbinding maken het pbix-bestand met de SQL-Database hebben is ingeschakeld op het moment van implementatie van de oplossing met gegevens (bijvoorbeeld voorspellingsresultaten) voor visualisatie.
@@ -174,7 +174,7 @@ De volgende stappen leest u hoe u verbinding maken het pbix-bestand met de SQL-D
    * Eenmaal **'Azure SQL Database'** op uw oplossingssjabloon diagram wordt groen, klikt u op deze en klik vervolgens op **'Open'**.
    * Hier ziet u een nieuw tabblad/browservenster waarin de Azure portal op de pagina worden weergegeven. Klik op **'Resourcegroepen'** in het linkerdeelvenster.
    * Selecteer het abonnement dat u gebruikt voor het implementeren van de oplossing en selecteer vervolgens **' YourSolutionName\_ResourceGroup'**.
-   * In de nieuwe pop-outmodus deelvenster, klikt u op de ![SQL pictogram](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) pictogram voor toegang tot uw database. De databasenaam van uw naast dit pictogram is (bijvoorbeeld **'pmaintenancedb'**), en de **databaseservernaam** wordt vermeld onder de naameigenschap van de Server en moet er ongeveer als volgt  **YourSoutionName.database.windows.net**.
+   * In de nieuwe pop-outmodus deelvenster, klikt u op de ![SQL pictogram](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) pictogram voor toegang tot uw database. De databasenaam van uw naast dit pictogram is (bijvoorbeeld **'pmaintenancedb'**), en de **databaseservernaam** wordt vermeld onder de naameigenschap van de Server en moet er ongeveer als volgt  **YourSolutionName.database.windows.net**.
    * Uw database **gebruikersnaam** en **wachtwoord** zijn hetzelfde als de gebruikersnaam en het wachtwoord eerder vastgelegd tijdens de implementatie van de oplossing.
 2. De gegevensbron van het koude pad-rapportbestand bijwerken met Power BI Desktop.
    
@@ -182,7 +182,7 @@ De volgende stappen leest u hoe u verbinding maken het pbix-bestand met de SQL-D
      
      ![Query's bewerken](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * Ziet u twee tabellen **RemainingUsefulLife** en **PMResult**. Selecteer de eerste tabel en klik op ![Query Instellingenpictogram](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) naast **'Source'** onder **TOEGEPASTE stappen'** aan de rechterkant **Query-instellingen** deelvenster. Negeer eventuele waarschuwingsberichten die worden weergegeven.
-   * Vervang in het pop-outmodus venster, **'Server'** en **'Database'** met uw eigen namen van de server en database, en klik vervolgens op **'OK'**. Voor de servernaam van de, zorg ervoor dat u de poort 1433 opgeven (**YourSoutionName.database.windows.net, 1433**). Laat het veld Database als **pmaintenancedb**. Negeer de waarschuwingsberichten die worden weergegeven op het scherm.
+   * Vervang in het pop-outmodus venster, **'Server'** en **'Database'** met uw eigen namen van de server en database, en klik vervolgens op **'OK'**. Voor de servernaam van de, zorg ervoor dat u de poort 1433 opgeven (**YourSolutionName.database.windows.net, 1433**). Laat het veld Database als **pmaintenancedb**. Negeer de waarschuwingsberichten die worden weergegeven op het scherm.
    * In het volgende pop-outmodus venster, ziet u twee opties in het linkerdeelvenster (**Windows** en **Database**). Klik op **'Database'**, vult u uw **'Username'** en **'Password'** (dit is de gebruikersnaam en het wachtwoord dat u hebt ingevoerd wanneer u eerst de oplossing wordt geïmplementeerd en een Azure wordt gemaakt SQL database). In ***Selecteer welk gegevensniveau voor deze instellingen toepassen op***, een optie voor database controleren. Klik vervolgens op **'Connect'**.
    * Klik op de tweede tabel **PMResult** klikt u vervolgens op ![pictogram Navigatie](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) naast **'Source'** onder **TOEGEPASTE stappen'** aan de rechterkant **Query-instellingen** deelvenster en bijwerken van de namen van de server en database zoals in de bovenstaande stappen en klik op OK.
    * Nadat u terug naar de vorige pagina Begeleide bent, sluit u het venster. Een bericht wordt weergegeven, klikt u **toepassen**. Klik ten slotte de **opslaan** knop de wijzigingen op te slaan. Uw Power BI-bestand is nu ingesteld voor verbinding met de server. Als uw visualisaties leeg zijn, zorg er dan voor dat u de gewenste opties op de visualisaties aan alle gegevens visualiseren door te klikken op het gumpictogram in de rechterbovenhoek van de legenda's uitschakelen. Gebruik de vernieuwknop om nieuwe gegevens voor de visualisaties weer te geven. In eerste instantie alleen ziet u de seedgegevens op uw visualisaties als de data factory is gepland om te vernieuwen elke drie uur. U ziet na 3 uur nieuwe voorspellingen doorgevoerd in uw visualisaties bij het vernieuwen van de gegevens.
@@ -197,7 +197,7 @@ De volgende stappen leest u hoe u verbinding maken het pbix-bestand met de SQL-D
      <br/>
    * Vernieuwing wilt plannen van de gegevens, de muisaanwijzer boven de **PredictiveMaintenanceAerospace** gegevensset, klikt u op ![beletselteken pictogram](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) en kies vervolgens **vernieuwen plannen**.
      <br/>
-     **Opmerking:** als er een waarschuwing massage, klikt u op **referenties bewerken** en controleer of de referenties van uw database zijn hetzelfde als die wordt beschreven in stap 1.
+     **Opmerking:** Als er een waarschuwing massage, klikt u op **referenties bewerken** en controleer of de referenties van uw database zijn hetzelfde als die wordt beschreven in stap 1.
      <br/>
      ![Planning vernieuwen](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
@@ -210,7 +210,7 @@ De volgende stappen helpen u over het visualiseren van de gegevensuitvoer van St
 
 1. Power BI-uitvoer in Azure Stream Analytics (ASA) toevoegen.
    
-   * U moet de instructies in [Azure Stream Analytics en Power BI: een dashboard voor realtime zichtbaarheid van het streamen van gegevens voor analysedoeleinden](../../stream-analytics/stream-analytics-power-bi-dashboard.md) voor het instellen van de uitvoer van uw Azure Stream Analytics-taak als uw Power BI-dashboard.
+   * U moet de instructies in [Azure Stream Analytics en Power BI: Een dashboard voor realtime zichtbaarheid van het streamen van gegevens voor analysedoeleinden](../../stream-analytics/stream-analytics-power-bi-dashboard.md) voor het instellen van de uitvoer van uw Azure Stream Analytics-taak als uw Power BI-dashboard.
    * De ASA-query heeft drie uitvoer die **aircraftmonitor**, **aircraftalert**, en **flightsbyhour**. U kunt de query weergeven door te klikken op het tabblad query. Overeenkomt met elk van deze tabellen, moet u een uitvoer aan ASA toevoegen. Wanneer u de eerste uitvoer toevoegt (**aircraftmonitor**) Zorg ervoor dat de **uitvoeralias**, **gegevenssetnaam** en **tabelnaam** zijn de dezelfde (**aircraftmonitor**). Herhaal de stappen voor het toevoegen van de uitvoer voor **aircraftalert**, en **flightsbyhour**. Nadat u alle drie uitvoertabellen en aan de slag de ASA-taak hebt toegevoegd, moet u een bevestigingsbericht wordt weergegeven ('vanaf Stream Analytics-taak maintenancesa02asapbi is voltooid').
 2. Meld u aan bij [Power BI online](http://www.powerbi.com)
    

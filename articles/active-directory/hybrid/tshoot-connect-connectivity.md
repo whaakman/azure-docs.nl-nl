@@ -4,7 +4,7 @@ description: Wordt uitgelegd hoe u verbindingsproblemen met Azure AD Connect opl
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310664"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474877"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Verbindingsproblemen met Azure AD Connect oplossen
 In dit artikel wordt uitgelegd hoe connectiviteit tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn ondergebracht in een omgeving met een proxyserver worden weergegeven.
@@ -42,11 +42,11 @@ De proxy-server moet ook de vereiste URL's die wordt geopend. De officiële lijs
 
 URL's is de volgende tabel het absolute minimum dat bare kunnen verbinding maken met Azure AD helemaal. Deze lijst bevat geen eventuele optionele functies, zoals het terugschrijven van wachtwoorden of Azure AD Connect Health. Dit wordt hier beschreven om te helpen bij het oplossen van problemen voor de eerste configuratie.
 
-| URL | Poort | Beschrijving |
+| URL | Poort | Description |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Voor het downloaden van de CRL-lijsten. |
 | \*.verisign.com |HTTP/80 |Voor het downloaden van de CRL-lijsten. |
-| \*. entrust.net |HTTP/80 |Voor het downloaden van een lijst met CRL's voor MFA. |
+| \*.entrust.net |HTTP/80 |Voor het downloaden van een lijst met CRL's voor MFA. |
 | \*.windows.net |HTTPS/443 |Gebruikt om aan te melden bij Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Gebruikt voor MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Gebruikt voor het configureren van uw Azure AD-directory en gegevens importeren/exporteren. |

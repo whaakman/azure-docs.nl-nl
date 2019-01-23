@@ -4,7 +4,7 @@ description: Wordt uitgelegd hoe u problemen oplossen met SQL-connectiviteit met
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e56f429cd866ed8d0500e427d1927bbef0beb34
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d8f8c9a6034461c9dae9a00c6ff112740733e793
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315047"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474435"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>SQL-verbindingsproblemen met Azure AD Connect oplossen
 In dit artikel wordt uitgelegd hoe u problemen met connectiviteit tussen Azure AD Connect en SQL Server. 
@@ -42,7 +42,7 @@ Of installeer [PackageManagement PowerShell-Modules Preview - maart 2016 voor Po
 - **Uitvoeren van de powershell-functie**: `Connect-ADSyncDatabase` met de volgende parameters
     - De server. De naam van de SQL Server.
     - Het exemplaar. (Optioneel) De naam van de SQL Server-exemplaar en (optioneel) poortnummer, die u wilt gebruiken. Geef deze parameter voor het gebruik van het standaardexemplaar plaatst.
-    - Gebruikersnaam. (Optioneel) Het gebruikersaccount dat verbinding kan maken met. Als deze optie leeg wordt de momenteel aangemelde gebruiker worden gebruikt. Als u verbinding met een externe SQL-Server dit moet de aangepaste service-account dat u hebt gemaakt voor Azure ADConnect SQL-verbinding maakt. Azure AD Connect maakt gebruik van de Azure AD Connect sync-serviceaccount te verifiëren met een externe SQL-server.
+    - UserName. (Optioneel) Het gebruikersaccount dat verbinding kan maken met. Als deze optie leeg wordt de momenteel aangemelde gebruiker worden gebruikt. Als u verbinding met een externe SQL-Server dit moet de aangepaste service-account dat u hebt gemaakt voor Azure ADConnect SQL-verbinding maakt. Azure AD Connect maakt gebruik van de Azure AD Connect sync-serviceaccount te verifiëren met een externe SQL-server.
     - Het wachtwoord. (Optioneel) Wachtwoord voor de opgegeven gebruikersnaam.
 
 In dit powershell-functie wordt te binden aan de opgegeven SQL Server en exemplaar met behulp van de doorgegeven referenties of de referenties van de huidige gebruiker gebruiken. Als de SQL-Server kan het script probeert verbinding maken met de SQL Browser-service om te bepalen ingeschakelde protocollen en poorten worden gevonden.

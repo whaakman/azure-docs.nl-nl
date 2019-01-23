@@ -3,7 +3,7 @@ title: Publiceren van toepassingen op afzonderlijke netwerken en locaties connec
 description: Bevat informatie over het maken en beheren van groepen van connectors in Azure AD-toepassingsproxy.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 52dc78b03a1be73763b5a3c494404f4d439d04ca
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2cc624cf47cddfe12532bdc7bf8cdc9a2858bb49
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198028"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468638"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publiceren van toepassingen op afzonderlijke netwerken en locaties met behulp van connectorgroepen
 
@@ -73,11 +73,11 @@ Connectorgroepen bieden voor toepassingen die zijn geïnstalleerd op IaaS voor t
 
 Neem bijvoorbeeld een organisatie met meerdere virtuele machines die zijn verbonden met hun eigen IaaS gehost virtueel netwerk. Als u wilt toestaan dat werknemers deze toepassingen, zijn particuliere netwerk verbonden met het bedrijfsnetwerk met behulp van site-naar-site VPN. Dit biedt een goede ervaring voor werknemers die zich op locatie zijn. Maar mogelijk niet ideaal voor externe werknemers, omdat hiervoor extra on-premises infrastructuur voor het routeren van toegang, zoals u in het onderstaande diagram kunt zien:
 
-![AzureAD IaaS-netwerk](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![AzureAD IaaS Network](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Met Azure AD Application Proxy connectorgroepen, kunt u een algemene service voor het beveiligen van de toegang tot alle toepassingen zonder dat er extra afhankelijkheid gemaakt in uw bedrijfsnetwerk inschakelen:
 
-![AzureAD IaaS meerdere Cloud-leveranciers](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![AzureAD IaaS Multiple Cloud Vendors](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Meerdere forests: verschillende connectorgroepen voor elk forest
 

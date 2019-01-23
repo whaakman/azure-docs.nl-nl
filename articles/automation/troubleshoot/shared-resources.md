@@ -8,12 +8,12 @@ ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848456"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475438"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Problemen oplossen met gedeelde bronnen
 
@@ -39,6 +39,65 @@ U lost dit probleem, moet u de module die is vastgelopen in de **importeren** st
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
+### <a name="module-fails-to-import"></a>Scenario: Module niet kan worden geïmporteerd of cmdlets kan niet worden uitgevoerd na het importeren
+
+#### <a name="issue"></a>Probleem
+
+Een module te importeren is mislukt of is geïmporteerd, maar geen cmdlets worden geëxtraheerd.
+
+#### <a name="cause"></a>Oorzaak
+
+Er zijn enkele veelvoorkomende redenen waarom dat een module niet met succes in Azure Automation importeren kan:
+
+* De structuur komt niet overeen met de structuur die het Automation nodig heeft om te worden.
+* De module is afhankelijk van een andere module die nog niet geïmplementeerd is naar uw Automation-account.
+* De module ontbreekt de bijbehorende afhankelijkheden in de map.
+* De `New-AzureRmAutomationModule` cmdlet voor het uploaden van de module wordt gebruikt en u niet de volledige opslagpad toegestaan of de module nog niet hebt geladen met behulp van een openbaar toegankelijke URL.
+
+#### <a name="resolution"></a>Oplossing
+
+Een van de volgende oplossingen het probleem wordt opgelost:
+
+* Zorg ervoor dat de module de volgende indeling heeft: ModuleName.Zip **->** ModuleName of het versienummer **->** (ModuleName.psm1, ModuleName.psd1)
+* Open het .psd1-bestand en zien of de module afhankelijkheden heeft. Als dit het geval is, moet u deze modules uploaden naar het Automation-account.
+* Zorg ervoor dat eventuele waarnaar wordt verwezen, dll's zijn aanwezig in de modulemap.
+
+### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule.ps1 wordt onderbroken tijdens het bijwerken van modules
+
+#### <a name="issue"></a>Probleem
+
+Wanneer u de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook bijwerken van uw Azure-modules met de module-update het updateproces wordt onderbroken.
+
+#### <a name="cause"></a>Oorzaak
+
+De standaardinstelling om te bepalen hoeveel modules bijgewerkt tegelijk is 10 bij het gebruik van de `Update-AzureModule.ps1` script. Het updateproces is gevoelig voor fouten als er te veel modules worden bijgewerkt op hetzelfde moment.
+
+#### <a name="resolution"></a>Oplossing
+
+Het is niet gebruikelijk dat alle AzureRM-modules zijn vereist in het hetzelfde Automation-account. Het is raadzaam om te importeren alleen de AzureRM-modules die u nodig hebt.
+
+> [!NOTE]
+> Voorkomen dat u importeert de **AzureRM** module. Importeren van de **AzureRM** modules leidt ertoe dat alle **AzureRM.\***  modules moeten worden geïmporteerd, is dit niet aanbevolen.
+
+Als het updateproces wordt onderbroken, moet u om toe te voegen de `SimultaneousModuleImportJobCount` parameter voor de `Update-AzureModules.ps1` script en een lagere waarde dan de standaardwaarde van 10 opgeven. Het wordt aanbevolen als u deze logica, om te beginnen met een waarde van 3 of 5 implementeert. `SimultaneousModuleImportJobCount` is een parameter van de `Update-AutomationAzureModulesForAccount` system-runbook dat wordt gebruikt voor het Azure-modules bijwerken. Deze wijziging maakt het proces meer uitvoeren, maar heeft een grotere kans om te voltooien. Het volgende voorbeeld ziet u de parameter en waar u deze in het runbook te plaatsen:
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
+```
+
 ## <a name="run-as-accounts"></a>Run As-accounts
 
 ### <a name="unable-create-update"></a>Scenario: U bent maken of bijwerken van een uitvoeren als-account
@@ -59,7 +118,7 @@ U hebt de machtigingen die u wilt maken of bijwerken van uitvoeren als-account o
 
 Als u wilt maken of bijwerken van een uitvoeren als-account, moet u toegangsmachtigingen voor de verschillende bronnen die worden gebruikt door het uitvoeren als-account hebben. Zie voor meer informatie over de machtigingen die nodig zijn voor het maken of bijwerken van een uitvoeren als-account, [uitvoeren als-accountmachtigingen](../manage-runas-account.md#permissions).
 
-Als het probleem vanwege een vergrendeling is, Controleer of de vergrendeling te verwijderen en gaat u naar de resource is vergrendeld, met de rechtermuisknop op de vergrendeling en kiest u **verwijderen** de vergrendeling te verwijderen.
+Als het probleem vanwege een vergrendeling is, controleert u of de vergrendeling ok om deze te verwijderen. Vervolgens gaat u naar de resource is vergrendeld, met de rechtermuisknop op de vergrendeling en kies **verwijderen** de vergrendeling te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

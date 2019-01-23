@@ -72,7 +72,7 @@ In de [Azure Machine Learning Web Services-Portal](https://services.azureml.net/
 1. Klik op **WEBSERVICES** in het bovenste menu.
 2. Klik op de webservice waarvoor u wilt ophalen van de sleutel.
 
-Klik op **gebruik Web Service** om op te halen van de URI's voor de aanvraag-Reposonse en Batch tot uitvoering van Services en voorbeeld van code in C#, R en Python.
+Klik op **gebruik Web Service** om op te halen van de URI's voor de Request Response en Batch tot uitvoering van Services en voorbeeld van code in C#, R en Python.
 
 Klik op **Swagger API** Swagger ophalen op basis van documentatie voor de API's met de naam van de opgegeven URI's.
 
@@ -167,7 +167,7 @@ namespace CallRequestResponseService
                 {
                     Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
+                    // Print the headers - they include the request ID and the timestamp,
                     // which are useful for debugging the failure
                     Console.WriteLine(response.Headers.ToString());
 
@@ -228,7 +228,7 @@ try:
 except urllib2.HTTPError, error: 
     print("The request failed with status code: " + str(error.code))
 
-    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    # Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
     print(error.info())
     print(json.loads(error.read())) 
 ```
@@ -280,7 +280,7 @@ if (httpStatus >= 400)
 {
 print(paste("The request failed with status code:", httpStatus, sep=" "))
 
-# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+# Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
 print(headers)
 }
 

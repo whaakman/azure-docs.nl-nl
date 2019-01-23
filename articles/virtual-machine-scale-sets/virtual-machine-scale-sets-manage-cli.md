@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: c86ea4ca5353207d091d3e6edb13f1f3eba59175
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 84e01c319ab058c9abb05cd9882f4c25bea5cffb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410656"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462028"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Een virtuele-machineschaalset met de Azure CLI beheren
 Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. Dit artikel worden enkele van de algemene Azure CLI-opdrachten waarmee u kunnen deze taken uitvoeren.
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-Als wilt weergeven als u meer informatie over een specifieke VM-exemplaar, voegt de `--instance-id` parameter [az vmss get-instance-view](/cli/azure/vmss#get-instance-view) en geeft u een exemplaar om weer te geven. Het volgende voorbeeld wordt informatie opgevraagd over VM-exemplaar *0* in de schaalset met de naam *myScaleSet* en de *myResourceGroup* resourcegroep. Voer uw eigen namen als volgt in:
+Als wilt weergeven als u meer informatie over een specifieke VM-exemplaar, voegt de `--instance-id` parameter [az vmss get-instance-view](/cli/azure/vmss) en geeft u een exemplaar om weer te geven. Het volgende voorbeeld wordt informatie opgevraagd over VM-exemplaar *0* in de schaalset met de naam *myScaleSet* en de *myResourceGroup* resourcegroep. Voer uw eigen namen als volgt in:
 
 ```azurecli
 az vmss get-instance-view \

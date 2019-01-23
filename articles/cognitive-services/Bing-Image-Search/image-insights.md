@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 280c646a3265ff7ab9a3d32412a2be2e3989e22e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bb17916fb4d9b9b3ae1481ead7508214f5956c70
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297466"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464269"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Verkrijg inzichten van de installatiekopie met de Bing afbeeldingen zoeken-API
 
@@ -217,9 +217,9 @@ De `region` veld identificeert het gebied van de afbeelding waar de entiteit in 
 De waarden van de rechthoek zijn ten opzichte van de breedte en hoogte van de oorspronkelijke afbeelding en in het bereik 0,0 en 1,0 zijn. Bijvoorbeeld als de afbeelding 300 x 200 en van de regio-bovenaan is, links bevindt zich op een moment (10, 20) en onder rechterhoek op een moment (290, 150), wordt de genormaliseerde rechthoek is:  
 
 -   Links: 10 / 300 = 0.03333...  
--   Top: 20 / 200 = 0.1  
+-   Boven:  20 / 200 = 0.1  
 -   Rechts: 290 / 300 = 0.9667...  
--   Onder: 150 / 200 = 0,75  
+-   Onder: 150 / 200 = 0.75  
 
 U kunt de regio die Bing in latere insights aanroepen retourneert. Als u bijvoorbeeld visueel vergelijkbare afbeeldingen van de herkende entiteit ophalen. Zie voor meer informatie, [te gebruiken met visueel vergelijkbare en entiteit erkenning Modules installatiekopieën bijsnijden](#croppingimages). Hieronder ziet u de toewijzing tussen de velden van de regio en de queryparameters die u gebruiken wilt om te bijsnijden afbeeldingen.  
 
@@ -408,7 +408,7 @@ Hieronder ziet u het antwoord op de vorige aanvraag. Het antwoord bevat een afbe
 }
 ```
 
-Voor een lijst van de verkopers die het product online aan (Zie de [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount) veld), de API opnieuw aanroepen en stel `modules` naar ShoppingSources. Vervolgens stelt u de `insightsToken` queryparameter naar het token gevonden in de installatiekopie van de samenvatting van het product.  
+Voor een lijst van de verkopers die het product online aan (Zie de [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) veld), de API opnieuw aanroepen en stel `modules` naar ShoppingSources. Vervolgens stelt u de `insightsToken` queryparameter naar het token gevonden in de installatiekopie van de samenvatting van het product.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

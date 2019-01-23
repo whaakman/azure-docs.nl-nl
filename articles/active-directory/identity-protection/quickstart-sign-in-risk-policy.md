@@ -5,7 +5,7 @@ services: active-directory
 keywords: identiteitsbeveiliging, voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7cf427ed7be91db2b243c28bb66513b25045ffc0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822124"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468485"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Snelstartgids: Toegang blokkeren als er een sessie risico's met Azure Active Directory Identity Protection wordt gedetecteerd  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Quickstart: Toegang blokkeren als er een sessie risico's met Azure Active Directory Identity Protection wordt gedetecteerd  
 
 Om te voorkomen dat uw omgeving beveiligd, is het raadzaam om verdachte gebruikers zich te blokkeren. Azure Active Directory (Azure AD) Identity Protection analyseert elke aanmelding en berekent de kans dat een aanmelding bij poging is niet uitgevoerd door de rechtmatige eigenaar van een gebruikersaccount. De kans (laag, Gemiddeld, hoog) wordt aangegeven in de vorm van een berekende waarde met de naam van het niveau van aanmeldingsrisico. De voorwaarde voor aanmeldingsrisico instelt, kunt u beleid voor aanmeldingsrisico voorwaardelijke toegang om te reageren op specifieke aanmeldingsrisico niveaus configureren. 
 

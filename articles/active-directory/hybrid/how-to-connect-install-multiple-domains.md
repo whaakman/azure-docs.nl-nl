@@ -4,7 +4,7 @@ description: Dit document beschrijft het instellen en configureren van meerdere 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5abe252ab9b3389680508537ea1d6f3823f910
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: abc01239a2bf61c39f99fe880bf17d7958a1597c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311862"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477923"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Ondersteuning voor meerdere domeinen voor federatie met Azure AD
 De volgende documentatie bevat richtlijnen over het gebruik van meerdere op het hoogste niveau domeinen en subdomeinen wanneer Federatie met Office 365 of Azure AD-domeinen.
@@ -102,7 +102,7 @@ Gebruik de volgende stappen voor het verwijderen van de Microsoft Online-vertrou
 1. Op de AD FS-federatieserver open **AD FS-beheer.**
 2. Vouw aan de linkerkant **vertrouwensrelaties** en **Relying Party-vertrouwensrelaties**
 3. Aan de rechterkant, verwijder de **Identiteitsplatform van Microsoft Office 365** vermelding.
-   ![Microsoft Online verwijderen](./media/how-to-connect-install-multiple-domains/trust4.png)
+   ![Remove Microsoft Online](./media/how-to-connect-install-multiple-domains/trust4.png)
 4. Op een computer die is [Azure Active Directory-Module voor Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) geïnstalleerd voert u het volgende: `$cred=Get-Credential`.  
 5. Voer de gebruikersnaam en het wachtwoord van een globale beheerder voor de u Federatie met Azure AD-domein.
 6. Voer in PowerShell `Connect-MsolService -Credential $cred`
@@ -166,10 +166,10 @@ Gebruik de volgende stappen uit om toe te voegen een aangepaste claim voor de on
 5. Klik op Ok.  Klik op toepassen.  Klik op Ok.  Sluit AD FS-beheer.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u Azure AD Connect geïnstalleerd hebt, kunt u [de installatie verifiëren en licenties toewijzen](how-to-connect-post-installation.md).
+Nu u Azure AD Connect geïnstalleerd hebt kunt u [de installatie verifiëren en licenties toewijzen](how-to-connect-post-installation.md).
 
-Lees meer over deze functies, die tijdens de installatie zijn ingeschakeld: [Automatische upgrade](how-to-connect-install-automatic-upgrade.md), [Onopzettelijk verwijderen voorkomen](how-to-connect-sync-feature-prevent-accidental-deletes.md) en [Azure AD Connect Health](how-to-connect-health-sync.md).
+Meer informatie over deze functies, die de installatie zijn ingeschakeld: [Automatische upgrade](how-to-connect-install-automatic-upgrade.md), [onopzettelijke verwijderingen voorkomen](how-to-connect-sync-feature-prevent-accidental-deletes.md), en [Azure AD Connect Health](how-to-connect-health-sync.md).
 
-Lees meer over deze veelvoorkomende onderwerpen: [Scheduler en het activeren van de synchronisatie](how-to-connect-sync-feature-scheduler.md).
+Meer informatie over deze algemene onderwerpen: [scheduler and how to trigger sync](how-to-connect-sync-feature-scheduler.md).
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](whatis-hybrid-identity.md).

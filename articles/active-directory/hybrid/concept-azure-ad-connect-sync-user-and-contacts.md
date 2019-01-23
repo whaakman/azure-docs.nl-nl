@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synchronisatie: inzicht krijgen in gebruikers, groepen en contactpersonen | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Inzicht krijgen in gebruikers, groepen en contactpersonen | Microsoft Docs'
 description: Gebruikers, groepen en contactpersonen in Azure AD Connect-synchronisatie uitgelegd.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46d0ce28d6381662847917ce83c77780f1bd9e4c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c59065b21935336a77e3fb88c30f12cded341808
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315236"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473925"
 ---
-# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synchronisatie: inzicht krijgen in gebruikers, groepen en contactpersonen
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synchronisatie: Inzicht krijgen in gebruikers, groepen en contactpersonen
 Er zijn verschillende redenen waarom zijn er meerdere Active Directory-forests en er zijn diverse verschillende implementatietopologieën. Algemene modellen omvatten de implementatie van een account-resource en GAL sync'ed forests na een fusie & overname. Maar zelfs als er pure modellen, hybride modellen ook algemene zijn. De standaardconfiguratie in Azure AD Connect-synchronisatie niet wordt ervan uitgegaan een bepaald model, maar afhankelijk van hoe overeenkomende gebruiker is geselecteerd in de installatiehandleiding, verschillend gedrag kunnen worden waargenomen.
 
 In dit onderwerp doorlopen we de werking van de standaardconfiguratie in bepaalde topologieën. We doorlopen de configuratie en de Synchronization Rules Editor kan worden gebruikt om te kijken naar de configuratie.
@@ -73,6 +73,6 @@ De veronderstelling is dat als een uitgeschakelde gebruikersaccount wordt gevond
 Wanneer een object is geëxporteerd naar Azure AD en het is niet toegestaan de sourceAnchor niet meer wijzigen. Wanneer het object is geëxporteerd van het metaverse-kenmerk **cloudSourceAnchor** is ingesteld met de **sourceAnchor** waarde geaccepteerd door Azure AD. Als **sourceAnchor** wordt gewijzigd en niet overeen met **cloudSourceAnchor**, de regel **Out voor AAD-gebruiker toevoegen** de fout genereert **sourceAnchor-kenmerk heeft gewijzigd**. In dit geval wordt moeten de configuratie of de gegevens worden gecorrigeerd, zodat het dezelfde sourceAnchor aanwezig in de metaverse opnieuw is voordat het object opnieuw kan worden gesynchroniseerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
-* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 

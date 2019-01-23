@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055044"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463279"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -36,7 +36,7 @@ Om uit te voeren de LUIS-container, moet u het volgende hebt:
 |--|--|
 |Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
 |Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
-|Language Understanding (LUIS) resource en de bijbehorende app |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>* A [ _Language Understanding_ Azure-resource](luis-how-to-azure-subscription.md), samen met de bijbehorende eindpuntsleutel en het eindpunt URI (die wordt gebruikt als het eindpunt van de facturering).<br>* Een getraind of gepubliceerde app verpakt als een gekoppelde invoer voor de container met de bijbehorende App-ID.<br>* De ontwerp-sleutel voor het downloaden van het app-pakket, als u dit vanuit de API doen.<br><br>Deze vereisten worden gebruikt voor de opdrachtregelargumenten doorgeven aan de volgende variabelen:<br><br>**{AUTHORING_KEY}** : Deze sleutel wordt gebruikt voor het ophalen van de app-pakket van de LUIS-service in de cloud en de logboeken voor query's uploaden naar de cloud. De indeling is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Deze ID wordt gebruikt om de App te selecteren. De indeling is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Deze sleutel wordt gebruikt voor het starten van de container. U vindt de eindpuntsleutel op twee plaatsen. De eerste is de Azure-portal binnen de _Language Understanding_ lijst met resources van sleutels. De eindpuntsleutel is ook beschikbaar in de LUIS-portal op de sleutels en het eindpunt instellingenpagina. Gebruik niet de starter-sleutel.<br><br>**{BILLING_ENDPOINT}** : De facturering eindpuntwaarde is beschikbaar op de pagina van de taal begrijpen overzicht van de Azure portal. Een voorbeeld is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>De [ontwerpen en eindpuntsleutel](luis-boundaries.md#key-limits) hebben verschillende doeleinden. Gebruik deze niet door elkaar. |
+|Language Understanding (LUIS) resource en de bijbehorende app |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>* A [ _Language Understanding_ Azure-resource](luis-how-to-azure-subscription.md), samen met de bijbehorende eindpuntsleutel en het eindpunt URI (die wordt gebruikt als het eindpunt van de facturering).<br>* Een getraind of gepubliceerde app verpakt als een gekoppelde invoer voor de container met de bijbehorende App-ID.<br>* De ontwerp-sleutel voor het downloaden van het app-pakket, als u dit vanuit de API doen.<br><br>Deze vereisten worden gebruikt voor de opdrachtregelargumenten doorgeven aan de volgende variabelen:<br><br>**{AUTHORING_KEY}** : Deze sleutel wordt gebruikt voor het ophalen van de app-pakket van de LUIS-service in de cloud en de logboeken voor query's uploaden naar de cloud. De indeling is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Deze ID wordt gebruikt om de App te selecteren. De indeling is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Deze sleutel wordt gebruikt voor het starten van de container. U vindt de eindpuntsleutel op twee plaatsen. De eerste is de Azure-portal binnen de _Language Understanding_ lijst met resources van sleutels. De eindpuntsleutel is ook beschikbaar in de LUIS-portal op de sleutels en het eindpunt instellingenpagina. Gebruik niet de starter-sleutel.<br><br>**{BILLING_ENDPOINT}**: De facturering eindpuntwaarde is beschikbaar op de pagina van de taal begrijpen overzicht van de Azure portal. Een voorbeeld is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>De [ontwerpen en eindpuntsleutel](luis-boundaries.md#key-limits) hebben verschillende doeleinden. Gebruik deze niet door elkaar. |
 
 ### <a name="the-host-computer"></a>De hostcomputer
 
@@ -113,7 +113,8 @@ De invoer Koppelmap mag de **productie**, **fasering**, en **Trained** versies v
 |Faseren|Get, Post|Azure en de container|`{APPLICATION_ID}_STAGING.gz`|
 |Productie|Get, Post|Azure en de container|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Belangrijk:** Wijzig, alter, of niet decomprimeren van de LUIS-pakketbestanden.
+> [!IMPORTANT]
+> Wijzig, alter, of niet decomprimeren van de LUIS-pakketbestanden.
 
 ### <a name="packaging-prerequisites"></a>Verpakking-vereisten
 
@@ -121,7 +122,7 @@ Voordat u een LUIS-toepassing verpakken, moet u het volgende hebt:
 
 |Verpakking-vereisten|Details|
 |--|--|
-|Azure _Language Understanding_ bronexemplaar|Ondersteunde regio 's<br><br>VS-West (```westus```)<br>West-Europa (```westeurope```)<br>Australië-Oost (```australiaeast```)|
+|Azure _Language Understanding_ bronexemplaar|Ondersteunde regio 's<br><br>VS-West (```westus```)<br>West Europe (```westeurope```)<br>Australië-Oost (```australiaeast```)|
 |Getrainde of gepubliceerd LUIS-app|Zonder [afhankelijkheden niet-ondersteunde](#unsupported-dependencies). |
 |Toegang tot de [hostcomputer](#the-host-computer)van bestandssysteem |De computer moet toestaan een [invoer koppelpunt](luis-container-configuration.md#mount-settings).|
   
@@ -262,8 +263,8 @@ Gebruikmaken van de host https://localhost:5000, voor de container met API's.
 
 |Pakkettype|Methode|Route|Queryparameters|
 |--|--|--|--|
-|Gepubliceerd|[Ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q = {q}<br>& voor fasering<br>[& timezoneOffset]<br>[& uitgebreide]<br>[& logboek]<br>|
-|Getraind|Get, Post|/ luis/v2.0/apps/{appId}/versions/{versionId}?|q = {q}<br>[& timezoneOffset]<br>[& uitgebreide]<br>[& logboek]|
+|Gepubliceerd|[Ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>& voor fasering<br>[&timezoneOffset]<br>[& uitgebreide]<br>[&log]<br>|
+|Getraind|Get, Post|/ luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& uitgebreide]<br>[&log]|
 
 De queryparameters configureren hoe en wat wordt geretourneerd in antwoord op de query:
 
@@ -377,9 +378,10 @@ In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, insta
 * Bij het instantiëren van een container, moet u informatie over facturering opgeven.
 
 > [!IMPORTANT]
-> Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens (zoals de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.
+> Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden gegevens van de klant (bijvoorbeeld, de afbeelding of tekst die wordt geanalyseerd) niet naar Microsoft.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Beoordeling [containers configureren](luis-container-configuration.md) voor configuratie-instellingen
 * Raadpleeg [Veelgestelde vragen (FAQ)](luis-resources-faq.md) het oplossen van problemen met betrekking tot LUIS-functionaliteit.
+* Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)

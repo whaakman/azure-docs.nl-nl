@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308470"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465170"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik gegevens datawarehouse-momentopnamen voor herstel of uw datawarehouse kopiëren naar een vorige herstelpunt in de primaire regio. Gebruik datawarehouse-geografisch redundante back-ups om terug te zetten naar een andere geografische regio. 
@@ -62,7 +62,7 @@ Wanneer u een datawarehouse neerzet, wordt SQL Data Warehouse maakt u een moment
 > Als u een logische exemplaar van SQL server verwijdert, worden alle databases die deel uitmaken van het exemplaar worden ook verwijderd en kunnen niet worden hersteld. U kunt een server verwijderd niet herstellen.
 >
 
-## <a name="geo-backups"></a>Geo-back-ups
+## <a name="geo-backups"></a>Geo-backups
 SQL Data Warehouse voert een geo-back-up eenmaal per dag een [gekoppeld Datacenter](../best-practices-availability-paired-regions.md). Het RPO voor geo-herstel is 24 uur. U kunt de geo-back-up terugzetten op een server in een andere regio waar de SQL Data Warehouse wordt ondersteund. Een geo-back-up zorgt ervoor dat u kunt datawarehouse herstellen in het geval u geen toegang de herstelpunten in de primaire regio tot.
 
 Geo-back-ups zijn standaard ingeschakeld. Als uw datawarehouse Gen1 is, kunt u [opt-out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) als u wenst. Afnemen geo-back-ups voor Gen2 omdat de beveiliging van gegevens een ingebouwde gegarandeerd is.
@@ -86,7 +86,7 @@ Elke momentopname wordt gemaakt van een herstelpunt dat staat voor de begintijd 
 
 U kunt de teruggezette datawarehouse en de huidige houden of verwijder een van deze. Als u vervangen door het huidige datawarehouse met de herstelde datawarehouse wilt, kunt u wijzigen met behulp van [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) met de naam wijzigen-optie. 
 
-Als u een datawarehouse herstellen, Zie [herstellen van een datawarehouse met behulp van de Azure-portal](sql-data-warehouse-restore-database-portal.md), [herstellen van een datawarehouse met behulp van PowerShell](sql-data-warehouse-restore-database-powershell.md), of [herstellen van een datawarehouse met T-SQL](sql-data-warehouse-restore-database-rest-api.md) .
+Als u een datawarehouse herstellen, Zie [herstellen van een datawarehouse met behulp van de Azure-portal](sql-data-warehouse-restore-database-portal.md), [herstellen van een datawarehouse met behulp van PowerShell](sql-data-warehouse-restore-database-powershell.md), of [herstellen van een datawarehouse met behulp van REST-API's](sql-data-warehouse-restore-database-rest-api.md).
 
 Voor het herstellen van een datawarehouse verwijderd of is onderbroken, kunt u [een ondersteuningsticket maken](sql-data-warehouse-get-started-create-support-ticket.md). 
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1c61286a24c3562e32cb4c734ea081526d38837a
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 05d447a7d36e0e8ca9da35407e825eb8f49fb4a3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413146"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448272"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snelstartgids: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory 
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Quickstart: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory 
 
 Ter vereenvoudiging van de aanmeldingservaring van uw gebruikers, is het raadzaam om toe te staan dat ze zich aanmelden bij uw cloud-apps met behulp van een gebruikersnaam en wachtwoord. Veel omgevingen hebben echter ten minste een aantal apps waarvoor u wordt aangeraden een sterkere vorm van verificatie-account, zoals multi-factor authentication (MFA) vereist. Dit kan zijn, voor de voorbeeld-waar, voor toegang tot e-mailsysteem van uw organisatie of uw HR-apps. In Azure Active Directory (Azure AD), kunt u dit doel met beleid voor voorwaardelijke toegang uitvoeren.    
 
@@ -68,7 +68,7 @@ Stel in het beleid:
 |Instelling |Waarde|
 |---     | --- |
 |Gebruikers en groepen | Isabella Simonsen |
-|Cloud-apps | Beheer van Microsoft Azure |
+|Cloud-apps | Microsoft Azure Management |
 |Toegang verlenen | Meervoudige verificatie vereisen |
  
 

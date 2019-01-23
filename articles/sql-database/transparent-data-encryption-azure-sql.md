@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959867"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462467"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
@@ -61,6 +61,9 @@ U hoeft niet te ontsleutelen van databases voor bewerkingen in Azure. De transpa
 - Het maken van een databasekopie
 - Herstellen van back-upbestand naar Azure SQL Managed Instance
 
+> [!IMPORTANT]
+> Handmatige kopie-alleen back-up van een database versleuteld door service beheerde TDE is niet toegestaan in Azure SQL Managed Instance, omdat het certificaat dat wordt gebruikt voor versleuteling is niet toegankelijk. Punt-in-time-restore-functie gebruiken voor dit type database verplaatsen naar een andere Managed Instance.
+
 Wanneer u een database transparent data encryption beschermde exporteert, worden de geëxporteerde inhoud van de database is niet versleuteld. Dit geëxporteerde inhoud is opgeslagen in niet-versleutelde Bacpac-bestanden. Moet u het BACPAC-bestanden op de juiste wijze te beschermen en transparent data encryption inschakelen nadat het importeren van de nieuwe database is voltooid.
 
 Bijvoorbeeld, als het BACPAC-bestand is geëxporteerd uit een on-premises SQL Server-exemplaar, wordt niet de geïmporteerde inhoud van de nieuwe database automatisch versleuteld. Op dezelfde manier als het BACPAC-bestand is geëxporteerd naar een on-premises SQL Server-exemplaar, wordt niet de nieuwe database ook automatisch versleuteld.
@@ -87,15 +90,15 @@ Voor het configureren van transparante gegevensversleuteling via PowerShell, moe
 
 Gebruik de volgende cmdlets voor Azure SQL Database en Data Warehouse:
 
-| Cmdlet | Beschrijving |
+| Cmdlet | Description |
 | --- | --- |
 | [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Hiermee schakelt transparante gegevensversleuteling voor een database of uit|
 | [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |Hiermee haalt u de transparent data encryption-status voor een database |
 | [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |Controleert of de voortgang van de versleuteling voor een database |
-| [Voeg AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Voegt een Key Vault-sleutel toe aan een SQL Server-exemplaar |
+| [Add-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Voegt een Key Vault-sleutel toe aan een SQL Server-exemplaar |
 | [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Hiermee haalt u de Key Vault-sleutels voor een Azure SQL database-server  |
-| [Set-azurermsqlservertransparentdataencryptionprotector is gewijzigd](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Hiermee stelt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar |
-| [Get-azurermsqlservertransparentdataencryptionprotector is gewijzigd](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |De transparent data encryption protector opgehaald |
+| [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Hiermee stelt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar |
+| [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |De transparent data encryption protector opgehaald |
 | [Remove-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |Hiermee verwijdert u een Key Vault-sleutel van een SQL Server-exemplaar |
 |  | |
 
@@ -106,7 +109,7 @@ Gebruik de volgende cmdlets voor Azure SQL Database en Data Warehouse:
 
 Verbinding maken met de database met behulp van een aanmelding die is een beheerder of lid zijn van de **dbmanager** rol in de database master.
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | Aan van/op VERSLEUTELING uit ingesteld worden versleuteld of een database wordt ontsleuteld |
 | [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Retourneert informatie over de status van de versleuteling van een database en de bijbehorende database versleutelingssleutels |
@@ -120,7 +123,7 @@ U kunt niet de transparent data encryption protector overstappen op een sleutel 
 Voor het configureren van transparante gegevensversleuteling via de REST-API moet verbonden zijn als de Azure-eigenaar, bijdrager of SQL Security Manager.
 Gebruik de volgende reeks opdrachten voor Azure SQL Database en Data Warehouse:
 
-| Opdracht | Beschrijving |
+| Opdracht | Description |
 | --- | --- |
 |[Maken of bijwerken van de Server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Voegt een Azure Active Directory-identiteit toe aan een SQL Server-exemplaar (die wordt gebruikt om toegang te verlenen tot Key Vault)|
 |[Maken of bijwerken van de serversleutel](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Voegt een Key Vault-sleutel toe aan een SQL Server-exemplaar|

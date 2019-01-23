@@ -4,7 +4,7 @@ description: In dit artikel wordt uitgelegd aan Office 365-gebruikers over het o
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6512efb45ee5c56cd0a10286d4156ae2d81f2f99
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464949"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Federatiecertificaten vernieuwen voor Office 365 en Azure Active Directory
 ## <a name="overview"></a>Overzicht
@@ -68,7 +68,7 @@ Open PowerShell op uw AD FS-server. Controleer of de waarde AutoCertificateRollo
 >[!NOTE] 
 >Als u van AD FS 2.0 gebruikmaakt, moet u eerst Add-Pssnapin Microsoft.Adfs.Powershell uitvoeren.
 
-### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Stap 2: Controleer of AD FS en Azure AD gesynchroniseerd zijn
+### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Stap 2: Bevestig dat de AD FS en Azure AD gesynchroniseerd zijn
 Open de MSOnline PowerShell-prompt op uw AD FS-server en verbinding maken met Azure AD.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Controleer de certificaten die zijn geconfigureerd in AD FS en Azure AD-eigensch
 
 Als de vingerafdrukken in zowel de uitvoer overeenkomen, is uw certificaten zijn gesynchroniseerd met Azure AD.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Stap 3: Controleren of het certificaat verloopt binnenkort
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Stap 3: Controleer of het certificaat verloopt binnenkort
 Schakel in de uitvoer van Get-MsolFederationProperty of Get-AdfsCertificate, voor de datum bij "Niet na." Als de datum minder dan 30 dagen opgeslagen is, moet u actie ondernemen.
 
 | AutoCertificateRollover | Met Azure AD gesynchroniseerde certificaten | Federatiemetagegevens is openbaar toegankelijk | Geldigheidsduur | Bewerking |
@@ -157,7 +157,7 @@ Twee certificaten moeten nu worden weergegeven, die een **NotAfter** datum van o
 Office 365 met het nieuwe token-ondertekening van certificaten moet worden gebruikt voor de vertrouwensrelatie als volgt bijwerken.
 
 1. Open de Microsoft Azure Active Directory-Module voor Windows PowerShell.
-2. Voer $cred = Get-Credential. Wanneer deze cmdlet u om referenties vraagt, typt u uw referenties met administrator-account voor cloud-service.
+2. Run $cred=Get-Credential. Wanneer deze cmdlet u om referenties vraagt, typt u uw referenties met administrator-account voor cloud-service.
 3. Connect-MsolService uitvoeren: $cred van referenties. Deze cmdlet maakt u verbinding met de cloudservice. Het maken van een context die u maakt verbinding met de cloudservice is vereist voordat u een van de aanvullende cmdlets geïnstalleerd door het hulpprogramma uitvoert.
 4. Als u deze opdrachten op een computer die niet de primaire AD FS-federatieserver uitvoert, voert u Set-MSOLAdfscontext-Computer &lt;primaire AD FS-server&gt;, waarbij &lt;primaire AD FS-server&gt; is de interne FQDN-naam de naam van de primaire AD FS-server. Met deze cmdlet maakt een context die u met AD FS verbindt.
 5. Voer Update-MSOLFederatedDomain – DomainName &lt;domein&gt;. Deze cmdlet worden de instellingen van AD FS in de cloudservice-updates en configureert u de vertrouwensrelatie tussen de twee.

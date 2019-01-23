@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 253cfd7ddeb04a12a3609ab5e14a37365015a568
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790874"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464703"
 ---
 # <a name="move-operation-support-for-resources"></a>Ondersteuning voor resources verplaatsen
 
@@ -67,7 +67,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
 | automationaccounts | Ja | Ja |
-| automationaccounts/configuraties | Ja | Ja |
+| automationaccounts/configurations | Ja | Ja |
 | automationaccounts/runbooks | Ja | Ja |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
@@ -113,7 +113,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
-| Redis | Ja | Ja |
+| redis | Ja | Ja |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Resourcetype | Resourcegroep | Abonnement |
@@ -155,7 +155,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | availabilitysets | Ja | Ja |
 | Schijven | Ja | Ja |
 | galerieën | Nee | Nee |
-| galerieën/images | Nee | Nee |
+| galleries/images | Nee | Nee |
 | galerieën/afbeeldingen/versies | Nee | Nee |
 | images | Ja | Ja |
 | restorepointcollections | Nee | Nee |
@@ -268,7 +268,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
-| servergroepen | Nee | Nee |
+| servergroups | Nee | Nee |
 | servers | Ja | Ja |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
@@ -295,11 +295,11 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | Labs/virtuele machines | Ja | Nee |
 | Schema 's | Nee | Nee |
 
-## <a name="microsoftdns"></a>Microsoft.DNS
+## <a name="microsoftdns"></a>microsoft.dns
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
 | dnszones | Nee | Nee |
-| dnszones of een | Nee | Nee |
+| dnszones/a | Nee | Nee |
 | dnszones/aaaa | Nee | Nee |
 | dnszones/cname | Nee | Nee |
 | dnszones/mx | Nee | Nee |
@@ -327,7 +327,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
 | Clusters | Ja | Ja |
-| Naamruimten | Ja | Ja |
+| naamruimten | Ja | Ja |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Resourcetype | Resourcegroep | Abonnement |
@@ -349,7 +349,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | ------------- | -------------- | ------------ |
 | taken | Ja | Ja |
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftinsights"></a>microsoft.insights
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
 | actiongroups | Ja | Ja |
@@ -371,6 +371,11 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
 | Kluizen | Ja | Ja |
+
+## <a name="microsoftkusto"></a>Microsoft.Kusto
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | -------------- | ------------ |
+| Clusters | Ja | Ja |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Resourcetype | Resourcegroep | Abonnement |
@@ -410,10 +415,10 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | ------------- | -------------- | ------------ |
 | accounts | Ja | Ja |
 | accounts/werkruimten | Ja | Ja |
-| werkruimten-accounts-projecten | Ja | Ja |
+| accounts/workspaces/projects | Ja | Ja |
 | teamaccounts | Ja | Ja |
 | teamaccounts/werkruimten | Ja | Ja |
-| werkruimten-teamaccounts-projecten | Ja | Ja |
+| teamaccounts/workspaces/projects | Ja | Ja |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Resourcetype | Resourcegroep | Abonnement |
@@ -468,7 +473,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | frontdoors | Ja | Ja |
 | frontdoorwebapplicationfirewallpolicies | Ja | Ja |
 | interfaceendpoints | Nee | Nee |
-| load balancers | Ja | Ja |
+| loadbalancers | Ja | Ja |
 | localnetworkgateways | Ja | Ja |
 | networkintentpolicies | Ja | Ja |
 | netwerkinterfaces | Ja | Ja |
@@ -476,7 +481,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | networksecuritygroups | Ja | Ja |
 | networkwatchers | Ja | Ja |
 | networkwatchers/connectionmonitors | Ja | Ja |
-| networkwatchers/lenzen | Ja | Ja |
+| networkwatchers/lenses | Ja | Ja |
 | networkwatchers/pingmeshes | Ja | Ja |
 | publicipaddresses | Ja | Ja |
 | publicipprefixes | Ja | Ja |
@@ -496,8 +501,8 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
-| Naamruimten | Ja | Ja |
-| naamruimten/notificationhubs | Ja | Ja |
+| naamruimten | Ja | Ja |
+| namespaces/notificationhubs | Ja | Ja |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Resourcetype | Resourcegroep | Abonnement |
@@ -514,7 +519,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
-| Dashboards | Ja | Ja |
+| dashboards | Ja | Ja |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Resourcetype | Resourcegroep | Abonnement |
@@ -534,7 +539,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
-| Naamruimten | Ja | Ja |
+| naamruimten | Ja | Ja |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Resourcetype | Resourcegroep | Abonnement |
@@ -555,7 +560,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
-| Naamruimten | Ja | Ja |
+| naamruimten | Ja | Ja |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Resourcetype | Resourcegroep | Abonnement |
@@ -624,12 +629,12 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | omgevingen/eventsources | Ja | Ja |
 | omgevingen/referencedatasets | Ja | Ja |
 
-## <a name="microsoftvisualstudio"></a>Microsoft.visualstudio
+## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
 | account | Ja | Ja |
 | -/ accountextensie | Ja | Ja |
-| account of het aangevraagde project | Ja | Ja |
+| account/project | Ja | Ja |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Resourcetype | Resourcegroep | Abonnement |
@@ -641,9 +646,9 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | customapis | Ja | Ja |
 | hostingenvironments | Nee | Nee |
 | serverfarms | Ja | Ja |
-| Sites | Ja | Ja |
+| sites | Ja | Ja |
 | sites/premieraddons | Ja | Ja |
-| sites/sleuven | Ja | Ja |
+| sites/slots | Ja | Ja |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Resourcetype | Resourcegroep | Abonnement |
@@ -655,10 +660,10 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 
 Services van derden ondersteuning momenteel geen voor de verplaatsing. Deze resourceproviders zijn:
 
-* 84codes. CloudAMQP
+* 84codes.CloudAMQP
 * AppDynamics.APM
 * Aspera.Transfers
-* Auth0.cloud
+* Auth0.Cloud
 * Citrix.Cloud
 * Citrix.Services
 * CloudSimple.PrivateCloudIaaS

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
-ms.component: ''
-ms.openlocfilehash: 0f08101c7948d7f3e211f8764458c2eaeacb0859
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: ''
+ms.openlocfilehash: 91b4d96caf59a8be67381aa6b420a3f759220025
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330616"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472956"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST-API-overzicht
 In dit artikel laat zien hoe verificatie uitvoeren zodat uw code kunt u de [Microsoft Azure Monitor REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -698,3 +698,4 @@ Invoke-RestMethod -Uri $request `
 * Weergave de [ondersteunde metrische gegevens met Azure Monitor](metrics-supported.md).
 * Controleer de [Microsoft Azure REST API-verwijzing bewaken](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Controleer de [Azure Management-bibliotheek](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+

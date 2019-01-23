@@ -2,17 +2,17 @@
 title: Azure Event Grid-gebeurtenis-handlers
 description: Beschrijving van ondersteunde gebeurtenis-handlers voor Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
-ms.author: tomfitz
-ms.openlocfilehash: 12cc5a918044e3bc74e34f2e05adc9773dee5421
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/21/2019
+ms.author: spelluru
+ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498654"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478464"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gebeurtenis-handlers in Azure Event Grid
 
@@ -24,7 +24,7 @@ In dit artikel bevat koppelingen naar inhoud voor elke gebeurtenis-handler.
 
 Azure Automation gebruiken om gebeurtenissen te verwerken met geautomatiseerde runbooks.
 
-|Titel  |Beschrijving  |
+|Titel  |Description  |
 |---------|---------|
 |[Zelfstudie: Azure Automation met Event Grid en Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Maak een virtuele machine, waarmee een gebeurtenis wordt verzonden. De gebeurtenis activeert een Automation-runbook dat labels van de virtuele machine en een bericht dat wordt verzonden naar een Microsoft Teams-kanaal wordt geactiveerd. |
 
@@ -34,7 +34,7 @@ Gebruik Azure Functions voor serverloze reactie op gebeurtenissen.
 
 Wanneer u Azure Functions als de handler gebruikt, gebruikt u de Event Grid-trigger in plaats van algemene HTTP-triggers. Functie-triggers van Event Grid worden namelijk automatisch gevalideerd. Bij gebruik van algemene HTTP-triggers moet u een [validatie-antwoord](security-authentication.md#webhook-event-delivery) implementeren.
 
-|Titel  |Beschrijving  |
+|Titel  |Description  |
 |---------|---------|
 | [Trigger Gebeurtenisraster voor Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Overzicht van het gebruik van de trigger van Event Grid in functies. |
 | [Zelfstudie: automatiseren formaat van geüploade afbeeldingen met behulp van Event Grid](resize-images-on-storage-blob-upload-event.md) | Gebruikers uploaden afbeeldingen via web-app naar storage-account. Wanneer een opslag-blob wordt gemaakt, wordt in Event Grid een gebeurtenis verzendt naar de functie-app vergroot / de geüploade installatiekopie verkleint. |
@@ -47,7 +47,7 @@ Gebruik Event Hubs als uw oplossing opgehaald gebeurtenissen sneller dan de gebe
 
 Eventhubs kunnen fungeren als een bron van gebeurtenis- of gebeurtenis-handler. Het volgende artikel wordt beschreven hoe u Event Hubs gebruikt als een handler.
 
-|Titel  |Beschrijving  |
+|Titel  |Description  |
 |---------|---------|
 | [Snelstartgids: aangepaste gebeurtenissen routeren naar Azure Event Hubs met Azure CLI en Event Grid](custom-event-to-eventhub.md) | Een aangepaste gebeurtenis verzendt naar een event hub voor verwerking door een toepassing. |
 | [Resource Manager-sjabloon: aangepast onderwerp en het eindpunt van de Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Een Resource Manager-sjabloon maakt u een abonnement voor een aangepast onderwerp. Verzendt gebeurtenissen naar een Azure Event Hubs. |
@@ -58,7 +58,7 @@ Zie voor meer voorbeelden van Event Hubs als een bron [Event Hubs bron](event-so
 
 Hybride Azure Relay-verbindingen gebruiken voor het verzenden van gebeurtenissen voor toepassingen die zich binnen een bedrijfsnetwerk en hoeft niet een eindpunt dat openbaar toegankelijk is.
 
-|Titel  |Beschrijving  |
+|Titel  |Description  |
 |---------|---------|
 | [Zelfstudie: gebeurtenissen verzenden naar de hybride verbinding](custom-event-to-hybrid-connection.md) | Verzendt een aangepaste gebeurtenis naar een bestaande hybride verbinding voor verwerking door een listener-toepassing. |
 
@@ -66,7 +66,7 @@ Hybride Azure Relay-verbindingen gebruiken voor het verzenden van gebeurtenissen
 
 Logische Apps gebruiken voor het automatiseren van bedrijfsprocessen voor het reageren op gebeurtenissen.
 
-|Titel  |Beschrijving  |
+|Titel  |Description  |
 |---------|---------|
 | [Zelfstudie: wijzigingen van de virtuele machine met Azure Event Grid en Logic Apps bewaken](monitor-virtual-machine-changes-event-grid-logic-app.md) | Een logische app bewaakt van wijzigingen aan een virtuele machine en e-mailberichten over deze wijzigingen verzendt. |
 | [Zelfstudie: verzenden van e-mailmeldingen over Azure IoT Hub-gebeurtenissen met Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Een logische app verzendt een e-mailmelding telkens wanneer een apparaat wordt toegevoegd aan uw IoT-hub. |
@@ -76,7 +76,7 @@ Logische Apps gebruiken voor het automatiseren van bedrijfsprocessen voor het re
 
 Queue storage gebruiken voor het ontvangen van gebeurtenissen die moeten worden opgehaald. U kunt Queue storage gebruiken wanneer u een langlopende proces hebt dat duurt te lang om te reageren. Door het verzenden van gebeurtenissen naar Queue storage, de app kunt ophalen en verwerken van gebeurtenissen op een eigen planning.
 
-|Titel  |Beschrijving  |
+|Titel  |Description  |
 |---------|---------|
 | [Snelstartgids: aangepaste gebeurtenissen routeren naar Azure Queue storage met Azure CLI en Event Grid](custom-event-to-queue-storage.md) | Beschrijft hoe u aangepaste gebeurtenissen verzenden naar een Queue storage. |
 
@@ -84,7 +84,7 @@ Queue storage gebruiken voor het ontvangen van gebeurtenissen die moeten worden 
 
 Webhooks gebruiken voor aanpasbare eindpunten die op gebeurtenissen reageren.
 
-|Titel  |Beschrijving  |
+|Titel  |Description  |
 |---------|---------|
 | QuickStart: maken en routeren van aangepaste gebeurtenissen met - [Azure CLI](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md), en [portal](custom-event-quickstart-portal.md). | Laat zien hoe u aangepaste gebeurtenissen verzenden naar een WebHook. |
 | Snelstartgids: gebeurtenissen van Blob storage naar een aangepaste web-eindpunt met - routeren [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json), en [portal](blob-event-quickstart-portal.md). | Laat zien hoe voor het verzenden van gebeurtenissen van blob storage naar een WebHook. |

@@ -4,7 +4,7 @@ description: Self-servicetoepassingen toegang tot toestaan dat gebruikers hun ei
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 1876ff0cea2e46f8159b9ffb24de72a6272b3a79
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf908c3c148a2649c22392e64c17c7a80d338e4f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077071"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476662"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Self-servicetoepassingen toewijzing configureren
 
@@ -70,18 +70,18 @@ Om in te schakelen Self-servicetoepassingen toegang tot een toepassing, de volge
     > [!NOTE]
     > Groepen die zijn gesynchroniseerd van on-premises worden niet ondersteund om te worden gebruikt voor de groep waaraan de gebruikers die toegang tot deze toepassing willen moeten worden toegevoegd.
   
-10. **Optioneel:** als u wilt een zakelijke goedkeuring vereisen voordat gebruikers toegang hebben, stelt u de **goedkeuring vereisen voordat het verlenen van toegang tot deze toepassing?** overzet naar **Ja**.
+10. **Optioneel:** Als u wilt een zakelijke goedkeuring vereisen voordat gebruikers toegang hebben, stelt u de **goedkeuring vereisen voordat het verlenen van toegang tot deze toepassing?** overzet naar **Ja**.
 
-11. **Optioneel: voor toepassingen die gebruikmaken van eenmalige wachtwoord alleen op** als u toestaan dat de fiatteur om op te geven van de wachtwoorden die worden verzonden naar deze toepassing voor goedgekeurde gebruikers wilt, stelt u de **fiatteurs om in te stellen van de gebruiker toestaan de wachtwoorden voor deze toepassing?**  overzet naar **Ja**.
+11. **Optioneel: Voor toepassingen die gebruikmaken van eenmalige wachtwoord alleen op** als u toestaan dat de fiatteur om op te geven van de wachtwoorden die worden verzonden naar deze toepassing voor goedgekeurde gebruikers wilt, stelt u de **fiatteurs instellen van wachtwoorden van gebruikers voor dit toestaan toepassing is?**  overzet naar **Ja**.
 
-12. **Optioneel:** om op te geven van de fiatteur die gemachtigd zijn om goed te keuren toegang tot deze toepassing, klikt u op de kiezer naast het label **die is toegestaan toegang tot deze toepassing goedkeuren?** maximaal 10 afzonderlijke selecteren fiatteur.
+12. **Optioneel:** Als u wilt de fiatteur die gemachtigd zijn om goed te keuren toegang tot deze toepassing opgeven, klikt u op de kiezer naast het label **die is toegestaan toegang tot deze toepassing goedkeuren?** maximaal 10 afzonderlijke fiatteur selecteren.
 
      > [!NOTE]
      > Groepen worden niet ondersteund.
      >
      >
 
-13. **Optioneel:** **voor toepassingen waardoor rollen worden blootgesteld**, als u wilt Self-service goedgekeurde gebruikers toewijzen aan een rol, klik op de selector naast de **aan welke rol moeten gebruikers worden toegewezen in deze toepassing?** Selecteer de rol die deze gebruikers moeten worden toegewezen.
+13. **Optioneel:** **Voor toepassingen waardoor rollen worden blootgesteld**, als u wilt Self-service goedgekeurde gebruikers toewijzen aan een rol, klik op de selector naast de **aan welke rol moeten gebruikers worden toegewezen in deze toepassing?** die de rol selecteren Deze gebruikers moeten worden toegewezen.
 
 14. Klik op de **opslaan** knop aan de bovenkant van de blade om te voltooien.
 

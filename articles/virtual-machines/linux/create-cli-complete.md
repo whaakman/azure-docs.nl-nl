@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973652"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467482"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Een volledige Linux-machine maken met de Azure CLI
 Als u wilt snel een virtuele machine (VM) maken in Azure, kunt u een enkele Azure CLI-opdracht die gebruikmaakt van standaardwaarden om alle vereiste ondersteunende resources te maken. Resources, zoals een virtueel netwerk, openbare IP-adres en regels voor netwerkbeveiligingsgroepen worden automatisch gemaakt. Voor meer controle over uw omgeving in de productieomgeving gebruikt, u kunt deze resources vooraf maken en vervolgens uw virtuele machines toevoegen aan deze. In dit artikel begeleidt u bij het maken van een virtuele machine en elk van de ondersteunende resources één voor één.
@@ -333,7 +333,7 @@ Uitvoer:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Maak een virtuele NIC
-Virtuele netwerkinterfacekaarten (NIC's) zijn via een programma beschikbaar omdat u regels toepassen op het gebruik ervan kunt. Afhankelijk van de [VM-grootte](sizes.md), kunt u meerdere virtuele NIC's koppelen aan een virtuele machine. In de volgende [az network nic maken](/cli/azure/network/nic#az_network_nic_create) opdracht, maken van een NIC met de naam *myNic* en koppel deze aan de netwerkbeveiligingsgroep. Het openbare IP-adres *myPublicIP* is ook gekoppeld aan de virtuele NIC
+Virtuele netwerkinterfacekaarten (NIC's) zijn via een programma beschikbaar omdat u regels toepassen op het gebruik ervan kunt. Afhankelijk van de [VM-grootte](sizes.md), kunt u meerdere virtuele NIC's koppelen aan een virtuele machine. In de volgende [az network nic maken](/cli/azure/network/nic) opdracht, maken van een NIC met de naam *myNic* en koppel deze aan de netwerkbeveiligingsgroep. Het openbare IP-adres *myPublicIP* is ook gekoppeld aan de virtuele NIC
 
 ```azurecli
 az network nic create \

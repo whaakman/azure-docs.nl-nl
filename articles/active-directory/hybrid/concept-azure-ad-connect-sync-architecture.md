@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synchronisatie: inzicht in de architectuur | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Inzicht in de architectuur | Microsoft Docs'
 description: Dit onderwerp beschrijft de architectuur van Azure AD Connect-synchronisatie en verklaart de termen die worden gebruikt.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 958ec6b32434bd9e0228255c0edbe9312225586c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 787fa051dfeeea45f9480f5906244f544f747279
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312779"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474384"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect-synchronisatie: inzicht in de architectuur
+# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect-synchronisatie: Inzicht in de architectuur
 Dit onderwerp worden de basisarchitectuur voor Azure AD Connect-synchronisatie. In vele opzichten is het vergelijkbaar met de voorafgaande MIIS 2003, ILM 2007 en FIM 2010. Azure AD Connect-synchronisatie is de ontwikkeling van deze technologieën. Als u bekend met een van deze eerdere technologieën bent, worden de inhoud van dit onderwerp ook vertrouwd mee bent. Als u niet bekend bent met synchronisatie, is de in dit onderwerp voor u. Het is echter niet te weten de details van dit onderwerp om te worden voltooid bij het maken van aanpassingen van Azure AD Connect-synchronisatie (synchronisatie-engine in dit onderwerp genoemd).
 
 ## <a name="architecture"></a>Architectuur

@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: disks
+ms.openlocfilehash: 6cccf31842825c3e4d50aa67165d19f8ac471695
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977567"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478158"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Het maken van een Linux virtuele machine (VM) is heel gemakkelijk vanaf de opdrachtregel of vanuit de portal. Deze zelfstudie leert u hoe u om te controleren of u dit hebt ingesteld om de prestaties van de Microsoft Azure-platform te optimaliseren. In dit onderwerp wordt gebruikgemaakt van een Ubuntu-Server-VM, maar u kunt ook maken gebruik van Linux virtuele machine [uw eigen installatiekopieën als sjablonen](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -29,11 +30,11 @@ Het maken van een Linux virtuele machine (VM) is heel gemakkelijk vanaf de opdra
 ## <a name="prerequisites"></a>Vereisten
 In dit onderwerp wordt ervan uitgegaan dat u al een werkende Azure-abonnement hebt ([registreren voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)) en een virtuele machine al in uw Azure-abonnement hebt ingericht. Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az login](/cli/azure/reference-index#az_login) voordat u [maken van een virtuele machine](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="azure-os-disk"></a>Azure Besturingssysteemschijf
+## <a name="azure-os-disk"></a>Azure OS Disk
 Als u een Linux-VM in Azure maakt, heeft twee schijven zijn gekoppeld. **/ dev/sda** is van de besturingssysteemschijf **/dev/sdb** is de tijdelijke schijf.  Gebruik niet de belangrijkste OS-schijf (**/dev/sda**) voor alles wat met uitzondering van het besturingssysteem die is geoptimaliseerd voor snelle VM boot-tijd en biedt geen goede prestaties voor uw workloads. U wilt een of meer schijven aansluiten op uw virtuele machine om op te halen permanente en geoptimaliseerd voor opslag voor uw gegevens. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Schijven toe te voegen voor grootte- en prestatiedoelen
-Op basis van de VM-grootte, kunt u maximaal 16 extra schijven op een A-serie, 32 schijven op een D-serie koppelen en 64 schijven op een G-serie-machine - elke tot 1 TB in grootte. U kunt extra schijven toevoegen per ruimte en IOps-vereisten van uw behoefte. Elke schijf heeft een prestatiedoel van 500 IOps voor Standard-opslag en maximaal 5000 IOP's per schijf voor Premium-opslag.  Zie voor meer informatie over Premium Storage-schijven, [Premium Storage: hoogwaardige opslag voor virtuele Azure-machines](../windows/premium-storage.md)
+Op basis van de VM-grootte, kunt u maximaal 16 extra schijven op een A-serie, 32 schijven op een D-serie koppelen en 64 schijven op een G-serie-machine - elke tot 1 TB in grootte. U kunt extra schijven toevoegen per ruimte en IOps-vereisten van uw behoefte. Elke schijf heeft een prestatiedoel van 500 IOps voor Standard-opslag en maximaal 5000 IOP's per schijf voor Premium-opslag.  Zie voor meer informatie over Premium Storage-schijven, [Premium Storage: Opslag met hoge prestaties voor virtuele machines in Azure](../windows/premium-storage.md)
 
 Om te kunnen de hoogste IOps op waar de cache-instellingen zijn ingesteld op Premium Storage-schijven **ReadOnly** of **geen**, moet u uitschakelen **barrières** tijdens het koppelen het bestandssysteem in Linux. U hoeft niet barrières omdat de schrijfbewerkingen naar Premium-opslag ondersteund schijven duurzame voor deze cache-instellingen.
 
@@ -132,7 +133,7 @@ Denk eraan dat als met alle optimalisatie discussies, u moet het uitvoeren van t
 
 Sommige handige koppelingen naar aanvullende bronnen: 
 
-* [Premium Storage: opslag met hoge prestaties voor de werkbelasting van virtuele Azure-machines](premium-storage.md)
+* [Premium Storage: Opslag met hoge prestaties voor workload in Azure Virtual Machine](premium-storage.md)
 * [Gebruikershandleiding voor Azure Linux Agent](../extensions/agent-linux.md)
 * [MySQL-prestaties op virtuele Azure Linux-machines optimaliseren](classic/optimize-mysql.md)
 * [Software-RAID op Linux configureren](configure-raid.md)

@@ -1,5 +1,5 @@
 ---
-Titel: Problemen oplossen opnieuw trainen van een Machine Learning Studio klassieke web service titleSuffix: Azure Machine Learning Studio description: Identificeren en te corrigeren van veelvoorkomende problemen tegengekomen wanneer u opnieuw het model voor een Azure Machine Learning Studio-webservice trainen bent.
+Titel: Problemen oplossen opnieuw trainen van een Machine Learning Studio klassieke web service titleSuffix: Azure Machine Learning Studio description: Identificeren en te corrigeren van veelvoorkomende problemen wanneer u opnieuw het model voor een Azure Machine Learning Studio-webservice trainen bent.
 Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 11/01/2017
@@ -31,7 +31,7 @@ Alle benodigde onderdelen aanwezig is zijn de belangrijkste stappen die u ondern
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Controleer of u hebt de juiste PATCH-URL
 De PATCH URL u moet het account dat is gekoppeld aan het nieuwe scoring eindpunt dat u hebt toegevoegd aan de scoring-webservice. Er zijn een aantal manieren om op te halen van de PATCH-URL:
 
-**Optie 1: Via programmacode**
+**Optie 1: Via een programma**
 
 Aan de juiste PATCH-URL:
 

@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synchronisatie: technische concepten | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Technische concepten | Microsoft Docs'
 description: Worden de technische concepten van Azure AD Connect-synchronisatie.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df3f244b70b52b6145b664c4e575c66542ada5b9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2bf9876fc551b9ab0eb24c03a17f3d789c00530e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314536"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463487"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synchronisatie: technische concepten
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synchronisatie: Technische concepten
 Dit artikel is een overzicht van het onderwerp [Understanding architectuur](how-to-connect-sync-technical-concepts.md).
 
 Azure AD Connect-synchronisatie is gebaseerd op een solide metadirectory synchronisatie-platform.
@@ -86,7 +86,7 @@ Op deze manier inherent een koppeling maakt en kenmerkstroom richtingen kunt doo
 Wanneer een regel bepaalt dat een nieuwe connector space-object moet worden gemaakt, wordt het inrichten van genoemd. Echter omdat deze bewerking alleen plaats in het connectorgebied overgebracht vindt, wordt deze niet meegenomen in de gekoppelde gegevensbron totdat een export wordt uitgevoerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
-* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->

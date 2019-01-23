@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Taken hybride Azure AD join na configuratie | Microsoft Docs'
+title: 'Azure AD Connect: Taken na configuratie van hybride Azure AD join | Microsoft Docs'
 description: De Documentdetails van dit post-configuratietaken die nodig zijn voor uitvoeren de hybride Azure AD join
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31bf3c7ba2365f3fdfd6f2da1dbd1942ada1327e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999237"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475455"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Taken na configuratie voor hybride Azure AD-koppeling
 
@@ -30,12 +30,12 @@ Nadat u Azure AD Connect voor het configureren van uw organisatie voor de hybrid
 Alle domein-apparaten met Windows 10 en Windows Server 2016 automatisch registreren bij Azure AD wanneer alle configuratiestappen voltooid zijn. Als u liever een gecontroleerde implementatie in plaats van deze automatische registratie, kunt u Groepsbeleid selectief inschakelen of uitschakelen van automatische implementatie.  Dit groepsbeleid moet worden ingesteld voordat u begint met de andere configuratie stappen: Azure AD
 * Maak een group policy object in uw Active Directory.
 * Noem het (ex-Hybrid Azure AD join).
-* Ga naar & bewerken: Computerconfiguratie > beleid > Beheersjablonen > Windows-onderdelen > Device Registration service.
+* Ga naar & bewerken:  Computerconfiguratie > beleid > Beheersjablonen > Windows-onderdelen > Device Registration service.
 
 >[!NOTE]
 >Voor 2012R2 de beleidsinstellingen zijn op **Computerconfiguratie > beleid > Beheersjablonen > Windows-onderdelen > Workplace Join > automatisch workplace join-clientcomputers**
 
-* Deze instelling uitschakelen: Domeincomputers als apparaten registreren.
+* Deze instelling uitschakelen:  Domeincomputers als apparaten registreren.
 * Toepassen en klik op OK.
 * Koppel het groepsbeleidsobject aan de locatie van uw keuze (organisatie-eenheid, beveiliging of op het domein voor alle apparaten).
 
@@ -69,7 +69,7 @@ Als uw organisatie gebruikmaakt van wachtwoord-Hashsynchronisatie of Pass throug
 Voor het registreren van Windows downlevel-apparaten, moet u om ervoor te zorgen dat het beleid voor Azure AD kan gebruikers om apparaten te registreren. 
 
 * Meld u aan uw account in Azure portal.
-* Ga naar: Azure Active Directory > apparaten > instellingen voor apparaten
+* Ga naar:  Azure Active Directory > apparaten > instellingen voor apparaten
 * Ingesteld op ' Gebruikers kunnen hun apparaten registreren bij Azure AD' op Alles.
 * Op Opslaan klikken
 
@@ -87,8 +87,8 @@ Met dit installatieprogramma maakt een geplande taak op het apparaat-systeem dat
 
 * Maak een group policy object in uw Active Directory - als nog niet is gemaakt.
 * Noem het (ex-Hybrid Azure AD join).
-* Ga naar & bewerken: Computerconfiguratie > beleid > Beheersjablonen > Windows-onderdelen > Device Registration service
-* Inschakelen: Domeincomputers als apparaten registreren
+* Ga naar & bewerken:  Computerconfiguratie > beleid > Beheersjablonen > Windows-onderdelen > Device Registration service
+* Inschakelen:  Domeincomputers als apparaten registreren
 * Toepassen en klik op OK.
 * Koppel het groepsbeleidsobject aan de locatie van uw keuze (organisatie-eenheid, beveiliging of op het domein voor alle apparaten).
 

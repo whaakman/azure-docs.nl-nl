@@ -4,7 +4,7 @@ description: Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a36868e5bab64883036e0f93352bea5341ff7fe7
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: eb5ad49a26631ca363737406f54b4c794e01ebda
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384044"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472837"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -79,7 +79,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
   * Als u de Microsoft Cloud in Duitsland of de Microsoft Azure Government-cloud gebruikt, Zie [overwegingen met betrekking tot Azure AD Connect sync-service-exemplaren](reference-connect-instances.md) voor URL's.
 * Azure AD Connect (versie 1.1.614.0 en na) maakt standaard gebruik van TLS 1.2 voor het versleutelen van communicatie tussen de synchronisatie-engine en Azure AD. Als TLS 1.2 is niet beschikbaar in het onderliggende besturingssysteem, terugvalt Azure AD Connect incrementeel op het oudere protocollen (TLS 1.1 en TLS 1.0).
 * Voorafgaand aan versie 1.1.614.0, Azure AD Connect standaard TLS 1.0 gebruikt voor het versleutelen van communicatie tussen de synchronisatie-engine en Azure AD. Als u wilt wijzigen in TLS 1.2, volg de stappen in [TLS 1.2 inschakelen voor Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Als u een uitgaande proxy om verbinding te maken met Internet, de volgende instelling in de **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** bestand moet worden toegevoegd voor de installatiewizard en Azure AD Connect-synchronisatie om te kunnen verbinding maken met Internet en Azure AD. Deze tekst moet worden opgegeven aan de onderkant van het bestand. In deze code &lt;PROXYADRESS&gt; de werkelijke proxy IP-adres of de hostnaam naam vertegenwoordigt.
+* Als u een uitgaande proxy om verbinding te maken met Internet, de volgende instelling in de **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** bestand moet worden toegevoegd voor de installatiewizard en Azure AD Connect-synchronisatie om te kunnen verbinding maken met Internet en Azure AD. Deze tekst moet worden opgegeven aan de onderkant van het bestand. In deze code &lt;PROXYADDRESS&gt; de werkelijke proxy IP-adres of de hostnaam naam vertegenwoordigt.
 
 ```
     <system.net>
@@ -120,7 +120,7 @@ Zie voor meer informatie als u problemen met de connectiviteit, [connectiviteits
 Azure AD Connect, is afhankelijk van Microsoft PowerShell en .NET Framework 4.5.1. U moet deze versie of een latere versie is geïnstalleerd op uw server. Afhankelijk van uw versie van Windows Server, het volgende doen:
 
 * Windows Server 2012R2
-  * Microsoft PowerShell is standaard geïnstalleerd. Er is geen actie vereist.
+  * Microsoft PowerShell is standaard geïnstalleerd. Geen actie vereist.
   * .NET framework 4.5.1 en latere releases worden aangeboden via Windows Update. Zorg ervoor dat u de meest recente updates hebt geïnstalleerd met Windows Server in het Configuratiescherm.
 * Windows Server 2008 R2 en Windows Server 2012
   * De nieuwste versie van Microsoft PowerShell is beschikbaar in **Windows Management Framework 4.0**, beschikbaar op [Microsoft Download Center](https://www.microsoft.com/downloads).
@@ -156,7 +156,7 @@ Wanneer u Azure AD Connect gebruikt om Active Directory Federation Services of d
     * Gebruik in een venster met verhoogde bevoegdheid PSH opdracht opdracht `Enable-PSRemoting –force`
   * Op de computer waarop de wizard wordt uitgevoerd (als de doel-VM niet van het domein is toegevoegd aan of niet-vertrouwd domein is):
     * Gebruik de opdracht in een venster met verhoogde bevoegdheid PSH opdracht `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
-    * In Serverbeheer:
+    * In Server Manager:
       * DMZ WAP-host aan de Machinegroep toevoegen (Serverbeheer -> beheren-Servers toevoegen... > tabblad DNS gebruiken)
       * Tabblad alle Servers van Serverbeheer: klik WAP-server met de rechtermuisknop en kies beheren opslaan als..., voer de referenties voor lokale (niet-domein) voor de WAP-machine
       * Voor het valideren van externe PSH verbindingen, op het tabblad alle Servers van Serverbeheer: klik WAP-server met de rechtermuisknop en kies Windows PowerShell. Een externe PSH-sessie moet openen om te controleren of externe PowerShell-sessies kunnen worden gemaakt.

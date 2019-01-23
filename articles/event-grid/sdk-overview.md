@@ -1,27 +1,27 @@
 ---
-title: Azure Event raster SDK 's
-description: Beschrijft de SDK's voor Azure Event raster. Deze SDK's bieden management, publiceren en verbruik.
+title: Azure Event Grid-SDK 's
+description: Beschrijving van de SDK's voor Azure Event Grid. Deze SDK's bieden beheren, publiceren en verbruik.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 06/29/2018
-ms.author: tomfitz
-ms.openlocfilehash: 3c085074863aa166a5766116b6c63b7dc341ad96
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130832"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470396"
 ---
-# <a name="event-grid-sdks-for-management-and-publishing"></a>Gebeurtenis raster SDK's voor beheer en publiceren
+# <a name="event-grid-sdks-for-management-and-publishing"></a>Event Grid-SDK's voor het beheren en publiceren
 
-Gebeurtenis raster biedt SDK's waarmee u programmatisch te beheren van uw resources en gebeurtenissen te plaatsen.
+Event Grid biedt SDK's waarmee u programmatisch beheren van uw resources en gebeurtenissen kunt posten.
 
 ## <a name="management-sdks"></a>Management SDK 's
 
-Het beheer van SDK's kunt u maken, bijwerken en verwijderen van gebeurtenis raster onderwerpen en abonnementen. De volgende SDK's zijn momenteel beschikbaar:
+De management SDK's kunt u maken, bijwerken en verwijderen van event grid-onderwerpen en abonnementen. De volgende SDK's zijn momenteel beschikbaar:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
@@ -32,7 +32,7 @@ Het beheer van SDK's kunt u maken, bijwerken en verwijderen van gebeurtenis rast
 
 ## <a name="data-plane-sdks"></a>Gegevens vlak SDK 's
 
-Het vlak van gegevens met de SDK's kunnen u boeken van gebeurtenissen naar onderwerpen met verificatie, vormen de gebeurtenis en asynchroon posten naar het opgegeven eindpunt wordt gelet. Ze Hiermee kunt u de eerste gebeurtenissen van derden gebruiken. De volgende SDK's zijn momenteel beschikbaar:
+De gegevenslaag SDK's kunnen u onderwerpen gebeurtenissen kunt posten door Zorg ervoor dat u voor verificatie, vormen de gebeurtenis en asynchroon items plaatsen op het opgegeven eindpunt. Ze ook mogelijk om te gebruiken van eerste partij gebeurtenissen. De volgende SDK's zijn momenteel beschikbaar:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
@@ -43,7 +43,7 @@ Het vlak van gegevens met de SDK's kunnen u boeken van gebeurtenissen naar onder
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Bijvoorbeeld toepassingen, Zie [gebeurtenis raster codevoorbeelden](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
-* Zie voor een inleiding tot gebeurtenis raster, [wat gebeurtenis raster is?](overview.md)
-* Zie voor gebeurtenis raster opdrachten in de Azure CLI, [Azure CLI](/cli/azure/eventgrid).
-* Zie voor gebeurtenis raster opdrachten in PowerShell, [PowerShell](/powershell/module/azurerm.eventgrid).
+* Bijvoorbeeld toepassingen, Zie [Event Grid-codevoorbeelden](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
+* Zie voor een inleiding tot Event Grid, [wat is Event Grid?](overview.md)
+* Zie voor Event Grid-opdrachten in de Azure CLI, [Azure CLI](/cli/azure/eventgrid).
+* Zie voor Event Grid-opdrachten in PowerShell, [PowerShell](/powershell/module/azurerm.eventgrid).

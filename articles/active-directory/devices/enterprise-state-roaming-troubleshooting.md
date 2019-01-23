@@ -5,7 +5,7 @@ services: active-directory
 keywords: Enterprise state roaming-instellingen, windows-cloud, veelgestelde vragen over enterprise state roaming
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 417b909e4a5272b993a4696c1ef8d6718e055738
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248418"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452935"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Enterprise State Roaming-instellingen in Azure Active Directory oplossen
 
@@ -42,7 +42,7 @@ Voordat u begint met het oplossen van problemen, Controleer of dat de gebruiker 
 ## <a name="information-to-include-when-you-need-help"></a>Gegevens op te nemen wanneer u hulp nodig hebt
 Als u uw probleem met de onderstaande richtlijnen niet kan oplossen, kunt u contact op met onze ondersteuningsmedewerkers. Wanneer u contact met hen opnemen, zijn onder andere de volgende informatie:
 
-* **Algemene beschrijving van de fout**: zijn er foutberichten worden gezien door de gebruiker? Als er geen foutbericht is, wordt het onverwachte gedrag, in detail gezien beschreven. Welke functies zijn ingeschakeld voor synchronisatie en wat is de gebruiker om te synchroniseren wordt verwacht? Worden meerdere functies niet is gesynchroniseerd of wordt deze aan een geïsoleerd?
+* **Algemene beschrijving van de fout**: Zijn er foutberichten worden gezien door de gebruiker? Als er geen foutbericht is, wordt het onverwachte gedrag, in detail gezien beschreven. Welke functies zijn ingeschakeld voor synchronisatie en wat is de gebruiker om te synchroniseren wordt verwacht? Worden meerdere functies niet is gesynchroniseerd of wordt deze aan een geïsoleerd?
 * **Betrokken gebruikers** – Is sync werken/mislukte voor één gebruiker of meerdere gebruikers? Het aantal apparaten per gebruiker zijn betrokken? Zijn al deze niet gesynchroniseerd of zijn sommige van deze synchroniseren en sommige niet synchroniseren?
 * **Informatie over de gebruiker** : welke identiteit van de gebruiker die zich aanmeldt bij het apparaat is? Hoe wordt de gebruiker aanmelden bij het apparaat? Zijn ze deel uitmaken van een geselecteerde beveiligingsgroep kan synchroniseren? 
 * **Informatie over het apparaat** – dit apparaat Azure AD join of domein? Welke versie is het apparaat op? Wat zijn de meest recente updates?
@@ -61,7 +61,7 @@ In deze sectie bevat suggesties over het oplossen en diagnosticeren van probleme
   * Vergrendelen en ontgrendelen van het scherm (Win + L) kan helpen bij het activeren van een synchronisatie.
   * U moet aanmelden met hetzelfde account op beide computers voor synchronisatie moet werken, zoals Enterprise State Roaming is gekoppeld aan het gebruikersaccount en niet het computeraccount.
 
-**Potentiële problemen**: als de besturingselementen in de **instellingen** pagina zijn niet beschikbaar en u ziet het bericht "Sommige Windows-functies zijn alleen beschikbaar als u een Microsoft-account of werkaccount." Dit probleem kan optreden voor apparaten die zijn ingesteld op domein en geregistreerd bij Azure AD, maar het apparaat is niet nog is geverifieerd bij Azure AD. Een mogelijke oorzaak is dat het apparaatbeleid moet worden toegepast, maar deze toepassing verloopt asynchroon en door een paar uur kan worden vertraagd. 
+**Potentiële problemen**: Als de besturingselementen in de **instellingen** pagina zijn niet beschikbaar en u ziet het bericht "Sommige Windows-functies zijn alleen beschikbaar als u een Microsoft-account of werkaccount." Dit probleem kan optreden voor apparaten die zijn ingesteld op domein en geregistreerd bij Azure AD, maar het apparaat is niet nog is geverifieerd bij Azure AD. Een mogelijke oorzaak is dat het apparaatbeleid moet worden toegepast, maar deze toepassing verloopt asynchroon en door een paar uur kan worden vertraagd. 
 
 ### <a name="verify-the-device-registration-status"></a>Status van de apparaatregistratie controleren
 
@@ -74,15 +74,15 @@ Enterprise State Roaming vereist dat het apparaat worden geregistreerd bij Azure
 **Potentiële problemen**: **WamDefaultSet** en **AzureAdJoined** zowel "Nee" hebben in de veldwaarde, het apparaat is domein en geregistreerd bij Azure AD en het apparaat wordt niet gesynchroniseerd. Als het dit wordt weergegeven, wordt het apparaat moet mogelijk na afloop van beleid moet worden toegepast of de verificatie voor het apparaat is mislukt bij het verbinden met Azure AD. De gebruiker mogelijk Wacht een paar uur voor het beleid moet worden toegepast. Andere stappen voor probleemoplossing, omvat mogelijk automatische registratie door afmelden en weer opnieuw of start de taak in Task Scheduler. In sommige gevallen wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
 
 
-**Potentiële problemen**: het veld voor **SettingsUrl** leeg is en het apparaat wordt niet gesynchroniseerd. De gebruiker kan hebben laatst vastgelegd in op het apparaat voordat Enterprise State Roaming is ingeschakeld in de Azure Active Directory-Portal. Het apparaat opnieuw starten en de gebruikersaanmelding hebben. (Optioneel) in de portal, probeer het met de IT-beheerder gaat u naar **Azure Active Directory** > **apparaten** > **Enterprise State Roaming** uitschakelen en weer inschakelen **gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten**. Eenmaal opnieuw ingeschakeld, start het apparaat opnieuw en de gebruikersaanmelding hebben. Als het probleem hiermee niet is opgelost **SettingsUrl** mag niet leeg zijn in het geval van een certificaat voor beschadigde apparaten. In dit geval wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
+**Potentiële problemen**: Het veld voor **SettingsUrl** leeg is en het apparaat wordt niet gesynchroniseerd. De gebruiker kan hebben laatst vastgelegd in op het apparaat voordat Enterprise State Roaming is ingeschakeld in de Azure Active Directory-Portal. Het apparaat opnieuw starten en de gebruikersaanmelding hebben. (Optioneel) in de portal, probeer het met de IT-beheerder gaat u naar **Azure Active Directory** > **apparaten** > **Enterprise State Roaming** uitschakelen en weer inschakelen **gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten**. Eenmaal opnieuw ingeschakeld, start het apparaat opnieuw en de gebruikersaanmelding hebben. Als het probleem hiermee niet is opgelost **SettingsUrl** mag niet leeg zijn in het geval van een certificaat voor beschadigde apparaten. In dit geval wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming en meervoudige verificatie 
 
 Onder bepaalde omstandigheden, kan Enterprise State Roaming niet kunnen synchroniseren van gegevens als Azure multi-factor Authentication is geconfigureerd. Raadpleeg het ondersteuningsdocument over voor meer informatie over deze problemen [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Potentiële problemen**: als uw apparaat is geconfigureerd voor meervoudige verificatie vereisen in de Azure Active Directory-portal, schakelt u mogelijk naar instellingen synchroniseren tijdens het aanmelden bij een Windows 10-apparaat met een wachtwoord. Dit type configuratie van multi-factor Authentication is bedoeld voor het beveiligen van een Azure-beheerdersaccount. Beheerder gebruikers nog steeds mogelijk om te synchroniseren met het aanmelden bij hun Windows 10-apparaten met hun Microsoft Passport voor Work PINCODE of door te voeren van multi-factor Authentication bij het openen van andere Azure-services zoals Office 365.
+**Potentiële problemen**: Als uw apparaat is geconfigureerd voor meervoudige verificatie vereisen in de Azure Active Directory-portal, moet u mislukken instellingen synchroniseren tijdens het aanmelden bij een Windows 10-apparaat met een wachtwoord. Dit type configuratie van multi-factor Authentication is bedoeld voor het beveiligen van een Azure-beheerdersaccount. Beheerder gebruikers nog steeds mogelijk om te synchroniseren met het aanmelden bij hun Windows 10-apparaten met hun Microsoft Passport voor Work PINCODE of door te voeren van multi-factor Authentication bij het openen van andere Azure-services zoals Office 365.
 
-**Potentiële problemen**: synchronisatie kan mislukken als de beheerder het voorwaardelijke toegangsbeleid van Active Directory Federation Services multi-factor Authentication configureert en het toegangstoken op het apparaat is verlopen. Zorg ervoor dat u zich aanmelden en meld u af met de Microsoft Passport for Work-PINCODE of multi-Factor Authentication voltooid tijdens het openen van andere Azure-services zoals Office 365.
+**Potentiële problemen**: Synchronisatie kan mislukken als de beheerder het voorwaardelijke toegangsbeleid van Active Directory Federation Services multi-factor Authentication configureert en het toegangstoken op het apparaat is verlopen. Zorg ervoor dat u zich aanmelden en meld u af met de Microsoft Passport for Work-PINCODE of multi-Factor Authentication voltooid tijdens het openen van andere Azure-services zoals Office 365.
 
 ### <a name="event-viewer"></a>Logboeken
 
@@ -166,7 +166,7 @@ In de stap opruimen, opschonen van de volgende bestanden:
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>Gebeurtenis-ID 6065:80070533 die deze gebruiker kan niet aanmelden omdat dit account is momenteel uitgeschakeld.  
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>Gebeurtenis-ID 6065: 80070533 deze gebruiker kan niet aanmelden omdat dit account is momenteel uitgeschakeld.  
 
 In Logboeken onder de SettingSync/Debug-Logboeken, kan deze fout worden weergegeven wanneer de referenties van de gebruiker zijn verlopen. Het kan ook optreden wanneer de tenant is automatisch geen AzureRMS ingericht. 
 
@@ -175,9 +175,9 @@ In het eerste geval is, hebben de gebruikers hun referenties en meld u aan op he
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>Gebeurtenis-ID 1098: Fout: 0xCAA5001C Token broker-bewerking is mislukt  
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>Gebeurtenis-ID 1098: Fout: 0xCAA5001C token broker bewerking is mislukt.  
 
-In Logboeken onder logboeken van de AAD/operationeel voor deze fout kan worden weergegeven met gebeurtenis 1104: AAD Cloud Azië en Stille Oceaan-invoegtoepassing aanroep Get-token heeft fout geretourneerd: 0xC000005F. Dit probleem doet zich voor als er niet beschikken over machtigingen of eigendom kenmerken.  
+In Logboeken onder logboeken van de AAD/operationeel, kan deze fout worden weergegeven met de gebeurtenis 1104: Azië en Stille Oceaan AAD-Cloud-invoegtoepassing aanroep Get-token heeft een fout geretourneerd: 0xC000005F. Dit probleem doet zich voor als er niet beschikken over machtigingen of eigendom kenmerken.  
 
 **Aanbevolen actie**  
 Doorgaan met de hier vermelde stappen [KB3196528](https://support.microsoft.com/kb/3196528).  

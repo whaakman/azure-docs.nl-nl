@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synchronisatie: onopzettelijke verwijderingen voorkomen | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Onopzettelijke verwijderingen voorkomen | Microsoft Docs'
 description: Dit onderwerp beschrijft de functie te voorkomen dat onopzettelijke verwijderingen (onopzettelijke verwijderingen voorkomen) in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a535d776da216029b905fb604ed378449a81082
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25bc3d0c0517278f20cba4fd4beb2fc4d82b66f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314627"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464150"
 ---
-# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synchronisatie: onopzettelijke verwijderingen voorkomen
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synchronisatie: Onopzettelijke verwijderingen voorkomen
 Dit onderwerp beschrijft de functie te voorkomen dat onopzettelijke verwijderingen (onopzettelijke verwijderingen voorkomen) in Azure AD Connect.
 
 Bij het installeren van Azure AD Connect, te voorkomen dat per ongeluk is verwijderd standaard ingeschakeld en geconfigureerd voor het exporteren van een met meer dan 500 verwijderingen niet toestaan. Deze functie is ontworpen om u te beschermen tegen onbedoelde configuratiewijzigingen en wijzigingen aan uw on-premises directory die invloed zouden hebben op veel gebruikers en andere objecten.
@@ -53,7 +53,7 @@ Als dit werd niet verwacht, onderzoeken en corrigerende maatregelen. Als u wilt 
 2. Ga naar **Connectors**.
 3. Selecteer de Connector met het type **Azure Active Directory**.
 4. Onder **acties** aan de rechterkant, selecteer **Search Connector Space**.
-5. In het pop-upvenster onder **bereik**, selecteer **verbroken omdat** en kies een tijd in het verleden. Klik op **zoeken**. Deze pagina bevat een overzicht van alle objecten op het punt te worden verwijderd. Door te klikken op elk item, krijgt u meer informatie over het object. U kunt ook klikken op **kolominstelling** om toe te voegen extra kenmerken voor weergave in het raster.
+5. In het pop-upvenster onder **bereik**, selecteer **verbroken omdat** en kies een tijd in het verleden. Klik op **Zoeken**. Deze pagina bevat een overzicht van alle objecten op het punt te worden verwijderd. Door te klikken op elk item, krijgt u meer informatie over het object. U kunt ook klikken op **kolominstelling** om toe te voegen extra kenmerken voor weergave in het raster.
 
 ![Connectorgebied zoeken](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
@@ -68,5 +68,5 @@ Als alle verwijderingen worden gewenst is, klikt u vervolgens het volgende doen:
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)

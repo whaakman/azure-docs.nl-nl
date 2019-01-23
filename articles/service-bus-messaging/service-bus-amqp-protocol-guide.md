@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 2c0fd7bd811445cd6bda8315c9c90ff6646d2be0
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c437ffec635064bf301eb417717861b68beca611
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413903"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476986"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -234,7 +234,7 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 | creation-time |Verklaart op dat moment het bericht is gemaakt. Niet gebruikt door Service Bus |Niet toegankelijk zijn via de Service Bus-API. |
 | groep-id |Toepassingsspecifieke id voor een gerelateerde set berichten. Gebruikt voor Service Bus-sessies. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | volgorde van de groep |Teller voor het identificeren van de relatieve volgnummer van het bericht in een sessie. Genegeerd door Servicebus. |Niet toegankelijk zijn via de Service Bus-API. |
-| antwoord-naar-groep-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| antwoord-naar-groep-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>Bericht-aantekeningen
 

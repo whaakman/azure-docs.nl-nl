@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620758"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457056"
 ---
 > [!div class="op_single_selector"]
 > * [C op Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -41,7 +41,7 @@ U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u gee
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voordat u code voor uw apparaat schrijven, de oplossingsverbetering voor externe bewaking implementeert en een nieuwe fysiek apparaat toevoegen aan de oplossing.
+Voordat u code voor uw apparaat schrijven, de oplossingsverbetering voor externe bewaking implementeert en een nieuwe echt apparaat toevoegen aan de oplossing.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>De oplossingsverbetering voor externe bewaking implementeren
 
@@ -62,7 +62,7 @@ Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, voltooi
 
 1. Kies **+ nieuwe apparaat**, en kies vervolgens **fysieke** als de **apparaattype**:
 
-    ![Een fysiek apparaat toevoegen](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Echt apparaat toevoegen](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Voer **fysieke Koelunit** als de apparaat-ID. Kies de **symmetrische sleutel** en **automatisch sleutels genereren** opties:
 
@@ -72,7 +72,7 @@ Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, voltooi
 
     ![Referenties ophalen](media/iot-suite-selector-connecting/credentials.png)
 
-U hebt nu een fysiek apparaat toegevoegd aan de oplossingsverbetering voor externe controle en de apparaatverbindingsreeks die u hebt genoteerd. In de volgende secties vindt u op de clienttoepassing die gebruikmaakt van de verbindingsreeks van het apparaat verbinding maken met uw oplossing implementeren.
+U hebt nu een echt apparaat toegevoegd aan de oplossingsverbetering voor externe controle en de apparaatverbindingsreeks die u hebt genoteerd. In de volgende secties vindt u op de clienttoepassing die gebruikmaakt van de verbindingsreeks van het apparaat verbinding maken met uw oplossing implementeren.
 
 De clienttoepassing implementeert de ingebouwde **Koelunit** Apparaatmodel. Een model solution accelerator apparaat Hiermee geeft u de volgende met betrekking tot een apparaat:
 

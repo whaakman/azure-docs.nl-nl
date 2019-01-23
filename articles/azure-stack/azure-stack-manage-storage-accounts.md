@@ -11,36 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 149da2c186ae1e0c3fa5af14a630a0edef7deb25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302711"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470270"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Storage-accounts in Azure Stack beheren
+
 Informatie over het beheren van storage-accounts in Azure Stack om te zoeken, herstellen en het vrijmaken van opslagcapaciteit op basis van bedrijfsbehoeften.
 
-## <a name="find"></a>Een storage-account zoeken
+## <a name="find-a-storage-account"></a>Een storage-account zoeken
 De lijst met opslagaccounts in de regio kan worden weergegeven in Azure Stack door:
 
 1. Aanmelden bij de [-beheerportal](https://adminportal.local.azurestack.external).
 
-2. Selecteer **alle services** > **regiobeheer** onder **beheer**.
+2. Selecteer **alle services** > **opslagaccounts**.
 
-3. Selecteer **opslag** uit de **Resourceproviders** lijst.
-   
-   ![Opslagresourceprovider](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. Selecteer **opslagaccounts** in **opslag**.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   De blade wordt weergegeven de lijst met opslagaccounts in deze regio.
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 De eerste 10 accounts worden standaard weergegeven. U kunt kiezen voor het ophalen van informatie door te klikken op de **meer laden** koppelen aan de onderkant van de lijst.

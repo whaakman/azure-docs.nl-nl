@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: dec58b2bb82eeab8b95c59e2775d21d58e18cac4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608014"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450418"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migratie van Contoso: Een on-premises-app met een Azure-Web-App en Azure SQL-database herstructureren
 
@@ -89,7 +89,7 @@ Contoso evalueert het voorgestelde ontwerp door het samenstellen van een lijst m
 
 **Overweging** | **Details**
 --- | ---
-**Professionals** | De code van de app SmartHotel360 hoeft niet te worden gewijzigd voor migratie naar Azure.<br/><br/> Contoso kan gebruikmaken van hun investering in Software Assurance met behulp van Azure Hybrid Benefit voor SQL Server en Windows Server.<br/><br/> Na de migratie moet Windows Server 2008 R2 wordt niet ondersteund. [Meer informatie](https://support.microsoft.com/lifecycle).<br/><br/> Contoso kunt de weblaag van de app configureren met meerdere instanties, zodat deze niet langer een single point of failure.<br/><br/> De database wordt niet langer afhankelijk van de ouderdom van SQL Server 2008 R2.<br/><br/> SQL Database biedt ondersteuning voor de technische vereisten. Contoso de on-premises-database met behulp van de Database Migration Assistant beoordeeld en dat deze compatibel is gevonden.<br/><br/> SQL-Database heeft ingebouwde fouttolerantie die Contoso niet nodig hebt om in te stellen. Dit zorgt ervoor dat de gegevenslaag niet langer een single point of failover is.
+**Pros** | De code van de app SmartHotel360 hoeft niet te worden gewijzigd voor migratie naar Azure.<br/><br/> Contoso kan gebruikmaken van hun investering in Software Assurance met behulp van Azure Hybrid Benefit voor SQL Server en Windows Server.<br/><br/> Na de migratie moet Windows Server 2008 R2 wordt niet ondersteund. [Meer informatie](https://support.microsoft.com/lifecycle).<br/><br/> Contoso kunt de weblaag van de app configureren met meerdere instanties, zodat deze niet langer een single point of failure.<br/><br/> De database wordt niet langer afhankelijk van de ouderdom van SQL Server 2008 R2.<br/><br/> SQL Database biedt ondersteuning voor de technische vereisten. Contoso de on-premises-database met behulp van de Database Migration Assistant beoordeeld en dat deze compatibel is gevonden.<br/><br/> SQL-Database heeft ingebouwde fouttolerantie die Contoso niet nodig hebt om in te stellen. Dit zorgt ervoor dat de gegevenslaag niet langer een single point of failover is.
 **Nadelen** | Azure App Services ondersteunt alleen één appimplementatie voor elke Web-App. Dit betekent dat twee Web-Apps ingericht (één voor de website) en één voor de WCF-service worden moet.<br/><br/> Als Contoso maakt gebruik van de Data Migration Assistant in plaats van de Data Migration Service voor het migreren van de database, het geen de infrastructuur die gereed zijn voor het migreren van databases op schaal. Contoso moet maken van een andere regio om te controleren of failover als de primaire regio niet beschikbaar is.
 
 ## <a name="proposed-architecture"></a>Voorgestelde architectuur
@@ -347,9 +347,9 @@ Beheerders van Contoso is nu configureren voor Azure DevOps voor het uitvoeren v
 
     ![Appservice implementeren](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. In **selecteert u een bestand of map**, ze Zoek de **SmartHotel.Registration.Wcf.zip** -bestand dat is gemaakt tijdens de build- en clilck **opslaan**.-sql
+18. In **selecteert u een bestand of map**, ze Zoek de **SmartHotel.Registration.Wcf.zip** -bestand dat is gemaakt tijdens de build- en clilck **opslaan**.
 
-    ![Opslaan van WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
+    ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
 19. Ze klikt u op **pijplijn** > **fasen** **+ toevoegen**om toe te voegen in een omgeving **SHWEB EUS2**. Ze selecteert u een andere Azure App Service-implementatie.
 

@@ -4,7 +4,7 @@ description: Dit onderwerp bevat de herstelstappen voor LargeObject-fouten die z
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0882976df898d36f1d5a5ff06e0de5c747613719
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312079"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478617"
 ---
-# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: afhandeling van LargeObject-fouten die zijn veroorzaakt door userCertificate kenmerk
+# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: Afhandeling van LargeObject-fouten die zijn veroorzaakt door userCertificate kenmerk
 
 Azure AD een maximumlimiet van afgedwongen **15** waarden van het certificaat op de **userCertificate** kenmerk. Als Azure AD Connect Hiermee exporteert u een object met meer dan 15 waarden aan Azure AD, Azure AD als resultaat een **LargeObject** fout opgetreden bij het bericht:
 
@@ -41,7 +41,7 @@ Gebruik een van de volgende methoden om de lijst van objecten in uw tenant met L
 ## <a name="mitigation-options"></a>Opties voor risicobeperking
 Totdat de LargeObject-fout is opgelost, kan de wijzigingen van andere kenmerken op hetzelfde object kunnen niet worden geëxporteerd naar Azure AD. U kunt de fout oplossen, kunt u de volgende opties overwegen:
 
- * Azure AD Connect voor het bouwen van 1.1.524.0 en hoger upgraden of na. Bouw 1.1.524.0 en hoger, de out-of-box-synchronisatie regels om te exporteren niet kenmerken userCertificate en usersmimecertificate wordt door als de kenmerken meer dan 15 waarden hebben zijn bijgewerkt in Azure AD Connect. Raadpleeg voor meer informatie over het bijwerken van Azure AD Connect het artikel [Azure AD Connect: upgraden van een eerdere versie naar de meest recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Azure AD Connect voor het bouwen van 1.1.524.0 en hoger upgraden of na. Bouw 1.1.524.0 en hoger, de out-of-box-synchronisatie regels om te exporteren niet kenmerken userCertificate en usersmimecertificate wordt door als de kenmerken meer dan 15 waarden hebben zijn bijgewerkt in Azure AD Connect. Raadpleeg voor meer informatie over het bijwerken van Azure AD Connect het artikel [Azure AD Connect: Een upgrade uitvoeren van een eerdere versie naar de meest recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Implementeer een **uitgaande synchronisatieregel** in Azure AD Connect die Hiermee exporteert u een **null-waarde in plaats van de werkelijke waarden voor objecten met meer dan 15 certificaatwaarden**. Deze optie is geschikt als u een van de certificaatwaarden om te worden geëxporteerd naar Azure AD voor objecten met meer dan 15 waarden niet nodig hebt. Raadpleeg voor meer informatie over het implementeren van deze synchronisatieregel, volgende sectie [synchronisatieregel implementeren naar de export van het kenmerk userCertificate beperken](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
@@ -92,9 +92,9 @@ Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigu
     | Kenmerk | Waarde |
     | --- | --- |
     | Richting |**Uitgaande** |
-    | MV-objecttype |**Persoon** |
+    | MV-objecttype |**Person** |
     | Connector |*naam van uw Azure AD-connector* |
-    | Connector-objecttype |**Gebruiker** |
+    | Connector-objecttype |**user** |
     | MV-kenmerk |**userCertificate** |
 
 3. Als u OOB (out-of-box)-synchronisatieregels met Azure AD-connector gebruikt voor het exporteren van userCertficiate-kenmerk voor gebruikersobjecten, je weer toegang te krijgen de *"Uit naar AAD – gebruiker ExchangeOnline"* regel.
@@ -116,11 +116,11 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereikfilter** en **hogere 
 
     | Kenmerk | Waarde | Details |
     | --- | --- | --- |
-    | Naam | *Geef een naam* | Bijvoorbeeld, *"Uit voor AAD-aangepaste onderdrukking voor userCertificate"* |
-    | Beschrijving | *Geef een beschrijving* | Bijvoorbeeld, *"Als kenmerk userCertificate meer dan 15 waarden heeft, exporteren null zijn."* |
+    | Name | *Geef een naam* | Bijvoorbeeld, *"Uit voor AAD-aangepaste onderdrukking voor userCertificate"* |
+    | Description | *Geef een beschrijving* | Bijvoorbeeld, *"Als kenmerk userCertificate meer dan 15 waarden heeft, exporteren null zijn."* |
     | Verbonden systeem | *Selecteer de Azure AD-Connector* |
-    | Verbonden systeem objecttype | **Gebruiker** | |
-    | Metaverse-objecttype | **Persoon** | |
+    | Verbonden systeem objecttype | **user** | |
+    | Metaverse-objecttype | **person** | |
     | Type koppeling | **Koppelen** | |
     | Prioriteit | *Een getal tussen 1 en 99 gekozen* | Het aantal gekozen mogen niet worden gebruikt door een bestaande synchronisatieregel en heeft een lagere waarde (en dus hogere prioriteit) dan de bestaande synchronisatieregel. |
 
@@ -132,7 +132,7 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereikfilter** en **hogere 
     | --- | --- |
     | Type gebruikersstroom |**expressie** |
     | Doelkenmerk |**userCertificate** |
-    | Kenmerk van de gegevensbron |*Gebruik de volgende expressie*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Bronkenmerk |*Gebruik de volgende expressie*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Klik op de **toevoegen** om te maken van de synchronisatieregel.
 

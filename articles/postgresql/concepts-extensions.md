@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: d6d5a8500435a540f091a082e7dc0e0d6d455716
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 6c6fec968efdd85eaf6249459f8e1a0384f2ea11
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540840"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462178"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-extensies in Azure Database for PostgreSQL
 PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van uw database met behulp van extensies. Extensies bieden samen bundeling van meerdere verwante SQL-objecten in één pakket die kan worden geladen of verwijderd uit de database met slechts één opdracht. Extensies kunnen na worden geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over de PostgreSQL-extensies, [verpakking verwante objecten in een extensie](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -33,7 +33,7 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Biedt een niet-hoofdlettergevoelige tekenreeks tekentype. |
 | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Biedt een gegevenstype voor multidimensionale kubussen. |
 | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Biedt een gegevenstype voor het opslaan van sets met sleutel/waarde-paren. |
-| [is](https://www.postgresql.org/docs/9.6/static/isn.html) | Biedt gegevenstypen voor internationale standaarden nummering-product. |
+| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Biedt gegevenstypen voor internationale standaarden nummering-product. |
 | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Biedt een gegevenstype voor hiërarchische boomstructuren. |
 
 ### <a name="functions-extensions"></a>Functions-extensies
@@ -45,8 +45,8 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Biedt verschillende functies om te bepalen van overeenkomsten en de afstand tussen de tekenreeksen. |
 | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Biedt de functies en operatoren voor het manipuleren van null-free-matrices met gehele getallen. |
 | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Biedt cryptografische functies. |
-| [PG\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gepartitioneerde tabellen worden beheerd door de tijd of -ID. |
-| [PG\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Biedt de functies en operatoren voor het bepalen van de overeenkomsten van alfanumerieke tekst op basis van trigram overeenkomst. |
+| [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gepartitioneerde tabellen worden beheerd door de tijd of -ID. |
+| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Biedt de functies en operatoren voor het bepalen van de overeenkomsten van alfanumerieke tekst op basis van trigram overeenkomst. |
 | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Biedt functies die hele tabellen, inclusief een kruistabel bewerken. |
 | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genereert universele, unieke id (UUID's). |
 
@@ -55,7 +55,7 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 > [!div class="mx-tableFixed"]
 | **Extensie** | **Beschrijving** |
 |---|---|
-| [Dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Biedt een sjabloon zoeken woordenlijst voor gehele getallen. |
+| [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Biedt een sjabloon zoeken woordenlijst voor gehele getallen. |
 | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Een woordenlijst van de tekst zoeken waarmee accenten (diakritische tekens) uit lexemes worden verwijderd. |
 
 ### <a name="index-types-extensions"></a>Index typen extensies
@@ -80,13 +80,13 @@ De volgende tabellen worden de standaard PostgreSQL-extensies die momenteel word
 | **Extensie** | **Beschrijving** |
 |---|---|
 | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Biedt een manier voor het onderzoeken wat er gebeurt in de buffercache gedeelde in realtime. |
-| [PG\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Biedt een manier om de relatie gegevens laden in de buffercache. |
-| [PG\_stat\_instructies](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Biedt een manier voor het bijhouden van Uitvoeringsstatistieken van alle SQL-instructies uitvoeren op een server. (Zie hieronder voor een notitie van deze extensie). |
+| [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Biedt een manier om de relatie gegevens laden in de buffercache. |
+| [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Biedt een manier voor het bijhouden van Uitvoeringsstatistieken van alle SQL-instructies uitvoeren op een server. (Zie hieronder voor een notitie van deze extensie). |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Biedt een manier voor het weergeven van beveiliging op rijniveau vergrendelen informatie. |
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Biedt een manier voor het weergeven van statistieken van de tuple op serverniveau. |
-| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Extern-data-wrapper gebruikt voor toegang tot gegevens die zijn opgeslagen in externe PostgreSQL-servers. |
+| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Extern-data-wrapper gebruikt voor toegang tot gegevens die zijn opgeslagen in externe PostgreSQL-servers. (Zie hieronder voor een notitie van deze extensie).|
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Biedt een manier voor het maken van hypothetische indexen die geen CPU of schijf kosten. |
-| [dblink](https://www.postgresql.org/docs/current/dblink.html) | Een module die ondersteuning biedt voor verbindingen met andere PostgreSQL-databases uit in een databasesessie. |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | Een module die ondersteuning biedt voor verbindingen met andere PostgreSQL-databases uit in een databasesessie. (Zie hieronder voor een notitie van deze extensie). |
 
 
 ### <a name="postgis-extensions"></a>PostGIS-extensies
@@ -104,6 +104,9 @@ De [pg\_stat\_instructies extensie](https://www.postgresql.org/docs/9.6/static/p
 De instelling `pg_stat_statements.track`, die bepaalt welke instructies zijn geteld op basis van de extensie, wordt standaard ingesteld op `top`, wat betekent dat alle instructies uitgegeven rechtstreeks door clients worden bijgehouden. De twee andere traceringsniveaus zijn `none` en `all`. Deze instelling kan worden geconfigureerd als een serverparameter via de [Azure-portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) of de [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 Er is een verschil tussen de querygegevens kan worden uitgevoerd als pg_stat_statements biedt en de impact op de prestaties van de server als deze zich aanmeldt met elke SQL-instructie. Als u de extensie pg_stat_statements niet actief gebruikt, is het raadzaam dat u instelt `pg_stat_statements.track` naar `none`. Houd er rekening mee dat sommige van derden bewaken van services mogelijk afhankelijk van pg_stat_statements query prestatie-inzichten leveren, dus controleer of dit het geval is voor u is of niet.
+
+### <a name="using-dblink-and-postgresfdw"></a>Met behulp van dblink en postgres_fdw
+dblink en postgres_fdw kunt u verbinding maken vanaf een PostgreSQL-server naar een andere of naar een andere database op dezelfde server. U moet de ontvangende server verbindingen toestaan vanaf de server verzenden via de firewall. Wanneer u deze uitbreidingen te verbinden met Azure Database for PostgreSQL-servers, kan dit worden gedaan door in te stellen 'Toegang tot Azure-services toestaan' op ON. Dit is ook nodig als u de extensies wilt aan lus terug naar dezelfde server gebruiken. De instelling 'Toegang tot Azure-services toestaan' vindt u in de Azure portal-pagina voor de Postgres-server, onder de beveiliging van de verbinding. 'Toestaan toegang tot Azure-services' op accounttoewijzing alle Azure-IP-adressen te schakelen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

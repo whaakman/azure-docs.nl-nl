@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103941"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473806"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics oplossen van problemen
 Dit artikel bevat informatie over probleemoplossing die relevant is voor het gebruik van Azure Diagnostics. Zie voor meer informatie over Azure diagnostics [overzicht van Azure Diagnostics](diagnostics-extension-overview.md).
@@ -65,7 +65,7 @@ Als er geen gegevens voor de specifieke metrische gegevens zijn, controleert u *
 - \ASP.NET toepassingen (__totale__) \Requests/Sec
 - \ASP.NET toepassingen (__totale__) \Errors in totaal/Sec
 - \ASP.NET\Requests in de wachtrij geplaatst
-- \ASP.NET\Requests geweigerd
+- \ASP.NET\Requests Rejected
 - \Processor(W3wp)\% processortijd
 - \Process(w3wp)\Private Bytes
 - \Process(WaIISHost)\% processortijd
@@ -74,7 +74,7 @@ Als er geen gegevens voor de specifieke metrische gegevens zijn, controleert u *
 - \Process(WaWorkerHost)\Private Bytes
 - \Memory\Page fouten per seconde
 - \.NET CLR-geheugen (_globale_)\% GC-tijd in
-- \LogicalDisk (C:) \Disk geschreven Bytes per seconde
+- \LogicalDisk(C:)\Disk Write Bytes/sec
 - \LogicalDisk(C:)\Disk Read Bytes/sec
 - \LogicalDisk(D:)\Disk Write Bytes/sec
 - \LogicalDisk(D:)\Disk Read Bytes/sec
@@ -203,10 +203,10 @@ Deze code wordt gegenereerd vier tabellen:
 
 | Gebeurtenis | Tabelnaam |
 | --- | --- |
-| Provider = "prov1" &lt;gebeurtenis-id = "1" /&gt; |WADEvent + MD5("prov1") + "1" |
+| provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent + MD5("prov1") + "1" |
 | Provider = "prov1" &lt;gebeurtenis-id = "2" eventDestination = "dest1" /&gt; |WADdest1 |
-| Provider = "prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
-| Provider = "prov2" &lt;DefaultEvents eventDestination = "dest2" /&gt; |WADdest2 |
+| provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
+| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
 
 ## <a name="references"></a>Verwijzingen
 
@@ -293,3 +293,4 @@ De portal-ervaring in de virtuele machines worden bepaalde prestatiemeteritems s
 - De gegevens in storage heeft of namen van prestatiemeteritems in het Engels. Als de namen van prestatiemeteritems niet in het Engels, niet de portal grafiek met metrische gegevens kunt u deze zien. **Risicobeperking**: Taal van de machine naar het Engels voor systeemaccounts wijzigen. Om dit te doen, selecteert u **Configuratiescherm** > **regio** > **Administrative** > **instellingen**. Schakel vervolgens **scherm en systeemaccounts Welkom** zodat de aangepaste taal niet op het systeem-account toegepast wordt.
 
 - Als u jokertekens (\*) in de namen van prestatiemeteritems, de portal wordt niet kunnen correleren van de teller geconfigureerd en die worden verzameld als de prestatiemeteritems worden verzonden naar de Azure Storage-sink. **Risicobeperking**: Om te controleren of u kunt jokertekens gebruiken en de portal Vouw de (\*), de prestatiemeteritems te routeren de ['Azure Monitor'-sink](diagnostics-extension-schema.md#diagnostics-extension-111).
+

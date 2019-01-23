@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 7c5bfa96e7f9ef7812b8487c479b34d926633287
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105913"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473160"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Het Schema van Azure Diagnostics 1.0
 > [!NOTE]
@@ -154,10 +154,10 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**Container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
+|**container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
 |**directoryQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale grootte van de map in megabytes.<br /><br /> De standaardwaarde is 0.|  
 
-## <a name="failedrequestlogs-element"></a>FailedRequestLogs-Element  
+## <a name="failedrequestlogs-element"></a>FailedRequestLogs Element  
  Hiermee definieert u de map voor mislukte aanvragen.
 
  Bovenliggend Element [mappen Element](#Directories).  
@@ -166,7 +166,7 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**Container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
+|**container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
 |**directoryQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale grootte van de map in megabytes.<br /><br /> De standaardwaarde is 0.|  
 
 ##  <a name="iislogs-element"></a>IISLogs-Element  
@@ -178,7 +178,7 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**Container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
+|**container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
 |**directoryQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale grootte van de map in megabytes.<br /><br /> De standaardwaarde is 0.|  
 
 ## <a name="datasources-element"></a>Gegevensbronnen-Element  
@@ -186,7 +186,7 @@ Kenmerken:
 
  Bovenliggend Element: [Mappen Element](#Directories).
 
-## <a name="directoryconfiguration-element"></a>DirectoryConfiguration-Element  
+## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
  Hiermee definieert u de map van logboekbestanden om te controleren.
 
  Bovenliggend Element: [Gegevensbronnen Element](#DataSources).
@@ -195,7 +195,7 @@ Kenmerken:
 
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
-|**Container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
+|**container**|string|De naam van de container waar de inhoud van de map is om te worden overgedragen.|  
 |**directoryQuotaInMB**|unsignedInt|Optioneel. Hiermee geeft u de maximale grootte van de map in megabytes.<br /><br /> De standaardwaarde is 0.|  
 
 ## <a name="absolute-element"></a>Absolute-Element  
@@ -210,7 +210,7 @@ Kenmerken:
 |**Pad**|string|Vereist. Het absolute pad naar de map om te controleren.|  
 |**expandEnvironment**|booleaans|Vereist. Indien ingesteld op **waar**, omgevingsvariabelen in het pad worden uitgevouwen.|  
 
-## <a name="localresource-element"></a>LocalResource-Element  
+## <a name="localresource-element"></a>LocalResource Element  
  Hiermee definieert u een pad relatief ten opzichte van een lokale bron die is gedefinieerd in het servicedefinitie van de.
 
  Bovenliggend Element: [DirectoryConfiguration Element](#DirectoryConfiguration).  
@@ -220,7 +220,7 @@ Kenmerken:
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**De naam**|string|Vereist. De naam van de lokale resource die de map voor het bewaken van bevat.|  
-|**RelativePath**|string|Vereist. Het pad relatief ten opzichte van de lokale resource om te controleren.|  
+|**relativePath**|string|Vereist. Het pad relatief ten opzichte van de lokale resource om te controleren.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters-Element  
  Definieert het pad voor het prestatiemeteritem voor het verzamelen van.
@@ -247,7 +247,7 @@ Kenmerken:
 |**counterSpecifier**|string|Vereist. Het pad naar het prestatiemeteritem voor het verzamelen van.|  
 |**sampleRate**|duur|Vereist. De snelheid waarmee het prestatiemeteritem moet worden verzameld.|  
 
-## <a name="windowseventlog-element"></a>WindowsEventLog-Element  
+## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  Hiermee definieert u de gebeurtenislogboeken om te controleren.
 
  Bovenliggend Element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfiguration).
@@ -270,3 +270,4 @@ Kenmerken:
 |Kenmerk|Type|Description|  
 |---------------|----------|-----------------|  
 |**De naam**|string|Vereist. Een XPath-expressie op te geven van het logboek te verzamelen.|  
+

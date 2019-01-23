@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 2376ade49b990ff22683a14ecd4ae6b4dda356c3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.component: disks
+ms.openlocfilehash: 3627891df429745c66bb85aed5182ff934268027
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434540"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475421"
 ---
 # <a name="configure-software-raid-on-linux"></a>Software-RAID configureren onder Linux
 Het is een veelvoorkomend scenario voor het gebruik van software-RAID op virtuele Linux-machines in Azure meerdere gekoppelde gegevensschijven presenteren als één RAID-apparaat. Dit kan doorgaans worden gebruikt voor betere prestaties en toestaan voor een verbeterde doorvoer in vergelijking met behulp van één schijf.

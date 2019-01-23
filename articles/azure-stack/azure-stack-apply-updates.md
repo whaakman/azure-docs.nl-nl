@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.openlocfilehash: 2a835e7cd9d4c45c1c39c3c135705cb4dff0e6fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 190d81fc7811e4afdb32555407716f60f5b9a2d1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842183"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476135"
 ---
 # <a name="apply-updates-in-azure-stack"></a>In Azure Stack-updates toepassen
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 U kunt de **bijwerken** tegel in de beheerportal om toe te passen van Microsoft of OEM-updatepakketten voor Azure Stack. U moet het updatepakket downloaden, het pakketbestanden importeren in Azure Stack en vervolgens het updatepakket te installeren.
 
@@ -50,13 +50,11 @@ De volgende procedure beschrijft het importeren en -updatepakketten installeren 
 
 2. Typ in het filtervak **bijwerken**, en selecteer de **updateadminaccount** storage-account.
 
-    ![Laat zien hoe u om te zoeken naar updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
-
 3. In de opslag account details onder **Services**, selecteer **Blobs**.
  
     ![Laat zien hoe u Blobs voor het opslagaccount ophalen](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
-4. Onder **Blob-service**, selecteer **+ Container** om een container te maken. Voer een naam (bijvoorbeeld *Update 1709*), en selecteer vervolgens **OK**.
+
+4. Onder **Blob-service**, selecteer **+ Container** om een container te maken. Voer een naam (bijvoorbeeld *Update 1811*), en selecteer vervolgens **OK**.
  
      ![Laat zien hoe u een container in de storage-account toevoegen](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
@@ -66,12 +64,12 @@ De volgende procedure beschrijft het importeren en -updatepakketten installeren 
 
 6. Onder **blob uploaden**, klik op het mappictogram, blader naar het updatepakket .exe-bestand en klik vervolgens op **Open** in het bestand explorer-venster.
   
-7. Onder **blob uploaden**, klikt u op **uploaden**. 
+7. Onder **blob uploaden**, klikt u op **uploaden**.
   
     ![Laat zien waar elke pakketbestand uploaden](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Herhaal stap 6 en 7 dagen voor de *PackageName*.BIN-bestand en Metadata.xml-bestanden. Importeer het bestand aanvullende Notice.txt niet als opgenomen.
-9. Wanneer u klaar bent, kunt u de meldingen (belpictogram in de rechterbovenhoek van de portal) bekijken. De meldingen moeten aangeven dat het uploaden is voltooid. 
+8. Herhaal stap 6 en 7 dagen voor de *PackageName*.BIN-bestand en Metadata.xml-bestanden. Importeer het bestand aanvullende Notice.txt niet als opgenomen.
+9. Wanneer u klaar bent, kunt u de meldingen (belpictogram in de rechterbovenhoek van de portal) bekijken. De meldingen moeten aangeven dat het uploaden is voltooid.
 10. Ga terug naar de tegel van de Update op het dashboard. De tegel aangeven dat een update beschikbaar is. Klik op de tegel om te controleren van het zojuist toegevoegde updatepakket.
 11. Als u wilt de update installeert, selecteert u het pakket dat gemarkeerd als **gereed** en met de rechtermuisknop op het pakket en selecteert u **nu bijwerken**, of klik op de **nu bijwerken** actie aan de bovenkant .
 12. Als u het updatepakket installeren klikt, ziet u de status in de **Update-uitvoering details** gebied. Hier kunt u kunt ook klikken op **volledige logboeken downloaden die u** voor het downloaden van de logboekbestanden.

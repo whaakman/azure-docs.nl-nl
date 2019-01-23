@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS-beheer, AAD Connect, Connect, Azure AD-vertrouwensr
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
-manager: mtillman
+manager: daveba
 ms.component: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: bfdc58b8af9fc5c7c5e56e78b17d97aa60681239
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432049"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462365"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>AD FS-vertrouwensrelatie met Azure AD met behulp van Azure AD Connect beheren
 
@@ -38,7 +38,7 @@ Azure AD Connect kunt beheren federatie tussen on-premises Active Directory Fede
 
 Azure AD Connect beheert **alleen** instellingen met betrekking tot Azure AD-vertrouwensrelatie. Azure AD Connect wijzigt niet alle instellingen op andere vertrouwensrelaties met relying party's in AD FS. De volgende tabel staan de instellingen die worden beheerd door Azure AD Connect.
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 | :--- | :--- |
 | Certificaat voor token-ondertekening | Azure AD Connect kan worden gebruikt om te herstellen en opnieuw maken van de vertrouwensrelatie met Azure AD. Azure AD Connect biedt een eenmalige direct rollover van certificaten voor tokenondertekening voor AD FS en updates van de federatie-instellingen van Azure AD-domein.|
 | Token ondertekeningsalgoritme | Microsoft adviseert als het token-ondertekening algoritme SHA-256 aan. Azure AD Connect kan worden gedetecteerd als het algoritme voor token-ondertekening is ingesteld op een waarde minder veilig dan het SHA-256. Deze wordt de instelling worden bijgewerkt naar SHA-256 in de volgende mogelijke configuratie-bewerking. Andere relying party-vertrouwensrelatie moet worden bijgewerkt voor het gebruik van het nieuwe token certificaat voor ondertekening. |
@@ -76,7 +76,7 @@ Tijdens alle bewerkingen, waarin elke instelling die is gewijzigd, Azure AD Conn
 
 Azure AD Connect zorgt ervoor dat de Azure AD-vertrouwensrelatie altijd is geconfigureerd met de juiste set met aanbevolen claimregels. Microsoft adviseert het gebruik van Azure AD connect voor het beheren van uw Azure AD-vertrouwensrelatie. Deze sectie vindt u de set uitgifte transformatie regels en de bijbehorende beschrijvingen.
 
-| Regelnaam | Beschrijving |
+| Regelnaam | Description |
 | --- | --- |
 | Probleem UPN | Deze regel worden de waarde van userprincipalname-02-het kenmerk dat is geconfigureerd in de synchronisatie-instellingen voor de userprincipalname in een query uitgevoerd.|
 | Query objectguid en msdsconsistencyguid voor aangepaste ImmutableId-claim | Deze regel wordt een tijdelijke waarde in de pijplijn voor objectguid en msdsconsistencyguid waarde als deze bestaat |

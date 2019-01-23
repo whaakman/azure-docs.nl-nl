@@ -2,28 +2,28 @@
 title: Azure Container Registry voor Event Grid-gebeurtenisschema
 description: Beschrijft de eigenschappen die beschikbaar zijn voor Container Reigstry gebeurtenissen met Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/13/2018
-ms.author: tomfitz
-ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.date: 01/13/2019
+ms.author: spelluru
+ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060144"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462841"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-gebeurtenisschema voor Container Registry
 
-Dit artikel bevat de eigenschappen en het schema voor Container Registry-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
+Dit artikel bevat de eigenschappen en het schema voor Container Registry-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
 ## <a name="available-event-types"></a>Typen van de gebeurtenis berichten beschikbaar
 
 BLOB-opslag, verzendt de volgende typen gebeurtenissen:
 
-| Gebeurtenistype | Beschrijving |
+| Gebeurtenistype | Description |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Treedt op wanneer een installatiekopie wordt gepusht. |
 | Microsoft.ContainerRegistry.ImageDeleted | Treedt op wanneer een installatiekopie wordt gewist. |
@@ -97,47 +97,47 @@ Het schema voor een afbeelding verwijderd gebeurtenis lijkt:
 
 Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
-| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
-| id | tekenreeks | De unieke id voor de gebeurtenis. |
+| onderwerp | string | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| onderwerp | string | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| eventType | string | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | string | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
+| id | string | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens voor BLOB-opslag. |
-| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
+| dataVersion | string | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | string | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| id | tekenreeks | De gebeurtenis-ID. |
-| tijdstempel | tekenreeks | De tijd waarop de gebeurtenis heeft plaatsgevonden. |
-| actie | tekenreeks | De actie die de opgegeven gebeurtenis omvat. |
+| id | string | De gebeurtenis-ID. |
+| tijdstempel | string | De tijd waarop de gebeurtenis heeft plaatsgevonden. |
+| action | string | De actie die de opgegeven gebeurtenis omvat. |
 | doel | object | Het doel van de gebeurtenis. |
 | aanvraag | object | De aanvraag die de gebeurtenis is gegenereerd. |
 
 Het doelobject heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| mediaType | tekenreeks | Het MIME-type van het object waarnaar wordt verwezen. |
+| mediaType | string | Het MIME-type van het object waarnaar wordt verwezen. |
 | grootte | geheel getal | Het aantal bytes van de inhoud. Hetzelfde als het veld lengte. |
-| Verificatiesamenvatting | tekenreeks | De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie. |
+| Verificatiesamenvatting | string | De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie. |
 | Lengte | geheel getal | Het aantal bytes van de inhoud. Hetzelfde als het veld grootte. |
-| Opslagplaats | tekenreeks | De naam van de opslagplaats. |
-| tag | tekenreeks | De naam van de tag. |
+| Opslagplaats | string | De naam van de opslagplaats. |
+| tag | string | De naam van de tag. |
 
 Het request-object heeft de volgende eigenschappen:
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| id | tekenreeks | De ID van de aanvraag die de gebeurtenis heeft gestart. |
-| adres van doel | tekenreeks | Het IP of hostnaam en mogelijk poort van de clientverbinding die de gebeurtenis heeft gestart. Deze waarde is de RemoteAddr van de standaard-http-aanvraag. |
-| host | tekenreeks | De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de http host-header op binnenkomende aanvragen. |
-| method | tekenreeks | De aanvraagmethode waarmee de gebeurtenis is gegenereerd. |
-| userAgent | tekenreeks | De gebruiker agent-kop van de aanvraag. |
+| id | string | De ID van de aanvraag die de gebeurtenis heeft gestart. |
+| adres van doel | string | Het IP of hostnaam en mogelijk poort van de clientverbinding die de gebeurtenis heeft gestart. Deze waarde is de RemoteAddr van de standaard-http-aanvraag. |
+| host | string | De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de http host-header op binnenkomende aanvragen. |
+| method | string | De aanvraagmethode waarmee de gebeurtenis is gegenereerd. |
+| userAgent | string | De gebruiker agent-kop van de aanvraag. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

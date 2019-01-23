@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 072702b323a41e4c4c51edc7054ad41591dde4d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6d202ab9e2f6a8e96eb494d3d93caf66624f8364
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303528"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465190"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Verbruik van openbare IP-adressen weergeven in Azure Stack
 
@@ -36,6 +36,7 @@ Het doel van de tegel is Azure Stack-operators geven een beeld van het aantal op
 De **openbare IP-adressen** menu-item onder **Tenantbronnen** geeft een lijst van de openbare IP-adressen die zijn *expliciet gemaakt door tenants*. U vindt het menu-item op de **resourceproviders**, **netwerk** deelvenster. Het aantal **gebruikt** openbare IP-adressen op de **openbare IP-adresgroepen gebruik** tegel verschilt altijd van (groter dan) het aantal op de **openbare IP-adressen** tegel onder  **Resources voor de tenantsleutel**.
 
 ## <a name="view-the-public-ip-address-usage-information"></a>Het openbare IP-adres informatie over het gebruik weergeven
+
 Het totale aantal openbare IP-adressen die zijn verbruikt in de regio weergeven:
 
 1. Selecteer in de Azure Stack-beheerdersportal **alle services**. Klik vervolgens onder de **beheer** categorie selecteren **netwerk**.
@@ -46,6 +47,7 @@ Het totale aantal openbare IP-adressen die zijn verbruikt in de regio weergeven:
 De **gebruikt** getal geeft het aantal toegewezen openbare IP-adressen van openbare IP-adresgroepen. De **gratis** getal geeft het aantal openbare IP-van openbare IP adressen-adresgroepen die niet zijn toegewezen en zijn nog steeds beschikbaar. De **% gebruikt** getal geeft het aantal gebruikt of adressen toegewezen als een percentage van het totale aantal openbare IP-adressen in het openbare IP-adresgroepen op die locatie.
 
 ## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Het openbare IP-adressen die zijn gemaakt door tenant-abonnementen weergeven
+
 Selecteer **openbare IP-adressen** onder **Tenantbronnen**. Bekijk de lijst met openbare IP-adressen die expliciet zijn gemaakt door tenant-abonnementen in een bepaalde regio.
 
 ![Openbare IP-adressen van tenant](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
@@ -55,6 +57,7 @@ U ziet u mogelijk dat bepaalde openbare IP-adressen die zijn dynamisch toegeweze
 De netwerkcontroller biedt een adres niet toewijzen aan de resource totdat deze is gekoppeld aan een interface, een netwerkinterfacekaart (NIC), een load balancer of een virtuele netwerkgateway. Wanneer het openbare IP-adres wordt gebonden aan een interface, wijst een IP-adres toe door de netwerkcontroller. Het adres wordt weergegeven in de **adres** veld.
 
 ## <a name="view-the-public-ip-address-information-summary-table"></a>De openbare IP-adres informatie samenvattingstabel weergeven
+
 In andere gevallen zijn openbare IP-adressen toegewezen om te bepalen of het adres wordt weergegeven in een lijst of een andere.
 
 | **Openbare IP-adres toewijzing van aanvraag** | **Wordt weergegeven in de samenvatting van gebruik** | **Wordt weergegeven in de lijst met tenant openbare IP-adressen** |
@@ -66,4 +69,5 @@ In andere gevallen zijn openbare IP-adressen toegewezen om te bepalen of het adr
 | Openbare IP-adres is impliciet gemaakt voor IaaS VM-exemplaren en gebruikt voor de uitgaande NAT in het virtuele netwerk. Deze worden gemaakt op de achtergrond wanneer een tenant een VM-exemplaar maakt zodat virtuele machines informatie uit met het Internet verzenden kunnen. |Ja |Nee |
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Storage-Accounts in Azure Stack beheren](azure-stack-manage-storage-accounts.md)

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory identity protection cloud discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7e706b1dd9c7dd79285666885cb6ada89d8126b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580483"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460521"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook voor Azure Active Directory Identity Protection
 
@@ -116,7 +116,7 @@ Deze sectie bevat stappen voor het testen van het gebruikersrisico en het beveil
 
 ### <a name="user-risk-security-policy"></a>Beleid voor gebruikersrisico's security
 
-Zie voor meer informatie, [het configureren van het beleid voor gebruikersrisico's](howto-user-risk-policy.md).
+Zie [Het risicobeleid voor gebruikers configureren](howto-user-risk-policy.md) voor meer informatie.
 
 ![Gebruikersrisico](./media/playbook/02.png "Playbook")
 
@@ -141,7 +141,7 @@ Zie voor meer informatie, [het configureren van het beleid voor gebruikersrisico
 
 ### <a name="sign-in-risk-security-policy"></a>Beveiligingsbeleid voor aanmeldingsrisico
 
-Zie voor meer informatie, [het configureren van het beleid voor aanmeldingsrisico](howto-sign-in-risk-policy.md).
+Zie [Het risicobeleid voor aanmelden configureren](howto-sign-in-risk-policy.md) voor meer informatie.
 
 ![Aanmeldingsrisico](./media/playbook/01.png "Playbook")
 

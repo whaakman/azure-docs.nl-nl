@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437721"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461090"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling common metrics
 Automatisch schalen in Azure Monitor kunt u het aantal actieve instanties omhoog of omlaag schalen op basis van telemetrische gegevens (metrische gegevens). Dit document beschrijft algemene metrische gegevens die u wilt gebruiken. U kunt de metrische gegevens van de resource schalen door te kiezen in de Azure-portal. U kunt echter ook elke meetwaarde kiezen uit een andere resource om te schalen door.
@@ -51,32 +51,32 @@ U kunt een waarschuwing voor de volgende metrische gegevens maken:
 | Naam van meetwaarde | Eenheid |
 | --- | --- |
 | \Processor(_Total)\% Processor Time |Procent |
-| \Processor(_Total)\% tijd in beschermde modus |Procent |
+| \Processor(_Total)\% Privileged Time |Procent |
 | \Processor(_Total)\% tijd in gebruikersmodus |Procent |
-| \Processor informatie (_Totaal) \Processor frequentie |Count |
+| \Processor Information(_Total)\Processor Frequency |Count |
 | \System\Processes |Count |
-| Het aantal \Thread \Process (_Total) |Count |
-| Het aantal \Handle \Process (_Total) |Count |
+| \Process(_Total)\Thread Count |Count |
+| \Process(_Total)\Handle Count |Count |
 | \Memory\% toegewezen Bytes In gebruik |Procent |
 | \Memory\Available Bytes |Bytes |
 | \Memory\Committed bytes |Bytes |
 | \Memory\Commit limiet |Bytes |
-| \Memory\Pool wisselbaar geheugen: Bytes |Bytes |
-| \Memory\Pool-wisselbaar geheugen: Bytes |Bytes |
+| \Memory\Pool Paged Bytes |Bytes |
+| \Memory\Pool Nonpaged Bytes |Bytes |
 | \PhysicalDisk(_Total)\% schijftijd |Procent |
 | \PhysicalDisk(_Total)\% leestijd schijf |Procent |
 | \PhysicalDisk(_Total)\% schrijftijd schijf |Procent |
 | \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
-| \PhysicalDisk (_Totaal) \Disk leesbewerkingen per seconde |CountPerSecond |
-| \PhysicalDisk (_Totaal) \Disk per seconde |CountPerSecond |
-| \PhysicalDisk (_Totaal) \Disk bytes per seconde |BytesPerSecond |
-| \PhysicalDisk (_Totaal) \Disk gelezen Bytes per seconde |BytesPerSecond |
-| \PhysicalDisk (_Totaal) \Disk geschreven Bytes per seconde |BytesPerSecond |
-| \Avg \PhysicalDisk (_Totaal). Lengte van de wachtrij voor de schijf |Count |
-| \Avg \PhysicalDisk (_Totaal). Wachtrijlengte voor schijf lezen |Count |
-| \Avg \PhysicalDisk (_Totaal). Wachtrijlengte voor schijf schrijven |Count |
+| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Writes/sec |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Avg. Lengte van de wachtrij voor de schijf |Count |
+| \PhysicalDisk(_Total)\Avg. Wachtrijlengte voor schijf lezen |Count |
+| \PhysicalDisk(_Total)\Avg. Wachtrijlengte voor schijf schrijven |Count |
 | \LogicalDisk(_Total)\% vrije ruimte |Procent |
-| \LogicalDisk (_Totaal) \Free megabytes |Count |
+| \LogicalDisk(_Total)\Free Megabytes |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Gastbesturingssysteem metrische gegevens over virtuele Linux-machines
 Wanneer u een virtuele machine in Azure maakt, is diagnostische gegevens standaard ingeschakeld met behulp van de extensie voor diagnostische gegevens.
@@ -187,3 +187,4 @@ Voor VM-schaalsets, kunt u de instelling voor automatisch schalen in de Resource
 > Het concept van de groep resource bestaat niet voor Service Bus, maar Azure Resource Manager maakt een standaardresourcegroep per regio. De resourcegroep bevindt zich meestal in de indeling 'Default - ServiceBus-[regio]'. Bijvoorbeeld 'Standaard-ServiceBus-EastUS', 'Standaard-ServiceBus-WestUS', 'Standaard-ServiceBus-AustraliaEast' enzovoort.
 >
 >
+

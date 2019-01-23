@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect Pass through-verificatie, installatie van Active Directory, vereiste onderdelen voor Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 423edfecb7bfd69de9ef004686db4a05824d0857
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913786"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465425"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory Pass through-verificatie: Technische details
 In dit artikel wordt beschreven hoe u Azure Active directory (Azure AD) Pass through-verificatie werkt. Zie voor technische deep en informatie over beveiliging, de [grondig onderzoek van beveiliging](how-to-connect-pta-security-deep-dive.md) artikel.
@@ -50,13 +50,13 @@ Het volgende diagram illustreert de onderdelen en de stappen voor het:
 ![Pass-through-verificatie](./media/how-to-connect-pta-how-it-works/pta2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Huidige beperkingen](how-to-connect-pta-current-limitations.md): informatie over welke scenario's worden ondersteund en welke niet.
-- [Snel aan de slag](how-to-connect-pta-quick-start.md): aan de slag op Azure AD Pass-through-verificatie.
+- [Huidige beperkingen](how-to-connect-pta-current-limitations.md): Informatie over welke scenario's worden ondersteund en welke niet.
+- [Snel aan de slag](how-to-connect-pta-quick-start.md): Aan de slag op Azure AD Pass-through-verificatie.
 - [Migreren van AD FS naar Pass-through-verificatie](https://aka.ms/adfstoPTADP) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
-- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): de mogelijkheid Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
-- [Veelgestelde vragen over](how-to-connect-pta-faq.md): vind antwoorden op veelgestelde vragen.
-- [Problemen oplossen](tshoot-connect-pass-through-authentication.md): informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.
-- [Grondig onderzoek van beveiliging](how-to-connect-pta-security-deep-dive.md): uitgebreide technische informatie over de functie voor Pass through-verificatie.
-- [Azure AD naadloze eenmalige aanmelding](how-to-connect-sso.md): meer informatie over deze aanvullende functie.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): de Azure Active Directory-Forum gebruiken om nieuwe functieaanvragen.
+- [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md): De functie Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
+- [Veelgestelde vragen over](how-to-connect-pta-faq.md): Vind antwoorden op veelgestelde vragen.
+- [Problemen oplossen](tshoot-connect-pass-through-authentication.md): Informatie over het oplossen van veelvoorkomende problemen met de functie voor Pass through-verificatie.
+- [Grondig onderzoek van beveiliging](how-to-connect-pta-security-deep-dive.md): Uitgebreide technische informatie over de functie voor Pass through-verificatie ophalen.
+- [Naadloze eenmalige aanmelding voor Azure AD](how-to-connect-sso.md): Meer informatie over deze aanvullende functie.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): De Active Directory-Forum van Azure gebruiken om nieuwe functieaanvragen.
 

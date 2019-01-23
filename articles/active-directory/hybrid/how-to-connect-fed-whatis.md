@@ -4,7 +4,7 @@ description: Deze pagina is de centrale locatie voor alle documentatie met betre
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 214dd95bb277053794656e1ba3dd148c085688ce
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3462c61bbd7c9972248eb1126763782f5fbc7e84
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900441"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472285"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect en federatie
 Met Azure Active Directory (Azure AD) Connect kunt u bij het configureren van Federatie met on-premises Active Directory Federation Services (AD FS) en Azure AD. Met de aanmelding federation kunt u gebruikers zich aanmelden voor Azure op basis van een AD-services met hun on-premises wachtwoorden-- en, terwijl op het bedrijfsnetwerk bevinden, zonder te hoeven hun wachtwoord opnieuw invoeren. U kunt een nieuwe installatie van AD FS implementeren met de optie Federatie met AD FS, of kunt u een bestaande installatie in een farm met Windows Server 2012 R2.

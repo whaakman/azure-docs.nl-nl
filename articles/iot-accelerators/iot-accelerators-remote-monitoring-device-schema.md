@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3c2bca45a7927689992cf44fb70199e246641760
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635524"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445419"
 ---
 # <a name="understand-the-device-model-schema"></a>Schema van het Apparaatmodel begrijpen
 
@@ -22,7 +22,7 @@ U kunt gesimuleerde apparaten in de oplossing voor externe controle gebruiken om
 Dit artikel beschrijft het schema voor het model van apparaten die Hiermee geeft u de mogelijkheden en het gedrag van een gesimuleerd apparaat. Het model is opgeslagen in een JSON-bestand.
 
 > [!NOTE]
-> Dit apparaat modelschema is alleen voor de gesimuleerde apparaten die worden gehost in de device simulatie-service. Als u maken van een fysiek apparaat wilt, Zie [uw apparaat aansluiten op de oplossingsverbetering voor externe controle](iot-accelerators-connecting-devices.md).
+> Dit apparaat modelschema is alleen voor de gesimuleerde apparaten die worden gehost in de device simulatie-service. Als u maken van een echt apparaat wilt, Zie [uw apparaat aansluiten op de oplossingsverbetering voor externe controle](iot-accelerators-connecting-devices.md).
 
 De volgende artikelen zijn gerelateerd aan het huidige artikel:
 

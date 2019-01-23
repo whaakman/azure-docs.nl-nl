@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a9e46bdb97899957f09a847f0fef03a6fec5dc6a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452893"
+---
 # Overzicht
 ## [Aan de slag](get-started.md)
 ## [Certificering](sap-certifications.md)
@@ -68,7 +76,6 @@
 ### [Beschikbaarheid van SAP HANA op Azure in meerdere Azure-regio's](sap-hana-availability-across-regions.md)
 ## [SAP Business One in virtuele Azure-machines](business-one-azure.md)
 ## [Implementatiehandleiding voor SAP IDES op Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
-## [SAP NetWeaver in virtuele Linux-machines op Azure](suse-quickstart.md)
 ## [SAP LaMa-connector voor Azure](lama-installation.md)
 ## Hoge beschikbaarheid (High Availability, HA) voor Windows en Linux
 ### [Overzicht](sap-high-availability-guide-start.md)

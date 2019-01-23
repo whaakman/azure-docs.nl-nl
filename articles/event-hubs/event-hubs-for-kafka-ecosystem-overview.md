@@ -3,19 +3,19 @@ title: Gebruik event hub uit de app in Apache Kafka - Azure Event Hubs | Microso
 description: In dit artikel bevat informatie over de ondersteuning van Apache Kafka met Azure Event Hubs.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: shvija
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1c484b6418fd5a453713bc464fff690ef444f109
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091183"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452340"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Azure Event Hubs gebruiken vanuit toepassingen van Apache Kafka
 Eventhubs biedt een Kafka-eindpunt dat kan worden gebruikt door uw bestaande Kafka op basis van toepassingen als alternatief voor het uitvoeren van uw eigen Kafka-cluster. Biedt ondersteuning voor Eventhubs [Apache Kafka-protocol 1.0 en hoger](https://kafka.apache.org/documentation/), en werkt met uw bestaande Kafka-toepassingen, met inbegrip van MirrorMaker.  
@@ -31,7 +31,7 @@ Conceptueel gezien Kafka en Event Hubs zijn bijna identiek zijn: ze zijn beide g
 | Kafka-Concept | Event Hubs Concept|
 | --- | --- |
 | Cluster | Naamruimte |
-| Onderwerp | Event Hubs |
+| Onderwerp | Event Hub |
 | Partitie | Partitie|
 | Consumentengroep | Consumentengroep |
 | Offset | Offset|
@@ -76,6 +76,4 @@ In dit artikel opgegeven een inleiding tot Event Hubs voor Kafka. Zie de volgend
 - [Akka Streams verbinden met een Event Hub waarvoor Kafka is ingeschakeld](event-hubs-kafka-akka-streams-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Voorbeelden bekijken op GitHub)
 
- 
- 
 

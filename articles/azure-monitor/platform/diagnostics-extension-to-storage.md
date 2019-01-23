@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
-ms.component: diagnostic-extension
-ms.openlocfilehash: f0d1a51a3c787bd4d9602eeaad9ac92eda7bacb7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103737"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468519"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Diagnostische gegevens opslaan en weergeven in Azure Storage
 Diagnostische gegevens worden niet permanent opgeslagen, tenzij u deze naar de Microsoft Azure-opslagemulator of naar Azure storage overbrengen. Eenmaal in de opslag, kunnen deze worden bekeken met een van de verschillende beschikbare hulpprogramma's.
@@ -79,4 +79,5 @@ Er zijn verschillende hulpprogramma's beschikbaar om weer te geven van de gegeve
 
 ## <a name="next-steps"></a>Volgende stappen
 [De stroom in een Cloud Services-toepassing met Azure Diagnostics traceren](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
+
 

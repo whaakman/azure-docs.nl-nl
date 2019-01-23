@@ -3,7 +3,7 @@ title: Archief voor de wat is er nieuw? -Azure Active Directory | Microsoft Docs
 description: Wat is nieuw opmerkingen bij de release in het overzicht van de sectie van deze inhoudsset bevat zes maanden van de activiteit van. Na zes maanden worden de items verwijderd uit het belangrijkste artikel en in dit archiefartikel plaatsen.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7dc067cd84ef43850034dec2f58da7e7dfa64cc4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191918"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449602"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archief voor de wat is er nieuw? in Azure Active Directory
 
@@ -881,7 +881,7 @@ Vanaf 8 januari 2018, het beheer van Azure AD-ervaring in de klassieke Azure por
  
 Vanaf 8 januari 2018 de PhoneFactor-web-portal is buiten gebruik gesteld. Deze portal is gebruikt voor het beheer van MFA-server, maar deze functies zijn verplaatst naar de Azure-portal op portal.azure.com. 
 
-De configuratie van MFA bevindt zich in: **Azure Active Directory \> MFA-Server**
+De configuratie van MFA bevindt zich in: **Azure Active Directory \> MFA Server**
  
 ---
  

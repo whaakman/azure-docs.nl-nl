@@ -1,29 +1,29 @@
 ---
-title: Query uitvoeren op Azure gebeurtenis raster abonnementen
-description: Hierin wordt beschreven hoe Azure gebeurtenis raster abonnementen.
+title: Query uitvoeren op Azure Event Grid-abonnementen
+description: Hierin wordt beschreven hoe u Azure Event Grid-abonnementen.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/04/2018
-ms.author: tomfitz
-ms.openlocfilehash: 2b46cde4a352e647ee97669f116a6c1926879fa0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 01/04/2019
+ms.author: spelluru
+ms.openlocfilehash: ac43b85858451149ceabf87c77b42d40fbd4eac4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34302412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470972"
 ---
-# <a name="query-event-grid-subscriptions"></a>Gebeurtenis raster abonnementen query 
+# <a name="query-event-grid-subscriptions"></a>Query uitvoeren op Event Grid-abonnementen 
 
-Dit artikel wordt beschreven hoe u de gebeurtenis raster abonnementen in uw Azure-abonnement. Tijdens het opvragen van uw bestaande gebeurtenis raster abonnementen, is het belangrijk om te begrijpen van de verschillende typen abonnementen. U opgeven verschillende parameters op basis van het type van het abonnement dat u wilt ophalen.
+Dit artikel wordt beschreven hoe u de Event Grid-abonnementen in uw Azure-abonnement. Bij het opvragen van uw bestaande Event Grid-abonnementen, is het belangrijk om te begrijpen welke verschillende typen abonnementen. U opgeven verschillende parameters die op basis van het type abonnement die u wilt ophalen.
 
 ## <a name="resource-groups-and-azure-subscriptions"></a>Resourcegroepen en Azure-abonnementen
 
-Azure-abonnementen en resourcegroepen zijn niet de Azure-resources. Gebeurtenis raster abonnementen aan resourcegroepen of Azure-abonnementen hoeft niet dus dezelfde eigenschappen als gebeurtenis raster abonnementen op Azure-resources. Gebeurtenis raster abonnementen aan resourcegroepen of Azure-abonnementen worden beschouwd als global.
+Azure-abonnementen en resourcegroepen zijn niet de Azure-resources. Daarom event grid-abonnementen aan resourcegroepen of Azure-abonnementen beschikt niet over dezelfde eigenschappen als event grid-abonnementen voor Azure-resources. Event grid-abonnementen aan resourcegroepen of Azure-abonnementen worden beschouwd als global.
 
-Als u abonnementen voor het raster van gebeurtenissen voor een Azure-abonnement en de resourcegroepen, hoeft u niet te bieden van parameters. Zorg ervoor dat u hebt geselecteerd dat het Azure-abonnement dat u wilt zoeken. De volgende voorbeelden ophalen niet van gebeurtenis raster abonnementen voor aangepaste onderwerpen of Azure-resources.
+Voor event grid-abonnementen voor een Azure-abonnement en bijbehorende resourcegroepen, moet u niet alle parameters opgeven. Zorg ervoor dat u hebt geselecteerd dat het Azure-abonnement dat u wilt zoeken. De volgende voorbeelden ophalen niet van event grid-abonnementen voor aangepaste onderwerpen of Azure-resources.
 
 Gebruik voor Azure CLI:
 
@@ -39,7 +39,7 @@ Set-AzureRmContext -Subscription "My Azure Subscription"
 Get-AzureRmEventGridSubscription
 ```
 
-Als u de gebeurtenis raster abonnementen voor een Azure-abonnement, geef het Onderwerptype **Microsoft.Resources.Subscriptions**.
+Voor event grid-abonnementen voor een Azure-abonnement, bieden het Onderwerptype **Microsoft.Resources.Subscriptions**.
 
 Gebruik voor Azure CLI:
 
@@ -53,7 +53,7 @@ Gebruik voor PowerShell:
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
 ```
 
-Als u de gebeurtenis raster abonnementen voor alle resourcegroepen binnen een Azure-abonnement, geef het Onderwerptype **Microsoft.Resources.ResourceGroups**.
+Voor event grid-abonnementen voor alle resourcegroepen binnen een Azure-abonnement, bieden het Onderwerptype **Microsoft.Resources.ResourceGroups**.
 
 Gebruik voor Azure CLI:
 
@@ -67,7 +67,7 @@ Gebruik voor PowerShell:
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
 ```
 
-Als u abonnementen voor het raster van gebeurtenissen voor een opgegeven resourcegroep, geef de naam van de resourcegroep als parameter.
+Voor event grid-abonnementen voor een opgegeven resourcegroep gemaakt, moet u de naam van de resourcegroep opgeven als een parameter.
 
 Gebruik voor Azure CLI:
 
@@ -83,9 +83,9 @@ Get-AzureRmEventGridSubscription -ResourceGroupName myResourceGroup
 
 ## <a name="custom-topics-and-azure-resources"></a>Aangepaste onderwerpen en Azure-resources
 
-Gebeurtenis raster aangepaste onderwerpen zijn Azure-resources. U kunt daarom gebeurtenis raster abonnementen voor aangepaste onderwerpen en andere resources, zoals Blob storage-account opvragen op dezelfde manier. Als u de gebeurtenis raster abonnementen voor aangepaste onderwerpen, moet u de parameters die de bron identificeren of geef de locatie van de resource opgeven. Het is niet mogelijk met breed query gebeurtenis raster abonnementen voor resources in uw Azure-abonnement.
+Aangepast Event grid-onderwerpen zijn Azure-resources. U kunt daarom event grid-abonnementen voor aangepaste onderwerpen en andere resources, zoals Blob storage-account, query op dezelfde manier. Als u event grid-abonnementen voor aangepaste onderwerpen, moet u de parameters die de bron identificeren of geef de locatie van de resource opgeven. Het is niet mogelijk is te breed query event grid-abonnementen voor resources in uw Azure-abonnement.
 
-Als u abonnementen raster voor de aangepaste-onderwerpen en andere bronnen in een locatie, geef de naam van de locatie.
+Geef voor event grid-abonnementen voor aangepaste onderwerpen en andere bronnen in een locatie, de naam van de locatie.
 
 Gebruik voor Azure CLI:
 
@@ -99,7 +99,7 @@ Gebruik voor PowerShell:
 Get-AzureRmEventGridSubscription -Location westus2
 ```
 
-Als u abonnementen op aangepaste onderwerpen voor een locatie, geef de locatie en het Onderwerptype **Microsoft.EventGrid.Topics**.
+Voor abonnementen op aangepaste onderwerpen om een locatie, geef de locatie en het Onderwerptype **Microsoft.EventGrid.Topics**.
 
 Gebruik voor Azure CLI:
 
@@ -113,7 +113,7 @@ Gebruik voor PowerShell:
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
-Als u abonnementen op opslagaccounts voor een locatie, geef de locatie en het Onderwerptype **Microsoft.Storage.StorageAccounts**.
+Voor abonnementen op storage-accounts om een locatie, geef de locatie en het Onderwerptype **Microsoft.Storage.StorageAccounts**.
 
 Gebruik voor Azure CLI:
 
@@ -127,7 +127,7 @@ Gebruik voor PowerShell:
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
 ```
 
-Als u abonnementen voor het raster van gebeurtenissen voor een aangepaste onderwerp, geef de naam van de aangepaste onderwerp en de naam van de resourcegroep.
+Als u event grid-abonnementen voor een aangepast onderwerp, bieden u de naam van het aangepaste onderwerp en de naam van de resourcegroep.
 
 Gebruik voor Azure CLI:
 
@@ -141,7 +141,7 @@ Gebruik voor PowerShell:
 Get-AzureRmEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
 ```
 
-Als u de gebeurtenis raster abonnementen voor een bepaalde bron, bieden de resource-ID.
+Als u event grid-abonnementen voor een bepaalde resource, bieden de resource-ID.
 
 Gebruik voor Azure CLI:
 
@@ -159,6 +159,6 @@ Get-AzureRmEventGridSubscription -ResourceId $resourceid
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voor informatie over de levering van de gebeurtenis en nieuwe pogingen, [gebeurtenis raster berichtbezorging en probeer het opnieuw](delivery-and-retry.md).
-* Zie voor een inleiding tot gebeurtenis raster, [over gebeurtenis raster](overview.md).
-* Zie om snel aan de slag met Event raster [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md).
+* Voor informatie over de bezorging van gebeurtenissen en nieuwe pogingen, [bezorging van berichten van Event Grid en probeer het opnieuw](delivery-and-retry.md).
+* Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
+* Als u wilt snel aan de slag met Event Grid, Zie [aangepaste gebeurtenissen maken en routeren met Azure Event Grid](custom-event-quickstart.md).

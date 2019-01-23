@@ -4,7 +4,7 @@ description: Deze pagina wordt een pagina met technische naslaginformatie voor p
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae221efe19d548c3b19cfcebc6728390cabf2b1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312604"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461032"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Voor hybride identiteit benodigde poorten en protocollen
 Het volgende document is een technische naslaginformatie over de vereiste poorten en protocollen voor het implementeren van een oplossing voor hybride identiteit. Gebruik de volgende afbeelding en verwijzen naar de bijbehorende tabel.
@@ -30,7 +30,7 @@ Het volgende document is een technische naslaginformatie over de vereiste poorte
 ## <a name="table-1---azure-ad-connect-and-on-premises-ad"></a>Tabel 1: Azure AD Connect en On-premises AD
 Deze tabel beschrijft de poorten en protocollen die vereist voor communicatie tussen de Azure AD Connect-server zijn en on-premises AD.
 
-| Protocol | Poorten | Beschrijving |
+| Protocol | Poorten | Description |
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |DNS-zoekacties van het doelforest. |
 | Kerberos |88 (TCP/UDP) |Kerberos-verificatie met de AD-forest. |
@@ -43,7 +43,7 @@ Deze tabel beschrijft de poorten en protocollen die vereist voor communicatie tu
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tabel 2 - Azure AD Connect en Azure AD
 Deze tabel worden beschreven de poorten en protocollen die vereist voor communicatie tussen de Azure AD Connect-server en Azure AD zijn.
 
-| Protocol | Poorten | Beschrijving |
+| Protocol | Poorten | Description |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Voor het downloaden van CRL's (certificaatintrekkingslijsten) om te controleren of SSL-certificaten. |
 | HTTPS |443(TCP/UDP) |Gebruikt om te synchroniseren met Azure AD. |
@@ -53,7 +53,7 @@ Voor een lijst van URL's en IP-adressen die u wilt openen in uw firewall, Zie [O
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Tabel 3 - Azure AD Connect en AD FS-Federation-Servers/WAP
 Deze tabel worden beschreven de poorten en protocollen die vereist voor communicatie tussen de AD FS-Federation/WAP-servers en Azure AD Connect-server zijn.  
 
-| Protocol | Poorten | Beschrijving |
+| Protocol | Poorten | Description |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Voor het downloaden van CRL's (certificaatintrekkingslijsten) om te controleren of SSL-certificaten. |
 | HTTPS |443(TCP/UDP) |Gebruikt om te synchroniseren met Azure AD. |
@@ -62,14 +62,14 @@ Deze tabel worden beschreven de poorten en protocollen die vereist voor communic
 ## <a name="table-4---wap-and-federation-servers"></a>Tabel 4 - WAP en Federation-Servers
 Deze tabel worden de poorten en protocollen die vereist voor communicatie tussen de Federation-servers en WAP-servers zijn beschreven.
 
-| Protocol | Poorten | Beschrijving |
+| Protocol | Poorten | Description |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Gebruikt voor verificatie. |
 
 ## <a name="table-5---wap-and-users"></a>Tabel 5 - WAP en gebruikers
 Deze tabel worden de poorten en protocollen die vereist voor communicatie tussen gebruikers en de WAP-servers zijn beschreven.
 
-| Protocol | Poorten | Beschrijving |
+| Protocol | Poorten | Description |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Gebruikt voor verificatie van apparaten. |
 | TCP |49443 (TCP) |Gebruikt voor verificatie via certificaat. |
@@ -78,7 +78,7 @@ Deze tabel worden de poorten en protocollen die vereist voor communicatie tussen
 De volgende tabel beschrijft de poorten en protocollen die vereist voor communicatie tussen de Azure AD Connect en Azure AD zijn.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabel 6a - Pass through-verificatie met eenmalige aanmelding
-|Protocol|Poortnummer|Beschrijving
+|Protocol|Poortnummer|Description
 | --- | --- | ---
 |HTTP|80|Uitgaande HTTP-verkeer voor beveiligingsvalidatie zoals SSL inschakelen. Ook die nodig zijn voor de mogelijkheid voor het automatisch bijwerken van connector te laten functioneren.
 |HTTPS|443| Uitgaande HTTPS-verkeer voor bewerkingen zoals het inschakelen en uitschakelen van de functie, connectors registreren, connector updates downloaden en verwerken van alle gebruiker aanmeldingsaanvragen inschakelen.
@@ -87,7 +87,7 @@ Daarnaast Azure AD Connect moet kunnen direct IP-verbindingen maken met de [Azur
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabel 6 ter - synchronisatie van Wachtwoordhashes met eenmalige aanmelding
 
-|Protocol|Poortnummer|Beschrijving
+|Protocol|Poortnummer|Description
 | --- | --- | ---
 |HTTPS|443| SSO-registratie (alleen vereist voor het registratieproces SSO) inschakelen.
 
@@ -99,7 +99,7 @@ De volgende tabellen beschrijven de eindpunten, poorten en protocollen die verei
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabel 7 - poorten en protocollen voor Azure AD Connect Health-agent voor (AD FS/Sync) en Azure AD
 Deze tabel beschrijft de volgende uitgaande poorten en protocollen die vereist voor communicatie tussen de Azure AD Connect Health-agents en de Azure AD zijn.  
 
-| Protocol | Poorten | Beschrijving |
+| Protocol | Poorten | Description |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Uitgaand |
 | Azure Service Bus |5671 (TCP/UDP) |Uitgaand |

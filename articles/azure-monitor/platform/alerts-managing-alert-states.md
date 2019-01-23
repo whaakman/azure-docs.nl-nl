@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 88601383df5015f9ea23184d65266974bb0f35e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: 2aa521b0552b60e5a875a5f46ab9887c6e5b6e3e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346086"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472055"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Statussen van waarschuwingen en slimme groepen beheren
 Waarschuwingen in Azure Monitor beschikt nu over een [status en een controleconditie gewaarschuwd](https://aka.ms/azure-alerts-overview) en op dezelfde manier, slimme groepen hebben een [groepsstatus slimme](https://aka.ms/smart-groups). Wijzigingen in de staat worden nu in de geschiedenis die zijn gekoppeld aan de respectieve waarschuwing of smart-groep vastgelegd. In dit artikel begeleidt u bij het proces van het wijzigen van de status, voor zowel een waarschuwing als een slimme groep.
@@ -47,3 +47,4 @@ Waarschuwingen in Azure Monitor beschikt nu over een [status en een controlecond
 
 1. Zodra deze actie is uitgevoerd, wordt de wijziging in de status geregistreerd in de geschiedenis van de betreffende slimme groep. Dit kan worden weergegeven door de bijbehorende detailpagina te openen en het controleren van de sectie Geschiedenis.     
 ![Bewaking](./media/alerts-managing-alert-states/state-sg-history.jpg)
+

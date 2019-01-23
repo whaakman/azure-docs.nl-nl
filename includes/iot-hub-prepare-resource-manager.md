@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2eacb55eaf355a4eef17b9e16075d8d12167266d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 44eea4ec4fd335cd0061807521f96f2887751f7a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164678"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457090"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Voorbereiden om Azure Resource Manager-aanvragen te verifiëren
 U moet verifiëren dat de bewerkingen die u uitvoert op resources met behulp van de [Azure Resource Manager] [ lnk-authenticate-arm] met Azure Active Directory (AD). Er is de eenvoudigste manier om dit configureren met PowerShell of Azure CLI.
@@ -42,8 +42,8 @@ De volgende stappen laten zien hoe het instellen van wachtwoordverificatie voor 
    
    * **{Weergavenaam}:** een weergavenaam voor uw toepassing zoals **MySampleApp**
    * **{URL van startpagina}:** de URL van de startpagina van uw app, zoals **http://mysampleapp/home**. Deze URL heeft niet nodig om te verwijzen naar een echte toepassing.
-   * **{Toepassings-id}:** een unieke id zoals **http://mysampleapp**. Deze URL heeft niet nodig om te verwijzen naar een echte toepassing.
-   * **{Password}:** een wachtwoord dat u gebruikt voor verificatie met uw app.
+   * **{Toepassings-id}:** Een unieke id zoals **http://mysampleapp**. Deze URL heeft niet nodig om te verwijzen naar een echte toepassing.
+   * **{Password}:** Een wachtwoord dat u gebruikt voor verificatie met uw app.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
@@ -69,4 +69,4 @@ U bent nu klaar voor het maken van de Azure AD-toepassing waarmee u te verifiër
 * Wachtwoord
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps

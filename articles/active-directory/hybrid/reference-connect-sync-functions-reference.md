@@ -4,7 +4,7 @@ description: Verwijzing van declaratieve inrichtingsexpressies in Azure AD Conne
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cad9cec83ac5cc75ba5b4e5fc395e7f68f7d2770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157476"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471173"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: Functieverwijzing
 In Azure AD Connect, worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -38,10 +38,10 @@ De typen worden uitgedrukt met de volgende syntaxis:
 * **DT** – UTC-datum/tijd
 * **Enum** – opsomming van de bekende constanten
 * **EXP** -expressie die wordt verwacht te laten resulteren in een Booleaanse waarde
-* **mvbin** – meerwaardige binaire
+* **mvbin** – Multi-Valued Binary
 * **mvstr** – meerwaardige tekenreeks
 * **mvref** – meerwaardige verwijzing
-* **NUM** : numeriek
+* **num** – Numeric
 * **REF** -verwijzing
 * **Str** : tekenreeks
 * **VAR** : een variant van (bijna) alle andere type
@@ -57,14 +57,14 @@ De functies met de typen **mvbin**, **mvstr**, en **mvref** kan alleen worden ge
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[certThumbprint](#certthumbprint) | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
 [ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversie** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
 | [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
 | **Datum / tijd** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[formatDateTime](#formatdatetime) |[nu](#now) | |
+| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[nu](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
 | **Directory** | | | | |
 | [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
@@ -76,15 +76,15 @@ De functies met de typen **mvbin**, **mvstr**, en **mvref** kan alleen worden ge
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **Meerdere waarden** | | | | |
 | [bevat](#contains) |[Aantal](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
-| [Koppelen](#join) |[RemoveDuplicates](#removeduplicates) |[splitsen](#split) | | |
-| **Programmastroom** | | | | |
+| [Koppelen](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
+| **Program Flow** | | | | |
 | [Fout](#error) |[IIF](#iif) |[Selecteren](#select) |[Switch](#switch) | |
 | [waar](#where) |[met](#with) | | | |
 | **Tekst** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Links](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [padLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[vervangen](#replace) | |
-| [ReplaceChars](#replacechars) |[Rechts](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
+| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[vervangen](#replace) | |
+| [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
 - - -
@@ -333,7 +333,7 @@ Retourneert de Oid van de onderwerpnaam van een certificaat.
 *   certificateRawData: Byte matrix representatie van een X.509-certificaat. De bytematrix kan binair (DER), gecodeerd of Base64-gecodeerd x.509-gegevens zijn.
 
 - - -
-### <a name="certthumbprint"></a>certThumbprint
+### <a name="certthumbprint"></a>CertThumbprint
 **Beschrijving:**  
 Retourneert de vingerafdruk van een certificaat.
 
@@ -361,7 +361,7 @@ De functie CGuid converteert de tekenreeksweergave van een GUID naar de binaire 
 * Een tekenreeks die is opgemaakt in dit patroon: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx of {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 - - -
-### <a name="contains"></a>Bevat
+### <a name="contains"></a>Contains
 **Beschrijving:**  
 De functie Contains zoekt u naar een tekenreeks binnen een kenmerk met meerdere waarden
 
@@ -431,7 +431,7 @@ De waarde van een matrix van gehele getallen converteert naar de equivalente tek
 
 **Voorbeeld:**  
 `ConvertToBase64("Hello world!")`  
-Retourneert "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
+Returns "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
@@ -446,10 +446,10 @@ De indeling van de uitvoer van deze functie wordt gebruikt door Azure Active Dir
 
 **Voorbeeld:**  
 `ConvertToUTF8Hex("Hello world!")`  
-Retourneert 48656C6C6F20776F726C6421
+Returns 48656C6C6F20776F726C6421
 
 - - -
-### <a name="count"></a>Aantal
+### <a name="count"></a>Count
 **Beschrijving:**  
 De functie Count retourneert het aantal elementen in een kenmerk met meerdere waarden
 
@@ -505,7 +505,7 @@ Retourneert een datum met een datum waarop een opgegeven tijdsinterval is toegev
   * m maand
   * y-dag van jaar
   * d dag
-  * w weekdag
+  * w Weekday
   * ww Week
   * h uur
   * n minuut
@@ -565,7 +565,7 @@ Als DN-naam is "cn Jan, ou = Atlanta, ou = algemene beschikbaarheid, ou = = US, 
 Beide retourneren ons.
 
 - - -
-### <a name="error"></a>fOUT
+### <a name="error"></a>Fout
 **Beschrijving:**  
 De fout-functie wordt gebruikt om een aangepaste fout geretourneerd.
 
@@ -627,7 +627,7 @@ De functie IIF retourneert een van de mogelijke waarden op basis van een opgegev
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 * voorwaarde: een waarde of expressie die kan worden geëvalueerd op waar of ONWAAR.
-* waardeindienwaar: Als de voorwaarde is geëvalueerd als waar, de geretourneerde waarde.
+* valueIfTrue: Als de voorwaarde is geëvalueerd als waar, de geretourneerde waarde.
 * WaardeAlsOnwaar: Als de voorwaarde wordt geëvalueerd op false, de geretourneerde waarde.
 
 **Voorbeeld:**  
@@ -844,7 +844,7 @@ De functie ItemOrNull is nuttig, samen met de functie Contains sinds de laatste 
 Als de index ligt buiten het bereik valt, retourneert vervolgens een Null-waarde.
 
 - - -
-### <a name="join"></a>Deelnemen
+### <a name="join"></a>Koppelen
 **Beschrijving:**  
 De Join-functie een tekenreeks met meerdere waarden en retourneert een tekenreeks met één waarde met opgegeven scheidingsteken ingevoegd tussen elk item.
 
@@ -1084,7 +1084,7 @@ De functie vervangen vervangt alle instanties van een tekenreeks naar een andere
 **Opmerking:**  
 De functie herkent de volgende speciale monikers:
 
-* \n – nieuwe regel
+* \n – New Line
 * \r – regelterugloop
 * \t – tabblad
 
@@ -1164,7 +1164,7 @@ De functie RTrim verwijdert de afsluitende spaties uit een tekenreeks.
 Retourneert 'Test'.
 
 - - -
-### <a name="select"></a>Selecteren
+### <a name="select"></a>Selecteer
 **Beschrijving:**  
 Het proces alle waarden in een meerdere waarden kenmerk (of uitvoer van een expressie) op basis van functie worden opgegeven.
 
@@ -1215,14 +1215,14 @@ De functie StringFromSid converteert een bytematrix die een beveiligings-id naar
 `str StringFromSid(bin ObjectSID)`  
 
 - - -
-### <a name="switch"></a>Schakelen
+### <a name="switch"></a>Switch
 **Beschrijving:**  
 De functie Switch wordt gebruikt om op basis van geëvalueerde voorwaarden één waarde retourneren.
 
 **Syntaxis:**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-* markering: Variant-expressie die u wilt evalueren.
+* expr: Variant-expressie die u wilt evalueren.
 * Waarde: De waarde die worden geretourneerd als de bijbehorende expressie waar is.
 
 **Opmerking:**  
@@ -1268,7 +1268,7 @@ De functie UCase converteert alle tekens in een tekenreeks naar hoofdletters.
 
 **Voorbeeld:**  
 `UCase("TeSt")`  
-Retourneert 'TEST'.
+Returns "TEST".
 
 - - -
 ### <a name="where"></a>Waar

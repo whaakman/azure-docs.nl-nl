@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager-Test Drive | Microsoft Docs
-description: Bouw een Markeplace proefrit met Azure Resource MAnager
+description: Bouw een Marketplace-proefrit met Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139262"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451354"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-Test Drive
 =================================
@@ -298,7 +298,7 @@ Nu dat u uw Test Drive gebouwd hebt, wordt dit gedeelte doorloopt samen met elk 
 
 Het eerste en belangrijkste veld is om te bepalen of u wilt dat de Test Drive of niet ingeschakeld voor uw aanbieding. Wanneer u selecteert **Ja,** vindt u de rest van het formulier in met alle vereiste velden voor u om in te vullen. Wanneer u selecteert **Nee,** het formulier wordt uitgeschakeld en als u opnieuw met de Test Drive uitgeschakeld publiceren, uw Test Drive wordt verwijderd uit de productie.
 
-Opmerking: Als er Tests stations actief gebruikt door gebruikers, deze Test Drives blijft actief totdat de sessie is verlopen.
+Opmerking: Als er Tests stations actief gebruikt door gebruikers, blijft deze Test Drives actief totdat de sessie is verlopen.
 
 ### <a name="details"></a>Details
 

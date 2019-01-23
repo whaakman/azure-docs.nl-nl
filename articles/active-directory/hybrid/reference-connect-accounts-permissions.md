@@ -4,7 +4,7 @@ description: Dit onderwerp beschrijft de accounts gebruikt en die zijn gemaakt e
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308780"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478600"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -39,9 +39,9 @@ Azure AD Connect maakt gebruik van 3-accounts om te synchroniseren van gegevens 
 
 Naast deze drie accounts gebruikt voor het uitvoeren van Azure AD Connect, moet u ook de volgende extra accounts aan Azure AD Connect installeert.  Dit zijn:
 
-- **Lokale Administrator-account**: de beheerder die Azure AD Connect wordt geïnstalleerd en die lokale beheerdersmachtigingen heeft op de machine.
+- **Lokale Administrator-account**: De beheerder die Azure AD Connect wordt geïnstalleerd en die lokale beheerdersmachtigingen heeft op de machine.
 
-- **AD DS Enterprise-beheerdersaccount**: (optioneel) gebruikt voor het maken van de "AD DS-Connector-account" hierboven.
+- **AD DS Enterprise-beheerdersaccount**: (Optioneel) gebruikt voor het maken van de "AD DS-Connector-account" hierboven.
 
 - **Account van Azure AD-hoofdbeheerder**: gebruikt voor het maken van de Azure AD-Connector-account en Azure AD configureren.
 
@@ -120,7 +120,7 @@ Hier volgt een samenvatting van de aangepaste installatie wizardpagina's, de ref
 >[!IMPORTANT]
 >Een nieuwe PowerShell-Module met de naam ADSyncConfig.psm1 geïntroduceerd met build **1.1.880.0** (uitgebracht in augustus 2018) die bestaat uit een verzameling van cmdlets kunt u de juiste Active Directory-machtigingen voor de Azure AD DS configureren Connector-account.
 >
->Zie voor meer informatie [Azure AD Connect: machtiging voor AD DS-Connector-Account configureren](how-to-connect-configure-ad-ds-connector-account.md)
+>Zie voor meer informatie [Azure AD Connect: Machtiging voor AD DS-Connector-Account configureren](how-to-connect-configure-ad-ds-connector-account.md)
 
 Het account dat u opgeeft op de **verbinding maken met uw mappen** pagina moet aanwezig zijn in Active Directory voorafgaand aan de installatie.  Azure AD Connect versie 1.1.524.0 en hoger en later is de optie voor de Azure AD Connect-wizard maken gebruiken om de **Connector voor AD DS-account** gebruikt voor verbinding met Active Directory.  
 
@@ -145,11 +145,11 @@ Wanneer u een upgrade van één versie van Azure AD Connect naar een nieuwe vers
 >Beginnen met bouwen 1.1.484, Azure AD Connect een bug regressie waarvoor sysadmin-machtigingen voor het bijwerken van de SQL-database ingevoerd.  Deze fout is verholpen in build 1.1.647.  Als u een naar deze versie upgrade, moet u sysadmin-bevoegdheden.  Dbo-machtigingen zijn niet voldoende.  Als u probeert te Azure AD Connect upgraden zonder sysadmin-bevoegdheden, mislukt de upgrade en Azure AD Connect wordt niet meer correct werkt daarna.  Microsoft is hiervan op de hoogte en werkt om dit te corrigeren.
 
 
-| Principal | Machtigingen die vereist zijn | Gebruikt voor |
+| Hoofd | Machtigingen die vereist zijn | Gebruikt voor |
 | --- | --- | --- |
 | Gebruiker met de installatiewizard |Beheerder van de lokale server |Binaire bestanden worden bijgewerkt. |
 | Gebruiker met de installatiewizard |Lid van de ADSyncAdmins |Breng wijzigingen in synchronisatieregels en andere configuratie. |
-| Gebruiker met de installatiewizard |Als u een volledige SQL server: DBO (of vergelijkbaar) van de synchronisatie-engine-database |Controleer op wijzigingen in de database, zoals het bijwerken van tabellen met nieuwe kolommen. |
+| Gebruiker met de installatiewizard |Als u een volledige SQL server gebruiken: DBO (of vergelijkbaar) van de synchronisatie-engine-database |Controleer op wijzigingen in de database, zoals het bijwerken van tabellen met nieuwe kolommen. |
 
 ## <a name="more-about-the-created-accounts"></a>Meer informatie over de gemaakte accounts
 ### <a name="ad-ds-connector-account"></a>AD DS-Connector-account
@@ -162,7 +162,7 @@ Als u aangepaste instellingen, klikt bent u verantwoordelijk voor het account te
 ### <a name="adsync-service-account"></a>ADSync-serviceaccount
 De synchronisatieservice kan uitvoeren onder verschillende accounts. Het kan worden uitgevoerd onder een **Virtual Service Account** (leverancierspecifiek Kenmerk), een **groep beheerd serviceaccount** (gMSA/sMSA), of een normaal gebruikersaccount. De ondersteunde opties zijn gewijzigd met de 2017 April versie van Connect wanneer u een nieuwe installatie uitvoeren. Als u een upgrade vanaf een eerdere versie van Azure AD Connect uitvoert, zijn deze extra opties niet beschikbaar.
 
-| Type account | Installatie-optie | Beschrijving |
+| Type account | Installatie-optie | Description |
 | --- | --- | --- |
 | [Virtual serviceaccount](#virtual-service-account) | Express en aangepast, 2017 April en hoger | Dit is de optie gebruikt voor alle installaties van snelle, met uitzondering van installaties op een domeincontroller. Voor aangepaste, is er op de standaardoptie, tenzij een andere optie wordt gebruikt. |
 | [Groep beheerd serviceaccount](#group-managed-service-account) | Aangepaste, 2017 April en hoger | Als u een externe SQL server gebruikt, klikt u vervolgens het beste aan een groep beheerd serviceaccount gebruiken. |
@@ -190,7 +190,7 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Aangepast telefoonnummer | Externe SQL</br>Aangepast telefoonnummer |
 | --- | --- | --- | --- |
 | **zelfstandige/werkgroep-machine** | Niet ondersteund | **VSA**</br>Lokaal account (2008)</br>Lokaal account |  Niet ondersteund |
-| **domein machine** | **VSA**</br>Lokaal account (2008) | **VSA**</br>Lokaal account (2008)</br>Lokaal account</br>Domeinaccount</br>sMSA, gMSA | **gMSA**</br>Domeinaccount |
+| **domein machine** | **VSA**</br>Lokaal account (2008) | **VSA**</br>Lokaal account (2008)</br>Lokaal account</br>Domeinaccount</br>sMSA,gMSA | **gMSA**</br>Domeinaccount |
 | **Domeincontroller** | **Domeinaccount** | *gMSA*</br>**Domeinaccount**</br>sMSA| *gMSA*</br>**Domeinaccount**|
 
 #### <a name="virtual-service-account"></a>Virtuele-serviceaccount

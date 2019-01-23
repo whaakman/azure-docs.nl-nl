@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 47a957453bf5962f59518719895edc0f13fe7dc8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584374"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465238"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
 Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, devops-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
@@ -70,23 +70,23 @@ Als de bovenstaande ingebouwde rollen niet voldoen aan de exacte behoeften van u
 
 | Bewerking | Description |
 | --- | --- |
-| Microsoft.Insights/ActionGroups/[Read, schrijven, verwijderen] |Actiegroepen lezen, schrijven en verwijderen. |
-| Microsoft.Insights/ActivityLogAlerts/[Read, schrijven, verwijderen] |Waarschuwingen voor activiteitenlogboeken lezen, schrijven en verwijderen. |
-| Microsoft.Insights/AlertRules/[Read, schrijven, verwijderen] |Waarschuwingsregels (van klassieke waarschuwingen) lezen, schrijven en verwijderen. |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Actiegroepen lezen, schrijven en verwijderen. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Waarschuwingen voor activiteitenlogboeken lezen, schrijven en verwijderen. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Waarschuwingsregels (van klassieke waarschuwingen) lezen, schrijven en verwijderen. |
 | Microsoft.Insights/AlertRules/Incidents/Read |Lijst met incidenten (geschiedenis van de waarschuwingsregel wordt geactiveerd) voor waarschuwingsregels. Dit is alleen van toepassing op de portal. |
-| Microsoft.Insights/AutoscaleSettings/[Read, schrijven, verwijderen] |Instellingen voor automatisch schalen lezen, schrijven en verwijderen. |
-| Microsoft.Insights/DiagnosticSettings/[Read, schrijven, verwijderen] |Diagnostische instellingen lezen, schrijven en verwijderen. |
+| Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Instellingen voor automatisch schalen lezen, schrijven en verwijderen. |
+| Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Diagnostische instellingen lezen, schrijven en verwijderen. |
 | Microsoft.Insights/EventCategories/Read |Het inventariseren van alle categorieën mogelijk in het activiteitenlogboek. Gebruikt door de Azure-portal. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Deze machtiging is vereist voor gebruikers die toegang nodig tot activiteitenlogboeken via de portal. |
 | Microsoft.Insights/eventtypes/values/Read |Lijst met gebeurtenissen in activiteitenlogboeken (van Beheergebeurtenissen) in een abonnement. Deze machtiging is van toepassing op zowel programmatische als portal toegang tot het activiteitenlogboek. |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, schrijven, verwijderen] | Diagnostische instellingen lezen, schrijven en verwijderen voor netwerk-stroomlogboeken. |
 | Microsoft.Insights/LogDefinitions/Read |Deze machtiging is vereist voor gebruikers die toegang nodig tot activiteitenlogboeken via de portal. |
-| Microsoft.Insights/LogProfiles/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen logboekprofielen (activiteitenlogboek streamen naar event hub of storage-account). |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Lezen/schrijven/verwijderen logboekprofielen (activiteitenlogboek streamen naar event hub of storage-account). |
 | Microsoft.Insights/MetricAlerts/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen bijna realtime metrische waarschuwingen |
 | Microsoft.Insights/MetricDefinitions/Read |Metrische definities (lijst met beschikbare metrische gegevens typen voor een resource) lezen. |
 | Microsoft.Insights/Metrics/Read |De metrische gegevens voor een resource lezen. |
 | Microsoft.Insights/Register/Action |Registreer de resourceprovider van Azure Monitor. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen logboekwaarschuwingen in Azure Monitor. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Lezen/schrijven/verwijderen logboekwaarschuwingen in Azure Monitor. |
 
 
 
@@ -187,4 +187,5 @@ Zie voor meer informatie, [Network security en Azure Storage](../../storage/comm
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over RBAC en machtigingen in Resource Manager](../../role-based-access-control/overview.md)
 * [Lees het overzicht van de bewaking in Azure](../../azure-monitor/overview.md)
+
 

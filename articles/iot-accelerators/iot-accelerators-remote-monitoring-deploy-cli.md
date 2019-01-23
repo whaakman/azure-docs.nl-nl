@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248007"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463215"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>De oplossingsversnellers bewaking op afstand met behulp van de CLI implementeren
 
@@ -49,7 +49,7 @@ Volg de aanwijzingen op het scherm instructies om het proces aanmelden te voltoo
 
 Wanneer u de oplossingsversneller implementeert, zijn er verschillende opties die het implementatieproces configureren:
 
-| Optie | Waarden | Beschrijving |
+| Optie | Waarden | Description |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | Een _basic_ implementatie bedoeld is voor testen en demonstraties, deze alle microservices op een enkele virtuele machine implementeert. Een _standard_ implementatie bedoeld is voor productie, deze implementeert de microservices naar meerdere virtuele machines. Een _lokale_ implementatie configureert u een Docker-container voor het uitvoeren van de microservices op uw lokale computer en maakt gebruik van Azure cloudservices, zoals opslag en Cosmos DB. |
 | Runtime | `dotnet`, `java` | Hiermee selecteert u de implementatie van de taal van de microservices. |
@@ -62,7 +62,7 @@ In deze sectie bevat een overzicht van de belangrijkste verschillen tussen een b
 
 ### <a name="basic"></a>Basic
 
-Eenvoudige implementatie is afgestemd op de oplossing die laat zien. Als u wilt verlagen, worden alle microservices worden geïmplementeerd in een enkele virtuele machine. Deze implementatie gebruik geen van een architectuur gereed is voor productie.
+De Basic-implementatie is bedoeld om de oplossing te demonstreren. Als u wilt verlagen, worden alle microservices worden geïmplementeerd in een enkele virtuele machine. Deze implementatie gebruik geen van een architectuur gereed is voor productie.
 
 Een eenvoudige implementatie wordt gemaakt van de volgende services in uw Azure-abonnement:
 

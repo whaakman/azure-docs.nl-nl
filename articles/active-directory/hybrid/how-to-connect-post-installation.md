@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: De volgende stappen en over het beheren van Azure AD Connect | Microsoft Docs'
+title: 'Azure AD Connect: Volgende stappen en over het beheren van Azure AD Connect | Microsoft Docs'
 description: Informatie over het uitbreiden van de standaardconfiguratie en operationele taken voor Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 878b483c1f644bcfe39824766ca5495f111d1864
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f9c9af94b15c78783f95fb92be548321a35b15a6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312184"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473211"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Volgende stappen en over het beheren van Azure AD Connect
 Gebruik de operationele procedures in dit artikel om aan te passen van Azure Active Directory (Azure AD) Connect om te voldoen aan de behoeften en vereisten van uw organisatie.  
@@ -66,7 +66,7 @@ De volgende tabel bevat een overzicht van deze taken en een korte beschrijving v
 
 ![Lijst met extra taken](./media/how-to-connect-post-installation/addtasks.png)
 
-| Extra taken | Beschrijving |
+| Extra taken | Description |
 | --- | --- |
 | **Het geselecteerde scenario weergeven** |Bekijk uw huidige Azure AD Connect-oplossing.  Dit omvat algemene instellingen, gesynchroniseerd mappen en synchronisatie-instellingen. |
 | **Synchronisatieopties aanpassen** |De huidige configuratie, zoals aanvullende Active Directory-forests toevoegen aan de configuratie of het inschakelen van synchronisatie-opties, zoals gebruikers, groepen, apparaat of terugschrijven van wachtwoord wijzigen. |

@@ -1,6 +1,6 @@
 ---
 title: Zoeken en verwijderen van niet-gekoppelde Azure beheerde en onbeheerde schijven | Microsoft Docs
-description: Het vinden en niet-gekoppelde Azure beheerde en onbeheerde (VHD's / pagina-blobs)-schijven verwijderen met behulp van Azure CLI.
+description: Over het zoeken en niet-gekoppelde Azure beheerde en onbeheerde (VHD's / pagina-blobs) schijven verwijderen met behulp van Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ramankumarlive
@@ -15,25 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.openlocfilehash: 1718b35aa68937cad4b3ae7e677e300506820bd0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: disks
+ms.openlocfilehash: 58a54b7e867b625adf76d6287d5067c326c80f17
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323250"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462790"
 ---
-# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Zoeken en verwijderen van niet-gekoppelde Azure beheerde en onbeheerde-schijven
-Wanneer u een virtuele machine (VM) in Azure, standaard verwijdert worden niet alle schijven die zijn gekoppeld aan de virtuele machine verwijderd. Deze functie helpt voorkomen dat gegevens verloren gaan als gevolg van het onbedoeld verwijderen van virtuele machines. Nadat een virtuele machine wordt verwijderd, blijft u betaalt voor niet-gekoppelde schijven. In dit artikel laat zien hoe vinden en verwijderen van eventuele niet-gekoppelde schijven en onnodige kosten te verlagen. 
+# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Zoeken en verwijderen van niet-gekoppelde Azure beheerde en onbeheerde schijven
+Wanneer u een virtuele machine (VM) in Azure, standaard verwijdert worden niet alle schijven die zijn gekoppeld aan de virtuele machine verwijderd. Deze functie helpt voorkomen dat gegevens verloren gaan vanwege het onbedoeld verwijderen van virtuele machines. Nadat een virtuele machine is verwijderd, blijft u betalen voor niet-gekoppelde schijven. Dit artikel leest u hoe om te zoeken en verwijderen van een niet-gekoppelde schijven en onnodige kosten reduceren. 
 
 
-## <a name="managed-disks-find-and-delete-unattached-disks"></a>Schijven die worden beheerd: zoeken en verwijderen van niet-gekoppelde schijven 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Beheerde schijven: Zoeken en niet-gekoppelde schijven verwijderen 
 
-Zoekt naar het volgende script ontkoppeld [schijven die worden beheerd](managed-disks-overview.md) aan de hand van de waarde van de **door** eigenschap. Wanneer u een beheerde schijf is gekoppeld aan een VM de **door** eigenschap bevat de bron-ID van de virtuele machine. Wanneer u een beheerde schijf is ontkoppeld, de **door** eigenschap is null. Het script onderzoekt de beheerde schijven in een Azure-abonnement. Wanneer het script wordt gezocht naar een beheerde schijf met de **door** eigenschap is ingesteld op null, het script wordt bepaald of de schijf ontkoppeld is.
+Het volgende script zoekt naar niet-gekoppelde [beheerde schijven](managed-disks-overview.md) door te controleren van de waarde van de **ManagedBy** eigenschap. Wanneer een beheerde schijf is gekoppeld aan een virtuele machine, de **ManagedBy** eigenschap bevat de resource-ID van de virtuele machine. Wanneer een beheerde schijf niet-gekoppeld, is de **ManagedBy** eigenschap null is. Het script onderzoekt alle beheerde schijven in een Azure-abonnement. Wanneer het script zoekt naar een beheerde schijf met de **ManagedBy** eigenschap is ingesteld op null, het script wordt bepaald dat de schijf niet-gekoppeld is.
 
 >[!IMPORTANT]
->Voer eerst het script door in te stellen de **deleteUnattachedDisks** variabele op 0. Deze actie kunt u zoeken en weergeven van alle niet-gekoppelde beheerde schijven.
+>Voer het script eerst uit door in te stellen de **deleteUnattachedDisks** in op 0. Deze actie kunt u vinden en weergeven van alle niet-gekoppelde beheerde schijven.
 >
->Nadat u alle niet-gekoppelde schijven, voert u het script opnieuw en stelt de **deleteUnattachedDisks** variabele op 1. Deze actie kunt u alle niet-gekoppelde beheerde schijven verwijderen.
+>Nadat u alle niet-gekoppelde schijven bekijkt, voer het script opnieuw uit en stel de **deleteUnattachedDisks** in op 1. Deze actie kunt u alle niet-gekoppelde beheerde schijven verwijderen.
 >
 
 ```azurecli
@@ -58,14 +59,14 @@ do
 done
 ```
 
-## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Schijven zonder begeleiding: zoeken en verwijderen van niet-gekoppelde schijven 
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Niet-beheerde schijven: Zoeken en niet-gekoppelde schijven verwijderen 
 
-Niet-beheerde schijven zijn VHD-bestanden die worden opgeslagen als [pagina-blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [Azure storage-accounts](../../storage/common/storage-create-storage-account.md). Het volgende script wordt gezocht naar niet-gekoppelde niet-beheerde schijven (pagina-blobs) aan de hand van de waarde van de **LeaseStatus** eigenschap. Wanneer een niet-beheerde schijf is gekoppeld aan een VM de **LeaseStatus** eigenschap is ingesteld op **vergrendeld**. Wanneer een niet-beheerde schijf ontkoppeld is, de **LeaseStatus** eigenschap is ingesteld op **ontgrendeld**. Het script onderzoekt de niet-beheerde schijven in de Azure storage-accounts in een Azure-abonnement. Wanneer het script wordt gezocht naar een niet-beheerde schijf met een **LeaseStatus** eigenschap ingesteld op **ontgrendeld**, het script bepaald of de schijf ontkoppeld is.
+Niet-beheerde schijven worden VHD-bestanden die zijn opgeslagen als [pagina-blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [Azure storage-accounts](../../storage/common/storage-create-storage-account.md). Het volgende script zoekt naar niet-gekoppelde niet-beheerde schijven (pagina-blobs) door te controleren van de waarde van de **LeaseStatus** eigenschap. Wanneer een niet-beheerde schijf is gekoppeld aan een virtuele machine, de **LeaseStatus** eigenschap is ingesteld op **vergrendeld**. Wanneer een niet-beheerde schijf niet-gekoppeld, is de **LeaseStatus** eigenschap is ingesteld op **ontgrendeld**. Het script onderzoekt alle niet-beheerde schijven in de Azure storage-accounts in een Azure-abonnement. Wanneer het script zoekt naar een niet-beheerde schijf met een **LeaseStatus** eigenschap ingesteld op **ontgrendeld**, het script wordt bepaald dat de schijf niet-gekoppeld is.
 
 >[!IMPORTANT]
->Voer eerst het script door in te stellen de **deleteUnattachedVHDs** variabele op 0. Deze actie kunt u zoeken en weergeven van alle niet-gekoppelde onbeheerde VHD's.
+>Voer het script eerst uit door in te stellen de **deleteUnattachedVHDs** in op 0. Deze actie kunt u vinden en weergeven van alle niet-gekoppelde niet-beheerde VHD's.
 >
->Nadat u alle niet-gekoppelde schijven, voert u het script opnieuw en stelt de **deleteUnattachedVHDs** variabele op 1. Deze actie kunt u alle niet-gekoppelde onbeheerde VHD's te verwijderen.
+>Nadat u alle niet-gekoppelde schijven bekijkt, voer het script opnieuw uit en stel de **deleteUnattachedVHDs** in op 1. Deze actie kunt u alle niet-gekoppelde niet-beheerde VHD's te verwijderen.
 >
 
 ```azurecli
@@ -113,7 +114,7 @@ done
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Storage-account verwijderen](../../storage/common/storage-create-storage-account.md)
+[Opslagaccount verwijderen](../../storage/common/storage-create-storage-account.md)
 
 
 

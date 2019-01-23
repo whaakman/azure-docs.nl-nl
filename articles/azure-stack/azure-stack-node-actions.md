@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388837"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469199"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure Stack
 
@@ -148,9 +148,25 @@ Wanneer u de herstelactie uitvoert, moet u het BMC IP-adres opgeven.
 
 Als u wilt de herstelactie uitvoeren, open een verhoogde PowerShell-prompt en voer de volgende cmdlet uit:
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Afsluiten
+
+De **afsluiten** actie eerste verplaatst alle actieve werkbelastingen naar de resterende knooppunten in de dezelfde schaaleenheid. Vervolgens de actie zonder problemen wordt afgesloten het scale unit-knooppunt.
+
+Nadat u een knooppunt dat afgesloten is begint, moet u uitvoeren de [hervatten](#resume) actie. Eerdere workloads die op het knooppunt werden uitgevoerd mislukken niet terug.
+
+Als het afsluiten is mislukt, probeert de [leegmaken](#drain) bewerking gevolgd door het afsluiten is.
+
+De afsluitactie wilt uitvoeren, open een verhoogde PowerShell-prompt en voer de volgende cmdlet uit:
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

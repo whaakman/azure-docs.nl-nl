@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 960dc8f2908a20620a84113b27e474b553cd45d4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346094"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466907"
 ---
 # <a name="smart-groups"></a>Slimme groepen
 Een algemene vraag met het afhandelen van waarschuwingen is het doorspitten van de ruis om erachter te komen wat werkelijk belangrijk is: slimme groepen zijn bedoeld om te worden van de oplossing voor dit probleem.  
@@ -62,4 +62,5 @@ De naam van een slimme groep is de naam van de eerste waarschuwing. U kunt maken
 
 - [Slimme groepen beheren](https://aka.ms/managing-smart-groups)
 - [De groepsstatus van uw waarschuwingen en slimme wijzigen](https://aka.ms/managing-alert-smart-group-states)
+
 

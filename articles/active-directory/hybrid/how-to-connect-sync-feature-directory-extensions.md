@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synchronisatie: mapextensies | Microsoft Docs'
+title: 'Azure AD Connect-synchronisatie: Mapextensies | Microsoft Docs'
 description: Dit onderwerp beschrijft de functie voor directory-extensies in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288302"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476900"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synchronisatie: Directory-extensies
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synchronisatie: Uitbreidingen van de directory
 Directory-extensies kunt u het schema in Azure Active Directory (Azure AD) uit te breiden met uw eigen kenmerken van on-premises Active Directory. Deze functie kunt u LOB-apps kunt maken met kenmerken die u doorgaan met het on-premises beheren verbruikt. Deze kenmerken kunnen worden gebruikt via [directory-Azure AD Graph API-uitbreidingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) of [Microsoft Graph](https://developer.microsoft.com/graph/). U kunt de beschikbare kenmerken zien met behulp van [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) en [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), respectievelijk.
 
 Deze kenmerken worden op dit moment geen Office 365-werkbelasting verbruikt.
@@ -37,8 +37,8 @@ U configureren welke aanvullende kenmerken die u wilt synchroniseren in het pad 
 De installatie ziet u de volgende kenmerken die geldige kandidaten zijn:
 
 * Gebruikers en groepen objecttypen
-* Kenmerken met één waarde: String, Booleaanse waarde, geheel getal, binaire bestanden
-* Kenmerken met meerdere waarden: String, binaire bestanden
+* Kenmerken met één waarde: String, Boolean, Integer, Binary
+* Meerdere waarden kenmerken: String, Binary
 
 
 >[!NOTE]
@@ -63,7 +63,7 @@ Of u kunt de kenmerken via de Microsoft Graph API opvragen met behulp van [Micro
 >[!NOTE]
 > U moet vragen om de kenmerken die moeten worden geretourneerd. Selecteer expliciet de kenmerken die u als volgt: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
-> Zie voor meer informatie, [Microsoft Graph: gebruik queryparameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Zie voor meer informatie, [Microsoft Graph: Gebruik queryparameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over de [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md) configuratie.

@@ -4,7 +4,7 @@ description: Bevat informatie over de beveiligingsoverwegingen voor het gebruik 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 23ea1806c1670b73883384a0e4981f362bad90f0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618356"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472719"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Beveiligingsoverwegingen voor het openen van apps op afstand met Azure AD-toepassingsproxy
 
@@ -48,7 +48,7 @@ Besturingselementen voor uitgebreidere beleid van toepassing voordat verbindinge
 
 Met [voorwaardelijke toegang](../conditional-access/overview.md), kunt u beperkingen op welk verkeer is toegestaan voor toegang tot uw back-end-toepassingen. U kunt beleidsregels maken die aanmeldingen op basis van locatie, sterkte van verificatie- en gebruikersprofiel van het risico te beperken.
 
-U kunt ook gebruik van voorwaardelijke toegang configureren van multi-factor Authentication-beleid, nog een beveiligingslaag toe te voegen aan uw gebruikersverificaties. 
+U kunt ook gebruik van voorwaardelijke toegang configureren van multi-factor Authentication-beleid, nog een beveiligingslaag toe te voegen aan uw gebruikersverificaties. Bovendien uw toepassingen kunnen ook worden doorgestuurd naar Microsoft Cloud App Security via de Azure AD voor voorwaardelijke toegang om realtime-controle en besturingselementen, via [toegang](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) en [sessie](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) beleid
 
 ### <a name="traffic-termination"></a>Beëindiging van verkeer
 
@@ -92,8 +92,8 @@ Microsoft controleert verkeerspatronen voor afzonderlijke toepassingen en voor u
 
 Azure AD-toepassingsproxy bestaat uit twee onderdelen:
 
-* De cloud gebaseerde service: deze service wordt uitgevoerd in Azure, en is waar de verbindingen van de externe client/gebruiker zijn gemaakt.
-* [De on-premises connector](application-proxy-connectors.md): een on-premises-onderdeel, de connector luistert naar aanvragen van de Azure AD Application Proxy-service en verwerkt de verbindingen naar de interne toepassingen. 
+* De cloud gebaseerde service: Deze service wordt uitgevoerd in Azure, en is waar de verbindingen van de externe client/gebruiker zijn gemaakt.
+* [De on-premises connector](application-proxy-connectors.md): Een on-premises-onderdeel, de connector luistert naar aanvragen van de Azure AD Application Proxy-service en verwerkt de verbindingen naar de interne toepassingen. 
 
 Een stroom tussen de connector en de Application Proxy-service tot stand is gebracht wanneer:
 
@@ -110,8 +110,8 @@ De connector gebruikt een certificaat voor verificatie bij de service voor toepa
 
 Als de connector eerst is ingesteld, worden de volgende stroom gebeurtenissen plaatsvinden:
 
-1. De registratie van de connector met de service wordt uitgevoerd als onderdeel van de installatie van de connector. Gebruikers zijn gevraagd hun Azure AD-beheerder-referenties in te voeren. Het token dat is verkregen via deze verificatie wordt vervolgens weergegeven met de Azure AD Application Proxy-service.
-2. De Application Proxy-service beoordeelt wat het token. Er wordt gecontroleerd of de gebruiker een bedrijfsbeheerder in de tenant is. Als de gebruiker niet een beheerder is, wordt het proces beëindigd.
+1. De registratie van de connector met de service wordt uitgevoerd als onderdeel van de installatie van de connector. Gebruikers zijn gevraagd hun Azure AD-beheerder-referenties in te voeren. Het token dat is verkregen via deze verificatie wordt vervolgens weergegeven met de Azure AD Application Proxy-service.
+2. De Application Proxy-service beoordeelt wat het token. Er wordt gecontroleerd of de gebruiker een bedrijfsbeheerder in de tenant is. Als de gebruiker niet een beheerder is, wordt het proces beëindigd.
 3. De connector een certificaataanvraag client genereert en geeft deze, samen met het token, naar de Application Proxy-service. De service wordt op zijn beurt controleert of het token en de aanvraag van de client-certificaat ondertekent.
 4. De connector maakt gebruik van het clientcertificaat voor toekomstige communicatie met de Application Proxy-service.
 5. De connector voert een initiële pull van het systeem-configuratiegegevens van de service met behulp van het clientcertificaat en het is nu klaar zijn voor aanvragen.
@@ -176,7 +176,7 @@ Nadat de aanvraag en de overdracht van alle inhoud naar de back-end is voltooid,
 
 Zodra er een antwoord is ontvangen, kunt u de connector een uitgaande verbinding met de Application Proxy-service om te retourneren van de details van de koptekst en beginnen met streamen, de geretourneerde gegevens.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. De service streams gegevens naar de gebruiker. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. De service streams gegevens naar de gebruiker. 
 
 Sommige verwerking van de toepassing kan hier optreden. Als u Application Proxy voor de omzetting van headers of URL's geconfigureerd in uw toepassing, gebeurt dat verwerking zo nodig tijdens deze stap.
 

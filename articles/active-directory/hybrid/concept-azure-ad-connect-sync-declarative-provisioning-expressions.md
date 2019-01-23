@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Declaratieve Inrichtingsexpressies | Microsoft Docs'
+title: 'Azure AD Connect: Declaratieve inrichting expressies | Microsoft Docs'
 description: De declaratieve inrichtingsexpressies uitgelegd.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312065"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460490"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synchronisatie: inzicht in declaratieve inrichting expressies
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synchronisatie: Inzicht in verklarende inrichtingsexpressies
 Azure AD Connect-synchronisatie is gebaseerd op het declaratieve inrichting is geïntroduceerd in Forefront Identity Manager 2010. Hiermee kunt u voor het implementeren van uw volledige identity integration bedrijfslogica zonder de noodzaak gecompileerde code te schrijven.
 
 Een essentieel onderdeel van de declaratieve inrichting wordt de expressietaal die wordt gebruikt in kenmerkstromen. De gebruikte taal is een subset van Microsoft Visual Basic® for Applications (VBA). Deze taal wordt gebruikt in Microsoft Office en ook door gebruikers met de ervaring van VBScript worden herkend. De declaratieve inrichting expressietaal wordt alleen gebruikt voor functies en is niet een gestructureerde taal. Er zijn geen methoden of instructies. Functies zijn in plaats daarvan naar snelle programmastroom genest.
@@ -32,12 +32,12 @@ Zie voor meer informatie, [Welkom bij de Visual Basic for Applications taalverwi
 De kenmerken zijn sterk getypeerd. Een functie accepteert alleen de kenmerken van het juiste type. Het is ook hoofdlettergevoelig. Zowel de functienamen van de en kenmerk moet juiste hoofdlettergebruik of een fout gegenereerd.
 
 ## <a name="language-definitions-and-identifiers"></a>Definities van de taal en id 's
-* Functies hebben een naam, gevolgd door argumenten tussen vierkante haken: functienaam (1 argument, argument N).
+* Functies hebben een naam, gevolgd door argumenten tussen vierkante haken: Functienaam (1 argument, argument N).
 * Kenmerken worden geïdentificeerd door de vierkante haken: [attributeName]
 * Parameters worden aangeduid met procenttekens: % ParameterName %
-* Tekenreeksconstanten worden omringd door aanhalingstekens: bijvoorbeeld 'Contoso' (Opmerking: rechte aanhalingstekens "' en niet slimme aanhalingstekens" ")
+* Tekenreeksconstanten worden omringd door aanhalingstekens: Bijvoorbeeld 'Contoso' (Opmerking: rechte aanhalingstekens "' en niet slimme aanhalingstekens" ")
 * Numerieke waarden worden uitgedrukt zonder aanhalingstekens en verwacht decimaal. Hexadecimale waarden worden voorafgegaan door & h Bijvoorbeeld, 98052 & HFF
-* Booleaanse waarden worden uitgedrukt met constanten: True, False.
+* Booleaanse waarden worden uitgedrukt met constanten: Waar, ONWAAR.
 * Ingebouwde constanten en letterlijke waarden worden uitgedrukt met alleen de naam: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Functions
@@ -70,7 +70,7 @@ Hier volgt een voorbeeld waarin vult het domein van de metaverse-kenmerk met de 
 ### <a name="operators"></a>Operators
 De volgende operators kunnen worden gebruikt:
 
-* **Vergelijking**: <, < =, <>, =, >, > =
+* **Comparison**: <, <=, <>, =, >, >=
 * **Wiskunde**: +, -, \*, -
 * **Tekenreeks**: & (samenvoegen)
 * **Logische**: & & (en) || (of)
@@ -93,10 +93,10 @@ Bijvoorbeeld:
 
 **Overzichtsonderwerpen**
 
-* [Azure AD Connect-synchronisatie: inzicht in en synchronisatie aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synchronisatie: Begrijpen en aanpassen van synchronisatie](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 
 **Onderwerpen met naslaginformatie**
 
-* [Azure AD Connect-synchronisatie: functieverwijzing](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect-synchronisatie: Functieverwijzing](reference-connect-sync-functions-reference.md)
 
