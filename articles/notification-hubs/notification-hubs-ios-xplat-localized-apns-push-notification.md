@@ -3,8 +3,8 @@ title: Gelokaliseerde pushmeldingen naar iOS-apparaten met Azure Notification Hu
 description: Informatie over het gebruik van gelokaliseerde pushmeldingen naar iOS-apparaten met behulp van Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: d19fc4290f32359d3af66d96512f65abb17f5d34
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 56662a40df6abeb672992a2da4c04692e7280021
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918620"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451694"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Zelfstudie: Gelokaliseerde Pushmeldingen verzenden naar iOS-apparaten met Azure Notification Hubs 
+# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Zelfstudie: Gelokaliseerde pushmeldingen naar iOS-apparaten met Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -63,7 +63,7 @@ Vervolgens zorgt u ervoor dat apparaten registreren met een sjabloon die naar de
 
 ```json
 {
-    aps:{
+    aps: {
         alert: "$(News_French)"
     }
 }
@@ -71,16 +71,16 @@ Vervolgens zorgt u ervoor dat apparaten registreren met een sjabloon die naar de
 
 Zie voor meer informatie over sjablonen [sjablonen](notification-hubs-templates-cross-platform-push-messages.md) artikel.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
-- Voltooi de [Pushmeldingen verzenden naar specifieke iOS-apparaten](notification-hubs-ios-xplat-segmented-apns-push-notification.md) zelfstudie en hebben de code die beschikbaar is, omdat deze zelfstudie is gebaseerd rechtstreeks op die code.
-- Visual Studio 2017 is optioneel.
+* Voltooi de [Pushmeldingen verzenden naar specifieke iOS-apparaten](notification-hubs-ios-xplat-segmented-apns-push-notification.md) zelfstudie en hebben de code die beschikbaar is, omdat deze zelfstudie is gebaseerd rechtstreeks op die code.
+* Visual Studio 2017 is optioneel.
 
 ## <a name="update-the-app-user-interface"></a>De gebruikersinterface van de app bijwerken
 
 In deze sectie maakt u het belangrijke nieuws-app die u hebt gemaakt in het onderwerp wijzigen [Notification Hubs gebruiken om belangrijk nieuws te verzenden] gelokaliseerd met behulp van sjablonen het laatste nieuws te verzenden.
 
-In uw **MainStoryboard_iPhone.storyboard**, Voeg een gesegmenteerde besturingselement met de drie talen: Engels, Frans en Mandarijn.
+In uw `MainStoryboard_iPhone.storyboard`, Voeg een gesegmenteerde besturingselement met de drie talen: Engels, Frans en Mandarijn.
 
 ![Het maken van het iOS-UI-storyboard][13]
 
@@ -90,7 +90,7 @@ Controleer of een IBOutlet in uw ViewController.h toevoegen, zoals wordt weergeg
 
 ## <a name="build-the-ios-app"></a>De iOS-app bouwen
 
-1. Voeg in uw Notification.h de *retrieveLocale* methode, en wijzig de store en abonneren methoden, zoals wordt weergegeven in de volgende code:
+1. In uw `Notification.h` toevoegen de `retrieveLocale` methode, en wijzig de store en abonneren methoden, zoals wordt weergegeven in de volgende code:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -101,7 +101,7 @@ Controleer of een IBOutlet in uw ViewController.h toevoegen, zoals wordt weergeg
 
     - (int) retrieveLocale;
     ```
-    Wijzig in uw Notification.m de *storeCategoriesAndSubscribe* methode door de landinstellings-parameter toe te voegen en deze opslaat in de standaardinstellingen voor gebruiker:
+    In uw `Notification.m`, wijzigen de `storeCategoriesAndSubscribe` methode door toe te voegen de `locale` parameter en op te slaan in de standaardinstellingen voor gebruiker:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -139,7 +139,7 @@ Controleer of een IBOutlet in uw ViewController.h toevoegen, zoals wordt weergeg
     }
     ```
 
-    Gebruik van de methode *registerTemplateWithDeviceToken*, in plaats van *registerNativeWithDeviceToken*. Wanneer u zich voor een sjabloon registreren, hebt u de json-sjabloon en ook een naam op voor de sjabloon opgeven (zoals de app verschillende sjablonen registreren wilt mogelijk). Zorg ervoor dat u het registreren van uw categorieën als labels, als u wilt om ervoor te zorgen voor het ontvangen van de notifciations voor deze nieuws.
+    Gebruik van de methode `registerTemplateWithDeviceToken`, in plaats van `registerNativeWithDeviceToken`. Wanneer u zich voor een sjabloon registreren, hebt u de json-sjabloon en ook een naam op voor de sjabloon opgeven (zoals de app verschillende sjablonen registreren wilt mogelijk). Zorg ervoor dat u het registreren van uw categorieën als labels, als u wilt ervoor zorgen dat de meldingen voor deze nieuws.
 
     Voeg de methode om op te halen van de landinstellingen van de standaardinstellingen voor gebruiker:
 
@@ -153,13 +153,13 @@ Controleer of een IBOutlet in uw ViewController.h toevoegen, zoals wordt weergeg
     }
     ```
 
-2. Nu dat u de klasse meldingen hebt gewijzigd, wordt u om ervoor te zorgen dat de ViewController maakt gebruik van de nieuwe UISegmentControl hebt. Voeg de volgende regel in de *viewDidLoad* methode om ervoor te zorgen om weer te geven van de landinstelling die momenteel is geselecteerd:
+2. Nu dat u hebt gewijzigd de `Notifications` klasse, die u hebt om ervoor te zorgen dat de `ViewController` maakt gebruik van de nieuwe `UISegmentControl`. Voeg de volgende regel in de `viewDidLoad` methode om ervoor te zorgen om weer te geven van de landinstelling die momenteel is geselecteerd:
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    Klik op uw *abonneren* methode wijzigen van de aanroep van de *storeCategoriesAndSubscribe* naar de volgende code:
+    Klik op uw `subscribe` methode wijzigen van de aanroep van de `storeCategoriesAndSubscribe` naar de volgende code:
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -174,7 +174,7 @@ Controleer of een IBOutlet in uw ViewController.h toevoegen, zoals wordt weergeg
     }];
     ```
 
-3. Tot slot moet u bijwerken de *didRegisterForRemoteNotificationsWithDeviceToken* methode in uw AppDelegate.m, zodat u uw registratie correct vernieuwen kunt wanneer uw app wordt gestart. Wijzigen van de aanroep van de *abonneren* methode van meldingen door de volgende code:
+3. Tot slot moet u bijwerken de `didRegisterForRemoteNotificationsWithDeviceToken` methode in uw AppDelegate.m, zodat u uw registratie correct vernieuwen kunt wanneer uw app wordt gestart. Wijzigen van de aanroep van de `subscribe` methode van meldingen door de volgende code:
 
     ```obj-c
     NSSet* categories = [self.notifications retrieveCategories];
@@ -261,20 +261,14 @@ Als u geen toegang tot Visual Studio hebt, of alleen wilt testen van de voor gel
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie, kunt u gelokaliseerde meldingen verzonden naar iOS-apparaten. Als u wilt weten hoe u pushmeldingen verzenden naar specifieke gebruikers van iOS-apps, Ga naar de volgende zelfstudie: 
+In deze zelfstudie, kunt u gelokaliseerde meldingen verzonden naar iOS-apparaten. Als u wilt weten hoe u pushmeldingen verzenden naar specifieke gebruikers van iOS-apps, Ga naar de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
 >[Pushmeldingen verzenden naar specifieke gebruikers](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 
 <!-- Images. -->
-
 [13]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
 [14]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
@@ -292,7 +286,6 @@ In deze zelfstudie, kunt u gelokaliseerde meldingen verzonden naar iOS-apparaten
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
-
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
