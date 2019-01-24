@@ -125,7 +125,7 @@ Functies bieden een handige manier voor de offload van verwerkingstaken in een w
     ```
     Deze functiecode retourneert een kleurcategorie op basis van de gevoelsscore die in de aanvraag is ontvangen. 
 
-4. Klik op **Testen** aan de rechterkant om het tabblad Testen uit te breiden en de functie te testen. Voer een waarde in van `0.2` voor de **Aanvraagtekst** en klik vervolgens op **Uitvoeren**. Er wordt een **RED** waarde geretourneerd in de hoofdtekst van het antwoord. 
+4. Klik op **Testen** aan de rechterkant om het tabblad Testen uit te breiden en de functie te testen. Voer een waarde in van `0.2` voor de **Aanvraagtekst** en klik vervolgens op **Uitvoeren**. De waarde **RED** wordt geretourneerd in de hoofdtekst van het antwoord. 
 
     ![Test de functie in de Azure Portal](./media/functions-twitter-email/07-function-test.png)
 
