@@ -3,19 +3,19 @@ title: TechnicalProfiles | Microsoft Docs
 description: Geef het TechnicalProfiles-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c17159e1fa901e8219d1727769d234719c4321c6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566530"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856550"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -74,17 +74,17 @@ Een **TechnicalProfiles** element bevat een set technische profielen die worden 
 
 De **TechnicalProfile** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 |---------|---------|---------|
 | Id | Ja | Een unieke id van het technische profiel. Het technische profiel kan worden verwezen met behulp van deze id van andere elementen in het beleid-bestand. Bijvoorbeeld, **OrchestrationSteps** en **ValidationTechnicalProfile**. |
 
 De **TechnicalProfile** bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | De domeinnaam voor het technische profiel. Bijvoorbeeld, als uw technisch profiel Hiermee geeft u de Facebook-id-provider, is de domeinnaam Facebook.com. |
-| Weergavenaam | 0:1 | De naam van het technische profiel die kan worden weergegeven aan gebruikers. |
-| Beschrijving | 0:1 | De beschrijving van het technische profiel die kan worden weergegeven aan gebruikers. |
+| DisplayName | 0:1 | De naam van het technische profiel die kan worden weergegeven aan gebruikers. |
+| Description | 0:1 | De beschrijving van het technische profiel die kan worden weergegeven aan gebruikers. |
 | Protocol | 0:1 | Het protocol dat wordt gebruikt voor de communicatie met de andere partij. |
 | Metagegevens | 0:1 | Een verzameling van sleutel/waarde-paren die worden gebruikt door het protocol voor communicatie met het eindpunt in de loop van een transactie. |
 | InputTokenFormat | 0:1 | De indeling van de invoer-token. Mogelijke waarden: `JSON`, `JWT`, `SAML11`, of `SAML2`. De `JWT` waarde vertegenwoordigt een JSON Web Token aan de hand van IETF-specificatie. De `SAML11` waarde vertegenwoordigt een beveiligingstoken SAML 1.1 aan de hand van OASIS-specificatie.  De `SAML2` waarde vertegenwoordigt een SAML 2.0-security-token aan de hand van OASIS-specificatie. |
@@ -106,16 +106,16 @@ De **TechnicalProfile** bevat de volgende elementen:
 
 De **Protocol** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
-| Naam | Ja | De naam van een geldig protocol dat wordt ondersteund door Azure AD B2C die wordt gebruikt als onderdeel van het technische profiel. Mogelijke waarden: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted`, of `None`. |
+| Name | Ja | De naam van een geldig protocol dat wordt ondersteund door Azure AD B2C die wordt gebruikt als onderdeel van het technische profiel. Mogelijke waarden: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted`, of `None`. |
 | Handler | Nee | Als de protocolnaam van het is ingesteld op `Proprietary`, geef de volledig gekwalificeerde naam van de assembly die door Azure AD B2C wordt gebruikt om te bepalen van de protocolhandler. |
 
 ### <a name="metadata"></a>Metagegevens
 
 Een **metagegevens** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Item | 0: n | De metagegevens die is gekoppeld aan het technische profiel. Elk type van het technische profiel heeft een andere set metagegevensitems. Zie het gedeelte van een technisch profiel typen, voor meer informatie. |
 
@@ -123,7 +123,7 @@ Een **metagegevens** element bevat de volgende elementen:
 
 De **Item** element van de **metagegevens** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Sleutel | Ja | De van de metagegevenssleutel. Zie voor de lijst met metagegevensitems van elk type technisch profiel. |
 
@@ -131,7 +131,7 @@ De **Item** element van de **metagegevens** element bevat de volgende kenmerken:
 
 De **CryptographicKeys** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Sleutel | 1: n | Een cryptografische sleutel die wordt gebruikt in dit technisch profiel. |
 
@@ -139,7 +139,7 @@ De **CryptographicKeys** element bevat het volgende element:
 
 De **sleutel** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Nee | Een unieke id van een bepaalde sleutelpaar waarnaar wordt verwezen vanuit andere elementen in het beleid-bestand. |
 | StorageReferenceId | Ja | Een id van een storage-container sleutel waarnaar wordt verwezen vanuit andere elementen in het beleid-bestand. |
@@ -148,7 +148,7 @@ De **sleutel** element bevat het volgende kenmerk:
 
 De **InputClaimsTransformations** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1: n | De id van een claimtransformatie die moet worden uitgevoerd voordat er claims worden verzonden naar de claimprovider of de relying party. Een claimtransformatie kan worden gebruikt om claims van bestaande ClaimsSchema wijzigen of nieuwe labels te genereren. |
 
@@ -156,7 +156,7 @@ De **InputClaimsTransformations** element bevat het volgende element:
 
 De **InputClaimsTransformation** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van een claimtransformatie is al gedefinieerd in het beleid of bovenliggende beleid-bestand. |
 
@@ -164,15 +164,15 @@ De **InputClaimsTransformation** element bevat het volgende kenmerk:
 
 De **InputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| inputClaim | 1: n | Een verwachte invoer claimtype. |
+| InputClaim | 1: n | Een verwachte invoer claimtype. |
 
-#### <a name="inputclaim"></a>inputClaim 
+#### <a name="inputclaim"></a>InputClaim 
 
 De **InputClaim** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | De id van een claimtype al gedefinieerd in de sectie ClaimsSchema in het beleid of bovenliggende beleid-bestand. |
 | Standaardwaarde | Nee | Een standaardwaarde te gebruiken voor het maken van een claim als de claim door ClaimTypeReferenceId aangegeven bestaat niet, zodat de resulterende claim kan worden gebruikt als een InputClaim door het technische profiel. |
@@ -182,7 +182,7 @@ De **InputClaim** element bevat de volgende kenmerken:
 
 De **PersistedClaims** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1: n | Het claimtype om vast te leggen. |
 
@@ -190,7 +190,7 @@ De **PersistedClaims** element bevat de volgende elementen:
 
 De **PersistedClaim** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | De id van een claimtype al gedefinieerd in de sectie ClaimsSchema in het beleid of bovenliggende beleid-bestand. |
 | Standaardwaarde | Nee | Een standaardwaarde te gebruiken voor het maken van een claim als de claim door ClaimTypeReferenceId aangegeven bestaat niet, zodat de resulterende claim kan worden gebruikt als een InputClaim door het technische profiel. |
@@ -200,15 +200,15 @@ De **PersistedClaim** element bevat de volgende kenmerken:
 
 De **OutputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| outputClaim | 1: n | Verwachte uitvoer claimtype. |
+| OutputClaim | 1: n | Verwachte uitvoer claimtype. |
 
-#### <a name="outputclaim"></a>outputClaim 
+#### <a name="outputclaim"></a>OutputClaim 
 
 De **OutputClaim** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | De id van een claimtype al gedefinieerd in de sectie ClaimsSchema in het beleid of bovenliggende beleid-bestand. |
 | Standaardwaarde | Nee | Een standaardwaarde te gebruiken voor het maken van een claim als de claim door ClaimTypeReferenceId aangegeven bestaat niet, zodat de resulterende claim kan worden gebruikt als een InputClaim door het technische profiel. |
@@ -219,7 +219,7 @@ De **OutputClaim** element bevat de volgende kenmerken:
 
 De **OutputClaimsTransformations** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1: n | De id's van claimtransformaties die moeten worden uitgevoerd voordat er claims worden verzonden naar de claimprovider of de relying party. Een claimtransformatie kan worden gebruikt om claims van bestaande ClaimsSchema wijzigen of nieuwe labels te genereren. |
 
@@ -227,7 +227,7 @@ De **OutputClaimsTransformations** element bevat het volgende element:
 
 De **OutputClaimsTransformation** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van een claimtransformatie is al gedefinieerd in het beleid of bovenliggende beleid-bestand. |
 
@@ -235,7 +235,7 @@ De **OutputClaimsTransformation** element bevat het volgende kenmerk:
 
 De **ValidationTechnicalProfiles** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1: n | De id's van technische profielen die worden gebruikt valideren sommige of alle van de uitvoerclaims van de verwijzende technisch profiel. Alle van de invoer claims van de waarnaar wordt verwezen, technisch profiel moet worden weergegeven in de uitvoerclaims van de verwijzende technisch profiel. |
 
@@ -243,7 +243,7 @@ De **ValidationTechnicalProfiles** element bevat het volgende element:
 
 De **ValidationTechnicalProfile** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van een technisch profiel al gedefinieerd in het beleid of bovenliggende beleid-bestand. |
 
@@ -251,7 +251,7 @@ De **ValidationTechnicalProfile** element bevat het volgende kenmerk:
 
 De **SubjectNamingInfo** bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ClaimType | Ja | Een id van een claimtype al gedefinieerd in de sectie ClaimsSchema in het beleid-bestand. |
 
@@ -259,7 +259,7 @@ De **SubjectNamingInfo** bevat het volgende kenmerk:
 
 De **IncludeTechnicalProfile** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van een technisch profiel al gedefinieerd in het beleid of bovenliggende beleid-bestand. |
 
@@ -267,7 +267,7 @@ De **IncludeTechnicalProfile** element bevat het volgende kenmerk:
 
 De **UseTechnicalProfileForSessionManagement** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van een technisch profiel al gedefinieerd in het beleid of bovenliggende beleid-bestand. |
 

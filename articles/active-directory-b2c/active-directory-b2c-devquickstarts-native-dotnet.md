@@ -3,19 +3,19 @@ title: Verificatie, aanmelden, profiel in Azure Active Directory B2C bewerken | 
 description: Over het bouwen van een Windows-bureaubladtoepassing met aanmelding, registratie, en Profielbeheer met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fc32cf40266bdad1aa5365b30a27210ad735f299
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 96cdbca1b0a5a75c24b9d0e75eaf1fc861bf764a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354379"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843120"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Een Windows-desktop-app bouwen
 Met behulp van Azure Active Directory (Azure AD) B2C, kunt u functies voor krachtige Self-service identiteitsbeheer toevoegen aan uw bureaubladapp in slechts enkele korte stappen. Dit artikel wordt beschreven hoe u een .NET Windows Presentation Foundation (WPF) 'takenlijst-app maakt die gebruikersregistratie, aanmelding en Profielbeheer bevat. De app biedt ondersteuning voor het registreren en aanmelden met behulp van een gebruikersnaam of e-mailbericht. Het bevat ook ondersteuning voor registratie en aanmelding via sociale accounts zoals Facebook en Google.

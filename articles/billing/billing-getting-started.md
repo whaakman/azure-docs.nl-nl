@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 9d755d1a3d9ae54d33331eff9b547de70a5fd77f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452887"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857009"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -63,6 +63,24 @@ Als u wilt zien als u hebt gekregen bestedingslimiet, gaat u naar de [abonnement
 ![Schermafbeelding van een waarschuwing over uitgaven limiet wordt op in het Accountcentrum](./media/billing-getting-started/spending-limit-banner.PNG)
 
 Klik op de banner en volg de aanwijzingen voor de bestedingslimiet verwijderen. Als u niet hebt creditcardgegevens invoert wanneer u zich hebt geregistreerd, moet u om de bestedingslimiet verwijderen. Zie voor meer informatie, [bestedingslimiet voor Azure – hoe het werkt en hoe u kunt inschakelen of verwijderen van deze](https://azure.microsoft.com/pricing/spending-limits/).
+
+U kunt de [Cloudyn](https://www.cloudyn.com/) service voor het maken van waarschuwingen die automatisch op de hoogte belanghebbenden stellen van uitgaven van afwijkingen en risico's budgetoverschrijding. U kunt met behulp van rapporten die voor ondersteuningswaarschuwingen op basis van budget en kostendrempels waarschuwingen kunt maken. Zie voor meer informatie over het gebruik van Cloudyn [zelfstudie: Gebruik en kosten bekijken](../cost-management/tutorial-review-usage.md).
+
+In dit voorbeeld wordt de **Actual Cost Over Time** rapport voor het verzenden van een melding wanneer uw uitgaven op een Azure VM het totale budget naderen. In dit scenario, hebt u een totaal budget van $20.000 en u wilt een melding ontvangen wanneer kosten de helft van het budget $9000 en een extra waarschuwing nadert wanneer kosten $10.000 bereikt.
+
+1. Selecteer in het menu aan de bovenkant van de Cloudyn-portal, **kosten** > **Cost Analysis** > **Actual Cost Over Time**. 
+2. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**. 
+3. In de rechterbovenhoek van het rapport, selecteert u **acties** en selecteer vervolgens **rapport plant**.
+4. Selecteer om uzelf te sturen een e-mailadres van het rapport op basis van geplande interval, de **planning** tabblad de **opslaan of plannen dit** dialoogvenster rapport. Selecteer **Send via email**. Eventuele labels, groepen en filters die u gebruikt, zijn opgenomen in het e-mailrapport. 
+5. Selecteer de **drempelwaarde** tabblad en selecteer vervolgens **Actual Cost vs. Threshold**. 
+   1. In de **rode waarschuwing** drempelwaarde vak 10000. 
+   2. In de **gele waarschuwing** drempelwaarde vak 9000. 
+   3. In de **aantal achtereenvolgende waarschuwingen** voert u het aantal achtereenvolgende waarschuwingen te ontvangen. Wanneer u het totale aantal waarschuwingen die u hebt opgegeven ontvangt, worden geen extra waarschuwingen meer verzonden. 
+6. Selecteer **Opslaan**.
+
+    ![Voorbeeld met rode en gele waarschuwingen op basis van uitgavedrempelwaarden](./media/billing-getting-started/schedule-alert01.png)
+
+U kunt ook de **Cost Percentage vs. Budget** drempelwaarde voor metrische gegevens om waarschuwingen te maken. Hiermee kunt u de drempels opgeven als percentage van uw budget in plaats van bedragen.
 
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Manieren om te controleren van uw kosten bij het gebruik van Azure-services
 

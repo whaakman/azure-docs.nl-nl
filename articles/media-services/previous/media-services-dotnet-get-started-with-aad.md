@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945566"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807317"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Azure AD-verificatie gebruiken voor toegang tot Azure Media Services API met .NET
 
@@ -54,7 +54,7 @@ U hebt ook de mogelijkheid van het vervangen van de standaardimplementatie van d
 >[!NOTE] 
 >Voor het gebruik van Azure AD-verificatie met de Media Services .NET SDK, moet u de meest recente versie [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) pakket. Ook, Voeg een verwijzing naar de **Microsoft.IdentityModel.Clients.ActiveDirectory** assembly. Als u van een bestaande app gebruikmaakt, bevatten de **Microsoft.WindowsAzure.MediaServices.Client.Common.Authentication.dll** assembly. 
 
-1. Maak een nieuwe C#-consoletoepassing in Visual Studio.
+1. Maak in Visual Studio een nieuwe C#-consoletoepassing.
 2. Gebruik de [windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices) NuGet-pakket te installeren **Azure Media Services .NET SDK**. 
 
     Als u wilt verwijzingen toevoegen met behulp van NuGet, de volgende stappen uitvoeren: in **Solution Explorer**, met de rechtermuisknop op de projectnaam en selecteer vervolgens **NuGet-pakketten beheren**. Zoek vervolgens **windowsazure.mediaservices** en selecteer **installeren**.
@@ -80,7 +80,7 @@ Voor verbinding met de Azure Media Service-API met de optie voor verificatie, mo
 
 De waarden voor deze parameters vindt u **AzureEnvironments.AzureCloudEnvironment**. De **AzureEnvironments.AzureCloudEnvironment** constante is een helper in de .NET SDK aan de juiste omgeving variabele instellingen voor een openbare Azure-Datacenter. 
 
-Het bevat vooraf gedefinieerde omgevingsinstellingen voor toegang tot Media Services in de openbare datacenters alleen. Voor onafhankelijke of government cloud-regio's, kunt u **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, of **AzureGermanCloudEnvironment** respectievelijk.
+Het bevat vooraf gedefinieerde omgevingsinstellingen voor toegang tot Media Services in de openbare datacenters alleen. Voor onafhankelijke of government cloud-regio's, kunt u **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**, of **AzureGermanCloudEnvironment** respectievelijk.
 
 Het volgende codevoorbeeld wordt een token gemaakt:
     
@@ -122,7 +122,7 @@ Het volgende voorbeeld laat zien hoe de Azure AD-token en de context maken:
     }
 
 >[!NOTE]
->Als er een uitzondering met de tekst ' de externe server heeft een fout geretourneerd: niet geautoriseerd (401), "Zie de [toegangsbeheer](media-services-use-aad-auth-to-access-ams-api.md#access-control) sectie van de toegang tot Azure Media Services API met een overzicht van Azure AD-verificatie.
+>Als er een uitzondering met de tekst ' de externe server heeft een fout geretourneerd: (401) niet-geautoriseerd,' Zie het [toegangsbeheer](media-services-use-aad-auth-to-access-ams-api.md#access-control) sectie van de toegang tot Azure Media Services API met een overzicht van Azure AD-verificatie.
 
 ## <a name="use-service-principal-authentication"></a>Service-principal verificatie gebruiken
     

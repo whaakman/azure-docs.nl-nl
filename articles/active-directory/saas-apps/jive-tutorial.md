@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9fc5659a-c116-4a1b-a601-333325a26b46
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: cebcfb4614d1f685697bed6914f80237e175fb7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fa802e137f9fb76c531814f6128cabfc11a44f0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436553"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812332"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Zelfstudie: Azure Active Directory-integratie met Jive
 
@@ -43,10 +43,10 @@ Voor het configureren van Azure AD-integratie met Jive, moet u de volgende items
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
@@ -60,17 +60,17 @@ Voor het configureren van de integratie van Jive in Azure AD, moet u Jive uit de
 
 **Als u wilt toevoegen Jive uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
 
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **Jive**.
 
@@ -113,18 +113,18 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/jive-tutorial/tutorial_jive_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<instance name>.jivecustom.com`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<instance name>.jivecustom.com`
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<instance name>.jiveon.com`
+    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<instance name>.jiveon.com`
 
     > [!NOTE]
-    > Deze waarden zijn niet de werkelijke. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Jive Client ondersteuningsteam](https://www.jivesoftware.com/services-support/) om deze waarden te verkrijgen.
+    > Dit zijn niet de echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en -id. Neem contact op met [Jive Client ondersteuningsteam](https://www.jivesoftware.com/services-support/) om deze waarden te verkrijgen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/jive-tutorial/tutorial_jive_certificate.png)
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/jive-tutorial/tutorial_general_400.png)
 
@@ -132,13 +132,13 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In het menu aan de bovenkant, klikt u op '**Saml**. "
 
-    ![Single Sign-On aan App configureren](./media/jive-tutorial/tutorial_jive_002.png)
+    ![Eenmalige aanmelding aan app-zijde configureren](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. Selecteer **ingeschakeld** onder de **algemene** tabblad b. Klik op de '**alle saml-instellingen opslaan**"knop.
 
 1. Navigeer naar de "**Idp metagegevens**" tabblad.
 
-    ![Single Sign-On aan App configureren](./media/jive-tutorial/tutorial_jive_003.png)
+    ![Eenmalige aanmelding aan app-zijde configureren](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Kopieer de inhoud van het gedownloade metagegevens-XML-bestand en plak deze in de **Identity Provider (IDP) metagegevens** tekstvak.
 
@@ -146,7 +146,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Ga naar het '**kenmerk Gebruikerstoewijzing**"tabblad.
 
-    ![Single Sign-On aan App configureren](./media/jive-tutorial/tutorial_jive_004.png)
+    ![Eenmalige aanmelding aan app-zijde configureren](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. In de **e** tekstvak, kopieert en plakt u de naam van het kenmerk van **e-mail** waarde.
 
@@ -155,7 +155,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     c. In de **achternaam** tekstvak, kopieert en plakt u de naam van het kenmerk van **achternaam** waarde.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -187,7 +187,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="creating-a-jive-test-user"></a>Het maken van een testgebruiker Jive
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Jive. Jive ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. Meer informatie vindt u [hier](jive-provisioning-tutorial.md) voor het automatisch inrichten van gebruikers configureren.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Jive. Jive ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U kunt [hier](jive-provisioning-tutorial.md) meer informatie vinden over het configureren van het automatisch inrichten van gebruikers.
 
 Als u moet de gebruiker handmatig hebt gemaakt, samen met [Jive Client ondersteuningsteam](https://www.jivesoftware.com/services-support/) om toe te voegen de gebruikers in het Jive-platform.
 

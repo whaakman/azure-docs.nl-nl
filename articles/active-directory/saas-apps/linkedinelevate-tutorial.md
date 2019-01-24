@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116173"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn met verhoogde bevoegdheden uitvoeren
 
@@ -31,7 +31,7 @@ LinkedIn met verhoogde bevoegdheden te integreren met Azure AD biedt u de volgen
 - U kunt uw gebruikers automatisch ophalen aangemeld bij LinkedIn met verhoogde bevoegdheden (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts in één centrale locatie - de Azure Management portal beheren
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,10 +43,10 @@ Voor het configureren van Azure AD-integratie met LinkedIn met verhoogde bevoegd
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
@@ -66,11 +66,11 @@ Voor het configureren van de integratie van LinkedIn met verhoogde bevoegdheden 
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
 
 1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **LinkedIn met verhoogde bevoegdheden**. Klik in het deelvenster met resultaten, op **LinkedIn met verhoogde bevoegdheden** om toe te voegen van de toepassing.
 
@@ -107,7 +107,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
 1. In een ander browservenster aanmelden voor uw tenant LinkedIn met verhoogde bevoegdheden als beheerder.
 
-1. In **Accountcentrum**, klikt u op **globale instellingen** onder **instellingen**. Schakel ook **toestaan - AAD-Test met verhoogde bevoegdheden** in de vervolgkeuzelijst.
+1. Klik in **Accountcentrum** onder **Instellingen** op **Algemene instellingen**. Schakel ook **toestaan - AAD-Test met verhoogde bevoegdheden** in de vervolgkeuzelijst.
 
     ![Eenmalige aanmelding configureren](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
@@ -129,7 +129,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
     ![Eenmalige aanmelding configureren](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_02.png) 
 
-1. Uw toepassing LinkedIn met verhoogde bevoegdheden wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld voor deze. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** , maar dit moet worden toegewezen met de e-mailadres van de gebruiker LinkedIn met verhoogde bevoegdheden wordt verwacht. Hiervoor kunt u **user.mail** kenmerk in de lijst of gebruik de waarde van het juiste kenmerk op basis van de organisatieconfiguratie van uw.
+1. Uw toepassing LinkedIn met verhoogde bevoegdheden wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermopname ziet u een voorbeeld hiervan. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** , maar dit moet worden toegewezen met de e-mailadres van de gebruiker LinkedIn met verhoogde bevoegdheden wordt verwacht. Hiervoor kunt u het kenmerk **user.mail** in de lijst gebruiken of de juiste kenmerkwaarde op basis van uw organisatieconfiguratie.
 
     ![Eenmalige aanmelding configureren](./media/linkedinelevate-tutorial/updateusermail.png)
 
@@ -137,7 +137,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
     | Naam kenmerk | Waarde kenmerk |
     | --- | --- |
-    | Afdeling| User.Department |
+    | department| user.department |
 
       ![Het maken van een Azure AD-testgebruiker](./media/linkedinelevate-tutorial/userattribute.png)
 
@@ -157,11 +157,11 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
     ![Eenmalige aanmelding configureren](./media/linkedinelevate-tutorial/tutorial_general_400.png)
 
-1. Ga naar **LinkedIn beheerdersinstellingen** sectie. Upload het XML-bestand dat u zojuist hebt gedownload vanuit Azure portal door te klikken op de optie uploaden XML-bestand.
+1. Ga naar het gedeelte **met beheerdersinstellingen voor LinkedIn**. Upload het XML-bestand dat u zojuist hebt gedownload vanuit Azure portal door te klikken op de optie uploaden XML-bestand.
 
     ![Eenmalige aanmelding configureren](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
-1. Klik op **op** SSO inschakelen. SSO-status wordt gewijzigd van **niet verbonden** naar **verbonden**
+1. Klik op **Aan** om SSO in te schakelen. SSO-status wordt gewijzigd van **niet verbonden** naar **verbonden**
 
     ![Eenmalige aanmelding configureren](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
@@ -240,7 +240,7 @@ Wanneer u klikt op de tegel LinkedIn met verhoogde bevoegdheden in het toegangsv
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Zelfstudie: LinkedIn, met verhoogde bevoegdheden configureren voor automatisch gebruikers inrichten met Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
+* [Zelfstudie: LinkedIn met verhoogde bevoegdheden voor het automatisch gebruikers inrichten met Azure Active Directory configureren](linkedinelevate-provisioning-tutorial.md)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 * [Inrichten van gebruikers configureren](linkedinelevate-provisioning-tutorial.md)

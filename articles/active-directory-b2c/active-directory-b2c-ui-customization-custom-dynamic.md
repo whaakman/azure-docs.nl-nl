@@ -3,21 +3,21 @@ title: De Azure Active Directory B2C-gebruikersinterface (UI) dynamisch aanpasse
 description: Ondersteuning voor meerdere huisstijl ervaringen met HTML5/CSS-inhoud die dynamisch worden gewijzigd tijdens runtime.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 87634539b9709e057c0e51297569c1005a7bea1f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834218"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852096"
 ---
-# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Het configureren van de gebruikersinterface met dynamische inhoud met behulp van aangepaste beleidsregels
+# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: De gebruikersinterface met dynamische inhoud configureren met behulp van aangepaste beleidsregels
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -39,9 +39,9 @@ In een aangepast beleid definieert een inhoudsdefinitie de HTML5-pagina URI die 
 
 De `ContentDefinitions` sectie bevat een reeks `ContentDefinition` XML-elementen. Het kenmerk ID van de `ContentDefinition` element Hiermee geeft u het type van de pagina die is gekoppeld aan de definitie van de inhoud. Het element bepaalt dat wil zeggen, de context die u een aangepaste HTML5/CSS-sjabloon wilt toepassen. De volgende tabel beschrijft de set met inhoud definitie-id's die worden herkend door de engine IEF en de typen van de pagina's die betrekking hebben op deze.
 
-| De definitie van de inhoud-ID | Standaardsjabloon voor HTML5| Beschrijving | 
+| De definitie van de inhoud-ID | Standaardsjabloon voor HTML5| Description | 
 |-----------------------|--------|-------------|
-| *api.error* | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
+| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina voor het id-provider selecteren**. Deze pagina geeft een lijst met id-providers die gebruikers uit tijdens het aanmelden kiezen kunnen. De opties zijn meestal enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |
 | *api.idpselections.signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Selectie van de id-provider voor aanmelding bij**. Deze pagina geeft een lijst met id-providers die gebruikers uit tijdens de registratie kiezen kunnen. De opties zijn enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |
 | *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina voor vergeten wachtwoorden**. Deze pagina bevat een formulier die gebruikers moeten worden voltooid voor het starten van een wachtwoord opnieuw instellen.  |
@@ -49,8 +49,8 @@ De `ContentDefinitions` sectie bevat een reeks `ContentDefinition` XML-elementen
 | *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Aanmeldpagina voor lokaal account**. Deze pagina bevat een formulier om zich te registreren voor een lokaal account dat gebaseerd op een e-mailadres of een gebruikersnaam opgeven. Het formulier kan bevatten verschillende besturingselementen voor tekstinvoer, zoals: invoer een text box, een wachtwoordinvoervak, een keuzerondje, vervolgkeuzelijsten enkelvoudige selectie, en selectievakjes voor meervoudige selectie. |
 | *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication-pagina**. Op deze pagina, kunnen gebruikers hun telefoonnummers (via SMS of spraak) controleren tijdens het registreren of aanmelden. |
 | *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Aanmeldpagina voor sociaal account**. Deze pagina bevat een formulier die gebruikers moeten worden voltooid wanneer ze zich aanmelden met behulp van een bestaand account van een sociale id-provider. Deze pagina is vergelijkbaar met de voorgaande sociaal accountpagina voor het registreren, met uitzondering van de velden van de vermelding wachtwoord. |
-| *api.selfasserted.profileupdate* | [updateprofile.HTML](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Update-profielpagina**. Deze pagina bevat een formulier dat gebruikers toegang hebben tot voor het bijwerken van het profiel. Deze pagina is vergelijkbaar met de sociaal account registratiepagina, met uitzondering van de velden van de vermelding wachtwoord. |
-| *api.signuporsignin* | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Uniforme pagina voor registreren of aanmelden**. Deze pagina zorgt voor de gebruiker zich kunnen registreren en aanmelden proces. Gebruikers kunnen enterprise id-providers, sociale id-providers zoals Facebook of Google + of lokale accounts gebruiken.  |
+| *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Update-profielpagina**. Deze pagina bevat een formulier dat gebruikers toegang hebben tot voor het bijwerken van het profiel. Deze pagina is vergelijkbaar met de sociaal account registratiepagina, met uitzondering van de velden van de vermelding wachtwoord. |
+| *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Uniforme pagina voor registreren of aanmelden**. Deze pagina zorgt voor de gebruiker zich kunnen registreren en aanmelden proces. Gebruikers kunnen enterprise id-providers, sociale id-providers zoals Facebook of Google + of lokale accounts gebruiken.  |
 
 ## <a name="serving-dynamic-content"></a>Dynamische inhoud
 In de [aanmeldbeleid configureren in een aangepast beleid](active-directory-b2c-ui-customization-custom.md) artikel u HTML5-bestanden uploaden naar Azure Blob-opslag. Deze bestanden HTML5 statisch zijn en de dezelfde HTML-inhoud voor elke aanvraag weergegeven. 
@@ -82,7 +82,7 @@ In dit scenario maakt u:
 
 6. Selecteer **OK** om het project te maken.
 
-## <a name="step-2-create-mvc-view"></a>Stap 2: MVC weergave maken
+## <a name="step-2-create-mvc-view"></a>Stap 2: MVC-weergave maken
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Stap 2.1: De B2C-ingebouwde HTML5-sjabloon downloaden
 Uw aangepaste HTML5-sjabloon is gebaseerd op de Azure AD B2C ingebouwde HTML5-sjabloon. U kunt downloaden de [unified.html bestand](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) of download de sjabloon in [beginnerspakket](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip). U dit bestand HTML5 gebruiken om een uniforme pagina voor registreren of aanmelden te maken.
 
@@ -167,7 +167,7 @@ Zoek de `<img>` -element waarin de `ID` waarde *background_background_image*, en
 
 5. Kopieer de URL van de _geïntegreerde_ pagina (bijvoorbeeld _https://<app_name>.azurewebsites.net/home/unified_).
 
-## <a name="step-3-configure-cors-in-azure-app-service"></a>Stap 3: Configureer CORS in Azure App Service
+## <a name="step-3-configure-cors-in-azure-app-service"></a>Stap 3: CORS configureren in Azure App Service
 1. In de [Azure-portal](https://portal.azure.com/), selecteer **App Services**, en selecteer vervolgens de naam van uw API-app.
 
     ![API-app selecteren in de Azure-portal](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS1.png)
@@ -187,7 +187,7 @@ Zoek de `<img>` -element waarin de `ID` waarde *background_background_image*, en
 
     Nadat u hebt geselecteerd **opslaan**, de API-app JavaScript-aanroepen vanuit de opgegeven URL's accepteert. 
 
-## <a name="step-4-html5-template-validation"></a>Stap 4: HTML5 sjabloonvalidatie
+## <a name="step-4-html5-template-validation"></a>Stap 4: De sjabloonvalidatie HTML5
 De sjabloon HTML5 is klaar voor gebruik. Het is echter niet beschikbaar in de `ContentDefinition` code. Voordat u kunt toevoegen `ContentDefinition` aan uw aangepaste beleid, zorg ervoor dat:
 * Uw inhoud is HTML5 compatibel is en toegankelijk is.
 * Uw server voor webinhoud is ingeschakeld voor CORS.
@@ -215,7 +215,7 @@ Het configureren van `ContentDefinition`, doet u het volgende:
     
     ![De definitie van de inhoud](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
-## <a name="step-6-upload-the-policy-to-your-tenant"></a>Stap 6: Het beleid voor uploaden naar uw tenant
+## <a name="step-6-upload-the-policy-to-your-tenant"></a>Stap 6: Uploaden van het beleid aan uw tenant
 1. In de [Azure-portal](https://portal.azure.com), Ga naar de [context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en selecteer vervolgens **Azure AD B2C**.
 
 2. Selecteer **Identity-Ervaringsframework**.
@@ -259,7 +259,7 @@ Voeg de `ContentDefinitionParameters` element door de volgende te doen:
     </UserJourneyBehaviors>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Stap 8.2: Uw code voor het accepteren van een queryreeks-parameter te wijzigen en de achtergrondafbeelding vervangen
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Stap 8.2: Uw code voor het accepteren van een queryreeks-parameter te wijzigen en vervang de achtergrondafbeelding
 Wijzigen van de HomeController `unified` methode voor het accepteren van de parameter campaignId. De methode controleert vervolgens of de parameter wordt ingesteld en waarde van de `ViewData["background"]` variabele dienovereenkomstig.
 
 1. Open de *Controllers\HomeController.cs* bestand en wijzig vervolgens de `unified` methode door het volgende codefragment toe te voegen:
@@ -292,7 +292,7 @@ Wijzigen van de HomeController `unified` methode voor het accepteren van de para
 
     ![De pagina-achtergrond wijzigen](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
-### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: de wijzigingen uploaden en publiceren van uw beleid
+### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: De wijzigingen uploaden en publiceren van uw beleid
 1. Uw Visual Studio-project kunt publiceren in Azure App Service.
 
 2. Upload de *SignUpOrSignin.xml* Azure AD B2C-beleid.
@@ -315,7 +315,7 @@ Wijzigen van de HomeController `unified` methode voor het accepteren van de para
 
     ![De pagina-achtergrond wijzigen](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
-## <a name="step-9-change-the-rest-of-the-user-journey"></a>Stap 9: De rest van de gebruikersbeleving wijzigen
+## <a name="step-9-change-the-rest-of-the-user-journey"></a>Stap 9: Wijzigen van de rest van de gebruikersbeleving
 Als u selecteert de **Meld u nu** koppeling op de aanmeldingspagina, de browser de standaardachtergrondafbeelding weergegeven, niet de installatiekopie die u hebt gedefinieerd. Dit probleem doet zich voor omdat u alleen de registratie- of aanmelden pagina hebt gewijzigd. De rest van de inhoud zelf Assert-definities wijzigen:
 1. Ga terug naar 'Stap 2' en het volgende doen:
 

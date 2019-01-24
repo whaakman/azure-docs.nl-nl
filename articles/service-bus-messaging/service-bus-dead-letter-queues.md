@@ -3,23 +3,23 @@ title: Service Bus-wachtrijen voor onbestelbare berichten | Microsoft Docs
 description: Overzicht van Azure Service Bus-wachtrijen voor onbestelbare
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: eb4057b4cfc6a68fb3489a7ab6fb1ee6b5f41d7d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338459"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856107"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Overzicht van Service Bus-wachtrijen voor onbestelbare berichten
 
@@ -52,13 +52,13 @@ Toepassingen kunnen hun eigen codes definiëren voor de `DeadLetterReason` stelt
 | ! dead-letter-wachtrij |MaxTransferHopCountExceeded |Null |
 | Expliciete dode lettering toepassing |Opgegeven door toepassing |Opgegeven door toepassing |
 
-## <a name="exceeding-maxdeliverycount"></a>Meer dan MaxDeliveryCount
+## <a name="exceeding-maxdeliverycount"></a>Exceeding MaxDeliveryCount
 
 Wachtrijen en abonnementen hebben een [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) en [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) eigenschap respectievelijk; de standaardwaarde is 10. Wanneer een bericht is afgeleverd bij een vergrendeling ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), maar heeft een expliciet is afgebroken of de vergrendeling is verlopen, wordt het bericht [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) is verhoogd. Wanneer [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) overschrijdt [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), het bericht wordt verplaatst naar de DLQ op te geven de `MaxDeliveryCountExceeded` redencode.
 
 Dit gedrag kan niet worden uitgeschakeld, maar u kunt instellen [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) naar een groot getal.
 
-## <a name="exceeding-timetolive"></a>TimeToLive overschreden
+## <a name="exceeding-timetolive"></a>Exceeding TimeToLive
 
 Wanneer de [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) of [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) eigenschap is ingesteld op **waar** (de standaardwaarde is **false**), alle verlopende berichten worden verplaatst naar de DLQ op te geven de `TTLExpiredException` redencode.
 

@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 83711115-1c4f-4dd7-907b-3da24b37c89e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 5858ab1846ccdc2e2b78f2be4173ea3cc17a3605
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5610316fdadb9a169c90e7e7761d9ddd2a74dcbe
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116569"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Zelfstudie: Azure Active Directory-integratie met Zscaler persoonlijke toegang (ZPA)
 
@@ -31,7 +31,7 @@ Zscaler persoonlijke toegang (ZPA) integreren met Azure AD biedt u de volgende v
 - U kunt uw gebruikers automatisch ophalen aangemeld op Zscaler persoonlijke toegang (ZPA) (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts in één centrale locatie - de Azure Management portal beheren
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,10 +45,10 @@ Voor het configureren van Azure AD-integratie met Zscaler persoonlijke toegang (
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -69,11 +69,11 @@ Voor het configureren van de integratie van de Zscaler persoonlijke toegang (ZPA
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
 1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **Zscaler persoonlijke toegang (ZPA)**.
 
@@ -122,7 +122,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
     b. In de **id** tekstvak, type: `https://samlsp.private.zscaler.com/auth/metadata`
 
     > [!NOTE] 
-    > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke aanmelding URL en -id. Hier stellen we voor u voor het gebruik van de unieke waarde van de URL in de id. Neem contact op met [Zscaler persoonlijke toegang (ZPA)-ondersteuningsteam](https://help.zscaler.com/zpa-submit-ticket) om deze waarden te verkrijgen.
+    > Houd er rekening mee dat dit niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke aanmelding URL en -id. Hier stellen we voor u voor het gebruik van de unieke waarde van de URL in de id. Neem contact op met [Zscaler persoonlijke toegang (ZPA)-ondersteuningsteam](https://help.zscaler.com/zpa-submit-ticket) om deze waarden te verkrijgen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **nieuw certificaat maken**.
 
@@ -148,19 +148,19 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
 1. Navigeer naar **beheerder** en klik vervolgens op **Idp-configuratie**.
 
-    ![Single Sign-On aan App configureren](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_04.png)
+    ![Eenmalige aanmelding aan app-zijde configureren](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_04.png)
 
 1. In de **Idp-configuratie** sectie, klikt u op **nieuwe IDP-configuratie toevoegen**.
 
-    ![Single Sign-On aan App configureren](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_05.png)
+    ![Eenmalige aanmelding aan app-zijde configureren](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_05.png)
 
 1. In de **nieuwe IDP-configuratie** sectie, voert u de volgende stappen uit:
 
-    ![Single Sign-On aan App configureren](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_06.png)
+    ![Eenmalige aanmelding aan app-zijde configureren](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_06.png)
 
     a. Klik op **bestand selecteren** en uw gedownloade metagegevensbestand uploaden.
 
-    b. Klik op **opslaan** knop.
+    b. Klik op de knop **Save**.
     
 
 

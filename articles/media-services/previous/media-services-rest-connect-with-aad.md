@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945074"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818027"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD-verificatie gebruiken voor toegang tot de Azure Media Services API met REST
 
@@ -50,7 +50,7 @@ In deze zelfstudie leert u het volgende:
 - Controleer de [toegang tot Azure Media Services API met Azure AD-verificatieoverzicht](media-services-use-aad-auth-to-access-ams-api.md) artikel.
 - Installeer de [Postman](https://www.getpostman.com/) REST-client voor het uitvoeren van de REST-API's die in dit artikel worden weergegeven. 
 
-    In deze zelfstudie worden durende **Postman** maar een REST-hulpprogramma zou geschikt. Andere alternatieven zijn: **Visual Studio Code** met de REST-invoegtoepassing of **Telerik Fiddler**. 
+    In deze zelfstudie gebruiken we **Postman** maar een REST-hulpprogramma zou geschikt. Enkele andere alternatieven: **Visual Studio Code** met de REST-invoegtoepassing of **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>De verificatie-informatie ophalen uit de Azure portal
 
@@ -58,7 +58,7 @@ In deze zelfstudie leert u het volgende:
 
 Voor toegang tot API van Media Services, moet u de volgende gegevenspunten te verzamelen.
 
-|Instelling|Voorbeeld|Beschrijving|
+|Instelling|Voorbeeld|Description|
 |---|-------|-----|
 |Azure Active Directory-tenantdomein|microsoft.onmicrosoft.com|Azure AD als een Secure Token Service (STS)-eindpunt is gemaakt met de volgende notatie: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD geeft een JWT voor toegang tot resources (een toegangstoken).|
 |REST API-eindpunt|https://amshelloworld.restv2.westus.media.azure.net/api/|Dit is het eindpunt waarvoor alle Media Services REST-API-aanroepen in uw toepassing worden gemaakt.|
@@ -79,7 +79,7 @@ Als u de informatie, de volgende stappen uit:
 5. Selecteer een bestaande **Azure AD-toepassing** of maak een nieuwe (Zie hieronder).
 
     > [!NOTE]
-    > Voor de Azure Media REST-aanvraag te voltooien, moet de aanroepende gebruiker hebben een **Inzender** of **eigenaar** rol voor deze probeert te krijgen tot de Media Services-account. Als er een uitzondering met de tekst ' de externe server heeft een fout geretourneerd: niet geautoriseerd (401), "Zie [toegangsbeheer](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > Voor de Azure Media REST-aanvraag te voltooien, moet de aanroepende gebruiker hebben een **Inzender** of **eigenaar** rol voor deze probeert te krijgen tot de Media Services-account. Als er een uitzondering met de tekst ' de externe server heeft een fout geretourneerd: (401) niet-geautoriseerd,' Zie [toegangsbeheer](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Als u nodig hebt voor het maken van een nieuwe AD-app, als volgt te werk:
     
@@ -118,7 +118,7 @@ U kunt waarden voor parameters voor AD-verbinding toevoegen aan het bestand web.
 
 ## <a name="get-the-access-token-using-postman"></a>Het toegangstoken met Postman
 
-In deze sectie ziet u hoe u **Postman** voor het uitvoeren van een REST-API waarmee een JWT Bearer-Token (toegangstoken) wordt geretourneerd. Voor het aanroepen van een Media Services REST API, moet u de "Autorisatie"-header toevoegen aan de aanroepen en voeg de waarde van "Bearer *your_access_token*" aan elke aanroep (zoals weergegeven in de volgende sectie van deze zelfstudie). 
+In deze sectie ziet u hoe u **Postman** voor het uitvoeren van een REST-API waarmee een JWT Bearer-Token (toegangstoken) wordt geretourneerd. Voor het aanroepen van een Media Services REST API, moet u de "Autorisatie"-header toevoegen aan de aanroepen en voeg de waarde van "Bearer *your_access_token*" aan elke aanroep (zoals weergegeven in de volgende sectie van deze zelfstudie). 
 
 1. Open **Postman**.
 2. Selecteer **POST**.
@@ -188,5 +188,5 @@ Het geretourneerde antwoord bevat de assets die zich in uw account.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Probeer deze voorbeeldcode in [Azure AD-verificatie voor toegang tot Azure Media Services: beide via REST-API](https://github.com/willzhan/WAMSRESTSoln)
+* Probeer deze voorbeeldcode in [Azure AD-verificatie voor toegang tot Azure Media Services: Beide via REST-API](https://github.com/willzhan/WAMSRESTSoln)
 * [Bestanden uploaden met .NET](media-services-dotnet-upload-files.md)

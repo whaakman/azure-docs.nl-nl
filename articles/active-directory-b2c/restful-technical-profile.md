@@ -3,19 +3,19 @@ title: Een RESTful technisch profiel definiëren in een aangepast beleid in Azur
 description: Definieer een RESTful technisch profiel in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 930cdddd8a9e039fa9c29a348a0a66eb25d254fe
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9dfef68e35cc07d395bb247af3476e8b73da642
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381276"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843885"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een RESTful technisch profiel definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -83,13 +83,13 @@ Het technische profiel retourneert ook claims, die niet zijn geretourneerd door 
 
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ServiceUrl | Ja | De URL van de REST API-eindpunt. | 
 | AuthenticationType | Ja | Het type verificatie wordt uitgevoerd door de RESTful-claims-provider. Mogelijke waarden: `None`, `Basic`, of `ClientCertificate`. De `None` waarde geeft aan dat de REST-API is niet anoniem. De `Basic` waarde geeft aan dat de REST-API is beveiligd met HTTP-basisverificatie. Alleen geverifieerde gebruikers, met inbegrip van Azure AD B2C, hebben toegang tot uw API. De `ClientCertificate` (aanbevolen) waarde geeft aan dat de REST-API toegang wordt beperkt tot met clientverificatie via certificaat. Alleen services die u de juiste certificaten, zoals Azure AD B2C hebt hebben toegang tot uw service. | 
 | SendClaimsIn | Nee | Hiermee geeft u op hoe de invoer claims worden verzonden naar de RESTful-claims-provider. Mogelijke waarden: `Body` (standaard), `Form`, `Header`, of `QueryString`. De `Body` waarde is de invoer claim die wordt verzonden in de hoofdtekst van de aanvraag in JSON-indeling. De `Form` waarde is de invoer claim die wordt verzonden in de hoofdtekst van de aanvraag in een en-teken ' &' gescheiden sleutelwaarde-indeling. De `Header` waarde is de invoer claim die in de aanvraagheader is verzonden. De `QueryString` waarde is de invoer claim die in de querytekenreeks van de aanvraag is verzonden. | 
 | ClaimsFormat | Nee | Hiermee geeft u de indeling voor de uitvoerclaims. Mogelijke waarden: `Body` (standaard), `Form`, `Header`, of `QueryString`. De `Body` waarde is de uitvoerclaim die wordt verzonden in de hoofdtekst van de aanvraag in JSON-indeling. De `Form` waarde is de uitvoerclaim die wordt verzonden in de hoofdtekst van de aanvraag in een en-teken ' &' gescheiden sleutelwaarde-indeling. De `Header` waarde is de uitvoerclaim die in de aanvraagheader is verzonden. De `QueryString` waarde is de uitvoerclaim die in de querytekenreeks van de aanvraag is verzonden. | 
-| Fouten opsporen-modus | Nee | Het technische profiel uitgevoerd in de foutopsporingsmodus. De REST-API kunt meer informatie retourneren in de foutopsporingsmodus. Zie de sectie retourneert fout. | 
+| DebugMode | Nee | Het technische profiel uitgevoerd in de foutopsporingsmodus. De REST-API kunt meer informatie retourneren in de foutopsporingsmodus. Zie de sectie retourneert fout. | 
 
 ## <a name="cryptographic-keys"></a>Cryptografische sleutels
 
@@ -109,7 +109,7 @@ Als het type verificatie is ingesteld op `None`, wordt de **CryptographicKeys** 
 
 Als het type verificatie is ingesteld op `Basic`, wordt de **CryptographicKeys** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Ja | De gebruikersnaam die wordt gebruikt voor verificatie. | 
 | BasicAuthenticationPassword | Ja | Het wachtwoord dat wordt gebruikt voor verificatie. |
@@ -134,7 +134,7 @@ Het volgende voorbeeld ziet u een technisch profiel met basisverificatie wordt g
 
 Als het type verificatie is ingesteld op `ClientCertificate`, wordt de **CryptographicKeys** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | ClientCertificate | Ja | De X509 certificaat (RSA-sleutelpaar) gebruiken om te verifiëren. | 
 
@@ -157,12 +157,12 @@ Als het type verificatie is ingesteld op `ClientCertificate`, wordt de **Cryptog
 
 De REST-API moet mogelijk een foutbericht retourneren, zoals 'de gebruiker is niet gevonden in de CRM-systeem'. In een fout optreedt, de REST-API moet retourneren een foutbericht HTTP 409 (Conflict antwoordstatuscode) met de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | versie | Ja | 1.0.0 | 
 | status | Ja | 409 | 
-| Code | Nee | Een foutcode op basis van de RESTful-eindpunt-provider die wordt weergegeven wanneer `DebugMode` is ingeschakeld. | 
-| aanvraag-id | Nee | Een aanvraag-id van de RESTful-eindpunt-provider die wordt weergegeven wanneer `DebugMode` is ingeschakeld. | 
+| code | Nee | Een foutcode op basis van de RESTful-eindpunt-provider die wordt weergegeven wanneer `DebugMode` is ingeschakeld. | 
+| requestId | Nee | Een aanvraag-id van de RESTful-eindpunt-provider die wordt weergegeven wanneer `DebugMode` is ingeschakeld. | 
 | userMessage | Ja | Een foutbericht dat wordt weergegeven aan de gebruiker. | 
 | developerMessage | Nee | De uitgebreide beschrijving van het probleem en aanwijzingen om op te lossen, die wordt weergegeven wanneer `DebugMode` is ingeschakeld. | 
 | moreInfo | Nee | Een URI die verwijst naar aanvullende informatie die wordt weergegeven wanneer `DebugMode` is ingeschakeld. | 
@@ -171,13 +171,13 @@ Het volgende voorbeeld ziet u een REST-API waarmee een foutbericht weergegeven d
 
 ```JSON
 {
-  "version": "1.0.0",
-  "status": 409,
-  "code": "API12345",
-  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "version": "1.0.0",
+  "status": 409,
+  "code": "API12345",
+  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
+  "userMessage": "Message for the user", 
+  "developerMessage": "Verbose description of problem and how to fix it.", 
+  "moreInfo": "https://restapi/error/API12345/moreinfo" 
 }
 ```
 

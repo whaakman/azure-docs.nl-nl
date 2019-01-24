@@ -3,8 +3,9 @@ title: Over het gebruik van Azure Service Bus-wachtrijen met Java | Microsoft Do
 description: Informatie over het gebruiken van Service Bus-wachtrijen in Azure Voorbeelden van code geschreven in Java.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus-messaging
 ms.workload: na
@@ -12,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
-ms.author: spelluru
-ms.openlocfilehash: e8d168e4171c96441162f1090a215cab8a70b7d1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: aschhab
+ms.openlocfilehash: 9a26a08e7b1fb313e25a7dc8d9f5e58e843fca76
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198691"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849615"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Over het gebruik van Service Bus-wachtrijen met Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

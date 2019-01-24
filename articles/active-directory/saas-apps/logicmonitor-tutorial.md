@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5aa11c15e038c0af8447debba0cd385c944c0bce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Zelfstudie: Azure Active Directory-integratie met LogicMonitor
 
@@ -33,7 +33,7 @@ LogicMonitor integreren met Azure AD biedt u de volgende voordelen:
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met LogicMonitor, moet u de volgende items:
 
@@ -43,10 +43,10 @@ Voor het configureren van Azure AD-integratie met LogicMonitor, moet u de volgen
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -59,17 +59,17 @@ Voor het configureren van de integratie van LogicMonitor in Azure AD, moet u Log
 
 **Als u wilt toevoegen LogicMonitor uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **LogicMonitor**.
 
@@ -112,12 +112,12 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/logicmonitor-tutorial/tutorial_logicmonitor_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.logicmonitor.com`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<companyname>.logicmonitor.com`
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.logicmonitor.com`
+    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<companyname>.logicmonitor.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [LogicMonitor Client ondersteuningsteam](https://www.logicmonitor.com/contact/) om deze waarden te verkrijgen. 
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [LogicMonitor Client ondersteuningsteam](https://www.logicmonitor.com/contact/) om deze waarden te verkrijgen. 
  
 
 
@@ -125,7 +125,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/logicmonitor-tutorial/tutorial_logicmonitor_certificate.png) 
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/logicmonitor-tutorial/tutorial_general_400.png)
 
@@ -133,7 +133,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik in het menu aan de bovenkant op **instellingen**.
    
-    ![Instellingen voor](./media/logicmonitor-tutorial/ic790052.png "instellingen")
+    ![Settings](./media/logicmonitor-tutorial/ic790052.png "Settings")
 
 1. Klik in de navigatie-bat aan de linkerkant, **eenmalige aanmelding**
    
@@ -149,10 +149,10 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
    
     c. Open het gedownloade metagegevensbestand in Kladblok en plak de inhoud van het bestand in de **Identity Provider metagegevens** tekstvak.
    
-    d. Klik op **wijzigingen opslaan**.
+    d. Klik op **Wijzigingen opslaan**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -186,7 +186,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 Voor Azure AD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht voor de LogicMonitor-toepassing met behulp van hun Azure Active Directory-gebruikersnamen.
 
-**Als u wilt inrichten van gebruikers configureren, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om de gebruikersinrichting te configureren:**
 
 1. Meld u aan bij uw bedrijf LogicMonitor site aan als beheerder.
 
@@ -204,7 +204,7 @@ Voor Azure AD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht voor 
    
     b. Selecteer **rollen**, **machtigingen weergeven**, en de **Status**.
    
-    c. Klik op **indienen**.
+    c. Klik op **Submit**
 
 >[!NOTE]
 >U kunt elke andere LogicMonitor gebruiker account hulpmiddelen voor het maken of API's geleverd door LogicMonitor voor het inrichten van Azure Active Directory-gebruikersaccounts. 
@@ -242,11 +242,11 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
- 
+ 
 Wanneer u op de tegel LogicMonitor in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing LogicMonitor.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
+Zie [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

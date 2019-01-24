@@ -4,7 +4,7 @@ description: Controleer de status van uw beheerde domein met behulp van de healt
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fe5776dad4c4b9ae96484ac266a23e87658cf578
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969001"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852828"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Controleer de status van een Azure AD Domain Services beheerde domein
 
@@ -32,7 +32,7 @@ Met behulp van de health-pagina in uw Azure-portal, bent u kunnen ervoor zorgen 
 2. Klik op het domein dat u wilt weergeven van de status van.
 3. Klik in het navigatiedeelvenster links op **Health**.
 
-De volgende afbeelding ziet u een voorbeeld van health-pagina: ![voorbeeld van de health-pagina](./media/active-directory-domain-services-alerts/health-page.png)
+De volgende afbeelding ziet u een voorbeeld van health-pagina: ![Voorbeeld van de health-pagina](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Status van uw beheerde domein wordt elk uur worden geëvalueerd. Na het aanbrengen van wijzigingen aan uw beheerde domein, wachten tot de volgende beoordelingscyclus om de bijgewerkte status van uw beheerde domein weer te geven. De tijdstempel 'Laatst geëvalueerd' in de rechterbovenhoek ziet u wanneer de status van uw beheerde domein voor het laatst is geëvalueerd.

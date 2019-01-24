@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: c9a66036902f346a7a9fd337416cbe85acca7856
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200933"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855387"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -268,11 +268,11 @@ Boven de functie wordt aangeroepen op een HttpRequest en schrijft u meerdere waa
 | Gespecialiseerde Type      |       Doel        | Normaal gebruik                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP-trigger     | Methode, koptekst of query's ophalen |
-| `HttpResponseMessage` | HTTP-Uitvoerbinding | Status van het resultaat dan 200   |
+| `HttpResponseMessage` | HTTP Output Binding | Status van het resultaat dan 200   |
 
 ## <a name="metadata"></a>Metagegevens
 
-Enkele triggers verzenden [activeren metagegevens](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties) samen met invoergegevens. U kunt aantekening `@BindingName` binden aan het activeren van metagegevens
+Enkele triggers verzenden [activeren metagegevens](/azure/azure-functions/functions-triggers-bindings) samen met invoergegevens. U kunt aantekening `@BindingName` binden aan het activeren van metagegevens
 
 
 ```Java

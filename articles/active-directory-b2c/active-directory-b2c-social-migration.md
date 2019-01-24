@@ -3,22 +3,22 @@ title: Migreren van gebruikers met sociale identiteiten in Azure Active Director
 description: Belangrijkste concepten besproken voor de migratie van gebruikers met sociale identiteiten in Azure AD B2C met Graph API.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ca73b8bfaca481d3e0404d068a74e1a6b0e4dcb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445140"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846554"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Gebruikers met sociale identiteiten migreren
-Wanneer u van plan bent om te migreren van uw id-provider naar Azure AD B2C, moet u mogelijk ook gebruikers met sociale identiteiten migreren. In dit artikel wordt uitgelegd hoe u voor het migreren van bestaande accounts voor sociale identiteiten, zoals: Facebook, LinkedIn, Microsoft en Google-accounts aan Azure AD B2C. In dit artikel geldt ook voor federatieve identiteiten, maar deze migraties minder gangbaar zijn.
+Wanneer u van plan bent om te migreren van uw id-provider naar Azure AD B2C, moet u mogelijk ook gebruikers met sociale identiteiten migreren. Dit artikel wordt uitgelegd hoe u voor het migreren van bestaande accounts voor sociale identiteiten, zoals: Facebook, LinkedIn, Microsoft en Google-accounts aan Azure AD B2C. In dit artikel geldt ook voor federatieve identiteiten, maar deze migraties minder gangbaar zijn.
 
 ## <a name="prerequisites"></a>Vereisten
 Dit artikel is een vervolg van het artikel van de migratie van gebruiker en is gericht op sociale id-migratie. Lees voordat u begint, [gebruikersmigratie](active-directory-b2c-user-migration.md).
@@ -236,4 +236,4 @@ De volgende formuliergegevens verzenden:
 > [!NOTE]
 > Als u niet de UsersData.json-bestand in het voorbeeld met uw gegevens bijwerkt, u kunt zich aanmeldt met de referenties van het voorbeeld lokaal account, maar niet met de voorbeelden sociaal account. Als u wilt migreren van uw sociale accounts, echte gegevens te leveren.
 
-Voor meer informatie over het gebruik van de voorbeeld-app, [Azure Active Directory B2C: gebruikersmigratie](active-directory-b2c-user-migration.md)
+Voor meer informatie over het gebruik van de voorbeeld-app, [Azure Active Directory B2C: Gebruikersmigratie](active-directory-b2c-user-migration.md)

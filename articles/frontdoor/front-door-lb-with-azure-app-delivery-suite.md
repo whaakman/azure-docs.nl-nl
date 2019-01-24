@@ -1,5 +1,5 @@
 ---
-title: Voordeur-Service, Azure - Load Balancing met Azure toepassing levering suite | Microsoft Docs
+title: Voordeur-Service, Azure - Load Balancing met van Azure application delivery suite | Microsoft Docs
 description: Dit artikel helpt u meer informatie over hoe Azure raadt aan om de taakverdeling met de application delivery suite
 services: frontdoor
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026004"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820817"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Taakverdeling realiseren met de Azure-suite voor toepassingslevering
 
 ## <a name="introduction"></a>Inleiding
-Microsoft Azure biedt verschillende globale en regionale services voor het beheren van hoe uw netwerkverkeer wordt verdeeld en taakverdeling: Traffic Manager, voordeur Service Application-Gateway en Load Balancer.  Samen met veel van de Azure-regio's en zonegebonden, architectuur, samen met behulp van deze services kunt u om robuuste, schaalbare krachtige toepassingen te bouwen.
+Microsoft Azure biedt verschillende globale en regionale services voor het beheren van hoe uw netwerkverkeer wordt verdeeld en gelijkmatig verdeeld: Traffic Manager, voordeur Service, Application Gateway en Load Balancer.  Samen met veel van de Azure-regio's en zonegebonden, architectuur, samen met behulp van deze services kunt u om robuuste, schaalbare krachtige toepassingen te bouwen.
 
 ![Application Delivery-Suite ][1]
  
@@ -51,16 +51,16 @@ Load Balancer is een integraal onderdeel van de Azure SDN-stack, leveren van hog
 
 ## <a name="choosing-a-global-load-balancer"></a>Een globale load balancer kiezen
 Bij het kiezen van een globale load balancer tussen Traffic Manager en Azure voordeur voor globale routering, moet u rekening houden met wat is vergelijkbaar en wat is er anders over de twee services.   Beide services bieden
-- **Multi-geografische redundantie:** als één regio uitvalt, verkeer naadloos van worden doorgestuurd naar de dichtstbijzijnde regio zonder tussenkomst van de eigenaar van de toepassing.
-- **Dichtstbijzijnde regio routering:** verkeer wordt automatisch omgeleid naar de dichtstbijzijnde regio
+- **Multi-geografische redundantie:** Als een regio uitvalt, routeert verkeer naadloos naar de dichtstbijzijnde regio zonder tussenkomst van de eigenaar van de toepassing.
+- **Dichtstbijzijnde regio routering:** Verkeer wordt automatisch omgeleid naar de dichtstbijzijnde regio
 
 </br>De volgende tabel beschrijft de verschillen tussen Traffic Manager en Azure voordeur Service:</br>
 
 | Traffic Manager | Azure Front Door Service |
 | --------------- | ------------------------ |
-|**Elk protocol:** omdat Traffic Manager werkt op de DNS-laag, kunt u elk type netwerkverkeer; doorsturen HTTP-, TCP, UDP, enzovoort. | **HTTP-versnelling:** met voordeur verkeer wordt via proxy op de rand van het netwerk van Microsoft.  Als gevolg hiervan Zie HTTP (S) aanvragen latentie en doorvoer verbeteringen korte wachttijden voor SSL-onderhandeling en het gebruik van ' hot ' verbindingen van AFD naar uw toepassing.|
-|**On-premises routering:** met routering op het niveau van een DNS-verkeer altijd punt punt gaat.  Routering van het filiaal naar uw on-premises datacenter kan duren voordat een rechtstreeks pad. zelfs op uw eigen netwerk met Traffic Manager. | **Onafhankelijke schaalbaarheid:** omdat voordeur werkt met de HTTP-aanvraag, kunnen aanvragen naar verschillende URL-paden worden doorgestuurd naar verschillende back-end / regionale service pools (microservices) op basis van regels en de status van elke microservice toepassing.|
-|**Facturering-indeling:** facturering op basis van DNS kan worden geschaald met uw gebruikers en services met meer gebruikers, om te verminderen van kosten op een hoger gebruik plateaus. |**Inline-beveiliging:** voordeur kunnen regels, zoals gelden enkele beperkingen en IP-ACL-ing beveiligen van uw back-ends voordat verkeer bereikt uw toepassing. 
+|**Elk protocol voor:** Omdat het Traffic Manager werkt op de DNS-laag, kunt u elk type netwerkverkeer; doorsturen HTTP-, TCP, UDP, enzovoort. | **HTTP-versnelling:** Met de voordeur wordt verkeer via proxy op de rand van het netwerk van Microsoft.  Als gevolg hiervan Zie HTTP (S) aanvragen latentie en doorvoer verbeteringen korte wachttijden voor SSL-onderhandeling en het gebruik van ' hot ' verbindingen van AFD naar uw toepassing.|
+|**On-premises routering:** Met routering op het niveau van een DNS-verkeer altijd wordt gerouteerd van punt naar punt.  Routering van het filiaal naar uw on-premises datacenter kan duren voordat een rechtstreeks pad. zelfs op uw eigen netwerk met Traffic Manager. | **Onafhankelijke schaalbaarheid:** Omdat de voordeur werkt met de HTTP-aanvraag, aanvragen aan verschillende URL-paden kunnen worden gerouteerd naar verschillende back-end / regionale groepen (microservices) op basis van regels en de status van elke toepassing microservice-service.|
+|**Facturering-indeling:** Facturering op basis van DNS kan worden geschaald met uw gebruikers en services met meer gebruikers, om te verminderen van kosten op een hoger gebruik plateaus. |**Inline-beveiliging:** Voordeur kunnen regels, zoals gelden enkele beperkingen en IP-ACL-ing beveiligen van uw back-ends voordat verkeer bereikt uw toepassing. 
 
 </br>Vanwege de prestaties ervan en de voordelen van beveiliging op http-workloads met voordeur, wordt het aangeraden klanten voordeur gebruiken voor de HTTP-workloads.    Traffic Manager en voordeur kunnen parallel worden gebruikt voor het bieden van al het verkeer voor uw toepassing. 
 

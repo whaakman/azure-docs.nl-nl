@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5c1dbf6429387c02f226e4005164e8824abdc102
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045954"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Zelfstudie: Azure Active Directory-integratie met Shmoop voor scholen
 
@@ -62,21 +62,21 @@ Voor het configureren van de integratie van Shmoop voor scholen in Azure AD, moe
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 2. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![De blade Bedrijfstoepassingen][2]
     
 3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan in het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Shmoop voor scholen**. Selecteer **Shmoop voor scholen** uit de resultaten, selecteer de **toevoegen** om toe te voegen van de toepassing.
 
     ![Shmoop voor scholen in de lijst met resultaten](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Shmoop voor scholen op basis van een testgebruiker met de naam "Britta Simon."
 
@@ -90,7 +90,7 @@ Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Shmoop v
 4. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw toepassing Shmoop voor scholen.
 
@@ -98,7 +98,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
 1. In de Azure-portal op de **Shmoop voor scholen** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. In de **eenmalige aanmelding** in het dialoogvenster, in de vervolgkeuzelijst onder **modus voor één aanmelding**, selecteer **SAML gebaseerde aanmelding**.
  
@@ -113,20 +113,20 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     b. In de **id** vak, typ een URL met het volgende patroon: `https://schools.shmoop.com/<uniqueid>`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met de [Shmoop voor scholen Client ondersteuningsteam](mailto:support@shmoop.com) om deze waarden te verkrijgen. 
+    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met de [Shmoop voor scholen Client ondersteuningsteam](mailto:support@shmoop.com) om deze waarden te verkrijgen. 
  
 4. De toepassing Shmoop voor scholen wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** sectie op de pagina van de integratie van toepassingen. De volgende schermafbeelding ziet u hoe de asserties configureren:
 
     ![Eenmalige aanmelding configureren](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop voor School ondersteunt twee rollen voor gebruikers: **docent** en **Student**. Instellen van deze rollen in Azure AD zodat gebruikers de juiste rollen kunnen worden toegewezen. Zie voor meer informatie over het configureren van rollen in Azure AD, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
+    > Shmoop voor School ondersteunt twee rollen voor gebruikers: **Docent** en **Student**. Instellen van deze rollen in Azure AD zodat gebruikers de juiste rollen kunnen worden toegewezen. Zie voor meer informatie over het configureren van rollen in Azure AD, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
     
-5. In de **gebruikerskenmerken** sectie de **eenmalige aanmelding** dialoogvenster vak, het kenmerk van SAML-token configureren zoals wordt weergegeven in de vorige afbeelding.  Vervolgens voert u de volgende stappen uit:
+5. In de **gebruikerskenmerken** sectie de **eenmalige aanmelding** dialoogvenster vak, het kenmerk van SAML-token configureren zoals wordt weergegeven in de vorige afbeelding.  Voer dan de volgende stappen uit:
 
     | De naam van kenmerk | De waarde van kenmerk |
     | -------------- | --------------- |
-    | rol           | User.assignedroles |
+    | rol           | user.assignedroles |
 
     a. Om te openen de **kenmerk toevoegen** in het dialoogvenster, selecteer **kenmerk toevoegen**.
     
@@ -140,33 +140,33 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     d. Laat de **Namespace** vak leeg zijn.
     
-    e. Selecteer **Ok**.
+    e. Selecteer **OK**.
 
 6. Selecteer de knop **Opslaan**.
 
     ![Eenmalige aanmelding configureren](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
 
-    ![De downloadkoppeling certificaat](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
+    ![De link om het certificaat te downloaden](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
 8. Het configureren van eenmalige aanmelding op de **Shmoop voor scholen** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar de [Shmoop voor scholen ondersteuningsteam](mailto:support@shmoop.com).
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker Britta Simon aangeroepen in de Azure-portal.
 
-   ![Maak een testgebruiker Azure AD][100]
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
 1. Selecteer in de Azure portal, in het linkerdeelvenster de **Azure Active Directory** knop.
 
-    ![De Azure Active Directory-knop](./media/shmoopforschools-tutorial/create_aaduser_01.png)
+    ![De knop Azure Active Directory](./media/shmoopforschools-tutorial/create_aaduser_01.png)
 
 2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**. Selecteer vervolgens **alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/shmoopforschools-tutorial/create_aaduser_02.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](./media/shmoopforschools-tutorial/create_aaduser_02.png)
 
 3. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
@@ -174,7 +174,7 @@ Het doel van deze sectie is het maken van een testgebruiker Britta Simon aangero
 
 4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
-    ![Het dialoogvenster gebruiker](./media/shmoopforschools-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster Gebruiker](./media/shmoopforschools-tutorial/create_aaduser_04.png)
 
     a. In de **naam** in het vak **BrittaSimon**.
 
@@ -207,13 +207,13 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door
 
     ![De koppeling Shmoop voor scholen in de lijst met toepassingen](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![De koppeling Gebruikers en groepen][202]
 
-4. Selecteer de **toevoegen** knop. Klik in de **toevoegen toewijzing** in het dialoogvenster, selecteer **gebruikers en groepen**.
+4. Selecteer de knop **Add**. Klik in de **toevoegen toewijzing** in het dialoogvenster, selecteer **gebruikers en groepen**.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+    ![Het deelvenster Toewijzing toevoegen][203]
 
 5. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de gebruikerslijst.
 
@@ -232,7 +232,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies voor informatie over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

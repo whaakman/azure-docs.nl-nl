@@ -3,19 +3,19 @@ title: Referentie - frameworks vertrouwen in Azure Active Directory B2C | Micros
 description: Een onderwerp over Azure Active Directory B2C aangepast beleid en de Identiteitservaring-Framework.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 694d463c158f8c8beb0396edf22ac749c03e9e97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185776"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845687"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Vertrouwensrelatie Frameworks met Azure AD B2C Identity-Ervaringsframework definiëren
 
@@ -52,10 +52,10 @@ TFs zijn de linchpins van het Open identiteit Exchange (OIX) vertrouwen Framewor
 - **De beschrijving van de digitale identiteitsinformatie die is aangeboden/vereist door deelnemers**.
 
 - **De technische beleidsregels voor productie en het verbruik van gegevens van digitale identiteit, en dus voor het meten van LOA en LOP. Deze schriftelijke beleidsregels zijn doorgaans de volgende categorieën van het beleid:**
-    - Identiteit taalprogramma beleid, bijvoorbeeld: *hoe sterk is van een persoon identiteitsgegevens gecontroleerd?*
-    - Beveiligingsbeleid, bijvoorbeeld: *hoe sterk zijn informatie integriteit en vertrouwelijkheid beveiligd?*
-    - Privacybeleid, bijvoorbeeld: *welke besturingselement een gebruiker hebben over persoonlijk identificeerbare informatie (PII)*?
-    - Overlevingsvermogen beleid, bijvoorbeeld: *als een provider niet langer operations, hoe gaat de continuïteit en bescherming van persoonsgegevens functie?*
+    - Identiteit taalprogramma beleid, bijvoorbeeld: *Hoe sterk is van een persoon identiteitsgegevens gecontroleerd?*
+    - Beveiligingsbeleid, bijvoorbeeld: *Hoe sterk zijn informatie berichtintegriteit en vertrouwelijkheid beveiligd?*
+    - Privacybeleid voor, bijvoorbeeld: *Welke besturingselement een gebruiker hebben over persoonlijk identificeerbare informatie (PII)*?
+    - Beleid voor overlevingsvermogen, bijvoorbeeld: *Als een provider niet langer operations, hoe gaat de continuïteit en bescherming van persoonsgegevens functie?*
 
 - **De technische profielen voor productie en het verbruik van gegevens van digitale identiteit. Deze profielen bevatten:**
     - Bereik interfaces waarvoor digitale identiteitsinformatie beschikbaar op een opgegeven LOA is.

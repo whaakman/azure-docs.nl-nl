@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: d2602b79db0950043cc84bbd1626f7c8ec6f402a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 399a0e6dd2b5c83a599aa50973417ba5a9be708d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714386"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813352"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren met behulp van technologieën In het geheugen in SQL-Database
 
@@ -70,7 +70,7 @@ Zie voor meer informatie:
 
 ## <a name="in-memory-oltp"></a>In-memory OLTP
 
-In-memory OLTP-technologie biedt zeer snelle bewerkingen voor gegevenstoegang door het behouden van alle gegevens in het geheugen. Gebruikt ook gespecialiseerde indexen, systeemeigen compilatie van query's en vergrendelingsvrije gegevens-optie om de prestaties van de OLTP-werkbelasting te verbeteren. Er zijn twee manieren om uw In-Memory OLTP-gegevens te ordenen:
+In-memory OLTP-technologie biedt zeer snelle bewerkingen voor gegevenstoegang door het behouden van alle gegevens in het geheugen. Gebruikt ook gespecialiseerde indexen, systeemeigen compilatie van query's en vergrendelingsvrije gegevenstoegang om prestaties van de OLTP-werkbelasting te verbeteren. Er zijn twee manieren om uw In-Memory OLTP-gegevens te ordenen:
 - **Geoptimaliseerd voor geheugen rowstore** indeling waarin elke rij een afzonderlijke geheugenruimte-object is. Dit is een klassieke In-Memory OLTP-indeling dat is geoptimaliseerd voor high-performance OLTP-workloads. Er zijn twee soorten tabellen geoptimaliseerd voor geheugen die in de indeling van de rowstore geoptimaliseerd voor geheugen kunnen worden gebruikt:
   - *Duurzame tabellen* (SCHEMA_AND_DATA) waar de rijen geplaatst in het geheugen blijven behouden nadat de server opnieuw is opgestart. Dit type tabellen gedraagt zich als een traditioneel rowstore-tabel met de extra voordelen van de optimalisaties in het geheugen.
   - *Niet-duurzame tabellen* (SCEMA_ONLY) waar de rijen worden niet bewaard na opnieuw opstarten. Dit type tabel is ontworpen voor tijdelijke gegevens (bijvoorbeeld vervanging van tijdelijke tabellen) of tabellen waar u nodig hebt om snel gegevens laden voordat u deze naar een permanente tabel verplaatst (dus faseringstabellen genoemd).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630322"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809187"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -157,7 +157,7 @@ De resultaten weergeven in CSV:
 | \*.laccdb | Vergrendeling Access DB-bestand|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Interne Sync-bestand|
 | \\System Volume Information | Map die specifiek zijn voor volume |
-| $RECYCLE. OPSLAGLOCATIE| Map |
+| $RECYCLE.BIN| Map |
 | \\SyncShareState | Map voor synchronisatie |
 
 ### <a name="failover-clustering"></a>Failover Clustering
@@ -205,6 +205,9 @@ Als u een back-up on-premises-oplossing gebruikt, moeten de back-ups worden uitg
 
 > [!Note]  
 > (BMR) bare-metal-herstel kan leiden tot onverwachte resultaten en wordt momenteel niet ondersteund.
+
+> [!Note]  
+> VSS-momentopnamen (met inbegrip van eerdere versies tabblad) worden momenteel niet ondersteund op volumes waarvoor cloudopslaglagen ingeschakeld. Als cloud tiering is ingeschakeld, gebruikt u de momentopnamen van de Azure-bestandsshares naar een bestand herstellen vanuit back-up.
 
 ### <a name="encryption-solutions"></a>Versleutelingsoplossingen voor
 Ondersteuning voor versleutelingsoplossingen voor, is afhankelijk van hoe ze worden geïmplementeerd. Azure File Sync is bekend bij het werken met:

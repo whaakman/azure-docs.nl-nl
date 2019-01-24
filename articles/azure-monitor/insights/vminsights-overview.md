@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2018
+ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 69aa2cbcaa6861b1d5c5c71769be2fb8046d9ea5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188493"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856372"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Wat is Azure Monitor voor virtuele machines (preview)?
 
@@ -50,7 +50,7 @@ U kunt deze gegevens weergeven in een enkele virtuele machine van de virtuele ma
 
 ![Perspectief van de virtuele machine inzicht in de Azure-portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-Azure DevOps kan bieden voorspelbare prestaties en beschikbaarheid van essentiële toepassingen. Het identificeert kritieke besturingssysteemgebeurtenissen, knelpunten in de prestaties en netwerkproblemen. Azure DevOps kunt u inzicht in of een probleem is gerelateerd aan andere afhankelijkheden.  
+Azure Monitor voor virtuele machines kan bieden voorspelbare prestaties en beschikbaarheid van essentiële toepassingen. Het identificeert kritieke besturingssysteemgebeurtenissen, knelpunten in de prestaties en netwerkproblemen. Azure Monitor voor virtuele machines kunt u inzicht in of een probleem is gerelateerd aan andere afhankelijkheden.  
 
 ## <a name="data-usage"></a>Gegevensgebruik 
 

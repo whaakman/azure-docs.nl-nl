@@ -3,19 +3,19 @@ title: Informatie over aangepaste beleidsregels van het starter pack in Azure Ac
 description: Een onderwerp op Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ebcd7a677acde12558b0f566bce9172a0d00233b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cfb3894b98ea562eede4c223ca6125abce65b0d3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442471"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845568"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Inzicht krijgen in het aangepaste beleid van de Azure AD B2C aangepast beleid beginnerspakket
 
@@ -47,9 +47,9 @@ De beschikbare claimtypen worden hieronder vermeld.
 
 De volgende claims zijn vereist voor de gebruiker reizen goed te laten werken:
 
-| Claims type | Beschrijving |
+| Claims type | Description |
 |-------------|-------------|
-| *Gebruikers-id* | Gebruikersnaam |
+| *UserId* | Gebruikersnaam |
 | *signInName* | Meld u aan de naam |
 | *tenantId* | Tenant-id (ID) van het gebruikersobject in Azure AD B2C |
 | *objectId* | Object-id (ID) van het gebruikersobject in Azure AD B2C |
@@ -63,7 +63,7 @@ De volgende claims zijn vereist voor de gebruiker reizen goed te laten werken:
 | *displayName* | |
 | *strongAuthenticationPhoneNumber* | Telefoonnummer van gebruiker |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *E-mail* | E-mailadres dat kan worden gebruikt om contact op met de gebruiker |
+| *email* | E-mailadres dat kan worden gebruikt om contact op met de gebruiker |
 | *signInNamesInfo.emailAddress* | E-mailadres dat de gebruiker gebruiken kunt om aan te melden bij |
 | *otherMails* | E-mailadressen die kunnen worden gebruikt om contact op met de gebruiker |
 | *userPrincipalName* | De gebruikersnaam die is opgeslagen in de Azure AD B2C |
@@ -78,15 +78,15 @@ De volgende claims zijn vereist voor de gebruiker reizen goed te laten werken:
 
 De volgende claims zijn vereist om door te geven op speciale parameters (met inbegrip van sommige queryreeksparameters) voor andere claims-providers:
 
-| Claims type | Beschrijving |
+| Claims type | Description |
 |-------------|-------------|
 | *nux* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
-| *NCA* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
+| *nca* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
 | *prompt* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
-| *Mkt* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
+| *mkt* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
 | *lc* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
 | *grant_type* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
-| *Bereik* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
+| *scope* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
 | *client_id* | Speciale parameter voor de verificatie van lokale account wordt doorgegeven aan login.microsoftonline.com |
 | *objectIdFromSession* | Parameter opgegeven door de standaardprovider voor het beheer van sessie om aan te geven dat de object-ID is opgehaald vanuit een sessie voor eenmalige aanmelding |
 | *isActiveMFASession* | Parameter opgegeven door de MFA-sessiebeheer om aan te geven dat de gebruiker een actieve sessie voor MFA heeft |
@@ -95,7 +95,7 @@ De volgende claims zijn vereist om door te geven op speciale parameters (met inb
 
 De volgende claims zijn extra claims die kunnen worden verzameld van de gebruikers, opgeslagen in de map en in het token verzonden. Zoals wordt beschreven voordat, kunnen aanvullende claims worden toegevoegd aan deze lijst.
 
-| Claims type | Beschrijving |
+| Claims type | Description |
 |-------------|-------------|
 | *givenName* | De opgegeven naam van gebruiker (ook wel bekend als voornaam) |
 | *Achternaam* | De achternaam van de gebruiker (ook wel bekend als familienaam of achternaam) |
@@ -105,7 +105,7 @@ De volgende claims zijn extra claims die kunnen worden verzameld van de gebruike
 
 De beschikbare claimtransformaties worden hieronder vermeld.
 
-| Claimtransformatie | Beschrijving |
+| Claimtransformatie | Description |
 |----------------------|-------------|
 | *CreateOtherMailsFromEmail* | |
 | *CreateRandomUPNUserName* | |
@@ -118,7 +118,7 @@ De beschikbare claimtransformaties worden hieronder vermeld.
 
 Deze sectie beschrijft de inhoudsdefinities is al gedeclareerd in de *B2C_1A_base* beleid. Deze inhoud definities zijn vatbaar voor worden waarnaar wordt verwezen, worden genegeerd en/of verlengd zo nodig in uw eigen beleid ook als in de *B2C_1A_base_extensions* beleid.
 
-| Claimprovider | Beschrijving |
+| Claimprovider | Description |
 |-----------------|-------------|
 | *Facebook* | |
 | *Aanmelden met lokaal Account* | |
@@ -137,27 +137,27 @@ In deze sectie ziet u de technische profielen is al gedeclareerd per claimprovid
 
 ### <a name="technical-profiles-for-facebook"></a>Technische profielen voor Facebook
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *Facebook-OAUTH* | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>Technische profielen voor aanmelden met lokaal Account
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
-| *Aanmelding niet-interactieve* | |
+| *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Technische profielen voor Phone Factor
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
-| *PhoneFactor-invoer* | |
+| *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
-| *Controleer of van PhoneFactor* | |
+| *PhoneFactor-Verify* | |
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Technische profielen voor Azure Active Directory
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *AAD-Common* | Technisch profiel opgenomen door de andere technische AAD-xxx-profielen |
 | *AAD-UserWriteUsingAlternativeSecurityId* | Technisch profiel voor sociale aanmeldingen |
@@ -172,20 +172,20 @@ In deze sectie ziet u de technische profielen is al gedeclareerd per claimprovid
 
 ### <a name="technical-profiles-for-self-asserted"></a>Technische profielen voor selfservice door de bevestigde
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *SelfAsserted-Social* | |
 | *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Technische profielen voor lokaal Account
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *LocalAccountSignUpWithLogonEmail* | |
 
 ### <a name="technical-profiles-for-session-management"></a>Technische profielen voor het beheer van sessie
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *SM-NoOperation* | |
 | *SM-AAD* | |
@@ -199,7 +199,7 @@ Op dit moment geen technische profielen zijn gedefinieerd voor de **Trustframewo
 
 ### <a name="technical-profiles-for-token-issuer"></a>Technische profielen voor de uitgever van het Token
 
-| Technisch profiel | Beschrijving |
+| Technisch profiel | Description |
 |-------------------|-------------|
 | *JwtIssuer* | |
 
@@ -207,10 +207,10 @@ Op dit moment geen technische profielen zijn gedefinieerd voor de **Trustframewo
 
 In deze sectie ziet u de transporten gebruiker is al gedeclareerd in de *B2C_1A_base* beleid. Deze gebruiker reizen zijn vatbaar voor worden verder waarnaar wordt verwezen, worden genegeerd en/of verlengd zo nodig in uw eigen beleid ook als in de *B2C_1A_base_extensions* beleid.
 
-| Gebruikersbeleving | Beschrijving |
+| Gebruikersbeleving | Description |
 |--------------|-------------|
-| *Aanmelden* | |
-| *Aanmelden met* | |
+| *SignUp* | |
+| *SignIn* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |

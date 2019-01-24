@@ -3,19 +3,19 @@ title: De resource-eigenaar wachtwoord referentiestroom configureren in Azure Ac
 description: Informatie over het configureren van de resource-eigenaar wachtwoord referentiestroom in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7de41e4e904452d01cc0c7902d411070f7384a51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: a7647e4a54cdfa4eff284c4b1d8bd579e51fdbe3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756520"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847523"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>De resource-eigenaar wachtwoord referentiestroom in Azure Active Directory B2C met een aangepast beleid configureren
 

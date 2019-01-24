@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: 5e0282c766527f8210e36f6e916518a252200041
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7ccc9793bd1c4a345098892e66be15228efcc265
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038888"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844565"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabel standaard .NET-API: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -31,18 +31,25 @@ ms.locfileid: "54038888"
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
-### <a name="a-name0100-preview0100-preview"></a><a name="0.10.0-preview"/>0.10.0-Preview
-* Ondersteuning toevoegen voor de belangrijkste CRUD, batch en query-bewerkingen op de eindpunten van Azure Storage-tabel. [!NOTE] Sommige functies in de vorige Azure Storage Table SDK's zijn nog niet ondersteund, zoals versleuteling aan de clientzijde.
+### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
+* Ondersteuning voor SAS-token, bewerkingen van TablePermissions ServiceProperties en ServiceStats op de eindpunten van Azure Storage-tabel toevoegen. 
+   > [!NOTE] Sommige functies in de vorige Azure Storage Table SDK's zijn nog niet ondersteund, zoals het client-side encryption.
+
+### <a name="a-name0100-preview0100-preview"></a><a name="0.10.0-preview"/>0.10.0-preview
+* Ondersteuning toevoegen voor core CRUD-, batch- en querybewerkingen op de eindpunten van Azure Storage-tabel. 
+   > [!NOTE] Sommige functies in de vorige Azure Storage Table SDK's zijn nog niet ondersteund, zoals het client-side encryption.
 
 ### <a name="a-name091-preview091-preview"></a><a name="0.9.1-preview"/>0.9.1-Preview
-* Azure Cosmos DB tabel .NET Standard-SDK is een platformoverschrijdende .NET-bibliotheek die efficiënt toegang tot het gegevensmodel van de tabel op Cosmos DB biedt. Deze eerste release biedt ondersteuning voor de volledige set van tabel of entiteit CRUD + Query functies met dezelfde API's als de [Cosmos DB Table SDK voor .NET Framework](table-sdk-dotnet.md). [!NOTE] Azure Storage-tabel-eindpunten zijn nog niet ondersteund in de 0.9.1-preview-versie.
+* Azure Cosmos DB tabel .NET Standard-SDK is een platformoverschrijdende .NET-bibliotheek die efficiënt toegang tot het gegevensmodel van de tabel op Cosmos DB biedt. Deze eerste release biedt ondersteuning voor de volledige set van tabel of entiteit CRUD + Query functies met dezelfde API's als de [Cosmos DB Table SDK voor .NET Framework](table-sdk-dotnet.md). 
+   > [!NOTE] Azure Storage-tabel-eindpunten zijn nog niet ondersteund in de 0.9.1-preview-versie.
 
 ## <a name="release-and-retirement-dates"></a>Release-en buiten gebruik stellen
 Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
-| [0.10.0-Preview](#0.10.0-preview) |18 december 2018 |--- |
+| [0.10.1-preview](#0.10.1-preview) |22 januari 2019 |--- |
+| [0.10.0-preview](#0.10.0-preview) |18 december 2018 |--- |
 | [0.9.1-Preview](#0.9.1-preview) |18 oktober 2018 |--- |
 
 

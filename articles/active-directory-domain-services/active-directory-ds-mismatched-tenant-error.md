@@ -4,7 +4,7 @@ description: Begrijpen en oplossen van niet-overeenkomende map voor bestaande Az
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7f69214304161c091a4550aff770b6333656972c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955069"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844208"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Los de fouten niet-overeenkomende map voor bestaande Azure AD Domain Services beheerde domeinen
 Hebt u een bestaande Azure AD Domain Services beheerde domein. Wanneer u gaat u naar de Azure-portal en het beheerde domein, ziet u de volgende strekking weergegeven:
@@ -37,11 +37,11 @@ De nieuwe Azure-portal (en specifiek de extensie Azure AD Domain Services) is ge
 
 Kort gezegd, kan u een beheerd domein inschakelen voor een Azure AD-tenant 'contoso.com' in een virtueel netwerk die behoren tot een Azure-abonnement eigendom zijn van een andere Azure AD-tenant 'fabrikam.com'. 
 
-**Geldige configuratie**: In dit implementatiescenario het beheerde domein Contoso is ingeschakeld voor de Contoso Azure AD-tenant. Het beheerde domein wordt weergegeven in een virtueel netwerk die behoren tot een Azure-abonnement eigendom zijn van de Contoso Azure AD-tenant. Daarom behoren zowel het beheerde domein als het virtuele netwerk tot dezelfde Azure AD-tenant. Deze configuratie is geldig en volledig wordt ondersteund.
+**Geldige configuratie**: In dit implementatiescenario worden het beheerde domein Contoso is ingeschakeld voor de Contoso Azure AD-tenant. Het beheerde domein wordt weergegeven in een virtueel netwerk die behoren tot een Azure-abonnement eigendom zijn van de Contoso Azure AD-tenant. Daarom behoren zowel het beheerde domein als het virtuele netwerk tot dezelfde Azure AD-tenant. Deze configuratie is geldig en volledig wordt ondersteund.
 
 ![Geldige tenantconfiguratie](./media/getting-started/valid-tenant-config.png)
 
-**Niet-overeenkomende tenantconfiguratie**: In dit implementatiescenario het beheerde domein Contoso is ingeschakeld voor de Contoso Azure AD-tenant. Het beheerde domein wordt echter weergegeven in een virtueel netwerk die deel uitmaakt van een Azure-abonnement eigendom zijn van de Fabrikam Azure AD-tenant. Daarom het beheerde domein en het virtuele netwerk horen bij twee verschillende Azure AD-tenants. Deze configuratie is de configuratie van de niet-overeenkomende tenants en wordt niet ondersteund. Het virtuele netwerk moet worden verplaatst naar dezelfde Azure AD-tenant (dat wil zeggen, Contoso) als het beheerde domein. Zie de [resolutie](#resolution) sectie voor meer informatie.
+**Niet-overeenkomende tenantconfiguratie**: In dit implementatiescenario worden het beheerde domein Contoso is ingeschakeld voor de Contoso Azure AD-tenant. Het beheerde domein wordt echter weergegeven in een virtueel netwerk die deel uitmaakt van een Azure-abonnement eigendom zijn van de Fabrikam Azure AD-tenant. Daarom het beheerde domein en het virtuele netwerk horen bij twee verschillende Azure AD-tenants. Deze configuratie is de configuratie van de niet-overeenkomende tenants en wordt niet ondersteund. Het virtuele netwerk moet worden verplaatst naar dezelfde Azure AD-tenant (dat wil zeggen, Contoso) als het beheerde domein. Zie de [resolutie](#resolution) sectie voor meer informatie.
 
 ![Configuratie van niet-overeenkomende tenants](./media/getting-started/mismatched-tenant-config.png)
 

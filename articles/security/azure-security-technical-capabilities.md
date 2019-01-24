@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249027"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820237"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -179,9 +179,9 @@ Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en a
 
 Een van de sleutels voor de bescherming van gegevens in de cloud is accounting voor de mogelijke statussen in die uw gegevens zich kunnen voordoen en welke besturingselementen beschikbaar zijn voor die status zijn. De aanbevelingen zijn Azure-gegevens en encryption aanbevolen procedures voor de statussen van de volgende gegevens.
 
-- Inactieve: Dit bevat alle informatie opslagobjecten, containers en typen die statisch aanwezig zijn op de fysieke media, worden deze magnetische of optische schijven.
+- At-rest: Dit omvat alle gegevens opslagobjecten, containers en typen die statisch aanwezig zijn op de fysieke media, worden deze magnetische of optische schijven.
 
-- In-Transit: Wanneer gegevens worden overgebracht tussen onderdelen, locaties of programma's, zoals als meer dan het netwerk via een service bus (van on-premises naar de cloud en vice versa, met inbegrip van hybride verbindingen, zoals ExpressRoute), of tijdens een i/o-proces , dit wordt beschouwd als zijnde in beweging.
+- In-Transit: Wanneer gegevens worden overgebracht tussen onderdelen, locaties of programma's, zoals via het netwerk via een servicebus (van on-premises naar de cloud en vice versa, met inbegrip van hybride verbindingen, zoals ExpressRoute), of tijdens een i/o is worden beschouwd als in-motion.
 
 ### <a name="encryption-at-rest"></a>Versleuteling 'at rest'
 
@@ -228,7 +228,7 @@ Gebruik Azure Disk Encryption voor virtuele machine en lokale schijfopslag waar 
 
 Services met IaaS-VM's (Windows of Linux) moeten gebruiken [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) voor het versleutelen van volumes met gegevens van de klant.
 
-#### <a name="paas-v2"></a>PaaS-v2
+#### <a name="paas-v2"></a>PaaS v2
 
 Services die worden uitgevoerd op PaaS-v2 met behulp van Service Fabric kunt gebruiken Azure disk encryption voor virtuele-Machineschaalset [VMSS] voor het versleutelen van hun PaaS v2 VM's.
 
@@ -248,7 +248,7 @@ Als u ondersteuning voor de klant beheerde sleutels, moet u voor een UX voor de 
 
 Als versleuteling-at-Rest de versleuteling van de host, infrastructuur en tenant-gegevens, het verlies van gegevens van de sleutels vanwege een systeemfout is opgetreden omvat of schadelijke activiteiten betekenen de versleutelde gegevens dat kan gaat verloren. Het is daarom essentieel dat de versleuteling-at-Rest-oplossing een uitgebreide disaster recovery verhaal tegen systeemfouten en schadelijke activiteiten heeft.
 
-Services die versleuteling-at-Rest implementeren zijn doorgaans nog steeds gevoelig zijn voor de versleutelingssleutels of gegevens blijft niet-versleuteld op de host-station (bijvoorbeeld in het wisselbestand van het hostbesturingssysteem.) Services moeten daarom dat het hostvolume voor hun services worden versleuteld. Om deze Compute team heeft ingeschakeld voor de implementatie van de Host-versleuteling, die wordt gebruikt [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP en -extensies op de DCM-service en de agent voor het versleutelen van het hostvolume.
+Services die versleuteling-at-Rest implementeren zijn doorgaans nog steeds gevoelig zijn voor de versleutelingssleutels of gegevens blijft niet-versleuteld op de host-station (bijvoorbeeld in het wisselbestand van het hostbesturingssysteem.) Services moeten daarom dat het hostvolume voor hun services worden versleuteld. Om deze Compute team heeft ingeschakeld voor de implementatie van de Host-versleuteling, die wordt gebruikt [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP en -extensies op de DCM-service en de agent voor het versleutelen van het hostvolume.
 
 De meeste services zijn geïmplementeerd op standaard Azure-VM's. Dergelijke services moeten krijgen [Host versleuteling](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automatisch wanneer Compute ingeschakeld. Voor services die worden uitgevoerd in Compute beheerde clusters host versleuteling automatisch ingeschakeld als Windows Server 2016 wordt uitgerold.
 
@@ -370,7 +370,7 @@ Microsoft Antimalware voor Azure Cloud Services en virtuele Machines is een real
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) kunt indelen replicatie, failover en herstel van workloads en apps, zodat ze beschikbaar vanaf een secundaire locatie zijn als uw primaire locatie uitvalt.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Naleving: Cloud services vanwege de zorgvuldigheid Controlelijst (beveiligen)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Naleving: Cloud-services vanwege de zorgvuldigheid Controlelijst (beveiligen)
 
 Microsoft ontwikkelde [de controlelijst voor Cloud Services de zorgvuldigheid vervaldatum](https://aka.ms/cloudchecklist.download) waarmee organisaties kunnen uitoefenen vanwege de zorgvuldigheid zoals overgang naar de cloud overweegt. Het biedt een structuur voor een organisatie met een grootte en hetzelfde type, particuliere bedrijven en organisaties in de publieke sector, inclusief overheid op alle niveaus en non-profitorganisaties — om hun eigen prestaties, service, gegevensbeheer en governance doelstellingen te identificeren en vereisten. Hierdoor kunnen ze de aanbiedingen van andere cloudserviceproviders, die uiteindelijk vormen de basis voor een cloud-serviceovereenkomst vergelijken.
 
@@ -398,7 +398,7 @@ Daarnaast kunnen de Controlelijst:
 
 Operationele beveiliging in Azure is gebouwd op een framework waarin de kennis opgedaan uit een diverse mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de Microsoft Security Development Lifecycle (SDL), het programma Microsoft Security Response Center , en een diep besef van het landschap van cyberveiligheidsbedreigingen.
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure-logboekanalyse
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
 
 [Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, Log Analytics, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
 

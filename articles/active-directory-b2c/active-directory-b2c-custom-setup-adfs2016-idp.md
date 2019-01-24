@@ -3,19 +3,19 @@ title: AD FS toevoegen als een SAML-id-provider met behulp van aangepaste beleid
 description: Instellen van AD FS 2016 met de SAML-protocol en aangepaste beleidsregels in Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f74da682c72f9effb4dbac49b316ff17f03b534
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 6a371bbe34368e5373589575f367d4b352320ecd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275884"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856448"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>AD FS toevoegen als een SAML-id-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -169,11 +169,11 @@ Open een browser en navigeer naar de URL. Controleer of u typt u de juiste URL e
 
     | LDAP-attrubute | Type uitgaande claim |
     | -------------- | ------------------- |
-    | Gebruiker-Principal-naam | userPricipalName |
+    | User-Principal-Name | userPricipalName |
     | Achternaam | family_name |
-    | De opgegeven naam | given_name |
+    | Given-Name | given_name |
     | E-Mail-adres | e-mail |
-    | Weergavenaam | naam |
+    | Display-Name | naam |
     
 12.  Op basis van het certificaattype, wellicht u stelt het HASH-algoritme. Selecteer op de relying party trust (B2C-Demo) eigenschappenvenster, de **Geavanceerd** tabblad en wijzig de **veilige hash-algoritme** naar `SHA-256`, en klikt u op **Ok**.  
 13. Selecteer in Serverbeheer **extra**, en selecteer vervolgens **AD FS Management**.

@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433991"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Zelfstudie: Azure Active Directory-integratie met vxMaintain
 
@@ -43,9 +43,9 @@ Voor het configureren van Azure AD-integratie met vxMaintain, moet u de volgende
 > [!NOTE]
 > Wanneer u de stappen in deze zelfstudie hebt getest, wordt u aangeraden dat u niet een productie-omgeving gebruiken.
 
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -63,7 +63,7 @@ Als u wilt toevoegen vxMaintain uit de galerie, het volgende doen:
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** knop. 
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 1. Selecteer **bedrijfstoepassingen** > **alle toepassingen**.
 
@@ -81,7 +81,7 @@ Als u wilt toevoegen vxMaintain uit de galerie, het volgende doen:
 
     ![De koppeling vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 In deze sectie kunt u configureren en testen van Azure AD-eenmalige aanmelding met behulp van vxMaintain, op basis van een testgebruiker met de naam "Britta Simon."
 
 Azure AD moet weten van de vxMaintain equivalent aan de Azure AD-gebruiker voor eenmalige aanmelding om te werken. Dat wil zeggen, moet u een koppeling relatie tussen de Azure AD-gebruiker en de bijbehorende vxMaintain-gebruiker maken.
@@ -129,7 +129,7 @@ In deze sectie kunt u zowel Azure AD-eenmalige aanmelding inschakelen in Azure p
 >Zie voor meer informatie over de documentatie voor embedded-functie, [beheren van eenmalige aanmelding voor zakelijke apps](https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 In deze sectie maakt maken u testgebruiker Britta Simon in Azure portal door het volgende te doen:
 
 ![De Azure AD-testgebruiker][100]
@@ -149,7 +149,7 @@ In deze sectie maakt maken u testgebruiker Britta Simon in Azure portal door het
 
 1. In de **gebruiker** dialoogvenster de volgende handelingen uit:
  
-    ![Het dialoogvenster gebruiker](./media/vxmaintain-tutorial/create_aaduser_04.png) 
+    ![Het dialoogvenster Gebruiker](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
     a. In de **naam** in het vak **BrittaSimon**.
 
@@ -161,7 +161,7 @@ In deze sectie maakt maken u testgebruiker Britta Simon in Azure portal door het
  
 ### <a name="create-a-vxmaintain-test-user"></a>Maak een testgebruiker vxMaintain
 
-In deze sectie maakt u testgebruiker Britta Simon vxMaintain. Als gebruikers wilt toevoegen in het platform vxMaintain, werken met de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact). Voordat u eenmalige aanmelding gebruiken, maken en activeren van de gebruikers.
+In deze sectie maakt u testgebruiker Britta Simon vxMaintain. Als gebruikers wilt toevoegen in het platform vxMaintain, werken met de [vxMaintain ondersteuningsteam](https://www.hubspot.com/company/contact). Voordat u eenmalige aanmelding gebruiken, maken en activeren van de gebruikers.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -179,11 +179,11 @@ In deze sectie maakt inschakelen u testgebruiker Britta Simon Azure eenmalige aa
 
 1. Selecteer in het linkerdeelvenster **gebruikers en groepen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202] 
+    ![De koppeling Gebruikers en groepen][202] 
 
 1. Selecteer **toevoegen** en klikt u op de **toevoegen toewijzing** venster **gebruikers en groepen**.
 
-    ![De koppeling 'Gebruikers en groepen'][203]
+    ![De koppeling Gebruikers en groepen][203]
 
 1. In de **gebruikers en groepen** in het dialoogvenster de **gebruikers** in de lijst met **Britta Simon**, en selecteer vervolgens de **Selecteer** knop.
 

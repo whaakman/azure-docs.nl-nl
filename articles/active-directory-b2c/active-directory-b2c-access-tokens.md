@@ -3,21 +3,21 @@ title: Aanvragen van tokens voor toegang in Azure Active Directory B2C | Microso
 description: Dit artikel wordt beschreven hoe u een clienttoepassing instellen en een toegangstoken verkrijgen.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015346"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845143"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Aanvragen toegangstokens
+# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Toegangstokens aanvragen
 
 Een toegangstoken (aangeduid als **toegang\_token** in de antwoorden van Azure AD B2C) is een vorm van een beveiligingstoken dat een client gebruiken kan voor toegang tot resources die worden beveiligd door een [autorisatieserver](active-directory-b2c-reference-protocols.md), zoals een web-API. Toegangstokens worden weergegeven als [JWTs](active-directory-b2c-reference-tokens.md) en bevatten informatie over de gewenste resource-server en de toegekende machtigingen op de server. Bij het aanroepen van de resource-server, is het toegangstoken moet worden gebruikt in de HTTP-aanvraag.
 
@@ -105,8 +105,8 @@ U kunt meer bereiken (machtigingen) aanvragen voor een resource dan wat voor uw 
 
 De OpenID Connect-standaard bevat verschillende waarden voor het speciale 'bereik'. De volgende speciale bereiken, gelden voor de machtiging voor 'toegang tot het gebruikersprofiel':
 
-* **openid**: dit een ID-token aanvragen
-* **offline\_toegang**: dit vraagt een vernieuwingstoken (met behulp van [autorisatiecode stromen](active-directory-b2c-reference-oauth-code.md)).
+* **openid**: Dit aanvragen een ID-token
+* **offline\_access**: Hiermee vraagt een vernieuwingstoken (met behulp van [autorisatiecode stromen](active-directory-b2c-reference-oauth-code.md)).
 
 Als de `response_type` parameter in een `/authorize` verzoek bevat `token`, wordt de `scope` parameter moet ten minste één resource bereik bevatten (andere dan `openid` en `offline_access`) die wordt verleend. Anders wordt de `/authorize` -aanvraag wordt beëindigd met een fout.
 
@@ -114,7 +114,7 @@ Als de `response_type` parameter in een `/authorize` verzoek bevat `token`, word
 
 In een is geslagen **toegang\_token** (vanuit de `/authorize` of `/token` eindpunt), de volgende claims aanwezig zijn:
 
-| Naam | Claim | Beschrijving |
+| Name | Claim | Description |
 | --- | --- | --- |
 |Doelgroep |`aud` |De **toepassings-ID** van de afzonderlijke resource die de token verleent toegang tot. |
 |Bereik |`scp` |De machtigingen verleend aan de resource. Meerdere toegekende machtigingen worden gescheiden door een spatie. |

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4490db0c479abdda19957be98335edeefc08bb59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583354"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808745"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
@@ -67,14 +67,14 @@ Alleen een [eigenaar](../role-based-access-control/built-in-roles.md#owner) kan 
 
 ### <a name="adding-a-guest-user-as-a-co-administrator"></a>Een gastgebruiker toevoegen als een CO-beheerder
 
-Gastgebruikers die zijn toegewezen aan de rol CO-beheerder ziet mogelijk enkele verschillen in vergelijking met gebruikers met de rol CO-beheerder. Houd rekening met het volgende scenario:
+[Gastgebruikers](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) die de CO-beheerder zijn toegewezen rol ziet mogelijk enkele verschillen in vergelijking met gebruikers met de rol CO-beheerder. Houd rekening met het volgende scenario:
 
 - Gebruiker A met een Azure AD-werk- of School-account is een servicebeheerder voor een Azure-abonnement.
 - Gebruiker B heeft een Microsoft-account.
 - Gebruiker A wijst de rol CO-beheerder voor gebruiker b
 - Gebruiker B kan bijna alles doen, maar kan niet registreren van toepassingen of gebruikers in de Azure AD-directory opzoeken.
 
-U zou verwachten dat de gebruiker B kan alles beheren. De reden voor dit verschil is dat het Microsoft-account wordt toegevoegd aan het abonnement als gastgebruiker in plaats van een gebruiker lid. Gastgebruikers hebben verschillende standaardmachtigingen in Azure AD in vergelijking met gebruikers. Bijvoorbeeld lidgebruikers andere gebruikers in Azure AD kunnen lezen en gastgebruikers kunnen niet. Lidgebruikers nieuwe service-principals in Azure AD kunnen registreren en gastgebruikers kunnen niet. Als een gastgebruiker kunnen deze taken uit te voeren moet, een mogelijke oplossing bestaat uit het toewijzen van de specifieke Azure AD-beheerdersrollen de gastgebruiker moet. Bijvoorbeeld, in het voorgaande scenario kan u toewijzen de [Adreslijstlezers](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rol andere gebruikers maken en toewijzen de [toepassingsontwikkelaar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) rol mogelijk te maken van service-principals. Zie voor meer informatie over lid en gastgebruikers en hun machtigingen [wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+U zou verwachten dat de gebruiker B kan alles beheren. De reden voor dit verschil is dat het Microsoft-account wordt toegevoegd aan het abonnement als gastgebruiker in plaats van een gebruiker lid. Gastgebruikers hebben verschillende standaardmachtigingen in Azure AD in vergelijking met gebruikers. Bijvoorbeeld lidgebruikers andere gebruikers in Azure AD kunnen lezen en gastgebruikers kunnen niet. Lidgebruikers nieuwe service-principals in Azure AD kunnen registreren en gastgebruikers kunnen niet. Als een gastgebruiker kunnen deze taken uit te voeren moet, een mogelijke oplossing bestaat uit het toewijzen van de specifieke Azure AD-beheerdersrollen de gastgebruiker moet. Bijvoorbeeld, in het voorgaande scenario kan u toewijzen de [Adreslijstlezers](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rol andere gebruikers maken en toewijzen de [toepassingsontwikkelaar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) rol mogelijk te maken van service-principals. Zie voor meer informatie over lid en gastgebruikers en hun machtigingen [wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). 
 
 Houd er rekening mee dat de [ingebouwde rollen voor Azure-resources](../role-based-access-control/built-in-roles.md) zijn anders dan de [Azure AD-beheerdersrollen](../active-directory/users-groups-roles/directory-assign-admin-roles.md). De ingebouwde rollen verlenen geen toegang aan Azure AD. Zie voor meer informatie, [inzicht in de verschillende rollen](../role-based-access-control/rbac-and-directory-admin-roles.md).
 

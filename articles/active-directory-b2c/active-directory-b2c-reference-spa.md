@@ -3,21 +3,21 @@ title: Apps van één pagina met behulp van de impliciete stroom in Azure Active
 description: Meer informatie over het bouwen van apps van één pagina rechtstreeks met behulp van OAuth 2.0-impliciete stroom met Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9e72eafc49167848996328774f7d18198667aa3d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3df6795eb470f123be294f942560c9fb6d817d8d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845243"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856142"
 ---
-# <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single-page-app aanmelden met behulp van OAuth 2.0-impliciete stroom
+# <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: App met één pagina aanmelden met behulp van OAuth 2.0-impliciete stroom
 
 Veel moderne apps hebben een app met één pagina front-end die voornamelijk in JavaScript is geschreven. De app is vaak het geval is, met behulp van een framework zoals AngularJS, Ember.js of Durandal geschreven. Apps van één pagina en andere JavaScript-apps die worden uitgevoerd in een browser voornamelijk hebt enkele aanvullende uitdagingen voor verificatie:
 
@@ -83,7 +83,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | response_type |Vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Kan het ook het antwoordtype bevatten `token`. Als u `token`, uw app kunt onmiddellijk een toegangstoken van het eindpunt autoriseren ontvangen zonder dat een tweede aanvraag naar het geautoriseerde eindpunt.  Als u de `token` antwoordtype, het `scope` parameter moet een scope die welke resource aangeeft voor het uitgeven van het token voor bevatten. |
@@ -112,7 +112,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=arbitrary_data_you_sent_earlier
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | access_token |Het toegangstoken dat de app worden aangevraagd.  Het toegangstoken moet niet worden gedecodeerd of anders geïnspecteerd. Dit kan worden beschouwd als een ondoorzichtige tekenreeks. |
 | token_type |De waarde van het type token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. |
@@ -131,7 +131,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die wordt gebruikt voor het classificeren van typen fouten die optreden. U kunt ook de foutcode voor foutafhandeling gebruiken. |
 | error_description |Een bericht specifieke fout die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -194,7 +194,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | client_id |Vereist |De toepassings-ID die is toegewezen aan uw app in de [Azure-portal](https://portal.azure.com). |
 | response_type |Vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect.  Het reactietype het ook advies inwinnen `token`. Als u `token` hier uw app kan onmiddellijk ontvangen een toegangstoken van het geautoriseerde eindpunt, zonder dat een tweede aanvraag naar het geautoriseerde eindpunt. Als u de `token` antwoordtype, het `scope` parameter moet een scope die welke resource aangeeft voor het uitgeven van het token voor bevatten. |
@@ -221,7 +221,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | access_token |Het token dat de app worden aangevraagd. |
 | token_type |Het type token is altijd Bearer. |
@@ -238,7 +238,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden. U kunt ook de tekenreeks gebruiken om te reageren op fouten. |
 | error_description |Een bericht specifieke fout die u kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -259,7 +259,7 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | p |Vereist |Het beleid te gebruiken om te ondertekenen van de gebruiker buiten uw toepassing. |
 | post_logout_redirect_uri |Aanbevolen |De URL die de gebruiker moet worden omgeleid naar na geslaagde afmelden. Als deze niet opgenomen is, wordt Azure AD B2C een algemeen bericht voor de gebruiker. |

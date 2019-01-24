@@ -3,9 +3,9 @@ title: De verwijzing naar de SQLRuleAction-syntaxis in Azure | Microsoft Docs
 description: Gegevens over SQLRuleAction-grammatica.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: cd5bc1fb959872cfb98236feb5c32517ac7472ac
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394179"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847727"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction-syntaxis
 
@@ -123,9 +123,9 @@ Een poging tot toegang tot een niet-bestaande systeemeigenschap is een fout tijd
   
  `<pattern>` moet een expressie die wordt geëvalueerd als een tekenreeks zijn. Deze wordt gebruikt als een patroon voor de operator LIKE.      Dit kan de volgende tekens bevatten:  
   
--   `%`: Een reeks nul of meer tekens.  
+-   `%`:  Een willekeurige tekenreeks van nul of meer tekens.  
   
--   `_`: Eén willekeurig teken.  
+-   `_`: Een willekeurig teken.  
   
 ## <a name="escapechar"></a>escape_char  
   

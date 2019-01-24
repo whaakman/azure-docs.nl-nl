@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200514"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826476"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Azure DNS gebruiken voor persoonlijke domeinen
 
@@ -64,9 +64,9 @@ Azure DNS biedt de volgende mogelijkheden:
 Azure DNS heeft de volgende beperkingen:
 
 * Registratie van slechts één virtueel netwerk is toegestaan per privézone.
-* Virtuele netwerken mogen maximaal 10 oplossingen per privézone.
+* Virtuele netwerken mogen maximaal 10 oplossingen per privézone. Deze limiet wordt verwijderd wanneer deze functie algemeen beschikbaar is.
 * Een specifiek virtueel netwerk kan worden gekoppeld aan de zone met slechts één persoonlijke als een registration virtual network.
-* Een specifiek virtueel netwerk kan maximaal 10 private zones als een virtueel netwerk van het probleem zou moeten worden gekoppeld.
+* Een specifiek virtueel netwerk kan maximaal 10 private zones als een virtueel netwerk van het probleem zou moeten worden gekoppeld. Deze limiet wordt verwijderd wanneer deze functie algemeen beschikbaar is.
 * Als u een virtueel netwerk registratie opgeeft, zijn de DNS-records voor de virtuele machines van dit virtuele netwerk die zijn geregistreerd bij de privézone niet kan worden weergegeven of worden opgehaald uit de Azure Powershell en Azure CLI-API's. De VM-records inderdaad worden geregistreerd en is de oplossing.
 * Omgekeerde DNS-geldt alleen voor privé-IP-adresruimte in het registration virtual network.
 * Reverse-DNS voor een privé IP-adres dat niet is geregistreerd bij de privézone (bijvoorbeeld een privé IP-adres voor een virtuele machine in een virtueel netwerk dat is gekoppeld als een resolutie van virtueel netwerk met een particulier zone) retourneert *internal.cloudapp.net* Als de DNS-achtervoegsel. Dit achtervoegsel wordt echter niet omgezet.

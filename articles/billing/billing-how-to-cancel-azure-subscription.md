@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 88ea3a5daa1a740ab545201bc48b612ea6a56a44
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584346"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810326"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Uw abonnement voor Azure annuleren
 
@@ -37,10 +37,11 @@ Als u een betaald ondersteuningsabonnement voor Azure annuleert, wordt u nog ste
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Abonnement met behulp van de Azure portal
 
 1. Selecteer uw abonnement uit de [pagina met abonnementen in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecteer het abonnement dat u wilt annuleren en klik op **abonnement annuleren**.
+2. Selecteer het abonnement dat u wilt annuleren.
+3. Selecteer **overzicht**, en selecteer vervolgens **abonnement annuleren**.
 
     ![Schermafbeelding van de knop Annuleren](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Volg de aanwijzingen en Annuleren te voltooien.
+3. Volg de aanwijzingen en Annuleren te voltooien.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Wat gebeurt er wanneer ik mijn abonnement annuleren?
 

@@ -3,22 +3,22 @@ title: Azure Service Bus-end-to-end tracering en diagnostische gegevens | Micros
 description: Overzicht van Service Bus-client diagnostische gegevens en end-to-end tracering
 services: service-bus-messaging
 documentationcenter: ''
-author: lmolkova
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: lmolkova
-ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790891"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852980"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Gedistribueerde tracering en correlatie via Service Bus-berichten
 
@@ -33,7 +33,7 @@ Het protocol is gebaseerd op de [correlatie van HTTP-protocol](https://github.co
 | Naam van eigenschap        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnose-Id       | De unieke id van een externe aanroep van producent naar de wachtrij. Raadpleeg [Request-Id in de HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) voor logica, overwegingen en indeling |
-|  Correlatie-Context | De bewerkingscontext, die wordt doorgegeven in alle services die betrokken zijn bij de bewerking wordt verwerkt. Zie voor meer informatie, [correlatie-Context in HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
+|  Correlation-Context | De bewerkingscontext, die wordt doorgegeven in alle services die betrokken zijn bij de bewerking wordt verwerkt. Zie voor meer informatie, [correlatie-Context in HTTP-protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
 
 ## <a name="service-bus-net-client-auto-tracing"></a>Service Bus .NET Client auto-tracering
 
@@ -165,7 +165,7 @@ Dit is de volledige lijst met providers bewerkingen:
 | Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` -Het lock-token van het bijbehorende bericht te breken. |
 | Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` -Het lock-token van het bijbehorende bericht om uit te stellen. | 
 | Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` -Het lock-token van het bijbehorende bericht onbestelbare berichten. | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` -Het lock-token van het bijbehorende bericht vergrendeling op vernieuwen.<br/>`DateTime LockedUntilUtc` -Lock nieuwe vervaldatum van token datum en tijd in UTC-notatie. (Nettolading 'Stop')|
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` -Het lock-token van het bijbehorende bericht vergrendeling op vernieuwen.<br/>`DateTime LockedUntilUtc` -Lock nieuwe vervaldatum van token datum en tijd in UTC-notatie. ('Stop' event payload)|
 | Microsoft.Azure.ServiceBus.Process | Lambda-functie voor bericht Handler is opgegeven in [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message` -Bericht dat wordt verwerkt. |
 | Microsoft.Azure.ServiceBus.ProcessSession | Lambda-functie voor bericht-sessie-Handler is opgegeven in [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message` -Bericht dat wordt verwerkt.<br/>`IMessageSession Session` -Sessie wordt verwerkt |
 | Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` -De regelbeschrijving waarmee de regel toe te voegen. |

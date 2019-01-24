@@ -3,19 +3,19 @@ title: Datum van de claims transformatievoorbeelden voor de identiteit ervaring 
 description: Datum van de claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6a49e940c988d25da1e6f6a3c6f372e15fd2136f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405817"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850056"
 ---
 # <a name="date-claims-transformations"></a>Datum claims transformaties
 
@@ -29,11 +29,11 @@ Controleert of een datum en tijd claim (tekenreeksgegevenstype) is hoger dan een
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | tekenreeks | Eerste claim-type moet later zijn dan het tweede argument. |
-| InputClaim | rightOperand | tekenreeks | Tweede van de claim type, dat eerder zijn dan de eerste claim moet. |
-| Invoerparameters | AssertIfEqualTo | booleaans | Hiermee geeft u op of deze verklaring moet worden verwerkt als de linkeroperand gelijk aan de rechteroperand is. |
-| Invoerparameters | AssertIfRightOperandIsNotPresent | booleaans | Hiermee geeft u op of deze verklaring moet worden verwerkt als de rechteroperand ontbreekt. |
-| Invoerparameters | TreatAsEqualIfWithinMillseconds | int | Hiermee geeft u het aantal milliseconden om toe te staan tussen de twee datums en tijden die rekening houden met de tijden gelijk moet zijn (bijvoorbeeld aan een account voor tijdsverschil). |
+| inputClaim | leftOperand | string | Eerste claim-type moet later zijn dan het tweede argument. |
+| inputClaim | rightOperand | string | Tweede van de claim type, dat eerder zijn dan de eerste claim moet. |
+| InputParameter | AssertIfEqualTo | booleaans | Hiermee geeft u op of deze verklaring moet worden verwerkt als de linkeroperand gelijk aan de rechteroperand is. |
+| InputParameter | AssertIfRightOperandIsNotPresent | booleaans | Hiermee geeft u op of deze verklaring moet worden verwerkt als de rechteroperand ontbreekt. |
+| InputParameter | TreatAsEqualIfWithinMillseconds | int | Hiermee geeft u het aantal milliseconden om toe te staan tussen de twee datums en tijden die rekening houden met de tijden gelijk moet zijn (bijvoorbeeld aan een account voor tijdsverschil). |
 
 De **AssertDateTimeIsGreaterThan** claimtransformatie wordt altijd uitgevoerd vanuit een [validatie technisch profiel](validation-technical-profile.md) die wordt aangeroepen door een [door zelf bevestigde technisch profiel](self-asserted-technical-profile.md). De **DateTimeGreaterThan** metagegevens van de zelf-gecontroleerde technisch profiel bepaalt het foutbericht dat het technische profiel aan de gebruiker biedt.
 
@@ -92,8 +92,8 @@ Converteert een **datum** ClaimType naar een **datum-/** ClaimType. De claimtran
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | date | Het ClaimType moet worden geconverteerd. |
-| outputClaim | outputClaim | Datum/tijd | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
+| InputClaim | inputClaim | date | Het ClaimType moet worden geconverteerd. |
+| OutputClaim | outputClaim | Datum/tijd | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
 
 Het volgende voorbeeld ziet u de conversie van de claim `dateOfBirth` (gegevenstype datum) op een andere claim `dateOfBirthWithTime` (gegevenstype datum/tijd).
 
@@ -121,7 +121,7 @@ Ophalen van de huidige UTC-datum en tijd en de waarde toevoegen aan een ClaimTyp
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| outputClaim | currentDateTime | Datum/tijd | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
+| OutputClaim | currentDateTime | Datum/tijd | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
 
 ```XML
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
@@ -144,9 +144,9 @@ Bepalen of een datum/tijd later, eerder of gelijk zijn aan een andere. Het resul
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | Datum/tijd | De eerste datum en tijd om te vergelijken of eerder of later zijn dan de tweede datum/tijd. Null-waarde is een uitzondering genereert. |
 | InputClaim | secondDateTime | Datum/tijd | De tweede datum en tijd om te vergelijken of eerder of later zijn dan de eerste datum/tijd. Null-waarde wordt beschouwd als de huidige datetTime. |
-| Invoerparameters | Operator | tekenreeks | Een van de volgende waarden: dezelfde, later zijn dan of ouder is dan. |
-| Invoerparameters | timeSpanInSeconds | int | De timespan toevoegen aan de eerste datum/tijd. |
-| outputClaim | Resultaat | booleaans | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
+| InputParameter | operator | string | Een van de volgende waarden: dezelfde, later zijn dan of ouder is dan. |
+| InputParameter | timeSpanInSeconds | int | De timespan toevoegen aan de eerste datum/tijd. |
+| OutputClaim | Resultaat | booleaans | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
 
 Gebruik die deze transformatie om te bepalen of twee ClaimTypes gelijk, later of ouder is dan alle andere zijn vorderingen. U kunt bijvoorbeeld de laatste keer dat een gebruiker de voorwaarden van de services (TOS) geaccepteerd opslaan. Na 3 maanden, kunt u de gebruiker om de TOS opnieuw toegang te vragen.
 Als u wilt de claimtransformatie uitvoeren, moet u eerst om op te halen van de huidige datum/tijd en de laatste tijd gebruiker accepteert ook de instructies.

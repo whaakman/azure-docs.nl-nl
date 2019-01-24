@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8c66d8eec6d3967026c17db9ce8d616b97d25931
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158668"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Zelfstudie: Azure Active Directory-integratie met Clarizen
 
@@ -42,7 +42,7 @@ Voor het configureren van Azure AD-integratie met Clarizen, moet u de volgende i
 - Een Azure AD-abonnement
 - Een Clarizen-abonnement dat ingeschakeld voor eenmalige aanmelding
 
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - Azure AD eenmalige aanmelding testen in een testomgeving. Gebruik niet uw productieomgeving, tenzij dit noodzakelijk is.
 - Als u een Azure AD-testomgeving geen hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
@@ -70,7 +70,7 @@ Voor het configureren van de integratie van Clarizen in Azure AD, Clarizen uit d
 
     ![Clarizen selecteren in het deelvenster met resultaten](./media/clarizen-tutorial/tutorial_clarizen_0001.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 In de volgende secties die u kunt configureren en Azure AD eenmalige aanmelding testen met Clarizen op basis van de testgebruiker Britta Simon.
 
 Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Clarizen is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Clarizen tot stand worden gebracht. U deze relatie koppeling tot stand brengen door toe te wijzen de waarde van **gebruikersnaam** in Azure AD als de waarde van **gebruikersnaam** in Clarizen.
@@ -83,7 +83,7 @@ Als u wilt configureren en Azure AD eenmalige aanmelding met Clarizen testen, vo
 1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw toepassing Clarizen.
 
 1. In de Azure-portal op de **Clarizen** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
@@ -98,7 +98,7 @@ Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van
 
     ![Selectievakjes voor id en antwoord-URL](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. In de **id** typt u de waarde: **Clarizen**
+    a. In de **id** typt u de waarde als: **Clarizen**
 
     b. In de **antwoord-URL** typt u een URL met behulp van het volgende patroon: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
@@ -157,7 +157,7 @@ Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van
 
     f. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Maken in Azure portal, een testgebruiker Britta Simon genoemd.
 
 ![De naam en e-mailadres van de Azure AD-testgebruiker][100]
@@ -190,13 +190,13 @@ Maken in Azure portal, een testgebruiker Britta Simon genoemd.
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Clarizen.
 
-**Als u moet de gebruiker handmatig hebt gemaakt, kunt voert u de volgende stappen:**
+**Als u de gebruiker handmatig moet maken, voert u de volgende stappen uit:**
 
 Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Clarizen, moet u gebruikersaccounts inrichten. In het geval van Clarizen is inrichten een handmatige taak.
 
 1. Meld u aan uw bedrijf Clarizen site als een beheerder.
 
-2. Klik op **mensen**.
+2. Klik op **People**.
 
     ![Te klikken op 'People'](./media/clarizen-tutorial/create_aaduser_001.png "personen")
 
@@ -213,7 +213,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Clarizen, moet u ge
     b. Klik op **uitnodigen**.
 
     > [!NOTE]
-    > De houder van Azure Active Directory-account ontvangt een e-mailbericht en gaat u als volgt een koppeling om te bevestigen van hun account voordat deze geactiveerd wordt.
+    > De houder van het Azure Active Directory-account ontvangt een e-mail en volgt een koppeling om zijn account te bevestigen voordat het actief wordt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 Britta Simon gebruiken Azure eenmalige aanmelding door haar toegang verlenen tot Clarizen inschakelen.

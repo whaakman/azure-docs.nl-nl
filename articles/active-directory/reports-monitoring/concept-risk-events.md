@@ -4,7 +4,7 @@ description: Deze artice biedt u een gedetailleerd overzicht van wat risicogebeu
 services: active-directory
 keywords: Azure active directory identity protection, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 7c352b92edede8bb986a00d5db846bda7b299df2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652146"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808082"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -44,6 +44,9 @@ Azure Active Directory detecteert momenteel zes typen risicogebeurtenissen:
 - [Aanmeldingen vanaf onbekende locaties](#sign-in-from-unfamiliar-locations) 
 
 ![Risicogebeurtenis](./media/concept-risk-events/91.png)
+
+> [!IMPORTANT]
+> Soms wellicht vindt u een risicogebeurtenis zonder een bijbehorende aanmelding vermelding in de [aanmeldingenrapport](concept-sign-ins.md). Dit komt doordat Identity Protection risico's voor zowel evalueert **interactieve** en **niet-interactieve** aanmeldingen, terwijl de aanmeldingen-lijst alleen de interactieve aanmeldingen bevat.
 
 Het inzicht u voor een gedetecteerde risicogebeurtenis krijgt is gekoppeld aan uw Azure AD-abonnement. 
 

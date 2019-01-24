@@ -3,21 +3,21 @@ title: Aanmelding van wijzigen in het aangepaste beleid en configureren zelf doo
 description: Een overzicht over het toevoegen van claims moeten zich aanmelden en het configureren van de invoer van de gebruiker
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 326b0289ebb7aa503d41d556bea15017c28f7a1e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344992"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853711"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Wijzigen sign up nieuwe claims toevoegen en configureren van de invoer van de gebruiker.
+# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Aanmelding wijzigen van nieuwe claims toevoegen en configureren van de invoer van de gebruiker.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -266,7 +266,7 @@ Het scherm registreren in de testmodus moet er ongeveer als volgt uitzien:
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>Optioneel: Verwijder e-mailverificatie van aanmelding traject
+## <a name="optional-remove-email-verification-from-signup-journey"></a>Optioneel: E-mailverificatie uit aanmelding reis verwijderen
 
 Als u wilt overslaan e-mailverificatie, de auteur van het beleid kunt verwijderen `PartnerClaimType="Verified.Email"`. Het e-mailadres wordt vereist maar niet geverifieerd, tenzij 'Vereist' = true wordt verwijderd.  U moet zorgvuldig overwegen als deze optie geschikt is voor uw use-cases is!
 

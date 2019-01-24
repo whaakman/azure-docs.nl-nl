@@ -4,7 +4,7 @@ description: Verbinding maken met een Azure AD Domain Services beheerde domein m
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: e421d3219f50c0dbb635dfe5b9cb3e9a24d4fa61
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1266a464e315dfb5b381cc1925591c80aed7f74
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158531"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856856"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Verbinding maken met een Azure AD Domain Services beheerde domein met behulp van veilige LDAP (LDAPS)
 
@@ -46,7 +46,7 @@ Selecteer **weergave**, en selecteer vervolgens **structuur** in het menu. De Ba
 Meer informatie - [grondbeginselen van de LDAP-query](https://technet.microsoft.com/library/aa996205.aspx)
 
 
-## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Taak 6: Vergrendelen van toegang van secure LDAP tot uw beheerde domein via internet
+## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Taak 6: Toegang van secure LDAP tot uw beheerde domein te vergrendelen via internet
 > [!NOTE]
 > Als u via internet LDAPS toegang tot het beheerde domein niet hebt ingeschakeld, slaat u deze taak voor de configuratie.
 >

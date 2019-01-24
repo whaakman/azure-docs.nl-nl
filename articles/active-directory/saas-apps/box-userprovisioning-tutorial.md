@@ -1,10 +1,10 @@
 ---
-title: 'Zelfstudie: Vak configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
+title: 'Zelfstudie: Vak voor het automatisch gebruikers inrichten met Azure Active Directory configureren | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Box.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1c959595-6e57-4954-9c0d-67ba03ee212b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 58ab80b9cdf6fbcfa8aebeeac837687ded41ae39
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625348"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821811"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Zelfstudie: Vak voor het automatisch inrichten van gebruikers configureren
 
@@ -30,7 +30,7 @@ Het doel van deze zelfstudie is om weer te geven van de stappen dat u moet uitvo
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Box, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Box hebt u de volgende items nodig:
 
 - Een Azure AD-tenant
 - Een vak bedrijfsplan of hoger
@@ -38,10 +38,10 @@ Voor het configureren van Azure AD-integratie met Box, moet u de volgende items:
 > [!NOTE]
 > Wanneer u de stappen in deze zelfstudie hebt getest, raden we aan dat u doen *niet* een productie-omgeving gebruiken.
 
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-box"></a>Gebruikers toewijzen aan het vak 
 

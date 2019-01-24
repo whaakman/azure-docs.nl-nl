@@ -3,19 +3,19 @@ title: Booleaanse waarde van de claims transformatievoorbeelden voor de identite
 description: Booleaanse waarde claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6e9337fb5e336c506fc43e13eeb7fdbfaf636a7
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1afbf8e8473e12992b7f031ac9835a58e1089b0d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432559"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853269"
 ---
 # <a name="boolean-claims-transformations"></a>Booleaanse claimtransformaties
 
@@ -31,7 +31,7 @@ Voert een bewerking en van twee Booleaanse inputClaims en stelt de outputClaim m
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | booleaans | De eerste ClaimType om te evalueren. |
 | InputClaim | inputClaim2  | booleaans | De tweede ClaimType om te evalueren. |
-|outputClaim | outputClaim | booleaans | De ClaimTypes die worden geproduceerd nadat deze transformatie claims is aangeroepen (waar of ONWAAR). |
+|OutputClaim | outputClaim | booleaans | De ClaimTypes die worden geproduceerd nadat deze transformatie claims is aangeroepen (waar of ONWAAR). |
 
 De volgende claimtransformatie wordt gedemonstreerd hoe u en twee Booleaanse ClaimTypes: `isEmailNotExist`, en `isSocialAccount`. De uitvoerclaim `presentEmailSelfAsserted` is ingesteld op `true` als de waarde van beide invoerclaims `true`. In een orchestration-stap kunt u een voorwaarde om vooraf een zelf-gecontroleerde pagina alleen als een sociaal account e-mailadres leeg is.
 
@@ -62,8 +62,8 @@ Controleert of Booleaanse waarden van twee claims gelijk zijn, en een uitzonderi
 
 | Item | TransformationClaimType  | Gegevenstype  | Opmerkingen |
 | ---- | ------------------------ | ---------- | ----- |
-| InputClaim | InputClaim | booleaans | Het ClaimType moeten worden gecontroleerd. |
-| Invoerparameters |valueToCompareTo | booleaans | De waarde om te vergelijken (waar of ONWAAR). |
+| inputClaim | inputClaim | booleaans | Het ClaimType moeten worden gecontroleerd. |
+| InputParameter |valueToCompareTo | booleaans | De waarde om te vergelijken (waar of ONWAAR). |
 
 De **AssertBooleanClaimIsEqualToValue** claimtransformatie wordt altijd uitgevoerd vanuit een [validatie technisch profiel](validation-technical-profile.md) die wordt aangeroepen door een [door zelf bevestigde technisch profiel](self-asserted-technical-profile.md). De **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** metagegevens van de zelf-gecontroleerde technisch profiel bepaalt het foutbericht dat het technische profiel aan de gebruiker biedt.
 
@@ -119,8 +119,8 @@ Voert een niet-bewerking van de Booleaanse inputClaim en stelt de outputClaim me
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | booleaans | De claim te worden uitgevoerd. |
-| outputClaim | outputClaim | booleaans | De ClaimTypes die worden gegenereerd nadat deze ClaimsTransformation is aangeroepen (waar of ONWAAR). |
+| InputClaim | inputClaim | booleaans | De claim te worden uitgevoerd. |
+| OutputClaim | outputClaim | booleaans | De ClaimTypes die worden gegenereerd nadat deze ClaimsTransformation is aangeroepen (waar of ONWAAR). |
 
 Deze claimtransformatie gebruiken om uit te voeren logische onderhandeling op een claim.
 
@@ -149,7 +149,7 @@ Een of van twee Booleaanse inputClaims berekent en stelt de outputClaim met het 
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | booleaans | De eerste ClaimType om te evalueren. |
 | InputClaim | inputClaim2 | booleaans | De tweede ClaimType om te evalueren. |
-| outputClaim | outputClaim | booleaans | De ClaimTypes die worden geproduceerd nadat deze ClaimsTransformation is aangeroepen (waar of ONWAAR). |
+| OutputClaim | outputClaim | booleaans | De ClaimTypes die worden geproduceerd nadat deze ClaimsTransformation is aangeroepen (waar of ONWAAR). |
 
 De volgende claimtransformatie wordt gedemonstreerd hoe u `Or` twee Booleaanse ClaimTypes. In de orchestration-stap kunt u een voorwaarde om vooraf een zelf-gecontroleerde pagina gebruiken als de waarde van een van de claims `true`.
 

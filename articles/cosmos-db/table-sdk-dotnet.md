@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: f2492e3d49f9b7e965c33ed4419f566e81dd62ed
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 469faeee4706c33b09f89bfbed1bb229a6aea20e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043461"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848367"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabel-API van .NET: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "54043461"
 |---|---|
 |**SDK downloaden**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API-documentatie**|[.NET API-referentiedocumentatie](https://aka.ms/acdbtableapiref)|
-|**Snelstartgids**|[Azure Cosmosdb: Een app ontwikkelen met .NET en de tabel-API](create-table-dotnet.md)|
-|**Zelfstudie**|[Azure Cosmosdb: Ontwikkelen met de tabel-API in .NET](tutorial-develop-table-dotnet.md)|
+|**Snelstartgids**|[Azure Cosmos DB: Een app ontwikkelen met .NET en de tabel-API](create-table-dotnet.md)|
+|**Zelfstudie**|[Azure Cosmos DB: Ontwikkelen met de tabel-API in .NET](tutorial-develop-table-dotnet.md)|
 |**Huidige ondersteunde framework**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
@@ -36,6 +36,9 @@ ms.locfileid: "54043461"
 >
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Opgeloste fouten
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Ondersteuning voor extra meerdere regio's schrijven
@@ -51,13 +54,13 @@ ms.locfileid: "54043461"
 * Synchrone API's wordt nu uitgevoerd op de thread-groep met SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* TableQueryMaxItemCount, TableQueryEnableScan TableQueryMaxDegreeOfParallelism en TableQueryContinuationTokenLimitInKb aan TableRequestOptions toevoegen
+* Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism, and TableQueryContinuationTokenLimitInKb to TableRequestOptions
 * Oplossingen voor problemen
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Versie met algemene beschikbaarheid
 
-### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-Preview
+### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
 * Eerste preview-release
 
 ## <a name="release-and-retirement-dates"></a>Release-en buiten gebruik stellen
@@ -72,6 +75,8 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |22 januari 2019|--- |
+| [2.0.0](#2.0.0) |26 september 2018|--- |
 | [1.1.3](#1.1.3) |17 juli 2018|--- |
 | [1.1.1](#1.1.1) |26 maart 2018|--- |
 | [1.1.0](#1.1.0) |21 februari 2018|--- |

@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: eb59c61f89b3b23ce8b0a393ee1e0e842826e90b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114003"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Zelfstudie: Azure Active Directory-integratie met Velpic SAML
 
@@ -31,7 +31,7 @@ Velpic SAML integreren met Azure AD biedt u de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Velpic SAML (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts in één centrale locatie - de Azure Management portal beheren
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,10 +43,10 @@ Voor het configureren van Azure AD-integratie met Velpic SAML, moet u de volgend
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -65,11 +65,11 @@ Voor het configureren van de integratie van Velpic SAML in Azure AD, moet u Velp
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
 1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **Velpic SAML**.
 
@@ -123,7 +123,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
 
     ![Eenmalige aanmelding configureren](./media/velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/velpicsaml-tutorial/tutorial_general_400.png)
 
@@ -206,7 +206,7 @@ Meld u aan bij uw site van het bedrijf Velpic SAML als beheerder en voert u de v
 
 1. Op de **'Nieuwe gebruiker maken'** dialoogvenster pagina, de volgende stappen uitvoeren.
 
-    ![Gebruiker](./media/velpicsaml-tutorial/velpic_8.png)
+    ![user](./media/velpicsaml-tutorial/velpic_8.png)
     
     a. In de **voornaam** tekstvak, de eerste naam van Britta Simon.
 
@@ -214,7 +214,7 @@ Meld u aan bij uw site van het bedrijf Velpic SAML als beheerder en voert u de v
 
     c. In de **gebruikersnaam** tekstvak, typ de naam van de gebruiker van Britta Simon.
 
-    d. In de **e** tekstvak typt u het e-mailadres van Britta Simon-account.
+    d. Typ in het tekstvak **Email** het e-mailadres van het account van Britta Simon.
 
     e. De rest van de informatie is optioneel en u deze indien nodig kunt invullen.
     

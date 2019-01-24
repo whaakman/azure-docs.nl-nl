@@ -3,19 +3,19 @@ title: Predikaten en PredicateValidations - Azure Active Directory B2C | Microso
 description: Sociaal account claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24aa6bf67b3b841b950e047a5c2509f04a3546b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432168"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850855"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikaten en PredicateValidations
 
@@ -33,33 +33,33 @@ De **predicaat** element definieert een basisvalidatie om te controleren of de w
 
 De **predikaten** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
-| Predikaat | 1: n | Een lijst met predicaten. | 
+| Predicaat | 1: n | Een lijst met predicaten. | 
 
 De **predicaat** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor het predicaat. Andere elementen kunt deze id in het beleid. |
 | Methode | Ja | De methode dat moet worden gebruikt voor validatie. Mogelijke waarden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, of **IsDateRange**. De **IsLengthRange** waarde wordt gecontroleerd of de lengte van de waarde van een tekenreeks-claim binnen het bereik van de minimale en maximale parameters opgegeven is. De **MatchesRegex** waarde wordt gecontroleerd of de waarde van een tekenreeks-claim overeenkomt met een reguliere expressie. De **IncludesCharacters** waarde gecontroleerd of de waarde van een tekenreeks-claim een tekenset bevat. De **IsDateRange** waarde wordt gecontroleerd of de waarde van een datum-claim tussen een scala aan de minimale en maximale parameters die zijn opgegeven is. |
 
 De **predicaat** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Een foutbericht weergegeven voor gebruikers als de controle is mislukt. Deze tekenreeks kan worden gelokaliseerd met behulp van de [taalaanpassing](localization.md) |
 | Parameters | 1:1 | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameters** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Parameter | 1: n | De parameters voor het type van de validatie van de tekenreeks. | 
 
 De **Parameter** element bevat de volgende kenmerken:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | De id van de parameter. |
 
@@ -132,56 +132,56 @@ Terwijl de predicaten definiëren de validatie om te controleren op basis van ee
 
 De **PredicateValidations** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1: n | Een lijst van predikaat validatie. | 
 
 De **PredicateValidation** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat. De **ClaimType** element gebruikt deze id in het beleid. |
 
 De **PredicateValidation** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1: n | Een lijst van predikaat groepen. | 
 
 De **PredicateGroups** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1: n | Een lijst met predicaten. | 
 
 De **PredicateGroup** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor het predicaat groep.  |
 
 De **PredicateGroup** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Een beschrijving van het predikaat die kan nuttig zijn voor gebruikers om te weten welke waarde ze moeten typen. | 
 | PredicateReferences | 1: n | Een lijst met predicaatverwijzingen. | 
 
 De **PredicateReferences** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Nee | Hiermee geeft u op dat de waarde moet overeenkomen met ten minste dat veel definities voor de invoer predikaat moet zijn geaccepteerd. |
 
 De **PredicateReferences** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1: n | Een verwijzing naar een predicaat. | 
 
 De **PredicateReference** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor de validatie van het predicaat.  |
 
@@ -262,7 +262,7 @@ Met **predikaten** en **PredicateValidationsInput** u de complexiteitsvereisten 
 Nadat u de eenvoudige validaties gedefinieerd, kunt u ze samen combineren en een set van wachtwoordbeleidsregels die u in uw beleid gebruiken kunt maken:
 
 - **SimplePassword** valideert de DisallowedWhitespace, AllowedAADCharacters en IsLengthBetween8And64
-- **StrongPassword** de IsLengthBetween8And64 DisallowedWhitespace, AllowedAADCharacters, valideert. De laatste groep `CharacterClasses` wordt uitgevoerd een extra set predikaten met `MatchAtLeast` ingesteld op 3. Het wachtwoord moet tussen 8 en 16 tekens lang en drie van de volgende tekens bevatten: kleine letters, hoofdletters, getal of symbool.
+- **StrongPassword** de IsLengthBetween8And64 DisallowedWhitespace, AllowedAADCharacters, valideert. De laatste groep `CharacterClasses` wordt uitgevoerd een extra set predikaten met `MatchAtLeast` ingesteld op 3. Het wachtwoord moet tussen 8 en 16 tekens lang en drie van de volgende tekens bevatten: Kleine letters, hoofdletters, getal of symbool.
 - **CustomPassword** alleen DisallowedWhitespace, AllowedAADCharacters valideert. Gebruiker kan dus een wachtwoord met een lengte opgeven, zolang de tekens geldig zijn.
 
 ```XML

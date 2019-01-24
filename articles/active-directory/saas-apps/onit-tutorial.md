@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: bc479a28-8fcd-493f-ac53-681975a5149c
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: a93acc79fc447018b5cf63b2e2456bc394c1f78e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80ae8d6a1e27d13bc6750779f2e38649c49e2498
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425966"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Zelfstudie: Azure Active Directory-integratie met Onit
 
@@ -30,7 +30,7 @@ Onit integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Onit heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Onit (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Onit, moet u de volgende items
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -61,7 +61,7 @@ Voor het configureren van de integratie van Onit in Azure AD, moet u Onit uit de
 
 **Als u wilt toevoegen Onit uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -69,15 +69,15 @@ Voor het configureren van de integratie van Onit in Azure AD, moet u Onit uit de
 
     ![De blade Enterprise-toepassingen][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **Onit**, selecteer **Onit** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Onit in de lijst met resultaten](./media/onit-tutorial/tutorial_onit_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Onit op basis van een testgebruiker met de naam "Britta Simon."
 
@@ -87,13 +87,13 @@ In Onit, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van 
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Onit, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker Onit](#create-an-onit-test-user)**  : als u wilt een equivalent van Britta Simon in Onit die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Onit.
 
@@ -101,7 +101,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **Onit** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
@@ -111,18 +111,18 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Onit domein en URL's, eenmalige aanmelding informatie](./media/onit-tutorial/tutorial_onit_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<sub-domain>.onit.com`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<sub-domain>.onit.com`
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<sub-domain>.onit.com`
+    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<sub-domain>.onit.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Onit Client ondersteuningsteam](https://www.onit.com/support) om deze waarden te verkrijgen. 
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [Onit Client ondersteuningsteam](https://www.onit.com/support) om deze waarden te verkrijgen. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, Kopieer de **VINGERAFDRUK** waarde van het certificaat.
 
-    ![De downloadkoppeling certificaat](./media/onit-tutorial/tutorial_onit_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/onit-tutorial/tutorial_onit_certificate.png) 
 
-1. Onit toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **"Atrribute"** tabblad van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze. 
+1. Onit toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **"Atrribute"** tabblad van de toepassing. In de volgende schermopname ziet u een voorbeeld hiervan. 
 
     ![Eenmalige aanmelding configureren](./media/onit-tutorial/tutorial_onit_attribute.png) 
 
@@ -130,7 +130,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |
-    | e-mailen | User.mail |
+    | e-mail | user.mail |
     
     a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -138,17 +138,17 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/onit-tutorial/tutorial_attribute_05.png)
 
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
     c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
 
-    d. Laat de **Namespace** leeg.
+    d. Laat **Naamruimte** leeg.
     
     e. Klik op **OK**.
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/onit-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/onit-tutorial/tutorial_general_400.png)
 
 1. Op de **Onit configuratie** sectie, klikt u op **configureren Onit** openen **aanmelding configureren** venster. Kopiëren de **URL van de afmelding, Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
@@ -158,7 +158,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik in het menu aan de bovenkant op **beheer**.
    
-   ![Beheer](./media/onit-tutorial/IC791174.png "beheer")
+   ![Beheer](./media/onit-tutorial/IC791174.png "Beheer")
 1. Klik op **bewerken Corporation**.
    
    ![Bewerken Corporation](./media/onit-tutorial/IC791175.png "Corporation bewerken")
@@ -180,10 +180,10 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     d. In **Idp Cert vingerafdruk (SHA1)** tekstvak, plak de **vingerafdruk** waarde van het certificaat dat u hebt gekopieerd vanuit Azure portal.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -221,15 +221,15 @@ Als u wilt inschakelen in Azure AD-gebruikers zich aanmelden bij Onit, moeten ze
 
 In het geval van Onit is inrichten een handmatige taak.
 
-**Als u wilt inrichten van gebruikers configureren, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om de gebruikersinrichting te configureren:**
 
 1. Meld u aan bij uw **Onit** bedrijf site als beheerder.
-1. Klik op **gebruiker toevoegen**.
+1. Klik op **Add User**.
    
-   ![Beheer](./media/onit-tutorial/IC791180.png "beheer")
+   ![Beheer](./media/onit-tutorial/IC791180.png "Beheer")
 1. Op de **gebruiker toevoegen** dialoogvenster pagina, voert u de volgende stappen uit:
    
-   ![Gebruiker toevoegen](./media/onit-tutorial/IC791181.png "gebruiker toevoegen")
+   ![Gebruiker toevoegen](./media/onit-tutorial/IC791181.png "Gebruiker toevoegen")
    
   1. Type de **naam** en de **e-mailadres** van een geldige Azure AD-account die u inrichten in de bijbehorende tekstvakken wilt.
   1. Klik op **Create**.    

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: d566f317595e314c91cf510ba2459638e624d8c3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fb9123d792c3b522debb3b1c8d539cbd6cd24f59
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539734"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843631"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Met behulp van Azure CLI parameters voor serverconfiguratie aanpassen
 U kunt weergeven, weergeven en bijwerken van parameters voor de configuratie voor een Azure PostgreSQL-server met behulp van de opdrachtregelinterface (Azure CLI). Een subset van de engine configuraties op niveau van de server wordt weergegeven en kan worden gewijzigd. 
@@ -30,7 +30,7 @@ U kunt de parameters voor serverconfiguratie voor de server een lijst **mydemose
 az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="show-server-configuration-parameter-details"></a>Details van de parameter voor de serverconfiguratie van de weergeven
-Uitvoeren als u wilt weergeven van details over een bepaalde configuratieparameter voor een server, de [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) opdracht.
+Uitvoeren als u wilt weergeven van details over een bepaalde configuratieparameter voor een server, de [az postgres server configuration show](/cli/azure/postgres/server/configuration) opdracht.
 
 In dit voorbeeld worden details van de **log\_min\_berichten** configuratieparameter van de server voor server **mydemoserver.postgres.database.azure.com** onder de resourcegroep **myresourcegroup.**
 ```azurecli-interactive

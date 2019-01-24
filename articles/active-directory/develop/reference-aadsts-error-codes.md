@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/11/2019
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 1e3dc984de15fa2c94fc5150020f1af1579e2c5c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434101"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820305"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes van verificatie- en autorisatiefouten
 
@@ -79,7 +79,7 @@ Zoek naar informatie over de AADSTS foutcodes die zijn geretourneerd door de sec
 | AADSTS50058 | UserInformationNotProvided - dit betekent dat een gebruiker niet is aangemeld. Dit is een algemene fout die wordt verwacht wanneer een gebruiker niet-geverifieerde is en nog niet is ondertekend.</br>Als deze fout wordt aangemoedigd in de context van een eenmalige aanmelding waarbij de gebruiker eerder heeft aangemeld, betekent dit dat de sessie voor eenmalige aanmelding is niet gevonden of is ongeldig.</br>Deze fout kan worden geretourneerd naar de toepassing als vragen = niets is opgegeven. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Tenant-identificatiegegevens is niet gevonden in ofwel de aanvraag of impliciet door elk opgegeven referenties. De gebruiker, kunt contact opnemen met de tenantbeheerder om u te helpen bij het oplossen van het probleem. |
 | AADSTS50061 | SignoutInvalidRequest - aanvragen voor het afmelden is ongeldig. |
-| AADSTS50064 | CredentialAuthenticationError - validatie van referenties is mislukt. |
+| AADSTS50064 | CredentialAuthenticationError - validatie van referenties op gebruikersnaam of het wachtwoord is mislukt. |
 | AADSTS50068 | SignoutInitiatorNotParticipant - die afmelden wordt weergegeven, is mislukt. De app die die afmelden wordt weergegeven gestart, is niet een deelnemer in de huidige sessie. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - die afmelden wordt weergegeven, is mislukt. De aanvraag die afmelden wordt weergegeven opgegeven naam-id dat niet overeenkomt met de bestaande sessie (s). |
 | AADSTS50071 | SignoutMessageExpired - de afmeldingsaanvraag is verlopen. |

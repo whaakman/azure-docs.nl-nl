@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0e571880d9893c0027c200c6f49dc704fea09ead
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 703bc11ec7b0de0e8b0cfe3b99b7516afe8cac0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443695"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Zelfstudie: Azure Active Directory-integratie met PagerDuty
 
@@ -43,9 +43,9 @@ Voor het Azure AD-integratie configureren met PagerDuty, moet u de volgende item
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van PagerDuty in Azure AD, moet u PagerD
 
 **Als u wilt toevoegen PagerDuty uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 
@@ -67,15 +67,15 @@ Voor het configureren van de integratie van PagerDuty in Azure AD, moet u PagerD
 
     ![De blade Enterprise-toepassingen][2]
 
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **PagerDuty**, selecteer **PagerDuty** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/pagerduty-tutorial/tutorial_pagerduty_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met PagerDuty op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -85,13 +85,13 @@ In PagerDuty, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met PagerDuty, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker PagerDuty](#create-a-pagerduty-test-user)**  : als u wilt een equivalent van Britta Simon in PagerDuty die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing PagerDuty.
 
@@ -99,7 +99,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **PagerDuty** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
@@ -109,20 +109,20 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![PagerDuty-domein en URL's, eenmalige aanmelding informatie](./media/pagerduty-tutorial/tutorial_pagerduty_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<tenant-name>.pagerduty.com`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<tenant-name>.pagerduty.com`
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<tenant-name>.pagerduty.com`
+    b. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://<tenant-name>.pagerduty.com`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [PagerDuty-Client-ondersteuningsteam](https://www.pagerduty.com/support/) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met [PagerDuty-Client-ondersteuningsteam](https://www.pagerduty.com/support/) om deze waarden te verkrijgen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
+    ![De link om het certificaat te downloaden](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 1. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/pagerduty-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/pagerduty-tutorial/tutorial_general_400.png)
 
 1. Op de **PagerDuty configuratie** sectie, klikt u op **configureren PagerDuty** openen **aanmelding configureren** venster. Kopiëren de **afmelding URL's en SAML Single Sign-On Service** uit de **Naslaggids sectie.**
 
@@ -132,11 +132,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik in het menu aan de bovenkant op **Accountinstellingen**.
 
-    ![Accountinstellingen](./media/pagerduty-tutorial/ic778535.png "Accountinstellingen")
+    ![Account Settings](./media/pagerduty-tutorial/ic778535.png "Account Settings")
 
-1. Klik op **Single Sign-on**.
+1. Klik op **Eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding](./media/pagerduty-tutorial/ic778536.png "eenmalige aanmelding")
+    ![Single sign-on](./media/pagerduty-tutorial/ic778536.png "Single sign-on")
 
 1. Op de **Schakel eenmalige aanmelding (SSO)** pagina, voert u de volgende stappen uit:
 
@@ -152,9 +152,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     e. Selecteer **EXACTE vereist verificatie context vergelijking** selectievakje.
 
-    f. Klik op **wijzigingen opslaan**.
+    f. Klik op **Wijzigingen opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -164,11 +164,11 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop](./media/pagerduty-tutorial/create_aaduser_01.png) 
+    ![De knop Azure Active Directory](./media/pagerduty-tutorial/create_aaduser_01.png) 
 
 1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/pagerduty-tutorial/create_aaduser_02.png) 
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](./media/pagerduty-tutorial/create_aaduser_02.png) 
 
 1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
@@ -176,7 +176,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
-    ![Het dialoogvenster gebruiker](./media/pagerduty-tutorial/create_aaduser_04.png) 
+    ![Het dialoogvenster Gebruiker](./media/pagerduty-tutorial/create_aaduser_04.png) 
 
     a. In de **naam** tekstvak, type **BrittaSimon**.
 
@@ -194,7 +194,7 @@ In het geval van PagerDuty is inrichten een handmatige taak.
 >[!NOTE]
 >U kunt elke andere Pagerduty gebruiker account hulpmiddelen voor het maken of API's geleverd door Pagerduty voor het inrichten van Azure Active Directory-gebruikersaccounts.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u aan bij uw **Pagerduty** tenant.
 
@@ -253,7 +253,7 @@ In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met 
 
 Wanneer u klikt op de tegel PagerDuty in de Panelyou toegang moet krijgen automatisch aangemeld bij uw toepassing PagerDuty.
 
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

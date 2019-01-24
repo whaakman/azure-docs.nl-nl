@@ -3,7 +3,7 @@ title: Rapport Riskante aanmeldingen in de Azure Active Directory-portal | Micro
 description: Meer informatie over het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244712"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807759"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 
@@ -61,9 +61,9 @@ Alle edities van Azure AD bieden rapporten over riskante aanmeldingen. Het detai
 
 De Azure AD gratis en basic edities bieden u een lijst met riskante aanmeldingen die zijn gedetecteerd voor uw gebruikers. Elke record bevat de volgende kenmerken:
 
-- **Gebruiker**: de naam van de gebruiker die is gebruikt tijdens het aanmelden
-- **IP**: het IP-adres van het apparaat dat is gebruikt om verbinding te maken met Azure Active Directory
-- **Locatie**: de locatie die is gebruikt om verbinding te maken met Azure Active Directory
+- **Gebruiker** -de naam van de gebruiker die is gebruikt tijdens het aanmelden.
+- **IP** -het IP-adres van het apparaat dat is gebruikt voor het verbinding maken met Azure Active Directory.
+- **Locatie** -de locatie die wordt gebruikt om te verbinden met Azure Active Directory. Dit is een aanbevolen inspanning benadering op basis van traceringen, register, omgekeerde zoekopdrachten en andere gegevens.
 - **Tijd van aanmelden**: de tijd waarop de aanmelding heeft plaatsgevonden
 - **Status**: de status van de aanmelding
 
@@ -106,6 +106,9 @@ Wanneer u een risicogebeurtenis selecteert, krijgt u een gedetailleerde rapportw
 - Risicogebeurtenissen handmatig sluiten. 
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> Soms wellicht vindt u een risicogebeurtenis zonder een bijbehorende aanmelding vermelding in de [aanmeldingenrapport](concept-sign-ins.md). Dit komt doordat Identity Protection risico's voor zowel evalueert **interactieve** en **niet-interactieve** aanmeldingen, terwijl de aanmeldingen-lijst alleen de interactieve aanmeldingen bevat.
 
 Wanneer u een gebruiker selecteert, krijgt u een gedetailleerde rapportweergave voor deze gebruiker waarmee u het volgende kunt:
 

@@ -3,7 +3,7 @@ title: Beveiligingsgegevens voor het gebruik van SMS-berichten verzenden - Azure
 description: Instellen van je beveiligingsgegevens om te controleren of uw identiteit met behulp van een tekstbericht (SMS).
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e5edfc92fc23c3235e4d4b9ca23f83c7adc3accf
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 64b3ba5d6f3c257fdbd462c0297ff6b0944163db
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158400"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814092"
 ---
 # <a name="set-up-security-info-to-use-text-messaging-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van SMS-berichten (preview)
 

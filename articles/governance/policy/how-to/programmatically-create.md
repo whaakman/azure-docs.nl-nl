@@ -4,17 +4,17 @@ description: Dit artikel helpt u bij het programmatisch beleid maken en beheren 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3c8fd185feff9a580e2d23926dcf60cb33121122
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312473"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847047"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmatisch beleid maken en compatibiliteitsgegevens weergeven
 
@@ -22,18 +22,20 @@ Dit artikel helpt u bij het programmatisch beleid maken en beheren. Beleidsdefin
 
 Zie voor meer informatie over de naleving van [ophalen van Nalevingsgegevens](getting-compliance-data.md).
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u begint, zorg ervoor dat de volgende vereisten wordt voldaan:
 
 1. Installeer de [ARMClient](https://github.com/projectkudu/ARMClient) als u dit nog niet hebt gedaan. Dit is een hulpprogramma waarmee HTTP-aanvragen worden verzonden naar Azure Resource Manager-API’s.
 
-1. Werk uw PowerShell-module van Azure RM bij naar de nieuwste versie. Zie voor meer informatie over de nieuwste versie, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+1. Uw Azure PowerShell-module bijwerken naar de nieuwste versie. Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps) voor gedetailleerde informatie. Zie voor meer informatie over de nieuwste versie, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
 1. Registreer de resourceprovider Policy Insights met behulp van Azure PowerShell om te valideren dat uw abonnement hiervoor met de resourceprovider geschikt. Als u wilt een resourceprovider registreren, moet u gemachtigd zijn om uit te voeren van de registreeractie voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
 
    ```azurepowershell-interactive
-   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
    Zie voor meer informatie over het registreren en weergeven van resourceproviders [Resourceproviders en typen](../../../azure-resource-manager/resource-manager-supported-services.md).
@@ -72,13 +74,13 @@ De eerste stap voor beter inzicht in uw resources is het maken en toewijzen van 
 1. Voer de volgende opdracht om te maken van een beleidsdefinitie met behulp van het bestand AuditStorageAccounts.json.
 
    ```azurepowershell-interactive
-   New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
+   New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
    De opdracht maakt u een beleidsdefinitie met de naam _Audit Storage Accounts openen met een openbaar netwerk_.
-   Zie voor meer informatie over andere parameters die u kunt gebruiken, [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   Zie voor meer informatie over andere parameters die u kunt gebruiken, [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-   Wanneer aangeroepen zonder locatieparameters, `New-AzureRmPolicyDefinition` standaard ingesteld op het opslaan van de beleidsdefinitie in het geselecteerde abonnement van de context van sessies. Als u wilt de definitie van de opslaan naar een andere locatie, gebruik de volgende parameters:
+   Wanneer aangeroepen zonder locatieparameters, `New-AzPolicyDefinition` standaard ingesteld op het opslaan van de beleidsdefinitie in het geselecteerde abonnement van de context van sessies. Als u wilt de definitie van de opslaan naar een andere locatie, gebruik de volgende parameters:
 
    - **Abonnements-id** -opslaan naar een ander abonnement. Vereist een _GUID_ waarde.
    - **ManagementGroupName** -opslaan in een beheergroep. Vereist een _tekenreeks_ waarde.
@@ -86,21 +88,21 @@ De eerste stap voor beter inzicht in uw resources is het maken en toewijzen van 
 1. Nadat u de beleidsdefinitie van uw maakt, kunt u een beleidstoewijzing maken door het uitvoeren van de volgende opdrachten:
 
    ```azurepowershell-interactive
-   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-   New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
+   $rg = Get-AzResourceGroup -Name 'ContosoRG'
+   $Policy = Get-AzPolicyDefinition -Name 'AuditStorageAccounts'
+   New-AzPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
    ```
 
    Vervang _ContosoRG_ met de naam van de beoogde resourcegroep.
 
-   De **bereik** parameter op `New-AzureRmPolicyAssignment` werkt ook met abonnementen en beheergroepen. De parameter maakt gebruik van een pad van de volledige resource, die de **ResourceId** eigenschap op `Get-AzureRmResourceGroup` retourneert. Het patroon voor **bereik** voor elke container als volgt is.
+   De **bereik** parameter op `New-AzPolicyAssignment` werkt ook met abonnementen en beheergroepen. De parameter maakt gebruik van een pad van de volledige resource, die de **ResourceId** eigenschap op `Get-AzResourceGroup` retourneert. Het patroon voor **bereik** voor elke container als volgt is.
    Vervang `{rgName}`, `{subId}`, en `{mgName}` met de resource groepsnaam, abonnements-ID, en de naam van beheergroep, respectievelijk.
 
    - Resourcegroep: `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Abonnement: `/subscriptions/{subId}/`
    - Beheergroep- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Zie voor meer informatie over het beheren van de resource-beleidsregels met behulp van de Azure Resource Manager PowerShell-module [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
+Zie voor meer informatie over het beheren van de resource-beleidsregels met behulp van de Azure Resource Manager PowerShell-module [Az.Resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Maken en toewijzen van een beleidsdefinitie ARMClient
 
@@ -230,7 +232,7 @@ Zie voor meer informatie over hoe u resourcebeleid met Azure CLI kunt beheren, [
 Raadpleeg de volgende artikelen voor meer informatie over de opdrachten en query's in dit artikel.
 
 - [Azure REST API-Resources](/rest/api/resources/)
-- [PowerShell voor Azure RM-Modules](/powershell/module/azurerm.resources/#policies)
+- [Azure PowerShell-Modules](/powershell/module/az.resources/#policies)
 - [Azure CLI-opdrachten voor beleid](/cli/azure/policy?view=azure-cli-latest)
 - [Resourceprovider Policy Insights REST API-naslaginformatie](/rest/api/policy-insights)
 - [Resources organiseren met beheergroepen voor Azure](../../management-groups/overview.md)

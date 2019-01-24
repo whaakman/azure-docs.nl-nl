@@ -3,23 +3,23 @@ title: Azure Servicebus met .NET en AMQP 1.0 | Microsoft Docs
 description: Met behulp van Azure Servicebus van .NET met AMQP
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
-ms.author: spelluru
-ms.openlocfilehash: ad789b7a65fd12abb2a6e92c7c8896677de80cec
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702235"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853201"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Gebruik Servicebus van .NET met AMQP 1.0
 
@@ -63,26 +63,26 @@ Interoperabiliteit met niet-.NET-clients in het kader, alleen .NET-typen die kun
 
 | Objecttype van .NET-instantie | Toegewezen AMQP-Type | AMQP hoofdtekst sectietype |
 | --- | --- | --- |
-| BOOL |booleaans |AMQP-waarde |
+| bool |booleaans |AMQP-waarde |
 | byte |ubyte |AMQP-waarde |
 | USHORT |USHORT |AMQP-waarde |
 | uint |uint |AMQP-waarde |
-| ULONG |ULONG |AMQP-waarde |
+| ulong |ulong |AMQP-waarde |
 | sbyte |byte |AMQP-waarde |
 | korte |korte |AMQP-waarde |
 | int |int |AMQP-waarde |
-| lengte |lengte |AMQP-waarde |
-| drijvend |drijvend |AMQP-waarde |
+| lang |lang |AMQP-waarde |
+| float |float |AMQP-waarde |
 | double |double |AMQP-waarde |
-| decimaal |decimal128 |AMQP-waarde |
+| decimal |decimal128 |AMQP-waarde |
 | CHAR |CHAR |AMQP-waarde |
 | DateTime |tijdstempel |AMQP-waarde |
-| GUID |UUID |AMQP-waarde |
+| GUID |uuid |AMQP-waarde |
 | byte[] |binaire bestanden |AMQP-waarde |
-| tekenreeks |tekenreeks |AMQP-waarde |
-| System.Collections.IList |lijst |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
-| System.Array |matrix |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
-| System.Collections.IDictionary |Kaart |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. Opmerking: alleen tekenreekssleutels worden ondersteund. |
+| string |string |AMQP-waarde |
+| System.Collections.IList |list |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
+| System.Array |array |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. |
+| System.Collections.IDictionary |map |AMQP-waarde: opgenomen in de verzameling items kunnen alleen worden die zijn gedefinieerd in deze tabel. Opmerking: alleen tekenreekssleutels worden ondersteund. |
 | URI |Tekenreeks die wordt beschreven (Zie de volgende tabel) |AMQP-waarde |
 | DateTimeOffset |Lange beschreven (Zie de volgende tabel) |AMQP-waarde |
 | TimeSpan |Lange beschreven (Zie hieronder) |AMQP-waarde |
@@ -108,8 +108,8 @@ Er zijn enkele kleine verschillen in het gedrag van de Service Bus .NET API bij 
 De [.NET-API's](/dotnet/api/) verschillende instellingen voor het beheren van het gedrag van het AMQP-protocol doorgeven:
 
 * **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: Hiermee bepaalt u het eerste tegoed toegepast op een koppeling. De standaardwaarde is 0.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: besturingselementen voor de maximale grootte van de AMQP-frame tijdens de onderhandelingen bij de verbinding aangeboden opnieuw wordt geopend. De standaardwaarde is 65.536 bytes.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: als overdrachten batchable, deze waarde bepaalt de maximale vertraging voor het verzenden van dispositions. Overgenomen door afzenders/ontvangers standaard. Afzonderlijke afzender/ontvanger kan de standaardwaarde 20 milliseconden is overschrijven.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: Besturingselementen voor de maximale grootte van de AMQP-frame tijdens de onderhandelingen bij de verbinding aangeboden opnieuw wordt geopend. De standaardwaarde is 65.536 bytes.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Als overdrachten batchable, bepaalt deze waarde de maximale vertraging voor het verzenden van dispositions. Overgenomen door afzenders/ontvangers standaard. Afzonderlijke afzender/ontvanger kan de standaardwaarde 20 milliseconden is overschrijven.
 * **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Hiermee bepaalt u of AMQP-verbindingen tot stand via een SSL-verbinding gebracht worden. De standaardwaarde is **waar**.
 
 ## <a name="next-steps"></a>Volgende stappen

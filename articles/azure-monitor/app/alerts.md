@@ -11,14 +11,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 233ce5623195a9a661f67b5c3ded40e68c8eb33a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121138"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843511"
 ---
 # <a name="set-alerts-in-application-insights"></a>Waarschuwingen instellen in Application Insights
 [Azure Application Insights] [ start] kunt u te waarschuwen voor wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
@@ -89,7 +89,20 @@ Populaire waarschuwingen zijn onder andere:
 * **Serverreactietijd** voor de serverkant van webtoepassingen. En het instellen van waarschuwingen, te controleren op deze metrische gegevens om te zien als dit niet goed met hoge aanvraagsnelheden varieert: variant kan erop wijzen dat uw app wordt uitgevoerd uit middelen te halen. 
 * **Serveruitzonderingen** : als u wilt zien, hebt u enkele [aanvullende instellingen](../../azure-monitor/app/asp-net-exceptions.md).
 
-Vergeet niet dat [snelheid van proactieve foutdiagnoses](../../azure-monitor/app/proactive-failure-diagnostics.md) automatisch de snelheid waarmee uw app op aanvragen met foutcodes reageert bewaken. 
+Vergeet niet dat [snelheid van proactieve foutdiagnoses](../../azure-monitor/app/proactive-failure-diagnostics.md) automatisch de snelheid waarmee uw app op aanvragen met foutcodes reageert bewaken.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Wie de (klassiek) waarschuwingsmeldingen ontvangen?
+
+In deze sectie is alleen van toepassing op klassieke waarschuwingen en helpt u optimaliseren van uw meldingen van waarschuwingen om ervoor te zorgen dat alleen de gewenste geadresseerden meldingen ontvangen. Meer informatie geven over het verschil tussen [klassieke waarschuwingen](../platform/alerts-classic.overview.md) en de nieuwe ervaring voor waarschuwingen verwijzen naar de [waarschuwingen overzichtsartikel](../platform/alerts-overview.md). Voor het beheren van de waarschuwing zich melding in de nieuwe waarschuwingen gebruik [actiegroepen](../platform/action-groups.md).
+
+* We raden het gebruik van specifieke ontvangers voor klassieke waarschuwingen.
+
+* Voor waarschuwingen over een Application Insights-metrische gegevens (inclusief metrische gegevens over beschikbaarheid), de **bulksgewijs/groep** selectievakje, indien ingeschakeld, verzendt naar gebruikers met de rol van eigenaar, bijdrager of lezer in het abonnement. In feite _alle_ gebruikers met toegang tot het abonnement de Application Insights-resource in het bereik en meldingen ontvangt. 
+
+> [!NOTE]
+> Als u momenteel gebruikmaakt van de **bulksgewijs/groep** selectievakje, en uitschakelen, kunt u zich niet meer herstellen van de wijziging.
+
+Gebruik de nieuwe waarschuwing ervaring/bijna realtime waarschuwingen als u meldingen naar gebruikers op basis van hun rol nodig hebt. Met [actiegroepen](../platform/action-groups.md), kunt u e-mailmeldingen voor gebruikers configureren met een van de rollen Inzender of eigenaar/lezer is (niet gecombineerd samen als één optie).
 
 ## <a name="automation"></a>Automation
 * [PowerShell gebruiken voor het instellen van waarschuwingen automatiseren](../../azure-monitor/app/powershell-alerts.md)

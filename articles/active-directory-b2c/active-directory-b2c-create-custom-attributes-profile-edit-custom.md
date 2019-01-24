@@ -3,21 +3,21 @@ title: Uw eigen kenmerken toevoegen aan aangepaste beleidsregels in Azure Active
 description: Een overzicht van extensie-eigenschappen en aangepaste kenmerken gebruiken en ze in de gebruikersinterface.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338741"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854051"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Beleid voor aangepaste kenmerken gebruiken in een aangepast profiel bewerken
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Gebruik aangepaste kenmerken in een aangepast profiel bewerken beleid
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,7 +25,7 @@ In dit artikel maakt u een aangepast kenmerk in uw Azure Active Directory (Azure
 
 ## <a name="prerequisites"></a>Vereisten
 
-Volg de stappen in het artikel [Azure Active Directory B2C: aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md).
+Volg de stappen in het artikel [Azure Active Directory B2C: Aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md).
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>Aangepaste kenmerken gebruiken om informatie te verzamelen over uw klanten in Azure AD B2C met behulp van aangepaste beleidsregels
 Uw Azure AD B2C-directory wordt geleverd met een ingebouwde set kenmerken. Voorbeelden zijn **voornaam**, **achternaam**, **plaats**, **postcode**, en **userPrincipalName**. Vaak moet u uw eigen kenmerken, zoals deze voorbeelden maken:
@@ -60,7 +60,7 @@ Instructies zijn opgenomen in de **Vervolgstappen** sectie in dit artikel.
 6. Selecteer de zojuist gemaakte web-App.
 7. Selecteer **instellingen** > **vereiste machtigingen**.
 8. Selecteer de API **Windows Azure Active Directory**.
-9. Voer een vinkje in de machtigingen van de toepassing: **mapgegevens lezen en schrijven**. Selecteer vervolgens **Opslaan**.
+9. Voer een vinkje in de machtigingen van de toepassing: **Directorygegevens lezen en schrijven**. Selecteer vervolgens **Opslaan**.
 10. Kies **machtigingen verlenen** en bevestig **Ja**.
 11. Kopieer de volgende id's naar het Klembord en sla ze op:
     * **Toepassings-ID**. Voorbeeld: `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -70,7 +70,7 @@ Instructies zijn opgenomen in de **Vervolgstappen** sectie in dit artikel.
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Wijzigen van het aangepaste beleid om toe te voegen de **ApplicationObjectId**
 
-Wanneer u de stappen in gevolgd [Azure Active Directory B2C: aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md), u hebt gedownload en gewijzigd [voorbeeldbestanden](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) met de naam **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, en **PasswordReset.xml**. In deze stap maakt u meer wijzigingen aanbrengen in deze bestanden.
+Wanneer u de stappen in gevolgd [Azure Active Directory B2C: Aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md), u hebt gedownload en gewijzigd [voorbeeldbestanden](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) met de naam **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, en **PasswordReset.xml**. In deze stap maakt u meer wijzigingen aanbrengen in deze bestanden.
 
 * Open de **TrustFrameworkBase.xml** -bestand en voeg de `Metadata` sectie zoals wordt weergegeven in het volgende voorbeeld. Invoegen van de object-ID die u eerder hebt genoteerd voor de `ApplicationObjectId` waarde en de toepassings-ID die u hebt genoteerd voor de `ClientId` waarde: 
 

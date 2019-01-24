@@ -3,19 +3,19 @@ title: Aanpassen van de gebruikersinterface van uw toepassing met behulp van een
 description: Meer informatie over het aanpassen van een gebruikersinterface met behulp van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1c2f7b46daf7b96d3a6f47dac647d5ed90461e8e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 738e4a4f94d86fc3a1acbb2e43c5b1974d6abac2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156252"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849260"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -104,7 +104,7 @@ Blob-opslag configureren voor het delen van Cross-Origin-Resource door het volge
 6. Voor **maximumleeftijd**, Voer 200.
 7. Klik op **Opslaan**.
 
-## <a name="test-cors"></a>CORS testen
+## <a name="test-cors"></a>Test CORS
 
 Valideren dat u klaar bent, door het volgende te doen:
 
@@ -157,7 +157,7 @@ Als u wilt configureren voor UI-aanpassing, kopieert u de **ContentDefinition** 
 2. Selecteer het aangepaste beleid dat u geüpload en klikt u op de **nu uitvoeren** knop.
 3. U zou het mogelijk om u te registreren met behulp van een e-mailadres.
 
-## <a name="reference"></a>Verwijzing
+## <a name="reference"></a>Referentie
 
 U kunt voorbeeldsjablonen voor aanmeldbeleid hier vinden:
 
@@ -169,11 +169,11 @@ De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 
 | HTML5-sjabloon | Description |
 |----------------|-------------|
-| *phonefactor.HTML* | Dit bestand gebruiken als een sjabloon voor een multi-factor authentication-pagina. |
+| *phonefactor.html* | Dit bestand gebruiken als een sjabloon voor een multi-factor authentication-pagina. |
 | *resetpassword.html* | Dit bestand gebruiken als een sjabloon voor een pagina voor vergeten wachtwoorden. |
 | *selfasserted.html* | Dit bestand gebruiken als een sjabloon voor een pagina voor het registreren van sociale account, een pagina voor het registreren van een lokaal account of een lokaal account aanmeldingspagina opgeven. |
-| *Unified.HTML* | Dit bestand gebruiken als een sjabloon voor een uniforme pagina voor registreren of aanmelden. |
-| *updateprofile.HTML* | Dit bestand gebruiken als een sjabloon voor een update profielpagina. |
+| *unified.html* | Dit bestand gebruiken als een sjabloon voor een uniforme pagina voor registreren of aanmelden. |
+| *updateprofile.html* | Dit bestand gebruiken als een sjabloon voor een update profielpagina. |
 
 In de [, wijzigt u de beleidssectie van uw aangepaste voor registreren of aanmelden](#modify-your-sign-up-or-sign-in-custom-policy), u hebt geconfigureerd dat de definitie van de inhoud voor `api.idpselections`. De volledige set met inhoud roldefinitie-id's die worden herkend door de Azure AD B2C identiteitservaring-framework en de bijbehorende beschrijvingen zijn in de volgende tabel:
 

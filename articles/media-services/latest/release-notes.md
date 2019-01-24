@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229953"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817619"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 release-opmerkingen
 
@@ -34,6 +34,14 @@ Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u
 
 Zie voor meer informatie, [migratierichtlijnen voor het verplaatsen van Media Services v2 naar v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="january-2019"></a>Januari 2019
+
+### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard- en MPI-bestanden 
+
+Bij het coderen met Media Encoder Standard produceren MP4-bestanden, een nieuwe .mpi-bestand is gegenereerd en toegevoegd aan de uitvoer Asset. Dit bestand MPI is bedoeld om de prestaties verbeteren voor dynamische verpakking en streaming scenario's.
+
+U moet niet wijzigen of verwijderen van de MPI-bestand, of eventuele afhankelijkheden in uw service op het bestaan (of niet) van een dergelijk bestand.
+
 ## <a name="december-2018"></a>December 2018
 
 Updates van de GA-versie van de API V3 zijn onder andere:
@@ -49,14 +57,14 @@ De CLI 2.0-module is nu beschikbaar voor [Azure Media Services v3 GA](https://do
 
 ### <a name="new-commands"></a>Nieuwe CLI-opdrachten
 
-- [AZ ams-account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [AZ ams-account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
 - [AZ ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [AZ ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [ams-inhoud-sleutel AZ-beleid](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [AZ ams-taak](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [AZ ams live-gebeurtenis](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [AZ ams live-uitvoer](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [AZ ams streaming-eindpunt](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [AZ ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
 - [ams AZ account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -kunt u voor het beheren van gereserveerde Media-eenheden
@@ -166,7 +174,7 @@ Als u activa of Accountfilters tussen 09/28 en 10 gemaakt/12 met Media Services 
 
 ## <a name="may-2018---preview"></a>Mei 2018 - Preview
 
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk"></a>.Net SDK
 
 De volgende functies zijn aanwezig in de .net SDK:
 

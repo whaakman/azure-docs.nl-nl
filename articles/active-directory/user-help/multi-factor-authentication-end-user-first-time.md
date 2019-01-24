@@ -4,7 +4,7 @@ description: Als uw bedrijf heeft Azure multi-factor Authentication geconfiguree
 services: active-directory
 keywords: het gebruik van azure-directory, active directory in de cloud, active directory-zelfstudie
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 9f602b08e94071a335d0c88377912ea9b53f37b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a5cb5a879687bdbea043d582526f4dd357a2a620
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244437"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809918"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
 Verificatie in twee stappen is een extra beveiligingsstap waarmee de beveiliging van uw account door waardoor het moeilijker is voor anderen in breken. Als u dit artikel leest, hebt u waarschijnlijk een e-mailbericht van uw werk- of schoolaccount-beheerder over multi-factor Authentication. Of misschien heeft geprobeerd aan te melden bij en krijg een bericht waarin u wordt gevraagd voor het instellen van aanvullende beveiligingsverificatie. Als dat het geval is, **u niet aanmelden totdat het proces van automatische inschrijving is voltooid**.
@@ -39,7 +39,7 @@ Als u een scherm zoals dit niet ziet wanneer u zich aanmeldt, volg de aanwijzing
 
 De eerste vraag in het inschrijvingsproces is hoe u moet er contact met u wilt. Bekijk de opties in de tabel en gebruik de koppelingen naar de installatiestappen uit voor elke methode.
 
-| Neem contact op met de methode | Beschrijving |
+| Contactmethode | Description |
 | --- | --- |
 | [Mobiele app](#use-a-mobile-app-as-the-contact-method) |- **Meldingen ontvangen voor verificatie.** Deze optie wordt een melding naar de authenticator-app op uw smartphone of tablet gepusht. Bekijk de melding en, als deze geldig is, selecteert u **verifiëren** in de app. Uw werk of school mogelijk dat u een PINCODE invoeren voordat u gaat verifiëren.<br>- **Verificatiecode gebruiken.** In deze modus genereert de authenticator-app een verificatiecode waarmee elke 30 seconden wordt bijgewerkt. Voer de meest recente verificatiecode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Mobiele telefoon telefoongesprek of tekstbericht](#use-your-mobile-phone-as-the-contact-method) |- **Telefonische oproep** plaatst een geautomatiseerd telefoongesprek naar het telefoonnummer dat u opgeeft. Beantwoord de oproep en druk op # in het toetsenblok van de telefoon om te verifiëren.<br>- **SMS-bericht** een SMS-bericht met een verificatiecode wordt beëindigd. Na de prompt in de tekst, beantwoord het SMS-bericht of Voer de verificatiecode die is opgegeven in de interface van aanmelding. |

@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 3b99afe82f77b6bd89b5afa458179abee4c98e4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999130"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845398"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Maken en configureren van een cluster Azure Kubernetes-Services (AKS) voor het gebruik van virtuele-knooppunten in de Azure-portal
 
@@ -30,9 +30,9 @@ Selecteer in de linkerbovenhoek van de Azure-portal **Een resource maken** > **K
 
 Op de **basisbeginselen** pagina, configureer de volgende opties:
 
-- *PROJECTDETAILS*: selecteer een Azure-abonnement, en selecteer of maak vervolgens een Azure-resourcegroep, zoals *myResourceGroup*. Voer een **Kubernetes-clusternaam** in, zoals *myAKSCluster*.
-- *CLUSTERDETAILS*: selecteer een regio, Kubernetes-versie en DNS-naamvoorvoegsel voor het AKS-cluster.
-- *SCHAAL*: selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
+- *PROJECTGEGEVENS*: Selecteer een Azure-abonnement, en selecteer of maak vervolgens een Azure-resourcegroep, zoals *myResourceGroup*. Voer een **Kubernetes-clusternaam** in, zoals *myAKSCluster*.
+- *CLUSTERDETAILS*: Selecteer een regio, Kubernetes-versie en DNS-naamvoorvoegsel voor het AKS-cluster.
+- *SCHAAL*: Selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
     - Selecteer het aantal knooppunten dat u in het cluster wilt implementeren. In dit artikel instellen **aantal knooppunten** naar *1*. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
     - Onder **virtuele knooppunten**, selecteer *ingeschakeld*.
 
@@ -126,6 +126,9 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 
 De schil is een interne IP-adres toegewezen vanuit het Azure-netwerksubnet overgedragen voor gebruik met virtuele-knooppunten.
 
+> [!NOTE]
+> Als u installatiekopieën die zijn opgeslagen in Azure Container Registry gebruikt [configureren en gebruiken van een Kubernetes-geheim][acr-aks-secrets]. Een beperking van de virtuele knooppunten preview is dat u kunt geen geïntegreerde verificatie van Azure AD-service-principal. Als u een geheim niet gebruikt, schillen gepland op virtuele-knooppunten niet starten en de fout melden `HTTP response status code 400 error code "InaccessibleImage"`.
+
 ## <a name="test-the-virtual-node-pod"></a>Test de schil virtueel knooppunt
 
 Als u wilt testen de pod uitgevoerd op de virtuele-knooppunt, blader naar de demo-toepassing met een webclient. Tijdens de schil een interne IP-adres toegewezen is, kunt u deze verbinding hebben met een andere schil op het AKS-cluster snel testen. Een test-schil maken en koppelen van een terminalsessie toe:
@@ -183,3 +186,5 @@ Virtuele knooppunten zijn onderdeel van een oplossing voor schalen in AKS. Zie v
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
+[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
+

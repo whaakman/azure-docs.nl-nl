@@ -4,7 +4,7 @@ description: In deze zelfstudie wordt uitgelegd hoe u de Azure AD rapportage-API
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5714ed552c81d28a253aa57ad6e2ba1d67e543a1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 1db59b6f5b89eb619a6a2ae638c141b2b0ed71ce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214263"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817398"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Zelfstudie: Gegevens ophalen met de Azure Active Directory rapportage-API met certificaten
 
@@ -30,7 +30,7 @@ In deze zelfstudie leert u hoe u een testcertificaat gebruikt voor toegang tot d
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. Voor toegang tot aanmeldingsgegevens, zorg ervoor dat u hebt een Azure Active Directory-tenant met een licentie premium (P1/P2). Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden. Houd er rekening mee dat als er geen gegevens activiteiten vóór de upgrade, een paar dagen voor de gegevens duurt worden weergegeven in de rapporten na de upgrade naar een premium-licentie. 
+1. Voor toegang tot aanmeldingsgegevens, zorg ervoor dat u hebt een Azure Active Directory-tenant met een licentie premium (P1/P2). Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden. Als er vóór de upgrade nog geen activiteitgegevens waren, duurt het na het upgraden naar een premium-licentie enkele dagen voordat er gegevens worden weergegeven in de rapporten. 
 
 2. Maken of schakel over naar een gebruikersaccount in de **hoofdbeheerder**, **beveiligingsbeheerder**, **beveiligingslezer** of **rapporteren lezer** rol voor de tenant. 
 
@@ -38,7 +38,7 @@ In deze zelfstudie leert u hoe u een testcertificaat gebruikt voor toegang tot d
 
 4. Download en installeer [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
 
-5. Installeer [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Deze module biedt verschillende cmdlets, waaronder:
+5. Install [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Deze module biedt verschillende cmdlets, waaronder:
     - De ADAL-bibliotheken die nodig zijn voor verificatie
     - Toegangstokens van gebruiker, toepassingssleutels en certificaten met behulp van ADAL
     - Afhandeling van pagina's met zoekresultaten door Graph API

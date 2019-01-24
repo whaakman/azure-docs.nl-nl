@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187974"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828252"
 ---
 # <a name="content-protection-overview"></a>Overzicht van de beveiliging van inhoud
 
@@ -39,9 +39,9 @@ Als u wilt uw systeem-/ toepassingsontwerp 'content protection' is voltooid, moe
 
 1. Azure Media Services-code
   
-  * Licentie-sjablonen voor PlayReady, Widevine en/of FairPlay. De sjablonen kunnen u rechten en machtigingen voor elk van de gebruikte DRM's configureren
-  * Licentie levering autorisatie, de logica van autorisatie-controle op basis van claims in JWT op te geven
-  * Inhoudssleutels, protocollen voor streaming en bijbehorende DRM's toegepast, definiëren DRM-versleuteling
+  * Licentie sjablonen configureren voor PlayReady, Widevine en/of FairPlay. De sjablonen kunnen u rechten en machtigingen voor elk van de gebruikte DRM's configureren.
+  * Definieer license delivery autorisatie, de logica van autorisatie-controle op basis van claims in JWT op te geven.
+  * DRM-codering configureren door inhoud sleutels op te geven en protocollen die moeten worden gebruikt voor streaming.
 
   > [!NOTE]
   > U kunt elke asset met meerdere versleutelingstypen versleutelen (AES-128, PlayReady, Widevine, FairPlay). Zie [Streamingprotocollen en versleutelingstypen](#streaming-protocols-and-encryption-types) voor nuttige combinaties.

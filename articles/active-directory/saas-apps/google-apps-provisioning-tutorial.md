@@ -4,7 +4,7 @@ description: Informatie over het automatisch inrichten en verwijdering van gebru
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6dbd50b5-589f-4132-b9eb-a53a318a64e5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 856fc4416bde6022693cf8250b84854f66a269fd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820339"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Zelfstudie: G Suite configureren voor het automatisch inrichten van gebruikers
 
@@ -30,19 +30,19 @@ Er is het doel van deze zelfstudie leert u hoe u automatisch inrichten en de inr
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met G Suite, moet u de volgende items:
+Als u Azure AD-integratie wilt configureren met G Suite, hebt u de volgende items nodig:
 
 - Een Azure AD-abonnement
-- Een G Suite eenmalige aanmelding ingeschakeld abonnement
-- Een abonnement op Google Apps of Google Cloud Platform-abonnement.
+- Een abonnement waarvoor G Suite-eenmalige aanmelding is ingeschakeld
+- Een Google Apps-abonnement of Google Cloud Platform-abonnement.
 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assign-users-to-g-suite"></a>Gebruikers toewijzen aan G Suite
 
@@ -127,7 +127,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
     e. Herhaal de voorgaande stappen voor elke extra domeinen die u wilt toevoegen aan Google Apps.
      
      > [!WARNING]
-     > Als u het primaire domein te voor uw G Suite-tenant wijzigen, en als u al hebt geconfigureerd eenmalige aanmelding met Azure AD, wordt er herhaalt u stap #3 onder [stap 2: eenmalige aanmelding inschakelen](#step-two-enable-single-sign-on).
+     > Als u het primaire domein te voor uw G Suite-tenant wijzigen, en als u al hebt geconfigureerd eenmalige aanmelding met Azure AD, wordt er herhaalt u stap #3 onder [stap 2: Eenmalige aanmelding inschakelen](#step-two-enable-single-sign-on).
        
 1. In de [Google Apps-beheerconsole](https://admin.google.com/), selecteer **-beheerdersrollen**.
    
@@ -160,7 +160,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
 1. Voer het e-mailadres van een persoon of groep die inrichting fout meldingen moet ontvangen de **e-mailmelding** veld. Selecteer vervolgens het selectievakje in.
 
-1. Selecteer **opslaan.**
+1. Selecteer **Save.**
 
 1. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers met Google Apps**.
 

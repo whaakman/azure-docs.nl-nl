@@ -4,7 +4,7 @@ description: Neem deel aan een Windows Server-machine aan een beheerd domein met
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157255"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856635"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Een Windows Server virtuele machine toevoegen aan een beheerd domein met behulp van Resource Manager-sjabloon
 Dit artikel ziet u hoe u een Windows Server-machine koppelen aan een beheerd domein van Azure AD Domain Services met behulp van Resource Manager-sjablonen.
@@ -38,8 +38,8 @@ Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
 
 ## <a name="install-and-configure-required-tools"></a>Installeren en configureren van vereiste hulpprogramma 's
 U kunt een van de volgende opties gebruiken om uit te voeren van de stappen in dit document:
-* **Azure PowerShell**: [installeren en configureren](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure CLI**: [installeren en configureren](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure PowerShell**: [Installeren en configureren](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* **Azure CLI**: [Installeren en configureren](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Optie 1: Inrichten van een nieuwe Windows Server-VM en koppel deze aan een beheerd domein
@@ -59,7 +59,7 @@ Voor het implementeren van een Windows Server-machine en voeg deze toe aan een b
 11. In **op lid worden van domein**, de DNS-domeinnaam van uw beheerde domein opgeven.
 12. In **domeingebruikersnaam**, naam van het gebruikersaccount op uw beheerde domein dat moet worden gebruikt om de virtuele machine toevoegen aan het beheerde domein opgeven.
 13. In **domeinwachtwoord**, geef het wachtwoord van het domeinaccount van de gebruiker waarnaar wordt verwezen door de parameter 'domainUsername'.
-14. Optioneel: U kunt opgeven een **pad van de organisatie-eenheid** naar een aangepaste organisatie-eenheid, waarin de virtuele machine toe te voegen. Als u een waarde voor deze parameter niet opgeeft, de virtuele machine is toegevoegd aan de standaard **AAD DC Computers** organisatie-eenheid in het beheerde domein.
+14. Optioneel: Kunt u een **pad van de organisatie-eenheid** naar een aangepaste organisatie-eenheid, waarin de virtuele machine toe te voegen. Als u een waarde voor deze parameter niet opgeeft, de virtuele machine is toegevoegd aan de standaard **AAD DC Computers** organisatie-eenheid in het beheerde domein.
 15. In de **gebruikersnaam van de VM-beheerder** veld, geeft u de naam van een lokale administrator-account voor de virtuele machine.
 16. In de **VM beheerderswachtwoord** veld, geeft u een lokaal beheerderswachtwoord voor de virtuele machine. Een sterke lokale administrator-wachtwoord voor de virtuele machine om te beveiligen tegen beveiligingsaanvallen wachtwoord opgeven.
 17. Klik op **ik ga akkoord met de voorwaarden en bepalingen bovenstaande**.
@@ -74,7 +74,7 @@ Wanneer de implementatie voltooid is, wordt uw nieuw ingerichte virtuele machine
 
 
 ## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Optie 2: Een bestaande Windows Server-VM toevoegen aan een beheerd domein
-**Snel starten-sjabloon**: [201-vm-domain-join-bestaande](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+**Snel starten-sjabloon**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Als u wilt deelnemen aan een bestaande Windows Server virtuele machine aan een beheerd domein, moet u de volgende stappen uitvoeren:
 1. Navigeer naar de [snel starten-sjabloon](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
@@ -87,7 +87,7 @@ Als u wilt deelnemen aan een bestaande Windows Server virtuele machine aan een b
 8. In **domeingebruikersnaam Join**, naam van het gebruikersaccount op uw beheerde domein dat moet worden gebruikt om de virtuele machine toevoegen aan het beheerde domein opgeven.
 9. In **Domeingebruikerswachtwoord Join**, geef het wachtwoord van het domeinaccount van de gebruiker waarnaar wordt verwezen door de parameter 'domainUsername'.
 10. In **FQDN van**, de DNS-domeinnaam van uw beheerde domein opgeven.
-11. Optioneel: U kunt opgeven een **pad van de organisatie-eenheid** naar een aangepaste organisatie-eenheid, waarin de virtuele machine toe te voegen. Als u een waarde voor deze parameter niet opgeeft, de virtuele machine is toegevoegd aan de standaard **AAD DC Computers** organisatie-eenheid in het beheerde domein.
+11. Optioneel: Kunt u een **pad van de organisatie-eenheid** naar een aangepaste organisatie-eenheid, waarin de virtuele machine toe te voegen. Als u een waarde voor deze parameter niet opgeeft, de virtuele machine is toegevoegd aan de standaard **AAD DC Computers** organisatie-eenheid in het beheerde domein.
 12. Klik op **ik ga akkoord met de voorwaarden en bepalingen bovenstaande**.
 13. Klik op **aankoop** voor het inrichten van de virtuele machine.
 

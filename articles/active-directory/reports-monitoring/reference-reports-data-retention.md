@@ -4,7 +4,7 @@ description: Beleid voor het bewaren van gegevens in uw Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0ed23c8efcf43213b288945c2910edf4c97bb63e
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 932290c3b42b0ea55725fbc17de6b81886fe1217
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214467"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822515"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Bewaarbeleid Azure Active Directory-rapporten
 
@@ -29,7 +29,7 @@ In dit artikel hebt u meer informatie over het bewaarbeleid voor gegevens voor d
 
 ### <a name="when-does-azure-ad-start-collecting-data"></a>Wanneer begint Azure AD het verzamelen van gegevens?
 
-| Azure AD-editie | Verzameling starten |
+| Azure AD Edition | Verzameling starten |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | Wanneer u zich aanmeldt voor een abonnement |
 | Azure AD Free <br /> Azure AD Basic | De eerste keer dat u opent de [Azure Active Directory-blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) of gebruik de [reporting API's](https://aka.ms/aadreports)  |
@@ -69,7 +69,7 @@ Voor beveiliging signalen, de verzamelingsproces wordt gestart wanneer u zich aa
 | :--                    | :--           | :--            | :--                 | :--                 |
 | Directorycontrole        | 7 dagen        |  7 dagen        | 30 dagen             | 30 dagen             |
 | Aanmeldingsactiviteit       | N/A           |  N/A           | 30 dagen             | 30 dagen             |
-| Azure MFA-gebruik        | 30 dagen       |  30 dagen       | 30 dagen             | 30 dagen             |
+| Azure MFA Usage        | 30 dagen       |  30 dagen       | 30 dagen             | 30 dagen             |
 
 U kunt de gegevens van de activiteit controleren en meld u langer dan de bewaartermijn die hierboven worden beschreven door het routering naar Azure storage-account met behulp van Azure Monitor behouden. Zie voor meer informatie, [archief Azure AD vastgelegd in een Azure storage-account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 

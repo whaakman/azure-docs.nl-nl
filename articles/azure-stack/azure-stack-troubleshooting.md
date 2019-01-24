@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/23/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a74fb749e130b565c44c637bfc16ff09e3314a05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957637"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857162"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Het oplossen van Microsoft Azure Stack
 
@@ -32,11 +32,31 @@ Dit document bevat algemene informatie over probleemoplossing voor Azure Stack.
 De aanbevelingen voor het oplossen van problemen die worden beschreven in deze sectie zijn afgeleid van diverse bronnen en kunnen of kunnen uw probleem niet oplossen. Voorbeelden van code worden verstrekt, vorm en verwachte resultaten niet worden gegarandeerd. In deze sectie is onderhevig aan regelmatig wijzigingen en updates, verbeteringen aan het product zijn geïmplementeerd.
 
 ## <a name="deployment"></a>Implementatie
-### <a name="deployment-failure"></a>Fout bij de implementatie
+### <a name="general-deployment-failure"></a>Fout bij de algemene implementatie
 Als u een fout opgetreden tijdens de installatie ondervindt, kunt u de implementatie van de mislukte stap opnieuw opstarten met behulp van de - optie opnieuw uitvoeren van het script voor implementatie.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Aan het einde van de ASDK implementatie van de PowerShell-sessie is nog steeds geopend en eventuele uitvoer wordt niet weergegeven.
 Dit gedrag is waarschijnlijk alleen het resultaat van het standaardgedrag van een PowerShell-opdrachtvenster wanneer deze is geselecteerd. De development kit-implementatie is voltooid, maar het script is onderbroken bij het selecteren van het venster. U kunt controleren of de installatie is voltooid door te zoeken naar het woord 'selecteren' in de titelbalk van het opdrachtvenster.  Druk op ESC om terug te Hef de selectie van het en het voltooiingsbericht is nadat deze moet worden weergegeven.
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>Implementatie mislukt vanwege gebrek aan een VM externe toegang
+Wanneer de implementatie stadia waarbij externe toegang vereist mislukt is, is een uitzondering, zoals in het volgende voorbeeld wordt geretourneerd:
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+Als deze fout optreedt, controleert om er zeker van te zijn dat alle minimale netwerken vereisten is voldaan aan de hand van de [Implementatiedocumentatie netwerkverkeer](deployment-networking.md). Een netwerk Registercontrole is ook beschikbaar voor partners als onderdeel van de Partner-Toolkit.
+
+Fouten bij de implementatie met de bovenstaande uitzondering worden meestal veroorzaakt door problemen verbinding maken met bronnen op het Internet
+
+Als u wilt controleren of dat dit is uw probleem, kunt u de volgende stappen uitvoeren:
+
+1. Open Powershell
+2. Enter-PSSession naar de WAS01 of een van de ERCs virtuele machines
+3. Voer de cmdlet: Test-NetConnection login.windows.net-poort 443
+
+Als deze opdracht mislukt, controleert u of de TOR-switch en andere netwerkapparaten zijn geconfigureerd voor [netwerkverkeer toestaan](azure-stack-network.md).
 
 ## <a name="virtual-machines"></a>Virtuele machines
 ### <a name="default-image-and-gallery-item"></a>Standaard-installatiekopie en galerie-item

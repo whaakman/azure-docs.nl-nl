@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752874"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851722"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verifiëren met een persoonlijk Docker-containerregister
 
@@ -26,13 +26,15 @@ Azure Container Registry biedt geen ondersteuning voor niet-geverifieerde Docker
 
 ## <a name="individual-login-with-azure-ad"></a>Afzonderlijke aanmelding met Azure AD
 
-Als u werkt met het register rechtstreeks, zoals installatiekopieën binnenhaalt op en pusht vanaf uw ontwikkelwerkstation verifiëren met behulp van de [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) opdracht in de [Azure CLI](/cli/azure/install-azure-cli):
+Als u werkt met het register rechtstreeks, zoals installatiekopieën binnenhaalt op en pusht vanaf een ontwikkelwerkstation verifiëren met behulp van de [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) opdracht in de [Azure CLI](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
 Wanneer u zich aan met `az acr login`, de CLI gebruikt het token gemaakt wanneer u uitgevoerd [az login](/cli/azure/reference-index#az-login) naadloos de sessie met het register te verifiëren. Nadat u bent aangemeld op deze manier, uw referenties zijn in de cache, en de daaropvolgende `docker` opdrachten vereisen geen gebruikersnaam of wachtwoord. Als uw token is verlopen, kunt u het vernieuwen met behulp van de `az acr login` opdracht nogmaals om te verifiëren. Met behulp van `az acr login` met Azure-id's biedt [op basis van de rol](../role-based-access-control/role-assignments-portal.md).
+
+Voor sommige scenario's kunt u zich aanmeldt bij een register met uw eigen individuele identiteit in Azure AD. Voor verschillende scenario's of voor het afhandelen van de behoeften van een werkgroep niet waar u afzonderlijke toegang beheren, u kunt zich ook aanmelden met een [beheerde identiteit voor de Azure-resources](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Service-principal
 

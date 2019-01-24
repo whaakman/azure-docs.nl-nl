@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: abc29480e5f5531857cbf973d5386727c3d7f2ac
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 929494d5d802dbc545c750386a286029c4bf962d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114525"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Zelfstudie: Azure Active Directory-integratie met FirmPlay - ondersteuning voor werving werknemer
 
@@ -31,7 +31,7 @@ Integratie van FirmPlay - werknemer Advocacy voor werving met Azure AD biedt u d
 - U kunt uw gebruikers automatisch ophalen aangemeld bij FirmPlay - werknemer Advocacy voor werving (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts in één centrale locatie - de Azure Management portal beheren
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,10 +45,10 @@ Voor het configureren van Azure AD-integratie met FirmPlay - werknemer Advocacy 
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -69,11 +69,11 @@ Voor het configureren van de integratie van FirmPlay - werknemer Advocacy voor w
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
 1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **FirmPlay - werknemer Advocacy voor werving**.
 
@@ -95,7 +95,7 @@ Als u wilt configureren en testen van Azure AD eenmalige aanmelding met FirmPlay
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een FirmPlay - ondersteuning voor de testgebruiker werving werknemer](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  : als u wilt een equivalent van Britta Simon hebben in FirmPlay: werknemer ondersteuning voor het werven van dat is gekoppeld aan de Azure AD-weergave van haar.
+1. **[Het maken van een FirmPlay - ondersteuning voor de testgebruiker werving werknemer](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  : als u wilt een equivalent van Britta Simon in FirmPlay hebben: Werknemer ondersteuning voor het werven van dat is gekoppeld aan de Azure AD-weergave van haar.
 1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 

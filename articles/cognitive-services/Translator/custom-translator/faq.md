@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627366"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854782"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -46,7 +46,7 @@ Geïmplementeerde systemen kunnen worden geopend via de Microsoft Translator Tex
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Hoe ik uitlijning en zin belangrijke als mijn gegevens nog zin uitgelijnd overslaan?
 
-De aangepaste-vertaler wordt overgeslagen zin uitlijning en zin belangrijke voor TMX bestanden en tekstbestanden met de `.align` extensie. `.align` bestanden geeft gebruikers een optie voor aangepaste Translator-zin te analyseren en verwerken van de uitlijning voor de bestanden die zijn perfect uitgelijnd en er is geen verdere verwerking. Wordt u aangeraden `.align` -extensie alleen voor bestanden die zijn perfect uitgelijnd.
+De aangepaste-vertaler wordt overgeslagen zin uitlijning en zin belangrijke voor TMX bestanden en tekstbestanden met de `.align` extensie. `.align` bestanden geeft gebruikers een optie voor het overslaan van aangepaste Translator-zin te analyseren en uitlijning van proces voor de bestanden die zijn perfect uitgelijnd en er is geen verdere verwerking. Wordt u aangeraden `.align` -extensie alleen voor bestanden die zijn perfect uitgelijnd.
 
 Als het aantal opgehaalde zinnen komt niet overeen met de twee bestanden met dezelfde basisnaam, aangepaste Translator nog steeds de zin aligner wordt uitgevoerd op `.align` bestanden.
 

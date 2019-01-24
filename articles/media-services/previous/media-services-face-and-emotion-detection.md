@@ -1,6 +1,6 @@
 ---
-title: Detecteren gezichts- en Emotion met Azure Media Analytics | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe vlakken en emoties met Azure Media Analytics te detecteren.
+title: Detecteer gezichten en emoties met Azure Media Analytics | Microsoft Docs
+description: Dit onderwerp wordt beschreven hoe u voor het detecteren van gezichten en emoties met Azure Media Analytics.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,56 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 859e75819f96edd527fceb143faf8357738ce80e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5aab8a5d48b7a7d17aa44b74d65ee70cb9322944
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789388"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817551"
 ---
-# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Face en Emotion met Azure Media Analytics detecteren
+# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detecteer gezichten en emoties met Azure Media Analytics
 ## <a name="overview"></a>Overzicht
-De **Azure Media Face detectie** Mediaprocessor (MP) kunt u tellen en zelfs te meten wat doelgroep deelname en reactie via bedacht bewegingen bijhouden. Deze service bevat twee functies: 
+De **Azure Media Face Detector** Mediaprocessor (MP) kunt u tellen, bijhouden van bewegingen en zelfs doelgroep deelname en reactie via gezichtsuitdrukkingen te meten. Deze service bevat twee functies: 
 
-* **Face-detectie**
+* **Gezichtsherkenning**
   
-    Face-detectie zoekt en houdt menselijke vlakken binnen een video. Meerdere vlakken kunnen worden gedetecteerd en vervolgens worden bijgehouden als ze onderweg, met de metagegevens van de tijd en de locatie in een JSON-bestand geretourneerd. Tijdens de bijhouden, wordt geprobeerd een consistente ID geven tot de dezelfde face terwijl de persoon is navigeren op het scherm, zelfs als ze zijn ondervindt hinder van obstakels of kort het frame laat.
+    Gezichtsdetectie zoekt en menselijke gezichten op een video wordt bijgehouden. Meerdere gezichten kunnen worden gedetecteerd en vervolgens worden bijgehouden als ze onderweg, met de metagegevens van de tijd en locatie geretourneerd in een JSON-bestand. Tijdens het bijhouden, wordt geprobeerd een consistente ID geven tot de dezelfde face terwijl de persoon is verplaatsen op het scherm, zelfs als ze zijn ondervindt hinder van obstakels of kort het kader laat.
   
   > [!NOTE]
-  > Deze service voert geen gezichtsherkenning. Een persoon die het frame verlaat of ondervindt voor wordt hinder van obstakels te lang krijgt een nieuwe ID wanneer ze terugkeren.
+  > Deze service biedt gezichtsherkenning niet uitvoeren. Een persoon die het frame blijft of raakt ondervindt hinder van obstakels voor te lang krijgt een nieuwe ID wanneer ze terugkeren.
   > 
   > 
-* **Emotiedetectie**
+* **Detectie van emoties**
   
-    Emotiedetectie is een optioneel onderdeel van de Processor Face Detection Media die analyse op meerdere emotionele kenmerken van de vlakken gedetecteerd retourneert, met inbegrip van gelukkig, sadness bang, volgt uitzien en meer. 
+    Gevoelsdetectie is een optioneel onderdeel van de Mediaprocessor die Face Detection die analyse op meerdere emotionele kenmerken geactiveerd vanuit de gezichten gedetecteerd wordt, met inbegrip van blijdschap, verdriet, angst, boosheid, en meer. 
 
-De **Azure Media Face detectie** MP is momenteel in Preview.
+De **Azure Media Face Detector** MP is momenteel in Preview.
 
-In dit artikel geeft informatie over **Azure Media Face detectie** en laat zien hoe u deze gebruiken met Media Services SDK voor .NET.
+Dit artikel geeft meer informatie over **Azure Media Face Detector** en laat zien hoe u met Media Services SDK voor .NET gebruiken.
 
-## <a name="face-detector-input-files"></a>Detectie-invoerbestanden geconfronteerd
-Videobestanden. Op dit moment wordt de volgende indelingen worden ondersteund: MP4 MOV en WMV.
+## <a name="face-detector-input-files"></a>Face Detector invoerbestanden
+Videobestanden. Op dit moment worden de volgende indelingen ondersteund: MP4, MOV en WMV.
 
-## <a name="face-detector-output-files"></a>Detectie uitvoerbestanden geconfronteerd
-De face-API voor detectie en bijhouden biedt hoge precisie face locatie detectie en bijhouden die maximaal 64 menselijke vlakken in een video kan detecteren. Voorzijde vlakken bieden de beste resultaten, terwijl side vlakken en in kleine vlakken (kleiner dan of gelijk aan 24 x 24 pixels) mogelijk niet nauwkeurig.
+## <a name="face-detector-output-files"></a>Face Detector uitvoerbestanden
+De face-API voor detectie en tracking biedt hoge precisie locatie gezichtsdetectie en bijhouden die maximaal 64 gezichten van mensen in een video kunt detecteren. Voorzijde gezichten bieden de beste resultaten, terwijl de zijkanten en kleine gezichten (kleiner dan of gelijk aan 24 x 24 pixels) mogelijk niet nauwkeurig.
 
-De vlakken gedetecteerde en bijgehouden met coördinaten (links, top, breedte en hoogte) worden geretourneerd die de locatie van vlakken in de afbeelding in pixels, evenals een face-id die aangeeft dat afzonderlijke volgen. Face-id-nummers zijn kwetsbaar voor opnieuw omstandigheden worden ingesteld als de voorzijde face verloren is gegaan of elkaar overlappen in het kader waardoor bepaalde personen ophalen van meerdere id's toegewezen.
+De gezichten gedetecteerd en bijgehouden worden geretourneerd met de coördinaten (links, boven, breedte en hoogte) die wijzen op de locatie van gezichten wordt uitgevoerd in de afbeelding in pixels, evenals een face id-nummer die wijzen op het volgen van deze persoon. Face id-nummers zijn gevoelig zijn voor het opnieuw instellen onder omstandigheden wanneer de voorzijde gezicht is zoekgeraakt of overlappende in het kader, wat resulteert in bepaalde personen meerdere id's ophalen van toegewezen.
 
-## <a id="output_elements"></a>Elementen van de JSON-bestand voor uitvoer
+## <a id="output_elements"></a>Elementen van het JSON-bestand voor uitvoer
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
-Face-detectie maakt gebruik van technieken van fragmentatie (waar de metagegevens kan worden opgedeeld in segmenten op basis van tijd en u kunt downloaden wat u nodig hebt) en segmentering (waar de gebeurtenissen worden opgedeeld geval ze te groot krijgen). Enkele eenvoudige berekeningen kunt u de gegevens transformeren. Bijvoorbeeld, als een gebeurtenis wordt gestart om 6300 (maten) met een tijdschaal van 2997 (ticks per seconde) en framesnelheid van vervolgens 29,97 (frames per seconde):
+Face Detector maakt gebruik van technieken van fragmentatie (waar de metagegevens kan worden opgedeeld in segmenten op basis van tijd en u kunt downloaden alleen wat u nodig hebt) en segmentering (waar de gebeurtenissen worden opgesplitst in het geval ze te groot krijgen). Met enkele eenvoudige berekeningen kunt u de gegevens transformeren. Bijvoorbeeld, als een gebeurtenis wordt gestart om 6300 (maten), met een tijdschaal van 2997 (maten/sec) en framesnelheid van 29,97 (frames per seconde), klikt u vervolgens:
 
-* Start/tijdschaal = 2.1 seconden
-* Seconden x Framerate 63 frames =
+* Start/tijdschaal = 2,1 seconde
+* X Framerate seconden = 63 frames
 
-## <a name="face-detection-input-and-output-example"></a>Geconfronteerd detectie invoer en uitvoer voorbeeld
+## <a name="face-detection-input-and-output-example"></a>Face detection-invoer en uitvoer voorbeeld
 ### <a name="input-video"></a>Invoervideo
 [Invoervideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
-Bij het maken van een taak met **Azure Media Face detectie**, moet u een configuratie-definitie opgeven. De volgende configuratie-definitie is slechts voor face detection.
+### <a name="task-configuration-preset"></a>Taakconfiguratie (standaardoptie)
+Bij het maken van een taak met **Azure Media Face Detector**, moet u een configuratie-definitie opgeven. De volgende configuratie-voorinstelling is alleen voor gezichtsdetectie.
 
 ```json
     {
@@ -75,9 +75,9 @@ Bij het maken van een taak met **Azure Media Face detectie**, moet u een configu
 ```
 
 #### <a name="attribute-descriptions"></a>Beschrijvingen van kenmerken
-| Naam van kenmerk | Beschrijving |
+| De naam van kenmerk | Description |
 | --- | --- |
-| Modus |Snel - verwerking snel van de snelheid, maar minder nauwkeurig (standaard).|
+| Modus |Snel verwerken Fast - snelheid, maar minder nauwkeurig (standaard).|
 
 ### <a name="json-output"></a>JSON-uitvoer
 Het volgende voorbeeld van JSON-uitvoer is afgebroken.
@@ -130,12 +130,12 @@ Het volgende voorbeeld van JSON-uitvoer is afgebroken.
 ```
 
 
-## <a name="emotion-detection-input-and-output-example"></a>Emotiedetectie invoer en uitvoer voorbeeld
+## <a name="emotion-detection-input-and-output-example"></a>Detectie van emoties in invoer en uitvoer voorbeeld
 ### <a name="input-video"></a>Invoervideo
 [Invoervideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
-Bij het maken van een taak met **Azure Media Face detectie**, moet u een configuratie-definitie opgeven. De volgende configuratie voorinstelling geeft als u wilt maken op basis van de emotiedetectie JSON.
+### <a name="task-configuration-preset"></a>Taakconfiguratie (standaardoptie)
+Bij het maken van een taak met **Azure Media Face Detector**, moet u een configuratie-definitie opgeven. De volgende configuratie-definitie Hiermee geeft u als u wilt maken op basis van de detectie van emoties in JSON.
 
 ```json
     {
@@ -150,22 +150,22 @@ Bij het maken van een taak met **Azure Media Face detectie**, moet u een configu
 
 
 #### <a name="attribute-descriptions"></a>Beschrijvingen van kenmerken
-| Naam van kenmerk | Beschrijving |
+| De naam van kenmerk | Description |
 | --- | --- |
-| Modus |Vlakken: Komen alleen voor detectie.<br/>PerFaceEmotion: Retourneren emotion onafhankelijk voor elke face-detectie.<br/>AggregateEmotion: Return gemiddelde emotion waarden voor alle vlakken in frame. |
-| AggregateEmotionWindowMs |Gebruik deze optie als AggregateEmotion modus geselecteerd. Hiermee geeft u de lengte van video gebruikt voor het produceren van elk cumulatieve resultaat, in milliseconden. |
-| AggregateEmotionIntervalMs |Gebruik deze optie als AggregateEmotion modus geselecteerd. Hiermee geeft u aan met welke frequentie voor het produceren van statistische resultaten. |
+| Modus |Gezichten: Alleen gezichtsdetectie.<br/>PerFaceEmotion: Emoties afzonderlijk voor elke gezichtsdetectie retourneren.<br/>AggregateEmotion: Emotion-gemiddelde waarden voor alle gezichten in frame retourneren. |
+| AggregateEmotionWindowMs |Gebruik als AggregateEmotion modus hebt geselecteerd. Hiermee geeft u de lengte van de video die worden gebruikt voor het produceren van elke geaggregeerde resultaat in milliseconden. |
+| AggregateEmotionIntervalMs |Gebruik als AggregateEmotion modus hebt geselecteerd. Hiermee geeft u aan met welke frequentie voor het produceren van resultaten samenvoegen. |
 
 #### <a name="aggregate-defaults"></a>Cumulatieve standaardinstellingen
-Hieronder worden aanbevolen waarden voor de cumulatieve venster en interval-instellingen. AggregateEmotionWindowMs mag niet langer zijn dan AggregateEmotionIntervalMs.
+Hieronder worden aanbevolen waarden voor de cumulatieve venster en interval-instellingen. AggregateEmotionWindowMs moet langer zijn dan AggregateEmotionIntervalMs.
 
-|| Standaardinstellingen (s) | Max(s) | Min(s) |
+|| Standaardwaarden (s) | Max(s) | Minuut |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0.5 |2 |0.25|
 | AggregateEmotionIntervalMs |0.5 |1 |0.25|
 
 ### <a name="json-output"></a>JSON-uitvoer
-JSON-uitvoer voor cumulatieve emotion (afgekapt):
+JSON-uitvoer voor statistische emoties (afgekapt):
 
 ```json
     {
@@ -321,24 +321,24 @@ JSON-uitvoer voor cumulatieve emotion (afgekapt):
 ```
 
 ## <a name="limitations"></a>Beperkingen
-* De ondersteunde video-invoerindelingen zijn MP4 MOV en WMV.
-* Het bereik van de grootte waarneembaar face is 24 x 24 naar 2048 x 2048 pixels. De vlakken buiten dit bereik wordt niet gedetecteerd.
-* Voor elke video is het maximum aantal vlakken geretourneerd 64.
-* Sommige vlakken kunnen niet worden herkend vanwege technische moeilijkheden; bijvoorbeeld, zeer grote face hoeken (head-ven) en grote Occlusie. Voorzijde en in de buurt binnen handbereik vlakken hebben de beste resultaten.
+* De ondersteunde indelingen voor invoer video opnemen MP4 MOV en WMV.
+* Het bereik van de grootte detecteerbare gezicht is 24 x 24 naar 2048 x 2048 pixels. De gezichten buiten dit bereik niet gedetecteerd.
+* Voor elke video is het maximum aantal gezichten geretourneerd 64.
+* Sommige gezichten worden mogelijk niet gedetecteerd door technische uitdagingen; bijvoorbeeld, zeer grote face hoeken (hoofd-houding) en grote bedekking. Gezichten voorzijde en in de buurt binnen handbereik hebben de beste resultaten.
 
-## <a name="net-sample-code"></a>Voorbeeldcode voor .NET
+## <a name="net-sample-code"></a>.NET-voorbeeldcode
 
-De volgende programma toont hoe:
+De volgende programma toont hoe u:
 
 1. Maak een asset en upload een mediabestand naar de asset.
-2. Een taak met een face detection-taak op basis van een configuratiebestand met de volgende json-definitie maken: 
+2. Een taak maken met een face detection-taak die op basis van een configuratiebestand met de volgende json-definitie: 
 
     ```json
             {
                 "version": "1.0"
             }
     ```
-3. De uitvoer JSON-bestanden downloaden. 
+3. De uitvoer-JSON-bestanden downloaden. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
@@ -418,7 +418,7 @@ namespace FaceDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Face Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

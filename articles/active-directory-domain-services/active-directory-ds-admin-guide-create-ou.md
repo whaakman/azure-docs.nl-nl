@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: Gebruikershandleiding voor | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Administration Guide | Microsoft Docs'
 description: Maken van een organisatie-eenheid (OE) in Azure AD Domain Services beheerde domeinen
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cd4964939aa9b9ebd96a2fb29e1a6f7bf422d477
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 49b915242ca0a4775236da3314eed816fde7ea6b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154825"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856261"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Maken van een organisatie-eenheid (OE) in een Azure AD Domain Services beheerde domein
 Azure AD Domain Services beheerde domeinen bevatten twee ingebouwde containers respectievelijk 'AADDC Computers' en 'AADDC gebruikers' genoemd. De container 'AADDC Computers' heeft computerobjecten voor alle computers die zijn gekoppeld aan het beheerde domein. De container 'AADDC gebruikers' bevat gebruikers en groepen in de Azure AD-tenant. Af en toe kan het nodig zijn voor het maken van serviceaccounts in het beheerde domein om workloads te implementeren zijn. U kunt voor dit doel een aangepaste organisatie-eenheid (OE) in het beheerde domein maken en service-accounts binnen een organisatie-eenheid maken. Dit artikel leest u hoe een organisatie-eenheid maken in uw beheerde domein.

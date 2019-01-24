@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3646c6167f901fe43080d39df42fdb127b1c7fc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352356"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828142"
 ---
 # <a name="using-a-cloud-dvr"></a>Een cloud-DVR gebruiken
 
@@ -37,8 +37,7 @@ Een **LiveEvent** ondersteunt maximaal drie gelijktijdig actieve **LiveOutput**s
 > [!NOTE]
 > **LiveOutput**s starten bij het maken en te stoppen wanneer verwijderd. Wanneer u verwijdert de **LiveOutput**, verwijdert u niet de onderliggende **Asset** en de inhoud in de asset. 
 >
-> Als u hebt gepubliceerd **Streaming-Locator gemaakt**s voor de asset voor de **LiveOutput**, blijft de gebeurtenis (tot de lengte van het DVR-venster) worden weergegeven tot de eindtijd van de **Streaming-Locator gemaakt**  of tot wanneer u de locator verwijdert, afhankelijk van wat het eerste komt.   
-  
+> Als u hebt gepubliceerd de **LiveOutput** asset met behulp van een **StreamingLocator**, wordt de **LiveEvent** (tot de lengte van het DVR-venster) blijft weergegeven tot de **StreamingLocator**van verlopen of verwijderd, afhankelijk van wat eerst komt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

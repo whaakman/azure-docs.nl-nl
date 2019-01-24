@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 3b49d568b1ca19a99359314bb181712f56ca5615
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ecde1c19a56a7f99284fe738a19eac07322c2dae
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201054"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826170"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -160,7 +160,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
     hmac.update(toSign);
     var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
-    // Construct autorization string
+    // Construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
     + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
@@ -438,8 +438,8 @@ De volgende tabel bevat de machtigingen die u gebruiken kunt voor het beheren va
 
 | Machtiging | Opmerkingen |
 | --- | --- |
-| **registryRead** |Verleent leestoegang tot het id-register. Zie voor meer informatie, [id-register](iot-hub-devguide-identity-registry.md). <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
-| **registryReadWrite** |Verleent lezen en schrijven naar het id-register. Zie voor meer informatie, [id-register](iot-hub-devguide-identity-registry.md). <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
+| **RegistryRead** |Verleent leestoegang tot het id-register. Zie voor meer informatie, [id-register](iot-hub-devguide-identity-registry.md). <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
+| **RegistryReadWrite** |Verleent lezen en schrijven naar het id-register. Zie voor meer informatie, [id-register](iot-hub-devguide-identity-registry.md). <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
 | **ServiceConnect** |Verleent toegang tot de cloud service gerichte communicatie en -eindpunten worden gecontroleerd. <br/>Een machtiging verleend voor apparaat-naar-cloud-berichten ontvangen, cloud-naar-apparaat-berichten verzenden en ophalen van de bijbehorende delivery-bevestigingen. <br/>Verleent toestemming om op te halen van de levering van bevestigingen voor het bestand wordt geüpload. <br/>Geeft het recht op toegang dubbels bijwerken labels en gewenste eigenschappen, gerapporteerde eigenschappen ophalen en query's uitvoeren. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
 | **DeviceConnect** |Verleent toegang tot apparaat gerichte eindpunten. <br/>Een machtiging verleend voor apparaat-naar-cloud-berichten verzenden en ontvangen van berichten van cloud-naar-apparaat. <br/>Verleent machtiging voor het uploaden van bestanden vanaf een apparaat uitvoeren. <br/>Verleent toestemming voor het apparaat apparaatdubbel-gewenste eigenschap meldingen ontvangen en bijwerken van de apparaatdubbel gerapporteerde eigenschappen. <br/>Verleent machtiging voor het uitvoeren van bestand wordt geüpload. <br/>Deze machtiging wordt gebruikt door apparaten. |
 

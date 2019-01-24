@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124607"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811737"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Failover streamen met Azure Media Services implementeren
 
@@ -56,13 +56,13 @@ De volgende overwegingen zijn van toepassing:
 * .NET framework 4.5 of .NET Framework 4.
 * Visual Studio 2010 SP1 of hoger (Professional, Premium, Ultimate of Express).
 
-## <a name="set-up-your-project"></a>Instellen van uw project
+## <a name="set-up-your-project"></a>Uw project instellen
 In deze sectie maken en instellen van een project C#-consoletoepassing.
 
 1. Visual Studio gebruiken om een nieuwe oplossing met het project C#-consoletoepassing te maken. Voer **HandleRedundancyForOnDemandStreaming** voor de naam en klik vervolgens op **OK**.
 2. Maak de **SupportFiles** map op hetzelfde niveau bevindt als de **HandleRedundancyForOnDemandStreaming.csproj** projectbestand. Onder de **SupportFiles** map, maken de **OutputFiles** en **MP4Files** mappen. Kopieer een MP4-bestand in de **MP4Files** map. (In dit voorbeeld wordt de **BigBuckBunny.mp4** -bestand wordt gebruikt.) 
 3. Gebruik **Nuget** om toe te voegen verwijzingen naar dll-bestanden met betrekking tot Media Services. In **Visual Studio-hoofdmenu**, selecteer **extra** > **Library Package Manager** > **Package Manager Console**. Typ in het consolevenster **Install-Package windowsazure.mediaservices**, en druk op Enter.
-4. Voeg andere verwijzingen die vereist voor dit project zijn toe: System.Configuration System.Runtime.Serialization en System.Web.
+4. Andere referenties weergegeven die vereist voor dit project zijn toevoegen: System.Configuration, System.Runtime.Serialization en System.Web.
 5. Vervang **met behulp van** instructies die zijn toegevoegd aan de **Programs.cs** bestand standaard met de volgende query:
    
         using System;
@@ -178,7 +178,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
                 // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267416"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817228"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migratie van Contoso: Een on-premises Apps naar een Azure container en Azure SQL Database opnieuw modelleren
 
@@ -199,7 +199,7 @@ De Azure-container is gemaakt met behulp van de geëxporteerde bestanden van de 
 
 ## <a name="step-3-provision-azure-service-fabric"></a>Stap 3: Richt Azure Service Fabric
 
-De SmartHotel360-container wordt uitgevoerd in de Azure Service Fabric-Sluster. Beheerders van Contoso maken als volgt de Service Fabric-Cluster:
+De SmartHotel360-container wordt uitgevoerd in de Azure Service Fabric-Cluster. Beheerders van Contoso maken als volgt de Service Fabric-Cluster:
 
 1. Een Service Fabric-resource maken vanuit Azure Marketplace
 
@@ -282,7 +282,7 @@ Contoso moet clustercertificaten voor Azure DevOps-Services toegang tot het clus
 
 8. Voor de implementatie van Azure DevOps-Services moeten ze de met Base64-waarde van het certificaat te bepalen. Ze doen dit op de lokale developer-werkstation met behulp van PowerShell. Ze plak de uitvoer in een tekstbestand voor later gebruik.
 
-    ```
+    ```powershell
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -386,7 +386,7 @@ De on-premises-app is een traditionele app met drie lagen:
 - Entity Framework wordt gebruikt om te integreren met de gegevens in de SQL-database, beschikbaar te maken via een WCF-service.
 - De toepassing webforms en communiceert met de WCF-service.
 
-Contoso-beheerders om de app converteren naar een container met behulp van isual Studio en de SDK-hulpprogramma's als volgt:
+Contoso-beheerders om de app converteren naar een container met behulp van Visual Studio en de SDK-hulpprogramma's als volgt:
 
 
 1. Met behulp van Visual Studio, zij het oplossingsbestand open-(SmartHotel.Registration.sln) bekijken in de **SmartHotel360-interne-na-apps\src\Registration** map van de lokale opslagplaats.  Twee apps worden weergegeven. De webfrontend SmartHotel.Registration.Web en de WCF-service-app SmartHotel.Registration.WCF.
@@ -530,7 +530,7 @@ Als een eerste stap is voor beheerders van Contoso een Azure Cosmos-database inr
 5. In de portal, ze de nieuwe database openen > **verzameling** > **documenten** en klikt u op **Nieuw Document**.
 6. Ze plak de volgende JSON-code in het documentvenster. Dit is de voorbeeldgegevens in de vorm van een enkele tweet.
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -565,11 +565,11 @@ Met de Cosmos DB is ingericht, wordt de verbinding maken met de app in Contoso-b
 
 2. Ze vullen in de volgende twee parameters:
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 

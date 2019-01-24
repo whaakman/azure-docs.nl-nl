@@ -3,9 +3,9 @@ title: Service Bus prijzen en facturering | Microsoft Docs
 description: Overzicht van Service Bus prijsstructuur.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: db5f4bc7cc62c61f13258b919226efbf63165371
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406836"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852929"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus prijzen en facturering
 
@@ -32,8 +32,8 @@ Azure Service Bus is beschikbaar in Standard en [Premium](service-bus-premium-me
 
 Service Bus maakt gebruik van de volgende 2 meters voor wachtrijen en onderwerpen/abonnementen:
 
-1. **Berichtbewerkingen**: gedefinieerd als API-aanroepen voor service-eindpunten van wachtrijen of onderwerpen/abonnementen. Deze meter vervangt berichten verzonden of ontvangen als de primaire werkeenheid factureerbare gebruik voor wachtrijen en onderwerpen/abonnementen.
-2. **Brokered Connections**: gedefinieerd als het hoogste aantal permanente verbindingen geopend voor wachtrijen, onderwerpen of abonnementen tijdens een opgegeven testperiode van één uur. Deze meter is alleen van toepassing in de laag standaard, waarin u extra verbindingen kunt openen (verbindingen werden voorheen beperkt tot 100 per wachtrij/onderwerp/abonnement) tegen een nominaal bedrag per verbinding.
+1. **Berichtbewerkingen**: Gedefinieerd als API-aanroepen voor service-eindpunten van wachtrijen of onderwerpen/abonnementen. Deze meter vervangt berichten verzonden of ontvangen als de primaire werkeenheid factureerbare gebruik voor wachtrijen en onderwerpen/abonnementen.
+2. **Brokered Connections**: Gedefinieerd als het hoogste aantal permanente verbindingen geopend voor wachtrijen, onderwerpen of abonnementen tijdens een opgegeven testperiode van één uur. Deze meter is alleen van toepassing in de laag standaard, waarin u extra verbindingen kunt openen (verbindingen werden voorheen beperkt tot 100 per wachtrij/onderwerp/abonnement) tegen een nominaal bedrag per verbinding.
 
 De **Standard** laag introduceert gestaffelde prijzen voor bewerkingen die worden uitgevoerd met wachtrijen en onderwerpen/abonnementen, wat resulteert in op basis van een volume kortingen tot wel 80% op het hoogste gebruiksniveau van het. Er is ook een Standard-laag basiskosten van $10 per maand; deze kunt u maximaal 12,5 miljoen bewerkingen per maand gratis uit te voeren.
 
@@ -50,7 +50,7 @@ De [prijzen van Service Bus](https://azure.microsoft.com/pricing/details/service
 
 Wachtrijen en onderwerpen/abonnementen worden gefactureerd per 'bewerking', niet per bericht. Een bewerking verwijst naar een API-aanroep ten opzichte van een wachtrij of onderwerp/abonnement service-eindpunt. Dit zijn onder andere de bewerkingen voor beheer, verzenden/ontvangen en sessiestatus.
 
-| Type bewerking | Beschrijving |
+| Type bewerking | Description |
 | --- | --- |
 | Beheer |Maken, lezen, bijwerken, verwijderen (CRUD) aan de hand wachtrijen of onderwerpen/abonnementen. |
 | Berichten |Verzenden en ontvangen van berichten met wachtrijen of onderwerpen/abonnementen. |
@@ -95,7 +95,7 @@ Service Bus-kosten voor het hoogste aantal gelijktijdige brokered verbindingen d
 
 Bijvoorbeeld:
 
-1. Elk van 10.000 apparaten verbindt via één AMQP-verbinding en daarvan opdrachten ontvangt van een Service Bus-onderwerp. De apparaten verstuurt telemetriegebeurtenissen naar een Event Hub. Als alle apparaten elke dag 12 uur verbinding maken, van toepassing de volgende verbindingskosten berekend (naast eventuele andere Service Bus-onderwerp kosten): 10.000 verbindingen * 12 uur * 31 dagen / 744 = 5.000 brokered verbindingen. Na aftrek van de maandelijkse 1.000 brokered connections, u kosten in rekening worden gebracht 4.000 brokered Connections, tegen het tarief van $0,03 per brokered connection, met een totaal van $120.
+1. Elk van 10.000 apparaten verbindt via één AMQP-verbinding en daarvan opdrachten ontvangt van een Service Bus-onderwerp. De apparaten verstuurt telemetriegebeurtenissen naar een Event Hub. Als alle apparaten elke dag 12 uur verbinding maken, zijn van toepassing de volgende verbindingskosten berekend (naast eventuele andere Service Bus-onderwerp kosten): 10.000 verbindingen * 12 uur * 31 dagen / 744 = 5.000 brokered verbindingen. Na aftrek van de maandelijkse 1.000 brokered connections, u kosten in rekening worden gebracht 4.000 brokered Connections, tegen het tarief van $0,03 per brokered connection, met een totaal van $120.
 2. 10.000 apparaten ontvangen berichten van een Service Bus-wachtrij via HTTP, een time-out van nul seconden op te geven. Als alle apparaten elke dag 12 uur verbinding maken, ziet u de volgende verbindingskosten berekend (naast eventuele andere Service Bus-kosten): 10.000 verbindingen HTTP voor ontvangen * 12 uur per dag * 31 dagen / 744 uur = 5000 brokered verbindingen.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Zijn kosten voor Brokered Connection van toepassing op wachtrijen en onderwerpen/abonnementen?

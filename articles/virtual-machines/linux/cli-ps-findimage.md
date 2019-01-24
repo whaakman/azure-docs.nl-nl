@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018822"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852198"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Het Linux-VM-installatiekopieën zoeken in de Azure Marketplace met de Azure CLI
 In dit onderwerp wordt beschreven hoe u de Azure CLI gebruiken voor het VM-installatiekopieën zoeken in de Azure Marketplace. Deze informatie gebruiken om een Marketplace-installatiekopie opgeven wanneer u een virtuele machine via een programma met de CLI maken, Resource Manager-sjablonen of andere hulpprogramma's.
@@ -128,7 +128,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>De installatiekopieën doorzoeken 
-Een andere manier om te zoeken van een installatiekopie op een locatie is om uit te voeren de [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image#az_vm_image_list_offers), en [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) opdrachten in de reeks. Met deze opdrachten, moet u deze waarden bepalen:
+Een andere manier om te zoeken van een installatiekopie op een locatie is om uit te voeren de [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image), en [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) opdrachten in de reeks. Met deze opdrachten, moet u deze waarden bepalen:
 
 1. Geef de uitgevers van installatiekopieën weer.
 2. Geef de aanbiedingen voor een bepaalde uitgever weer.

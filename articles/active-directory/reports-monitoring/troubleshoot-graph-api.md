@@ -4,7 +4,7 @@ description: Biedt u een oplossing voor fouten tijdens het aanroepen van Azure A
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33c382c8b28549e1b2be83322b910ca1a885e45d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 299c9acb43fd0f3d7284a3b2ffb0c400b96cbc0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622753"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811686"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Fouten oplossen in Azure Active Directory reporting API
 
@@ -44,7 +44,7 @@ Als u dit foutbericht opgetreden tijdens het openen van aanmeldingen met behulp 
 ![Machtigingen voor gebruikersinterface wijzigen](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Fout: Geen tenant is B2C of tenant heeft geen premium-licentie
+### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Fout: De tenant is B2C noch tenant heeft geen premium-licentie
 
 Toegang tot rapporten-aanmelding vereist een Azure Active Directory premium 1 (P1) licentie. Als u dit foutbericht ziet tijdens het openen van aanmeldingen, zorg ervoor dat uw tenant in licentie met een Azure AD P1-licentie gegeven wordt.
 

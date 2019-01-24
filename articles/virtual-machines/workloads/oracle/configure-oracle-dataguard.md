@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 37ecb314c5f09a51d9ce9d28534a4664b75069af
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f341c7e4a56aacb35ee16cbae00115196325b46a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412747"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855819"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Oracle Data Guard implementeren op een virtuele Azure Linux-machine 
 
@@ -40,7 +40,7 @@ De Marketplace-installatiekopie die u gebruiken voor het maken van de virtuele m
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
-Aanmelden bij uw Azure-abonnement met behulp van de [az login](/cli/azure/reference-index#az_login) opdracht en volgt u de op het scherm aanwijzingen.
+Aanmelden bij uw Azure-abonnement met behulp van de [az login](/cli/azure/reference-index) opdracht en volgt u de op het scherm aanwijzingen.
 
 ```azurecli
 az login
@@ -70,7 +70,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-Een virtuele machine maken met behulp van de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. 
+Maak een VM met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
 
 Het volgende voorbeeld maakt u twee virtuele machines met de naam `myVM1` en `myVM2`. SSH-sleutels, maakt het ook als ze niet al bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: a506c696cdb9ca6c6221b54c63d2446b7cb86a69
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430553"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806994"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Consistentieniveaus en Azure Cosmos DB-API's
 
@@ -26,196 +26,46 @@ De volgende secties ziet u de toewijzing tussen de consistentie van de gegevens 
 
 Deze tabel bevat de toewijzing van de consistentie tussen de Apache Cassandra en consistentieniveaus in Azure Cosmos DB. Voor elk van de Cassandra-lezen en schrijven consistentieniveaus, de bijbehorende Consistentieniveau voor Cosmos DB biedt betere, dat wil zeggen, strengere garanties.
 
+De volgende tabel toont de **schrijven consistentie toewijzing** tussen Azure Cosmos DB en Cassandra:
 
-<table>
-<tr> 
-  <th rowspan="2">Cassandra-Consistentieniveau</th> 
-  <th rowspan="2">Cosmos DB-Consistentieniveau</th> 
-  <th colspan="3">Toewijzing van de consistentie schrijven</th> 
-  <th colspan="3">Lezen van consistentie van toewijzing</th> 
-</tr> 
+| Cassandra | Azure Cosmos DB | Guarantee |
+| - | - | - |
+|ALLE|Sterk  | Linearisabiliteit |
+| EACH_QUORUM   | Sterk    | Linearisabiliteit | 
+| QUORUM, SERIËLE |  Sterk |    Linearisabiliteit |
+| LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE, | Consistent prefix |Globale Consistent Prefix |
+| EACH_QUORUM   | Sterk    | Linearisabiliteit |
+| QUORUM, SERIËLE |  Sterk |    Linearisabiliteit |
+| LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE, | Consistent prefix | Globale Consistent Prefix |
+| QUORUM, SERIËLE | Sterk   | Linearisabiliteit |
+| LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE, | Consistent prefix | Globale Consistent Prefix |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Gebonden veroudering | <ul><li>Gebonden veroudering.</li><li>Maximaal K versies of t keer achter.</li><li>De meest recente toegezegde waarde in de regio lezen.</li></ul> |
+| EEN LOCAL_ONE,   | Consistent prefix | Consistent Prefix per regio |
 
+De volgende tabel toont de **lezen van consistentie toewijzing** tussen Azure Cosmos DB en Cassandra:
 
- 
- <tr> 
-  <th>Cassandra</th> 
-  <th>Cosmos DB</th> 
-  <th>Guarantee</th> 
-  <th>Van Cassandra</th> 
-  <th>Bij Cosmos DB</th> 
-  <th>Guarantee</th> 
- </tr> 
- 
-  <tr> 
-  <td rowspan="6">ALLE</td> 
-  <td rowspan="6">Sterk</td> 
-  <td>ALLE</td> 
-  <td>Sterk</td> 
-  <td>Linearisabiliteit</td> 
-  <td>ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE</td> 
-  <td>Sterk</td> 
-  <td>Linearisabiliteit</td> 
- </tr> 
- 
- <tr> 
-  <td rowspan="2">EACH_QUORUM</td> 
-  <td rowspan="2">Sterk</td> 
-  <td rowspan="2">Linearisabiliteit</td> 
-  <td>ALLE, QUORUM, SERIENUMMER, LOCAL_QUORUM, LOCAL_SERIAL, DRIE, TWEE</td> 
-  <td>Sterk</td> 
-  <td >Linearisabiliteit</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ÉÉN</td>
-  <td>Consistent prefix</td>
-   <td>Globale Consistent Prefix</td>
- </tr>
- 
+| Cassandra | Azure Cosmos DB | Guarantee |
+| - | - | - |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Sterk  | Linearisabiliteit|
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Sterk |   Linearisabiliteit |
+|LOCAL_ONE, ÉÉN | Consistent prefix | Globale Consistent Prefix |
+| ALLE, QUORUM, SERIENUMMER   | Sterk    | Linearisabiliteit |
+| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Consistent prefix   | Globale Consistent Prefix |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    Consistent prefix   | Globale Consistent Prefix |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Sterk |   Linearisabiliteit |
+| LOCAL_ONE, ÉÉN    | Consistent prefix | Globale Consistent Prefix|
+| ALLE, QUORUM, seriële sterke verwerkingen
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Consistent prefix  | Globale Consistent Prefix |
+|ALLE    |Sterk |Linearisabiliteit |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |Consistent prefix  |Globale Consistent Prefix|
+|ALLE, QUORUM, seriële sterke verwerkingen
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Consistent prefix  |Globale Consistent Prefix |
+|ALLE    |Sterk | Linearisabiliteit |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Consistent prefix | Globale Consistent Prefix |
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Gebonden veroudering   | <ul><li>Gebonden veroudering.</li><li>Maximaal K versies of t keer achter. </li><li>De meest recente toegezegde waarde in de regio lezen.</li></ul>
+| LOCAL_ONE, ÉÉN |Consistent prefix | Consistent Prefix per regio |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Consistent prefix | Consistent Prefix per regio |
 
- <tr> 
-  <td rowspan="2">QUORUM, SERIËLE</td> 
-  <td rowspan="2">Sterk</td> 
-  <td rowspan="2">Linearisabiliteit</td> 
-  <td>ALLE, QUORUM, SERIENUMMER</td> 
-  <td>Sterk</td> 
-  <td >Linearisabiliteit</td> 
- </tr> 
-
- <tr>
-   <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
-   <td>Consistent prefix</td>
-   <td>Globale Consistent Prefix</td>
- </tr>
- 
- 
- <tr> 
- <td>LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE, <b>ANY</b></td> 
-  <td>Consistent prefix</td> 
-  <td>Globale Consistent Prefix</td> 
-  <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td> 
-  <td>Consistent prefix</td> 
-  <td>Globale Consistent Prefix</td>
- </tr> 
- 
- 
-  <tr> 
-  <td rowspan="6">EACH_QUORUM</td> 
-  <td rowspan="6">Sterk</td> 
-  <td rowspan="2">EACH_QUORUM</td> 
-  <td rowspan="2">Sterk</td> 
-  <td rowspan="2">Linearisabiliteit</td> 
-  <td>ALLE, QUORUM, SERIENUMMER, LOCAL_QUORUM, LOCAL_SERIAL, DRIE, TWEE</td> 
-  <td>Sterk</td> 
-  <td>Linearisabiliteit</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ÉÉN</td>
-  <td>Consistent prefix</td>
-   <td>Globale Consistent Prefix</td>
- </tr>
- 
- 
- 
- <tr> 
-  <td rowspan="2">QUORUM, SERIËLE</td> 
-  <td rowspan="2">Sterk</td> 
-  <td rowspan="2">Linearisabiliteit</td> 
-  <td>ALLE, QUORUM, SERIENUMMER</td> 
-  <td>Sterk</td> 
-  <td>Linearisabiliteit</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
-  <td>Consistent prefix</td>
-   <td>Globale Consistent Prefix</td>
- </tr>
- 
- 
-  <tr> 
-  <td rowspan="2">LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE,</td> 
-  <td rowspan="2">Consistent prefix</td> 
-  <td rowspan="2">Globale Consistent Prefix</td> 
-  <td>ALLE</td> 
-  <td>Sterk</td> 
-  <td>Linearisabiliteit</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td>
-  <td>Consistent prefix</td>
-   <td>Globale Consistent Prefix</td>
- </tr>
-
-
-  <tr> 
-  <td rowspan="4">QUORUM</td> 
-  <td rowspan="4">Sterk</td> 
-  <td rowspan="2">QUORUM, SERIËLE</td> 
-  <td rowspan="2">Sterk</td> 
-  <td rowspan="2">Linearisabiliteit</td> 
-  <td>ALLE, QUORUM, SERIENUMMER</td> 
-  <td>Sterk</td> 
-  <td>Linearisabiliteit</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
-  <td>Consistent prefix</td>
-   <td>Globale Consistent Prefix</td>
- </tr>
- 
- 
- <tr> 
-  <td rowspan="2">LOCAL_QUORUM, 3, 2, ÉÉN, LOCAL_ONE,</td> 
-  <td rowspan="2">Consistent prefix </td> 
-  <td rowspan="2">Globale Consistent Prefix </td> 
-  <td>ALLE</td> 
-  <td>Sterk</td> 
-  <td>Linearisabiliteit</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td>
-  <td>Consistent prefix</td>
-   <td>Globale Consistent Prefix</td>
- </tr>
- 
- <tr> 
-  <td rowspan="4">LOCAL_QUORUM, DRIE, TWEE</td> 
-  <td rowspan="4">Gebonden veroudering</td> 
-  <td rowspan="2">LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td> 
-  <td rowspan="2">Gebonden veroudering</td> 
-  <td rowspan="2">Gebonden veroudering.<br/>
-Maximaal K versies of t keer achter.<br/>
-De meest recente toegezegde waarde in de regio lezen. 
-</td> 
-  
-  <td>QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td> 
-  <td>Gebonden veroudering</td> 
-  <td>Gebonden veroudering.<br/>
-Maximaal K versies of t keer achter. <br/>
-De meest recente toegezegde waarde in de regio lezen. </td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ÉÉN</td>
-  <td>Consistent prefix</td>
-   <td>Consistent Prefix per regio</td>
- </tr>
- 
- 
- <tr> 
-  <td>EEN LOCAL_ONE,</td> 
-  <td>Consistent prefix </td> 
-  <td >Consistent Prefix per regio </td> 
-  <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td> 
-  <td>Consistent prefix</td> 
-  <td>Consistent Prefix per regio</td> 
- </tr> 
-</table>
 
 ## <a id="mongo-mapping"></a>Toewijzing tussen MongoDB 3.4 en Azure Cosmos DB-consistentieniveaus
 

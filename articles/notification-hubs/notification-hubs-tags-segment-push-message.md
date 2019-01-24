@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/23/2019
 ms.author: jowargo
-ms.openlocfilehash: f52900d06049623a0a81e509abdc5e9ef76f95e5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451473"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828159"
 ---
 # <a name="routing-and-tag-expressions"></a>Routering en code-expressies
 
@@ -29,8 +29,7 @@ Code-expressies kunnen u richten op specifieke sets van apparaten of meer in het
 
 ## <a name="targeting-specific-registrations"></a>Die gericht zijn op specifieke registraties
 
-De enige manier om doel specifieke kennisgeving registraties bestaat uit het koppelen van labels met deze vervolgens richt u op deze tags. Zoals besproken in [registratiebeheer](notification-hubs-push-notification-registration-management.md), om te kunnen ontvangen van pushmeldingen meldingen een app heeft om een apparaat te registreren voor een notification hub verwerkt. Zodra een registratie voor een notification hub is gemaakt, kan de toepassing back-end pushmeldingen verzenden naar deze.
-De toepassing back-end kunt de rapporten naar een specifieke mededeling is gericht op de volgende manieren:
+De enige manier om doel specifieke kennisgeving registraties bestaat uit het koppelen van labels met deze vervolgens richt u op deze tags. Zoals besproken in [registratiebeheer](notification-hubs-push-notification-registration-management.md), om te kunnen ontvangen van pushmeldingen meldingen een app heeft om een apparaat te registreren voor een notification hub verwerkt. Zodra een registratie voor een notification hub is gemaakt, kan de toepassing back-end pushmeldingen verzenden naar deze. De toepassing back-end kunt de rapporten naar een specifieke mededeling is gericht op de volgende manieren:
 
 1. **Uitzenden**: alle registraties in de notification hub de melding ontvangen.
 2. **Tag**: alle registraties die het opgegeven label bevatten de melding ontvangen.
@@ -71,6 +70,9 @@ In deze afbeelding Els is geïnteresseerd in updates voor de Beatles en Bob is g
 U kunt meerdere opmerkingen kunnen in tags (bijvoorbeeld 'band_Beatles' of 'follows_Charlie') coderen, zijn tags eenvoudige tekenreeksen en niet-eigenschappen met waarden. Een registratie wordt alleen op de aanwezigheid of afwezigheid van een specifieke tag gekoppeld.
 
 Zie voor een volledige stapsgewijze zelfstudie over het gebruik van tags voor het verzenden naar belangengroepen, [belangrijke nieuws](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+
+> [!NOTE]
+> Azure Notification Hubs ondersteunt maximaal 60 tags per registratie.
 
 ## <a name="using-tags-to-target-users"></a>Met behulp van labels te richten op gebruikers
 

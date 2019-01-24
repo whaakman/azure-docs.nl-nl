@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: dec58b2bb82eeab8b95c59e2775d21d58e18cac4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450418"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808456"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migratie van Contoso: Een on-premises-app met een Azure-Web-App en Azure SQL-database herstructureren
 
@@ -347,7 +347,7 @@ Beheerders van Contoso is nu configureren voor Azure DevOps voor het uitvoeren v
 
     ![Appservice implementeren](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. In **selecteert u een bestand of map**, ze Zoek de **SmartHotel.Registration.Wcf.zip** -bestand dat is gemaakt tijdens de build- en clilck **opslaan**.
+18. In **selecteert u een bestand of map**, ze Zoek de **SmartHotel.Registration.Wcf.zip** -bestand dat is gemaakt tijdens de build en klikt u op **opslaan**.
 
     ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

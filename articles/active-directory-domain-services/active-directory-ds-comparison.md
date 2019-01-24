@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Domain Services: Vergelijken Azure AD Domain Services en ZELFGEMAAKT domeincontrollers | Microsoft Docs'
+title: 'Azure AD Domain Services: Azure AD Domain Services en ZELFGEMAAKT domeincontrollers vergelijken | Microsoft Docs'
 description: Vergelijking van Azure Active Directory Domain Services met zelf domeincontrollers
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 45c1629aba2124230aa55f67583ff08584ab3c93
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155794"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847625"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>U moet kiezen als Azure AD Domain Services is geschikt voor uw use-casescenario
 U kunt uw workloads in Azure Infrastructure Services, zonder te hoeven maken over het beheren van infrastructuur voor identiteiten in Azure implementeren met Azure AD Domain Services. Deze beheerde service wijkt af van een typische implementatie van Windows Server Active Directory die u implementeren en beheren op uw eigen. De service is eenvoudig te implementeren en biedt een geautomatiseerde statuscontrole en herstel. We zijn voortdurend de service voor het toevoegen van ondersteuning voor algemene scenario's voor implementatie in ontwikkeling.
@@ -103,12 +103,12 @@ Er is een ingebouwde groepsbeleidsobject elke voor de containers 'AADDC Computer
 Azure AD Domain Services beheerde domeinen zijn beschikbaar in één virtueel netwerk in Azure. Voor scenario's waarin de domeincontrollers beschikbaar zijn in meerdere Azure-regio's over de hele wereld, instellen van domeincontrollers in Azure IaaS VM's mogelijk beter alternatief.
 
 
-## <a name="do-it-yourself-diy-ad-deployment-options"></a>'Doe' (DIY) AD-implementatieopties
+## <a name="do-it-yourself-diy-ad-deployment-options"></a>'Do-it-yourself' (DIY) AD deployment options
 Mogelijk hebt u implementatie use cases waar u enkele van de mogelijkheden die door de installatie van een Windows Server AD nodig hebt. In dergelijke gevallen, houd rekening met een van de volgende opties voor doe (DIY):
 
-* **Zelfstandige cloud domein:** kunt u een zelfstandige cloud domein"met behulp van Azure virtuele machines die zijn geconfigureerd als domeincontrollers instellen. Deze infrastructuur is niet geïntegreerd met uw on-premises AD-omgeving. Deze optie vereist een andere set 'cloudreferenties' aanmelden/beheren van virtuele machines in de cloud.
-* **Implementatie van de bron-forest:** kunt instellen van een domein in de topologie van de bron-forest met behulp van Azure virtuele machines die zijn geconfigureerd als domeincontrollers. Vervolgens kunt u een AD-vertrouwensrelatie configureren met uw on-premises AD-omgeving. Lid van domein computers (Azure VM's) kunt u naar dit forest resource in de cloud. Gebruikersverificatie gebeurt via beide een VPN/ExpressRoute-verbinding met uw on-premises directory.
-* **Uw on-premises domein uitbreiden naar Azure:** u kunt een Azure-netwerk verbinding maken met uw on-premises netwerk via een VPN/ExpressRoute-verbinding. Met deze instelling kunt u virtuele Azure-machines worden toegevoegd aan uw on-premises AD. Een ander alternatief is om te promoten replicadomeincontrollers van uw on-premises domein in Azure als een virtuele machine. U kunt vervolgens instellen deze om te repliceren via een VPN/ExpressRoute-verbinding met uw on-premises directory. Uw on-premises domein uitbreidt deze implementatiemodus effectief naar Azure.
+* **Zelfstandige cloud domein:** U kunt een zelfstandige cloud domein"met behulp van Azure virtuele machines die zijn geconfigureerd als domeincontrollers instellen. Deze infrastructuur is niet geïntegreerd met uw on-premises AD-omgeving. Deze optie vereist een andere set 'cloudreferenties' aanmelden/beheren van virtuele machines in de cloud.
+* **Implementatie van de bron-forest:** U kunt een domein in de topologie van de bron-forest instellen met behulp van Azure virtuele machines die zijn geconfigureerd als domeincontrollers. Vervolgens kunt u een AD-vertrouwensrelatie configureren met uw on-premises AD-omgeving. Lid van domein computers (Azure VM's) kunt u naar dit forest resource in de cloud. Gebruikersverificatie gebeurt via beide een VPN/ExpressRoute-verbinding met uw on-premises directory.
+* **Breid uw on-premises domein naar Azure:** U kunt een Azure-netwerk verbinden met uw on-premises netwerk via een VPN/ExpressRoute-verbinding. Met deze instelling kunt u virtuele Azure-machines worden toegevoegd aan uw on-premises AD. Een ander alternatief is om te promoten replicadomeincontrollers van uw on-premises domein in Azure als een virtuele machine. U kunt vervolgens instellen deze om te repliceren via een VPN/ExpressRoute-verbinding met uw on-premises directory. Uw on-premises domein uitbreidt deze implementatiemodus effectief naar Azure.
 
 > [!NOTE]
 > U kan bepalen dat een optie voor het zelf beter voor de use cases in uw implementatie geschikt is. Houd rekening met [feedback delen](active-directory-ds-contact-us.md) aan ons beter te begrijpen wat functies wilt helpen u Azure AD Domain Services in de toekomst hebt gekozen. Deze feedback helpt ons de service beter aan de behoeften van uw implementatiebehoeften en use cases ontwikkelen.

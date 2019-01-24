@@ -4,7 +4,7 @@ description: Inzicht in synchronisatie in een Azure Active Directory Domain Serv
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155555"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846934"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisatie in een Azure AD Domain Services beheerde domein
 Het volgende diagram illustreert hoe synchronisatie werkt in Azure AD Domain Services beheerde domeinen.
@@ -50,12 +50,12 @@ Uw Azure AD-tenant is daarentegen een veel eenvoudiger en platte naamruimte. Als
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Uitsluitingen - wat is niet gesynchroniseerd met uw beheerde domein
 De volgende kenmerken of objecten zijn niet gesynchroniseerd naar uw Azure AD-tenant of naar uw beheerde domein:
 
-* **Uitgesloten kenmerken:** als u wilt uitsluiten van bepaalde kenmerken gesynchroniseerd met uw Azure AD-tenant van uw on-premises domein met Azure AD Connect. Deze uitgesloten kenmerken zijn niet beschikbaar in uw beheerde domein.
-* **Groepsbeleid:** Groepsbeleid dat is geconfigureerd in uw on-premises domein zijn niet gesynchroniseerd met uw beheerde domein.
-* **Sysvol-share:** op dezelfde manier de inhoud van de Sysvol-share op uw on-premises domein niet zijn gesynchroniseerd met uw beheerde domein.
-* **Computerobjecten:** computerobjecten voor computers die zijn gekoppeld aan uw on-premises domein worden gesynchroniseerd met uw beheerde domein. Deze computers niet hebben een vertrouwensrelatie met uw beheerde domein en deel uitmaken van uw on-premises domein. Zoek in uw beheerde domein computerobjecten alleen voor computers die u hebt expliciet domein aan het beheerde domein.
-* **SID-geschiedenis kenmerken voor gebruikers en groepen:** de primaire gebruiker en de primaire groeps-SID's van uw on-premises domein worden gesynchroniseerd met uw beheerde domein. Bestaande SID-geschiedenis kenmerken voor gebruikers en groepen worden echter niet gesynchroniseerd vanuit uw on-premises domein aan uw beheerde domein.
-* **Structuur van organisatie-eenheden (OE):** organisatie-eenheden die zijn gedefinieerd in uw on-premises domein niet synchroniseren met uw beheerde domein. Er zijn twee ingebouwde OE's in uw beheerde domein. Uw beheerde domein heeft standaard een platte OE-structuur. U kunt er echter voor kiezen om [een aangepaste organisatie-eenheid maken in uw beheerde domein](active-directory-ds-admin-guide-create-ou.md).
+* **Uitgesloten kenmerken:** U wilt uitsluiten van bepaalde kenmerken gesynchroniseerd met uw Azure AD-tenant van uw on-premises domein met Azure AD Connect. Deze uitgesloten kenmerken zijn niet beschikbaar in uw beheerde domein.
+* **Groepsbeleid:** Groepsbeleid is geconfigureerd in uw on-premises domein zijn niet gesynchroniseerd met uw beheerde domein.
+* **Sysvol-share:** De inhoud van de Sysvol-share op uw on-premises domein zijn op deze manier niet gesynchroniseerd met uw beheerde domein.
+* **Computerobjecten:** Computerobjecten voor computers die zijn gekoppeld aan uw on-premises domein zijn niet gesynchroniseerd met uw beheerde domein. Deze computers niet hebben een vertrouwensrelatie met uw beheerde domein en deel uitmaken van uw on-premises domein. Zoek in uw beheerde domein computerobjecten alleen voor computers die u hebt expliciet domein aan het beheerde domein.
+* **De kenmerken van de SID-geschiedenis voor gebruikers en groepen:** De primaire gebruiker en de primaire groeps-SID's van uw on-premises domein worden gesynchroniseerd met uw beheerde domein. Bestaande SID-geschiedenis kenmerken voor gebruikers en groepen worden echter niet gesynchroniseerd vanuit uw on-premises domein aan uw beheerde domein.
+* **Structuur van organisatie-eenheden (OE):** Organisatie-eenheden die zijn gedefinieerd in uw on-premises domein synchroniseren niet met uw beheerde domein. Er zijn twee ingebouwde OE's in uw beheerde domein. Uw beheerde domein heeft standaard een platte OE-structuur. U kunt er echter voor kiezen om [een aangepaste organisatie-eenheid maken in uw beheerde domein](active-directory-ds-admin-guide-create-ou.md).
 
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Hoe specifieke kenmerken worden gesynchroniseerd met uw beheerde domein
 De volgende tabel bevat enkele algemene kenmerken en wordt beschreven hoe ze zijn gesynchroniseerd met uw beheerde domein.
@@ -69,7 +69,7 @@ De volgende tabel bevat enkele algemene kenmerken en wordt beschreven hoe ze zij
 | SID-geschiedenis voor gebruikers en groepen |On-premises primaire gebruiker en groep-SID |Het kenmerk SidHistory voor gebruikers en groepen in uw beheerde domein is ingesteld zodat deze overeenkomen met de bijbehorende primaire gebruiker of groep SID in uw on-premises domein. Deze functie helpt eenvoudiger lift-and-shift van on-premises toepassingen bij het beheerde domein, omdat u niet re-ACL-resources wilt. |
 
 > [!NOTE]
-> **Meld u aan het beheerde domein met behulp van de UPN-indeling:** de SAMAccountName-kenmerk kan zijn voor sommige gebruikersaccounts in uw beheerde domein automatisch gegenereerd. Als meerdere gebruikers het kenmerk mailNickname van dezelfde hebben of gebruikers overmatig lange UPN-voorvoegsels hebben, kan de SAMAccountName voor deze gebruikers worden automatisch gegenereerde. Daarom is de SAMAccountName-indeling (bijvoorbeeld ' CONTOSO100\joeuser') niet altijd een betrouwbare manier om aan te melden bij het domein. Gebruikers automatisch gegenereerde SAMAccountName kan afwijken van de UPN-voorvoegsel. Gebruik de UPN-indeling (bijvoorbeeld 'joeuser@contoso100.com') op een betrouwbare manier aanmelden bij het beheerde domein.
+> **Meld u aan het beheerde domein met behulp van de UPN-indeling:** Het kenmerk SAMAccountName mogelijk automatisch wordt gegenereerd voor sommige gebruikersaccounts in uw beheerde domein. Als meerdere gebruikers het kenmerk mailNickname van dezelfde hebben of gebruikers overmatig lange UPN-voorvoegsels hebben, kan de SAMAccountName voor deze gebruikers worden automatisch gegenereerde. Daarom is de SAMAccountName-indeling (bijvoorbeeld ' CONTOSO100\joeuser') niet altijd een betrouwbare manier om aan te melden bij het domein. Gebruikers automatisch gegenereerde SAMAccountName kan afwijken van de UPN-voorvoegsel. Gebruik de UPN-indeling (bijvoorbeeld 'joeuser@contoso100.com') op een betrouwbare manier aanmelden bij het beheerde domein.
 >
 >
 
@@ -81,7 +81,7 @@ De volgende tabel ziet u hoe specifieke kenmerken voor objecten in uw Azure AD-t
 | accountEnabled |userAccountControl (wordt ingesteld of wordt gewist van het ACCOUNT_DISABLED-bits) |
 | city |l |
 | Land/regio |CO |
-| Afdeling |Afdeling |
+| department |department |
 | displayName |displayName |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
@@ -91,7 +91,7 @@ De volgende tabel ziet u hoe specifieke kenmerken voor objecten in uw Azure AD-t
 | mailNickname |SAMAccountName (soms is automatisch gegenereerd) |
 | mobiele |mobiele |
 | object-id |msDS-AzureADObjectId |
-| OnPremiseSecurityIdentifier |SID-geschiedenis |
+| onPremiseSecurityIdentifier |SID-geschiedenis |
 | passwordPolicies |userAccountControl (wordt ingesteld of wordt gewist van het DONT_EXPIRE_PASSWORD-bits) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | Postcode |Postcode |
@@ -112,7 +112,7 @@ De volgende tabel ziet u hoe specifieke kenmerken voor groep objecten in uw Azur
 | mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | object-id |msDS-AzureADObjectId |
-| OnPremiseSecurityIdentifier |SID-geschiedenis |
+| onPremiseSecurityIdentifier |SID-geschiedenis |
 | securityEnabled |groupType |
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Wachtwoord-hash-synchronisatie en de beveiligingsoverwegingen

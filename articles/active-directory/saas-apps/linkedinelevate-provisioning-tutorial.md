@@ -1,11 +1,11 @@
 ---
-title: 'Zelfstudie: Configureer LinkedIn met verhoogde bevoegdheden voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
+title: 'Zelfstudie: LinkedIn met verhoogde bevoegdheden voor het automatisch gebruikers inrichten met Azure Active Directory configureren | Microsoft Docs'
 description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en inrichting ongedaan maken-gebruikersaccounts met LinkedIn met verhoogde bevoegdheden.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 1dcc198c1a1cc798e991f489e6897d4b930c0593
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3c45388878675f5e0ee7df486747c7df41729694
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348495"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807998"
 ---
-# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn, met verhoogde bevoegdheden configureren voor het automatisch inrichten van gebruikers
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn met verhoogde bevoegdheden voor het automatisch inrichten van gebruikers configureren
 
 
 Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in de LinkedIn met verhoogde bevoegdheden en Azure AD wilt voor het automatisch inrichten en verwijdering van gebruikersaccounts vanuit Azure AD naar LinkedIn met verhoogde bevoegdheden. 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
@@ -57,7 +57,7 @@ Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen 
 
 Deze sectie helpt u bij uw Azure AD verbinden met LinkedIn met verhoogde bevoegdheden uitvoeren van SCIM gebruikersaccount Inrichtings-API en configureren van de provisioning-service voor het maken, bijwerken en uitschakelen toegewezen gebruikersaccounts in LinkedIn met verhoogde bevoegdheden op basis van gebruiker en groepstoewijzing in Azure AD.
 
-**Tip:** u kunt ook ingeschakeld SAML gebaseerde eenmalige aanmelding voor LinkedIn met verhoogde bevoegdheden, op. instructies hiervoor vindt [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen.
+**Tip:** U kunt ook op SAML gebaseerde eenmalige aanmelding ingeschakeld voor LinkedIn met verhoogde bevoegdheden, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Het configureren van automatische inrichten van gebruikersaccounts naar LinkedIn met verhoogde bevoegdheden in Azure AD:
@@ -123,7 +123,7 @@ Hiermee start u de initiële synchronisatie van alle gebruikers en/of groepen di
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

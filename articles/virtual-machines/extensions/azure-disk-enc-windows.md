@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 11ec26729b2239279dddc8cd62f6b658a4f7ed20
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 355fa90113e931fa3e21df1ccca5736622475bb3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413787"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810377"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption voor Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
 ## <a name="overview"></a>Overzicht
 
-Azure Disk Encryption maakt gebruik van Bitlocker voor volledige schijfversleuteling op Azure virtual machines waarop Windows wordt uitgevoerd.  Deze oplossing is geïntegreerd met Azure Key Vault om sleutels en geheimen in uw key vault-abonnement te beheren. 
+Azure Disk Encryption maakt gebruik van BitLocker voor volledige schijfversleuteling op Azure virtual machines waarop Windows wordt uitgevoerd.  Deze oplossing is geïntegreerd met Azure Key Vault om sleutels en geheimen in uw key vault-abonnement te beheren. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -71,21 +71,21 @@ Azure Disk Encryption is verbinding met Internet vereist voor toegang tot Active
 
 ### <a name="property-values"></a>Waarden van eigenschappen
 
-| Naam | Waarde / voorbeeld | Gegevenstype |
+| Name | Waarde / voorbeeld | Gegevenstype |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
-| Uitgever | Microsoft.Azure.Security | tekenreeks |
-| type | AzureDiskEncryptionForWindows| tekenreeks |
+| apiVersion | 2015-06-15 | date |
+| Uitgever | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForWindows| string |
 | typeHandlerVersion | 1.0, 2.2 (VMSS) | int |
 | (optioneel) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (optioneel) AADClientSecret | wachtwoord | tekenreeks |
-| (optioneel) AADClientCertificate | vingerafdruk | tekenreeks |
-| EncryptionOperation | EnableEncryption | tekenreeks | 
-| KeyEncryptionAlgorithm | RSA-OAEP | tekenreeks |
-| KeyEncryptionKeyURL | url | tekenreeks |
-| KeyVaultURL | url | tekenreeks |
-| SequenceVersion | uniqueidentifier | tekenreeks |
-| VolumeType | OS-, gegevens, alle | tekenreeks |
+| (optional) AADClientSecret | wachtwoord | string |
+| (optioneel) AADClientCertificate | vingerafdruk | string |
+| EncryptionOperation | EnableEncryption | string | 
+| KeyEncryptionAlgorithm | RSA-OAEP | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | OS-, gegevens, alle | string |
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 Zie voor een voorbeeld van sjabloonimplementatie [ een nieuwe versleutelde Windows-VM maken van galerijafbeelding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).

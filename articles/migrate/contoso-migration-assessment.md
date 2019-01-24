@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 292a9ecd012be030df8cf792f9991591d43c8db9
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383068"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853813"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: On-premises workloads evalueren voor migratie naar Azure
 
@@ -206,7 +206,7 @@ Resultaten worden weergegeven zodra ze beschikbaar zijn. Als Contoso problemen o
 > [!NOTE]
 > Voor grootschalige evaluaties:
 > - Meerdere evaluaties tegelijk uitvoeren en de status van de evaluaties weergeven op de **alle evaluaties** pagina.
-> - Evaluaties samenvoegen in een [SQL Server-database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
+> - Evaluaties samenvoegen in een [SQL Server-database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017).
 > - Evaluaties samenvoegen in een [Power BI-rapport](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 ## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>Stap 3: Evaluatie van de virtuele machine met behulp van Azure Migrate voorbereiden

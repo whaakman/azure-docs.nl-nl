@@ -4,7 +4,7 @@ description: Een Windows Server virtuele machine toevoegen aan Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fc55fcef9977abcd8c40752d459088c1132cf2c1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957663"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850362"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Een virtuele Windows Server-machine toevoegen aan een beheerd domein
 In dit artikel laat zien hoe een Windows Server-machine implementeren met behulp van de Azure-portal. Vervolgens wordt uitgelegd hoe u de virtuele machine koppelen aan een beheerd domein van Azure Active Directory Domain Services (Azure AD DS).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="step-1-create-a-windows-server-virtual-machine"></a>Stap 1: Een Windows Server-machine maken
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>Stap 1: Een virtuele machine voor Windows Server maken
 Voor het maken van een Windows virtuele machine die lid is van het virtuele netwerk waarin u Azure AD DS hebt ingeschakeld, voert u de volgende stappen uit:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -107,7 +107,7 @@ Als u wilt deelnemen aan de Windows Server-machine met Azure AD DS-beheerd domei
 
 7. U kunt referenties opgeven in een van de volgende manieren:
 
-   * **UPN-indeling**: (aanbevolen) Geef de UPN (User Principal Name)-achtervoegsel voor de gebruikersaccount, zoals geconfigureerd in Azure AD. In dit voorbeeld wordt het UPN-achtervoegsel van de gebruiker *bob* is *bob@domainservicespreview.onmicrosoft.com*.
+   * **UPN-indeling**: (Aanbevolen) Geef het achtervoegsel van de user principal name (UPN) voor het gebruikersaccount, zoals geconfigureerd in Azure AD. In dit voorbeeld wordt het UPN-achtervoegsel van de gebruiker *bob* is *bob@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName-indeling**: U kunt de accountnaam opgeven in de SAMAccountName-indeling. In dit voorbeeld wordt de gebruiker *bob* moet invoeren *CONTOSO100\bob*.
 

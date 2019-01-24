@@ -12,64 +12,65 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/23/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9869f1e32cf20e658fb193c01da225249a5b1a29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451660"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852385"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
-**V: Kan ik het apparaat recent geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in Azure portal? Of waarom is eigenaar van het apparaat gemarkeerd als N.V.T. voor hybride Azure AD gekoppelde apparaten? ** 
- **A:** Windows 10-apparaten die zijn toegevoegd aan hybrid Azure AD, worden niet weergegeven bij de apparaten van de gebruiker.
-U moet alle apparaten weergeven in Azure portal gebruiken. U kunt ook PowerShell gebruiken [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+**V: Kan ik het apparaat recent geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in Azure portal? Of waarom is de eigenaar van het apparaat gemarkeerd als N.V.T. voor hybride Azure Active Directory (Azure AD) apparaten gekoppelde?**
 
-Alleen de volgende apparaten worden vermeld in de apparaten van de gebruiker:
+**A:** Windows 10-apparaten die zijn toegevoegd aan hybrid Azure AD niet worden weergegeven onder **Gebruikersapparaten**.
+Gebruik de **alle apparaten** weergeven in Azure portal. U kunt ook een PowerShell [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
-- Alle persoonlijke apparaten die niet hybride Azure AD zijn toegevoegd. 
-- Alle niet - Windows 10 / Windows Server 2016-apparaten.
-- Alle niet-Windows-apparaten 
+Alleen de volgende apparaten worden vermeld in **Gebruikersapparaten**:
+
+- Alle persoonlijke apparaten die niet van hybride Azure AD is gekoppeld. 
+- Alle Windows 10 of Windows Server 2016-apparaten.
+- Alle niet-Windows-apparaten. 
 
 --- 
 
 **V: Hoe weet ik wat de status van de apparaatregistratie van de client is?**
 
-**A:** U kunt de Azure-portal gebruiken, gaat u naar alle apparaten en zoeken naar het apparaat met behulp van apparaat-ID. Controleer de waarde onder de kolom van het type join. Soms, kan het apparaat zijn opnieuw ingesteld of teruggezet. Daarom is het essentieel dat ook de status van de apparaatregistratie op het apparaat te controleren:
+**A:** In de Azure-portal, gaat u naar **alle apparaten**. Zoeken naar het apparaat met behulp van de apparaat-ID. Controleer de waarde onder de kolom van het type join. Soms kan het apparaat pas opnieuw instellen of teruggezet. Het is daarom essentieel om te controleren ook de status van de apparaatregistratie op het apparaat:
 
-- Voor Windows 10 en Windows Server 2016 of hoger, voert u dsregcmd.exe status.
-- Voor eerdere versies van het besturingssysteem, voert u "%programFiles%\Microsoft werkplek Join\autoworkplace.exe"
-
----
-
-**V: Ik zie de record van apparaat onder de gegevens van de gebruiker in Azure portal en ziet de status geregistreerd op het apparaat. Ben ik correct ingesteld voor het gebruik van voorwaardelijke toegang?**
-
-**A:** De apparaatstatus join, weergegeven in de apparaat-id, moet overeenkomen met die in Azure AD en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie, [vereisen beheerde apparaten voor toegang tot cloud-Apps met voorwaardelijke toegang](../conditional-access/require-managed-devices.md).
+- Voor Windows 10 en Windows Server 2016 of hoger, voert u `dsregcmd.exe /status`.
+- Voor eerdere versies van het besturingssysteem, voert u `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
 
 ---
 
-**V: Ik heb hebt verwijderd in Azure portal of met behulp van Windows PowerShell, maar de lokale staat op het apparaat nog steeds is geregistreerd, zegt?**
+**V: Ik zie de record van apparaat onder de gegevens van de gebruiker in Azure portal. En ik Zie de status geregistreerd op het apparaat. Ben ik correct ingesteld voor het gebruik van voorwaardelijke toegang?**
 
-**A:** Dit is standaard. Het apparaat geen toegang tot resources in de cloud. 
+**A:** De apparaatstatus join, wordt weergegeven door **deviceID**, moet overeenkomen met de status in Azure AD en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie, [vereisen beheerde apparaten voor toegang tot cloud-Apps met voorwaardelijke toegang](../conditional-access/require-managed-devices.md).
 
-Als u opnieuw opnieuw te registreren wilt, moet een handmatige actie moeten worden uitgevoerd op het apparaat. 
+---
 
-Schakel de join-status van Windows 10 en Windows Server 2016 die on-premises AD-domein:
+**V: Kan ik mijn apparaat in Azure portal of met behulp van Windows PowerShell is verwijderd. Maar er volgens de status van de lokale op het apparaat moet dat deze nog steeds geregistreerd.**
 
-1.  Open de opdrachtprompt als beheerder.
+**A:** Met deze bewerking is standaard. Het apparaat geen toegang heeft tot resources in de cloud. 
 
-2.  Type `dsregcmd.exe /debug /leave`
+Als u wilt opnieuw wilt registreren, moet u een handmatige actie ondernemen op het apparaat. 
 
-3.  Meld u af en meld u aan voor het activeren van de geplande taak die het apparaat wordt geregistreerd bij Azure AD het opnieuw. 
-
-Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-domein:
+Hiermee schakelt u de status van Windows 10 en Windows Server 2016 die on-premises Active Directory-domein is gekoppeld aan de werkplek, moet u de volgende stappen uitvoeren:
 
 1.  Open de opdrachtprompt als beheerder.
-2.  Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.  Typ `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+2.  Voer `dsregcmd.exe /debug /leave` in.
+
+3.  Meld u af en meld u aan voor het activeren van de geplande taak die het apparaat opnieuw met Azure AD wordt geregistreerd. 
+
+Voor versies van het eerdere Windows-besturingssysteem die zich on-premises Active Directory-domein is toegevoegd, de volgende stappen uit:
+
+1.  Open de opdrachtprompt als beheerder.
+2.  Voer `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` in.
+3.  Voer `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` in.
 
 ---
 
@@ -77,124 +78,135 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 
 **A:**
 
--   Voor Windows 10 en Windows Server 2016, als er herhaalde pogingen voor het loskoppelen van en zich weer aanmelden bij hetzelfde apparaat, kunnen er dubbele vermeldingen. 
+-   Voor Windows 10 en Windows Server 2016, herhaalde pogingen en loskoppelen van het apparaat weer kunnen leiden tot dubbele vermeldingen. 
 
--   Als u toevoegen werk of School-Account hebt gebruikt, wordt een nieuwe record van apparaat in elke windows-gebruiker die gebruikmaakt van toevoegen werk of School-Account maken met dezelfde naam van het apparaat.
+-   Elke Windows-gebruiker die gebruikmaakt van **toevoegen werk of School-Account** maakt een nieuwe apparaatrecord met dezelfde naam van het apparaat.
 
--   Voor versies van het eerdere Windows-besturingssysteem die zich on-premises maakt AD domein met behulp van automatische registratie een nieuwe record van apparaat met dezelfde naam voor elke domeingebruiker die zich bij het apparaat aanmeldt. 
+-   Automatische registratie wordt een nieuwe record van apparaat voor downlevel Windows OS-versies die on-premises Azure Directory-domein is gekoppeld, gemaakt met dezelfde naam voor elke domeingebruiker die zich aanmeldt bij het apparaat. 
 
--   Een Azure AD is toegevoegd aan virtuele machine die is gewist, opnieuw geïnstalleerd, en deze met dezelfde naam wordt weergegeven als een andere record met dezelfde naam van het apparaat.
-
----
-
-**V: Waarom een gebruiker nog steeds toegang tot bronnen vanaf een apparaat dat ik in Azure portal hebt uitgeschakeld?**
-
-**A:** Het kan een uur duren voor een intrekken moet worden toegepast.
-
->[!Note] 
->Voor ingeschreven apparaten, wordt u aangeraden wissen van het apparaat om ervoor te zorgen dat gebruikers geen toegang heeft tot de resources. Zie voor meer informatie, [apparaten inschrijven voor beheer in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+-   Een Azure AD is toegevoegd aan virtuele machine die is gewist, opnieuw geïnstalleerd en deze met dezelfde naam wordt weergegeven als een andere record met dezelfde naam van het apparaat.
 
 ---
 
-## <a name="azure-ad-join-faq"></a>Veelgestelde vragen over Azure AD Join
+**V: Waarom een gebruiker nog steeds toegang tot bronnen vanaf een apparaat dat ik uitgeschakeld in de Azure-portal?**
 
-**V: Hoe ik loskoppelen van een Azure AD join-apparaat lokaal op het apparaat?**
+**A:** Het duurt maximaal een uur een intrekken moet worden toegepast.
+
+>[!NOTE] 
+>Voor ingeschreven apparaten, wordt u aangeraden dat u het apparaat om ervoor te zorgen dat gebruikers geen toegang tot de resources te wissen. Zie voor meer informatie, [wat is apparaatinschrijving?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
+---
+
+## <a name="azure-ad-join-faq"></a>Azure AD join Veelgestelde vragen
+
+**V: Hoe ik loskoppelen van een Azure AD gekoppelde apparaat lokaal op het apparaat?**
 
 **A:** 
-- Zorg dat u automatische inschrijving uitschakelen zodat de geplande taak het apparaat niet opnieuw registreren voor hybride Azure AD verbonden apparaten. Open vervolgens de opdrachtprompt als beheerder en typ `dsregcmd.exe /debug /leave`. U kunt ook worden deze opdracht uitgevoerd als een script op meerdere apparaten bulksgewijs loskoppelen.
+- Hybrid Azure AD zorg gekoppelde apparaten, er voor automatische registratie uitschakelen. De geplande taak registreert niet u het apparaat opnieuw. Vervolgens open een opdrachtprompt als beheerder en voer `dsregcmd.exe /debug /leave`. Of voer deze opdracht uit als een script op verschillende apparaten bulksgewijs loskoppelen.
 
-- Voor pure Azure AD verbonden apparaten, zorg ervoor dat u hebt een offline lokale administrator-account of maak een, kunt u zich niet aanmelden met de referenties van een Azure AD-gebruiker. Ga vervolgens naar **instellingen** > **Accounts** > **toegang tot werk of School**. Selecteer uw account en klik op **verbinding verbreken**. Volg de aanwijzingen en geef de referenties van de lokale beheerder wanneer hierom wordt gevraagd. Start opnieuw op het apparaat om het loskoppelen-proces te voltooien.
-
----
-
-**V: Kunnen mijn gebruikers zich aanmelden bij Azure AD gekoppelde apparaten die zijn verwijderd of uitgeschakeld in Azure AD? ** 
- **A:** Ja. Windows heeft in de cache opgeslagen aanmeldingsmogelijkheid om toe te staan eerder aangemelde gebruikers snel toegang tot bureaublad zelfs zonder netwerkverbinding. Wanneer een apparaat is verwijderd of uitgeschakeld in Azure AD, is het niet bekend bij de Windows-apparaat. Dus eerder zijn geregistreerd gebruikers toegang houden tot het bureaublad met aanmelding in de cache. Echter, als het apparaat wordt verwijderd of uitgeschakeld, gebruikers geen toegang tot alle bronnen worden beveiligd door een apparaat gebaseerde voorwaardelijke toegang. 
-
-Gebruikers die nog niet hebt aangemeld heeft geen toegang tot het apparaat omdat er geen aanmelding in de cache is ingeschakeld voor deze. 
+- Pure Azure AD zorg gekoppelde apparaten, er voor u een offline lokale administrator-account hebt of maakt u er een. U kunt zich niet aanmelden met de referenties van een Azure AD-gebruiker. Ga vervolgens naar **instellingen** > **Accounts** > **toegang tot werk of School**. Selecteer uw account en selecteer **verbinding verbreken**. Volg de aanwijzingen en geef de referenties van de lokale beheerder wanneer hierom wordt gevraagd. Start opnieuw op het apparaat om het proces loskoppelen.
 
 ---
 
-**V: Kunnen uitgeschakelde of verwijderde gebruikers zich aanmelden bij Azure AD gekoppelde apparaten? ** 
- **A:** Ja, maar alleen voor een beperkte periode. Wanneer een gebruiker is verwijderd of uitgeschakeld in Azure AD, is deze niet direct bekend bij de Windows-apparaat. Dus eerder zijn geregistreerd gebruikers hebben toegang tot het bureaublad met aanmelding in de cache. Zodra het apparaat (doorgaans in minder dan 4 uur) op de hoogte van de status van de gebruiker is, blokkeert Windows die gebruikers toegang krijgen tot het bureaublad. Als de gebruiker wordt verwijderd of uitgeschakeld in Azure AD, worden alle hun tokens, ingetrokken, zodat ze geen toegang alle resources tot. 
+**V: Kunnen mijn gebruikers zich aanmelden bij Azure AD gekoppelde apparaten die zijn verwijderd of uitgeschakeld in Azure AD?**
 
-Verwijderde of uitgeschakelde gebruikers die eerder in dit nog niet hebt geregistreerd heeft geen toegang tot een apparaat omdat er geen aanmelding in de cache is ingeschakeld voor deze. 
+**A:** Ja. Windows heeft in de cache gebruikersnaam en wachtwoord mogelijkheid waardoor gebruikers die u eerder hebt aangemeld bij de toegang tot het bureaublad snel zelfs zonder netwerkverbinding. 
 
----
+Wanneer een apparaat is verwijderd of uitgeschakeld in Azure AD, het niet bekend bij de Windows-apparaat. Gebruikers die eerder aangemeld blijven dus toegang tot het bureaublad met de cache gebruikersnaam en wachtwoord. Maar als het apparaat wordt verwijderd of uitgeschakeld, gebruikers geen toegang tot alle bronnen worden beveiligd door een apparaat gebaseerde voorwaardelijke toegang. 
 
-**V: Mijn gebruikers kunnen geen printers uit Azure AD Joined-apparaten zoeken. Hoe kan ik afdrukken vanuit Azure AD Joined-apparaten inschakelen?**
-
-**A:** Voor het implementeren van printers voor Azure AD verbonden apparaten, Zie [hybride cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). U moet een Windows-Server on-premises implementatie van hybride cloud print. Afdrukservice cloud-gebaseerd is op dit moment niet beschikbaar. 
+Gebruikers die zich niet in eerder heeft geen toegang tot het apparaat. Er is geen in de cache gebruikersnaam en wachtwoord voor deze ingeschakeld. 
 
 ---
 
-**V: Hoe maak ik verbinding met een externe Azure Active Directory toegevoegd apparaat? ** 
- **A:** Raadpleeg het artikel https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc voor meer informatie.
+**V: Kunnen uitgeschakelde of verwijderde gebruikers zich aanmelden bij Azure AD gekoppelde apparaten?**
+
+**A:** Ja, maar alleen voor een beperkte periode. Wanneer een gebruiker is verwijderd of uitgeschakeld in Azure AD, het niet direct naar het Windows-apparaat bekend. Gebruikers die eerder is aangemeld hebben dus toegang tot het bureaublad met de gebruikersnaam in de cache en het wachtwoord. 
+
+Het apparaat is normaal gesproken op de hoogte van de status van de gebruiker in minder dan vier uur. Windows blokkeert vervolgens die gebruikers toegang tot het bureaublad. Als de gebruiker wordt verwijderd of uitgeschakeld in Azure AD, worden alle hun tokens worden ingetrokken. Ze geen dus toegang tot bronnen. 
+
+Verwijderd of uitgeschakelde gebruikers die zich niet in eerder heeft geen toegang tot een apparaat. Er is geen in de cache gebruikersnaam en wachtwoord voor deze ingeschakeld. 
 
 ---
 
-**V: Waarom kunnen mijn gebruikers zien 'U kunt daar niet komen vanaf hier'?**
+**V: Mijn gebruikers kunnen geen printers uit Azure AD gekoppelde apparaten zoeken. Hoe kan ik afdrukken vanaf deze apparaten inschakelen?**
 
-**A:** Als u bepaalde regels voor voorwaardelijke toegang om te vereisen dat de status van een specifiek apparaat hebt geconfigureerd en het apparaat voldoet niet aan de criteria, wordt gebruikers worden geblokkeerd en dit bericht wordt weergegeven. De beleidsregels voor voorwaardelijke toegang evalueren en zorg ervoor dat het apparaat kunnen voldoen aan de criteria om te voorkomen dat dit bericht is.
-
----
-
-**V: Waarom worden enkele van mijn gebruikers doen niet get MFA prompts voor Azure AD gekoppelde apparaten?**
-
-**A:** Als de gebruiker lid wordt van of een apparaat wordt geregistreerd bij Azure AD met behulp van multi-factor Authentication, wordt het apparaat zelf een vertrouwde tweede factor voor deze bepaalde gebruiker. Later, wanneer de gebruiker zich aanmeldt bij het apparaat en toegang verkrijgt een toepassing tot, Azure AD rekening gehouden met het apparaat als een tweede factor en kan die gebruiker naadloos toegang krijgen tot hun toepassingen, zonder extra prompts voor MFA. Dit gedrag is niet van toepassing op een andere gebruiker het apparaat aan te melden, zodat andere gebruikers met toegang tot het apparaat wordt nog steeds gevraagd met een MFA-controle voordat u toegang tot toepassingen waarvoor MFA is vereist.
+**A:** Printers implementeren voor Azure AD gekoppelde apparaten, Zie [Windows Server hybride Cloud Print is implementeren met verificatie vooraf](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). U moet een Windows-Server on-premises implementatie van hybride cloud print. Afdrukservice cloud-gebaseerd is op dit moment niet beschikbaar. 
 
 ---
 
-**V: Waarom krijg ik een bericht 'gebruikersnaam of wachtwoord is onjuist' voor een apparaat dat ik net hebt toegevoegd aan Azure AD?**
+**V: Hoe maak ik verbinding met een externe Azure Active Directory toegevoegd apparaat?**
 
-**A:** Veelvoorkomende redenen voor dit scenario zijn:
+**A:** Zie [verbinding maken met de externe Azure Active Directory-apparaat moet een PC](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
+
+---
+
+**V: Waarom kunnen mijn gebruikers zien *u daar niet komen vanaf hier*?**
+
+**A:** U bepaalde regels voor voorwaardelijke toegang om te vereisen dat de status van een specifiek apparaat configureren? Als het apparaat niet voldoet aan de criteria, gebruikers worden geblokkeerd en zien ze dit bericht. De beleidsregels voor voorwaardelijke toegang evalueren. Zorg ervoor dat het apparaat voldoet aan de criteria om te voorkomen dat het bericht.
+
+---
+
+**V: Waarom niet sommige van mijn gebruikers Azure multi-factor Authentication prompts opvragen in Azure AD gekoppelde apparaten?**
+
+**A:** Een gebruiker kan deelnemen aan of een apparaat registreren bij Azure AD met behulp van multi-factor Authentication. Vervolgens wordt het apparaat zelf een vertrouwde tweede factor voor die gebruiker. Wanneer de gebruiker zich aanmeldt bij het apparaat en toegang verkrijgt een toepassing tot, beschouwd Azure AD het apparaat als een tweede factor. Hiermee kunt naadloos toegang krijgen tot toepassingen zonder extra prompts van multi-factor Authentication voor die gebruiker. 
+
+Dit gedrag is niet van toepassing op een andere gebruiker die zich aanmeldt op dat apparaat. Dus alle andere gebruikers die toegang hebben tot dat apparaat krijgen een multi-Factor Authentication-uitdaging. Ze hebben vervolgens toegang tot toepassingen die meervoudige verificatie vereisen.
+
+---
+
+**V: Waarom krijg ik een *gebruikersnaam of wachtwoord is onjuist* bericht voor een apparaat dat ik net toegevoegd aan Azure AD?**
+
+**A:** Veelvoorkomende redenen voor dit scenario zijn als volgt:
 
 - Uw gebruikersreferenties zijn niet meer geldig.
 
-- Uw computer staat kan niet communiceren met Azure Active Directory. Controleer of eventuele problemen met de netwerkverbinding.
+- Uw computer kan niet communiceren met Azure Active Directory. Controleer of eventuele problemen met de netwerkverbinding.
 
-- Federatieve aanmeldingen vereist uw federation-server voor de ondersteuning van WS-Trust-eindpunten en die toegankelijk zijn. 
+- Federatieve-aanmeldingen vereisen uw federation-server voor de ondersteuning van WS-Trust-eindpunten die en die toegankelijk zijn zijn. 
 
-- U kunt Pass through-verificatie hebt ingeschakeld en de gebruiker heeft een tijdelijk wachtwoord dat moet worden gewijzigd bij de aanmelding.
-
----
-
-**V: Waarom zie ik de ' Oeps... is een fout opgetreden! "dialoogvenster wanneer ik probeer Azure AD kan deelnemen aan mijn PC?**
-
-**A:** Dit is een resultaat van het instellen van Azure Active Directory-inschrijving met Intune. Zorg ervoor dat de gebruiker die probeert te doen van Azure AD join juiste Intune-licentie is toegewezen heeft. Zie voor meer informatie, [Windows device management instellen](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+- U pass-through-verificatie hebt ingeschakeld. Het tijdelijke wachtwoord moet zo worden gewijzigd wanneer u zich aanmeldt.
 
 ---
 
-**V: Waarom mijn poging tot het Azure AD join een PC is mislukt maar ik heb foutgegevens niet ontvangen?**
+**V: Waarom zie ik de *Oeps... is een fout opgetreden!* dialoogvenster wanneer ik Azure AD wil deelnemen aan mijn PC?**
 
-**A:** Een waarschijnlijke oorzaak is dat de gebruiker is aangemeld bij het apparaat met behulp van het ingebouwde lokale beheerdersaccount. Een ander lokaal account maken voordat u Azure Active Directory Join gebruikt om de installatie te voltooien. 
+**A:** Deze fout treedt op bij het instellen van Azure Active Directory-inschrijving met Intune. Zorg ervoor dat de gebruiker die te koppelen aan Azure AD probeert de juiste Intune-licentie toegewezen heeft. Zie voor meer informatie, [instellen van inschrijving voor Windows-apparaten](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
-## <a name="hybrid-azure-ad-join-faq"></a>Veelgestelde vragen over de hybride Azure AD Join
+**V: Waarom mijn poging tot het Azure AD join een PC is mislukt, maar ik heb foutgegevens niet ontvangen?**
 
-**V: Waar vind ik het oplossen van informatie voor het vaststellen van hybride Azure AD join fouten?**
+**A:** Een waarschijnlijke oorzaak is dat u aangemeld bij het apparaat met behulp van het ingebouwde lokale beheerdersaccount. Een ander lokaal account maken voordat u Azure Active Directory join gebruiken om de installatie te voltooien. 
 
-**A:** Zie voor meer informatie:
+---
 
-- [Het oplossen van automatische registratie van domein lid zijn van computers met Azure AD: Windows 10 en Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
+## <a name="hybrid-azure-ad-join-faq"></a>Hybride Azure AD join Veelgestelde vragen
 
-- [Het oplossen van automatische registratie van domein lid zijn van computers met Azure AD voor Windows downlevel-clients](troubleshoot-hybrid-join-windows-legacy.md)
+**V: Waar vind ik het oplossen van gegevens op te sporen hybride Azure AD join fouten?**
+
+**A:** Voor informatie over probleemoplossing, Zie de volgende artikelen:
+
+- [Het oplossen van hybride Azure Active Directory gekoppelde Windows 10 en Windows Server 2016-apparaten](troubleshoot-hybrid-join-windows-current.md)
+
+- [Het oplossen van hybride Azure Active Directory gekoppelde downlevel-apparaten](troubleshoot-hybrid-join-windows-legacy.md)
  
 **V: Waarom zie ik een dubbele Azure AD ingeschreven record voor mijn Windows 10-hybride Azure AD toegevoegde apparaat in de lijst met Azure AD-apparaten?**
 
-**A:** Wanneer uw gebruikers hun account aan apps op een apparaat dat lid is domein toevoegt, wordt de gebruiker kunnen worden gevraagd naar 'Account toevoegen aan Windows?'. Te klikken op 'Ja' in de prompt zou leiden tot het apparaat worden geregistreerd bij Azure AD en het type vertrouwensrelatie gemarkeerd als Azure AD geregistreerd. Wanneer u Hybrid Azure AD join in uw organisatie inschakelt, is het apparaat ontvangt ook toegevoegd aan hybrid Azure AD. Als gevolg hiervan zullen er twee apparaatstatussen voor hetzelfde apparaat weergegeven. Hybride Azure AD join heeft echter voorrang op de status geregistreerd bij Azure AD. Zodat wordt het apparaat beschouwd als hybride Azure AD join voor elke verificatie en de evaluatie voor voorwaardelijke toegang. U kunt de record van het apparaat geregistreerd bij Azure AD, veilig verwijderen van de Azure AD-portal. Raadpleeg [in deze sectie](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) in de hybride Azure AD join artikel om te begrijpen hoe om te voorkomen of opschoning dual staat op het Windows 10-computer. 
+**A:** Wanneer uw gebruikers hun accounts aan apps op een apparaat domein toevoegt, wordt de gebruiker kunnen worden gevraagd met **account toevoegen aan Windows?** Als ze een **Ja** bij de prompt, het apparaat wordt geregistreerd bij Azure AD. Het type vertrouwensrelatie is gemarkeerd als geregistreerd bij Azure AD. Nadat u hybride Azure AD join in uw organisatie hebt ingeschakeld, wordt het apparaat ook toegevoegd aan hybrid Azure AD. Klik vervolgens weergegeven twee apparaatstatussen voor hetzelfde apparaat. 
+
+Hybride Azure AD join heeft voorrang op de status geregistreerd bij Azure AD. Dus uw apparaat wordt beschouwd als hybrid Azure AD join voor elke verificatie en de evaluatie voor voorwaardelijke toegang. U kunt de record van het apparaat geregistreerd bij Azure AD veilig verwijderen van de Azure AD-portal. Meer informatie over het [voorkomen of opschonen van deze dubbele status op de computer met Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
 ---
 
-## <a name="azure-ad-register-faq"></a>Veelgestelde vragen over Azure AD registreren
+## <a name="azure-ad-register-faq"></a>Veelgestelde vragen over het Azure AD registreren
 
 **V: Kan ik Android of iOS BYOD-apparaten registreren?**
 
-**A:** Ja, maar alleen bij Azure device registratieservice en voor hybride klanten. Het wordt niet ondersteund met on-premises device registratieservice in AD FS.
+**A:** Ja, maar alleen met de Azure device registratieservice en voor hybride klanten. Het wordt niet ondersteund met de on-premises device registratieservice in Active Directory Federation Services (AD FS).
 
 **V: Hoe kan ik een macOS-apparaat registreren?**
 
-**A:** MacOS-apparaat registreren:
+**A:** Voer de volgende stappen uit:
 
 1.  [Een nalevingsbeleid maken](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
 2.  [Definieer een beleid voor voorwaardelijke toegang voor macOS-apparaten](../active-directory-conditional-access-azure-portal.md) 
@@ -203,6 +215,17 @@ Verwijderde of uitgeschakelde gebruikers die eerder in dit nog niet hebt geregis
 
 - De gebruikers die zijn opgenomen in uw beleid voor voorwaardelijke toegang moeten een [een ondersteunde versie van Office voor Mac OS](../conditional-access/technical-reference.md#client-apps-condition) voor toegang tot resources. 
 
-- Uw gebruikers wordt gevraagd tijdens de eerste poging van de toegang tot het apparaat met behulp van de bedrijfsportal-App te registreren.
+- Tijdens de eerste toegang, wordt gebruikers gevraagd het apparaat te registreren met behulp van de bedrijfsportal-App.
 
 ---
+
+
+**V: wat zijn de certificaten MS-organisatie-P2P-toegang aanwezig op onze Windows 10-apparaten?**
+
+**A:** De MS-organisatie-P2P-toegang zijn uitgegeven door Azure AD op beide Azure AD join en hybride Azure AD gekoppelde apparaten. Deze certificaten worden gebruikt om de vertrouwensrelatie tussen apparaten in dezelfde tenant voor scenario's voor extern bureaublad inschakelen. Een certificaat wordt uitgegeven aan het apparaat en een andere wordt verleend aan de gebruiker. Het apparaatcertificaat is aanwezig in `Local Computer\Personal\Certificates` en is geldig gedurende één dag. Dit certificaat wordt vernieuwd (door uitgifte van een nieuw certificaat) als het apparaat nog steeds actief zijn in Azure AD is. Het gebruikerscertificaat is aanwezig in `Current User\Personal\Certificates` en dit certificaat is één dag ook geldig, maar het op aanvraag is uitgegeven wanneer een gebruiker een extern-bureaubladsessie naar een andere Azure AD gekoppelde apparaat probeert. Het is niet vernieuwd na het verstrijken. Beide deze certificaten zijn verleend met behulp van het certificaat MS-organisatie-P2P-toegang aanwezig zijn in de `Local Computer\AAD Token Issuer\Certificates`. Dit certificaat is uitgegeven door Azure AD tijdens het registreren van apparaten. 
+
+---
+
+**Q:Why kan ik meerdere verlopen certificaten uitgegeven door MS-organisatie-P2P-toegang op onze Windows 10-apparaten zien? Hoe verwijder ik deze?**
+
+**A:** Er is een probleem dat is geïdentificeerd op Windows 10 versie 1709 en lagere waar verlopen certificaten van MS-organisatie-P2P-toegang blijven bestaan in het computerarchief vanwege problemen met cryptografische. Uw gebruikers kunnen ervaart mogelijk problemen met de netwerkverbinding, als u een VPN-clients (bijvoorbeeld Cisco AnyConnect) die het grote aantal verlopen certificaten kunnen worden verwerkt. Dit probleem is opgelost in Windows 10-1803 release dergelijke verlopen MS-organisatie-P2P-toegang certificaten automatisch worden verwijderd. U kunt dit probleem oplossen door uw apparaten bij te werken naar Windows 10-1803. Als u zich niet bij te werken, kunt u deze certificaten zonder eventuele nadelige gevolgen te verwijderen.  

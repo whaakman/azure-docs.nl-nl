@@ -1,5 +1,5 @@
 ---
-title: Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met optie-control - Azure Media Services | Microsoft Docs
+title: Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met toegangsbeheer - Azure Media Services | Microsoft Docs
 description: Meer informatie over licentieverlening Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191238"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812994"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met toegangsbeheer 
 
@@ -145,7 +145,7 @@ De volgende tabel ziet u de toewijzing.
 | **Sleutelbeheer** |Niet nodig voor de referentie-implementatie |
 | **Inhoudsbeheer** |Een C#-consoletoepassing |
 
-Met andere woorden, worden zowel de id-provider en de STS geleverd door Azure AD. De [API van Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) wordt gebruikt voor de speler. Zowel Azure Media Services en Azure Media Player ondersteunt CENC via DASH, FairPlay via HLS, PlayReady in smooth streaming en een AES-128 ecnryption voor DASH, HLS en smooth.
+Met andere woorden, worden zowel de id-provider en de STS geleverd door Azure AD. De [API van Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) wordt gebruikt voor de speler. Zowel Azure Media Services en Azure Media Player ondersteunt CENC via DASH, FairPlay via HLS, PlayReady in smooth streaming en een AES-128-versleuteling voor DASH, HLS en smooth.
 
 Het volgende diagram toont de algemene structuur en de stroom met de vorige technologie-toewijzing:
 

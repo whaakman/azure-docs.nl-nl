@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844648"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824623"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Beveiliging-Frame: Cryptografie | Oplossingen 
 | Product/Service | Artikel |
@@ -27,9 +27,9 @@ ms.locfileid: "52844648"
 | **Web-App** | <ul><li>[Gebruik alleen goedgekeurde symmetrische blok coderingen toe en sleutellengten](#cipher-length)</li><li>[Gebruik goedgekeurde blok cipher modi en initialisatie vectoren voor symmetrische codering](#vector-ciphers)</li><li>[Gebruik goedgekeurde asymmetrische algoritmen, sleutellengten en opvulling](#padding)</li><li>[Goedgekeurde willekeurig getal generatoren gebruiken](#numgen)</li><li>[Gebruik geen symmetrische stream-codering](#stream-ciphers)</li><li>[Goedgekeurde MAC/HMAC/opgegeven hash-algoritmen gebruiken](#mac-hash)</li><li>[Alleen goedgekeurde cryptografische hash-functies gebruiken](#hash-functions)</li></ul> |
 | **Database** | <ul><li>[Algoritmen voor sterke versleuteling gebruiken voor het versleutelen van gegevens in de database](#strong-db)</li><li>[SSIS-pakketten moeten worden versleuteld en digitaal zijn ondertekend](#ssis-signed)</li><li>[Digitale handtekening toevoegen aan essentiële database beveiligbare items](#securables-db)</li><li>[SQL server EKM gebruiken om te beveiligen van versleutelingssleutels](#ekm-keys)</li><li>[AlwaysEncrypted functie te gebruiken als versleutelingssleutels moeten niet worden weergegeven met Database-engine](#keys-engine)</li></ul> |
 | **IoT-apparaat** | <ul><li>[Store cryptografische sleutels veilig op IoT-apparaat](#keys-iot)</li></ul> | 
-| **IoT-Cloud-Gateway** | <ul><li>[Genereren van een willekeurige symmetrische sleutel lang genoeg zijn voor verificatie van IoT Hub](#random-hub)</li></ul> | 
-| **Dynamics CRM Mobile-Client** | <ul><li>[Zorg ervoor dat een apparaat management-beleid is dat een gebruik PINCODE is vereist en kan extern wissen](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook-Client** | <ul><li>[Zorg ervoor dat een apparaat management-beleid is ingesteld dat een PINCODE/wachtwoord/automatische vergrendeling is vereist en codeert alle gegevens (bijvoorbeeld Bitlocker)](#bitlocker)</li></ul> | 
+| **IoT Cloud Gateway** | <ul><li>[Genereren van een willekeurige symmetrische sleutel lang genoeg zijn voor verificatie van IoT Hub](#random-hub)</li></ul> | 
+| **Dynamics CRM Mobile Client** | <ul><li>[Zorg ervoor dat een apparaat management-beleid is dat een gebruik PINCODE is vereist en kan extern wissen](#pin-remote)</li></ul> | 
+| **Dynamics CRM Outlook Client** | <ul><li>[Zorg ervoor dat een apparaat management-beleid is ingesteld dat een PINCODE/wachtwoord/automatische vergrendeling is vereist en codeert alle gegevens (bijvoorbeeld BitLocker)](#bitlocker)</li></ul> | 
 | **Identiteitsserver** | <ul><li>[Zorg ervoor dat ondersteuningssleutels worden meegenomen bij het gebruik van Identiteitsserver](#rolled-server)</li><li>[Zorg ervoor dat cryptografisch sterke client-ID, client secret zijn gebruikt in Identiteitsserver](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Gebruik alleen goedgekeurde symmetrische blok coderingen toe en sleutellengten
@@ -140,7 +140,7 @@ ms.locfileid: "52844648"
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [HANDTEKENING (Transact-SQL) toevoegen](https://msdn.microsoft.com/library/ms181700) |
-| **Stappen** | In gevallen waarin de integriteit van een beveiligbaar kritieke database heeft om te worden geverifieerd, moeten digitale handtekeningen worden gebruikt. Database beveiligbare items zoals een opgeslagen procedure, functie, assembly of trigger kunnen digitaal worden ondertekend. Hieronder volgt een voorbeeld van wanneer dit kan nuttig zijn: laat het ons Stel dat een ISV (Independent Software Vendor) ondersteuning voor een software die worden geleverd aan een van hun klanten heeft geleverd. De ISV wilt voordat er ondersteuning wordt geboden, om ervoor te zorgen dat een database kunnen worden beveiligd in de software niet is geknoeid, per ongeluk of door een kwaadwillende poging. Als de beveiligbare digitaal is ondertekend, kan de ISV controleren of de digitale handtekening en de integriteit ervan valideren.| 
+| **Stappen** | In gevallen waarin de integriteit van een beveiligbaar kritieke database heeft om te worden geverifieerd, moeten digitale handtekeningen worden gebruikt. Database beveiligbare items zoals een opgeslagen procedure, functie, assembly of trigger kunnen digitaal worden ondertekend. Hieronder volgt een voorbeeld van wanneer dit kan nuttig zijn: Laat het ons dat u dat een ISV (Independent Software Vendor) ondersteuning voor een software die worden geleverd aan een van hun klanten heeft geleverd. De ISV wilt voordat er ondersteuning wordt geboden, om ervoor te zorgen dat een database kunnen worden beveiligd in de software niet is geknoeid, per ongeluk of door een kwaadwillende poging. Als de beveiligbare digitaal is ondertekend, kan de ISV controleren of de digitale handtekening en de integriteit ervan valideren.| 
 
 ## <a id="ekm-keys"></a>SQL server EKM gebruiken om te beveiligen van versleutelingssleutels
 
@@ -159,7 +159,7 @@ ms.locfileid: "52844648"
 | ----------------------- | ------------ |
 | **Onderdeel**               | Database | 
 | **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | SQL Azure, on-premises |
+| **Van toepassing technologieën** | SQL Azure, OnPrem |
 | **Kenmerken**              | SQL-versie - V12 MsSQL2016 |
 | **Verwijzingen**              | [Altijd versleuteld (Database-Engine)](https://msdn.microsoft.com/library/mt163865) |
 | **Stappen** | Altijd is versleuteld een functie die is ontworpen voor het beveiligen van gevoelige gegevens, zoals creditcardnummers of nationale identificatienummers (bijvoorbeeld VS burgerservicenummers), die zijn opgeslagen in Azure SQL Database of SQL Server-databases. Altijd kunt versleutelde clients voor het versleutelen van gevoelige gegevens binnen clienttoepassingen en nooit onthullen de versleutelingssleutels voor de Database-Engine (SQL-Database of SQL Server). Als gevolg hiervan Always Encrypted biedt een scheiding tussen personen die eigenaar zijn van de gegevens (en het kunnen bekijken) en degenen die de gegevens beheren (maar geen toegang mogen hebben) |
@@ -191,7 +191,7 @@ Zoals u kunt zien, is primaire sleutel voor het apparaat niet aanwezig in de cod
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | IoT-Cloud-Gateway | 
+| **Onderdeel**               | IoT Cloud Gateway | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | Keuze van de gateway - Azure IoT Hub |
@@ -202,23 +202,23 @@ Zoals u kunt zien, is primaire sleutel voor het apparaat niet aanwezig in de cod
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Dynamics CRM Mobile-Client | 
+| **Onderdeel**               | Dynamics CRM Mobile Client | 
 | **SDL-fase**               | Implementatie |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
 | **Stappen** | Zorg ervoor dat een apparaat management-beleid is dat een gebruik PINCODE is vereist en kan extern wissen |
 
-## <a id="bitlocker"></a>Zorg ervoor dat een apparaat management-beleid is ingesteld dat een PINCODE/wachtwoord/automatische vergrendeling is vereist en codeert alle gegevens (bijvoorbeeld Bitlocker)
+## <a id="bitlocker"></a>Zorg ervoor dat een apparaat management-beleid is ingesteld dat een PINCODE/wachtwoord/automatische vergrendeling is vereist en codeert alle gegevens (bijvoorbeeld BitLocker)
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Dynamics CRM Outlook-Client | 
+| **Onderdeel**               | Dynamics CRM Outlook Client | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
-| **Stappen** | Zorg ervoor dat een apparaat management-beleid is ingesteld dat een PINCODE/wachtwoord/automatische vergrendeling is vereist en codeert alle gegevens (bijvoorbeeld Bitlocker) |
+| **Stappen** | Zorg ervoor dat een apparaat management-beleid is ingesteld dat een PINCODE/wachtwoord/automatische vergrendeling is vereist en codeert alle gegevens (bijvoorbeeld BitLocker) |
 
 ## <a id="rolled-server"></a>Zorg ervoor dat ondersteuningssleutels worden meegenomen bij het gebruik van Identiteitsserver
 

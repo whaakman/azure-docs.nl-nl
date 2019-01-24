@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 64c7ee45-ee8a-42f7-bf04-fd0e00833ea9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 339c924fc03faddae6326b79cc376b59c567829e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 31e00c5810e33433d58820f4db300b935ad7baaf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116552"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811278"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Zelfstudie: Azure Active Directory-integratie met Inkling
 
@@ -31,7 +31,7 @@ Inkling integreren met Azure AD biedt u de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Inkling (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts in één centrale locatie - de Azure Management portal beheren
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,10 +45,10 @@ Voor het configureren van Azure AD-integratie met Inkling, moet u de volgende it
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - U moet uw productie-omgeving, niet gebruiken als dit nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -69,11 +69,11 @@ Voor het configureren van de integratie van Inkling in Azure AD, moet u Inkling 
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
 1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **Inkling**.
 
@@ -117,12 +117,12 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure Management port
     
     ![Eenmalige aanmelding configureren](./media/inkling-tutorial/tutorial_inkling_01.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://api.inkling.com/saml/v2/metadata/<user-id>`
+    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://api.inkling.com/saml/v2/acs/<user-id>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://api.inkling.com/saml/v2/acs/<user-id>`
 
     > [!NOTE] 
-    > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Inkling ondersteuningsteam](mailto:press@inkling.com) om deze waarden te verkrijgen.
+    > Houd er rekening mee dat dit niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Inkling ondersteuningsteam](mailto:press@inkling.com) om deze waarden te verkrijgen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **nieuw certificaat maken**.
 

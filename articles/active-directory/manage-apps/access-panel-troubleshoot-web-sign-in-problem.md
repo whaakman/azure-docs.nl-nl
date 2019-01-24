@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: 09a65536aadd716f283a8249cb8085cbdfcc6627
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 34a4da2c14b84b9e539fc2d3e755a523cf3574c9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474112"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847234"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Probleem opgetreden bij het aanmelden bij de website van het toegangsvenster
 
@@ -159,7 +159,7 @@ Als u wilt opnieuw instellen van wachtwoord van een gebruiker, de volgende stapp
 
 Volg deze implementatiestappen om in te schakelen Self-service voor wachtwoord opnieuw instellen:
 
--   [Gebruikers kunnen hun Azure Active Directory-wachtwoord opnieuw instellen inschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Gebruikers kunnen hun Azure Active Directory-wachtwoord opnieuw instellen inschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 -   [Gebruikers opnieuw instellen of wijzigen van het wachtwoord van de on-premises Active Directory inschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 

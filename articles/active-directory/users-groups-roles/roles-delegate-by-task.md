@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1e679a1d26ce219f7c0248e27d7f9cfffc5fdb4e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445018"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813845"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Door de taak identiteit in Azure Active Directory-beheerdersrollen
 
@@ -75,7 +75,7 @@ Taak | Minste bevoorrechte rol | Aanvullende functies
 ---- | --------------------- | ----------------
 Passthrough-verificatie | Globale beheerder | 
 Alle configuratie lezen | Globale beheerder | 
-Naadloze eenmalige aanmelding | Globale beheerder | 
+Naadloze single sign-on | Globale beheerder | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -117,7 +117,7 @@ Taak | Minste bevoorrechte rol | Aanvullende functies
 Apparaat uitschakelen | Cloudapparaatbeheerder | 
 Apparaat inschakelen | Cloudapparaatbeheerder | 
 Basisinformatie over de configuratie lezen | Standaard-gebruikersrol ([Raadpleeg de documentatie bij](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Lezen Bitlocker-sleutels | Beveiligingslezer | Wachtwoordbeheerder, beveiligingsbeheerder
+Lezen BitLocker-sleutels | Beveiligingslezer | Wachtwoordbeheerder, beveiligingsbeheerder
 
 ## <a name="enterprise-applications"></a>Bedrijfstoepassingen
 

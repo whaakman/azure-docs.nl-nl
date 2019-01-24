@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe11d6d241e86b57ebb40d54e4c2dceb63a46c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123053"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Zelfstudie: Azure Active Directory-integratie met Klue
 
@@ -43,10 +43,10 @@ Voor het configureren van Azure AD-integratie met Klue, moet u de volgende items
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -67,11 +67,11 @@ Voor het configureren van de integratie van Klue in Azure AD, moet u Klue uit de
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 4. Typ in het zoekvak **Klue**.
 
@@ -115,18 +115,18 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/klue-tutorial/tutorial_klue_url1.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `urn:klue:<Customer ID>`
+    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `urn:klue:<Customer ID>`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 4. Controleer **geavanceerde URL-instellingen weergeven**. Als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/klue-tutorial/tutorial_klue_url2.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
+    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke antwoord-URL, id en aanmeldings-URL. Neem contact op met [Klue Client ondersteuningsteam](mailto:support@klue.com) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke antwoord-URL, id en aanmeldings-URL. Neem contact op met [Klue Client ondersteuningsteam](mailto:support@klue.com) om deze waarden te verkrijgen.
 
 5. De toepassing Klue wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie.
 
@@ -136,9 +136,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     | Naam kenmerk      | Waarde kenmerk      |
     | ------------------- | -------------------- |
-    | first_name          | User.givenName |
-    | last_name           | User.surname |
-    | e-mailen               | User.userPrincipalName|
+    | first_name          | user.givenname |
+    | last_name           | user.surname |
+    | e-mail               | user.userprincipalname|
 
     a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -146,7 +146,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/klue-tutorial/tutorial_attribute_05.png)
 
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
     c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
 
@@ -159,7 +159,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/klue-tutorial/tutorial_klue_certificate.png) 
 
-8. Klik op **opslaan** knop.
+8. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/klue-tutorial/tutorial_general_400.png)
 
@@ -171,7 +171,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -206,7 +206,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Klue. Klue biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Klue als deze nog niet bestaat.
 
 > [!Note]
-> Als u wilt maken van een gebruiker handmatig, neem contact op met [Klue ondersteuningsteam](mailto:support@klue.com).
+> Als u wilt maken van een gebruiker handmatig, neem contact op met [Klue ondersteuningsteam](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 

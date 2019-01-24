@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f84be4dffb601d3748d951da15050e381e1cecc1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464847"
+ms.locfileid: "54819132"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Web-apps instrumenteren tijdens runtime met Application Insights Status Monitor
 
@@ -36,6 +36,7 @@ Hebt u een keuze uit twee routes voor het toepassen van Application Insights voo
 
 * **Buildtime:** [Voeg de Application Insights-SDK] [ greenbrown] toe aan uw web-app-code.
 * **Uitvoeringstijd:** Instrumenteer uw web-app op de server, zoals hieronder wordt beschreven, zonder opnieuw te bouwen en de code opnieuw te implementeren.
+
 > [!NOTE]
 > Als u de runtime-instrumentatiesleutel build gebruikt, voert u tijd instrumention niet werkt, zelfs als deze is ingeschakeld.
 

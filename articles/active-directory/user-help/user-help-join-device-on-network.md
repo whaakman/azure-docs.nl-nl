@@ -3,7 +3,7 @@ title: Uw werk-apparaat toevoegen aan het netwerk van uw organisatie - Azure Act
 description: Leer hoe u uw werk-apparaat toevoegen aan het netwerk van uw organisatie.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d3c12c83aeac7e92aa019abc38d9c4109883bd
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 9a860135d8b8bf5e3e0699e408365c7de9466aef
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180776"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820390"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Uw werk-apparaat toevoegen aan het netwerk van uw organisatie
 Toevoegen aan het netwerk van uw organisatie eigendom van het werk Windows 10-apparaat, zodat u toegang hebben tot mogelijk beperkte resources.
@@ -85,7 +85,7 @@ Als u hebt uw apparaat voor een tijdje hebt en er al ingesteld, u kunt deze stap
 
 5. Op de **wachtwoord opgeven** scherm, typt u het wachtwoord en selecteer vervolgens **aanmelden**.
 
-    ![Wachtwoord invoeren](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Wachtwoord opgeven](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
 6. Goedkeuren op uw mobiele apparaat, uw apparaat, zodat deze toegang heeft tot uw account. 
 

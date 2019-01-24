@@ -3,29 +3,29 @@ title: Azure Storage-wachtrijen en Service Bus-wachtrijen overeenkomsten en vers
 description: Analyseert verschillen en overeenkomsten tussen de twee typen wachtrijen die worden aangeboden door Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261057"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852793"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-wachtrijen en Service Bus-wachtrijen: overeenkomsten en verschillen
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die momenteel worden aangeboden door Microsoft Azure: Storage-wachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
 
 ## <a name="introduction"></a>Inleiding
-Azure ondersteunt twee typen mechanismen voor wachtrij: **opslagwachtrijen** en **Service Bus-wachtrijen**.
+Azure ondersteunt twee typen wachtrij mechanismen: **Storage-wachtrijen** en **Service Bus-wachtrijen**.
 
 **Storage-wachtrijen**, die deel uitmaken van de [Azure storage](https://azure.microsoft.com/services/storage/) infrastructuur, functie een eenvoudige op REST-gebaseerde GET/PUT/PEEK-interface biedt betrouwbare, vaste berichtenuitwisseling binnen en tussen services.
 
@@ -68,12 +68,12 @@ In deze sectie worden enkele van de fundamentele queuing mogelijkheden geboden d
 | Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
 | Volgorde gegarandeerd |**Nee** <br/><br>Zie voor meer informatie, de eerste opmerking in de sectie 'Extra gegevens'.</br> |**Ja - First In First Out (FIFO)**<br/><br>(door het gebruik van messaging sessies) |
-| Aflevering gegarandeerd |**Op-één keer** |**Op-één keer**<br/><br/>**In de meeste eens** |
+| Aflevering gegarandeerd |**At-Least-Once** |**At-Least-Once**<br/><br/>**In de meeste eens** |
 | Atomische bewerking ondersteuning |**Nee** |**Ja**<br/><br/> |
 | Gedrag ontvangen |**Niet-blokkerende**<br/><br/>(uitgevoerd onmiddellijk als er geen nieuw bericht is gevonden.) |**Met/zonder time-out blokkeren**<br/><br/>(biedt long polling, of de ["Comet techniek"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Niet-blokkerende**<br/><br/>(door het gebruik van .NET beheerde API alleen) |
 | Push-stijl-API |**Nee** |**Ja**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) en **OnMessage** sessies .NET API. |
 | Modus ontvangen |**Een & Lease** |**Een & vergrendelen**<br/><br/>**Ontvangen en verwijderen** |
-| Exclusieve toegang-modus |**Op basis van een lease** |**Op basis van een vergrendeling** |
+| Exclusieve toegang-modus |**Op basis van een lease** |**Lock-based** |
 | Leasevergrendeling duur |**30 seconden (standaard)**<br/><br/>**7 dagen (maximum)** (u kunt verlengen of vrijgeven van een bericht lease met de [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API.) |**60 seconden (standaard)**<br/><br/>U kunt vanaf een bericht vergrendelen met de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
 | Leasevergrendeling precisie |**Het berichtniveau van**<br/><br/>(elk bericht kan hebben een andere time-outwaarde, die u vervolgens indien nodig bijwerken kunt tijdens het verwerken van het bericht met behulp van de [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API) |**Het wachtrijniveau van de**<br/><br/>(elke wachtrij is een vergrendeling precisie toegepast op alle van de berichten, maar u kunt vanaf de vergrendeling met behulp van de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
 | Batchgewijs ontvangen |**Ja**<br/><br/>(expliciet op te geven aantal berichten bij het ophalen van berichten, tot een maximum van 32 berichten) |**Ja**<br/><br/>(inschakelen van de eigenschap van een vooraf vastgestelde impliciet of expliciet door het gebruik van transacties) |
@@ -105,7 +105,7 @@ In deze sectie worden vergeleken geavanceerde mogelijkheden van Storage-wachtrij
 | Onverwerkbare berichten ondersteuning |**Ja** |**Ja** |
 | InPlace-update |**Ja** |**Ja** |
 | Server-side-transactielogboek |**Ja** |**Nee** |
-| Metrische opslaggegevens |**Ja**<br/><br/>**Minuut metrische gegevens**: biedt realtime metrische gegevens voor beschikbaarheid, TPS, API-aanroepen telt het aantal, telt het aantal fout, en meer, allemaal in realtime (geaggregeerd per minuut en die is gerapporteerd binnen een paar minuten uit wat er zojuist is gebeurd in de productieomgeving. Zie voor meer informatie, [over Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Ja**<br/><br/>(bulk-query's door het aanroepen van [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
+| Metrische gegevens over opslag |**Ja**<br/><br/>**Minuut metrische gegevens**: biedt realtime metrische gegevens voor beschikbaarheid, TPS, API-aanroepen telt het aantal, telt het aantal fout, en meer, allemaal in realtime (geaggregeerd per minuut en die is gerapporteerd binnen een paar minuten uit wat er zojuist is gebeurd in de productieomgeving. Zie voor meer informatie, [over Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Ja**<br/><br/>(bulk-query's door het aanroepen van [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
 | Statusbeheer |**Nee** |**Ja**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Automatisch doorsturen van bericht |**Nee** |**Ja** |
 | Functie van de wachtrij verwijderen |**Ja** |**Nee** |
@@ -154,7 +154,7 @@ In deze sectie worden de beheerfuncties die is geleverd door de Storage-wachtrij
 | .NET API |**Ja**<br/><br/>(.NET storage Client-API) |**Ja**<br/><br/>(.NET Servicebus API) |
 | Native C++ |**Ja** |**Ja** |
 | Java-API |**Ja** |**Ja** |
-| PHP-API |**Ja** |**Ja** |
+| PHP API |**Ja** |**Ja** |
 | Node.js-API |**Ja** |**Ja** |
 | Ondersteuning voor willekeurige metagegevens |**Ja** |**Nee** |
 | Naamgevingsregels voor wachtrij |**Maximaal 63 tekens bevatten**<br/><br/>(Letters in de naam van een wachtrij moeten kleine letters.) |**Maximaal 260 tekens bevatten**<br/><br/>(Paden van de wachtrij en de namen zijn niet hoofdlettergevoelig). |

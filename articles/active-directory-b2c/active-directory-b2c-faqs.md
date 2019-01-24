@@ -3,21 +3,21 @@ title: Veelgestelde vragen over Azure Active Directory B2C | Microsoft Docs
 description: Veelgestelde vragen (FAQ) over Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e5e688fe741fdc4a83ae1a3cf13a6c722064407
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842948"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856295"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen 
 Deze pagina vindt u antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Waarom geen ik toegang tot de Azure AD B2C-extensie in de Azure-portal?
@@ -47,7 +47,7 @@ Aan de slag met aangepast beleid door het uitchecken van onze [aangepast beleid 
 Nee. De standaard-bereiken die wordt gebruikt voor onze ondersteunde set sociale id-providers zijn:
 
 * Facebook: e-mailadres
-* Google +: e-mailadres
+* Google+: email
 * Microsoft-account: openid e-mailprofiel
 * Amazon: profiel
 * LinkedIn: r_emailaddress, r_basicprofile
@@ -61,8 +61,8 @@ Voordat u het 'Azure AD B2C' in het menu links van de Azure-portal opent, moet u
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hoe aanpassen e-mails voor domeinverificatie (de inhoud en de ' uit: ' veld) die is verzonden door Azure AD B2C?
 U kunt de [functie huisstijl van bedrijf](../active-directory/fundamentals/customize-branding.md) om aan te passen van de inhoud van verificatie-e-mailberichten. Specifiek, kunnen deze twee elementen van het e-mailbericht worden aangepast:
 
-* **Logo banner**: wordt weergegeven in de rechterbenedenhoek.
-* **De achtergrondkleur**: wordt weergegeven aan de bovenkant.
+* **Logo banner**: Weergegeven in de rechterbenedenhoek.
+* **De achtergrondkleur**: Weergegeven aan de bovenkant.
 
     ![Schermopname van een aangepaste verificatie-e-mailbericht](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 

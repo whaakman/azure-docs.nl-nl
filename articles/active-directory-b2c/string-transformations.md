@@ -3,19 +3,19 @@ title: Tekenreeks van de claims transformatievoorbeelden voor de identiteit erva
 description: Tekenreeks claims transformatievoorbeelden voor de identiteit ervaring Framework-Schema van de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f2823ec32b6658aa22c38294c09c9738c9121c39
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1a382b845b621e47d30869a1081549b7f30348aa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121580"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850728"
 ---
 # <a name="string-claims-transformations"></a>Tekenreeks claims transformaties
 
@@ -29,9 +29,9 @@ Vergelijk twee claims en een uitzondering genereert als ze niet op basis van de 
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | Eerste claim type, dat moet worden vergeleken. |
-| InputClaim | inputClaim2 | string | Tweede van de claim type, dat moet worden vergeleken. |
-| Invoerparameters | stringComparison | string | vergelijking van gegevensreeksen, een van de waarden: Volgnummer, OrdinalIgnoreCase. |
+| inputClaim | inputClaim1 | string | Eerste claim type, dat moet worden vergeleken. |
+| inputClaim | inputClaim2 | string | Tweede van de claim type, dat moet worden vergeleken. |
+| InputParameter | stringComparison | string | vergelijking van gegevensreeksen, een van de waarden: Volgnummer, OrdinalIgnoreCase. |
 
 De **AssertStringClaimsAreEqual** claimtransformatie wordt altijd uitgevoerd vanuit een [validatie technisch profiel](validation-technical-profile.md) die wordt aangeroepen door een [door zelf bevestigde technisch profiel](self-asserted-technical-profile.md). De **UserMessageIfClaimsTransformationStringsAreNotEqual** metagegevens van de zelf-gecontroleerde technisch profiel bepaalt het foutbericht dat wordt weergegeven voor de gebruiker.
 
@@ -91,8 +91,8 @@ De aanvraag van de opgegeven claim te verlagen of hoofdletters, afhankelijk van 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Het ClaimType die zijn gewijzigd. |
-| Invoerparameters | toCase | string | Een van de volgende waarden: `LOWER` of `UPPER`. |
-| outputClaim | outputClaim | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
+| InputParameter | toCase | string | Een van de volgende waarden: `LOWER` of `UPPER`. |
+| OutputClaim | outputClaim | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
 
 Deze claimtransformatie gebruiken om elke tekenreeks ClaimType te verlagen of hoofdletters te wijzigen.  
 
@@ -125,8 +125,8 @@ Hiermee maakt u een reeks claim uit de opgegeven invoer parameter in het beleid.
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 |----- | ----------------------- | --------- | ----- |
-| Invoerparameters | waarde | string | De tekenreeks die moet worden ingesteld |
-| outputClaim | createdClaim | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen met de waarde die is opgegeven in de invoerparameter. |
+| InputParameter | waarde | string | De tekenreeks die moet worden ingesteld |
+| OutputClaim | createdClaim | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen met de waarde die is opgegeven in de invoerparameter. |
 
 Gebruik die dit claims transformatie naar instellen een tekenreeks ClaimType waarde.
 
@@ -154,11 +154,11 @@ Bepalen of een tekenreeks-claim gelijk aan een andere is. Het resultaat is een n
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | Eerst claimtype, die moet worden vergeleken. |
-| InputClaim | inputClaim2 | string | Ten tweede claimtype, die moet worden vergeleken. |
-| Invoerparameters | Operator | string | Mogelijke waarden: `EQUAL` of `NOT EQUAL`. |
-| Invoerparameters | ignoreCase | booleaans | Hiermee geeft u op of de aanvraag van de tekenreeksen met elkaar worden vergeleken moet worden genegeerd door deze vergelijking. |
-| outputClaim | outputClaim | booleaans | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
+| inputClaim | inputClaim1 | string | Eerst claimtype, die moet worden vergeleken. |
+| inputClaim | inputClaim2 | string | Ten tweede claimtype, die moet worden vergeleken. |
+| InputParameter | operator | string | Mogelijke waarden: `EQUAL` of `NOT EQUAL`. |
+| InputParameter | ignoreCase | booleaans | Hiermee geeft u op of de aanvraag van de tekenreeksen met elkaar worden vergeleken moet worden genegeerd door deze vergelijking. |
+| OutputClaim | outputClaim | booleaans | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
 
 Gebruik die deze transformatie om te controleren als een claim gelijk aan een andere claim is vorderingen. Bijvoorbeeld, de volgende controles transformatie claims als de waarde van de **e** claim is gelijk aan de **Verified.Email** claim.
 
@@ -184,7 +184,7 @@ Gebruik die deze transformatie om te controleren als een claim gelijk aan een an
     - **inputClaim1**: someone@contoso.com
     - **inputClaim2**: someone@outlook.com
 - Invoerparameters die zijn opgegeven:
-    - **Operator**:  NIET GELIJK AAN
+    - **operator**:  NIET GELIJK AAN
     - **ignoreCase**: true
 - Uitvoerclaims:
     - **outputClaim**: true
@@ -195,11 +195,11 @@ Bepaalt of een claimwaarde gelijk aan de waarde van de invoerparameter is.
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | Type van de claim, die moet worden vergeleken. |
-| Invoerparameters | Operator | string | Mogelijke waarden: `EQUAL` of `NOT EQUAL`. |
-| Invoerparameters | compareTo | string | vergelijking van gegevensreeksen, een van de waarden: Volgnummer, OrdinalIgnoreCase. |
-| Invoerparameters | ignoreCase | booleaans | Hiermee geeft u op of de aanvraag van de tekenreeksen met elkaar worden vergeleken moet worden genegeerd door deze vergelijking. |
-| outputClaim | outputClaim | booleaans | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
+| inputClaim | inputClaim1 | string | Type van de claim, die moet worden vergeleken. |
+| InputParameter | operator | string | Mogelijke waarden: `EQUAL` of `NOT EQUAL`. |
+| InputParameter | compareTo | string | vergelijking van gegevensreeksen, een van de waarden: Volgnummer, OrdinalIgnoreCase. |
+| InputParameter | ignoreCase | booleaans | Hiermee geeft u op of de aanvraag van de tekenreeksen met elkaar worden vergeleken moet worden genegeerd door deze vergelijking. |
+| OutputClaim | outputClaim | booleaans | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
 
 U kunt dit claims transformatie om te controleren of een claim gelijk is aan een waarde die u hebt opgegeven. Bijvoorbeeld, de volgende controles transformatie claims als de waarde van de **termsOfUseConsentVersion** claim is gelijk aan `v1`.
 
@@ -224,7 +224,7 @@ U kunt dit claims transformatie om te controleren of een claim gelijk is aan een
     - **inputClaim1**: v1
 - Invoerparameters die zijn opgegeven:
     - **compareTo**: V1
-    - **Operator**: GELIJK AAN 
+    - **operator**: GELIJK AAN 
     - **ignoreCase**: true
 - Uitvoerclaims:
     - **outputClaim**: true
@@ -235,12 +235,12 @@ Hiermee maakt u een willekeurige tekenreeks met behulp van de generator van will
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| Invoerparameters | randomGeneratorType | string | Hiermee geeft u de willekeurige waarde die moet worden gegenereerd, `GUID` (globaal unieke ID) of `INTEGER` (een getal). |
-| Invoerparameters | stringFormat | string | [Optioneel] Indeling van de willekeurige waarde. |
-| Invoerparameters | met base64 | booleaans | [Optioneel] De willekeurige waarde converteren naar base64. Als de indeling van tekenreeks wordt toegepast, wordt de waarde na de indeling van tekenreeks naar base64 gecodeerd. |
-| Invoerparameters | maximumNumber | int | [Optioneel] Voor `INTEGER` randomGeneratorType alleen. Geef het maximum aantal. |
-| Invoerparameters | seed  | int | [Optioneel] Voor `INTEGER` randomGeneratorType alleen. Geef de seed voor de willekeurige waarde. Opmerking: dezelfde seed resulteert in dezelfde volgorde van willekeurige getallen. |
-| outputClaim | outputClaim | string | De ClaimTypes die worden geproduceerd nadat deze transformatie claims is aangeroepen. De willekeurige waarde. |
+| InputParameter | randomGeneratorType | string | Hiermee geeft u de willekeurige waarde die moet worden gegenereerd, `GUID` (globaal unieke ID) of `INTEGER` (een getal). |
+| InputParameter | stringFormat | string | [Optioneel] Indeling van de willekeurige waarde. |
+| InputParameter | base64 | booleaans | [Optioneel] De willekeurige waarde converteren naar base64. Als de indeling van tekenreeks wordt toegepast, wordt de waarde na de indeling van tekenreeks naar base64 gecodeerd. |
+| InputParameter | maximumNumber | int | [Optioneel] Voor `INTEGER` randomGeneratorType alleen. Geef het maximum aantal. |
+| InputParameter | seed  | int | [Optioneel] Voor `INTEGER` randomGeneratorType alleen. Geef de seed voor de willekeurige waarde. Opmerking: dezelfde seed resulteert in dezelfde volgorde van willekeurige getallen. |
+| OutputClaim | outputClaim | string | De ClaimTypes die worden geproduceerd nadat deze transformatie claims is aangeroepen. De willekeurige waarde. |
 
 Voorbeeld van de volgende genereert een globale unieke ID. Dit claims transformatie wordt gebruikt om de willekeurige UPN (principal-naam van gebruiker).
 
@@ -294,9 +294,9 @@ De indeling van een claim op basis van de opgegeven tekenreeks. Deze transformat
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |string |Het ClaimType die als de indeling van tekenreeks fungeert {0} parameter. |
-| Invoerparameters | stringFormat | string | De indeling van de tekenreeks, met inbegrip van de {0} parameter. |
-| outputClaim | outputClaim | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
+| InputClaim | inputClaim |string |Het ClaimType die als de indeling van tekenreeks fungeert {0} parameter. |
+| InputParameter | stringFormat | string | De indeling van de tekenreeks, met inbegrip van de {0} parameter. |
+| OutputClaim | outputClaim | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
 
 Gebruik deze transformatie naar een tekenreeks met één parameter-indeling vorderingen {0}. Het volgende voorbeeld wordt een **userPrincipalName**. Alle sociale id-provider technische profielen, zoals `Facebook-OAUTH` aanroepen de **CreateUserPrincipalName** voor het genereren van een **userPrincipalName**.   
 
@@ -319,7 +319,7 @@ Gebruik deze transformatie naar een tekenreeks met één parameter-indeling vord
 - Invoerclaims:
     - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Invoerparameters die zijn opgegeven:
-    - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
+    - **stringFormat**:  cpim_{0}@{RelyingPartyTenantId}
 - Uitvoerclaims:
     - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
@@ -329,10 +329,10 @@ Maak twee claims op basis van de opgegeven tekenreeks. Deze transformatie maakt 
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |string | Het ClaimType die als de indeling van tekenreeks fungeert {0} parameter. |
-| InputClaim | InputClaim | string | Het ClaimType die als de indeling van tekenreeks fungeert {1} parameter. |
-| Invoerparameters | stringFormat | string | De indeling van de tekenreeks, met inbegrip van de {0} en {1} parameters. |
-| outputClaim | outputClaim | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
+| InputClaim | inputClaim |string | Het ClaimType die als de indeling van tekenreeks fungeert {0} parameter. |
+| InputClaim | inputClaim | string | Het ClaimType die als de indeling van tekenreeks fungeert {1} parameter. |
+| InputParameter | stringFormat | string | De indeling van de tekenreeks, met inbegrip van de {0} en {1} parameters. |
+| OutputClaim | outputClaim | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
 
 Gebruik deze transformatie naar een tekenreeks met twee parameters-indeling vorderingen {0} en {1}. Het volgende voorbeeld wordt een **displayName** met de opgegeven indeling:
 
@@ -368,7 +368,7 @@ Opzoeken van een item uit een claim **beperking** verzameling.
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | mapFromClaim | string | De claim met de tekst die moet worden opgezocht in de **restrictionValueClaim** claims met het **beperking** verzameling.  |
-| outputClaim | restrictionValueClaim | string | De claim waarin de **beperking** verzameling. Nadat de claimtransformatie is aangeroepen, bevat de waarde van deze claim de waarde van het geselecteerde item. |
+| OutputClaim | restrictionValueClaim | string | De claim waarin de **beperking** verzameling. Nadat de claimtransformatie is aangeroepen, bevat de waarde van deze claim de waarde van het geselecteerde item. |
 
 Het volgende voorbeeld worden opgezocht op basis van de sleutel van de fout beschrijving van het foutbericht. De **responseMsg** claim bevat een verzameling van foutberichten voor de eindgebruiker of moet worden verzonden naar de relying party.
 
@@ -411,9 +411,9 @@ Zoek de waarde van een claim uit een lijst met waarden op basis van de waarde va
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | string | De claim die de zoekwaarde bevat |
-| Invoerparameters | |string | Verzameling van de invoerparameters. |
-| Invoerparameters | errorOnFailedLookup | booleaans | Bepalen of een fout wordt geretourneerd wanneer er geen overeenkomende opzoeken. |
-| outputClaim | inputParameterId | string | De ClaimTypes die worden geproduceerd nadat deze transformatie claims is aangeroepen. De waarde van de overeenkomende id. |
+| InputParameter | |string | Verzameling van de invoerparameters. |
+| InputParameter | errorOnFailedLookup | booleaans | Bepalen of een fout wordt geretourneerd wanneer er geen overeenkomende opzoeken. |
+| OutputClaim | inputParameterId | string | De ClaimTypes die worden geproduceerd nadat deze transformatie claims is aangeroepen. De waarde van de overeenkomende id. |
 
 Het volgende voorbeeld zoekt u de domeinnaam in een van de invoerparameters verzamelingen. De claimtransformatie zoekt naar de domeinnaam in de id en retourneert de waarde (een toepassings-ID).
 
@@ -439,12 +439,12 @@ Het volgende voorbeeld zoekt u de domeinnaam in een van de invoerparameters verz
 - Invoerclaims:
     - **inputParameterId**: test.com
 - Invoerparameters die zijn opgegeven:
-    - **Contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **Microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
     - **Test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
     - **errorOnFailedLookup**: false
 - Uitvoerclaims:
-    - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**:  c7026f88-4299-4cdb-965d-3f166464b8a9
 
 ## <a name="nullclaim"></a>NullClaim
 
@@ -452,7 +452,7 @@ De waarde van een bepaalde claim opschonen.
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| outputClaim | claim_to_null | string | De claim de waarde null zijn. |
+| OutputClaim | claim_to_null | string | De claim de waarde null zijn. |
 
 Gebruikt deze om het verwijderen van onnodige gegevens uit de eigenschappenverzameling van claims. De sessiecookie wordt dus niet kleiner zijn. Het volgende voorbeeld verwijdert u de waarde van de `TermsOfService` claimtype.
 
@@ -475,8 +475,8 @@ Hiermee haalt u het domeingedeelte van een e-mailadres.
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | EmailAddress | string | Het ClaimType dat het e-mailadres bevat. |
-| outputClaim | domein | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen: het domein. |
+| InputClaim | emailAddress | string | Het ClaimType dat het e-mailadres bevat. |
+| OutputClaim | domein | string | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen: het domein. |
 
 Gebruik dit claims transformatie voor het parseren van de naam van het domein na het @-teken van de gebruiker. Dit kan nuttig zijn bij het verwijderen van persoonsgegevens (PII) uit de controlegegevens zijn. De volgende claimtransformatie ziet u hoe u parseren van de naam van het domein van een **e** claim.
 
@@ -504,14 +504,14 @@ Controleert of een reeks claim en `matchTo` invoerparameter gelijk zijn, en word
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | Het claimtype moet worden vergeleken. |
-| Invoerparameters | matchTo | string | De tekenreeks die moet worden vergeleken met de `inputClaim`. |
-| Invoerparameters | stringComparison | string | Mogelijke waarden: `Ordinal` of `OrdinalIgnoreCase`. |
-| Invoerparameters | stringMatchMsg | string | Eerste waarde die moet worden ingesteld als tekenreeksen gelijk zijn. |
-| Invoerparameters | stringMatchMsgCode | string | Tweede waarde die moet worden ingesteld als tekenreeksen gelijk zijn. |
-| outputClaim | outputClaim1 | string | Als tekenreeksen is gelijk aan, deze uitvoerclaim bevat de waarde van `stringMatchMsg` invoerparameter. |
-| outputClaim | outputClaim2 | string | Als tekenreeksen is gelijk aan, deze uitvoerclaim bevat de waarde van `stringMatchMsgCode` invoerparameter. |
-| outputClaim | stringCompareResultClaim | booleaans | De uitvoer van de resultaten vergelijken claimtype die moet worden ingesteld als `true` of `false` op basis van het resultaat van de vergelijking. |
+| inputClaim | inputClaim | string | Het claimtype moet worden vergeleken. |
+| InputParameter | matchTo | string | De tekenreeks die moet worden vergeleken met de `inputClaim`. |
+| InputParameter | stringComparison | string | Mogelijke waarden: `Ordinal` of `OrdinalIgnoreCase`. |
+| InputParameter | stringMatchMsg | string | Eerste waarde die moet worden ingesteld als tekenreeksen gelijk zijn. |
+| InputParameter | stringMatchMsgCode | string | Tweede waarde die moet worden ingesteld als tekenreeksen gelijk zijn. |
+| OutputClaim | outputClaim1 | string | Als tekenreeksen is gelijk aan, deze uitvoerclaim bevat de waarde van `stringMatchMsg` invoerparameter. |
+| OutputClaim | outputClaim2 | string | Als tekenreeksen is gelijk aan, deze uitvoerclaim bevat de waarde van `stringMatchMsgCode` invoerparameter. |
+| OutputClaim | stringCompareResultClaim | booleaans | De uitvoer van de resultaten vergelijken claimtype die moet worden ingesteld als `true` of `false` op basis van het resultaat van de vergelijking. |
 
 U kunt dit claims transformatie om te controleren of een claim gelijk zijn aan de waarde die u hebt opgegeven. Bijvoorbeeld, de volgende controles transformatie claims als de waarde van de **termsOfUseConsentVersion** claim is gelijk aan `v1`. Zo ja, wijzig de waarde in `v2`. 
 
@@ -553,12 +553,12 @@ Controleert of een reeks claim en `matchTo` invoerparameter gelijk zijn, en word
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | claimToMatch | string | Het claimtype moet worden vergeleken. |
-| Invoerparameters | matchTo | string | De tekenreeks die moet worden vergeleken met de inputClaim. |
-| Invoerparameters | stringComparison | string | Mogelijke waarden: `Ordinal` of `OrdinalIgnoreCase`. |
-| Invoerparameters | outputClaimIfMatched | string | De waarde die moet worden ingesteld als tekenreeksen gelijk zijn. |
-| outputClaim | outputClaim | string | Als tekenreeksen is gelijk aan, deze uitvoerclaim bevat de waarde van `outputClaimIfMatched` invoerparameter. Of null zijn, als de tekenreeksen niet overeen. |
-| outputClaim | stringCompareResultClaim | booleaans | De uitvoer van de resultaten vergelijken claimtype die moet worden ingesteld als `true` of `false` op basis van het resultaat van de vergelijking. |
+| inputClaim | claimToMatch | string | Het claimtype moet worden vergeleken. |
+| InputParameter | matchTo | string | De tekenreeks die moet worden vergeleken met de inputClaim. |
+| InputParameter | stringComparison | string | Mogelijke waarden: `Ordinal` of `OrdinalIgnoreCase`. |
+| InputParameter | outputClaimIfMatched | string | De waarde die moet worden ingesteld als tekenreeksen gelijk zijn. |
+| OutputClaim | outputClaim | string | Als tekenreeksen is gelijk aan, deze uitvoerclaim bevat de waarde van `outputClaimIfMatched` invoerparameter. Of null zijn, als de tekenreeksen niet overeen. |
+| OutputClaim | stringCompareResultClaim | booleaans | De uitvoer van de resultaten vergelijken claimtype die moet worden ingesteld als `true` of `false` op basis van het resultaat van de vergelijking. |
 
 Bijvoorbeeld, de volgende controles transformatie claims als de waarde van **ageGroup** claim is gelijk aan `Minor`. Zo ja, de waarde te retourneren `B2C_V1_90001`. 
 

@@ -3,19 +3,19 @@ title: Over claim resolvers in aangepaste beleidsregels voor Azure Active Direct
 description: Meer informatie over hoe claims resolvers worden gebruikt in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852377"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845007"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Over claim resolvers in Azure Active Directory B2C aangepast beleid
 
@@ -45,29 +45,29 @@ De volgende secties worden de beschikbare claim resolvers.
 
 ### <a name="culture"></a>Culture
 
-| Claim | Beschrijving | Voorbeeld |
+| Claim | Description | Voorbeeld |
 | ----- | ----------- | --------|
-| {Cultuur: LanguageName} | ISO-code voor de taal van de twee letters. | nl |
+| {Culture:LanguageName} | ISO-code voor de taal van de twee letters. | nl |
 | {Cultuur: LCID}   | De LCID van taal. | 19 |
 | {Cultuur: RegionName} | ISO-code voor de regio van de twee letters. | VS |
-| {Cultuur: RFC5646} | De taalcode RFC5646. | nl-NL |
+| {Culture:RFC5646} | De taalcode RFC5646. | en-US |
 
 ### <a name="policy"></a>Beleid
 
-| Claim | Beschrijving | Voorbeeld |
+| Claim | Description | Voorbeeld |
 | ----- | ----------- | --------|
-| {Beleid: PolicyId} | De relying party beleidsnaam. | B2C_1A_signup_signin |
-| {Beleid: RelyingPartyTenantId} | De tenant-ID van het beleid voor relying party. | uw tenant.onmicrosoft.com |
-| {Beleid: TenantObjectId} | De tenant-object-ID van het beleid voor relying party. | 00000000-0000-0000-0000-000000000000 |
-| {Beleid: TrustFrameworkTenantId} | De tenant-ID van de vertrouwensrelatie-framework. | uw tenant.onmicrosoft.com |
+| {Policy:PolicyId} | De relying party beleidsnaam. | B2C_1A_signup_signin |
+| {Policy:RelyingPartyTenantId} | De tenant-ID van het beleid voor relying party. | your-tenant.onmicrosoft.com |
+| {Policy:TenantObjectId} | De tenant-object-ID van het beleid voor relying party. | 00000000-0000-0000-0000-000000000000 |
+| {Policy:TrustFrameworkTenantId} | De tenant-ID van de vertrouwensrelatie-framework. | your-tenant.onmicrosoft.com |
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Claim | Beschrijving | Voorbeeld |
+| Claim | Description | Voorbeeld |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |De `acr_values` query-tekenreeksparameter. | N/A |
 | {OIDC:ClientId} |De `client_id` query-tekenreeksparameter. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC:DomainHint} |De `domain_hint` query-tekenreeksparameter. | Facebook.com |
+| {OIDC:DomainHint} |De `domain_hint` query-tekenreeksparameter. | facebook.com |
 | {OIDC:LoginHint} |  De `login_hint` query-tekenreeksparameter. | someone@contoso.com |
 | {OIDC:MaxAge} | De `max_age`. | N/A |
 | {OIDC:Nonce} |De `Nonce` query-tekenreeksparameter. | defaultNonce |
@@ -77,20 +77,20 @@ De volgende secties worden de beschikbare claim resolvers.
 
 ### <a name="context"></a>Context
 
-| Claim | Beschrijving | Voorbeeld |
+| Claim | Description | Voorbeeld |
 | ----- | ----------- | --------|
-| {Context: BuildNumber} | De Identiteitservaring-Framework-versie (build-nummer).  | 1.0.507.0 |
-| {Context: CorrelationId} | De correlatie-ID.  | 00000000-0000-0000-0000-000000000000 |
-| {Context: DateTimeInUtc} |De datum-tijd in UTC.  | 10-10-2018 12:00:00 PM |
-| {Context: DeploymentMode} |De implementatiemodus van beleid.  | Productie |
-| {Context: IPAddress} | Het IP-adres van de gebruiker. | 11.111.111.11 |
+| {Context:BuildNumber} | De Identiteitservaring-Framework-versie (build-nummer).  | 1.0.507.0 |
+| {Context:CorrelationId} | De correlatie-ID.  | 00000000-0000-0000-0000-000000000000 |
+| {Context:DateTimeInUtc} |De datum-tijd in UTC.  | 10-10-2018 12:00:00 PM |
+| {Context:DeploymentMode} |De implementatiemodus van beleid.  | Productie |
+| {Context:IPAddress} | Het IP-adres van de gebruiker. | 11.111.111.11 |
 
 
 ### <a name="non-protocol-parameters"></a>Parameters voor de niet-protocollen
 
 Elke parameternaam opgenomen als onderdeel van een OIDC of OAuth2-aanvraag kan worden toegewezen aan een claim in de gebruikersbeleving. De aanvraag van de toepassing kan bijvoorbeeld een queryreeks-parameter met de naam `app_session`, `loyalty_number`, of een aangepaste query-tekenreeks.
 
-| Claim | Beschrijving | Voorbeeld |
+| Claim | Description | Voorbeeld |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Een queryreeks-parameter. | Hawaï |
 | {OAUTH-KV:app_session} | Een queryreeks-parameter. | A3C5R |

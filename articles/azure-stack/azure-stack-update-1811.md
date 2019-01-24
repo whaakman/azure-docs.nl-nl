@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267314"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853235"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -191,6 +191,8 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 
 ## <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces
 
+- Bij het uitvoeren van de **Get-AzureStackLog** PowerShell-cmdlet nadat het is uitgevoerd **Test AzureStack** in dezelfde sessie bevoegde eindpunt (PEP), **Get-AzureStackLog** is mislukt. U kunt dit probleem omzeilen, sluit u de PEP-sessie die u hebt uitgevoerd **Test AzureStack**, en open vervolgens een nieuwe sessie om uit te voeren **Get-AzureStackLog**.
+
 - Tijdens de installatie van de 1811 bijwerken en zorg ervoor dat alle exemplaren van de beheerdersportal gedurende deze tijd worden afgesloten. De gebruikersportal kan open blijven, maar de beheerportal moet worden gesloten.
 
 - Bij het uitvoeren van [Test AzureStack](azure-stack-diagnostic-test.md), als een van beide de **AzsInfraRoleSummary** of de **AzsPortalApiSummary** test mislukt, wordt u gevraagd om uit te voeren  **Test-AzureStack** met de `-Repair` vlag.  Als u deze opdracht uitvoert, mislukt het met de volgende strekking weergegeven:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  Dit probleem wordt opgelost in een toekomstige release.
@@ -312,7 +314,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
    - Als het abonnement is gemaakt vóór de update 1808, een virtuele machine met Managed Disks kan mislukken met een interne fout. Los de fout op door deze stappen voor elk abonnement uit te voeren:
       1. Ga in de tenantportal naar **abonnementen** en zoek het abonnement. Selecteer **Resourceproviders**en selecteer vervolgens **Microsoft.Compute**, en klik vervolgens op **opnieuw registreren**.
-      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en Controleer **Azure Stack – beheerde schijf** wordt vermeld.
+      2. Onder hetzelfde abonnement, gaat u naar **Access Control (IAM)**, en controleer de **AzureStack-DiskRP-Client** rol wordt weergegeven.
    - Als u een omgeving met meerdere tenants hebt geconfigureerd, kan virtuele machines implementeren in een abonnement dat is gekoppeld aan een gast-map mislukken met een interne fout. Volg deze stappen om op te lossen de fout, [in dit artikel](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) opnieuw configureren van elk van de Gast-mappen.
 
 - Een Ubuntu-18.04 VM gemaakt met SSH-verificatie ingeschakeld kunt u de SSH-sleutels gebruiken om aan te melden. Als tijdelijke oplossing, gebruik van VM-toegang voor de Linux-extensie voor het implementeren van SSH-sleutels na het inrichten of verificatie op basis van wachtwoord gebruiken.

@@ -4,7 +4,7 @@ description: Meer informatie over het installeren en de Log Analytics-weergaven 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624638"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825201"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installeren en de Log Analytics-weergaven gebruiken voor Azure Active Directory
 
 De weergaven van de Azure Active Directory Log Analytics helpt u bij het analyseren en zoek de Azure AD-activiteitenlogboeken in uw Azure AD-tenant. Azure AD-activiteit logboeken bevatten:
 
-* Auditlogboeken: de [activiteit audittrailrapporten](concept-audit-logs.md) krijgt u toegang tot de geschiedenis van elke taak die wordt uitgevoerd in uw tenant.
-* Logboeken voor aanmelden: met de [rapport van aanmeldingsactiviteiten](concept-sign-ins.md), kunt u bepalen wie de taken die worden gerapporteerd in de auditlogboeken uitgevoerd.
+* Auditlogboeken: De [activiteit audittrailrapporten](concept-audit-logs.md) krijgt u toegang tot de geschiedenis van elke taak die wordt uitgevoerd in uw tenant.
+* Meld u in Logboeken: Met de [rapport van aanmeldingsactiviteiten](concept-sign-ins.md), kunt u bepalen wie de taken die worden gerapporteerd in de auditlogboeken uitgevoerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -50,8 +50,8 @@ Voor de Log Analytics-weergaven, hebt u het volgende nodig:
 
 2. Bent u in de werkruimte, selecteert u **werkruimte overzicht**. Hier ziet u de volgende drie weergaven:
 
-    * **Azure AD-Account wordt ingericht gebeurtenissen**: deze weergave toont rapporten met betrekking tot het controleren van inrichting activiteit, zoals het aantal nieuwe gebruikers die zijn ingericht en inrichtingsfouten, aantal gebruikers bijgewerkt en fouten en het aantal gebruikers bijwerken verlopen en bijbehorende fouten.    
-    * **Aanmeldingen gebeurtenissen**: in deze weergave ziet u de meest relevante rapporten met betrekking tot het controleren van de aanmelding, activiteit, zoals aanmeldingen per toepassing, gebruiker, apparaat, evenals een samenvatting weergegeven voor het bijhouden van het aantal aanmeldingen na verloop van tijd.
+    * **Azure AD-Account ingericht gebeurtenissen**: Deze weergave toont rapporten met betrekking tot het controleren van inrichting activiteit, zoals het aantal nieuwe gebruikers die zijn ingericht en inrichtingsfouten, aantal gebruikers bijgewerkt en bijwerken van fouten en het aantal gebruikers niet ingericht en bijbehorende fouten.    
+    * **Aanmeldingen gebeurtenissen**: Deze weergave toont de meest relevante rapporten met betrekking tot het controleren van de aanmelding, activiteit, zoals aanmeldingen per toepassing, gebruiker, apparaat, evenals een samenvatting weergegeven voor het bijhouden van het aantal aanmeldingen na verloop van tijd.
 
 3. Selecteer een van deze weergaven om door te gaan met de afzonderlijke rapporten. U kunt ook waarschuwingen instellen op een van de rapportparameters. Bijvoorbeeld, stel een waarschuwing voor telkens wanneer er een fout aanmelden is. Om dit te doen, selecteert u eerst de **aanmeldingen gebeurtenissen** weergave, selecteer **aanmelden fouten na verloop van tijd** rapport en selecteer vervolgens **Analytics** openen van de pagina met details met de werkelijke query achter het rapport. 
 

@@ -3,19 +3,19 @@ title: UserJourneys | Microsoft Docs
 description: Geef het UserJourneys-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c6933a3d50807f38c0704f41dff7c9bcb3351949
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567057"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850636"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,19 +29,19 @@ Voor het definiëren van de gebruiker reizen ondersteund door het beleid, een **
 
 De **UserJourneys** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | UserJourney | 1: n | Een gebruikersbeleving waarmee alle van de concepten die nodig zijn voor een volledige gebruikersstroom wordt gedefinieerd. | 
 
 De **UserJourney** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id van een gebruikersbeleving die kan worden gebruikt om te verwijzen naar deze uit andere elementen in het beleid. De **DefaultUserJourney** element van de [relying party beleid](relyingparty.md) verwijst naar dit kenmerk. |
 
 De **UserJourney** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1: n | De volgorde van een indeling die moet worden gevolgd door voor een geslaagde transactie. Elke gebruikersbeleving bestaat uit een geordende lijst met de orchestration-stappen die worden uitgevoerd in de reeks. Als er een stap mislukt, wordt de transactie mislukt. |
 
@@ -55,13 +55,13 @@ Om op te geven van de geordende lijst indelingsstappen, een **OrchestrationSteps
 
 De **OrchestrationSteps** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1: n | Een geordende indelingsstap. | 
 
 De **OrchestrationStep** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Bestellen | Ja | De volgorde van de orchestration-stappen. | 
 | Type | Ja | Het type van de orchestration-stap. Mogelijke waarden: <ul><li>**ClaimsProviderSelection** -geeft aan dat de indelingsstap verschillende claimproviders vormt voor de gebruiker er een selecteren.</li><li>**CombinedSignInAndSignUp** -geeft aan dat de indelingsstap een gecombineerde sociale provider pagina voor het registreren van aanmelding en lokale account biedt.</li><li>**ClaimsExchange** -geeft aan dat de indelingsstap claims met een claimprovider uitwisselt.</li><li>**SendClaims** -geeft aan dat de indelingsstap de claims voor de relying party met een token dat is uitgegeven door een verlener van claims verzendt.</li></ul> | 
@@ -71,7 +71,7 @@ De **OrchestrationStep** element bevat de volgende kenmerken:
 
 De **OrchestrationStep** element mag de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- | 
 | Voorwaarden | 0: n | Een lijst met voorwaarden waaraan moet worden voldaan voor de orchestration-stap om uit te voeren. | 
 | ClaimsProviderSelections | 0: n | Een lijst van de claims provider selecties voor de orchestration-stap. | 
@@ -81,7 +81,7 @@ De **OrchestrationStep** element mag de volgende elementen:
 
 De **voorwaarden** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- | 
 | Voorwaarde | 0: n | Afhankelijk van het technische profiel wordt gebruikt, leidt u de client op basis van de selectie van claims-provider of maakt een server te worden aangeroepen voor het uitwisselen van claims. | 
 
@@ -90,14 +90,14 @@ De **voorwaarden** element bevat het volgende element:
 
 De **voorwaarde** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Type | Ja | Het type selectievakje of de query uit te voeren voor deze voorwaarde. De waarde kan zijn **ClaimsExist**, dat aangeeft dat de acties die moeten worden uitgevoerd als de opgegeven claims aanwezig is in de huidige claimset van de gebruiker, of **ClaimEquals**, dat aangeeft dat de acties moet worden uitgevoerd als de opgegeven claim bestaat en de waarde gelijk aan de opgegeven waarde is. |
 | ExecuteActionsIf | Ja | Gebruik een test waar of ONWAAR om te bepalen als de acties in de eerste voorwaarde moeten worden uitgevoerd. | 
 
 De **voorwaarde** elementen bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | Waarde | 1: n | Een ClaimTypeReferenceId moet worden gezocht voor. Een andere waarde-element bevat de waarde moet worden gecontroleerd.</li></ul>|
 | Bewerking | 1:1 | De actie die moet worden uitgevoerd als de controle van de voorwaarde in een orchestration-stap ingesteld op true is. Als de waarde van de `Action` is ingesteld op `SkipThisOrchestrationStep`, de bijbehorende `OrchestrationStep` moet niet worden uitgevoerd. | 
@@ -164,13 +164,13 @@ Een orchestration-stap van het type `ClaimsProviderSelection` of `CombinedSignIn
 
 De **ClaimsProviderSelection** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 0: n | Geeft de lijst van claims-providers die kunnen worden geselecteerd.|
 
 De **ClaimsProviderSelection** element bevat de volgende kenmerken: 
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | TargetClaimsExchangeId | Nee | De id van de claimuitwisseling, die wordt uitgevoerd in de volgende indelingsstap van de selectie van claims-provider. Dit kenmerk of het kenmerk ValidationClaimsExchangeId moet worden opgegeven, maar niet beide. | 
 | ValidationClaimsExchangeId | Nee | De id van de claimuitwisseling, die wordt uitgevoerd in de huidige orchestration-stap voor het valideren van de selectie van claims-provider. Dit kenmerk of het kenmerk TargetClaimsExchangeId moet worden opgegeven, maar niet beide. |
@@ -216,13 +216,13 @@ De gebruiker kan kiezen in de volgende stap van de orchestration, zich aanmelden
 
 De **ClaimsExchanges** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | ClaimsExchange | 0: n | Afhankelijk van het technische profiel wordt gebruikt, leidt u de client op basis van de ClaimsProviderSelection dat is geselecteerd, of maakt een server te worden aangeroepen voor het uitwisselen van claims. | 
 
 De **ClaimsExchange** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id van de claims exchange-stap. De id wordt gebruikt om te verwijzen naar de claimuitwisseling van van een claims provider-selectie stap in het beleid. | 
 | TechnicalProfileReferenceId | Ja | De id van het technische profiel die moet worden uitgevoerd. |

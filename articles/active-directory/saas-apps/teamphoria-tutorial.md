@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439606"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826714"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Zelfstudie: Azure Active Directory-integratie met Teamphoria
 
@@ -31,7 +31,7 @@ Teamphoria integreren met Azure AD biedt u de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Teamphoria (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts in één centrale locatie - Azure portal beheren
 
-Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -43,9 +43,9 @@ Voor het configureren van Azure AD-integratie met Teamphoria, moet u de volgende
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -66,11 +66,11 @@ Voor het configureren van de integratie van Teamphoria in Azure AD, moet u Teamp
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
 1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **Teamphoria**.
 
@@ -120,7 +120,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/teamphoria-tutorial/tutorial_teamphoria_certificate.png)
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/teamphoria-tutorial/tutorial_general_400.png)
 
@@ -144,11 +144,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. **WEERGAVENAAM**: Voer de weergavenaam van de invoegtoepassing op de beheerpagina.
 
-    b. **NAAM van de knop**: de naam van het tabblad dat wordt weergegeven op de aanmeldingspagina voor logboekregistratie via eenmalige aanmelding.
+    b. **NAAM VAN DE KNOP**: De naam van het tabblad dat wordt weergegeven op de aanmeldingspagina voor logboekregistratie via eenmalige aanmelding.
 
     c. **CERTIFICAAT**: Open het certificaat eerder hebt gedownload vanuit Azure portal in Kladblok en kopieer de inhoud van dezelfde en plak deze hier in het vak.
 
-    d. **TOEGANGSPUNT**: plak de **Single Sign-On Service URL voor SAML** eerder hebt gekopieerd vanuit Azure portal.
+    d. **TOEGANGSPUNT**: Plak de **Single Sign-On Service URL voor SAML** eerder hebt gekopieerd vanuit Azure portal.
 
     e. Schakel de optie voor het **ON** en klikt u op **opslaan**.
 
@@ -187,7 +187,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 Als u wilt inschakelen in Azure AD-gebruikers zich aanmelden bij Teamphoria, moeten ze worden ingericht voor Teamphoria. In het geval van Teamphoria is inrichten een handmatige taak.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u aan bij uw bedrijf Teamphoria site aan als beheerder.
 
@@ -245,7 +245,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u testen van uw instellingen voor eenmalige aanmelding wilt, opent u het toegangsvenster. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Als u testen van uw instellingen voor eenmalige aanmelding wilt, opent u het toegangsvenster. Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

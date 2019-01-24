@@ -4,7 +4,7 @@ description: Beschrijf de Azure AD-aanmelding in een logboek-schema voor gebruik
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0c44501a483b9a988c3ef048d12455eb3e5ae337
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2957cd12fb6ef37b3e120b90b1500c6a43bb3e04
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546396"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813420"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Het schema van de logboeken voor aanmelding bij Azure AD in Azure Monitor (preview) interpreteren
 
@@ -155,14 +155,14 @@ Dit artikel beschrijft het schema van de inloggen in Azure Active Directory (Azu
 | Time | De datum en tijd in UTC. |
 | ResourceId | Deze waarde is niet-toegewezen en u kunt dit veld veilig negeren.  |
 | OperationName | Voor aanmeldingen, is deze waarde altijd *aanmeldingsactiviteiten*. |
-| operationVersion | De REST-API-versie die aangevraagd door de client. |
+| OperationVersion | De REST-API-versie die aangevraagd door de client. |
 | Categorie | Voor aanmeldingen, is deze waarde altijd *SignIn*. | 
 | TenantId | De tenant GUID die is gekoppeld aan de logboeken. |
-| resultType | Kan het resultaat van de bewerking aanmelding zijn *succes* of *fout*. | 
+| ResultType | Kan het resultaat van de bewerking aanmelding zijn *succes* of *fout*. | 
 | resultSignature | Bevat de foutcode, indien aanwezig, voor het opnieuw aanmelden. |
 | ResultDescription | Geeft de foutbeschrijving voor de bewerking aanmelden. |
-| durationMs |  Deze waarde is niet-toegewezen en u kunt dit veld veilig negeren.|
-| callerIpAddress | Het IP-adres van de client die de aanvraag heeft ingediend. | 
+| DurationMs |  Deze waarde is niet-toegewezen en u kunt dit veld veilig negeren.|
+| CallerIpAddress | Het IP-adres van de client die de aanvraag heeft ingediend. | 
 | CorrelationId | De optionele GUID die doorgegeven door de client. Deze waarde kan helpen bij elkaar te vergelijken client-side-bewerkingen met server-side-bewerkingen en dit is handig wanneer u logboeken met betrekking services tot bijhoudt. |
 | Identiteit | De identiteit van het token dat is opgegeven wanneer u de aanvraag heeft ingediend. Een gebruikersaccount, systeem-account of service-principal kan het zijn. |
 | Niveau | Geeft het type van het bericht. Voor controle, is het altijd *ter informatie*. |

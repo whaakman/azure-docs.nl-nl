@@ -4,7 +4,7 @@ description: Informatie over het analyseren van activiteitenlogboeken van Azure 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624196"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810771"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analyseren van Azure AD-activiteitenlogboeken met Log Analytics (preview)
 
@@ -93,9 +93,9 @@ U kunt ook waarschuwingen instellen voor uw query. Bijvoorbeeld, als u wilt conf
 
 U kunt ook de vooraf gemaakte Log Analytics-weergaven voor Azure AD-activiteit downloaden Logboeken. De weergaven bieden verschillende rapporten met betrekking tot algemene scenario's met betrekking tot controle en aanmeldingsgebeurtenissen. U kunt ook met de waarschuwing bij een van de gegevens die zijn opgegeven in de rapporten met behulp van de stappen die worden beschreven in de vorige sectie.
 
-* **Azure AD-Account wordt ingericht gebeurtenissen**: deze weergave toont rapporten met betrekking tot het controleren van inrichting activiteit, zoals het aantal nieuwe gebruikers die zijn ingericht en inrichtingsfouten, aantal gebruikers bijgewerkt en fouten en het aantal gebruikers bijwerken verlopen en bijbehorende fouten.    
-* **Aanmeldingen gebeurtenissen**: in deze weergave ziet u de meest relevante rapporten met betrekking tot het controleren van de aanmelding, activiteit, zoals aanmeldingen per toepassing, gebruiker, apparaat, evenals een samenvatting weergegeven voor het bijhouden van het aantal aanmeldingen na verloop van tijd.
-* **Gebruikers voeren toestemming geven**: deze weergave toont rapporten met betrekking tot toestemming van de gebruiker, zoals de toestemming verleent door de gebruiker, -aanmeldingen door gebruikers die toestemming verleend, evenals aanmeldingen per toepassing voor alle toepassingen op basis van toestemming. 
+* **Azure AD-Account ingericht gebeurtenissen**: Deze weergave toont rapporten met betrekking tot het controleren van inrichting activiteit, zoals het aantal nieuwe gebruikers die zijn ingericht en inrichtingsfouten, aantal gebruikers bijgewerkt en bijwerken van fouten en het aantal gebruikers niet ingericht en bijbehorende fouten.    
+* **Aanmeldingen gebeurtenissen**: Deze weergave toont de meest relevante rapporten met betrekking tot het controleren van de aanmelding, activiteit, zoals aanmeldingen per toepassing, gebruiker, apparaat, evenals een samenvatting weergegeven voor het bijhouden van het aantal aanmeldingen na verloop van tijd.
+* **Gebruikers uitvoeren van toestemming**: Deze weergave toont rapporten met betrekking tot toestemming van de gebruiker, zoals de toestemming verleent door de gebruiker, -aanmeldingen door gebruikers die toestemming verleend, evenals aanmeldingen per toepassing voor alle toepassingen op basis van toestemming. 
 
 Ontdek hoe u [Log Analytics-weergaven voor Azure AD-activiteitenlogboeken installeert en gebruikt](howto-install-use-log-analytics-views.md). 
 

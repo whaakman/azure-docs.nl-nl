@@ -3,19 +3,19 @@ title: Gebruikers beheren in Azure Active Directory B2C | Microsoft Docs
 description: Informatie over het identificeren van minderjarigen, datum van geboortedatum en land-gegevens verzamelen en acceptatie van gebruiksvoorwaarden ophalen in uw toepassing met behulp van Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056680"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852028"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gebruikers beheren in Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Toepassingen en organisaties kunnen besluiten te blokkeren minderjarigen met beh
 
 Als een gebruiker wordt geïdentificeerd als een minderjarige, kunt u de gebruikersstroom instellen in Azure AD B2C op een van drie opties:
 
-- **Een ondertekende JWT-id_token verzenden naar de toepassing**: de gebruiker is geregistreerd in de map en een token wordt geretourneerd naar de toepassing. De toepassing wordt vervolgens voortgezet door toe te passen van bedrijfsregels. De toepassing kan bijvoorbeeld een proces ouderlijke toestemming voortzetten. Kies voor het gebruik van deze methode voor het ontvangen van de **ageGroup** en **consentProvidedForMinor** claims van de toepassing.
+- **Een ondertekende JWT-id_token verzenden naar de toepassing**: De gebruiker is geregistreerd in de map en een token wordt geretourneerd naar de toepassing. De toepassing wordt vervolgens voortgezet door toe te passen van bedrijfsregels. De toepassing kan bijvoorbeeld een proces ouderlijke toestemming voortzetten. Kies voor het gebruik van deze methode voor het ontvangen van de **ageGroup** en **consentProvidedForMinor** claims van de toepassing.
 
-- **Verzenden van een niet-ondertekende JSON-token naar de toepassing**: aan de toepassing in Azure AD B2C meldt dat de gebruiker een minderjarige en bevat informatie over de status van de ouderlijke toestemming van de gebruiker. De toepassing wordt vervolgens voortgezet door toe te passen van bedrijfsregels. Een geslaagde verificatie met de toepassing niet wordt voltooid door een JSON-token. De toepassing moet verwerken van de niet-geverifieerde gebruiker op basis van de claims die zijn opgenomen in het JSON-token, waaronder **naam**, **e**, **ageGroup**, en **consentProvidedForMinor**.
+- **Verzenden van een niet-ondertekende JSON-token naar de toepassing**: Azure AD B2C worden de toepassing op de hoogte gebracht dat de gebruiker een minderjarige en bevat informatie over de status van de ouderlijke toestemming van de gebruiker. De toepassing wordt vervolgens voortgezet door toe te passen van bedrijfsregels. Een geslaagde verificatie met de toepassing niet wordt voltooid door een JSON-token. De toepassing moet verwerken van de niet-geverifieerde gebruiker op basis van de claims die zijn opgenomen in het JSON-token, waaronder **naam**, **e**, **ageGroup**, en **consentProvidedForMinor**.
 
-- **Blokkeren dat de gebruiker**: als een gebruiker een minderjarige is en ouderlijke toestemming is niet opgegeven, Azure AD B2C kunt aan de gebruiker weten dat hij of zij is geblokkeerd. Geen token is uitgegeven, de toegang is geblokkeerd en het gebruikersaccount dat is niet gemaakt tijdens een reis registratie. Voor het implementeren van deze melding, bieden u een geschikte inhoud HTML/CSS-pagina om te informeren over de gebruiker en de juiste opties voor aanwezig. Er is geen verdere actie vereist door de toepassing voor nieuwe registraties.
+- **Blokkeren dat de gebruiker**: Als een gebruiker een minderjarige is en ouderlijke toestemming is niet opgegeven, Azure AD B2C kan de gebruiker waarschuwen dat hij of zij is geblokkeerd. Geen token is uitgegeven, de toegang is geblokkeerd en het gebruikersaccount dat is niet gemaakt tijdens een reis registratie. Voor het implementeren van deze melding, bieden u een geschikte inhoud HTML/CSS-pagina om te informeren over de gebruiker en de juiste opties voor aanwezig. Er is geen verdere actie vereist door de toepassing voor nieuwe registraties.
 
 ## <a name="get-parental-consent"></a>Er is ouderlijke toestemming ophalen
 
@@ -60,7 +60,7 @@ Voor meer informatie over **legalAgeGroupClassification**, **consentProvidedForM
 
 ## <a name="gather-date-of-birth-and-country-data"></a>Datum van geboortedatum en land-gegevens verzamelen
 
-Toepassingen mogelijk afhankelijk van de Azure AD B2C voor het verzamelen van de datum van de geboortedatum (geboortedatum) en het land van alle gebruikers tijdens de registratie. Als deze informatie nog niet bestaat, de toepassing kan aanvragen het van de gebruiker tijdens de volgende reis van verificatie (aanmelden). Gebruikers kunnen niet worden voortgezet zonder op te geven hun geboortedatum en land. Azure AD B2C gebruikt de informatie om te bepalen of de afzonderlijke wordt beschouwd als een minderjarige op basis van het wettelijk verplichte standaarden van dat land/die regio. 
+Toepassingen mogelijk afhankelijk van de Azure AD B2C voor het verzamelen van de datum van de geboortedatum (geboortedatum) en het land van alle gebruikers tijdens de registratie. Als deze informatie nog niet bestaat, de toepassing kan aanvragen het van de gebruiker tijdens de volgende reis van verificatie (aanmelden). Gebruikers kunnen niet worden voortgezet zonder op te geven hun geboortedatum en land. Azure AD B2C gebruikt de informatie om te bepalen of de afzonderlijke wordt beschouwd als een minderjarige op basis van het wettelijk verplichte standaarden van dat land. 
 
 Een aangepaste gebruikersstroom kunt verzamelen geboortedatum en landinformatie en gebruik Azure AD B2C claims transformatie om te bepalen de **ageGroup** en het resultaat blijven (of blijven de geboortedatum en landinformatie rechtstreeks) in de map.
 

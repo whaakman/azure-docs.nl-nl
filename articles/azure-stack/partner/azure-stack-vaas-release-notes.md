@@ -13,18 +13,28 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce16ab3b723b9a6c87c7b980e3cc76c389609da6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319644"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847898"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Opmerkingen bij de release voor validatie als een Service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 In dit artikel heeft de opmerkingen bij de release voor Azure Stack-validatie als een Service.
+
+## <a name="version-405"></a>Versie 4.0.5
+2019 17 januari
+
+-  Test van schijf-ID bijgewerkt naar adres storage pool inconsistenties. Versie: 5.1.14.0  -> 5.1.15.0
+-  Azure Stack maandelijkse Update verificatie bijgewerkt naar adres goedgekeurde software en inhoud validatie inconsistenties. Versie: 5.1.14.0  -> 5.1.15.0
+-  OEM-extensie pakket verificatie bijgewerkt Voer vereiste controles uit *voordat* de stap van de update Azure Stack. Versie: 5.1.14.0  -> 5.1.15.0
+-  Interne oplossingen voor problemen
+
+
 
 ## <a name="version-402"></a>Versie 4.0.2
 

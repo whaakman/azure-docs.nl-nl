@@ -4,7 +4,7 @@ description: Kiezen tussen Azure AD Join en Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: ergreenl
-ms.openlocfilehash: 275f537511f721ea3f01c22a962462bab458129c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8db95f0bcc715967bf942827c140312572b03095
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156576"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853966"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Kiezen tussen Azure Active Directory join en Azure Active Directory Domain Services
 Dit artikel wordt beschreven verschillen tussen koppelen aan Azure Active Directory (AD) en Azure AD Domain Services en zorgt die u ervoor kiest, op basis van uw use cases.
@@ -58,7 +58,7 @@ Op een machine domein gebruikersverificatie gebeurt met behulp van NTLM of Kerbe
 |:---| --- | --- |
 | Apparaat wordt beheerd door | Azure AD | Azure AD Domain Services beheerde domein |
 | Weergave in de map | Apparaatobjecten in de Azure AD-directory. | Computerobjecten in de beheerde AAD-DS-domein. |
-| Verificatie | Protocollen op basis van OAuth/OpenID Connect | Kerberos, NTLM-protocollen |
+| Verificatie | Protocollen op basis van OAuth/OpenID Connect | Kerberos, NTLM protocols |
 | Beheer | Mobile Device Management (MDM)-software, zoals Intune | Groepsbeleid |
 | Netwerken | Werkt via internet | Machines zich in hetzelfde virtuele netwerk bevinden als het beheerde domein vereist.|
 | Ideaal voor... | Mobiel of desktop-apparaten van eindgebruikers | Server virtuele machines geïmplementeerd in Azure |

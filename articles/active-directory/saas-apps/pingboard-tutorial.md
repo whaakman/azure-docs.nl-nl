@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 794e3f6fe568d76f0687caa36709185f2a538270
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 02aabb9260cb0140b61091a8002f70d464091ddd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436097"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Zelfstudie: Azure Active Directory-integratie met Pingboard
 
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Pingboard, moet u de volgende 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Pingboard in Azure AD, moet u Pingbo
 
 **Als u wilt toevoegen Pingboard uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -70,13 +70,13 @@ Voor het configureren van de integratie van Pingboard in Azure AD, moet u Pingbo
 
 1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **Pingboard**, selecteer **Pingboard** van resultaat deelvenster en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Pingboard in de lijst met resultaten](./media/pingboard-tutorial/tutorial_pingboard_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Pingboard op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -86,13 +86,13 @@ Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Pingboard, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker Pingboard](#create-a-pingboard-test-user)**  : als u wilt een equivalent van Britta Simon in Pingboard die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Pingboard.
 
@@ -100,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **Pingboard** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 1.  Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
@@ -112,7 +112,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. In de **id** tekstvak typt u de waarde als: `http://app.pingboard.com/sp`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
 1. Controleer **geavanceerde URL-instellingen weergeven**, als u wilt configureren van de toepassing in **SP** modus gestart:
 
@@ -121,15 +121,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
      In de **aanmeldings-URL** tekstvak typt u de URL met behulp van het volgende patroon: `https://<sub-domain>.pingboard.com/sign_in`
 
     > [!NOTE]
-    > Houd er rekening mee dat deze waarden niet echt zijn. Werk deze waarden met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Pingboard Client ondersteuningsteam](https://support.pingboard.com/) om deze waarden te verkrijgen.
+    > Houd er rekening mee dat deze waarden niet echt zijn. Werk deze waarden bij met de echte antwoord-URL en aanmeldings-URL. Neem contact op met [Pingboard Client ondersteuningsteam](https://support.pingboard.com/) om deze waarden te verkrijgen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 
-    ![Pingboard metagegevens-xml](./media/pingboard-tutorial/tutorial_pingboard_certificate.png)
+    ![Pingboard metadata xml](./media/pingboard-tutorial/tutorial_pingboard_certificate.png)
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/pingboard-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/pingboard-tutorial/tutorial_general_400.png)
 
 1. Voor het configureren van eenmalige aanmelding Pingboard aan, opent u een nieuw browservenster en meld u aan bij uw Pingboard Account. U moet een beheerder Pingboard voor het instellen van eenmalige aanmelding.
 
@@ -151,7 +151,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Het bestand is gevalideerd, en als alles klopt, eenmalige aanmelding wordt nu zijn ingeschakeld.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -161,11 +161,11 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop](./media/pingboard-tutorial/create_aaduser_01.png) 
+    ![De knop Azure Active Directory](./media/pingboard-tutorial/create_aaduser_01.png) 
 
 1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/pingboard-tutorial/create_aaduser_02.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](./media/pingboard-tutorial/create_aaduser_02.png)
 
 1. Aan de bovenkant van het dialoogvenster, klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
 
@@ -173,7 +173,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
 
-    ![Het dialoogvenster gebruiker](./media/pingboard-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster Gebruiker](./media/pingboard-tutorial/create_aaduser_04.png)
 
     a. In de **naam** tekstvak, type **BrittaSimon**.
 
@@ -185,9 +185,9 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="create-a-pingboard-test-user"></a>Maak een testgebruiker Pingboard
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Pingboard. Pingboard ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. Meer informatie vindt u [hier](pingboard-provisioning-tutorial.md) voor het automatisch inrichten van gebruikers configureren.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Pingboard. Pingboard ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. U kunt [hier](pingboard-provisioning-tutorial.md) meer informatie vinden over het configureren van het automatisch inrichten van gebruikers.
 
-**Als u moet de gebruiker handmatig hebt gemaakt, voert u de volgende stappen uit:**
+**Als u de gebruiker handmatig moet maken, voert u de volgende stappen uit:**
 
 1. Meld u aan bij uw bedrijf Pingboard site aan als beheerder.
 
@@ -249,7 +249,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 Wanneer u op de tegel Pingboard in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Pingboard.
 

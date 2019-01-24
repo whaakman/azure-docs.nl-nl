@@ -4,7 +4,7 @@ description: Wachtwoordbeleid op beheerde domeinen begrijpen
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: dcc1de5fa0ac1f394d0fe12fd24a1d6e745df83e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bb3ccb3841b60f6c94ac1d6126bd2b0d44af092
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284605"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852691"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Wachtwoord- en accountvergrendelingsbeleid op beheerde domeinen
 In dit artikel wordt uitgelegd dat de standaard-wachtwoordbeleid in een beheerd domein. Ook wordt beschreven hoe u dit beleid kunt configureren.
@@ -59,8 +59,8 @@ Standaard worden de volgende wachtwoordbeleid in een beheerd domein geconfiguree
 ### <a name="account-lockout-settings"></a>Accountvergrendeling
 Het volgende beleid voor accountvergrendeling zijn standaard geconfigureerd op een beheerd domein:
 * Account vergrendelen gedurende: 30
-* Aantal mislukte aanmeldingspogingen toegestaan: 5
-* Mislukte aanmeldingspogingen opnieuw instellen wordt tellen na: 30 minuten
+* Het aantal mislukte aanmeldingspogingen toegestaan: 5
+* Opnieuw instellen van aanmeldingspogingen mislukte tellen na: 30 minuten
 
 Effectief, zijn gebruikersaccounts vergrendeld voor 30 minuten als vijf ongeldige wachtwoorden worden gebruikt binnen twee minuten. Accounts zijn automatisch ontgrendelen na 30 minuten.
 
@@ -113,7 +113,7 @@ Een aangepaste FGPP maken op uw beheerde domein:
   ![FGPP toegepast](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
-> **Toepassen van beleid voor aangepaste wachtwoorden voor gebruikersaccounts in een aangepaste organisatie-eenheid:** goed korrelig wachtwoordbeleid kunnen worden alleen toegepast op groepen. Voor het configureren van een aangepaste wachtwoordbeleid alleen voor gebruikers van een aangepaste organisatie-eenheid, een groep met gebruikers in de organisatie-eenheid te maken.
+> **Toepassen van beleid voor aangepaste wachtwoorden voor gebruikersaccounts in een aangepaste organisatie-eenheid:** Goed korrelig wachtwoordbeleid kunnen worden alleen toegepast op groepen. Voor het configureren van een aangepaste wachtwoordbeleid alleen voor gebruikers van een aangepaste organisatie-eenheid, een groep met gebruikers in de organisatie-eenheid te maken.
 >
 >
 

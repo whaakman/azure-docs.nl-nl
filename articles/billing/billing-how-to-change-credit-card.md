@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7c856a076a3958cdd3aef4134c703128194fcc5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581439"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849784"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Toevoegen, bijwerken of verwijderen van een creditcard of betaalpas nodig voor Azure
 
@@ -32,7 +32,7 @@ In het Accountcentrum, kunt u een nieuwe creditcard toevoegen, een bestaande cre
 
 ## <a name="add-a-new-credit-or-debit-card"></a>Een nieuwe creditcard of betaalpas kaart toevoegen
 
-1. Aanmelden bij de [Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
+1. Aanmelden bij de [Accountcentrum](https://account.windowsazure.com/Subscriptions) als de [accountbeheerder](billing-subscription-transfer.md#whoisaa).
 1. Selecteer een abonnement.
 1. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
 
@@ -49,7 +49,7 @@ Als u een foutmelding krijgt nadat u de creditcard hebt toegevoegd, Zie [creditc
 
 Als uw creditcard wordt vernieuwd en het aantal hetzelfde blijft, moet u de details van de bestaande creditcard is geregistreerd, zoals de datum van afloop voor bijwerken. Als uw creditcard telefoonnummer is gewijzigd omdat de kaart verloren is, gestolen of verlopen, volg de stappen in de [creditcard is geregistreerd als een betalingswijze toevoegen](#addcard) sectie. U hoeft niet te werken van de CVW.
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
+1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de [accountbeheerder](billing-subscription-transfer.md#whoisaa).
 1. Selecteer het abonnement dat gekoppeld aan de kaart.
 1. Selecteer **betalingswijzen beheren**.
 1. Selecteer **bewerken** naast de kaart die u wilt bijwerken.
@@ -58,14 +58,14 @@ Als uw creditcard wordt vernieuwd en het aantal hetzelfde blijft, moet u de deta
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Een andere creditcard gebruiken voor het Azure-abonnement
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
+1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de [accountbeheerder](billing-subscription-transfer.md#whoisaa).
 1. Selecteer het abonnement dat gekoppeld aan de kaart.
 1. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
 1. Klik op **gebruiken in plaats daarvan** naast de kaart die u wilt gebruiken. Dit werkt ook geen andere abonnementen die momenteel zijn gekoppeld aan deze kaart. 
 
 ## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Een creditcard of betaalpas nodig van het account verwijderen
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder.
+1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de [accountbeheerder](billing-subscription-transfer.md#whoisaa).
 1. Selecteer het abonnement dat gekoppeld aan de kaart.
 3. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
 4. Klik op **verwijderen** voor de creditcard die u wilt verwijderen.

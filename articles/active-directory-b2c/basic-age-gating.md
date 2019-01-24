@@ -3,24 +3,24 @@ title: Schakel leeftijdsbeperking in Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over het identificeren van minderjarigen met behulp van uw toepassing.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: ddc4b7b899385eb7388198973460386a4a0af10c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291093"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845769"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Leeftijdsbeperking in Azure Active Directory B2C inschakelen
 
 >[!IMPORTANT]
->Deze functie is beschikbaar als openbare preview. Gebruik de functie niet voor productie-Apps. 
+>Deze functie is beschikbaar voor openbare preview. Gebruik de functie niet voor productie-Apps. 
 >
 
 Leeftijdsbeperking in Azure Active Directory (Azure AD) B2C, kunt u identificeren minderjarigen die uw toepassing gebruiken. U kunt de secundaire zich in de toepassing blokkeren. Gebruikers kunnen ook gaat u terug naar de toepassing en hun leeftijdsgroep en hun status ouderlijke toestemming te identificeren. Azure AD B2C kunt minderjarigen zonder toestemming van ouders blokkeren. Azure AD B2C kan ook worden ingesteld zodat de toepassing om te bepalen wat er moet gebeuren met minderjarigen.
@@ -31,7 +31,7 @@ Azure AD B2C gebruikt de informatie die de gebruiker moet invoeren om te bepalen
 
 Leeftijdsbeperking bestaat uit twee waarden van de leeftijd: de leeftijd die iemand anders niet meer beschouwd als een minderjarige en de leeftijd waarmee een kleine ouderlijke toestemming moet hebben. De volgende tabel bevat de leeftijd regels die worden gebruikt voor het definiëren van een klein en de toestemming van een secundaire vereisen.
 
-| Land | Naam van land/regio | Secundaire toestemming leeftijd | Secundaire leeftijd |
+| Land/regio | Naam van land/regio | Secundaire toestemming leeftijd | Secundaire leeftijd |
 | ------- | ------------ | ----------------- | --------- |
 | Standaard | Geen | Geen | 18 |
 | AE | Verenigde Arabische Emiraten | Geen | 21 |

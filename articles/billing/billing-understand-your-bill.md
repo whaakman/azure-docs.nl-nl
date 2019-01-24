@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584567"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856366"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Meer informatie over uw factuur voor Microsoft Azure
 Voor meer informatie over uw Azure-factuur, vergelijken met uw factuur met de gedetailleerde dagelijks gebruik van bestands- en -rapporten voor de kosten in de Azure-portal.
 
 In dit artikel geldt niet voor Azure-klanten met een Enterprise Agreement (EA-klanten). Als u een EA-klant bent, Zie [meer informatie over uw factuur voor Azure-klanten met een Enterprise Agreement](billing-understand-your-bill-ea.md).  
+
+Voor een uitleg van de werking van facturering in het programma Azure Cloud Solution Provider (Azure CSP), met inbegrip van de facturering cyclus, prijzen en het gebruik, Zie [facturering overzicht van Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
 ## <a name="charges"></a>Uw kosten controleren
 
@@ -33,7 +35,7 @@ In dit artikel geldt niet voor Azure-klanten met een Enterprise Agreement (EA-kl
 
 Als er een kosten in rekening gebracht op uw factuur waarover u meer informatie weergeven wilt, kunt u gebruik en kosten vergelijken met het gebruiksbestand of met de Azure-portal.
 
-### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Optie 1: Gebruik en kosten vergelijken met gebruiksbestand
+### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Optie 1: Gebruik en kosten met gebruiksbestand vergelijken
 
 Het gedetailleerde gebruik CSV-bestand bevat uw kosten per factureringsperiode en het dagelijks gebruik. Als u het bestand, raadpleegt u [ophalen van uw Azure-factuur en de dagelijkse gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md).
 
@@ -42,7 +44,7 @@ De gebruikskosten worden weergegeven op het niveau van de meter. De volgende ter
  | Factuur (PDF-bestand) | Gedetailleerd gebruik (CSV)|
  | --- | --- |
 |Factureringscyclus | Factureringsperiode |
- |Naam |De categorie van de meter |
+ |Name |De categorie van de meter |
  |Type |Subcategorie van de meter |
  |Resource |De naam van de meter |
  |Regio |De regio van de meter |
@@ -69,7 +71,7 @@ Voor meer informatie zie:
 - [Inzicht in uw Azure-factuur](billing-understand-your-invoice.md)
 - [Inzicht in uw gedetailleerde gebruik van Azure](billing-understand-your-invoice.md)
 
-### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Optie 2: Vergelijk het gebruik en kosten met de Azure-portal
+### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Optie 2: Vergelijk de gebruik en kosten met de Azure-portal
 
 De Azure-portal kunt u controleren of uw kosten in rekening gebracht. Als u een kort overzicht van uw gefactureerd gebruik en kosten in rekening gebracht, het beheer van kostengrafieken weergeven
 

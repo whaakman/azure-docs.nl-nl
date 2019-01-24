@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 1807dc67d09b521e66314fb98535fb2c1225d34f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: e1618ded270cddca13145195522d7b42a00d6585
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964550"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841407"
 ---
 De volgende tabel bevat de limieten die aan de verschillende servicelagen (S1, S2, S3, F1) zijn gekoppeld. Voor informatie over de kosten van elke *eenheid* in elke laag raadpleegt u [Prijzen van IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -33,7 +33,7 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 | Maximumaantal apparaat-id's<br/> dat in één aanroep wordt geretourneerd |1000 |
 | Maximale bewaartermijn van IoT Hub-berichten voor apparaat-naar-cloud berichten |7 dagen |
 | Maximale grootte van apparaat-naar-cloud berichten |256 kB |
-| Maximale grootte van apparaat-naar-cloud batch |AMQP en http-: 256 KB voor de hele batch <br/>MQTT: 256 KB voor elk bericht |
+| Maximale grootte van apparaat-naar-cloud batch |AMQP en HTTP: 256 KB voor de hele batch <br/>MQTT: 256 KB voor elk bericht |
 | Maximum aantal berichten in apparaat-naar-cloud batch |500 |
 | Maximale grootte van cloud-naar-apparaat bericht |64 kB |
 | Maximale TTL voor cloud-naar-apparaat berichten |2 dagen |
@@ -48,6 +48,8 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 | Maximum aantal gelijktijdige taken | 10 (voor S3), 5 voor (S2), 1 (voor S1) |
 | Maximaal aantal extra eindpunten | 10 (voor S1, S2, S3) |
 | Maximum aantal regels voor berichtroutering | 100 (voor S1, S2, S3) |
+| Maximum aantal gelijktijdig verbonden apparaat stromen | 50 (voor S1, S2, S3 en alleen F1) |
+| Maximaal stream-gegevensoverdracht | 300 MB per dag (voor S1, S2, S3 en alleen F1) |
 
 
 > [!NOTE]
@@ -72,3 +74,4 @@ De IoT Hub-service vertraagt aanvragen wanneer de volgende quota worden overschr
 | Apparaatdubbel werkt bij | 50 per seconde per eenheid (voor S3), maximaal 10 per seconde of 1 per seconde per eenheid (voor S2), 10 per seconde (voor S1) |
 | Taakbewerkingen <br/> (maken, bijwerken, weergeven, verwijderen) | 83.33/sec/Unit (5000 per minuut per eenheid) (voor S3), 1.67/sec/unit (100 per minuut per eenheid) (voor S2), 1.67/sec/unit (100 per minuut per eenheid) (voor S1) |
 | Doorvoer van taken per apparaat bewerkingen | 50 per seconde per eenheid (voor S3), maximaal 10 per seconde of 1 per seconde per eenheid (voor S2), 10 per seconde (voor S1) |
+| Streamsnelheid voor het initiëren van apparaat | 5 nieuwe stromen per seconde (voor S1, S2, S3 en alleen F1) |

@@ -4,7 +4,7 @@ description: Beheerdershandleiding voor de Atlassian Jira en samenloop gebruiken
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77aba012d4e8d333d6f57f8f6a7a12927e6a35ec
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426873"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820543"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian Jira en samenloop beheerdershandleiding voor Azure Active Directory
 
@@ -67,23 +67,23 @@ Houd rekening met de volgende informatie voordat u de invoegtoepassing installer
 
 De invoegtoepassing biedt ondersteuning voor de volgende versies van Jira en samenloop:
 
-* Jira-Core- en Software: 6.0-7,12
-* Jira-servicedesk: 3.0.0 naar 3.5.0
-* JIRA biedt ook ondersteuning voor 5.2. Voor meer informatie klikt u op [Microsoft Azure Active Directory eenmalige aanmelding voor JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
-* Samenloop: 5.0 naar versie 5.10
-* Samenloop: 6.0.1
-* Samenloop: 6.1.1
-* Samenloop: 6.2.1
-* Samenloop: 6.3.4
-* Samenloop: 6.4.0
-* Samenloop: 6.5.0
-* Samenloop: 6.6.2
-* Samenloop: 6.7.0
-* Samenloop: 6.8.1
-* Samenloop: 6.9.0
-* Samenloop: 6.10.0
-* Samenloop: 6.11.0
-* Samenloop: 6.12.0
+* Jira-Core- en Software: 6.0 – 7.12
+* Jira Service Desk: 3.0.0-3.5.0
+* JIRA ondersteunt ook 5.2. Klik voor meer informatie op [Microsoft Azure Active Directory-eenmalige aanmelding voor JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* Confluence: 5.0 t/m 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ## <a name="installation"></a>Installatie
 
@@ -109,39 +109,39 @@ De volgende afbeelding ziet u het Configuratiescherm in Jira en samenloop:
 
 ![Invoegtoepassing Configuratiescherm](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metagegevens-URL**: de URL voor federatiemetagegevens ophalen uit Azure AD.
+*   **Metagegevens-URL**: De URL voor federatiemetagegevens ophalen uit Azure AD.
 
-*   **Id's**: de URL die Azure AD wordt gebruikt voor het valideren van de bron van de aanvraag. Het wordt toegewezen aan de **id** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/.
+*   **Id's**: De URL die Azure AD wordt gebruikt voor het valideren van de bron van de aanvraag. Het wordt toegewezen aan de **id** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/.
 
-*   **Antwoord-URL**: de antwoord-URL in uw id-provider (IdP) die de SAML-aanmelding initieert. Het wordt toegewezen aan de **antwoord-URL** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/plugins/servlet/saml/auth.
+*   **Antwoord-URL**: De antwoord-URL in uw id-provider (IdP) die de SAML-aanmelding initieert. Het wordt toegewezen aan de **antwoord-URL** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/plugins/servlet/saml/auth.
 
-*   **Meld u URL**: de aanmeldings-URL in de IdP die de SAML-aanmelding initieert. Het wordt toegewezen aan de **aanmelding** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/plugins/servlet/saml/auth.
+*   **Aanmeldings-URL**: De aanmeldings-URL in de IdP die de SAML-aanmelding initieert. Het wordt toegewezen aan de **aanmelding** -element in Azure AD. De invoegtoepassing automatisch afgeleid deze URL als https://*< domein: poort >*/plugins/servlet/saml/auth.
 
-*   **IdP entiteit-ID**: de entiteit-ID die gebruikmaakt van uw id-provider. Dit vak wordt gevuld wanneer de metagegevens-URL opgelost is.
+*   **IdP entiteit-ID**: De entiteit-ID die gebruikmaakt van uw id-provider. Dit vak wordt gevuld wanneer de metagegevens-URL opgelost is.
 
-*   **Aanmeldings-URL**: de URL aanmelden vanaf uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
+*   **Aanmeldings-URL**: De URL aanmelden vanaf uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
 
-*   **Afmeldings-URL van**: de URL voor afmelden van uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
+*   **Afmeldings-URL van**: De URL van de afmelding van uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
 
-*   **X.509-certificaat**: X.509-certificaat van uw id-provider. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
+*   **X.509-certificaat**: Uw IdP x.509-certificaat. Dit vak wordt opgehaald uit Azure AD wanneer de metagegevens-URL opgelost is.
 
-*   **Aanmeldingsnaam van de knop**: de naam van de knop aanmelden die uw organisatie wil dat gebruikers om te zien op de pagina aanmelden.
+*   **Aanmeldingsnaam van de knop**: De naam van de knop aanmelden die uw organisatie wil dat gebruikers om te zien op de pagina aanmelden.
 
-*   **SAML-ID gebruikerslocaties**: de locatie waar de Jira of samenloop gebruikers-ID wordt verwacht in het SAML-antwoord. Kan **NameID** of in de naam van een aangepast kenmerk.
+*   **SAML-ID gebruikerslocaties**: De locatie waar de Jira of samenloop gebruikers-ID wordt verwacht in het SAML-antwoord. Kan **NameID** of in de naam van een aangepast kenmerk.
 
-*   **De naam van het kenmerk**: de naam van het kenmerk waar de gebruikers-ID wordt verwacht.
+*   **De naam van het kenmerk**: De naam van het kenmerk waar de gebruikers-ID wordt verwacht.
 
-*   **Inschakelen van start Realm detectie**: de selectie te maken als het bedrijf met behulp van Active Directory Federation Services (AD FS) - op basis van aanmelding - in.
+*   **Schakel Home Realm Discovery**: De selectie te maken als het bedrijf met behulp van Active Directory Federation Services (AD FS) - op basis van aanmelding - in.
 
-*   **Domeinnaam**: de naam van het domein als de aanmelding is AD FS op basis van.
+*   **Domeinnaam**: De domeinnaam is als aanmelden AD FS op basis van.
 
-*   **Inschakelen van één die afmelden wordt weergegeven**: de selectie te maken als u zich wilt afmelden bij Azure AD wanneer een gebruiker zich afmeldt van Jira of samenloop.
+*   **Inschakelen van één die afmelden wordt weergegeven**: De selectie te maken als u zich wilt afmelden bij Azure AD wanneer een gebruiker zich afmeldt van Jira of samenloop.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-* **U krijgt meerdere certificaatfouten**: aanmelden bij Azure AD en de meerdere certificaten die beschikbaar zijn op basis van de app verwijderen. Zorg ervoor dat slechts één certificaat aanwezig is.
+* **U krijgt meerdere certificaatfouten**: Aanmelden bij Azure AD en de meerdere certificaten die beschikbaar zijn op basis van de app verwijderen. Zorg ervoor dat slechts één certificaat aanwezig is.
 
-* **Een certificaat is bijna verlopen in Azure AD**: invoegtoepassingen regelt automatisch rollover van het certificaat. Wanneer een certificaat bijna verlopen is, een nieuw certificaat moet als actief gemarkeerd en niet-gebruikte certificaten moeten worden verwijderd. Wanneer een gebruiker wil zich aanmelden bij Jira in dit scenario, de invoegtoepassing haalt en slaat het nieuwe certificaat.
+* **Een certificaat is bijna verlopen in Azure AD**: Invoegtoepassingen zorgen voor automatische rollover van het certificaat. Wanneer een certificaat bijna verlopen is, een nieuw certificaat moet als actief gemarkeerd en niet-gebruikte certificaten moeten worden verwijderd. Wanneer een gebruiker wil zich aanmelden bij Jira in dit scenario, de invoegtoepassing haalt en slaat het nieuwe certificaat.
 
 * **U wilt uitschakelen WebSudo (de beheerder van de beveiligde sessie uitschakelen)**:
 
@@ -157,11 +157,11 @@ De volgende afbeelding ziet u het Configuratiescherm in Jira en samenloop:
 
 * **Er is een interne serverfout**: Bekijk de logboeken in de logboekmap van de installatie. Als u krijgt de fout op wanneer de gebruiker wil zich aanmelden met behulp van Azure AD-eenmalige aanmelding, kunt u de logboeken delen met het ondersteuningsteam.
 
-* **Er is een fout 'Gebruikers-ID niet gevonden' wanneer de gebruiker probeert aan te melden bij**: de gebruikers-ID in Jira of samenloop maken.
+* **Er is een fout 'Gebruikers-ID niet gevonden' wanneer de gebruiker probeert aan te melden bij**: Maak de gebruikers-ID in Jira of samenloop.
 
 * **Er is een 'App is niet gevonden'-fout in Azure AD**: Zie als de juiste URL is toegewezen aan de app in Azure AD.
 
-* **U ondersteuning nodig hebt**: contact opnemen met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Het team reageert in 24 tot 48 tijdens kantooruren.
+* **U ondersteuning nodig hebt**: Contact opnemen met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Het team reageert in 24 tot 48 tijdens kantooruren.
 
   U kunt ook een ondersteuningsticket met Microsoft via het Azure-portal kanaal verhogen.
 
@@ -185,23 +185,23 @@ Nee. De invoegtoepassing ondersteunt alleen on-premises versies van Jira en same
 
 De invoegtoepassing biedt ondersteuning voor deze versies:
 
-* Jira-Core- en Software: 6.0-7,12
-* Jira-servicedesk: 3.0.0 naar 3.5.0
-* JIRA biedt ook ondersteuning voor 5.2. Voor meer informatie klikt u op [Microsoft Azure Active Directory eenmalige aanmelding voor JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
-* Samenloop: 5.0 naar versie 5.10
-* Samenloop: 6.0.1
-* Samenloop: 6.1.1
-* Samenloop: 6.2.1
-* Samenloop: 6.3.4
-* Samenloop: 6.4.0
-* Samenloop: 6.5.0
-* Samenloop: 6.6.2
-* Samenloop: 6.7.0
-* Samenloop: 6.8.1
-* Samenloop: 6.9.0
-* Samenloop: 6.10.0
-* Samenloop: 6.11.0
-* Samenloop: 6.12.0
+* Jira-Core- en Software: 6.0 – 7.12
+* Jira Service Desk: 3.0.0-3.5.0
+* JIRA ondersteunt ook 5.2. Klik voor meer informatie op [Microsoft Azure Active Directory-eenmalige aanmelding voor JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* Confluence: 5.0 t/m 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>De invoegtoepassing is gratis of betaald?
 

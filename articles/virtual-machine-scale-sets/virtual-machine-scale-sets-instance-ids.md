@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: f15b2154c1bac4d699af91980a4bc2a7192bb0c9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 5d92aa78b132b661af3cdc53b47c0340a0758dd8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740872"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855309"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Inzicht in de dat exemplaar-id's voor Azure VM-schaalset VM's instellen
 Dit artikel beschrijft de exemplaar-id's voor schaalsets en de verschillende manieren om die ze ontwerpoppervlak voor pijplijnen.
@@ -41,7 +41,7 @@ REST-API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 PowerShell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (Zie voor meer informatie de [Powershell-documentatie](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (Zie voor meer informatie de [CLI-documentatie](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instances)).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (Zie voor meer informatie de [CLI-documentatie](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
 
 U kunt ook [resources.azure.com](https://resources.azure.com) of de [Azure-SDK's](https://azure.microsoft.com/downloads/) om de virtuele machines in een schaalset weer te geven.
 

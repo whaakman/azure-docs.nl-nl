@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360277"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812556"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-architectuur
 
-U kunt de [Azure Backup-service](backup-overview.md) naar back-up van gegevens naar de Microsoft Azure-cloud. In dit artikel bevat een overzicht van Azure Backup-architectuur, onderdelen en processen. 
+U kunt de [Azure Backup-service](backup-overview.md) gebruiken om een back-up van gegevens naar de Microsoft Azure-cloud te maken. In dit artikel bevat een overzicht van Azure Backup-architectuur, onderdelen en processen. 
 
 
 ## <a name="what-does-azure-backup-do"></a>Wat is Azure Backup?
@@ -94,7 +94,7 @@ Opslagverbruik, beoogde hersteltijd (RTO) en netwerkverbruik varieert voor elk t
 
 De volgende tabel geeft een overzicht van functies voor verschillende typen back-up.
 
-**Functie** | **On-premises Windows-computers (direct)** | **Azure VMs** | **Met DPM/MABS-machines/apps**
+**Functie** | **On-premises Windows-computers (direct)** | **Azure VM's** | **Met DPM/MABS-machines/apps**
 --- | --- | --- | ---
 Back-up naar de kluis | ![Ja][green] | ![Ja][green] | ![Ja][green] 
 Back-up naar schijf voor DPM/MABS en Azure | | | ![Ja][green] 
@@ -163,7 +163,7 @@ Back-up van ontdubbelde schijven | | | ![Gedeeltelijk][yellow]<br/><br/> Voor DP
 - Virtuele machines in Azure gebruiken schijven voor het opslaan van hun besturingssysteem, apps en gegevens.
 - Azure virtuele machines hebben ten minste twee schijven. Een voor het besturingssysteem en een tijdelijke schijf. Ze kunnen ook gegevensschijven voor app-gegevens hebben. Schijven zijn opgeslagen als een VHD.
 - VHD's worden opgeslagen als pagina-blobs in de standard- of premium storage-accounts in Azure.
-    - Standard-opslag: Betrouwbare, voordelige schijfondersteuning voor virtuele machines uitvoeren van workloads die niet gevoelig voor latentie zijn. Standard-opslag kunt standard-SSD-schijven of standard-SSD-schijven gebruiken).
+    - Standard-opslag: Betrouwbare, voordelige schijfondersteuning voor virtuele machines uitvoeren van workloads die niet gevoelig voor latentie zijn. Standard-opslag kunt standaardschijven SSD of HDD standaardschijven gebruiken.
     - Premium-opslag: Schijfondersteuning met hoge prestaties. Maakt gebruik van premium SSD-schijven.
 - Er zijn verschillende prestatielagen voor schijven:
     - Standaard harde schijf: Ondersteund door HDD's en gebruikt voor goedkope opslag.
@@ -209,9 +209,9 @@ Wanneer u virtuele machines met beheerde schijven herstelt, kunt u herstellen na
 - [Beoordeling](backup-support-matrix.md) de ondersteuningsmatrix voor meer informatie over ondersteunde functies en beperkingen voor back-upscenario's.
 - Instellen van back-up voor een van de scenario's:
     - [Back-ups maken van Azure-VM's](backup-azure-arm-vms-prepare.md)
-    - [Maak een back-up van Windows-computers rechtstreeks](tutorial-backup-windows-server-to-azure.md), zonder een back-upserver.
-    - [Instellen van MABS](backup-azure-microsoft-azure-backup.md) voor back-up naar Azure, en vervolgens weer van workloads in MABS.
-    - [Instellen van DPM](backup-azure-dpm-introduction.md) voor back-up naar Azure, en vervolgens weer van workloads in DPM.
+    - [Rechtstreeks een back-up maken van Windows-machines](tutorial-backup-windows-server-to-azure.md), zonder een back-upserver.
+    - [MABS instellen](backup-azure-microsoft-azure-backup.md) voor het maken van een back-up naar Azure, en vervolgens een back-up van workloads naar MABS maken.
+    - [DPM instellen](backup-azure-dpm-introduction.md) voor het maken van een back-up naar Azure, en vervolgens een back-up van workloads naar DPM maken.
 
 
 [green]: ./media/backup-architecture/green.png

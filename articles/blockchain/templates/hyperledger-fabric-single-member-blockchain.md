@@ -1,5 +1,5 @@
 ---
-title: Hyperledger Fabric-consortium
+title: Hyperledger Fabric Consortium één lid
 description: De oplossingssjabloon Hyperledger Fabric Consortium gebruiken om te implementeren en configureren van een netwerk met één lid
 services: azure-blockchain
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a6aa6d925d47ad9d24de68342f4a6e76a1d9d81f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231369"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828227"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger Fabric enkel lid netwerk
 
@@ -36,9 +36,9 @@ Deze sjabloon implementeert een topologie om u te helpen bij het testen en produ
 
 Het netwerk bestaat uit drie soorten knooppunten:
 
-1. **Lid knooppunt**: een knooppunt met de service voor het lidmaatschap van Fabric die wordt geregistreerd en leden van het netwerk beheert. Dit knooppunt kan worden geclusterd voor schaalbaarheid en hoge beschikbaarheid; Maar in dit lab, een lid van één knooppunt zal worden gebruikt.
-2. **Besteller knooppunten**: een knooppunt met de implementatie van een garantie levering, zoals Totaal communicatieservice bestellen broadcast of atomic-transacties.
-3. **Knooppunten op hetzelfde niveau**: een knooppunt dat transacties doorgevoerd en onderhoudt de status en een kopie van het gedistribueerde grootboek.
+1. **Lid knooppunt**: Een knooppunt waarop de service voor het lidmaatschap van Fabric die wordt geregistreerd en leden van het netwerk beheert. Dit knooppunt kan worden geclusterd voor schaalbaarheid en hoge beschikbaarheid; Maar in dit lab, een lid van één knooppunt zal worden gebruikt.
+2. **Besteller knooppunten**: Een knooppunt waarop de implementatie van een garantie levering, zoals totale volgorde broadcast of atomic-transacties communicatieservice wordt uitgevoerd.
+3. **Knooppunten op hetzelfde niveau**: Een knooppunt dat transacties doorgevoerd en onderhoudt de status en een kopie van het gedistribueerde grootboek.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -59,7 +59,7 @@ Nadat u een abonnement hebt, gaat u naar de [Azure-portal](https://portal.azure.
 
 Als u wilt starten, selecteert u de **Hyperledger Fabric één lid Blockchain** en klikt u op **maken** openen de **basisbeginselen** blade in de wizard.
 
-De sjabloonimplementatie begeleidt u bij het configureren van het netwerk met meerdere knooppunten. De stroom van de implementatie is onderverdeeld in drie stappen: basisbeginselen, netwerkconfiguratie en configuratie van de Infrastructuurresources.
+De sjabloonimplementatie begeleidt u bij het configureren van het netwerk met meerdere knooppunten. De stroom van de implementatie is onderverdeeld in drie stappen: Basisbeginselen, netwerkconfiguratie en configuratie van de Infrastructuurresources.
 
 ### <a name="basics"></a>Basisbeginselen
 
@@ -67,7 +67,7 @@ In de **basisbeginselen** blade waarden opgeven voor standard parameters voor el
 
 ![Basisbeginselen](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
-Parameternaam| Beschrijving| Toegestane waarden|Standaardwaarde
+Parameternaam| Description| Toegestane waarden|Standaardwaarde
 ---|---|---|---
 **Voorvoegsel van de resource**| Een tekenreeks die wordt gebruikt als basis voor de naam van de geïmplementeerde resources.|6 tekens of minder|N.v.t.
 **VM-gebruikersnaam**| De gebruikersnaam van de beheerder voor elk van de virtuele machines die zijn geïmplementeerd voor dit lid.|1 - 64 tekens|azureuser
@@ -86,7 +86,7 @@ Vervolgens in **grootte en prestaties, het netwerk** invoer voor de grootte van 
 
 ![Netwerkgrootte en prestaties](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
-Parameternaam| Beschrijving| Toegestane waarden|Standaardwaarde
+Parameternaam| Description| Toegestane waarden|Standaardwaarde
 ---|---|---|---
 **Aantal knooppunten dat lidmaatschap**|Het aantal knooppunten waarop de lidmaatschapsservice wordt uitgevoerd. Bekijk voor meer informatie over de lidmaatschapsservice beveiliging & Lidmaatschapsservices onder de Hyperledger [documentatie](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />Deze waarde is momenteel beperkt tot 1 knooppunt, maar wij van plan bent te scale-out via clustering in de volgende wijziging.|1| 1
 **Aantal besteller knooppunten** |Het aantal knooppunten dat bestellen (organiseren) transacties in een blok.--> deze instructie is gaat en verwarrend zijn. Voor meer informatie over de volgorde-service, gaat u naar de Hyperledger [documentatie](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />Deze waarde is momenteel beperkt tot 1 knooppunt. |1 |1
@@ -100,7 +100,7 @@ Ten slotte onder **Infrastructuurinstellingen**, infrastructuur-gerelateerde con
 
 ![Fabric-instellingen](./media/hyperledger-fabric-single-member-blockchain/fabric-settings.png)
 
-Parameternaam| Beschrijving| Toegestane waarden|Standaardwaarde
+Parameternaam| Description| Toegestane waarden|Standaardwaarde
 ---|---|---|---
 **Bootstrap-gebruikersnaam**| De eerste gebruiker die wordt geregistreerd met de lid-services in het geïmplementeerde netwerk gemachtigd.|9 of minder tekens|beheerder
 **Bootstrap-gebruikerswachtwoord voor CA-infrastructuur**|Het administrator-wachtwoord gebruikt voor het beveiligen van de Fabric-CA-account in het lidmaatschap van knooppunt geïmporteerd.<br /><br />Het wachtwoord moet bestaan uit één hoofdletter, één kleine letter en één cijfer.|12 of meer tekens|N.v.t.
@@ -137,7 +137,7 @@ Het scherm met details ziet u een samenvatting van de implementatie, gevolgd doo
 - De _VOORVOEGSEL_ , ook wel genoemd _implementatie voorvoegsel_ , unieke wijze identificeert en uw implementatie van uw resources. Deze worden gebruikt bij het gebruik van de opdrachtregelprogramma's op basis van.
 - De _SSH eerste VM-_ biedt u een vooraf samengesteld ssh-opdracht met de juiste parameters vereist voor het verbinding maken met de eerste virtuele machine in uw netwerk. Voor Hyperledger Fabric worden de Fabric-CA-knooppunt.
 
-U kunt op afstand verbinding maken met de virtuele machines voor elk knooppunt via SSH met uw beheerder opgegeven gebruikersnaam en het wachtwoord/SSH-sleutel. Omdat het knooppunt VM's geen hun eigen openbare IP-adressen, moet u om te gaan via de load balancer en het poortnummer opgeven. De SSH-opdracht voor toegang tot het eerste knooppunt van de transactie is de sjabloonuitvoer van de derde ** SSH naar eerste VM (voor de Voorbeeldimplementatie: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Verhogen om door te gaan naar de knooppunten van extra transactielogboeken, het poortnummer dat door een (bijvoorbeeld het eerste knooppunt van de transactie is op poort 3000, de tweede is 3001, de derde is op 3002, enz.).
+U kunt op afstand verbinding maken met de virtuele machines voor elk knooppunt via SSH met uw beheerder opgegeven gebruikersnaam en het wachtwoord/SSH-sleutel. Omdat het knooppunt VM's geen hun eigen openbare IP-adressen, moet u om te gaan via de load balancer en het poortnummer opgeven. De SSH-opdracht voor toegang tot het eerste knooppunt van de transactie is de sjabloonuitvoer van de derde *SSH eerste VM-* (voor de Voorbeeldimplementatie: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Verhogen om door te gaan naar de knooppunten van extra transactielogboeken, het poortnummer dat door een (bijvoorbeeld het eerste knooppunt van de transactie is op poort 3000, de tweede is 3001, de derde is op 3002, enz.).
 
 ## <a name="next-steps"></a>Volgende stappen
 

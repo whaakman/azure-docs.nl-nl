@@ -3,7 +3,7 @@ title: App-wachtwoorden in Azure Active Directory beheren | Microsoft Docs
 description: Deze pagina helpt gebruikers begrijpen wat de app-wachtwoorden zijn en wat ze worden gebruikt voor met betrekking tot verificatie in twee stappen.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 80b04f723c4e5b7ea541833df7575be763001ace
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300910"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827632"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>App-wachtwoorden voor verificatie in twee stappen beheren
 
@@ -49,7 +49,7 @@ U kunt maken en verwijderen van app-wachtwoorden via de MyApps-portal.
 
 ### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Het maken van een app-wachtwoord met behulp van de MyApps-portal
 
-1. Aanmelden bij [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Meld u aan bij [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 2. Selecteer uw naam rechtsboven en kies **profiel**.
 

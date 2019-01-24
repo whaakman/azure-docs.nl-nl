@@ -2,18 +2,19 @@
 title: Isolatie van Azure Service Bus-toepassingen tegen uitval en noodgevallen | Microsoft Docs
 description: Technieken voor het beveiligen van toepassingen op basis van een potentieel Service Bus-uitval.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 85481deceeadaf4154659d35fccf777f489bd782
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393704"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846707"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Aanbevolen procedures voor de isolatie van toepassingen op basis van Service Bus-uitval en noodgevallen afhandelen
 
@@ -69,8 +70,8 @@ Passieve replicatie is in het algemeen voordeliger dan de actieve replicatie omd
 
 Als u passieve replicatie gebruikt, in de volgende scenario's kunnen berichten zoekraken of worden twee keer ontvangen:
 
-* **Bericht vertraging of verlies**: wordt ervan uitgegaan dat de afzender een m1 bericht verzonden naar de primaire wachtrij, klikt u vervolgens de wachtrij niet beschikbaar is voordat de ontvanger m1 ontvangt. De afzender verzendt een m2 daaropvolgende bericht naar de secundaire wachtrij. Als de primaire wachtrij tijdelijk niet beschikbaar is, ontvangt de ontvanger m1 nadat de wachtrij weer beschikbaar wordt. In geval van een ramp ontvangt de ontvanger mogelijk nooit m1.
-* **Dubbele ontvangst**: wordt ervan uitgegaan dat de afzender een bericht m naar de primaire wachtrij verzendt. Service Bus m verwerkt is, maar om een antwoord te verzenden is mislukt. Nadat er is een time-out opgetreden voor de bewerking voor het verzenden, verzendt de afzender een identieke kopie van m naar de secundaire wachtrij. Als de ontvanger kan de eerste kopie van m ontvangen voordat de primaire wachtrij niet beschikbaar is, ontvangt de ontvanger beide exemplaren van m op ongeveer hetzelfde moment. Als de ontvanger niet kan ontvangen van de eerste kopie van m voordat de primaire wachtrij niet beschikbaar is, wordt de ontvanger in eerste instantie ontvangt alleen het tweede exemplaar van m, maar u ontvangt vervolgens een tweede exemplaar van m wanneer de primaire wachtrij beschikbaar komt.
+* **Bericht vertraging of verlies**: Wordt ervan uitgegaan dat de afzender een m1 bericht naar de primaire wachtrij verzonden en vervolgens de wachtrij niet beschikbaar is voordat de ontvanger m1 ontvangt. De afzender verzendt een m2 daaropvolgende bericht naar de secundaire wachtrij. Als de primaire wachtrij tijdelijk niet beschikbaar is, ontvangt de ontvanger m1 nadat de wachtrij weer beschikbaar wordt. In geval van een ramp ontvangt de ontvanger mogelijk nooit m1.
+* **Dubbele ontvangst**: Wordt ervan uitgegaan dat de afzender een bericht m naar de primaire wachtrij verzendt. Service Bus m verwerkt is, maar om een antwoord te verzenden is mislukt. Nadat er is een time-out opgetreden voor de bewerking voor het verzenden, verzendt de afzender een identieke kopie van m naar de secundaire wachtrij. Als de ontvanger kan de eerste kopie van m ontvangen voordat de primaire wachtrij niet beschikbaar is, ontvangt de ontvanger beide exemplaren van m op ongeveer hetzelfde moment. Als de ontvanger niet kan ontvangen van de eerste kopie van m voordat de primaire wachtrij niet beschikbaar is, wordt de ontvanger in eerste instantie ontvangt alleen het tweede exemplaar van m, maar u ontvangt vervolgens een tweede exemplaar van m wanneer de primaire wachtrij beschikbaar komt.
 
 De [Geo-replicatie met Service Bus brokered berichten] [ Geo-replication with Service Bus Brokered Messages] voorbeeld laat zien passieve replicatie van berichtentiteiten.
 

@@ -3,7 +3,7 @@ title: Uw wachtwoord beveiligingsgegevens - Azure Active Directory met opnieuw i
 description: Hoe u uw eigen wachtwoord opnieuw instellen als u dit bent vergeten, met behulp van uw gegevens en verificatie in twee stappen beveiligingsverificatie.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348319"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815936"
 ---
 # <a name="reset-your-work-or-school-password"></a>Uw werk- of schoolaccount wachtwoord opnieuw instellen
 
-Als u uw wachtwoord bent vergeten, nooit hebt u een van de bedrijfsondersteuning of hebben toegang tot uw account is geblokkeerd, kunt u uw beveiligingsgegevens en uw mobiele apparaat om uw wachtwoord opnieuw in te gebruiken.
+Als u uw wachtwoord bent vergeten, nooit een wachtwoord van bedrijfsondersteuning hebt ontvangen, of uw account is vergrendeld, kunt u uw beveiligingsgegevens en mobiele apparaat gebruiken om uw wachtwoord opnieuw in te stellen.
 
 >[!NOTE]
 >Als u uw wachtwoord weet en u wilt wijzigen, gaat u naar de [Wijzig je wachtwoord](#how-to-change-your-password) stappen in dit artikel.<br><br>
@@ -154,12 +154,12 @@ Als de beheerder de functie ingeschakeld, ziet u een koppeling naar **wachtwoord
 
 Hier volgen enkele algemene foutgevallen en hun oplossingen:
 
-|Probleem|Beschrijving|Oplossing|
+|Probleem|Description|Oplossing|
 | --- | --- | --- |
 |Wanneer ik wil mijn wachtwoord wijzigen, verschijnt een foutbericht. |Uw wachtwoord bevat een woord, woordgroep of patroon dat uw wachtwoord gemakkelijk te raden maakt.| Probeer het opnieuw met een sterker wachtwoord.|
 |Wanneer ik mijn gebruikers-ID hebt ingevoerd, ga ik naar een pagina die "Neem contact op met uw beheerder."|Microsoft heeft vastgesteld dat het wachtwoord van uw gebruikersaccount wordt beheerd door uw beheerder in een on-premises omgeving. U kunt uw wachtwoord via de koppeling "Geen toegang tot uw account" als gevolg hiervan niet herstellen. |Neem contact op met uw beheerder voor meer informatie.|
 |Wanneer ik mijn gebruikers-ID hebt ingevoerd, verschijnt een foutbericht dat aangeeft dat deze, "uw account is niet ingeschakeld voor wachtwoord opnieuw instellen."|De beheerder nog niet instellen van uw account zodat u kunt uw eigen wachtwoord opnieuw instellen.|Uw beheerder voor wachtwoord opnieuw instellen voor uw organisatie via de koppeling 'Geen toegang tot uw account' nog niet is ingeschakeld, of u voor het gebruik van de functie nog niet is gelicentieerd.<br><br> Als u wilt uw wachtwoord opnieuw instellen, moet u de "Neem contact op met de koppeling van een beheerder' een e-mailbericht verzenden naar de beheerder van uw bedrijf en laten weten dat u wilt uw wachtwoord opnieuw instellen.|
-|Wanneer ik mijn gebruikers-ID hebt ingevoerd, verschijnt een foutbericht dat aangeeft dat deze, "Kan niet controleren We uw account."|De aanmeldprocedure kon om te controleren of uw accountgegevens.|Er zijn twee redenen waarom dat u dit bericht kan zien.<br><br>1. De beheerder ingeschakeld voor wachtwoordherstel voor uw organisatie, maar u dit nog niet hebt geregistreerd voor het gebruik van de service. Als u wilt registreren voor wachtwoord opnieuw instellen, Zie een van de volgende artikelen, op basis van de verificatiemethode: [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app (preview)](security-info-setup-auth-app.md), [beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep (preview)](security-info-setup-phone-number.md), [Beveiligingsgegevens instellen voor het gebruik van SMS-berichten verzenden (preview)](security-info-setup-text-msg.md), [beveiligingsgegevens ingesteld voor het gebruik van e-mailadres (preview)](security-info-setup-email.md), of [beveiligingsgegevens ingesteld voor het gebruik van vragen over de beveiliging (preview) ](security-info-setup-questions.md).<br><br>2. De beheerder nog niet is ingeschakeld voor wachtwoord opnieuw instellen voor uw organisatie. In dit geval moet u de "Neem contact op met de koppeling van een beheerder' voor het verzenden van een e-mailbericht naar uw beheerder, vraagt u om uw wachtwoord opnieuw instellen.|
+|Wanneer ik mijn gebruikers-ID hebt ingevoerd, verschijnt een foutbericht dat aangeeft dat deze, "Kan niet controleren We uw account."|De aanmeldprocedure kon om te controleren of uw accountgegevens.|Er zijn twee redenen waarom dat u dit bericht kan zien.<br><br>1. De beheerder ingeschakeld voor wachtwoordherstel voor uw organisatie, maar u dit nog niet hebt geregistreerd voor het gebruik van de service. Als u wilt registreren voor wachtwoord opnieuw instellen, ziet u een van de volgende artikelen, op basis van de verificatiemethode: [Beveiligingsgegevens ingesteld voor het gebruik van een verificator-app (preview)](security-info-setup-auth-app.md), [beveiligingsgegevens ingesteld voor het gebruik van een telefonische oproep (preview)](security-info-setup-phone-number.md), [beveiligingsgegevens instellen voor het gebruik van SMS-berichten verzenden (preview)](security-info-setup-text-msg.md), [ Beveiligingsgegevens ingesteld voor het gebruik van e-mailadres (preview)](security-info-setup-email.md), of [beveiligingsgegevens ingesteld voor het gebruik van vragen over de beveiliging (preview)](security-info-setup-questions.md).<br><br>2. De beheerder nog niet is ingeschakeld voor wachtwoord opnieuw instellen voor uw organisatie. In dit geval moet u de "Neem contact op met de koppeling van een beheerder' voor het verzenden van een e-mailbericht naar uw beheerder, vraagt u om uw wachtwoord opnieuw instellen.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

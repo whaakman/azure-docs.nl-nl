@@ -3,19 +3,19 @@ title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Geef het ContentDefinitions-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f51b058b14525cc5a4af312696330a3a39ea44e1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 1fa5688b5895ed7418161234f6af06fecace631c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381357"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849376"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -61,25 +61,25 @@ De metagegevens van de **LocalAccountSignUpWithLogonEmail** zelf door de bevesti
 
 De **ContentDefinition** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id voor een inhoudsdefinitie. De waarde is opgegeven in de **definitie-id's van inhoud** verderop in deze pagina. |
 
 De **ContentDefinition** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Een tekenreeks is die de URL van het HTML5-pagina voor de definitie van de inhoud bevat. |
 | RecoveryUri | 0:1 | Een tekenreeks is die de URL van de HTML-pagina voor het weergeven van een fout met betrekking tot de definitie van de inhoud bevat. | 
-| gegevens-URI die | 1:1 | Een tekenreeks zijn met de relatieve URL van een HTML-bestand met de ervaring van de gebruiker om aan te roepen voor de stap. |  
+| DataUri | 1:1 | Een tekenreeks zijn met de relatieve URL van een HTML-bestand met de ervaring van de gebruiker om aan te roepen voor de stap. |  
 | Metagegevens | 1:1 | Een verzameling van sleutel/waarde-paren die de metagegevens gebruikt door de definitie van de inhoud bevat. | 
 | LocalizedResourcesReferences | 0:1 | Een verzameling van gelokaliseerde bronnen verwijzingen. Dit element gebruiken om aan te passen de lokalisatie van een gebruikerskenmerk voor interface en claims. |
 
-### <a name="datauri"></a>gegevens-URI die
+### <a name="datauri"></a>DataUri
 
 De **gegevens-URI die** element wordt gebruikt om op te geven van de pagina-id. Azure AD B2C maakt gebruik van de id van de pagina te laden en UI-elementen en clientzijde JavaScript initiëren. De indeling van de waarde is `urn:com:microsoft:aad:b2c:elements:page-name:version`.  De volgende tabel bevat van de pagina-id die u kunt gebruiken.
 
-| Waarde |   Beschrijving |
+| Waarde |   Description |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Een foutpagina weergegeven als er een uitzondering of een fout wordt aangetroffen. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Een lijst met de id-providers die gebruikers uit tijdens het aanmelden kiezen kunnen. | 
@@ -93,13 +93,13 @@ De **gegevens-URI die** element wordt gebruikt om op te geven van de pagina-id. 
 
 De **LocalizedResourcesReferences** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1: n | Een lijst met gelokaliseerde resource-verwijzingen voor de definitie van de inhoud. | 
 
 De **LocalizedResourcesReferences** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | Taal | Ja | Een tekenreeks met een ondersteunde taal voor het beleid per RFC 5646 - Tags voor talen te identificeren. |
 | LocalizedResourcesReferenceId | Ja | De id van de **LocalizedResources** element. |
@@ -141,9 +141,9 @@ Zie voor meer informatie over lokalisatieondersteuning voor toevoegen aan uw inh
 
 Het kenmerk ID van de **ContentDefinition** element Hiermee geeft u het type van de pagina die is gekoppeld aan de definitie van de inhoud. Het element definieert de context die u een aangepaste HTML5/CSS-sjabloon wilt toepassen. De volgende tabel beschrijft de set inhoudsdefinitie id's die wordt herkend door de Identiteitservaring-Framework en de typen van de pagina's die betrekking hebben op deze. U kunt uw eigen inhoudsdefinities maken met een willekeurige ID.
 
-| Id | Standaardsjabloon | Beschrijving | 
+| Id | Standaardsjabloon | Description | 
 | -- | ---------------- | ----------- |
-| **api.error** | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina** : geeft een fout weergeeft wanneer een uitzondering of een fout is opgetreden. |
+| **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina** : geeft een fout weergeeft wanneer een uitzondering of een fout is opgetreden. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina voor het id-provider selecteren** -een lijst met id-providers die gebruikers uit tijdens het aanmelden kiezen kunnen. De opties zijn meestal enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |
 | **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Selectie van de id-provider voor aanmelding bij** -een lijst met id-providers die gebruikers uit tijdens de registratie kiezen kunnen. De opties zijn meestal enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |
 | **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina voor vergeten wachtwoorden** -een formulier die gebruikers moeten worden voltooid voor het starten van een wachtwoord opnieuw instellen wordt weergegeven. |
@@ -151,6 +151,6 @@ Het kenmerk ID van de **ContentDefinition** element Hiermee geeft u het type van
 | **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Pagina voor het registreren van lokale account** -een formulier om zich te registreren voor een lokaal account dat gebaseerd op een e-mailadres of de naam van een gebruiker wordt weergegeven. Het formulier kan bevatten verschillende besturingselementen voor tekstinvoer, zoals: invoer een text box, een wachtwoordinvoervak, een keuzerondje, vervolgkeuzelijsten enkelvoudige selectie, en selectievakjes voor meervoudige selectie. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication-pagina** -telefoonnummers, verifieert met behulp van tekst of spraak, tijdens het registreren of aanmelden. |
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Aanmeldpagina voor sociaal account** -een formulier die gebruikers moeten worden voltooid wanneer ze zich aanmelden met behulp van een bestaand account van een sociale id-provider wordt weergegeven. Deze pagina is vergelijkbaar met de voorgaande sociaal account aanmelden pagina, met uitzondering van de velden van de vermelding wachtwoord. |
-| **api.selfasserted.profileupdate** | [updateprofile.HTML](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Update-profielpagina** -een formulier die voor gebruikers toegankelijk voor het bijwerken van hun profiel wordt weergegeven. Deze pagina is vergelijkbaar met de pagina, met uitzondering van de vermelding wachtwoordvelden sociaal account aanmelden. |
-| **api.signuporsignin** | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Uniforme pagina voor registreren of aanmelden** -de gebruiker zich kunnen registreren en aanmelden proces worden verwerkt. Gebruikers kunnen enterprise id-providers, sociale id-providers zoals Facebook of Google + of lokale accounts gebruiken. |
+| **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Update-profielpagina** -een formulier die voor gebruikers toegankelijk voor het bijwerken van hun profiel wordt weergegeven. Deze pagina is vergelijkbaar met de pagina, met uitzondering van de vermelding wachtwoordvelden sociaal account aanmelden. |
+| **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Uniforme pagina voor registreren of aanmelden** -de gebruiker zich kunnen registreren en aanmelden proces worden verwerkt. Gebruikers kunnen enterprise id-providers, sociale id-providers zoals Facebook of Google + of lokale accounts gebruiken. |
  

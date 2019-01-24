@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/15/2018
-ms.openlocfilehash: cd9f2df7987f033b4d4c234109cf712b8291d1b7
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cd7c4014752fb5fa014fd8b5204206cd4efbfdce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382849"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818520"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken
 
@@ -50,11 +50,11 @@ Nadat u de vereiste onderdelen hebt geïnstalleerd, kunt u de Azure HDInsight-hu
 
    ![HDInsight voor het installeren van Python voor Visual Studio Code](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-## <a name="open-hdinsight-workspace"></a>HDInsight-werkruimte openen
+## <a name="open-hdinsight-work-folder"></a>HDInsight-werkmap openen
 
-Voordat u verbinding met Azure maken kunt, moet u een werkruimte maken in VS Code.
+Een werkmap maken in VS Code voordat u verbinding met Azure maken kunt.
 
-### <a name="to-open-a-workspace"></a>Om een werkruimte te openen
+### <a name="to-open-a-work-folder"></a>Een werkmap openen
 
 1. Op de **bestand** in het menu **map openen**. Vervolgens een bestaande map aanwijzen als uw werkmap of een nieuwe maken. De map wordt weergegeven in het linkerdeelvenster.
 
@@ -77,7 +77,7 @@ Voordat u scripts naar HDInsight-clusters van VS Code verzendt kunt, moet u verb
     ![HDInsight Tools voor Visual Studio Code-aanmelding](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. Als u wilt aanmelden, volg de instructies aanmelden in de **uitvoer** deelvenster.
-    + Voor globale omgeving HDInsight sign in Azure wordt geactiveerd proces aanmelden.
+    + Voor wereldwijde Azure-omgeving, **HDInsight: Aanmelding** opdracht wordt geactiveerd **aanmelden bij Azure** actie in het HDInsight-Verkenner en vice versa.
 
         ![Meld u instructies voor azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
@@ -140,7 +140,7 @@ U kunt een normale cluster koppelen met behulp van een [Apache Ambari](https://a
 Als u wilt testen van de verbinding, kunt u uw HDInsight-clusters vermelden:
 
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>Voor HDInsight-clusters groeperen onder uw Azure-abonnement
-1. Een werkruimte opent, en maak verbinding met Azure. Zie voor meer informatie, [Open HDInsight-werkruimte](#open-hdinsight-workspace) en [verbinding maken met Azure](#connect-to-hdinsight-cluster).
+1. Open een werkmap en klikt u vervolgens verbinding maken met Azure. Zie voor meer informatie, [Open HDInsight werkt map](#open-hdinsight-work-folder) en [verbinding maken met Azure](#connect-to-hdinsight-cluster).
 
 2. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: Overzicht van Cluster** in het contextmenu. 
 
@@ -149,7 +149,7 @@ Als u wilt testen van de verbinding, kunt u uw HDInsight-clusters vermelden:
     ![Stel een standaardconfiguratie voor cluster](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## <a name="set-a-default-cluster"></a>Een standaardcluster instellen
-1. Een werkruimte opent en verbinding maken met Azure. Zie [Open HDInsight-werkruimte](#open-hdinsight-workspace) en [verbinding maken met Azure](#connect-to-hdinsight-cluster).
+1. Open een werkmap en verbinding maken met Azure. Zie [werkmap openen HDInsight](#open-hdinsight-work-folder) en [verbinding maken met Azure](#connect-to-hdinsight-cluster).
 
 2. Klik met de rechtermuisknop op de scripteditor en selecteer vervolgens **HDInsight: Instellen van de standaardcluster**. 
 
@@ -195,7 +195,12 @@ Met HDInsight Tools voor VS Code, kunt u interactieve Hive-query's, Hive batchsc
 
 ### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>Om in te dienen interactieve PySpark-query's voor HDInsight Spark-clusters.
 
-1. Maak een nieuwe werkmap en een nieuw scriptbestand met de extensie .py als u deze nog niet hebt.
+1. Maak een nieuwe werkmap en een nieuw .py-bestand als u ze nog niet hebt.
+
+    > [!NOTE]
+    > VSCode raadt dat u Python-extensie voor bestand .py te installeren. U kunt de extensie installeren of het dialoogvenster te sluiten.
+    > 
+    >![HDInsight voor het installeren van Python voor Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 2. Verbinding maken met uw Azure-account als u dit nog nog niet hebt gedaan.
 
@@ -213,36 +218,19 @@ Met HDInsight Tools voor VS Code, kunt u interactieve Hive-query's, Hive batchsc
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Markeer dit script. Klik met de rechtermuisknop op de script-editor en selecteer **HDInsight: Interactieve PySpark**, of gebruikt u snelkoppeling **Ctrl + Alt + I**.
+4. Installeer de Python-omgeving als u dit nog niet hebt gedaan, Zie [interactieve PySpark-omgeving instellen voor Visual Studio Code](set-up-pyspark-interactive-environment.md).
 
-5. Als u dit nog niet hebt geïnstalleerd het **Python** extensie in de VS Code, selecteer de **installeren** knop zoals wordt weergegeven in de volgende afbeelding:
+5. Markeer dit script. Klik met de rechtermuisknop op de script-editor en selecteer **HDInsight: Interactieve PySpark**, of gebruikt u snelkoppeling **Ctrl + Alt + I**.
 
-    ![HDInsight voor het installeren van Python voor Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
-6. Installeer de Python-omgeving in uw systeem als u dat nog niet gedaan hebt. 
-   - Voor Windows, download en installeer [Python](https://www.python.org/downloads/). Controleer vervolgens of `Python` en `pip` zijn in uw systeem pad.
-
-   - Zie voor instructies voor macOS en Linux [interactieve PySpark-omgeving instellen voor Visual Studio Code](set-up-pyspark-interactive-environment.md).
-
-7. Selecteer een cluster waarnaar u wilt de PySpark-query verzendt. Binnenkort daarna wordt het queryresultaat weergegeven in het nieuwe tabblad rechts:
+6. Selecteer een cluster waarnaar u wilt de PySpark-query verzendt. Binnenkort daarna wordt het queryresultaat weergegeven in het nieuwe tabblad rechts:
 
    ![Resultaat van de Python-taak verzenden](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-8. Het hulpprogramma ondersteunt ook de **SQL-component** query.
+7. Het hulpprogramma ondersteunt ook de **SQL-component** query.
 
    ![Python resultaat taak indienen](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) de verzending van de status wordt weergegeven aan de linkerkant van de status van de onderste balk wanneer u query's uitvoert. Geen andere query's verzenden wanneer de status **PySpark-Kernel (bezet)**. 
 
 >[!NOTE]  
 >De clusters kunnen sessiegegevens onderhouden. De gedefinieerde variabele, de functie en de bijbehorende waarden worden bewaard in de sessie, zodat ze kunnen worden verwezen door meerdere serviceaanroepen voor hetzelfde cluster. 
-
-### <a name="to-disable-environment-check"></a>Aan de omgeving controle uitschakelen
-
-Standaard zijn de hulpprogramma's voor HDInsight wordt omgeving controleren en de afhankelijke pakketten installeren wanneer de interactieve PySpark-query's verzenden. Als u wilt de controle van de omgeving uitschakelen, stelt de **hdinsight.disablePysparkEnvironmentValidation** naar **Ja** onder **GEBRUIKERSINSTELLINGEN**.
-
-   ![Instellen van de controle van de omgeving van instellingen](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
-
-U kunt ook op **uitschakelen validatie** wanneer het dialoogvenster wordt weergegeven.
-
-   ![De controle van de omgeving van dialoogvenster instellen](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check-dialog.png)
 
 ### <a name="pyspark3-is-not-supported-with-spark2223"></a>PySpark3 wordt niet ondersteund met Spark2.2/2.3
 

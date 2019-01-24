@@ -4,7 +4,7 @@ description: Gids voor probleemoplossing voor Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: e2b7eb4f5be5e73e70f883f9510e7fc6a13d6bea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8b752585fc72b7f4be8e7b9320290f8ad56f53c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156083"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844650"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - gids problemen oplossen
 Dit artikel vindt tips voor probleemoplossing voor problemen die optreden kunnen bij het instellen of beheren van Azure Active Directory (AD) Domain Services.
@@ -128,7 +128,7 @@ U kunt deze fout oplossen door deze toepassing inschakelen en probeer vervolgens
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Gebruikers kunnen zich niet aanmelden bij het in Azure AD Domain Services beheerde domein
 Als een of meer gebruikers in uw Azure AD-tenant zich niet aanmelden bij de zojuist gemaakte beheerde domein, voer de volgende stappen:
 
-* **Meld u aan met de UPN-indeling:** probeert aan te melden met behulp van de UPN-indeling (bijvoorbeeld 'joeuser@contoso.com') in plaats van de SAMAccountName-indeling ('CONTOSO\joeuser'). De SAMAccountName kan automatisch worden gegenereerd voor gebruikers wiens UPN-voorvoegsel is te lang of is hetzelfde als een andere gebruiker in het beheerde domein. De UPN-indeling is gegarandeerd uniek zijn binnen een Azure AD-tenant.
+* **Aanmelden met behulp van de UPN-indeling:** Probeer u aan te melden met behulp van de UPN-indeling (bijvoorbeeld 'joeuser@contoso.com') in plaats van de SAMAccountName-indeling ('CONTOSO\joeuser'). De SAMAccountName kan automatisch worden gegenereerd voor gebruikers wiens UPN-voorvoegsel is te lang of is hetzelfde als een andere gebruiker in het beheerde domein. De UPN-indeling is gegarandeerd uniek zijn binnen een Azure AD-tenant.
 
 > [!NOTE]
 > U wordt aangeraden met behulp van de UPN-indeling te melden bij de Azure AD Domain Services beheerde domein.
@@ -136,8 +136,8 @@ Als een of meer gebruikers in uw Azure AD-tenant zich niet aanmelden bij de zoju
 >
 
 * Zorg ervoor dat u [wachtwoordsynchronisatie hebt ingeschakeld](active-directory-ds-getting-started-password-sync.md) volgens de stappen beschreven in de handleiding.
-* **Externe accounts:** Zorg ervoor dat het betreffende gebruikersaccount geen extern account in de Azure AD-tenant. Voorbeelden van externe accounts zijn Microsoft-accounts (bijvoorbeeld 'joe@live.com') of gebruikersaccounts met een externe Azure AD-directory. Omdat Azure AD Domain Services geen referenties voor deze gebruikersaccounts, kunnen deze gebruikers zich niet aanmelden bij het beheerde domein.
-* **Accounts gesynchroniseerd:** als de betrokken gebruikersaccounts worden gesynchroniseerd vanuit een on-premises directory, controleert u of die:
+* **Externe accounts:** Zorg ervoor dat het betreffende gebruikersaccount geen extern account in de Azure AD-tenant is. Voorbeelden van externe accounts zijn Microsoft-accounts (bijvoorbeeld 'joe@live.com') of gebruikersaccounts met een externe Azure AD-directory. Omdat Azure AD Domain Services geen referenties voor deze gebruikersaccounts, kunnen deze gebruikers zich niet aanmelden bij het beheerde domein.
+* **Gesynchroniseerde accounts:** Als de betrokken gebruikersaccounts worden gesynchroniseerd vanuit een on-premises directory, moet u de volgende punten controleren:
 
   * U hebt geïmplementeerd of bijgewerkt naar de [meest recente aanbevolen versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * U kunt Azure AD Connect hebt geconfigureerd [een volledige synchronisatie uitvoeren](active-directory-ds-getting-started-password-sync.md).
@@ -146,7 +146,7 @@ Als een of meer gebruikers in uw Azure AD-tenant zich niet aanmelden bij de zoju
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
-* **Alleen in de cloud accounts**: als het betrokken gebruikersaccount een alleen-cloud-gebruikersaccount is, zorgt u ervoor dat de gebruiker het wachtwoord is gewijzigd nadat u Azure AD Domain Services hebt ingeschakeld. Door deze stap worden de referentie-hashes gegenereerd die zijn vereist voor Azure AD Domain Services.
+* **Alleen in de cloud accounts**: Als het betrokken gebruikersaccount een alleen-cloud-gebruikersaccount is, zorgt u ervoor dat de gebruiker het wachtwoord is gewijzigd nadat u Azure AD Domain Services hebt ingeschakeld. Door deze stap worden de referentie-hashes gegenereerd die zijn vereist voor Azure AD Domain Services.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Er zijn een of meer waarschuwingen op uw beheerde domein
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244577"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849651"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Zelfstudie: maken en uitvoeren van een Jupyter-notebook met Python
 
@@ -128,7 +128,7 @@ Met het gereed gegevensbestand en de project-omgeving is ingesteld, kunt u nu ma
 1. Omdat u hebt een *requirements.txt* bestand in de omgevingsinstellingen voor ziet u het bericht, 'wachten op de container om te voltooien wordt voorbereid." U kunt selecteren **OK** om te sluiten van het bericht en doorgaan met werken in het notitieblok; u cellen met een code echter niet uitvoeren totdat de omgeving volledig is ingesteld.
 1. De notebook wordt geopend in de Jupyter-interface met een één lege codecel als standaardwaarde.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Weergave van een nieuwe notebook in Azure-notitieblokken")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Weergave van een nieuwe notebook in Azure-notitieblokken](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Maakt een rondleiding door de notebook-interface
 
@@ -144,7 +144,7 @@ Aan de bovenkant van het venster ziet u de volgende items:
 (F) geeft aan of de notebook vertrouwd wordt (de standaardwaarde is **niet-vertrouwd**).
 (G) de kernel gebruikt voor het uitvoeren van het notitieblok, samen met een indicator voor netwerkactiviteit.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Primaire gebruikersinterface gebieden van de Jupyter-interface")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Primaire gebruikersinterface gebieden van de Jupyter-interface](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter biedt een ingebouwde rondleiding door de primaire UI-elementen. Selecteer eerst de rondleiding door de **Help** > **rondleiding door de Interface van de gebruiker** opdracht en te klikken in het pop-upvensters.
 

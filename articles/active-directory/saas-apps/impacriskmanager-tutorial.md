@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c086d58a7de4897f93699d2c22b6598896eb50e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ca0ea482b1cfb2f7af962ae1b7537f79bb60a62b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434477"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Zelfstudie: Azure Active Directory-integratie met IMPAC risico Manager
 
@@ -30,7 +30,7 @@ IMPAC risico Manager integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD wie toegang tot IMPAC risico Manager heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld IMPAC risico Manager (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Azure AD-integratie met IMPAC risico als Manager wilt configureren, moet u de vo
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van IMPAC risico Manager in Azure AD, mo
 
 **Als u wilt toevoegen IMPAC risico Manager uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,15 +68,15 @@ Voor het configureren van de integratie van IMPAC risico Manager in Azure AD, mo
 
     ![De blade Enterprise-toepassingen][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **IMPAC risico Manager**, selecteer **IMPAC risico Manager** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![IMPAC risico Manager in de lijst met resultaten](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met IMPAC risico Manager op basis van een testgebruiker 'Britta Simon' genoemd.
 
@@ -86,13 +86,13 @@ In IMPAC risico Manager, wijs de waarde van de **gebruikersnaam** in Azure AD al
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met IMPAC risico Manager, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker IMPAC risico Manager](#create-a-impac-risk-manager-test-user)**  : als u wilt een equivalent van Britta Simon in IMPAC risico Manager die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing IMPAC risico Manager.
 
@@ -100,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **IMPAC risico Manager** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
@@ -112,7 +112,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. In de **id** tekstvak, typ een waarde die is opgegeven door IMPAC
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon:
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
     | Omgeving | URL-patroon |
     | ---------------|--------------- |    
     | Voor productie |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -125,7 +125,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![IMPAC risico Manager-domein en URL's, eenmalige aanmelding informatie](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon:
+    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
     | Omgeving | URL-patroon |
     | ---------------|--------------- |    
     | Voor productie |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
@@ -135,26 +135,26 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | Voor testen |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [IMPAC risico Manager-Client-ondersteuningsteam](mailto:rmsupport@Impac.co.nz) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [IMPAC risico Manager-Client-ondersteuningsteam](mailto:rmsupport@Impac.co.nz) om deze waarden te verkrijgen.
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_certificate.png) 
 
 1. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/impacriskmanager-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/impacriskmanager-tutorial/tutorial_general_400.png)
     
 1. Op de **IMPAC risico Manager configuratie** sectie, klikt u op **configureren IMPAC risico Manager** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML, SAML-entiteit-ID** en **afmelding URL** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
 
-1. Het configureren van eenmalige aanmelding op **IMPAC risico Manager** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)**, **URL van de afmelding, SAML entiteit-ID,** en  **Single Sign-On Service URL voor SAML** naar [IMPAC risico Manager ondersteuningsteam](mailto:rmsupport@Impac.co.nz). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **IMPAC risico Manager** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)**, **URL van de afmelding, SAML entiteit-ID,** en  **Single Sign-On Service URL voor SAML** naar [IMPAC risico Manager ondersteuningsteam](mailto:rmsupport@Impac.co.nz). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -188,7 +188,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-a-impac-risk-manager-test-user"></a>Maak een testgebruiker IMPAC risico Manager
 
-In deze sectie maakt u een gebruiker met de naam Britta Simon in IMPAC risico Manager. Werken met [IMPAC risico Manager ondersteuningsteam](mailto:rmsupport@Impac.co.nz) om toe te voegen de gebruikers in het platform IMPAC risico Manager. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam Britta Simon in IMPAC risico Manager. Werken met [IMPAC risico Manager ondersteuningsteam](mailto:rmsupport@Impac.co.nz) om toe te voegen de gebruikers in het platform IMPAC risico Manager. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

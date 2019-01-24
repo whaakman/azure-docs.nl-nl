@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 88dc82ab-be0b-4017-8335-c47d00775d7b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: c8d3364f9de298d19df35846af5f421978fea960
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7b31cbbf639e5835a3a46063b4b15d67915fb3d4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842166"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Zelfstudie: Azure Active Directory-integratie met Five9 Plus-Adapter (CTI, neem contact op met Center-Agents)
 
@@ -43,10 +43,10 @@ Voor het configureren van Azure AD-integratie met Five9 Plus-Adapter (CTI, neem 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden: [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u hier een gratis proefversie van één maand krijgen: [Proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -65,11 +65,11 @@ Als u wilt de integratie van Five9 Plus Adapter (CTI, neem contact op met Center
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **Five9 Plus Adapter (CTI, neem contact op met Center-Agents)**.
 
@@ -112,7 +112,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     ![Eenmalige aanmelding configureren](./media/five9-tutorial/tutorial_five9_url.png)
     
-    a. In de **id** tekstvak, een URL met behulp van de volgende patronen:
+    a. In het tekstvak **Id** typt u een URL met de volgende patronen:
 
     |    Omgeving      |       URL      |
     | :-- | :-- |
@@ -120,7 +120,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     | Voor "Five9 Plus -Adapter voor Zendesk" | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
     | Voor "Five9 Plus -Adapter voor Agent bureaublad Toolkit" | `https://app.five9.com/appsvcs/saml/metadata/alias/adt` |
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon:
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
 
     |      Omgeving     |      URL      |
     | :--                  | :--           |
@@ -132,7 +132,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     ![Eenmalige aanmelding configureren](./media/five9-tutorial/tutorial_five9_certificate.png) 
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/five9-tutorial/tutorial_general_400.png)
 
@@ -150,11 +150,11 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -186,7 +186,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="creating-a-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Het maken van een testgebruiker Five9 Plus Adapter (CTI, neem contact op met Center-Agents)
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon Five9 Plus adapter (CTI, neem contact op met Center-Agents). Werken met [Five9 Plus (CTI, neem contact op met Center-Agents) ondersteuning adapterteam](https://www.five9.com/about/contact) om toe te voegen de gebruikers in het platform Five9 Plus Adapter (CTI, neem contact op met Center-Agents). Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon Five9 Plus adapter (CTI, neem contact op met Center-Agents). Werken met [Five9 Plus (CTI, neem contact op met Center-Agents) ondersteuning adapterteam](https://www.five9.com/about/contact) om toe te voegen de gebruikers in het platform Five9 Plus Adapter (CTI, neem contact op met Center-Agents). Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 

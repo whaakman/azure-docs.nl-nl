@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Domain Services: Richtlijnen voor de netwerken | Microsoft Docs'
+title: 'Azure AD Domain Services: Richtlijnen voor netwerken | Microsoft Docs'
 description: Aandachtspunten voor netwerken voor Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: c13a4606219ebdb1d23a83a0bd3bdf14f1a3882e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c37dfecf7204f3f8d050c0f36d4c32ea02477f75
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970906"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851859"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Aandachtspunten voor netwerken voor Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Een Azure-netwerk selecteren
@@ -37,7 +37,7 @@ De volgende richtlijnen waarmee u kunt selecteren van een virtueel netwerk gebru
 * Zie de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te bekijken in welke Azure-regio's Azure AD Domain Services beschikbaar is.
 
 ### <a name="requirements-for-the-virtual-network"></a>Vereisten voor het virtuele netwerk
-* **Nabijheid van uw Azure-workloads**: Selecteer het virtuele netwerk dat momenteel fungeert als host voor/virtuele machines die toegang nodig tot de Azure AD Domain Services host. Als uw workloads worden geïmplementeerd in een ander virtueel netwerk dan het beheerde domein, kunt u ook om de virtuele netwerken te verbinden.
+* **Nabijheid van uw Azure-workloads**: Selecteer het virtuele netwerk dat momenteel fungeert als host of als host gaat fungeren voor virtuele machines die toegang nodig hebben tot Azure AD Domain Services. Als uw workloads worden geïmplementeerd in een ander virtueel netwerk dan het beheerde domein, kunt u ook om de virtuele netwerken te verbinden.
 * **DNS-servers aangepaste/bring your own**: Zorg ervoor dat er geen aangepaste DNS-servers zijn geconfigureerd voor het virtuele netwerk. Een voorbeeld van een aangepaste DNS-server is een exemplaar van Windows Server DNS die worden uitgevoerd op een Windows Server-VM die u hebt geïmplementeerd in het virtuele netwerk. Azure AD Domain Services is niet geïntegreerd met alle aangepaste DNS-servers binnen het virtuele netwerk is geïmplementeerd.
 * **Bestaande domeinen met dezelfde domeinnaam**: Zorg ervoor dat u geen bestaand domein met dezelfde domeinnaam beschikbaar is op dit virtuele netwerk. Het domein met de naam contoso.com is bijvoorbeeld al beschikbaar op het geselecteerde virtuele netwerk. Later kunt proberen u om in te schakelen van een Azure AD Domain Services beheerde domein met dezelfde domeinnaam (dat wil zeggen 'contoso.com') op dit virtuele netwerk. U kunt een fout optreedt tijdens het inschakelen van Azure AD Domain Services. Deze fout is ontstaan door naamconflicten voor de domeinnaam op dit virtuele netwerk. In dit geval moet u een andere naam gebruiken om het beheerde domein van Azure AD Domain Services in te stellen. U kunt ook de inrichting van het bestaande domein ongedaan maken en doorgaan met het inschakelen van Azure AD Domain Services.
 
@@ -79,8 +79,8 @@ De volgende poorten zijn vereist voor Azure AD Domain Services naar service en o
 **Poort 5986 (externe communicatie van PowerShell)**
 * Het is gebruikt voor het uitvoeren van beheertaken met behulp van PowerShell voor externe toegang in uw beheerde domein.
 * Het is verplicht om toegang te verlenen via deze poort in uw NSG. Zonder toegang tot deze poort worden uw beheerde domein kan niet worden bijgewerkt, geconfigureerde, waarvan een back-up is gemaakt of bewaakte.
-* U kunt voor elke nieuwe domeinen of domeinen met een virtueel netwerk van Azure Resource Manager, binnenkomende toegang beperken tot deze poort voor de volgende IP-adressen van bron: 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141 , 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
-* Voor domeinen met een klassiek virtueel netwerk, kunt u inkomende toegang beperken tot deze poort voor de volgende IP-adressen van bron: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
+* U kunt binnenkomende toegang tot deze poort voor de volgende bron-IP-adressen beperken voor alle nieuwe domeinen en domeinen met een virtueel netwerk van Azure Resource Manager: 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
+* Voor domeinen met een klassiek virtueel netwerk, kunt u inkomende toegang tot deze poort in de volgende bron-IP-adressen beperken: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
 * De domeincontrollers voor uw beheerde domein luisteren meestal niet op deze poort. De service wordt deze poort op beheerde domeincontrollers geopend, alleen wanneer een bewerking voor management of onderhoud moet worden uitgevoerd voor het beheerde domein. Zodra de bewerking is voltooid, wordt de service wordt uitgeschakeld deze poort op de beheerde domeincontrollers.
 
 **Poort 3389 (extern bureaublad)**
@@ -124,13 +124,13 @@ U kunt een Resource Manager gebaseerd virtueel netwerk verbinden met het Azure k
 ![Resource Manager kan verbinding met het klassieke virtuele netwerk](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 ### <a name="network-connection-options"></a>Opties voor een netwerkverbinding
-* **VNet-naar-VNet-verbindingen met behulp van virtual network-peering**: peering op virtueel netwerk is een mechanisme dat twee virtuele netwerken in dezelfde regio via het Azure-backbone-netwerk verbindt. Als de twee virtuele netwerken gekoppeld zijn, worden deze als één netwerk weergegeven voor alle verbindingsdoeleinden. Ze worden nog steeds beheerd als afzonderlijke resources, maar virtuele machines in deze virtuele netwerken kunnen met elkaar communiceren via privé-IP-adressen.
+* **VNet-naar-VNet-verbindingen met behulp van virtual network-peering**: Peering op virtueel netwerk is een mechanisme dat twee virtuele netwerken in dezelfde regio via het Azure-backbone-netwerk verbindt. Als de twee virtuele netwerken gekoppeld zijn, worden deze als één netwerk weergegeven voor alle verbindingsdoeleinden. Ze worden nog steeds beheerd als afzonderlijke resources, maar virtuele machines in deze virtuele netwerken kunnen met elkaar communiceren via privé-IP-adressen.
 
     ![Verbinding met het virtuele netwerk met behulp van peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Meer informatie: virtual network-peering](../virtual-network/virtual-network-peering-overview.md)
 
-* **VNet-naar-VNet-verbindingen met behulp van site-naar-site VPN-verbindingen**: een virtueel netwerk verbinden met een ander virtueel netwerk (VNet-naar-VNet) is vergelijkbaar met een virtueel netwerk verbinden met een on-premises locatie. Voor beide connectiviteitstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden.
+* **VNet-naar-VNet-verbindingen met behulp van site-naar-site VPN-verbindingen**: Een virtueel netwerk verbinden met een ander virtueel netwerk is (VNet-naar-VNet) vergelijkbaar met een virtueel netwerk verbinden met een on-premises locatie. Voor beide connectiviteitstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden.
 
     ![Verbinding met het virtuele netwerk met behulp van VPN-Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 

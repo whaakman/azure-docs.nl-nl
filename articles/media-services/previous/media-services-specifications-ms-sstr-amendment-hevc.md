@@ -1,6 +1,6 @@
 ---
 title: Azure mediaservices - Smooth Streaming-Protocol (MS-SSTR) amendement voor HEVC | Microsoft Docs
-description: Deze specificatie beschrijving van het protocol en de indeling voor gefragmenteerde MP4 op basis van live streamen met HEVC in Azure Media Services. Dit is een wijziging van de Smooth Streaming-protocol documentaiton (MS-SSTR) om op te nemen van ondersteuning voor HEVC opnemen en streaming. Alleen de wijzigingen die zijn vereist voor het leveren van HEVC zijn opgegeven in dit artikel, met uitzondering van zijn '(geen wijzigen)' geeft aan dat voor een uitleg van alleen tekst gekopieerd.
+description: Deze specificatie beschrijving van het protocol en de indeling voor gefragmenteerde MP4 op basis van live streamen met HEVC in Azure Media Services. Dit is een wijziging in de documentatie van Smooth Streaming-protocol (MS-SSTR) om op te nemen van ondersteuning voor HEVC opnemen en streaming. Alleen de wijzigingen die zijn vereist voor het leveren van HEVC zijn opgegeven in dit artikel, met uitzondering van zijn '(geen wijzigen)' geeft aan dat voor een uitleg van alleen tekst gekopieerd.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 038eee18adf94f34a2e10d9ff7be76409c8c4322
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c87795c1203a8639ba224a646f8f0c5f5515b840
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812757"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Smooth Streaming Protocol (MS-SSTR) amendement voor HEVC
 
@@ -56,7 +56,7 @@ De volgende voorwaarden zijn specifiek voor dit document:
 
 >   **Voorbeeld:** De kleinste fundamentele eenheid (zoals een frame) waarin **media** wordt opgeslagen en verwerkt.
 
->   **MEI, MOET, MOET, MOET NIET, DIENT U NIET:** Deze termen (in hoofdletters) worden gebruikt, zoals beschreven in [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Alle instructies voor het gebruik van verschijnsel dat ofwel kan SHOULD of niet moet.
+>   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** Deze termen (in hoofdletters) worden gebruikt, zoals beschreven in [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Alle instructies voor het gebruik van verschijnsel dat ofwel kan SHOULD of niet moet.
 
 ## <a name="12-references"></a>1.2-verwijzingen
 
@@ -88,7 +88,7 @@ De volgende voorwaarden zijn specifiek voor dit document:
 
 >   [RFC3548] Josefsson, S., editie, 'De Base16, Base32 en Base64 gegevens coderingen', RFC 3548, juli 2003 [http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, D., editie, en Overell, s., "BNF uitgebreid voor de syntaxis van de specificaties: ABNF", STD 68 RFC 5234, januari 2008   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., editie, en Overell, s., "BNF uitgebreid voor de syntaxis van de specificaties: ABNF", STD 68, RFC 5234, January 2008,   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3-overzicht 
@@ -155,7 +155,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 >   De **CodecPrivateData** veld bevat een hexadecimaal gecodeerde tekenreeksweergave van de volgende byte-reeks opgegeven in ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (geen wijziging van MS-SSTR)
 
->   * %x 00 %x 00 %x 00 %x 01 SPSField %x 00 %x 00 %x 00 %x 01 PPSField
+>   * %x00 %x00 %x00 %x01 SPSField %x00 %x00 %x00 %x01 PPSField
 
 >   * SPSField bevat de Takenreeks Parameter ingesteld (SP's).
 
@@ -173,7 +173,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 ### <a name="223-fragment-request"></a>2.2.3 fragment aanvraag 
 
->   **Houd er rekening mee**: De standaardindeling voor media aangevraagd voor **subversie** 2 en 'hev1' is 'iso8' merk ISO Base Media bestandsindeling opgegeven in [ISO/IEC 14496-12] ISO Base Media bestand-indeling vierde editie, en algemene versleuteling-tweede [ISO/IEC 23001-7] Editie.
+>   **Opmerking**: De standaardindeling voor media aangevraagd voor **subversie** 2 en 'hev1' is 'iso8' merk ISO Base Media bestandsindeling opgegeven in [ISO/IEC 14496-12] ISO Base Media bestand-indeling vierde editie, en algemene versleuteling-tweede [ISO/IEC 23001-7] Editie.
 
 ### <a name="224-fragment-response"></a>2.2.4 fragment antwoord 
 
@@ -187,7 +187,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 >   De **TfxdBox** is afgeschaft en zijn vervangen door het spoor Fragment decoderen vak tijd (tfdt) opgegeven in de sectie [ISO/IEC 14496-12] 8.8.12 functie.
 
->   **Houd er rekening mee**: Een client kan de duur van een fragment berekenen door op te tellen van de duur van de steekproef die worden vermeld in het vak in het spoor uitvoeren (trun) of de standaardduur van de steekproef vermenigvuldigen met het aantal steekproeven van tijden. De baseMediaDecodeTime in 'tfdt' plus fragment duur is gelijk aan de URL-parameter voor tijd voor het volgende fragment.
+>   **Opmerking**: Een client kan de duur van een fragment berekenen door op te tellen van de duur van de steekproef die worden vermeld in het vak in het spoor uitvoeren (trun) of de standaardduur van de steekproef vermenigvuldigen met het aantal steekproeven van tijden. De baseMediaDecodeTime in 'tfdt' plus fragment duur is gelijk aan de URL-parameter voor tijd voor het volgende fragment.
 
 >   Een vak producent verwijzing tijd (prft) moet worden ingevoegd voordat u het Fragment film (moof), indien nodig, om aan te geven van de UTC-tijd overeenkomt met de Track Fragment decoderen tijd van het eerste voorbeeld waarnaar wordt verwezen door het Fragment film, als die is opgegeven in [ISO/IEC 14496 -12] sectie 8.16.5.
 
@@ -195,7 +195,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 >   De **TfrfBox** is afgeschaft en zijn vervangen door het spoor Fragment decoderen vak tijd (tfdt) opgegeven in de sectie [ISO/IEC 14496-12] 8.8.12 functie.
 
->   **Houd er rekening mee**: Een client kan de duur van een fragment berekenen door op te tellen van de duur van de steekproef die worden vermeld in het vak in het spoor uitvoeren (trun) of de standaardduur van de steekproef vermenigvuldigen met het aantal steekproeven van tijden. De baseMediaDecodeTime in 'tfdt' plus fragment duur is gelijk aan de URL-parameter voor tijd voor het volgende fragment. Zoek verder adressen zijn afgeschaft omdat ze vertraging live streamen.
+>   **Opmerking**: Een client kan de duur van een fragment berekenen door op te tellen van de duur van de steekproef die worden vermeld in het vak in het spoor uitvoeren (trun) of de standaardduur van de steekproef vermenigvuldigen met het aantal steekproeven van tijden. De baseMediaDecodeTime in 'tfdt' plus fragment duur is gelijk aan de URL-parameter voor tijd voor het volgende fragment. Zoek verder adressen zijn afgeschaft omdat ze vertraging live streamen.
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
@@ -225,7 +225,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 ### <a name="226-fragment-not-yet-available"></a>2.2.6 fragment nog niet beschikbaar 
 
-### <a name="227-live-ingest"></a>2.2.7 live opnemen 
+### <a name="227-live-ingest"></a>2.2.7 Live Ingest 
 
 #### <a name="2271-filetype"></a>2.2.7.1 FileType 
 
@@ -245,7 +245,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
     MinorVersion = STRING_UINT32
     CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 
-**Houd er rekening mee**: De compatibiliteit merken 'ccff' en 'iso8' aangeven dat fragmenten aan de 'Algemene Container bestand-indeling' en algemene versleuteling [ISO/IEC 23001-7] en ISO Base Media bestand indeling editie 4 [ISO/IEC 14496-12 voldoen].
+**Opmerking**: De compatibiliteit merken 'ccff' en 'iso8' aangeven dat fragmenten aan de 'Algemene Container bestand-indeling' en algemene versleuteling [ISO/IEC 23001-7] en ISO Base Media bestand indeling editie 4 [ISO/IEC 14496-12 voldoen].
 
 #### <a name="2272-streammanifestbox"></a>2.2.7.2 StreamManifestBox 
 
@@ -278,7 +278,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 >   * **MajorVersion**
 >   * **MinorVersion**
->   * **Tijdschaal**
+>   * **TimeScale**
 >   * **Duur**
 >   * **IsLive**
 >   * **LookaheadCount**
@@ -299,7 +299,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 >   Beschrijving van de beveiliging: Een verzameling van metagegevens voor beveiliging systeembeschrijving gegevenselementen, zoals aangegeven in punt *3.1.1.1.1*.
 
-##### <a name="31111-protection-system-metadata-description"></a>3.1.1.1.1 de metagegevens systeembeschrijving beveiliging 
+##### <a name="31111-protection-system-metadata-description"></a>3.1.1.1.1 Protection System Metadata Description 
 
 >   Het gegevenselement Protection metagegevens systeembeschrijving ingekapseld metagegevens die specifiek zijn voor een enkele Content Protection-systeem. (Geen wijzigen)
 
@@ -308,7 +308,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 >   * **Systeem-id**
 >   * **ProtectionHeaderContent**
 
-##### <a name="31112-stream-description"></a>3.1.1.1.2 beschrijving van Stream 
+##### <a name="31112-stream-description"></a>3.1.1.1.2 Stream Description 
 
 ###### <a name="311121-track-description"></a>3.1.1.1.2.1 Beschrijving van bijhouden 
 
@@ -318,7 +318,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 ###### <a name="31131-track-specific-fragment-reference-description"></a>3.1.1.3.1 Beschrijving van bijhouden-specifieke Fragment verwijzing 
 
-#### <a name="3112-fragment-description"></a>3.1.1.2 fragment beschrijving 
+#### <a name="3112-fragment-description"></a>3.1.1.2 Fragment Description 
 
 ##### <a name="31121-sample-description"></a>3.1.1.2.1 Steekproefbeschrijving 
 
@@ -330,7 +330,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 #### <a name="3141-open-presentation"></a>3.1.4.1 presentatie openen 
 
-#### <a name="3142-get-fragment"></a>3.1.4.2 Fragment ophalen 
+#### <a name="3142-get-fragment"></a>3.1.4.2 Get Fragment 
 
 #### <a name="3143-close-presentation"></a>3.1.4.3 sluiten presentatie 
 
@@ -352,7 +352,7 @@ De ProtectionElement moeten worden gebruikt als algemene versleuteling (CENC) is
 
 >   Als de inhoud getransporteerd met behulp van dit protocol commerciële waardevolle heeft, moet een systeem van de bescherming van inhoud worden gebruikt om te voorkomen dat onbevoegd gebruik van de inhoud. De **ProtectionElement** kan worden gebruikt bij het uitvoeren van metagegevens die betrekking hebben op het gebruik van een Content Protection-systeem. Beveiligde audio en video-inhoud moeten worden versleuteld conform MPEG algemene versleuteling tweede editie: 2015 [ISO/IEC 23001-7].
 
->   **Houd er rekening mee**: Voor HEVC video, worden alleen de gegevens in VCL NALs segment versleuteld. Segment-headers en andere NALs zijn toegankelijk voor presentatietoepassingen voordat ze worden ontsleuteld. versleutelde gegevens zijn niet beschikbaar voor presentatietoepassingen in een beveiligde video pad.
+>   **Opmerking**: Voor HEVC video, worden alleen de gegevens in VCL NALs segment versleuteld. Segment-headers en andere NALs zijn toegankelijk voor presentatietoepassingen voordat ze worden ontsleuteld. versleutelde gegevens zijn niet beschikbaar voor presentatietoepassingen in een beveiligde video pad.
 
 ## <a name="52-index-of-security-parameters"></a>5.2-Index van beveiligingsparameters 
 

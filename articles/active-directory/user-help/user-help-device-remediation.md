@@ -3,7 +3,7 @@ title: Mogelijke oorzaken voor het foutbericht 'U kunt daar niet komen vanaf hie
 description: Los de mogelijke redenen waarom u het foutbericht 'U kunt daar niet komen vanaf hier krijgt'.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: c34b096766b6b7dda26c51559bf58e40d95715e7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: eb924a612188d905eb6c7127067fed2fd4b0f218
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651473"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825524"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Mogelijke redenen voor het foutbericht 'U kunt daar niet komen vanaf hier'
 Tijdens het openen van de interne web-apps of services van uw organisatie, krijgt u mogelijk een foutbericht dat aangeeft dat deze, **u daar niet komen vanaf hier**. Dit bericht betekent dat uw organisatie een beleid in plaats dat voorkomt dat uw apparaat toegang tot resources van uw organisatie heeft gezet. Hoewel u ontstaat mogelijk contact opnemen met de Helpdesk als dit probleem wilt oplossen, vindt hier u enkele dingen die u kunt eerst proberen.
@@ -34,7 +34,7 @@ Zorg ervoor dat u een ondersteunde versie van het besturingssysteem uitvoert, me
 
 - **Windows-Client.** Windows 7 of hoger.
 
-- **WindowsServer.** Windows Server 2008 R2 of hoger.
+- **Windows Server.** Windows Server 2008 R2 of hoger.
 
 - **Mac OS.** Mac OS X of hoger
 

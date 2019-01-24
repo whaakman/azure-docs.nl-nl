@@ -4,7 +4,7 @@ description: Informatie over het oplossen van aanmelding bij fouten met behulp v
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: f39557b21e8c54f565ddbb6764d697968d3bbee6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652027"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823762"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedure: Aanmelden-fouten oplossen met behulp van Azure Active Directory-rapporten
 
@@ -35,7 +35,7 @@ Bovendien kunt het aanmeldingenrapport u ook problemen oplossen met mislukte aan
 
 U hebt de volgende zaken nodig:
 
-* Een Azure AD-tenant met een licentie premium (P1/P2). Zie [aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) upgrade uw versie van Azure Active Directory.
+* Een Azure AD-tenant met een licentie premium (P1/P2). Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden.
 * Een gebruiker die de rol **Globale beheerder**, **Beveiligingsbeheerder**, **Beveiligingslezer** of **Rapportlezer** voor de tenant heeft. Bovendien kan elke gebruiker toegang krijgen tot eigen aanmeldingen. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Aanmelden-fouten oplossen met behulp van de rapport-aanmeldingen

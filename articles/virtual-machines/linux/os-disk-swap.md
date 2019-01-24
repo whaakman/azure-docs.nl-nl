@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 983c2e6d03735ba26f7660fc07dcf1a05ef88189
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 291bcec5a2a3d1ed2d49816b0ed7317bcfb07995
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960393"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851853"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Wijzigen van de besturingssysteemschijf die worden gebruikt door een Azure-VM met behulp van de CLI
 
@@ -34,7 +34,7 @@ Zorg ervoor dat de VM-grootte en de opslag-type zijn compatibel met de schijf di
 In dit artikel gebruikmaken van Azure CLI versie 2.0.25 of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. 
 
 
-Gebruik [az Schijflijst](/cli/azure/disk#list) voor een lijst van de schijven in de resourcegroep.
+Gebruik [az Schijflijst](/cli/azure/disk) voor een lijst van de schijven in de resourcegroep.
 
 ```azurecli-interactive
 az disk list \

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827411"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Vragen over de Azure Backup-agent
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van de Azure Backup-agent. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -29,11 +29,11 @@ Ja, de kluisreferenties verlopen na 48 uur. Als het bestand is verlopen, zich aa
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Van welke typen stations kan ik back-ups van bestanden en mappen maken? <br/>
 U kunt geen back-up maken van de volgende stations/volumes:
 
-* Verwisselbare media: de bron van alle back-upitems moet worden gerapporteerd als vast.
-* Alleen-lezenvolumes: de Volume Shadow Copy Service (VSS) werkt alleen als het volume schrijfbaar is.
-* Offlinevolumes: VSS werkt alleen als het volume online is.
-* Netwerkshare: er kan alleen een online back-up worden gemaakt wanneer het volume zich lokaal op de server bevindt.
-* Met BitLocker beveiligde volumes: het volume moet worden ontgrendeld voordat er een back-up kan worden gemaakt.
+* Verwisselbare Media: Alle back-upitem bronnen moeten worden gerapporteerd als vast.
+* Alleen-lezen Volumes: Het volume moet beschrijfbaar zijn voor de volume shadow copy service (VSS) om te werken.
+* Offlinevolumes: Het volume moet online VSS functie zijn.
+* Netwerkshare: Het volume moet lokaal op de server naar een back-up met behulp van online back-up.
+* Met BitLocker beveiligde volumes: Het volume moet worden ontgrendeld voordat de back-up kan plaatsvinden.
 * Bestandssysteemidentificatie: NTFS is het enige bestandssysteem dat wordt ondersteund.
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Van welke typen bestanden en mappen op mijn server kan ik een back-up maken?<br/>
@@ -43,11 +43,11 @@ De volgende typen worden ondersteund:
 * Gecomprimeerd
 * Sparse
 * Gecomprimeerd + Sparse
-* Vaste koppelingen: niet ondersteund, worden overgeslagen
-* Reparsepunt: niet ondersteund, wordt overgeslagen
-* Versleuteld + sparse: niet ondersteund, wordt overgeslagen
-* Gecomprimeerde stream: niet ondersteund, wordt overgeslagen
-* Sparse stream: niet ondersteund, wordt overgeslagen
+* Vaste koppelingen: Niet ondersteund, wordt overgeslagen
+* Reparsepunt: Niet ondersteund, wordt overgeslagen
+* Versleuteld + Sparse: Niet ondersteund, wordt overgeslagen
+* Gecomprimeerde Stream: Niet ondersteund, wordt overgeslagen
+* Sparse Stream: Niet ondersteund, wordt overgeslagen
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Kan ik de Azure Backup-agent installeren op een virtuele machine van Azure waarvan de Azure Backup-service al een back-up heeft gemaakt met de VM-extensie? <br/>
 Absoluut. Azure Backup biedt back-ups op VM-niveau voor de virtuele machines van Azure door gebruik te maken van de VM-extensie. Installeer de Azure Backup-agent op het Windows-gastbesturingssysteem om bestanden en mappen op dat gastbesturingssysteem te beveiligen.
@@ -94,7 +94,7 @@ Zodra de back-up op de nieuwe cachelocatie is gemaakt, kunt u de oorspronkelijke
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Waar moet ik de cachemap voor de Azure Backup-agent plaatsen om ervoor te zorgen dat deze naar verwachting werkt?<br/>
 De volgende locaties worden niet aanbevolen voor de cachemap:
 
-* Netwerkshare of verwisselbare media: de cachemap moet zich lokaal op de server bevinden waarvan back-ups moeten worden gemaakt via onlineback-up. Netwerklocaties of verwisselbare media zoals USB-stations worden niet ondersteund
+* Netwerkshare of verwisselbare Media: De cachemap moet lokaal op de server die een back-up met behulp van online back-up. Netwerklocaties of verwisselbare media zoals USB-stations worden niet ondersteund
 * Offlinevolumes: De cachemap moet online zijn voor de verwachte back-up met behulp van Azure Backup Agent
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Zijn er kenmerken van de cachemap die niet worden ondersteund?<br/>

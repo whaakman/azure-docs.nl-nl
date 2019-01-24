@@ -8,84 +8,51 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: bf47915ba93a4a3a7dec338395cfe0ce6aa3cdf6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/17/2019
+ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993829"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820569"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>De interactieve PySpark-omgeving instellen voor Visual Studio Code
 
-De volgende stappen ziet u hoe u Python-pakketten installeren door te voeren **HDInsight: Interactieve PySpark**.
+De volgende stappen laten zien hoe u de interactieve PySpark-omgeving in VS Code instelt.
 
-## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Stel de interactieve PySpark-omgeving in macOS en Linux
-Als u **python 3.x**, moet u het gebruik van de opdracht **pip3** voor de volgende stappen uit:
+We gebruiken **python/pip** opdracht voor het bouwen van virtuele omgeving in het pad voor de startpagina. Als u een andere versie gebruiken wilt, moet u wijzigen standaardversie van **python/pip** handmatig opdracht. Meer informatie Zie [update alternatieven](https://linux.die.net/man/8/update-alternatives).
 
-1. Zorg ervoor dat **Python** en **pip** zijn geïnstalleerd.
+1. Installeer [Python](https://www.python.org/) en [pip](https://pip.pypa.io/en/stable/installing/).
+   
+   + Installeer Python van [ https://pip.pypa.io/en/stable/installing ](https://www.python.org/).
+   + Instalovat modul pip uit [ https://pip.pypa.io/en/stable/installing ](https://pip.pypa.io/en/stable/installing/). (Als geen van de Python-installatie geïnstalleerd)
+   + Valideren van Python en pip zijn geïnstalleerd met behulp van de volgende opdrachten. (Optioneel)
  
-    ![Python-pip-versie](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Python-pip-versie](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  Jupyter installeren.
-    ```
-    sudo pip install jupyter
-    ```
-   U ziet het volgende foutbericht weergegeven in Linux en macOS:
+    > [!NOTE]
+    > Het verdient aanbeveling om handmatig te installeren Python in plaats van de standaard-Mac OS-versie.
 
-   ![Fout 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-   ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+2. Installeer **virtualenv** door het uitvoeren van de onderstaande opdracht.
+   
+   ```
+   pip install virtualenv
+   ```
 
-3. Installeer **libkrb5 dev** (voor Linux). U ziet mogelijk de volgende strekking weergegeven:
-
-   ![Fout 2](./media/set-up-pyspark-interactive-environment/error2.png)
+3. Voor Linux, de vereiste pakketten te installeren door het uitvoeren van de onderstaande opdrachten als u het foutbericht.
+   
+    ![Python-pip-versie](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
        
-   ```Resolve:
+   ```
    sudo apt-get install libkrb5-dev 
    ```
 
-3. Installeer **sparkmagic**.
    ```
-   sudo pip install sparkmagic
-   ```
-
-4. Zorg ervoor dat **ipywidgets** juist is geïnstalleerd door het uitvoeren van de volgende:
-   ```
-   sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-   ```
-   ![De kernels wrapper installeren](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
- 
-
-5. Installeer de wrapper kernels. Voer **pip weergeven sparkmagic**. De uitvoer ziet u het pad voor de **sparkmagic** installatie. 
-
-    ![sparkmagic locatie](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
-   
-6. Ga naar de locatie en voer vervolgens:
-
-   ```Python2
-   sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
-   ```
-   ```Python3
-   sudo jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel
+   sudo apt-get install python-dev
    ```
 
-   ![jupyter kernelspec installeren](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Controleer de status van de installatie.
-
-    ```
-    jupyter-kernelspec list
-    ```
-    ![lijst met jupyter kernelspec](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
-
-    Voor beschikbare kernels: 
-    - **python2** en **pysparkkernel** komen overeen met **python 2.x**. 
-    - **python3** en **pyspark3kernel** komen overeen met **python 3.x**. 
-
-8. Start VS Code opnieuw op en gaat u terug naar de script-editor die wordt uitgevoerd **HDInsight: Interactieve PySpark**.
+4. Start VS Code opnieuw op en gaat u terug naar de script-editor die wordt uitgevoerd **HDInsight: Interactieve PySpark**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

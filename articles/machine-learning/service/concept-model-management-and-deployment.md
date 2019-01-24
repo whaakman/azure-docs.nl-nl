@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302966"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852317"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
@@ -39,7 +39,7 @@ Elke stap kan worden uitgevoerd, onafhankelijk van elkaar of als onderdeel van e
 
 Registratie van het model kunt u om op te slaan en versie van uw modellen in de Azure-cloud in uw werkruimte. Het register model kunt u eenvoudig is om te organiseren en bijhouden van uw getrainde modellen.
  
-Geregistreerde modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren in het register wordt het versienummer verhoogd. U kunt ook aanvullende metagegevenstags opgeven tijdens de registratie die kan worden gebruikt bij het zoeken naar voor modellen. De Azure Machine Learning-service ondersteunt modellen die zijn opgeslagen met behulp van een model dat kan worden geladen met behulp van Python 3. 
+Geregistreerde modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren in het register wordt het versienummer verhoogd. U kunt ook aanvullende metagegevenstags opgeven tijdens de registratie die kan worden gebruikt bij het zoeken naar voor modellen. De Azure Machine Learning-service ondersteunt een model dat kan worden geladen met behulp van Python 3. 
 
 U kunt modellen die worden gebruikt door een installatiekopie niet verwijderen.
 
@@ -63,13 +63,13 @@ De installatiekopie kan ook SDK-onderdelen voor logboekregistratie en bewaking b
 Azure Machine Learning biedt ondersteuning voor de meest populaire frameworks, maar in het algemeen een framework dat pip is geïnstalleerd worden kan kan werken.
 
 Als uw werkruimte is gemaakt, zijn dus andere verschillende andere Azure-resources gebruikt door deze werkruimte.
-Alle objecten die worden gebruikt voor het maken van de installatiekopie worden opgeslagen in de Azure storage-account in uw werkruimte. De installatiekopie is gemaakt en opgeslagen in Azure Container Registry. U kunt aanvullende metagegevenstags opgeven bij het maken van de installatiekopie, die ook door het installatiekopieregister worden opgeslagen en kunnen worden opgevraagd om de afbeelding te zoeken.
+Alle objecten die worden gebruikt voor het maken van de installatiekopie worden opgeslagen in de Azure storage-account in uw werkruimte. Wanneer de installatiekopie is gemaakt, kunt u aanvullende metagegevenstags bieden. De metadata-codes worden ook opgeslagen door het installatiekopieregister, en om uw installatiekopie kunnen worden opgevraagd.
 
 Voor meer informatie, Zie de configureren en registreren sectie van de installatiekopie van [modellen implementeren](how-to-deploy-and-where.md#configureimage).
 
 ## <a name="step-3-deploy-image"></a>Stap 3: Installatiekopie implementeren
 
-U kunt geregistreerde installatiekopieën implementeren naar de cloud of naar edge-apparaten. Het implementatieproces maakt de resources die nodig zijn om te controleren, taakverdeling en automatisch schalen uw model. Toegang tot de geïmplementeerde services kan worden beveiligd met verificatie op basis van door te geven van de activa beveiliging tijdens de implementatie. U kunt ook een bestaande implementatie voor het gebruik van een nieuwe installatiekopie bijwerken.
+U kunt geregistreerde installatiekopieën implementeren naar de cloud of naar edge-apparaten. Het implementatieproces maakt alle resources die nodig zijn om te controleren, taakverdeling en automatisch schalen van uw model. Toegang tot de geïmplementeerde services kan worden beveiligd met verificatie op basis van het certificaat door te geven van de activa beveiliging tijdens de implementatie. U kunt ook een bestaande implementatie voor het gebruik van een nieuwe installatiekopie bijwerken.
 
 Webservice-implementaties zijn ook doorzoekbaar. Bijvoorbeeld, u kunt zoeken naar alle implementaties van een specifiek model of een afbeelding.
 

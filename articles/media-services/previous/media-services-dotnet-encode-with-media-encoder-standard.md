@@ -1,6 +1,6 @@
 ---
 title: Een asset coderen met Media Encoder Standard met .NET | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u een asset coderen met Media Encoder Strandard met .NET.
+description: In dit artikel wordt beschreven hoe u een asset coderen met Media Encoder Standard met .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241086"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809578"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Een asset coderen met Media Encoder Standard met .NET 
 Encoding-taken behoren tot de vaakst uitgevoerde bewerkingen in Media Services. U creëert coderingstaken om mediabestanden te converteren van de ene naar de andere indeling. Wanneer u codeert, kunt u de Media Services ingebouwde Media Encoder. U kunt ook een coderingsprogramma geleverd door een partner Media Services; coderingsprogramma's van derden zijn beschikbaar via de Azure Marketplace. 
@@ -64,7 +64,7 @@ Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK aan de volg
 * Geef het invoeractivum moeten worden gecodeerd.
 * Maak een uitvoerasset met de gecodeerde asset.
 * Voeg een gebeurtenis-handler om te controleren of de taak wordt uitgevoerd.
-* Verzenden van de taak.
+* Verzend de taak.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 

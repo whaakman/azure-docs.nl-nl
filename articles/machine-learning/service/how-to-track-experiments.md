@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99b3a65feb232526cffecac4fec68d56fcd16ccb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189469"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846282"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
@@ -122,16 +122,16 @@ Het volgende voorbeeld traint een eenvoudig model sklearn Ridge lokaal in een lo
 
 Het script wordt beëindigd met ```run.complete()```, die de uitvoering wordt gemarkeerd als voltooid.  Deze functie wordt meestal gebruikt in interactieve scenario's.
 
-## <a name="option-2-use-scriptrunconfig"></a>Optie 2: Gebruik ScriptRunConfig
+## <a name="option-2-use-scriptrunconfig"></a>Optie 2: Use ScriptRunConfig
 
 **ScriptRunConfig** is een klasse voor het instellen van configuraties voor het script wordt uitgevoerd. Met deze optie kunt u de code voor bewaking om te worden geïnformeerd over voltooiing of het opvragen van een visual widget voor het bewaken van toevoegen.
 
 In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hiervoor wordt een eenvoudige parameter vegen te vegen via alpha-waarden van het model om vast te leggen metrische gegevens en getrainde modellen in wordt uitgevoerd onder het experimentcanvas. Het voorbeeld lokaal wordt uitgevoerd op basis van een gebruiker beheerde omgeving. 
 
-1. Maak een trainingsscript. Deze code gebruikt ```%%writefile%%``` de training-code naar de scriptmap als schrijven ```train.py```.
+1. Maken van een trainingsscript `train.py`.
 
   ```python
-  %%writefile $project_folder/train.py
+  # train.py
 
   import os
   from sklearn.datasets import load_diabetes
@@ -182,10 +182,11 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
   
   ```
 
-2. De ```train.py``` verwijst naar een script ```mylib.py```. Dit bestand kunt u de lijst met alfanumerieke waarden worden gebruikt in het model ridge ophalen.
+2. De `train.py` script verwijzingen `mylib.py` waarmee u de lijst met alfanumerieke waarden worden gebruikt in het model ridge ophalen.
 
   ```python
-  %%writefile $script_folder/mylib.py
+  # mylib.py
+  
   import numpy as np
 
   def get_alphas():
@@ -216,7 +217,31 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
+
+## <a name="cancel-a-run"></a>Een uitvoering annuleren
+Na een uitvoering is ingediend, kunt u deze annuleren, zelfs als u hebt de objectverwijzing verloren als u weet de naam van het experiment wat en id uitvoeren. 
+
+```python
+from azureml.core import Experiment
+exp = Experiment(ws, "my-experiment-name")
+
+# if you don't know the run id, you can list all runs under an experiment
+for r in exp.get_runs():  
+    print(r.id, r.get_status())
+
+# if you know the run id, you can "rehydrate" the run
+from azureml.core import get_run
+r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
   
+# check the returned run type and status
+print(type(r), r.get_status())
+
+# you can only cancel a run if the status is Running
+if r.get_status() == 'Running':
+    r.cancel()
+```
+Houd er rekening mee dat momenteel wordt alleen ScriptRun en PipelineRun typen bieden ondersteuning voor de annuleringsbewerking.
+
 ## <a name="view-run-details"></a>Details van de uitvoering weergeven
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Monitor uitvoeren met Jupyter-notebook widgets

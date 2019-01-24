@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3564288c55716a9c64ae2460048cb255a60dcc02
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469573"
+ms.locfileid: "54826612"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migratie van Contoso: Opnieuw hosten van een on-premises-app op een Azure-VM en het beheerde exemplaar van SQL Database
 
@@ -432,7 +432,7 @@ Voor het instellen van de bron doen Contoso omgevingsbeheerders het volgende:
 
 Beheerders van Contoso configureren nu de replicatiedoelomgeving:
 
-1. In **infrastructuur voorbereiden** > **doel**, ze selecs de doelinstellingen.
+1. In **infrastructuur voorbereiden** > **doel**, ze de doelinstellingen selecteren.
 2. Site Recovery controleert of er een storage-account en het netwerk in het opgegeven doel is.
 
 ### <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
@@ -473,7 +473,7 @@ Beheerders van Contoso kunnen nu starten WebVM repliceren.
 
     ![Replicatie inschakelen: Selecteer de virtuele machine](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. Ze controleren dat het juiste replicatiebeleid is geselecteerd en replicatie inschakelen voor **WEBVM**. Ze tracs Replicatievoortgang gedurende **taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
+5. Ze controleren dat het juiste replicatiebeleid is geselecteerd en replicatie inschakelen voor **WEBVM**. Volgen ze Replicatievoortgang gedurende **taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 6. In **Essentials** in Azure portal, zien ze de status voor de virtuele machines die naar Azure repliceren:
 
     ![Infrastructuurweergave](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -519,7 +519,7 @@ Beheerders van Contoso moet een Database Migration Service-project maken en verv
         ![Database migratieservice - migratie-instellingen configureren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Deze migratie-instellingen opslaan, en voer vervolgens de migratie.
-6. In **overzicht**, ze monitos de migratiestatus van de.
+6. In **overzicht**, controleren ze de migratiestatus van de.
 
     ![Database migratieservice - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 

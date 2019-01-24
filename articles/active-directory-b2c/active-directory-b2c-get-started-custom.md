@@ -3,19 +3,19 @@ title: Aan de slag met aangepaste beleidsregels in Azure Active Directory B2C | 
 description: Hoe u aan de slag met Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4ff8b607f9fded02a519b5f2a3abdfeedf93d88
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181773"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852300"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Aan de slag met aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Als u er nog geen hebt, moet u [maken van een Azure AD B2C-tenant](tutorial-crea
 
 ## <a name="add-signing-and-encryption-keys"></a>Ondertekening en versleuteling sleutels toevoegen
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
+1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen. 
 
     ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
@@ -68,7 +68,7 @@ Als u al een [Facebook toepassingsgeheim](active-directory-b2c-setup-fb-app.md),
 
 ## <a name="register-applications"></a>Toepassingen registreren
 
-Azure AD B2C, moet u het registreren van twee toepassingen die worden gebruikt voor aanmelden en meld u aan gebruikers: IdentityExperienceFramework (een web-app) en ProxyIdentityExperienceFramework (een systeemeigen app) met gedelegeerde machtigingen van de app IdentityExperienceFramework. Lokale accounts bestaat alleen in uw tenant. Uw gebruikers zich aanmelden met een combinatie van unieke e-mailadres en wachtwoord voor toegang tot uw toepassingen tenant is geregistreerd.
+Azure AD B2C, moet u twee toepassingen die worden gebruikt voor aanmelden en meld u aan gebruikers registreren: IdentityExperienceFramework (een web-app) en ProxyIdentityExperienceFramework (een systeemeigen app) met gedelegeerde machtigingen van de app IdentityExperienceFramework. Lokale accounts bestaat alleen in uw tenant. Uw gebruikers zich aanmelden met een combinatie van unieke e-mailadres en wachtwoord voor toegang tot uw toepassingen tenant is geregistreerd.
 
 ### <a name="register-the-identityexperienceframework-application"></a>De toepassing IdentityExperienceFramework registreren
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395153"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827377"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
 
@@ -37,19 +37,22 @@ De volgende tabel ziet u de afgedwongen beperkingen. Waarden verwijzen naar een 
 | -------- | ------- | ------- | ------- |
 | Registerbewerkingen voor identiteit (maken, ophalen, weergeven, bijwerken en verwijderen) | 1.67/sec/Unit (100 per minuut per eenheid) | 1.67/sec/Unit (100 per minuut per eenheid) | 83.33/sec/Unit (5000 per minuut per eenheid) |
 | Nieuwe apparaatverbindingen (deze limiet is van toepassing op de snelheid waarmee _nieuwe verbindingen_ tot stand worden gebracht, niet het totale aantal verbindingen) | Hogere van 100 per seconde of 12 per seconde per eenheid <br/> Twee S1-eenheden zijn bijvoorbeeld 2\*12 = 24 uur per dag nieuwe verbindingen per seconde, maar u hebt ten minste 100 nieuwe verbindingen per seconde voor uw-eenheden. Met negen S1-eenheden, hebt u 108 nieuwe verbindingen per seconde (9\*12) voor uw-eenheden. | nieuwe verbindingen per seconde per eenheid van de 120 | 6000 nieuwe verbindingen per seconde per eenheid |
-| Apparaat-naar-cloud verzendt | Hogere van 100 per seconde of 12 per seconde per eenheid <br/> Twee S1-eenheden zijn bijvoorbeeld 2\*12 = 24 uur per dag/seconde, maar u hebt ten minste 100 per seconde voor uw-eenheden. Met negen S1-eenheden, hebt u 108 per seconde (9\*12) voor uw-eenheden. | 120 per seconde per eenheid | 6000 per seconde per eenheid |
+| Apparaat-naar-cloud verzendt | Hogere van 100 per seconde of 12 per seconde per eenheid <br/> Twee S1-eenheden zijn bijvoorbeeld 2\*12 = 24 uur per dag/seconde, maar u hebt ten minste 100 per seconde voor uw-eenheden. Met negen S1-eenheden, hebt u 108 per seconde (9\*12) voor uw-eenheden. | 120/sec/unit | 6000 per seconde per eenheid |
 | Cloud-naar-apparaat verzendt<sup>1</sup> | 1.67/sec/Unit (100 per minuut per eenheid) | 1.67/sec/Unit (100 per minuut per eenheid) | 83.33/sec/Unit (5000 per minuut per eenheid) |
 | Cloud-naar-apparaat ontvangt<sup>1</sup> <br/> (alleen als apparaat maakt gebruik van HTTPS)| 16.67/sec/Unit (1000 per minuut per eenheid) | 16.67/sec/Unit (1000 per minuut per eenheid) | 833.33/sec/Unit (50000 per minuut per eenheid) |
 | Bestand uploaden | 1.67 bestand uploaden meldingen per seconde per eenheid (100 per minuut per eenheid) | 1.67 bestand uploaden meldingen per seconde per eenheid (100 per minuut per eenheid) | 83.33 bestand uploaden meldingen per seconde per eenheid (5000 per minuut per eenheid) |
 | Directe methoden<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| (Apparaat- en -module) leesbewerkingen Twin<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
-| Updates (apparaat- en -module) Twin<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
+| (Apparaat- en -module) leesbewerkingen Twin<sup>1</sup> | 10/sec | Hogere van 10 per seconde of 1 per seconde per eenheid | 50/sec/unit |
+| Updates (apparaat- en -module) Twin<sup>1</sup> | 10/sec | Hogere van 10 per seconde of 1 per seconde per eenheid | 50/sec/unit |
 | Taken operations<sup>1,3</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 1.67/sec/Unit (100 per minuut per eenheid) | 1.67/sec/Unit (100 per minuut per eenheid) | 83.33/sec/Unit (5000 per minuut per eenheid) |
-| Taken apparaatbewerkingen<sup>1</sup> <br/> (dubbele bijwerken, rechtstreekse methode aanroepen) | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
+| Taken apparaatbewerkingen<sup>1</sup> <br/> (dubbele bijwerken, rechtstreekse methode aanroepen) | 10/sec | Hogere van 10 per seconde of 1 per seconde per eenheid | 50/sec/unit |
 | Configuraties en edge-implementaties<sup>1</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 0.33/sec/Unit (20 per minuut per eenheid) | 0.33/sec/Unit (20 per minuut per eenheid) | 0.33/sec/Unit (20 per minuut per eenheid) |
+| Streamsnelheid voor het initiëren van apparaat<sup>4</sup> | 5 nieuwe gegevensstromen/sec | 5 nieuwe gegevensstromen/sec | 5 nieuwe gegevensstromen/sec |
+| Maximum aantal gelijktijdig verbonden apparaat streams<sup>4</sup> | 50 | 50 | 50 |
+| Overdracht van gegevens van maximaal stream<sup>4</sup> (statistische-volume per dag) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md). <br/><sup>2</sup>meter formaat beperking is 8 KB. <br/><sup>3</sup>u kunt slechts één actieve apparaten import/export-taak tegelijk hebben.
+<sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md). <br/><sup>2</sup>meter formaat beperking is 8 KB. <br/><sup>3</sup>u kunt slechts één actieve apparaten import/export-taak tegelijk hebben. <br/><sup>4</sup>IoT Hub apparaat-gegevensstromen zijn alleen beschikbaar voor S1, S2, S3 en F1-SKU's.
 
 De *apparaatverbindingen* vertraging bepaalt de snelheid waarmee nieuwe apparaatverbindingen kunnen worden gemaakt met een IoT-hub. De *apparaatverbindingen* vertraging heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De *apparaatverbindingen* snelheid beperken, is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT hub.
 
@@ -77,7 +80,7 @@ IoT Hub dwingt andere operationele beperkingen:
 | Directe methode<sup>1</sup> | Directe methode die maximale nettolading is 128 KB. |
 | Automatische apparaatconfiguraties<sup>1</sup> | 100 configuraties per betaalde SKU-hub. 20 configuraties per gratis SKU-hub. |
 | Automatische Edge-implementaties<sup>1</sup> | 20 modules per implementatie. 100 implementaties per betaalde SKU-hub. 20 implementaties per gratis SKU-hub. |
-| Dubbele<sup>1</sup> | Maximale grootte per dubbele punt (tags, de gewenste eigenschappen, gerapporteerde eigenschappen) is 8 KB |
+| Twins<sup>1</sup> | Maximale grootte per dubbele punt (tags, de gewenste eigenschappen, gerapporteerde eigenschappen) is 8 KB |
 
 <sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md).
 

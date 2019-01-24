@@ -1,7 +1,7 @@
 ---
-title: Experimenten en inferentietaken binnen een Virtueelnetwerk worden uitgevoerd
+title: Experimenten & Deductie uitvoeren in een virtueel netwerk
 titleSuffix: Azure Machine Learning service
-description: Leer hoe u machine learning-experimenten en inferentietaken in een Azure-netwerk veilig kunnen worden uitgevoerd. Dit artikel leert u over het maken van de compute-doelen gebruikt voor het trainen van modellen en inferentietaken in een Azure-netwerk uit te voeren. Dit geldt ook voor vereisten voor beveiligde virtuele netwerken, zoals vereisen binnenkomende en uitgaande poorten.
+description: Machine learning-experimenten en inferentietaken beveiligen in een Azure-netwerk worden uitgevoerd. Informatie over het maken van de compute-doelen voor modeltraining en Deductie binnen een virtueel Azure-netwerk. Dit geldt ook voor vereisten voor beveiligde virtuele netwerken, zoals vereisen binnenkomende en uitgaande poorten.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248898"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856278"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Experimenten en inferentietaken in een Azure-netwerk veilig uitvoeren
 
@@ -149,7 +149,7 @@ Als u een virtuele machine of de HDInsight-cluster in een Virtueelnetwerk met uw
 
     * __Bron__: Selecteer __Servicetag__
 
-    * __Bronservicetag__: Selecteer __AzureMachineLearning__
+    * __Bronservicetag__: Select __AzureMachineLearning__
 
     * __Poortbereiken van bron__: Selecteer __*__
 

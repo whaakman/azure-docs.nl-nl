@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6bdb319eb89c3dad8b3602b0ec4561b962fcc868
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608695"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823348"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migratie van Contoso: Een on-premises app opnieuw hosten op Azure-VM's
 
@@ -66,7 +66,7 @@ Het Contoso-cloud-team heeft vastgemaakt omlaag doelstellingen voor deze migrati
 
 ## <a name="solution-design"></a>Het ontwerp van oplossing
 
-einde vastmaken omlaag doelstellingen en vereisten, Contoso ontwerpen en een implementatieoplossing controleren en identificeert het migratieproces, met inbegrip van de Azure-services die Contoso voor de migratie wilt gebruiken.
+Na het vastmaken omlaag doelstellingen en vereisten, Contoso ontwerpen van een implementatieoplossing controleren en identificeert het migratieproces, met inbegrip van de Azure-services die Contoso voor de migratie wilt gebruiken.
 
 ### <a name="current-app"></a>Huidige app
 
@@ -100,7 +100,7 @@ Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een 
 
 **Overweging** | **Details**
 --- | ---
-**Professionals** | Zowel de virtuele machines van app worden verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> Omdat Contoso lift-and-shift voor zowel virtuele machines van de app gebruikt is, zijn geen speciale configuratie of de migratie van hulpprogramma's voor de database van de app nodig.<br/><br/> Contoso kan gebruikmaken van hun investering in Software Assurance, met behulp van Azure Hybrid Benefit.<br/><br/> Contoso, behouden die volledige controle over de virtuele machines in Azure-app.
+**Pros** | Zowel de virtuele machines van app worden verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> Omdat Contoso lift-and-shift voor zowel virtuele machines van de app gebruikt is, zijn geen speciale configuratie of de migratie van hulpprogramma's voor de database van de app nodig.<br/><br/> Contoso kan gebruikmaken van hun investering in Software Assurance, met behulp van Azure Hybrid Benefit.<br/><br/> Contoso, behouden die volledige controle over de virtuele machines in Azure-app.
 **Nadelen** | WEBVM en SQLVM wordt Windows Server 2008 R2 uitgevoerd. Het besturingssysteem wordt ondersteund door Azure voor specifieke rollen (juli 2018). [Meer informatie](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> De lagen web-apps en gegevens van de app blijft een single point of failover.</br><br/> SQLVM wordt uitgevoerd op SQL Server 2008 R2 die zich niet in het algemeen worden ondersteund. Het wordt echter ondersteund voor virtuele Azure-machines (juli 2018). [Meer informatie](https://support.microsoft.com/en-us/help/956893).<br/><br/> Contoso moet doorgaan met ondersteuning van de app als Azure-VM's in plaats van verplaatsen naar een beheerde service zoals Azure App Service en Azure SQL Database.
 
 

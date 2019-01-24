@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553423"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841408"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -101,6 +101,10 @@ Klanten kunnen een momentopname van de beheerde schijven en vervolgens de moment
 
 Ja, niet-beheerde en beheerde schijven worden ondersteund. U wordt aangeraden dat u beheerde schijven voor nieuwe workloads gebruiken en uw huidige workloads naar managed disks migreren.
 
+**Kan ik dezelfde niet-beheerde en beheerde schijven op dezelfde VM plaatsen?**
+
+Nee.
+
 **Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 GiB verhogen, moet ik betalen voor de volgende schijfgrootte (256 GB)?**
 
 Ja.
@@ -124,10 +128,6 @@ Nee. U kunt de naameigenschap van de computer niet bijwerken. De nieuwe virtuele
 **Waar vind ik een voorbeeld van Azure Resource Manager-sjablonen te maken van virtuele machines met beheerde schijven?**
 * [Lijst met sjablonen met behulp van Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**Kan ik dezelfde niet-beheerde en beheerde schijven op dezelfde VM plaatsen?**
-
-Nee.
 
 **Bij het maken van een schijf van een blob, is er geen voortdurend bestaande relatie met die bron-blob?**
 
@@ -318,7 +318,7 @@ U hoeft niet te upgraden van uw bestaande Azure-hulpprogramma's maken, koppelen 
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Versienummer 4.1.0: De release van juni 2017 of hoger|
 |Azure CLI v1     | Versienummer 0.10.13: De release van mei 2017 of hoger|
-|Azure CLI versie 2     | Versienummer 2.0.12: De release van juli 2017 of hoger|
+|Azure CLI v2     | Versienummer 2.0.12: De release van juli 2017 of hoger|
 |AzCopy           | Versienummer 6.1.0: De release van juni 2017 of hoger|
 
 **Worden schijfgrootten P4 en P6 ondersteund voor niet-beheerde schijven of pagina-blobs?**

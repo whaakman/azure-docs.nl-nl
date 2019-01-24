@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104081"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847540"
 ---
 # <a name="manage-and-configure-projects"></a>Projecten beheren en configureren
 
 Een project in notitieblokken van Azure is in feite een configuratie van de onderliggende virtuele Linux-machine waarin Jupyter-notebooks uitgevoerd, samen met een map en de beschrijvende metagegevens. Het projectdashboard in notitieblokken van Azure kunt u bestanden beheren en configureren van het project kenmerken:
 
-- De metagegevens van het project omvat een naam, beschrijving, een id die wordt gebruikt bij het delen van het project, en of het project is openbaar of privé.
-- U beheren de notebook van het project, gegevens en andere bestanden zoals u dat wel met een ander bestandssysteem doet.
-- U configureren van een project-omgeving via opstartscripts of rechtstreeks via de terminal.
-- U hebt toegang tot logboeken via de terminal.
+- De rekenlaag waarop het project wordt uitgevoerd, dit kan de gratis laag of een virtuele machine van Azure.
+- Project-metagegevens, waaronder een naam, beschrijving, een id die wordt gebruikt bij het delen van het project, en of het project is openbaar of privé.
+- De notebook van het project, gegevens en andere bestanden, die u, zoals een ander bestandssysteem beheert.
+- De omgeving van een project, die u via opstartscripts of rechtstreeks via de terminal beheert.
+- Logboeken, die u via de terminal openen.
 
 > [!Note]
-> U kunt geen project dat u niet de eigenaar, tenzij de eigenaar van het project zijn aangebracht u samenwerker beheren. Anders zijn de beheer- en configuratie van functies die hier worden beschreven niet beschikbaar voor u.
+> De beheer- en configuratie van functies die hier worden beschreven zijn alleen beschikbaar voor de eigenaar van het project die het project in eerste instantie worden gemaakt. U kunt echter het project klonen in uw eigen account, in welk geval u de eigenaar en het project naar wens kunt configureren.
 
 Azure-notitieblokken wordt de onderliggende virtuele machine gestart wanneer u een laptop of een ander bestand uitvoeren. De server automatisch bestanden worden opgeslagen en worden afgesloten na 60 minuten van inactiviteit. U kunt ook de server stoppen op elk gewenst moment met de **afsluiten** opdracht (sneltoets: h).
+
+## <a name="compute-tier"></a>Rekenlaag
+
+De **uitvoeren** vervolgkeuzelijst in het projectdashboard is waar u de compute-laag waarop het project wordt uitgevoerd. Standaard projecten uitvoeren op de **gratis Compute** laag, wat beperkt is tot 4 GB geheugen en 1 GB aan gegevens om misbruik te voorkomen:
+
+![COMPUTE-laag vervolgkeuzelijst in het projectdashboard](media/project-compute-tier-list.png)
+
+Met behulp van een andere virtuele machine die u in een Azure-abonnement hebt ingericht, kunt u deze beperkingen negeren. U moet ook Jupyter installeren op deze virtuele machine. De Data Science Virtual Machine-installatiekopieën zijn goede keuze omdat ze Jupyter standaard bevatten.
+
+U kunt verbinding maken met een goed geconfigureerde virtuele machine van Azure met behulp van de **Direct Compute** optie in de vervolgkeuzelijst. Deze optie selecteert, wordt u gevraagd een naam (om weer te geven in de lijst), IP-adres van de VM en poort (meestal 8000, de standaardpoort voor welke luistert JupyterHub) en de referenties van de virtuele machine:
+
+![Prompt voor het verzamelen van informatie over server voor de directe Compute option](media/project-compute-tier-direct.png)
+
+Als de volgende voorwaarden voldaan wordt, wordt ook de vervolgkeuzelijst weergegeven [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) exemplaren. (Als een van deze voorwaarden niet worden voldaan, u kunt nog steeds verbinding met de DSVM met behulp van de directe Compute option en de waarden hebt verkregen via de Azure portal in te voeren.)
+
+- U bent aangemeld bij Azure-laptops met een account dat gebruikmaakt van Azure Active Directory (AAD), zoals een bedrijfsaccount.
+- Uw account is verbonden met een Azure-abonnement.
+- Hebt u een of meer virtuele machines in dat aan het abonnement, met ten minste leestoegang hebben, die gebruikmaken van de virtuele Machine voor Datatechnologie voor Linux (Ubuntu)-installatiekopie.
+
+![Data Science Virtual Machine-exemplaren in de vervolgkeuzelijst in het projectdashboard](media/project-compute-tier-dsvm.png)
+
+Wanneer u een exemplaar van de DSVM selecteert, Azure-notitieblokken wordt u mogelijk gevraagd om de specifieke machine-referenties gebruikt bij het maken van de virtuele machine.
+
+Voor het maken van een nieuw exemplaar van de DSVM, volgt u de instructies op [maken van een Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). U *moet* gebruiken de **Data Science Virtual Machine voor Linux (Ubuntu)** installatiekopie omdat Azure notitieblokken Dsvm die gebruikmaken van de Windows- of CentOS-installatiekopieën niet wordt weergegeven.
 
 ## <a name="edit-project-metadata"></a>Project metagegevens bewerken
 
@@ -66,7 +91,7 @@ De **+ nieuw** opdracht (sneltoets: n) maakt u nieuwe bestanden of mappen. Wanne
 
 ### <a name="upload-files"></a>Bestanden uploaden
 
-De **uploaden** opdracht biedt twee opties voor het importeren van gegevens vanuit andere locaties: **van URL** en **van Computer**. Zie voor meer informatie, [werken met gegevensbestanden in Azure Notebook projecten](work-with-project-data-files.md).
+De **uploaden** opdracht biedt twee opties voor het importeren van gegevens vanuit andere locaties: **Via URL** en **van Computer**. Zie voor meer informatie, [werken met gegevensbestanden in Azure Notebook projecten](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Selecteer bestand-specifieke opdrachten
 
@@ -127,11 +152,11 @@ Als u wilt een stap toevoegen, selecteert u eerst **+ toevoegen**, selecteert u 
 
 De informatie die u vervolgens projecteren, is afhankelijk van het type bewerking dat u hebt gekozen:
 
-- **Requirements.txt**: Selecteer In de tweede vervolgkeuzelijst met een *requirements.txt* bestand dat zich al in het project. Selecteer vervolgens een Python-versie van de derde vervolgkeuzelijst die wordt weergegeven. Met behulp van een *requirements.txt* -bestand, Azure-notitieblokken uitvoeringen `pip install -r` met de *requirements.txt* bestand bij het starten van een notebook-server. U hoeft niet te pakketten uit binnen de notebook zelf expliciet te installeren.
+- **Requirements.txt**: Selecteer in de tweede vervolgkeuzelijst met een *requirements.txt* bestand dat zich al in het project. Selecteer vervolgens een Python-versie van de derde vervolgkeuzelijst die wordt weergegeven. Met behulp van een *requirements.txt* -bestand, Azure-notitieblokken uitvoeringen `pip install -r` met de *requirements.txt* bestand bij het starten van een notebook-server. U hoeft niet te pakketten uit binnen de notebook zelf expliciet te installeren.
 
-- **Shell-script**: Selecteer In de tweede vervolgkeuzelijst met een bash-shell-script in het project (meestal een bestand met de *.sh* extensie) die alle opdrachten die u uitvoeren wilt voor het initialiseren van de omgeving bevat.
+- **Shell-script**: Selecteer in de tweede vervolgkeuzelijst met een bash-shell-script in het project (meestal een bestand met de *.sh* extensie) die alle opdrachten die u uitvoeren wilt voor het initialiseren van de omgeving bevat.
 
-- **Environment.yml**: Selecteer In de tweede vervolgkeuzelijst met een *environments.yml* -bestand voor Python-projecten met behulp van een conda-omgeving.
+- **Environment.yml**: Selecteer in de tweede vervolgkeuzelijst met een *environments.yml* -bestand voor Python-projecten met behulp van een conda-omgeving.
 
 Wanneer u de stappen toegevoegd hebt, selecteert u **opslaan**.
 
@@ -186,5 +211,5 @@ U kunt ook de opdracht gebruiken vanaf een lege codecel in een Python-notebook:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Hoe: werken met gegevens projectbestanden](work-with-project-data-files.md)
+- [Procedure: Werken met gegevens projectbestanden](work-with-project-data-files.md)
 - [Toegang tot cloud-gegevens in een notitieblok](access-data-resources-jupyter-notebooks.md)

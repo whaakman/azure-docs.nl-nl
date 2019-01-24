@@ -3,9 +3,9 @@ title: Azure Service Bus-berichten uitzonderingen | Microsoft Docs
 description: Overzicht van Service Bus-berichtuitzonderingen en voorgestelde acties.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: d96982f4dff523e1a262ee4f9d8bdc2dfc8480e1
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.author: aschhab
+ms.openlocfilehash: e0d319526bf9e604a98a1c926f7b6fc4f2834466
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037597"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851144"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus-berichtuitzonderingen
 Dit artikel worden enkele uitzonderingen die worden gegenereerd door de Microsoft Azure Service Bus messaging-API's. Deze referentie is onderhevig aan wijzigingen, dus kom binnenkort voor updates.
@@ -28,7 +28,7 @@ Dit artikel worden enkele uitzonderingen die worden gegenereerd door de Microsof
 De berichtenservice-API's genereren uitzonderingen die kunnen worden onderverdeeld in de volgende categorieën, samen met de gekoppelde actie die u ondernemen kunt om te proberen te corrigeren. De betekenis en de oorzaken van een uitzondering kunnen variëren afhankelijk van het type Berichtentiteit:
 
 1. Gebruiker fout met de code ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [ System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Algemene actie: probeert op te lossen van de code voordat u doorgaat.
-2. Fout bij installatie/configuratie ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Algemene actie: de configuratie controleren en wijzig indien nodig.
+2. Setup/configuration error ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Algemene actie: de configuratie controleren en wijzig indien nodig.
 3. Tijdelijke uitzonderingen ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [ Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). Algemene actie: Voer de bewerking opnieuw uit of gebruikers een melding ontvangen. Houd er rekening mee dat de `RetryPolicy` klasse in de client-SDK voor het afhandelen van nieuwe pogingen automatisch kan worden geconfigureerd. Zie [richtlijnen voor opnieuw proberen](/azure/architecture/best-practices/retry-service-specific#service-bus) voor meer informatie.
 4. Andere uitzonderingen ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). Algemene actie: specifiek zijn voor het uitzonderingstype. Raadpleeg de tabel in de volgende sectie: 
 

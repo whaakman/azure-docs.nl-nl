@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 175c00d36491fbf43149aef9a590219b330581c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 181577c6a170d28679e1ca486dc2a8c5a596f20d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422974"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Zelfstudie: Azure Active Directory-integratie met Bonusly
 
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Bonusly, moet u de volgende it
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Bonusly in Azure AD, moet u Bonusly 
 
 **Als u wilt toevoegen Bonusly uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,15 +68,15 @@ Voor het configureren van de integratie van Bonusly in Azure AD, moet u Bonusly 
 
     ![De blade Enterprise-toepassingen][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **Bonusly**, selecteer **Bonusly** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Bonusly in de lijst met resultaten](./media/bonus-tutorial/tutorial_bonusly_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Bonusly op basis van een testgebruiker 'Julia steen' genoemd.
 
 Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Bonusly is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Bonusly tot stand worden gebracht.
@@ -85,13 +85,13 @@ In Bonusly, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde v
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Bonusly, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker Bonusly](#create-a-bonusly-test-user)**  : als u wilt een equivalent van Britta Simon in Bonusly die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
 1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw Bonusly toepassing.
 
@@ -109,18 +109,18 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Bonusly domein en URL's, eenmalige aanmelding informatie](./media/bonus-tutorial/tutorial_bonusly_url.png)
 
-    In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://Bonus.ly/saml/<tenant-name>`
+    In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
     > De waarde is niet echt. Werk de waarde bij met de werkelijke antwoord-URL. Neem contact op met [Bonusly ondersteuningsteam](https://bonus.ly/contact) om de waarde.
  
 1. Op de **SAML-handtekeningcertificaat** sectie, Kopieer de **VINGERAFDRUK** waarde van het certificaat.
 
-    ![De downloadkoppeling certificaat](./media/bonus-tutorial/tutorial_bonusly_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/bonus-tutorial/tutorial_bonusly_certificate.png) 
 
 1. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/bonus-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/bonus-tutorial/tutorial_general_400.png)
 
 1. Op de **Bonusly configuratie** sectie, klikt u op **Bonusly configureren** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
@@ -143,15 +143,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. In de **IdP aanmeldings-URL** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
 
-    d. Plak de **vingerafdruk** waarde opgehaald uit Azure portal in de **Cert vingerafdruk** tekstvak.
+    d. Plak de **vingerafdruk** waarde opgehaald uit Azure portal in de **Cert vingerafdruk** tekstvak.
    
 1. Klik op **Opslaan**.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
 ![Maak een testgebruiker Azure AD][100]
@@ -160,11 +160,11 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop](./media/bonus-tutorial/create_aaduser_01.png) 
+    ![De knop Azure Active Directory](./media/bonus-tutorial/create_aaduser_01.png) 
 
 1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/bonus-tutorial/create_aaduser_02.png) 
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](./media/bonus-tutorial/create_aaduser_02.png) 
 
 1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
@@ -172,7 +172,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
-    ![Het dialoogvenster gebruiker](./media/bonus-tutorial/create_aaduser_04.png) 
+    ![Het dialoogvenster Gebruiker](./media/bonus-tutorial/create_aaduser_04.png) 
 
     a. In de **naam** tekstvak, type **BrittaSimon**.
 
@@ -190,13 +190,13 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Bonusly, moeten ze worden 
 >U kunt een andere gebruiker Bonusly account hulpmiddelen voor het maken of API's die is geleverd door Bonusly aan inrichten AAD-gebruikersaccounts.
 >  
 
-**Als u wilt inrichten van gebruikers configureren, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om de gebruikersinrichting te configureren:**
 
 1. Meld u aan bij uw Bonusly tenant aan in een browservenster.
 
-1. Klik op **instellingen**.
+1. Klik op **Instellingen**.
  
-    ![Instellingen voor](./media/bonus-tutorial/ic781041.png "instellingen")
+    ![Settings](./media/bonus-tutorial/ic781041.png "Settings")
 
 1. Klik op de **gebruikers en bonussen** tabblad.
    
@@ -206,19 +206,19 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Bonusly, moeten ze worden 
    
     ![Gebruikers beheren](./media/bonus-tutorial/ic781043.png "gebruikers beheren")
 
-1. Klik op **gebruiker toevoegen**.
+1. Klik op **Add User**.
    
-    ![Gebruiker toevoegen](./media/bonus-tutorial/ic781044.png "gebruiker toevoegen")
+    ![Gebruiker toevoegen](./media/bonus-tutorial/ic781044.png "Gebruiker toevoegen")
 
 1. Op de **gebruiker toevoegen** dialoogvenster, voer de volgende stappen uit:
    
-    ![Gebruiker toevoegen](./media/bonus-tutorial/ic781045.png "gebruiker toevoegen")  
+    ![Gebruiker toevoegen](./media/bonus-tutorial/ic781045.png "Gebruiker toevoegen")  
 
     a. In de **voornaam** tekstvak, geef de voornaam van de gebruiker, zoals **Julia**.
 
     b. In de **achternaam** tekstvak, geef de achternaam van de gebruiker, zoals **Simon**.
  
-    c. In de **e** tekstvak, voer het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
+    c. Voer in het tekstvak **Email** het e-mailadres van de gebruiker in, bijvoorbeeld **brittasimon@contoso.com**.
 
     d. Klik op **Opslaan**.
    

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020401"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853592"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Regels voor slimme detectie van Application Insights met behulp van Azure Resource Manager-sjablonen beheren
 
@@ -154,6 +154,17 @@ Hieronder ziet u een tabel met de namen van Slimme detectie zoals ze worden weer
 | Mogelijk geheugenlek gedetecteerd (preview) | extension_memoryleakextension |
 | Potentiële beveiligingsproblemen gedetecteerd (preview) | extension_securityextensionspackage |
 | Resource-gebruik probleem gedetecteerd (preview) | extension_resourceutilizationextensionspackage |
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Wie de (klassiek) waarschuwingsmeldingen ontvangen?
+
+In deze sectie is alleen van toepassing op klassieke waarschuwingen voor slimme detectie en helpt u optimaliseren van uw meldingen van waarschuwingen om ervoor te zorgen dat alleen de gewenste geadresseerden meldingen ontvangen. Meer informatie geven over het verschil tussen de [klassieke waarschuwingen] (.. /platform/Alerts-Classic.Overview.MD en de nieuwe ervaring voor waarschuwingen verwijzen naar de [waarschuwingen overzichtsartikel](../platform/alerts-overview.md). Slimme detectie waarschuwingen op dit moment alleen ondersteuning voor de klassieke waarschuwingen optreden. De enige uitzondering hierop is [slimme detectiewaarschuwingen in Azure cloud services](./proactive-cloud-services.md). Melding voor slimme detectiewaarschuwingen over Azure cloud services voor het beheren van waarschuwing maken gebruik van [actiegroepen](../platform/action-groups.md).
+
+* We raden het gebruik van specifieke ontvangers voor slimme detectie en klassieke waarschuwingen.
+
+* Voor slimme detectiewaarschuwingen, de **bulksgewijs/groep** selectievakje, indien ingeschakeld, verzendt naar gebruikers met de rol van eigenaar, bijdrager of lezer in het abonnement. In feite _alle_ gebruikers met toegang tot het abonnement de Application Insights-resource in het bereik en meldingen ontvangt. 
+
+> [!NOTE]
+> Als u momenteel gebruikmaakt van de **bulksgewijs/groep** selectievakje, en uitschakelen, kunt u zich niet meer herstellen van de wijziging.
 
 ## <a name="next-steps"></a>Volgende stappen
 

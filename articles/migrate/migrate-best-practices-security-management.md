@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 6238d3d7a64816df01be69458d784114368d9e17
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141336"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827496"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Aanbevolen procedures voor het beveiligen en beheren van werkbelastingen naar Azure gemigreerd
 
@@ -25,13 +25,13 @@ Als u plannen en ontwerpen voor migratie, naast nadenken over de migratie zelf, 
 
 Na de migratie is de belangrijkste taak voor het beveiligen van de gemigreerde werkbelastingen van interne en externe bedreigingen. Deze aanbevolen procedures helpen u om dat te doen:
 
-- [Werken met Azure Security Center](#best-practice-follow-azure-security-center-recommendations): meer informatie over het werken met de bewaking, evaluaties en aanbevelingen die door Azure Security Center
-- [Uw gegevens versleutelen](#best-practice-encrypt-data): ophalen van aanbevolen procedures voor het versleutelen van uw gegevens in Azure.
-- [Instellen van anti-malware](#best-practice-protect-vms-with-antimalware): uw VM's beschermen tegen schadelijke aanvallen en schadelijke software.
-- [Web-apps beveiligen](#best-practice-secure-web-apps): houd gevoelige informatie veilig in web-apps gemigreerd.
-- [Bekijk de abonnementen](#best-practice-review-subscriptions-and-resource-permissions): controleren wie toegang heeft tot uw Azure-abonnementen en resources na de migratie.
-- [Werken met Logboeken](#best-practice-review-audit-and-security-logs): Controleer uw Azure controleren en beveiligingslogboeken op gezette tijden.
-- [Bekijk andere beveiligingsfuncties](#best-practice-evaluate-other-security-features): begrijpen en beoordelen van geavanceerde beveiligingsfuncties die Azure biedt.
+- [Werken met Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Meer informatie over het werken met de bewaking, evaluaties en aanbevelingen die door Azure Security Center
+- [Uw gegevens versleutelen](#best-practice-encrypt-data): Get-aanbevolen procedures voor het versleutelen van uw gegevens in Azure.
+- [Instellen van anti-malware](#best-practice-protect-vms-with-antimalware): Beveilig uw virtuele machines tegen schadelijke software en aanvallen.
+- [Web-apps beveiligen](#best-practice-secure-web-apps): Gevoelige gegevens in gemigreerde web-apps veilig te houden.
+- [Bekijk de abonnementen](#best-practice-review-subscriptions-and-resource-permissions): Controleer of wie toegang heeft tot uw Azure-abonnementen en resources na de migratie.
+- [Werken met Logboeken](#best-practice-review-audit-and-security-logs): Bekijk uw Azure controlebeleid en beveiligingslogboek Logboeken regelmatig.
+- [Bekijk andere beveiligingsfuncties](#best-practice-evaluate-other-security-features): Begrijpen en beoordelen van geavanceerde beveiligingsfuncties die Azure biedt.
 
 ## <a name="best-practice-follow-azure-security-center-recommendations"></a>Aanbevolen: Volg Azure Security Center aanbevelingen
 
@@ -48,7 +48,7 @@ Naast de evaluaties en aanbevelingen biedt het Security Center een aantal andere
     - Met VM-RDP-poort 3389 openen op het internet wordt aangegeven dat virtuele machines aan voortdurende slecht actor-activiteit. Azure IP-adressen zijn bekende en hackers voortdurend test ze voor aanvallen op 3389 poorten openen. 
     - Just-in-tijd gebruikt netwerkbeveiliging groepen (nsg's) en binnenkomende regels die grens de hoeveelheid tijd die een specifieke poort geopend is.
     - Met just-in-time is ingeschakeld, controleert Security Center dat een gebruiker op basis van rollen (RBAC) toegang voor schrijven met machtigingen voor toegangsbeheer voor een virtuele machine heeft. Daarnaast Geef regels op voor hoe gebruikers verbinding met virtuele machines maken kunnen. Als machtigingen in orde zijn, een aanvraag voor toegang tot is goedgekeurd en Security Center configureert u nsg's om toe te staan van inkomend verkeer op de geselecteerde poorten voor de hoeveelheid tijd die u opgeeft. Nsg's zijn Ga terug naar de vorige status wanneer het tijd is verlopen.
-- **Besturingselementen voor adaptieve toepassingen**: blijven software en schadelijke software uit de virtuele machines door te bepalen welke apps worden uitgevoerd op deze gebruiken in de whitelist aan dynamische app.
+- **Besturingselementen voor adaptieve toepassingen**: Software en schadelijke software uit de virtuele machines door te bepalen welke apps worden uitgevoerd op deze Blijf gebruiken in de whitelist aan dynamische app.
     - Besturingselementen voor adaptieve toepassingen kunnen u witte lijst apps en voorkomen dat rogue-gebruikers of beheerders software voor niet-goedgekeurde of gaan apps installeren op uw virtuele machines.
     - U kunt blokkeren of waarschuwing wordt geprobeerd schadelijke apps worden uitgevoerd, te voorkomen dat ongewenste of schadelijke apps en voldoen aan de app-beveiligingsbeleid van uw organisatie.
 - **Bestandsintegriteit controleren**: Zorg ervoor dat de integriteit van de bestanden die worden uitgevoerd op virtuele machines.
@@ -64,18 +64,18 @@ Naast de evaluaties en aanbevelingen biedt het Security Center een aantal andere
 - [Aan de slag](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring) met bestandsintegriteit controleren.
 
 
-## <a name="best-practice-encrypt-data"></a>Aanbevolen: gegevens versleutelen 
+## <a name="best-practice-encrypt-data"></a>Aanbevolen: Gegevens versleutelen 
 
-Versleuteling's een belangrijk onderdeel van de procedures voor beveiliging op Azure. Ervoor te zorgen dat versleuteling is ingeschakeld, op alle niveaus helpt te voorkomen dat onbevoegden toegang krijgen tot gevoelige gegevens, met inbegrip van gegevens in-transit en in rust. 
+Versleuteling is een belangrijk onderdeel van de procedures voor beveiliging op Azure. Ervoor te zorgen dat versleuteling is ingeschakeld, op alle niveaus helpt te voorkomen dat onbevoegden toegang krijgen tot gevoelige gegevens, met inbegrip van gegevens in-transit en in rust. 
 
 ### <a name="encryption-for-iaas"></a>Versleuteling voor IaaS
 
-- **Virtuele machines**: voor virtuele machines kunt u Azure Disk Encryption voor het versleutelen van uw Windows- en Linux IaaS-VM-schijven.
-    - Schijfversleuteling maakt gebruik van Bitlocker voor Windows en DM-Crypt voor Linux om volumeversleuteling voor het besturingssysteem en gegevensschijven.
+- **Virtuele machines**: U kunt Azure Disk Encryption voor virtuele machines gebruiken voor het versleutelen van uw Windows- en Linux IaaS-VM-schijven.
+    - Schijfversleuteling maakt gebruik van BitLocker voor Windows en DM-Crypt voor Linux om volumeversleuteling voor het besturingssysteem en gegevensschijven.
     - Kunt u een versleutelingssleutel gemaakt door Azure, of kunt u uw eigen versleutelingssleutels, beveiligd in Azure Key Vault opgeven. 
     - Met schijfversleuteling, IaaS VM-gegevens in rust (op schijf) is beveiligd en tijdens het opstarten van de virtuele machine. 
     - Azure Security Center wordt u gewaarschuwd als er virtuele machines die niet zijn versleuteld.
-- **Opslag**: beveiligen aan de rest-gegevens opgeslagen in Azure storage.
+- **Opslag**: Beveiligen aan de rest-gegevens opgeslagen in Azure storage.
     - Gegevens die zijn opgeslagen in Azure storage-accounts kan worden versleuteld met Microsoft gegenereerde AES-sleutels die FIPS 140-2-compatibele zijn, of u kunt uw eigen sleutels gebruiken.
     - Storage-Serviceversleuteling is ingeschakeld voor alle nieuwe en bestaande opslagaccounts en kan niet worden uitgeschakeld.
 
@@ -88,7 +88,7 @@ In tegenstelling tot IaaS waar u uw eigen virtuele machines en infrastructuur be
     - U maken Always Encrypted-sleutel voor het versleutelen van gegevens van afzonderlijke kolom.
     - Altijd versleutelde sleutels kunnen worden opgeslagen als gecodeerde in de metagegevens van een database of opgeslagen in vertrouwde sleutel, zoals Azure Key Vault.
     - App-wijzigingen waarschijnlijk nodig om deze functie te gebruiken.
-- **Transparante gegevensversleuteling (TDE)**: de Azure SQL Database met realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust beveiligen.
+- **Transparante gegevensversleuteling (TDE)**: De Azure SQL Database met realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust beveiligen.
     - TDE kunt versleutelingsactiviteiten moet plaatsvinden zonder wijzigingen in de app-laag.
     - TDE versleutelingssleutels geleverd door Microsoft kunt gebruiken, of u uw eigen sleutels met Bring Your Own Key-ondersteuning kunt bieden.
 
@@ -101,7 +101,7 @@ In tegenstelling tot IaaS waar u uw eigen virtuele machines en infrastructuur be
 - [Meer informatie over](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-2017) TDE voor Azure SQL-Database.
 - [Meer informatie over](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql) TDE met Bring Your Own Key.
 
-## <a name="best-practice-protect-vms-with-antimalware"></a>Aanbevolen: virtuele machines beveiligen met anti-malware
+## <a name="best-practice-protect-vms-with-antimalware"></a>Aanbevolen: Virtuele machines beveiligen met anti-malware
 
 Oudere Azure gemigreerde virtuele machines mogelijk is met name niet het juiste niveau van anti-malware geïnstalleerd.  Azure biedt een gratis endpoint-oplossing waarmee u kunt virtuele machines beschermen tegen virussen, spyware en andere schadelijke software.
 - Microsoft Antimalware voor Azure genereert waarschuwingen wanneer bekende schadelijke of ongewenste software probeert zichzelf te installeren.
@@ -115,7 +115,7 @@ Oudere Azure gemigreerde virtuele machines mogelijk is met name niet het juiste 
 
 - [Meer informatie over](https://docs.microsoft.com/azure/security/azure-security-antimalware) Microsoft Antimalware.
 
-## <a name="best-practice-secure-web-apps"></a>Aanbevolen: web-apps beveiligen
+## <a name="best-practice-secure-web-apps"></a>Aanbevolen: Beveiligde web-apps
 
 Gemigreerde web-apps te maken krijgt een aantal problemen:
 
@@ -125,14 +125,14 @@ Gemigreerde web-apps te maken krijgt een aantal problemen:
 
 Azure biedt een aantal oplossingen:
 
-- **Azure Key Vault**: vandaag web app-ontwikkelaars zijn stappen om ervoor te zorgen dat gevoelige informatie van deze bestanden is niet gelekt. Een methode voor het beveiligen van gegevens is het uitpakken van bestanden en plaatsen deze in een Azure Key Vault.
+- **Azure Key Vault**: Web app-ontwikkelaars duurt vandaag nog om ervoor te zorgen dat gevoelige informatie van deze bestanden is niet gelekt. Een methode voor het beveiligen van gegevens is het uitpakken van bestanden en plaatsen deze in een Azure Key Vault.
     - U kunt Key Vault gebruiken voor het opslaan van appgeheimen centraliseren en de verdeling ervan bepalen. Dit voorkomt de noodzaak voor het opslaan van informatie over beveiliging in app-bestanden.
     - Apps kunnen toegang tot informatie over beveiliging in de kluis met behulp van URI's, zonder aangepaste code.
     - Azure Key Vault kunt u toegang via Azure beveiligingsmechanismen vergrendelen en een naadloos implementeren 'rolling sleutels'. Microsoft niet kan zien of extraheren van uw gegevens.
-- **App Service-omgeving**: als een app die u migreert extra beveiliging moet, kunt u overwegen een App Service-omgeving en de Web Application Firewall ter bescherming van de app-resources toe te voegen.
+- **App Service-omgeving**: Als een app die u migreert extra beveiliging moet, kunt u overwegen een App Service-omgeving en de Web Application Firewall ter bescherming van de app-resources toe te voegen.
     - De Azure App Service-omgeving biedt een volledig geïsoleerde en toegewezen omgeving waarin aan de actieve App Service-apps, zoals Windows en Linux-web-apps, Docker-containers, mobiele apps en functies.
     - Dit is handig voor apps die zeer grote schaal zijn, isolatie en beveiligde netwerk toegang tot of hoog geheugengebruik vereisen
-- **Web Application Firewall**: een functie van Application Gateway die gecentraliseerde beveiliging voor web-apps biedt.
+- **Web Application Firewall**: Een functie van Application Gateway die gecentraliseerde beveiliging voor web-apps biedt.
     - Het beveiligt web-apps zonder codewijzigingen back-end.
     - Deze beschermt meerdere webtoepassingen op hetzelfde moment achter een application gateway.
     - De Web application firewall kan worden bewaakt met behulp van Azure Monitor en is geïntegreerd in Azure Security Center.
@@ -150,7 +150,7 @@ Azure biedt een aantal oplossingen:
 - [Meer informatie over het](https://docs.microsoft.com/azure/key-vault/tutorial-web-application-keyvault) configureren van een web-app voor het lezen van geheimen uit Key Vault.
 - [Meer informatie over](https://docs.microsoft.com/azure/application-gateway/waf-overview) Web Application Firewall
 
-## <a name="best-practice-review-subscriptions-and-resource-permissions"></a>Aanbevolen: gebruik-abonnementen en machtigingen voor resources
+## <a name="best-practice-review-subscriptions-and-resource-permissions"></a>Aanbevolen: Controle-abonnementen en -machtigingen voor resources
 
 Migreer uw workloads en voer ze uit in Azure, wordt de medewerkers met toegang tot de workload verplaatsen. Uw beveiligingsteam moet controleren of de toegang tot uw Azure-tenant en resource-groepen op gezette tijden. Azure biedt een aantal oplossingen voor identiteits- en toegangsbeveiliging, met inbegrip van op rollen gebaseerd toegangsbeheer (RBAC) voor het verlenen van machtigingen voor toegang tot Azure-resources.
 
@@ -168,7 +168,7 @@ Migreer uw workloads en voer ze uit in Azure, wordt de medewerkers met toegang t
 - [Informatie over](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) voor het beheren van toegang met RBAC en Azure portal.
 - [Meer informatie over](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) aangepaste rollen.
 
-## <a name="best-practice-review-audit-and-security-logs"></a>Aanbevolen: logboeken voor controle en beveiliging controleren
+## <a name="best-practice-review-audit-and-security-logs"></a>Aanbevolen: Logboeken voor controle en beveiliging controleren
 
 Azure Active Directory (AD) biedt activiteitenlogboeken die worden weergegeven in Azure Monitor. De logboeken vastleggen van de bewerkingen die worden uitgevoerd in Azure tenants, wanneer deze zijn opgetreden en wie ze uitgevoerd. 
 
@@ -186,14 +186,14 @@ Azure Active Directory (AD) biedt activiteitenlogboeken die worden weergegeven i
 - [Meer informatie over](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) Azure AD-activiteitenlogboeken in Azure Monitor.
 - [Meer informatie over het](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) controleactiviteitenrapporten in de Azure AD-portal.
 
-## <a name="best-practice-evaluate-other-security-features"></a>Aanbevolen: andere beveiligingsfuncties evalueren
+## <a name="best-practice-evaluate-other-security-features"></a>Aanbevolen: Andere beveiligingsfuncties evalueren
 
 Azure biedt een aantal andere beveiligingsfuncties die opties zijn voor geavanceerde beveiliging. Sommige van deze aanbevolen procedures moet invoegtoepassingslicenties en premium-opties.
 
-- **Azure AD-beheereenheden (AU) implementeren**: delegeren administratieve taken voor de ondersteuning van personeel kan lastig zijn om met alleen eenvoudige toegangsbeheer in Azure.  Geeft toegang tot het personeel van ondersteuning voor het beheer van alle groepen in Azure AD mogelijk niet de ideale methode voor de beveiliging van de organisatie.  Met behulp van Australië, kunt u Azure-resources scheiden in containers op dezelfde manier naar on-premises organisatie-eenheden (OE).  De AU-beheerder moet een Azure AD premium-licentie hebben voor het gebruik van AU. [Meer informatie](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
-- **Gebruik multi-factor authentication (MFA)**: als u hebt een premium Azure AD-licentie kunt u inschakelen en afdwingen van MFA op uw beheerdersaccounts. Phishing is de meest voorkomende manier dat accounts referenties zijn aangetast.  Zodra een actor slecht account beheerdersreferenties heeft, moet u er is geen stoppen van de vérstrekkend acties, zoals het verwijderen van al uw resourcegroepen. U kunt MFA instellen op een aantal manieren, inclusief e-mail, authenticator-app en tekstberichten van de telefoon. Als beheerder kunt u de minste firewallverbinding optie selecteren. MFA kan worden geïntegreerd met threat analytics en beleid voor voorwaardelijke toegang om te vereisen willekeurig een MFA-controle reageren. Meer informatie over [beveiligingsrichtlijnen](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication-security-best-practices), en [over het instellen van](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication-security-best-practices) MFA.
-- **Implementeren van voorwaardelijke toegang**: In de meeste grootte voor kleine en middelgrote organisaties de Azure-beheerders en het ondersteuningsteam waarschijnlijk bevinden zich in een één geografisch gebied. De meeste aanmeldingen, in dit geval zijn afkomstig van de dezelfde gebieden. Als de IP-adressen van deze locaties vrij statisch zijn, is het handig dat u aanmeldingen van de beheerder van buiten deze gebieden al dan niet mogen zien. Zelfs in een gebeurtenis waarbij een externe slecht actor wordt aangetast referenties van een beheerder, kunt u beveiligingsfuncties, zoals voorwaardelijke toegang in combinatie met MFA om te voorkomen dat aanmelding vanaf externe locaties of vervalste locaties van willekeurige IP-adressen te implementeren. [Meer informatie](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) over voorwaardelijke toegang en [aanbevolen procedures](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices) voor voorwaardelijke toegang in Azure AD.
-- **Bekijk bedrijfstoepassing machtigingen**: gedurende een periode, beheerders klikt u op Microsoft en derden koppelingen zonder te weten de invloed ervan op de organisatie. Koppelingen kunnen presenteren toestemming schermen die machtigingen toewijzen aan Azure-apps, en mogelijk om toegang tot Azure AD-gegevens lezen of zelfs volledige toegang tot het beheren van uw hele Azure-abonnement. De apps waarop uw beheerders en gebruikers hebben toegang hebben tot Azure-resources, moet u regelmatig controleren. U moet ervoor zorgen dat deze apps hebben alleen de machtigingen die nodig zijn. Bovendien, per kwartaal of jaar door u kan verzenden naar gebruikers met een koppeling naar app-pagina's zodat ze op de hoogte van de apps waartoe ze toegang tot hun gegevens van de organisatie hebt toegestaan. [Meer informatie](https://docs.microsoft.com/azure/active-directory/manage-apps/application-types) over de toepassingstypen, en [over het besturingselement](https://docs.microsoft.com/azure/active-directory/manage-apps/remove-user-or-group-access-portal) app-toewijzingen in Azure AD.
+- **Azure AD-beheereenheden (AU) implementeren**: Beheertaken voor de ondersteuning van medewerkers delegeren lastig om met alleen eenvoudige toegangsbeheer in Azure.  Geeft toegang tot het personeel van ondersteuning voor het beheer van alle groepen in Azure AD mogelijk niet de ideale methode voor de beveiliging van de organisatie.  Met behulp van Australië, kunt u Azure-resources scheiden in containers op dezelfde manier naar on-premises organisatie-eenheden (OE).  De AU-beheerder moet een Azure AD premium-licentie hebben voor het gebruik van AU. [Meer informatie](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+- **Gebruik multi-factor authentication (MFA)**: Als u een premium Azure AD-licentie kunt u inschakelen en afdwingen van MFA op uw beheerdersaccounts hebt. Phishing is de meest voorkomende manier dat accounts referenties zijn aangetast.  Zodra een actor slecht account beheerdersreferenties heeft, moet u er is geen stoppen van de vérstrekkend acties, zoals het verwijderen van al uw resourcegroepen. U kunt MFA instellen op een aantal manieren, inclusief e-mail, authenticator-app en tekstberichten van de telefoon. Als beheerder kunt u de minste firewallverbinding optie selecteren. MFA kan worden geïntegreerd met threat analytics en beleid voor voorwaardelijke toegang om te vereisen willekeurig een MFA-controle reageren. Meer informatie over [beveiligingsrichtlijnen](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication-security-best-practices), en [over het instellen van](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication-security-best-practices) MFA.
+- **Implementeren van voorwaardelijke toegang**: In de meeste grootte voor kleine en middelgrote organisaties zich Azure-beheerders en het ondersteuningsteam bevindt waarschijnlijk in een één geografisch gebied. De meeste aanmeldingen, in dit geval zijn afkomstig van de dezelfde gebieden. Als de IP-adressen van deze locaties vrij statisch zijn, is het handig dat u aanmeldingen van de beheerder van buiten deze gebieden al dan niet mogen zien. Zelfs in een gebeurtenis waarbij een externe slecht actor wordt aangetast referenties van een beheerder, kunt u beveiligingsfuncties, zoals voorwaardelijke toegang in combinatie met MFA om te voorkomen dat aanmelding vanaf externe locaties of vervalste locaties van willekeurige IP-adressen te implementeren. [Meer informatie](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) over voorwaardelijke toegang en [aanbevolen procedures](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices) voor voorwaardelijke toegang in Azure AD.
+- **Bekijk bedrijfstoepassing machtigingen**: Na verloop van tijd beheerders klikt u op Microsoft en derden koppelingen zonder te weten de invloed ervan op de organisatie. Koppelingen kunnen presenteren toestemming schermen die machtigingen toewijzen aan Azure-apps, en mogelijk om toegang tot Azure AD-gegevens lezen of zelfs volledige toegang tot het beheren van uw hele Azure-abonnement. De apps waarop uw beheerders en gebruikers hebben toegang hebben tot Azure-resources, moet u regelmatig controleren. U moet ervoor zorgen dat deze apps hebben alleen de machtigingen die nodig zijn. Bovendien, per kwartaal of jaar door u kan verzenden naar gebruikers met een koppeling naar app-pagina's zodat ze op de hoogte van de apps waartoe ze toegang tot hun gegevens van de organisatie hebt toegestaan. [Meer informatie](https://docs.microsoft.com/azure/active-directory/manage-apps/application-types) over de toepassingstypen, en [over het besturingselement](https://docs.microsoft.com/azure/active-directory/manage-apps/remove-user-or-group-access-portal) app-toewijzingen in Azure AD.
 
 
 
@@ -201,18 +201,18 @@ Azure biedt een aantal andere beveiligingsfuncties die opties zijn voor geavance
 
 In deze sectie we adviseren u enkele aanbevolen procedures voor het beheer van Azure, met inbegrip van:
 
-- [Bronnen beheren](#best-practice-name-resource-groups): Best practices voor Azure-resourcegroepen en resources, met inbegrip van slimme naamgeving, onopzettelijk verwijderen voorkomen, het beheren van machtigingen voor resources en effectieve resource tagging.
+- [Bronnen beheren](#best-practice-name-resource-groups): Aanbevolen procedures voor Azure-resourcegroepen en resources, met inbegrip van slimme naamgeving, zo wordt voorkomen dat onbedoelde verwijdering, beheer van machtigingen voor resources en effectieve resource tagging.
 - [Gebruik blauwdrukken](#best-practice-implement-blueprints): Bekijk een kort overzicht over het gebruik van blauwdrukken voor het ontwikkelen en beheren van uw implementatieomgevingen.
-- [Bekijk architecturen](#best-practice-review-azure-reference-architectures): Controleer voorbeeld van een Azure-architecturen voor meer informatie over uit tijdens het ontwikkelen van uw implementaties na de migratie.
-- [Instellen van beheergroepen](#best-practice-manage-resources-with-management-groups): als u meerdere abonnementen hebt, kunt u ze in beheergroepen te verzamelen en governance-instellingen toepassen op deze groepen.
-- [Instellen van toegangsbeleid](#best-practice-deploy-azure-policy): nalevingsbeleid toepassen op uw Azure-resources.
-- [Implementeren van een BCDR-strategie](#best-practice-implement-a-bcdr-strategy): samengesteld een bedrijfscontinuïteit en noodherstel (BCDR) strategie voor zakelijke gegevens veilig houden, uw omgeving tolerantie, en de resources van en die wordt uitgevoerd als er uitval optreedt.
-- [Virtuele machines beheren](#best-practice-use-managed-disks-and-availability-sets): groep virtuele machines in beschikbaarheidsgroepen voor tolerantie en hoge beschikbaarheid. Beheerde schijven gebruiken voor het gebruiksgemak van VM-schijf en beheer.
+- [Bekijk architecturen](#best-practice-review-azure-reference-architectures): Bekijk het voorbeeld van Azure-architecturen voor meer informatie over uit tijdens het ontwikkelen van uw implementaties na de migratie.
+- [Instellen van beheergroepen](#best-practice-manage-resources-with-management-groups): Als u meerdere abonnementen hebt, kunt u ze in beheergroepen te verzamelen en governance-instellingen toepassen op deze groepen.
+- [Instellen van toegangsbeleid](#best-practice-deploy-azure-policy): Nalevingsbeleid toepassen op uw Azure-resources.
+- [Implementeren van een BCDR-strategie](#best-practice-implement-a-bcdr-strategy): Samengesteld een bedrijfscontinuïteit en noodherstel (BCDR) strategie voor zakelijke gegevens veilig, uw omgeving robuuste en resources zodat u kunt blijven en worden uitgevoerd als er uitval optreedt.
+- [Virtuele machines beheren](#best-practice-use-managed-disks-and-availability-sets): Groep virtuele machines in beschikbaarheidsgroepen voor tolerantie en hoge beschikbaarheid. Beheerde schijven gebruiken voor het gebruiksgemak van VM-schijf en beheer.
 - [Gebruik van resources bewaken](#best-practice-monitor-resource-usage-and-performance): Diagnostische logboekregistratie inschakelen voor Azure-resources, waarschuwingen en playbooks voor het oplossen van proactieve bouwen en gebruiken van het Azure-dashboard voor een overzicht van uw implementatie integriteit en status.
-- [Ondersteuning en -updates beheren](#best-practice-manage-updates): inzicht in uw Azure-ondersteuningsplan en hoe u deze implementeert, aanbevolen procedures voor het up-to-date houden van virtuele machines ophalen en put herstelprocessen zijn geïmplementeerd voor wijzigingsbeheer.
+- [Ondersteuning en -updates beheren](#best-practice-manage-updates): Inzicht in uw Azure-ondersteuningsplan en hoe u deze implementeert, aanbevolen procedures voor het beveiligen van virtuele machines up-to-date en put processen voor wijzigingsbeheer ophalen.
 
 
-## <a name="best-practice-name-resource-groups"></a>Aanbevolen: naam van resourcegroepen
+## <a name="best-practice-name-resource-groups"></a>Aanbevolen: De naam van resourcegroepen
 
 Ervoor te zorgen dat uw resourcegroepen betekenisvolle namen die beheerders hebben en ondersteuning teamleden eenvoudig kunnen herkennen en navigeer zal zijn aanzienlijk verbeterd, productiviteit en efficiëntie.
 - Het is raadzaam om de volgende naamgevingsregels voor Azure.
@@ -226,7 +226,7 @@ Ervoor te zorgen dat uw resourcegroepen betekenisvolle namen die beheerders hebb
 
 - [Meer informatie over](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) naamconventies
 
-## <a name="best-practice-implement-delete-locks-for-resource-groups"></a>Aanbevolen: implementeer verwijderen vergrendelingen voor resourcegroepen
+## <a name="best-practice-implement-delete-locks-for-resource-groups"></a>Aanbevolen: Implementatie verwijderen vergrendelingen voor resourcegroepen
 
 Het laatste wat dat u nodig is voor een resourcegroep niet meer zichtbaar omdat het per ongeluk is verwijderd. Het is raadzaam om de delete-vergrendelingen te implementeren, zodat dit gebeurt.
 
@@ -239,7 +239,7 @@ Het laatste wat dat u nodig is voor een resourcegroep niet meer zichtbaar omdat 
 - [Meer informatie over](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) vergrendelen resources om onverwachte wijzigingen te voorkomen.
 
 
-## <a name="best-practice-understand-resource-access-permissions"></a>Aanbevolen: informatie over machtigingen voor toegang tot resources 
+## <a name="best-practice-understand-resource-access-permissions"></a>Aanbevolen: Informatie over machtigingen voor toegang tot resources 
 
 De eigenaar van een abonnement heeft toegang tot alle resourcegroepen en resources in uw abonnement.
 - Personen spaarzaam toevoegen aan deze waardevolle toewijzing. Informatie over de implicaties van deze typen machtigingen is belangrijk in uw omgeving veilig en stabiel blijven.
@@ -251,7 +251,7 @@ De eigenaar van een abonnement heeft toegang tot alle resourcegroepen en resourc
 
 - [Meer informatie over](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/) ordenen van abonnementen en resourcegroepen.
 
-## <a name="best-practice-tag-resources-effectively"></a>Aanbevolen: effectief toevoegen aan resources
+## <a name="best-practice-tag-resources-effectively"></a>Aanbevolen: Toevoegen aan resources effectief
 
 Vaak wordt niet met behulp van alleen een Resourcegroepnaam met betrekking tot de resources behoren voldoende metagegevens voor een effectieve implementatie van de mechanismen zoals interne facturering of informatiebeveiligingsbeheer binnen een abonnement.
 - Als een best practice, moet u Azure-tags toe te voegen nuttige metagegevens die kan worden opgevraagd en gerapporteerd op. 
@@ -270,7 +270,7 @@ Vaak wordt niet met behulp van alleen een Resourcegroepnaam met betrekking tot d
 - [Lezen](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) codering van best practices voor Azure.
 
 
-## <a name="best-practice-implement-blueprints"></a>Aanbevolen: implementeer blauwdrukken
+## <a name="best-practice-implement-blueprints"></a>Aanbevolen: Blauwdrukken implementeren
 
 Net zoals blauwdruk kan technici en -architecten van een project ontwerpparameters schetsen, inschakelen blauwdrukken voor Azure cloud-architecten en centrale IT-groepen voor het definiëren van een herhaalbare set Azure-resources die worden geïmplementeerd en voldoet aan de standaarden van een organisatie, patronen en vereisten. Met behulp van Azure blauwdrukken development-teams kan snel bouwen en maken van nieuwe omgevingen die voldoen aan compliancevereisten en waarvoor een set ingebouwde onderdelen, zoals netwerken, om de ontwikkeling en levering te versnellen.
 
@@ -282,7 +282,7 @@ Net zoals blauwdruk kan technici en -architecten van een project ontwerpparamete
 - [Lezen](https://docs.microsoft.com/azure/governance/blueprints/overview) over blauwdrukken.
 - [Beoordeling](https://azure.microsoft.com/blog/customizing-azure-blueprints-to-accelerate-ai-in-healthcare/) een voorbeeld van een blauwdruk gebruikt voor het versnellen van AI in de gezondheidszorg.
 
-## <a name="best-practice-review-azure-reference-architectures"></a>Aanbevolen: Controleer Azure-referentiearchitecturen
+## <a name="best-practice-review-azure-reference-architectures"></a>Aanbevolen: Bekijk de Azure-referentiearchitecturen
 
 Het bouwen van veilige, schaalbare en beheerbare workloads in Azure kunnen uitdaging zijn.  Met continu wijzigingen, kan het lastig zijn om te blijven met verschillende functies voor een optimale omgeving. Met een verwijzing naar het leren van kan nuttig zijn bij het ontwerpen en migreren van uw workloads.  Azure en Azure partners verschillende voorbeeld-referentiearchitecturen voor verschillende soorten omgevingen hebt gemaakt. Deze voorbeelden zijn bedoeld ideeën die u kunt leren en bouwen op. 
 
@@ -293,7 +293,7 @@ De Azure App Service-omgeving biedt een volledig geïsoleerde en toegewezen omge
 - [Meer informatie over](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure-referentiearchitecturen.
 - [Beoordeling](https://docs.microsoft.com/azure/architecture/example-scenario/) voorbeeld van een Azure-scenario's.
 
-## <a name="best-practice-manage-resources-with-management-groups"></a>Aanbevolen: resources beheren met beheergroepen
+## <a name="best-practice-manage-resources-with-management-groups"></a>Aanbevolen: Resources beheren met beheergroepen
 
 Als uw organisatie meerdere abonnementen heeft, moet u voor het beheren van toegang, beleid en naleving voor hen. Azure-beheergroepen bieden een scopeniveau boven abonnementen.
 
@@ -334,15 +334,15 @@ Azure Policy is een service in Azure die u gebruikt om beleidsregels te maken, t
 Plan voor bedrijfscontinuïteit en herstel na noodgevallen (BCDR), is een kritieke oefening die u voltooien moet tijdens de planning voor migratie naar Azure. Juridische voorwaarden bevat uw contract een overmacht-component die Kom allemaal verkleed verplichtingen vanwege een groter kracht zoals orkanen of aardbevingen. Echter, u hebt ook verplichtingen rond een mogelijkheid om ervoor te zorgen dat de services uit te voeren en indien nodig herstellen wanneer na noodgevallen strike, blijven. De mogelijkheid om dit te doen kunt maken of kraken toekomst van uw bedrijf.
 
 Ruime zin is uw BCDR-strategie rekening moet houden:
-- **De back-up**: hoe u uw gegevens beveiligen zodat u deze eenvoudig herstellen kunt als er uitval optreedt.
-- **Herstel na noodgevallen**: hoe u uw apps, flexibel en beschikbaar als er uitval optreedt. 
+- **De back-up**: Klik hier voor meer informatie over het beveiligen van uw gegevens zodat u deze eenvoudig herstellen kunt als er uitval optreedt.
+- **Herstel na noodgevallen**: Klik hier voor meer informatie over het behouden van uw apps, flexibel en beschikbaar als er uitval optreedt. 
 
-### <a name="azure-resiliency-features"></a>Flexibiliteit van Azure-functies
+### <a name="azure-resiliency-features"></a>Flexibiliteitsfuncties van Azure
 Het Azure-platform biedt een aantal tolerantiefuncties.
 
 - **Regio koppelen**: Azure-regio's voor regionale beveiliging binnen de grenzen van de gegevenslocatie gegevens paren. Azure zorgt ervoor dat de fysieke isolatie tussen gekoppelde regio's, bepaalt de volgorde van het herstel van een gebied in het paar in het geval van een grootschalige storing, systeemupdates afzonderlijk in elke regio implementeert en kunnen functies zoals Azure geografisch redundante opslag te repliceren naar de regioparen.
-- **Beschikbaarheidszones**: beschikbaarheidszones beveiligt tegen fouten in een hele Azure-datacenter tot stand brengen van fysieke afzonderlijke zones met een Azure-regio. Elke zone heeft een onderscheidende stroomvoorziening, netwerkinfrastructuur en koeling mechanisme.
-- **Beschikbaarheidssets**: beschikbaarheidssets bescherming tegen storingen in een datacenter. U kunt virtuele machines groeperen in beschikbaarheidssets dat ze voor maximaal beschikbare. Binnen elke beschikbaarheidsset, de implementatie van Azure meerdere domeinen met fouten die samen hardware met een gemeenschappelijke voedingsbron en netwerkswitch en updatedomeinen die groep onderliggende hardware die onderhoud kan ondergaan of opnieuw worden opgestart, de onderliggende groep op hetzelfde moment. Bijvoorbeeld: wanneer een werkbelasting verdeeld over virtuele machines van Azure kunt u plaatsen twee of meer virtuele machines voor elke app-laag in een set. Bijvoorbeeld, kunt u de front-end VM's in één set en gegevenslaag virtuele machines in een ander plaatsen. Omdat er slechts één updatedomein wordt elke tegelijk in een set opnieuw opgestart en Azure zorgt ervoor dat virtuele machines in een set worden verdeeld over foutdomeinen, zorgt u ervoor dat niet alle virtuele machines in een set niet op hetzelfde moment.
+- **Beschikbaarheidszones**: Beschikbaarheidszones beter beschermd tegen uitval van een hele Azure-datacenter tot stand brengen van fysieke afzonderlijke zones met een Azure-regio. Elke zone heeft een onderscheidende stroomvoorziening, netwerkinfrastructuur en koeling mechanisme.
+- **Beschikbaarheidssets**: Beschikbaarheidssets beschermen tegen storingen in een datacenter. U kunt virtuele machines groeperen in beschikbaarheidssets dat ze voor maximaal beschikbare. Binnen elke beschikbaarheidsset, de implementatie van Azure meerdere domeinen met fouten die samen hardware met een gemeenschappelijke voedingsbron en netwerkswitch en updatedomeinen die groep onderliggende hardware die onderhoud kan ondergaan of opnieuw worden opgestart, de onderliggende groep op hetzelfde moment. Bijvoorbeeld: wanneer een werkbelasting verdeeld over virtuele machines van Azure kunt u plaatsen twee of meer virtuele machines voor elke app-laag in een set. Bijvoorbeeld, kunt u de front-end VM's in één set en gegevenslaag virtuele machines in een ander plaatsen. Omdat er slechts één updatedomein wordt elke tegelijk in een set opnieuw opgestart en Azure zorgt ervoor dat virtuele machines in een set worden verdeeld over foutdomeinen, zorgt u ervoor dat niet alle virtuele machines in een set niet op hetzelfde moment.
 
 ### <a name="set-up-bcdr"></a>BCDR instellen
 
@@ -352,7 +352,7 @@ Wanneer u migreert naar Azure, is het belangrijk om te begrijpen dat maar het Az
 - Eenmaal aanwezig is, uw BCDR-oplossingen moeten regelmatig worden getest om te controleren dat uw strategie voor levensvatbare blijft.
 
 
-## <a name="best-practice-back-up-your-data"></a>Aanbevolen: Maak een Back-up van uw gegevens
+## <a name="best-practice-back-up-your-data"></a>Aanbevolen: Een back-up maken van uw gegevens
 
 In de meeste gevallen een on-premises-workload is buiten gebruik gesteld na de migratie en uw on-premises-strategie voor back-ups van gegevens moet worden verlengd of vervangen. Als u uw hele datacenter naar Azure migreert, moet u voor het ontwerpen en implementeren van een volledige back-up-oplossing met behulp van Azure-technologieën of geïntegreerde oplossingen van derden. 
 
@@ -361,8 +361,8 @@ In de meeste gevallen een on-premises-workload is buiten gebruik gesteld na de m
 
 Voor workloads die worden uitgevoerd op Azure IaaS VM's, kunt u overwegen deze back-upoplossingen:
 
-- **Azure Backup**: biedt toepassingsconsistente back-ups voor Windows Azure en Linux-machines.
-- **Storage-momentopnamen**: momentopnamen maken van blob-opslag.
+- **Azure Backup**: Biedt toepassingsconsistente back-ups voor Windows Azure en Linux-machines.
+- **Storage-momentopnamen**: Momentopnamen van blob-opslag.
 
 #### <a name="azure-backup"></a>Azure Backup
 
@@ -371,8 +371,8 @@ Azure Backup back-ups maakt herstelpunten van gegevens die zijn opgeslagen in Az
 Azure Backup kunt u back-up van virtuele machines in een aantal manieren.
 
 - **Directe back-ups van VM-instellingen**: U kunt back-up van virtuele machines met Azure Backup rechtstreeks vanuit de VM-opties in de Azure-portal. U kunt back-up van de virtuele machine eenmaal en de dag en de VM-schijf herstellen indien nodig. App-bewuste momentopnamen (VSS) worden Azure back-ups, geen agent is geïnstalleerd op de virtuele machine.
-- **Directe back-ups in een Recovery Services-kluis**: U kunt back-up van uw IaaS-VM's door het implementeren van een Azure Backup Recovery Services-kluis. Dit biedt één locatie als u wilt bijhouden en beheren van back-ups en biedt gedetailleerde opties voor back-up en herstel. Back-up is maximaal drie keer per dag, op het niveau van het bestand/map. Het app-bewuste niet en Linux wordt niet ondersteund. U moet doelsessie de Microsoft Azure Recovery Services (MARS)-agent op elke virtuele machine die u back wilt-up.
-- **Azure Backup-Server: De virtuele machine aan Azure Backup Server beveiligen**: Azure Backup Server wordt het gratis geleverd met Azure Backup. De virtuele machine is back-ups op lokale opslag van Azure Backup Server. U hebt vervolgens maakt u een back-up van de Azure Backup-Server naar Azure in een kluis. Back-up is app-bewust is, met volledige granulatie via vaak-up en retentie. U kunt een back-up maken op het niveau van de app. Bijvoorbeeld door de back-ups van SQL Server of SharePoint.
+- **Directe back-ups in een Recovery Services-kluis**: U kunt een back-up van uw IaaS-VM's maken door het implementeren van een Azure Backup Recovery Services-kluis. Dit biedt één locatie als u wilt bijhouden en beheren van back-ups en biedt gedetailleerde opties voor back-up en herstel. Back-up is maximaal drie keer per dag, op het niveau van het bestand/map. Het app-bewuste niet en Linux wordt niet ondersteund. U moet de Microsoft Azure Recovery Services agent (MARS) installeren op elke virtuele machine die u back wilt-up.
+- **Azure Backup Server: Beveiligen van de virtuele machine naar Azure back-upserver**: Azure Backup Server wordt het gratis geleverd met Azure Backup. De virtuele machine is back-ups op lokale opslag van Azure Backup Server. U hebt vervolgens maakt u een back-up van de Azure Backup-Server naar Azure in een kluis. Back-up is app-bewust is, met volledige granulatie via vaak-up en retentie. U kunt een back-up maken op het niveau van de app. Bijvoorbeeld door de back-ups van SQL Server of SharePoint.
 
 Voor beveiliging, back-up Azure gegevens die onderweg zijn versleuteld met AES-256 en verzendt ze naar Azure via HTTPS. Back-upgegevens in rust in Azure is versleuteld met behulp van [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), en gegevens voor de overdracht en opslag.
 
@@ -440,7 +440,7 @@ Omdat Azure Functions meer of minder als code werkt, u moet een back-up met behu
 
 - [Gegevensbeveiliging](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) voor Azure DevOps.
 
-## <a name="best-practice-set-up-disaster-recovery"></a>Aanbevolen: herstel na noodgeval instellen 
+## <a name="best-practice-set-up-disaster-recovery"></a>Aanbevolen: Herstel na noodgeval instellen 
 
 Naast het beveiligen van gegevens, BCDR planning moet rekening houden met hoe u apps en workloads beschikbaar zijn in geval van nood. 
 
@@ -448,7 +448,7 @@ Naast het beveiligen van gegevens, BCDR planning moet rekening houden met hoe u 
 
 Houd rekening met deze oplossingen voor workloads die worden uitgevoerd op Azure IaaS VM's en Azure storage:
 
-- **Azure Site Recovery**: organiseert de replicatie van virtuele Azure-machines in een primaire naar een secundaire regio. Als er uitval optreedt, schakelt u over van de primaire regio naar de secundaire en gebruikers toegang houden tot apps. Als er dingen zijn weer in de normale, schakelt u terug naar de primaire regio.
+- **Azure Site Recovery**: Organiseert de replicatie van virtuele Azure-machines in een primaire naar een secundaire regio. Als er uitval optreedt, schakelt u over van de primaire regio naar de secundaire en gebruikers toegang houden tot apps. Als er dingen zijn weer in de normale, schakelt u terug naar de primaire regio.
 - **Azure-opslag**: Azure biedt in-build veerkracht en hoge beschikbaarheid voor verschillende soorten opslag:
 
 #### <a name="azure-site-recovery"></a>Azure Site Recovery 
@@ -467,13 +467,13 @@ Azure Site Recovery is de primaire Azure-service om ervoor te zorgen dat Azure-V
 
 Azure storage wordt gerepliceerd voor de ingebouwde tolerantie en hoge beschikbaarheid.
 
--   **Geografisch redundante opslag (GRS)**: beschermt tegen regiobrede uitval, met ten minste 99,99999999999999% (16 9's) duurzaamheid van objecten in een bepaald jaar.
+-   **Geografisch redundante opslag (GRS)**: Beschermt tegen regiobrede uitval, met ten minste 99,99999999999999% (16 9's) duurzaamheid van objecten in een bepaald jaar.
     - Gegevens in de opslag wordt gerepliceerd naar de secundaire regio waaraan uw primaire regio is gekoppeld.
     - Als de primaire regio uitvalt, en Microsoft een failover naar de secundaire regio initieert, hebt u leestoegang tot uw gegevens.
-- **Geografisch redundante opslag met leestoegang (RA-GRS)**: beschermt tegen regiobrede uitval.
+- **Geografisch redundante opslag met leestoegang (RA-GRS)**: Beschermt tegen regiobrede uitval.
     - Gegevens in de opslag wordt gerepliceerd naar de secundaire regio.
     - U hebt alleen toegang tot de gerepliceerde gegevens in de secundaire regio, ongeacht of er een failover wordt gestart in Microsoft gegarandeerd. Wanneer twee of meer datacenters in dezelfde regio kan er een probleem is, maar uw gegevens zich nog steeds beschikbaar in een geografisch gescheiden regio.
--   **Zone-redundante opslag (ZRS)**: beschermt tegen fouten in datacenter.
+-   **Zone-redundante opslag (ZRS)**:  Beschermt tegen fouten in datacenter.
     - ZRS repliceert gegevens synchroon tussen drie opslagclusters in één regio. Clusters en fysiek van elkaar gescheiden en elk zich in een eigen binnen een beschikbaarheidszone.
     - Als er zich een noodgeval voordoet, wordt uw opslag nog steeds beschikbaar zijn. ZRS moet het minimale doel voor uw essentiële workloads.
 
@@ -494,10 +494,10 @@ Er zijn een aantal van de verschillende opties voor elk die invloed hebben op ve
 
 U kunt failover-groepen en actieve geo-replicatie gebruiken om te bieden tolerantie tegen regionale uitval en onherstelbare fouten
 
-- **Actieve geo-replicatie**: actieve geo-replicatie voor snelle noodherstel implementeren als een storing in het datacenter of een verbinding kan niet worden gemaakt met een primaire database.
+- **Actieve geo-replicatie**: Actieve geo-replicatie voor snelle noodherstel implementeren als een storing in het datacenter of een verbinding kan niet worden gemaakt met een primaire database.
     - Geo-replicatie wordt voortdurend leesbare replica's van uw database gemaakt in maximaal vier secundaire databases in de dezelfde of verschillende regio's.
     - In een storing, kunt u een failover uitvoeren naar een van de secundaire regio's en uw database weer online brengen.
-- **Automatische failovergroepen**: automatische failover-groepen uitbreiden actieve geo-replicatie met transparante failover van meerdere databases.
+- **Automatische failovergroepen**: Automatische failover-groepen uitbreiden actieve geo-replicatie met transparante failover van meerdere databases.
     - Een automatische failover-groep biedt een krachtige abstractie van actieve geo-replicatie met groep op database-replicatie en automatische failover.
     - U maakt een failovergroep met een primaire server die als host fungeert een of meer primaire databases, een secundaire server die als host fungeert voor alleen-lezen replica's van de primaire databases, listeners die naar elke server en een automatische failover-beleid verwijzen.
     - De opgegeven listener-eindpunten voor de noodzaak om te wijzigen van de SQL-verbindingsreeks na een failover.
@@ -540,7 +540,7 @@ Als de beheerinfrastructuur in Azure is mislukt, kan een Azure-functie-app niet 
 - [Meer informatie over](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) herstel na noodgevallen en geo-distributie voor duurzame Azure functions.
 
 
-## <a name="best-practice-use-managed-disks-and-availability-sets"></a>Aanbevolen: gebruik beheerde schijven en beschikbaarheidssets
+## <a name="best-practice-use-managed-disks-and-availability-sets"></a>Aanbevolen: Gebruik beheerde schijven en beschikbaarheidssets
 
 Azure maakt gebruik van beschikbaarheidssets voor virtuele machines logisch groeperen en voor het isoleren van virtuele machines in een set van andere bronnen. Virtuele machines in een beschikbaarheidsset worden verdeeld over meerdere foutdomeinen met afzonderlijke subsystemen, ter bescherming tegen lokale stroomstoringen, en ook worden verdeeld over meerdere updatedomeinen dat niet alle virtuele machines in een set opnieuw op hetzelfde moment opstarten.
 
@@ -560,7 +560,7 @@ Azure Managed Disks vereenvoudigen Schijfbeheer voor Azure IaaS VM's door het be
 - [Meer informatie over het](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) de beschikbaarheid van Windows-VM's in Azure beheren.
 
 
-## <a name="best-practice-monitor-resource-usage-and-performance"></a>Aanbevolen: Gebruik en prestaties bewaken 
+## <a name="best-practice-monitor-resource-usage-and-performance"></a>Aanbevolen: Monitor Resourcegebruik en prestaties 
 
 Mogelijk hebt u uw workloads naar Azure verplaatst voor de gigantische schaal mogelijkheden. Echter, het verplaatsen van uw workload betekent niet dat Azure automatisch implementeert schalen zonder dat uw invoer. Als u een voorbeeld:
 
@@ -583,7 +583,7 @@ Deze twee gevallen hebben verschillende resoluties voor beide u moeten echter ee
 - [Meer informatie over](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling) automatisch schalen.
 - [Meer informatie over het](https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem) Azure gegevens routeren naar een SIEM-hulpprogramma.
 
-## <a name="best-practice-enable-diagnostic-logging"></a>Aanbevolen: Diagnostische logboekregistratie inschakelen
+## <a name="best-practice-enable-diagnostic-logging"></a>Aanbevolen: Bijhouden van diagnostische gegevens inschakelen
 
 Azure-resources een geoorloofd aantal metrische gegevens en telemetrie-gegevens in een logboek gegenereerd.
 
@@ -601,7 +601,7 @@ Azure-resources een geoorloofd aantal metrische gegevens en telemetrie-gegevens 
 - [Informatie over wat er wordt ondersteund](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema) voor registratie in diagnoselogboek.
 
 
-## <a name="best-practice-set-up-alerts-and-playbooks"></a>Aanbevolen: instellen van waarschuwingen en playbooks
+## <a name="best-practice-set-up-alerts-and-playbooks"></a>Aanbevolen: Instellen van waarschuwingen en playbooks
 
 Met Diagnostische logboekregistratie is ingeschakeld voor Azure-resources, kunt u gegevens voor logboekregistratie gebruiken om te maken van aangepaste waarschuwingen starten.
 
@@ -634,7 +634,7 @@ De Azure portal is een geïntegreerde webconsole waarmee u kunt bouwen, beheren 
 - [Meer informatie over](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-structure) dashboard structuur.
 
 
-## <a name="best-practice-understand-support-plans"></a>Aanbevolen: informatie over ondersteuning voor abonnementen
+## <a name="best-practice-understand-support-plans"></a>Aanbevolen: Ondersteuningsabonnementen begrijpen
 
 Op een bepaald moment moet u samenwerken met uw helpdesk of de medewerkers van Microsoft ondersteuning. Met een set beleidsregels en procedures voor ondersteuning tijdens de scenario's, zoals herstel na noodgevallen is het essentieel. Daarnaast moet uw beheerders en ondersteunend personeel worden getraind op het implementeren van beleid.
 
@@ -649,7 +649,7 @@ Op een bepaald moment moet u samenwerken met uw helpdesk of de medewerkers van M
 - [Bekijk een overzicht](https://azure.microsoft.com/support/options/) van Azure-ondersteuningsabonnementen.
 - [Meer informatie over](https://azure.microsoft.com/support/legal/sla/) service level agreements (Sla's).
 
-## <a name="best-practice-manage-updates"></a>Aanbevolen: updates beheren
+## <a name="best-practice-manage-updates"></a>Aanbevolen: Updates beheren
 
 Azure-VM's te houden bijgewerkt met de meest recente versie van het besturingssysteem en software-updates is een zeer grote taken uit te voeren. De mogelijkheid om het oppervlak van alle virtuele machines, om te bepalen welke updates die ze nodig hebben, en automatisch push die updates is zeer waardevol zijn.
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: d871cecda8e7957e3d0d3c37078b8a1fa2ab5214
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451252"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807385"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van metrische waarschuwingen met behulp van Azure Monitor
 
-Metrische waarschuwingen in Azure Monitor biedt een manier om te worden geïnformeerd wanneer een van de metrische gegevens een drempelwaarde overschrijden. Metrische waarschuwingen werken op een scala aan platform multi-dimensionale metrische gegevens, aangepaste metrische gegevens, Application Insights-standaard en aangepaste metrische gegevens. In dit artikel wordt wordt beschreven hoe u maken, weergeven en beheren van regels voor metrische waarschuwingen via Azure portal en Azure CLI. U kunt ook de waarschuwingsregels voor metrische gegevens gebruik met behulp van Azure Resource Manager-sjablonen die wordt beschreven in maken [een apart artikel](../../azure-monitor/platform/alerts-enable-template.md).
+Metrische waarschuwingen in Azure Monitor biedt een manier om te worden geïnformeerd wanneer een van de metrische gegevens een drempelwaarde overschrijden. Metrische waarschuwingen werken op een scala aan platform multi-dimensionale metrische gegevens, aangepaste metrische gegevens, Application Insights-standaard en aangepaste metrische gegevens. In dit artikel wordt wordt beschreven hoe u maken, weergeven en beheren van regels voor metrische waarschuwingen via Azure portal en Azure CLI. U kunt ook de waarschuwingsregels voor metrische gegevens gebruik met behulp van Azure Resource Manager-sjablonen die wordt beschreven in maken [een apart artikel](alerts-metric-create-templates.md).
 
 U kunt meer informatie over hoe metrische waarschuwingen werken vanaf [metriek overzicht van waarschuwingen](alerts-metric-overview.md).
 

@@ -3,21 +3,21 @@ title: Web-aanmelding met OpenID verbinding maken in Azure Active Directory B2C 
 description: Het bouwen van toepassingen met behulp van de Azure Active Directory-implementatie van de OpenID Connect-verificatieprotocol.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 41f6027378e48b525345e29e1d1e08dd2c48aaa5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f844cc0b798c035e31b45ef00370f95b1ec06d43
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843747"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846027"
 ---
-# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Web-aanmelding met OpenID Connect
+# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Webaanmelding met OpenID Connect
 OpenID Connect is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om veilig gebruikers zich aanmelden voor webtoepassingen. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OpenID Connect, u kunt uitbesteden gebruikersregistratie, aanmelding en andere identiteitsbeheer in uw web-apps aan Azure Active Directory (Azure AD). Deze handleiding wordt beschreven hoe u dit niet doet, op een taalonafhankelijke manier. Dit wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder onze open source-bibliotheken.
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) kunt u de OAuth 2.0 uitbreiden *autorisatie* protocol voor gebruik als een *verificatie* protocol. Hiermee kunt u om uit te voeren eenmalige aanmelding via OAuth. Dit introduceert het concept van een *ID-token*, dit is een beveiligingstoken dat kan de client de identiteit van de gebruiker en basisprofielgegevens informatie over de gebruiker te verkrijgen.
@@ -73,7 +73,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | client_id |Vereist |De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw app. |
 | response_type |Vereist |Het antwoordtype een ID-token voor de OpenID Connect bevatten moet. Als uw web-app ook tokens moet voor het aanroepen van een web-API, kunt u `code+id_token`, zoals we hier hebben gedaan. |
@@ -98,10 +98,10 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | id_token |De ID-token dat de app worden aangevraagd. U kunt de ID-token gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. Meer informatie over ID-tokens en de inhoud ervan zijn opgenomen in de [naslaginformatie over Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md). |
-| Code |De autorisatiecode dat de app is aangevraagd, als u hebt gebruikt `response_type=code+id_token`. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor een doelbron. Er worden autorisatiecodes zeer eenvoudige. Normaal gesproken verloopt deze na ongeveer 10 minuten. |
+| code |De autorisatiecode dat de app is aangevraagd, als u hebt gebruikt `response_type=code+id_token`. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor een doelbron. Er worden autorisatiecodes zeer eenvoudige. Normaal gesproken verloopt deze na ongeveer 10 minuten. |
 | state |Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of de `state` waarden in de aanvraag en respons identiek zijn. |
 
 Foutberichten kunnen ook worden verzonden naar de `redirect_uri` parameter zodat de app deze op de juiste wijze kan verwerken:
@@ -113,7 +113,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een foutcode tekenreeks die kan worden gebruikt voor het classificeren van typen fouten die optreden en die kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -167,13 +167,13 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | p |Vereist |De gebruikersstroom die is gebruikt voor het verkrijgen van de autorisatiecode. U kunt een andere gebruikersstroom niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter aan toevoegen de queryreeks, niet op de `POST` hoofdtekst. |
 | client_id |Vereist |De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw app. |
 | grant_type |Vereist |Het type van de toekenning, die moet worden `authorization_code` voor de autorisatiecodestroom. |
 | scope |Aanbevolen |Een door spaties gescheiden lijst met bereiken. Een waarde één scope geeft u aan Azure AD beide machtigingen die worden aangevraagd. De `openid` bereik geeft aan dat een machtiging om te melden bij de gebruiker en gegevens over de gebruiker in de vorm van id_token parameters. Het kan worden gebruikt voor het ophalen van tokens aan uw app eigen back-end web-API, die wordt vertegenwoordigd door de dezelfde toepassings-ID als de client. De `offline_access` bereik geeft aan dat uw app een vernieuwingstoken voor lange levensduur hebben toegang tot bronnen moet. |
-| Code |Vereist |De autorisatiecode die u hebt verkregen in de eerste zijde van de stroom. |
+| code |Vereist |De autorisatiecode die u hebt verkregen in de eerste zijde van de stroom. |
 | redirect_uri |Vereist |De `redirect_uri` parameter van de toepassing waar u de autorisatiecode ontvangen. |
 | client_secret |Vereist |Het toepassingsgeheim van de die u hebt gegenereerd in de [Azure-portal](https://portal.azure.com/). Dit toepassingsgeheim is een belangrijke artefact. U moet ze veilig opslaan op uw server. U moet ook deze clientgeheim op periodieke basis draaien. |
 
@@ -189,7 +189,7 @@ Een geslaagde respons token ziet eruit zoals:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | not_before |De tijd waarop het token wordt beschouwd als geldig is, in epoche-tijd. |
 | token_type |De waarde van het type token. Het enige type dat Azure AD ondersteunt `Bearer`. |
@@ -207,7 +207,7 @@ Foutberichten er als volgt uitzien:
 }
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een foutcode tekenreeks die kan worden gebruikt voor het classificeren van typen fouten die optreden en die kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -232,7 +232,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parameter | Vereist | Beschrijving |
+| Parameter | Vereist | Description |
 | --- | --- | --- |
 | p |Vereist |De gebruikersstroom die is gebruikt om de oorspronkelijke vernieuwingstoken te verkrijgen. U kunt een andere gebruikersstroom niet gebruiken in deze aanvraag. Houd er rekening mee dat u deze parameter aan de query-tekenreeks, niet aan de hoofdtekst van het bericht toevoegt. |
 | client_id |Vereist |De aanvraag-ID die de [Azure-portal](https://portal.azure.com/) toegewezen aan uw app. |
@@ -254,7 +254,7 @@ Een geslaagde respons token ziet eruit zoals:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | not_before |De tijd waarop het token wordt beschouwd als geldig is, in epoche-tijd. |
 | token_type |De waarde van het type token. Het enige type dat Azure AD ondersteunt `Bearer`. |
@@ -272,7 +272,7 @@ Foutberichten er als volgt uitzien:
 }
 ```
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | error |Een foutcode tekenreeks die kan worden gebruikt voor het classificeren van typen fouten die optreden en die kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -288,7 +288,7 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parameter | Vereist? | Beschrijving |
+| Parameter | Vereist? | Description |
 | --- | --- | --- |
 | p |Vereist |De gebruikersstroom die u wilt gebruiken voor het ondertekenen van de gebruiker buiten uw toepassing. |
 | post_logout_redirect_uri |Aanbevolen |De URL die de gebruiker moet worden omgeleid naar na geslaagde afmelden. Als deze niet opgenomen is, Azure AD B2C wordt de gebruiker een algemene weergegeven. |

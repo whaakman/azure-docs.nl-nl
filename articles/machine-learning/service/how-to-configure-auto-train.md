@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 981f974450c6761b7e649838abb52acaa9d37067
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382771"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823433"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
@@ -235,7 +235,7 @@ Eigenschap |  Description | Standaardwaarde
 `model_explainability` | _Optionele_ True/False <br/>  De waarde True schakelt experimenteren om uit te voeren van belang van de functie voor elke iteratie. U kunt explain_model() methode ook gebruiken op een specifieke versie op de functie belang op aanvraag inschakelen voor deze herhaling nadat experiment voltooid is. | False
 `enable_ensembling`|Vlag waarmee een iteratie ensembling inschakelen nadat de iteraties hebt voltooid.| True 
 `ensemble_iterations`|Het aantal iteraties waarin we een gemonteerd pijplijn moet deel uitmaken van de laatste ensembles kiezen.| 15
-`experiment_timeout_minutes`| Beperkt de hoeveelheid tijd (minues) die de hele experiment uitvoeren kunt nemen | Geen
+`experiment_timeout_minutes`| De hoeveelheid tijd (minuten) die de hele experiment uitvoeren kunt nemen | Geen
 
 ## <a name="data-pre-processing-and-featurization"></a>Gegevens vooraf verwerken en parametrisatie
 
@@ -275,7 +275,7 @@ De volgende metrische gegevens worden opgeslagen in elke iteratie van een classi
 |Primaire metrische gegevens|Description|Berekening|Extra Parameters
 --|--|--|--|
 AUC_Macro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Macro is het rekenkundige gemiddelde van de AUC voor elke categorie.  | [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "macro"|
-AUC_Micro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Micro wordt globably berekend door het echt positieven en fout-positieven van elke klasse te combineren| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "micro"|
+AUC_Micro| AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Micro wordt wereldwijd berekend door het echt positieven en fout-positieven van elke klasse te combineren| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | gemiddelde = "micro"|
 AUC_Weighted  | AUC is het gebied onder de ontvanger operationele Characteristic-Curve. Gewogen is het rekenkundige gemiddelde van de score van elke klasse, gewogen door het aantal waar elke klasse-instanties| [Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|gemiddelde = "gewogen"
 accuracy|Nauwkeurigheid is het percentage van de voorspelde labels die precies overeenkomen met de waarde true labels. |[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Geen|
 average_precision_score_macro|Gemiddelde precisie bevat een overzicht van een curve precisie-/ oproepdiagram als het gewogen gemiddelde van Precision-systemen op elke drempelwaarde, met de toename in het intrekken van de vorige drempel gebruikt als het gewicht behaald. Macro is het rekenkundige gemiddelde van de gemiddelde precisie score van elke klasse|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|gemiddelde = "macro"|
@@ -310,7 +310,7 @@ normalized_median_absolute_error|Genormaliseerde mediaan absolute fout is mediaa
 root_mean_squared_error|Root mean squared fout is de vierkantswortel van het verwachte gekwadrateerde verschil tussen het doel en de voorspelling|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Geen|
 normalized_root_mean_squared_error|Genormaliseerde hoofdmap mean squared fout root mean squared fout gedeeld door het bereik van de gegevens is|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Delen door het bereik van de gegevens|
 root_mean_squared_log_error|Root mean squared log-fout is de vierkantswortel van de verwachte gekwadrateerde logaritmische fout|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Geen|
-normalized_root_mean_squared_log_error|Noramlized Root mean squared log fout wordt gedeeld door het bereik van de gegevens van root mean squared log fout|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Delen door het bereik van de gegevens|
+normalized_root_mean_squared_log_error|Genormaliseerde Root mean squared log-fout is root mean squared log fout gedeeld door het bereik van de gegevens|[Berekening](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Delen door het bereik van de gegevens|
 
 ## <a name="explain-the-model"></a>Leg uit het model
 
@@ -322,7 +322,7 @@ Er zijn twee manieren voor het genereren van functie belang.
 
 *   Als een experiment voltooid is, kunt u `explain_model` methode bij elke iteratie.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -339,7 +339,7 @@ Er zijn twee manieren voor het genereren van functie belang.
 
 *   Als u wilt bekijken functie belang voor alle iteraties, `model_explainability` markering `True` in AutoMLConfig.  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -356,7 +356,7 @@ Er zijn twee manieren voor het genereren van functie belang.
 
     Zodra u klaar bent, kunt u retrieve_model_explanation methode om op te halen van belang van de functie voor een specifieke versie.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \

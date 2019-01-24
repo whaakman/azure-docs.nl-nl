@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306451"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819336"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure-infrastructuur stack-beveiliging
 
@@ -41,7 +41,7 @@ Omdat de infrastructuur wordt uitgevoerd op goed gedefinieerde hardware en softw
 Omdat Azure Stack wordt geleverd als een geïntegreerd systeem, wordt de beveiligingsstatus van de Azure Stack-infrastructuur wordt gedefinieerd door Microsoft. Net als in Azure zijn tenants verantwoordelijk voor het definiëren van de beveiligingsstatus van de tenant-workloads. Dit document bevat fundamentele kennis over de beveiligingsstatus van de Azure Stack-infrastructuur.
 
 ## <a name="data-at-rest-encryption"></a>Data-at-rest versleuteling
-Alle gegevens in Azure Stack-infrastructuur en tenant is in rust versleuteld met Bitlocker. Deze versleuteling bescherming tegen fysiek verlies of diefstal van Azure Stack-opslagonderdelen. Zie voor meer informatie, [data-at-rest versleuteling in Azure Stack](azure-stack-security-bitlocker.md).
+Alle gegevens in Azure Stack-infrastructuur en tenant is in rust versleuteld met BitLocker. Deze versleuteling bescherming tegen fysiek verlies of diefstal van Azure Stack-opslagonderdelen. Zie voor meer informatie, [data-at-rest versleuteling in Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Gegevens in transit versleuteling
 De onderdelen van de Azure Stack-infrastructuur communiceren door middel van kanalen die zijn versleuteld met TLS 1.2. Certificaten voor bestandsversleuteling worden zelf beheerd door de infrastructuur. 

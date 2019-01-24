@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404899"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819030"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Azure Log Analytics-pijp voor Cloud Foundry systeemcontrole implementeren
 
@@ -64,7 +64,7 @@ U kunt de Log Analytics-werkruimte maken handmatig of met behulp van een sjabloo
 2. Selecteer **maken**, en selecteer vervolgens de opties voor de volgende items:
 
    * **Log Analytics-werkruimte**: Typ een naam voor uw werkruimte.
-   * **Abonnement**: als u meerdere abonnementen hebt, kiest u de optie die gelijk is aan uw CF-implementatie.
+   * **Abonnement**: Als u meerdere abonnementen hebt, kiest u de optie die gelijk is aan uw CF-implementatie.
    * **Resourcegroep**: U kunt een nieuwe resourcegroep maken of hetzelfde account gebruiken met uw CF-implementatie.
    * **Locatie**: Geef de locatie.
    * **Prijscategorie**: Selecteer **OK** om te voltooien.
@@ -79,12 +79,12 @@ Zie voor meer informatie, [aan de slag met Log Analytics](https://docs.microsoft
 4. De Cloud Foundry oplossing sjabloon front pagina is geladen, klikt u op 'Maken' naar de blade sjabloon geopend.
 5. Voer de vereiste parameters:
     * **Abonnement**: Selecteer een Azure-abonnement voor de Log Analytics-werkruimte, meestal hetzelfde met Cloud Foundry-implementatie.
-    * **Resourcegroep**: Selecteer een bestaande resourcegroep of maak een nieuwe voor de Log Analytics-werkruimte.
+    * **Resourcegroep**: Selecteer een bestaande resourcegroep of maak een nieuw wachtwoord voor de Log Analytics-werkruimte.
     * **Locatie van de resourcegroep**: Selecteer de locatie van de resourcegroep.
     * **OMS_Workspace_Name**: Voer de naam van een werkruimte, als de werkruimte niet bestaat, de sjabloon wordt een nieuwe maken.
     * **OMS_Workspace_Region**: Selecteer de locatie voor de werkruimte.
     * **OMS_Workspace_Pricing_Tier**: Selecteer de SKU van de Log Analytics-werkruimte. Zie de [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/) ter referentie.
-    * **Juridische voorwaarden**: klik op aan juridische voorwaarden, klik vervolgens op 'Maken' de juridische term accepteren.
+    * **Juridische voorwaarden**: Klik op de juridische voorwaarden en klik vervolgens op 'Maken' voor het accepteren van de juridische term.
 - Nadat alle parameters zijn opgegeven, klikt u op 'Maken' om de sjabloon te implementeren. Wanneer de implementatie is voltooid, wordt de status op het tabblad melding weergegeven.
 
 
@@ -195,13 +195,13 @@ De *"Cloud Foundry.omsview"* is een preview-versie van de sjabloon van de Cloud 
 
 U kunt [maken van de waarschuwingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), en aanpassen van de query's en drempelwaarden, indien nodig. De volgende worden waarschuwingen aanbevolen:
 
-| Zoekquery                                                                  | Waarschuwing genereren is gebaseerd op | Beschrijving                                                                       |
+| Zoekquery                                                                  | Waarschuwing genereren is gebaseerd op | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Aantal resultaten < 1   | **BBS. Domain.cf-apps** geeft aan of het domein cf-apps up-to-date is. Dit betekent dat aanvragen van Cloud-netwerkcontroller CF-App zijn gesynchroniseerd naar bbs. LRPsDesired (AIs Diego gewenst) voor de uitvoering. Er zijn geen gegevens ontvangen betekent dat CF-apps-domein is niet bijgewerkt in de opgegeven periode. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Aantal resultaten > 0   | Voor cellen Diego, 0 betekent dat in orde en 1 betekent dat niet in orde. Stel de waarschuwing als er meerdere slecht Diego cellen zijn gedetecteerd in de opgegeven periode. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Aantal resultaten > 0 | 1 betekent dat het systeem in orde is en 0 betekent dat het systeem is niet in orde. |
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Aantal resultaten > 0   | Ge verzendt regelmatig de status. 0 betekent dat het systeem in orde is, en 1 betekent dat de zender route detecteert dat ge niet actief is. |
-| Type = CF_CounterEvent_CL Origin_s Delta_d DopplerServer (Name_s="TruncatingBuffer.DroppedMessages' of Name_s="doppler.shedEnvelopes") = > 0 | Aantal resultaten > 0 | De delta-aantal berichten verwijderd doelbewust door Doppler vanwege zwaar wordt belast. |
+| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Aantal resultaten > 0 | De delta-aantal berichten verwijderd doelbewust door Doppler vanwege zwaar wordt belast. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Aantal resultaten > 0   | Loggregator verzendt **LGR** om aan te geven van problemen met het registratieproces. Een voorbeeld van een probleem optreedt, is wanneer de uitvoer van het bericht te hoog is. |
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Aantal resultaten > 0   | Wanneer de Nozzle een waarschuwing voor een trage consumenten van loggregator ontvangt, stuurt de **slowConsumerAlert** ValueMetric naar Log Analytics. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Aantal resultaten > 0   | Als een drempelwaarde wordt bereikt door de delta-aantal gebeurtenissen dat verloren, betekent dit dat het Nozzle mogelijk een probleem bij het uitvoeren. |

@@ -3,19 +3,19 @@ title: Instellen van zich kunnen registreren en aanmelden met een q-account met 
 description: Meld u aan en meld u aan klanten met accounts in uw toepassingen met behulp van Azure Active Directory B2C q bieden.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 23e44763b773835583d255104771d2329851aac8
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1681fd0639c176d9a6a00f656c515c089973b554
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181411"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845857"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een q-account met behulp van Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Voor het gebruik van een q-account als id-provider in Azure Active Directory (Az
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Q configureren als een id-provider
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
+1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.

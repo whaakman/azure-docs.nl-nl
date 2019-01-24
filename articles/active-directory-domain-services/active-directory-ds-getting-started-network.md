@@ -4,7 +4,7 @@ description: Azure Active Directory Domain Services met behulp van de Azure-port
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 70dee552ec575f4969593eac4e91fdbb18b426f1
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d73d9d269ce4c78c87e718aed752206f88276770
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156184"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857029"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 
@@ -44,14 +44,14 @@ De volgende configuratietaak is het maken van een Azure-netwerk en een toegeweze
   > **U kunt uw beheerde domein niet verplaatsen naar een ander virtueel netwerk nadat u Azure AD Domain Services hebt ingeschakeld.** Kies het juiste virtuele netwerk waarmee uw beheerde domein. Nadat u een beheerd domein hebt gemaakt, verplaatsen niet u deze naar een ander virtueel netwerk, zonder te verwijderen van het beheerde domein. Raadzaam de [aandachtspunten voor Azure Active Directory Domain Services voor netwerken](active-directory-ds-networking.md) voordat u doorgaat.  
   >
 
-4. **Virtueel netwerk maken:** klikt u op **nieuw** te maken van een nieuw virtueel netwerk. Gebruik een toegewezen subnet voor Azure AD Domain Services. Maak bijvoorbeeld een subnet met de naam DomainServices, zodat u eenvoudig voor andere beheerders om te begrijpen wat binnen het subnet is geïmplementeerd. Klik op **OK** wanneer u klaar bent.
+4. **Virtueel netwerk maken:** Klik op **nieuw** te maken van een nieuw virtueel netwerk. Gebruik een toegewezen subnet voor Azure AD Domain Services. Maak bijvoorbeeld een subnet met de naam DomainServices, zodat u eenvoudig voor andere beheerders om te begrijpen wat binnen het subnet is geïmplementeerd. Klik op **OK** wanneer u klaar bent.
 
     ![Virtueel netwerk kiezen](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
   > [!WARNING]
   > Zorg ervoor dat u kiest een adresruimte die valt binnen de privé IP-adresruimte. IP-adressen die u niet de eigenaar die zijn opgenomen in de openbare adresruimte leiden tot fouten in Azure AD Domain Services.
 
-5. **Bestaand virtueel netwerk:** als u van plan bent een bestaand virtueel netwerk kiezen [maken van een toegewezen subnet met de extensie van virtuele netwerken](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), en kies dan op dat subnet. Klik op **Virtueelnetwerk** om te selecteren van het bestaande virtuele netwerk. Klik op **Subnet** om op te halen van de toegewezen subnet in uw bestaande virtuele netwerk waarin zodat uw nieuwe beheerde domein. Klik op **OK** wanneer u klaar bent.
+5. **Bestaand virtueel netwerk:** Als u van plan bent een bestaand virtueel netwerk kiezen [maken van een toegewezen subnet met de extensie van virtuele netwerken](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), en kies dan op dat subnet. Klik op **Virtueelnetwerk** om te selecteren van het bestaande virtuele netwerk. Klik op **Subnet** om op te halen van de toegewezen subnet in uw bestaande virtuele netwerk waarin zodat uw nieuwe beheerde domein. Klik op **OK** wanneer u klaar bent.
 
     ![Subnet binnen het virtuele netwerk kiezen](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

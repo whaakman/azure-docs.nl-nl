@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576490"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855452"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Ondersteunde scenario's voor HANA grote instanties
 Dit document beschrijft de ondersteunde scenario's, samen met de details van de architectuur voor de HANA grote instanties (HLI).
@@ -33,10 +33,10 @@ We bekijken de termen en definities gebruikt in het document.
 
 - SID: Systeem-id voor HANA-systeem.
 - HLI: Hana grote instanties.
-- Herstel na Noodgeval: Een site voor noodherstel.
-- Normaal DR: een setup van system met een toegewezen resource voor herstel na Noodgevallen doel alleen worden gebruikt.
-- Multipurpose DR: Een systeem op DR-site die zijn geconfigureerd voor het gebruik van niet-productieomgeving, samen met de productie-exemplaar dat is geconfigureerd voor het gebruik van de gebeurtenis voor herstel na Noodgevallen. 
-- Één SID: Een systeem met één instantie geïnstalleerd.
+- DR: Een site voor noodherstel.
+- Normaal DR: De installatie van een systeem met een toegewezen resource voor herstel na Noodgevallen doel alleen gebruikt.
+- Meerdere doeleinden DR: Een systeem op DR-site die zijn geconfigureerd voor het gebruik van niet-productieomgeving, samen met de productie-exemplaar dat is geconfigureerd voor het gebruik van de gebeurtenis voor herstel na Noodgevallen. 
+- Single SID:  Een systeem met één instantie geïnstalleerd.
 - Multi-SID: Een systeem met meerdere exemplaren die zijn geconfigureerd. Ook wel een MCOS omgeving genoemd.
 
 
@@ -56,22 +56,22 @@ Dit document beschrijft de details van de twee onderdelen in elke ondersteunde a
 
 Elke server ingericht afkomstig is vooraf geconfigureerd met de sets Ethernet-interfaces. Hier volgen de details van de ethernet-interfaces op elke eenheid HLI geconfigureerd.
 
-- **Een**: deze interface wordt gebruikt voor/door de clienttoegang.
-- **B**: deze interface wordt gebruikt voor de communicatie naar knooppunten. Deze interface is geconfigureerd op alle servers (ongeacht de topologie aangevraagd), maar alleen gebruikt voor de 
+- **A**: Deze interface wordt gebruikt voor/door de clienttoegang.
+- **B**: Deze interface wordt gebruikt voor de communicatie naar knooppunten. Deze interface is geconfigureerd op alle servers (ongeacht de topologie aangevraagd), maar alleen gebruikt voor de 
 - scale-out-scenario's.
-- **C**: deze interface wordt gebruikt voor het knooppunt de opslagverbinding.
-- **D**: deze interface wordt gebruikt voor het knooppunt iSCSI-apparaatverbinding voor de installatie van stonith instellen. Deze interface is alleen geconfigureerd wanneer de installatie HSR wordt aangevraagd.  
+- **C**: Deze interface wordt gebruikt voor het knooppunt de opslagverbinding.
+- **D**: Deze interface wordt gebruikt voor het knooppunt iSCSI-apparaatverbinding voor de installatie van stonith instellen. Deze interface is alleen geconfigureerd wanneer de installatie HSR wordt aangevraagd.  
 
 | LOGISCHE INTERFACES NIC | SKU-TYPE | Naam van SUSE-besturingssysteem | Naam van RHEL-besturingssysteem | Use-case|
 | --- | --- | --- | --- | --- |
 | A | IK TYP | eth0.tenant | eno1.tenant | HLI-client |
 | B | IK TYP | eth2.tenant | eno3.tenant | Knooppunt naar knooppunt |
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
-| D | IK TYP | eth4.tenant | eno4.tenant | STONITH INSTELLEN |
+| D | IK TYP | eth4.tenant | eno4.tenant | STONITH |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Knooppunt naar knooppunt |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | STONITH INSTELLEN |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Knooppunt naar knooppunt |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | STONITH |
 
 U gebruikt de interfaces op basis van de topologie die is geconfigureerd op de HLI-eenheid. De interface "B" wordt bijvoorbeeld instellen voor knooppunt naar communicatie, wat nuttig is wanneer u een scale-out-topologie die is geconfigureerd. In het geval van een configuratie met één knooppunt omhoog, wordt deze interface niet gebruikt. Controleer uw vereiste scenario's (verderop in dit document) voor meer informatie over het gebruik van de interface. 
 
@@ -143,18 +143,18 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Geconfigureerd, maar niet wordt gebruikt |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |/Hana/Shared/SID | HANA installeren | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren | 
+|/hana/data/SID/mnt00001 | Bestanden installeren | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren | 
 |/Hana/logbackups/SID | Opnieuw uitvoeren van Logboeken |
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
@@ -166,7 +166,7 @@ Deze topologie biedt ondersteuning voor één knooppunt in een schaalset van con
 
 ### <a name="architecture-diagram"></a>Architectuurdiagram  
 
-![Single-knooppunt-mcos.png](media/hana-supported-scenario/single-node-mcos.png)
+![single-node-mcos.png](media/hana-supported-scenario/single-node-mcos.png)
 
 ### <a name="ethernet"></a>Ethernet
 De volgende netwerkinterfaces vooraf zijn geconfigureerd:
@@ -178,23 +178,23 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Geconfigureerd, maar niet wordt gebruikt |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |/Hana/Shared/SID1 | HANA-installatie voor SID1 | 
-|/Hana/Data/SID1/mnt00001 | Gegevensbestanden installeren voor SID1 | 
-|/Hana/log/SID1/mnt00001 | Logboekbestanden installeren voor SID1 | 
-|/Hana/logbackups/SID1 | Logboeken voor SID1 opnieuw |
-|/Hana/Shared/SID2 | HANA-installatie voor SID2 | 
-|/Hana/Data/SID2/mnt00001 | Gegevensbestanden installeren voor SID2 | 
-|/Hana/log/SID2/mnt00001 | Logboekbestanden installeren voor SID2 | 
-|/Hana/logbackups/SID2 | Logboeken voor SID2 opnieuw |
+|/hana/data/SID1/mnt00001 | Gegevensbestanden installeren voor SID1 | 
+|/hana/log/SID1/mnt00001 | Logboekbestanden installeren voor SID1 | 
+|/hana/logbackups/SID1 | Logboeken voor SID1 opnieuw |
+|/hana/shared/SID2 | HANA-installatie voor SID2 | 
+|/hana/data/SID2/mnt00001 | Gegevensbestanden installeren voor SID2 | 
+|/hana/log/SID2/mnt00001 | Logboekbestanden installeren voor SID2 | 
+|/hana/logbackups/SID2 | Logboeken voor SID2 opnieuw |
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
@@ -218,26 +218,26 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Geconfigureerd, maar niet wordt gebruikt |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |/Hana/Shared/SID | HANA-installatie voor beveiligings-id | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor beveiligings-id | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor beveiligings-id | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor SID | 
 |/Hana/logbackups/SID | Opnieuw uitvoeren van Logboeken voor beveiligings-id |
 
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
-- Aan de DR: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
-- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie.
+- Voor MCOS: Verdeling van volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- Aan de DR: De volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
+- Aan de DR: De gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) voor meer informatie.
 - Opstartvolume voor **SKU-Type ik klasse** worden gerepliceerd naar de DR-knooppunt.
 
 
@@ -259,35 +259,35 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Geconfigureerd, maar niet wordt gebruikt |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |**Op de primaire site**|
 |/Hana/Shared/SID | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
 |/Hana/logbackups/SID | Logboeken voor productie SID opnieuw |
 |**Op de DR-site**|
 |/Hana/Shared/SID | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
-|/Hana/Shared/QA-SID | HANA-installatie voor QA-SID | 
-|/Hana/Data/QA-SID/mnt00001 | Bestanden installeren voor QA-SID | 
-|/Hana/log/QA-SID/mnt00001 | Logboekbestanden installeren voor QA SID |
-|/Hana/logbackups/QA-SID | Logboeken voor SID-QA opnieuw |
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/shared/QA-SID | HANA-installatie voor QA-SID | 
+|/hana/data/QA-SID/mnt00001 | Bestanden installeren voor QA-SID | 
+|/hana/log/QA-SID/mnt00001 | Logboekbestanden installeren voor QA SID |
+|/hana/logbackups/QA-SID | Logboeken voor SID-QA opnieuw |
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
-- Aan de DR: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
-- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
-- Aan de DR: de gegevens, logbackups, log, gedeelde volumes voor QA (gemarkeerd als 'QA exemplaar installatie') zijn geconfigureerd voor de installatie van de QA-exemplaar.
+- Voor MCOS: Verdeling van volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- Aan de DR: De volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
+- Aan de DR: De gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) voor meer informatie. 
+- Aan de DR: De gegevens, logbackups, log, gedeelde volumes voor QA (gemarkeerd als 'QA exemplaar installatie') zijn geconfigureerd voor de installatie van de QA-exemplaar.
 - Opstartvolume voor **SKU-Type ik klasse** worden gerepliceerd naar de DR-knooppunt.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR met stonith instellen
@@ -313,30 +313,30 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Gebruikt voor stonith instellen |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Gebruikt voor stonith instellen |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Gebruikt voor stonith instellen |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |**Op het primaire knooppunt**|
 |/Hana/Shared/SID | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
 |/Hana/logbackups/SID | Logboeken voor productie SID opnieuw |
 |**Op het tweede knooppunt**|
 |/Hana/Shared/SID | HANA voor secundaire SID installeren | 
-|/Hana/Data/SID/mnt00001 | Gegevensbestanden installeren voor secundaire SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor secundaire SID | 
+|/hana/data/SID/mnt00001 | Gegevensbestanden installeren voor secundaire SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor secundaire SID | 
 |/Hana/logbackups/SID | Logboeken voor secundaire SID opnieuw |
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
-- Stonith instellen: Een SBD is geconfigureerd voor de installatie van de stonith instellen. Er is echter een gebruik van stonith instellen optioneel.
+- Voor MCOS: Verdeling van volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- STONITH INSTELLEN: Een SBD is geconfigureerd voor de installatie van de stonith instellen. Er is echter een gebruik van stonith instellen optioneel.
 
 
 ## <a name="6-hsr-with-dr"></a>6. HSR met herstel na Noodgevallen
@@ -361,42 +361,42 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Gebruikt voor stonith instellen |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Geconfigureerd, maar niet wordt gebruikt |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Gebruikt voor stonith instellen |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Geconfigureerd, maar niet wordt gebruikt |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Gebruikt voor stonith instellen |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |**Op het primaire knooppunt op de primaire site**|
 |/Hana/Shared/SID | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
 |/Hana/logbackups/SID | Logboeken voor productie SID opnieuw |
 |**Op het tweede knooppunt op de primaire site**|
 |/Hana/Shared/SID | HANA voor secundaire SID installeren | 
-|/Hana/Data/SID/mnt00001 | Gegevensbestanden installeren voor secundaire SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor secundaire SID | 
+|/hana/data/SID/mnt00001 | Gegevensbestanden installeren voor secundaire SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor secundaire SID | 
 |/Hana/logbackups/SID | Logboeken voor secundaire SID opnieuw |
 |**Op de DR-site**|
 |/Hana/Shared/SID | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
-|/Hana/Shared/QA-SID | HANA-installatie voor QA-SID | 
-|/Hana/Data/QA-SID/mnt00001 | Bestanden installeren voor QA-SID | 
-|/Hana/log/QA-SID/mnt00001 | Logboekbestanden installeren voor QA SID |
-|/Hana/logbackups/QA-SID | Logboeken voor SID-QA opnieuw |
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/shared/QA-SID | HANA-installatie voor QA-SID | 
+|/hana/data/QA-SID/mnt00001 | Bestanden installeren voor QA-SID | 
+|/hana/log/QA-SID/mnt00001 | Logboekbestanden installeren voor QA SID |
+|/hana/logbackups/QA-SID | Logboeken voor SID-QA opnieuw |
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
-- Stonith instellen: Een SBD is geconfigureerd voor de installatie van de stonith instellen. Er is echter een gebruik van stonith instellen optioneel.
-- Aan de DR: **twee sets met opslagvolumes die zijn vereist** voor replicatie van primaire en secundaire knooppunt.
-- Aan de DR: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
-- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
-- Aan de DR: de gegevens, logbackups, log, gedeelde volumes voor QA (gemarkeerd als 'QA exemplaar installatie') zijn geconfigureerd voor de installatie van de QA-exemplaar.
+- Voor MCOS: Verdeling van volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- STONITH INSTELLEN: Een SBD is geconfigureerd voor de installatie van de stonith instellen. Er is echter een gebruik van stonith instellen optioneel.
+- Aan de DR: **Er zijn twee sets met opslagvolumes die zijn vereist** voor replicatie van primaire en secundaire knooppunt.
+- Aan de DR: De volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
+- Aan de DR: De gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) voor meer informatie. 
+- Aan de DR: De gegevens, logbackups, log, gedeelde volumes voor QA (gemarkeerd als 'QA exemplaar installatie') zijn geconfigureerd voor de installatie van de QA-exemplaar.
 - Opstartvolume voor **SKU-Type ik klasse** worden gerepliceerd naar de DR-knooppunt.
 
 
@@ -420,26 +420,26 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Het knooppunt om communicatie tussen knooppunten te |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Geconfigureerd, maar niet wordt gebruikt |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |**Op de hoofd- en stand-by-knooppunten**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
 |/Hana/logbackups/SID | Logboeken voor productie SID opnieuw |
 
 
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- In stand-by: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de stand-by-eenheid.
+- In stand-by: De volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de stand-by-eenheid.
  
 
 ## <a name="8-scale-out-with-standby"></a>8. Scale-out met stand-by
@@ -461,19 +461,19 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Het knooppunt om communicatie tussen knooppunten te |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Geconfigureerd, maar niet wordt gebruikt |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |**Op de master-, werknemer- en stand-by-knooppunten**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
 |/Hana/logbackups/SID | Logboeken voor productie SID opnieuw |
 
 
@@ -497,19 +497,19 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Het knooppunt om communicatie tussen knooppunten te |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Geconfigureerd, maar niet wordt gebruikt |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |**Op de hoofd- en worker-knooppunten**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
 |/Hana/logbackups/SID | Logboeken voor productie SID opnieuw |
 
 
@@ -536,30 +536,30 @@ De volgende netwerkinterfaces vooraf zijn geconfigureerd:
 | C | IK TYP | eth1.tenant | eno2.tenant | Knooppunt naar opslag |
 | D | IK TYP | eth4.tenant | eno4.tenant | Geconfigureerd, maar niet wordt gebruikt |
 | A | TYPE II | VLAN<tenantNo> | team0.tenant | HLI-client |
-| B | TYPE II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Het knooppunt om communicatie tussen knooppunten te |
-| C | TYPE II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Knooppunt naar opslag |
-| D | TYPE II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Geconfigureerd, maar niet wordt gebruikt |
+| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Het knooppunt om communicatie tussen knooppunten te |
+| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Knooppunt naar opslag |
+| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Geconfigureerd, maar niet wordt gebruikt |
 
 ### <a name="storage"></a>Storage
 De volgende quorumbron: vooraf zijn geconfigureerd:
 
-| Koppelpunt | Use-case | 
+| Mountpoint | Use-case | 
 | --- | --- |
 |**Op het primaire knooppunt**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
 |/Hana/logbackups/SID | Logboeken voor productie SID opnieuw |
 |**Op het knooppunt voor herstel na Noodgevallen**|
 |/ hana/gedeeld | HANA installeren voor de productie-SID | 
-|/Hana/Data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
-|/Hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
+|/hana/data/SID/mnt00001 | Bestanden installeren voor de productie-SID | 
+|/hana/log/SID/mnt00001 | Logboekbestanden installeren voor productie SID | 
 
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
--  Aan de DR: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
-- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
+-  Aan de DR: De volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
+- Aan de DR: De gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) voor meer informatie. 
 - Opstartvolume voor **SKU-Type ik klasse** worden gerepliceerd naar de DR-knooppunt.
 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: df701c6b3131686d5b3b4c093b23de2f6d22bdbc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614940"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827462"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure Files gebruiken met Linux
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Linux-distributies, met de [SMB-kernel-client](https://wiki.samba.org/index.php/LinuxCIFS). In dit artikel ziet u een Azure-bestandsshare koppelen op twee manieren: op aanvraag met de `mount` opdracht en op opstarten met het maken van een vermelding in `/etc/fstab`.
@@ -24,7 +24,7 @@ ms.locfileid: "51614940"
 ## <a name="prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Vereisten voor het koppelen van een Azure-bestandsshare met Linux en de cifs-utils-pakket
 <a id="smb-client-reqs"></a>
 * **Kies een Linux-distributie op basis van de behoeften van uw koppelen.**  
-      Azure Files kunnen worden gekoppeld via het SMB 2.1 als SMB 3.0. Voor verbindingen die afkomstig zijn van clients on-premises of in andere Azure-regio's, weigert Azure-bestanden SMB 2.1 (of SMB 3.0 zonder versleuteling). Als *veilige overdracht vereist* is ingeschakeld voor een opslagaccount, Azure Files mag alleen worden verbindingen met behulp van SMB 3.0 met-codering.
+      Azure Files kunnen worden gekoppeld via het SMB 2.1 als SMB 3.0. Voor verbindingen die afkomstig zijn van clients on-premises of in andere Azure-regio's, moet u SMB 3.0; Azure Files weigert SMB 2.1 (of SMB 3.0 zonder versleuteling). Als u toegang wilt de Azure-bestandsshare vanaf een virtuele machine binnen dezelfde Azure-regio tot krijgen, u mogelijk toegang tot de bestandsshare met behulp van SMB 2.1 als en alleen als *veilige overdracht vereist* is uitgeschakeld voor het opslagaccount die als host fungeert voor de Azure-bestandsshare. Er is altijd beter om veilige overdracht vereisen en het gebruik van alleen SMB 3.0 met versleuteling.
     
     Ondersteuning voor SMB 3.0-versleuteling is geïntroduceerd in Linux kernelversie 4.11 en is backported tot oudere kernelversies voor populaire Linux-distributies. Op het moment van publicatie van dit document ondersteunen de volgende distributies vanuit de Azure-galerie koppelen optie opgegeven in de headers-tabel. 
 
@@ -32,12 +32,12 @@ ms.locfileid: "51614940"
     
     |   | SMB 2.1 <br>(Koppelingen op VM's binnen dezelfde Azure-regio) | SMB 3.0 <br>(Koppelingen van locatie en regio-overschrijdende) |
     | --- | :---: | :---: |
-    | Ubuntu Server | 14.04 + | 16.04 + |
-    | RHEL | 7 + | 7.5 + |
-    | CentOS | 7 + |  7.5 + |
-    | Debian | 8 + |   |
-    | openSUSE | 13.2 + | 42,3 + |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3 + |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
     
     Als uw Linux-distributie hier niet wordt vermeld, kunt u controleren de versie van de Linux-kernel met de volgende opdracht:    
 
@@ -71,16 +71,16 @@ ms.locfileid: "51614940"
     
 * **Besluit op de map/bestand machtigingen van de gekoppelde share**: In de voorbeelden hieronder de machtiging `0777` wordt gebruikt om te voorzien van lezen, schrijven en uitvoeren van machtigingen voor alle gebruikers. U kunt deze vervangen door andere [chmod machtigingen](https://en.wikipedia.org/wiki/Chmod) naar wens. 
 
-* **De naam van opslagaccount**: voor het koppelen van een Azure-bestandsshare, moet u de naam van het opslagaccount.
+* **Naam van opslagaccount**: Voor het koppelen van een Azure-bestandsshare, moet u de naam van het storage-account.
 
-* **Opslagaccountsleutel**: voor het koppelen van een Azure-bestandsshare, moet u de primaire (of secundaire) opslagsleutel. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
+* **Sleutel van het opslagaccount**: Voor het koppelen van een Azure-bestandsshare, moet u de primaire (of secundaire) opslagsleutel. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 is geopend**: SMB communiceert via TCP-poort 445 - Controleer poorten om te zien als de firewall niet wordt geblokkeerd door TCP 445 van de clientcomputer.
+* **Zorg ervoor dat poort 445 open is**: SMB communiceert via TCP-poort 445 - controleer of de TCP-poort 445 van de clientcomputer niet door uw firewall wordt geblokkeerd.
 
 ## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>De Azure file share op aanvraag met koppelen `mount`
 1. **[Installeer de cifs-utils-pakket voor uw Linux-distributie](#install-cifs-utils)**.
 
-2. **Maak een map voor het koppelpunt**: een map voor een koppelpunt overal kan worden gemaakt op het bestandssysteem, maar wel algemene naamgeving om aan te maken onder de `/mnt` map. Bijvoorbeeld:
+2. **Maak een map voor het koppelpunt**: Een map voor een koppelpunt overal kan worden gemaakt op het bestandssysteem, maar wel algemene naamgeving om aan te maken onder de `/mnt` map. Bijvoorbeeld:
 
     ```bash
     mkdir /mnt/MyAzureFileShare
@@ -98,7 +98,7 @@ ms.locfileid: "51614940"
 ## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Maken van een permanente koppelpunt voor de Azure-bestandsshare met `/etc/fstab`
 1. **[Installeer de cifs-utils-pakket voor uw Linux-distributie](#install-cifs-utils)**.
 
-2. **Maak een map voor het koppelpunt**: een map voor een koppelpunt overal kan worden gemaakt op het bestandssysteem, maar wel algemene naamgeving om aan te maken onder de `/mnt` map. Houd er rekening mee het absolute pad van de map waar u dit hebt gemaakt. Bijvoorbeeld, de volgende opdracht maakt u een nieuwe map onder `/mnt` (het pad is een absoluut pad).
+2. **Maak een map voor het koppelpunt**: Een map voor een koppelpunt overal kan worden gemaakt op het bestandssysteem, maar wel algemene naamgeving om aan te maken onder de `/mnt` map. Houd er rekening mee het absolute pad van de map waar u dit hebt gemaakt. Bijvoorbeeld, de volgende opdracht maakt u een nieuwe map onder `/mnt` (het pad is een absoluut pad).
 
     ```bash
     sudo mkdir /mnt/MyAzureFileShare

@@ -9,32 +9,30 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 8bbdd2d49171ee8f4e7eb3cc0def1c7a6e59806b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193358"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54489549"
 ---
-Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement u gebruikt. 
-
-Werkruimte-dashboard van de portal wordt ondersteund in Microsoft Edge, Chrome en Firefox-browser.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van de referenties voor het Azure-abonnement u gebruikt. 
 
    ![Azure Portal](./media/aml-create-in-portal/portal-dashboard.png)
 
-Selecteer in de linkerbovenhoek van de portal **een resource maken**.
+1. Selecteer in de linkerbovenhoek van de portal **een resource maken**.
 
    ![Een resource maken in Azure Portal](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Voer in de zoekbalk typt, **Machine Learning**. Selecteer de **werkruimte van Machine Learning-service** zoekresultaat.
+1. Voer in de zoekbalk typt, **Machine Learning**. Selecteer de **werkruimte van Machine Learning-service** zoekresultaat.
 
    ![Zoeken naar een werkruimte](./media/aml-create-in-portal/allservices-search.PNG)
 
-In de **ML-werkruimte in service** deelvenster, schuif naar beneden en selecteer **maken** om te beginnen.
+1. In de **ML-werkruimte in service** deelvenster, schuif naar beneden en selecteer **maken** om te beginnen.
 
    ![Maken](./media/aml-create-in-portal/portal-create-button.png)
 
-In de **ML-werkruimte in service** in het deelvenster voor het configureren van uw werkruimte.
+1. In de **ML-werkruimte in service** in het deelvenster voor het configureren van uw werkruimte.
 
    Veld|Description
    ---|---
@@ -45,10 +43,10 @@ In de **ML-werkruimte in service** in het deelvenster voor het configureren van 
 
    ![Werkruimte maken](./media/aml-create-in-portal/workspace-create.png)
 
-Selecteer eerst het maakproces **maken**. Het kan even duren om de werkruimte te maken.
+1. Selecteer eerst het maakproces **maken**. Het kan even duren om de werkruimte te maken.
 
-Als u wilt controleren op de status van de implementatie, selecteer het pictogram meldingen **bell**, op de werkbalk.
+1. Als u wilt controleren op de status van de implementatie, selecteer het pictogram meldingen **bell**, op de werkbalk.
+
+1. Wanneer het proces is voltooid, wordt er een bericht voor de implementatie weergegeven. Het is ook aanwezig in de sectie meldingen. Als u de nieuwe werkruimte, selecteert u **naar de resource gaan**.
 
    ![Status van het maken van werkruimte](./media/aml-create-in-portal/notifications.png)
-
-Wanneer het proces is voltooid, wordt er een bericht voor de implementatie weergegeven. Het is ook aanwezig in de sectie meldingen. Als u de nieuwe werkruimte, selecteert u **naar de resource gaan**.

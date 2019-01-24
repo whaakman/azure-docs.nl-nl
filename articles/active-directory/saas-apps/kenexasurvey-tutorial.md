@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6828617e0ae61a3784e4db3d1c2ecf4ce9862ce2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d8027aca628185b1e3d2e80323c9f83e6832a913
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449472"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met IBM Kenexa enquête Enterprise
 
@@ -43,9 +43,9 @@ Voor het configureren van Azure AD-integratie met IBM Kenexa enquête Enterprise
 > [!NOTE]
 > Wanneer u de stappen in deze zelfstudie hebt getest, wordt u aangeraden dat u niet een productie-omgeving gebruiken.
 
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -61,15 +61,15 @@ Als u wilt toevoegen IBM Kenexa enquête Enterprise uit de galerie, het volgende
 
 1. In de [Azure-portal](https://portal.azure.com), in het linkerdeelvenster klikt u op de **Azure Active Directory** knop. 
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 1. Selecteer **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![De blade Bedrijfstoepassingen][2]
     
 1. Als u wilt een toepassing hebt toegevoegd, klikt u op de **nieuwe toepassing** knop.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **IBM Kenexa enquête Enterprise**.
 
@@ -79,7 +79,7 @@ Als u wilt toevoegen IBM Kenexa enquête Enterprise uit de galerie, het volgende
 
     ![IBM Kenexa enquête onderneming in de lijst met resultaten](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 In deze sectie kunt u configureren en testen van Azure AD-eenmalige aanmelding met IBM Kenexa enquête Enterprise op basis van een testgebruiker met de naam "Britta Simon."
 
 Azure AD moet het equivalent van de gebruiker IBM Kenexa enquête Enterprise identificatie in Azure AD voor eenmalige aanmelding om te werken. Met andere woorden, Azure AD moet een relatie tot stand koppeling tussen een Azure AD-gebruiker en de gerelateerde gebruiker in IBM Kenexa enquête onderneming.
@@ -139,10 +139,10 @@ In deze sectie maakt u Azure AD-eenmalige aanmelding inschakelen in Azure portal
 > U kunt verwijzen naar een beknopte versie van deze instructies in de [Azure-portal](https://portal.azure.com) tijdens het instellen van de app. Nadat u de app vanuit de **Active Directory** > **bedrijfstoepassingen** sectie, klikt u op de **eenmalige aanmelding** tabblad, en vervolgens toegang tot de ingesloten documentatie via de **configuratie** sectie aan het einde. Zie voor meer informatie over de documentatie voor embedded-functie, [documentatie over Azure AD embedded](https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 In deze sectie maakt maken u testgebruiker Britta Simon in Azure portal door het volgende te doen:
 
-![Maak een testgebruiker Azure AD][100]
+![Een Azure AD-testgebruiker maken][100]
 
 1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
@@ -192,11 +192,11 @@ Als u wilt toewijzen gebruiker Britta Simon met IBM Kenexa enquête Enterprise, 
 
 1. Klik in het linkerdeelvenster op **gebruikers en groepen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202] 
+    ![De koppeling Gebruikers en groepen][202] 
 
 1. Klik op de **toevoegen** knop en klik vervolgens op de **toevoegen toewijzing** venster **gebruikers en groepen**.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+    ![Het deelvenster Toewijzing toevoegen][203]
 
 1. In de **gebruikers en groepen** in het dialoogvenster de **gebruikers** in de lijst met **Britta Simon**.
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262230"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809023"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken
 
@@ -39,7 +39,7 @@ In Azure Media Services, een *kanaal* vertegenwoordigt een pijplijn voor het ver
 
 Beginnen met de release van Media Services 2.10 wanneer u een kanaal maakt, kunt u opgeven hoe u wilt dat het kanaal voor het ontvangen van de invoerstroom. U kunt ook opgeven of u wilt dat het kanaal live codering van uw stroom. U hebt hiervoor twee opties:
 
-* **Doorgeven via**: deze waarde opgeven als u van plan bent te gebruiken van een on-premises live codering met een multi-bitrate stream (een Pass Through-stream) als uitvoer. In dit geval doorstuurt de stroom inkomende naar de uitvoer zonder eventuele te coderen. Dit is het gedrag van een kanaal vóór de 2,10 release. Dit artikel bevat informatie over het werken met kanalen van dit type.
+* **Passeren**: Geef deze waarde op als u van plan bent te gebruiken van een on-premises live codering met een multi-bitrate stream (een Pass Through-stream) als uitvoer. In dit geval doorstuurt de stroom inkomende naar de uitvoer zonder eventuele te coderen. Dit is het gedrag van een kanaal vóór de 2,10 release. Dit artikel bevat informatie over het werken met kanalen van dit type.
 * **Live Encoding**: Kies deze waarde als u van plan bent uw single-bitrate live stream naar een multi-bitrate stream coderen met Media Services. Verlaten van een live encoding kanaal in een **met** status worden kosten in rekening gebracht. Het is raadzaam om uw actieve kanalen onmiddellijk te beëindigen nadat uw live-streaming-gebeurtenis is voltooid om extra per uur kosten te voorkomen. Media Services voorziet in de stroom voor klanten die deze aanvragen.
 
 > [!NOTE]
@@ -115,11 +115,11 @@ Wanneer u het kanaal maakt, kunt u de opname-URL's krijgen. U kunt deze URL's op
 Hebt u een optie van het opnemen van een gefragmenteerde MP4 (Smooth Streaming) live stream via een SSL-verbinding. Als u wilt opnemen via SSL, zorg ervoor dat u de URL voor opnemen bijwerkt naar HTTPS. U kunt geen op dit moment RTMP opnemen via SSL.
 
 #### <a id="keyframe_interval"></a>Interval voor sleutelframes
-Wanneer u een on-premises live coderingsprogramma gebruikt voor het genereren van multi-bitrate stream, bevat het interval sleutelframes de duur van de groep afbeeldingen (GOP) gebruikt door deze externe encoders. Nadat het kanaal deze binnenkomende stream ontvangt, kunt u uw live stream leveren voor afspelen van clienttoepassingen op een van de volgende indelingen: Smooth Streaming, Dynamic Adaptive Streaming via HTTP (DASH) en HTTP Live Streaming (HLS). Als u bent u live streamt, wordt dynamisch HLS altijd geleverd. Media Services berekent standaard automatisch de HLS segment verpakking hoogte-breedteverhouding (fragmenten per segment) op basis van het interval sleutelframes die wordt ontvangen van het live coderingsprogramma.
+Wanneer u een on-premises live coderingsprogramma gebruikt voor het genereren van multi-bitrate stream, bevat het interval sleutelframes de duur van de groep afbeeldingen (GOP) gebruikt door deze externe encoders. Nadat het kanaal deze binnenkomende stream ontvangt, kunt u uw live stream kunt leveren voor afspelen van clienttoepassingen op een van de volgende indelingen: Smooth Streaming, Dynamic Adaptive Streaming via HTTP (DASH) en HTTP Live Streaming (HLS). Als u bent u live streamt, wordt dynamisch HLS altijd geleverd. Media Services berekent standaard automatisch de HLS segment verpakking hoogte-breedteverhouding (fragmenten per segment) op basis van het interval sleutelframes die wordt ontvangen van het live coderingsprogramma.
 
 De volgende tabel ziet u hoe de duur van het segment wordt berekend:
 
-| Interval voor sleutelframes | HLS segment verpakking verhouding (FragmentsPerSegment) | Voorbeeld |
+| Interval voor sleutelframes | HLS segment packaging ratio (FragmentsPerSegment) | Voorbeeld |
 | --- | --- | --- |
 | Kleiner dan of gelijk aan 3 seconden |3:1 |Als KeyFrameInterval (of GOP) 2 seconden, is de standaard HLS segment verpakking verhouding 3 tot en met 1. Hiermee maakt u een 6-seconde HLS-segment. |
 | 3 tot 5 seconden |2:1 |Als KeyFrameInterval (of GOP) 4 seconden, is de standaard HLS segment verpakking verhouding 2 tot en met 1. Hiermee maakt u een 8-seconde HLS-segment. |
@@ -127,7 +127,7 @@ De volgende tabel ziet u hoe de duur van het segment wordt berekend:
 
 U kunt de verhouding fragmenten per segment wijzigen door het configureren van de uitvoer van het kanaal en FragmentsPerSegment instellen op ChannelOutputHls.
 
-U kunt ook de waarde voor de sleutelframes interval wijzigen door de eigenschap KeyFrameInterval op ChanneInput. Als u KeyFrameInterval expliciet instelt, segmenteren de HLS verpakking verhouding die fragmentspersegment wordt berekend via de regels die eerder zijn beschreven.  
+U kunt ook de waarde voor de sleutelframes interval wijzigen door de eigenschap KeyFrameInterval op ChannelInput. Als u KeyFrameInterval expliciet instelt, segmenteren de HLS verpakking verhouding die fragmentspersegment wordt berekend via de regels die eerder zijn beschreven.  
 
 Als u zowel KeyFrameInterval en FragmentsPerSegment expliciet instelt, Media Services maakt gebruik van de waarden die u hebt ingesteld.
 
@@ -176,11 +176,11 @@ Zelfs na het stoppen en verwijderen van het programma, kunnen gebruikers de gear
 ## <a id="states"></a>Kanaal Staten en facturering
 Mogelijke waarden voor de huidige status van een kanaal zijn onder andere:
 
-* **Gestopt**: dit is de beginstatus van het kanaal nadat het is gemaakt. In deze status kunnen de eigenschappen van het kanaal worden bijgewerkt, maar is streaming niet toegestaan.
-* **Vanaf**: het kanaal wordt gestart. In deze status zijn streaming en updates niet toegestaan. Als er een fout optreedt, wordt het kanaal teruggezet naar de **gestopt** staat.
-* **Met**: het kanaal kan live streams verwerken.
-* **Stoppen**: het kanaal wordt gestopt. In deze status zijn streaming en updates niet toegestaan.
-* **Verwijderen van**: het kanaal wordt verwijderd. In deze status zijn streaming en updates niet toegestaan.
+* **Gestopt**: Dit is de beginstatus van het kanaal nadat het is gemaakt. In deze status kunnen de eigenschappen van het kanaal worden bijgewerkt, maar is streaming niet toegestaan.
+* **Vanaf**: Het kanaal wordt gestart. In deze status zijn streaming en updates niet toegestaan. Als er een fout optreedt, wordt het kanaal teruggezet naar de **gestopt** staat.
+* **Uitvoeren**: Het kanaal kan live streams verwerken.
+* **Stoppen**: Het kanaal wordt gestopt. In deze status zijn streaming en updates niet toegestaan.
+* **Verwijderen van**: Het kanaal wordt verwijderd. In deze status zijn streaming en updates niet toegestaan.
 
 In de volgende tabel wordt het verband tussen de verschillende kanaalstatussen en de facturering weergegeven.
 
@@ -197,7 +197,7 @@ De volgende tabel ziet u ondersteunde standaarden voor gesloten ondertiteling en
 | Standard | Opmerkingen |
 | --- | --- |
 | CEA-708 en EIA 608 (708/608) |CEA-708 en EIA 608 zijn ondertitels standaarden voor de Verenigde Staten en Canada.<p><p>Op dit moment wordt ondertiteling alleen ondersteund als in de gecodeerde invoerstroom uitgevoerd. U moet een live media encoder die 608 of 708-ondertiteling kunt invoegen in de gecodeerde stroom die wordt verzonden naar Media Services gebruiken. Media Services voorziet in de inhoud met ingevoegd bijschriften voor uw gebruikers. |
-| TTML binnen .ismt (tekstsporen Smooth Streaming) |Media Services dynamische pakketten kan uw clients om inhoud te streamen in een van de volgende indelingen: DASH, HLS of Smooth Streaming. Echter, als u de opname-gefragmenteerde MP4 (Smooth Streaming) met bijschriften in .ismt (tekstsporen Smooth Streaming), kunt u de stroom leveren aan clients alleen Smooth Streaming. |
+| TTML binnen .ismt (tekstsporen Smooth Streaming) |Media Services dynamische pakketten kunt uw clients om inhoud te streamen in een van de volgende indelingen: DASH, HLS of Smooth Streaming. Echter, als u de opname-gefragmenteerde MP4 (Smooth Streaming) met bijschriften in .ismt (tekstsporen Smooth Streaming), kunt u de stroom leveren aan clients alleen Smooth Streaming. |
 | SCTE-35 |SCTE 35 is een digitale signalering systeem dat wordt gebruikt voor het invoegen van reclame hint. Het signaal downstream ontvangers gebruiken voor het genereren van advertenties in de stroom voor de toegewezen tijd. SCTE 35 moet worden verzonden als een sparse bijhouden in de invoerstroom.<p><p>Op dit moment de enige ondersteunde invoerstroom opmaken dat uitvoert ad signalen is gefragmenteerd MP4 (Smooth Streaming). De enige ondersteunde uitvoer indeling is ook Smooth Streaming. |
 
 ## <a id="considerations"></a>Overwegingen met betrekking tot

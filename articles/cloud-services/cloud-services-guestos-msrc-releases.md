@@ -11,17 +11,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/22/2019
 ms.author: raiye
-ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107902"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828448"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
+
+>[!NOTE]
+>Het Gastbesturingssysteem januari is op dit moment wordt geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem januari. Deze lijst is onderhevig aan wijzigingen.
+
+## <a name="january-2019-guest-os"></a>Januari 2019 Guest OS
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480961] | Windows 10-beveiliging | 5.27 | 8 januari 2019 |
+| Rel 19-01 | [4480964] | Windows-beveiliging | 4.62 | 8 januari 2019 |
+| Rel 19-01 | [4480972] | Windows-beveiliging | 3.69 | 8 januari 2019 |
+| Rel 19-01 | [4480960] | Windows-beveiliging | 2.82 | 8 januari 2019 |
+| Rel 19-01 | [4480074] | .Net 4.x Security | 4.62 | 8 januari 2019 |
+| Rel 19-01 | [4480075] | .Net 4.x Security | 3.69 | 8 januari 2019 |
+| Rel 19-01 | [4480076] | .Net 4.x Security | 2.82 | 8 januari 2019 |
+| Rel 19-01 | [4480086] | .Net 3.x Security | 4.62 | 8 januari 2019 |
+| Rel 19-01 | [4480083] | .Net 3.x Security | 3.69 | 8 januari 2019 |
+| Rel 19-01 | [4480085] | .Net 3.x Security | 2.82 | 8 januari 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27 | 8 januari 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 januari 2019 |
+| N/A | [4471318] | Updatepakket van december niet voor beveiliging | 2.82 | 11 december 2018 |
+| N/A | [4470641] | Updatepakket van december niet voor beveiliging .NET 3.x | 2.82 | 11 december 2018 |
+| N/A | [4470637] | Updatepakket van december niet voor beveiliging .NET 4.x | 2.82 | 11 december 2018 |
+| N/A | [4471330] | Updatepakket van december niet voor beveiliging | 3.69 | 11 december 2018 |
+| N/A | [4470629] | Updatepakket van december niet voor beveiliging .NET 3.x | 3.69 | 11 december 2018 |
+| N/A | [4470623] | Updatepakket van december niet voor beveiliging .NET 4.x | 3.69 | 11 december 2018 |
+| N/A | [4471320] | Updatepakket van december niet voor beveiliging | 4.62 | 11 december 2018 |
+| N/A | [4470630] | Updatepakket van december niet voor beveiliging .NET 3.x | 4.62 | 11 december 2018 |
+| N/A | [4470622] | Updatepakket van december niet voor beveiliging .NET 4.x | 4.62 | 11 december 2018 |
+
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
 
 ## <a name="december-2018-guest-os"></a>December 2018-Gastbesturingssysteem
 
@@ -29,19 +80,19 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | --- | --- | --- | --- | --- |
 | Rel 18-12 | [4471321] | Windows 10-beveiliging | 5.26 | 11 december 2018 |
 | Rel 18-12 | [4471328] | Windows-beveiliging   | 2.81 | 11 december 2018 |
-| Rel 18-12 | [4471326] | Windows-beveiliging   | 3,68 | 11 december 2018 |
+| Rel 18-12 | [4471326] | Windows-beveiliging   | 3.68 | 11 december 2018 |
 | Rel 18-12 | [4471322] | Windows-beveiliging   | 4.61 | 11 december 2018 |
-| Rel 18-12 | [4470600] | .NET 3.x-beveiliging  | 2.81 | 11 december 2018 |
-| Rel 18-12 | [4470601] | .NET 3.x-beveiliging  | 3,68 | 11 december 2018|
-| Rel 18-12 | [4470602] | .NET 3.x-beveiliging  | 4.61 | 11 december 2018 |
-| Rel 18-12 | [4470493] | .NET 4.x-beveiliging  | 2.81 | 11 december 2018 |
-| Rel 18-12 | [4470492] | .NET 4.x-beveiliging  | 3,68 | 11 december 2018 |
-| Rel 18-12 | [4470491] | .NET 4.x-beveiliging  | 4.61| 11 december 2018 |
-| Rel 18-12 | [4471331] | Flash  | 3,68, 4.61, 5.26 | 5 december 2018  |
-| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3,68, 4.61 | 11 december 2018 |
-| N/A | [4468323] | Tijdzone-update    | 2.81, 3,68, 4.61 | 13 december 2018 |
+| Rel 18-12 | [4470600] | .Net 3.x Security  | 2.81 | 11 december 2018 |
+| Rel 18-12 | [4470601] | .Net 3.x Security  | 3.68 | 11 december 2018|
+| Rel 18-12 | [4470602] | .Net 3.x Security  | 4.61 | 11 december 2018 |
+| Rel 18-12 | [4470493] | .Net 4.x Security  | 2.81 | 11 december 2018 |
+| Rel 18-12 | [4470492] | .Net 4.x Security  | 3.68 | 11 december 2018 |
+| Rel 18-12 | [4470491] | .Net 4.x Security  | 4.61| 11 december 2018 |
+| Rel 18-12 | [4471331] | Flash  | 3.68, 4.61, 5.26 | 5 december 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 december 2018 |
+| N/A | [4468323] | Tijdzone-update    | 2.81, 3.68, 4.61 | 13 december 2018 |
 | N/A | [4467107] | Updatepakket van november niet voor beveiliging   | 2.81 | 13 november 2018 |
-| N/A | [4467701] | Updatepakket van november niet voor beveiliging     | 3,68 | 13 november 2018 |
+| N/A | [4467701] | Updatepakket van november niet voor beveiliging     | 3.68 | 13 november 2018 |
 | N/A | [4467697] | Updatepakket van november niet voor beveiliging     | 4.61 | 13 november 2018 |
 
 [4471321]: http://support.microsoft.com/kb/4471321
@@ -65,19 +116,19 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| Rel 18-11 | [4466536] | Internet Explorer | 2,80, 3.67, 4,60 | 13 november 2018 |
-| Rel 18-11 | [4467694] | Flash | 3.67, 4,60, 5,25 | 13 november 2018 |
-| Rel 18-11 | [4467106] | Windows-beveiliging | 2,80 | 13 november 2018 |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 13 november 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | 13 november 2018 |
+| Rel 18-11 | [4467106] | Windows-beveiliging | 2.80 | 13 november 2018 |
 | Rel 18-11 | [4467678] | Windows-beveiliging | 3.67 | 13 november 2018 |
-| Rel 18-11 | [4467703] | Windows-beveiliging | 4,60 | 13 november 2018 |
-| Rel 18-11 | [4467691] | Windows 10-beveiliging | 5,25 | 13 november 2018 |
+| Rel 18-11 | [4467703] | Windows-beveiliging | 4.60 | 13 november 2018 |
+| Rel 18-11 | [4467691] | Windows 10-beveiliging | 5.25 | 13 november 2018 |
 | N/A | [3173426] | Servicing Stack Update | 3.67 | 12 juli 2016 |
-| N/A | [4465659] | Servicing Stack Update | 5,25 | 13 november 2018 |
-| N/A | [4462923] | Rollup van oktober niet voor beveiliging | 2,80 | 9 oktober 2018 |
+| N/A | [4465659] | Servicing Stack Update | 5.25 | 13 november 2018 |
+| N/A | [4462923] | Rollup van oktober niet voor beveiliging | 2.80 | 9 oktober 2018 |
 | N/A | [4462929] | Rollup van oktober niet voor beveiliging | 3.67 | 9 oktober 2018 |
-| N/A | [4462926] | Rollup van oktober niet voor beveiliging | 4,60 | 9 oktober 2018 |
-| N/A | [3109976] | App compat shims | 4,60 | 12 april 2016 |
-| N/A | [4457037] | App compat shims | 4,60| 12 juni 2018 |
+| N/A | [4462926] | Rollup van oktober niet voor beveiliging | 4.60 | 9 oktober 2018 |
+| N/A | [3109976] | App compat shims | 4.60 | 12 april 2016 |
+| N/A | [4457037] | App compat shims | 4.60| 12 juni 2018 |
 
 [4466536]: http://support.microsoft.com/kb/4466536
 [4467694]: http://support.microsoft.com/kb/4467694
@@ -97,22 +148,22 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| Rel 18-10 | [4462917] | Windows 10-beveiliging | 5,24 | 9 oktober 2018 |
-| Rel 18-10 | [4462915] | Windows-beveiliging | 2,79 | 9 oktober 2018 |
-| Rel 18-10 | [4462931] | Windows-beveiliging | 3,66 | 9 oktober 2018 |
-| Rel 18-10 | [4462941] | Windows-beveiliging | 4,59 | 9 oktober 2018 |
-| Rel 18-10 | [4462930] | Flash | 3,66, 4,59, 5,24 | 9 oktober 2018 |
-| Rel 18-10 | [4462949] | Internet Explorer | 2,79, 3,66, 4,59 | 9 oktober 2018 |
-| N/A | [4339284] | Tijdzone-update | 2,79, 3,66, 4,59 | 24 juli 2018 |
-| N/A | [4457144] | Updatepakket september niet voor beveiliging | 2,79 | 11 september 2018 |
-| N/A | [4457044] | September niet voor beveiliging .NET 3.5-updatepakket | 2,79 | 11 september 2018 |
-| N/A | [4457038] | September niet voor beveiliging .NET 4.5.2 samenvouwen | 2,79 | 11 september 2018 |
-| N/A | [4457135] | Updatepakket september niet voor beveiliging | 3,66 | 11 september 2018 |
-| N/A | [4457042] | September niet voor beveiliging .NET 3.5-updatepakket | 3,66 | 11 september 2018 |
-| N/A | [4457037] | September niet voor beveiliging .NET 4.5.2 samenvouwen | 3,66 | 11 september 2018 |
-| N/A | [4457129] | Updatepakket september niet voor beveiliging | 4,59 | 11 september 2018 |
-| N/A | [4457045] | September niet voor beveiliging .NET 3.5-updatepakket | 4,59 | 11 september 2018 |
-| N/A | [4457036] | September niet voor beveiliging .NET 4.5.2 samenvouwen | 4,59 | 11 september 2018 |
+| Rel 18-10 | [4462917] | Windows 10-beveiliging | 5.24 | 9 oktober 2018 |
+| Rel 18-10 | [4462915] | Windows-beveiliging | 2.79 | 9 oktober 2018 |
+| Rel 18-10 | [4462931] | Windows-beveiliging | 3.66 | 9 oktober 2018 |
+| Rel 18-10 | [4462941] | Windows-beveiliging | 4.59 | 9 oktober 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24 | 9 oktober 2018 |
+| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 oktober 2018 |
+| N/A | [4339284] | Tijdzone-update | 2.79, 3.66, 4.59 | 24 juli 2018 |
+| N/A | [4457144] | Updatepakket september niet voor beveiliging | 2.79 | 11 september 2018 |
+| N/A | [4457044] | September niet voor beveiliging .NET 3.5-updatepakket | 2.79 | 11 september 2018 |
+| N/A | [4457038] | September niet voor beveiliging .NET 4.5.2 samenvouwen | 2.79 | 11 september 2018 |
+| N/A | [4457135] | Updatepakket september niet voor beveiliging | 3.66 | 11 september 2018 |
+| N/A | [4457042] | September niet voor beveiliging .NET 3.5-updatepakket | 3.66 | 11 september 2018 |
+| N/A | [4457037] | September niet voor beveiliging .NET 4.5.2 samenvouwen | 3.66 | 11 september 2018 |
+| N/A | [4457129] | Updatepakket september niet voor beveiliging | 4.59 | 11 september 2018 |
+| N/A | [4457045] | September niet voor beveiliging .NET 3.5-updatepakket | 4.59 | 11 september 2018 |
+| N/A | [4457036] | September niet voor beveiliging .NET 4.5.2 samenvouwen | 4.59 | 11 september 2018 |
 
 [4462917]: http://support.microsoft.com/kb/4462917
 [4462915]: http://support.microsoft.com/kb/4462915
@@ -139,10 +190,10 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 18-09 | [4457140] | Alleen Windows-beveiliging | 3.65 | 11 september 2018 |
 | Rel 18-09 | [4457143] | Alleen Windows-beveiliging | 4,58 | 11 september 2018 |
 | Rel 18-09 | [4457055], [4457030] | .NET 3.5, 4.5 beveiliging | 2.78 | 11 september 2018 |
-| Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x-beveiliging | 3.65 | 11 september 2018 |
-| Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x-beveiliging | 4,58 | 11 september 2018 |
-| Rel 18-09 | [4457146] | Flash | 3.65, 4,58, 5.23 | 11 september 2018 |
-| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4,58 | 11 september 2018 |
+| Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x Security | 3.65 | 11 september 2018 |
+| Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x Security | 4,58 | 11 september 2018 |
+| Rel 18-09 | [4457146] | Flash | 3.65, 4.58, 5.23 | 11 september 2018 |
+| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4.58 | 11 september 2018 |
 | N/A | [4343900] | Updatepakket augustus niet voor beveiliging | 2.78 | 14 augustus 2018 |
 | N/A | [4344152] | Augustus niet voor beveiliging .NET 3.5-updatepakket | 2.78 | 14 augustus 2018 |
 | N/A | [4344149] | Augustus niet voor beveiliging .NET 4 x rollup | 2.78 | 14 augustus 2018 |
@@ -157,18 +208,18 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Windows 10-beveiliging | 5.22 | 14 augustus 2018 |
-| Rel 18-08 | [4343899] | Alleen Windows-beveiliging | 2,77 | 14 augustus 2018 |
+| Rel 18-08 | [4343899] | Alleen Windows-beveiliging | 2.77 | 14 augustus 2018 |
 | Rel 18-08 | [4343896] | Alleen Windows-beveiliging | 3.64 | 14 augustus 2018 |
 | Rel 18-08 | [4343888] | Alleen Windows-beveiliging | 4.57 | 14 augustus 2018 |
-| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 beveiliging | 2,77 | 14 augustus 2018 |
-| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x-beveiliging | 3.64 | 14 augustus 2018 |
-| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x-beveiliging | 4.57 | 14 augustus 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 beveiliging | 2.77 | 14 augustus 2018 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x Security | 3.64 | 14 augustus 2018 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x Security | 4.57 | 14 augustus 2018 |
 | Rel 18-08 | [4346742], [4346739] | .NET 3.5, OOB-versie 4.x | 3.64 | 30 juli 2018 |
 | Rel 18-08 | [4346745], [4346408] | .NET 3.5, OOB-versie 4.x | 4.57 | 30 juli 2018 |
 | Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | 14 augustus 2018 |
-| Rel 18-08 | [4343205] | Internet Explorer | 2,77, 3.64, 4.57 | 14 augustus 2018 |
-| N/A | [4338818] |Updatepakket van juli niet voor beveiliging |2,77 | 10 juli 2018 |
-| N/A | [4019990] |D3D Compiler update voor .NET |2,77 | 10 juli 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | 14 augustus 2018 |
+| N/A | [4338818] |Updatepakket van juli niet voor beveiliging |2.77 | 10 juli 2018 |
+| N/A | [4019990] |D3D Compiler update voor .NET |2.77 | 10 juli 2018 |
 | N/A | [4338830] |Updatepakket van juli niet voor beveiliging |3.64 | 10 juli 2018 |
 | N/A | [4338421] |Juli niet voor beveiliging .NET 3.5-updatepakket |3.64 | 10 juli 2018 |
 | N/A | [4338416] |Juli niet voor beveiliging .NET 4 x rollup |3.64 | 10 juli 2018 |
@@ -181,36 +232,36 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | --- | --- | --- | --- | --- |
 | Rel 18-07 | [4338814] |Windows 10-beveiliging |5.21 |10 juli 2018 |
 | Rel 18-07 | [4338823] |Alleen Windows-beveiliging |2.76 |10 juli 2018 |
-| Rel 18-07 | [4338820] |Alleen Windows-beveiliging |3,63 |10 juli 2018 |
-| Rel 18-07 | [4338824] |Alleen Windows-beveiliging |4,56 |10 juli 2018 |
+| Rel 18-07 | [4338820] |Alleen Windows-beveiliging |3.63 |10 juli 2018 |
+| Rel 18-07 | [4338824] |Alleen Windows-beveiliging |4.56 |10 juli 2018 |
 | Rel 18-07 | [4345459] |Beveiliging updatepakket vernieuwen |2.76 |10 juli 2018 |
-| Rel 18-07 | [4345425] |Beveiliging updatepakket vernieuwen |3,63 |10 juli 2018 |
-| Rel 18-07 | [4345424] |Beveiliging updatepakket vernieuwen |4,56 |10 juli 2018 |
+| Rel 18-07 | [4345425] |Beveiliging updatepakket vernieuwen |3.63 |10 juli 2018 |
+| Rel 18-07 | [4345424] |Beveiliging updatepakket vernieuwen |4.56 |10 juli 2018 |
 | Rel 18-07 | [4345418] |Beveiliging updatepakket vernieuwen |5.21 |10 juli 2018 |
-| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x-beveiliging |2.76 |10 juli 2018 |
-| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x 4.5 x-beveiliging |3,63 |10 juli 2018 |
-| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x 4.5 x-beveiliging |4,56|10 juli 2018 |
-| Rel 18-07 | [4338832] |Flash |3,63, 4.76, 5.21 |10 juli 2018 |
-| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3,63, 4.76 |10 juli 2018 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x Security |2.76 |10 juli 2018 |
+| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5x Security |3.63 |10 juli 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x Security |4.56|10 juli 2018 |
+| Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |10 juli 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |10 juli 2018 |
 | N/A | [4284826] |Totalisering van de niet-beveiligde juni |2.76 |12 juni 2018 |
-| N/A | [4284855] |Totalisering van de niet-beveiligde juni |3,63 |12 juni 2018 |
-| N/A | [4284815] |Totalisering van de niet-beveiligde juni |4,56 |12 juni 2018 |
+| N/A | [4284855] |Totalisering van de niet-beveiligde juni |3.63 |12 juni 2018 |
+| N/A | [4284815] |Totalisering van de niet-beveiligde juni |4.56 |12 juni 2018 |
 
 ## <a name="june-2018-guest-os"></a>Juni 2018-Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Windows 10-beveiliging |5.20 |12 juni 2018 |
-| Rel 18-06 | [4284867] |Alleen Windows-beveiliging |2,75 |12 juni 2018 |
+| Rel 18-06 | [4284867] |Alleen Windows-beveiliging |2.75 |12 juni 2018 |
 | Rel 18-06 | [4284846] |Alleen Windows-beveiliging |3.62 |12 juni 2018 |
 | Rel 18-06 | [4284878] |Alleen Windows-beveiliging |4.55 |12 juni 2018 |
-| Rel 18-06 | [4230450] |Internet Explorer |2,75, 3.62, 4,75 |12 juni 2018 |
-| Rel 18-06 | [4287903] |Flash |3.62, 4,75, 5.20 |12 juni 2018 |
-| N/A | [4103718] |Kan niet voor beveiliging updatepakket |2,75 |8 mei 2018 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |12 juni 2018 |
+| Rel 18-06 | [4287903] |Flash |3.62, 4.75, 5.20 |12 juni 2018 |
+| N/A | [4103718] |Kan niet voor beveiliging updatepakket |2.75 |8 mei 2018 |
 | N/A | [4103730] |Kan niet voor beveiliging updatepakket |3.62 |8 mei 2018 |
 | N/A | [4103725] |Kan niet voor beveiliging updatepakket |4.55 |8 mei 2018 |
-| N/A | [4040980], [4040977] |September 17 .NET niet-beveiligde samenvouwen |2,75 |14 november 2017 |
-| N/A | [4095874] |Kan geen .NET 3.5-security-release |2,75 |8 mei 2018 |
-| N/A | [4096495] |Kan .NET 4.x niet-security-release |2,75 |8 mei 2018 |
+| N/A | [4040980], [4040977] |September 17 .NET niet-beveiligde samenvouwen |2.75 |14 november 2017 |
+| N/A | [4095874] |Kan geen .NET 3.5-security-release |2.75 |8 mei 2018 |
+| N/A | [4096495] |Kan .NET 4.x niet-security-release |2.75 |8 mei 2018 |
 | N/A | [4040975] |September 17 .NET niet-beveiligde samenvouwen |3.62 |14 november 2017 |
 | N/A | [4095872] |Kan geen .NET 3.5-security-release |3.62 |8 mei 2018 |
 | N/A | [4096494] |Kan .NET 4.x niet-security-release |3.62 |8 mei 2018 |
@@ -228,59 +279,59 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 18-05 | [4103712] |Alleen Windows-beveiliging |2.74 |8 mei 2018 |
 | Rel 18-05 | [4103726] |Alleen Windows-beveiliging |3.61 |8 mei 2018 |
 | Rel 18-05 | [4103715] |Alleen Windows-beveiliging |4.54 |8 mei 2018 |
-| Rel 18-05 | [4095514], [4095519] |.NET 3.5, 4.x-beveiliging |2.74 |8 mei 2018 |
-| Rel 18-05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x 4.5 x-beveiliging |3.61 |8 mei 2018 |
-| Rel 18-05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x 4.5 x-beveiliging |4,74|8 mei 2018 |
+| Rel 18-05 | [4095514], [4095519] |.NET 3.5, 4.x Security |2.74 |8 mei 2018 |
+| Rel 18-05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x, 4.5x Security |3.61 |8 mei 2018 |
+| Rel 18-05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x, 4.5x Security |4.74|8 mei 2018 |
 | Rel 18-05 | [4054856] |.NET 4,7 x-beveiliging |5.19 |8 mei 2018 |
-| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4,74 |8 mei 2018 |
-| Rel 18-05 | [4103729] |Flash |3.61, 4,74, 5.19 |8 mei 2018 |
-| N/A | [4093118] |Totalisering van de niet-beveiligde april |2,73 |10 april 2018 |
+| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |8 mei 2018 |
+| Rel 18-05 | [4103729] |Flash |3.61, 4.74, 5.19 |8 mei 2018 |
+| N/A | [4093118] |Totalisering van de niet-beveiligde april |2.73 |10 april 2018 |
 | N/A | [4093123] |Totalisering van de niet-beveiligde april |3.61 |10 april 2018 |
-| N/A | [4093114] |Totalisering van de niet-beveiligde april |4,74 |10 april 2018 |
+| N/A | [4093114] |Totalisering van de niet-beveiligde april |4.74 |10 april 2018 |
 | N/A | [4093137] |April SSU |5.19 |10 april 2018 |
-| N/A | [4093753] |Tijdzone-update |2.74, 3.61, 4,74 |10 april 2018 |
+| N/A | [4093753] |Tijdzone-update |2.74, 3.61, 4.74 |10 april 2018 |
 
 
 ## <a name="april-2018-guest-os"></a>Het Gastbesturingssysteem april 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| Rel 18-04 | [4093119] |Windows 10-beveiliging |punt 5.18 |10 april 2018 |
-| Rel 18-04 | [4093108] |Alleen Windows-beveiliging |2,73 |10 april 2018 |
+| Rel 18-04 | [4093119] |Windows 10-beveiliging |5.18 |10 april 2018 |
+| Rel 18-04 | [4093108] |Alleen Windows-beveiliging |2.73 |10 april 2018 |
 | Rel 18-04 | [4093122] |Alleen Windows-beveiliging |3.60 |10 april 2018 |
-| Rel 18-04 | [4093115] |Alleen Windows-beveiliging |4,53 |10 april 2018 |
-| Rel 18-04 | [4092946] |Internet Explorer |2,73, 3.60, 4,53 |10 april 2018 |
-| Rel 18-04 | [4093110] |Flash |3.60, 4,53, punt 5.18 |10 april 2018 |
-| N/A | [4088875] |Totalisering van maart niet voor beveiliging |2,73 |13 maart 2018 |
-| N/A | [4099950] |Vereiste is niet-beveiligde updatepakket maart|2,73 |13 maart 2018 |
+| Rel 18-04 | [4093115] |Alleen Windows-beveiliging |4.53 |10 april 2018 |
+| Rel 18-04 | [4092946] |Internet Explorer |2.73, 3.60, 4.53 |10 april 2018 |
+| Rel 18-04 | [4093110] |Flash |3.60, 4.53, 5.18 |10 april 2018 |
+| N/A | [4088875] |Totalisering van maart niet voor beveiliging |2.73 |13 maart 2018 |
+| N/A | [4099950] |Vereiste is niet-beveiligde updatepakket maart|2.73 |13 maart 2018 |
 | N/A | [4088877] |Totalisering van maart niet voor beveiliging |3.60 |13 maart 2018 |
-| N/A | [4088876] |Totalisering van maart niet voor beveiliging |4,53 |13 maart 2018 |
+| N/A | [4088876] |Totalisering van maart niet voor beveiliging |4.53 |13 maart 2018 |
 
 ## <a name="march-2018-guest-os"></a>Het Gastbesturingssysteem maart 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
-| Rel 18: 03 | [4088787], [4088776] |Windows 10-beveiliging |5,17 |13 maart 2018 |
-| Rel 18: 03 | [4088878], [4088880], [4088879] |Alleen Windows-beveiliging |2.72, 3.59, 4.52 zijn |13 maart 2018 |
-| Rel 18: 03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 zijn |13 maart 2018 |
-| Rel 18: 03 | [4074595] |Flash |3.59, 4.52 zijn, 5,17 |13 maart 2018 |
+| Rel 18: 03 | [4088787], [4088776] |Windows 10-beveiliging |5.17 |13 maart 2018 |
+| Rel 18: 03 | [4088878], [4088880], [4088879] |Alleen Windows-beveiliging |2.72, 3.59, 4.52 |13 maart 2018 |
+| Rel 18: 03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 maart 2018 |
+| Rel 18: 03 | [4074595] |Flash |3.59, 4.52, 5.17 |13 maart 2018 |
 | N/A | [4074598] |Totalisering van de niet-beveiligde februari |2.72 |13 februari 2018 |
 | N/A | [4074593] |Totalisering van de niet-beveiligde februari |3.59 |13 februari 2018 |
-| N/A | [4074594] |Totalisering van de niet-beveiligde februari |4.52 zijn |13 februari 2018 |
-| N/A | [4074837] |Tijdzone-update |2.72, 3.59, 4.52 zijn |13 februari 2018 |
+| N/A | [4074594] |Totalisering van de niet-beveiligde februari |4.52 |13 februari 2018 |
+| N/A | [4074837] |Tijdzone-update |2.72, 3.59, 4.52 |13 februari 2018 |
 
 
 ## <a name="february-2018-guest-os"></a>Het Gastbesturingssysteem februari 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Windows 10-beveiliging |5.16 |13 februari 2018 |
-| Rel 18-02 | [4074587], [4074589], [4074597] |Alleen Windows-beveiliging |2.71, 3,58, 4,51 |13 februari 2018 |
-| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3,58, 4,51 |13 februari 2018 |
-| Rel 18-02 | [4074595] |Flash |3,58, 4,51, 5.16 |13 februari 2018 |
+| Rel 18-02 | [4074587], [4074589], [4074597] |Alleen Windows-beveiliging |2.71, 3.58, 4.51 |13 februari 2018 |
+| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |13 februari 2018 |
+| Rel 18-02 | [4074595] |Flash |3.58, 4.51, 5.16 |13 februari 2018 |
 | N/A | [4056894] |Totalisering van de niet-beveiligde januari |2.71 |4 januari 2018 |
-| N/A | [4056896] |Totalisering van de niet-beveiligde januari |3,58 |4 januari 2018 |
-| N/A | [4056895] |Totalisering van de niet-beveiligde januari |4,51 |4 januari 2018 |
+| N/A | [4056896] |Totalisering van de niet-beveiligde januari |3.58 |4 januari 2018 |
+| N/A | [4056895] |Totalisering van de niet-beveiligde januari |4.51 |4 januari 2018 |
 | N/A | [4054176], [4054172] |Januari .NET samenvouwen |2.71 |4 januari 2018 |
-| N/A | [4054175], [4054171] |Januari .NET samenvouwen |3,58 |4 januari 2018 |
-| N/A | [4054177], [4054170] |Januari .NET samenvouwen |4,51 |4 januari 2018 |
+| N/A | [4054175], [4054171] |Januari .NET samenvouwen |3.58 |4 januari 2018 |
+| N/A | [4054177], [4054170] |Januari .NET samenvouwen |4.51 |4 januari 2018 |
 
 ## <a name="january-2018-guest-os"></a>Het Gastbesturingssysteem januari 2018
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -410,9 +461,9 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | Rel 17-05 | [4019213] |Alleen Windows-beveiliging |4.42 | 9 mei 2017 |
 | Rel 17-05 | [4019214] |Alleen Windows-beveiliging |3.49 | 9 mei 2017 |
 | Rel 17-05 | [4018271] |Cumulatieve beveiligingsupdate voor Internet Explorer |3.49 | 9 mei 2017 |
-| Rel 17-05 | [4010323] |SHA1 advies |2.62, 4.42, 5.7 | 9 mei 2017 |
-| Rel 17-05 | [4022344] |Microsoft-beveiligingsadvies |5.7 | 9 mei 2017 |
-| Rel 17-05 | [4022345] |Microsoft-beveiligingsadvies |5.7 | 9 mei 2017 |
+| Rel 17-05 | [4010323] |SHA1 Advisory |2.62, 4.42, 5.7 | 9 mei 2017 |
+| Rel 17-05 | [4022344] |Microsoft Security Advisory |5.7 | 9 mei 2017 |
+| Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | 9 mei 2017 |
 | Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | 9 mei 2017 |
 | N/A | [4012864] |Tijdzone-Update |2.62, 3.49, 4.42 | 9 mei 2017 |
 | N/A | [4014565] |Totalisering van de niet-beveiligde april .NET |2.62 | 11 april 2017 |
@@ -652,7 +703,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS16-018 |[3136082] |Beveiligingsupdate voor Windows-stuurprogramma voor Kernel-modus om misbruik van bevoegdheden |4.29, 3.36, 2.48 |9 februari 2016 |
 | MS16-019 |[3137893] |Beveiligingsupdate voor .NET Framework om de uitvoering van externe Code |4.29, 3.36, 2.48 |9 februari 2016 |
 | MS16-021 |[3133043] |Beveiligingsupdate voor NPS RADIUS-Server om Denial of Service |4.29, 3.36, 2.48 |9 februari 2016 |
-| Microsoft-beveiligingsadvies |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.29, 3.36 |9 februari 2016 |
+| Microsoft Security Advisory |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.29, 3.36 |9 februari 2016 |
 | Nieuwe Release-MS15-101 |[3089662] |Beveiligingslekken in .NET Framework kunnen leiden tot misbruik van bevoegdheden |4.29, 3.36, 2.48 |9 februari 2016 |
 | Nieuwe Release-MS15-118 |[3104507] |Beveiligingsupdates voor .NET Framework om misbruik van bevoegdheden |4.29, 3.36, 2.48 |9 februari 2016 |
 | Nieuwe Release-MS15-128 |[3104503] |Beveiligingsupdates voor Microsoft-afbeeldingen onderdeel om de uitvoering van externe Code |4.29, 3.36, 2.48 |9 februari 2016 |
@@ -666,9 +717,9 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS16-007 |[3124901] |Beveiligingsupdate voor Microsoft Windows om de uitvoering van externe Code |4.28, 3.35, 2.47 |12 januari 2016 |
 | MS16-008 |[3124605] |Beveiligingsupdate voor Kernel om misbruik van bevoegdheden |4.28, 3.35, 2.47 |12 januari 2016 |
 | Microsoft Security Advisory revisie |[2755801] |Update voor beveiligingsproblemen in Adobe Flash Player in Internet Explorer (pakket KB: Nog te bepalen) - Advisory tijdelijke aanduiding |4.28, 3.35 |12 januari 2016 |
-| Microsoft-beveiligingsadvies |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.28, 3.35 |12 januari 2016 |
-| Microsoft-beveiligingsadvies |[3123479] |Afschaffing van SHA-1-hash-algoritme voor het Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 januari 2016 |
-| Microsoft-beveiligingsadvies |[2736233] |Updates voor ActiveX-Kill-Bits |4.28, 3.35, 2.47 |12 januari 2016 |
+| Microsoft Security Advisory |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.28, 3.35 |12 januari 2016 |
+| Microsoft Security Advisory |[3123479] |Afschaffing van SHA-1-hash-algoritme voor het Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 januari 2016 |
+| Microsoft Security Advisory |[2736233] |Updates voor ActiveX-Kill-Bits |4.28, 3.35, 2.47 |12 januari 2016 |
 
 ## <a name="december-2015-guest-os"></a>Het Gastbesturingssysteem december 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -694,7 +745,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-120 |[3102939] |Beveiligingsupdate voor IPSec om Denial of Service |4.26, 3.33 |10 november 2015 |
 | MS15-121 |[3081320] |Beveiligingsupdate voor Schannel naar adressen adresvervalsing (spoofing) |4.26, 3.33, 2.45 |10 november 2015 |
 | MS15-122 |[3105256] |Beveiligingsupdate voor Kerberos om de beveiliging functie overslaan |4.26, 3.33, 2.45 |10 november 2015 |
-| Microsoft-beveiligingsadvies |[3097966] |Per ongeluk vermeld digitale certificaten kan leiden tot spoofing |4.26, 3.33, 2.45 |10 november 2015 |
+| Microsoft Security Advisory |[3097966] |Per ongeluk vermeld digitale certificaten kan leiden tot spoofing |4.26, 3.33, 2.45 |10 november 2015 |
 
 ## <a name="october-2015-guest-os"></a>Het Gastbesturingssysteem oktober 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -703,7 +754,7 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | MS15-108 |[3089659] |Beveiligingsupdate voor JScript en VBScript om potentiële externe Code worden uitgevoerd |2.44 |13 oktober 2015 |
 | MS15-109 |[3096443] |Beveiligingsupdate voor Windows-Shell om de uitvoering van externe Code |4.25, 3.32, 2.44 |13 oktober 2015 |
 | MS15-111 |[3096447] |Beveiligingsupdate voor Windows-Kernel om misbruik van bevoegdheden |4.25, 3.32, 2.44 |13 oktober 2015 |
-| Microsoft-beveiligingsadvies |[3092627] |Update van september 2015 om op te lossen Windows of de toepassing vastloopt na installatie van beveiligingsupdate 3076895 |4.25, 3.32, 2.44 |13 oktober 2015 |
+| Microsoft Security Advisory |[3092627] |Update van september 2015 om op te lossen Windows of de toepassing vastloopt na installatie van beveiligingsupdate 3076895 |4.25, 3.32, 2.44 |13 oktober 2015 |
 
 ## <a name="september-2015-guest-os"></a>Het Gastbesturingssysteem september 2015
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |

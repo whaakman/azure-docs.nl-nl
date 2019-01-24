@@ -3,18 +3,19 @@ title: Overzicht van Azure Service Bus-berichten van wachtrijen, onderwerpen en 
 description: Overzicht van Service Bus messaging-entiteiten.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: spelluru
-ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: aschhab
+ms.openlocfilehash: 7cacabf4f171189810e943043b5513e20113d962
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312875"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847028"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus-wachtrijen, -onderwerpen en -abonnementen
 
@@ -73,7 +74,7 @@ Voor meer informatie over mogelijke filterwaarden, Zie de documentatie voor de [
 Zie de volgende geavanceerde onderwerpen voor meer informatie en voorbeelden van het gebruik van Service Bus-berichten:
 
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
-* [Snelstartgids: Verzenden en berichten ontvangen met behulp van de Azure portal en .NET](service-bus-quickstart-portal.md)
+* [Snelstart: Verzenden en berichten ontvangen met behulp van de Azure portal en .NET](service-bus-quickstart-portal.md)
 * [Zelfstudie: Bijwerken van de voorraad met behulp van Azure portal en onderwerpen/abonnementen](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444626"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819880"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Bestanden uploaden naar een Media Services-account met behulp van .NET
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ Wanneer u activa maakt, kunt u de volgende versleutelingsopties:
   
     Als uw asset versleuteld opslag is, moet u het leveringsbeleid voor Assets configureren. Zie voor meer informatie, [leveringsbeleid voor Assets configureren](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Als u voor uw asset opgeeft moeten worden versleuteld met een **CommonEncrypted** optie, of een **EnvelopeEncypted** optie, moet u uw asset met koppelen een **ContentKey**. Zie voor meer informatie, [over het maken van een ContentKey](media-services-dotnet-create-contentkey.md). 
+Als u voor uw asset opgeeft moeten worden versleuteld met een **CommonEncrypted** optie, of een **EnvelopeEncrypted** optie, moet u uw asset met koppelen een **ContentKey**. Zie voor meer informatie, [over het maken van een ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Als u voor uw asset opgeeft moeten worden versleuteld met een **StorageEncrypted** optie, de Media Services SDK voor .NET-maakt een **StorateEncrypted** **ContentKey** voor uw asset.
+Als u voor uw asset opgeeft moeten worden versleuteld met een **StorageEncrypted** optie, de Media Services SDK voor .NET-maakt een **StorageEncrypted** **ContentKey** voor uw asset.
 
 Dit artikel leest hoe u met Media Services .NET SDK, evenals de Media Services .NET SDK extensions bestanden uploaden naar een Media Services-asset.
 

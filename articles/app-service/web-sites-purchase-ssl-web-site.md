@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714297"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820781"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Kopen en configureren van een SSL-certificaat voor Azure App Service
 
@@ -50,7 +50,7 @@ Gebruik de volgende tabel om u te helpen u bij het configureren van het certific
 | Instelling | Description |
 |-|-|
 | Name | Een beschrijvende naam voor uw App Service-certificaat. |
-| Hostnaam van domein zonder voorvoegsel | Deze stap is een van de belangrijkste onderdelen van het aankoopproces. Gebruik de root-domeinnaam die u hebt toegewezen aan uw app. Voer _niet_ voegt u vóór de naam van het domein met `www`. |
+| Hostnaam van domein zonder voorvoegsel | Als u het hoofddomein hier opgeeft, krijgt u een certificaat dat wordt beveiligd *beide* het hoofddomein en de `www` subdomein. Aan beveiligde elk subdomein alleen, geef de volledig gekwalificeerde domeinnaam van het subdomein hier (bijvoorbeeld `mysubdomain.contoso.com`). |
 | Abonnement | Het datacenter waar de web-app wordt gehost. |
 | Resourcegroep | De resourcegroep die het certificaat bevat. U kunt een nieuwe resourcegroep gebruiken of u kunt bijvoorbeeld dezelfde resourcegroep bevinden als uw App Service-app selecteren. |
 | Certificaat-SKU | Bepaalt het type certificaat te maken, of een standaard-certificaat of een [jokertekencertificaat](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -115,7 +115,7 @@ Gebruik de volgende tabel om u te helpen u bij het configureren van de binding i
 |-|-|
 | Hostnaam | De domeinnaam om toe te voegen voor SSL-binding. |
 | Vingerafdruk van het persoonlijke certificaat | Het certificaat te binden. |
-| SSL-type | <ul><li>**SNI SSL** -op basis van meerdere SNI SSL-bindingen kunnen worden toegevoegd. Met deze optie kunnen meerdere SSL-certificaten verschillende domeinen beveiligen op hetzelfde IP-adres. De meeste moderne browsers (waaronder Internet Explorer, Chrome, Firefox en Opera) ondersteunen SNI. Ga voor uitgebreidere informatie over browserondersteuning naar [Servernaamindicatie](https://wikipedia.org/wiki/Server_Name_Indication).</li><li>**Op IP gebaseerde SSL**: er kan slechts één op IP gebaseerde SSL-binding worden toegevoegd. Met deze optie kan slechts één SSL-certificaat een specifiek openbaar IP-adres beveiligen. Na de binding te configureren, volgt u de stappen in [opnieuw toewijzen van een record voor IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| SSL-type | <ul><li>**SNI SSL** -op basis van meerdere SNI SSL-bindingen kunnen worden toegevoegd. Met deze optie kunnen meerdere SSL-certificaten verschillende domeinen beveiligen op hetzelfde IP-adres. De meeste moderne browsers (waaronder Internet Explorer, Chrome, Firefox en Opera) ondersteunen SNI. Ga voor uitgebreidere informatie over browserondersteuning naar [Servernaamindicatie](https://wikipedia.org/wiki/Server_Name_Indication).</li><li>**Op IP gebaseerde SSL**: er kan slechts één op IP gebaseerde SSL-binding worden toegevoegd. Met deze optie kan slechts één SSL-certificaat een specifiek openbaar IP-adres beveiligen. Nadat u de binding geconfigureerd, volg de stappen in [opnieuw toewijzen van een record voor IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Controleren of de HTTPS-toegang
 
@@ -125,7 +125,7 @@ Ga naar uw app met `HTTPS://<domain_name>` in plaats van `HTTP://<domain_name>` 
 
 Als u ooit moet u uw certificaat opnieuw versleutelen, selecteert u het certificaat in de [App Service-certificaten](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina en selecteer vervolgens **opnieuw versleutelen en synchroniseren** in de linkernavigatiebalk.
 
-Klik op **opnieuw versleutelen** om het proces te starten. Dit proces kan 1-10 minuten duren.
+Klik op **opnieuw versleutelen** knop om het proces te starten. Dit proces kan 1-10 minuten duren.
 
 ![afbeelding van SSL opnieuw versleutelen invoegen](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 10f2b30addd874d39a6193c810ccbdf4ac1a06e6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab68c8f73d4b53f441b8f46f466371cd1d03ad41
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473313"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846809"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Het toepassingstype kiezen bij het toevoegen van een toepassing in Azure Active Directory
 Meer informatie over de vier typen toepassingen die u aan Azure Active Directory (Azure AD toevoegen kunt). Wanneer u een toepassing in Azure Active Directory toevoegt, wordt u gevraagd om een van de vier toepassingstype. 
@@ -68,11 +68,11 @@ Hieronder vindt u de ondersteunde **eenmalige aanmelding** modi voor Azure AD-to
 
 -   **Azure AD eenmalige aanmelding uitgeschakeld** – Kies Azure AD eenmalige aanmelding uitgeschakeld **modus voor één aanmelding** als u nog niet gereed voor het integreren van deze toepassing met eenmalige aanmelding met Azure AD, of gewoon test het uit
 
--   **Gekoppelde aanmelding** : Kies de [gekoppelde Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modus voor één aanmelding** hebt u een toepassing die al is verbonden met een bestaande eenmalige aanmelding, of als u alleen wilt publiceren van een eenvoudige koppeling voor uw gebruikers in hun [Toegangsvenster](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) of [startprogramma voor Office 365-toepassingen](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+-   **Gekoppelde aanmelding** : Kies de [gekoppelde Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **modus voor één aanmelding** hebt u een toepassing die al is verbonden met een bestaande eenmalige aanmelding, of als u alleen wilt publiceren van een eenvoudige koppeling voor uw gebruikers in hun [Toegangsvenster](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) of [startprogramma voor Office 365-toepassingen](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
--   **Op basis van wachtwoorden Sign-on** : Kies de [op basis van wachtwoorden Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modus voor één aanmelding** als uw toepassing een HTML-gebruikersnaam en wachtwoord voor het veld wordt weergegeven en u wilt dat deze gebruikersnaam opslaan en wachtwoord voor het veilig naar de toepassing later opnieuw worden afgespeeld
+-   **Op basis van wachtwoorden Sign-on** : Kies de [op basis van wachtwoorden Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **modus voor één aanmelding** als uw toepassing een HTML-gebruikersnaam en wachtwoord voor het veld wordt weergegeven en u wilt dat deze gebruikersnaam opslaan en wachtwoord voor het veilig naar de toepassing later opnieuw worden afgespeeld
 
--   **SAML gebaseerde aanmelding** : Kies de [SAML gebaseerde aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) single sign-modus als uw toepassing de SAML- of OpenID Connect-protocollen ondersteunt, of u wilt kunnen gebruikers toewijzen aan de rollen van de specifieke toepassing is op basis van regels u definieert in de claims van SAML *
+-   **SAML gebaseerde aanmelding** : Kies de [SAML gebaseerde aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) single sign-modus als uw toepassing de SAML- of OpenID Connect-protocollen ondersteunt, of u wilt kunnen gebruikers toewijzen aan de rollen van de specifieke toepassing is op basis van regels u definieert in de claims van SAML *
 
    >[!NOTE]
    >Deze optie is niet beschikbaar wanneer de application proxy is geconfigureerd voor een toepassing.

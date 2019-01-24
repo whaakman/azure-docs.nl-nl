@@ -3,19 +3,19 @@ title: Een zelf-gecontroleerde technisch profiel definiëren in een aangepast be
 description: Definieer een zelf-gecontroleerde technisch profiel in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 262c4e622d7ef915e59f29c8f4272e488acaeccf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7a783e496b7bb6fcdf2c80247baad2bfc901d857
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166908"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850991"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een zelf-gecontroleerde technisch profiel definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -71,7 +71,7 @@ Er zijn vier scenario's voor uitvoerclaims:
 
 - **De uitvoer verzamelen van vorderingen van de gebruiker** - wanneer u nodig hebt voor het verzamelen van informatie van de gebruiker, zoals Geboortedatum, moet u de claim toevoegen de **OutputClaims** verzameling. De claims die worden weergegeven voor de gebruiker moeten opgeven de **UserInputType**, zoals `TextBox` of `DropdownSingleSelect`. Als de zelf-gecontroleerde technisch profiel een validatie technisch profiel die dezelfde claim uitvoert bevat, wordt de claim voor de gebruiker niet aanwezig in Azure AD B2C. Als er geen eventuele uitvoerclaim om aan de gebruiker te presenteren, slaat Azure AD B2C het technische profiel.
 - **Instellen van een standaardwaarde is opgegeven in een uitvoerclaim** - zonder dat het verzamelen van gegevens van de gebruiker of het opvragen van de gegevens uit het technische validatieprofiel. De `LocalAccountSignUpWithLogonEmail` zelf een technisch profiel ingesteld door de bevestigde de **uitgevoerd SelfAsserted invoer** claim moet worden `true`.
-- **Een profiel van de technische retourneert de uitvoerclaims** -uw technisch profiel kan een technische validatie-profiel dat bepaalde claims retourneert aanroepen. U kunt naar de claims boven en retourneren aan de volgende indelingsstappen in de gebruikersbeleving. Bijvoorbeeld, wanneer u zich aanmeldt met een lokale account, de zelf-gecontroleerde technisch profiel met de naam `SelfAsserted-LocalAccountSignin-Email` roept de validatie van een technisch profiel met de naam `login-NonInteractive`. In dit technisch profiel valideert de referenties van de gebruiker en geeft ook het gebruikersprofiel. Zoals 'userPrincipalName', 'displayName', 'givenName' en 'Achternaam'.
+- **Een profiel van de technische retourneert de uitvoerclaims** -uw technisch profiel kan een technische validatie-profiel dat bepaalde claims retourneert aanroepen. U kunt naar de claims boven en retourneren aan de volgende indelingsstappen in de gebruikersbeleving. Bijvoorbeeld, wanneer u zich aanmeldt met een lokale account, de zelf-gecontroleerde technisch profiel met de naam `SelfAsserted-LocalAccountSignin-Email` roept de validatie van een technisch profiel met de naam `login-NonInteractive`. In dit technisch profiel valideert de referenties van de gebruiker en geeft ook het gebruikersprofiel. Such as 'userPrincipalName', 'displayName', 'givenName' and 'surName'.
 - **Uitvoer van de claims via uitvoer claimtransformatie**
 
 In het volgende voorbeeld wordt de `LocalAccountSignUpWithLogonEmail` zelf door technisch profiel ziet u het gebruik van gebruikersclaims en stelt de bevestigde **uitgevoerd SelfAsserted invoer** naar `true`. De `objectId`, `authenticationSource`, `newUser` claims zijn uitvoer van de `AAD-UserWriteUsingLogonEmail` technische validatie profileren en worden niet weergegeven aan de gebruiker.
@@ -127,7 +127,7 @@ U kunt ook het technische profiel van een REST-API aanroept met uw zakelijke log
 
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | Nee | Geeft de knop Doorgaan. Mogelijke waarden: `true` (standaard), of `false` |
 | setting.showCancelButton | Nee | Geeft de knop Annuleren. Mogelijke waarden: `true` (standaard), of `false` |

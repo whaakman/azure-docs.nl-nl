@@ -4,7 +4,7 @@ description: Naslaginformatie over foutcodes voor aanmeldactiviteitenrapporten.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622428"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820152"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Foutcodes voor aanmeldingsactiviteiten rapport 
 
@@ -43,7 +43,7 @@ Alle mislukte aanmeldingen weergeven door te selecteren van het rapport filteren
 
 ![Aanmeldingsactiviteit](./media/reference-sign-ins-error-codes/06.png "Aanmeldingsactiviteit")
 
-Hiermee opent u een item selecteren in de gefilterde lijst de **activiteitendetails: aanmeldingen** blade. Deze weergave biedt u meer informatie over de mislukte aanmelding gebeurtenis, met inbegrip van de **aanmelden foutcode** en **reden van fout**.
+Hiermee opent u een item selecteren in de gefilterde lijst de **activiteitendetails: Aanmeldingen** blade. Deze weergave biedt u meer informatie over de mislukte aanmelding gebeurtenis, met inbegrip van de **aanmelden foutcode** en **reden van fout**.
 
 ![Aanmeldingsactiviteit](./media/reference-sign-ins-error-codes/05.png "Aanmeldingsactiviteit")
 
@@ -52,7 +52,7 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 ## <a name="error-codes"></a>Foutcodes
 
 
-|Fout|Beschrijving|
+|Fout|Description|
 |---|---|
 |16000|Dit is een interne implementatiedetail en niet een fout optreedt. U kunt deze referentie negeren.|
 |20001|Er is een probleem met uw federatieve id-provider. Neem contact op met uw IDP om dit probleem op te lossen.|
@@ -135,7 +135,7 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |53002|Gebruikte toepassing is niet goedgekeurd voor voorwaardelijke toegang. Gebruiker moet een van de apps uit de lijst met goedgekeurde toepassingen gebruiken om toegang te krijgen.|
 |53003|Toegang is geblokkeerd vanwege beleid voor voorwaardelijke toegang.|
 |53004|Gebruiker moet multi-factor authentication-registratieproces voltooien om toegang te krijgen tot deze inhoud. Gebruiker moet zich registreren voor multi-factor authentication.|
-|65001|Toepassing X heeft geen toegangsmachtiging voor toepassing Y of de machtiging is ingetrokken. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een interactieve autorisatieaanvraag voor deze gebruiker en resource. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een autorisatieaanvraag naar uw tenant-beheerder uit naam van toepassing Y voor resource Z.|
+|65001|Toepassing X heeft geen toegangsmachtiging voor toepassing Y of de machtiging is ingetrokken. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een interactieve autorisatieaanvraag voor deze gebruiker en resource. Of de gebruiker of beheerder heeft niet toegestaan voor het gebruik van de toepassing met ID X. Send een autorisatieaanvraag naar uw tenant-beheerder om te handelen namens de App: Y voor Resource: Z.|
 |65004|Gebruiker heeft geweigerd toestemming te geven app-toegang. Laat de gebruiker zich opnieuw aanmelden en toestemming geven voor de app|
 |65005|De voor de toepassing vereiste resourcetoegangslijst bevat geen toepassingen die kunnen worden gedetecteerd door de resource, de clienttoepassing heeft toegang aangevraagd tot een resource die niet is opgegeven in de vereiste resourcetoegangslijst, de Graph-service heeft een onjuiste aanvraag geretourneerd of de resource is niet gevonden. Als de toepassing SAML ondersteunt, hebt u mogelijk de toepassing met de verkeerde id (entiteit) geconfigureerd. Probeer de oplossing voor SAML via de koppeling hieronder: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|Ongeldige toekenning om de volgende redenen:<ul><li>Aangevraagde SAML 2.0-verklaring heeft een ongeldige bevestigingsmethode voor onderwerpen</li><li>App OnBehalfOf flow wordt niet ondersteund op V2</li><li>Primaire vernieuwingstoken is niet ondertekend met sessiesleutel</li><li>Ongeldig extern vernieuwingstoken</li><li>Het verlenen van toegang is verkregen voor een andere tenant.</li></ul>|
@@ -160,7 +160,7 @@ U kunt ook programmatisch toegang verkrijgen tot de aanmelding via de [rapportag
 |80001|Verificatieagent kan geen verbinding maken met Active Directory. Zorg ervoor dat de verificatie-agent is geïnstalleerd op een apparaat met domeindeelname met zicht op een DC die de aanmelding van de gebruiker kan regelen.|
 |80002|Interne fout. Time-out bij wachtwoordvalidatie. We kunnen de verificatieaanvraag niet verzenden naar de interne hybride identiteitsservice. [Open een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout.|
 |80003|Ongeldig antwoord ontvangen door de verificatieagent. Er is een onbekende fout opgetreden tijdens een verificatiepoging op basis van on-premises Active Directory. [Open een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout.|
-|80005|Verificatieagent: er is een onbekende fout opgetreden tijdens het verwerken van het antwoord van de verificatieagent. [Open een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout.|
+|80005|Verificatie-Agent: Er is een onbekende fout opgetreden tijdens het verwerken van het antwoord van de verificatie-Agent. [Open een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md) om meer informatie te krijgen over de fout.|
 |80007|Verificatieagent kan wachtwoord van gebruiker niet verifiëren.|
 |80010|Verificatieagent kan wachtwoord niet ontsleutelen. |
 |80011|Verificatieagent kan versleutelingssleutel niet ophalen.|

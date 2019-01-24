@@ -3,7 +3,7 @@ title: Verificatie - Azure Active Directory oplossen | Microsoft Docs
 description: Bevat instructies voor gebruikers over wat te doen als ze worden uitgevoerd in een probleem met Azure multi-factor Authentication en verificatie in twee stappen.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6cf794d36db865f553c0a4db16506305dab2f4fc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346520"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810173"
 ---
 # <a name="get-help-with-two-step-verification"></a>Help-informatie weergeven bij verificatie in twee stappen
 
-Verificatie in twee stappen is een beveiligingsfunctie die uw organisatie worden gebruikt voor het beveiligen van uw accounts. Verificatie in twee stappen is veiliger dan alleen met een wachtwoord, omdat deze is gebaseerd op twee soorten verificatie: iets dat u weet en iets dat u hebt met u. De iets dat die u weet is uw wachtwoord, terwijl de iets dat die u bij u hebben uw telefoon of een apparaat is. Met behulp van verificatie in twee stappen kan helpen om te stoppen schadelijke hackers aanmelden als u, zelfs als ze uw wachtwoord.
+Verificatie in twee stappen is een beveiligingsfunctie die uw organisatie worden gebruikt voor het beveiligen van uw accounts. Verificatie in twee stappen is veiliger dat alleen een wachtwoord omdat het is gebaseerd op twee soorten verificatie: iets dat u weet, en iets dat u bij u hebt. De iets dat die u weet is uw wachtwoord, terwijl de iets dat die u bij u hebben uw telefoon of een apparaat is. Met behulp van verificatie in twee stappen kan helpen om te stoppen schadelijke hackers aanmelden als u, zelfs als ze uw wachtwoord.
 
 Microsoft biedt verificatie in twee stappen, is uw organisatie die bepaalt of u de functie gebruiken. U kunt geen zich afmelden als uw organisatie vereist, net zoals u kunnen zich niet met een wachtwoord afmelden voor de beveiliging van uw account.
 

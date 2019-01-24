@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4fe78050-cb6d-4db9-96ec-58cc0779167f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: a295885d67e674e1cef7cbeb0480b8031d405a92
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: de6a9069d73f4cfe55372eae77d712a893cc348c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423160"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Zelfstudie: Azure Active Directory-integratie met Veracode
 
@@ -30,7 +30,7 @@ Veracode integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Veracode heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Veracode (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,23 +44,23 @@ Voor het configureren van Azure AD-integratie met Veracode, moet u de volgende i
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Veracode uit de galerie toevoegen
-1. Configureren en Azure AD eenmalige aanmelding testen
+1. Azure AD-eenmalige aanmelding configureren en testen
 
 ## <a name="add-veracode-from-the-gallery"></a>Veracode uit de galerie toevoegen
 Voor het configureren van de integratie van Veracode in Azure AD, moet u Veracode uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Veracode uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,15 +68,15 @@ Voor het configureren van de integratie van Veracode in Azure AD, moet u Veracod
 
     ![De blade Enterprise-toepassingen][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **Veracode**, selecteer **Veracode** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Veracode in de lijst met resultaten](./media/veracode-tutorial/tutorial_veracode_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Veracode op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -86,13 +86,13 @@ In Veracode, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde 
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Veracode, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker Veracode](#create-a-veracode-test-user)**  : als u wilt een equivalent van Britta Simon in Veracode die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Veracode.
 
@@ -100,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **Veracode** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
@@ -112,27 +112,27 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/veracode-tutorial/tutorial_veracode_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/veracode-tutorial/tutorial_veracode_certificate.png) 
 
 1. Het doel van deze sectie is om een overzicht van hoe u gebruikers wilt verifiëren naar Veracode met hun account in Azure AD gebruikmaakt van Federatie op basis van het SAML-protocol te.
 
-    Uw toepassing Veracode wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, die vereist dat u om toe te voegen van aangepast kenmerktoewijzingen aan uw **saml-token kenmerken** configuratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+    Uw toepassing Veracode wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, die vereist dat u om toe te voegen van aangepast kenmerktoewijzingen aan uw **saml-token kenmerken** configuratie. In de volgende schermopname ziet u een voorbeeld hiervan.
     
-    ![Kenmerken](./media/veracode-tutorial/tutorial_veracode_attr.png "kenmerken")
+    ![Kenmerken](./media/veracode-tutorial/tutorial_veracode_attr.png "Kenmerken")
 
 1. Als u wilt toevoegen de vereiste kenmerktoewijzingen, moet u de volgende stappen uitvoeren:
 
     | Naam kenmerk | Waarde kenmerk |
     |--- |--- |
-    | Voornaam |User.givenName |
-    | Achternaam |User.surname |
-    | e-mailen |User.mail |
+    | firstname |User.givenName |
+    | lastname |User.surname |
+    | e-mail |User.mail |
     
     a. Voor elke gegevensrij in de bovenstaande tabel, klikt u op **toevoegen gebruikerskenmerk**.
     
-    ![Kenmerken](./media/veracode-tutorial/tutorial_veracode_addattr.png "kenmerken")
+    ![Kenmerken](./media/veracode-tutorial/tutorial_veracode_addattr.png "Kenmerken")
     
-    ![Kenmerken](./media/veracode-tutorial/tutorial_veracode_addattr1.png "kenmerken")
+    ![Kenmerken](./media/veracode-tutorial/tutorial_veracode_addattr1.png "Kenmerken")
     
     b. In de **kenmerknaam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
     
@@ -140,9 +140,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     d. Klik op **OK**.
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/veracode-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/veracode-tutorial/tutorial_general_400.png)
 
 1. Op de **Veracode configuratie** sectie, klikt u op **configureren Veracode** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID** uit de **Naslaggids sectie.**
 
@@ -152,13 +152,13 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik in het menu aan de bovenkant op **instellingen**, en klik vervolgens op **Admin**.
    
-    ![Beheer](./media/veracode-tutorial/ic802911.png "beheer")
+    ![Beheer](./media/veracode-tutorial/ic802911.png "Beheer")
 
 1. Klik op de **SAML** tabblad.
 
 1. In de **organisatie SAML-instellingen** sectie, voert u de volgende stappen uit:
    
-    ![Beheer](./media/veracode-tutorial/ic802912.png "beheer")
+    ![Beheer](./media/veracode-tutorial/ic802912.png "Beheer")
    
     a.  In **verlener** tekstvak, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure portal.
     
@@ -168,7 +168,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de **Self registratie-instellingen** sectie, het uitvoeren van de volgende stappen uit en klik vervolgens op **opslaan**:
    
-    ![Beheer](./media/veracode-tutorial/ic802913.png "beheer")
+    ![Beheer](./media/veracode-tutorial/ic802913.png "Beheer")
    
     a. Als **nieuwe gebruiker-activering**, selecteer **geen activering vereist**.
    
@@ -177,7 +177,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     c. Voor **Details van de SAML-kenmerk**, selecteert u het volgende:
       * **Gebruikersrollen**
       * **Beleid voor de beheerder**
-      * **Revisor**
+      * **Reviewer**
       * **Beveiliging Lead**
       * **Executive**
       * **Inzender**
@@ -187,10 +187,10 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
       * **Standaardteam**
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 

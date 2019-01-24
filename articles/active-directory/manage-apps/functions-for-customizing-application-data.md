@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 61aeb6a80d492a82dffa66491742899df0acc237
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/21/2019
+ms.author: chmutali
+ms.openlocfilehash: 05be48817334dacac803eeccf2dc08e5a4bbd407
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470049"
+ms.locfileid: "54823673"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -37,7 +37,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 * Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: "De naam van bedrijf: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lijst met functies
-[Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
+[Toevoeg-](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Toevoegen
@@ -209,6 +209,32 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **sleutel** |Vereist |Reeks |**Sleutel** vergelijken **bron** met de waarde. |
 | **value** |Vereist |Reeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
 
+- - -
+### <a name="tolower"></a>toLower
+**Functie:**<br> ToLower (bron, cultuur)
+
+**Beschrijving:**<br> Neemt een *bron* tekenreeks waarde en zet deze in kleine letters, met behulp van de cultuur van regels die zijn opgegeven. Als er geen *cultuur* gegevens die zijn opgegeven, wordt deze cultuur wordt gebruikt.
+
+**Parameters:**<br> 
+
+| Name | Vereiste / herhalende | Type | Opmerkingen |
+| --- | --- | --- | --- |
+| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
+| **culture** |Optioneel |Reeks |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
+
+- - -
+### <a name="toupper"></a>ToUpper
+**Functie:**<br> ToUpper (bron, cultuur)
+
+**Beschrijving:**<br> Neemt een *bron* tekenreeks waarde en zet deze met behulp van de cultuur geconverteerd naar hoofdletters regels die zijn opgegeven. Als er geen *cultuur* gegevens die zijn opgegeven, wordt deze cultuur wordt gebruikt.
+
+**Parameters:**<br> 
+
+| Name | Vereiste / herhalende | Type | Opmerkingen |
+| --- | --- | --- | --- |
+| **Bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
+| **culture** |Optioneel |Reeks |De notatie voor de cultuurnaam op basis van RFC 4646 is *languagecode2-land/regioncode2*, waarbij *languagecode2* is de taalcode van twee letters en *land/regioncode2*is de code van twee letters subcultuur. Voorbeelden zijn ja-JP voor Japans (Japan) en en-US voor Engels (Verenigde Staten). In gevallen waar een taalcode van twee letters niet beschikbaar is, wordt een drieletterige code afgeleid van de ISO 639-2 gebruikt.|
+
 ## <a name="examples"></a>Voorbeelden
 ### <a name="strip-known-domain-name"></a>Bekende domeinnaam van strook/lijn
 U moet de domeinnaam van een bekend van e-mailadres van een gebruiker om op te halen van de naam van een gebruiker verwijderen. <br>
@@ -283,6 +309,18 @@ Als de status code komt niet overeen met een van de vooraf gedefinieerde opties,
 
 * **INVOER** (status): "QLD"
 * **UITVOER**: "Australië/Brisbane"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>UserPrincipalName (UPN) van de gegenereerde waarde niet converteren naar kleine letters
+
+In het volgende voorbeeld wordt de UPN-waarde wordt gegenereerd door het samenvoegen van de velden van de bron PreferredFirstName en PreferredLastName en de functie ToLower is van invloed op de gegenereerde tekenreeks converteren van alle tekens naar kleine letters. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Voorbeeld van invoer/uitvoer:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): 'Smith'
+* **UITVOER**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Genereren van unieke waarde voor kenmerk userPrincipalName (UPN)
 

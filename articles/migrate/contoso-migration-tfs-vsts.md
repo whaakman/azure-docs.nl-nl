@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 79c95a53ace4fd5ab638587d1b74980812fbc273
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116960"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818894"
 ---
-# <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migratie van Contoso: een Team Foundation Server-implementatie voor Azure DevOps Services herstructureren
+# <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migratie van Contoso:  Een Team Foundation Server-implementatie herstructureren in Azure DevOps Services
 
 In dit artikel leest u hoe Contoso hun Team Foundation Server (TFS) on-premises implementatie herstructurering door te migreren naar Azure DevOps-Services in Azure. Het Contoso-ontwikkelteam TFS hebt gebruikt voor teamsamenwerking en bronbeheer voor de afgelopen vijf jaar. Ze willen nu verplaatsen naar een cloud-gebaseerde oplossing voor ontwikkelen en testen, en voor broncodebeheer. Azure DevOps-Services wordt een rol spelen zoals ze naar een Azure DevOps-model verplaatsen, en nieuwe cloud-eigen Apps.
 
@@ -22,31 +22,31 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 
 **Artikel** | **Details** | **Status**
 --- | --- | ---
-[Artikel 1: overzicht](contoso-migration-overview.md) | Biedt een overzicht van de strategie voor de migratie van Contoso, de artikel-serie en de voorbeeld-apps die we gebruiken. | Beschikbaar
+[Artikel 1: Overzicht](contoso-migration-overview.md) | Biedt een overzicht van de strategie voor de migratie van Contoso, de artikel-serie en de voorbeeld-apps die we gebruiken. | Beschikbaar
 [Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. Dezelfde infrastructuur wordt gebruikt voor alle Contoso migratiescenario's. | Beschikbaar
 [Artikel 3: On-premises resources evalueren](contoso-migration-assessment.md)  | Laat zien hoe een evaluatie van hun on-premises twee lagen SmartHotel app waarop VMware wordt uitgevoerd in Contoso. Beoordeling van de virtuele machines van een app met de [Azure Migrate](migrate-overview.md) -service en de SQL Server-database van de app met de [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
-[Artikel 4: Hosten op Azure VM's en een beheerd exemplaar van SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Ziet u hoe Contoso de SmartHotel-app naar Azure migreert. Migreren van de app web virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database via de [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, om te migreren naar een SQL beheerd exemplaar. | Beschikbaar
+[Artikel 4: Rehost aan Azure VM's en een beheerd exemplaar van SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Ziet u hoe Contoso de SmartHotel-app naar Azure migreert. Migreren van de app web virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database via de [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, om te migreren naar een SQL beheerd exemplaar. | Beschikbaar
 [Artikel 5: Opnieuw hosten naar virtuele Azure-machines](contoso-migration-rehost-vm.md) | Ziet u hoe Contoso hun SmartHotel migreren naar Azure IaaS-VM's, met behulp van de Site Recovery-service.
 [Artikel 6: Opnieuw hosten naar virtuele machines in Azure en SQL Server-beschikbaarheidsgroepen](contoso-migration-rehost-vm-sql-ag.md) | Laat zien hoe de app SmartHotel door Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van de VM's van de app en de Database Migration service de app-database migreren naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
-[Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Ziet u hoe Contoso hun osTicket Linux-app naar Azure IaaS-VM's met Azure Site Recovery migreert.
-[Artikel 8: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Ziet u hoe Contoso de osTicket Linux app migreert. Deze Site Recovery voor migratie van virtuele machine en MySQL Workbench gebruiken om te migreren naar een Azure MySQL-Server-exemplaar. | Beschikbaar
-[Artikel 9: Een app naar een Azure-Web-App en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Ziet u hoe Contoso de app SmartHotel migreert naar een Azure-container gebaseerde web-app en de app-database migreert naar Azure SQL-Server. | Beschikbaar
+[7-artikel: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Ziet u hoe Contoso hun osTicket Linux-app naar Azure IaaS-VM's met Azure Site Recovery migreert.
+[8-artikel: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Ziet u hoe Contoso de osTicket Linux app migreert. Deze Site Recovery voor migratie van virtuele machine en MySQL Workbench gebruiken om te migreren naar een Azure MySQL-Server-exemplaar. | Beschikbaar
+[9-artikel: Een app naar een Azure-Web-App en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Ziet u hoe Contoso de app SmartHotel migreert naar een Azure-container gebaseerde web-app en de app-database migreert naar Azure SQL-Server. | Beschikbaar
 [Artikel 10: Een Linux-app met Azure App Service en de Azure MySQL-Server herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | Ziet u hoe Contoso de osTicket Linux app migreert naar Azure App Service met behulp van PHP 7.0 Docker-container. De codebasis voor de implementatie is gemigreerd naar GitHub. De app-database wordt gemigreerd naar Azure MySQL. | Beschikbaar
-Artikel 11: Herstructureren een TFS-implementatie in Azure DevOps-Services | De dev-app TFS migreren naar Azure DevOps-Services in Azure | In dit artikel
-[Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Ziet u hoe Contoso migreert en rearchitects hun SmartHotel app naar Azure. Ze opnieuw ontwerpen voor de laag van de web-app als een Windows-container en de app-database in een Azure SQL Database. | Beschikbaar
-[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | Beschikbaar
-[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
+11-artikel: Herstructureren van een TFS-implementatie in Azure DevOps-Services | De dev-app TFS migreren naar Azure DevOps-Services in Azure | In dit artikel
+[12-artikel: Een app op Azure-containers en Azure SQL Database opnieuw modelleren](contoso-migration-rearchitect-container-sql.md) | Ziet u hoe Contoso migreert en rearchitects hun SmartHotel app naar Azure. Ze opnieuw ontwerpen voor de laag van de web-app als een Windows-container en de app-database in een Azure SQL Database. | Beschikbaar
+[13-artikel: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | Beschikbaar
+[14-artikel: Schalen van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 
 ## <a name="business-drivers"></a>Zakelijke drijfveren
 
 Het team voor IT-leidinggevenden heeft nauw samengewerkt met zakelijke partners te identificeren van doelen voor de toekomst. Partners niet overmatig betrokken zijn bij de ontwikkelprogramma's en technologieën, maar ze deze punten zijn opgenomen:
 
-- **Software**:, ongeacht de kernactiviteiten alle bedrijven die nu zijn ingesteld op softwarebedrijven, met inbegrip van Contoso. Zakelijke leidinggevende is geïnteresseerd in hoe IT kunt leiden van het bedrijf met de nieuwe werkwijze voor gebruikers en ervaringen voor hun klanten.
+- **Software**: Ongeacht de kernactiviteiten zijn alle bedrijven die nu softwarebedrijven, met inbegrip van Contoso. Zakelijke leidinggevende is geïnteresseerd in hoe IT kunt leiden van het bedrijf met de nieuwe werkwijze voor gebruikers en ervaringen voor hun klanten.
 - **Efficiëntie**: Contoso moet te stroomlijnen en te verwijderen van onnodige procedures voor ontwikkelaars en gebruikers. Hierdoor wordt het bedrijf voor de levering op klantvereisten efficiënter. De bedrijfsbehoeften IT snel, zonder verspild tijd of geld.
-- **Flexibiliteit**: Contoso IT moet reageren op bedrijfsbehoeften en sneller dan de marketplace om in te schakelen succes in een globale economie reageren. IT mag niet een upblokkering voor het bedrijf.
+- **Flexibiliteit**:  Contoso IT moet reageren op bedrijfsbehoeften en sneller dan de marketplace om in te schakelen succes in een globale economie reageren. IT mag niet een upblokkering voor het bedrijf.
 
-## <a name="migration-goals"></a>Migratie-doelen
+## <a name="migration-goals"></a>Migratiedoelen
 
 Het Contoso-cloud-team heeft vastgemaakt omlaag doelstellingen voor de migratie naar Azure DevOps-Services:
 
@@ -90,13 +90,13 @@ Contoso wordt als volgt het migratieproces voltooid:
 Hier ziet u hoe Contoso de migratie wordt voltooid:
 
 > [!div class="checklist"]
-> * **Stap 1: Een Azure storage-account maken**: dit storage-account wordt gebruikt tijdens het migratieproces.
-> * **Stap 2: Upgrade TFS**: Contoso werkt de implementatie naar TFS 2018 Upgrade 2. 
-> * **Stap 3: Valideren verzameling**: Contoso valideert de TFS-verzameling in voorbereiding voor migratie.
-> * **Stap 4: Voorbereiding buildbestand**: Contoso maakt u de migratiebestanden met behulp van het TFS-hulpprogramma voor migratie. 
+> * **Stap 1: Maak een Azure storage-account**: Dit opslagaccount wordt gebruikt tijdens het migratieproces.
+> * **Stap 2: Upgrade van TFS**: Contoso bijgewerkt naar TFS 2018 Upgrade 2 hun implementatie. 
+> * **Stap 3: Valideren van de verzameling**: Contoso valideert de TFS-verzameling in voorbereiding voor migratie.
+> * **Stap 4: Voorbereiding-bestand maken**: Contoso maakt de migratiebestanden met behulp van het TFS-hulpprogramma voor migratie. 
 
 
-## <a name="step-1-create-a-storage-account"></a>Stap 1: Een storage-account maken
+## <a name="step-1-create-a-storage-account"></a>Stap 1: Create a storage account
 
 1. In de Azure-portal, beheerders van Contoso een opslagaccount maken (**contosodevmigration**).
 2. Ze plaatsen het account in de secundaire regio die ze voor failover - centraal VS gebruiken. Ze een algemeen standard-account met lokaal redundante opslag gebruiken.
@@ -146,7 +146,7 @@ Ze bijwerken als volgt:
 
 Meer informatie over [TFS upgraden](https://docs.microsoft.com/tfs/server/upgrade/get-started).
 
-## <a name="step-3-validate-the-tfs-collection"></a>Stap 3: Valideren de TFS-verzameling
+## <a name="step-3-validate-the-tfs-collection"></a>Stap 3: Valideren van de TFS-verzameling
 
 Contoso-beheerders het TFS-hulpprogramma voor migratie voor de database van de verzameling ContosoDev te valideren voordat de migratie uitvoeren.
 
@@ -175,7 +175,7 @@ Contoso-beheerders het TFS-hulpprogramma voor migratie voor de database van de v
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. Ze voert de opdracht van de validatie opnieuw uit en voeg deze waarde, samen met hun Azure AD-naam: **TfsMigrator/Collection valideren:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. Ze voert de opdracht van de validatie opnieuw uit, en voeg deze waarde, samen met hun Azure AD-naam: **TfsMigrator/Collection valideren:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -233,18 +233,18 @@ Met de validatie is voltooid, Contoso-beheerders het TFS-hulpprogramma voor migr
 
 
 
-## <a name="step-5-migrate-to-azure-devops-services"></a>Stap 5: Migreren naar Azure DevOps-Services
+## <a name="step-5-migrate-to-azure-devops-services"></a>Stap 5: Migreren naar Azure DevOps Services
 
 Met de voorbereiding op locatie, kunnen beheerders van Contoso nu zich richten op de migratie. Nadat de migratie is uitgevoerd, schakel ze TFVC bent met Git voor versiebeheer te gebruiken.
 
 Voordat ze gaat plannen beheerders van de downtime met het ontwikkelingsteam, de verzameling offline voor migratie uitvoeren. Dit zijn de stappen voor het migratieproces:
 
-1. **Loskoppelen van de verzameling**: identiteitsgegevens voor de verzameling bevindt zich in de configuratiedatabase van de TFS-server terwijl de verzameling aangesloten en online is. Wanneer een verzameling is losgekoppeld van de TFS-server, wordt een kopie van die identiteitsgegevens, en deze pakketten met de verzameling voor transport. Zonder deze gegevens, kan niet het gedeelte van de identiteit van de import worden uitgevoerd. Het wordt aanbevolen dat de verzameling losgekoppelde blijven totdat het importeren is voltooid, omdat er geen manier voor het importeren van de wijzigingen dat is opgetreden tijdens het importeren.
-2. **Genereren van een back-up**: de volgende stap van het migratieproces is voor het genereren van een back-up die kan worden geïmporteerd in Azure DevOps-Services. Data-tier Application onderdeel pakketten (DACPAC) is een SQL Server-functie waarmee databasewijzigingen worden verpakt in een enkel bestand en geïmplementeerd voor andere exemplaren van SQL. Het kan ook rechtstreeks naar Azure DevOps-Services worden hersteld en wordt daarom gebruikt als de verpakking-methode voor het ophalen van gegevens te verzamelen in de cloud. Contoso gebruikt het hulpprogramma SqlPackage.exe voor het genereren van de DACPAC. Dit hulpprogramma is opgenomen in SQL Server Data Tools.
-3. **Uploaden naar storage**: nadat de DACPAC is gemaakt, ze te uploaden naar Azure Storage. Nadat deze geüpload, krijgen ze een shared access signature (SAS), dat het hulpprogramma voor migratie van TFS-toegang tot de opslag.
-4. **Vul de import**: Contoso vervolgens vult ontbrekende velden in het importbestand, met inbegrip van de instelling DACPAC. Beginnen met ze moeten opgeven dat ze willen doen een **is een** importeren om te controleren of alles goed voordat u de volledige migratie werkt.
-5. **Test**: droge uitvoeren invoer te verzamelingmigratie testen. Droog uitvoeringen beperkte levensduur hebben en worden verwijderd voordat de migratie van een productie wordt uitgevoerd. Ze bent na een bepaalde tijd automatisch verwijderd. Een opmerking over wanneer de uitvoering droge worden verwijderd, is opgenomen in de e-mail met succesbericht ontvangen nadat het importeren is voltooid. Houd er rekening mee houden en dienovereenkomstig te plannen.
-6. **Voltooien van de productie-migratie**: met de testmodus de migratie is voltooid, Contoso-beheerders de laatste migratie doen door de import.json bijwerken en opnieuw importeren uit te voeren.
+1. **Loskoppelen van de verzameling**: Id-gegevens voor de verzameling bevindt zich in de configuratiedatabase van de TFS-server terwijl de verzameling aangesloten en online is. Wanneer een verzameling is losgekoppeld van de TFS-server, wordt een kopie van die identiteitsgegevens, en deze pakketten met de verzameling voor transport. Zonder deze gegevens, kan niet het gedeelte van de identiteit van de import worden uitgevoerd. Het wordt aanbevolen dat de verzameling losgekoppelde blijven totdat het importeren is voltooid, omdat er geen manier voor het importeren van de wijzigingen dat is opgetreden tijdens het importeren.
+2. **Genereren van een back-up**: De volgende stap van het migratieproces is voor het genereren van een back-up die kan worden geïmporteerd in Azure DevOps-Services. Data-tier Application onderdeel pakketten (DACPAC) is een SQL Server-functie waarmee databasewijzigingen worden verpakt in een enkel bestand en geïmplementeerd voor andere exemplaren van SQL. Het kan ook rechtstreeks naar Azure DevOps-Services worden hersteld en wordt daarom gebruikt als de verpakking-methode voor het ophalen van gegevens te verzamelen in de cloud. Contoso gebruikt het hulpprogramma SqlPackage.exe voor het genereren van de DACPAC. Dit hulpprogramma is opgenomen in SQL Server Data Tools.
+3. **Uploaden naar storage**: Nadat de DACPAC is gemaakt, uploaden ze naar Azure Storage. Nadat deze geüpload, krijgen ze een shared access signature (SAS), dat het hulpprogramma voor migratie van TFS-toegang tot de opslag.
+4. **Vul de import**: Contoso vult ontbrekende velden in het importbestand, met inbegrip van de instelling DACPAC vervolgens. Beginnen met ze moeten opgeven dat ze willen doen een **is een** importeren om te controleren of alles goed voordat u de volledige migratie werkt.
+5. **Test**: Droog uitvoeren importeert de verzameling testmigratie help. Droog uitvoeringen beperkte levensduur hebben en worden verwijderd voordat de migratie van een productie wordt uitgevoerd. Ze bent na een bepaalde tijd automatisch verwijderd. Een opmerking over wanneer de uitvoering droge worden verwijderd, is opgenomen in de e-mail met succesbericht ontvangen nadat het importeren is voltooid. Houd er rekening mee houden en dienovereenkomstig te plannen.
+6. **Voltooien van de productie-migratie**: Met de testmodus de migratie is voltooid, wordt in Contoso-beheerders de laatste migratie doen door de import.json bijwerken en opnieuw importeren uit te voeren.
 
 
 
@@ -286,7 +286,7 @@ Voordat u begint nemen beheerders van Contoso een lokale SQL Server-back-up en V
 Contoso maakt een back-up (DACPAC) voor het importeren in Azure DevOps-Services.
 
 - SqlPackage.exe in SQL Server Data Tools wordt gebruikt voor het maken van de DACPAC. Er zijn meerdere versies van geïnstalleerd met SQL Server Data Tools, bevindt zich onder de mappen met namen, zoals 120, 130 en 140 SqlPackage.exe. Het is belangrijk de DACPAC voorbereiden met de juiste versie.
-- TFS-2018 invoer moeten SqlPackage.exe gebruiken vanuit de map 140 of hoger.  Voor CONTOSOTFS, dit bestand bevindt zich in map: **C:\Program Files (x86) \Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**.
+- TFS-2018 invoer moeten SqlPackage.exe gebruiken vanuit de map 140 of hoger.  Voor CONTOSOTFS, bevindt dit bestand zich in map: **C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**.
 
 
 Beheerders van Contoso genereren de DACPAC als volgt:
@@ -301,7 +301,7 @@ Beheerders van Contoso genereren de DACPAC als volgt:
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup2.png)
 
-3. Ze controleren of de eigenschappen van de DACPACfile
+3. Ze controleren of de eigenschappen van het bestand DACPAC
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup3.png)
 
@@ -341,9 +341,9 @@ Nadat de DACPAC is gemaakt, wordt het in Contoso geüpload naar Azure Storage.
 
 Eerder, beheerders van Contoso gedeeltelijk ingevuld het importbestand-specificatie (import.json). Nu moeten de resterende instellingen toe te voegen.
 
-Ze opent u het bestand import.json en vul de volgende velden: • locatie: locatie van de SAS-sleutel die hierboven is gegenereerd.
-• Dacpac: Stel de naam op het DACPAC-bestand dat u hebt geüpload naar het opslagaccount. De extensie 'dacpac' bevatten.
-• ImportType: ingesteld op is een voorlopig.
+Ze opent u het bestand import.json en vul de volgende velden: • locatie: Locatie van de SAS-sleutel die hierboven is gegenereerd.
+•   Dacpac: Stel de naam op het DACPAC-bestand dat u hebt geüpload naar het opslagaccount. De extensie 'dacpac' bevatten.
+•   ImportType: Ingesteld op is een voorlopig.
 
 
 ![Instellingen importeren](./media/contoso-migration-tfs-vsts/import1.png)
@@ -356,7 +356,7 @@ Beheerders van Contoso start met een migratie testmodus, om te controleren of da
 1. Deze open een opdrachtprompt en zoek naar de locatie TfsMigration (C:\TFSMigrator).
 2. Als eerste stap valideren ze het importbestand. Ze willen om er zeker van te zijn dat het bestand correct is ingedeeld, en of de SAS-sleutel werkt.
 
-    **TfsMigrator /importFile:C:\TFSMigrator\import.json /validateonly importeren**
+    **TfsMigrator import /importFile:C:\TFSMigrator\import.json /validateonly**
 
 3. De validatie is een fout die de SAS-sleutel een langer verlooptijd moet geretourneerd.
 
@@ -368,13 +368,13 @@ Beheerders van Contoso start met een migratie testmodus, om te controleren of da
 
 3. Deze update van het bestand import.json en voer de validatie opnieuw uit. Deze tijd voltooid.
 
-    **TfsMigrator /importFile:C:\TFSMigrator\import.json /validateonly importeren**
+    **TfsMigrator import /importFile:C:\TFSMigrator\import.json /validateonly**
 
     ![Testmodus](./media/contoso-migration-tfs-vsts/test3.png)
     
 7. Ze start het droge uitvoeren:
 
-    **TfsMigrator importeren /importFile:C:\TFSMigrator\import.json**
+    **TfsMigrator import /importFile:C:\TFSMigrator\import.json**
 
 8. Een bericht wordt weergegeven om te bevestigen dat de migratie. Houd er rekening mee de tijdsduur waarvoor de voorbereide gegevens worden onderhouden nadat het droge uitvoeren.
 
@@ -418,7 +418,7 @@ Het droge Run is voltooid verder beheerders van Contoso met de productie-migrati
 
     ![Productie](./media/contoso-migration-tfs-vsts/full1.png)
 
-3. Ze de migratie te starten als ze hebben gedaan voor het uitvoeren van de testmodus: **TfsMigrator importeren /importFile:C:\TFSMigrator\import.json**.
+3. Ze starten van de migratie als ze dit hebt gedaan voor het droge uitvoeren: **TfsMigrator import /importFile:C:\TFSMigrator\import.json**.
 4. Een bericht ziet u om te bevestigen van de migratie, en u wordt gewaarschuwd dat gegevens kan worden ondergebracht in een veilige locatie als een werkgebied voor maximaal zeven dagen.
 
     ![Productie](./media/contoso-migration-tfs-vsts/full2.png)

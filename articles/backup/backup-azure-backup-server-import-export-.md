@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606474"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818554"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Werkstroom voor offline back-ups voor DPM en Azure Backup-Server
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Azure Backup wordt de eerste back-ups gecomprimeerd. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de gecomprimeerde eerste back-upgegevens offline uploaden naar Azure.
@@ -59,7 +59,7 @@ Zorg ervoor dat de volgende vereisten wordt voldaan voordat u begint de werkstro
 
 * Een tijdelijke locatie, dit kan een netwerkshare of een extra station op de computer, intern of extern, met voldoende schijfruimte voor het opslaan van uw eerste kopie wordt gemaakt. Bijvoorbeeld, als u back-up van een bestandsserver met 500 GB wilt, controleert u of het faseringsgebied ten minste 500 GB. (Een lager bedrag vanwege compressie wordt gebruikt.)
 * Zorg ervoor dat alleen 2,5 inch SSD, of 2,5-inch of 3,5-inch SATA/III II interne harde schijven worden gebruikt met betrekking tot de schijven die worden verzonden naar Azure. Harde schijven kunt u maximaal 10 TB. Controleer de [documentatie voor Azure Import/Export-service](../storage/common/storage-import-export-requirements.md#supported-hardware) voor de meest recente set van schijven die ondersteuning biedt voor de service.
-* De SATA-schijven moeten worden verbonden met een computer (aangeduid als een *kopie*) waar de kopie van de back-upgegevens van de *faseringslocatie* naar de SATA stations wordt uitgevoerd. Zorg ervoor dat Bitlocker is ingeschakeld op de *computer kopiëren* 
+* De SATA-schijven moeten worden verbonden met een computer (aangeduid als een *kopie*) waar de kopie van de back-upgegevens van de *faseringslocatie* naar de SATA stations wordt uitgevoerd. Zorg ervoor dat BitLocker is ingeschakeld op de *computer kopiëren* 
 
 ## <a name="workflow"></a>Werkstroom
 De informatie in deze sectie helpt u de werkstroom voor offline back-ups uitvoeren, zodat uw gegevens kunnen worden geleverd aan een Azure-datacenter en geüpload naar Azure Storage. Als u vragen over de Import-service of een aspect van het proces hebt, raadpleegt u de [importeren Serviceoverzicht](../storage/common/storage-import-export-service.md) documentatie waarnaar wordt verwezen eerder.
@@ -74,12 +74,12 @@ De informatie in deze sectie helpt u de werkstroom voor offline back-ups uitvoer
 
     De beschrijving van de invoer is als volgt:
 
-    * **Faseringslocatie**: de tijdelijke opslaglocatie waarop de eerste back-up is geschreven. Faseringslocatie mogelijk op een netwerkshare of een lokale computer. Als de computer kopiëren en de broncomputer verschillend zijn, wordt u aangeraden dat u het volledige netwerk-pad van de faseringslocatie opgeven.
-    * **Azure Import-taaknaam**: de unieke naam die Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden.
-    * **Azure Publish Settings**: het lokale pad naar het publish settings-bestand opgeven.
-    * **Azure-abonnements-ID**: de Azure-abonnements-ID voor het abonnement aan vanaf waar u het bestand Azure Publish-instellingen hebt gedownload. 
-    * **Azure Storage-Account**: de naam van het opslagaccount in de Azure-abonnement dat is gekoppeld aan het Azure Publish-instellingenbestand.
-    * **Azure Storage-Container**: de naam van de bestemmings-blob-opslag in de Azure-opslagaccount waarin de back-upgegevens wordt geïmporteerd.
+    * **Faseringslocatie**: De tijdelijke opslaglocatie waarop de eerste back-up is geschreven. Faseringslocatie mogelijk op een netwerkshare of een lokale computer. Als de computer kopiëren en de broncomputer verschillend zijn, wordt u aangeraden dat u het volledige netwerk-pad van de faseringslocatie opgeven.
+    * **Azure Import-taaknaam**: De unieke naam die Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden.
+    * **Azure Publish-instellingen**: Geef het lokale pad naar het publish settings-bestand.
+    * **Azure-abonnement-ID**: De Azure-abonnement-ID voor het abonnement aan vanaf waar u het bestand Azure Publish-instellingen hebt gedownload. 
+    * **Azure Storage-Account**: De naam van het opslagaccount in de Azure-abonnement dat is gekoppeld aan het Azure Publish-instellingenbestand.
+    * **Azure-Opslagcontainer**: De naam van de bestemmings-blob-opslag in de Azure-opslagaccount waarin de back-upgegevens wordt geïmporteerd.
 
      Sla de *faseringslocatie* en de *Azure Import-taaknaam* u hebt opgegeven als het nodig is om voor te bereiden van de schijven.  
      
@@ -116,7 +116,7 @@ De *AzureOfflineBackupDiskPrep* hulpprogramma wordt gebruikt voor het voorbereid
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | Parameter | Beschrijving |
+    | Parameter | Description |
     | --- | --- |
     | s:&lt;*pad naar de locatie van de fasering*&gt; |Verplichte invoer die wordt gebruikt voor het pad naar de faseringslocatie die u hebt ingevoerd in de **start offline back-up** werkstroom. |
     | p:&lt;*pad naar PublishSettingsFile*&gt; |Optionele invoer die wordt gebruikt voor het pad naar de **Azure Publish Settings** -bestand dat u hebt ingevoerd in de **start offline back-up** werkstroom. |
@@ -157,7 +157,7 @@ De *AzureOfflineBackupDiskPrep* hulpprogramma wordt gebruikt voor het voorbereid
    
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | Parameter | Beschrijving |
+    | Parameter | Description |
     | --- | --- |
     | u: | Verplichte invoer gebruikt voor het bijwerken van de verzendgegevens voor een Azure Import-taak |
     | s:&lt;*pad naar de locatie van de fasering*&gt; | Verplichte invoer wanneer de opdracht wordt niet uitgevoerd op de broncomputer kan verzenden. Gebruikt voor het pad naar de faseringslocatie die u hebt ingevoerd in de **start offline back-up** werkstroom. |

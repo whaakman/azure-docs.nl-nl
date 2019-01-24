@@ -3,19 +3,19 @@ title: Gebruikersgedrag bijhouden met behulp van gebeurtenissen in Application I
 description: Informatie over het inschakelen van gebeurtenislogboeken in Application Insights van Azure AD B2C gebruiker reizen met behulp van aangepaste beleidsregels (preview).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d7097886b746c225bb420f9a96e2b7ef5c95c913
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 758b9f68349dac025cb3b848f95dd05700637a6a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684730"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849836"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Gebruikersgedrag in Azure Active Directory B2C met Application Insights bijhouden
 
@@ -112,10 +112,10 @@ Technische profielen kunnen worden beschouwd als functies in de identiteit ervar
 
 | Technisch profiel | Taak |
 | ----------------- | -----|
-| AzureInsights-algemeen | Hiermee maakt u een gemeenschappelijke set parameters moeten worden opgenomen in alle AzureInsights technische profielen. | 
-| AzureInsights SignInRequest | Maakt een gebeurtenis aanmelding met een set claims wanneer een aanmeldingsaanvraag heeft ontvangen. | 
+| AzureInsights-Common | Hiermee maakt u een gemeenschappelijke set parameters moeten worden opgenomen in alle AzureInsights technische profielen. | 
+| AzureInsights-SignInRequest | Maakt een gebeurtenis aanmelding met een set claims wanneer een aanmeldingsaanvraag heeft ontvangen. | 
 | AzureInsights-UserSignup | Maakt een gebeurtenis UserSignup wanneer de gebruiker de optie voor aanmelding bij in een reis aanmelden-up-to-date/aanmelden wordt geactiveerd. | 
-| AzureInsights SignInComplete | Registreert de voltooiing van een verificatie wanneer een token is verzonden naar de relying party-toepassing. | 
+| AzureInsights-SignInComplete | Registreert de voltooiing van een verificatie wanneer een token is verzonden naar de relying party-toepassing. | 
 
 Toevoegen van profielen aan de *TrustFrameworkExtensions.xml* -bestand van het starter-pack. Toevoegen van deze elementen op de **ClaimsProviders** element:
 

@@ -4,36 +4,34 @@ description: Gebruik de activiteitenlogboeken streamen naar acties van de gebrui
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: 636e4d5216f87440463fbaecd7f6c7a5a25c7502
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: b702b6de5c9f33058e9b486547530d071969bd97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359388"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855381"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Activiteitenlogboeken bekijken om te controleren van acties op resources
 
 Met activiteitenlogboeken kunt u het volgende bepalen:
 
 * welke bewerkingen zijn uitgevoerd voor de resources in uw abonnement
-* wie de bewerking heeft gestart (Hoewel bewerkingen, gestart door een back-endservice een gebruiker als de aanroeper niet retourneren)
+* wie de bewerking is gestart
 * Wanneer de bewerking is
 * De status van de bewerking
 * De bewerking van de waarden van andere eigenschappen die u kunnen helpen bij onderzoek
 
-Het activiteitenlogboek staan alle schrijfbewerkingen (PUT, POST, DELETE) uitgevoerd op uw resources. Deze omvatten geen leesbewerkingen (GET). Zie voor een lijst van acties van de resource, [Resourceprovider van Azure Resource Manager-bewerkingen](../role-based-access-control/resource-provider-operations.md). U kunt de auditlogboeken te vinden van een fout opgetreden bij het oplossen van of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd.
+Het activiteitenlogboek staan alle schrijfbewerkingen (PUT, POST, DELETE) uitgevoerd op uw resources. Deze bevat geen leesbewerkingen (GET). Zie voor een lijst van acties van de resource, [Resourceprovider van Azure Resource Manager-bewerkingen](../role-based-access-control/resource-provider-operations.md). U kunt de auditlogboeken te vinden van een fout opgetreden bij het oplossen van of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd.
 
-Activiteitenlogboeken worden gedurende 90 dagen bewaard. U kunt een query uitvoeren voor een willekeurig bereik van datums, zolang de begindatum niet verder dan 90 dagen in het verleden is.
+Activiteitenlogboeken worden gedurende 90 dagen bewaard. U kunt een query voor een bereik van datums, zolang de begindatum is niet meer dan 90 dagen in het verleden.
 
 U kunt gegevens ophalen uit de activiteitenlogboeken via de portal, PowerShell, Azure CLI, Insights REST-API of [Insights .NET-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -41,36 +39,39 @@ U kunt gegevens ophalen uit de activiteitenlogboeken via de portal, PowerShell, 
 
 1. Als u wilt weergeven in de activiteitenlogboeken via de portal, selecteert u **Monitor**.
 
-    ![Selecteer de activiteitenlogboeken](./media/resource-group-audit/select-monitor.png)
+    ![Selecteer monitor](./media/resource-group-audit/select-monitor.png)
 
-   Of u kunt automatisch filteren van het activiteitenlogboek voor een bepaalde resource of resourcegroep selecteren **activiteitenlogboek**. U ziet dat het activiteitenlogboek automatisch wordt gefilterd op de geselecteerde resource.
+1. Selecteer **activiteitenlogboek**.
 
-    ![filteren op bron](./media/resource-group-audit/filtered-by-resource.png)
-2. In de **activiteitenlogboek**, ziet u een overzicht van recente bewerkingen.
+    ![Activiteitenlogboek selecteren](./media/resource-group-audit/select-activity-log.png)
 
-    ![acties weergeven](./media/resource-group-audit/audit-summary.png)
-3. Als u wilt beperken het aantal bewerkingen weergegeven, selecteert u verschillende voorwaarden. Bijvoorbeeld, de volgende afbeelding toont de **Timespan** en **gebeurtenis gestart door** velden gewijzigd om de acties die door een bepaalde gebruiker of toepassing voor de afgelopen maand weer te geven. Selecteer **toepassen** om de resultaten van uw query weer te geven.
+1. U ziet een overzicht van recente bewerkingen. Een set filters wordt toegepast op de bewerkingen.
+
+    ![Overzicht van recente bewerkingen weergeven](./media/resource-group-audit/audit-summary.png)
+
+1. Als u wilt snel uitvoeren van een vooraf gedefinieerde set filters, **snelle inzichten** en kies een van de opties.
+
+    ![query selecteren](./media/resource-group-audit/quick-insights.png)
+
+1. Als u wilt zich richten op specifieke bewerkingen, de filters wijzigen of nieuwe labels toe te passen. De volgende afbeelding ziet u bijvoorbeeld een nieuwe waarde voor de **Timespan** en **resourcetype** is ingesteld op storage-accounts. 
 
     ![filter instellen](./media/resource-group-audit/set-filter.png)
 
-4. Als u de query later opnieuw uitvoeren wilt, selecteert u **pincode huidige filters** en wijs hieraan een naam.
+1. Als u de query later opnieuw uitvoeren wilt, selecteert u **pincode huidige filters**.
 
-    ![Query opslaan](./media/resource-group-audit/save-query.png)
-5. Als u wilt snel een query uitvoert, kunt u een van de ingebouwde query's, zoals mislukte implementaties selecteren.
+    ![Pincode-filters](./media/resource-group-audit/pin-filters.png)
 
-    ![query selecteren](./media/resource-group-audit/select-quick-query.png)
+1. Geef een naam op het filter.
 
-   De geselecteerde query stelt automatisch de vereiste filterwaarden.
+    ![De naam van filters](./media/resource-group-audit/name-filters.png)
 
-    ![fouten bij de implementatie van de weergave](./media/resource-group-audit/view-failed-deployment.png)
+1. Het filter is beschikbaar in het dashboard.
 
-6. Selecteer een van de bewerkingen voor een overzicht van de gebeurtenis.
-
-    ![weergave-bewerking](./media/resource-group-audit/view-operation.png)  
+    ![Filter weergeven in dashboard](./media/resource-group-audit/show-dashboard.png)
 
 ## <a name="powershell"></a>PowerShell
 
-1. Om op te halen logboekvermeldingen, voer de **Get-AzureRmLog** opdracht. U opgeven aanvullende parameters voor het filteren van de lijst met vermeldingen. Als u een begin- en -tijd niet opgeeft, worden vermeldingen voor het afgelopen uur geretourneerd. Bijvoorbeeld, om op te halen van de bewerkingen voor een resourcegroep in het afgelopen uur worden uitgevoerd:
+* Om op te halen logboekvermeldingen, voer de **Get-AzureRmLog** opdracht. U opgeven aanvullende parameters voor het filteren van de lijst met vermeldingen. Als u een begin- en -tijd niet opgeeft, worden vermeldingen voor de afgelopen zeven dagen worden geretourneerd.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup
@@ -79,7 +80,7 @@ U kunt gegevens ophalen uit de activiteitenlogboeken via de portal, PowerShell, 
     Het volgende voorbeeld ziet het gebruik van het activiteitenlogboek voor onderzoek-bewerkingen die tijdens een opgegeven periode. De begin- en einddatums zijn opgegeven in een datumnotatie.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
   ```
 
     Of u datumfuncties kunt gebruiken om op te geven van het datumbereik, zoals de afgelopen 14 dagen.
@@ -88,62 +89,78 @@ U kunt gegevens ophalen uit de activiteitenlogboeken via de portal, PowerShell, 
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
-2. Afhankelijk van de begintijd die u opgeeft, kunnen de vorige opdrachten retourneren een lange lijst bewerkingen voor de resourcegroep. U kunt de resultaten voor wat u zoekt door zoekcriteria filteren. Als u onderzoeken hoe een web-app is gestopt wilt, kunt u bijvoorbeeld de volgende opdracht uitvoeren:
-
-  ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
-  ```
-
-    In dit voorbeeld laat zien dat een actie bij stoppen is uitgevoerd door someone@contoso.com.
-
-  ```powershell
-  Authorization     :
-  Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Action    : Microsoft.Web/sites/stop/action
-  Role      : Subscription Admin
-  Condition :
-  Caller            : someone@contoso.com
-  CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-  EventSource       : Administrative
-  EventTimestamp    : 8/28/2015 4:08:18 PM
-  OperationName     : Microsoft.Web/sites/stop/action
-  ResourceGroupName : ExampleGroup
-  ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Status            : Succeeded
-  SubscriptionId    : xxxxx
-  SubStatus         : OK
-  ```
-
-3. U kunt de acties die door een bepaalde gebruiker, zelfs voor een resourcegroep die niet meer bestaat opzoeken.
+* U kunt de acties die door een bepaalde gebruiker, zelfs voor een resourcegroep die niet meer bestaat opzoeken.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
-4. U kunt filteren op mislukte bewerkingen.
+* U kunt filteren op mislukte bewerkingen.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
-5. U kunt zich richten op één fout door te kijken naar het statusbericht voor die vermelding.
+* U kunt zich richten op één fout door te kijken naar het statusbericht voor die vermelding.
 
   ```azurepowershell-interactive
-  ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+  ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
 
-    Dat geeft als resultaat:
+* U kunt specifieke waarden om te beperken van de gegevens die wordt geretourneerd.
 
-        code           message
-        ----           -------
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP.
+  ```azurepowershell-interactive
+  Get-AzureRmLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+  ```
+
+* Afhankelijk van de begintijd die u opgeeft, kunnen de vorige opdrachten retourneren een lange lijst bewerkingen voor de resourcegroep. U kunt de resultaten voor wat u zoekt door zoekcriteria filteren. U kunt bijvoorbeeld filteren op het type bewerking.
+
+  ```azurepowershell-interactive
+  Get-AzureRmLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+  ```
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-Om op te halen logboekvermeldingen, voer de [az monitor activiteitenlogboek lijst](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) opdracht.
+* Om op te halen logboekvermeldingen, voer de [az monitor activiteitenlogboek lijst](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) opdracht met een offset om aan te geven van de tijdsduur.
 
-  ```azurecli
-  az monitor activity-log list --resource-group <group name>
+  ```azurecli-interactive
+  az monitor activity-log list --resource-group ExampleGroup --offset 7d
+  ```
+
+  Het volgende voorbeeld ziet het gebruik van het activiteitenlogboek voor onderzoek-bewerkingen die tijdens een opgegeven periode. De begin- en einddatums zijn opgegeven in een datumnotatie.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --start-time 2019-01-01 --end-time 2019-01-15
+  ```
+
+* U kunt de acties die door een bepaalde gebruiker, zelfs voor een resourcegroep die niet meer bestaat opzoeken.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
+  ```
+
+* U kunt filteren op mislukte bewerkingen.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g demoRG --status Failed --offset 1d
+  ```
+
+* U kunt zich richten op één fout door te kijken naar het statusbericht voor die vermelding.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
+  ```
+
+* U kunt specifieke waarden om te beperken van de gegevens die wordt geretourneerd.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
+  ```
+
+* Afhankelijk van de begintijd die u opgeeft, kunnen de vorige opdrachten retourneren een lange lijst bewerkingen voor de resourcegroep. U kunt de resultaten voor wat u zoekt door zoekcriteria filteren. U kunt bijvoorbeeld filteren op het type bewerking.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
   ```
 
 ## <a name="rest-api"></a>REST-API

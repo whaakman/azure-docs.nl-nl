@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554653"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810700"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
@@ -83,7 +83,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
 |thumbnailVideoId|De ID van de video van waaruit de miniatuur is gehaald.
 |thumbnailId|Miniatuur van de video-id. Als u wilt de miniatuur van het werkelijke, roep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
-|gezichten|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
+|faces|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
 |trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
 |sentimenten|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
 |audioEffects| Kan nul of meer audioEffects bevatten. Zie voor meer informatie, [audioEffects](#audioeffects).|
@@ -159,14 +159,14 @@ Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een
 |OCR|De [ocr](#ocr) dimensie.|
 |trefwoorden|De [trefwoorden](#keywords) dimensie.|
 |blokken|Kan bevatten een of meer [blokken](#blocks)|
-|gezichten|De [gezichten](#faces) dimensie.|
+|faces|De [gezichten](#faces) dimensie.|
 |labels|De [labels](#labels) dimensie.|
 |foto 's|De [opnamen](#shots) dimensie.|
 |merken|De [merken](#brands) dimensie.|
 |audioEffects|De [audioEffects](#audioEffects) dimensie.|
 |sentimenten|De [sentimenten](#sentiments) dimensie.|
 |visualContentModeration|De [visualContentModeration](#visualcontentmoderation) dimensie.|
-|textualConentModeration|De [textualConentModeration](#textualconentmoderation) dimensie.|
+|textualContentModeration|De [textualContentModeration](#textualcontentmoderation) dimensie.|
 |emoties| De [emoties](#emotions) dimensie.|
 |onderwerpen|De [onderwerpen](#topics) dimensie.|
 
@@ -187,7 +187,7 @@ Voorbeeld:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -326,7 +326,7 @@ Voorbeeld:
 ] 
 ```
 
-#### <a name="faces"></a>gezichten
+#### <a name="faces"></a>faces
 
 |Name|Description|
 |---|---|
@@ -334,7 +334,7 @@ Voorbeeld:
 |naam|De naam van het gezicht. Kan het zijn ' Onbekende #, 0, een geïdentificeerde beroemdheden of een persoon met de klant.|
 |vertrouwen|De face id vertrouwen.|
 |description|Een beschrijving van de beroemdheden. |
-|thumbnalId|De ID van de miniatuur van die gezicht.|
+|thumbnailId|De ID van de miniatuur van die gezicht.|
 |knownPersonId|Als dit een bekende persoon, in de interne-ID is.|
 |referenceId|Als het een Bing beroemdheden, het Bing-ID.|
 |referenceType|Op dit moment alleen Bing.|
@@ -435,7 +435,7 @@ Voorbeeld:
 |Name|Description|
 |---|---|
 |id|Id van de schermopname.|
-|Hoofdframes|Een lijst met belangrijke frames in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Belangrijkste frames-exemplaren beschikken over een thumbnailId veld met de miniatuur van het sleutelframes-id.|
+|keyFrames|Een lijst met belangrijke frames in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Belangrijkste frames-exemplaren beschikken over een thumbnailId veld met de miniatuur van het sleutelframes-id.|
 |instanties|Een lijst met tijdsbereiken van deze schermopname (opnamen hebben slechts 1 exemplaar).|
 
 ```json
@@ -662,7 +662,7 @@ Video's die zijn gevonden voor volwassenen of ongepaste inhoud mogelijk beschikb
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualConentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |Name|Description|
 |---|---|
@@ -767,7 +767,7 @@ Video Indexer maakt Deductie van de belangrijkste onderwerpen uit transcripties.
 |Name|Description|
 |---|---|
 |id|De onderwerp-ID.|
-|naam|De onderwerpnaam, bijvoorbeeld: 'Pharmaceuticals'.|
+|naam|De onderwerpnaam, bijvoorbeeld: "Pharmaceuticals".|
 |referenceId|Breadcrumbs zetten op basis van de hiërarchie van onderwerpen. Bijvoorbeeld: ' Status en wellbeing / medicijnen en gezondheidszorg / Pharmaceuticals '.|
 |vertrouwen|De betrouwbaarheidsscore binnen het bereik [0,1]. Hoger is meer vertrouwen hebben.|
 |language|De taal die wordt gebruikt in het onderwerp.|
@@ -807,7 +807,7 @@ Video Indexer maakt Deductie van de belangrijkste onderwerpen uit transcripties.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Video Indexer-Portal voor ontwikkelaars](https://api-portal.videoindexer.ai)
+[Video Indexer Developer Portal](https://api-portal.videoindexer.ai)
 
 Zie voor meer informatie over het widgets insluiten in uw toepassing [widgets insluiten van Video Indexer in uw toepassingen](video-indexer-embed-widgets.md). 
 

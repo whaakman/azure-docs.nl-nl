@@ -3,23 +3,23 @@ title: AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding | Microso
 description: Expressies en beschrijving van AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: c437ffec635064bf301eb417717861b68beca611
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476986"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856703"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -134,7 +134,7 @@ Een aanroep 'ontvangen' op het niveau van de API wordt omgezet in een *stroom* p
 
 De vergrendeling op een bericht wordt weer vrijgegeven wanneer de overdracht wordt verrekend in een van de terminal statussen *geaccepteerd*, *geweigerd*, of *die zijn uitgebracht*. Het bericht is verwijderd uit de Service Bus wanneer de definitieve status *geaccepteerd*. Het blijft in Service Bus en aan de volgende ontvanger wordt geleverd wanneer de overdracht een van de andere Staten bereikt. Het bericht verplaatst Service Bus automatisch naar de wachtrij voor onbestelbare transactieberichten van de entiteit wanneer het bereikt het maximumaantal leveringen toegestaan voor de entiteit vanwege herhaalde weigeringen of versies.
 
-Zelfs als de Service Bus-API's die een optie vandaag nog niet rechtstreeks blootstellen, kunt een lager niveau AMQP-protocol-client het link-tegoed-model gebruiken om in te schakelen van de interactie 'pull-stijl' van het uitgeven van één eenheid van tegoed voor elke aanvraag ontvangen in een model "push-stijl" door uitgifte van een groot aantal credits koppelen en vervolgens berichten ontvangen zodra deze beschikbaar zonder verdere tussenkomst. Push is alleen beschikbaar via de [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) of [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) eigenschapsinstellingen. Wanneer ze dan nul zijn, de AMQP-client wordt gebruikt als de koppeling-tegoed.
+Zelfs als de Service Bus-API's die een optie vandaag nog niet rechtstreeks blootstellen, kunt een lager niveau AMQP-protocol-client het link-tegoed-model gebruiken om in te schakelen van de interactie 'pull-stijl' van het uitgeven van één eenheid van tegoed voor elke aanvraag ontvangen in een model "push-stijl" door uitgifte van een groot aantal credits koppelen en vervolgens berichten ontvangen zodra deze beschikbaar zonder verdere tussenkomst. Push is alleen beschikbaar via de [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) of [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) eigenschapsinstellingen. Wanneer ze dan nul zijn, de AMQP-client wordt gebruikt als de koppeling-tegoed.
 
 In deze context is het belangrijk om te weten dat de klok voor de vervaldatum van de vergrendeling van het bericht in de entiteit wordt gestart wanneer het bericht is afkomstig uit de entiteit niet wanneer het bericht wordt geplaatst op de kabel. Wanneer de client aangeeft dat de gereedheid voor het ontvangen van berichten met behulp van de koppeling tegoed, is het daarom waarschijnlijk worden actief binnenhalen van berichten via het netwerk en klaar om deze te verwerken. Anders kan de vergrendeling van het bericht verlopen voordat het bericht zelfs wordt geleverd. Het gebruik van koppeling tegoed datatransportbesturing moet rechtstreeks vergelijkbaar zijn met direct gereed is om op te lossen met beschikbare berichten verzonden naar de ontvanger.
 
@@ -228,7 +228,7 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 | onderwerp |Bericht toepassingsspecifieke doel-id, niet geïnterpreteerd door Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Antwoordadres |Antwoord-path toepassingsspecifieke indicator niet geïnterpreteerd door Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
 | correlatie-id |Toepassingsspecifieke correlatie-id niet geïnterpreteerd door Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| inhoudstype |Toepassingsspecifieke inhoudstype indicator voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| inhoudstype |Toepassingsspecifieke inhoudstype indicator voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Toepassingsspecifieke indicator codering van inhoud voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
 | absolute-expiry-time |Geeft aan op welke absolute instant het bericht is verlopen. Op de invoer (koptekst TTL wordt waargenomen), genegeerd gezaghebbende op uitvoer. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |Verklaart op dat moment het bericht is gemaakt. Niet gebruikt door Service Bus |Niet toegankelijk zijn via de Service Bus-API. |

@@ -1,10 +1,10 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met 10.000 ft plannen | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en 10.000 ft plannen.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en 10.000 ft-abonnementen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b60c955e-8fa3-4872-a897-c4e81fd7beac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: cc6b1036d98aca62360ed8a935d2d1719c7f4069
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 91c485d17b12a973f08660687a4135ff140a84b9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230349"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Zelfstudie: Azure Active Directory-integratie met 10.000 ft plannen
 
-In deze zelfstudie leert u hoe 10.000 ft plannen integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u over het plannen van 10.000 ft integreren met Azure Active Directory (Azure AD).
 
-10.000 ft plannen integreren met Azure AD biedt de volgende voordelen:
+10.000 ft abonnementen integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot 10.000 ft plannen heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij 10.000 ft plannen (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt uw gebruikers automatisch ophalen aangemeld bij 10.000 ft-abonnementen (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts in één centrale locatie - Azure portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,103 +41,103 @@ Voor het configureren van Azure AD-integratie met 10.000 ft plannen, moet u de v
 - Een 10.000 ft plannen voor eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u hier een proefversie van één maand krijgen [proefabonnement](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand hier [proefaanbieding](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. In de galerie toe te voegen 10.000 ft plannen
+1. Toevoegen van 10.000 ft plannen uit de galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-10000ft-plans-from-the-gallery"></a>In de galerie toe te voegen 10.000 ft plannen
-Voor het configureren van de integratie van 10.000 ft plannen in Azure AD, moet u 10.000 ft's uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-10000ft-plans-from-the-gallery"></a>Toevoegen van 10.000 ft plannen uit de galerie
+Voor het configureren van de integratie van 10.000 ft-abonnementen in Azure AD, moet u 10.000 ft plannen uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen 10.000 ft plannen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 4. Typ in het zoekvak **10.000 ft plannen**.
 
-    ![Een Azure AD-testgebruiker maken](./media/10000ftplans-tutorial/tutorial_10,000ftplans_search.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/10000ftplans-tutorial/tutorial_10,000ftplans_search.png)
 
 5. Selecteer in het deelvenster resultaten **10.000 ft plannen**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/10000ftplans-tutorial/tutorial_10,000ftplans_addfromgallery.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/10000ftplans-tutorial/tutorial_10,000ftplans_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met 10.000 ft plannen op basis van een testgebruiker genaamd "Britta Simon."
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met 10.000 ft plannen op basis van een testgebruiker met de naam "Britta Simon."
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in 10.000 ft plannen in Azure AD voor een gebruiker is. Met andere woorden, een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in 10.000 ft plannen moet tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in 10.000 ft-abonnementen is aan een gebruiker in Azure AD. Met andere woorden, een koppeling de relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in 10.000 ft plannen moet tot stand worden gebracht.
 
-Wijs in 10.000 ft plannen, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In 10.000 ft-abonnementen, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met 10.000 ft plannen, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een 10.000 ft plannen testgebruiker](#creating-a-10000ft-plans-test-user)**  - hebben een equivalent van Britta Simon in 10.000 ft plannen die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Het maken van een 10.000 ft plannen testgebruiker](#creating-a-10000ft-plans-test-user)**  : als u wilt een equivalent van Britta Simon in 10.000 ft plannen die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing 10.000 ft-plannen.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing 10.000 ft-abonnementen.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met 10.000 ft plannen, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **10.000 ft plannen** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **10.000 ft plannen** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/10000ftplans-tutorial/tutorial_10,000ftplans_samlbase.png)
 
-3. Op de **10.000 ft domein plannen en URL's** sectie, voert u de volgende stappen uit:
+3. Op de **10.000 ft-abonnementen domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ de URL: `https://app.10000ft.com`
+    a. In de **aanmeldings-URL** tekstvak typt u de URL: `https://app.10000ft.com`
 
-    b. In de **id** textbox, typ de URL: `https://app.10000ft.com/saml/metadata`
+    b. In de **id** tekstvak typt u de URL: `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE] 
-    > De waarde voor **id** verschilt hebt u een aangepast domein. Neem contact op met [10.000 ft plannen ondersteuningsteam](https://www.10000ft.com/plans/support) deze waarde op te halen. 
+    > De waarde voor **id** is anders hebt u een aangepast domein. Neem contact op met [10.000 ft plannen ondersteuningsteam](https://www.10000ft.com/plans/support) deze waarde op te halen. 
  
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Raw)** en sla het certificaatbestand op uw computer.
+4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Raw)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/10000ftplans-tutorial/tutorial_10,000ftplans_certificate.png) 
 
-5. Klik op **opslaan** knop.
+5. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/10000ftplans-tutorial/tutorial_general_400.png)
 
-6. Op de **10.000 ft configuratie plannen** sectie, klikt u op **10.000 ft's configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op de **10.000 ft-configuratie plannen** sectie, klikt u op **configureren 10.000 ft plannen** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/10000ftplans-tutorial/tutorial_10,000ftplans_configure.png) 
 
-7. Eenmalige aanmelding configureren op **10.000 ft plannen** zijde, moet u de gedownloade verzenden **Certificate(Raw), Sign-Out URL SAML entiteit-ID en SAML Single Sign-On Service-URL** naar [10.000 ft Plannen ondersteuningsteam](https://www.10000ft.com/plans/support).
+7. Het configureren van eenmalige aanmelding op **10.000 ft plannen** zijde, moet u voor het verzenden van de gedownloade **Certificate(Raw), URL van de afmelding, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [10.000 ft Abonnementen ondersteuningsteam](https://www.10000ft.com/plans/support).
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -145,48 +145,48 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![Een Azure AD-testgebruiker maken](./media/10000ftplans-tutorial/create_aaduser_01.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/10000ftplans-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    ![Een Azure AD-testgebruiker maken](./media/10000ftplans-tutorial/create_aaduser_02.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/10000ftplans-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
-    ![Een Azure AD-testgebruiker maken](./media/10000ftplans-tutorial/create_aaduser_03.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/10000ftplans-tutorial/create_aaduser_03.png) 
 
 4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
-    ![Een Azure AD-testgebruiker maken](./media/10000ftplans-tutorial/create_aaduser_04.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/10000ftplans-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In de **naam** tekstvak, type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
-### <a name="creating-a-10000ft-plans-test-user"></a>Maken van een 10.000 ft testgebruiker plannen
+### <a name="creating-a-10000ft-plans-test-user"></a>Het maken van een 10.000 ft testgebruiker plannen
 
-Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen in 10.000 ft plannen. 10.000 ft plannen ondersteunt just-in-time-inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot 10.000 ft plannen als deze nog niet bestaat. 
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in 10.000 ft-abonnementen. 10.000 ft plannen biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot 10.000 ft abonnementen als deze nog niet bestaat. 
 
 > [!NOTE]
-> Als u een gebruiker handmatig maken wilt, moet u contact op met de [10.000 ft plannen ondersteuningsteam](https://www.10000ft.com/plans/support).
+> Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [10.000 ft plannen ondersteuningsteam](https://www.10000ft.com/plans/support).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding toegang verleent tot 10.000 ft plannen.
+In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot 10.000 ft plannen.
 
 ![Gebruiker toewijzen][200] 
 
-**Als u wilt toewijzen Britta Simon tot 10.000 ft plannen, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon 10.000 ft plannen, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **10.000 ft plannen**.
+2. Selecteer in de lijst met toepassingen, **10.000 ft plannen**.
 
     ![Eenmalige aanmelding configureren](./media/10000ftplans-tutorial/tutorial_10,000ftplans_app.png) 
 
@@ -198,21 +198,21 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding toeg
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.  
-Als u op de tegel 10.000 ft plannen in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing 10.000 ft-plannen.
+Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie via het toegangsvenster.  
+Wanneer u op de tegel voor het plannen van 10.000 ft in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing 10.000 ft-abonnementen.
  
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

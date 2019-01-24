@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/04/2019
-ms.openlocfilehash: da1cad5c949579e0c66d9cc49f99b7cee9d53f35
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/23/2019
+ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452238"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817819"
 ---
 # <a name="registration-management"></a>Registratiebeheer
 
@@ -34,6 +34,9 @@ Device Registration service met een Notification Hub wordt gerealiseerd met behu
 ### <a name="registrations"></a>Registraties
 
 Een registratie wordt gekoppeld aan de ingang Platform Notification Service (PNS) voor een apparaat met tags en mogelijk een sjabloon. De PNS-ingang is mogelijk een kanaal-URI, apparaattoken of GCM-registratie-id. Labels worden gebruikt voor het routeren van meldingen naar de juiste set apparaat verwerkt. Zie voor meer informatie, [Routering en code-expressies](notification-hubs-tags-segment-push-message.md). Sjablonen worden voor het implementeren van per-registratie-transformatie gebruikt. Zie [Sjablonen](notification-hubs-templates-cross-platform-push-messages.md) voor meer informatie.
+
+> [!NOTE]
+> Azure Notification Hubs ondersteunt maximaal 60 tags per registratie.
 
 ### <a name="installations"></a>Installaties
 

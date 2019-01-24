@@ -7,21 +7,23 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 12/25/2018
+ms.date: 01/21/2019
 ms.author: juliako
-ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d5ec82decbb441c27fd0c5e8f1132caa126edbc1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791811"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807742"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
 In dit artikel leeft u hoe u Video Indexer-widgets insluit in uw toepassingen. Video Indexer biedt ondersteuning voor insluiten twee typen widgets in uw toepassing: **Cognitieve inzichten** en **Player**. 
 
 > [!NOTE]
-> Vanaf 1 februari 2018, de versie 1 van de **cognitieve inzichten** widget wordt afgeschaft. De ingesloten URL-versie wordt teruggezet op `version=2`.
+> Vanaf versie 1 van 1 februari 2018 de **cognitieve inzichten** widget wordt afgeschaft. De ingesloten URL-versie wordt teruggezet op `version=2`.
+
+Vanaf versie 2, bevat de widget basis-URL van het account regio. Bijvoorbeeld, een account in de regio VS-West genereert: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## <a name="widget-types"></a>Typen widget
 
@@ -69,7 +71,7 @@ U kunt u invoegcodes van insluitingspop-ups (zoals weergegeven in de vorige sect
 
 Als u een **persoonlijke** video wilt insluiten, moet u een toegangstoken doorgeven in het kenmerk **src** van de **iframe**:
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
+`https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
 Gebruik de API [**Inzichtenwidget ophalen**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) om de inhoud van de widget Inzichten op te halen, of gebruik [**Toegangstoken van video ophalen**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) en voeg deze toe als een queryparameter aan de URL, zoals hierboven. Geef deze URL op als de waarde **src** van de **iframe**.
 
@@ -94,13 +96,13 @@ Als u kiest voor het implementeren van uw eigen spelercode en het uitvoeren van 
 
 In deze sectie wordt beschreven hoe u interactie bereikt tussen twee Video Indexer-widgets. Wanneer een gebruiker op het besturingselement voor inzicht in uw toepassing klikt, gaat de speler dan naar het gewenste moment.
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> 
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
 
 1. Kopieer de invoegcode van de widget **Speler**.
 2. Kopieer de invoegcode van de widget **Inzichten**.
 3. Voeg het [**Mediator-bestand**](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) voor het afhandelen van de communicatie tussen de twee widgets toe:
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 Wanneer een gebruiker nu op het besturingselement voor inzicht in uw toepassing klikt, gaat de speler naar het gewenste moment.
 
@@ -110,11 +112,7 @@ Ga voor meer informatie naar [deze demo](https://codepen.io/videoindexer/pen/NzJ
 
 In deze sectie wordt beschreven hoe u interactie tussen de widget **Inzichten** en een Azure Media Player-exemplaar bereikt met de [AMP-invoegtoepassing](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
  
-1. Voeg een Video Indexer-invoegtoepassing voor de AMP-speler toe.
-
-        <script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>
-
-
+1. Voeg een Video Indexer-invoegtoepassing voor de AMP-speler toe.<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instantieer Azure Media Player met de Video Indexer-invoegtoepassing.
 
         // Init Source
@@ -209,7 +207,6 @@ Als u uw eigen speler gebruikt, moet u er zelf voor zorgen dat u de speler bewer
         
         </script>
 
-
 Ga voor meer informatie naar [deze demo](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Ondertiteling toevoegen
@@ -219,30 +216,41 @@ Als u Video Indexer-inzichten insluit met uw eigen AMP-speler, kunt u de **GetVt
 ## <a name="customizing-embeddable-widgets"></a>Insluitbare widgets aanpassen
 
 ### <a name="cognitive-insights-widget"></a>Widget Inzichten
-U kunt de typen inzichten die u wilt gebruiken kiezen door deze op te geven als een waarde van de volgende URL-parameter die is toegevoegd aan de invoegcode die u ophaalt (uit de API of de webtoepassing):
 
-**&widgets=** \<lijst met gewenste widgets>
+U kunt de typen inzichten die u wilt dat door deze op te geven als een waarde kiezen op de volgende URL-parameter toegevoegd aan de ingesloten code die u krijgt (van de API of van de web-App): `&widgets=<list of wanted widgets>`.
 
 De mogelijke waarden zijn: mensen, trefwoorden, gevoelens, transcript, zoeken.
 
-Als u bijvoorbeeld een widget wilt insluiten met alleen inzichten voor personen en zoeken, ziet de insluitings-URL van iframe er als volgt uit: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
+Bijvoorbeeld, als u wilt insluiten er een widget alleen inzichten voor personen en zoek het iframe insluitings-URL die als volgt:
 
-De titel van het iframe-venster kan ook worden aangepast door **&titel=**<YourTitle> op te geven in de URL van de iframe. (Hiermee wordt de HTML-code aangepast naar \<title>waarde).
-Als u uw iframe-venster bijvoorbeeld de titel 'MijnInzichten' wilt geven, ziet de URL er als volgt uit: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MijnInzichten. U ziet dat deze optie alleen relevant is voor gevallen waarbij u de inzichten in een nieuw venster moet openen.
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
+
+De titel van het venster iframe kan ook worden aangepast door te geven `&title=<YourTitle>` naar de URL van de iframe. (Hiermee wordt de HTML-code aangepast naar \<title>waarde).
+    
+Bijvoorbeeld, als u wilt uw iframe-venster geeft de titel 'MyInsights', er de URL als volgt:
+
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
+
+U ziet dat deze optie alleen relevant is voor gevallen waarbij u de inzichten in een nieuw venster moet openen.
 
 ### <a name="player-widget"></a>Widget Speler
+
 Bij het insluiten van een Video Indexer-speler kunt u de grootte van de speler kiezen door de grootte van de iframe op te geven.
 
 Bijvoorbeeld:
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
+`<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 De Video Indexer-speler heeft standaard automatisch gegenereerde ondertiteling op basis van het transcript van de video dat is geëxtraheerd uit de video met de brontaal die is geselecteerd bij het uploaden van de video.
 
-Als u ondertiteling in een andere taal wilt insluiten, kunt u **&captions=< Language | ”all” | “false” >** toevoegen aan de ingesloten speler-URL of 'all' invullen als de waarde als u ondertiteling in alle beschikbare talen wilt.
-Als u wilt dat de ondertiteling standaard wordt weergegeven, gebruikt u **&showCaptions=true**
+Als u insluiten met een andere taal wilt, kunt u toevoegen `&captions=< Language | ”all” | “false” >` op de ingesloten speler-URL of put 'alle' als de waarde als u wilt dat alle beschikbare talen bijschriften.
+Als u wilt dat de ondertiteling moet worden standaard weergegeven, kunt u doorgeven `&showCaptions=true`.
 
-De insluitings-URL ziet er vervolgens als volgt uit: https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian. Als u ondertiteling wilt uitschakelen, kunt u 'false' als waarde opgeven voor de ondertitelingsparameter.
+De ingesloten URL wordt vervolgens er als volgt: 
+
+`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
+
+Als u ondertiteling wilt uitschakelen, kunt u 'false' als waarde opgeven voor de ondertitelingsparameter.
 
 Automatisch afspelen: standaard speelt de speler de video af. U ervoor kiezen dit niet te doen door &autoplay=false op te geven in de insluitings-URL hierboven.
 

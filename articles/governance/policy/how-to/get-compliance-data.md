@@ -4,17 +4,17 @@ description: Azure Policy-evaluaties en effecten bepaalt de naleving. Leer hoe u
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 71911c3e196a05b9e10c719afe8f3b44522e6b02
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437909"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853626"
 ---
 # <a name="getting-compliance-data"></a>Nalevingsgegevens ophalen
 
@@ -29,6 +29,8 @@ Voordat u de methoden voor het rapporteren van naleving bekijkt, laten we kijken
 
 > [!WARNING]
 > Als de nalevingsstatus wordt gerapporteerd als **niet geregistreerd**, Controleer de **Microsoft.PolicyInsights** Resourceprovider is geregistreerd en dat de gebruiker de juiste toegang op basis van rollen heeft beheren () RBAC)-machtigingen, zoals wordt beschreven [hier](../overview.md#rbac-permissions-in-azure-policy).
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Evaluatie-triggers
 
@@ -145,9 +147,9 @@ De dezelfde informatie die beschikbaar zijn in de portal kan worden opgehaald me
 Voor het gebruik van de volgende voorbeelden in Azure PowerShell, maakt u een verificatietoken met deze voorbeeldcode. Vervang vervolgens de $restUri door de tekenreeks in de voorbeelden om op te halen van een JSON-object dat vervolgens kan worden geparseerd.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -283,29 +285,33 @@ Zie voor meer informatie over het uitvoeren van query's Beleidsgebeurtenissen, d
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-De Azure PowerShell-module voor het beleid is beschikbaar op de PowerShell Gallery als [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). U PowerShellGet gebruikt, kunt u Installeer de module met `Install-Module -Name AzureRM.PolicyInsights` (Zorg ervoor dat u hebt de meest recente [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) geïnstalleerd):
+De Azure PowerShell-module voor het beleid is beschikbaar op de PowerShell Gallery als [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). U PowerShellGet gebruikt, kunt u Installeer de module met `Install-Module -Name Az.PolicyInsights` (Zorg ervoor dat u hebt de meest recente [Azure PowerShell](/powershell/azure/install-az-ps) geïnstalleerd):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights
+Install-Module -Name Az.PolicyInsights
 
 # Import the downloaded module
-Import-Module AzureRM.PolicyInsights
+Import-Module Az.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using Cloud Shell
-Connect-AzureRmAccount
+# Login with Connect-AzAccount if not using Cloud Shell
+Connect-AzAccount
 ```
 
-De module heeft drie cmdlets:
+De module heeft de volgende cmdlets:
 
-- `Get-AzureRmPolicyStateSummary`
-- `Get-AzureRmPolicyState`
-- `Get-AzureRmPolicyEvent`
+- `Get-AzPolicyStateSummary`
+- `Get-AzPolicyState`
+- `Get-AzPolicyEvent`
+- `Get-AzPolicyRemediation`
+- `Remove-AzPolicyRemediation`
+- `Start-AzPolicyRemediation`
+- `Stop-AzPolicyRemediation`
 
 Voorbeeld: Ophalen van de status van de samenvatting voor het bovenste toegewezen beleid met het hoogste aantal niet-compatibele resources.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyStateSummary -Top 1
+PS> Get-AzPolicyStateSummary -Top 1
 
 NonCompliantResources : 15
 NonCompliantPolicies  : 1
@@ -316,7 +322,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
 Voorbeeld: Ophalen van de record van de status voor de meest recent geëvalueerd bron (standaard is door de timestamp in aflopende volgorde).
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Top 1
+PS> Get-AzPolicyState -Top 1
 
 Timestamp                  : 5/22/2018 3:47:34 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -342,7 +348,7 @@ PolicyDefinitionCategory   : tbd
 Voorbeeld: Ophalen van de details voor alle niet-compatibele virtuele-netwerkbronnen.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
+PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
 
 Timestamp                  : 5/22/2018 4:02:20 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -368,7 +374,7 @@ PolicyDefinitionCategory   : tbd
 Voorbeeld: Het ophalen van gebeurtenissen met betrekking tot niet-compatibele virtuele-netwerkbronnen die zijn opgetreden na een bepaalde datum.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
 
 Timestamp                  : 5/19/2018 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -393,16 +399,16 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-De **PrincipalOid** veld kan worden gebruikt om op te halen van een specifieke gebruiker met de Azure PowerShell-cmdlet `Get-AzureRmADUser`. Vervang **{principalOid}** met het antwoord u uit het vorige voorbeeld krijgt.
+De **PrincipalOid** veld kan worden gebruikt om op te halen van een specifieke gebruiker met de Azure PowerShell-cmdlet `Get-AzADUser`. Vervang **{principalOid}** met het antwoord u uit het vorige voorbeeld krijgt.
 
 ```azurepowershell-interactive
-PS> (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
+PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Als u hebt een [Log Analytics](../../../log-analytics/log-analytics-overview.md) werkruimte met de `AzureActivity` oplossing die zijn gekoppeld aan uw abonnement, kunt u ook niet-naleving-resultaten van de evaluatiefase computerbeleid met behulp van eenvoudige Kusto-query's weergeven en de `AzureActivity` tabel. Met de details in Log Analytics, kunnen waarschuwingen worden geconfigureerd om te kijken voor niet-naleving.
+Als u hebt een [Log Analytics](../../../log-analytics/log-analytics-overview.md) werkruimte met de `AzureActivity` oplossing die zijn gekoppeld aan uw abonnement, kunt u ook niet-naleving-resultaten van de evaluatiefase computerbeleid met behulp van eenvoudige query's van Azure Data Explorer weergeven en de `AzureActivity` de tabel. Met de details in Log Analytics, kunnen waarschuwingen worden geconfigureerd om te kijken voor niet-naleving.
 
 ![Naleving van het beleid met behulp van Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
 

@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8cfdbac75036e59cf4acebe07c76ff758b74cdd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e7148b178b2fbbb2d2009889b1a80b56f3a1152
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439324"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Zelfstudie: Azure Active Directory-integratie met RunMyProcess
 
@@ -43,9 +43,9 @@ Voor het configureren van Azure AD-integratie met RunMyProcess, moet u de volgen
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden:[proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -59,17 +59,17 @@ Voor het configureren van de integratie van RunMyProcess in Azure AD, moet u Run
 
 **Als u wilt toevoegen RunMyProcess uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **RunMyProcess**.
 
@@ -112,7 +112,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_url.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://live.runmyprocess.com/live/<tenant id>`
+    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://live.runmyprocess.com/live/<tenant id>`
 
     > [!NOTE] 
     > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [RunMyProcess Client ondersteuningsteam](mailto:support@runmyprocess.com) om de waarde. 
@@ -121,7 +121,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_certificate.png) 
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/runmyprocess-tutorial/tutorial_general_400.png)
 
@@ -133,11 +133,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik in het linkernavigatievenster, **Account** en selecteer **configuratie**.
    
-    ![Single Sign-On aan App configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+    ![Eenmalige aanmelding aan app-zijde configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
 1. Ga naar **verificatiemethode** sectie en de onderstaande stappen uitvoeren:
    
-    ![Single Sign-On aan App configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+    ![Eenmalige aanmelding aan app-zijde configureren](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
     a. Als **methode**, selecteer **eenmalige aanmelding met Samlv2**. 
 
@@ -152,11 +152,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     f. Klik op **opslaan** pictogram.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -190,17 +190,17 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 Als u wilt dat Azure AD-gebruikers zich aanmelden bij RunMyProcess, moeten ze worden ingericht voor RunMyProcess. In het geval van RunMyProcess is inrichten een handmatige taak.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u aan bij uw bedrijf RunMyProcess site aan als beheerder.
 
 1. Klik op **Account** en selecteer **gebruikers** in het linkernavigatievenster, en klik op **nieuwe gebruiker**.
    
-    ![Nieuwe gebruiker](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "nieuwe gebruiker")
+    ![New User](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "New User")
 
 1. In de **gebruikersinstellingen** sectie, voert u de volgende stappen uit:
    
-    ![Profiel](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "profiel") 
+    ![Profile](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "Profile") 
   
     a. Type de **naam** en **e** van een geldige Azure AD-account die u inrichten in de bijbehorende tekstvakken wilt. 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6dd063f8d6520e3ee18dcb3899c1cca16d732707
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608712"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809684"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migratie van Contoso: Een Contoso Linux helpdesk-app voor meerdere regio's met Azure App Service, Traffic Manager en Azure MySQL herstructureren
 
@@ -131,7 +131,7 @@ Hier ziet u hoe Contoso de migratie wordt voltooid:
 > [!div class="checklist"]
 > * **Stap 1: Azure App Services inrichten**: Beheerders van Contoso, Web-Apps in de primaire en secundaire regio's wordt ingericht.
 > * **Stap 2: Stel Traffic Manager**: Ze stelt van Traffic Manager voor de Web-Apps voor Routering en load balancing-verkeer.
-> * **Stap 3: Inrichten van MySQL**: In Azure inrichten het van een exemplaar van Azure MySQL-database.
+> * **Stap 3: Provision MySQL**: In Azure inrichten het van een exemplaar van Azure MySQL-database.
 > * **Stap 4: Migreren van de database**: Ze migreren van de database met behulp van MySQL Workbench. 
 > * **Stap 5: Stel GitHub in**: Ze instellen een lokale GitHub-opslagplaats voor de websites/de code van apps.
 > * **Stap 6: De web-apps implementeren**: Ze implementeren de web-apps vanuit GitHub.
@@ -146,19 +146,19 @@ Contoso-beheerders twee Web-apps (één in elke regio) inrichten met behulp van 
 1. Ze een Web-App-resource maken in de primaire regio in de VS-Oost 2 (**osticket eus2**) van de Azure Marketplace.
 2. Ze zetten de resource in de resourcegroep van de productie **ContosoRG**.
 
-    ![Azure-App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app1.png) 
+    ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app1.png) 
 
 3. Ze een nieuw App Service-plan maken in de primaire regio (**APP-SVP-EUS2**), met behulp van de standaardgrootte.
 
-     ![Azure-App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app2.png) 
+     ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app2.png) 
     
 4. Ze selecteert u een Linux-besturingssysteem met de runtime-stack PHP 7.0, dit een Docker-container is.
 
-    ![Azure-App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app3.png) 
+    ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app3.png) 
 
 5. Maken van een tweede web-app (**osticket cus**), en App service-plan voor de regio VS-midden.
 
-    ![Azure-App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app4.png) 
+    ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app4.png) 
 
 
 **Meer hulp nodig?**
@@ -254,7 +254,7 @@ Beheerders van Contoso migreren van de database met behulp van back-up en herste
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
-11. Tney kunt controleren of de servernaam en aanmelding vanuit **overzicht** in de MySQL-instantie in de Azure-portal.
+11. Ze kunnen controleren of de servernaam en aanmelding vanuit **overzicht** in de MySQL-instantie in de Azure-portal.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2d4b395abefd25d7e187ae3a15943e53f1aed27b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4d8e5cb577eb7b3eecc800e7a74b1ddcbbc2c76c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472520"
+ms.locfileid: "54813369"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problemen bij het opslaan van referenties tijdens het inrichten van gebruikers naar een galerie van Azure Active Directory-toepassing configureren 
 
@@ -30,7 +30,7 @@ Bij het gebruik van de Azure-portal configureren [automatisch gebruikers inricht
 
 Als SAML gebaseerde eenmalige aanmelding ook is geconfigureerd voor dezelfde toepassing, de meest waarschijnlijke oorzaak van de fout is dat Azure AD-limiet voor interne, per toepassing opslag voor certificaten en referenties is overschreden.
 
-Azure AD op dit moment heeft een maximale capaciteit van een kilobyte voor alle certificaten, geheime tokens, referenties en verwante configuratiegegevens die zijn gekoppeld aan één exemplaar van een toepassing (ook wel bekend als een service principal-record in Azure AD).
+Azure AD op dit moment heeft een maximale capaciteit van 1024 bytes voor alle certificaten, geheime tokens, referenties en verwante configuratiegegevens die zijn gekoppeld aan één exemplaar van een toepassing (ook wel bekend als een service principal-record in Azure AD).
 
 Wanneer SAML gebaseerde eenmalige aanmelding is geconfigureerd, wordt het certificaat dat wordt gebruikt voor het ondertekenen van de SAML-tokens worden opgeslagen en vaak verbruikt meer dan 50 procent van de ruimte.
 

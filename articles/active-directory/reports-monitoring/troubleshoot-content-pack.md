@@ -4,7 +4,7 @@ description: Biedt u een lijst met foutberichten van het inhoudspakket van Azure
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 461c61fdd38fe8801a71c1ac34cd3e7114838207
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998740"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825354"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Het oplossen van Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten 
 
@@ -40,7 +40,7 @@ In dit artikel vindt u informatie over de mogelijke oorzaken en over het oplosse
  
 ## <a name="refresh-failed"></a>Vernieuwen is mislukt 
  
-**Hoe deze fout is opgehaald**: e-mailbericht van Power BI of mislukte status in de geschiedenis vernieuwen. 
+**Hoe deze fout is opgehaald**: Stuur een e-mail met Power BI of mislukte status in de geschiedenis vernieuwen. 
 
 
 | Oorzaak | Voor het oplossen van |
@@ -51,7 +51,7 @@ In dit artikel vindt u informatie over de mogelijke oorzaken en over het oplosse
  
 ## <a name="failed-to-update-data-source-credentials"></a>Gegevensbronreferenties bijwerken is mislukt 
  
-**Hoe deze fout is opgehaald**: inhoudspakket In Power BI, wanneer u verbinding met de Azure AD-activiteit maakt-Logboeken. 
+**Hoe deze fout is opgehaald**: In Power BI, wanneer u verbinding met het inhoudspakket van Azure AD-activiteit Logboeken maakt. 
 
 | Oorzaak | Voor het oplossen van |
 | ---   | ---        |
@@ -62,7 +62,7 @@ In dit artikel vindt u informatie over de mogelijke oorzaken en over het oplosse
 
 ## <a name="data-import-is-too-slow"></a>Het importeren van gegevens is te langzaam verlopen 
  
-**Hoe deze fout is opgehaald**: In Power BI, nadat u verbinding maken met uw inhoudspakket het importeren van gegevens wordt gestart op uw dashboard voorbereiden voor Azure AD-activiteit Logboeken. U ziet het bericht: **importeren van gegevens...**  zonder eventuele verdere wordt uitgevoerd.  
+**Hoe deze fout is opgehaald**: In Power BI, nadat u verbinding maken met uw inhoudspakket het importeren van gegevens wordt gestart op uw dashboard voorbereiden voor Azure AD-activiteit Logboeken. U ziet het bericht: **Gegevens importeren...**  zonder eventuele verdere wordt uitgevoerd.  
 
 | Oorzaak | Voor het oplossen van |
 | ---   | ---        |

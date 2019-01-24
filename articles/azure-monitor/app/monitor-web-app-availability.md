@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359694"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857145"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -186,15 +186,15 @@ Klik op een rode punt.
 In een resultaat van beschikbaarheidstest ziet u de details van transacties voor alle onderdelen. U kunt hier het volgende doen:
 
 * De reactie inspecteren die is ontvangen van uw server.
-* Fout vaststellen met gecorreleerde telemetrie aan de serverzijde die zijn verzameld tijdens het verwerken van de beschikbaarheidstest is mislukt.
+* Fout vaststellen met gecorreleerde serverzijde telemetriegegevens die zijn verzameld tijdens het verwerken van de beschikbaarheidstest is mislukt.
 * Meld een probleem of werkitem in Git of Azure-kaarten voor het bijhouden van het probleem. De bug bevat een koppeling naar deze gebeurtenis.
 * Het webtestresultaat openen in Visual Studio.
 
 Meer informatie over de diagnostische gegevens over de end-to-transactie-ervaring [hier](../../azure-monitor/app/transaction-diagnostics.md).
 
-Klik op de uitzonderingsrij om de details van de server-side-uitzondering waardoor de van synthetische beschikbaarheidstest mislukt te bekijken. U krijgt ook de [momentopname voor foutopsporing](../../azure-monitor/app/snapshot-debugger.md) voor uitgebreidere code niveau diagnostische gegevens.
+Klik op de uitzonderingsrij om de details van de server-side '-uitzondering waardoor de van synthetische beschikbaarheidstest mislukt te bekijken. U krijgt ook de [momentopname voor foutopsporing](../../azure-monitor/app/snapshot-debugger.md) voor uitgebreidere code niveau diagnostische gegevens.
 
-![Server side diagnostische gegevens](./media/monitor-web-app-availability/open-instance-4.png)
+![Diagnostische gegevens van server-side](./media/monitor-web-app-availability/open-instance-4.png)
 
 ## <a name="alerts"></a> Beschikbaarheid van waarschuwingen
 U kunt de volgende typen regels voor waarschuwingen op de beschikbaarheid van gegevens met behulp van de ervaring voor klassieke waarschuwingen hebben:
@@ -299,7 +299,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 
     * Als u kans op ruis van tijdelijke netwerkproblemen enzovoort wilt verminderen, schakelt u de optie 'Nieuwe pogingen inschakelen voor mislukte webtesten' in. U kunt ook testen vanaf meer locaties en de waarschuwingsregeldrempel dienovereenkomstig beheren om te voorkomen dat de locatiespecifieke problemen onnodige waarschuwingen veroorzaken.
 
-    * Klik op een van de rode punten uit de ervaring van de beschikbaarheid of een storing van de beschikbaarheid van de Search explorer om de details van waarom we gerapporteerd dat de fout te bekijken. Het testresultaat, samen met de gecorreleerde telemetrie aan de serverzijde (indien ingeschakeld) kan helpen te begrijpen waarom de test is mislukt. Veelvoorkomende oorzaken van problemen van voorbijgaande aard zijn problemen met de netwerkverbinding of de verbinding. 
+    * Klik op een van de rode punten uit de ervaring van de beschikbaarheid of een storing van de beschikbaarheid van de Search explorer om de details van waarom we gerapporteerd dat de fout te bekijken. Het testresultaat, samen met de gecorreleerde telemetrie serverzijde (indien ingeschakeld) kan helpen te begrijpen waarom de test is mislukt. Veelvoorkomende oorzaken van problemen van voorbijgaande aard zijn problemen met de netwerkverbinding of de verbinding. 
 
     * Heeft de time-out voor de test? We tests na 2 minuten worden afgebroken. Als uw ping of een test met meerdere stappen langer dan twee minuten duurt, zullen we die rapporteren als mislukt. Houd rekening met de test verdelen in meerdere degene die kunnen worden voltooid in korter duurt.
 
@@ -356,6 +356,22 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 * *Hoe voer ik een test uit met clientcertificaten?*
 
     Dat wordt niet ondersteund.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Wie de (klassiek) waarschuwingsmeldingen ontvangen?
+
+In deze sectie is alleen van toepassing op klassieke waarschuwingen en helpt u optimaliseren van uw meldingen van waarschuwingen om ervoor te zorgen dat alleen de gewenste geadresseerden meldingen ontvangen. Meer informatie geven over het verschil tussen [klassieke waarschuwingen](../platform/alerts-classic.overview.md)en de nieuwe ervaring voor waarschuwingen verwijzen naar de [waarschuwingen overzichtsartikel](../platform/alerts-overview.md). Voor het beheren van de waarschuwing zich melding in de nieuwe waarschuwingen gebruik [actiegroepen](../platform/action-groups.md).
+
+* We raden het gebruik van specifieke ontvangers voor klassieke waarschuwingen.
+
+* Voor waarschuwingen over fouten van X van Y-locaties, de **bulksgewijs/groep** selectievakje, indien ingeschakeld, verzendt naar gebruikers met de rol van beheerder/co-beheerder.  In wezen _alle_ beheerders van de _abonnement_ meldingen ontvangt.
+
+* Voor waarschuwingen over de beschikbaarheid van metrische gegevens (of een Application Insights metrische gegevens voor dit onderwerp) het **bulksgewijs/groep** selectievakje-als ingeschakeld, verzendt naar gebruikers met de rol van eigenaar, bijdrager of lezer in het abonnement. In feite _alle_ gebruikers met toegang tot het abonnement de Application Insights-resource in het bereik en meldingen ontvangt. 
+
+> [!NOTE]
+> Als u momenteel gebruikmaakt van de **bulksgewijs/groep** selectievakje, en uitschakelen, kunt u zich niet meer herstellen van de wijziging.
+
+Gebruik de nieuwe waarschuwing ervaring/bijna realtime waarschuwingen als u meldingen naar gebruikers op basis van hun rol nodig hebt. Met [actiegroepen](../platform/action-groups.md), kunt u e-mailmeldingen voor gebruikers configureren met een van de rollen Inzender of eigenaar/lezer is (niet gecombineerd samen als één optie).
+
 
 
 ## <a name="next"></a>Volgende stappen

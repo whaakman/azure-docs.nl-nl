@@ -3,19 +3,19 @@ title: Beheren van gebruikersgegevens in Azure Active Directory B2C | Microsoft 
 description: Informatie over het verwijderen of exporteren van gebruikersgegevens in Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054513"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854017"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Beheren van gebruikersgegevens in Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ Het proces van het exporteren van gegevens van de klant van Azure AD B2C is verg
 Azure AD B2C-gebruikersgegevens is beperkt tot:
 
 - **Gegevens die zijn opgeslagen in de Azure Active Directory**: U kunt gegevens in een Azure AD B2C-verificatie de gebruikersbeleving ophalen via de object-ID of een aanmelding naam, zoals een e-mailadres of gebruikersnaam. 
-- **Gebeurtenissen voor specifieke gebruikers controlerapport**: kunt u gegevens indexeren via de object-ID.
+- **Gebeurtenissen voor specifieke gebruikers controlerapport**: U kunt gegevens indexeren via de object-ID.
 
 In het volgende voorbeeld van een gegevensstroom exporteren, kunnen de stappen die worden beschreven als die worden uitgevoerd door de toepassing ook worden uitgevoerd met een back-end-proces of een gebruiker met een beheerdersrol in de map:
 

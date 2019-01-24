@@ -3,19 +3,19 @@ title: De gebruikersinterface van een gebruikersbeleving met aangepast beleid aa
 description: Meer informatie over Azure Active Directory B2C aangepast beleid.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1953e23c0676a0c81576a47f3f3ca36c3861935f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841622"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855053"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van een gebruikersbeleving met aangepast beleid aanpassen
 
@@ -111,7 +111,7 @@ Als een vereiste moet u een opslagaccount maken. U moet een Azure-abonnement te 
     c.  De naam van uw opslag blob storage-container *containerName*, bijvoorbeeld *b2c*.
     d.  Het pad van de *Beginnerspakket* voorbeeldbestanden, bijvoorbeeld *... \B2CTemplates\wingtiptoys*.
 
-Als u de voorgaande stappen hebt gevolgd de HTML5 en CSS-bestanden van de *UI-aanpassing-Pack* voor het fictieve bedrijf **wingtiptoys** nu verwijst naar uw storage-account.  U kunt controleren dat de inhoud correct is geüpload door het openen van het deelvenster gerelateerde container in Azure portal. U kunt ook kunt u controleren dat de inhoud correct is geüpload door de pagina vanuit een browser te openen. Zie voor meer informatie, [Azure Active Directory B2C: een hulpprogramma gebruikt om te demonstreren van de pagina gebruiker gebruikersinterface (UI) aanpassing functie](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Als u de voorgaande stappen hebt gevolgd de HTML5 en CSS-bestanden van de *UI-aanpassing-Pack* voor het fictieve bedrijf **wingtiptoys** nu verwijst naar uw storage-account.  U kunt controleren dat de inhoud correct is geüpload door het openen van het deelvenster gerelateerde container in Azure portal. U kunt ook kunt u controleren dat de inhoud correct is geüpload door de pagina vanuit een browser te openen. Zie voor meer informatie, [Azure Active Directory B2C: Een hulpprogramma gebruikt om te demonstreren van de pagina gebruiker gebruikersinterface (UI) aanpassing functie](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Zorg ervoor dat het opslagaccount heeft CORS ingeschakeld
 
@@ -138,13 +138,13 @@ Het opslagaccount moet nu een blobcontainer met de naam bevatten *b2c* in de afb
 
 De volgende tabel beschrijft het doel van de voorgaande HTML5-pagina's.
 
-| HTML5-sjabloon | Beschrijving |
+| HTML5-sjabloon | Description |
 |----------------|-------------|
-| *phonefactor.HTML* | Deze pagina kan worden gebruikt als een sjabloon voor een multi-factor authentication-pagina. |
+| *phonefactor.html* | Deze pagina kan worden gebruikt als een sjabloon voor een multi-factor authentication-pagina. |
 | *resetpassword.html* | Deze pagina kan worden gebruikt als een sjabloon voor een pagina voor vergeten wachtwoorden. |
 | *selfasserted.html* | Deze pagina kan worden gebruikt als een sjabloon voor een sociale account aanmelden pagina, de aanmeldpagina voor een lokaal account of een lokaal account aanmelden pagina. |
-| *Unified.HTML* | Deze pagina kan worden gebruikt als een sjabloon voor een uniforme registreren of aanmelden pagina. |
-| *updateprofile.HTML* | Deze pagina kan worden gebruikt als een sjabloon voor een update profielpagina. |
+| *unified.html* | Deze pagina kan worden gebruikt als een sjabloon voor een uniforme registreren of aanmelden pagina. |
+| *updateprofile.html* | Deze pagina kan worden gebruikt als een sjabloon voor een update profielpagina. |
 
 ## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>Een koppeling naar uw HTML5/CSS-sjablonen naar uw gebruikersbeleving toevoegen
 
@@ -154,7 +154,7 @@ De aangepaste sjablonen die HTML5/CSS gebruiken in de gebruikersbeleving moeten 
 
 De volgende tabel beschrijft de set met inhoud roldefinitie-id's wordt herkend door de identiteit van de Azure AD B2C-engine en het type van pagina's dat is gekoppeld aan deze optreden.
 
-| De definitie van de inhoud-ID | Beschrijving |
+| De definitie van de inhoud-ID | Description |
 |-----------------------|-------------|
 | *api.error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | **Pagina voor het id-provider selecteren**. Deze pagina bevat een lijst met id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze providers zijn enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts (op basis van e-mailadres of gebruikersnaam naam). |
@@ -168,4 +168,4 @@ De volgende tabel beschrijft de set met inhoud roldefinitie-id's wordt herkend d
 | *api.signuporsignin* | **Uniforme pagina voor registreren of aanmelden**.  Deze pagina verwerkt zowel registreren en aanmelden van gebruikers, die zakelijke id-providers, sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Naslaginformatie: Inzicht in hoe aangepaste beleidsregels werken met de Identiteitservaring-Framework in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[Naslaginformatie over: Begrijpen hoe aangepaste beleidsregels werken met de Identiteitservaring-Framework in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: Beheer van Groepsbeleid op de beheerde domeinen | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Instellingen voor Groepsbeleid op de beheerde domeinen beheren | Microsoft Docs'
 description: Groepsbeleid beheren in Azure Active Directory Domain Services beheerde domeinen
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 31805f7588a58eb1682ce50fd55dd14b967d6099
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e92c153158bc53a143bbc4c4c90c6007937fcc8f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158321"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848169"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Groepsbeleid in een Azure AD Domain Services beheerde domein beheren
 Azure Active Directory Domain Services bevat ingebouwde groepsbeleidsobjecten (GPO's) voor de 'AADDC gebruikers' en 'AADDC Computers' containers. U kunt deze ingebouwde groepsbeleidsobjecten om Groepsbeleid te configureren in het beheerde domein. Leden van de groep 'AAD DC Administrators' kunnen bovendien hun eigen aangepaste OE's maken in het beheerde domein. Ze kunnen ook aangepaste GPO's maken en deze koppelen aan deze aangepaste organisatie-eenheden. Group Policy administration bevoegdheden in het beheerde domein worden verleend voor gebruikers die deel uitmaken van de groep 'AAD DC Administrators'.

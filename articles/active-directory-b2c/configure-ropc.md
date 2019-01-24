@@ -3,19 +3,19 @@ title: De resource-eigenaar wachtwoord referentiestroom configureren in Azure Ac
 description: Informatie over het configureren van de resource-eigenaar wachtwoord referentiestroom in Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: afbcacb299fa76a19cd7aaa20d3a4f2c2eb26d5c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726284"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845874"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom configureren in Azure AD B2C
 
@@ -26,14 +26,14 @@ De resource-eigenaar wachtwoord referenties (ROPC) stroom wordt een stroom voor 
 
 In Azure Active Directory (Azure AD) B2C, worden de volgende opties ondersteund:
 
-- **Native Client**: tussenkomst van de gebruiker tijdens de verificatie gebeurt wanneer de code wordt uitgevoerd op een apparaat van de gebruiker aan clientzijde. Het apparaat kan een mobiele toepassing die wordt uitgevoerd in een eigen besturingssysteem, zoals Android, of die worden uitgevoerd in een browser, zoals JavaScript zijn.
-- **Openbare clientstroom**: alleen gebruikersreferenties die worden verzameld door een toepassing worden verzonden in de API-aanroep. De referenties van de toepassing worden niet verzonden.
-- **Toevoegen van nieuwe claims**: inhoud van de ID-tokens kunnen worden gewijzigd om toe te voegen nieuwe claims. 
+- **Native Client**: Tussenkomst van de gebruiker tijdens de verificatie gebeurt wanneer de code wordt uitgevoerd op een apparaat van de gebruiker aan clientzijde. Het apparaat kan een mobiele toepassing die wordt uitgevoerd in een eigen besturingssysteem, zoals Android, of die worden uitgevoerd in een browser, zoals JavaScript zijn.
+- **Openbare clientstroom**: Alleen gebruikersreferenties, die worden verzameld door een toepassing worden verzonden in de API-aanroep. De referenties van de toepassing worden niet verzonden.
+- **Toevoegen van nieuwe claims**: De inhoud van de ID-tokens kunnen worden gewijzigd om toe te voegen nieuwe claims. 
 
 De volgende stromen worden niet ondersteund:
 
-- **Server-naar-server**: het identity protection-systeem moet een betrouwbare IP-adres van de beller (de systeemeigen client) verzameld als onderdeel van de interactie. In een server-side-API-aanroep, zijn alleen van de server-IP-adres wordt gebruikt. Als een dynamische drempel voor mislukte verificaties wordt overschreden, kan het identity protection systeem een herhaalde IP-adres worden geïdentificeerd als een aanvaller.
-- **Vertrouwelijke clientstroom**: de client-ID van de toepassing is gevalideerd, maar het toepassingsgeheim is niet gevalideerd.
+- **Server-naar-server**: Het identity protection-systeem moet een betrouwbare IP-adres van de beller (de systeemeigen client) verzameld als onderdeel van de interactie. In een server-side-API-aanroep, zijn alleen van de server-IP-adres wordt gebruikt. Als een dynamische drempel voor mislukte verificaties wordt overschreden, kan het identity protection systeem een herhaalde IP-adres worden geïdentificeerd als een aanvaller.
+- **Vertrouwelijke clientstroom**: De client-ID van de toepassing is gevalideerd, maar het toepassingsgeheim is niet gevalideerd.
 
 ##  <a name="create-a-resource-owner-user-flow"></a>De gebruikersstroom van een resource-eigenaar maken
 
@@ -75,7 +75,7 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 | wachtwoord | Passxword1 |
 | grant_type | wachtwoord |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
 *Client_id* is de waarde die u eerder hebt genoteerd als de toepassings-ID. *Offline_access* is optioneel als u wilt een vernieuwingstoken ontvangen. De gebruikersnaam en het wachtwoord dat u moet referenties van een bestaande gebruiker in uw Azure AD B2C-tenant.
@@ -113,8 +113,8 @@ Bouw een POST-aanroep zoals hier wordt weergegeven met de informatie in de volge
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
-| Bron | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| Bron | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* en *resource* zijn de waarden die u eerder hebt genoteerd als de toepassings-ID. *Refresh_token* is het token dat u hebt ontvangen in de verificatie-aanroep die eerder is vermeld.

@@ -3,21 +3,21 @@ title: Ondersteuning voor Azure Active Directory B2C | Microsoft Docs
 description: Het bestand voor ondersteuningsaanvragen voor Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 04eae00d40470d5f6c992d9a0c8c9b0b49d7495f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 003a65e0c9cc70639850ab9bacef5df3762dedc3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007634"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852435"
 ---
-# <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Ondersteuningsaanvragen bestand
+# <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Bestand-ondersteuningsaanvragen
 U kunt ondersteuningsaanvragen indienen voor Azure Active Directory (Azure AD) B2C in Azure portal met behulp van de volgende stappen uit:
 
 1. Overschakelen van uw B2C-tenant naar een andere tenant met een Azure-abonnement dat is gekoppeld aan deze. Normaal gesproken de laatste is uw werknemers of de standaardtenant voor u gemaakt wanneer u zich hebt geregistreerd voor een Azure-abonnement. Zie voor meer informatie, [hoe een Azure-abonnement is gerelateerd aan Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
@@ -54,7 +54,7 @@ U kunt ondersteuningsaanvragen indienen voor Azure Active Directory (Azure AD) B
     ![Ondersteuning voor-Neem contact op met](./media/active-directory-b2c-support/support-contact.png)
 8. Nadat uw ondersteuningsaanvraag indient, u kunt dit controleren door te klikken op **Help en ondersteuning** op het Startboard, en vervolgens **ondersteuningsaanvragen beheren**.
 
-## <a name="known-issue-filing-a-support-request-in-the-context-of-a-b2c-tenant"></a>Bekende probleem: een ondersteuningsaanvraag in te dienen in de context van een B2C-tenant
+## <a name="known-issue-filing-a-support-request-in-the-context-of-a-b2c-tenant"></a>Bekende problemen: Een ondersteuningsaanvraag in te dienen in de context van een B2C-tenant
 Als u stap 2 hierboven hebt gemist, en u probeert te maken van een ondersteuningsaanvraag in de context van uw B2C-tenant, ziet u de volgende fout.
 
 > [!IMPORTANT]

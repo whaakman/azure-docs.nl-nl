@@ -1,5 +1,5 @@
 ---
-title: Avanced Media Encoder Premium Workflow-zelfstudies
+title: Geavanceerde zelfstudies voor Media Encoder Premium Workflow
 description: Dit document bevat scenario's die laten zien hoe u geavanceerde taken met Media Encoder Premium Workflow en ook hoe u werkstromen maken met Workflow Designer.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257359"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811961"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Geavanceerde zelfstudies voor Media Encoder Premium Workflow
 ## <a name="overview"></a>Overzicht
@@ -180,9 +180,9 @@ De bestandsnaam aan die wordt gebruikt, wordt bepaald door de eigenschap van het
 
 De werkstroom automatisch bepalen van de uitvoer de van naameigenschap van een expressie-bestand, klikt u op de knop naast de naam van het bestand (naast het pictogram van de map). Selecteer in de vervolgkeuzelijst "Expressie." Hiermee wordt de expressie-editor. Schakel eerst de inhoud van de editor.
 
-![Lege expressie-Editor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-empty-expression-editor.png)
+![Empty Expression Editor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-empty-expression-editor.png)
 
-*Lege expressie-Editor*
+*Empty Expression Editor*
 
 De expressie-editor kunt u een letterlijke waarde, gecombineerd met een of meer variabelen opgeven. Variabelen beginnen met een dollarteken. Als u de sleutel $ bereikt, ziet u een vervolgkeuzelijst met de keuze van beschikbare variabelen in de editor. In ons geval gebruiken we een combinatie van de uitvoer directory en de variabele van de naam base invoerbestand:
 
@@ -293,7 +293,7 @@ Maak een derde onderdeel van de uitvoer in een bestand voor het uitvoeren van de
 *Audio mixer uitvoer in een bestand maken*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Toevoegen van de. ISM SMIL-bestand
-Voor de dynamische verpakking om te werken in combinatie met zowel MP4-bestanden (en de MP4 alleen audio) in onze Media Services-activa, moeten we ook een manifestbestand (ook wel een 'SMIL'-bestand: gesynchroniseerd Multimedia Integration Language). Dit bestand wordt aan Azure Media Services wordt aangegeven welke MP4-bestanden zijn beschikbaar voor dynamische pakketten en welke van beide om te overwegen voor het audio streamen. Een typische manifestbestand voor een set MP4 van met een enkele audiostream ziet er zo uit:
+Voor de dynamische verpakking om te werken in combinatie met zowel MP4-bestanden (en de MP4 alleen audio) in onze Media Services-activa, moeten we ook een manifestbestand (ook wel een 'SMIL'-bestand: Integratie van uw Multimedia taal gesynchroniseerd). Dit bestand wordt aan Azure Media Services wordt aangegeven welke MP4-bestanden zijn beschikbaar voor dynamische pakketten en welke van beide om te overwegen voor het audio streamen. Een typische manifestbestand voor een set MP4 van met een enkele audiostream ziet er zo uit:
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -419,9 +419,9 @@ Een werkstroom die wordt gegenereerd vanaf [een multi-bitrate MP4-uitvoer van ee
 ### <a id="thumbnails_to__multibitrate_MP4__with_jpg"></a>Toe te voegen JPG-codering
 Het hart van onze miniaturen genereren is het onderdeel JPG Encoder kunt om uit te voeren, JPG-bestanden.
 
-![JPG-coderingsprogramma](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
+![JPG Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
 
-*JPG-coderingsprogramma*
+*JPG Encoder*
 
 Geen echter rechtstreeks verbinding maken onze stream niet-gecomprimeerde Video uit de invoer van Media-bestand in het JPG-coderingsprogramma. In plaats daarvan wordt de verwacht op afzonderlijke frames worden overgedragen. Dit kunnen we doen via het onderdeel Video Frame-Gate.
 
@@ -692,8 +692,8 @@ Voordat we de cliplist XML-code die wordt gegenereerd tijdens het opstarten van 
 
 Eerst moeten we een manier om te bepalen vanaf het moment waarop tot het moment waarop we willen de video knippen. Als u wilt dit gemakkelijk de gebruiker minder technische van de werkstroom, publiceert u twee eigenschappen in de hoofdmap van de grafiek. U doet dit door met de rechtermuisknop op het ontwerpoppervlak voor pijplijnen en selecteer 'Eigenschap toevoegen':
 
-* Eerste eigenschap: "ClippingTimeStart" van het type: "TIJDCODE"
-* Tweede eigenschap: "ClippingTimeEnd" van het type: "TIJDCODE"
+* Eerste eigenschap: "ClippingTimeStart" van het type: "TIMECODE"
+* Tweede eigenschap: "ClippingTimeEnd" van het type: "TIMECODE"
 
 ![Dialoogvenster Eigenschappen voor knippen begintijd toevoegen](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

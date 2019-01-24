@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 15354cd7472e7cffb7a40ca431bc23eb65b9a9a9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018378"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845891"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -212,16 +212,13 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
       ```
     * AD FS-omgevingen
 
-        * Meld u aan als een gebruiker via een webbrowser:  
-              ```azurecli  
-              az login
-              ```
         * Meld u aan als een gebruiker via een webbrowser met de apparaatcode van een:  
-              ```azurecli  
-              az login --use-device-code
-              ```
-        > [!Note]  
-        >Met de opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
+           ```azurecli  
+           az login --use-device-code
+           ```
+
+           > [!NOTE]  
+           >Met de opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
 
         * Meld u aan als een service-principal:
         

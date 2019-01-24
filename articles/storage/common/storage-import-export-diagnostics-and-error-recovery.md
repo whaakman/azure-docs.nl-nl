@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 0d58a384a6ca7c249a3b0e8b690095202fe373a2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8a5c25cd5836c3bde630684eff24da7dc8b62fc6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413614"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855802"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Herstel van diagnostische gegevens en de fout voor Azure Import/Export-taken
-Voor elk station dat is verwerkt, wordt in de Azure Import/Export-service een foutenlogboek maakt in het bijbehorende opslagaccount. U kunt ook uitgebreide logboekregistratie inschakelen door in te stellen de `LogLevel` eigenschap `Verbose` bij het aanroepen van de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) bewerkingen.
+Voor elk station dat is verwerkt, wordt in de Azure Import/Export-service een foutenlogboek maakt in het bijbehorende opslagaccount. U kunt ook uitgebreide logboekregistratie inschakelen door in te stellen de `LogLevel` eigenschap `Verbose` bij het aanroepen van de [taak plaatsen](/rest/api/storageimportexport/jobs) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs) bewerkingen.
 
  Standaard logboeken worden geschreven naar een container met de naam `waimportexport`. U kunt een andere naam opgeven door in te stellen de `DiagnosticsPath` eigenschap bij het aanroepen van de `Put Job` of `Update Job Properties` bewerkingen. De logboeken worden opgeslagen als blok-blobs met de volgende naamconventie gebruikt: `waies/jobname_driveid_timestamp_logtype.xml`.
 

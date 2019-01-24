@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 6d679cc3d24e2f0f2cb79eb2c9f02422d0818c80
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5cbe0c5e86a1dfd8cc3cb374f0ae7e1c67ae9d77
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215266"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828295"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Aanbevolen procedures voor het instellen van netwerken aan voor workloads die zijn gemigreerd naar Azure
 
@@ -164,7 +164,7 @@ Voor het implementeren van een site-naar-site-VPN, moet u een VPN-gateway in Azu
 - Elk VNet kan slechts één VPN-gateway hebben.
 - U kunt meerdere verbindingen naar dezelfde VPN-gateway maken. Wanneer u meerdere verbindingen maken, delen alle VPN-tunnels de bandbreedte van de gateway beschikbaar.
 - Elke Azure VPN-gateway bestaat uit twee instanties in een actieve stand-byconfiguratie.
-    - Voor gepland onderhoud of unplaned onderbreking van de actieve sessie van failover wordt uitgevoerd en de standby-instantie heeft ten opzichte van automatisch en wordt hervat de site-naar-site of de VNet-naar-VNet-verbinding. 
+    - Voor gepland onderhoud of niet-geplande onderbreking van de actieve sessie van failover wordt uitgevoerd en de standby-instantie heeft ten opzichte van automatisch en wordt hervat de site-naar-site of de VNet-naar-VNet-verbinding. 
     - De overschakeling zorgt ervoor dat een korte onderbreking.
     - Bij gepland onderhoud moet connectiviteit binnen 10 tot 15 seconden worden hersteld.
     - Voor niet-geplande problemen wordt herstellen van de verbinding niet langer, ongeveer 1 tot en met 1.5 minuten in het ergste geval.

@@ -3,7 +3,7 @@ title: Registreren voor self-service voor wachtwoord opnieuw instellen - Azure A
 description: Registreert gegevens van de verificatie voor Azure AD Self-service voor wachtwoord opnieuw instellen
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
-ms.openlocfilehash: f8b4fb8861760d2b5b10f61b3ab6a8c718f849b6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9e65e36e31f4b2b382fac2bd9898580be18900
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106891"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821665"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registreren voor de selfservice voor het opnieuw instellen van een wachtwoord
 
@@ -31,10 +31,10 @@ U kunt uw wachtwoord opnieuw instellen of uw account ontgrendelen door uzelf als
 1. Open de webbrowser op uw apparaat en Ga naar de [pagina voor de registratie voor wachtwoordherstel](https://aka.ms/ssprsetup).
 2. Voer uw gebruikersnaam en het wachtwoord die uw beheerder heeft.
 3. Afhankelijk van hoe uw IT-personeel dingen heeft geconfigureerd, zijn een of meer van de volgende opties beschikbaar voor u configureren en controleren. Als uw beheerder uw toestemming om uw informatie te gebruiken heeft, kunnen ze een deel van de gegevens voor u vullen.
-    * **Telefoon (werk)**: alleen de beheerder deze optie kan instellen.
-    * **Telefoon voor authenticatie**: deze optie instelt op een ander telefoonnummer op dat u toegang tot hebt. Een voorbeeld is een mobiele telefoon die een SMS-bericht of een aanroep kan ontvangen.
-    * **Verificatie-e-mailbericht**: deze optie instelt op een alternatief e-mailadres waartoe u toegang zonder het wachtwoord die u wilt instellen.
-    * **Vragen over de beveiliging**: deze lijst met vragen u moet beantwoorden door uw beheerder heeft goedgekeurd. U kan niet dezelfde vraag gebruiken of meer dan één keer te beantwoorden.
+    * **Telefoon (werk)**: Alleen de beheerder kan deze optie instellen.
+    * **Telefoon voor authenticatie**: Deze optie instelt op een ander telefoonnummer op dat u toegang tot hebt. Een voorbeeld is een mobiele telefoon die een SMS-bericht of een aanroep kan ontvangen.
+    * **Verificatie-e-mailbericht**: Deze optie instelt op een alternatief e-mailadres waartoe u toegang zonder het wachtwoord die u wilt instellen.
+    * **Vragen over de beveiliging**: Uw beheerder heeft goedgekeurd dat deze lijst met vragen u moet beantwoorden. U kan niet dezelfde vraag gebruiken of meer dan één keer te beantwoorden.
 4. Geef en controleer de informatie die uw beheerder vereist. Als meer dan één optie beschikbaar is, het is raadzaam dat u verschillende methoden registreert. Dit biedt u flexibiliteit wanneer u een van de methoden is niet beschikbaar. Een voorbeeld is wanneer u onderweg bent en u geen toegang tot uw zakelijke telefoon.
 
     ![Registreer verificatiemethoden en selecteer voltooien][Register]

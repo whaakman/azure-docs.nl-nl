@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: e658124dc6db2761fb475597a32e663949edfccf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1714a29e4b27f6363d748ceb180f56ba98c713bb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470746"
+ms.locfileid: "54809527"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens die worden vermeld in de volgende tabel kunt oplossen:
@@ -57,6 +57,7 @@ U kunt fouten opgetreden tijdens het gebruik van Azure Backup met de gegevens di
 | Back-up annuleren van de taak is mislukt: <br>Wacht totdat de taak is voltooid. |Geen |
 
 ## <a name="restore"></a>Herstellen
+
 | Foutdetails | Tijdelijke oplossing |
 | --- | --- |
 | Herstellen is mislukt vanwege een interne fout van de cloud. |<ol><li>De cloudservice waarnaar u wilt herstellen, is geconfigureerd met DNS-instellingen. U kunt controleren: <br>**$deployment = get-Azure-implementatie - servicenaam 'Servicenaam'-sleuf 'Productie' Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Als **adres** is geconfigureerd, wordt de DNS-instellingen zijn geconfigureerd.<br> <li>De cloudservice waarnaar u wilt herstellen, is geconfigureerd met **ReservedIP**, en bestaande VM's in de cloudservice in de status ' gestopt '. U kunt controleren dat een service in de cloud een IP-adres is gereserveerd met behulp van de volgende PowerShell-cmdlets: **$deployment = Get-Azure-implementatie - servicenaam 'servicenaam'-sleuf 'Productie' $dep. ReservedIPName**. <br><li>U probeert te herstellen van een virtuele machine met de volgende speciale netwerkconfiguraties in dezelfde cloudservice: <ul><li>Virtuele machines in onder de load balancer-configuratie, interne en externe.<li>Virtuele machines met meerdere gereserveerde IP-adressen. <li>Virtuele machines met meerdere NIC's. </ul><li>Selecteer een nieuwe cloudservice in de gebruikersinterface of Zie [herstellen overwegingen met betrekking tot](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) voor virtuele machines met speciale netwerkconfiguraties.</ol> |
@@ -100,7 +101,7 @@ Normaal gesproken is de VM-Agent al aanwezig in virtuele machines die zijn gemaa
 * Volg de instructies in het artikel voor het bijwerken van de Linux VM-Agent, [bijwerken van de Linux VM-Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
     > [!NOTE]
-    > Gebruik altijd de distributie van-opslagplaats om bij te werken van de agent. 
+    > Gebruik altijd de distributie van-opslagplaats om bij te werken van de agent.
 
     Download de agentcode van GitHub. Als de meest recente agent is niet beschikbaar voor uw distributie, neem dan contact op met de distributie-ondersteuning voor instructies over het verkrijgen van de meest recente agent. U kunt ook controleren op de meest recente [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) informatie in de GitHub-opslagplaats.
 

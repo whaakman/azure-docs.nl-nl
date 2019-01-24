@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188297"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810717"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiëntie die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Initiële volledige back-ups wordt gewoonlijk grote hoeveelheden gegevens overdragen en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / plaatsvindt worden overgedragen. Door het proces van het offline-seeding, kunt Azure Backup gebruiken schijven voor de offline back-upgegevens uploaden naar Azure.
@@ -63,7 +63,7 @@ Voordat u de werkstroom voor Offline back-up begint, moet u de volgende vereiste
     ![de resourceprovider registreren](./media/backup-azure-backup-import-export/registerimportexport.png)
 * Een tijdelijke locatie, dit kan een netwerkshare of een extra station op de computer, intern of extern, met voldoende schijfruimte voor het opslaan van uw eerste kopie wordt gemaakt. Bijvoorbeeld, als u back-up van een bestandsserver met 500 GB wilt, controleert u of het faseringsgebied ten minste 500 GB. (Een lager bedrag vanwege compressie wordt gebruikt.)
 * Bij het verzenden van schijven naar Azure, alleen 2,5 inch SSD, of 2,5-inch of 3,5-inch SATA II/III interne harde schijven gebruiken. Harde schijven kunt u maximaal 10 TB. Controleer de [documentatie voor Azure Import/Export-service](../storage/common/storage-import-export-requirements.md#supported-hardware) voor de meest recente set van schijven die ondersteuning biedt voor de service.
-* De SATA-schijven moeten worden aangesloten op een computer (aangeduid als een *kopie*) waar de kopie van de back-upgegevens van de *faseringslocatie* naar de SATA stations wordt uitgevoerd. Zorg ervoor dat Bitlocker is ingeschakeld op de *kopie*.
+* De SATA-schijven moeten worden aangesloten op een computer (aangeduid als een *kopie*) waar de kopie van de back-upgegevens van de *faseringslocatie* naar de SATA stations wordt uitgevoerd. Zorg ervoor dat BitLocker is ingeschakeld op de *kopie*.
 
 ## <a name="workflow"></a>Werkstroom
 Deze sectie beschrijft de werkstroom voor offline back-ups, zodat uw gegevens kunnen worden geleverd aan een Azure-datacenter en geüpload naar Azure Storage. Als u vragen over de Import-service of een aspect van het proces hebt, raadpleegt u de [importeren van documentatie voor service-overzicht](../storage/common/storage-import-export-service.md).
@@ -102,7 +102,7 @@ Deze sectie beschrijft de werkstroom voor offline back-ups, zodat uw gegevens ku
 ## <a name="prepare-sata-drives-and-ship-to-azure"></a>SATA-schijven voorbereiden en verzenden naar Azure
 De *AzureOfflineBackupDiskPrep* hulpprogramma bereidt de SATA-schijven die worden verzonden naar de dichtstbijzijnde Azure-datacenter. Dit hulpprogramma is beschikbaar in de installatiemap van de Azure Backup-agent (in het volgende pad):
 
-   *\Microsoft azure Recovery Services-Agent\Utils\\*
+   *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Ga naar de map en kopieer de **AzureOfflineBackupDiskPrep** map naar een andere computer waar de SATA-schijven zijn verbonden. Op de computer met de verbonden zijn met SATA-schijven, zorg ervoor dat:
 

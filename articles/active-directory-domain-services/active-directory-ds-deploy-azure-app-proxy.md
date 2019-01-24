@@ -4,7 +4,7 @@ description: Azure AD-toepassingsproxy gebruiken op Azure Active Directory Domai
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fc428ddc5c9a99e04f932dec620d99a23f366d28
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840296"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845432"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD-toepassingsproxy in een Azure AD Domain Services beheerde domein implementeren
 Azure Active Directory (AD)-toepassingsproxy helpt u externe werknemers te ondersteunen door het publiceren van on-premises toepassingen kunnen worden benaderd via internet. Met Azure AD Domain Services kunt u nu lift-and-shift oudere toepassingen die on-premises uitgevoerd met Azure Infrastructure Services. Vervolgens kunt u deze toepassingen met behulp van de Azure AD Application Proxy voor veilige externe toegang voor gebruikers in uw organisatie.
 
-Als u geen ervaring met de Azure AD-toepassingsproxy, meer informatie over deze functie met het volgende artikel: [het bieden van veilige externe toegang tot on-premises toepassingen](../active-directory/manage-apps/application-proxy.md).
+Als u geen ervaring met de Azure AD-toepassingsproxy, meer informatie over deze functie met het volgende artikel: [Het bieden van veilige externe toegang tot on-premises toepassingen](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -42,7 +42,7 @@ Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Taak 1: toepassingsproxy van Azure AD inschakelen voor uw Azure AD-directory
 Voer de volgende stappen uit om in te schakelen van de Azure AD-toepassingsproxy voor Azure Active directory.
 
-1. Meld u aan als beheerder aan in de [Azure-portal](https://portal.azure.com).
+1. Meld u aan als beheerder in de [Azure-portal](https://portal.azure.com).
 
 2. Klik op **Azure Active Directory** om een overzicht van de directory. Klik op **bedrijfstoepassingen**.
 
@@ -96,9 +96,9 @@ Eerder, een Windows Server-machine ingericht en deze toegevoegd aan het beheerde
 ## <a name="next-steps"></a>Volgende stappen
 U hebt de Azure AD-toepassingsproxy instellen en deze geïntegreerd met uw Azure AD Domain Services beheerde domein.
 
-* **Migreren van uw toepassingen op virtuele machines van Azure:** kunt u lift-and-shift uw toepassingen van on-premises servers naar virtuele Azure-machines die zijn gekoppeld aan uw beheerde domein. In dat geval kunt u het beleid van de infrastructuurkosten van servers on-premises uitgevoerd.
+* **Uw toepassingen op virtuele Azure-machines migreren:** U kunt lift-and-shift uw toepassingen van on-premises servers naar virtuele Azure-machines die zijn gekoppeld aan uw beheerde domein. In dat geval kunt u het beleid van de infrastructuurkosten van servers on-premises uitgevoerd.
 
-* **Toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy:** publiceren van toepassingen die worden uitgevoerd op uw Azure virtual machines met behulp van de Azure AD-toepassingsproxy. Zie voor meer informatie, [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
+* **Met Azure AD-toepassingsproxy-toepassingen publiceren:** Publiceren van toepassingen die worden uitgevoerd op uw Azure virtual machines met behulp van de Azure AD-toepassingsproxy. Zie voor meer informatie, [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Houd er rekening mee implementatie - publiceren IWA (geïntegreerde Windows-verificatie)-toepassingen met Azure AD-toepassingsproxy

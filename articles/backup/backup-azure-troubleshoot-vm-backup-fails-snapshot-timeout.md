@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353955"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816752"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -113,6 +113,26 @@ Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de g
 **Foutbericht**: Azure Backup biedt momenteel geen ondersteuning voor Standard-SSD-schijven <br>
 
 Azure Backup ondersteunt momenteel Standard-SSD-schijven alleen voor kluizen die zijn bijgewerkt naar [direct herstellen](backup-instant-restore-capability.md).
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - kan geen back-up initiëren omdat er momenteel een andere back-upbewerking wordt uitgevoerd.
+
+**Foutcode**: UserErrorBackupOperationInProgress <br>
+**Foutbericht**: Kan geen back-up initiëren omdat er momenteel een andere back-upbewerking wordt uitgevoerd<br>
+
+Uw recente back-uptaak is mislukt omdat er een bestaande back-uptaak uitgevoerd wordt. U kunt een nieuwe back-uptaak niet starten, totdat de huidige taak is voltooid. Zorg ervoor dat de back-upbewerking die momenteel bezig is voltooid voordat u activeert of een andere back-upbewerkingen plannen. Om te controleren of de status van de back-uptaken, voer de onderstaande stappen te volgen:
+
+1. Aanmelden bij Azure portal, klikt u op **alle services**. Typ de Recovery Services en klik op **Recovery Services-kluizen**. De lijst met Recovery Services-kluizen wordt weergegeven.
+2. Selecteer in de lijst met recovery services-kluizen een kluis waarin de back-up is geconfigureerd.
+3. Klik op het menu kluis dashboard **back-uptaken** de back-uptaken wordt weergegeven.
+
+    * Als een back-uptaak uitgevoerd wordt, wacht het voltooid of annuleer de back-uptaak.
+        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+    * Als u de back-up in een andere kluis hebt geconfigureerd, klikt u vervolgens controleert u of er zijn geen back-taken die worden uitgevoerd in de oude kluis. Als deze bestaat, annuleert u de back-uptaak.
+        * De back-uptaak Klik met de rechtermuisknop op de back-uptaak annuleren en klikt u op **annuleren** of gebruik [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Voer back-up opnieuw uit.
+
+Als de geplande back-upbewerking langer conflicteert met de volgende back-upconfiguratie duurt Bekijk vervolgens de [Best Practices](backup-azure-vms-introduction.md#best-practices), [back-upprestaties](backup-azure-vms-introduction.md#backup-performance) en [overweging herstellen ](backup-azure-vms-introduction.md#restore-considerations).
+
 
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen

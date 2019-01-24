@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164412"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844055"
 ---
 # <a name="create-and-clone-projects"></a>Projecten maken en klonen
 
@@ -30,7 +30,7 @@ Een project onderhoudt ook metagegevens en andere configuratie-instellingen die 
 
 Uw **Mijn projecten** dashboard op `https://notebooks.azure.com/<userID>/projects` is waar u weergeven, beheren en projecten maken:
 
-[![](media/my-projects-dashboard.png "Mijn dashboard projecten in Azure-notitieblokken")](media/my-projects-dashboard.png#lightbox)
+[![Mijn dashboard projecten in Azure-notitieblokken](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Wat u op het dashboard kunt doen, is afhankelijk van of u bent aangemeld met het account dat eigenaar is van de gebruikers-ID:
 
@@ -105,9 +105,9 @@ Voor het klonen van een project:
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Voorbeelden van notebooks verkennen](azure-notebooks-samples.md)
-- [Procedures: Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
-- [Procedures: Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
-- [Procedures: Een diavoorstelling](present-jupyter-notebooks-slideshow.md)
-- [Procedures: Werken met bestanden](work-with-project-data-files.md)
-- [Procedures: Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
-- [Procedures: Azure Machine Learning-Services gebruiken](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedure: Configureren en beheren van projecten](configure-manage-azure-notebooks-projects.md)
+- [Procedure: Installeren van pakketten van binnen een laptop](install-packages-jupyter-notebook.md)
+- [Procedure: Een diavoorstelling](present-jupyter-notebooks-slideshow.md)
+- [Procedure: Werken met bestanden](work-with-project-data-files.md)
+- [Procedure: Toegang tot gegevensresources](access-data-resources-jupyter-notebooks.md)
+- [Procedure: Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

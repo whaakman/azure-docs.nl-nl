@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262094"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812060"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Gebruik van meerdere invoerbestanden en eigenschappen van onderdeel met Premium Encoder
 ## <a name="overview"></a>Overzicht
@@ -268,13 +268,13 @@ Met extra nauwkeurige frame opmaak:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Voorbeeld 1: Een afbeelding die boven op de video Overlay
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Voorbeeld 1: Een afbeelding die boven op de video overlay
 
 ### <a name="presentation"></a>Presentatie
 Bekijk een voorbeeld waarin u een logo-installatiekopie op de video-invoer overlay wilt terwijl de video is gecodeerd. In dit voorbeeld wordt de invoervideo heet 'Microsoft_HoloLens_Possibilities_816p24.mp4' en het logo met de naam 'logo.png'. U moet de volgende stappen uitvoeren:
 
 * Een werkstroom-Asset maken met de werkstroombestand (Zie het volgende voorbeeld).
-* Maak een Media-activa, die twee bestanden bevat: MyInputVideo.mp4 als het primaire bestand en MyLogo.png.
+* Maak een Media-activa, waarin twee bestanden: MyInputVideo.mp4 als het primaire bestand en MyLogo.png.
 * Een taak verzenden naar de processor Media Encoder Premium Workflow media met de bovenstaande invoer assets en geeft u de volgende configuratietekenreeks.
 
 Configuratie:
@@ -430,7 +430,7 @@ U kunt de voorbeeldwerkstroom van downloaden [GitHub](https://github.com/Azure/a
 
 ## <a name="example-2--multiple-audio-language-encoding"></a>Voorbeeld 2: Meerdere audio taalcode
 
-Een voorbeeld van meerdere codering workfkow beschikbaar in de is taal [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+Een voorbeeld van meerdere coderingsworkflow nauwkeurig af te beschikbaar in de is taal [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
 Deze map bevat een voorbeeldwerkstroom die kan worden gebruikt om een MXF-bestand naar een asset multi MP4-bestanden met meerdere audionummers coderen.
 

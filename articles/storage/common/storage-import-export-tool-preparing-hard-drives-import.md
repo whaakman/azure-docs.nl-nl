@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 44d39dcfd8c271cc97a88da7d1f0bec84bd866df
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244029"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828363"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 
@@ -76,12 +76,12 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 ### <a name="dataset-csv-file-fields"></a>Velden van de DataSet CSV-bestanden
 
-| Veld | Beschrijving |
+| Veld | Description |
 | --- | --- |
-| BasePath | **(Vereist)**<br/>De waarde van deze parameter geeft de bron waar de gegevens worden geïmporteerd. Het hulpprogramma wordt recursief kopiëren alle gegevens die zich onder dit pad.<br><br/>**Toegestane waarden**: dit moet een geldig pad op de lokale computer of een geldig sharepad en toegankelijk is door de gebruiker moet zijn. Het mappad moet een absoluut pad (niet een relatief pad). Als het pad eindigt op "\\', een andere map staat voor een pad beëindigen zonder'\\' staat voor een bestand.<br/>Er is geen reguliere expressie is toegestaan in dit veld. Als het pad spaties bevat, plaatst u deze in ' ".<br><br/>**Voorbeeld**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| BasePath | **(Vereist)**<br/>De waarde van deze parameter geeft de bron waar de gegevens worden geïmporteerd. Het hulpprogramma wordt recursief kopiëren alle gegevens die zich onder dit pad.<br><br/>**Toegestane waarden**: Dit moet een geldig pad op de lokale computer of een geldig sharepad en toegankelijk is door de gebruiker moet zijn. Het mappad moet een absoluut pad (niet een relatief pad). Als het pad eindigt op "\\', een andere map staat voor een pad beëindigen zonder'\\' staat voor een bestand.<br/>Er is geen reguliere expressie is toegestaan in dit veld. Als het pad spaties bevat, plaatst u deze in ' ".<br><br/>**Voorbeeld**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **(Vereist)**<br/> Het pad naar de virtuele map van de bestemming in uw Windows Azure storage-account. De virtuele map kan of mogelijk niet al bestaat. Als deze niet bestaat, wordt een Import/Export-service maken.<br/><br/>Zorg ervoor dat geldige containernamen gebruiken bij het opgeven van doel-virtuele mappen of -blobs. Houd er rekening mee dat containernamen kleine letters moeten. Zie voor naamgevingsregels voor containers, [Naming en verwijzen naar Containers, Blobs en metagegevens](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Als er slechts hoofdmap is opgegeven, wordt de mapstructuur van de bron wordt gerepliceerd in de doel-blob-container. Als een andere directory-structuur dan de versie in de bron, meerdere rijen van de toewijzing van in CSV vereist is<br/><br/>Kunt u een container of een blob-voorvoegsel, zoals muziek/70s /. De doelmap moet beginnen met de containernaam van de, gevolgd door een slash '/', en kan desgewenst een virtuele blob-map die eindigt op '/'.<br/><br/>Wanneer de doelcontainer het root-container is, moet u expliciet de root-container, met inbegrip van de gewone slash, als $root opgeven /. Sinds de blobs onder de container hoofdmap niet opnemen '/' in hun namen, worden eventuele submappen in de bronmap niet gekopieerd als de doelmap is een container voor hoofdmap.<br/><br/>**Voorbeeld**<br/>Als het pad naar de bestemming is https://mystorageaccount.blob.core.windows.net/video, de waarde van dit veld mag video /  |
 | BlobType | **[Optioneel]**  blok &#124; pagina<br/>Import/Export-service ondersteunt momenteel 2 soorten Blobs. Pagina-blobs en BlobsBy blokkeren standaard die alle bestanden worden geïmporteerd als blok-Blobs. En \*.vhd en \*.vhdx moet worden geïmporteerd zoals Page BlobsThere een limiet voor de blok-blob en pagina-blob toegestane grootte geldt. Zie [opslag schaalbaarheidsdoelen](storage-scalability-targets.md) voor meer informatie.  |
-| Bestemming | **[Optioneel]**  naam &#124; niet overschrijven &#124; overschrijven <br/> Dit veld geeft de kopie-gedrag tijdens het importeren van Internet Explorer Wanneer gegevens worden geüpload naar het storage-account van de schijf. De beschikbare opties zijn: Wijzig de naam van&#124;matrixstijl&#124;niet overschrijven. Standaard gebruikt als 'naam' als niets opgegeven. <br/><br/>**Wijzig de naam van**: als een object met dezelfde naam aanwezig is, maakt u een kopie in doel.<br/>Overschrijven: het bestand overschreven met nieuwere-bestand. Het bestand met wins laatst gewijzigd.<br/>**Geen overschrijven**: slaat het schrijven naar het bestand als deze al aanwezig.|
+| Bestemming | **[Optioneel]**  naam &#124; niet overschrijven &#124; overschrijven <br/> Dit veld geeft de kopie-gedrag tijdens het importeren van Internet Explorer Wanneer gegevens worden geüpload naar het storage-account van de schijf. De beschikbare opties zijn: Wijzig de naam van&#124;matrixstijl&#124;niet overschrijven. Standaard gebruikt als 'naam' als niets opgegeven. <br/><br/>**Wijzig de naam van**: Als een object met dezelfde naam aanwezig is, maakt een kopie in doel.<br/>Overschrijven: het bestand overschreven met nieuwere-bestand. Het bestand met wins laatst gewijzigd.<br/>**Geen overschrijven**: Slaat het schrijven naar het bestand als al aanwezig zijn.|
 | MetadataFile | **[Optioneel]** <br/>De waarde in dit veld is het bestand met metagegevens die kan worden opgegeven als de moet de metagegevens van de objecten behoudt of aangepaste metagegevens bevatten. Pad naar het bestand met metagegevens voor de doel-blobs. Zie [Import/Export-service-metagegevens en eigenschappen bestandsindeling](../storage-import-export-file-format-metadata-and-properties.md) voor meer informatie |
 | PropertiesFile | **[Optioneel]** <br/>Pad naar het eigenschappenbestand voor de doel-blobs. Zie [Import/Export-service-metagegevens en eigenschappen bestandsindeling](../storage-import-export-file-format-metadata-and-properties.md) voor meer informatie. |
 
@@ -109,11 +109,11 @@ H,Format,SilentMode,Encrypt,
 
 | Velden | Waarde |
 | --- | --- |
-| Stationsletter | **(Vereist)**<br/> Elke schijf die wordt geleverd om het hulpprogramma omdat de bestemming moet een eenvoudige NTFS-volume op deze en toegewezen stationsaanduiding is toegekend.<br/> <br/>**Voorbeeld**: R of r |
-| FormatOption | **(Vereist)**  Indeling &#124; AlreadyFormatted<br/><br/> **Indeling**: alle gegevens op de schijf op te geven deze indeling. <br/>**AlreadyFormatted**: het hulpprogramma wordt overgeslagen opmaak wanneer deze waarde is opgegeven. |
-| SilentOrPromptOnFormat | **(Vereist)**  SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: deze waarde op te geven kunnen gebruikers het hulpprogramma uitvoeren in stille modus. <br/>**PromptOnFormat**: het hulpprogramma wordt de gebruiker om te bevestigen of de actie echt in elke indeling bedoeld is gevraagd.<br/><br/>Als niet is ingesteld, opdracht wordt afgebroken en foutbericht weergegeven: "onjuiste waarde voor SilentOrPromptOnFormat: geen ' |
-| Versleuteling | **(Vereist)**  Versleutelen &#124; AlreadyEncrypted<br/> De waarde van dit veld besluit welke schijf om te coderen en die niet op. <br/><br/>**Versleutelen**: hulpprogramma voor de schijf wordt geformatteerd. Als de waarde van veld 'FormatOption' is 'Vorm' is vervolgens deze waarde vereist 'Versleutelen' zijn. Als "AlreadyEncrypted" in dit geval is opgegeven, resultaat het een fout opgetreden 'Wanneer indeling is opgegeven, versleutelen moet ook worden opgegeven'.<br/>**AlreadyEncrypted**: hulpprogramma voor het station met de opgegeven in veld 'ExistingBitLockerKey' BitLockerKey worden gedecodeerd. Als waarde van het veld "FormatOption" "AlreadyFormatted" is, klikt u vervolgens deze waarde kan zijn 'Versleutelen' of "AlreadyEncrypted" |
-| ExistingBitLockerKey | **(Vereist)**  Als de waarde van veld 'Codering' is "AlreadyEncrypted"<br/> De waarde van dit veld is de BitLocker-sleutel die is gekoppeld aan de specifieke schijf. <br/><br/>Dit veld moet leeg zijn als de waarde van veld 'Codering' is 'Versleutelen' blijven.  Als BitLocker Key in dit geval is opgegeven, resultaat het een fout opgetreden 'Bitlocker Key mag niet worden opgegeven'.<br/>  **Voorbeeld**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| DriveLetter | **(Vereist)**<br/> Elke schijf die wordt geleverd om het hulpprogramma omdat de bestemming moet een eenvoudige NTFS-volume op deze en toegewezen stationsaanduiding is toegekend.<br/> <br/>**Voorbeeld**: R of r |
+| FormatOption | **[Required]** Format &#124; AlreadyFormatted<br/><br/> **Indeling**: Op te geven deze, zal de gegevens op de schijf formatteren. <br/>**AlreadyFormatted**: Het hulpprogramma wordt overgeslagen opmaak wanneer deze waarde is opgegeven. |
+| SilentOrPromptOnFormat | **(Vereist)**  SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Deze waarde op te geven, kunnen gebruikers het hulpprogramma uitvoeren in stille modus. <br/>**PromptOnFormat**: Het hulpprogramma wordt de gebruiker om te bevestigen of de actie echt in elke indeling bedoeld is gevraagd.<br/><br/>Als niet is ingesteld, opdracht wordt afgebroken en foutbericht weergegeven: ' Ongeldige waarde voor SilentOrPromptOnFormat: geen ' |
+| Versleuteling | **[Required]** Encrypt &#124; AlreadyEncrypted<br/> De waarde van dit veld besluit welke schijf om te coderen en die niet op. <br/><br/>**versleutelen**: Hulpprogramma zal het station te formatteren. Als de waarde van veld 'FormatOption' is 'Vorm' is vervolgens deze waarde vereist 'Versleutelen' zijn. Als "AlreadyEncrypted" in dit geval is opgegeven, resultaat het een fout opgetreden 'Wanneer indeling is opgegeven, versleutelen moet ook worden opgegeven'.<br/>**AlreadyEncrypted**: Hulpprogramma wordt het station met de opgegeven in veld 'ExistingBitLockerKey' BitLockerKey ontsleutelen. Als waarde van het veld "FormatOption" "AlreadyFormatted" is, klikt u vervolgens deze waarde kan zijn 'Versleutelen' of "AlreadyEncrypted" |
+| ExistingBitLockerKey | **(Vereist)**  Als de waarde van veld 'Codering' is "AlreadyEncrypted"<br/> De waarde van dit veld is de BitLocker-sleutel die is gekoppeld aan de specifieke schijf. <br/><br/>Dit veld moet leeg zijn als de waarde van veld 'Codering' is 'Versleutelen' blijven.  Als BitLocker Key in dit geval is opgegeven, resultaat het een fout opgetreden 'BitLocker Key mag niet worden opgegeven'.<br/>  **Voorbeeld**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>Voorbereiden van de schijf voor de import-taak
 
@@ -199,7 +199,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 
 ## <a name="waimportexport-parameters"></a>WAImportExport parameters
 
-| Parameters | Beschrijving |
+| Parameters | Description |
 | --- | --- |
 |     /j:&lt;JournalFile&gt;  | **Vereist**<br/> Pad naar het logboekbestand. Een logboekbestand houdt een set schijven en de voortgang van de records in deze schijven voorbereiden. Het logboekbestand moet altijd worden opgegeven.  |
 |     schakeloptie/LOGDIR op:&lt;LogDirectory&gt;  | **Optioneel**. De logboekmap.<br/> Uitgebreide logboekbestanden, evenals een aantal tijdelijke bestanden naar deze map geschreven. Als dat niet wordt opgegeven, de huidige directory gebruikt als de logboekmap. De logboekmap kan slechts één keer worden opgegeven voor de dezelfde logboekbestand.  |
@@ -207,17 +207,17 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     / ResumeSession  | Optioneel. Als de laatste kopieersessie is beëindigd, kan deze parameter worden opgegeven om te hervatten van de sessie.   |
 |     / AbortSession  | Optioneel. Als de laatste kopieersessie is beëindigd, kan deze parameter worden opgegeven om af te breken de sessie.  |
 |     /sn:&lt;StorageAccountName&gt;  | **Vereist**<br/> Alleen van toepassing op RepairImport en RepairExport. De naam van het storage-account.  |
-|     /SK:&lt;StorageAccountKey&gt;  | **Vereist**<br/> De sleutel van het opslagaccount. |
-|     / InitialDriveSet:&lt;driveset.csv&gt;  | **Vereiste** bij het uitvoeren van de eerste kopieersessie<br/> Een CSV-bestand met een lijst met schijven om voor te bereiden.  |
-|     / AdditionalDriveSet:&lt;driveset.csv&gt; | **Vereiste**. Wanneer het toevoegen van schijven aan de huidige kopieersessie. <br/> Een CSV-bestand met een lijst van extra schijven moeten worden toegevoegd.  |
+|     /sk:&lt;StorageAccountKey&gt;  | **Vereist**<br/> De sleutel van het opslagaccount. |
+|     /InitialDriveSet:&lt;driveset.csv&gt;  | **Vereiste** bij het uitvoeren van de eerste kopieersessie<br/> Een CSV-bestand met een lijst met schijven om voor te bereiden.  |
+|     /AdditionalDriveSet:&lt;driveset.csv&gt; | **Vereiste**. Wanneer het toevoegen van schijven aan de huidige kopieersessie. <br/> Een CSV-bestand met een lijst van extra schijven moeten worden toegevoegd.  |
 |      r:&lt;RepairFile&gt; | **Vereiste** alleen van toepassing op RepairImport en RepairExport.<br/> Pad naar het bestand voor het bijhouden van herstel wordt uitgevoerd. Elk station moet slechts één herstel-bestand hebben.  |
-|     / d:&lt;TargetDirectories&gt; | **Vereiste**. Alleen van toepassing op RepairImport en RepairExport. Voor RepairImport, een of meer mappen voor gescheiden door puntkomma's om te herstellen; Voor RepairExport, één map te herstellen, bijvoorbeeld de hoofdmap van het station.  |
-|     / CopyLogFile:&lt;DriveCopyLogFile&gt; | **Vereiste** alleen van toepassing op RepairImport en RepairExport. Pad naar het logboekbestand van de schijf kopiëren (uitgebreide of fout).  |
-|     / ManifestFile:&lt;DriveManifestFile&gt; | **Vereiste** alleen van toepassing op RepairExport.<br/> Pad naar het manifestbestand van het station.  |
-|     / PathMapFile:&lt;DrivePathMapFile&gt; | **Optioneel**. Alleen van toepassing op RepairImport.<br/> Pad naar het bestand met toewijzingen van paden ten opzichte van de hoofdmap van station locaties van de werkelijke bestanden (door tabs gescheiden). Als eerste wordt opgegeven, wordt met bestandspaden met lege doelen worden ingevuld wat betekent dat ze niet zijn gevonden in TargetDirectories, de toegang is geweigerd, met een ongeldige naam, of ze bestaan in meerdere mappen. Het toewijzingsbestand pad kan handmatig worden bewerkt om op te nemen van de juiste doelpaden en opnieuw worden opgegeven voor de bestandspaden correct worden omgezet met het hulpprogramma.  |
+|     /d:&lt;TargetDirectories&gt; | **Vereiste**. Alleen van toepassing op RepairImport en RepairExport. Voor RepairImport, een of meer mappen voor gescheiden door puntkomma's om te herstellen; Voor RepairExport, één map te herstellen, bijvoorbeeld de hoofdmap van het station.  |
+|     /CopyLogFile:&lt;DriveCopyLogFile&gt; | **Vereiste** alleen van toepassing op RepairImport en RepairExport. Pad naar het logboekbestand van de schijf kopiëren (uitgebreide of fout).  |
+|     /ManifestFile:&lt;DriveManifestFile&gt; | **Vereiste** alleen van toepassing op RepairExport.<br/> Pad naar het manifestbestand van het station.  |
+|     /PathMapFile:&lt;DrivePathMapFile&gt; | **Optioneel**. Alleen van toepassing op RepairImport.<br/> Pad naar het bestand met toewijzingen van paden ten opzichte van de hoofdmap van station locaties van de werkelijke bestanden (door tabs gescheiden). Als eerste wordt opgegeven, wordt met bestandspaden met lege doelen worden ingevuld wat betekent dat ze niet zijn gevonden in TargetDirectories, de toegang is geweigerd, met een ongeldige naam, of ze bestaan in meerdere mappen. Het toewijzingsbestand pad kan handmatig worden bewerkt om op te nemen van de juiste doelpaden en opnieuw worden opgegeven voor de bestandspaden correct worden omgezet met het hulpprogramma.  |
 |     / ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Vereiste**. Alleen van toepassing op PreviewExport.<br/> Pad naar het XML-bestand opslaan met lijst met blob-paden of blob-voorvoegsels voor pad voor de blobs worden geëxporteerd. De bestandsindeling is hetzelfde als de blob lijst met blob-indeling in de taak Put-bewerking van de Import/Export-service REST-API.  |
 |     / DriveSize:&lt;DriveSize&gt; | **Vereiste**. Alleen van toepassing op PreviewExport.<br/>  Grootte van schijven om te worden gebruikt voor het exporteren. Bijvoorbeeld: 500 GB, 1,5 TB. Opmerking: 1 GB = 1.000.000.000 bytes1 TB = 1,000,000,000,000 bytes  |
-|     / Gegevensset:&lt;dataset.csv&gt; | **Vereist**<br/> Een CSV-bestand met een lijst met mappen en/of een lijst met bestanden moeten worden gekopieerd naar de doel-stations.  |
+|     /DataSet:&lt;dataset.csv&gt; | **Vereist**<br/> Een CSV-bestand met een lijst met mappen en/of een lijst met bestanden moeten worden gekopieerd naar de doel-stations.  |
 |     /silentmode  | **Optioneel**.<br/> Als dat niet is opgegeven, wordt herinneren dat u de vereiste van schijven en moet je bevestigen om door te gaan.  |
 
 ## <a name="tool-output"></a>De uitvoer van hulpprogramma
@@ -341,7 +341,7 @@ Een of meer lege 2,5-inch of 3,5-inch SATA of III of SSD harde schijven die zijn
 
 #### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>Hoe kan ik BitLocker inschakelen op mijn computer?
 
-Er is een eenvoudige manier om te controleren met de rechtermuisknop op het systeemstation. Hierin ziet u opties voor Bitlocker als de mogelijkheid is ingeschakeld. Als deze uitgeschakeld is, kunt u deze niet weergegeven.
+Er is een eenvoudige manier om te controleren met de rechtermuisknop op het systeemstation. Hierin ziet u opties voor BitLocker als de mogelijkheid is ingeschakeld. Als deze uitgeschakeld is, kunt u deze niet weergegeven.
 
 ![BitLocker controleren](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 

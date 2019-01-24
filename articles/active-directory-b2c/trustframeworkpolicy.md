@@ -3,19 +3,19 @@ title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Geef het TrustFrameworkPolicy-element van een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d54d4eccc89313a8e109d1598078cdb1cc5d7a14
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 820e98b200071c95dc3d9506dd0cd0bbe86e2aae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836726"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849682"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,7 +38,7 @@ Een aangepast beleid wordt weergegeven als een of meer XML-bestanden, die in een
 
 De **TrustFrameworkPolicy** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Beschrijving |
+| Kenmerk | Vereist | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Ja | De schemaversie die moet worden gebruikt voor het uitvoeren van het beleid. De waarde moet liggen `0.3.0.0` |
 | TenantObjectId | Nee | De unieke id van de Azure Active Directory (Azure AD) B2C-tenant. |
@@ -88,7 +88,7 @@ Een beleid worden overgenomen van een ander beleid, een **BasePolicy** element m
 
 De **BasePolicy** element bevat de volgende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | De id van uw Azure AD B2C-tenant. |
 | PolicyId | 1:1 | De id van het bovenliggende beleid. |

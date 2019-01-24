@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 20bb0cb6982bcbea6b18989099322cfd3389b0b0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060105"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819634"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>IoT-apparaten verbinden met Azure: IoT Hub en Eventhubs
 
@@ -31,12 +31,13 @@ De volgende tabel bevat informatie over hoe de twee niveaus van IoT-Hub met Even
 | --- | --- | --- | --- |
 | Apparaat-naar-cloud-berichten | ![Selecteren][checkmark] | ![Selecteren][checkmark] | ![Selecteren][checkmark] |
 | Protocollen: HTTPS, AMQP, AMQP via webSockets | ![Selecteren][checkmark] | ![Selecteren][checkmark] | ![Selecteren][checkmark] |
-| Protocollen: MQTT, MQTT via webSockets | ![Selecteren][checkmark] | ![Selecteren][checkmark] |  |
+| Protocollen: MQTT-, MQTT via webSockets | ![Selecteren][checkmark] | ![Selecteren][checkmark] |  |
 | Id per apparaat | ![Selecteren][checkmark] | ![Selecteren][checkmark] |  |
 | Bestanden van apparaten uploaden | ![Selecteren][checkmark] | ![Selecteren][checkmark] |  |
 | Device Provisioning Service | ![Selecteren][checkmark] | ![Selecteren][checkmark] |  |
 | Cloud-naar-apparaat-berichten | ![Selecteren][checkmark] |  |  |
 | Dubbele apparaat- en Apparaatbeheer | ![Selecteren][checkmark] |  |  |
+| Apparaat-streams (preview) | ![Selecteren][checkmark] |  |  |
 | IoT Edge | ![Selecteren][checkmark] |  |  |
 
 Zelfs als de enige use-case opname van apparaat-naar-cloud-gegevens wordt sterk aangeraden met behulp van IoT Hub biedt een service die is ontworpen voor connectiviteit van IoT-apparaten. 

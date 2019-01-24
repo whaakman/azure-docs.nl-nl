@@ -3,22 +3,22 @@ title: Azure Service Bus messaging-entiteiten onderbreken | Microsoft Docs
 description: Onderbreken en opnieuw activeren van Azure Service Bus-bericht-entiteiten.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: b7ea8c14bfc3f2ba3720ad919d6c36ec50c3823e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854472"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845996"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Onderbreken en opnieuw activeren messaging-entiteiten (uitschakelen)
 
@@ -38,10 +38,10 @@ De portal kan alleen volledig uitgeschakeld wachtrijen. U kunt ook de verzenden 
 
 De statussen die kunnen worden ingesteld voor een wachtrij zijn:
 
--   **Actieve**: de wachtrij is actief.
--   **Uitgeschakelde**: de wachtrij is onderbroken.
--   **SendDisabled**: de wachtrij gedeeltelijk wordt onderbroken, klikt u met mogen worden ontvangen.
--   **ReceiveDisabled**: de wachtrij gedeeltelijk wordt onderbroken, klikt u met verzenden wordt toegestaan.
+-   **Actieve**: De wachtrij is actief.
+-   **Uitgeschakelde**: De wachtrij is onderbroken.
+-   **SendDisabled**: De wachtrij is gedeeltelijk onderbroken met mogen worden ontvangen.
+-   **ReceiveDisabled**: De wachtrij is gedeeltelijk onderbroken met verzenden wordt toegestaan.
 
 Voor abonnementen en -onderwerpen, alleen **Active** en **uitgeschakelde** kan worden ingesteld.
 

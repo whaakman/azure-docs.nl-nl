@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: cce2254ef54483e7d0c4d26fbc4b08de3b2366c3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001529"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825150"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -20,8 +20,8 @@ ms.locfileid: "54001529"
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functies en functionaliteit, waaronder het gebruik van Azure File Sync met Azure Files. Als u het antwoord op uw vraag niet ziet, u kunt contact met ons opnemen via de volgende kanalen (in steeds sneller groeiende volgorde):
 
 1. Het gedeelte met opmerkingen van dit artikel.
-2. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
-3. [Azure-bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
+2. [Azure Storage Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft Ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
 
 ## <a name="general"></a>Algemeen
@@ -98,7 +98,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="afs-conflict-resolution"></a>**Wat gebeurt er als hetzelfde bestand is gewijzigd op twee servers op ongeveer hetzelfde moment?**  
     Azure File Sync maakt gebruik van een strategie voor een eenvoudige conflictoplossing: we beide wijzigingen in bestanden die zijn gewijzigd op twee servers op hetzelfde moment behouden. De meest recent schriftelijke wijziging houdt u de naam van het oorspronkelijke bestand. Het oudere bestand heeft de 'bron'-machine en het aantal conflicten is toegevoegd aan de naam. Deze taxonomie volgt: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< Ext\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     De eerste conflicterende CompanyReport.docx zou bijvoorbeeld CompanyReport CentralServer.docx worden als CentralServer is waar de oudere schrijven is opgetreden. De naam van het tweede conflict zou CompanyReport-CentralServer-1.docx.
 
@@ -130,8 +130,8 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 **Welke bestanden of mappen worden automatisch uitgesloten door Azure File Sync?**  
     Azure File Sync niet standaard van toepassing op de volgende bestanden:
     * desktop.ini
-    * Thumbs.DB
-    * ehthumbs.DB
+    * thumbs.db
+    * ehthumbs.db
     * ~$\*.\*
     * \*.laccdb
     * \*.tmp
@@ -140,7 +140,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     De volgende mappen worden standaard ook uitgesloten:
 
     * \System volume Information
-    * \$PRULLENBAK. OPSLAGLOCATIE
+    * \$RECYCLE.BIN
     * \SyncShareState
 
 * <a id="afs-os-support"></a>
@@ -298,7 +298,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     
     Als u een functie van de momentopname van bestand nodig hebt, laat het ons weten op [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 
-* <a id="encypted-snapshots"></a>
+* <a id="encrypted-snapshots"></a>
 **Kan ik momentopnamen van shares van een versleutelde-bestandsshare maken?**  
     U kunt een momentopname van een share van de Azure-bestandsshares waarvoor versleuteling ' at rest ' ingeschakeld op te nemen. U kunt bestanden vanuit een share-momentopname herstellen naar een versleutelde bestandsshare. Als uw bestandsshare is versleuteld, worden een momentopname van de share ook versleuteld.
 

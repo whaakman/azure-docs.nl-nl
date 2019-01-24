@@ -8,15 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0f8d6290e779872d73b0cf7a9d0d820d2ea5e007
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741586"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848152"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-patches voor HDInsight 
-HDInsight zorgt patchen van het besturingssysteem van de onderliggende virtuele machines die door HDInsight-clusters worden gebruikt als een beheerde Apache Hadoop-service. Vanaf 1 augustus 2016 hebben we de Gast OS beleid toepassen van patches voor HDInsight op basis van Linux-clusters (versie 3.4 of hoger) gewijzigd. Het doel van het nieuwe beleid is aanzienlijk minder opnieuw te worden opgestart vanwege het toepassen van patches. Het nieuwe beleid blijft patch virtuele machines (VM's) op Linux-clusters elke maandag of donderdag begint bij 12: 00 uur UTC gespreide wijze op knooppunten in een bepaald cluster. Een virtuele machine wordt echter alleen opnieuw opgestart maximaal eenmaal per 30 dagen vanwege Gast OS-patches. Bovendien de eerste keer opnieuw opstarten voor een nieuw cluster gebeurt niet eerder dan 30 dagen na het maken van het cluster. Patches worden van kracht nadat de virtuele machines opnieuw zijn opgestart.
+
+> [!IMPORTANT]
+> Ubuntu-installatiekopieën beschikbaar voor nieuwe HDInsight-cluster maken binnen drie maanden van het worden gepubliceerd. Vanaf januari 2019, actieve clusters zijn **niet** automatisch gevuld. Klanten moeten scriptacties of andere methoden gebruiken voor het vullen van een actief cluster.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Het configureren van de OS-patches plannen voor Linux gebaseerde HDInsight-clusters
 De virtuele machines in een HDInsight-cluster moet opnieuw worden opgestart af en toe zodat belangrijke beveiligingspatches kunnen worden geïnstalleerd. Vanaf 1 augustus 2016 krijgen nieuwe Linux gebaseerde HDInsight-clusters (versie 3.4 of hoger) opnieuw moeten worden opgestart met behulp van het volgende schema:

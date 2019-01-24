@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261227"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827938"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -175,7 +175,7 @@ Als u wilt beperken van het apparaat Azure Migrate, die u wilt uitsluiten van de
 
 - Map met de binaire bestanden voor Azure Migrate-Service. Sluit alle submappen.
   %ProgramFiles%\ProfilerService  
-- Azure Migrate Web-toepassing. Sluit alle submappen.
+- Azure Migrate-webtoepassing. Sluit alle submappen.
   %SystemDrive%\inetpub\wwwroot
 - Lokale Cache voor de Database en logboekbestanden. Azure migrate-service moet RW toegang tot deze map.
   %SystemDrive%\Profiler
@@ -286,7 +286,7 @@ Voor het verzamelen van Event Tracing voor Windows, het volgende doen:
 | 751       | UnableToConnectToServer        | Kan geen verbinding maken met de vCenter-server %Name; vanwege de fout %ErrorMessage;     | Controleer het foutbericht voor meer informatie.                                                             | Los het probleem op en probeer het opnieuw.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | De server %Name; is geen vCenter-server.                                  | Geef de gegevens van de vCenter-server op.                                                                       | Probeer de bewerking opnieuw uit te voeren met de juiste vCenter-serverdetails.                                                                                   |
 | 753       | InvalidLoginCredentials        | Kan geen verbinding maken met de vCenter-server %Name; vanwege een fout: %ErrorMessage; | De verbinding met de vCenter-server is mislukt wegens ongeldige aanmeldingsreferenties.                             | Controleer of de opgegeven aanmeldingsgegevens juist zijn.                                                                                    |
-| 754       | NoPerfDataAvaialable           | De prestatiegegevens zijn niet beschikbaar.                                               | Niveau van de statistieken in vCenter-Server controleren. Het moet worden ingesteld op 3 om prestatiegegevens beschikbaar. | Wijzig het statistiekniveau naar 3 (voor een duur van 5 minuten, 30 minuten en 2 uur) en probeer het na ten minste een dag opnieuw.                   |
+| 754       | NoPerfDataAvailable           | De prestatiegegevens zijn niet beschikbaar.                                               | Niveau van de statistieken in vCenter-Server controleren. Het moet worden ingesteld op 3 om prestatiegegevens beschikbaar. | Wijzig het statistiekniveau naar 3 (voor een duur van 5 minuten, 30 minuten en 2 uur) en probeer het na ten minste een dag opnieuw.                   |
 | 756       | NullInstanceUUID               | Er is een machine met null InstanceUUID aangetroffen                                  | vCenter-server bevat mogelijk een onjuist object.                                                      | Los het probleem op en probeer het opnieuw.                                                                                                           |
 | 757       | VMNotFound                     | Kan de virtuele machine niet vinden                                                  | Virtuele machines kunnen worden verwijderd: %VMID;                                                                | Zorg ervoor dat de virtuele machines zijn geselecteerd en er een bereik voor de vCenter-voorraad bestaat tijdens de detectie                                      |
 | 758       | GetPerfDataTimeout             | Er is een time-out opgetreden voor de VCenter-aanvraag. Bericht % Message;                                  | Referenties van de vCenter-server zijn onjuist                                                              | Controleer de vCenter-serverreferenties en zorg ervoor dat de vCenter-Server bereikbaar is. De bewerking opnieuw proberen. Neem contact op met de ondersteuning als het probleem zich blijft voordoen. |
