@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344309"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828176"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video-en audiobestanden analyseren
 
@@ -55,7 +55,7 @@ De vooraf gedefinieerde instellingen kunt u meerdere audio en video-inzichten op
 * Visual inhoudstoezicht – het gedeelte van de video's die zijn gemarkeerd als volwassene of ongepaste in de natuur
 * Aantekening – een resultaat van de video's op basis van een vooraf gedefinieerde objectmodel aantekeningen te maken
 
-##  <a name="insightsjson-elements"></a>Insights.JSON elementen
+##  <a name="insightsjson-elements"></a>insights.json elements
 
 De uitvoer bevat een JSON-bestand (insights.json) met de inzichten die zijn gevonden in de video of audio. De json, kan de volgende elementen bevatten:
 
@@ -140,7 +140,7 @@ Voorbeeld:
   ],
 ```
 
-### <a name="faces"></a>gezichten
+### <a name="faces"></a>faces
 
 |Name|Description|
 |---|---|
@@ -148,7 +148,7 @@ Voorbeeld:
 |naam|De naam van pictogramtitel. 'Onbekende #0', een geïdentificeerde beroemdheden of een persoon met de klant kan zijn.|
 |vertrouwen|De face id vertrouwen.|
 |description|Een beschrijving van de beroemdheden. |
-|thumbnalId|De ID van de miniatuur van die gezicht.|
+|thumbnailId|De ID van de miniatuur van die gezicht.|
 |knownPersonId|Als dit een bekende persoon, in de interne-ID is.|
 |referenceId|Als het een Bing beroemdheden, het Bing-ID.|
 |referenceType|Op dit moment alleen Bing.|
@@ -190,7 +190,7 @@ Voorbeeld:
 |Name|Description|
 |---|---|
 |id|Id van de schermopname.|
-|Hoofdframes|Een lijst met belangrijke frames in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Belangrijkste frames-exemplaren beschikken over een thumbnailId veld met de miniatuur van het sleutelframes-id.|
+|keyFrames|Een lijst met belangrijke frames in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Belangrijkste frames-exemplaren beschikken over een thumbnailId veld met de miniatuur van het sleutelframes-id.|
 |instanties|Een lijst met tijdsbereiken van deze schermopname (opnamen hebben slechts 1 exemplaar).|
 
 ```json

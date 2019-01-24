@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329987"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828091"
 ---
 # <a name="publish-azure-application-offer"></a>Aanbieding voor Azure-toepassing publiceren
 
@@ -36,7 +36,7 @@ De volgende tabel geeft een lijst van en beschrijft elke stap publiceren en bied
 |  **Publiceren stap**           | **tijd**    | **Beschrijving**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Valideer de vereisten         | < 15 min    | Biedt informatie en bieden instellingen worden gevalideerd.                        |
-| Beïnvloed omzet instellingen valideren | < 15 min  |      |
+| Beïnvloed omzet instellingen valideren | < 15 min  | Azure-resource gebruik attribution voor de aanbieding is ingeschakeld.             |
 | Certificering                  | < 1 dag     | Aanbieding wordt geanalyseerd door het Team van Azure-certificering. De aanbieding is gescand op virussen, malware, veiligheid, compatibiliteit en beveiligingsproblemen met zich mee. De aanbieding wordt gecontroleerd om te zien dat het voldoet aan alle criteria in de in aanmerking te komen. Zie voor meer informatie, [vereisten](./cpp-prerequisites.md). Feedback wordt gegeven als er een probleem is gevonden. |
 | Test Drive niet valideren          | < 2 uur   | (Optioneel) Als een Test Drive aanwezig is, wordt Microsoft valideert dat kan worden gedistribueerd en gerepliceerd.  |
 | Pakketten en lead generatie registratie | < 1 uur  | Technische activa van de aanbieding zijn verpakt voor gebruik door de klant en de lead-systemen worden geconfigureerd en geïmplementeerd. |

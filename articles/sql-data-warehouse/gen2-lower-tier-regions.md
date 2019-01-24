@@ -9,12 +9,12 @@ ms.component: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d3c42c13e58156013167b8570a8845ce9de08b3b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aa513617f24201dfb341f9ab72ab9e3a221450d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882451"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819353"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Azure SQL Data Warehouse Gen2-ondersteuning voor lagere rekenlagen
 
@@ -29,7 +29,7 @@ De portal biedt momenteel geen ondersteuning de implementatie van of naar de ond
 Klanten kunnen kiezen voor het implementeren van een nieuwe Gen2 instantie of een upgrade van een bestaand Gen1 datawarehouse-exemplaar om de flexibiliteit en prestaties van de volgende generatie datawarehousing. 
 
 Probeer [Azure SQL datawarehouse Gen2 met geoptimaliseerde Rekenlaag.](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44)
-Upgrade [Azure SQL datawarehouse Compute geoptimaliseerd Gen1 naar Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) Bekijk Azure SQL Data Warehouse Gen2 in actie in deze [video van Microsoft Mechanics.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
+Upgrade [Azure SQL Data Warehouse Compute geoptimaliseerd Gen1 naar Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) Bekijk Azure SQL Data Warehouse Gen2 in actie in deze [video van Microsoft Mechanics.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
 
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>Ondersteunde regio's voor lagere rekenlagen
@@ -52,4 +52,4 @@ Upgrade [Azure SQL datawarehouse Compute geoptimaliseerd Gen1 naar Gen2](https:/
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie](upgrade-to-latest-generation.md) over de prestaties optimaliseren door te upgraden van SQL Data Warehouse. 
+- [Meer informatie](upgrade-to-latest-generation.md) over de prestaties van Compute geoptimaliseerd door te upgraden van SQL Data Warehouse. 

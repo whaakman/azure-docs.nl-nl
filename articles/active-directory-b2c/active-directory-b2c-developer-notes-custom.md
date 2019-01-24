@@ -3,19 +3,19 @@ title: Opmerkingen voor ontwikkelaars over het gebruik van aangepaste beleidsreg
 description: Opmerkingen voor ontwikkelaars over het configureren en onderhouden van Azure AD B2C met aangepast beleid.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e0a3a295350fc75915cd839d4ac0da8e03866907
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272696"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844973"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Opmerkingen bij de release voor de openbare preview van Azure Active Directory B2C aangepast beleid
 De functieset aangepast beleid is nu beschikbaar voor evaluatie in openbare preview voor alle Azure Active Directory B2C (Azure AD B2C)-klanten. Deze functieset is gericht op ontwikkelaars Geavanceerd Identiteitsbeheer voor het bouwen van de meest complexe identiteitsoplossingen.  
@@ -59,7 +59,7 @@ Aangepaste beleid/Identity-Ervaringsframework mogelijkheden zijn onder constante
 Stel vragen op Stack Overflow op [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
-### <a name="identity-providers-tokens-protocols"></a>ID-Providers, Tokens, protocollen
+### <a name="identity-providers-tokens-protocols"></a>Identity Providers, Tokens, Protocols
 Interfaces met externe onderdelen en toepassingen
 
 | Functie | Ontwikkeling | Preview | Algemene beschikbaarheid | Opmerkingen |

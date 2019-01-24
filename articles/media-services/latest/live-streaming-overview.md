@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 6f7c6c2265fe13eb50aa900e9a51e11edfd90201
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 3be7ad84cf0d45276c136465d7247ec43621aceb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382086"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810955"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Live streamen met Azure Media Services v3
 
@@ -34,17 +34,25 @@ In dit artikel biedt een gedetailleerd overzicht, richtlijnen en diagrammen van 
 
 Hier volgen de stappen voor een live streaming-werkstroom:
 
-1. Maak een **Live evenement**.
-2. Maak een nieuwe **Asset** object.
-3. Maak een **uitvoer Live** en gebruikt u de assetnaam van de die u hebt gemaakt.
-4. Maak een **beleid Streaming** en **inhoud sleutel** als u van plan bent voor het versleutelen van uw inhoud met DRM.
-5. Als geen DRM, maakt een **Streaming-Locator gemaakt** met de ingebouwde **beleid Streaming** typen.
-6. Lijst van de paden op de **beleid Streaming** om terug te gaan de URL's te gebruiken (dit zijn deterministische).
-7. Ophalen van de hostnaam voor de **Streaming-eindpunt** u wilt streamen vanaf (Zorg ervoor dat de Streaming-eindpunt wordt uitgevoerd). 
-8. De URL uit stap 6 worden gecombineerd met de hostnaam in stap 7 om de volledige URL te achterhalen.
-9. Als u wilt stoppen met het maken van uw **Live gebeurtenis** zichtbaar, dat u wilt stoppen met het streamen van de gebeurtenis door het verwijderen van de **Streaming-Locator gemaakt**.
+1. Zorg ervoor dat de **streamingendpoint zo** wordt uitgevoerd. 
+2. Maak een **LiveEvent**. 
+  
+    Bij het maken van de gebeurtenis, kunt u op automatisch starten het. U kunt ook kun u de gebeurtenis wanneer u klaar bent om te streamen.<br/> Wanneer autostart is ingesteld op true, wordt de Live gebeurtenis wordt gestart rechts nadat is gemaakt. Dit betekent dat, de facturering begint zodra de Live gebeurtenis wordt uitgevoerd. U moet stoppen expliciet aanroepen op de resource LiveEvent verder facturering is gestopt. Zie voor meer informatie, [LiveEvent Staten en facturering](live-event-states-billing.md).
+3. De opname-URL's ophalen en uw on-premises coderingsprogramma voor het gebruik van de URL voor het verzenden van de bijdrage feed configureren.<br/>Zie [aanbevolen live coderingsprogramma's](recommended-on-premises-live-encoders.md).
+4. De voorbeeld-URL ophalen en deze gebruiken om te controleren dat de invoer van het coderingsprogramma daadwerkelijk worden ontvangen.
+5. Maak een nieuwe **Asset** object.
+6. Maak een **LiveOutput** en gebruikt u de assetnaam van de die u hebt gemaakt.
 
-Zie voor meer informatie, een [Live streaming zelfstudie](stream-live-tutorial-with-api.md) die is gebaseerd op de [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) voorbeeld.
+     De **LiveOutput** worden gearchiveerd de stroom in de **Asset**.
+7. Maak een **StreamingLocator** met de ingebouwde **StreamingPolicy** typen.
+
+    Als u van plan bent uw inhoud coderen, raadpleegt u [Content protection overzicht](content-protection-overview.md).
+8. Lijst van de paden op de **Streaming-Locator gemaakt** om terug te gaan de URL's te gebruiken (dit zijn deterministische).
+9. Ophalen van de hostnaam voor de **Streaming-eindpunt** u wilt streamen uit.
+10. De URL in stap 8 worden gecombineerd met de hostnaam in stap 9 om op te halen van de volledige URL.
+11. Als u wilt stoppen met het maken van uw **LiveEvent** zichtbaar, dat u wilt stoppen met het streamen van de gebeurtenis en verwijderen de **StreamingLocator**.
+
+Zie voor meer informatie de [Live streaming zelfstudie](stream-live-tutorial-with-api.md).
 
 ## <a name="overview-of-main-components"></a>Overzicht van de belangrijkste onderdelen
 
@@ -63,14 +71,7 @@ Media Services kunt u uw inhoud dynamisch wordt versleuteld bezorgen (**dynamisc
 
 Indien gewenst, kunt u ook toepassen dynamisch filteren, die kan worden gebruikt voor het beheren van het aantal sporen te wissen, indelingen bitsnelheden en presentatie tijdvensters die worden verzonden naar de spelers. Zie voor meer informatie, [Filters en dynamische manifesten](filters-dynamic-manifest-overview.md).
 
-### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nieuwe mogelijkheden voor live streamen in v3
-
-Met de v3 API's van Media Services kunt profiteren u van de volgende nieuwe functies:
-
-- Nieuwe modus voor lage latentie. Zie voor meer informatie, [latentie](live-event-latency.md).
-- Verbeterde RTMP-ondersteuning (verbeterde stabiliteit en meer bron encoder-ondersteuning).
-- Beveiligde RTMPS opnemen.<br/>Als u een LiveEvent maakt, krijgt u 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS.   
-- U kunt live gebeurtenissen die tot 24 uur lang wanneer met behulp van Media Services voor een single-bitrate bijdrage transcodering feed in een uitvoerstroom met meerdere bitrates streamen. 
+Zie voor meer informatie over nieuwe mogelijkheden voor live streamen in v3 [migratierichtlijnen voor het verplaatsen van Media Services v2 naar v3](migrate-from-v2-to-v3.md).
 
 ## <a name="liveevent-types"></a>LiveEvent typen
 
@@ -109,7 +110,7 @@ Een [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) kunt u v
 > [!NOTE]
 > **LiveOutput**s starten bij het maken en te stoppen wanneer verwijderd. Wanneer u verwijdert de **LiveOutput**, verwijdert u niet de onderliggende **Asset** en de inhoud in de asset. 
 >
-> Als u hebt gepubliceerd **Streaming-Locator gemaakt**s voor de asset voor de **LiveOutput**, blijft de gebeurtenis (tot de lengte van het DVR-venster) worden weergegeven tot de eindtijd van de **Streaming-Locator gemaakt**  of tot wanneer u de locator verwijdert, afhankelijk van wat het eerste komt.   
+> Als u hebt gepubliceerd de **LiveOutput** asset met behulp van een **StreamingLocator**, wordt de **LiveEvent** (tot de lengte van het DVR-venster) blijft weergegeven tot de **StreamingLocator**van verlopen of verwijderd, afhankelijk van wat eerst komt.
 
 Zie voor meer informatie, [werken met cloud-DVR](live-event-cloud-dvr.md).
 

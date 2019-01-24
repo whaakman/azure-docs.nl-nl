@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 011fa2dcce390597337ec583c1d5704177fda251
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d914f14d2b7a50e700e53b55cd43e699cf560a76
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347183"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810360"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Zelfstudie: LucidChart configureren voor het automatisch inrichten van gebruikers
 
 
 Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in LucidChart en Azure AD wilt voor het automatisch inrichten en inrichting van gebruikersaccounts vanuit Azure AD naar LucidChart ongedaan maken. 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
@@ -69,11 +69,11 @@ In deze sectie helpt u bij uw Azure AD verbinden met de LucidChart gebruikersacc
 
 4. Stel de **Inrichtingsmodus** naar **automatische**.
 
-    ![LucidChart inrichten](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
+    ![LucidChart Provisioning](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. Onder de **beheerdersreferenties** sectie, voer de **geheim Token** die worden gegenereerd door de account van uw LucidChart (u vindt het token voor uw account: **Team**  >  **App-integratie** > **SCIM**). 
+5. Onder de **beheerdersreferenties** sectie, voer de **geheim Token** die worden gegenereerd door de account van uw LucidChart (u vindt het token voor uw account: **Team** > **App-integratie** > **SCIM**). 
 
-    ![LucidChart inrichten](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
+    ![LucidChart Provisioning](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 
 6. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD kunt verbinden met uw app LucidChart. Als de verbinding is mislukt, zorg ervoor dat uw account LucidChart beheerdersmachtigingen heeft en probeer het opnieuw stap 5.
 
@@ -94,7 +94,7 @@ Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebru
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

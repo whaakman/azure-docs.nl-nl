@@ -3,9 +3,9 @@ title: Azure Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
 description: Overzicht van Service Bus-toegangsbeheer met het overzicht van handtekeningen voor gedeelde toegang, informatie over SAS autorisatie met Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284911"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846333"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
 
@@ -96,13 +96,13 @@ Een SAS-token is geldig voor alle resources die worden voorafgegaan door de `<re
 
 Het is raadzaam dat u de sleutels die worden gebruikt regelmatig opnieuw genereert de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object. De primaire en secundaire sleutel sleuven bestaan zodat u kunt sleutels geleidelijk draaien. Als uw toepassing wordt doorgaans gebruikt voor de primaire sleutel, kunt u de primaire sleutel kopiëren naar de secundaire sleutel sleuf, en vervolgens alleen de primaire sleutel opnieuw genereren. De nieuwe waarde voor de primaire sleutel kan vervolgens worden geconfigureerd in de clienttoepassingen, die voortdurend toegang met behulp van de oude primaire sleutel in de secundaire site hebben. Als alle clients worden bijgewerkt, kunt u de secundaire sleutel voor het uiteindelijk buiten gebruik stellen van de oude primaire sleutel opnieuw genereren.
 
-Als u weet of u vermoedt dat een sleutel is geïnfecteerd en wordt u om in te trekken van de sleutels hebt, kunt u opnieuw te genereren beide de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) en de [secundaire sleutel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), deze overal vervangen door nieuwe sleutels. Deze procedure worden alle tokens die zijn ondertekend met de oude sleutels ongeldig.
+Als u weet of u vermoedt dat een sleutel is geïnfecteerd en wordt u om in te trekken van de sleutels hebt, kunt u opnieuw te genereren beide de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) en de [secundaire sleutel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) van een [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), deze overal vervangen door nieuwe sleutels. Deze procedure worden alle tokens die zijn ondertekend met de oude sleutels ongeldig.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Shared Access Signature-verificatie met Service Bus
 
 De scenario's beschreven als volgt zijn de configuratie van autorisatieregels, het genereren van SAS-tokens en Clientautorisatie.
 
-Voor een volledig werkend voorbeeld van een Service Bus-toepassing die laat zien van de configuratie en maakt gebruik van SAS-autorisatie Zie [Shared Access Signature-verificatie met Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Een gerelateerde voorbeeld illustreert het gebruik van SAS-autorisatieregels geconfigureerd op de naamruimten of -onderwerpen voor het beveiligen van Service Bus-abonnementen is hier beschikbaar: [met behulp van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Voor een volledig werkend voorbeeld van een Service Bus-toepassing die laat zien van de configuratie en maakt gebruik van SAS-autorisatie Zie [Shared Access Signature-verificatie met Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Een gerelateerde voorbeeld illustreert het gebruik van SAS-autorisatieregels geconfigureerd op de naamruimten of -onderwerpen voor het beveiligen van Service Bus-abonnementen is hier beschikbaar: [Gebruik van Shared Access Signature (SAS)-verificatie met Service Bus-abonnementen](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Machtigingen voor gedeelde toegang toegangsregels voor een entiteit
 
@@ -284,18 +284,18 @@ De volgende tabel toont de toegangsrechten nodig zijn voor verschillende bewerki
 | Verzenden naar het onderwerp |Verzenden |Elk adres geldig onderwerp |
 | **Abonnement** | | |
 | Een abonnement maken |Beheren |Een naamruimte-adres |
-| Abonnement verwijderen |Beheren |.. /myTopic/Subscriptions/mySubscription |
-| Het inventariseren van abonnementen |Beheren |.. / myTopic/abonnementen |
-| Beschrijving van het abonnement ophalen |Beheren |.. /myTopic/Subscriptions/mySubscription |
-| Afbreken of voltooien berichten na de ontvangst van het bericht in peek-lock-modus |Luisteren |.. /myTopic/Subscriptions/mySubscription |
-| Een bericht voor het ophalen van hoger uitstellen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
-| Onbestelbare berichten van een bericht |Luisteren |.. /myTopic/Subscriptions/mySubscription |
-| De status is gekoppeld aan een sessie onderwerp ophalen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
-| De status die is gekoppeld aan een sessie voor onderwerp instellen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| Abonnement verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
+| Het inventariseren van abonnementen |Beheren |../myTopic/Subscriptions |
+| Beschrijving van het abonnement ophalen |Beheren |../myTopic/Subscriptions/mySubscription |
+| Afbreken of voltooien berichten na de ontvangst van het bericht in peek-lock-modus |Luisteren |../myTopic/Subscriptions/mySubscription |
+| Een bericht voor het ophalen van hoger uitstellen |Luisteren |../myTopic/Subscriptions/mySubscription |
+| Onbestelbare berichten van een bericht |Luisteren |../myTopic/Subscriptions/mySubscription |
+| De status is gekoppeld aan een sessie onderwerp ophalen |Luisteren |../myTopic/Subscriptions/mySubscription |
+| De status die is gekoppeld aan een sessie voor onderwerp instellen |Luisteren |../myTopic/Subscriptions/mySubscription |
 | **Regels** | | |
-| Een regel maken |Beheren |.. /myTopic/Subscriptions/mySubscription |
-| Een regel verwijderen |Beheren |.. /myTopic/Subscriptions/mySubscription |
-| Regels opsommen |Beheren of luisteren |.. /myTopic/Subscriptions/mySubscription/Rules 
+| Een regel maken |Beheren |../myTopic/Subscriptions/mySubscription |
+| Een regel verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
+| Regels opsommen |Beheren of luisteren |../myTopic/Subscriptions/mySubscription/Rules 
 
 ## <a name="next-steps"></a>Volgende stappen
 

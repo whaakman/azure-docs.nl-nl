@@ -4,7 +4,7 @@ description: Maken van een certificaat voor secure LDAP voor een Azure AD Domain
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: a97b16451392ce0e84eb7b49a6fc71fb03adab12
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d7fbfda9249f8276feed13204e8d6b1062fe2672
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157289"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846350"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Maak een. PFX-bestand met het certificaat voor secure LDAP (LDAPS) voor een beheerd domein
 
@@ -28,7 +28,7 @@ ms.locfileid: "50157289"
 Volledige [taak 1: een certificaat voor secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 
-## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Taak 2: Het certificaat voor secure LDAP om te exporteren een. PFX-bestand
+## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Taak 2: Exporteren van het certificaat voor secure LDAP naar een. PFX-bestand
 Voordat u deze taak start, wordt het certificaat voor secure LDAP ophalen uit een openbare certificeringsinstantie (CA) of een zelfondertekend certificaat maken.
 
 Voor het exporteren van het LDAPS-certificaat naar een. PFX-bestand:
@@ -80,7 +80,7 @@ Voor het exporteren van het LDAPS-certificaat naar een. PFX-bestand:
     >
     >
 
-14. Op de **Security** weergeeft, schakelt de **wachtwoord** optie en typ een wachtwoord te beschermen de. PFX-bestand. Onthoud dit wachtwoord omdat deze is vereist in de volgende taak. Klik op **Volgende**.
+14. Op de **Security** weergeeft, schakelt de **wachtwoord** optie en typ een wachtwoord te beschermen de. PFX-bestand. Onthoud dit wachtwoord omdat deze is vereist in de volgende taak. Klik op **volgende**.
 
     ![Wachtwoord voor het certificaat exporteren ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 

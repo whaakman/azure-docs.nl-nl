@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092883"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Zelfstudie: Azure Active Directory-integratie met direct
 
@@ -43,10 +43,10 @@ Als u wilt configureren van Azure AD-integratie met direct, moet u de volgende i
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -68,11 +68,11 @@ Voor het configureren van de integratie van direct in Azure AD, moet u direct va
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 4. Typ in het zoekvak **direct**. Selecteer **direct** vanuit het deelvenster met resultaten en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
 
@@ -118,13 +118,13 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     In de **aanmeldings-URL** tekstvak typt u de URL: `https://direct4b.com/sso` 
+     In de **aanmeldings-URL** tekstvak typt u de URL: `https://direct4b.com/sso` 
 
 5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/direct-tutorial/tutorial_direct_certificate.png) 
 
-6. Klik op **opslaan** knop.
+6. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/direct-tutorial/tutorial_general_400.png)
 
@@ -132,7 +132,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -164,7 +164,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="creating-a-direct-test-user"></a>Het maken van een rechtstreekse testversie van gebruiker
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in direct. Werken met [direct ondersteuningsteam](https://direct4b.com/ja/support.html#inquiry) om toe te voegen de gebruikers in de directe platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in direct. Werken met [direct ondersteuningsteam](https://direct4b.com/ja/support.html#inquiry) om toe te voegen de gebruikers in de directe platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 

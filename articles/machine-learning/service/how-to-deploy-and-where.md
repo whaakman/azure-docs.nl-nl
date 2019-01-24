@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 56c0d5b4ab1fae5812b1730e5a4d3aab0dfbde5e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4d62885743a4e50ece1c032c7b3405d8766d95cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448191"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850583"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementeer modellen met de Azure Machine Learning-service
 
@@ -245,7 +245,7 @@ Als u wilt implementeren in Azure Container Instances, gebruikt u de volgende st
     **Geschatte tijd**: Ongeveer 3 minuten.
 
     > [!TIP]
-    > Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de AKS-service-logboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
+    > Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de servicelogboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
 
 Zie voor meer informatie de documentatie bij de [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klassen.
 
@@ -335,7 +335,7 @@ print(service.state)
 **Geschatte tijd**: Ongeveer 3 minuten.
 
 > [!TIP]
-> Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de AKS-service-logboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
+> Als er fouten tijdens de implementatie zijn, gebruikt u `service.get_logs()` om de servicelogboeken weer te geven. De vastgelegde gegevens mogelijk de oorzaak van de fout.
 
 Zie voor meer informatie de documentatie bij de [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) en [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klassen.
 

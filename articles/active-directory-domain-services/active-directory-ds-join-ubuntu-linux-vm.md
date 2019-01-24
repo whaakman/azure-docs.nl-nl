@@ -4,7 +4,7 @@ description: Een Ubuntu Linux virtuele machine toevoegen aan Azure AD Domain Ser
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 709c227c955aba6b31ce415767470fa18ff3684f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 35b37a5c50346dc116b2f36394feecb82a0d88fd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155266"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845748"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Een virtuele Ubuntu-machine in Azure toevoegen aan een beheerd domein
 Dit artikel ziet u hoe u een Ubuntu Linux-machine koppelen aan een beheerd domein van Azure AD Domain Services.
@@ -124,7 +124,7 @@ Nu dat de vereiste pakketten zijn geïnstalleerd op de Linux-machine, bestaat de
     ```
 
    > [!NOTE]
-   > **Probleemoplossing:** als *realm detecteren* is niet gevonden van uw beheerde domein:
+   > **Problemen oplossen:** Als *realm detecteren* is niet gevonden van uw beheerde domein:
      * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).
      * Controleer dat de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
      * Controleert u of u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.
