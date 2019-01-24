@@ -18,8 +18,7 @@ ms.locfileid: "34600626"
 # <a name="consumption-model"></a>Verbruiksmodel
 
 Online Routering biedt een set parameters voor een gedetailleerde beschrijving van vehicle-specifieke verbruik Model.
-Afhankelijk van de waarde van **vehicleEngineType**, twee principal verbruik modellen worden ondersteund: _Combustion_ en _Electric_. Het opgeven van de parameters die deel uitmaken van verschillende modellen in dezelfde aanvraag is een fout.
-Verbruik Model kan niet worden gebruikt met **travelMode** waarden _bicycle_ en _pedestrian_.
+Afhankelijk van de waarde van **vehicleEngineType**, worden twee belangrijke verbruiksmodellen ondersteund: _Combustion_ en _Electric_. Het opgeven van de parameters die deel uitmaken van verschillende modellen in dezelfde aanvraag is een fout.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Beperkingen van de typeparameters voor verbruik model
 
