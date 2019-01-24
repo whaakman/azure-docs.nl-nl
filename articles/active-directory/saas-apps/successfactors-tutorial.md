@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Su
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ac9837389d681aadabd280bd6f74884a5a15ba3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 465bdf3aaa8ab6fecddef6784bf1adead7f0c585
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065100"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822209"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Zelfstudie: Azure Active Directory-integratie met SuccessFactors
 
@@ -125,7 +125,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
     | `https://www.successfactors.cn`|
     | `https://www.successfactors.cn/<companyname>`|
 
-    c. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon:
+    c. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|

@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Ke
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e1a98f6a-2dae-4734-bdbf-4fba742a61d2
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 4e96e2387797ed11768de9cd0b75261dfb89c674
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 70dfc03c37b2e7a93218ff7e710dbd22f622d418
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065508"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Zelfstudie: Azure Active Directory-integratie met Keeper Password Manager & Digital Vault
 
@@ -106,9 +106,9 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Gegevens van domein en URL's voor eenmalige aanmelding van Keeper Password Manager & Digital Vault](common/sp-identifier-reply.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://{SSO CONNECT SERVER}/sso-connect`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://{SSO CONNECT SERVER}/sso-connect`
 
     c. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
 

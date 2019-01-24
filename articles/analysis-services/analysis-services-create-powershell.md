@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b5b00da1c920d249283625e4970510ea00bafc8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190721"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426774"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Snelstartgids: Een server maken - PowerShell
 
@@ -23,7 +23,7 @@ In deze snelstart wordt beschreven hoe u PowerShell vanaf de opdrachtregel kunt 
 
 - **Azure-abonnement**: Ga naar [gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) om een account te maken.
 - **Azure Active Directory**: Uw abonnement moet zijn gekoppeld aan een Azure Active Directory-tenant en u moet een account hebben in de betreffende map. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
-- **Azure PowerShell-moduleversie 4.0 of later**. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) om de module te installeren of te upgraden.
+- **Azure PowerShell-moduleversie 4.0 of later**. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Zie [Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps) om de module te installeren of te upgraden.
 
 ## <a name="import-azurermanalysisservices-module"></a>AzureRm.AnalysisServices-module importeren
 

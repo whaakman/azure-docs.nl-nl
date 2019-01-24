@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 20e18819-e330-4e40-bd8d-2ff3b98e035f
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e527965782cc951553a5b5721955d4d3cfe67c6
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: adef572d9954443f24cfd1ab13c8c8a2e0ffa830
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065474"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Zelfstudie: Azure Active Directory-integratie met SAML SSO for Jira by resolution GmbH
 
@@ -112,7 +112,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met SAML SSO for J
 
     ![Informatie over domein en URL's voor eenmalige aanmelding met SAML SSO for Jira by resolution GmbH](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<server-base-url>/plugins/servlet/samlsso`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [klantondersteuningsteam voor SAML SSO for Jira by resolution GmbH](https://www.resolution.de/go/support) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
@@ -161,7 +161,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met SAML SSO for J
 
     ![Eenmalige aanmelding configureren](./media/samlssojira-tutorial/addon11.png)
 
-9. Klik op de pagina **SAML SSO-invoegtoepassing configureren** op de knop **Nieuwe IdP toevoegen** om de instellingen van de id-provider te configureren.
+9. Klik op de pagina **SAML SSO-invoegtoepassing configureren** op de knop **Nieuwe IDP toevoegen** om de instellingen van de id-provider te configureren.
 
     ![Eenmalige aanmelding configureren](./media/samlssojira-tutorial/addon4.png)
 
@@ -181,7 +181,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met SAML SSO for J
 
     ![Eenmalige aanmelding configureren](./media/samlssojira-tutorial/addon5b.png)
 
-12. Op de pagina **SAML-IdP-metagegevens importeren** voert u de volgende stappen uit:
+12. Op de pagina **SAML-IDP-metagegevens importeren** voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/samlssojira-tutorial/addon5c.png)
 

@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9afd1f75f997070428466b82d48624fb4ac3e835
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 11e316d2dc0811faaf3a9daab219386441fb3bb8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065361"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Zelfstudie: Azure Active Directory-integratie met 8x8 Virtual Office
 
@@ -109,7 +109,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met 8x8 Virtual Office, 
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://sso.8x8.com/saml2`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://sso.8x8.com/saml2`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://sso.8x8.com/saml2`
 
 4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Raw)** te downloaden uit de gegeven opties overeenkomstig met wat u nodig hebt, en slaat u dit op uw computer op.
 

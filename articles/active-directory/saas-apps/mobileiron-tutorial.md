@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Mo
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3e4bbd5b-290e-4951-971b-ec0c1c11aaa2
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: acfc9c5ff98bfcef90144b9a080fe9d220a4c117
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: c70d0d077bb3b3002226bc05eae1fedebe29b03f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062738"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827479"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Zelfstudie: Azure Active Directory-integratie met MobileIron
 
@@ -112,7 +112,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Gegevens van domein en URL's voor eenmalige aanmelding van MobileIron](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<host>.mobileiron.com/user/login.html`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<host>.mobileiron.com/user/login.html`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke id, antwoord-URL en aanmeldings-URL. U kunt de waarden voor de sleutel en de host opzoeken in de beheerportal van MobileIron. Dit wordt verderop in de zelfstudie uitgelegd.

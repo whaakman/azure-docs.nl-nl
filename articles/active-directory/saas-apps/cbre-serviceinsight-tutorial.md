@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en CB
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 31d7cedf-2b70-4fa4-9b05-80066d2e8bfd
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: cddd20f24ed8719e3d9b228dd2014bb894a3f141
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1c24dfabcbbb94639e334e89f0b5e17888806b5f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54067508"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cbre-serviceinsight"></a>Zelfstudie: Azure Active Directory-integratie met CBRE ServiceInsight
 
@@ -105,7 +105,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Gegevens van domein en URL's voor eenmalige aanmelding van CBRE ServiceInsight](common/sp-signonurl.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://adfs4.mainstreamsasp.com/adfs/ls/`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://adfs4.mainstreamsasp.com/adfs/ls/`
 
     > [!NOTE]
     > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [klantondersteuningsteam van CBRE ServiceInsight](mailto:SISupport@cbre.com) om de waarde op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

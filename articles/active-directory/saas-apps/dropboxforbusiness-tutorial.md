@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding kunt configureren tussen Azure Acti
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/20/2018
 ms.author: jeedes
-ms.openlocfilehash: a05a246a3bdf0594484cbbf89998e337d2be5a12
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: cb639f04cec28596c528691066e60b087ca7b09a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974961"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Zelfstudie: Azure Active Directory-integratie met Dropbox voor Bedrijven
 
@@ -106,7 +106,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij Dropbox voor B
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij Dropbox voor Bedrijven](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://www.dropbox.com/sso/<id>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://www.dropbox.com/sso/<id>`
 
     b. Typ een waarde in het vak **Id (Entiteits-id)**: `Dropbox`
 

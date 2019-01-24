@@ -12,16 +12,16 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 34277aaa6ad6c5b22fb1691af83091e49d3bf5c1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021319"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452748"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Een elastische-taakagent maken met behulp van PowerShell
 
-[Elastisc Jobs](elastic-jobs-overview.md) maken het mogelijk om één of meerdere T-SQL-scripts (Transact-SQL) parallel in veel databases uit te voeren.
+[Elastisc Jobs](sql-database-job-automation-overview.md#elastic-database-jobs) maken het mogelijk om één of meerdere T-SQL-scripts (Transact-SQL) parallel in veel databases uit te voeren.
 
 In deze zelfstudie leert u welke stappen u moet uitvoeren om een ​​query uit te voeren op meerdere databases:
 
@@ -65,7 +65,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-required-resources"></a>Vereiste resources maken
 
-Voor het maken van een Elastic Jobs-agent is een database (S0 of hoger) vereist om te gebruiken als [taakdatabase](elastic-jobs-overview.md#job-database). 
+Voor het maken van een Elastic Jobs-agent is een database (S0 of hoger) vereist om te gebruiken als [taakdatabase](sql-database-job-automation-overview.md#job-database). 
 
 *Het onderstaande script maakt een nieuwe resourcegroep, server en database voor gebruik als de taakdatabase. Het onderstaande script maakt ook een tweede server met 2 lege databases om taken op uit te voeren.*
 
@@ -210,7 +210,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>De doeldatabases definiëren waarop u de taak wilt uitvoeren
 
-Een [doelgroep](elastic-jobs-overview.md#target-group) definieert een verzameling van een of meer databases waarop een taakstap wordt uitgevoerd. 
+Een [doelgroep](sql-database-job-automation-overview.md#target-group) definieert een verzameling van een of meer databases waarop een taakstap wordt uitgevoerd. 
 
 In het volgende fragment worden twee doelgroepen gemaakt: *ServerGroup* en *ServerGroupExcludingDb2*. *ServerGroup* zijn alle databases die bestaan ​​op de server op het moment van uitvoering, en *ServerGroupExcludingDb2* alle databases op de server, behalve *TargetDb2*:
 

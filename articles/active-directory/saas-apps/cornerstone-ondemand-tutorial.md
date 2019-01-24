@@ -4,7 +4,7 @@ description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 40d5905764dbf139db28cd1c113d06981be8205d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7f2276cfb6019c15b28eeab92ecf63c788858b7f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972325"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Zelfstudie: Azure Active Directory-integratie met Cornerstone OnDemand
 
@@ -105,7 +105,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding met Cornerstone On
 
     ![Informatie over eenmalige aanmelding bij het Cornerstone OnDemand-domein en Cornerstone OnDemand-URL's](common/sp-identifier.png)
 
-    a. Typ in het tekstvak **Aanmeldings-URL** een URL met de volgende notatie: `https://<company>.csod.com`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<company>.csod.com`
 
     b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<company>.csod.com`
 

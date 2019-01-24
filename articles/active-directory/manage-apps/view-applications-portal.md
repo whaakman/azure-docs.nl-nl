@@ -4,7 +4,7 @@ description: Gebruik de Azure-portal om de toepassingen in uw Azure AD-tenant (A
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 07/25/2018
 ms.author: barbkess
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: bedd83426ecb24681fcfa292a049b8d4a3271d6a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: ce998cd23ac3606ca9269e1e3316e6679fe0a7af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266391"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462858"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Azure Active Directory-tenanttoepassingen weergeven
 
@@ -45,7 +45,7 @@ Ga als volgt te werk om de tenanttoepassingen te zoeken:
 
 3. Selecteer in de vervolgkeuzelijst **Toepassingstype** de optie **Alle toepassingen** en klik op **Toepassen**. Er wordt een willekeurige selectie uit uw tenanttoepassingen weergegeven.
 
-    ![Bedrijfsapps](media/view-applications-portal/open-enterprise-apps.png)
+    ![Enterprise-apps](media/view-applications-portal/open-enterprise-apps.png)
    
 4. Als u meer toepassingen wilt zien, klikt u onder aan de lijst op **Meer weergeven**. Afhankelijk van het aantal toepassingen in de tenant is het welllicht gemakkelijker om te [zoeken naar een bepaalde toepassing](#search-for-a-tenant-application) in plaats van door de lijst te schuiven.
 

@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding kunt configureren tussen Azure Acti
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 81c66e73698f210c9ef364a8b328642f78e3012b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1326dbfc4257f0b6634976ca76a0667c908f951f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973975"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Zelfstudie: Azure Active Directory-integratie met Ariba
 
@@ -110,7 +110,7 @@ Voer de volgende stappen uit om Azure AD-eenmalige aanmelding bij Ariba te confi
     | `https://<subdomain>.sourcing.ariba.com` |
     | `https://<subdomain>.supplier.ariba.com` |
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `http://<subdomain>.procurement-2.ariba.com`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `http://<subdomain>.procurement-2.ariba.com`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Wij raden u aan hiervoor de unieke waarde van de tekenreeks in de id te gebruiken. Neem contact op met het ondersteuningsteam van Ariba op **1-866-218-2155** om deze waarden te krijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

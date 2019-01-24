@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Ci
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 493ba5853173c34fbd58236c1a2dd2b28dc59a90
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e5ed2abca6c9a8bab6ee0df7a8aa05e40b48de5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064290"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Spark
 
@@ -106,7 +106,7 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://web.ciscospark.com/#/signin`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://idbroker.webex.com/<companyname>`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://idbroker.webex.com/<companyname>`
 
     > [!NOTE]
     > Deze id is geen echte waarde. Werk deze waarde bij met de werkelijke id. Neem contact op met het [klantondersteuningsteam van Cisco Spark](https://support.ciscospark.com/) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

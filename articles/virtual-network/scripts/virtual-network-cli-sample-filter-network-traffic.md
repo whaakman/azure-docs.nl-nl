@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 427403443de55ddf55c5026af80509e792ab5d97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 179a30524aed3063384673c11c4dd3b0424ce2a4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980886"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473908"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Voorbeeldscript voor binnenkomend en uitgaand VM-netwerkverkeer filteren
 
@@ -55,7 +55,7 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Hiermee maakt u een openbaar IP-adres voor toegang tot de VM via internet. |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Hiermee maakt u virtuele netwerkinterfaces en koppelt u ze aan de front-end- en back-end-subnetten van het virtuele netwerk. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Hiermee maakt u netwerkbeveiligingsgroepen (NSG's) die zijn gekoppeld aan de front-end- en back-end-subnetten. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Hiermee maakt u NSG-regels die bepaalde poorten tot specifieke subnetten blokkeren of toestaan. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) |Hiermee maakt u NSG-regels die bepaalde poorten tot specifieke subnetten blokkeren of toestaan. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Hiermee maakt u virtuele machines en koppelt u een NIC aan elke virtuele machine. Met deze opdracht geeft u ook de installatiekopie van de virtuele machine op die moet worden gebruikt, evenals de beheerdersreferenties. |
 | [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep en de bijhorende resources. |
 
