@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2d212ae8f5a12c06f40e025a7a8d786a44194a92
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714575"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438725"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>De Speech-service integreren in uw Language Understanding-app
 Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-pakket, dat al als referentie is opgenomen. 
@@ -24,7 +24,7 @@ Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Spee
 Voor dit artikel hebt u een gratis [LUIS][LUIS]-websiteaccount nodig om de toepassing te importeren.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS-eindpuntsleutel maken
-[Maak](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in de Microsoft Azure-portal een **Language Understanding** (LUIS)-sleutel. 
+[Maak](luis-how-to-azure-subscription.md) in de Microsoft Azure-portal een **Language Understanding** (LUIS)-sleutel. 
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS-app importeren
 De intenties en utterances voor dit artikel zijn afkomstig van de Human Resources LUIS-app beschikbaar in de GitHub-opslagplaats [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Download het bestand [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), sla het op met de extensie `.json` en [importeer](luis-how-to-start-new-app.md#import-new-app) het in LUIS. 

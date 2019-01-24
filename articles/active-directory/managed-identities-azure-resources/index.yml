@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7afcb190a1abeb053342a061e9513e32ce19fd79
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430056"
 documentType: LandingData
 title: Documentatie over in Azure AD beheerde identiteiten voor Azure-resources
 metadata:
-  document_id: 
+  document_id: null
   title: Documentatie over in Azure AD beheerde identiteiten voor Azure-resources
   description: Leer hoe u beheerde identiteiten voor Azure-resources kunt gebruiken voor veilige verificatie bij Azure-cloudservices zonder dat u de referenties in uw broncode hoeft te bewaren.
   services: active-directory
@@ -22,58 +16,58 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: Beheerde identiteiten voor Azure-resources bieden Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, zonder dat u referenties in uw code hoeft te hebben.  Leer aan de hand van onze snelstarts en zelfstudies hoe u beheerde identiteiten voor Azure-resources maakt en beheert.
+  description: 'Beheerde identiteiten voor Azure-resources bieden Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, zonder dat u referenties in uw code hoeft te hebben.  Leer aan de hand van onze snelstarts en zelfstudies hoe u beheerde identiteiten voor Azure-resources maakt en beheert.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
     title: Inleiding tot beheerde identiteiten voor Azure-resources
-    href: https://www.youtube.com/embed/bBi1bll2928
+    href: 'https://www.youtube.com/embed/bBi1bll2928'
     width: 200
 sections:
-- title: QuickStarts van vijf minuten
-  items:
-  - type: paragraph
-    text: Leer hoe u beheerde identiteiten voor Azure-resources gebruikt om toegang te krijgen tot de Azure Resource Manager-API
-  - type: list
-    style: unordered
+  - title: QuickStarts van vijf minuten
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Azure Resource Manager openen vanuit een virtuele Windows Azure-machine</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Azure Resource Manager openen vanuit een virtuele Linux Azure-machine</a>
-- title: Zelfstudies met stapsgewijze instructies
-  items:
-  - type: paragraph
-    text: Leer hoe u beheerde identiteiten voor Azure-resources gebruikt om veilig toegang te krijgen tot Azure-resources
-  - type: paragraph
-    text: Windows-VM/VMSS
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Leer hoe u beheerde identiteiten voor Azure-resources gebruikt om toegang te krijgen tot de Azure Resource Manager-API
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Azure Resource Manager openen vanuit een virtuele Windows Azure-machine</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Azure Resource Manager openen vanuit een virtuele Linux Azure-machine</a>
+  - title: Zelfstudies met stapsgewijze instructies
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Toegang tot Azure Data Lake Store</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Toegang tot Azure Storage met behulp van een toegangssleutel</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Toegang tot Azure SQL</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Toegang tot Azure Key Vault</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Toegang tot Azure Cosmos DB</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Toegang tot Azure Resource Manager met een door een gebruiker toegewezen identiteit</a>
-  - type: paragraph
-    text: Linux-VM/VMSS
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Leer hoe u beheerde identiteiten voor Azure-resources gebruikt om veilig toegang te krijgen tot Azure-resources
+      - type: paragraph
+        text: Windows-VM/VMSS
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Toegang tot Azure Data Lake Store</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Toegang tot Azure Storage met behulp van een toegangssleutel</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Toegang tot Azure SQL</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Toegang tot Azure Key Vault</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Toegang tot Azure Cosmos DB</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Toegang tot Azure Resource Manager met een door een gebruiker toegewezen identiteit</a>
+      - type: paragraph
+        text: Linux-VM/VMSS
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Toegang tot Azure Data Lake Store</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Toegang tot Azure Storage met behulp van een toegangssleutel</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Toegang tot Azure Key Vault</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Toegang tot Azure Cosmos DB</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Toegang tot Azure Resource Manager met een door een gebruiker toegewezen identiteit</a>
+  - title: Naslaginformatie
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Toegang tot Azure Data Lake Store</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Toegang tot Azure Storage met behulp van een toegangssleutel</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Toegang tot Azure Key Vault</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Toegang tot Azure Cosmos DB</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Toegang tot Azure Resource Manager met een door een gebruiker toegewezen identiteit</a>
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Opdrachtregel
-      html: <p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Azure-CLI</a></p>
-    - title: Talen
-      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi">Go</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: '<p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Azure-CLI</a></p>'
+          - title: Talen
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication">.NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi">Go</a></p>'

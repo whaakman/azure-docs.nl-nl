@@ -3,19 +3,19 @@ title: Lokalisatie tekenreeks id's - Azure Active Directory B2C | Microsoft Docs
 description: Geef de id's voor een inhoudsdefinitie met de Id van api.signuporsignin in een aangepast beleid in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7619ebf038e164c9e586118c70e34955ca7c4767
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 72ed1f7f6d9fe9958bbd78b001d727feb5f8861c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222661"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848407"
 ---
 # <a name="localization-string-ids"></a>Gelokaliseerde tekenreeks id 's
 
@@ -33,7 +33,7 @@ De volgende id's worden gebruikt voor een inhoudsdefinitie met de ID van `api.si
 | **logonIdentifier_email** | E-mailadres |
 | **requiredField_email** | Voer uw e-mailadres in |
 | **invalid_email** | Voer een geldig e-mailadres in |
-| **email_pattern** | ^ [a-zA-Z0-9.! #$% &'' * +/ =? ^ _'{|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ een-zA-Z0 - 9-] +) * $ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Aanmelden met uw gebruikersnaam |
 | **logonIdentifier_username** | Gebruikersnaam |
 | **requiredField_username** | Voer uw gebruikersnaam in |
@@ -100,17 +100,17 @@ Hieronder vindt u de id's voor een inhoudsdefinitie met de ID van `api.localacco
 | **ver_sent** | De verificatiecode is verzonden naar: |
 | **ver_but_default** | Standaard |
 | **cancel_message** | De gebruiker heeft geannuleerd zelf-gecontroleerde gegevens invoeren |
-| **preloader_alt** | Een ogenblik geduld... |
+| **preloader_alt** | Een ogenblik geduld |
 | **ver_but_send** | Verificatiecode verzenden |
 | **alert_yes** | Ja |
 | **error_fieldIncorrect** | Een of meer velden zijn niet juist ingevuld. Controleert u de invoer en probeer het opnieuw. |
-| **Jaar** | Jaar |
+| **year** | Jaar |
 | **verifying_blurb** | De gegevens worden verwerkt. Een ogenblik geduld... |
 | **button_cancel** | Annuleren |
 | **ver_fail_no_retry** | U hebt aangebracht te veel onjuiste aanmeldingspogingen. Probeer het later opnieuw. |
 | **Maand** | Maand |
 | **ver_success_msg** | E-mailadres is geverifieerd. U kunt nu doorgaan. |
-| **maanden** | januari, februari, maart, april, mei, juni, juli, augustus, september, oktober, november, december |
+| **months** | januari, februari, maart, april, mei, juni, juli, augustus, september, oktober, november, december |
 | **ver_fail_server** | Er zijn problemen met het controleren van uw e-mailadres. Voer een geldig e-mailadres en probeer het opnieuw. |
 | **error_requiredFieldMissing** | Er ontbreekt een vereist veld. Vul alle verplichte velden en probeer het opnieuw. |
 | **initial_intro** | Geef de volgende gegevens op. |
@@ -127,7 +127,7 @@ Hieronder vindt u de id's voor een inhoudsdefinitie met de ID van `api.localacco
 | **helplink_text** | Wat is dit? |
 | **ver_fail_retry** | Deze code is onjuist. Probeer het opnieuw. |
 | **alert_title** | Invoeren van uw gegevens annuleren |
-| **required_field** | Deze gegevens zijn vereist. |
+| **required_field** | Deze informatie is vereist. |
 | **alert_message** | Weer u zeker dat u het invoeren van uw gegevens wilt annuleren? |
 | **ver_intro_msg** | Verificatie is nodig. Klik op verzenden klikt. |
 | **ver_input** | Verificatiecode |
@@ -163,7 +163,7 @@ Hieronder vindt u de id's voor een inhoudsdefinitie met de ID van `api.phonefact
 | **country_code_label** | Landnummer |
 | **cancel_message** | De gebruiker is multi-factor authentication geannuleerd |
 | **text_button_send_second_code** | verzend een nieuwe code |
-| **code_pattern** | \\D{6} |
+| **code_pattern** | \\d{6} |
 | **intro_mixed** | We hebben het volgende nummer voor de record voor u. We kunnen een code via SMS of telefoon om u te verifiëren. |
 | **intro_mixed_p** | We hebben de volgende getallen in de record voor u. Kies een getal dat we kunnen telefoon of een code via SMS om u te verifiëren. |
 | **button_verify_code** | Code verifiëren |
@@ -181,7 +181,7 @@ Hieronder vindt u de id's voor een inhoudsdefinitie met de ID van `api.phonefact
 | **button_send_code** | Code verzenden |
 | **invalid_number** | Voer een geldig telefoonnummer in |
 | **intro_sms** | We hebben het volgende nummer voor de record voor u. We sturen een code via SMS om u te verifiëren. |
-| **intro_entry_mixed** | Voer hieronder een nummer in waarop u kunt worden gebeld of waarnaar via SMS een code kan worden verzonden om uw account te verifiëren. |
+| **intro_entry_mixed** | Voer hieronder een nummer in waarop u kunt worden gebeld of waarnaar via sms een code kan worden verzonden om uw account te verifiëren. |
 | **number_pattern** | ^\\+ (?: [0-9] [\\x20-]?) {6,14}[0-9] $ |
 | **intro_sms_p** |We hebben de volgende getallen in de record voor u. Kies een getal dat we een code via SMS om u te verifiëren kunnen sturen. |
 | **requiredField_countryCode** | Selecteer uw landcode |
@@ -190,7 +190,7 @@ Hieronder vindt u de id's voor een inhoudsdefinitie met de ID van `api.phonefact
 | **number_label** | Telefoonnummer |
 | **error_tryagain** | Het telefoonnummer dat u hebt opgegeven is bezet of niet beschikbaar. Controleer het nummer en probeer het opnieuw. |
 | **error_incorrect_code** | De ingevoerde verificatiecode komt niet overeen met onze records. Probeer het opnieuw, of een nieuwe code aanvraagt. |
-| **countryList** | {\"Standaard\":\"land/regio\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Eilanden\",\"AL\":\"Albanië\",\"DZ\":\"Algerije\",\"AS\":\" Amerikaans-Samoa\",\"AD\":\"Andorra\",\"door de AO\":\"Angola\",\"AI\": \"Anguilla\",\"AQ\":\"Antarctica\",\"AG\":\"Antigua en Barbuda\",\"AR\":\"Argentinië\",\"AM\":\"Armenië\",\"AW\":\"Aruba \",\"AU\":\"Australia\",\"op\":\"Oostenrijk\",\" AZ\":\"Azerbeidzjan\",\"BS\":\"Bahama's\",\"BH\":\" Bahrein\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\" DOOR\":\"Belarus\",\"BE\":\"België\",\"BZ\":\" Belizaanse\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\" Bonaire\",\"BA\":\"Bosnië en Herzegovina\",\"BW\":\"Botswaanse<span class="notransla class=""></span class="notransla> Afgelegen eilanden\",\"VI\":\"VS Britse Maagdeneilanden\",\"mg\":\"Oeganda\",\"UA\":\"Oekraïne\",\"AE\":\" Verenigde Arabische Emiraten\",\"GB\":\"Verenigd Koninkrijk\",\"VS\":\"Verenigde Staten\",\"UY \":\"Uruguay\",\"UZ\":\"Oezbekistan\",\"VU\":\"Vanuatu\", \"VA\":\"Vaticaanstad\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam \",\"WF\":\"Wallis en Futuna\",\"YE\":\"Jemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
+| **countryList** | {\"Standaard\":\"land/regio\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Eilanden\",\"AL\":\"Albanië\",\"DZ\":\"Algerije\",\"AS\":\" Amerikaans-Samoa\",\"AD\":\"Andorra\",\"door de AO\":\"Angola\",\"AI\": \"Anguilla\",\"AQ\":\"Antarctica\",\"AG\":\"Antigua en Barbuda\",\"AR\":\"Argentinië\",\"AM\":\"Armenië\",\"AW\":\"Aruba \",\"AU\":\"Australia\",\"op\":\"Oostenrijk\",\" AZ\":\"Azerbeidzjan\",\"BS\":\"Bahama's\",\"BH\":\" Bahrein\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\" DOOR\":\"Wit-Rusland\",\"BE\":\"België\",\"BZ\":\" Belizaanse\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\" Bonaire\",\"BA\":\"Bosnië en Herzegovina\",\"BW\":\"Botswaanse<span class="notransla class=""></span class="notransla> Afgelegen eilanden\",\"VI\":\"VS Britse Maagdeneilanden\",\"mg\":\"Oeganda\",\"UA\":\"Oekraïne\",\"AE\":\" Verenigde Arabische Emiraten\",\"GB\":\"Verenigd Koninkrijk\",\"VS\":\"Verenigde Staten\",\"UY \":\"Uruguay\",\"UZ\":\"Oezbekistan\",\"VU\":\"Vanuatu\", \"VA\":\"Vaticaanstad\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam \",\"WF\":\"Wallis en Futuna\",\"YE\":\"Jemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
 | **error_448** | Het nummer dat u hebt opgegeven, is niet beschikbaar. |
 | **error_449** | De gebruiker heeft het maximum aantal pogingen overschreden. |
 | **verification_code_input_placeholder_text** | Verificatiecode |

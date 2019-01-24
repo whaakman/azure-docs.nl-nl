@@ -4,17 +4,17 @@ description: Dit artikel biedt een overzicht van het gebruik van Azure Automatio
 services: automation
 author: zjalexander
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bd7072ce8212366bf3d8a0a9e0a30000debea2ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184981"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434611"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Windows-updates beheren met behulp van Azure Automation
 
@@ -41,13 +41,13 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure-portal op https://portal.azure.com.
+Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="enable-update-management"></a>Updatebeheer inschakelen
 
 Schakel voor deze zelfstudie eerst updatebeheer in op de VM:
 
-1. Selecteer in de Azure-portal in het linkermenu de optie **Virtuele machines**. Selecteer een VM in de lijst.
+1. Selecteer in Azure Portal in het linkermenu de optie **Virtuele machines**. Selecteer een VM in de lijst.
 2. Selecteer op de VM-pagina, onder **BEWERKINGEN** de optie **Updatebeheer**. Het deelvenster **Updatebeheer inschakelen** wordt geopend.
 
 Er wordt een validatie uitgevoerd om te bepalen of updatebeheer is ingeschakeld voor deze VM. Deze validatie bevat controles voor een Azure Log Analytics-werkruimte en het gekoppelde Automation-account, en controleert of de oplossing voor updatebeheer zich in de werkruimte bevindt.
@@ -215,3 +215,4 @@ Ga door naar het overzicht van de oplossing voor updatebeheer.
 
 > [!div class="nextstepaction"]
 > [Oplossing voor updatebeheer](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
+

@@ -3,21 +3,21 @@ title: App met extensies in Azure Active Directory B2C | Microsoft Docs
 description: Herstellen van de b2c-extensions-app.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 9/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ad3d459b1211d2777f57169f3ee896d2ab5618bc
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: afb8e6fcc7c16594c1377e6b848e0f09a18298b1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442821"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842627"
 ---
-# <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: App extensies
+# <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: App met extensies
 
 Wanneer u een Azure AD B2C-adreslijst is gemaakt, een app genoemd `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` wordt automatisch gemaakt in de nieuwe map. Deze app, aangeduid als de **b2c-extensions-app**, zichtbaar is in *App-registraties*. Deze wordt gebruikt door de Azure AD B2C-service voor het opslaan van informatie over gebruikers en aangepaste kenmerken. Als de app wordt verwijderd, Azure AD B2C werkt niet correct en uw productie-omgeving wordt beïnvloed.
 

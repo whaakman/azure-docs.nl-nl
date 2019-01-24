@@ -4,7 +4,7 @@ description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 981bcb6bc9160969e7225342a0e4cda6afc3ed7c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: fd97321c638dd95f811ff772a4163ce3c2fd682c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064557"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Zelfstudie: Azure Active Directory-integratie met Trello
 
@@ -111,13 +111,13 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://trello.com/auth/saml/metadata`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://trello.com/auth/saml/consume/<enterprise>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://trello.com/auth/saml/consume/<enterprise>`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
     ![Domein- en URL-gegevens voor eenmalige aanmelding bij Trello](common/metadata-upload-additional-signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://trello.com/auth/saml/login/<enterprise>`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://trello.com/auth/saml/login/<enterprise>`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het [ondersteuningsteam van Trello](mailto:support@trello.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

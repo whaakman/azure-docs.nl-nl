@@ -1,22 +1,17 @@
 ---
 layout: LandingPage
-title: Gebruikershulp voor verificatie, apps en apparaatbeheer - Azure Active Directory | Microsoft Docs
-description: Gebruikershulp is voor mensen die hulp nodig hebben bij het instellen en gebruiken van beveiligingsgegevens, verificatie in twee stappen, zelf wachtwoorden opnieuw instellen, apparaatbeheer, de Microsoft Authenticator-app en de Mijn Apps-portal.
+title: 'Gebruikershulp voor verificatie, apps en apparaatbeheer - Azure Active Directory | Microsoft Docs'
+description: 'Gebruikershulp is voor mensen die hulp nodig hebben bij het instellen en gebruiken van beveiligingsgegevens, verificatie in twee stappen, zelf wachtwoorden opnieuw instellen, apparaatbeheer, de Microsoft Authenticator-app en de Mijn Apps-portal.'
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: HT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41928038"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Gebruikershulp voor verificatie, apps en apparaatbeheer
 
 We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligingsgegevens en verificatie in twee stappen te gebruiken, evenals om u te leren hoe u uw eigen wachtwoorden opnieuw instelt, Azure Active Directory-apparaten samenvoegt en hoe u de Microsoft Authenticator-app en de Mijn Apps-portal gebruikt.

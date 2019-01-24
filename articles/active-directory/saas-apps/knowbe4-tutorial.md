@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding configureert tussen Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b80d2212-cc5f-4adb-836c-570640810c39
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 983571daa19a3658b134902ee328af142a3383c3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 09e6e139571ec22def12cedc62d9668a40657c67
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065576"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Zelfstudie: Azure Active Directory-integratie met KnowBe4 Security Awareness Training
 
@@ -106,7 +106,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met KnowBe4 Security Awa
 
     ![Informatie over eenmalige aanmelding bij het KnowBe4 Security Awareness Training-domein en URL's](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
     > [!NOTE]
     > De waarde van de aanmeldings-URL is niet echt. Werk deze waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [het ondersteuningsteam van KnowBe4 Security Awareness Training Client](mailto:support@KnowBe4.com) om deze waarde te verkrijgen. U kunt ook het patroon raadplegen in de sectie **Standaard SAML-configuratie** van de Azure-portal.

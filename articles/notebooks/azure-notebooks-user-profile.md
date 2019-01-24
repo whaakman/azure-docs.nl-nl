@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078868"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854162"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Uw profiel en gebruikers-ID voor Azure-laptops
 
 In de ruimte die krachtige, samenwerking van Azure-notitieblokken wordt uw gebruikersprofiel anderen uw openbare installatiekopie:
 
-[![](media/accounts/profile-page.png "De profielpagina van een Azure-laptops")](media/accounts/profile-page.png#lightbox)
+[![De profielpagina van een Azure-laptops](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 Uw gebruikers-ID is onderdeel van de URL's die u gebruiken voor het delen van projecten en notitieblokken. De volgende lijst beschrijft de verschillende URL-patronen:
 
@@ -63,7 +63,7 @@ Als u wilt uw profiel bewerkt, gebruikt u de **profielgegevens bewerken** opdrac
 | Accountgegevens | Uw weergavenaam, gebruikers-ID en openbare e-mailaccount. Het e-mailaccount biedt andere gebruikers in een gemiddelde contact met u opnemen en kan afwijken van de [account](azure-notebooks-user-account.md) kunt u zich aanmelden bij Azure-notitieblokken zelf. |
 | Profielgegevens | Uw locatie, bedrijf, functietitel, website en een korte beschrijving van uzelf. |
 | Sociale-profielen | Uw GItHub, Twitter en Facebook-ID's, als u wilt delen. |
-| Privacyinstellingen | Biedt twee opdrachten uit:<ul><li>**Mijn profiel exporteren**: gemaakt en gedownload een *.zip* -bestand met de informatie die Azure-notitieblokken in uw profiel opslaat, zoals uw foto's, profielgegevens en -Logboeken.</li><li>**Verwijderen van Mijn Account**: uw persoonlijke gegevens die zijn opgeslagen in Azure-notitieblokken wordt verwijderd.</li></ul> |
+| Privacyinstellingen | Biedt twee opdrachten uit:<ul><li>**Mijn profiel exporteren**: gemaakt en gedownload een *.zip* -bestand met de informatie die Azure-notitieblokken in uw profiel opslaat, zoals uw foto's, profielgegevens en -Logboeken.</li><li>**Verwijderen van Mijn Account**: Hiermee wordt uw persoonlijke gegevens die zijn opgeslagen in Azure-notitieblokken permanent verwijderd.</li></ul> |
 | Sitefuncties inschakelen | Kunt u aspecten van het gedrag van Azure-notitieblokken te bepalen:<ul><li>**Unified Frontend voor laptops**: kunt u sneller opstarten van de notebook en betere persistentie.</li><li>**Standaard worden uitgevoerd in Jjupyterlab**: Azure-notitieblokken biedt standaard een eenvoudige gebruikersinterface die geschikt is voor de meeste gebruikers. Jjupyterlab biedt een uitgebreidere maar meer gecompliceerde interface voor ervaren gebruikers.</li><li>**VNext Website**: Hiermee kunt u de gemoderniseerd web-indeling die wordt weergegeven in deze documentatie.</li></ul> |
 
 ## <a name="next-steps"></a>Volgende stappen  

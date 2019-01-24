@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232682"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828312"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Over het bouwen van een toepassing met probleemloze Streaming Windows Store
 
@@ -84,7 +84,7 @@ Zie voor meer informatie over het ontwikkelen van Windows Store-toepassing [ontw
 
 | Name | Waarde |
 | --- | --- |
-| Referentie-groep |Windows-/ extensies |
+| Referentie-groep |Windows/Extensions |
 | Referentie |Selecteer Microsoft Smooth Streaming Client SDK voor Windows 8 en Microsoft Visual C++ Runtime-pakket |
 
 1. Klik op **OK**. 
@@ -142,7 +142,7 @@ Na het toevoegen van de referenties, moet u de betreffende platform (x64 of x86)
    Het besturingselement MediaElement wordt gebruikt voor het afspelen van media. Het besturingselement voor schuifregelaar met de naam sliderProgress wordt in de volgende les worden gebruikt voor het beheren van de voortgang van de media.
 3. Druk op **CTRL + S** op te slaan.
 
-Het besturingselement MediaElement biedt geen ondersteuning voor Smooth Streaming inhoud out-of-box. Als u wilt de Smooth Streaming-ondersteuning inschakelen, moet u de Smooth Streaming-byte-stream handler door bestandsnaamextensie en MIME-type registreren.  Als u wilt registreren, moet u de methode MediaExtensionManager.RegisterByteStremHandler van de naamruimte Windows.Media gebruiken.
+Het besturingselement MediaElement biedt geen ondersteuning voor Smooth Streaming inhoud out-of-box. Als u wilt de Smooth Streaming-ondersteuning inschakelen, moet u de Smooth Streaming-byte-stream handler door bestandsnaamextensie en MIME-type registreren.  Als u wilt registreren, moet u de methode MediaExtensionManager.RegisterByteStreamHandler van de naamruimte Windows.Media gebruiken.
 
 In dit bestand XAML zijn sommige gebeurtenis-handlers gekoppeld aan de besturingselementen.  U moet deze gebeurtenis-handlers definiëren.
 
@@ -821,7 +821,7 @@ Les 3 is voltooid.  In deze les gaat uitvoeren, moet u de functionaliteit om te 
 Een Smooth Streaming-presentatie kan bevatten meerdere videobestanden gecodeerd met verschillende kwaliteitsniveaus (bitsnelheden) en oplossingen. In deze les gaat uitvoeren schakelt u gebruikers de nummers selecteren. In deze les bevat de volgende procedures:
 
 1. De XAML-bestand wijzigen
-2. Wijzigen van het codebestand behand
+2. Wijzigen van het codebestand
 3. Samenstellen en testen van de toepassing
 
 **Om de XAML-bestand te wijzigen**

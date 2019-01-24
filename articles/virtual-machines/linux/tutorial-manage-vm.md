@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613423"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466853"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Zelfstudie: Virtuele Linux-machines maken en beheren met de Azure CLI
 
@@ -211,7 +211,7 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>De grootte van een virtuele machine wijzigen
 
-Nadat een virtuele machine is geïmplementeerd, kan de grootte ervan worden gewijzigd om meer of minder resources toe te wijzen. U kunt de huidige grootte van een virtuele machine weergeven met [az vm show](/cli/azure/vm#az_vm_show):
+Nadat een virtuele machine is geïmplementeerd, kan de grootte ervan worden gewijzigd om meer of minder resources toe te wijzen. U kunt de huidige grootte van een virtuele machine weergeven met [az vm show](/cli/azure/vm):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -228,7 +228,7 @@ Als de gewenste grootte beschikbaar is, kan de grootte van de virtuele machine w
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Als de gewenste grootte niet beschikbaar is in het huidige cluster, moet de toewijzing van de VM ongedaan worden gemaakt voordat de grootte kan worden gewijzigd. Gebruik de opdracht [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) om de virtuele machine te stoppen en de toewijzing van de virtuele machine ongedaan te maken. Opmerking: wanneer de virtuele machine weer wordt ingeschakeld, zijn gegevens op de tijdelijke schijf mogelijk verwijderd. Het openbare IP-adres verandert ook, tenzij een statisch IP-adres is gebruikt. 
+Als de gewenste grootte niet beschikbaar is in het huidige cluster, moet de toewijzing van de VM ongedaan worden gemaakt voordat de grootte kan worden gewijzigd. Gebruik de opdracht [az vm deallocate]( /cli/azure/vm) om de virtuele machine te stoppen en de toewijzing van de virtuele machine ongedaan te maken. Opmerking: wanneer de virtuele machine weer wordt ingeschakeld, zijn gegevens op de tijdelijke schijf mogelijk verwijderd. Het openbare IP-adres verandert ook, tenzij een statisch IP-adres is gebruikt. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM

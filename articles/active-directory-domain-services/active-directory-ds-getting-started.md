@@ -4,7 +4,7 @@ description: Azure Active Directory Domain Services met behulp van de Azure-port
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: a795691959c744f5358966d62449882e514eb8eb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155079"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850413"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 In dit artikel laat zien hoe Azure Active Directory Domain Services inschakelen (Azure AD DS) via Azure portal.
@@ -61,11 +61,11 @@ In de **basisbeginselen** pagina van de wizard, geeft u de DNS-domeinnaam voor h
 
    > [!NOTE]
    > **Richtlijnen voor het selecteren van een DNS-domeinnaam**
-   > * **Ingebouwde domeinnaam:** standaard de wizard Hiermee geeft u de standaard/ingebouwde-in-naam van de map (met een **. onmicrosoft.com** achtervoegsel) voor u. Als u ervoor kiest om in te schakelen toegang van secure LDAP aan het beheerde domein via internet, kunt u problemen met het maken van een openbare DNS-record of het verkrijgen van een certificaat voor secure LDAP via een openbare Certificeringsinstantie voor deze domeinnaam verwachten. Microsoft is eigenaar van de *. onmicrosoft.com* domein en de CA geeft geen certificaten garandeert voor dit domein.
-   * **Aangepaste domeinnamen:** u kunt ook typen in een aangepaste domeinnaam. In dit voorbeeld is de aangepaste domeinnaam *contoso100.com*.
-   * **Niet-routeerbare domeinachtervoegsels:** algemeen wordt aangeraden een achtervoegsel voor niet-routeerbare domeinnaam te vermijden. Bijvoorbeeld, is het beter om te voorkomen dat het maken van een domein met de DNS-domein naam 'contoso.local'. De DNS-achtervoegsel '.local' kan niet worden omgeleid en kan problemen veroorzaken met DNS-omzetting.
-   * **Voorvoegsel domeinbeperkingen:** het voorvoegsel van de opgegeven domeinnaam (bijvoorbeeld *contoso100* in de *contoso100.com* domeinnaam) mag maximaal 15 tekens. U kunt een beheerde domein maken met het voorvoegsel langer is dan 15 tekens.
-   * **Netwerk naamconflicten:** Zorg ervoor dat de DNS-domeinnaam die u hebt gekozen voor het beheerde domein nog niet in het virtuele netwerk bestaat. Controleer met name of:
+   > * **Naam van de ingebouwde domein:** Standaard geeft de wizard de standaard/ingebouwde-in-naam van de map (met een **. onmicrosoft.com** achtervoegsel) voor u. Als u ervoor kiest om in te schakelen toegang van secure LDAP aan het beheerde domein via internet, kunt u problemen met het maken van een openbare DNS-record of het verkrijgen van een certificaat voor secure LDAP via een openbare Certificeringsinstantie voor deze domeinnaam verwachten. Microsoft is eigenaar van de *. onmicrosoft.com* domein en de CA geeft geen certificaten garandeert voor dit domein.
+   * **Aangepaste domeinnamen:** U kunt ook typen in een aangepaste domeinnaam. In dit voorbeeld is de aangepaste domeinnaam *contoso100.com*.
+   * **Niet-routeerbare domeinachtervoegsels:** Het algemeen wordt aangeraden een achtervoegsel voor niet-routeerbare domeinnaam te vermijden. Bijvoorbeeld, is het beter om te voorkomen dat het maken van een domein met de DNS-domein naam 'contoso.local'. De DNS-achtervoegsel '.local' kan niet worden omgeleid en kan problemen veroorzaken met DNS-omzetting.
+   * **Domeinbeperkingen voorvoegsel:** Het voorvoegsel van de opgegeven domeinnaam (bijvoorbeeld contoso100 in de domeinnaam *contoso100.com*) mag maximaal 15 tekens bevatten. U kunt een beheerde domein maken met het voorvoegsel langer is dan 15 tekens.
+   * **Netwerk naam een conflict veroorzaakt:** Controleer of de DNS-domeinnaam die u hebt gekozen voor het beheerde domein, nog niet bestaat in het virtuele netwerk. Controleer met name of:
        * U hebt al een Active Directory-domein met dezelfde DNS-domeinnaam op het virtuele netwerk.
        * Het virtuele netwerk waar u van plan bent om in te schakelen van het beheerde domein heeft een VPN-verbinding met uw on-premises netwerk. In dit scenario, zorg ervoor dat u hebt geen een domein met dezelfde DNS-domeinnaam voor uw on-premises netwerk.
        * Of het virtuele netwerk een bestaande cloudservice met deze naam bevat.
