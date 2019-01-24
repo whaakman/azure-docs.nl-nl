@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 07385089e64977243929de15ab53f84520029495
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794070"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Zelfstudie: Azure Active Directory-integratie met Innoverse
 
@@ -79,8 +79,8 @@ U moet de volgende bouwstenen voltooien om eenmalige aanmelding voor Azure AD me
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Eenmalige aanmelding met Innoverse configureren](#configure-innoverse-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[Innoverse-testgebruiker maken](#create-innoverse-test-user)**: als u een equivalent van Britta Simon in Innoverse wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
-5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Innoverse-testgebruiker maken](#create-innoverse-test-user)**: als u een equivalent van Britta Simon in Innoverse wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -107,14 +107,14 @@ Voer de volgende stappen uit om eenmalige aanmelding voor Azure AD met Innoverse
 
     a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<domainname>.innover.se`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL met het volgende patroon: `https://<domainname>.innover.se/auth/saml2/login`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<domainname>.innover.se/auth/saml2/login`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
     ![Informatie over Innoverse-domein en URL's voor eenmalige aanmelding](common/metadata_upload_additional_signon.png)
 
     In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<domainname>.innover.se/auth/saml2/login`
-    
+
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [Innoverse-clientondersteuningsteam](mailto:support@readify.net) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 

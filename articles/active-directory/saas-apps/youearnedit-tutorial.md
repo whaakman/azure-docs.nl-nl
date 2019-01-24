@@ -4,7 +4,7 @@ description: Ontdek hoe u eenmalige aanmelding configureert tussen Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd65d6a5d210b4b0549236ec39844e36480b10c9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5b3746a1e29f436c277fd238e13fd46010941824
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790255"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Zelfstudie: Azure Active Directory-integratie met YouEarnedIt
 
@@ -78,8 +78,8 @@ Als u eenmalige aanmelding van Azure AD met YouEarnedIt wilt configureren en tes
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Eenmalige aanmelding voor YouEarnedIt configureren](#configure-youearnedit-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wilt configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[Testgebruiker voor YouEarnedIt maken](#create-youearnedit-test-user)**: als u een equivalent van Britta Simon in YouEarnedIt wilt maken dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
-5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Testgebruiker voor YouEarnedIt maken](#create-youearnedit-test-user)**: als u een equivalent van Britta Simon in YouEarnedIt wilt maken dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -104,22 +104,24 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD met YouEarnedI
 
     ![Informatie over eenmalige aanmelding voor YouEarnedIt-domein en -URL's](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende patronen: 
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende patronen:
+
     | Omgeving  | Patroon  |
     |:--- |:--- |
     | Productie | `https://<company name>.youearnedit.com/users/sign_in` |
     | Sandbox  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. In het tekstvak **Id** typt u een URL met de volgende patronen:
+
     | Omgeving  | Patroon  |
     |:--- |:--- |
     | Productie | `<company name>.youearnedit.com` |
     | Sandbox  |`<company name>.sandbox.youearnedit.com` |
 
-    > [!NOTE] 
+    > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de daadwerkelijke aanmeldings-URL en id. Neem contact op met uw toegewezen YouEarnedIt-klantenmanager om deze waarden te verkrijgen.
 
-4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
+5. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
     ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
@@ -192,11 +194,10 @@ In dit gedeelte gaat u Britta Simon toestemming geven voor gebruik van eenmalige
 
 In dit gedeelte maakt u een gebruiker met de naam Britta Simon in YouEarnedIt. Neem contact op met uw YouEarnedIt-klantenmanager om de gebruikers toe te voegen aan het YouEarnedIt-platform.
 
->[!NOTE]
->YouEarnedIt verwacht dat de id-provider een EmailAddress of UserName levert in het kenmerk NameID. De verificatie mislukt als er geen overeenkomende UserName of EmailAddress in de database worden gevonden of deze niet exact overeenkomen. Dit vereist dat de accounts in het systeem van YouEarnedIt worden geïmporteerd vóór de integratie van eenmalige aanmelding (meestal via een API- of CSV-import).
+> [!NOTE]
+> YouEarnedIt verwacht dat de id-provider een EmailAddress of UserName levert in het kenmerk NameID. De verificatie mislukt als er geen overeenkomende UserName of EmailAddress in de database worden gevonden of deze niet exact overeenkomen. Dit vereist dat de accounts in het systeem van YouEarnedIt worden geïmporteerd vóór de integratie van eenmalige aanmelding (meestal via een API- of CSV-import).
 
-
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
 
@@ -209,4 +210,3 @@ Wanneer u op de tegel van YouEarnedIt in het toegangsvenster klikt, zou u automa
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
 - [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -4,7 +4,7 @@ description: Een zelfstudie die u helpt bij het doorlopen van het proces voor he
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: bryanla
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: ee4b504cf26456baa7d10eab05305eee5e36c35a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 938bbd62ba6e27359b909eda3d2dbc2b91ae539b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191900"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436515"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Zelfstudie: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure SQL
 
@@ -39,7 +39,7 @@ Deze zelfstudie laat zien hoe u toegang krijgt tot een Azure SQL-server met een 
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Uw virtuele machine toegang verlenen tot een database op een Azure SQL-server
 
-Als u uw virtuele machine toegang wilt verlenen tot een database in een Azure SQL-server, kunt u een bestaande SQL-server gebruiken of een nieuwe server maken.  Voor het maken van een nieuwe server en database met behulp van de Azure-portal, volgt u deze [Azure SQL-snelstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Er zijn ook snelstarts in de [documentatie over Azure SQL](https://docs.microsoft.com/azure/sql-database/) voor het gebruik van Azure CLI en Azure Powershell.
+Als u uw virtuele machine toegang wilt verlenen tot een database in een Azure SQL-server, kunt u een bestaande SQL-server gebruiken of een nieuwe server maken.  Voor het maken van een nieuwe server en database met behulp van Azure Portal, volgt u deze [Azure SQL-snelstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Er zijn ook snelstarts in de [documentatie over Azure SQL](https://docs.microsoft.com/azure/sql-database/) voor het gebruik van Azure CLI en Azure Powershell.
 
 U moet twee stappen uitvoeren om uw virtuele machine toegang te verlenen tot een database:
 
@@ -50,7 +50,7 @@ U moet twee stappen uitvoeren om uw virtuele machine toegang te verlenen tot een
 
 [Azure AD-verificatie voor de SQL-server configureren](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) met behulp van de volgende stappen:
 
-1.  Selecteer **SQL-servers** in het linkernavigatievenster van de Azure-portal.
+1.  Selecteer **SQL-servers** in het linkernavigatievenster van Azure Portal.
 2.  Klik op de SQL-server waarvoor Azure AD-verificatie moet worden ingeschakeld.
 3.  Klik in de sectie **Instellingen** van de blade op **Active Directory-beheerder**.
 4.  Klik in de opdrachtbalk op **Beheerder instellen**.
@@ -148,7 +148,7 @@ if (accessToken != null) {
 
 Met PowerShell kunt u snel de end-to-end-instellingen testen zonder een app te hoeven schrijven en implementeren op de virtuele machine.
 
-1.  Navigeer in de Azure-portal naar **Virtuele machines**, ga naar uw virtuele Windows-machine en klik op de pagina **Overzicht** op **Verbinden**. 
+1.  Navigeer in Azure Portal naar **Virtuele machines**, ga naar uw virtuele Windows-machine en klik op de pagina **Overzicht** op **Verbinden**. 
 2.  Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
 3.  Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u **PowerShell** in de externe sessie. 
 4.  Verstuur met de cmdlet `Invoke-WebRequest` van Powershell een aanvraag naar het lokale eindpunt van de beheerde identiteit om een toegangstoken voor Azure SQL op te halen.

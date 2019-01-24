@@ -3,7 +3,7 @@ title: Overzicht van Mijn apparaten beheren - Azure Active Directory | Microsoft
 description: Meer informatie over het toevoegen en registreren van uw apparaten op het netwerk van uw organisatie.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.component: user-help
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 7a4716be201b1923b54f09fa68f5769521b29168
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: f321e027b29aa719dd0620aadd2a8e1558d069e9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022320"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825796"
 ---
 # <a name="manage-my-devices-overview"></a>Overzicht van Mijn apparaten beheren
 

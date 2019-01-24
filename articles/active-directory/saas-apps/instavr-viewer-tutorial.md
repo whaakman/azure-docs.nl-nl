@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b0548ec2bb580c2898f610f00fd5ba911b314114
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194850"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Zelfstudie: Azure Active Directory-integratie met InstaVR Viewer
 
@@ -79,8 +79,8 @@ Voor het configureren en testen van Azure AD-eenmalige aanmelding met InstaVR Vi
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[InstaVR Viewer-eenmalige aanmelding configureren](#configure-instavr-viewer-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wil configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[InstaVR Viewer-testgebruiker maken](#create-instavr-viewer-test-user)**: als u een equivalent van Britta Simon in InstaVR Viewer wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
-5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[InstaVR Viewer-testgebruiker maken](#create-instavr-viewer-test-user)**: als u een equivalent van Britta Simon in InstaVR Viewer wilt hebben dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -105,13 +105,13 @@ Voor het configureren van Azure AD-eenmalige aanmelding met InstaVR Viewer voert
 
     ![Informatie over domein en URL's voor eenmalige aanmelding met InstaVR Viewer](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
-    
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
     > [!NOTE]
     > Er is geen vast patroon voor de aanmeldings-URL. De URL wordt gegenereerd wanneer de InstaVR Viewer-klant het webpakket maakt. De URL is uniek voor elke klant en elk pakket. Om de exacte aanmeldings-URL te verkrijgen, moet u zich aanmelden bij uw exemplaar van InstaVR Viewer en een webpakket maken.
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
-    
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
     > [!NOTE]
     > De id-waarde is niet echt. Wijzig deze waarde in de werkelijke id-waarde op de manier die verderop in deze zelfstudie wordt uitgelegd.
 

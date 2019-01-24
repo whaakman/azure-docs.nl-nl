@@ -4,7 +4,7 @@ description: Leer hoe u eenmalige aanmelding tussen Azure Active Directory en Co
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eee0a5d-24fa-4986-9aef-3c543cfe3296
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 928205627ee971958fd2d98ad2c3cb91d9b491cc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 930ecc6374d2be05867b28af624280f4617d6482
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808499"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Zelfstudie: Azure Active Directory-integratie met Concur
 
@@ -105,9 +105,9 @@ Voer de volgende stappen uit om eenmalige aanmelding van Azure AD te configurere
 
     ![Gegevens voor domein en URL's voor eenmalige aanmelding bij Concur](common/sp-identifier.png)
 
-    a. In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
-    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met het volgende patroon: `https://<customer-domain>.concursolutions.com`
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<customer-domain>.concursolutions.com`
 
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Concur](https://www.concur.co.in/contact) om deze waarden op te vragen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
