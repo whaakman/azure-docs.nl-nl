@@ -63,9 +63,9 @@
 ### [DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor SAP ASE](dbms_guide_sapase.md)
 ### [Implementatie van SAP MaxDB, liveCache en Content Server in Azure](dbms_guide_maxdb.md)
 ### Beschikbaarheid van SAP HANA in virtuele Azure-machines
-### [Overzicht van de beschikbaarheid van SAP HANA op Azure](sap-hana-availability-overview.md)
-### [Beschikbaarheid van SAP HANA op Azure binnen één Azure-regio](sap-hana-availability-one-region.md)
-### [Beschikbaarheid van SAP HANA op Azure in meerdere Azure-regio's](sap-hana-availability-across-regions.md)
+#### [Overzicht van de beschikbaarheid van SAP HANA op Azure](sap-hana-availability-overview.md)
+#### [Beschikbaarheid van SAP HANA op Azure binnen één Azure-regio](sap-hana-availability-one-region.md)
+#### [Beschikbaarheid van SAP HANA op Azure in meerdere Azure-regio's](sap-hana-availability-across-regions.md)
 ## [SAP Business One in virtuele Azure-machines](business-one-azure.md)
 ## [Implementatiehandleiding voor SAP IDES op Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP LaMa-connector voor Azure](lama-installation.md)

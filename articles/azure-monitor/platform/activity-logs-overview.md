@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439065"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883769"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -45,7 +45,7 @@ Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor voll
 * **Automatisch schalen** -deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op de werking van de engine voor automatisch schalen op basis van alle instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Schalen via automatisch schalen van de actie is mislukt". Automatisch schalen gebruik, u kunt automatisch omhoog of omlaag schalen op basis van tijd van de dag en/of load (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde resourcetype. Wanneer de voorwaarden wordt voldaan aan omhoog of omlaag schalen, de begin- en geslaagde of mislukte gebeurtenissen worden opgenomen in deze categorie.
 * **Aanbeveling** -deze categorie bevat aanbevelingsgebeurtenissen die van Azure Advisor.
 * **Beveiliging** -deze categorie bevat de record van alle waarschuwingen die worden gegenereerd door Azure Security Center. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "verdacht bestand met dubbele extensie uitgevoerd."
-* **Beleid** -deze categorie bevat niet alle gebeurtenissen; dit is gereserveerd voor toekomstig gebruik. 
+* **Beleid** -deze categorie bevat records voor alle bewerkingen met effect actie uitgevoerd door Azure Policy. Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn controle en weigeren. Elke actie op die door het beleid is gemodelleerd als een bewerking op een resource.
 
 ## <a name="event-schema-per-category"></a>Gebeurtenisschema per categorie
 [Zie dit artikel voor informatie over de gebeurtenisschema in het activiteitenlogboek per categorie.](../../azure-monitor/platform/activity-log-schema.md)

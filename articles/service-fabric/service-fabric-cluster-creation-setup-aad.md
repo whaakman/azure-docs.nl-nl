@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/15/2018
 ms.author: aljo
-ms.openlocfilehash: 75ba2ee378e9eddfeaeb2346b4d5bb584844afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636660"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903499"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Azure Active Directory instellen voor clientverificatie
 
@@ -33,7 +33,7 @@ Ter vereenvoudiging van enkele van de stappen voor het configureren van Azure AD
 > [!NOTE]
 > U moet de volgende stappen uitvoeren voordat u het cluster maakt. Omdat de scripts verwacht clusternamen en eindpunten, worden de waarden moeten worden gepland en niet de waarden die u al hebt gemaakt.
 
-1. [De scripts downloaden] [ sf-aad-ps-script-download] op uw computer.
+1. [De scripts downloaden](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) op uw computer.
 2. Met de rechtermuisknop op het zip-bestand, selecteer **eigenschappen**, selecteer de **opheffen van blokkeringen** selectievakje en klik vervolgens op **toepassen**.
 3. Pak het gecomprimeerde bestand uit.
 4. Voer `SetupApplications.ps1`, en geef de tenant-id, de clusternaam en de WebApplicationReplyUrl als parameters. Bijvoorbeeld:
@@ -51,12 +51,12 @@ Clusternaam is gebruikt voor het toevoegen van de Azure AD-toepassingen die zijn
 
 WebApplicationReplyUrl is de standaardeindpunt dat Azure AD aan uw gebruikers retourneert nadat ze klaar zijn aangemeld. Dit eindpunt als de Service Fabric Explorer-eindpunt voor uw cluster, dit is standaard ingesteld:
 
-https://&lt;cluster_domain&gt;: 19080/Explorer
+https://&lt;cluster_domain&gt;:19080/Explorer
 
 U wordt gevraagd of u zich aanmeldt bij een account dat beheerdersrechten voor de Azure AD-tenant heeft. Nadat u zich hebt aangemeld, wordt het script maakt de web- en systeemeigen toepassingen voor uw Service Fabric-cluster. Als u kijkt naar de toepassingen van de tenant in de [Azure-portal][azure-portal], ziet u twee nieuwe vermeldingen:
 
-   * *Clusternaam*\_Cluster
-   * *Clusternaam*\_Client
+   * *ClusterName*\_Cluster
+   * *ClusterName*\_Client
 
 Het script af te drukken de JSON die wordt vereist door de Azure Resource Manager-sjabloon wanneer u het cluster in de volgende sectie, maakt dus is het een goed idee om Houd het PowerShell-venster geopend.
 
@@ -108,16 +108,16 @@ De gebruiker is niet een rol in de Azure AD-toepassing voor cluster toegewezen. 
 #### <a name="solution"></a>Oplossing
 Volg de instructies voor het instellen van Azure AD en gebruikersrollen toewijzen. Ook aangeraden u inschakelen 'Gebruikerstoewijzing vereist voor toegang tot app,' als `SetupApplications.ps1` heeft.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Verbinding met PowerShell mislukt met fout: "de opgegeven referenties zijn ongeldig."
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Verbinding met PowerShell mislukt met fout: "De opgegeven referenties zijn ongeldig."
 #### <a name="problem"></a>Probleem
-Als u PowerShell gebruiken om verbinding met het cluster met behulp van de beveiligingsmodus "AzureActiveDirectory", nadat u zich hebt aangemeld met succes aan Azure AD, mislukt de verbinding met een fout: "de opgegeven referenties zijn ongeldig."
+Wanneer u PowerShell gebruiken om verbinding met het cluster met behulp van de beveiligingsmodus "AzureActiveDirectory", nadat u zich hebt aangemeld met succes aan Azure AD, wordt de verbinding met een fout mislukt: "De opgegeven referenties zijn ongeldig."
 
 #### <a name="solution"></a>Oplossing
 Deze oplossing is hetzelfde als de vorige waarde.
 
-### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer retourneert een fout opgetreden tijdens het aanmelden: "AADSTS50011"
+### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer, wordt er een fout retourneert wanneer u zich aanmeldt: "AADSTS50011"
 #### <a name="problem"></a>Probleem
-Wanneer u zich aanmeldt bij Azure AD in Service Fabric Explorer, de pagina een fout geretourneerd: ' AADSTS50011: het antwoordadres op dat &lt;url&gt; komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing: &lt;guid&gt;. "
+Wanneer u zich aanmeldt bij Azure AD in Service Fabric Explorer, wordt een fout geretourneerd door de pagina: "AADSTS50011: Het antwoordadres op dat &lt;url&gt; komt niet overeen met de antwoordadressen die is geconfigureerd voor de toepassing: &lt;guid&gt;. "
 
 ![Antwoordadres op dat u SFX komt niet overeen met][sfx-reply-address-not-match]
 

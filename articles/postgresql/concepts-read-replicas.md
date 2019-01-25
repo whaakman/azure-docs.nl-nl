@@ -5,15 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.openlocfilehash: cb02f0b786ff6f1c7dbef5471fb95ce6516f824c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/23/2019
+ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466071"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903992"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Lezen-replica's in Azure Database for PostgreSQL
+
+> [!IMPORTANT]
+> De functie lezen replica is beschikbaar als openbare preview.
+
 De replica voor lezen-functie kunt u voor het repliceren van gegevens uit een Azure Database for PostgreSQL-server (master) op maximaal vijf alleen-lezen-servers (lezen replica's) binnen dezelfde Azure-regio. Lezen-replica's worden asynchroon bijgewerkt met de PostgreSQL-engine systeemeigen Replicatietechnologie.
 
 Replica's zijn nieuwe servers die kunnen worden beheerd op vergelijkbare wijze als normale zelfstandige Azure Database for PostgreSQL-servers. U wordt gefactureerd voor elke lezen replica voor de ingerichte Computing in vCores en ingerichte opslag in GB/maand.

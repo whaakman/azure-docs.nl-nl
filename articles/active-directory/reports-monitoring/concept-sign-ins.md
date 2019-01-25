@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 73f90d1df2c1a6a0655a61026112cc2a7a73cb1e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1e20fead4e9eb78946ddbe1ce223915ed0101ccf
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808626"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904196"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -161,8 +161,8 @@ Als u meer flexibiliteit nodig hebt, kunt u kiezen voor de scriptoplossing. Te k
 
 Als u het script uitvoert wilt op een **Windows 10** machine, moet u eerst een paar extra stappen uitvoeren. 
 
-1. Installeer de [AzureRM-module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
-2. Importeer de module door een PowerShell-prompt openen en het uitvoeren van de opdracht **Import-Module AzureRM**.
+1. Installeer de [Az module](/powershell/azure/install-az-ps).
+2. Importeer de module door een PowerShell-prompt openen en het uitvoeren van de opdracht **Import-Module Az**.
 3. Voer **Set-ExecutionPolicy unrestricted** en kies **Ja op Alles**. 
 4. U kunt nu het gedownloade PowerShell-script uitvoeren in de beheerdersmodus voor het genereren van het CSV-bestand.
 
