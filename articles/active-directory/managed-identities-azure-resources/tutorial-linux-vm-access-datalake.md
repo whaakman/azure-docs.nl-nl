@@ -4,7 +4,7 @@ description: Een zelfstudie die laat zien hoe u toegang krijgt tot Azure Data La
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 212e0cf390f7a67325b111d4028e0908c772b081
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e180d8068292b810d12eb1c4ff28b1b3ce96575b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622717"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430550"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Zelfstudie: Een door het Linux-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Data Lake Store
 
@@ -70,7 +70,7 @@ U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruik
 
 1. Blader in de portal naar uw Linux-VM. Selecteer **Verbinden** in **Overzicht**.  
 2. Maak verbinding met de VM met behulp van de SSH-client van uw keuze. 
-3. Dien in het terminalvenster met behulp van cURL een aanvraag in bij het lokale eindpunt van beheerde identiteiten voor Azure-resources om een toegangstoken voor het Data Lake Storage-bestandssysteem op te halen. De resource-id voor Data Lake Storage is ‘ https://datalake.azure.net/’.  Het is belangrijk om de afsluitende slash in de resource-id op te nemen.
+3. Dien in het terminalvenster met behulp van cURL een aanvraag in bij het lokale eindpunt van beheerde identiteiten voor Azure-resources om een toegangstoken voor het Data Lake Storage-bestandssysteem op te halen. De resource-id voor Data Lake Storage is ‘https://datalake.azure.net/’.  Het is belangrijk om de afsluitende slash in de resource-id op te nemen.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

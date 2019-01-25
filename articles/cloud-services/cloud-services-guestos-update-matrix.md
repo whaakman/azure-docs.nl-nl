@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/24/2019
 ms.author: raiye
-ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 59afdd3bbb00dce6085ea76685768db3e8eec5cc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104859"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900847"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -43,6 +43,9 @@ Weet over het bijwerken van het Gastbesturingssysteem? Controleer [dit] [ cloud 
 
 ## <a name="news-updates"></a>Nieuws
 
+###### <a name="january-24-2019"></a>**24 januari 2019**
+Het Gastbesturingssysteem Family 6 (Windows Server 2019) heeft uitgegeven.
+
 ###### <a name="january-7-2019"></a>**7 januari 2019**
 Het Gastbesturingssysteem December heeft uitgegeven.
 
@@ -65,6 +68,21 @@ Het Gastbesturingssysteem juli is uitgebracht.
 Het Gastbesturingssysteem van juni heeft uitgegeven.
 
 ## <a name="releases"></a>Releases
+
+## <a name="family-6-releases"></a>Familie 6-versies
+**Windows Server 2019**
+
+.NET framework is geïnstalleerd: 3.5, 4.7.2
+
+> [!NOTE]
+> De Windows Azure SDK voor .NET 3.0 kan worden gedownload [hier][Windows Azure SDK].
+>
+
+| Configuratietekenreeks | Releasedatum | Datum uitschakelen |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |24 januari 2019 |Post 6.4 |
+| WA-GUEST-OS-6.1_201811-01 |24 januari 2019 |Post 6.3 |
+
 ## <a name="family-5-releases"></a>Familie 5-versies
 **Windows Server 2016**
 
@@ -205,3 +223,4 @@ Het beleid voor ondersteuning en buiten gebruik stellen van Guest OS wordt uitge
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

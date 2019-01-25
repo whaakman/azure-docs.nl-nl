@@ -170,16 +170,29 @@ items:
       - name: Gedetailleerde stappen
         href: create-ssh-keys-detailed.md
   - name: Virtuele machines beschermen
-    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     items:
-    - name: Een back-up maken van één virtuele machine
-      href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Een back-up maken van meerdere virtuele machines
-      href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Een schijf terugzetten
-      href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Afzonderlijke bestanden terugzetten
-      href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Back-ups maken van virtuele machines
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: Een back-up maken van één virtuele machine
+        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Een back-up maken van meerdere virtuele machines
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Een schijf terugzetten
+        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Afzonderlijke bestanden terugzetten
+        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Herstel na noodgeval instellen voor virtuele machines
+      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: Herstel na noodgeval inschakelen voor een virtuele machine
+        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Herstelanalyse uitvoeren voor een virtuele machine
+        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Failover van een virtuele machine naar een andere regio uitvoeren
+        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Virtuele machines naar een andere regio verplaatsen
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Virtuele machines beheren
     items:
     - name: VM-gebruik
@@ -547,9 +560,9 @@ items:
     href: faq.md
 - name: Problemen oplossen
   href: ../troubleshooting/index.md
-ms.openlocfilehash: c230e40c62b3f7f1c485eb4051bed3a0314aa08d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: be99b17042aa8f36b8fb9a1ad7dedf3a945dcf75
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360136"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822668"

@@ -28,7 +28,7 @@
 ### [Toegangsbeheer](data-lake-store-access-control.md)
 ### [Opgeslagen gegevens beveiligen](data-lake-store-secure-data.md)
 ### [Versleuteling](data-lake-store-encryption.md)
-### [Integratie van virtueel netwerk (preview)](data-lake-store-network-security.md)
+### [Integratie van virtueel netwerk](data-lake-store-network-security.md)
 
 ## Verifiëren met Data Lake Storage Gen1
 ### [Verificatieopties](data-lakes-store-authentication-using-azure-active-directory.md)

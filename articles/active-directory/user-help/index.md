@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: 'Gebruikershulp voor verificatie, apps en apparaatbeheer - Azure Active Directory | Microsoft Docs'
-description: 'Gebruikershulp is voor mensen die hulp nodig hebben bij het instellen en gebruiken van beveiligingsgegevens, verificatie in twee stappen, zelf wachtwoorden opnieuw instellen, apparaatbeheer, de Microsoft Authenticator-app en de Mijn Apps-portal.'
+title: Gebruikershulp voor verificatie, apps en apparaatbeheer - Azure Active Directory | Microsoft Docs
+description: Gebruikershulp is voor mensen die hulp nodig hebben bij het instellen en gebruiken van beveiligingsgegevens, verificatie in twee stappen, zelf wachtwoorden opnieuw instellen, apparaatbeheer, de Microsoft Authenticator-app en de Mijn Apps-portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,8 +10,13 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
+ms.openlocfilehash: c6fe14c9f67d6ce2f432b57b2cbbd0d026cebe85
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901629"
 ---
-
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Gebruikershulp voor verificatie, apps en apparaatbeheer
 
 We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligingsgegevens en verificatie in twee stappen te gebruiken, evenals om u te leren hoe u uw eigen wachtwoorden opnieuw instelt, Azure Active Directory-apparaten samenvoegt en hoe u de Microsoft Authenticator-app en de Mijn Apps-portal gebruikt.
@@ -81,7 +86,10 @@ We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligings
                     <div class="cardText">
                         <h3>Hulp bij Microsoft Authenticator-app</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Aan de slag</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">Overzicht</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">De app downloaden en installeren</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">Uw accounts toevoegen</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Aanmelden met behulp van de app</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Back-up en herstel van accountreferenties</a>
                         </p>
                     </div>

@@ -47,12 +47,24 @@ items:
   items:
   - name: Overzicht
     href: user-help-auth-app-overview.md
-  - name: Aan de slag
+  - name: De app downloaden en installeren
     href: microsoft-authenticator-app-how-to.md
-  - name: Back-up maken en herstellen
-    href: microsoft-authenticator-app-backup-and-recovery.md
-  - name: Aanmelden via uw telefoon
+  - name: Een overzicht van accounts toevoegen
+    href: microsoft-authenticator-app-add-accounts-overview.md
+    items:
+    - name: Een werk- of schoolaccount toevoegen
+      href: microsoft-authenticator-app-add-work-account.md
+    - name: Een persoonlijke Microsoft-account toevoegen
+      href: microsoft-authenticator-app-add-personal-account.md
+    - name: Een persoonlijk account dat niet voor Microsoft is toevoegen
+      href: microsoft-authenticator-app-add-non-microsoft-account.md
+    - name: Handmatig een account toevoegen
+      href: microsoft-authenticator-app-add-account-manual.md
+    expanded: true
+  - name: Aanmelden met de Microsoft Authenticator-app
     href: microsoft-authenticator-app-phone-signin-faq.md
+  - name: Een back-up maken van uw accounts en deze herstellen
+    href: microsoft-authenticator-app-backup-and-recovery.md
   - name: Veelgestelde vragen
     href: microsoft-authenticator-app-faq.md
 - name: Hulp bij Mijn Apps-portal
@@ -73,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: Problemen in het bericht 'U kunt daar niet komen' oplossen
     href: user-help-device-remediation.md
-ms.openlocfilehash: 27d0d3300a19d4c27bec48ebf411c7ac3ee6ad87
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649582"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904094"

@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: bc00bd3b61398355c663d133c0c9a66c2a52aa8d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047633"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807453"
 ---
 # <a name="r-developers-guide-to-azure"></a>R developer's guide voor Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -33,14 +33,14 @@ We gaan de verschillende opties en de meest waardevolle scenario's voor elk crit
 ## <a name="azure-services-with-r-language-support"></a>Azure-services met ondersteuning voor R-taal
 In dit artikel bevat informatie over de volgende Azure-services die ondersteuning bieden voor de R-taal:
 
-|Service                                                          |Beschrijving                                                                       |
+|Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
 |[Virtuele Machine voor Datatechnologie](#data-science-virtual-machine)    |een aangepaste virtuele machine gebruiken als een data science-werkstation of als een aangepaste compute-doel|
 |[ML-Services op HDInsight](#ml-services-on-hdinsight)            |cluster-systeem voor het uitvoeren van R-analyses op grote gegevenssets over veel knooppunten   |
 |[Azure Databricks](#azure-databricks)                            |Spark samenwerkingsomgeving die ondersteuning biedt voor R en andere talen               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |aangepaste R-scripts uitvoeren in Azure machine learning-experimenten                      |
 |[Azure Batch](#azure-batch)                                      |biedt verschillende opties voor het uitvoeren van R-code economisch over veel knooppunten in een cluster|
-|[Azure-laptops](#azure-notebooks)                              |een gratis (maar beperkt) cloud-versie van Jupyter-notebooks                  |
+|[Azure Notebooks](#azure-notebooks)                              |een gratis cloudgebaseerde versie van Jupyter-notebooks                  |
 |[Azure SQL Database](#azure-sql-database)                        |R-scripts in de database-engine van SQL Server uitvoeren                            |
 
 ## <a name="data-science-virtual-machine"></a>Data Science Virtual Machine
@@ -73,7 +73,7 @@ Deze mogelijkheid om te schalen is ML-Services op HDInsight een goede optie voor
 Zie voor stapsgewijze instructies over het maken van een ML-Services-cluster, de ['Aan de slag met ML-Services op Azure HDInsight'](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-get-started) artikel.
 
 ## <a name="azure-databricks"></a>Azure Databricks
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) is een Apache Spark gebaseerd analyseplatform, geoptimaliseerd voor het Microsoft Azure cloud services-platform.  Databricks is ontwikkeld in samenwerking met de grondleggers van Apache Spark en met Azure geïntegreerd. Hierdoor biedt het installatie met één klik, gestroomlijnde werkstromen en een interactieve werkruimte waarmee gegevenswetenschappers, gegevenstechnici en bedrijfsanalisten samen kunnen werken.
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) is een op Apache Spark gebaseerd analyseplatform, geoptimaliseerd voor het Microsoft Azure-platform voor cloudservices.  Databricks is ontwikkeld in samenwerking met de grondleggers van Apache Spark en met Azure geïntegreerd. Hierdoor biedt het installatie met één klik, gestroomlijnde werkstromen en een interactieve werkruimte waarmee gegevenswetenschappers, gegevenstechnici en bedrijfsanalisten samen kunnen werken.
 
 De samenwerking in Databricks is notebook-systeem van het platform ingeschakeld.  Gebruikers kunnen maken, delen en laptops met andere gebruikers van de systemen te bewerken.  Deze laptops toestaan dat gebruikers code te schrijven die op Spark-clusters worden beheerd in de Databricks-omgeving wordt uitgevoerd.  Deze laptops volledig ondersteuning voor R en geeft gebruikers toegang tot Spark via zowel de `SparkR` en `sparklyr` pakketten.
 
@@ -111,9 +111,10 @@ Er is een andere optie voor het uitvoeren van een R-script in Azure Batch te bun
 Een derde optie is het gebruik de [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK), waarmee u te richten op aanvraag Spark-clusters met behulp van Docker-containers in Azure Batch.  Dit biedt een voordelige manier om Spark-taken uitvoeren in Azure.  Met behulp van [SparklyR met AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), uw R-scripts kunnen worden uitgebreid in de cloud eenvoudig en economisch.
 
 ## <a name="azure-notebooks"></a>Azure Notebooks
+
 [Azure-notitieblokken](https://notebooks.azure.com) is een goedkope, lage-eenvoudige methode voor R-ontwikkelaars die liever werken met notitieblokken op hun code naar Azure meenemen.  Het is een gratis service voor iedereen ontwikkelen en uitvoeren van code in hun browser met [Jupyter](https://jupyter.org/), dit is een open source-project waarmee markdown prose zoekfunctionaliteit door te combineren, uitvoerbare code en afbeeldingen op bestaat uit één canvas.
 
-Notitieblokken van Azure is een beschikbare optie voor kleine projecten, worden er enkele beperkingen die niet geschikt voor grootschalige wetenschappelijke gegevensprojecten.  Op dit moment limieten van elke laptop proces van 4 GB geheugen van de service en gegevenssets mag alleen bestaan uit 1 GB.  Voor het publiceren van kleinere analyses, is dit echter een eenvoudige, gratis optie.
+De laag gratis service van Azure-notitieblokken is een beschikbare optie voor projecten met een kleinschalige wanneer het proces van elke laptop van 4GB aan geheugen en 1GB gegevenssets limieten. Als u power reken- en gegevens buiten deze beperkingen, maar kunt u uitvoeren notitieblokken in een Data Science Virtual Machine-instantie. Zie voor meer informatie, [beheren en configureren van Azure-notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is van Microsoft intelligente, volledig beheerde relationele clouddatabaseservice.  Hiermee kunt u de volledige kracht van SQL Server zonder alle moeite van het instellen van de infrastructuur gebruiken.  Dit omvat [Machine Learning-Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), dit is een van de meest recente toevoegingen aan SQL-Service.
