@@ -3,7 +3,7 @@ title: Inzicht in uw Azure-factuur | Microsoft Docs
 description: Meer informatie over het gebruik van en de factuur voor uw Azure-abonnement
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: jureid
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581547"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901017"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Meer informatie over uw factuur voor Microsoft Azure
 
@@ -44,7 +44,7 @@ In de sectie accountgegevens van de factuur is boven aan de eerste pagina en wor
 
 ![Sectie accountgegevens van factuur](./media/billing-understand-your-invoice/1.png)
 
-| Termijn | Beschrijving |
+| Termijn | Description |
 | --- | --- |
 | IO-nr. |Een optionele aankoop volgordenummer door u is toegewezen voor bijhouden |
 | Factuurnummer |Een unieke, Microsoft gegenereerd factuur dat wordt gebruikt voor het bij te houden |
@@ -65,7 +65,7 @@ De naam van het abonnement ('productie-opslag') is de naam van het abonnement vo
 #### <a name="understand-the-previous-charges"></a>Meer informatie over de vorige kosten
 Het vorig saldo, betalingen en openstaande saldo sectie van de factuur geeft een overzicht van transacties sinds uw laatste factureringsperiode.
 
-| Termijn | Beschrijving |
+| Termijn | Description |
 | --- | --- |
 | Vorig saldo |Het totale verschuldigde bedrag van uw laatste factureringsperiode |
 | Betalingen |Totale betalingen en tegoeden die worden toegepast op de laatste factureringsperiode |
@@ -74,7 +74,7 @@ Het vorig saldo, betalingen en openstaande saldo sectie van de factuur geeft een
 #### <a name="understand-the-current-charges"></a>Meer informatie over de huidige kosten
 De sectie huidige kosten van de factuur bevat details over uw maandelijkse kosten voor de huidige factureringsperiode.
 
-| Termijn | Beschrijving |
+| Termijn | Description |
 | --- | --- |
 | Gebruikskosten |Gebruikskosten zijn de totale maandelijkse kosten op een abonnement voor de huidige factureringsperiode|
 | Kortingen |Servicekortingen die zijn toegepast op uw huidige factureringsperiode.|
@@ -84,7 +84,7 @@ De sectie huidige kosten van de factuur bevat details over uw maandelijkse koste
 
 De volgende tabel beschrijft de verkocht aan en instructies over hoe u op de tweede pagina van uw factuur weergegeven.
 
-| Termijn |Beschrijving |
+| Termijn |Description |
 | --- | --- |
 | Verkocht aan |Profieladres dat zich op het account. <br/><br/>Als u wijzigen van het adres wilt, Zie [profielgegevens van uw Azure-account zoals contact-e-mailadres en telefoonnummer wijzigen](billing-how-to-change-azure-account-profile.md).|
 | Betalingsinstructies |Instructies voor het betalen, afhankelijk van de betalingswijze (bijvoorbeeld door tegoed kaart of per factuur). |
@@ -97,9 +97,9 @@ Het gedeelte van de kosten voor gebruik van de factuur geeft meter niveau inform
 
 De volgende tabel beschrijft de kolomkoppen van de gebruik kosten in rekening gebracht op uw factuur weergegeven.
 
-| Termijn |Beschrijving |
+| Termijn |Description |
 | --- | --- |
-| Naam |Identificeert de service op het hoogste niveau voor het gebruik |
+| Name |Identificeert de service op het hoogste niveau voor het gebruik |
 | Type |Definieert het type Azure-service die invloed kan zijn op de snelheid |
 | Resource |Identificeert de maateenheid voor de meter wordt gebruikt |
 | Regio |Geeft de locatie van de datacenterlocatie voor bepaalde services waarbij de prijs gebaseerd op de datacenterlocatie |

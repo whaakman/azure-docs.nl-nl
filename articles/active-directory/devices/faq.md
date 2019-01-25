@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/24/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edb4e2b25e5fd7d6c59f07a02cc5d2f0630eac8e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852385"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904400"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
@@ -180,6 +180,19 @@ Dit gedrag is niet van toepassing op een andere gebruiker die zich aanmeldt op d
 
 ---
 
+**V: wat zijn de certificaten MS-organisatie-P2P-toegang aanwezig op onze Windows 10-apparaten?**
+
+**A:** De MS-organisatie-P2P-toegang zijn uitgegeven door Azure AD op beide Azure AD join en hybride Azure AD gekoppelde apparaten. Deze certificaten worden gebruikt om de vertrouwensrelatie tussen apparaten in dezelfde tenant voor scenario's voor extern bureaublad inschakelen. Een certificaat wordt uitgegeven aan het apparaat en een andere wordt verleend aan de gebruiker. Het apparaatcertificaat is aanwezig in `Local Computer\Personal\Certificates` en is geldig gedurende één dag. Dit certificaat wordt vernieuwd (door uitgifte van een nieuw certificaat) als het apparaat nog steeds actief zijn in Azure AD is. Het gebruikerscertificaat is aanwezig in `Current User\Personal\Certificates` en dit certificaat is één dag ook geldig, maar het op aanvraag is uitgegeven wanneer een gebruiker een extern-bureaubladsessie naar een andere Azure AD gekoppelde apparaat probeert. Het is niet vernieuwd na het verstrijken. Beide deze certificaten zijn verleend met behulp van het certificaat MS-organisatie-P2P-toegang aanwezig zijn in de `Local Computer\AAD Token Issuer\Certificates`. Dit certificaat is uitgegeven door Azure AD tijdens het registreren van apparaten. 
+
+---
+
+**Q:Why kan ik meerdere verlopen certificaten uitgegeven door MS-organisatie-P2P-toegang op onze Windows 10-apparaten zien? Hoe verwijder ik deze?**
+
+**A:** Er is een probleem dat is geïdentificeerd op Windows 10 versie 1709 en lagere waar verlopen certificaten van MS-organisatie-P2P-toegang blijven bestaan in het computerarchief vanwege problemen met cryptografische. Uw gebruikers kunnen ervaart mogelijk problemen met de netwerkverbinding, als u een VPN-clients (bijvoorbeeld Cisco AnyConnect) die het grote aantal verlopen certificaten kunnen worden verwerkt. Dit probleem is opgelost in Windows 10-1803 release dergelijke verlopen MS-organisatie-P2P-toegang certificaten automatisch worden verwijderd. U kunt dit probleem oplossen door uw apparaten bij te werken naar Windows 10-1803. Als u zich niet bij te werken, kunt u deze certificaten zonder eventuele nadelige gevolgen te verwijderen.  
+
+---
+
+
 ## <a name="hybrid-azure-ad-join-faq"></a>Hybride Azure AD join Veelgestelde vragen
 
 **V: Waar vind ik het oplossen van gegevens op te sporen hybride Azure AD join fouten?**
@@ -217,15 +230,3 @@ Hybride Azure AD join heeft voorrang op de status geregistreerd bij Azure AD. Du
 
 - Tijdens de eerste toegang, wordt gebruikers gevraagd het apparaat te registreren met behulp van de bedrijfsportal-App.
 
----
-
-
-**V: wat zijn de certificaten MS-organisatie-P2P-toegang aanwezig op onze Windows 10-apparaten?**
-
-**A:** De MS-organisatie-P2P-toegang zijn uitgegeven door Azure AD op beide Azure AD join en hybride Azure AD gekoppelde apparaten. Deze certificaten worden gebruikt om de vertrouwensrelatie tussen apparaten in dezelfde tenant voor scenario's voor extern bureaublad inschakelen. Een certificaat wordt uitgegeven aan het apparaat en een andere wordt verleend aan de gebruiker. Het apparaatcertificaat is aanwezig in `Local Computer\Personal\Certificates` en is geldig gedurende één dag. Dit certificaat wordt vernieuwd (door uitgifte van een nieuw certificaat) als het apparaat nog steeds actief zijn in Azure AD is. Het gebruikerscertificaat is aanwezig in `Current User\Personal\Certificates` en dit certificaat is één dag ook geldig, maar het op aanvraag is uitgegeven wanneer een gebruiker een extern-bureaubladsessie naar een andere Azure AD gekoppelde apparaat probeert. Het is niet vernieuwd na het verstrijken. Beide deze certificaten zijn verleend met behulp van het certificaat MS-organisatie-P2P-toegang aanwezig zijn in de `Local Computer\AAD Token Issuer\Certificates`. Dit certificaat is uitgegeven door Azure AD tijdens het registreren van apparaten. 
-
----
-
-**Q:Why kan ik meerdere verlopen certificaten uitgegeven door MS-organisatie-P2P-toegang op onze Windows 10-apparaten zien? Hoe verwijder ik deze?**
-
-**A:** Er is een probleem dat is geïdentificeerd op Windows 10 versie 1709 en lagere waar verlopen certificaten van MS-organisatie-P2P-toegang blijven bestaan in het computerarchief vanwege problemen met cryptografische. Uw gebruikers kunnen ervaart mogelijk problemen met de netwerkverbinding, als u een VPN-clients (bijvoorbeeld Cisco AnyConnect) die het grote aantal verlopen certificaten kunnen worden verwerkt. Dit probleem is opgelost in Windows 10-1803 release dergelijke verlopen MS-organisatie-P2P-toegang certificaten automatisch worden verwijderd. U kunt dit probleem oplossen door uw apparaten bij te werken naar Windows 10-1803. Als u zich niet bij te werken, kunt u deze certificaten zonder eventuele nadelige gevolgen te verwijderen.  

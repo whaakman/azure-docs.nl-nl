@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 54db7cc65e05b383b251c21aa95569c6c2d58194
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306162"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885129"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-sqlserver-connector.md)
 > * [Huidige versie](connector-sql-server.md)
 
@@ -36,6 +36,8 @@ Deze SQL Server-connector ondersteunt name:
 - Kopiëren van gegevens met **SQL** of **Windows** verificatie.
 - Het ophalen van gegevens met behulp van SQL-query of een opgeslagen procedure als de bron.
 - Als sink, doeltabel of aanroepen van een opgeslagen procedure met aangepaste logica tijdens het kopiëren van het toevoegen van gegevens.
+
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) wordt niet ondersteund.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -506,7 +508,7 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimaal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | tekst |Tekenreeks, Char] |
 | time |TimeSpan |
 | tijdstempel |Byte[] |
@@ -515,6 +517,9 @@ Bij het kopiëren van gegevens van/naar SQL Server, worden de volgende toewijzin
 | varbinary |Byte[] |
 | varchar |Tekenreeks, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> Voor gegevenstypen kaarten naar tussentijdse decimaal, ADF momenteel precisie maximaal 28. Als u gegevens met een nauwkeurigheid groter dan 28 hebt, kunt u overwegen om te converteren naar een tekenreeks in SQL-query.
 
 ## <a name="troubleshooting-connection-issues"></a>Verbindingsproblemen oplossen
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 784599d682ab05b599f32b3fb502ed840f031ce8
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478600"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902004"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -136,7 +136,7 @@ Welke machtigingen die u nodig hebt, is afhankelijk van de optionele functies in
 | Openbare map voor Exchange-e-Mail |Leesmachtigingen voor de kenmerken beschreven in [Exchange Mail openbare map](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) voor openbare mappen. | 
 | Wachtwoord terugschrijven |Schrijfmachtigingen heeft voor de kenmerken beschreven in [aan de slag met wachtwoordbeheer](../authentication/howto-sspr-writeback.md) voor gebruikers. |
 | Apparaat terugschrijven |Machtigingen met een PowerShell-script, zoals beschreven in [Write-back van apparaat](how-to-connect-device-writeback.md). |
-| Groep terugschrijven |Lezen, maken, bijwerken en verwijderen van groep objecten voor gesynchroniseerd **Office 365-groepen**.  Zie voor meer informatie [Write-back van groep](how-to-connect-preview.md#group-writeback).|
+| Groep terugschrijven |Hiermee kunt u Write-back van **Office 365-groepen** naar een forest met Exchange geïnstalleerd.  Zie voor meer informatie [Write-back van groep](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Upgraden
 Wanneer u een upgrade van één versie van Azure AD Connect naar een nieuwe versie uitvoeren, moet u de volgende machtigingen:

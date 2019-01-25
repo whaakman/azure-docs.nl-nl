@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.component: disks
-ms.openlocfilehash: 668f14d491fe3e47a445e6d80efda69c017024e2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f6d875ee9bbc9d7a61ebca9dfa0726f50e2044d7
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470916"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904043"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Een gegevensschijf koppelen aan een Linux-VM via de portal 
 In dit artikel wordt beschreven hoe u zowel nieuwe als bestaande schijven koppelt aan een virtuele Linux-machine via de Azure-portal. U kunt ook [een gegevensschijf koppelen aan een Windows-VM in Azure portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -99,7 +99,7 @@ De uitvoer lijkt op die in het volgende voorbeeld:
 
 Hier *sdc* is de schijf die we willen. 
 
-### <a name="partion-a-new-disk"></a>Een nieuwe schijf Partion
+### <a name="partition-a-new-disk"></a>Een nieuwe schijf
 Als u van een bestaande schijf die gegevens bevat gebruikmaakt, gaat u naar de schijf koppelen. Als u een nieuwe schijf toevoegen wilt, moet u voor het partitioneren van de schijf.
 
 Gebruik `fdisk` als u wilt de schijf partitioneren, dat een primaire schijf op partitie 1, en de andere standaardwaarden te accepteren. Het volgende voorbeeld wordt de `fdisk` op */dev/sdc*:

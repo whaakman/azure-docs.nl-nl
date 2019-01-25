@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 3a20884dedf2d0f197cd73f0e67f412633736686
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a7c823493369735df23360645004b0bec85dbd7
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421572"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885504"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Verzamelen van metrische gegevens voor Azure PaaS-resources met Log Analytics configureren
 
@@ -67,7 +67,7 @@ De volgende stappen uitvoeren om te downloaden en uitvoeren van het script.
 
 Het script wordt uitgevoerd voor elke resource die overeenkomt met de geselecteerde criteria en verzamelen van metrische gegevens voor hen inschakelen. Nadat deze voltooid, ziet u een bericht configuratie is voltooid.  
 
-Kort na voltooiing begint u om gegevens van de Azure PaaS-resource in uw Log Analytics-opslagplaats te bekijken.  Een record met het type `AzureMetrics` wordt gemaakt en analyseren van deze records worden ondersteund door de [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) en [Azure Web Apps Analytics](../../azure-monitor/insights/azure-web-apps-analytics.md) beheeroplossingen.   
+Kort na voltooiing begint u om gegevens van de Azure PaaS-resource in uw Log Analytics-opslagplaats te bekijken.  Een record met het type `AzureMetrics` wordt gemaakt en analyseren van deze records worden ondersteund door de [Azure SQL Analytics](../insights/azure-sql.md) en [Azure Web Apps Analytics](../insights/azure-web-apps-analytics.md) beheeroplossingen.   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Een resource voor het verzenden van gegevens naar een andere werkruimte bijwerken
 Als u een resource die al gegevens naar Log Analytics-werkruimte verzenden is hebt en u later besluit om opnieuw te configureren om te verwijzen naar een andere werkruimte, kunt u het script uitvoeren de `-Update` parameter.  
@@ -79,8 +79,8 @@ U wordt gevraagd om te beantwoorden van dezelfde informatie als wanneer u het sc
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
+* Meer informatie over [zoekopdrachten](../log-query/log-query-overview.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren. 
 
-* Gebruik [aangepaste velden](../../azure-monitor/platform/custom-fields.md)(voor het parseren van de gebeurtenis legt vast in afzonderlijke velden.
+* Gebruik [aangepaste velden](custom-fields.md)(voor het parseren van de gebeurtenis legt vast in afzonderlijke velden.
 
-* Beoordeling [maken van een aangepast dashboard voor gebruik in Log Analytics](../../azure-monitor/platform/dashboards.md) wilt weten hoe u voor het visualiseren van uw logboek wordt gezocht op allerlei zinvolle manieren voor de organisatie.
+* Beoordeling [maken en delen van dashboards van Log Analytics-gegevens](../learn/tutorial-logs-dashboards.md) wilt weten hoe u voor het visualiseren van uw logboek wordt gezocht op allerlei zinvolle manieren voor de organisatie.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ba79365ec310c7d62d0a4de07991d516430b9d41
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230455"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886138"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -29,7 +29,7 @@ De oplossing voor het beheer van Office 365 kunt u voor het bewaken van uw Offic
 - Activiteiten van beheerder voor het bijhouden van wijzigingen in de configuratie of hoge bevoegdheid bewerkingen bewaken.
 - Detecteren en onderzoeken van ongewenste gebruikersgedrag, die kan worden aangepast aan de behoeften van uw organisatie.
 - Illustratie van controle en naleving. U kunt bijvoorbeeld toegang bestandsbewerkingen op vertrouwelijke bestanden, die u met het proces voor controle en naleving helpen kunnen controleren.
-- Uitvoeren van operationele problemen oplossen met behulp van [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) boven op Office 365-activiteitsgegevens van uw organisatie.
+- Uitvoeren van operationele problemen oplossen met behulp van [zoekopdrachten](../log-query/log-query-overview.md) boven op Office 365-activiteitsgegevens van uw organisatie.
 
 ## <a name="prerequisites"></a>Vereisten
 Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfigureerd.
@@ -40,7 +40,7 @@ Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfi
  
 
 ## <a name="management-packs"></a>Management packs
-Deze oplossing wordt niet geïnstalleerd voor alle management packs in [verbonden beheergroepen](../../azure-monitor/platform/om-agents.md).
+Deze oplossing wordt niet geïnstalleerd voor alle management packs in [verbonden beheergroepen](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installeren en configureren
 Begin met het toevoegen van de [Office 365-oplossing voor uw abonnement](solutions.md#install-a-management-solution). Wanneer deze toegevoegd, moet u de configuratiestappen uitvoeren in deze sectie om deze toegang geven tot uw Office 365-abonnement.
@@ -476,7 +476,7 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
 
 ## <a name="data-collection"></a>Gegevensverzameling
 ### <a name="supported-agents"></a>Ondersteunde agents
-De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../../azure-monitor/platform/agent-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
+De Office 365-oplossing niet ophalen van gegevens uit een van de [Log Analytics-agents](../platform/agent-data-sources.md).  Deze ophaalt gegevens rechtstreeks vanuit de Office 365.
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
 Het duurt een paar uur gegevens zijn in eerste instantie worden verzameld. Zodra deze wordt gestart met het verzamelen van Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens naar Log Analytics telkens wanneer een record wordt gemaakt. Deze record is beschikbaar in Log Analytics binnen een paar minuten nadat u hebt ontvangen.
@@ -519,7 +519,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 | ResultStatus | Geeft aan of de actie (opgegeven in de eigenschap Operation) geslaagd of mislukt is. Mogelijke waarden zijn Succeeded, gedeeltelijk geslaagd heeft of mislukt. Voor een beheeractiviteit voor Exchange, is de waarde True of False. |
 | UserId | De UPN (User Principal Name) van de gebruiker die de actie die heeft geresulteerd in de record is vastgelegd, heeft uitgevoerd bijvoorbeeld, my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
 | UserKey | Een alternatieve ID voor de gebruiker die u in de eigenschap gebruikers-id.  Bijvoorbeeld: deze eigenschap wordt gevuld met de unieke ID voor passport (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook dezelfde waarde opgeven als de gebruikers-id-eigenschap voor gebeurtenissen in andere services en gebeurtenissen die worden uitgevoerd door systeemaccounts|
-| UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>Gemeente<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>Service-Principal<br>Systeem |
+| UserType | Het type van de gebruiker die de bewerking heeft uitgevoerd.<br><br>Gemeente<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-basis
@@ -646,14 +646,14 @@ Deze records worden gemaakt wanneer er wijzigingen in of toevoegingen zijn gedaa
 | Mappen |     Informatie over de bronmappen die betrokken zijn bij een bewerking. bijvoorbeeld, als mappen zijn geselecteerd en vervolgens verwijderd. |
 
 
-### <a name="sharepoint-base"></a>SharePoint-basis
+### <a name="sharepoint-base"></a>SharePoint Base
 Deze eigenschappen gelden voor alle records van SharePoint.
 
 | Eigenschap | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
-| Gebeurtenisbron | Geeft aan dat een gebeurtenis is opgetreden in SharePoint. Mogelijke waarden zijn SharePoint of ObjectModel. |
+| EventSource | Geeft aan dat een gebeurtenis is opgetreden in SharePoint. Mogelijke waarden zijn SharePoint of ObjectModel. |
 | ItemType | Het type object dat is geopend of gewijzigd. Zie de tabel ItemType voor meer informatie over de verschillende typen objecten. |
 | MachineDomainInfo | Informatie over het apparaat synchronisatiebewerkingen. Deze gegevens worden pas gerapporteerd als deze aanwezig in de aanvraag is. |
 | MachineId |   Informatie over het apparaat synchronisatiebewerkingen. Deze gegevens worden pas gerapporteerd als deze aanwezig in de aanvraag is. |
@@ -662,7 +662,7 @@ Deze eigenschappen gelden voor alle records van SharePoint.
 | UserAgent | Informatie over de client of de browser van de gebruiker. Deze informatie wordt verstrekt door de client of de browser. |
 
 
-### <a name="sharepoint-schema"></a>SharePoint-Schema
+### <a name="sharepoint-schema"></a>SharePoint Schema
 Deze records worden gemaakt wanneer configuratiewijzigingen worden aangebracht in SharePoint.
 
 | Eigenschap | Description |
@@ -682,12 +682,12 @@ Deze records worden gemaakt in reactie op bestandsbewerkingen in SharePoint.
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
 | DestinationFileExtension | De bestandsextensie van een bestand dat is gekopieerd of verplaatst. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
-| Doelbestandsnaam | De naam van het bestand dat is gekopieerd of verplaatst. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
+| DestinationFileName | De naam van het bestand dat is gekopieerd of verplaatst. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
 | DestinationRelativeUrl | De URL van de doelmap wanneer een bestand wordt gekopieerd of verplaatst. De combinatie van de waarden voor parameters SiteURL, DestinationRelativeURL en doelbestandsnaam is hetzelfde als de waarde voor de object-id-eigenschap, dit is de naam van het volledige pad voor het bestand dat is gekopieerd. Deze eigenschap wordt alleen weergegeven voor FileCopied en FileMoved gebeurtenissen. |
 | SharingType | Het type van de machtigingen die zijn toegewezen aan de gebruiker die de resource is gedeeld met het delen. Deze gebruiker wordt geïdentificeerd door de parameter UserSharedWith. |
 | Site_Url | De URL van de site waar het bestand of map die is geraadpleegd door de gebruiker zich bevindt. |
 | SourceFileExtension | De bestandsextensie van het bestand dat door de gebruiker is geopend. Deze eigenschap is leeg als het object dat is geopend, een map is. |
-| Bronbestandsnaam |  De naam van het bestand of map die is geraadpleegd door de gebruiker. |
+| SourceFileName |  De naam van het bestand of map die is geraadpleegd door de gebruiker. |
 | SourceRelativeUrl | De URL van de map waarin het bestand dat wordt gebruikt door de gebruiker. De combinatie van de waarden voor de parameters SiteURL SourceRelativeURL en bronbestandsnaam is hetzelfde als de waarde voor de object-id-eigenschap, dit de naam van het volledige pad voor het bestand dat wordt gebruikt door de gebruiker is. |
 | UserSharedWith |  De gebruiker die met een resource is gedeeld. |
 
@@ -702,12 +702,12 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 |Telling van alle bewerkingen op uw Office 365-abonnement |OfficeActivity &#124; count() by bewerking samenvatten |
 |Gebruik van SharePoint-sites|OfficeActivity &#124; waar OfficeWorkload = ~ 'sharepoint' &#124; count() by SiteUrl samenvatten | sorteren op aantal asc|
 |Toegang van bestandsbewerkingen elk type gebruiker|zoeken in (OfficeActivity) OfficeWorkload = ~ "azureactivedirectory" en "MyTest"|
-|Zoekt u met een bepaald trefwoord|Type = OfficeActivity OfficeWorkload = azureactivedirectory "MyTest"|
+|Zoekt u met een bepaald trefwoord|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Externe acties van de monitor voor Exchange|OfficeActivity &#124; waar OfficeWorkload = ~ 'exchange' en ExternalAccess == true|
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik Logboekzoekopdrachten in [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) om gedetailleerde updategegevens weer te geven.
-* [Maak uw eigen dashboards](../../azure-monitor/platform/dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
-* [Waarschuwingen maken](../../azure-monitor/platform/alerts-overview.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  
+* Gebruik Logboekzoekopdrachten in [Log Analytics](../log-query/log-query-overview.md) om gedetailleerde updategegevens weer te geven.
+* [Maak uw eigen dashboards](../learn/tutorial-logs-dashboards.md) om uw favoriete Office 365 zoekquery's weer te geven.
+* [Waarschuwingen maken](../platform/alerts-overview.md) om te worden proactief geïnformeerd over belangrijke Office 365-activiteiten.  

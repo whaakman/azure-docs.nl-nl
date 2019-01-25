@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: bae80a63db480d6399c7d192561435494e183844
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463385"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900643"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Accountmachtigingen voor AD DS-Connector configureren 
 
@@ -119,7 +119,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAcco
 ```
 
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -147,7 +147,7 @@ Om machtigingen voor het AD DS-Connector-account bij het gebruik van het kenmerk
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -167,7 +167,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnec
 ```
 
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonParameters>] 
@@ -188,7 +188,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConne
 ```
 
 
-of;
+Of;
 
 ``` powershell
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -205,21 +205,21 @@ Deze cmdlet wordt de volgende machtigingen ingesteld:
 Voer het volgende als u wilt instellen van machtigingen voor de AD DS-Connector-account bij het gebruik van Write-back van groep: 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
-of; 
+Of; 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 Deze cmdlet wordt de volgende machtigingen ingesteld: 
 
 |Type |Name |Access |Van toepassing op|
 |-----|-----|-----|-----| 
-|Toestaan |AD DS-Connector-Account |Algemene lezen/schrijven |Onderliggende groep objecten worden weergegeven| 
-|Toestaan |AD DS-Connector-Account |Onderliggend object maken/verwijderen |Dit object en alle onderliggende objecten| 
-|Toestaan |AD DS-Connector-Account |Een object en alle van de onderliggende objecten maken/verwijderen |Dit object en alle onderliggende objecten|
+|Toestaan |AD DS-Connector-Account |Algemene lezen/schrijven |Alle kenmerken van het object type groep en subobjecten| 
+|Toestaan |AD DS-Connector-Account |Onderliggend object maken/verwijderen |Alle kenmerken van het object type groep en subobjecten| 
+|Toestaan |AD DS-Connector-Account |Structuur-objecten verwijderen/verwijderen|Alle kenmerken van het object type groep en subobjecten|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Machtigingen voor hybride implementatie voor Exchange 
 Om machtigingen voor het AD DS-Connector-account bij het gebruik van hybride implementatie voor Exchange, voert u de volgende uit: 
@@ -229,7 +229,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnecto
 ```
 
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -253,7 +253,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String> -
 ```
 
 
-of; 
+Of; 
 
 ``` powershell
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 

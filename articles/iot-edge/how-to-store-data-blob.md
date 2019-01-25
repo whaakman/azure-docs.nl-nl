@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b5dcc4295467aee82547bc2a0894320bd110998f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 9faed53540d449f8658655ff7285b38aa20bee6c
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065814"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901816"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -61,17 +61,17 @@ De Azure Marketplace biedt IoT Edge-modules die rechtstreeks naar uw IoT Edge-ap
 
    ![Module maken vanuit de Marketplace-zoekactie](./media/how-to-store-data-blob/marketplace-module.png)
 
-2. Kies een IoT Edge-apparaat voor het ontvangen van deze module. Op de **apparaten voor IoT Edge-Module** pagina, geef de volgende informatie:
+2. Kies het IoT Edge-apparaat dat deze module moet ontvangen. Geef op de pagina **Doelapparaten voor IoT Edge-module** de volgende informatie op:
 
    1. Selecteer de **abonnement** waarin de IoT-hub die u gebruikt.
 
    2. Selecteer uw **IoT-Hub**.
 
-   3. Als u weet dat uw **IoT Edge-apparaatnaam**, voer die in het tekstvak in. Of selecteer **apparaat vinden** kiezen uit een lijst met IoT Edge-apparaten in uw IoT-hub. 
+   3. Als u weet dat uw **IoT Edge-apparaatnaam**, voer die in het tekstvak in. Of selecteer **Apparaat kiezen** om een apparaat te kiezen uit een lijst met IoT Edge-apparaten in uw IoT Hub. 
    
    4. Selecteer **Maken**.
 
-   Nu dat u hebt ervoor gekozen een IoT Edge-module van Azure Marketplace en een IoT Edge-apparaat voor het ontvangen van de module gekozen, er wordt een wizard drie stappen waarmee u precies hoe de module wordt geïmplementeerd.
+   Nu u een IoT Edge-module in de Azure Marketplace hebt gekozen en een IoT Edge-apparaat hebt geselecteerd dat de module moet ontvangen, gaat u verder naar een wizard met drie stappen om precies te definiëren hoe de module wordt geïmplementeerd.
 
 3. In de **Modules toevoegen** stap van de wizard set modules, zoals u ziet dat de **AzureBlobStorageonIoTEdge** module al wordt vermeld onder **implementatie Modules**. 
 
@@ -120,7 +120,7 @@ De Azure Marketplace biedt IoT Edge-modules die rechtstreeks naar uw IoT Edge-ap
 
    4. Selecteer **Opslaan**.
 
-4. Selecteer **volgende** om door te gaan met de volgende stap van de wizard.
+4. Selecteer **Volgende** om door te gaan naar de volgende stap van de wizard.
 5. In de **Routes opgeven** stap van de wizard de optie **volgende**.
 6. Selecteer in de stap **Implementatie beoordelen** van de wizard de optie **Verzenden**.
 7. Nadat u de implementatie hebt ingediend, wordt u terugkeert naar de **IoT Edge** pagina van uw IoT-hub. Selecteer de IoT Edge-apparaat dat u met de implementatie te openen van de details ervan wordt benaderd. 

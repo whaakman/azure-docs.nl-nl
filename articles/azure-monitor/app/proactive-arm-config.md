@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853592"
+ms.locfileid: "54881593"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Regels voor slimme detectie van Application Insights met behulp van Azure Resource Manager-sjablonen beheren
 
@@ -157,7 +157,7 @@ Hieronder ziet u een tabel met de namen van Slimme detectie zoals ze worden weer
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Wie de (klassiek) waarschuwingsmeldingen ontvangen?
 
-In deze sectie is alleen van toepassing op klassieke waarschuwingen voor slimme detectie en helpt u optimaliseren van uw meldingen van waarschuwingen om ervoor te zorgen dat alleen de gewenste geadresseerden meldingen ontvangen. Meer informatie geven over het verschil tussen de [klassieke waarschuwingen] (.. /platform/Alerts-Classic.Overview.MD en de nieuwe ervaring voor waarschuwingen verwijzen naar de [waarschuwingen overzichtsartikel](../platform/alerts-overview.md). Slimme detectie waarschuwingen op dit moment alleen ondersteuning voor de klassieke waarschuwingen optreden. De enige uitzondering hierop is [slimme detectiewaarschuwingen in Azure cloud services](./proactive-cloud-services.md). Melding voor slimme detectiewaarschuwingen over Azure cloud services voor het beheren van waarschuwing maken gebruik van [actiegroepen](../platform/action-groups.md).
+In deze sectie is alleen van toepassing op klassieke waarschuwingen voor slimme detectie en helpt u optimaliseren van uw meldingen van waarschuwingen om ervoor te zorgen dat alleen de gewenste geadresseerden meldingen ontvangen. Meer informatie geven over het verschil tussen [klassieke waarschuwingen](../platform/alerts-classic.overview.md) en de nieuwe ervaring voor waarschuwingen verwijzen naar de [waarschuwingen overzichtsartikel](../platform/alerts-overview.md). Slimme detectie waarschuwingen op dit moment alleen ondersteuning voor de klassieke waarschuwingen optreden. De enige uitzondering hierop is [slimme detectiewaarschuwingen in Azure cloud services](./proactive-cloud-services.md). Melding voor slimme detectiewaarschuwingen over Azure cloud services voor het beheren van waarschuwing maken gebruik van [actiegroepen](../platform/action-groups.md).
 
 * We raden het gebruik van specifieke ontvangers voor slimme detectie en klassieke waarschuwingen.
 

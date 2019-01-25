@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582040"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904298"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informatie over Azure-reservering gebruik voor uw Enterprise-inschrijving
 
@@ -76,7 +76,7 @@ Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**, en k
 
 ## <a name="usage-summary-page-in-enterprise-portal"></a>De overzichtspagina voor gebruik in Enterprise portal
 
-Het gebruik van uw Azure-reservering wordt ook weergegeven in de samenvatting van gebruik van Enterprise portal: ![samenvatting van gebruik van Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+Het gebruik van uw Azure-reservering wordt ook weergegeven in de samenvatting van gebruik van Enterprise portal: ![Samenvatting van gebruik van Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. Niet in rekening gebracht voor de hardware-onderdeel van de virtuele machine als deze wordt omspannen door reservering. Voor de reservering van een SQL-Database, ziet u een regel met **servicenaam** gereserveerde capaciteitsgebruik als Azure SQL-Database.
 2. In dit voorbeeld hebt u geen Azure Hybrid Benefit, zodat u kosten in voor de Windows-software die is gebruikt in combinatie met de virtuele machine gebracht rekening.

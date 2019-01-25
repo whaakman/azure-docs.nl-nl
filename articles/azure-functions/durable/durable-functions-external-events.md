@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 977123459bcf9bb10c6b7ecf5d7a364f60564c48
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e4b52f0a3ca5e924d9d41e38e51f0cba8b75690
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437065"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885810"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Externe gebeurtenissen in duurzame functies (Azure Functions) verwerken
 
@@ -191,10 +191,10 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-Intern, `RaiseEventAsync` (.NET) of `raiseEvent` (JavaScript) enqueues een bericht dat wordt opgehaald door de orchestrator-functie voor wachten.
+Intern, `RaiseEventAsync` (.NET) of `raiseEvent` (JavaScript) enqueues een bericht dat wordt opgehaald door de orchestrator-functie voor wachten. Als het exemplaar niet op de opgegeven wachten is *gebeurtenisnaam,* bericht met de gebeurtenis wordt toegevoegd aan een wachtrij in het geheugen. Als de orchestration-sessie begint later luisteren naar die *gebeurtenisnaam,* de wachtrij voor berichten voor gebeurtenissen wordt gecontroleerd.
 
-> [!WARNING]
-> Als er geen orchestration-exemplaar met de opgegeven *exemplaar-ID* of als het exemplaar niet op de opgegeven wachten is *gebeurtenisnaam*, het gebeurtenisbericht wordt verwijderd. Zie voor meer informatie over dit gedrag, de [GitHub-probleem](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> [!NOTE]
+> Als er geen orchestration-exemplaar met de opgegeven *exemplaar-ID*, het gebeurtenisbericht wordt verwijderd. Zie voor meer informatie over dit gedrag, de [GitHub-probleem](https://github.com/Azure/azure-functions-durable-extension/issues/29). 
 
 > [!WARNING]
 > Bij het ontwikkelen van lokaal in JavaScript, moet u de omgevingsvariabele instellen `WEBSITE_HOSTNAME` naar `localhost:<port>`, bijvoorbeeld. `localhost:7071` gebruik van methoden op `DurableOrchestrationClient`. Zie voor meer informatie over deze vereiste de [GitHub-probleem](https://github.com/Azure/azure-functions-durable-js/issues/28).

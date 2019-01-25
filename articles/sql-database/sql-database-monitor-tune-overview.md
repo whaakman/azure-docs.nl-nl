@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/24/2019
+ms.openlocfilehash: 2638617679e1aaadfdb18f1d8580f3aef28ab127
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602343"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884348"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
-Azure SQL-Database wordt automatisch beheerd en flexibele gegevensservice waar u kunt eenvoudig gebruik te bewaken, toevoegen of verwijderen resources (CPU, geheugen, i/o), aanbevelingen die kunnen verbeteren de prestaties van uw database of database aan te passen aan uw workload kunt vinden en automatisch optimaliseren.
+Azure SQL Database is een automatisch beheerde en flexibele service waar u kunt eenvoudig gebruik te bewaken, toevoegen of verwijderen van resources (CPU, geheugen, i/o), zoeken naar aanbevelingen die kunnen verbeteren de prestaties van uw database, of laat de database aan uw workloads aanpassen en automatisch optimaliseren.
 
 ## <a name="monitoring-database-performance"></a>Databaseprestaties bewaken
 

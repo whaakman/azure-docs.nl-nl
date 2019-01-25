@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2019
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 329472f3edee66db6b12e369ee8f944546ad4734
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213124"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900439"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tijd van de gegevens opnemen in Log Analytics
 Azure Log Analytics is een service voor grote schaal in Azure Monitor die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor gegevens beschikbaar in Log Analytics nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
@@ -45,8 +45,15 @@ Agents en oplossingen voor gebruik van verschillende strategieën voor het verza
 ### <a name="agent-upload-frequency"></a>De uploadfrequentie agent
 Om ervoor te zorgen voor Log Analytics-agent is lichtgewicht, wordt de agent buffert logboeken en ze regelmatig worden geüpload naar Log Analytics. Uploaden frequentie varieert tussen 30 seconden en 2 minuten, afhankelijk van het type gegevens. De meeste gegevens worden geüpload in onder 1 minuut. Netwerkomstandigheden mogelijk negatieve invloed hebben op de latentie van deze gegevens naar Log Analytics punt bereikt.
 
-### <a name="azure-logs-and-metrics"></a>Azure-logboeken en metrische gegevens 
-Gegevens van een activiteitenlogboek duurt circa 5 minuten beschikbaar in Log Analytics. Diagnostische logboeken en metrische gegevens kan duren voordat gegevens 1-15 minuten beschikbaar voor verwerking, afhankelijk van de Azure-service. Zodra deze beschikbaar is, wordt een extra 30 tot 60 seconden voor logboeken en de 3 minuten gedurende metrische gegevens voor de gegevens worden verzonden naar Log Analytics punt vervolgens uitgevoerd.
+### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure-activiteitenlogboeken, diagnostische logboeken en metrische gegevens
+Azure data voegt extra tijd beschikbaar is op het punt voor de verwerking van Log Analytics:
+
+- Gegevens uit logboeken met diagnostische gegevens 2-15 minuten duren, afhankelijk van de Azure-service. Zie de [onderstaande query](#checking-ingestion-time) deze latentie in uw omgeving onderzoeken
+- Azure-platform metrische gegevens duren worden verzonden naar Log Analytics punt de 3 minuten.
+- Gegevens van een activiteitenlogboek duurt ongeveer 10-15 minuten worden verzonden naar Log Analytics punt.
+
+Zodra dit beschikbaar is op het punt, duurt het voordat gegevens extra 2-5 minuten beschikbaar moeten zijn voor het uitvoeren van query's.
+
 
 ### <a name="management-solutions-collection"></a>Management solutions verzameling
 Sommige oplossingen geen hun gegevens worden verzameld uit een agent en een methode voor gebruikersstatusverzameling die resulteert in extra latentie kunnen gebruiken. Een aantal oplossingen voor het verzamelen van gegevens met regelmatige tussenpozen zonder dat wordt geprobeerd near-real-time-verzameling. Specifieke voorbeelden omvatten het volgende:

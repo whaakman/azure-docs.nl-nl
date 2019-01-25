@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823484"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881866"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Een CI/CD-pijplijn maken voor IoT Edge met Azure DevOps Projects (Preview)
 
@@ -38,7 +38,7 @@ DevOps Projects maakt een CI/CD-pijplijn in Azure DevOps. U kunt een nieuwe Azur
 
    ![Selecteer de taal om een nieuwe toepassing te maken](./media/how-to-devops-project/select-language.png)
 
-2. Selecteer **eenvoudige IoT (Preview)** als uw toepassing framwork en selecteer vervolgens **volgende**.
+2. Selecteer **eenvoudige IoT (Preview)** als uw toepassingsframework, en selecteer vervolgens **volgende**.
 
    ![Eenvoudige IoT framework selecteren](media/how-to-devops-project/select-iot.png)
 
@@ -73,7 +73,7 @@ DevOps Projects gemaakt een Git-opslagplaats voor uw project in Azure-opslagplaa
 
 1. Ga naar de opslagplaats voor uw project gemaakt, selecteert u **opslagplaatsen** in het menu van het projectdashboard van uw.  
 
-   ![Weergave-opslagplaats in Azure-opslagplaatsen gegenereerd](./media/how-to-devops-project/view-repositories.png)
+   ![Weergave-opslagplaats die is gegenereerd in Azure-opslagplaatsen](./media/how-to-devops-project/view-repositories.png)
 
 2. De volgende stappen maakt via de webbrowser gebruiken voor het aanbrengen van wijzigingen in de code. Als u uw opslagplaats lokaal in plaats daarvan klonen wilt, selecteert u **kloon** vanaf de bovenkant van het venster. De opgegeven URL gebruiken voor het klonen van de Git-opslagplaats in Visual Studio Code of uw favoriete ontwikkelprogramma. 
 
@@ -93,7 +93,7 @@ DevOps Projects gemaakt een Git-opslagplaats voor uw project in Azure-opslagplaa
 
 ## <a name="examine-the-cicd-pipeline"></a>De CI/CD-pijplijn onderzoeken
 
-In de vorige secties, Azure DevOps Projects automatisch geconfigureerd voor een volledige CI/CD-pijplijn voor uw IoT Edge-toepassing. Vervolgens getest die pijplijn door de wijzigingen door te voeren in een van de bestanden maken. Nu verkennen en aanpassen van de pijplijn, indien nodig. Ga als volgt te werk om vertrouwd te raken met de build- en release-pijplijnen van Azure DevOps.
+In de vorige secties, Azure DevOps Projects automatisch geconfigureerd voor een volledige CI/CD-pijplijn voor uw IoT Edge-toepassing. Vervolgens u die build-pijplijn getest door het doorvoeren van wijzigingen aan een van de bestanden. Nu verkennen en aanpassen van de pijplijn, indien nodig. Ga als volgt te werk om vertrouwd te raken met de build- en release-pijplijnen van Azure DevOps.
 
 1. Als u wilt weergeven van het bouwen van pijplijnen in uw DevOps-project, selecteer **pijplijnen bouwen** in het menu van het projectdashboard van uw. Met deze koppeling worden een browsertabblad en de Azure DevOps build-pijplijn van Azure DevOps voor het nieuwe project geopend.
 

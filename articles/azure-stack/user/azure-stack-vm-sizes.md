@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 99491fdc9758c5ec930db5f584f009eb6705f789
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e9c2bf52cb1999381d7d1cde3a8f62710514b915
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231243"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884509"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Grootten van virtuele machines worden ondersteund in Azure Stack
 
@@ -134,14 +134,14 @@ VM-grootten voor algemeen gebruik bieden een evenwichtige CPU-geheugenverhouding
 ### <a name="fsv2-series"></a>Fsv2-serie
 *Azure Stack 1804 is of hoger vereist* 
 
-|Grootte     |vCPU     |Geheugen (GiB) | Tijdelijke opslag (GiB)  | Besturingssysteem van de maximale schijfdoorvoer (IOPS) | Maximale tijdelijke opslagdoorvoer (IOPS) | Max. aantal gegevensschijven / doorvoer (IOPS) | Max. NIC's / verwachte netwerkbandbreedte (Mbps) |
-|---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |Gemiddeld |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8 x 2300    |Gemiddeld |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |Hoog     |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |Hoog     |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |Hoog  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |Zeer hoog  |
+|Grootte     |vCPU     |Geheugen (GiB) | Tijdelijke opslag (GiB)  | Besturingssysteem van de maximale schijfdoorvoer (IOPS) | Maximale tijdelijke opslagdoorvoer (IOPS) | Max. aantal gegevensschijven / doorvoer (IOPS) |
+|---------------------|----|----|-----|-----|-------|--------------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8 x 2300    |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |
 
 
 ## <a name="memory-optimized"></a>Geoptimaliseerd geheugen

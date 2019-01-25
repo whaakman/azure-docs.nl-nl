@@ -3,20 +3,20 @@ title: Het inschakelen van geneste virtualisatie in Azure Virtual Machines | Mic
 description: Het inschakelen van geneste virtualisatie in Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
-ms.author: zarhoads
+ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 1caf8455816bd86411a75821ee33516e8aad5de3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6a116c2f3d92b19f266be4d3b467a93fdeaced2c
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002260"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888971"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Het inschakelen van geneste virtualisatie in een Azure-VM
 
@@ -139,7 +139,7 @@ Volg onderstaande stappen voor het configureren van DHCP op de host virtuele mac
 
 #### <a name="install-dchp-server-on-the-azure-vm"></a>DHCP-Server installeren op de Azure VM
 
-1. Open Serverbeheer. Klik op het Dashboard, **functies en onderdelen toevoegen**. De toevoegen Wizard functies en onderdelen wordt weergegeven.
+1. Open Server Manager. Klik op het Dashboard, **functies en onderdelen toevoegen**. De toevoegen Wizard functies en onderdelen wordt weergegeven.
   
 2. In de wizard, klikt u op **volgende** tot de pagina serverfuncties.
   
@@ -149,7 +149,7 @@ Volg onderstaande stappen voor het configureren van DHCP op de host virtuele mac
 
 #### <a name="configure-a-new-dhcp-scope"></a>Een nieuwe DHCP-scope configureren
 
-1. Open de DHCP-beheer.
+1. Open DHCP Manager.
   
 2. Vouw de servernaam in het navigatiedeelvenster, met de rechtermuisknop op **IPv4**, en klikt u op **nieuwe Scope**. De Wizard Nieuwe Scope wordt weergegeven, klikt u op **volgende**.
   

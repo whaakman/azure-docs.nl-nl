@@ -3,7 +3,7 @@ title: Maken van een Azure-machineschaalset die gebruikmaakt van Beschikbaarheid
 description: Informatie over het maken van virtuele Azure-machine-schaalsets met Beschikbaarheidszones voor verhoogde redundantie tegen storingen
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: zarhoads
-ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468871"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886234"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Maken van een virtuele-machineschaalset die gebruikmaakt van Beschikbaarheidszones
 
@@ -215,7 +215,7 @@ Geef voor het maken van een zone-redundante schaalset meerdere waarden in de `zo
 }
 ```
 
-Als u een openbaar IP-adres of een load balancer maakt, geeft u de *"sku": {'name': 'Standaard'} '* eigenschap om zone-redundante netwerkresources te maken. U moet ook een Netwerkbeveiligingsgroep en regels om verkeer toe te maken. Zie voor meer informatie, [overzicht van Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) en [Standard Load Balancer en Beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md).
+Als u een openbaar IP-adres of een load balancer maakt, geeft u de *"sku": {"naam": 'Standaard'} '* eigenschap om zone-redundante netwerkresources te maken. U moet ook een Netwerkbeveiligingsgroep en regels om verkeer toe te maken. Zie voor meer informatie, [overzicht van Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) en [Standard Load Balancer en Beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Voor een compleet voorbeeld van een zone-redundante schaalset ingesteld en netwerkbronnen, Zie [in dit voorbeeld Resource Manager-sjabloon](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

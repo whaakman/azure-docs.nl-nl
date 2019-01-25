@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6b9dd4beccbe8bc872c46976f490400daa200c3a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086416"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888835"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Auteurs en deelnemers beheren 
 
@@ -67,7 +67,12 @@ Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [
 
 ![Azure active directory-machtigingen per app-website](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Als de tenant-beheerder wil dat alleen bepaalde gebruikers LUIS gebruiken, verwijzen naar dit [identiteit blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
+Als de tenant-beheerder wil dat alleen bepaalde gebruikers LUIS gebruikt, moet u er een aantal mogelijke oplossingen zijn:
+* Geeft de 'beheerder toestemming geven' (toestemming geven voor alle gebruikers van de Azure AD), maar wordt ingesteld op 'Ja' de 'Gebruikerstoewijzing vereist' onder de Enterprise-eigenschappen voor de toepassing en ten slotte toewijzen/alleen de gewenste gebruikers toevoegen aan de toepassing. Met deze methode 'beheerder toestemming geven' is nog steeds het leveren van de beheerder van de App, het is echter mogelijk om te bepalen welke gebruikers die toegang hebben tot deze.
+* Een tweede oplossing, wordt met behulp van [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) voor toestemming voor elke specifieke gebruiker. 
+
+Meer informatie over Azure active directory-gebruikers en toestemming: 
+* [Uw app beperken](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) aan een groep gebruikers
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Gebruikersaccounts met meerdere e-mailberichten voor de medewerkers
 

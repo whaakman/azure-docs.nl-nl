@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2019
+ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78599a350aff4d0aba5603e8ad7959c945f1aca
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439150"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884925"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-werkbelasting op Azure controlelijst voor planning en implementatie 
 
@@ -47,7 +47,7 @@ In deze fase is een migratie van SAP-workload naar Azure openbare cloud gepland.
     3.  Architectuur van zakelijke continuïteit en herstel na noodgevallen
     4.  Gedetailleerde OS, DB, Kernel en SAP ondersteuning voor servicepack-versies. Het is niet een gezien het feit dat een OS-versie die wordt ondersteund door SAP NetWeaver of S/4HANA in Azure VM's wordt ondersteund. Hetzelfde geldt voor DBMS-releases. Het is verplicht dat de volgende bronnen selecteren ophalen voordat u uitlijnen en indien nodig bijwerken SAP-releases, DBMS-versies of OS releases om te worden in een SAP en Azure ondersteund venster. Het is verplicht dat u binnen SAP bent en Azure combinaties van de release ondersteunde voor volledige ondersteuning van SAP en Microsoft. Indien nodig, moet u plannen voor het upgraden van sommige van de softwareonderdelen. Meer informatie over ondersteunde SAP-, OS- en DBMS-software wordt beschreven in deze locaties:
         1.  SAP-notitie voor ondersteuning [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Deze opmerking definieert de minimale OS-versies worden ondersteund in Azure-VM's. Het definieert ook de minimale database-versies die zijn vereist voor de meeste niet-HANA-database. De opmerking geeft ook de SAP-grootte van de verschillende SAP ondersteunde Azure-VM-typen.
-        2.  SAP-notitie voor ondersteuning [#2039619](https://launchpad.support.sap.com/#/notes/2039619). De opmerking definieert de ondersteuningsmatrix voor Oracle op Azure. Houd er rekening mee dat Oracle alleen Windows- en Oracle Linux als gastbesturingssysteem in Azure voor de werkbelasting van SAP ondersteunt. Deze ondersteuningsverklaring is van toepassing voor de SAP-toepassingslaag evenals SAP-instanties. Oracle biedt echter geen ondersteuning voor hoge beschikbaarheid voor SAP Central Services in Oracle Linux. De SAP ondersteund voor Windows, Windows Failover Cluster-failoveroplossing voor SAP Central Services wordt ondersteund in combinatie met Oracle als DBMS-laag. 
+        2.  SAP-notitie voor ondersteuning [#2039619](https://launchpad.support.sap.com/#/notes/2039619). De opmerking definieert de ondersteuningsmatrix voor Oracle op Azure. Houd er rekening mee dat Oracle alleen Windows- en Oracle Linux als gastbesturingssysteem in Azure voor de werkbelasting van SAP ondersteunt. Deze ondersteuningsverklaring is van toepassing voor de SAP-toepassingslaag evenals SAP-instanties. Oracle biedt echter geen ondersteuning voor hoge beschikbaarheid voor SAP Central Services in Oracle Linux via Pacemaker. Als u hoge beschikbaarheid van ASCS op Oracle Linux vereist, moet u gebruikmaken van de SIOS Protection Suite voor Linux. Raadpleeg voor gedetailleerde gegevens voor SAP-certificering, SAP-notitie voor ondersteuning [#1662610 - details van bestandsondersteuning voor SIOS Protection Suite voor Linux](https://launchpad.support.sap.com/#/notes/1662610). De SAP ondersteund voor Windows, Windows Failover Cluster-failoveroplossing voor SAP Central Services wordt ondersteund in combinatie met Oracle als DBMS-laag. 
         3.  SAP-notitie voor ondersteuning [#2235581](https://launchpad.support.sap.com/#/notes/2235581) ophalen van de ondersteuningsmatrix voor SAP HANA op de verschillende OS-versies
         4.  SAP HANA ondersteunde Azure-VM's en [HANA grote instanties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) worden vermeld [hier](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
         5.  [SAP-Product beschikbaarheid Matrix](https://support.sap.com/en/)
@@ -196,7 +196,7 @@ In deze fase, die u wilt verzamelen van de ervaringen en geleerde lessen van uw 
     2.  Gebruik back-up/herstel voor kleinere databases
     3.  Gebruik SAP migratie bewaken in SAP SWPM hulpprogramma geïmplementeerd om uit te voeren heterogene migraties
     4.  Gebruik de [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) verwerken als u wilt combineren met de upgrade van een SAP-release. Houd er rekening mee dat niet alle combinaties tussen bron en doel DBMS-systemen worden ondersteund. Meer informatie vindt u in de notities van specifieke SAP-ondersteuning voor de verschillende versies van DMO. Bijvoorbeeld, [Database migratie optie (DMO) van de som 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872)
-    5.  Test of overdracht van gegevens via internet of via ExpressRoute beter in de doorvoer is in het geval u moet back-ups verplaatsen of SAP bestanden exporteren. Houd er rekening mee dat voor het geval van gegevens te verplaatsen via internet, moet u mogelijk enkele van uw NSG/ASG beveiligingsregels die u nodig hebt voor toekomstige productiesystemen wijzigen
+    5.  Test of overdracht van gegevens via internet of via ExpressRoute beter in de doorvoer is in het geval u moet back-ups verplaatsen of SAP bestanden exporteren. Voor het geval van gegevens te verplaatsen via internet moet u mogelijk enkele van uw NSG/ASG beveiligingsregels die u nodig hebt voor toekomstige productiesystemen wijzigen
 3.  Voordat u doorgaat systemen van de oude platform in Azure resourcegegevens, zoals CPU-gebruik, opslagdoorvoer en IOPS-gegevens verzamelen. Met name van de DBMS-laag eenheden, maar ook van de toepassing layer-eenheden. Ook netwerk- en latentie meten.
 4.  Valideren van de bronnen op de opmerkingen bij de SAP-ondersteuning, SAP HANA-hardware-directory en SAP PAM opnieuw om ervoor te zorgen dat er zijn geen wijzigingen in de ondersteunde VM's voor Azure, ondersteunde OS-versies op deze virtuele machines en ondersteunde SAP en DBMS releases 
 4.  Implementatiescripts om de meest recente wijzigingen die u op VM-typen en functionaliteit van Azure besloten aan te passen
@@ -224,7 +224,7 @@ In deze fase, die u wilt verzamelen van de ervaringen en geleerde lessen van uw 
     
 
 ## <a name="go-live-phase"></a>Live fase gaan
-Voor de fase Go Live moet u ervoor zorgen dat uw playbooks die u hebt ontwikkeld in eerdere fasen Volg. Voer de stappen uit die u hebt getest en getraind. Ga niet akkoord laatste wijzigingen in configuraties en verwerken. Naast die van toepassing de volgende:
+Voor de fase Go Live moet u ervoor zorgen dat uw playbooks die u hebt ontwikkeld in eerdere fasen Volg. Voer de stappen uit die u hebt getest en getraind. Ga niet akkoord laatste wijzigingen in configuraties en verwerken. Naast die van toepassing de volgende maateenheden:
 
 1. Controleren of Azure portal-bewaking en andere controleprogramma's werkt.  Aanbevolen hulpprogramma's zijn Perfmon (Windows) of SAR (Linux): 
     1.  CPU Counters 

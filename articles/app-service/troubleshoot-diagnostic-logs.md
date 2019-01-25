@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d5a94258e8c17d13e15f22f9fa96ef0647105abe
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807870"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904451"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -29,13 +29,13 @@ Azure bevat ingebouwde diagnosefuncties voor de ondersteuning bij foutopsporing 
 In dit artikel wordt de [Azure-portal](https://portal.azure.com) en Azure CLI om te werken met diagnostische logboeken. Zie voor meer informatie over het werken met diagnostische logboeken met behulp van Visual Studio [probleemoplossing voor Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Web server diagnostics en application diagnostics
-App Service bieden diagnosefunctionaliteit voor waardevolle informatie uit de webserver en de web-App. Deze logisch zijn gescheiden in **web server diagnostische** en **toepassingsdiagnose**.
+App Service biedt diagnosefunctionaliteit voor waardevolle informatie uit de webserver en de web-App. Deze logisch zijn gescheiden in **web server diagnostische** en **toepassingsdiagnose**.
 
 ### <a name="web-server-diagnostics"></a>Web server diagnostische gegevens
 U kunt inschakelen of uitschakelen van de volgende soorten logboeken:
 
 * **Gedetailleerde fout logboekregistratie** -gedetailleerde foutinformatie voor HTTP-statuscodes die duiden op een fout (statuscode 400 of hoger). Deze kan informatie om te bepalen waarom de server heeft geretourneerd met de foutcode bevatten.
-* **Kan geen aanvraag tracering** -gedetailleerde informatie over mislukte aanvragen, met inbegrip van een tracering van de IIS-componenten gebruikt voor het verwerken van de aanvraag en de tijd die in elk onderdeel. Dit is handig als u probeert te verhogen van de prestaties van de site of isolatie van wat de oorzaak is van een specifieke HTTP-fout worden geretourneerd.
+* **Kan geen aanvraag tracering** -gedetailleerde informatie over mislukte aanvragen, met inbegrip van een tracering van de IIS-componenten gebruikt voor het verwerken van de aanvraag en de tijd die in elk onderdeel. Dit is handig als u wilt verbeteren de prestaties van de site of een specifieke HTTP-fout isoleren.
 * **Web Server-logboekregistratie** -informatie over HTTP-transacties met behulp van de [uitgebreide W3C-logboekbestandsindeling](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Dit is handig bij het bepalen van de algemene metrische sitegegevens, zoals het aantal aanvragen dat is verwerkt of het aantal aanvragen afkomstig zijn van een specifiek IP-adres.
 
 ### <a name="application-diagnostics"></a>Application diagnostics
@@ -45,7 +45,7 @@ Application diagnostics kunt u voor het vastleggen van gegevens die worden gepro
 
 Tijdens runtime, kunt u deze logboeken om te helpen bij het oplossen van problemen ophalen. Zie voor meer informatie, [het oplossen van Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-App Service zich ook aanmelden voor informatie over de implementatie, wanneer u inhoud naar een app publiceren. Dit gebeurt automatisch en er zijn geen configuratieinstellingen voor de implementatie van logboekregistratie. Logboekregistratie van de implementatie kunt u om te bepalen waarom een implementatie is mislukt. Bijvoorbeeld, als u een aangepaste implementatiescript gebruikt, kunt u implementatie logboekregistratie om te bepalen waarom het script is mislukt.
+App Service registreert ook informatie over de implementatie wanneer u inhoud naar een app publiceren. Dit gebeurt automatisch en er zijn geen configuratieinstellingen voor de implementatie van logboekregistratie. Logboekregistratie van de implementatie kunt u om te bepalen waarom een implementatie is mislukt. Als u een aangepaste implementatiescript gebruikt, kunt u bijvoorbeeld implementatie logboekregistratie gebruiken om te bepalen waarom het script is mislukt.
 
 ## <a name="enablediag"></a>Diagnostische gegevens inschakelen
 Om in te schakelen van diagnostische gegevens in de [Azure-portal](https://portal.azure.com), gaat u naar de pagina voor uw app en klikt u op **instellingen > Logboeken met diagnostische gegevens**.
@@ -53,12 +53,16 @@ Om in te schakelen van diagnostische gegevens in de [Azure-portal](https://porta
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logboeken-onderdeel](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Als u activeert **toepassingsdiagnose**, u er ook voor kiezen de **niveau**. Deze instelling kunt u voor het filteren van de gegevens die zijn vastgelegd op **informatief**, **waarschuwing**, of **fout** informatie. Instellen op **uitgebreide** registreert alle informatie die wordt geproduceerd door de toepassing.
+Als u activeert **toepassingsdiagnose**, u er ook voor kiezen de **niveau**. De volgende tabel bevat de categorieën van elk niveau omvat ook Logboeken:
 
-> [!NOTE]
-> In tegenstelling tot het wijzigen van het bestand web.config, worden Application diagnostics inschakelen of wijzigen van niveaus van diagnostische logboeken niet recyclen het app-domein dat de toepassing wordt uitgevoerd in.
->
->
+| Niveau| Opgenomen logboekcategorieën |
+|-|-|
+|**Uitgeschakeld** | Geen |
+|**Fout** | Kritieke fout |
+|**Waarschuwing** | Waarschuwing, fout, kritiek|
+|**Informatie** | Info, waarschuwing, fout, kritiek|
+|**uitgebreide** | Tracering, foutopsporing, Info, waarschuwing, fout, kritiek (alle categorieën) |
+|-|-|
 
 Voor **toepassingslogboeken**, kunt u de optie voor het systeem van bestand tijdelijk voor foutopsporing inschakelen. Deze optie nu schakelt automatisch in 12 uur. U kunt ook inschakelen op de optie blob storage een blobcontainer om te schrijven Logboeken om te selecteren.
 
@@ -114,7 +118,7 @@ De logboekbestanden met behulp van de Azure-opdrachtregelinterface downloaden, o
 Deze opdracht slaat u de logboeken voor de app met de naam 'appname' naar een bestand met de naam **diagnostics.zip** in de huidige map.
 
 > [!NOTE]
-> Als u Azure CLI nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Als u Azure CLI nog niet hebt geïnstalleerd, of nog niet hebt geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -157,7 +161,7 @@ Om te filteren op specifieke logboek typen, zoals HTTP, gebruikt u de **--pad** 
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Als u Azure CLI nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure CLI](../cli-install-nodejs.md).
+> Als u Azure CLI nog niet hebt geïnstalleerd, of nog niet hebt geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure CLI](../cli-install-nodejs.md).
 >
 >
 

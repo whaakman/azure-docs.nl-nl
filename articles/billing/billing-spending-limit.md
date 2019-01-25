@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cwatson
-ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.author: banders
+ms.openlocfilehash: bfc6bf8cab1358c47e66660303f3303f4e9c763a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680120"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901000"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Informatie over Azure-bestedingslimiet en hoe u deze kunt verwijderen
 
@@ -46,7 +46,7 @@ U kunt de bestedingslimiet op elk gewenst moment verwijderen zolang er een geldi
 Ga als volgt te werk om de bestedingslimiet te verwijderen:
 
 1. Aanmelden bij de [Accountcentrum](https://account.windowsazure.com/Subscriptions).
-1. Selecteer een abonnement. Als het abonnement is uitgeschakeld omdat de bestedingslimiet is bereikt, klikt u op deze melding: 'Abonnement de bestedingslimiet bereikt en is uitgeschakeld om kosten te voorkomen.' Klik anders op **bestedingslimiet verwijderen** in de **ABONNEMENTSSTATUS** gebied.
+1. Selecteer een abonnement. Als het abonnement is uitgeschakeld omdat de bestedingslimiet is bereikt, klikt u op deze melding: De bestedingslimiet van het abonnement is bereikt. Het abonnement is uitgeschakeld om verdere onkosten te voorkomen. Klik anders op **bestedingslimiet verwijderen** in de **ABONNEMENTSSTATUS** gebied.
 1. Selecteer een voor u geschikte optie.
 
 ![Een optie voor uitgavenlimiet verwijderen](./media/billing-spending-limit/remove-spending-limit.PNG)

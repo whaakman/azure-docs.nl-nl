@@ -1,5 +1,5 @@
 ---
-title: Automatisch schalen van Azure HDInsight-clusters
+title: Automatisch schalen van Azure HDInsight-clusters (Preview)
 description: De functie HDInsight Autoscale gebruiken voor het automatisch schalen van clusters
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 043c83e2039d87b1650ba17f770ce16a2ad2c13d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 977466d77bee2d6fe49c0438aa1d9d4489f8eb5f
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811159"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888223"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatisch schalen van Azure HDInsight-clusters
+# <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatisch schalen van Azure HDInsight-clusters (Preview)
 
 Azure HDInsight-cluster voor automatisch schalen functie het aantal worker-knooppunten automatisch in een cluster omhoog of omlaag wordt geschaald op basis van belasting in een vooraf gedefinieerd bereik. Tijdens het maken van een nieuw HDInsight-cluster, kan een minimum en maximum aantal worker-knooppunten worden ingesteld. Voor automatisch schalen en monitors de resourcevereisten van de analyse laden en het aantal worker-knooppunten schaalt omhoog of omlaag dienovereenkomstig. Er is geen extra kosten voor deze functie.
 
@@ -27,15 +27,17 @@ Azure HDInsight-cluster voor automatisch schalen functie het aantal worker-knoop
 > [!Note]
 > Automatisch schalen is momenteel alleen ondersteund voor Azure HDInsight Hive, MapReduce en Spark-clusters versie 3.6.
 
-Volg de stappen in [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md) en wanneer u bij stap 5, **clustergrootte**, selecteer **Worker-knooppunt voor automatisch schalen (preview)** zoals hieronder wordt weergegeven. 
+HDInsight-cluster maken stappen met behulp van de Azure-Portal kunnen u vinden op [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).  Automatisch schalen inschakelen tijdens het maken, is een paar afwijkingen van de gebruikelijke installatiestappen vereist.  
 
-![Optie voor worker-knooppunt voor automatisch schalen inschakelen](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
+1. Selecteer **aangepast (grootte, instellingen en apps)** in plaats van **snelle invoer**.
+2. Stap 5 van aangepaste **clustergrootte**, Controleer de **Worker-knooppunt voor automatisch schalen** selectievakje.
+3. Voer de gewenste waarden in voor:  
+  &#8226;Eerste **nummer van de Worker-knooppunten**.  
+  &#8226;**Minimum** aantal worker-knooppunten.  
+  &#8226;**Maximale** aantal worker-knooppunten.  
 
-Met deze optie inschakelt, kunt u het volgende opgeven:
+![Optie voor worker-knooppunt voor automatisch schalen inschakelen](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
-* Het oorspronkelijke aantal worker-knooppunten
-* Het minimum aantal worker-knooppunten
-* Het maximum aantal worker-knooppunten
 
 Het oorspronkelijke aantal worker-knooppunten moet liggen tussen het minimum en maximum, inclusief. Deze waarde bepaalt de aanvankelijke grootte van het cluster wanneer deze wordt gemaakt. Het minimum aantal worker-knooppunten moet groter zijn dan nul zijn.
 
@@ -43,12 +45,12 @@ Nadat u de VM-type voor elk knooppunttype hebt gekozen, kunt u zich om te zien v
 
 Uw abonnement heeft een quotum van de capaciteit voor elke regio. Het totale aantal kernen van de hoofdknooppunten in combinatie met het maximum aantal worker-knooppunten kan niet groter zijn dan het quotum van de capaciteit. Dit quotum is echter een limiet zachte; u kunt altijd een ondersteuningsticket om hiermee aan verhoogd eenvoudig te maken.
 
-> [!Note]
+> [!Note]  
 > Als u het totaal aantal core limiet overschrijdt, ontvangt u een foutmelding dat "het maximale aantal knooppunt overschrijdt de beschikbare kerngeheugens gebruikt in deze regio Kies een andere regio of neem contact op met de ondersteuning om het quotum te verhogen."
 
 ### <a name="create-cluster-with-an-resource-manager-template"></a>Cluster maken met een Resource Manager-sjabloon
 
-Wanneer u een HDInsight-cluster met een Resource Manager-sjabloon maakt, moet u de volgende instellingen in de sectie "computeProfile"-"worker-knooppunt" toevoegen:
+HDInsight-cluster maken stappen met behulp van Resource Manager-sjablonen kunnen u vinden op [Apache Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  Wanneer u een HDInsight-cluster met een Azure Resource Manager-sjabloon maakt, moet u de volgende instellingen in de sectie "computeProfile"-"workernode" toevoegen en dienovereenkomstig te bewerken:
 
 ```json
 {                            

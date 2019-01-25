@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: cwatson
-ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 8a6993f19f32e1bdb0bd10013f8f7e3dde844edd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581576"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903924"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Inzicht in de gratis service toewijzing van de meter
 
@@ -38,7 +38,7 @@ Elke Azure-service verzendt gebruik ten opzichte van de meter, waarbij de Azure-
 | File Storage | Standaard-IO - eenheden voor bestanden lezen (per 10.000) | Standaard-IO - eenheden voor bestanden lezen (per 10.000) - gratis | 6207404d-3389-4d20-9087-cc078ddc3fd9
 | File Storage | Standaard-IO - eenheden voor bestanden wegschrijven (per 10.000) | Standaard-IO - eenheden voor bestanden wegschrijven (per 10.000) - gratis | 223d8004-d29a-46cf-b4f4-d2d34b12548b
 | File Storage | Standaard-IO - eenheden voor bestandsprotocolbewerkingen (per 10.000) | Standaard-IO - eenheden voor Bestandsprotocolbewerkingen (per 10.000) - gratis | a347d8cc-51d1-4a0e-b9eb-76f67566c3f5
-| File Storage | Standaard-IO - eenheden voor opvragen bestanden (per 10.000) | Standaard-IO - eenheden voor opvragen bestanden (per 10.000) - gratis | e8ae79ad-c2ab-4D82-b226-dd3c33dfd40c
+| File Storage | Standaard-IO - eenheden voor opvragen bestanden (per 10.000) | Standaard-IO - eenheden voor opvragen bestanden (per 10.000) - gratis | e8ae79ad-c2ab-4d82-b226-dd3c33dfd40c
 | ' Hot ' blok-Blob-opslag | Standaard-IO - leesbewerkingen ' hot ' blok-Blob (per 10.000) | Standaard-IO - ' hot ' blok-Blob leesbewerkingen (per 10.000) - gratis |fd7cfa1e-026e-4be1-871b-1c2386e8902e
 | ' Hot ' blok-Blob-opslag | Standaard-IO - ' hot ' blok-Blob (GB) - lokaal Redundant | Standaard-IO - ' hot ' blok-Blob (GB) - gratis | 67a3a3fd-826f-42c1-8843-bffa14f0da13
 | ' Hot ' blok-Blob-opslag | Standaard-IO - schrijfbewerkingen van ' hot ' blok-Blob (per 10.000) | Standaard-IO - ' hot ' blok-Blob schrijfbewerkingen (per 10.000) - gratis | b34bbb76-edce-4c2d-a288-81a2db1fea53

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 466e12877a63a32f461267a489573183b9da9734
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ac5dbb0aed9ff8aec632ffa285ad0f26a859b9f4
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451303"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901646"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedure: Verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren   
 
@@ -120,6 +120,15 @@ Duurt maximaal 24 uur voor het beleid van kracht.
 U kunt besturingselementen voor alle beschikbare verlenen voor de andere clients-voorwaarde; selecteren de eindgebruikerservaring is echter altijd hetzelfde - toegang geblokkeerd.
 
 U kunt alle andere voorwaarden naast de andere clients voorwaarde configureren.
+Bijvoorbeeld, als u wilt dat alleen verouderde verificatie voor mobiele apparaten blokkeren, stel de **apparaatplatformen** voorwaarde door te selecteren:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![Voor beleidsconfiguratie wordt niet ondersteund](./media/block-legacy-authentication/06.png)
 
 
 

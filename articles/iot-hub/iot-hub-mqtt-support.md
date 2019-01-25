@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b26a1fa3f61c7836bbe3466e4d95f406d16eb31e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052033"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902513"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -198,20 +198,18 @@ Eerst een apparaat op is geabonneerd `$iothub/twin/res/#`, van de bewerking antw
 
 Aanvraag-ID mag geldige waarde voor de waarde van een bericht-eigenschap volgens [messaging Ontwikkelaarshandleiding voor IoT-Hub][lnk-messaging], en de status wordt gevalideerd als een geheel getal zijn.
 
-De antwoordtekst bevat de sectie met eigenschappen van het dubbele apparaat. Het volgende fragment toont bijvoorbeeld de hoofdtekst van de registervermelding identiteit beperkt met het lid 'Eigenschappen':
+De antwoordtekst bevat de sectie met eigenschappen van het dubbele apparaat, zoals wordt weergegeven in het volgende voorbeeld van de reactie:
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -228,7 +226,7 @@ Zie voor meer informatie, [ontwikkelaarsgids van Device twins][lnk-devguide-twin
 
 ### <a name="update-device-twins-reported-properties"></a>Bijwerken van de apparaatdubbel-gerapporteerde eigenschappen
 
-Voor het bijwerken van gerapporteerde eigenschappen, hiermee het apparaat wordt een aanvraag naar IoT Hub via een publicatie via een aangewezen MQTT-onderwerp. Na het verwerken van de aanvraag, reageert de IoT Hub de status van het slagen of mislukken van de bijwerkbewerking via een publicatie naar een ander onderwerp. In dit onderwerp kunt u kunt zich abonneren door het apparaat om er een melding over het resultaat van de dubbele update-aanvraag. Naar implment dit type aanvraag/antwoord interactie in MQTT, we gebruikmaken van het begrip van de aanvraag-id (`$rid`) in eerste instantie wordt geleverd door het apparaat in de aanvraag voor update. Deze aanvraag-id is ook opgenomen in het antwoord van IoT Hub kunt u toestaan dat het apparaat het antwoord op de specifieke eerdere aanvraag correleren.
+Voor het bijwerken van gerapporteerde eigenschappen, hiermee het apparaat wordt een aanvraag naar IoT Hub via een publicatie via een aangewezen MQTT-onderwerp. Na het verwerken van de aanvraag, reageert de IoT Hub de status van het slagen of mislukken van de bijwerkbewerking via een publicatie naar een ander onderwerp. In dit onderwerp kunt u kunt zich abonneren door het apparaat om er een melding over het resultaat van de dubbele update-aanvraag. Voor het implementeren van dit type aanvraag/antwoord interactie in MQTT, we gebruikmaken van het begrip van de aanvraag-id (`$rid`) in eerste instantie wordt geleverd door het apparaat in de aanvraag voor update. Deze aanvraag-id is ook opgenomen in het antwoord van IoT Hub kunt u toestaan dat het apparaat het antwoord op de specifieke eerdere aanvraag correleren.
 
 De volgende procedure wordt beschreven hoe een apparaat updates van de gerapporteerde eigenschappen gewijzigd in de apparaatdubbel in IoT Hub:
 

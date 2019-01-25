@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: cwatson
-ms.openlocfilehash: 0328f90eb1cb9c316eea76a0f36c123fd556d25e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584414"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902658"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Kosten van de Windows-software is niet opgenomen met Azure Reserved VM Instances
 
@@ -34,20 +34,20 @@ Als u geen een Azure Hybrid Use Benefit op uw gereserveerde VM-instanties, klikt
 | 09756b58-3fb5-4390-976d-9ddd14f9ed18 | Reservering-Windows Server-Burst (4 Kerngeheugens) | B-serie |
 | e828cb37-5920-4dc7-b30f-664e4dbcb6c7 | Reservering-Windows Server-Burst (8 Kerngeheugens) | B-serie |
 | f65a06cf-c9c3-47a2-8104-f17a8542215a | Reservering-Windows-Server (1 Kerngeheugen) | Overal behalve B-serie |
-| b99d40ae-41fe-4d1d-842b-56d72f3d15ee | Reservering-Windows-Server (2 Kerngeheugens) | Overal behalve B-serie |
+| b99d40ae-41fe-4d1d-842b-56d72f3d15ee | Reservation-Windows Svr (2 Core) | Overal behalve B-serie |
 | 1cb88381-0905-4843-9ba2-7914066aabe5 | Reservering-Windows-Server (4 Kerngeheugens) | Overal behalve B-serie |
 | 07d9e10d-3e3e-4672-ac30-87f58ec4b00a | Reservering-Windows-Server (6 Kerngeheugens) | Overal behalve B-serie |
 | 603f58d1-1e96-460b-a933-ce3775ac7e2e | Reservering-Windows-Server (8 Kerngeheugens) | Overal behalve B-serie |
 | 36aaadda-da86-484a-b465-c8b5ab292d71 | Reservering-Windows-Server (12 Kerngeheugens) | Overal behalve B-serie |
 | 02968a6b-1654-4495-ada6-13f378ba7172 | Reservering-Windows-Server (16 Kerngeheugens) | Overal behalve B-serie |
-| 175434d8-75f9-474b-9906-5d151b6bed84 | Reservering-Windows-Server (20 Kerngeheugens) | Overal behalve B-serie |
+| 175434d8-75f9-474b-9906-5d151b6bed84 | Reservation-Windows Svr (20 Core) | Overal behalve B-serie |
 | 77eb6dd0-88f5-4a16-ab39-05d1742efb25 | Reservering-Windows-Server (24 Kerngeheugens) | Overal behalve B-serie |
 | 0d5bdf46-b719-4b1f-a780-b9bdfffd0591 | Reservering-Windows-Server (32 Kerngeheugens) | Overal behalve B-serie |
 | f1214b5c-cc16-445f-be6c-a3bb75f8395a | Reservering-Windows-Server (40 Kerngeheugens) | Overal behalve B-serie |
 | 637b7c77-65ad-4486-9cc7-dc7b3e9a8731 | Reservering-Windows-Server (64 Kerngeheugens) | Overal behalve B-serie |
 | da612742-e7cc-4ca3-9334-0fb7234059cd | Reservering-Windows-Server (72 Kerngeheugens) | Overal behalve B-serie |
 | a485cb8c-069b-4cf3-9a8e-ddd84b323da2 | Reservering-Windows-Server (128 Kerngeheugens) | Overal behalve B-serie |
-| 904c5c71-1eb7-43a6-961c-d305a9681624 | Reservering-Windows-Server (256-Core) | Overal behalve B-serie |
+| 904c5c71-1eb7-43a6-961c-d305a9681624 | Reservation-Windows Svr (256 Core) | Overal behalve B-serie |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservering-Windows-Server (96 Kerngeheugens) | Overal behalve B-serie |
 
 U kunt de kosten van elk van deze meter ophalen via Azure RateCard API. Zie voor meer informatie over het ophalen van de tarieven voor een azure-meterkenmerken [prijs en de metagegevens ophalen voor resources die worden gebruikt in een Azure-abonnement](https://msdn.microsoft.com/library/azure/mt219004).

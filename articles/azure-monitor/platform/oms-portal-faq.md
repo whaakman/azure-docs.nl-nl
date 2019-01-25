@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384714"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883395"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Veelgestelde vragen voor overgang van OMS-portal naar Azure-portal voor Log Analytics-gebruikers
 Log Analytics gebruikt een eigen portal met de OMS-portal de naam in eerste instantie de configuratie ervan beheren en analyseren van verzamelde gegevens.  Alle functionaliteit van deze portal is verplaatst naar de Azure-portal waar deze blijft op worden ontwikkeld.
@@ -90,7 +90,7 @@ Instellingen voor de meeste gegevens beheren de in de **geavanceerde instellinge
 | Instelling in de OMS-portal | Equivalent in de Azure-portal |
 |:---|:---|
 | Windows-gebeurtenislogboeken           | **Geavanceerde instellingen** menu voor de werkruimte. |
-| Windows-prestatiemeteritems | **Geavanceerde instellingen** menu voor de werkruimte. |
+| Windows Performance Counters | **Geavanceerde instellingen** menu voor de werkruimte. |
 | Linux-prestatiemeteritems   | **Geavanceerde instellingen** menu voor de werkruimte. |
 | IIS-logboeken                     | **Geavanceerde instellingen** menu voor de werkruimte. |
 | Aangepaste velden                | **Geavanceerde instellingen** menu voor de werkruimte. |
@@ -111,7 +111,7 @@ In de OMS-portal installeert oplossingen voor het beheer van de galerie van oplo
 Regels voor waarschuwingen op basis van Log Analytics-query's worden nu beheerd de [geïntegreerde ervaring waarschuwingen](../../azure-monitor/platform/alerts-metric.md). Zie [voor het uitbreiden van waarschuwingen van Log Analytics in Azure-waarschuwingen](../../azure-monitor/platform/alerts-extend-tool.md) voor meer informatie over het configureren en gebruiken van waarschuwingen in Azure portal.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hoe krijg ik toegang tot Mijn dashboards?
-De [mijn Dashboard](dashboards.md) functie in Log Analytics is afgeschaft. Deze functie u hebt een persoonlijke verzameling van onderdelen van de Weergaveontwerper toegestaan en wordt vervangen door de ingebouwde functionaliteit voor Azure-Dashboard. U kunt doorgaan met het visualiseren van gegevens in Log Analytics met behulp van [Weergaveontwerper](view-designer.md) voor gedeelde weergaven. U kunt ook visualisaties uit deze weergaven of voor vastmaken [afzonderlijke query's](../learn/tutorial-logs-dashboards.md) aan Azure-Dashboards.
+De **mijn Dashboard** functie in Log Analytics is afgeschaft. Deze functie u hebt een persoonlijke verzameling van onderdelen van de Weergaveontwerper toegestaan en wordt vervangen door de ingebouwde functionaliteit voor Azure-Dashboard. U kunt doorgaan met het visualiseren van gegevens in Log Analytics met behulp van [Weergaveontwerper](view-designer.md) voor gedeelde weergaven. U kunt ook visualisaties uit deze weergaven of voor vastmaken [afzonderlijke query's](../learn/tutorial-logs-dashboards.md) aan Azure-Dashboards.
 
 ## <a name="how-do-i-check-my-usage"></a>Hoe kan ik mijn gebruik controleren?
 U kunt nu eenvoudig bekijken en beheren van uw gebruik en kosten van Log Analytics door te selecteren **gebruik en geraamde kosten** in uw werkruimte.

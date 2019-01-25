@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546711"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884778"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -37,10 +37,10 @@ Azure SQL Analytics is een cloud alleen bewaking ondersteunende streaming-oploss
 
 | Verbonden bron | Ondersteund | Description |
 | --- | --- | --- |
-| [Azure Diagnostics](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
-| [Azure Storage-account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nee | Log Analytics lezen niet van de gegevens van een storage-account. |
-| [Windows-agents](../../azure-monitor/platform/agent-windows.md) | Nee | Direct Windows-agents niet worden gebruikt door de oplossing. |
-| [Linux-agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nee | Directe Linux-agents niet worden gebruikt door de oplossing. |
+| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
+| [Azure Storage-account](../platform/collect-azure-metrics-logs.md) | Nee | Log Analytics lezen niet van de gegevens van een storage-account. |
+| [Windows-agents](../platform/agent-windows.md) | Nee | Direct Windows-agents niet worden gebruikt door de oplossing. |
+| [Linux-agents](../learn/quick-collect-linux-computer.md) | Nee | Directe Linux-agents niet worden gebruikt door de oplossing. |
 | [System Center Operations Manager-beheergroep](../platform/om-agents.md) | Nee | Een directe verbinding van de Operations Manager-agent naar Log Analytics wordt niet gebruikt door de oplossing. |
 
 ## <a name="configuration"></a>Configuratie
@@ -185,7 +185,7 @@ Geautomatiseerde waarschuwingen in de oplossing is gebaseerd op een Log Analytic
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Het maken van waarschuwingen voor Azure SQL Database
 
-U kunt eenvoudig [waarschuwingen maken](../../azure-monitor/platform/alerts-metric.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [query's bijgehouden](../../azure-monitor/log-query/log-query-overview.md) die u kunt gebruiken met een waarschuwing:
+U kunt eenvoudig [waarschuwingen maken](../platform/alerts-metric.md) met de gegevens die afkomstig zijn van Azure SQL Database-resources. Hier volgen enkele nuttige [query's bijgehouden](../log-query/log-query-overview.md) die u kunt gebruiken met een waarschuwing:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Hoge CPU-capaciteit op Azure SQL Database
 
@@ -297,6 +297,6 @@ De oplossing is gratis te gebruiken, gebruik van diagnostische gegevens telemetr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Gebruik [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
-- [Maak uw eigen dashboards](../../azure-monitor/platform/dashboards.md) met Azure SQL-gegevens.
-- [Waarschuwingen maken](../../azure-monitor/platform/alerts-overview.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.
+- Gebruik [zoekopdrachten](../log-query/log-query-overview.md) in Log Analytics om gedetailleerde Azure SQL-gegevens weer te geven.
+- [Maak uw eigen dashboards](../learn/tutorial-logs-dashboards.md) met Azure SQL-gegevens.
+- [Waarschuwingen maken](../platform/alerts-overview.md) wanneer specifieke Azure SQL-gebeurtenissen plaatsvinden.

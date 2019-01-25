@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 76db86f8ddaee43654689e78437d3cdbd1c211f6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601964"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883021"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Test uw LUIS-app in de portal LUIS
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601964"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>Een utterance testen
 
 1. Toegang tot uw app door het selecteren van de naam ervan op de **mijn Apps** pagina. 
@@ -40,13 +41,8 @@ ms.locfileid: "53601964"
 
     ![Interactieve testen identificeert de verkeerde bedoelingen](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>Deelvenster wissen testen
-Schakel alle uitingen van de ingevoerde test en de resultaten van de testconsole, selecteert u **beginnen** in de linkerbovenhoek van de **Test deelvenster**. 
-
-## <a name="close-test-panel"></a>Deelvenster sluiten testen
-Sluit de **Test** Configuratiescherm, selecteer de **Test** knop opnieuw.
-
 ## <a name="inspect-score"></a>Controleren van score
+
 Controleren van details van de testresultaten in het **inspecteren** deelvenster. 
  
 1. Met de **Test** dia-out Configuratiescherm openen, selecteer **inspecteren** voor een utterance die u wilt vergelijken. 
@@ -72,9 +68,11 @@ Als **sentimentanalyse** is geconfigureerd op de **[publiceren](luis-how-to-publ
 ![Afbeelding van het testvenster met sentimentanalyse](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Corrigeer de bedoeling komt overeen met patroon
+
 Als u [patronen](luis-concept-patterns.md) en de utterance overeenkomen met een patroon, maar de verkeerde bedoelingen is voorspeld, selecteert u de **bewerken** koppelen door het patroon en selecteer vervolgens het juiste doel.
 
 ## <a name="compare-with-published-version"></a>Vergelijken met de gepubliceerde versie
+
 U kunt de actieve versie van uw app met de gepubliceerde testen [eindpunt](luis-glossary.md#endpoint) versie. In de **inspecteren** Configuratiescherm, selecteer **vergelijken met gepubliceerd**. Alle testen op basis van het gepubliceerde model wordt afgetrokken van saldo van uw Azure-abonnement quotum. 
 
 ![Vergelijken met gepubliceerd](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ U vindt het eindpunt JSON geretourneerd voor de vergelijking door het selecteren
 ## <a name="additional-settings-in-test-panel"></a>Aanvullende instellingen in het Configuratiescherm van de test
 
 ### <a name="luis-endpoint"></a>LUIS-eindpunt
+
 Als u verschillende LUIS eindpunten hebt, gebruikt u de **extra instellingen** koppeling op de testmachine deelvenster voor het wijzigen van het eindpunt dat wordt gebruikt voor het testen van de gepubliceerd. Als u niet zeker weet welk eindpunt te gebruiken, selecteert u de standaard **Starter_Key**. 
 
 ![Deelvenster testen met de overige instellingen koppeling gemarkeerd](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Bing Spell Check-correcties in test-deelvenster weergeven
+
 Vereisten voor het weergeven van de spellingcorrecties: 
 
 * Gepubliceerde app
@@ -124,6 +124,7 @@ Gebruik de volgende procedure om op te nemen de [Bing spellingcontrole versie 7]
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>Batchgewijs testen
 Zie batch testen [concepten](luis-concept-batch-test.md) en leer [hoe](luis-how-to-batch-test.md) tegelijk uitingen testen.
 

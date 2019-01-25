@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438232"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888138"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
-De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./tutorial-dashboards.md) wordt geleverd aan het einde van het artikel.
+De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./diagnostic-logs-schema.md) wordt geleverd aan het einde van het artikel.
 
 ## <a name="administrative"></a>Administratief
 Deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of een toepassing met behulp van Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van deze bewerking worden opgenomen in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen in de op rollen gebaseerd toegangsbeheer in een abonnement.
@@ -274,8 +274,8 @@ Deze categorie bevat de record van een resource health-gebeurtenissen die hebben
 | submissionTimestamp |Tijdstip waarop de gebeurtenis is beschikbaar voor het uitvoeren van query's geworden. |
 | subscriptionId |Azure-abonnement-id. |
 | properties |Instellen van `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis.|
-| properties.title | Een beschrijvende tekenreeks die de status van de resource beschrijft. |
-| properties.details | Een beschrijvende tekenreeks die meer details over de gebeurtenis beschrijft. |
+| properties.title | Een gebruiksvriendelijke tekenreeks die de status van de resource wordt beschreven. |
+| properties.details | Een gebruiksvriendelijke tekenreeks die meer details over de gebeurtenis beschrijft. |
 | properties.currentHealthStatus | De huidige status van de resource. Een van de volgende waarden: 'Beschikbaar', 'Niet beschikbaar', 'Verminderde' en 'Onbekend'. |
 | properties.previousHealthStatus | De vorige status van de resource. Een van de volgende waarden: 'Beschikbaar', 'Niet beschikbaar', 'Verminderde' en 'Onbekend'. |
 | properties.type | Een beschrijving van het type resource health gebeurtenis. |
@@ -357,8 +357,8 @@ Deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen
 | eventDataId |De unieke id van de waarschuwing gebeurtenis. |
 | niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing' en "Informatieve" |
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Dit is de naam van de resourcegroep waarin de waarschuwing zelf voor andere typen waarschuwingen. |
-| resourceProviderName |Naam van de resourceprovider voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Dit is de naam van de resourceprovider voor de waarschuwing zelf voor andere typen waarschuwingen. |
-| resourceId | Naam van de resource-ID voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Dit is de resource-ID van de waarschuwing resource zelf voor andere typen waarschuwingen. |
+| resourceProviderName |Naam van de resourceprovider voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Het is de naam van de resourceprovider voor de waarschuwing zelf voor andere typen waarschuwingen. |
+| resourceId | Naam van de resource-ID voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Voor andere typen waarschuwingen is de resource-ID van de waarschuwing resource zelf. |
 | operationId |Een GUID die wordt gedeeld tussen de gebeurtenissen die met één bewerking overeenkomen. |
 | operationName |Naam van de bewerking. |
 | properties |Instellen van `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis. |
@@ -570,7 +570,7 @@ Deze categorie bevat de record geen waarschuwingen gegenereerd door Azure Securi
 | subscriptionId |Azure-abonnement-ID. |
 
 ## <a name="recommendation"></a>Aanbeveling
-Deze categorie bevat de record van een nieuwe aanbevelingen die worden gegenereerd voor uw services. Een voorbeeld van een aanbeveling hiervan is "beschikbaarheidssets gebruiken voor verbeterde fouttolerantie." Er zijn 4 typen aanbevelingsgebeurtenissen die kunnen worden gegenereerd: Hoge beschikbaarheid, prestaties, beveiliging en kosten optimaliseren. 
+Deze categorie bevat de record van een nieuwe aanbevelingen die worden gegenereerd voor uw services. Een voorbeeld van een aanbeveling hiervan is "beschikbaarheidssets gebruiken voor verbeterde fouttolerantie." Er zijn vier typen aanbevelingsgebeurtenissen die kunnen worden gegenereerd: Hoge beschikbaarheid, prestaties, beveiliging en kosten optimaliseren. 
 
 ### <a name="sample-event"></a>Voorbeeld van de gebeurtenis
 ```json
@@ -757,7 +757,7 @@ Deze categorie bevat records voor alle bewerkingen met effect actie uitgevoerd d
 | ResourceType | Voor nieuwe resources is het type dat wordt geëvalueerd. Retourneert 'Microsoft.Resources/checkPolicyCompliance' voor bestaande resources. |
 | resourceId | Resource-ID van de geëvalueerde resource. |
 | status | De tekenreeks met een beschrijving van de status van het resultaat van evaluatie van beleid. De meeste beleid evaluaties 'Geslaagd' retourneren, maar wel een weigeractie geeft als resultaat 'Mislukt'. Fouten in auditIfNotExists of deployIfNotExists ook retourneren 'Mislukt'. |
-| subStatus | Dit veld is leeg voor Beleidsgebeurtenissen. |
+| subStatus | Veld is leeg Beleidsgebeurtenissen. |
 | submissionTimestamp | Tijdstip waarop de gebeurtenis is beschikbaar voor het uitvoeren van query's geworden. |
 | subscriptionId | Azure-abonnement-ID. |
 | properties.isComplianceCheck | Retourneert 'False' wanneer een nieuwe resource wordt geïmplementeerd of een bestaande resource Resource Manager-eigenschappen zijn bijgewerkt. Alle andere [evaluatie triggers](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) leiden tot 'True'. |
@@ -768,7 +768,7 @@ Deze categorie bevat records voor alle bewerkingen met effect actie uitgevoerd d
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Toewijzing van schema van de logboeken met diagnostische gegevens
 
-Bij het streamen van de Azure-activiteitenlogboek naar een opslagaccount of Event Hubs-naamruimte, de gegevens volgt de [Azure diagnostische logboeken schema](./tutorial-dashboards.md). Dit is de toewijzing van eigenschappen van het schema boven aan het schema van logboeken met diagnostische gegevens:
+Bij het streamen van de Azure-activiteitenlogboek naar een opslagaccount of Event Hubs-naamruimte, de gegevens volgt de [Azure diagnostische logboeken schema](./diagnostic-logs-schema.md). Dit is de toewijzing van eigenschappen van het schema boven aan het schema van logboeken met diagnostische gegevens:
 
 | Diagnostische logboeken schema-eigenschap | Activiteit Log REST API-schema-eigenschap | Opmerkingen |
 | --- | --- | --- |

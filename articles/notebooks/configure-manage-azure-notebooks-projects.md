@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847540"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904366"
 ---
 # <a name="manage-and-configure-projects"></a>Projecten beheren en configureren
 
@@ -41,9 +41,9 @@ De **uitvoeren** vervolgkeuzelijst in het projectdashboard is waar u de compute-
 
 ![COMPUTE-laag vervolgkeuzelijst in het projectdashboard](media/project-compute-tier-list.png)
 
-Met behulp van een andere virtuele machine die u in een Azure-abonnement hebt ingericht, kunt u deze beperkingen negeren. U moet ook Jupyter installeren op deze virtuele machine. De Data Science Virtual Machine-installatiekopieën zijn goede keuze omdat ze Jupyter standaard bevatten.
+Met behulp van een andere virtuele machine die u in een Azure-abonnement hebt ingericht, kunt u deze beperkingen negeren. U moet installeren en uitvoeren van JupyterHub op die virtuele machine. De Data Science Virtual Machine-installatiekopieën (elk besturingssysteem) zijn goede keuze omdat ze JupyterHub standaard bevatten.
 
-U kunt verbinding maken met een goed geconfigureerde virtuele machine van Azure met behulp van de **Direct Compute** optie in de vervolgkeuzelijst. Deze optie selecteert, wordt u gevraagd een naam (om weer te geven in de lijst), IP-adres van de VM en poort (meestal 8000, de standaardpoort voor welke luistert JupyterHub) en de referenties van de virtuele machine:
+Zodra u een naar behoren geconfigureerd Azure-machine hebt, selecteert u de **Direct Compute** optie in de vervolgkeuzelijst die wordt u gevraagd een naam (om weer te geven in de lijst), de IP-adres en poort (meestal 8000, de standaardpoort waarnaar van de virtuele machine JupyterHub luistert), en de referenties van de virtuele machine:
 
 ![Prompt voor het verzamelen van informatie over server voor de directe Compute option](media/project-compute-tier-direct.png)
 
@@ -51,13 +51,13 @@ Als de volgende voorwaarden voldaan wordt, wordt ook de vervolgkeuzelijst weerge
 
 - U bent aangemeld bij Azure-laptops met een account dat gebruikmaakt van Azure Active Directory (AAD), zoals een bedrijfsaccount.
 - Uw account is verbonden met een Azure-abonnement.
-- Hebt u een of meer virtuele machines in dat aan het abonnement, met ten minste leestoegang hebben, die gebruikmaken van de virtuele Machine voor Datatechnologie voor Linux (Ubuntu)-installatiekopie.
+- Hebt u een of meer virtuele machines in dat aan het abonnement, met ten minste leestoegang hebben, die gebruikmaken van de virtuele Machine voor Datatechnologie voor Linux (Ubuntu)-installatiekopie.)
 
 ![Data Science Virtual Machine-exemplaren in de vervolgkeuzelijst in het projectdashboard](media/project-compute-tier-dsvm.png)
 
 Wanneer u een exemplaar van de DSVM selecteert, Azure-notitieblokken wordt u mogelijk gevraagd om de specifieke machine-referenties gebruikt bij het maken van de virtuele machine.
 
-Voor het maken van een nieuw exemplaar van de DSVM, volgt u de instructies op [maken van een Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). U *moet* gebruiken de **Data Science Virtual Machine voor Linux (Ubuntu)** installatiekopie omdat Azure notitieblokken Dsvm die gebruikmaken van de Windows- of CentOS-installatiekopieën niet wordt weergegeven.
+Voor het maken van een nieuw exemplaar van de DSVM, volgt u de instructies op [maken van een Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Gebruik de **Data Science Virtual Machine voor Linux (Ubuntu)** image als u wilt dat de DSVM wordt weergegeven in de vervolgkeuzelijst in notitieblokken van Azure.  Als voor andere redenen die u wilt gebruiken van de installatiekopie van het Windows- of CentOS, kunt u de **Direct Compute** handmatig verbinding maken met de DSVM.
 
 ## <a name="edit-project-metadata"></a>Project metagegevens bewerken
 

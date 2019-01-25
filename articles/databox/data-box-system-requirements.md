@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 469d553d60eb7c5cdfac3bc16f1fb479bd84cb70
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794002"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886203"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box-systeemvereisten
 
-Dit artikel beschrijft de belangrijke systeemvereisten voor uw Microsoft Azure Data Box en de clients die verbinding maken met de Data Box. Het is raadzaam dat u de informatie voordat u uw Data Box te implementeren, en vervolgens terug naar deze zo nodig tijdens de implementatie en het volgende gebruik verwijzen zorgvuldig te controleren.
+Dit artikel beschrijft de belangrijke systeemvereisten voor uw Microsoft Azure Data Box en de clients die verbinding maken met de Data Box. Het is raadzaam om dat u de informatie zorgvuldig controleren voordat u uw Data Box te implementeren, en vervolgens terug naar deze zo nodig tijdens de implementatie en het volgende gebruik verwijzen.
 
 De systeemvereisten zijn onder andere:
 
@@ -41,20 +41,25 @@ Hier volgt een lijst van de ondersteunde besturingssystemen voor de bewerking vo
 
 ### <a name="supported-file-systems-for-linux-clients"></a>Ondersteunde bestandssystemen voor Linux-clients
 
-| **Protocollen** | **Versies** | 
+| **Protocols** | **Versies** | 
 | --- | --- | 
 | SMB |2.X en hoger |
 | NFS | Alle versies tot en met 4.1|
 
 ### <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
 
-Hier volgt een lijst van de typen ondersteunde opslag voor de Data Box-apparaat.
+Hier volgt een lijst van de ondersteunde opslagaccounts en de opslagtypen voor de Data Box-apparaat. Zie voor een volledige lijst van alle verschillende soorten opslagaccounts en de bijbehorende volledige mogelijkheden [typen opslagaccounts](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-| **Opslagaccount** | **Opmerkingen** |
-| --- | --- |
-| Klassiek | Standard |
-| Algemeen doel  |Standaard; zowel V1 als V2 worden ondersteund. |
-| Blob |Zowel warme als koude worden ondersteund. |
+| **Storage-account / opslagtypen ondersteund** | **Blok-blob** |**Pagina-blobs*** |**Azure Files** |**Opmerkingen**|
+| --- | --- | -- | -- | -- |
+| Klassieke Standard | J | J | J |
+| Standaard voor algemeen gebruik v1  | J | J | J | Zowel warme als koude worden ondersteund.|
+| Premium voor algemeen gebruik v1  |  | J| | |
+| Algemeen gebruik v2 Standard  | J | J | J | Zowel warme als koude worden ondersteund.|
+| Algemeen gebruik v2 Premium  |  |J | | |
+| BLOB-opslag Standard |J | | |Zowel warme als koude worden ondersteund. |
+
+\* *-Gegevens geüpload naar de pagina-blobs moet 512 bytes uitgelijnd, zoals VHD's.*
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2-accounts worden niet ondersteund.
@@ -85,7 +90,7 @@ Hier volgt een lijst van webbrowsers die worden ondersteund voor de lokale webge
 
 ## <a name="networking-requirements"></a>Netwerkvereisten
 
-Uw datacenter moet een netwerk met hoge snelheid hebben. Het wordt aangeraden dat u beschikt over minstens één 10 GbE-verbinding. Als een 10 GbE-verbinding niet beschikbaar is, een 1 GbE-gegevens-koppeling kan worden gebruikt om gegevens te kopiëren, maar de kopie-snelheden worden beïnvloed.
+Uw datacenter moet een netwerk met hoge snelheid hebben. Het wordt aangeraden dat u beschikt over minstens één 10-GbE-verbinding. Als een 10 GbE-verbinding niet beschikbaar is, kan de gegevenskoppeling van een 1 GbE-worden gebruikt om te kopiëren van gegevens, maar de kopie snelheden worden beïnvloed.
 
 ## <a name="next-step"></a>Volgende stap
 

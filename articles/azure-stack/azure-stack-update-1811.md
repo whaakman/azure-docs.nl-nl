@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bdc9a9a01a96ee34c5cf6cfa737be09661364bc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853235"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904417"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 update
 
@@ -353,6 +353,8 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
     De andere opties worden niet ondersteund als bron labels in Azure Stack. Op dezelfde manier als u een uitgaande beveiligingsregel toevoegen en selecteer **servicetag** als doel, dezelfde lijst met opties voor **Brontag** wordt weergegeven. De enige geldige opties zijn hetzelfde als voor **Brontag**, zoals beschreven in de vorige lijst.
 
 - De **New-AzureRmIpSecPolicy** instelling biedt geen ondersteuning voor PowerShell-cmdlet **DHGroup24** voor de `DHGroup` parameter.
+
+- Netwerkbeveiligingsgroepen (nsg's) werken niet in Azure Stack in de dezelfde manier als globale Azure. In Azure, kunt u meerdere poorten instellen op een NSG-regel (met behulp van de portal, PowerShell en Resource Manager-sjablonen). In Azure Stack, kunt u meerdere poorten niet instellen op een NSG-regel via de portal. Gebruik Resource Manager-sjabloon deze extra regels instellen om dit probleem omzeilen.
 
 ### <a name="infrastructure-backup"></a>Infrastructuur voor back-up
 

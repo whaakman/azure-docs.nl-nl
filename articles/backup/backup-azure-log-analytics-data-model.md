@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 09f7d4c5e76d4f74d447f8e8760e1f348462c769
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877578"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887016"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-gegevensmodel voor Azure backup-gegevens
 De Log Analytics-gegevensmodel gebruiken om rapporten te maken. U kunt met het gegevensmodel, aangepaste query's en dashboards maken of aanpassen van Azure backup-gegevens, maar u wilt.
@@ -25,20 +25,20 @@ U kunt de volgende velden geleverd als onderdeel van het gegevensmodel gebruiken
 ### <a name="alert"></a>Waarschuwing
 Deze tabel bevat informatie over waarschuwingen gerelateerde velden.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | AlertUniqueId_s |Tekst |De unieke id van de gegenereerde waarschuwing |
 | AlertType_s |Tekst |Type van de waarschuwing, bijvoorbeeld: back-up |
 | AlertStatus_s |Tekst |Status van de waarschuwing, bijvoorbeeld: actief |
 | AlertOccurrenceDateTime_s |Datum/tijd |De datum en tijd waarop waarschuwing is gemaakt |
 | AlertSeverity_s |Tekst |Ernst van de waarschuwing, bijvoorbeeld: kritiek |
-| EventName_s |Tekst |De naam van de gebeurtenis. Altijd AzureBackupCentralReport |
+| EventName_s |Tekst |De naam van de gebeurtenis. Always AzureBackupCentralReport |
 | BackupItemUniqueId_s |Tekst |De unieke id van het back-upitem dat is gekoppeld aan de waarschuwing |
 | SchemaVersion_s |Tekst |Huidige versie van het schema, bijvoorbeeld **V1** |
 | State_s |Tekst |Huidige status van de waarschuwing object, bijvoorbeeld: actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor het uitvoeren van back-up, bijvoorbeeld IaaSVM FileFolder waarop deze waarschuwing hoort bij |
 | OperationName |Tekst |Naam van de huidige bewerking, bijvoorbeeld: waarschuwing |
-| Categorie |Tekst |De categorie van diagnostische gegevens te pushen naar Log Analytics. Altijd AzureBackupReport |
+| Categorie |Tekst |De categorie van diagnostische gegevens te pushen naar Log Analytics. Always AzureBackupReport |
 | Resource |Tekst |Dit is de resource waarvoor gegevens worden verzameld, wordt de naam van de Recovery Services-kluis |
 | ProtectedServerUniqueId_s |Tekst |De unieke id van de beveiligde server die is gekoppeld aan de waarschuwing |
 | VaultUniqueId_s |Tekst |De unieke id van de beveiligde kluis die zijn gekoppeld aan de waarschuwing |
@@ -52,9 +52,9 @@ Deze tabel bevat informatie over waarschuwingen gerelateerde velden.
 ### <a name="backupitem"></a>BackupItem
 Deze tabel bevat informatie over back-item-gerelateerde velden.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| EventName_s |Tekst |De naam van de gebeurtenis. Altijd AzureBackupCentralReport |  
+| EventName_s |Tekst |De naam van de gebeurtenis. Always AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Tekst |De unieke id van het back-upitem |
 | BackupItemId_s |Tekst |Id van de back-upitem |
 | BackupItemName_s |Tekst |Naam van de back-upitem |
@@ -66,7 +66,7 @@ Deze tabel bevat informatie over back-item-gerelateerde velden.
 | State_s |Tekst |Status van de back-upitem-object, bijvoorbeeld, actief, verwijderd |
 | BackupManagementType_s |Tekst |Providertype voor het uitvoeren van back-up, bijvoorbeeld IaaSVM FileFolder waaraan dit back-upitem behoort |
 | OperationName |Tekst |Naam van de bewerking, bijvoorbeeld BackupItem |
-| Categorie |Tekst |De categorie van diagnostische gegevens te pushen naar Log Analytics. Altijd AzureBackupReport |
+| Categorie |Tekst |De categorie van diagnostische gegevens te pushen naar Log Analytics. Always AzureBackupReport |
 | Resource |Tekst |Resource voor welke gegevens worden verzameld, bijvoorbeeld de naam voor Recovery Services-kluis |
 | SourceSystem |Tekst |Bronsysteem van de huidige gegevens - Azure |
 | ResourceId |Tekst |Resource-id voor gegevens die worden verzameld, bijvoorbeeld: Recovery Services-kluis resource-id |
@@ -78,7 +78,7 @@ Deze tabel bevat informatie over back-item-gerelateerde velden.
 ### <a name="backupitemassociation"></a>BackupItemAssociation
 Deze tabel bevat informatie over back-upitem koppelingen met verschillende entiteiten.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | EventName_s |Tekst |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Tekst |De unieke Id van het back-upitem |
@@ -101,9 +101,9 @@ Deze tabel bevat informatie over back-upitem koppelingen met verschillende entit
 ### <a name="job"></a>Taak
 Deze tabel bevat details over velden met betrekking tot de taak.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| EventName_s |Tekst |De naam van de gebeurtenis. Altijd AzureBackupCentralReport |
+| EventName_s |Tekst |De naam van de gebeurtenis. Always AzureBackupCentralReport |
 | BackupItemUniqueId_s |Tekst |De unieke id van het back-upitem |
 | SchemaVersion_s |Tekst |Versie van het schema, bijvoorbeeld **V1** |
 | State_s |Tekst |Huidige status van het taakobject, bijvoorbeeld: actief, verwijderd |
@@ -131,7 +131,7 @@ Deze tabel bevat details over velden met betrekking tot de taak.
 ### <a name="policy"></a>Beleid
 Deze tabel bevat informatie over beleid-gerelateerde velden.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | EventName_s |Tekst |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
 | SchemaVersion_s |Tekst |Dit veld geeft de huidige versie van het schema, is het **V1** |
@@ -171,7 +171,7 @@ Deze tabel bevat informatie over beleid-gerelateerde velden.
 ### <a name="policyassociation"></a>PolicyAssociation
 Deze tabel bevat informatie over beleidskoppelingen met verschillende entiteiten.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | EventName_s |Tekst |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
 | SchemaVersion_s |Tekst |Dit veld geeft de huidige versie van het schema, is het **V1** |
@@ -192,7 +192,7 @@ Deze tabel bevat informatie over beleidskoppelingen met verschillende entiteiten
 ### <a name="protectedserver"></a>ProtectedServer
 Deze tabel bevat informatie over beveiligde velden met betrekking tot de server.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | EventName_s |Tekst |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
 | ProtectedServerName_s |Tekst |Naam van de beveiligde server |
@@ -217,7 +217,7 @@ Deze tabel bevat informatie over beveiligde velden met betrekking tot de server.
 ### <a name="protectedserverassociation"></a>ProtectedServerAssociation
 Deze tabel bevat informatie over de beveiligde server koppelingen met andere entiteiten.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | EventName_s |Tekst |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
 | SchemaVersion_s |Tekst |Dit veld geeft de huidige versie van het schema, is het **V1** |
@@ -238,7 +238,7 @@ Deze tabel bevat informatie over de beveiligde server koppelingen met andere ent
 ### <a name="storage"></a>Storage
 Deze tabel bevat details over velden met betrekking tot opslag.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | CloudStorageInBytes_s |Decimaal getal |Back-cloudopslag die wordt gebruikt door back-ups, berekend op basis van de meest recente |
 | ProtectedInstances_s |Decimaal getal |Aantal beveiligde exemplaren die worden gebruikt voor het berekenen van de frontend-opslag in facturering, berekend op basis van de laatste waarde |
@@ -261,7 +261,7 @@ Deze tabel bevat details over velden met betrekking tot opslag.
 ### <a name="vault"></a>Kluis
 Deze tabel bevat details over velden met betrekking tot de kluis.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | EventName_s |Tekst |Dit veld naam van deze gebeurtenis vertegenwoordigt, het is altijd AzureBackupCentralReport |
 | SchemaVersion_s |Tekst |Dit veld geeft de huidige versie van het schema, is het **V1** |
@@ -281,4 +281,4 @@ Deze tabel bevat details over velden met betrekking tot de kluis.
 | ResourceType |Tekst |Het type van de resource waarvoor gegevens worden verzameld. Bijvoorbeeld-kluizen |
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u het gegevensmodel voor het maken van Azure Backup-rapporten bekijkt, kunt u starten [dashboard maken](../azure-monitor/platform/dashboards.md) in Log Analytics.
+Als u het gegevensmodel voor het maken van Azure Backup-rapporten bekijkt, kunt u starten [dashboard maken](../azure-monitor/learn/tutorial-logs-dashboards.md) in Log Analytics.

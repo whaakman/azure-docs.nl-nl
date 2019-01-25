@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 157d7776cc9a8eff485bd18658527bc8d30f4df0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/24/2019
+ms.openlocfilehash: 3a567bd3656ad31157d51bedcd866290b232af2c
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602954"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884619"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Leesbare secundaire databases met behulp van actieve geo-replicatie maken
 
 Actieve geo-replicatie is Azure SQL Database-functie waarmee u leesbare secundaire databases van afzonderlijke databases maken op een logische server in het hetzelfde of een ander datacenter (regio).
 
 > [!NOTE]
-> Actieve geo-replicatie wordt niet ondersteund door de Managed Instance.
+> Actieve geo-replicatie wordt niet ondersteund door de Managed Instance. Gebruik voor geografische failover van beheerde instanties [automatische failovergroepen](sql-database-auto-failover-group.md).
 
 Actieve geo-replicatie is bedoeld als een zakelijke continuïteit-oplossing waarmee de toepassing snel noodherstel van afzonderlijke databases in het geval van een regionale rampenscenario of een grootschalige storing uitvoeren. Als geo-replicatie is ingeschakeld, kan de toepassing failover naar een secundaire database in een andere Azure-regio kunt starten. Maximaal vier secundaire databases worden ondersteund in de dezelfde of verschillende regio's en de secundaire replica's kunnen ook worden gebruikt voor toegang voor alleen-lezen query's. De failover moet handmatig worden gestart door de toepassing of de gebruiker. Na een failover is de nieuwe primaire het eindpunt van een andere verbinding. Het volgende diagram illustreert een typische configuratie van een geografisch redundante cloudtoepassing met behulp van actieve geo-replicatie.
 
@@ -41,7 +41,7 @@ U kunt replicatie en failover van een individuele database of een set van databa
 - [PowerShell: Individuele database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Elastische pool](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - [Transact-SQL: Individuele database of elastische pool](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [REST-API: Individuele database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
+- [REST API: Individuele database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
 Controleer of dat de verificatievereisten voor uw server en database zijn geconfigureerd op de nieuwe primaire na een failover. Zie voor meer informatie, [SQL Database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md).
 

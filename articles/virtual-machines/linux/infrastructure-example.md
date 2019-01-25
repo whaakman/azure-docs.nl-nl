@@ -3,7 +3,7 @@ title: Voorbeeld Azure-infrastructuur doorlopen | Microsoft Docs
 description: Meer informatie over de belangrijke ontwerp- en richtlijnen voor het implementeren van een voorbeeld van de infrastructuur in Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469847"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888955"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Voorbeeld van de Azure-infrastructuur-overzicht voor het Linux-VM 's
 Dit artikel helpt bij het bouwen van de infrastructuur van een voorbeeld van de toepassing. We informatie over het ontwerpen van een infrastructuur voor een eenvoudige online winkel die de richtlijnen en besluiten over naamconventies, beschikbaarheidssets, virtuele netwerken en taakverdelers combineert en distribueren van uw virtuele machines (VM's).
@@ -72,14 +72,14 @@ Omdat het virtuele netwerk niet nodig heeft voor actieve verbinding met de Adven
 
 Een virtueel netwerk alleen in de cloud worden ze gemaakt met de volgende instellingen met behulp van de Azure-portal:
 
-* Name: AZOS-USE-VN01
-* Locatie: VS-Oost 2
+* Naam: AZOS-USE-VN01
+* Locatie: US - oost 2
 * Virtuele netwerkadresruimte: 10.0.0.0/8
 * Eerste subnet:
   * Naam: FrontEnd
   * Adresruimte: 10.0.1.0/24
 * Tweede subnet:
-  * Naam: back-end
+  * Naam: BackEnd
   * Adresruimte: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Beschikbaarheidssets

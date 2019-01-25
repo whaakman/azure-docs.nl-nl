@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c14267f6fc7f8c6be9199b9f25b6430b5f1aa5dd
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338801"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887407"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview) solution in Log Analytics
 
@@ -34,13 +34,13 @@ De oplossing maakt gebruik van systeemeigen syslog-functionaliteit van de ESXi-h
 ## <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
-* VMware Monitoring solution toevoegen aan uw abonnement met behulp van de procedure beschreven in [installeren van een oplossing voor](../../azure-monitor/insights/solutions.md#install-a-management-solution).
+* VMware Monitoring solution toevoegen aan uw abonnement met behulp van de procedure beschreven in [installeren van een oplossing voor](../insights/solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Ondersteunde VMware ESXi-hosts
 vSphere ESXi-Host 5.5, 6.0 of 6.5
 
 #### <a name="prepare-a-linux-server"></a>Een Linux-server voorbereiden
-Maak een Linux-besturingssysteem VM voor het ontvangen van alle syslog-gegevens van de ESXi-hosts. De [Log Analytics Linux-agent](../../azure-monitor/learn/quick-collect-linux-computer.md) is het punt verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts kunt gebruiken om logboeken naar een enkel Linux-server, zoals in het volgende voorbeeld te sturen.
+Maak een Linux-besturingssysteem VM voor het ontvangen van alle syslog-gegevens van de ESXi-hosts. De [Log Analytics Linux-agent](../learn/quick-collect-linux-computer.md) is het punt verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts kunt gebruiken om logboeken naar een enkel Linux-server, zoals in het volgende voorbeeld te sturen.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -129,7 +129,7 @@ In de **VMware** dashboardweergave, blades zijn gerangschikt op:
 
 Klik op een blade om Log Analytics search deelvenster waarin gedetailleerde informatie voor de blade te openen.
 
-Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van zoekopdrachten in logboeken [vinden van gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van zoekopdrachten in logboeken [vinden van gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi-host evenementen zoeken
 Één ESXi-host genereert meerdere logboeken, op basis van hun processen. De oplossing VMware Monitoring zijn ze gecentraliseerd en bevat een overzicht van het aantal gebeurtenissen. Deze gecentraliseerde weergave helpt u begrijpen welke ESXi-host heeft een groot aantal gebeurtenissen en welke gebeurtenissen treden het vaakst in uw omgeving.
@@ -158,12 +158,12 @@ De oplossing bevat andere handige query's die u kunnen helpen uw ESXi-hosts, zoa
 
 
 #### <a name="save-queries"></a>Query's opslaan
-Zoekopdrachten opslaan is een standaardfunctie in Log Analytics en kunt u alle query's die u hebt gevonden nuttig. Nadat u een query die u hebt gemaakt, sla deze door te klikken op de **Favorieten**. Een opgeslagen query kunt u eenvoudig opnieuw kunt gebruiken vanaf de [mijn Dashboard](../../azure-monitor/platform/dashboards.md) pagina waar u uw eigen aangepaste dashboards kunt maken.
+Zoekopdrachten opslaan is een standaardfunctie in Log Analytics en kunt u alle query's die u hebt gevonden nuttig. Nadat u een query die u hebt gemaakt, sla deze door te klikken op de **Favorieten**. Een opgeslagen query kunt u eenvoudig opnieuw kunt gebruiken vanaf de [mijn Dashboard](../learn/tutorial-logs-dashboards.md) pagina waar u uw eigen aangepaste dashboards kunt maken.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Waarschuwingen van query's maken
-Nadat u uw query's hebt gemaakt, wilt u mogelijk de query's gebruiken om u te waarschuwen wanneer specifieke gebeurtenissen plaatsvinden. Zie [waarschuwingen in Log Analytics](../../azure-monitor/platform/alerts-overview.md) voor informatie over het maken van waarschuwingen. Zie voor meer voorbeelden van query's en voorbeelden van andere waarschuwingen, de [Monitor VMware met behulp van Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogbericht.
+Nadat u uw query's hebt gemaakt, wilt u mogelijk de query's gebruiken om u te waarschuwen wanneer specifieke gebeurtenissen plaatsvinden. Zie [waarschuwingen in Log Analytics](../platform/alerts-overview.md) voor informatie over het maken van waarschuwingen. Zie voor meer voorbeelden van query's en voorbeelden van andere waarschuwingen, de [Monitor VMware met behulp van Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogbericht.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Wat moet ik doen op de ESXi host instellen? Wat zijn de gevolgen heeft dit op mijn huidige omgeving?
@@ -204,6 +204,6 @@ Kunnen er meerdere redenen zijn:
     d. Als het bestand bestaat niet of de gebruiker en de instelling voor het groepsbeleid onjuist is, neemt u corrigerende maatregelen door [een Linux-server voorbereiden](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [zoekopdrachten](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
-* [Maak uw eigen dashboards](../../azure-monitor/platform/dashboards.md) VMware hostgegevens weergeven.
-* [Waarschuwingen maken](../../azure-monitor/platform/alerts-overview.md) wanneer specifieke VMware host gebeurtenissen plaatsvinden.
+* Gebruik [query's bijgehouden](../log-query/log-query-overview.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
+* [Maak uw eigen dashboards](../learn/tutorial-logs-dashboards.md) VMware hostgegevens weergeven.
+* [Waarschuwingen maken](../platform/alerts-overview.md) wanneer specifieke VMware host gebeurtenissen plaatsvinden.

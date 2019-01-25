@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 176e282a53c19e303fd06629a0045a79fd200dea
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: b39c56e8dcae6cdac45160240a6b0f12a1ac0f2e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580368"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902547"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Begrijpen hoe een Azure reserveringskorting wordt toegepast op de SQL-Databases
 
@@ -32,7 +32,7 @@ Zie voor Reserved Virtual Machine Instances, [inzicht in Azure Reserved VM Insta
 
 De volgende voorbeelden ziet u hoe de SQL-Database gereserveerde capaciteit korting van toepassing is afhankelijk van het aantal kernen die u hebt gekocht, en wanneer ze worden uitgevoerd.
 
-- Scenario 1: Koopt u een SQL-Database gereserveerde capaciteit voor een 8-core SQL-Database. U uitvoeren een 16-core SQL-Database die overeenkomen met de rest van de kenmerken van de reservering. U betaalt het betalen per gebruik betalen prijs voor 8 kernen van compute-gebruik van SQL-Database. U krijgt de reserveringskorting voor één uur van 8 kernen compute-gebruik van SQL-Database.
+- Scenario 1: U koopt een capaciteit van de SQL-Database die zijn gereserveerd voor een 8-core SQL-Database. U uitvoeren een 16-core SQL-Database die overeenkomen met de rest van de kenmerken van de reservering. U betaalt het betalen per gebruik betalen prijs voor 8 kernen van compute-gebruik van SQL-Database. U krijgt de reserveringskorting voor één uur van 8 kernen compute-gebruik van SQL-Database.
 
 Voor de rest van deze voorbeelden wordt ervan uitgegaan dat de SQL-Database gereserveerde capaciteit die u kopen voor een 16-core SQL-Database en de rest van de kenmerken van de reservering overeenkomen met de actieve SQL-Databases.
 

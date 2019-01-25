@@ -8,15 +8,15 @@ ms.component: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bd15189a9aa70ab99971be9da1bcd1ff243c60d0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821699"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904349"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Back-up en herstel van accountreferenties met de Microsoft Authenticator-app
 
@@ -39,11 +39,11 @@ Voordat u kunt back-up van uw referenties moet hebben:
 Vereist dat u zich aanmeldt bij beide accounts samen biedt een betere beveiliging voor uw back-upgegevens.
 
 **Cloud back-up inschakelen**
--   Selecteer op uw iOS-apparaat, **instellingen**, selecteer **back-up**, en schakelt u **automatische back-ups**.
+-   Selecteer op uw iOS-apparaat, **instellingen**, selecteer **back-up**, en schakelt u **iCloud-back-up**.
 
     Referenties voor uw back-ups naar uw iCloud-account.
 
-    ![iOS-instellingenscherm weergegeven met de locatie van de automatische back-instellingen](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![scherm voor iOS-instellingen, de locatie van de iCloud-back-upinstellingen weergegeven](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>De referenties van uw account op het nieuwe apparaat herstellen
 U kunt referenties voor uw account herstellen vanaf uw iCloud-account met hetzelfde Microsoft herstel dat die u hebt ingesteld toen u back-ups van uw gegevens.
@@ -101,7 +101,6 @@ Nu dat u hebt een back-up en referenties van uw account op het nieuwe apparaat k
 
 ## <a name="related-topics"></a>Verwante onderwerpen
 - [Aan de slag gaan met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md)  
-
 - [Veelgestelde vragen over Microsoft Authenticator-app](microsoft-authenticator-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

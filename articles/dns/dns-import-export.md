@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956350"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888648"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importeren en exporteren van een DNS-zone-bestand met de Azure CLI 
 
@@ -68,7 +68,7 @@ De volgende opmerkingen bieden aanvullende technische gegevens over de zone impo
 * De `$TTL` richtlijn is optioneel en wordt ondersteund. Als er geen `$TTL` richtlijn wordt vermeld, zonder een expliciete TTL-records zijn geïmporteerd is ingesteld op een standaard-TTL van 3600 seconden. Wanneer twee records in de dezelfde recordset verschillende TTL opgeeft, wordt de lagere waarde gebruikt.
 * De `$ORIGIN` richtlijn is optioneel en wordt ondersteund. Als er geen `$ORIGIN` is ingesteld, de standaardwaarde gebruikt, is de naam van de zone die is opgegeven op de opdrachtregel (plus de wordt beëindigd '. ').
 * De `$INCLUDE` en `$GENERATE` richtlijnen worden niet ondersteund.
-* Deze typen worden ondersteund: A, AAAA, CNAME, MX, NS, SOA, SRV en TXT.
+* Deze typen worden ondersteund: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV en TXT.
 * De SOA-record wordt automatisch gemaakt door Azure DNS wanneer een zone wordt gemaakt. Wanneer u een zonebestand importeert, alle SOA-parameters zijn afkomstig uit het zonebestand *behalve* de `host` parameter. Deze parameter wordt de waarde die is geleverd door Azure DNS. Dit is omdat deze parameter naar de primaire naamserver verstrekt door Azure DNS verwijzen moet.
 * De naam van server-recordset in de apex van de zone wordt ook automatisch gemaakt door Azure DNS wanneer de zone wordt gemaakt. Alleen de TTL van deze recordset is geïmporteerd. Deze records bevatten de namen van de naam verstrekt door Azure DNS. De gegevens van de record niet wordt overschreven door de waarden die zijn opgenomen in de geïmporteerde zonebestand.
 * Azure DNS biedt ondersteuning voor slechts één tekenreeks TXT-records tijdens de openbare Preview. Multistring TXT-records worden samengevoegd en afgekapt tot 255 tekens.

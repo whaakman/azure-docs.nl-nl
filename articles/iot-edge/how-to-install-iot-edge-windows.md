@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c280410816bfb48f21c68fe5d57b6ae18af0e855
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970658"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902802"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>De Azure IoT Edge-runtime installeren op Windows
 
@@ -26,7 +26,7 @@ Zie voor meer informatie over IoT Edge-runtime, [inzicht in de Azure IoT Edge-ru
 In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Windows x64 (AMD/Intel) systeem. Windows-ondersteuning is momenteel in Preview.
 
 >[!NOTE]
-Met behulp van Linux-containers op Windows sytems wordt productieconfiguratie niet aanbevolen of ondersteund voor Azure IoT Edge. Het kan echter worden gebruikt voor ontwikkeling en tests.
+Met behulp van Linux-containers op Windows-systemen is geen aanbevolen of ondersteund productieconfiguratie voor Azure IoT Edge. Het kan echter worden gebruikt voor ontwikkeling en tests.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -37,7 +37,7 @@ Gebruik deze sectie om te controleren of uw Windows-apparaat IoT Edge kan onders
 Azure IoT Edge ondersteunt verschillende versies van Windows, afhankelijk van of u Windows-containers of Linux-containers uitvoert. 
 
 De nieuwste versie van Azure IoT Edge met Windows-containers kunt uitvoeren op de volgende versies van Windows:
-* Windows 10 of IoT Core met oktober 2018 update (build 17763)
+* Windows 10 of IoT Core met de update van oktober 2018 (build 17763)
 * Windows Server 2019 (build 17763)
 
 De meest recente versie van Azure IoT Edge met Linux-containers kunt uitvoeren op de volgende versies van Windows: 
@@ -64,7 +64,7 @@ Moby is voor Windows-apparaten met IoT Edge in productiescenario's, de enige off
 
 Als u Windows gebruikt om te ontwikkelen en testen van containers voor Linux-apparaten, kunt u [Docker voor Windows](https://www.docker.com/docker-windows) als uw container-engine. Docker kan worden geconfigureerd voor [Linux-containers gebruiken](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). U moet Docker installeren en configureren voor de installatie van IoT Edge. Linux-containers worden niet ondersteund op Windows-apparaten in productie. 
 
-Als uw IoT Edge-apparaat een Windows-computer is, controleert u of het voldoet aan de [systeemvereisten](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) voor Hyper-V. Als een virtuele machine is, schakelt u [geneste virtualisatie](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) en ten minste 2 GB geheugen toewijzen.
+Als uw IoT Edge-apparaat een Windows-computer is, controleert u of het voldoet aan de [systeemvereisten](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) voor Hyper-V. Als het een virtuele machine is, schakelt u [geneste virtualisatie](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) in en wijst u ten minste 2 GB geheugen toe.
 
 ## <a name="install-iot-edge-on-a-new-device"></a>IoT Edge op een nieuw apparaat installeren
 
@@ -172,11 +172,11 @@ IoT Edge kunt met een bestaande configuratie, de installatieopdracht installeren
 | Parameter | Geaccepteerde waarden | Opmerkingen |
 | --------- | --------------- | -------- |
 | **Handmatig** | Geen | **Overschakelen van de parameter**. Elke installatie moet worden gedeclareerd als het handmatig, DP's, of existingconfig.<br><br>Verklaart dat u de verbindingsreeks van een apparaat voor het inrichten van het apparaat handmatig wordt opgeven |
-| **DPS** | Geen | **Overschakelen van de parameter**. Elke installatie moet worden gedeclareerd als het handmatig, DP's, of existingconfig.<br><br>Verklaart dat u een Device Provisioning Service (DPS) bereik-ID en de registratie-ID van uw apparaat om in te richten via DPS wordt verstrekt.  |
+| **Dps** | Geen | **Overschakelen van de parameter**. Elke installatie moet worden gedeclareerd als het handmatig, DP's, of existingconfig.<br><br>Verklaart dat u een Device Provisioning Service (DPS) bereik-ID en de registratie-ID van uw apparaat om in te richten via DPS wordt verstrekt.  |
 | **ExistingConfig** | Geen | **Overschakelen van de parameter**. Elke installatie moet worden gedeclareerd als het handmatig, DP's, of existingconfig.<br><br>Verklaart dat config.yaml al een bestand op het apparaat met de Inrichtingsgegevens bestaat. |
 | **DeviceConnectionString** | Een verbindingsreeks vanuit een IoT Edge-apparaat is geregistreerd in een IoT-Hub, tussen enkele aanhalingstekens | **Vereiste** voor handmatige installatie. Als u een verbindingsreeks in de scriptparameters niet opgeeft, wordt u gevraagd om een tijdens de installatie. |
-| **Scope-id** | Een bereik-ID van een exemplaar van Device Provisioning Service die is gekoppeld aan uw IoT-Hub. | **Vereiste** voor de DPS-installatie. Als u een bereik-ID in de scriptparameters niet opgeeft, wordt u gevraagd om een tijdens de installatie. |
-| **Registratie-id** | Een registratie-ID die is gegenereerd door uw apparaat | **Vereiste** voor de DPS-installatie. Als u een registratie-ID in de scriptparameters niet opgeeft, wordt u gevraagd om een tijdens de installatie. |
+| **ScopeId** | Een bereik-ID van een exemplaar van Device Provisioning Service die is gekoppeld aan uw IoT-Hub. | **Vereiste** voor de DPS-installatie. Als u een bereik-ID in de scriptparameters niet opgeeft, wordt u gevraagd om een tijdens de installatie. |
+| **RegistrationId** | Een registratie-ID die is gegenereerd door uw apparaat | **Vereiste** voor de DPS-installatie. Als u een registratie-ID in de scriptparameters niet opgeeft, wordt u gevraagd om een tijdens de installatie. |
 | **ContainerOs** | **Windows** of **Linux** | Als er geen container die besturingssysteem is opgegeven, is Linux de standaardwaarde. Voor Windows-containers, wordt een container-engine worden opgenomen in de installatie. Voor Linux-containers moet u een container-engine installeren voordat u begint de installatie. Linux-containers die wordt uitgevoerd op Windows is een nuttig ontwikkelingsscenario, maar niet ondersteund in de productieomgeving. |
 | **Proxy** | URL van proxy | Deze parameter opgeeft als het apparaat via een proxyserver moet te bereiken van het internet. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Hash-tabel van de parameters en waarden | Tijdens de installatie van de verschillende webaanvragen worden gedaan. Dit veld gebruiken om in te stellen van parameters voor deze webaanvragen. Deze parameter is handig om de referenties voor de proxy-servers configureren. Zie voor meer informatie, [een IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md). |

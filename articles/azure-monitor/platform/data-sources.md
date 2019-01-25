@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020129"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889056"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Bronnen van de gegevens in Azure Monitor
 Dit artikel beschrijft de bronnen van de gegevens die zijn verzameld door Azure Monitor voor het bewaken van de status en prestaties van uw resources en de toepassingen die daarop worden uitgevoerd. Deze resources mogelijk in Azure, in een andere cloud of on-premises.  Zie [gegevens verzameld door Azure Monitor](data-collection.md) voor meer informatie over hoe deze gegevens worden opgeslagen en hoe u deze kunt bekijken.
@@ -26,7 +26,7 @@ Gegevens in Azure te controleren is afkomstig van een groot aantal bronnen die k
 
 ![Lagen van bewakingsgegevens](media/data-sources/monitoring-tiers.png)
 
-## <a name="azure-tenant"></a>Azure-Tenant
+## <a name="azure-tenant"></a>Azure Tenant
 Telemetrie met betrekking tot uw Azure-tenant worden verzameld van de tenant-brede services zoals Azure Active Directory.
 
 ![Verzameling van de Azure-tenant](media/data-sources/tenant-collection.png)
@@ -61,7 +61,7 @@ De meeste Azure-services wordt gegenereerd [platform metrische gegevens](data-co
 
 
 ### <a name="resource-diagnostic-logs"></a>Diagnostische logboeken van resource
-Terwijl het activiteitenlogboek informatie over de bewerkingen die worden uitgevoerd op een Azure-resources, resourceniveau bevat [diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md) inzicht geven in de werking van de resource zelf.   De configuratievereisten en de inhoud van deze logboeken [varieert per resourcetype](../../azure-monitor/platform/tutorial-dashboards.md).
+Terwijl het activiteitenlogboek informatie over de bewerkingen die worden uitgevoerd op een Azure-resources, resourceniveau bevat [diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md) inzicht geven in de werking van de resource zelf.   De configuratievereisten en de inhoud van deze logboeken [varieert per resourcetype](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 U kunt rechtstreeks logboeken met diagnostische gegevens niet weergeven in Azure portal, maar u kunt [ze verzenden naar Azure storage voor het archiveren van](../../azure-monitor/platform/archive-diagnostic-logs.md) en ze te exporteren [Event Hub](../../event-hubs/event-hubs-about.md) voor omleiding naar andere services, of [in logboek Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) voor analyse. Sommige resources rechtstreeks naar Log Analytics kunnen schrijven terwijl anderen naar een opslagaccount voordat u schrijven [geïmporteerd in Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 

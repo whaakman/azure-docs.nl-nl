@@ -3,7 +3,7 @@ title: Om weer te geven van de service-principal van een beheerde identiteit met
 description: Stapsgewijze instructies voor het weergeven van de service-principal van een beheerde identiteit met behulp van PowerShell.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
-ms.author: daveba
-ms.openlocfilehash: 0cf1915e4013451dbb09f2c4af3df2bad6166475
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: bb0462820cc94c06054ada12f0c764d4cfb190f7
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438946"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900150"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>De service-principal van een beheerde identiteit met behulp van PowerShell weergeven
 
@@ -27,28 +27,25 @@ Beheerde identiteiten voor Azure-resources biedt Azure-services met een automati
 
 In dit artikel leert u hoe u om weer te geven van de service-principal van een beheerde identiteit met behulp van PowerShell.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde identiteiten voor Azure-resources bent, lees de [overzichtssectie](overview.md).
 - Als u nog een Azure-account hebt [zich registreren voor een gratis account](https://azure.microsoft.com/free/).
 - Schakel [systeem toegewezen identiteit op een virtuele machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) of [toepassing](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
-- Als u ervoor kiest om PowerShell lokaal te installeren en gebruiken, is voor deze zelfstudie versie 5.7.0 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). 
-- Als u PowerShell lokaal uitvoert, moet u ook het volgende doen: 
-    - Voer `Login-AzureRmAccount` uit om een verbinding op te zetten met Azure.
-    - Installeer de [nieuwste versie van PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
-    - Voer `Install-Module -Name PowerShellGet -AllowPrerelease` uit om de voorlopige versie van de `PowerShellGet`-module op te halen (mogelijk moet u met `Exit` de huidige PowerShell-sessie afsluiten nadat u met deze opdracht de `AzureRM.ManagedServiceIdentity`-module hebt geïnstalleerd).
-    - Voer `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` voor het installeren van de voorlopige versie van de `AzureRM.ManagedServiceIdentity` module om uit te voeren van de gebruiker toegewezen identiteit bewerkingen in dit artikel worden beheerd.
+- Installeer de nieuwste versie van [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="view-the-service-principal"></a>De service-principal weergeven
 
 Deze volgende opdracht laat zien hoe u de service-principal van een virtuele machine of toepassing weergeven aan systeem toegewezen identiteit is ingeschakeld. Vervang `<VM or application name>` door uw eigen waarden.
 
 ```PowerShell
-Get-AzureRmADServicePrincipal -DisplayName <VM or application name>
+Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het weergeven van Azure AD-service-principals met behulp van PowerShell [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
+Zie voor meer informatie over het weergeven van Azure AD-service-principals met behulp van PowerShell [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
 

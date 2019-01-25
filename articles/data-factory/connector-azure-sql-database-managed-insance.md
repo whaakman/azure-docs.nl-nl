@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b8ce3cdb55d164cefc8b85314a2fa79b4f901a08
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025076"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887339"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Gegevens kopiëren naar en van Azure SQL Database Managed Instance met Azure Data Factory
 
@@ -33,9 +33,13 @@ Specifiek, ondersteunt deze Azure SQL Database Managed Instance-connector:
 - Het ophalen van gegevens met behulp van SQL-query of een opgeslagen procedure als de bron.
 - Als sink, doeltabel of aanroepen van een opgeslagen procedure met aangepaste logica tijdens het kopiëren van het toevoegen van gegevens.
 
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) wordt niet ondersteund. 
+
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt kopiëren van gegevens uit een Azure SQL Database Managed Instance dat in VNET bevindt zich gebruiken, moet u voor het instellen van een zelfgehoste Cloudintegratieruntime in het hetzelfde VNET dat toegang heeft tot de database. Zie [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
+Als u wilt kopiëren van gegevens uit een Azure SQL Database Managed Instance dat in VNET bevindt zich gebruiken, moet u voor het instellen van een zelfgehoste Integration Runtime die toegang heeft tot de database. Zie [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
+
+Als u uw IR zelfgehoste in hetzelfde virtuele netwerk bevinden als uw beheerde exemplaar inricht, zorg ervoor dat uw IR-machine in een ander subnet dan uw beheerde exemplaar. Als u uw IR zelfgehoste in een ander virtueel netwerk dan het beheerde exemplaar inricht, kunt u een peering op virtueel netwerk of een virtueel netwerk met virtuele netwerk. Zie [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -49,7 +53,7 @@ De volgende eigenschappen worden ondersteund voor Azure SQL Database Managed Ins
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **SQL Server** | Ja |
+| type | De eigenschap type moet worden ingesteld op: **SqlServer** | Ja |
 | connectionString |Geef connectionString informatie die nodig zijn voor het verbinding maken met het beheerde exemplaar via SQL-verificatie of Windows-verificatie. Raadpleeg het volgende voorbeeld. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | Gebruikersnaam |Geef de gebruikersnaam op als u van Windows-verificatie gebruikmaakt. Voorbeeld: **domainname\\gebruikersnaam**. |Nee |
 | wachtwoord |Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Nee |
@@ -502,7 +506,7 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database Managed Instance, wor
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimaal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | tekst |Tekenreeks, Char] |
 | time |TimeSpan |
 | tijdstempel |Byte[] |
@@ -511,6 +515,9 @@ Bij het kopiëren van gegevens van/naar Azure SQL Database Managed Instance, wor
 | varbinary |Byte[] |
 | varchar |Tekenreeks, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> Voor gegevenstypen kaarten naar tussentijdse decimaal, ADF momenteel precisie maximaal 28. Als u gegevens met een nauwkeurigheid groter dan 28 hebt, kunt u overwegen om te converteren naar een tekenreeks in SQL-query.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

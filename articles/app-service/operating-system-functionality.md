@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653506"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901782"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>De functionaliteit van het besturingssysteem op Azure App Service
 In dit artikel beschrijft de functionaliteit van algemene basislijn besturingssysteem dat beschikbaar is voor alle Windows-apps die worden uitgevoerd op [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit bevat de bestands-, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 
@@ -128,6 +128,10 @@ Gebieden van diagnostische logboekregistratie en tracering die niet beschikbaar 
 Apps hebben alleen-lezen toegang tot veel (hoewel niet alle) van het register van de virtuele machine waarop ze worden uitgevoerd. Dit betekent de registersleutels die alleen-lezen toegang tot de lokale groep gebruikers zijn ook toegankelijk via apps uit te voeren in de praktijk. Een gedeelte van het register dat wordt momenteel niet ondersteund voor lees- of schrijftoegang is de HKEY\_huidige\_gebruiker hive.
 
 Schrijftoegang tot het register wordt geblokkeerd, inclusief de toegang tot alle registersleutels per gebruiker. Vanuit het perspectief van de app, van toegang voor schrijven naar het register moet nooit worden gebruikt in de Azure-omgeving omdat apps kunnen (en) voor verschillende virtuele machines gemigreerd. De alleen permanente beschrijfbare opslag die kan worden afhankelijk is van door een app is de per-app-inhoud directory-structuur die zijn opgeslagen op de App Service-UNC-shares. 
+
+## <a name="remote-desktop-access"></a>Toegang tot extern bureaublad
+
+App Service biedt geen externe bureaublad toegang tot de VM-exemplaren.
 
 ## <a name="more-information"></a>Meer informatie
 

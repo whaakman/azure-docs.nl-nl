@@ -3,7 +3,7 @@ title: Instellen van PostgreSQL op een Linux-VM | Microsoft Docs
 description: Meer informatie over het installeren en configureren van PostgreSQL op een virtuele Linux-machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: e794c191737f14fb06351e345f70edb9f7cddb7c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.author: cynthn
+ms.openlocfilehash: e851f6f5433a832aa30a0d87a917b64d1bc721f2
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322053"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888274"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>PostgreSQL installeren en configureren op Azure
 PostgreSQL is een geavanceerde open-source-database die vergelijkbaar is met Oracle en DB2. Het bevat enterprise-ready-functies zoals volledige ACID naleving, betrouwbare transactionele verwerking en gelijktijdigheidsbeheer voor meerdere versies. Het biedt ook ondersteuning voor standaarden, zoals ANSI SQL en SQL/MED (met inbegrip van externe gegevens wrappers voor Oracle, MySQL, MongoDB en nog veel meer). Het is maximaal worden uitgebreid met ondersteuning voor meer dan 12 procedurele talen GIN en basisvertalingen indexen, ruimtelijke gegevens en ondersteuning meerdere NoSQL-achtige functies voor JSON of toepassingen op basis van sleutel-waarde.
@@ -29,7 +29,7 @@ In dit artikel leert u hoe u PostgreSQL installeren en configureren op een Azure
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="install-postgresql"></a>PostgreSQL installeren
+## <a name="install-postgresql"></a>Install PostgreSQL
 > [!NOTE]
 > U moet al een Azure virtuele machine waarop Linux wordt uitgevoerd om te kunnen voltooien van deze zelfstudie hebben. Als u wilt maken en instellen van een Linux-VM voordat u doorgaat, Zie de [zelfstudie voor Azure Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
@@ -149,7 +149,7 @@ Het bestand zodat het uitvoerbare bestand wijzigt:
 
     # chmod +x /etc/init.d/postgresql
 
-PostgreSQL starten:
+Start PostgreSQL:
 
     # /etc/init.d/postgresql start
 

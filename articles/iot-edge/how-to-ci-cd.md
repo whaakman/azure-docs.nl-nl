@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ca638f1374c2e15c3978cfe711295f0ebe249d68
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818163"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886761"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
@@ -67,7 +67,7 @@ In deze sectie maakt u een nieuwe build-pijplijn. Configureren van de pijplijn w
 
       ![Beginnen met een lege proces](./media/how-to-ci-cd/start-with-empty.png)
 
-4. Zodra uw pijplijn is gemaakt, gaat u naar de de pijplijn-editor. Kies in de beschrijving van uw pijplijn, de juiste agentpool op basis van uw doelplatform: 
+4. Zodra uw pijplijn is gemaakt, gaat u naar de pijplijn-editor. Kies in de beschrijving van uw pijplijn, de juiste agentpool op basis van uw doelplatform: 
     
     * Als u maken van de modules in platform amd64 voor Linux-containers wilt, kiest u **Ubuntu 1604 die worden gehost**
 

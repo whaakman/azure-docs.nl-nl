@@ -3,7 +3,7 @@ title: Instellen van MySQL op een Linux-VM in Azure | Microsoft Docs
 description: Informatie over het installeren van de MySQL-stack op een Linux-machine (Ubuntu of Red Hat-OS) in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: f7120decd4a5d43f88b55e7d7e20992af34cadc4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469566"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888427"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>MySQL installeren op Azure
 In dit artikel leert u hoe u kunt installeren en configureren van MySQL op een Azure-machine waarop Linux wordt uitgevoerd.
@@ -42,7 +42,7 @@ We gebruiken opslagplaats pakket MySQL5.6 installeren als een voorbeeld in dit a
 ### <a name="how-to-install-mysql56-on-ubuntu"></a>Over het installeren van MySQL5.6 op Ubuntu
 Er wordt hier Linux-VM met Ubuntu van Azure gebruiken.
 
-* Stap 1: Installatie van MySQL 5.6-Server overschakelen naar `root` gebruiker:
+* Stap 1: Installatie van MySQL Server 5.6 overschakelen naar `root` gebruiker:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -59,7 +59,7 @@ Er wordt hier Linux-VM met Ubuntu van Azure gebruiken.
 
     ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
-* Stap 2: Aanmelding MySQL-Server
+* Stap 2: Login MySQL Server
   
     Wanneer de installatie van MySQL-server is voltooid, MySQL-service automatisch gestart. U kunt zich aanmelden met de MySQL-Server `root` gebruiker.
     Gebruik de onderstaande opdracht aanmeldings- en invoer-wachtwoord.
@@ -94,7 +94,7 @@ We gebruiken Linux-VM hier bij CentOS of Oracle Linux.
   
             #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
-* Stap 2: Bewerk onder bestand om te schakelen van de MySQL-opslagplaats voor het downloaden van het pakket MySQL5.6.
+* Stap 2: Onder bestand om te schakelen van de MySQL-opslagplaats voor het downloaden van het pakket MySQL5.6 bewerken.
   
             #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
   
@@ -112,7 +112,7 @@ We gebruiken Linux-VM hier bij CentOS of Oracle Linux.
         gpgcheck=1
   
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* Stap 3: Installatie van MySQL van MySQL-opslagplaats MySQL installeren:
+* Stap 3: MySQL installeren uit de MySQL-opslagplaats MySQL installeren:
   
            #[root@mysqlnode ~]#yum install mysql-community-server
   

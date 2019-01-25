@@ -8,15 +8,15 @@ manager: cgronlun
 ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d353f37b89f9932827a07fc8079aa606d425ed38
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598496"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882868"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Intents om te bepalen van de gebruiker de bedoeling uitingen toevoegen
 
@@ -24,19 +24,7 @@ Voeg [intents](luis-concept-intent.md) naar uw LUIS-app en het identificeren van
 
 Intents worden beheerd vanuit de bovenste navigatiebalk staat **bouwen** sectie, klikt u vervolgens in het linkerpaneel **Intents**. 
 
-## <a name="create-an-app"></a>Een app maken
-
-1. Aanmelden bij de [LUIS](https://www.luis.ai) portal.
-
-1. Selecteer **Create new app**. 
-
-1. Naam van de nieuwe app `MyHumanResourcesApp`. Selecteer de **Engels** cultuur. De beschrijving is optioneel. 
-
-1. Selecteer **Done**. 
-
 ## <a name="add-intent"></a>Intentie toevoegen
-
-1. De app wordt geopend op de **Intents** lijst.
 
 1. Selecteer **Create new intent** op de pagina **Intents**.
 

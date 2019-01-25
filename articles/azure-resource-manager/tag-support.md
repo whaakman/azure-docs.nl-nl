@@ -4,14 +4,14 @@ description: Laat zien welke typen Azure-resource bieden ondersteuning voor tags
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267450"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884942"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md).
@@ -237,7 +237,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 | reservationOrders/splitsen | Nee | 
 | reservationOrders/wisselen | Nee | 
 | reserveringen | Nee | 
-| resources | Nee | 
+| bronnen | Nee | 
 | validateReservationOrder | Nee | 
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -584,7 +584,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | Clusters | Ja | 
-| Naamruimten | Ja | 
+| naamruimten | Ja | 
 | naamruimten/authorizationrules | Nee | 
 | naamruimten/disasterrecoveryconfigs | Nee | 
 | namespaces/eventhubs | Nee | 
@@ -610,7 +610,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 | myareas/areas/galleryitems | Nee | 
 | myareas/galleryitems | Nee | 
 | Registreren | Nee | 
-| resources | Nee | 
+| bronnen | Nee | 
 | retrieveresourcesbyid | Nee | 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -898,7 +898,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| Naamruimten | Ja | 
+| naamruimten | Ja | 
 | namespaces/notificationHubs | Ja | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -959,7 +959,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| Naamruimten | Ja | 
+| naamruimten | Ja | 
 | naamruimten/authorizationrules | Nee | 
 | namespaces/hybridconnections | Nee | 
 | namespaces/hybridconnections/authorizationrules | Nee | 
@@ -1063,7 +1063,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| Naamruimten | Ja | 
+| naamruimten | Ja | 
 | naamruimten/authorizationrules | Nee | 
 | naamruimten/disasterrecoveryconfigs | Nee | 
 | naamruimten/eventgridfilters | Nee | 
@@ -1107,6 +1107,16 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
+| managedInstances | Ja |
+| managedInstances/databases | Ja |
+| managedInstances/databases/backupShortTermRetentionPolicies | Nee |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | Nee |
+| managedInstances/databases/vulnerabilityAssessments | Nee |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | Nee |
+| managedInstances/encryptionProtector | Nee |
+| managedInstances/sleutels | Nee |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Nee |
+| managedInstances/vulnerabilityAssessments | Nee |
 | servers | Ja | 
 | servers/beheerders | Nee | 
 | servers/communicationLinks | Nee | 

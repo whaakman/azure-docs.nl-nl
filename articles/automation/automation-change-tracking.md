@@ -10,12 +10,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a3c2ea1e28ebbc6859db135b743d579d3c632133
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433013"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901136"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -155,7 +155,6 @@ Andere beperkingen:
 De oplossing wijzigingen bijhouden is momenteel de volgende problemen:
 
 * Hotfix-updates worden niet verzameld voor Windows 10 Creators Update en Windows Server 2016 Core RS3 machines.
-* Voor Windows-bestanden detecteert wijzigingen bijhouden niet op dit moment wanneer een nieuw bestand is toegevoegd aan een bijgehouden mappad
 
 ## <a name="change-tracking-data-collection-details"></a>Traceergegevens gegevens verzameling wijzigen
 

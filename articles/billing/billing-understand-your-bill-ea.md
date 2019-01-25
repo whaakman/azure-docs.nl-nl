@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
-ms.openlocfilehash: b724fc7a887550b4115a988149b4b7a6c95de830
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584465"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902700"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Meer informatie over uw factuur voor Azure-klanten met een Enterprise Agreement
 
@@ -31,8 +31,8 @@ Tegoed van uw organisatie bevat uw monetaire toezegging. De monetaire toezegging
 
 U profiteert van een of meer facturen wanneer het volgende gebeurt:
 
-- **Serviceoverschrijding**: kosten voor het gebruik van uw organisatie uw tegoed overschrijdt.
-- **De kosten apart in rekening gebracht**: de services die zijn gebruikt door uw organisatie niet zijn gekoppeld aan het tegoed. U bent voor de volgende services gefactureerd, ongeacht uw saldo:
+- **Serviceoverschrijding**: Kosten voor het gebruik van uw organisatie meer dan uw saldo.
+- **De kosten apart in rekening gebracht**: De services die wordt gebruikt door uw organisatie niet zijn gekoppeld aan het tegoed. U bent voor de volgende services gefactureerd, ongeacht uw saldo:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop 
@@ -44,7 +44,7 @@ U profiteert van een of meer facturen wanneer het volgende gebeurt:
     - Visual Studio Enterprise (jaarlijks)
     - Visual Studio Professional (maandelijks)
     - Visual Studio Professional (jaarlijks)
-- **Marketplace-kosten**: Azure Marketplace-aankopen en het gebruik zijn niet inbegrepen bij uw organisatie tegoed en worden afzonderlijk gefactureerd. De Enterprise-beheerder heeft de mogelijkheid inschakelen en uitschakelen van Marketplace-aankopen voor hun organisatie in de Enterprise Portal. 
+- **Marketplace-kosten**: Azure Marketplace-aankopen en gebruik zijn niet inbegrepen bij uw organisatie tegoed en worden afzonderlijk gefactureerd. De Enterprise-beheerder heeft de mogelijkheid inschakelen en uitschakelen van Marketplace-aankopen voor hun organisatie in de Enterprise Portal. 
 
 Wanneer er vanwege de kosten voor serviceoverschrijding en de kosten apart in rekening gebracht tijdens de factureringsperiode, krijgt u een factuur met beide typen kosten in rekening gebracht. Marktplaatsen in de kosten worden altijd afzonderlijk gefactureerd.
 
@@ -64,7 +64,7 @@ Uw totale gebruiksbedrag van de Enterprise-portal in vergelijken **rapporten** >
 
 1. De **Totaalgebruik** bedrag moet overeenkomen met de **uitgebreid totaalbedrag** op uw factuur overschrijding. De volgende tabel bevat de voorwaarden en beschrijvingen die worden weergegeven op de factuur en klik op de **Gebruiksoverzicht** in de Enterprise portal:
 
-   |Factuur-term|Overzicht gebruik-term|Beschrijving|
+   |Factuur-term|Overzicht gebruik-term|Description|
    |---|---|---|
    |Totale hoeveelheid uitgebreid|Totaal gebruik|De totale vóór belastingen gebruik kosten in rekening gebracht voor de specifieke periode voordat het tegoed wordt toegepast.|
    |Toezegging|Toezegging|Het tegoed toegepast die specifieke periode.|

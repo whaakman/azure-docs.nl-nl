@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell en CLI: SQL TDE - uw sleutel - Azure SQL Database inschakelen | Microsoft Docs'
+title: 'PowerShell en CLI: Schakel SQL TDE - uw sleutel - Azure SQL Database | Microsoft Docs'
 description: Informatie over het configureren van een Azure SQL Database en datawarehouse voor het starten van transparante gegevensversleuteling (TDE) gebruiken voor versleuteling-at-rest met behulp van PowerShell of CLI.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 0fad0cd32e8df38c5a9c06ecf01a14340f1bc9ef
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 87ffc4619f2ad864113db3b3aed42aa23535cb83
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165072"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900321"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption met behulp van uw eigen sleutel uit Azure Key Vault inschakelen
 
@@ -32,7 +32,7 @@ Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor trans
    - [PowerShell-instructies uit Key Vault](../key-vault/key-vault-get-started.md)
    - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
-   - [voorlopig verwijderen](../key-vault/key-vault-ovw-soft-delete.md)
+   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [De Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - De sleutel moet de volgende kenmerken moet worden gebruikt voor TDE hebben:
    - Er is geen vervaldatum
@@ -186,8 +186,8 @@ Controleer het volgende als er een probleem optreedt:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het draaien van de TDE-beveiliging van een server om te voldoen aan de beveiligingsvereisten: [draaien de Transparent Data Encryption protector met behulp van PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
-- In het geval van een veiligheidsrisico inhouden, informatie over het verwijderen van een potentieel aangetast TDE-beveiliging: [een potentieel aangetast sleutel verwijderen](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
+- Meer informatie over de TDE-beveiliging van een server om te voldoen aan de beveiligingsvereisten draaien: [De Transparent Data Encryption protector met behulp van PowerShell draaien](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- Meer informatie over het verwijderen van een potentieel aangetast TDE-beveiliging in het geval van een veiligheidsrisico inhouden: [Verwijderen van een potentieel aangetast sleutel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
 
 ## <a name="prerequisites-for-cli"></a>Vereisten voor de CLI
 
@@ -198,7 +198,7 @@ Controleer het volgende als er een probleem optreedt:
    - [Beheren van Key Vault met behulp van CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
    - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
-   - [voorlopig verwijderen](../key-vault/key-vault-ovw-soft-delete.md)
+   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [De Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - De sleutel moet de volgende kenmerken moet worden gebruikt voor TDE hebben:
    - Er is geen vervaldatum
@@ -208,7 +208,7 @@ Controleer het volgende als er een probleem optreedt:
 ## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>Step 1. Een server maken en toewijzen van een Azure AD-identiteit aan uw server
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 

@@ -28,7 +28,7 @@ Zie de [Kusto-Naslaggids](https://docs.microsoft.com/azure/kusto/query/) voor me
 ## <a name="events"></a>Gebeurtenissen
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Zoeken op toepassingsniveau gebeurtenissen die worden beschreven als "Cryptografische"
-In dit voorbeeld wordt gezocht naar de **gebeurtenissen** tabel voor records waarin **EventLog** is _toepassing_ en **RenderedDescription** bevat _cryptografische_. Bevat records van de afgelopen 24 uur.
+In dit voorbeeld wordt gezocht naar de **gebeurtenissen** tabel voor records waarin **EventLog** is _Application_ en **RenderedDescription** bevat _cryptographic_. Bevat records van de afgelopen 24 uur.
 
 ```Kusto
 Event
@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>Beveiligingsstatus
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Computers met niet-rapportage protection status duur
-In dit voorbeeld geeft een lijst van computers waarop de beveiligingsstatus van _niet rapporteren_ en de duur die ze in deze status zijn.
+In dit voorbeeld geeft een lijst van computers waarop de beveiligingsstatus van _Not Reporting_ en de duur die ze in deze status zijn.
 
 ```Kusto
 ProtectionStatus
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>Aantal beveiligingsgebeurtenissen met betrekking tot machtigingen
-In dit voorbeeld toont het aantal **securityEvent** records waarin de **activiteit** kolom bevat de gehele duur _machtigingen_. De query is van toepassing op records gemaakt in de afgelopen 30 minuten.
+In dit voorbeeld toont het aantal **securityEvent** records waarin de **activiteit** kolom bevat de gehele duur _Permissions_. De query is van toepassing op records gemaakt in de afgelopen 30 minuten.
 
 ```Kusto
 SecurityEvent

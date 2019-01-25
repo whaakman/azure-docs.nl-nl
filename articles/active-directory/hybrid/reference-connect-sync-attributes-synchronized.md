@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 13ff2c817e13337da51bb9ad40ce16838af601d9
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468604"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901374"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: Kenmerken gesynchroniseerd naar Azure Active Directory
 In dit onderwerp worden de kenmerken die door Azure AD Connect-synchronisatie worden gesynchroniseerd.  
@@ -45,6 +45,7 @@ In dit geval beginnen met de lijst van kenmerken in dit onderwerp en identificer
 | displayName |X | |
 | objectSID |X |mechanische eigenschap. AD gebruikers-id gebruikt voor het onderhouden van de synchronisatie tussen Azure AD en AD. |
 | pwdLastSet |X |mechanische eigenschap. Gebruikt om te weten wanneer u al uitgegeven tokens ongeldig te maken. Gebruikt door de synchronisatie van wachtwoordhashes, pass-through-verificatie en Federatie. |
+|samAccountName|X| |
 | sourceAnchor |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X |mechanische eigenschap. Land van de gebruiker. Gebruikt voor het toewijzen van licenties. |
 | userPrincipalName |X |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |

@@ -3,7 +3,7 @@ title: Uw gedetailleerde gebruik van Azure begrijpen | Microsoft Docs
 description: Meer informatie over het lezen en begrijpen van de secties van uw gedetailleerde gebruik CSV voor uw Azure-abonnement
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 88518bee879d01966813fc89e8095d2237476a15
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580912"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901306"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Meer informatie over de Microsoft Azure gedetailleerde gebruikskosten 
 
@@ -40,7 +40,7 @@ De volgende secties beschrijven de belangrijke termen die in versie 2 van het be
 
 Het bovenste gedeelte van het gedetailleerde gebruik CSV-bestand ziet u de services die u hebt gebruikt tijdens de factureringsperiode van de maand. De volgende tabel bevat de voorwaarden en -beschrijvingen weergegeven in deze sectie.
 
-| Termijn | Beschrijving |
+| Termijn | Description |
 | --- | --- |
 |Factureringsperiode |De factureringsperiode wanneer de meters zijn gebruikt |
 |De categorie van de meter |Identificeert de service op het hoogste niveau voor het gebruik |
@@ -63,7 +63,7 @@ Het bovenste gedeelte van het gedetailleerde gebruik CSV-bestand ziet u de servi
 
 De sectie dagelijks gebruik van het CSV-bestand bevat informatie over het gebruik die invloed hebben op de facturering-tarieven. De volgende tabel bevat de voorwaarden en -beschrijvingen weergegeven in deze sectie.
 
-| Termijn | Beschrijving |
+| Termijn | Description |
 | --- | --- |
 |Gebruiksdatum |De datum waarop de meter is gebruikt |
 |De categorie van de meter |Geeft de op het hoogste niveau service waartoe dit gebruik behoort |

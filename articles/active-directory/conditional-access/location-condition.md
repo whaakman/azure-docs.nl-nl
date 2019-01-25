@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 998a2dac8332ea88f7cee308299ce5a1f90765a4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f522f7ff216a407e4ba901672f6b5e172952bcb
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449739"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883429"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Wat is de locatievoorwaarde in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -58,7 +58,7 @@ Een benoemde locatie heeft de volgende onderdelen:
 
 - **Naam** -de naam van een benoemde locatie.
 
-- **IP-adresbereiken** -een of meer IPv4-adresbereiken in CIDR-indeling. Opgeven van een Ipv6-adres rempel voor opslag wordt niet ondersteund.
+- **IP-adresbereiken** -een of meer IPv4-adresbereiken in CIDR-indeling. Een Ipv6-adresbereik op te geven wordt niet ondersteund.
 
 - **Als vertrouwde locatie markeren** -een vlag die u kunt instellen voor een benoemde locatie om aan te geven van een vertrouwde locatie bevindt. Vertrouwde locaties zijn meestal netwerkgebieden die worden beheerd door uw IT-afdeling. Naast de voorwaardelijke toegang benoemde locaties vertrouwde worden ook gebruikt door Azure Identity Protection en Azure AD-beveiligingsrapporten te verminderen [fout-positieven](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 57290384b31b868deb9e285fb05fec8ebe10a53f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452510"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902734"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang?
 
@@ -71,9 +71,15 @@ Met multi-factor authentication beschermt resources toegankelijk zijn via een ni
 
 ### <a name="compliant-device"></a>Compatibel apparaat
 
-U kunt beleid voor voorwaardelijke toegang op basis van apparaat configureren. Het doel van beleid voor voorwaardelijke toegang op basis van het apparaat is om toegang te verlenen tot de geconfigureerde bronnen alleen vanaf [beheerde apparaten](require-managed-devices.md). Een compatibel apparaat vereisen is een optie hebt om te definiëren welke een beheerd apparaat is. Als deze optie is geselecteerd, het beleid voor voorwaardelijke toegang verleent toegang voor toegang tot pogingen met apparaten die zijn aangebracht [geregistreerd](../devices/overview.md) naar uw Azure Active Directory en zijn gemarkeerd als compatibel met Intune (voor elk apparaat OS) of met uw externe MDM-systeem voor Windows 10-apparaten. MDM-systemen van derden voor apparaattypen besturingssysteem dan Windows 10 worden niet ondersteund.
+U kunt beleid voor voorwaardelijke toegang op basis van apparaat configureren. Het doel van beleid voor voorwaardelijke toegang op basis van het apparaat is alleen toegang verlenen tot de geselecteerde cloud-apps van [beheerde apparaten](require-managed-devices.md). Vereisen van een apparaat moet worden gemarkeerd als compatibel is een optie die u hebt toegang tot beheerde apparaten wilt beperken. Een apparaat kan worden gemarkeerd als compatibel met Intune (voor elk apparaat OS) of met uw externe MDM-systeem voor Windows 10-apparaten. MDM-systemen van derden voor apparaattypen besturingssysteem dan Windows 10 worden niet ondersteund. 
 
-Zie voor meer informatie, [instellen van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](require-managed-devices.md).
+Het apparaat moet worden geregistreerd bij Azure AD voordat deze kan worden gemarkeerd als compatibel. Voor het registreren van een apparaat, hebt u drie opties: 
+
+- [Azure AD ingeschreven apparaten](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD gekoppelde apparaten](../devices/overview.md#azure-ad-joined-devices)  
+- [Hybride Azure AD gekoppelde apparaten](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+Zie voor meer informatie, [hoe u beheerde apparaten vereist voor toegang tot cloud-Apps met voorwaardelijke toegang](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Hybrid Azure AD gekoppelde apparaat
 

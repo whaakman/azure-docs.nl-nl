@@ -3,7 +3,7 @@ title: Gebruik de Azure Docker VM-extensie | Microsoft Docs
 description: Informatie over het gebruik van de Docker VM-extensie snel en veilig implementeren van een Docker-omgeving in Azure met behulp van Resource Manager-sjablonen en Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
-ms.author: zarhoads
-ms.openlocfilehash: 75959225d6fcc5487466ed26a21ba2d26c55cde9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465930"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882760"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Een Docker-omgeving maken in Azure met behulp van de Docker VM-extensie
 
@@ -39,7 +39,7 @@ Zie de volgende artikelen voor meer informatie over de verschillende implementat
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implementeren van een sjabloon met de Azure Docker VM-extensie
-We gaan een bestaande quickstart-sjabloon gebruiken om een Ubuntu-VM die gebruikmaakt van de Azure Docker VM-extensie installeren en configureren van de Docker-host te maken. U kunt hier de sjabloon weergeven: [eenvoudige implementatie van een Ubuntu-VM met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+We gaan een bestaande quickstart-sjabloon gebruiken om een Ubuntu-VM die gebruikmaakt van de Azure Docker VM-extensie installeren en configureren van de Docker-host te maken. Hier vindt u de sjabloon hier: [Eenvoudige implementatie van een Ubuntu-VM met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 

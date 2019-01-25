@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 459dd86fd614cb185801b074cea70c36dc7f6ccb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: dc979e4aa9882960b86d902266793910ce6fe8b3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972329"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902955"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisern van uw cluster met Service Fabric Explorer
 
@@ -49,6 +49,11 @@ Gebruik de volgende koppelingen voor het downloaden van Service Fabric Explorer 
 Service Fabric Explorer is ook die wordt gehost in een Service Fabric-cluster HTTP-eindpunt. Als u wilt starten SFX in een webbrowser, blader naar HTTP-eindpunt van het cluster vanuit elke browser - bijvoorbeeld https://clusterFQDN:19080.
 
 Voor instellingen voor ontwikkelaars werkstation, kunt u Service Fabric Explorer starten op uw lokale cluster door te navigeren naar https://localhost:19080/Explorer. Dit artikel om te kijken [uw ontwikkelomgeving voorbereiden](service-fabric-get-started.md).
+
+> [!NOTE]
+> Als uw cluster is beveiligd door een zelfondertekend certificaat dat u ontvangt een foutbericht van de webbrowser is' deze site niet beveiligd'. U kunt gewoon doorgaan via de meeste moderne webbrowsers door de waarschuwing overschrijven. In een productieomgeving moet uw cluster zijn beveiligd met behulp van de algemene naam en een certificaat uitgegeven certificaat. 
+>
+>
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Verbinding maken met een Service Fabric-cluster
 Voor verbinding met een Service Fabric-cluster, moet u het eindpunt voor clusters (FQDN-naam/IP-) en de HTTP-eindpunt-beheerpoort (19080 standaard). Bijvoorbeeld https://mysfcluster.westus.cloudapp.azure.com:19080. Gebruik het selectievakje 'Verbinding maken met localhost' verbinding maken met een lokaal cluster op uw werkstation.
@@ -118,6 +123,18 @@ U kunt ook Service Fabric Explorer gebruiken om instanties van de toepassing voo
 >
 >
 
+## <a name="event-store"></a>Gebeurtenis-Store
+EventStore is een functie die wordt aangeboden door het platform waarmee u Service Fabric-platformgebeurtenissen beschikbaar in de Service Fabric Explorer en via REST-API. Hier ziet u een momentopname van wat in uw cluster voor elke entiteit bijvoorbeeld gebeurt er knooppunt, service, toepassing en query's op basis van de tijd van de gebeurtenis. U kunt ook meer informatie over de EventStore op de [overzicht van EventStore](service-fabric-diagnostics-eventstore.md).   
+
+![EventStore][sfx-eventstore]
+
+>[!NOTE]
+>Vanaf het Service Fabric versie 6.4. EventStore is niet standaard ingeschakeld en moet zijn ingeschakeld in het resource manager-sjabloon
+
+>[!NOTE]
+>Vanaf het Service Fabric versie 6.4. De APIs EventStore zijn alleen beschikbaar voor Windows-clusters wordt alleen uitgevoerd op Azure. Er wordt gewerkt aan het overzetten van deze functionaliteit voor zowel Linux als onze zelfstandige clusters.
+
+
 ## <a name="next-steps"></a>Volgende stappen
 * [Beheren van uw Service Fabric-toepassingen in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementatie van service Fabric-toepassing met behulp van PowerShell](service-fabric-deploy-remove-applications.md)
@@ -129,3 +146,4 @@ U kunt ook Service Fabric Explorer gebruiken om instanties van de toepassing voo
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png

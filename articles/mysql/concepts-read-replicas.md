@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/22/2019
-ms.openlocfilehash: 6ebbaece66d9055fd2bff68eee873b012b4a6d50
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 1/23/2019
+ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462417"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903754"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Lezen-replica's in Azure Database for MySQL
 
-De functie lezen replica (openbare preview) kunt u gegevens uit een Azure Database for MySQL-server (master) op maximaal vijf alleen-lezen-servers (replica's) binnen dezelfde Azure-regio repliceren. Alleen-lezen replica's worden asynchroon bijgewerkt met de MySQL-engine systeemeigen binair logboek (binlog)-bestand op basis van positie-Replicatietechnologie. Zie voor meer informatie over binlog replicatie, de [MySQL binlog replicatie-overzicht](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+> [!IMPORTANT]
+> De functie lezen replica is beschikbaar als openbare preview.
+
+De functie lezen replica kunt u voor het repliceren van gegevens uit een Azure Database for MySQL-server (master) op maximaal vijf alleen-lezen-servers (replica's) binnen dezelfde Azure-regio. Alleen-lezen replica's worden asynchroon bijgewerkt met de MySQL-engine systeemeigen binair logboek (binlog)-bestand op basis van positie-Replicatietechnologie. Zie voor meer informatie over binlog replicatie, de [MySQL binlog replicatie-overzicht](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Replica's die zijn gemaakt in de Azure Database for MySQL-service zijn nieuwe servers die op dezelfde manier als normale/zelfstandige MySQL-servers kunnen worden beheerd. U wordt gefactureerd voor elke lezen replica voor de ingerichte Computing in vCores en ingerichte opslag in GB/maand. 
 

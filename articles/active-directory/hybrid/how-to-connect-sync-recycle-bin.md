@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4836ffc8c6ab013ef5ad7a661db0df3254b6d4e1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85b05766e99c68fa7054b04cc7d174e5ad24a15d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468735"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882410"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect-synchronisatie: AD-prullenbak inschakelen
 Het is raadzaam dat u de functie AD-Prullenbak inschakelen voor uw on-premises Active Directory's die zijn gesynchroniseerd met Azure AD. 
@@ -39,9 +39,6 @@ Deze functie helpt met het herstellen van Azure AD-gebruikersobjecten door het v
 
 > [!NOTE]
 > Standaard verwijderd Azure AD houdt objecten van Azure AD-gebruiker in staat voorlopig verwijderde voor 30 dagen voordat ze permanent worden verwijderd. Beheerders kunnen echter de verwijdering van dergelijke objecten te versnellen. Zodra de objecten worden definitief verwijderd, kunnen ze niet meer worden hersteld, zelfs niet als on-premises AD-Prullenbak-functie is ingeschakeld.
-
->[!NOTE]
->Eerder als een gebruiker is verwijderd uit het bereik van de synchronisatie van on-premises en in de cloud worden verwijderd, de DirSyncEnabled status van het account is ten onrechte ingesteld op "False". Als die gebruiker is later handmatig wordt hersteld uit Azure AD-Prullenbak, hebt u geleerd een onjuiste status van de 'Cloud-Only'-account. Dit probleem nu is opgelost en de waarde van de status van de DirSyncEnabled is altijd 'True' wanneer een gebruiker wordt verwijderd uit het bereik voor gegevenssynchronisatie, klikt u vervolgens voorlopig verwijderde en handmatig worden hersteld vanuit Azure AD-Prullenbak.
 
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**

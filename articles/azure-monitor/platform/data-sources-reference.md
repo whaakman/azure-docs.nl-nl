@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4c8d14e01805ea66ff3a954c153d858bf4ecaba6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467499"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885793"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Controlegegevens van Azure gebruiken
 
@@ -29,7 +29,7 @@ Over het complete Azure-platform brengen we controlegegevens op één plaats sam
 | Metrische gegevens over opslag | Metrische gegevens | Azure Storage | <ul><li>**Storage-tabel:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Factureringsgegevens | Metrische gegevens | Alle Azure-services | <ul><li>**REST-API:** [Azure-Resource gebruiks- en RateCard API 's](../../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Activiteitenlogboek | Gebeurtenissen | Alle Azure-services | <ul><li>**REST-API:** [Azure Monitor gebeurtenissen API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Storage blob of event hub:** [Logboekprofiel](activity-logs-overview.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Diagnostische logboeken van Azure Monitor | Gebeurtenissen | [Bekijk hier de lijst](tutorial-dashboards.md) | <ul><li>**Storage blob of event hub:** [Diagnostische instellingen](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
+| Diagnostische logboeken van Azure Monitor | Gebeurtenissen | [Bekijk hier de lijst](diagnostic-logs-schema.md) | <ul><li>**Storage blob of event hub:** [Diagnostische instellingen](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
 | COMPUTE Gast OS-Logboeken (bv. IIS, ETW, syslogs) | Gebeurtenissen | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) en Linux-Machines (v2), [Cloudservices](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**- Of blob Storage-tabel:** [Windows- of Linux Azure diagnostics](diagnostics-extension-to-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](diagnostics-extension-stream-event-hubs.md)</li></ul> |
 | App Service-Logboeken | Gebeurtenissen | App-services | <ul><li>**Bestand, tabel of blob-opslag:** [Diagnostische gegevens van web-app](../../app-service/troubleshoot-diagnostic-logs.md)</li></ul> |
 | Opslaglogboeken | Gebeurtenissen | Azure Storage | <ul><li>**Storage-tabel:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |

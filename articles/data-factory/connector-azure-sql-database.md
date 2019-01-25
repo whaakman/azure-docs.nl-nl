@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 24fdfcb53e8f3cbf0e1bf4f7e567d9f768383ac1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025688"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884228"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Versie 1:](v1/data-factory-azure-sql-connector.md)
 > * [Huidige versie](connector-azure-sql-database.md)
 
@@ -35,6 +35,8 @@ Specifiek, ondersteunt deze Azure SQL Database-connector deze functies:
 - Gegevens kopiëren met behulp van SQL-verificatie en tokenverificatie van Azure Active Directory (Azure AD)-toepassing met een service-principal of beheerde identiteiten voor Azure-resources.
 - Als een bron ophalen van gegevens met behulp van een SQL-query of een opgeslagen procedure.
 - Als een sink, gegevens toevoegen aan een doeltabel of een opgeslagen procedure met aangepaste logica aanroepen tijdens het kopiëren.
+
+Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) wordt niet ondersteund. 
 
 > [!IMPORTANT]
 > Als u gegevens kopiëren met behulp van Azure Data Factory Integration Runtime, configureert u een [Azure SQL-serverfirewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) zodat Azure-Services toegang hebben tot de server.
@@ -62,7 +64,7 @@ Deze eigenschappen worden ondersteund voor een gekoppelde Azure SQL Database-ser
 Verwijzen respectievelijk naar de volgende secties over de vereisten en JSON-voorbeelden, voor andere verificatietypen:
 
 - [SQL-verificatie](#sql-authentication)
-- [Azure AD-toepassing-token verificatie: Service-principal](#service-principal-authentication)
+- [Azure AD-toepassing-token verificatie: Service principal](#service-principal-authentication)
 - [Azure AD-toepassing-token verificatie: beheerde identiteiten voor Azure-resources](#managed-identity)
 
 >[!TIP]
@@ -599,7 +601,7 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimaal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | tekst |Tekenreeks, Char] |
 | time |TimeSpan |
 | tijdstempel |Byte[] |
@@ -608,6 +610,9 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | varbinary |Byte[] |
 | varchar |Tekenreeks, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> Voor gegevenstypen kaarten naar tussentijdse decimaal, ADF momenteel precisie maximaal 28. Als u gegevens met een nauwkeurigheid groter dan 28 hebt, kunt u overwegen om te converteren naar een tekenreeks in SQL-query.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de Kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632854"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888988"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-extensie voor Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -54,7 +54,7 @@ De DSC-Linux-extensie biedt ondersteuning voor alle de [extensie ondersteund bes
  
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
-De extensie DSCForLinux is vereist dat de virtuele doelmachine is verbonden met internet. Bijvoorbeeld: Register extensie heeft verbinding met de Automation-service. Voor andere vereiste acties, zoals Pull, Pull, vereist installatie een verbinding met azure opslagoptie met/github. Dit is afhankelijk van instellingen die zijn opgegeven door de klant.
+De extensie DSCForLinux is vereist dat de virtuele doelmachine is verbonden met internet. Bijvoorbeeld: Register extensie heeft verbinding met de Automation-service. Voor andere vereiste acties, zoals Pull, Pull, vereist installatie een verbinding met azure storage en/of github. Dit is afhankelijk van instellingen die zijn opgegeven door de klant.
 
 ## <a name="extension-schema"></a>Extensieschema
 
@@ -64,7 +64,7 @@ Hier vindt u alle ondersteunde configuratie voor een openbare-parameters:
 
 * `FileUri`: (optioneel, string) de uri van het ZIP-bestand voor MOF-bestand/Meta MOF-bestand/aangepaste resource.
 * `ResourceName`: (optioneel, string) de naam van de aangepaste resource-module
-* `ExtensionAction`: (optioneel, string) geeft aan wat een extensie doet. geldige waarden: registreren, pushen, ophalen, installeren, verwijderen. Indien niet opgegeven, wordt deze beschouwd als actie Push-standaard.
+* `ExtensionAction`: (optioneel, string) geeft aan wat een extensie doet. Geldige waarden: Registreren, pushen, ophalen, installeren, verwijderen. Indien niet opgegeven, wordt deze beschouwd als actie Push-standaard.
 * `NodeConfigurationName`: (optioneel, string) de naam van de knooppuntconfiguratie van een om toe te passen.
 * `RefreshFrequencyMins`: (optioneel, int) geeft aan hoe vaak (in minuten) DSC probeert te verkrijgen van de configuratie van de pull-server. 
        Als de configuratie op de pull-server van de huidige versie van het doelknooppunt verschilt, wordt het gekopieerd naar de store in behandeling en toegepast.
@@ -88,14 +88,14 @@ Hier vindt u alle ondersteunde beveiligde configuratieparameters:
 ## <a name="scenarios"></a>Scenario's
 
 ### <a name="register-to-azure-automation-account"></a>Registreren bij Azure Automation-account
-Protected.JSON
+protected.json
 ```json
 {
   "RegistrationUrl": "<azure-automation-account-url>",
   "RegistrationKey": "<azure-automation-account-key>"
 }
 ```
-Public.JSON
+public.json
 ```json
 {
   "ExtensionAction" : "Register",
@@ -124,7 +124,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Een MOF-configuratiebestand (in Azure Storage-Account) van toepassing op de virtuele machine
 
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -132,7 +132,7 @@ Protected.JSON
 }
 ```
 
-Public.JSON
+public.json
 ```json
 {
   "FileUri": "<mof-file-uri>",
@@ -156,7 +156,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-public-storage-to-the-vm"></a>Een MOF-configuratiebestand (in openbare opslag) van toepassing op de virtuele machine
 
-Public.JSON
+public.json
 ```json
 {
   "FileUri": "<mof-file-uri>"
@@ -172,7 +172,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-meta-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Een meta MOF-configuratiebestand (in Azure Storage-Account) van toepassing op de virtuele machine
 
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -180,7 +180,7 @@ Protected.JSON
 }
 ```
 
-Public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Pull",
@@ -202,7 +202,7 @@ $publicConfig = '{
 ```
 
 ### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>Een meta MOF-configuratiebestand (in openbare opslag) van toepassing op de virtuele machine
-Public.JSON
+public.json
 ```json
 {
   "FileUri": "<meta-mof-file-uri>",
@@ -218,14 +218,14 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-azure-storage-account-to-the-vm"></a>Een aangepaste resource-module (ZIP-bestand in Azure Storage-Account) installeren op de virtuele machine
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
 ```
-Public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -247,7 +247,7 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-public-storage-to-the-vm"></a>Een aangepaste resource-module (ZIP-bestand in de openbare opslag) installeren op de virtuele machine
-Public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -263,7 +263,7 @@ $publicConfig = '{
 ```
 
 ### <a name="remove-a-custom-resource-module-from-the-vm"></a>Een aangepaste resource-module uit de virtuele machine verwijderen
-Public.JSON
+public.json
 ```json
 {
   "ResourceName": "<resource-name>",
@@ -289,7 +289,7 @@ Voor meer informatie over Azure Resource Manager-sjabloon, gaat u naar [Authorin
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-implementatie
 
-### <a name="21-using-azure-cliazure-cli"></a>2.1. Met behulp van [**Azure CLI**] [azure-cli]
+### <a name="21-using-azure-cliazure-cli"></a>2.1. Using [**Azure CLI**][azure-cli]
 Voordat u de extensie DSCForLinux implementeert, moet u uw `public.json` en `protected.json`, op basis van de verschillende scenario's in sectie 3.
 
 #### <a name="211-classic"></a>2.1.1. Klassiek
@@ -424,8 +424,8 @@ Extensie uitvoering uitvoer wordt vastgelegd in het volgende bestand:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Foutcode: 51 niet-ondersteunde distributie of niet-ondersteunde extensie actie vertegenwoordigt.
-In sommige gevallen bestaat DSC-Linux-uitbreiding niet voor het installeren van OMI wanneer hogere versie van OMI al is in de machine. [foutbericht: (000003) Downgrade is niet toegestaan]
+Foutcode: 51 voorstelt niet-ondersteunde distributie of niet-ondersteunde extensie actie.
+In sommige gevallen bestaat DSC-Linux-uitbreiding niet voor het installeren van OMI wanneer hogere versie van OMI al is in de machine. [foutbericht: (000003) De Downgrade is niet toegestaan]
 
 
 

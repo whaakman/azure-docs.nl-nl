@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467465"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885844"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -31,7 +31,7 @@ Deze logboeken afwijken van de [activiteitenlogboek](activity-logs-overview.md).
 
 Deze logboeken afwijken van de Gast OS-niveau van diagnostische logboeken. Diagnostische logboeken van Guest OS zijn deze die worden verzameld door een agent die wordt uitgevoerd op een virtuele machine of andere ondersteund resourcetype. Diagnostische logboeken resourceniveau vereisen geen gegevens van de resource-specifieke agent en vastleggen van de Azure-platform zelf wordt geboden, terwijl Gast OS-niveau logboeken met diagnostische gegevens vastleggen van gegevens uit het besturingssysteem en toepassingen die worden uitgevoerd op een virtuele machine.
 
-Niet alle services die ondersteuning voor de diagnostische logboeken die hier worden beschreven. [In dit artikel bevat een sectie aanbieding welke services diagnostische logboeken ondersteunen](./../../azure-monitor/platform/tutorial-dashboards.md).
+Niet alle services die ondersteuning voor de diagnostische logboeken die hier worden beschreven. [In dit artikel bevat een sectie aanbieding welke services diagnostische logboeken ondersteunen](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>U kunt doen met diagnostische logboeken
 Hier volgen enkele dingen die u met Logboeken met diagnostische gegevens doen kunt:
@@ -229,7 +229,7 @@ Een diagnostische instelling toe te voegen, wordt de diagnostische instellingen 
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Ondersteunde services, categorieën en schema's voor diagnostische logboeken
 
-[Raadpleeg dit artikel](../../azure-monitor/platform/tutorial-dashboards.md) voor een volledige lijst van ondersteunde services en de logboekcategorieën en schema's die worden gebruikt door deze services.
+[Raadpleeg dit artikel](../../azure-monitor/platform/diagnostic-logs-schema.md) voor een volledige lijst van ondersteunde services en de logboekcategorieën en schema's die worden gebruikt door deze services.
 
 ## <a name="next-steps"></a>Volgende stappen
 
