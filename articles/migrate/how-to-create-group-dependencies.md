@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1f7921093bc97aa6dc776213be4dbdf9537b7fe2
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255258"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075700"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Een groep met afhankelijkheidstoewijzing groep verfijnen
 
@@ -52,14 +52,19 @@ Als u afhankelijkheden van een groep, die u wilt downloaden en installeren van a
 
 ### <a name="install-the-mma"></a>De MMA installeren
 
+#### <a name="install-the-agent-on-a-windows-machine"></a>Installeer de agent op een Windows-machine
+
 De agent installeren op een Windows-machine:
 
 1. Dubbelklik op de gedownloade agent.
 2. Klik op de pagina **Welkom** op **Volgende**. Klik op de pagina **Licentievoorwaarden** op **Akkoord** om de licentie te accepteren.
 3. In **doelmap**, houden of wijzigen van de standaardinstallatiemap > **volgende**.
 4. In **installatieopties voor Agent**, selecteer **Azure Log Analytics** > **volgende**.
-5. Klik op **toevoegen** om toe te voegen een nieuwe Log Analytics-werkruimte. Plak in de werkruimte-ID en de sleutel die u hebt gekopieerd uit de portal. Klik op **Volgende**.
+5. Klik op **toevoegen** om toe te voegen een nieuwe Log Analytics-werkruimte. Plak in de werkruimte-ID en de sleutel die u hebt gekopieerd uit de portal. Klik op **volgende**.
 
+U kunt de agent installeren vanaf de opdrachtregel of met behulp van een geautomatiseerde methode, zoals Azure Automation DSC, System Center Configuration Manager of met een Azure Resource Manager-sjabloon als u Microsoft Azure Stack hebt geïmplementeerd in uw datacenter. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) over het gebruik van deze methoden voor het installeren van de MMA-agent.
+
+#### <a name="install-the-agent-on-a-linux-machine"></a>Installeer de agent op een Linux-machine
 
 De agent installeren op een Linux-machine:
 
@@ -76,6 +81,8 @@ De agent installeren op een Linux-machine:
 
 Meer informatie over de ondersteuning van de agent afhankelijkheid voor de [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) en [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) besturingssystemen.
 
+[Meer informatie](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) over hoe u scripts gebruiken kunt voor het installeren van de agent voor afhankelijkheden.
+
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>De groep op basis van de visualisatie van afhankelijkheden verfijnen
 Wanneer u agents hebt geïnstalleerd op alle computers van de groep, kunt u de afhankelijkheden van de groep visualiseren en Verfijn deze door de onderstaande stappen.
 
@@ -91,6 +98,10 @@ Wanneer u agents hebt geïnstalleerd op alle computers van de groep, kunt u de a
      ![Groepsafhankelijkheden weergeven](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Als u gedetailleerdere afhankelijkheden, klikt u op het tijdsbereik om dit te wijzigen. Het bereik is standaard een uur. U kunt het tijdsbereik wijzigen of geef de begin- en einddatums en duur.
+
+    > [!NOTE]
+      De visualisatie van afhankelijkheden gebruikersinterface biedt op dit moment geen ondersteuning voor selectie van een periode die langer dan een uur. Log Analytics te gebruiken [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics) gedurende een langere periode.
+
 4. Controleer of de afhankelijke machines het proces wordt uitgevoerd op elke machine en de machines identificeren die moeten worden toegevoegd of verwijderd uit de groep.
 5. Gebruik Ctrl + klik Selecteer machines op de kaart toevoegen of verwijderen uit de groep.
     - U kunt alleen machines die zijn gedetecteerd toevoegen.
@@ -101,6 +112,20 @@ Wanneer u agents hebt geïnstalleerd op alle computers van de groep, kunt u de a
     ![Toevoegen of verwijderen van machines](./media/how-to-create-group-dependencies/add-remove.png)
 
 Als u wilt controleren van de afhankelijkheden van een specifieke computer die wordt weergegeven in de afhankelijkheidskaart groep [afhankelijkheidstoewijzing machine instellen](how-to-create-group-machine-dependencies.md).
+
+## <a name="query-dependency-data-from-log-analytics"></a>Query uitvoeren op afhankelijkheidsgegevens van Log Analytics
+
+Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in Log Analytics. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) over de Serviceoverzicht-gegevenstabellen opvragen in Log Analytics. 
+
+De Log Analytics-query's uitvoeren:
+
+1. Nadat u de agents hebt geïnstalleerd, gaat u naar de portal en klik op **overzicht**.
+2. In **overzicht**, gaat u naar **Essentials** sectie van het project en klik op de naam van de werkruimte is opgegeven bij **OMS-werkruimte**.
+3. Klik op de pagina van de Log Analytics-werkruimte **algemene** > **logboeken**.
+4. Schrijf de query voor het verzamelen van afhankelijkheidsgegevens met behulp van Log Analytics. Voorbeeldquery's voor het verzamelen van afhankelijkheidsgegevens zijn beschikbaar [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+5. Voer de query uit door te klikken op uitvoeren. 
+
+[Meer informatie](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) over het schrijven van Log Analytics-query's. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

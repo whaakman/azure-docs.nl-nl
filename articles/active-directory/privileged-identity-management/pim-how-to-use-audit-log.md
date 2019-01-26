@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 191d384d51fe3aecbd967586516cfb198256af81
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188176"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911724"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Controlegeschiedenis voor Azure AD directory-rollen in PIM weergeven
 U kunt de controlegeschiedenis Privileged Identity Management (PIM) gebruiken om te zien van alle toewijzingen van gebruikers en activeringen binnen een bepaalde periode voor alle bevoorrechte rollen. Als u wilt zien van de volledige controlegeschiedenis van activiteit in uw tenant, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteit, kunt u de [Azure Active Directory-toegang en gebruik rapporten.](../reports-monitoring/overview-reports.md)
@@ -64,4 +64,4 @@ Controleer of schakel de **rol** selectievakje in naast elke rol moeten worden o
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Controlegeschiedenis voor Azure-resource-rollen in PIM weergeven](pim-resource-roles-use-the-audit-log.md)
+- [Activiteiten bekijken en controlegeschiedenis voor Azure-resource-rollen in PIM](azure-pim-resource-rbac.md)

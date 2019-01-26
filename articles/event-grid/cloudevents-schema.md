@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755084"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079865"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik een CloudEvents-schema met Event Grid
 
@@ -21,7 +21,7 @@ Naast de [gebeurtenisschema in het standaard](event-schema.md), gebeurtenissen i
 
 Een CloudEvents vereenvoudigt interoperabiliteit door te geven van een gemeenschappelijk gebeurtenisschema voor het publiceren en gebruiken van cloud op basis van gebeurtenissen. Dit schema kunt u uniform tooling standard manieren van Routering en verwerken van gebeurtenissen en universele manieren om bij het deserialiseren van de buitenste gebeurtenisschema. U kunt werken eenvoudiger verschillende platforms integreren met een gemeenschappelijk schema.
 
-Een CloudEvents wordt opgebouwd door verschillende [samenwerkers](https://github.com/cloudevents/spec/blob/master/community/contributors.md), waaronder Microsoft, via de [Cloud Native Compute Foundation](https://www.cncf.io/). Het is momenteel beschikbaar als versie 0.1.
+Een CloudEvents wordt opgebouwd door verschillende [samenwerkers](https://github.com/cloudevents/spec/blob/master/community/contributors.md), waaronder Microsoft, via de [Cloud Native Computing Foundation](https://www.cncf.io/). Het is momenteel beschikbaar als versie 0.1.
 
 In dit artikel wordt beschreven hoe u een CloudEvents-schema met Event Grid gebruiken.
 
@@ -62,16 +62,16 @@ Een CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 
 | Een CloudEvents        | Type     | Voorbeeld van JSON-waarde             | Description                                                        | Event Grid-toewijzing
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| type gebeurtenis          | Reeks   | "com.example.someevent"          | Type gebeurtenis die heeft plaatsgevonden                                   | type gebeurtenis
+| eventType          | Reeks   | "com.example.someevent"          | Type gebeurtenis die heeft plaatsgevonden                                   | eventType
 | eventTypeVersion   | Reeks   | "1.0"                            | De versie van het type gebeurtenis (optioneel)                            | dataVersion
 | cloudEventsVersion | Reeks   | "0.1"                            | De versie van de specificatie van een CloudEvents die maakt gebruik van de gebeurtenis        | *doorgegeven*
-| source             | URI      | "/ mycontext"                     | Beschrijving van de gebeurtenisproducent                                       | onderwerp #subject
-| gebeurtenis-id            | Reeks   | '1234-1234-1234'                 | ID van de gebeurtenis                                                    | id
+| source             | URI      | "/mycontext"                     | Beschrijving van de gebeurtenisproducent                                       | onderwerp #subject
+| eventID            | Reeks   | "1234-1234-1234"                 | ID van de gebeurtenis                                                    | id
 | eventTime          | Tijdstempel| "2018-04-05T17:31:00Z"           | Timestamp van wanneer de gebeurtenis heeft plaatsgevonden (optioneel)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | Een koppeling naar het schema dat het kenmerk heeft (optioneel) | *niet gebruikt*
-| contentType        | Reeks   | 'application/json'               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
-| Extensies         | Kaart      | {"extra": "vA", "extB", "vB"}  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
-| gegevens               | Object   | {"objA": "vA", "objB", "vB"}  | De nettolading van de gebeurtenis (optioneel)                                       | gegevens
+| contentType        | Reeks   | "application/json"               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
+| Extensies         | Kaart      | { "extA": "vA", "extB", "vB" }  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
+| gegevens               | Object   | { "objA": "vA", "objB", "vB" }  | De nettolading van de gebeurtenis (optioneel)                                       | gegevens
 
 Zie voor meer informatie de [een CloudEvents-specificatie](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

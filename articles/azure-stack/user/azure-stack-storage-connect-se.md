@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d6d1373a97b62d54d5bfc2595ee773a242af877a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386771"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913444"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage explorer verbinden met een Azure Stack-abonnement of een storage-account
 
@@ -37,7 +37,10 @@ Nadat u verbinding met een Azure Stack-abonnement of een storage-account maken, 
 
 Moet u directe toegang tot de Azure Stack of een VPN-verbinding voor Opslagverkenner voor toegang tot de Azure Stack-abonnement. Raadpleeg [Verbinding maken met Azure Stack met VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) voor meer informatie over het instellen van een VPN-verbinding naar Azure Stack.
 
-Voor de Azure Stack Development Kit moet u het basiscertificaat van de Azure Stack-instantie te exporteren.
+Voor de Azure Stack Development Kit (ASDK), moet u de Azure Stack-instantie-basiscertificaat te exporteren.
+
+> [!Note]  
+> Voor de ASDK niet als u verbinding met uw ASDK via VPN, het basiscertificaat (CA.cer) die is gemaakt tijdens het installatieproces van de VPN gebruiken.  Dit is een met DER-gecodeerd certificaat, en staat niet toe dat de Storage Explorer om op te halen van uw Azure Stack-abonnementen. Volg onderstaande stappen voor het exporteren van een Base-64 gecodeerde certificaat wilt gebruiken met Storage Explorer.
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exporteren en vervolgens het Azure Stack-certificaat importeren
 

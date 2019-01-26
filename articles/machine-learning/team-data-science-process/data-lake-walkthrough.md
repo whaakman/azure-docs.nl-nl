@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c6e88eb2e3f3e1b6e6ce2b7f8984799397af582
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: e99ffb7f89aab0e9b00495c9ffa8a47c84ec1cc5
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451610"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080970"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Schaalbare Gegevenswetenschap met Azure Data Lake: Een end-to-end-overzicht
 In dit scenario ziet u hoe u Azure Data Lake gegevens verkennen en binaire classificatie-taken op een voorbeeld van de NYC taxi reis en ritbedrag gegevensset om te voorspellen of een tip door een fare wordt betaald. Dit leidt u door de stappen van de [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, in gegevens ophalen als model voor training en vervolgens naar de implementatie van een webservice die het model publiceert.
@@ -26,13 +26,13 @@ De [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/)
 
 Data Lake Analytics is ook een belangrijk onderdeel van Cortana Analytics Suite en werkt met Azure SQL Data Warehouse, Power BI en Data Factory. Dit biedt u een volledige big data en geavanceerde analyse-platform.
 
-In dit scenario begint met het vindt u de procedure voor het installeren van de vereisten en bronnen die nodig zijn voor de data science process taken uit te voeren. En vervolgens het geeft een overzicht van de gegevensverwerking stappen met U-SQL en tot slot biedt het die laat zien hoe u Python en Hive gebruiken met Azure Machine Learning Studio om te bouwen en de voorspellende modellen te implementeren. 
+In dit scenario begint met het vindt u de procedure voor het installeren van de vereisten en bronnen die nodig zijn voor de data science process taken uit te voeren. En vervolgens het geeft een overzicht van de gegevensverwerking stappen met U-SQL en tot slot biedt het die laat zien hoe u Python en Hive gebruiken met Azure Machine Learning Studio om te bouwen en de voorspellende modellen te implementeren.
 
 ### <a name="u-sql-and-visual-studio"></a>U-SQL en Visual Studio
-In dit scenario raadt het gebruik van Visual Studio om te bewerken van U-SQL-scripts voor het verwerken van de gegevensset. De U-SQL-scripts zijn die hier worden beschreven en vindt u in een afzonderlijk bestand. Het proces omvat het opnemen, verkennen en meting van de gegevens. U ziet ook hoe u kunt een taak met U-SQL-script uitvoeren vanuit Azure portal. Hive-tabellen worden gemaakt voor de gegevens in een gekoppelde HDInsight-cluster om het bouwen en de implementatie van een binair classificeringsmodel in Azure Machine Learning Studio mogelijk te maken.  
+In dit scenario raadt het gebruik van Visual Studio om te bewerken van U-SQL-scripts voor het verwerken van de gegevensset. De U-SQL-scripts zijn die hier worden beschreven en vindt u in een afzonderlijk bestand. Het proces omvat het opnemen, verkennen en meting van de gegevens. U ziet ook hoe u kunt een taak met U-SQL-script uitvoeren vanuit Azure portal. Hive-tabellen worden gemaakt voor de gegevens in een gekoppelde HDInsight-cluster om het bouwen en de implementatie van een binair classificeringsmodel in Azure Machine Learning Studio mogelijk te maken.
 
 ### <a name="python"></a>Python
-In dit scenario bevat ook een sectie waarin wordt uitgelegd hoe te bouwen en implementeren van een Voorspellend model met behulp van Python met Azure Machine Learning Studio. Het biedt een Jupyter-notebook met de Python-scripts voor de stappen in dit proces. De notebook bevat code voor een extra functie engineering stappen en modellen bouwen zoals multiklassen classificatie- en regressiemodellen modelleren naast de binaire classificeringsmodel die hier wordt beschreven. De regressie-taak is het voorspellen van het bedrag van de tip op basis van andere tip-functies. 
+In dit scenario bevat ook een sectie waarin wordt uitgelegd hoe te bouwen en implementeren van een Voorspellend model met behulp van Python met Azure Machine Learning Studio. Het biedt een Jupyter-notebook met de Python-scripts voor de stappen in dit proces. De notebook bevat code voor een extra functie engineering stappen en modellen bouwen zoals multiklassen classificatie- en regressiemodellen modelleren naast de binaire classificeringsmodel die hier wordt beschreven. De regressie-taak is het voorspellen van het bedrag van de tip op basis van andere tip-functies.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning Studio wordt gebruikt om te bouwen en de voorspellende modellen te implementeren. Dit wordt gedaan met behulp van twee methoden: eerst met Python-scripts en klik vervolgens met Hive-tabellen in een cluster met HDInsight (Hadoop).
@@ -47,15 +47,15 @@ Voordat u deze onderwerpen begint, moet u het volgende hebt:
 * (Aanbevolen) Visual Studio 2013 of later. Als u nog geen een van deze versies zijn geïnstalleerd, kunt u een gratis communityversie van downloaden [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
-> U kunt ook de Azure-portal naar Azure Data Lake-query's verzenden in plaats van Visual Studio gebruiken. Instructies vindt u op hoe u dus beide met Visual Studio en op de portal in de sectie met de titel **gegevens te verwerken met U-SQL**. 
-> 
-> 
+> U kunt ook de Azure-portal naar Azure Data Lake-query's verzenden in plaats van Visual Studio gebruiken. Instructies vindt u op hoe u dus beide met Visual Studio en op de portal in de sectie met de titel **gegevens te verwerken met U-SQL**.
+>
+>
 
 
 ## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Data science-omgeving voor Azure Data Lake voorbereiden
 Als u wilt voorbereiden van de data science-omgeving voor dit scenario, maken de volgende bronnen:
 
-* Azure Data Lake Store (ADLS) 
+* Azure Data Lake Store (ADLS)
 * Azure Data Lake Analytics (ADLA)
 * Azure Blob storage-account
 * Azure Machine Learning Studio-account
@@ -67,17 +67,17 @@ Deze sectie vindt u instructies voor het maken van elk van deze resources. Als u
 > [!NOTE]
 > De **Azure Data Lake Store** kunnen worden gemaakt afzonderlijk of bij het maken van de **Azure Data Lake Analytics** als de standaardopslag. Instructies voor het maken van elk van deze resources afzonderlijk wordt verwezen, maar het Data Lake storage-account moet niet afzonderlijk worden gemaakt.
 >
-> 
+>
 
 ### <a name="create-an-azure-data-lake-store"></a>Maken van een Azure Data Lake Store
 
 
-Maken van een ADLS uit de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat het instellen van de identiteit van de AAD-Cluster in de **DataSource** blade van de **optionele configuratie** blade er beschreven. 
+Maken van een ADLS uit de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat het instellen van de identiteit van de AAD-Cluster in de **DataSource** blade van de **optionele configuratie** blade er beschreven.
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
 ### <a name="create-an-azure-data-lake-analytics-account"></a>Een Azure Data Lake Analytics-account maken
-Maak een ADLA-account van de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, [zelfstudie: aan de slag met Azure Data Lake Analytics met Azure portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
+Maak een ADLA-account van de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, [zelfstudie: aan de slag met Azure Data Lake Analytics met Azure portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
@@ -87,7 +87,7 @@ Maken van een Azure Blob storage-account van de [Azure-portal](http://portal.azu
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
 ### <a name="set-up-an-azure-machine-learning-studio-account"></a>Een Azure Machine Learning Studio-account instellen
-Aanmelden bij Azure Machine Learning Studio uit de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) pagina. Klik op de **nu aan de slag** knop en kies vervolgens een 'Gratis werkruimte' of 'Standard-werkruimte'. Nu u klaar om experimenten te maken in Azure ML Studio.  
+Aanmelden bij Azure Machine Learning Studio uit de [Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning/) pagina. Klik op de **nu aan de slag** knop en kies vervolgens een 'Gratis werkruimte' of 'Standard-werkruimte'. Nu u klaar om experimenten te maken in Azure Machine Learning studio.
 
 ### <a name="install-azure-data-lake-tools-recommended"></a>Azure Data Lake Tools (aanbevolen) installeren
 Azure Data Lake Tools installeren voor uw versie van Visual Studio van [Azure Data Lake Tools voor Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
@@ -141,17 +141,17 @@ Voor het uitvoeren van U-SQL, Visual Studio openen, klikt u op **bestand--> Nieu
 
 > [!NOTE]
 > Het is mogelijk het gebruik van de Azure-Portal voor het uitvoeren van U-SQL in plaats van Visual Studio. U kunt navigeren naar de Azure Data Lake Analytics-resource in de portal en verzenden van query's rechtstreeks als geïllustreerd in de volgende afbeelding:
-> 
-> 
+>
+>
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Opname van gegevens: In de gegevens van een openbare blob lezen
-De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()**. Vervangen door uw eigen containernaam en de naam van opslagaccount in de volgende scripts voor container_name@blob_storage_account_name in het wasb-adres. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_data_ {\*\}CSV** in alle 12 reis-bestanden worden gelezen. 
+De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** en kunnen worden geëxtraheerd met behulp van **Extractors.Csv()**. Vervangen door uw eigen containernaam en de naam van opslagaccount in de volgende scripts voor container_name@blob_storage_account_name in het wasb-adres. Aangezien de bestandsnamen in dezelfde indeling, is het mogelijk te gebruiken **reis\_data_ {\*\}CSV** in alle 12 reis-bestanden worden gelezen.
 
     ///Read in Trip data
     @trip0 =
-        EXTRACT 
+        EXTRACT
         medallion string,
         hack_license string,
         vendor_id string,
@@ -170,11 +170,11 @@ De locatie van de gegevens in de Azure-blob wordt verwezen als **wasb://containe
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Aangezien er kopteksten in de eerste rij, moet u de headers verwijderen en wijzigen van kolommen van het type in de juiste waarden. U kunt opslaan de verwerkte gegevens voor het gebruik van Azure Data Lake Storage **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ of voor het gebruik van Azure Blob storage account  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**. 
+Aangezien er kopteksten in de eerste rij, moet u de headers verwijderen en wijzigen van kolommen van het type in de juiste waarden. U kunt opslaan de verwerkte gegevens voor het gebruik van Azure Data Lake Storage **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ of voor het gebruik van Azure Blob storage account  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
     // change data types
     @trip =
-        SELECT 
+        SELECT
         medallion,
         hack_license,
         vendor_id,
@@ -193,23 +193,23 @@ Aangezien er kopteksten in de eerste rij, moet u de headers verwijderen en wijzi
     WHERE medallion != "medallion";
 
     ////output data to ADL
-    OUTPUT @trip   
+    OUTPUT @trip
     TO "swebhdfs://data_lake_storage_name.azuredatalakestore.net/nyctaxi_folder/demo_trip.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
     ////Output data to blob
-    OUTPUT @trip   
+    OUTPUT @trip
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
-    USING Outputters.Csv();  
+    USING Outputters.Csv();
 
-Op deze manier kunt u lezen in de tarief-gegevenssets. Met de rechtermuisknop op Azure Data Lake Store, kunt u kiezen om te kijken naar uw gegevens in **Azure portal Data Explorer-->** of **Verkenner** vanuit Visual Studio. 
+Op deze manier kunt u lezen in de tarief-gegevenssets. Met de rechtermuisknop op Azure Data Lake Store, kunt u kiezen om te kijken naar uw gegevens in **Azure portal Data Explorer-->** of **Verkenner** vanuit Visual Studio.
 
  ![10](./media/data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
  ![11](./media/data-lake-walkthrough/11-data-in-ADL.PNG)
 
 ### <a name="quality"></a>Data quality controles
-Nadat de reis-en fare zijn gelezen, kunnen data quality controles worden uitgevoerd in de volgende manier. De resulterende CSV-bestanden kunnen worden uitgevoerd naar Azure Blob storage of Azure Data Lake Store. 
+Nadat de reis-en fare zijn gelezen, kunnen data quality controles worden uitgevoerd in de volgende manier. De resulterende CSV-bestanden kunnen worden uitgevoerd naar Azure Blob storage of Azure Data Lake Store.
 
 Het aantal medallions en uniek aantal medallions zoeken:
 
@@ -223,14 +223,14 @@ Het aantal medallions en uniek aantal medallions zoeken:
 
     @ex_1 =
         SELECT
-        pickup_month, 
+        pickup_month,
         COUNT(medallion) AS cnt_medallion,
         COUNT(DISTINCT(medallion)) AS unique_medallion
         FROM @trip2
         GROUP BY pickup_month;
-        OUTPUT @ex_1   
+        OUTPUT @ex_1
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_1.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 Deze medallions waarop meer dan 100 trips zoeken:
 
@@ -242,9 +242,9 @@ Deze medallions waarop meer dan 100 trips zoeken:
         //where pickup_datetime >= "2013-01-01t00:00:00.0000000" and pickup_datetime <= "2013-04-01t00:00:00.0000000"
         GROUP BY medallion
         HAVING COUNT(medallion) > 100;
-        OUTPUT @ex_2   
+        OUTPUT @ex_2
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_2.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 Ongeldige records in termen van pickup_longitude zoeken:
 
@@ -254,9 +254,9 @@ Ongeldige records in termen van pickup_longitude zoeken:
         FROM @trip
         WHERE
         pickup_longitude <- 90 OR pickup_longitude > 90;
-        OUTPUT @ex_3   
+        OUTPUT @ex_3
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_3.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 Zoek de ontbrekende waarden voor enkele variabelen:
 
@@ -267,11 +267,11 @@ Zoek de ontbrekende waarden voor enkele variabelen:
         FROM @trip;
 
     @trip_summary6 =
-        SELECT 
+        SELECT
             vendor_id,
-        SUM(missing_medallion) AS medallion_empty, 
+        SUM(missing_medallion) AS medallion_empty,
         COUNT(medallion) AS medallion_total,
-        COUNT(DISTINCT(medallion)) AS medallion_total_unique  
+        COUNT(DISTINCT(medallion)) AS medallion_total_unique
         FROM @res
         GROUP BY vendor_id;
     OUTPUT @trip_summary6
@@ -296,9 +296,9 @@ De distributie van Gekantelde en niet-punt trips zoeken:
                COUNT(*) AS tip_freq
         FROM @tip_or_not
         GROUP BY tipped;
-        OUTPUT @ex_4   
+        OUTPUT @ex_4
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 Zoek de verdeling van de tip hoeveelheid met waarden van de deadline: 0, 5, 10 en 20 bedragen.
 
@@ -312,20 +312,20 @@ Zoek de verdeling van de tip hoeveelheid met waarden van de deadline: 0, 5, 10 e
                COUNT(*) AS tip_freq
         FROM @tip_class
         GROUP BY tip_class;
-        OUTPUT @ex_5   
+        OUTPUT @ex_5
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_5.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 Elementaire statistische gegevens van de fietstocht afstand zoeken:
 
     // find basic statistics for trip_distance
     @trip_summary4 =
-        SELECT 
+        SELECT
             vendor_id,
             COUNT(*) AS cnt_row,
             MIN(trip_distance) AS min_trip_distance,
             MAX(trip_distance) AS max_trip_distance,
-            AVG(trip_distance) AS avg_trip_distance 
+            AVG(trip_distance) AS avg_trip_distance
         FROM @trip
         GROUP BY vendor_id;
     OUTPUT @trip_summary4
@@ -344,7 +344,7 @@ Zoek de percentielen van de fietstocht afstand:
        // group by vendor_id;
     OUTPUT @trip_summary3
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_13.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 
 ### <a name="join"></a>Tabellen reis- en fare samenvoegen
@@ -353,7 +353,7 @@ Reis-en fare kunnen worden samengevoegd door straten, hack_license en pickup_tim
     //join trip and fare table
 
     @model_data_full =
-    SELECT t.*, 
+    SELECT t.*,
     f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,  f.total_amount, f.tip_amount,
     (f.tip_amount > 0 ? 1: 0) AS tipped,
     (f.tip_amount >20? 4: (f.tip_amount >10? 3:(f.tip_amount >5 ? 2:(f.tip_amount > 0 ? 1: 0)))) AS tip_class
@@ -362,14 +362,14 @@ Reis-en fare kunnen worden samengevoegd door straten, hack_license en pickup_tim
     WHERE   (pickup_longitude != 0 AND dropoff_longitude != 0 );
 
     //// output to blob
-    OUTPUT @model_data_full   
+    OUTPUT @model_data_full
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_7_full_data.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
     ////output data to ADL
-    OUTPUT @model_data_full   
+    OUTPUT @model_data_full
     TO "swebhdfs://data_lake_storage_name.azuredatalakestore.net/nyctaxi_folder/demo_ex_7_full_data.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 
 Voor elk niveau van de passagiers aantal, het aantal records, gemiddelde tip bedrag, afwijking van tip bedrag, percentage van Gekantelde trips te berekenen.
@@ -403,9 +403,9 @@ Willekeurig selecteert eerst 0,1% van de gegevens in de gekoppelde tabel:
     FROM @addrownumberres_randomsample
     WHERE rownum % 1000 == 0;
 
-    OUTPUT @model_data_random_sample_1_1000   
+    OUTPUT @model_data_random_sample_1_1000
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_7_random_1_1000.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 Voer de toepassing stratificatie steekproeven door binaire variabele tip_class:
 
@@ -420,17 +420,17 @@ Voer de toepassing stratificatie steekproeven door binaire variabele tip_class:
     FROM @addrownumberres_stratifiedsample
     WHERE rownum % 1000 == 0;
     //// output to blob
-    OUTPUT @model_data_stratified_sample_1_1000   
+    OUTPUT @model_data_stratified_sample_1_1000
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_9_stratified_1_1000.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
     ////output data to ADL
-    OUTPUT @model_data_stratified_sample_1_1000   
+    OUTPUT @model_data_stratified_sample_1_1000
     TO "swebhdfs://data_lake_storage_name.azuredatalakestore.net/nyctaxi_folder/demo_ex_9_stratified_1_1000.csv"
-    USING Outputters.Csv(); 
+    USING Outputters.Csv();
 
 
 ### <a name="run"></a>U-SQL-taken worden uitgevoerd
-Wanneer u klaar bent met het U-SQL-scripts bewerken, kunt u deze verzenden naar de server met behulp van uw Azure Data Lake Analytics-account. Klik op **Data Lake**, **taak verzenden**, selecteer uw **Analytics-Account**, kiest u **parallelle uitvoering**, en klikt u op **verzenden**  knop.  
+Wanneer u klaar bent met het U-SQL-scripts bewerken, kunt u deze verzenden naar de server met behulp van uw Azure Data Lake Analytics-account. Klik op **Data Lake**, **taak verzenden**, selecteer uw **Analytics-Account**, kiest u **parallelle uitvoering**, en klikt u op **verzenden**  knop.
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
@@ -447,16 +447,16 @@ U kunt nu de uitvoerbestanden in Azure Blob storage of Azure portal controleren.
  ![16](./media/data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG)
 
 ## <a name="build-and-deploy-models-in-azure-machine-learning"></a>Modellen in Azure Machine Learning bouwen en implementeren
-Er zijn twee opties beschikbaar voor u voor het ophalen van gegevens in Azure Machine Learning om te bouwen en 
+Er zijn twee opties beschikbaar voor u voor het ophalen van gegevens in Azure Machine Learning om te bouwen en
 
-* In de eerste optie, gebruikt u de samplinggegevens die is geschreven naar een Azure-Blob (in de **steekproeven te nemen** bovenstaande stap) en Python gebruiken om te bouwen en implementeren van modellen van Azure Machine Learning. 
-* In de tweede optie kunt opvragen u de gegevens in Azure Data Lake rechtstreeks met behulp van een Hive-query. Deze optie vereist dat u een nieuw HDInsight-cluster maken of een bestaand HDInsight-cluster gebruiken wanneer de Hive-tabellen verwijzen naar de gegevens over taxi's NY in Azure Data Lake Storage.  Deze beide opties worden in de volgende secties besproken. 
+* In de eerste optie, gebruikt u de samplinggegevens die is geschreven naar een Azure-Blob (in de **steekproeven te nemen** bovenstaande stap) en Python gebruiken om te bouwen en implementeren van modellen van Azure Machine Learning.
+* In de tweede optie kunt opvragen u de gegevens in Azure Data Lake rechtstreeks met behulp van een Hive-query. Deze optie vereist dat u een nieuw HDInsight-cluster maken of een bestaand HDInsight-cluster gebruiken wanneer de Hive-tabellen verwijzen naar de gegevens over taxi's NY in Azure Data Lake Storage.  Deze beide opties worden in de volgende secties besproken.
 
 ## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Optie 1: Python gebruiken om te bouwen en implementeren van machine learning-modellen
-Als u wilt bouwen en implementeren van machine learning-modellen met behulp van Python, moet u een Jupyter-Notebook maken op uw lokale computer of in Azure Machine Learning Studio. De Jupyter-Notebook op opgegeven [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) bevat de volledige code voor het verkennen, visualiseren van gegevens, feature-engineering, modellen en implementatie. In dit artikel worden alleen de modellen en de implementatie besproken. 
+Als u wilt bouwen en implementeren van machine learning-modellen met behulp van Python, moet u een Jupyter-Notebook maken op uw lokale computer of in Azure Machine Learning Studio. De Jupyter-Notebook op opgegeven [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) bevat de volledige code voor het verkennen, visualiseren van gegevens, feature-engineering, modellen en implementatie. In dit artikel worden alleen de modellen en de implementatie besproken.
 
 ### <a name="import-python-libraries"></a>Python-bibliotheken importeren
-Om uit te voeren van het voorbeeld een Jupyter-Notebook of de Python-script-bestand, de volgende Python pakketten zijn vereist. Als u van de AzureML-Notebook-service gebruikmaakt, zijn deze pakketten vooraf geïnstalleerd.
+Om uit te voeren van het voorbeeld een Jupyter-Notebook of de Python-script-bestand, de volgende Python pakketten zijn vereist. Als u de service Azure Machine Learning-Notebook gebruikt, zijn deze pakketten vooraf geïnstalleerd.
 
     import pandas as pd
     from pandas import Series, DataFrame
@@ -480,29 +480,29 @@ Om uit te voeren van het voorbeeld een Jupyter-Notebook of de Python-script-best
 
 
 ### <a name="read-in-the-data-from-blob"></a>In de gegevens uit blob lezen
-* Verbindingsreeks   
-  
+* Verbindingsreeks
+
         CONTAINERNAME = 'test1'
         STORAGEACCOUNTNAME = 'XXXXXXXXX'
         STORAGEACCOUNTKEY = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYY'
         BLOBNAME = 'demo_ex_9_stratified_1_1000_copy.csv'
         blob_service = BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
 * Lees in als tekst
-  
+
         t1 = time.time()
         data = blob_service.get_blob_to_text(CONTAINERNAME,BLOBNAME).split("\n")
         t2 = time.time()
         print(("It takes %s seconds to read in "+BLOBNAME) % (t2 - t1))
-  
-  ![17](./media/data-lake-walkthrough/17-python_readin_csv.PNG)    
+
+  ![17](./media/data-lake-walkthrough/17-python_readin_csv.PNG)
 * De namen van kolommen toevoegen en afzonderlijke kolommen
-  
+
         colnames = ['medallion','hack_license','vendor_id','rate_code','store_and_fwd_flag','pickup_datetime','dropoff_datetime',
         'passenger_count','trip_time_in_secs','trip_distance','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude',
         'payment_type', 'fare_amount', 'surcharge', 'mta_tax', 'tolls_amount',  'total_amount', 'tip_amount', 'tipped', 'tip_class', 'rownum']
         df1 = pd.DataFrame([sub.split(",") for sub in data], columns = colnames)
 * Sommige kolommen wijzigen naar een numerieke waarde
-  
+
         cols_2_float = ['trip_time_in_secs','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude',
         'fare_amount', 'surcharge','mta_tax','tolls_amount','total_amount','tip_amount', 'passenger_count','trip_distance'
         ,'tipped','tip_class','rownum']
@@ -513,87 +513,87 @@ Om uit te voeren van het voorbeeld een Jupyter-Notebook of de Python-script-best
 Hier kunt u een binair classificeringsmodel om te voorspellen of een reis is punt of niet maken. In de Jupyter-Notebook vindt u twee modellen: multiklassen classificatie en regressiemodellen.
 
 * U moet eerst dummy variabelen maken die kunnen worden gebruikt in scikit-meer modellen
-  
+
         df1_payment_type_dummy = pd.get_dummies(df1['payment_type'], prefix='payment_type_dummy')
         df1_vendor_id_dummy = pd.get_dummies(df1['vendor_id'], prefix='vendor_id_dummy')
 * Gegevens een kader voor het model maken
-  
+
         cols_to_keep = ['tipped', 'trip_distance', 'passenger_count']
         data = df1[cols_to_keep].join([df1_payment_type_dummy,df1_vendor_id_dummy])
-  
+
         X = data.iloc[:,1:]
         Y = data.tipped
 * Trainings- en testdoeleinden 60-40 splitsen
-  
+
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=0)
 * Logistieke regressie in de trainingset
-  
+
         model = LogisticRegression()
         logit_fit = model.fit(X_train, Y_train)
         print ('Coefficients: \n', logit_fit.coef_)
         Y_train_pred = logit_fit.predict(X_train)
-  
+
        ![c1](./media/data-lake-walkthrough/c1-py-logit-coefficient.PNG)
 * Score testen gegevensset
-  
+
         Y_test_pred = logit_fit.predict(X_test)
 * Metrische Evaluatiegegevens berekenen
-  
+
         fpr_train, tpr_train, thresholds_train = metrics.roc_curve(Y_train, Y_train_pred)
         print fpr_train, tpr_train, thresholds_train
-  
-        fpr_test, tpr_test, thresholds_test = metrics.roc_curve(Y_test, Y_test_pred) 
+
+        fpr_test, tpr_test, thresholds_test = metrics.roc_curve(Y_test, Y_test_pred)
         print fpr_test, tpr_test, thresholds_test
-  
+
         #AUC
         print metrics.auc(fpr_train,tpr_train)
         print metrics.auc(fpr_test,tpr_test)
-  
+
         #Confusion Matrix
         print metrics.confusion_matrix(Y_train,Y_train_pred)
         print metrics.confusion_matrix(Y_test,Y_test_pred)
-  
+
        ![c2](./media/data-lake-walkthrough/c2-py-logit-evaluation.PNG)
 
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>Service-Web-API maken en deze gebruiken in Python
-Wilt u operationeel maken van de machine learning-model nadat deze is gemaakt. De binaire logistieke model wordt gebruikt als een voorbeeld. Zorg ervoor dat de scikit-versie in uw lokale computer is 0.15.1 meer. U hebt geen zorgen over te maken als u Azure ML studio-service gebruikt.
+Wilt u operationeel maken van de machine learning-model nadat deze is gemaakt. De binaire logistieke model wordt gebruikt als een voorbeeld. Zorg ervoor dat de scikit-versie in uw lokale computer is 0.15.1 meer. U hebt geen zorgen over te maken als u Azure Machine Learning studio.
 
-* De referenties van uw werkruimte van Azure ML studio instellingen vinden. In Azure Machine Learning Studio, klikt u op **instellingen** --> **naam** --> **Autorisatietokens**. 
-  
+* De referenties van uw werkruimte van Azure Machine Learning studio instellingen vinden. In Azure Machine Learning Studio, klikt u op **instellingen** --> **naam** --> **Autorisatietokens**.
+
     ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
         workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
         auth_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 * Webservice maken
-  
-        @services.publish(workspaceid, auth_token) 
+
+        @services.publish(workspaceid, auth_token)
         @services.types(trip_distance = float, passenger_count = float, payment_type_dummy_CRD = float, payment_type_dummy_CSH=float, payment_type_dummy_DIS = float, payment_type_dummy_NOC = float, payment_type_dummy_UNK = float, vendor_id_dummy_CMT = float, vendor_id_dummy_VTS = float)
         @services.returns(int) #0, or 1
         def predictNYCTAXI(trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH,payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS ):
             inputArray = [trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH, payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS]
             return logit_fit.predict(inputArray)
 * Web Servicereferenties ophalen
-  
+
         url = predictNYCTAXI.service.url
         api_key =  predictNYCTAXI.service.api_key
-  
+
         print url
         print api_key
-  
+
         @services.service(url, api_key)
         @services.types(trip_distance = float, passenger_count = float, payment_type_dummy_CRD = float, payment_type_dummy_CSH=float,payment_type_dummy_DIS = float, payment_type_dummy_NOC = float, payment_type_dummy_UNK = float, vendor_id_dummy_CMT = float, vendor_id_dummy_VTS = float)
         @services.returns(float)
         def NYCTAXIPredictor(trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH,payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS ):
             pass
 * Webservice-API aanroepen. U moet wacht 5-10 seconden na de vorige stap.
-  
+
         NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
-  
+
        ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
 
 ## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>Optie 2: Maken en implementeren van modellen rechtstreeks in Azure Machine Learning
-Azure Machine Learning Studio gegevens rechtstreeks vanuit Azure Data Lake Store kan lezen en vervolgens worden gebruikt om te maken en implementeren van modellen. Deze methode maakt gebruik van een Hive-tabel die naar de Azure Data Lake Store verwijst. Dit is vereist dat een afzonderlijke Azure HDInsight-cluster worden ingericht, waarop de Hive-tabel is gemaakt. De volgende secties ziet hoe u dit doet. 
+Azure Machine Learning Studio gegevens rechtstreeks vanuit Azure Data Lake Store kan lezen en vervolgens worden gebruikt om te maken en implementeren van modellen. Deze methode maakt gebruik van een Hive-tabel die naar de Azure Data Lake Store verwijst. Dit is vereist dat een afzonderlijke Azure HDInsight-cluster worden ingericht, waarop de Hive-tabel is gemaakt. De volgende secties ziet hoe u dit doet.
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Een HDInsight-Cluster voor Linux maken
 Maken van een HDInsight-Cluster (Linux) uit de [Azure-portal](http://portal.azure.com). Zie voor meer informatie, de **een HDInsight-cluster maken met toegang tot Azure Data Lake Store** in sectie [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -601,7 +601,7 @@ Maken van een HDInsight-Cluster (Linux) uit de [Azure-portal](http://portal.azur
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Hive-tabel maken in HDInsight
-Nu u Hive-tabellen moet worden gebruikt in Azure Machine Learning Studio in het HDInsight-cluster met behulp van de gegevens die zijn opgeslagen in Azure Data Lake Store in de vorige stap. Ga naar het HDInsight-cluster hebt gemaakt. Klik op **instellingen** --> **eigenschappen** --> **Cluster AAD-identiteit** --> **ADLS toegang**, Zorg ervoor dat uw Azure Data Lake Store-account wordt toegevoegd in de lijst met lezen, schrijven en uitvoeren van rechten. 
+Nu u Hive-tabellen moet worden gebruikt in Azure Machine Learning Studio in het HDInsight-cluster met behulp van de gegevens die zijn opgeslagen in Azure Data Lake Store in de vorige stap. Ga naar het HDInsight-cluster hebt gemaakt. Klik op **instellingen** --> **eigenschappen** --> **Cluster AAD-identiteit** --> **ADLS toegang**, Zorg ervoor dat uw Azure Data Lake Store-account wordt toegevoegd in de lijst met lezen, schrijven en uitvoeren van rechten.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -651,14 +651,14 @@ Wanneer de query is voltooid, ziet u de resultaten als volgt:
 ### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Modellen in Azure Machine Learning Studio bouwen en implementeren
 U bent nu klaar om te bouwen en implementeren van een model dat al dan niet een tip wordt betaald met Azure Machine Learning voorspelt. De toepassing stratificatie voorbeeldgegevens is gereed om te worden gebruikt in deze binaire classificatie (tip of niet) probleem. De voorspellende modellen met multiklassen classificatie (tip_class) en regressie (tip_amount) kunnen ook worden gebouwd en geïmplementeerd met Azure Machine Learning Studio, maar hier hoe u voor het afhandelen van de aanvraag met behulp van de binaire classificeringsmodel wordt alleen weergegeven.
 
-1. De gegevens ophalen met behulp van Azure ML de **gegevens importeren** -module, beschikbaar in de **gegevensinvoer en uitvoer** sectie. Zie voor meer informatie de [module gegevens importeren](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) -verwijzingspagina.
+1. Ophalen van de gegevens in Azure Machine Learning studio via de **importgegevens** -module, beschikbaar in de **gegevensinvoer en uitvoer** sectie. Zie voor meer informatie de [module gegevens importeren](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) -verwijzingspagina.
 2. Selecteer **Hive-Query** als de **gegevensbron** in de **eigenschappen** deelvenster.
 3. Plak het volgende Hive-script in de **Hive-databasequery** editor
-   
+
         select * from nyc_stratified_sample;
 4. Voer de URI van de HDInsight-cluster (dit kan worden gevonden in Azure portal), de Hadoop-referenties, de locatie van de uitvoergegevens en Azure storage-accountnaam naam/sleutelcontainer.
-   
-   ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)  
+
+   ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)
 
 Een voorbeeld van een binaire classificatie-experiment lezen gegevens in Hive-tabel worden weergegeven in de volgende afbeelding:
 

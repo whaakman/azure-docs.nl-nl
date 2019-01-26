@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0d058dc1875c69fe3c582c4d68da81c09ab92fcb
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476900"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079698"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synchronisatie: Uitbreidingen van de directory
 Directory-extensies kunt u het schema in Azure Active Directory (Azure AD) uit te breiden met uw eigen kenmerken van on-premises Active Directory. Deze functie kunt u LOB-apps kunt maken met kenmerken die u doorgaan met het on-premises beheren verbruikt. Deze kenmerken kunnen worden gebruikt via [directory-Azure AD Graph API-uitbreidingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) of [Microsoft Graph](https://developer.microsoft.com/graph/). U kunt de beschikbare kenmerken zien met behulp van [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) en [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), respectievelijk.
@@ -42,7 +42,7 @@ De installatie ziet u de volgende kenmerken die geldige kandidaten zijn:
 
 
 >[!NOTE]
-> Synchronisatie met meerdere waarden Active Directory-kenmerken naar Azure AD als meerdere waarden mapextensies biedt ondersteuning voor Azure AD Connect. Maar er zijn geen functies in Azure AD, dat momenteel ondersteuning voor het gebruik van meerdere waarden mapextensies.
+> Hoewel Azure AD Connect ondersteunt meerdere waarden Active Directory synchroniseren kenmerken naar Azure AD als meerdere waarden mapextensies, is er momenteel geen manier ophalen/gebruiken voor de gegevens die in meerdere waarden directory-extensiekenmerken zijn geüpload.
 
 De lijst met kenmerken uit de cache van het schema dat gemaakt tijdens de installatie van Azure AD Connect gelezen. Als u extra kenmerken Active Directory-schema hebt uitgebreid, moet u [het schema vernieuwen](how-to-connect-installation-wizard.md#refresh-directory-schema) voordat deze nieuwe kenmerken weergegeven worden.
 

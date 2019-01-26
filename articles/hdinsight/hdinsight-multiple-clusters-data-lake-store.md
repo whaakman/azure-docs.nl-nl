@@ -10,17 +10,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982e92d02e17aaefe0b197562013704636e3065f
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0760d850bdc6dab84722f00f1061d53f9b95cfcf
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743696"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912415"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Meerdere HDInsight-clusters met een Azure Data Lake Storage-account gebruiken
 
 Beginnen met een HDInsight versie 3.5, kunt u HDInsight-clusters maken met Azure Data Lake Storage-accounts als de standaard-bestandssysteem.
-Data Lake-opslag biedt ondersteuning voor onbeperkte opslag die ideaal niet alleen voor het hosten van grote hoeveelheden gegevens. maar ook voor het hosten van meerdere HDInsight-clusters die share één Data Lake Storage-Account. Zie voor instructies over het maken van een HDInsight-cluster met Data Lake Storage als de opslag [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Data Lake-opslag biedt ondersteuning voor onbeperkte opslag die ideaal niet alleen voor het hosten van grote hoeveelheden gegevens. maar ook voor het hosten van meerdere HDInsight-clusters die share één Data Lake Storage-Account. Zie voor instructies over het maken van een HDInsight-cluster met Data Lake Storage als de opslag [Quick Start: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 In dit artikel bevat aanbevelingen voor de Data Lake Storage-beheerder voor het instellen van een enkel en gedeelde Data Lake Storage-Account dat kan worden gebruikt voor meerdere **active** HDInsight-clusters. Deze aanbevelingen gelden voor het hosten van meerdere beveiligde als niet-beveiligde Apache Hadoop-clusters op een gedeelde Data Lake Storage-account.
 
@@ -37,9 +37,9 @@ Om in te schakelen deze mapstructuur kunnen effectief worden gebruikt door HDIns
 
 |Map  |Machtigingen  |Gebruiker die eigenaar is  |Groep die eigenaar is  | Benoemde gebruiker | Benoemde gebruikersmachtigingen | De benoemde groep | De benoemde groepsmachtigingen |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x: x  |beheerder |beheerder  |Service-principal |--x  |FINGRP   |l-         |
-|/clusters | rwxr-x: x |beheerder |beheerder |Service-principal |--x  |FINGRP |l-         |
-|/ clusters/Financiën | rwxr-x - t |beheerder |FINGRP  |Service-principal |LSU  |-  |-     |
+|/ | rwxr-x--x  |beheerder |beheerder  |Service-principal |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |beheerder |beheerder |Service-principal |--x  |FINGRP |r-x         |
+|/ clusters/Financiën | rwxr-x--t |beheerder |FINGRP  |Service-principal |rwx  |-  |-     |
 
 In de tabel
 
@@ -58,7 +58,7 @@ Enkele belangrijke punten om te overwegen.
 
     |Map  |Machtigingen  |Gebruiker die eigenaar is  |Groep die eigenaar is  | Benoemde gebruiker | Benoemde gebruikersmachtigingen | De benoemde groep | De benoemde groepsmachtigingen |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finanace/fincluster01 | rwxr-x---  |Service-Principal |FINGRP  |- |-  |-   |-  | 
+    |/clusters/finanace/fincluster01 | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  | 
    
 
 
@@ -94,4 +94,4 @@ Set lezen-machtigingen voor uitvoeren voor **anderen** via de hiërarchie, bijvo
 ## <a name="see-also"></a>Zie ook
 
 * [Snelstart: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) voor informatie over het maken van een HDInsight-cluster met Data Lake Storage
-
+* [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)

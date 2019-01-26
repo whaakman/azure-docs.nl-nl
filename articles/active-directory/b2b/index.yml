@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0bb6975bcfe7448c3979a6265774ac054f5c5d50
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5ec95e9f1f91c31620644d3bd66118ed89337228
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433625"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078557"
 documentType: LandingData
 title: Documentatie voor Azure Active Directory B2B
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: 'Documentatie voor Azure Active Directory B2B: zelfstudies, snelstarts, concepten, naslaginformatie | Microsoft Docs'
   description: Ontdek hoe u B2B-toegang voor gastgebruikers kunt gebruiken om veilig resources te delen en samen te werken met externe partners.
   services: active-directory
-  ms.component: authentication
+  ms.subservice: authentication
   author: msmimart
   manager: daveba
   ms.service: active-directory

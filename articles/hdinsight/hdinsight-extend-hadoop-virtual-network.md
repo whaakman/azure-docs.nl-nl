@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725963"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076823"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -308,7 +308,7 @@ Zie voor meer informatie de [netwerkverkeer beheren](#networktraffic) sectie.
 
 ## <a id="hdinsight-ports"></a> Vereiste poorten
 
-Als u van plan bent over het gebruik van een netwerk **virtueel apparaat firewall** voor het beveiligen van het virtuele netwerk, moet u uitgaand verkeer op de volgende poorten toestaan:
+Als u van plan over het gebruik van bent een **firewall** voor het beveiligen van het virtuele netwerk en toegang tot het cluster op bepaalde poorten, moet u verkeer op de poorten die nodig zijn voor uw scenario toestaan. Standaard hoeft u whitelist deze poorten:
 
 * 53
 * 443

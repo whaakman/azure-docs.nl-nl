@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247238"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913154"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Apps bewaken in Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) biedt ingebouwde bewaking functionaliteit voor web-apps, mobiele back-ends en API-apps in de [Azure-portal](https://portal.azure.com).
@@ -73,19 +73,37 @@ Voor een app zijn de beschikbare metrische gegevens:
 | --- | --- |
 | **Gemiddelde reactietijd** | De gemiddelde tijd voor de app te verzenden van aanvragen, in milliseconden. |
 | **Gemiddeld geheugenwerkset** | De gemiddelde hoeveelheid geheugen die wordt gebruikt door de app, in megabytes (MiB). |
+| **Verbindingen** | Het aantal gebonden sockets bestaan in de sandbox (w3wp.exe en onderliggende processen).  Een afhankelijke socket wordt gemaakt door het aanroepen van bind()/connect() API's en blijft totdat deze socket wordt gesloten met CloseHandle()/closesocket(). |
 | **CPU-tijd** | De hoeveelheid CPU verbruikt door de app in seconden. Zie voor meer informatie over deze metrische gegevens, [vs CPU-percentage van CPU-tijd](#cpu-time-vs-cpu-percentage). |
-| **Gegevens In** | De hoeveelheid binnenkomende bandbreedte verbruikt door de app, in MiB. |
+| **Huidige assembly 's** | Het huidige aantal assembly's geladen via alle AppDomains in deze toepassing. |
+| **Data In** | De hoeveelheid binnenkomende bandbreedte verbruikt door de app, in MiB. |
 | **Uitgaande gegevens** | De hoeveelheid uitgaande bandbreedte verbruikt door de app, in MiB. |
-| **HTTP 2xx** | Het aantal aanvragen die HTTP-statuscode ≥ leidt tot 200 maar < 300. |
-| **HTTP 3xx** | Het aantal aanvragen, wat resulteert in een HTTP-statuscode ≥ 300 maar < 400. |
+| **Garbagecollections van generatie 0** | Het aantal keren dat die de objecten generatie 0 garbagecollection zijn verzameld sinds de start van het app-proces. Hogere generatie GS bevatten alle GC voor lagere generatie.|
+| **Garbagecollections van 1** | Het aantal keren dat die de generatie 1-objecten garbagecollection zijn verzameld sinds de start van het app-proces. Hogere generatie GS bevatten alle GC voor lagere generatie.|
+| **Garbagecollections van generatie 2** | Het aantal keren dat die de objecten van de 2e generatie garbagecollection zijn verzameld sinds de start van het app-proces.|
+| **Aantal ingangen** | Het totale aantal ingangen geopend door het app-proces.|
+| **Http 2xx** | Het aantal aanvragen die HTTP-statuscode ≥ leidt tot 200 maar < 300. |
+| **Http 3xx** | Het aantal aanvragen, wat resulteert in een HTTP-statuscode ≥ 300 maar < 400. |
 | **HTTP 401** | Het aantal aanvragen, wat resulteert in een 401 HTTP-statuscode. |
-| **HTTP-fout 403** | Het aantal aanvragen dat leidt tot de statuscode HTTP 403. |
+| **Http 403** | Het aantal aanvragen dat leidt tot de statuscode HTTP 403. |
 | **Http 404** | Het aantal aanvragen dat leidt tot HTTP 404-statuscode. |
-| **HTTP 406** | Het aantal aanvragen dat leidt tot HTTP 406-statuscode. |
-| **HTTP 4xx** | Het aantal aanvragen, wat resulteert in een HTTP-statuscode ≥ 400 maar < 500. |
+| **Http 406** | Het aantal aanvragen dat leidt tot HTTP 406-statuscode. |
+| **Http 4xx** | Het aantal aanvragen, wat resulteert in een HTTP-statuscode ≥ 400 maar < 500. |
 | **HTTP-serverfouten** | Het aantal aanvragen die HTTP-statuscode ≥ leidt tot 500, maar < 600. |
+| **I/o-overige Bytes Per seconde** | De snelheid waarmee de app-proces bytes uitgeeft aan i/o-bewerkingen die geen betrekking op gegevens, zoals beheerbewerkingen.|
+| **I/o-overige bewerkingen Per seconde** | De snelheid waarmee de app-proces i/o-bewerkingen die niet worden gelezen of geschreven bewerkingen verleent.|
+| **I/o-gelezen Bytes Per seconde** | De snelheid waarmee de app-proces bytes van i/o-bewerkingen leest.|
+| **I/o-leesbewerkingen Per seconde** | De snelheid waarmee de app-proces lezen i/o-bewerkingen.|
+| **I/O geschreven Bytes Per seconde** | De snelheid waarmee de app-proces bytes voor i/o-bewerkingen schrijven.|
+| **I/o-schrijfbewerkingen Per seconde** | De snelheid waarmee de app-proces is i/o-bewerkingen voor schrijven.|
 | **Geheugenwerkset** | De huidige hoeveelheid geheugen die wordt gebruikt door de app, in MiB. |
+| **Private Bytes** | Eigen Bytes is de huidige grootte, in bytes, van het geheugen dat de app-proces heeft toegewezen en die niet kan worden gedeeld met andere processen.|
 | **Aanvragen** | Het totale aantal aanvragen, ongeacht hun resulterende HTTP-statuscode. |
+| **Aanvragen In de toepassingswachtrij** | Het aantal aanvragen in de wachtrij voor toepassingsaanvragen.|
+| **Threadaantal** | Het aantal threads dat momenteel actief zijn in het app-proces.|
+| **Totaal aantal Appdomeinen** | Het huidige aantal AppDomains geladen in deze toepassing.|
+| **Totaal aantal Appdomeinen** | Het totale aantal AppDomains is verwijderd sinds de start van de toepassing.|
+
 
 Voor een App Service-plan zijn de beschikbare metrische gegevens:
 
@@ -95,9 +113,9 @@ Voor een App Service-plan zijn de beschikbare metrische gegevens:
 
 | Gegevens | Description |
 | --- | --- |
-| **CPU-Percentage** | De gemiddelde CPU-gebruik over alle exemplaren van het abonnement. |
+| **CPU Percentage** | De gemiddelde CPU-gebruik over alle exemplaren van het abonnement. |
 | **Geheugenpercentage** | De gemiddelde hoeveelheid geheugen die wordt gebruikt voor alle instanties van het plan. |
-| **Gegevens In** | De gemiddelde binnenkomende bandbreedte die wordt gebruikt voor alle instanties van het plan. |
+| **Data In** | De gemiddelde binnenkomende bandbreedte die wordt gebruikt voor alle instanties van het plan. |
 | **Uitgaande gegevens** | De gemiddelde uitgaande bandbreedte die wordt gebruikt voor alle instanties van het plan. |
 | **Wachtrijlengte voor schijf** | Het gemiddelde aantal zowel lezen en schrijven van aanvragen die in de wachtrij zijn geplaatst op opslag. Een hoge wachtrijlengte is een indicatie van een app die mogelijk vanwege overmatige schijf-i/o vertragen. |
 | **Lengte van de HTTP-wachtrij** | Het gemiddelde aantal HTTP-aanvragen die zitten in de wachtrij staan moesten voordat het wordt voldaan. Een hoog of toenemende HTTP-wachtrijlengte is een symptoom van een plan onder zware belasting. |

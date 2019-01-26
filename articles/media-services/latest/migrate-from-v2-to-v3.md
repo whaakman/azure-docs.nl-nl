@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9d35841620afa454ffddb5e3022f6160021998e
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808728"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912381"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Hulp bij de migratie voor het verplaatsen van Media Services v2 naar v3
 
@@ -35,7 +35,7 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 
 ### <a name="api-is-more-approachable"></a>API is meer toegankelijk
 
-*  v3 is gebaseerd op een geïntegreerde API-gebied dat functionaliteit voor zowel beheer als bewerkingen beschikbaar stelt die is gebouwd op Azure Resource Manager. Azure Resource Manager-sjablonen kunnen maken en implementeren van transformaties, Streaming-eindpunten en LiveEvents worden gebruikt.
+*  v3 is gebaseerd op een geïntegreerde API-gebied dat functionaliteit voor zowel beheer als bewerkingen beschikbaar stelt die is gebouwd op Azure Resource Manager. Azure Resource Manager-sjablonen kunnen maken en implementeren van transformaties, Streaming-eindpunten en Live gebeurtenissen worden gebruikt.
 * [Open API (ook wel Swagger) specificatie](https://aka.ms/ams-v3-rest-sdk) document.
     Wordt aangegeven dat het schema voor alle onderdelen van de service, inclusief de encoding op basis van bestanden.
 * SDK's beschikbaar voor [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [gaat](https://aka.ms/ams-v3-go-ref), en Ruby.
@@ -45,14 +45,14 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 
 * Voor bestandsopslag taak verwerken, kunt u een URL voor HTTP (S) als de invoer.<br/>U hoeft niet dat inhoud die al is opgeslagen in Azure, noch moet u om activa te maken.
 * Introduceert het concept van [transformeert](transforms-jobs-concept.md) voor bestandsgebaseerde taak verwerken. Een transformatie kan worden gebruikt om herbruikbare buildconfiguraties, voor het maken van Azure Resource Manager-sjablonen en van Verwerkingsinstellingen tussen meerdere klanten of tenants isoleren.
-* Een Asset kan hebben [meerdere StreamingLocators](streaming-locators-concept.md) elk met verschillende instellingen voor dynamische pakketten en dynamische versleuteling.
+* Een Asset kan hebben meerdere [Streaming-Locators](streaming-locators-concept.md) elk met verschillende instellingen voor dynamische pakketten en dynamische versleuteling.
 * [Inhoudsbeveiliging](content-key-policy-concept.md) biedt ondersteuning voor meerdere belangrijke functies.
-* U kunt live gebeurtenissen die tot 24 uur lang wanneer met behulp van Media Services voor een single-bitrate bijdrage transcodering feed in een uitvoerstroom met meerdere bitrates streamen.
-* Nieuwe met lage latentie live streaming ondersteuning op LiveEvents. Zie voor meer informatie, [latentie](live-event-latency.md).
-* LiveEvent Preview biedt ondersteuning voor dynamische pakketten en dynamische versleuteling. Hierdoor kunnen de beveiliging van inhoud op Preview-versie, evenals DASH en HLS-verpakking.
-* LiveOutput is eenvoudiger dan de entiteit wordt in de v2-API's. 
+* U kunt Live gebeurtenissen die tot 24 uur lang wanneer met behulp van Media Services voor een single-bitrate bijdrage transcodering feed in een uitvoerstroom met meerdere bitrates streamen.
+* Nieuwe met lage latentie live streaming ondersteuning voor Live gebeurtenissen. Zie voor meer informatie, [latentie](live-event-latency.md).
+* Live gebeurtenis Preview biedt ondersteuning voor dynamische pakketten en dynamische versleuteling. Hierdoor kunnen de beveiliging van inhoud op Preview-versie, evenals DASH en HLS-verpakking.
+* Live uitvoer is eenvoudiger te gebruiken dan de entiteit wordt in de v2-API's. 
 * Verbeterde RTMP-ondersteuning (verbeterde stabiliteit en meer bron encoder-ondersteuning).
-* Beveiligde RTMPS opnemen.<br/>Als u een LiveEvent maakt, krijgt u 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS.   
+* Beveiligde RTMPS opnemen.<br/>Als u een Live gebeurtenis hebt gemaakt, krijgt u 4 URL's voor opnemen. Opname van de 4 URL's zijn bijna identiek, hetzelfde streaming-token (AppId), alleen de poort nummer onderdeel verschilt. Twee van de URL's zijn primaire en back-up voor RTMPS.   
 * U hebt op rollen gebaseerd toegangsbeheer (RBAC via uw entiteiten). 
 
 ## <a name="changes-from-v2"></a>Wijzigingen van v2
@@ -67,11 +67,11 @@ Als u een videoservice ontwikkeld vandaag nog hebt op de [oudere Media Services 
 * Inhoudssleutels is niet langer een entiteit, het is nu een eigenschap van de StreamingLocator.
 * Ondersteuning voor Event Grid vervangt NotificationEndpoints.
 * De volgende entiteiten zijn gewijzigd
-    * JobOutput taak vervangt, en maakt nu deel uit van een taak.
-    * StreamingLocator vervangt Locator.
-    * LiveEvent vervangt kanaal.<br/>LiveEvents facturering is gebaseerd op Livekanaal meters. Zie voor meer informatie, [Live streaming overzicht](live-streaming-overview.md#billing) en [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
-    * LiveOutput vervangt programma.
-* LiveOutputs hoeft niet expliciet worden gestart, ze bij het maken van starten en stoppen wanneer verwijderd. Programma's anders gewerkt in de v2-API's, ze moest worden gestart na het maken.
+    * Taakuitvoer taak vervangt, en maakt nu deel uit van een taak.
+    * Streaming-Locator vervangt Locator.
+    * Live gebeurtenis vervangt kanaal.<br/>Live gebeurtenissen facturering is gebaseerd op Livekanaal meters. Zie voor meer informatie, [Live streaming overzicht](live-streaming-overview.md#billing) en [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
+    * Live uitvoer vervangt programma.
+* Live uitvoer hoeft niet expliciet worden gestart, ze bij het maken van starten en stoppen wanneer verwijderd. Programma's anders gewerkt in de v2-API's, ze moest worden gestart na het maken.
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Functiehiaten met betrekking tot v2-API 's
 
@@ -84,7 +84,7 @@ De API v3 heeft de volgende functiehiaten met betrekking tot de v2-API. Sluit de
     * Overlays
     * Bijsnijden
     * Miniaturen Sprites
-* LiveEvents met transcodering op dit moment bieden geen ondersteuning voor Slate invoegen halverwege stream en ad markering invoeging via API-aanroep. 
+* Live-evenementen met transcodering op dit moment bieden geen ondersteuning voor Slate invoegen halverwege stream en ad markering invoeging via API-aanroep. 
 
 > [!NOTE]
 > Maak een bladwijzer voor dit artikel en blijven controleren op updates.
@@ -102,11 +102,11 @@ De volgende tabel bevat de codeverschillen tussen v2 en v3 voor algemene scenari
 ## <a name="known-issues"></a>Bekende problemen
 
 * U kunt de Azure-portal op dit moment niet gebruiken om v3-resources te beheren. Gebruik de [REST-API](https://aka.ms/ams-v3-rest-sdk), CLI of een van de ondersteunde SDK's.
-* Hebt u nodig voor het inrichten van gereserveerde Media-eenheden (groepsbeleidsinstelling) in uw account om de gelijktijdigheid van taken en de prestaties van uw taken, met name die met betrekking tot de Video of Audio-analyse. Zie [Mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md) voor meer informatie. U kunt de meest recent gebruikte met behulp van beheren [CLI 2.0 voor Media Services v3](media-reserved-units-cli-how-to.md), met de [Azure-portal](../previous/media-services-portal-scale-media-processing.md), of met behulp van de[ v2 API's](../previous/media-services-dotnet-encoding-units.md). U moet voor het inrichten van de meest recent gebruikte, of u van Media Services v2 of v3 gebruikmaakt API's.
+* Hebt u nodig voor het inrichten van gereserveerde Media-eenheden (groepsbeleidsinstelling) in uw account om de gelijktijdigheid van taken en de prestaties van uw taken, met name die met betrekking tot de Video of Audio-analyse. Zie [Mediaverwerking schalen](../previous/media-services-scale-media-processing-overview.md) voor meer informatie. U kunt de meest recent gebruikte met behulp van beheren [CLI 2.0 voor Media Services v3](media-reserved-units-cli-how-to.md), met de [Azure-portal](../previous/media-services-portal-scale-media-processing.md), of met behulp van de [v2 API's](../previous/media-services-dotnet-encoding-units.md). U moet voor het inrichten van de meest recent gebruikte, of u van Media Services v2 of v3 gebruikmaakt API's.
 * Media Services-entiteiten die zijn gemaakt met de API kan niet worden beheerd door de v2-API v3.  
 * Het wordt niet aanbevolen om entiteiten die zijn gemaakt met v2-API's via de v3 API's te beheren. Hieronder vindt u voorbeelden van de verschillen die de entiteiten in twee versies niet compatibel maken:   
     * Jobs en taken die zijn gemaakt in v2, niet worden weergegeven in v3 als ze niet gekoppeld aan een transformatie zijn. De aanbeveling is om over te schakelen naar v3 transformaties en taken. Er is een relatief korte periode van die moeten worden bewaakt de v2 actieve taken tijdens de overschakeling.
-    * Kanalen en programma's die zijn gemaakt met versie 2 (die zijn toegewezen aan LiveEvents en LiveOutputs in v3) kunnen niet worden voortgezet met v3 die worden beheerd. De aanbeveling is om over te schakelen naar v3 LiveEvents en LiveOutputs op een handige kanaal stoppen.<br/>U kunt geen momenteel kan migreren kanalen continu worden uitgevoerd.  
+    * Kanalen en programma's die zijn gemaakt met versie 2 (die zijn toegewezen aan Live-evenementen en Live uitvoer in v3) kunnen niet worden voortgezet met v3 die worden beheerd. De aanbeveling is om over te schakelen op v3 Live gebeurtenissen en Live uitvoer op een handige kanaal stoppen.<br/>U kunt geen momenteel kan migreren kanalen continu worden uitgevoerd.  
 
 > [!NOTE]
 > Deze pagina wordt onderhouden als het Media Services-team voortdurende verbeteringen in de v3 API's en adressen van de tussenruimte tussen de versies.

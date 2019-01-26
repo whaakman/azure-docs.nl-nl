@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469735"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912779"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -119,9 +119,9 @@ Hoger dan deze limieten in de normale verwerking of voer belastingtests uitvoere
 
 | Name | Limiet | Opmerkingen |
 |------|-------|-------|
-| FTP | 50 MB | Als u wilt deze limiet overschrijdt, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
-| SFTP | 50 MB | Als u wilt deze limiet overschrijdt, gebruiken de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md) of Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). Echter sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
-| SFTP-SSH | 1 GB | Deze connector maximaal 1 GB worden verwerkt, maar dat de gegevensoverdracht in 50 MB stukken, niet 1 GB-onderdelen. | 
+| FTP | 50 MB | Als u wilt overschrijdt deze limiet voor alleen acties, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). <p>**Opmerking**: Logische groepen te verdelen niet van toepassing op triggers. Bovendien sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
+| SFTP | 50 MB | Overschrijdt deze limiet voor alleen acties, gebruikt u de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md) of Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). <p>**Opmerking**: Logische groepen te verdelen niet van toepassing op triggers. Bovendien sommige connectors en API's mogelijk geen ondersteuning voor logische groepen te verdelen of zelfs de standaardlimiet. | 
+| SFTP-SSH | 1 GB | Deze connector maximaal 1 GB worden verwerkt, maar dat de gegevensoverdracht in 50 MB stukken, niet 1 GB-onderdelen. Als u wilt overschrijdt deze limiet voor alleen acties, Zie [grote berichten met logische groepen te verdelen verwerken](../logic-apps/logic-apps-handle-large-messages.md). <p>**Opmerking**: Logische groepen te verdelen niet van toepassing op triggers. | 
 |||| 
 
 <a name="request-limits"></a>

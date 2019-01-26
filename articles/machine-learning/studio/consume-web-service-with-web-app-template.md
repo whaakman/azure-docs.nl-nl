@@ -8,7 +8,7 @@ Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20
 
 U kunt een Voorspellend model te ontwikkelen en implementeren als een Azure-web-service met behulp van:
 - Azure Machine Learning Studio.
-- Hulpprogramma's, zoals R of Python. 
+- Hulpprogramma's, zoals R of Python.
 
 Hierna kunt u toegang tot de ingezette model met behulp van een REST-API.
 
@@ -23,10 +23,10 @@ De web-appsjablonen die beschikbaar zijn in de Azure Marketplace kunnen maken va
 
 Twee sjablonen zijn beschikbaar:
 
-* [Azure ML Request Response Service-Web-Appsjabloon](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Azure ML-Batch tot uitvoering van Service-Web-Appsjabloon](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Azure Machine Learning studio Request Response-Service-Web-Appsjabloon](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Azure Machine Learning studio Batch tot uitvoering van Service-Web-Appsjabloon](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-Elke sjabloon maakt u een voorbeeld-ASP.NET-toepassing met behulp van de API-URI en sleutel van uw web-service. De sjabloon implementeert vervolgens de toepassing als een website naar Azure. 
+Elke sjabloon maakt u een voorbeeld-ASP.NET-toepassing met behulp van de API-URI en sleutel van uw web-service. De sjabloon implementeert vervolgens de toepassing als een website naar Azure.
 
 De Request Response Service (RRS)-sjabloon maakt u een web-app die u gebruiken kunt voor het verzenden van één rij met gegevens met de web-service naar een enkelvoudig resultaat wordt verkregen. De Batch Execution Service (BES)-sjabloon maakt u een web-app die u gebruiken kunt voor het verzenden van veel rijen met gegevens om op te halen van meerdere resultaten.
 
@@ -51,33 +51,33 @@ Volg deze stappen voor het gebruik van de RRS-sjabloon voor web-app, zoals wordt
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer **nieuw**, zoek en selecteer **Web-App voor Azure ML Request Response Service**, en selecteer vervolgens **maken**. 
+2. Selecteer **nieuw**, zoek en selecteer **Web-App voor Azure ML Request Response Service**, en selecteer vervolgens **maken**.
 3. In de **maken** deelvenster:
-   
+
    * Geef uw web-app een unieke naam. De URL van de web-app wordt deze gevolgd door de naam dan **. azurewebsites.net**. Een voorbeeld is **http://carprediction.azurewebsites.net**.
    * Selecteer de Azure-abonnement en services waarmee u uw webservice wordt uitgevoerd.
    * Selecteer **Maken**.
-     
+
    ![Een web-app maken][image5]
 
 4. Wanneer Azure klaar is met de web-app implementeren, selecteert u de **URL** pagina op de instellingen van de web-app in Azure, of de URL opgeven in een webbrowser. Voer bijvoorbeeld **http://carprediction.azurewebsites.net**.
 5. Wanneer de web-app eerst wordt uitgevoerd, wordt u gevraagd voor het **URL van de API-Post** en **API-sleutel**. Voer de waarden die u eerder hebt opgeslagen (aanvraag-URI en API-sleutel, respectievelijk). Selecteer **indienen**.
-     
+
    ![Voer na URI en API-sleutel][image6]
 
 6. De web-app wordt weergegeven de **Web App-configuratie** pagina met de huidige instellingen van de web-service. Hier kunt u wijzigingen aanbrengen in de instellingen die gebruikmaakt van de web-app.
-   
+
    > [!NOTE]
    > Deze instellingen alleen wijzigt, worden ze voor deze web-app. Het verandert niet met de standaardinstellingen van uw web-service. Bijvoorbeeld, als u de tekst in **beschrijving** hier, wordt de beschrijving wordt weergegeven op het webservicedashboard in Machine Learning Studio niet wijzigen.
-   > 
-   > 
-   
+   >
+   >
+
     Wanneer u klaar bent, selecteert u **wijzigingen opslaan**, en selecteer vervolgens **gaat u naar de startpagina**.
 
 7. Vanaf de startpagina, kunt u waarden om te verzenden naar uw web-service. Selecteer **indienen** wanneer u klaar bent, en het resultaat wordt geretourneerd.
@@ -93,11 +93,11 @@ De ingevoerde waarden voor de webservice van een batch-uitvoering kunnen afkomst
 
 ![Proces BES websjabloon gebruiken][image2]
 
-1. Volg dezelfde procedure voor het maken van de BES-web-app als die voor de RRS-sjabloon. Maar in dit geval gaat u naar [Azure ML Batch uitvoering Service Web-Appsjabloon](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) de BES-sjabloon geopend in de Azure Marketplace. Selecteer **Web-App maken**.
+1. Volg dezelfde procedure voor het maken van de BES-web-app als die voor de RRS-sjabloon. Maar in dit geval gaat u naar [Azure Machine Learning studio Batch tot uitvoering van Service-Web-Appsjabloon](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) de BES-sjabloon geopend in de Azure Marketplace. Selecteer **Web-App maken**.
 
 2. Om op te geven waar u de resultaten die zijn opgeslagen, voert u de bestemming container-gegevens in op de startpagina van de web-app. Ook opgeven waar de web-app in de invoerwaarden vind: in een lokaal bestand of in een Azure storage-container.
    Selecteer **indienen**.
-   
+
    ![Opslaggegevens][image7]
 
 Een pagina met de taakstatus wordt weergegeven in de web-app. Als de taak is voltooid, krijgt u de locatie van de resultaten in Azure Blob-opslag. U hebt ook de mogelijkheid van het downloaden van de resultaten naar een lokaal bestand.

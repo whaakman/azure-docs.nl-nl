@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/04/2018
+ms.date: 1/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cc0ffc0a209dab0e8610966cb24596d95b7927c3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846180"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913424"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -34,7 +34,7 @@ De volgende zijn beperkingen aan de huidige oplossing:
 > [!NOTE]
 > Als u van de oplossing voor klassieke virtuele machines gebruikmaakt, worden alle virtuele machines verwerkt sequentieel worden verwerkt per cloudservice. Virtuele machines worden in verschillende cloudservices nog steeds parallel verwerkt.
 >
-> Abonnementen voor Azure Cloud Solution Provider (Azure CSP) ondersteunen alleen de Azure Resource Manager-model, niet - Azure Resource Manager-services zijn niet beschikbaar in het programma. Als de oplossing starten/stoppen wordt uitgevoerd krijgt u mogelijk fouten omdat u cmdlets voor het beheren van klassieke resources. Zie voor meer informatie over de CSP, [beschikbare services in CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+> Abonnementen voor Azure Cloud Solution Provider (Azure CSP) ondersteunen alleen de Azure Resource Manager-model, niet - Azure Resource Manager-services zijn niet beschikbaar in het programma. Als de oplossing starten/stoppen wordt uitgevoerd krijgt u mogelijk fouten omdat u cmdlets voor het beheren van klassieke resources. Zie voor meer informatie over de CSP, [beschikbare services in CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Als u een CSP-abonnement, moet u wijzigt de [ **External_EnableClassicVMs** ](#variables) variabele **False** na de implementatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -90,6 +90,9 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
 
 8. Nadat u de oorspronkelijke instellingen vereist voor de oplossing hebt geconfigureerd, klikt u op **OK** sluiten de **Parameters** pagina en selecteer **maken**. Nadat u alle instellingen worden gevalideerd, wordt de oplossing wordt geïmplementeerd op uw abonnement. Dit proces duurt enkele seconden om te voltooien en u kunt de voortgang bijhouden onder **meldingen** in het menu.
 
+> [!NOTE]
+> Als u een Azure Cloud Solution Provider (Azure CSP)-abonnement, hebt nadat de implementatie is voltooid in uw Automation-Account, gaat u naar **variabelen** onder **gedeelde bronnen** en stel de [ **External_EnableClassicVMs** ](#variables) variabele **False**. Hierdoor wordt voorkomen dat de oplossing van het zoeken naar klassieke VM-resources.
+
 ## <a name="scenarios"></a>Scenario's
 
 De oplossing bevat drie verschillende scenario's. Deze scenario's zijn:
@@ -108,8 +111,8 @@ U kunt inschakelen die gericht is op de actie op basis van een abonnement en res
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Doel van de acties starten en stoppen op basis van een groep en de resourcegroep
 
 1. Configureer de **External_Stop_ResourceGroupNames** en **External_ExcludeVMNames** variabelen om op te geven van de doel-VM's.
-1. Inschakelen en werk de **geplande StartVM** en **geplande StopVM** schema's.
-1. Voer de **ScheduledStartStop_Parent** runbook met de parameter ACTION is ingesteld op **start** en whatIf ingesteld op **waar** om uw wijzigingen te bekijken.
+2. Inschakelen en werk de **geplande StartVM** en **geplande StopVM** schema's.
+3. Voer de **ScheduledStartStop_Parent** runbook met de parameter ACTION is ingesteld op **start** en whatIf ingesteld op **waar** om uw wijzigingen te bekijken.
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Doel van de actie starten en stoppen van VM-lijst
 
@@ -205,6 +208,7 @@ De volgende tabel bevat de variabelen die in uw Automation-account gemaakt. Alle
 |External_AutoStop_Threshold | De drempelwaarde voor de Azure waarschuwingsregel opgegeven in de variabele _External_AutoStop_MetricName_. Percentagewaarden kunnen variëren van 1 tot 100.|
 |External_AutoStop_TimeAggregationOperator | De tijd aggregatieoperator, die wordt toegepast op de grootte van het geselecteerde venster om de voorwaarde te evalueren. Acceptabele waarden zijn **gemiddelde**, **Minimum**, **maximale**, **totale**, en **laatste**.|
 |External_AutoStop_TimeWindow | De grootte van het venster waarin Azure geselecteerde metrische gegevens analyseert voor het activeren van een waarschuwing. Deze parameter accepteert invoer in timespan-indeling. Mogelijke waarden zijn van 5 minuten tot zes uur.|
+|External_EnableClassicVMs| Hiermee geeft u op of de klassieke virtuele machines door de oplossing zijn gericht. De standaardwaarde is True. Dit moet worden ingesteld op False voor CSP-abonnementen.|
 |External_ExcludeVMNames | Geef de namen van de virtuele machine moeten worden uitgesloten, namen scheiden met behulp van een door komma's zonder spaties.|
 |External_Start_ResourceGroupNames | Hiermee geeft u een of meer resourcegroepen, waarden scheiden met behulp van een door komma's, gericht voor begin acties.|
 |External_Stop_ResourceGroupNames | Hiermee geeft u een of meer resourcegroepen, waarden scheiden met behulp van een door komma's, gericht voor stop-acties.|

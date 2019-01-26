@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822871"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913297"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Stroomlogboeken van Netwerkbeveiligingsgroep visualizing met Power BI
 
@@ -46,7 +46,7 @@ De opgegeven sjabloon kan worden bewerkt zodat u kunt wijzigen als u wilt toevoe
 
 ## <a name="setup"></a>Instellen
 
-Voordat u begint, kunt u Network Security Group Flow-logboekregistratie is ingeschakeld op een of meer Netwerkbeveiligingsgroepen in uw account moet hebben. Voor instructies over het inschakelen van netwerkbeveiliging flow Logboeken, raadpleegt u het volgende artikel: [Inleiding tot stroomlogboeken voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
+Voordat u begint, kunt u Network Security Group Flow-logboekregistratie is ingeschakeld op een of meer Netwerkbeveiligingsgroepen in uw account moet hebben. Zie voor instructies over het inschakelen van stroomlogboeken voor netwerkbeveiliging, het volgende artikel: [Inleiding tot stroomlogboeken voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
 
 U moet ook de Power BI Desktop-client geïnstalleerd op uw computer en voldoende vrije ruimte op uw computer te downloaden en het laden van de logboekgegevens die deel uitmaakt van uw storage-account hebben.
 
@@ -73,7 +73,7 @@ U moet ook de Power BI Desktop-client geïnstalleerd op uw computer en voldoende
 
 Opgegeven in de sjabloon zijn een set van visuele elementen waarmee zinvol in de Flow-logboekgegevens van NSG. De volgende afbeeldingen ziet een voorbeeld van hoe het dashboard uitziet als ingevuld met gegevens. Hieronder bekijken we elk visuele element in meer detail 
 
-![Power BI][5]
+![powerbi][5]
  
 De bovenste Talkers visual ziet u de IP-adressen die de meeste verbindingen hebt gestart in de periode is opgegeven. De grootte van de vakken komt overeen met het relatieve aantal verbindingen. 
 
@@ -123,7 +123,7 @@ U kunt deze sjabloon voor uw behoeften aanpassen. Er zijn veel verschillende man
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Leer hoe u uw NSG-stroomlogboeken visualiseren met de Elastick Stack recentst [visualiseren Azure Network Watcher NSG-stroomlogboeken met behulp van open-sourcehulpprogramma's](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Meer informatie over het visualiseren van uw NSG-stroomlogboeken met de Elastic Stack recentst [visualiseren Azure Network Watcher NSG-stroomlogboeken met behulp van open-sourcehulpprogramma's](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

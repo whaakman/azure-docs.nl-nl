@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 14350a04326ba22dcc5c8608b6ac6b9180666832
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: adac36bd0d1798bf0bc9c2e2671c2482c6fcb84c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101175"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076482"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL gebruiken voor het beveiligen van webservices met Azure Machine Learning-service
 
@@ -37,7 +37,7 @@ Of u een webservice die met SSL ingeschakeld implementeert of u SSL voor bestaan
 
 4. Werkt u uw DNS om te verwijzen naar de webservice.
 
-Er zijn kleine verschillen bij het beveiligen van webservices tussen de [implementatiedoelen](how-to-deploy-and-where.md). 
+Er zijn kleine verschillen bij het beveiligen van webservices tussen de [implementatiedoelen](how-to-deploy-and-where.md).
 
 ## <a name="get-a-domain-name"></a>Een domeinnaam krijgen
 
@@ -50,7 +50,7 @@ Er zijn veel manieren om op te halen van een SSL-certificaat. De meest voorkomen
 * Een __certificaat__. Het certificaat moet de volledige certificaatketen bevatten en moet PEM gecodeerd.
 * Een __sleutel__. De sleutel moet PEM gecodeerd.
 
-Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinnaam (FQDN) van het adres dat u wilt gebruiken voor de webservice opgeven. Bijvoorbeeld: www.contoso.com. Adres van de tijdstempel in het certificaat en het adres dat wordt gebruikt door de clients worden vergeleken bij het valideren van de identiteit van de webservice. Als de adressen niet overeenkomen, ontvangt de clients een fout. 
+Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinnaam (FQDN) van het adres dat u wilt gebruiken voor de webservice opgeven. Bijvoorbeeld: www.contoso.com. Adres van de tijdstempel in het certificaat en het adres dat wordt gebruikt door de clients worden vergeleken bij het valideren van de identiteit van de webservice. Als de adressen niet overeenkomen, ontvangt de clients een fout.
 
 > [!TIP]
 > Als de certificeringsinstantie kan niet het certificaat en sleutel als PEM-gecodeerde bestanden opgeeft, kunt u een hulpprogramma zoals [OpenSSL](https://www.openssl.org/) om de opmaak te wijzigen.
@@ -60,25 +60,25 @@ Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinna
 
 ## <a name="enable-ssl-and-deploy"></a>SSL inschakelen en implementeren
 
-Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ingeschakeld, stel de `ssl_enabled` parameter `True`, gebruikt u waar van toepassing. Stelt de `ssl_certificate` parameter met de waarde van de __certificaat__ bestand en de `ssl_key` aan de waarde van de __sleutel__ bestand. 
+Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ingeschakeld, stel de `ssl_enabled` parameter `True`, gebruikt u waar van toepassing. Stelt de `ssl_certificate` parameter met de waarde van de __certificaat__ bestand en de `ssl_key` aan de waarde van de __sleutel__ bestand.
 
 + **Implementeren op Azure Kubernetes Service (AKS)**
-  
+
   Tijdens het inrichten van het AKS-cluster, geef waarden op voor parameters met betrekking tot SSL zoals wordt weergegeven in het volgende codefragment:
 
     ```python
     from azureml.core.compute import AksCompute
-    
+
     provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
 + **Op Azure Container Instances (ACI) implementeren**
- 
+
   Tijdens de implementatie naar ACI, geef waarden op voor parameters met betrekking tot SSL zoals wordt weergegeven in het volgende codefragment:
 
     ```python
     from azureml.core.webservice import AciWebservice
-    
+
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
@@ -88,17 +88,17 @@ Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ing
 
     ```python
     from amlrealtimeai import DeploymentClient
-    
+
     subscription_id = "<Your Azure Subscription ID>"
     resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your AzureML Model Management Account Name>"
+    model_management_account = "<Your Azure Machine Learning service Model Management Account Name>"
     location = "eastus2"
-    
+
     model_name = "resnet50-model"
     service_name = "quickstart-service"
-    
+
     deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-    
+
     with open('cert.pem','r') as cert_file:
         with open('key.pem','r') as key_file:
             cert = cert_file.read()
@@ -110,17 +110,17 @@ Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ing
 
 Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
 
-+ **Voor ACI en FPGA**:  
++ **Voor ACI en FPGA**:
 
-  Gebruik de hulpprogramma's van uw domeinnaamregistrar om bij te werken van de DNS-record voor uw domeinnaam. De record moet verwijzen naar het IP-adres van de service.  
+  Gebruik de hulpprogramma's van uw domeinnaamregistrar om bij te werken van de DNS-record voor uw domeinnaam. De record moet verwijzen naar het IP-adres van de service.
 
   Afhankelijk van de registrar, en de tijd naar live (TTL) die is geconfigureerd voor de domeinnaam, duurt het enkele minuten tot enkele uren voordat clients de domeinnaam kunnen omzetten.
 
-+ **Voor AKS**: 
++ **Voor AKS**:
 
   Werk de DNS-server op het tabblad "Configuratie" van het 'openbare IP-adres' van het AKS-cluster, zoals weergegeven in de afbeelding. U vindt het openbare IP-adres als een van de resourcetypen die is gemaakt op basis van de resourcegroep met de AKS-knooppunten van de agent en andere netwerkresources.
 
-  ![Azure Machine Learning-service: beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Azure Machine Learning-service: Beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

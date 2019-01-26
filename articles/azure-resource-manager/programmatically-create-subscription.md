@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 90823eded03f298dd912735fb0170fd8002328f3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6a4dedc2478b2f8c5fa754e3736dbfb983cfb7a2
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715887"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079814"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Via een programma maken Azure Enterprise-abonnementen (preview)
 
@@ -75,10 +75,10 @@ Azure reageert met een lijst met alle inschrijvingsaccounts u toegang tot hebt:
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Gebruik de [opdracht Get-AzureRmEnrollmentAccount](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) om alle inschrijvingsaccounts weer te geven die u hebt toegang tot.
+Gebruik de [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet om alle inschrijvingsaccounts u toegang tot hebt weer te geven.
 
 ```azurepowershell-interactive
-Get-AzureRmEnrollmentAccount
+Get-AzEnrollmentAccount
 ```
 
 Azure reageert met een lijst met de Object-id's en e-mailadressen van accounts.
@@ -151,7 +151,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| De naam van element  | Vereist | Type   | Beschrijving                                                                                               |
+| De naam van element  | Vereist | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Nee      | Reeks | De weergavenaam van het abonnement. Indien niet opgegeven, ingesteld op de naam van de aanbieding, zoals "Microsoft Azure Enterprise."                                 |
 | `offerType`   | Ja      | Reeks | De aanbieding van het abonnement. De twee opties voor EA [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik in productieomgevingen) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen/testen, moet [ingeschakeld met behulp van de EA-portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -161,24 +161,24 @@ In het antwoord je weer toegang krijgen een `subscriptionOperation` object voor 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Voor het gebruik van deze preview-module installeren door te voeren `Install-Module AzureRM.Subscription -AllowPrerelease` eerste. Om ervoor te zorgen `-AllowPrerelease` werkt, installeert u een recente versie van PowerShellGet van [PowerShellGet-Module ophalen](/powershell/gallery/installing-psget).
+Voor het gebruik van deze preview-module installeren door te voeren `Install-Module Az.Subscription -AllowPrerelease` eerste. Om ervoor te zorgen `-AllowPrerelease` werkt, installeert u een recente versie van PowerShellGet van [PowerShellGet-Module ophalen](/powershell/gallery/installing-psget).
 
-Gebruik de [New-AzureRmSubscription](/powershell/module/azurerm.subscription) samen met `enrollmentAccount` object-ID als de `EnrollmentAccountObjectId` parameter voor een nieuw abonnement maken. 
+Gebruik de [New-AzSubscription](/powershell/module/az.subscription) samen met `enrollmentAccount` object-ID als de `EnrollmentAccountObjectId` parameter voor een nieuw abonnement maken. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
-| De naam van element  | Vereist | Type   | Beschrijving                                                                                               |
+| De naam van element  | Vereist | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Nee      | Reeks | De weergavenaam van het abonnement. Indien niet opgegeven, ingesteld op de naam van de aanbieding, zoals "Microsoft Azure Enterprise."                                 |
 | `OfferType`   | Ja      | Reeks | De aanbieding van het abonnement. De twee opties voor EA [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik in productieomgevingen) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen/testen, moet [ingeschakeld met behulp van de EA-portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Ja       | Reeks | Object-ID van de voor apparaatregistratie-account dat het abonnement is gemaakt op basis van en kosten in rekening gebracht aan. Deze waarde is een GUID die u via `Get-AzureRmEnrollmentAccount`. |
+| `EnrollmentAccountObjectId`      | Ja       | Reeks | Object-ID van de voor apparaatregistratie-account dat het abonnement is gemaakt op basis van en kosten in rekening gebracht aan. Deze waarde is een GUID die u via `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | Nee       | Reeks | Object-ID van elke gebruiker die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt.  |
 | `OwnerSignInName`    | Nee       | Reeks | Het e-mailadres van elke gebruiker die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`.|
 | `OwnerApplicationId` | Nee       | Reeks | De toepassings-ID van een service-principal die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`. Wanneer u deze parameter, de service-principal moet hebben [leestoegang tot de map](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
-Zie voor een volledige lijst met alle parameters [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
+Zie voor een volledige lijst met alle parameters [New-AzSubscription](/powershell/module/az.subscription.preview).
 
 # <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
 
@@ -190,7 +190,7 @@ Gebruik de [az account maken](/cli/azure/ext/subscription/account?view=azure-cli
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| De naam van element  | Vereist | Type   | Beschrijving                                                                                               |
+| De naam van element  | Vereist | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Nee      | Reeks | De weergavenaam van het abonnement. Indien niet opgegeven, ingesteld op de naam van de aanbieding, zoals "Microsoft Azure Enterprise."                                 |
 | `offer-type`   | Ja      | Reeks | De aanbieding van het abonnement. De twee opties voor EA [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik in productieomgevingen) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen/testen, moet [ingeschakeld met behulp van de EA-portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |

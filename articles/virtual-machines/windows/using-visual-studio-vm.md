@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437568"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911908"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-installatiekopieën in Azure
 Met behulp van Visual Studio in een vooraf geconfigureerde Azure-machine (VM) is een snelle en eenvoudige manier naar een up-en-die wordt uitgevoerd development environment van nul. Installatiekopieën met verschillende configuraties van Visual Studio zijn beschikbaar in de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -34,7 +34,7 @@ Installatiekopieën voor de meest recente primaire versies, Visual Studio 2017 e
 
 | Release-versie                                              | Edities                     |     Productversie      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: Preview-versie (Preview-versie 1)                   |           Enterprise         | Versie 16.0.0 Preview 1 |
+|    Visual Studio 2019: Preview-versie (Preview-versie 2)                   |           Enterprise         | Preview-versie 16.0.0 versie 2 |
 | Visual Studio 2017: Meest recente (versie 15,9 inch)                    |    Enterprise, Community     |      Versie 15.9.4      |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versie 15.0.20     |
 |   Visual Studio 2015: Meest recente (Update 3)                      |    Enterprise, Community     |  Versie 14.0.25431.01   |

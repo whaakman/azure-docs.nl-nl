@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c1a575c3a30dfe5923fc0026c6d41d1b20276e49
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474877"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076465"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Verbindingsproblemen met Azure AD Connect oplossen
 In dit artikel wordt uitgelegd hoe connectiviteit tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn ondergebracht in een omgeving met een proxyserver worden weergegeven.
@@ -167,17 +167,52 @@ Kan geen gebruiker actie uit te voeren in Azure AD te verlenen.
 ### <a name="authentication-cancelled"></a>Verificatie is geannuleerd
 De uitdaging multi-factor authentication (MFA) is geannuleerd.
 
+<div id="connect-msolservice-failed">
+<!--
+  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="connect-to-ms-online-failed"></a>Verbinding maken met MS Online is mislukt
 Verificatie is voltooid, maar er is een verificatieprobleem met Azure AD PowerShell.
+
+<div id="get-msoluserrole-failed">
+<!--
+  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Azure AD-hoofdbeheerder rol nodig
 Gebruiker is geverifieerd. Gebruiker is echter niet toegewezen rol van globale beheerder. Dit is [hoe kunt u globale beheerdersrol toewijzen](../users-groups-roles/directory-assign-admin-roles.md) aan de gebruiker. 
 
+<div id="privileged-identity-management">
+<!--
+  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management is ingeschakeld
 Verificatie is voltooid. Privileged identity management is ingeschakeld en u bent momenteel niet een globale beheerder. Zie voor meer informatie, [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
+<div id="get-msolcompanyinformation-failed">
+<!--
+  Empty div just to act as an alias for the "Company Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="company-information-unavailable"></a>Bedrijfsgegevens die niet beschikbaar
 Verificatie is voltooid. Kan de bedrijfsgegevens niet ophalen uit Azure AD.
+
+<div id="get-msoldomain-failed">
+<!--
+  Empty div just to act as an alias for the "Domain Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="domain-information-unavailable"></a>Domeininformatie niet beschikbaar
 Verificatie is voltooid. Kan de domeingegevens niet ophalen uit Azure AD.

@@ -3,19 +3,19 @@ title: Gebruikers van B2B-samenwerking toevoegen als een Informatiemedewerker - 
 description: B2B-samenwerking kan IT-medewerkers en eigenaren gastgebruikers toevoegen aan Azure AD voor toegang tot | Microsoft Docs
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: e15c70ddcc8f4e99c264596f01c83cde90fe0a7e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9a16c9eb74060cdc1cca4881a0586a21261d0eb3
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428457"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081174"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hoe gebruikers in uw organisatie kunnen uitnodigen van gastgebruikers ook kunnen aan een app
 

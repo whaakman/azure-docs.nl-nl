@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 67523641ff9650a5b35a142147a2f69adcfb3b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470321"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077298"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Veelgestelde vragen over Azure AD Connect Health
 In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directory (Azure AD) Connect Health. Deze Veelgestelde vragen hebben betrekking op vragen over het gebruik van de service, waaronder het facturering model, mogelijkheden, beperkingen en ondersteuning.
@@ -62,7 +62,7 @@ Voorbeeld:
 
 **V: Azure AD Connect Health biedt ondersteuning voor Azure-Cloud voor Duitsland?**
 
-Azure AD Connect Health wordt niet ondersteund in de Duitse Cloud, behalve voor de [synchronisatiefunctie fouten rapport](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
+Azure AD Connect Health wordt niet ondersteund in de Duitse Cloud, behalve voor de [synchronisatiefunctie fouten rapport](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
 | Rollen | Functies | Ondersteund in de Duitse Cloud |
 | ------ | --------------- | --- |
@@ -71,7 +71,7 @@ Azure AD Connect Health wordt niet ondersteund in de Duitse Cloud, behalve voor 
 | Connect Health voor AD FS | Bewaking / inzicht / waarschuwingen / analyse | Nee |
 | Connect Health voor ADDS | Bewaking / inzicht / waarschuwingen / analyse | Nee |
 
-Om te controleren of de agent met de connectiviteit van Connect Health voor synchroniseren, configureer de [installatievereiste](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) dienovereenkomstig.   
+Om te controleren of de agent met de connectiviteit van Connect Health voor synchroniseren, configureer de [installatievereiste](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) dienovereenkomstig.
 
 ## <a name="installation-questions"></a>Vragen over de installatie
 
@@ -163,7 +163,7 @@ Azure AD Connect Health-service gescand alle computers die wordt bewaakt om te c
 
 U kunt de volgende PowerShell-script gebruiken om uit te voeren van deze controle handmatig. De bovenstaande logica geïmplementeerd.
 
-```
+```powershell
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
@@ -190,7 +190,7 @@ CheckForMS17-010
 
 **V: Waarom wordt mijn ADFS controles zijn uitgevoerd niet wordt gegenereerd?**
 
-Gebruik PowerShell-cmdlet <i>Get-AdfsProperties - AuditLevel</i> uitgeschakeld om te controleren of de logboeken voor controle is niet in staat. Meer informatie over [AD FS-auditlogboeken](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). U ziet dat als er geavanceerde controle-instellingen naar de ADFS-server gepusht, worden eventuele wijzigingen in auditpol.exe overschreven (gebeurtenis als toepassing gegenereerd niet is geconfigureerd). Stel in dat geval wordt het lokale beveiligingsbeleid om aan te melden fouten toepassing gegenereerd en het slagen. 
+Gebruik PowerShell-cmdlet <i>Get-AdfsProperties - AuditLevel</i> uitgeschakeld om te controleren of de logboeken voor controle is niet in staat. Meer informatie over [AD FS-auditlogboeken](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). U ziet dat als er geavanceerde controle-instellingen naar de ADFS-server gepusht, worden eventuele wijzigingen in auditpol.exe overschreven (gebeurtenis als toepassing gegenereerd niet is geconfigureerd). Stel in dat geval wordt het lokale beveiligingsbeleid om aan te melden fouten toepassing gegenereerd en het slagen.
 
 
 ## <a name="related-links"></a>Verwante koppelingen

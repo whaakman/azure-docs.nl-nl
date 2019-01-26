@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: cwatson
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11/30/2018
-ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1da2278eee6fcea5c013e9c2f5f4ad3e3013b590
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742558"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906305"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties
 
@@ -32,11 +32,11 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
 
 - De reserveringskorting is niet van toepassing voor de volgende virtuele machines:
   - Klassieke virtuele machines en Cloudservices
-  - VM-Series: A-serie, Av2-serie of uit de G-serie
-  - Virtuele machines in de Preview-versie: een VM-reeks of de grootte die in de Preview-versie
-- Clouds: Reserveringen niet verkrijgbaar in Duitsland en China-regio's.
-- Onvoldoende quotum: een reservering die is afgestemd op één abonnement vCPU-quotum is beschikbaar in het abonnement voor de nieuwe gereserveerde instantie moet hebben. Bijvoorbeeld, als het doelabonnement een limiet van 10 vcpu's voor uit de D-serie heeft, kan niet klikt u vervolgens u kopen een reservering voor 11 Standard_D1 exemplaren. De controle van het quotum voor reserveringen bevat de virtuele machines die al zijn geïmplementeerd in het abonnement. Bijvoorbeeld, als het abonnement een quotum van 10 vcpu's voor uit de D-serie heeft en twee standard_D1 instanties zijn geïmplementeerd, kunt klikt u vervolgens u kopen een reservering voor 10 standard_D1-exemplaren in dit abonnement. 
-- Capaciteitsbeperkingen voor: In zeldzame gevallen kan Azure beperkt de aanschaf van nieuwe reserveringen voor een subset van de VM-grootten, vanwege onvoldoende capaciteit in een regio.
+  - VM-reeks: A-serie, Av2-serie en G-serie
+  - Als u virtuele machines in de Preview-versie: Een VM-reeks of de grootte die in de Preview-versie
+- Clouds: Reserveringen zijn niet beschikbaar voor aankoop in Duitsland en China-regio's.
+- Onvoldoende quotum: Een reservering die is afgestemd op één abonnement hebt vCPU-quotum is beschikbaar in het abonnement voor de nieuwe gereserveerde instantie. Bijvoorbeeld, als het doelabonnement een limiet van 10 vcpu's voor uit de D-serie heeft, kan niet klikt u vervolgens u kopen een reservering voor 11 Standard_D1 exemplaren. De controle van het quotum voor reserveringen bevat de virtuele machines die al zijn geïmplementeerd in het abonnement. Bijvoorbeeld, als het abonnement een quotum van 10 vcpu's voor uit de D-serie heeft en twee standard_D1 instanties zijn geïmplementeerd, kunt klikt u vervolgens u kopen een reservering voor 10 standard_D1-exemplaren in dit abonnement. 
+- Capaciteit beperkingen: Azure-limieten in zeldzame gevallen kan de aanschaf van nieuwe reserveringen voor een subset van de VM-grootten, vanwege onvoldoende capaciteit in een regio.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Kopen van een gereserveerde VM-exemplaar
 
@@ -45,10 +45,10 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
 3. Selecteer **toevoegen** naar een nieuwe reservering kopen.
 4. Vul de vereiste velden in. Actieve virtuele machine-exemplaren die overeenkomen met de kenmerken die u in aanmerking komen voor het ophalen van de reserveringskorting. Het werkelijke nummer van uw VM-exemplaren die aan de korting is afhankelijk van het bereik en de hoeveelheid die is geselecteerd.
 
-    | Veld      | Beschrijving|
+    | Veld      | Description|
     |:------------|:--------------|
-    |Naam        |De naam van deze reservering.| 
-    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor de reservering. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnement moet een Enterprise-overeenkomst (aanbieding: MS-AZR-0017P) of een Betalen-per-gebruik-abonnement (aanbieding: MS-AZR-0003P) zijn. Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|    
+    |Name        |De naam van deze reservering.| 
+    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor de reservering. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering. Het abonnementstype moet een enterprise agreement (nummer van aanbieding: MS-AZR-0017P) of betalen per gebruik (nummer van aanbieding: MS-AZR-0003P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|    
     |Bereik       |Bereik van de reservering kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u selecteert: <ul><li>Eén abonnement - de reserveringskorting wordt toegepast op virtuele machines in dit abonnement. </li><li>Gedeeld - wordt de reserveringskorting toegepast op virtuele machines die worden uitgevoerd in alle abonnementen binnen de context van de facturering. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen (met uitzondering van dev/test-abonnementen) binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.</li></ul>|
     |Regio    |De Azure-regio die wordt gedekt door de reservering.|    
     |VM-grootte     |De grootte van de VM-exemplaren.|

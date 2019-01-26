@@ -1,15 +1,15 @@
 ---
 author: manish-shukla01
-ms.author: cwatson
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 044f735560eb7d57a90a16c1e3ce1255a9fe0d54
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 83b29aa1f0c12661eb1724eb505ad46987ed1019
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742570"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906306"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Virtuele machine grootte flexibiliteit in combinatie met gereserveerde VM-instanties
 
@@ -30,7 +30,7 @@ De volgende voorbeelden gebruiken de grootte en verhoudingen in de tabel uit de 
 
  U koopt een gereserveerde VM-instantie met de grootte Standard_DS4_v2 waar de verhouding of relatieve footprint in vergelijking met de andere grootten uit de reeks 8 is.
 
-- Scenario 1: Uitvoeren acht grootte Standard_DS1_v2 voor de virtuele machines met een ratio van 1. De reserveringskorting is van toepassing op alle 8 van deze virtuele machines.
+- Scenario 1: Uitvoeren van acht grootte Standard_DS1_v2 voor de virtuele machines met een ratio van 1. De reserveringskorting is van toepassing op alle 8 van deze virtuele machines.
 - Scenario 2: Voer twee grootte Standard_DS2_v2 virtuele machines met een verhouding van 2, elke. Een Standard_DS3_v2 grootte virtuele machine met een ratio van 4 ook uitvoeren. De totale footprint is 2 + 2 + 4 = 8. Dus geldt uw reserveringskorting voor alle drie deze virtuele machines.
 - Scenario 3: Voer een Standard_DS5_v2 met een verhouding van 16. De reserveringskorting is van toepassing op de helft aan die VM rekenkosten.
 
@@ -306,14 +306,14 @@ Zie voor meer informatie, [grootten van virtuele machines geoptimaliseerd voor g
 | Grootte | Verhouding|
 |---|---|
 |Standard_M8ms|1|
-|Standard_M8-2 MS|1|
-|Standard_M8-4 MS|1|
+|Standard_M8-2ms|1|
+|Standard_M8-4ms|1|
 |Standard_M16ms|2|
-|Standard_M16-4 MS|2|
-|Standard_M16-8 MS|2|
+|Standard_M16-4ms|2|
+|Standard_M16-8ms|2|
 |Standard_M32ms|4|
-|Standard_M32-8 MS|4|
-|Standard_M32-16 MS|4|
+|Standard_M32-8ms|4|
+|Standard_M32-16ms|4|
 
 Zie voor meer informatie, [grootten van virtuele machines geoptimaliseerd voor geheugen](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 

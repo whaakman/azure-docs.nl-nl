@@ -3,19 +3,19 @@ title: Geen wachtwoord meer Azure AD-aanmelding met de Microsoft Authenticator-a
 description: Aanmelden bij Azure AD met behulp van de Microsoft Authenticator-app zonder uw wachtwoord (openbare preview)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e237d736a939c3136faa4f6df74ed4e9db9665d3
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434186"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077621"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Zonder wachtwoord aanmelden via telefoon met de Microsoft Authenticator-app (preview-versie)
 

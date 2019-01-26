@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: bfe53ac99ae1719deeacc156b250fe5a7f87a99a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651500"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913450"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Overwegingen voor het gebruik van virtuele machines in Azure Stack
 
@@ -100,12 +100,12 @@ Get-AzureRmResourceProvider | `
 
 De lijst met ondersteunde resourcetypen en API-versies kan variëren als de cloud-operator uw Azure Stack-omgeving naar een nieuwere versie bijwerkt.
 
-## <a name="windows-activation"></a>Windows-activering
+## <a name="windows-activation"></a>Windows Activation
 
 Windows-producten moeten worden gebruikt in overeenstemming met de Product Use Rights en de licentievoorwaarden voor Microsoft. Maakt gebruik van Azure Stack [automatische activering van virtuele machine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) voor het activeren van Windows Server virtuele machines (VM's).
 
-- Azure Stack-host voor het activeren van Windows met AVMA-sleutels voor Windows Server 2016. Alle virtuele machines die worden uitgevoerd van Windows Server 2012 of later automatisch geactiveerd.
-- Virtuele machines die bij het uitvoeren van Windows Server 2008 R2 worden niet automatisch geactiveerd en moet worden geactiveerd met behulp van [MAK-activering](https://technet.microsoft.com/library/ff793438.aspx). Voor het gebruik van MAK-activering, moet u uw eigen productcode opgeven.
+- Azure Stack-host voor het activeren van Windows met AVMA-sleutels voor Windows Server 2016. Alle virtuele machines die worden uitgevoerd van Windows Server 2012 R2 of later automatisch geactiveerd.
+- Virtuele machines waarop Windows Server 2012 wordt uitgevoerd of eerder niet automatisch geactiveerd en moeten worden geactiveerd met behulp van [MAK-activering](https://technet.microsoft.com/library/ff793438.aspx). Voor het gebruik van MAK-activering, moet u uw eigen productcode opgeven.
 
 Microsoft Azure maakt gebruik van KMS-activering te activeren van Windows-VM's. Als u een virtuele machine van Azure Stack naar Azure en ondervindt problemen activeren, Zie [oplossen Azure Windows VM activeringsproblemen](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Als u meer informatie vindt u op de [problemen oplossen-Windows-activeringsfouten op Azure Virtual machines](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support Team Blog-bericht.
 

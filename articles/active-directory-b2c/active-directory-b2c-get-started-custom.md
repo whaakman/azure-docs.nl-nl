@@ -7,21 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/25/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 66ce0438e0cca62cbebb993be4940a93973c78d3
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852300"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078981"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Aan de slag met aangepaste beleidsregels in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Aangepaste beleidsregels](active-directory-b2c-overview-custom.md) zijn configuratiebestanden die het gedrag van uw Azure Active Directory (Azure AD) B2C-tenant definiëren. In dit artikel maakt u een aangepast beleid die ondersteuning biedt voor lokaal account registreren of aanmelden met behulp van een e-mailadres en wachtwoord. U ook voorbereiden uw omgeving voor het toevoegen van id-providers, zoals Facebook of Azure Active Directory.
+[Aangepaste beleidsregels](active-directory-b2c-overview-custom.md) zijn configuratiebestanden die het gedrag van uw Azure Active Directory (Azure AD) B2C-tenant definiëren. In dit artikel maakt u een aangepast beleid die ondersteuning biedt voor lokaal account registreren of aanmelden met behulp van een e-mailadres en wachtwoord. U ook voorbereiden uw omgeving voor het toevoegen van id-providers, zoals Facebook.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -31,9 +31,6 @@ Als u er nog geen hebt, moet u [maken van een Azure AD B2C-tenant](tutorial-crea
 
 1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen. 
-
-    ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer op de pagina overzicht **Identiteitsfunctie: PREVIEW**.
 
@@ -66,32 +63,17 @@ Als u al een [Facebook toepassingsgeheim](active-directory-b2c-setup-fb-app.md),
 5. Voor **sleutelgebruik**, selecteer **handtekening**.
 6. Klik op **Create**.
 
-## <a name="register-applications"></a>Toepassingen registreren
+## <a name="register-an-application"></a>Een toepassing registreren
 
-Azure AD B2C, moet u twee toepassingen die worden gebruikt voor aanmelden en meld u aan gebruikers registreren: IdentityExperienceFramework (een web-app) en ProxyIdentityExperienceFramework (een systeemeigen app) met gedelegeerde machtigingen van de app IdentityExperienceFramework. Lokale accounts bestaat alleen in uw tenant. Uw gebruikers zich aanmelden met een combinatie van unieke e-mailadres en wachtwoord voor toegang tot uw toepassingen tenant is geregistreerd.
+Een toepassing is in Azure Active Directory (Azure AD) B2C om in te schakelen van een gebruiker zich aanmelden en meld u aan met een lokaal account dat in uw tenant bestaat geregistreerd. Uw gebruikers zich aanmelden met een uniek e-mailadres en wachtwoord voor toegang tot de geregistreerde toepassing.
 
-### <a name="register-the-identityexperienceframework-application"></a>De toepassing IdentityExperienceFramework registreren
-
-1. Kies **alle services** Zoek in de linkerbovenhoek van Azure portal en selecteer **Azure Active Directory**, en selecteer vervolgens **App-registraties**.
+1. Kies **alle services** Zoek in de linkerbovenhoek van Azure portal en selecteer **App-registraties**.
 2. Selecteer **Nieuwe toepassing registreren**.
-3. Voor **naam**, voer `IdentityExperienceFramework`.
-4. Voor **toepassingstype**, kiest u **Web-app/API**.
-5. Voor **aanmeldings-URL**, voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, waarbij `your-tenant-name` is de domeinnaam van uw Azure AD B2C-tenant.
-6. Klik op **Create**. 
-7. Nadat deze gemaakt, kopieert u de toepassings-ID en sla deze voor later gebruik.
-
-### <a name="register-the-proxyidentityexperienceframework-application"></a>De toepassing ProxyIdentityExperienceFramework registreren
-
-1. Selecteer **App-registraties**, en selecteer vervolgens **nieuwe toepassing registreren**.
-2. Voor **naam**, voer `ProxyIdentityExperienceFramework`.
-3. Voor **toepassingstype**, kiest u **systeemeigen**.
-4. Voor **omleidings-URI**, voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, waarbij `yourtenant` is uw Azure AD B2C-tenant.
-5. Klik op **Create**. Nadat deze gemaakt, kopieert u de toepassings-ID en sla deze voor later gebruik.
-6. Selecteer op de pagina instellingen **vereiste machtigingen**, en selecteer vervolgens **toevoegen**.
-7. Selecteer **Een API selecteren**.
-8. Zoek en selecteer **IdentityExperienceFramework**, en klik vervolgens op **Selecteer**.
-9. Schakel het selectievakje in naast **toegang IdentityExperienceFramework**, klikt u op **Selecteer**, en klik vervolgens op **gedaan**.
-10. Selecteer **machtigingen verlenen**, en klik vervolgens om te bevestigen **Ja**.
+3. Voor **naam**, voer `ProxyIdentityExperienceFramework`.
+4. Voor **toepassingstype**, kiest u **systeemeigen**.
+5. Voor **omleidings-URI**, voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, waarbij `your-tenant-name` is de naam van uw Azure AD B2C-tenant.
+6. Klik op **Create**. Nadat deze gemaakt, kopieert u de toepassings-ID en sla deze voor later gebruik.
+7. Selecteer **machtigingen verlenen**, en klik vervolgens om te bevestigen **Ja**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Beginnerspakket downloaden en wijzigen van beleid
 
@@ -117,17 +99,14 @@ Elk pack starter bevat:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. In de map SocialAndLocalAccounts alles van het vervangen van de bestanden bewerken `yourtenant.onmicrosoft.com` met de naam voor uw tenant. Bijvoorbeeld `contosoTenant.onmicrosoft.com`. Als u een XML-editor, moet [probeer Visual Studio Code](https://code.visualstudio.com/download), een lichtgewicht editor voor meerdere platforms.
+2. In de map SocialAndLocalAccounts alles van het vervangen van de bestanden bewerken `yourtenant` met de naam voor uw tenant. Bijvoorbeeld `contosoTenant.onmicrosoft.com`. Als u een XML-editor, moet [probeer Visual Studio Code](https://code.visualstudio.com/download), een lichtgewicht editor voor meerdere platforms.
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Toepassings-id's toevoegen aan het aangepaste beleid
 
-De toepassings-id's toevoegen aan het extensiebestand *TrustFrameworkExtensions.xml*.
+De toepassings-ID toevoegen aan het extensiebestand *TrustFrameworkExtensions.xml*.
 
 1. Open de *TrustFrameworkExtensions.xml* -bestand en zoek het element `<TechnicalProfile Id="login-NonInteractive">`.
-2. Vervang beide exemplaren van `IdentityExperienceFrameworkAppId` met toepassings-ID van de Identiteitservaring-Framework-toepassing die u eerder hebt gemaakt. Vervang beide exemplaren van `ProxyIdentityExperienceFrameworkAppId` met toepassings-ID van de Proxy Identiteitservaring-Framework-toepassing die u eerder hebt gemaakt. Het volgende voorbeeld wordt de **aanmelding niet-interactieve** technisch profiel nadat het is gewijzigd:
-
-    ![Toepassings-id 's](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. Vervang beide de waarde van `client_id` en `resource_id` met toepassings-ID van de ProxyIdentityExperienceFramework-toepassing die u eerder hebt gemaakt.
 3. Sla het extensiebestand.
 
 ## <a name="upload-the-policies"></a>Beleid uploaden

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c41af11ad4afe705ca2eb284619c917a6e87b562
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856635"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911962"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Een Windows Server virtuele machine toevoegen aan een beheerd domein met behulp van Resource Manager-sjabloon
 Dit artikel ziet u hoe u een Windows Server-machine koppelen aan een beheerd domein van Azure AD Domain Services met behulp van Resource Manager-sjablonen.
@@ -100,7 +100,7 @@ Wanneer de implementatie voltooid is, wordt de opgegeven Windows-virtuele machin
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* [Overzicht van Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Overzicht van Azure PowerShell](/powershell/azure/overview)
 * [Azure quick start-sjabloon: een nieuwe virtuele machine lid worden van domein](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Azure quick start-sjabloon: bestaande virtuele machines lid worden van domein](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

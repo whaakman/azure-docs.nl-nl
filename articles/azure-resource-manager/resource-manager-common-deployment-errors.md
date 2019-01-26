@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3363b0bbd98b125f0108ca842d5c0b6b9941bf9e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 300ed77322f66150111ecda70dbf95ac373aad2c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330378"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079168"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -39,7 +39,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten in de Azure-implementat
 | Conflict | U vraagt om een bewerking die in de huidige status van de resource is niet toegestaan. Bijvoorbeeld, de schijfgrootte mag alleen als het maken van een virtuele machine of als de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wachten op voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |
 | DeploymentFailed | De implementatie mislukt-fout is een algemene fout dat biedt geen informatie die u nodig hebt voor het oplossen van de fout. Zoek in de foutdetails voor een foutcode die vindt u meer informatie. | [Foutcode vinden](#find-error-code) |
-| DeploymentQuotaExceeded | Als u de limiet van 800 implementaties per resourcegroep bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az group deployment verwijderen](/cli/azure/group/deployment#az-group-deployment-delete) voor Azure CLI of [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Een vermelding verwijderen uit de implementatiegeschiedenis heeft geen invloed op de resources implementeren. | |
+| DeploymentQuotaExceeded | Als u de limiet van 800 implementaties per resourcegroep bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az group deployment verwijderen](/cli/azure/group/deployment#az-group-deployment-delete) voor Azure CLI of [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) in PowerShell. Een vermelding verwijderen uit de implementatiegeschiedenis heeft geen invloed op de resources implementeren. | |
 | DnsRecordInUse | De naam van de DNS-record moet uniek zijn. U kunt een andere naam of de bestaande record wijzigen. | |
 | ImageNotFound | Controleer de instellingen van de VM-installatiekopie. |  |
 | InUseSubnetCannotBeDeleted | U krijgt deze fout tijdens het bijwerken van een resource, maar de aanvraag wordt verwerkt door te verwijderen en het maken van de resource. Zorg ervoor dat alle ongewijzigd waarden op te geven. | [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -71,7 +71,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten in de Azure-implementat
 | RequestDisallowedByPolicy | Uw abonnement bevat een resourcebeleid waarmee wordt voorkomen dat een actie die u wilt uitvoeren tijdens de implementatie. Zoek het beleid dat de actie wordt geblokkeerd. Indien mogelijk, wijzigen van uw implementatie om te voldoen aan de beperkingen van het beleid. | [Beleid oplossen](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Geef de naam van een resource die geen een gereserveerde naam. | [Gereserveerde resourcenamen](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wachten op verwijderen om te voltooien. | |
-| ResourceGroupNotFound | Controleer de naam van de doelresourcegroep voor de implementatie. Het moet al bestaan in uw abonnement. Controleer de context van uw abonnement. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
+| ResourceGroupNotFound | Controleer de naam van de doelresourcegroep voor de implementatie. Het moet al bestaan in uw abonnement. Controleer de context van uw abonnement. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/az.profile/set-azcontext) |
 | ResourceNotFound | Uw implementatie verwijst naar een resource die kan niet worden omgezet. Controleer uw gebruik van de **verwijzing** functie bevat de vereiste parameters voor uw scenario. | [Referenties oplossen](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | De implementatie is probeert te maken van resources die het quotum voor het abonnement, resourcegroep of regio. Wijzig, indien mogelijk, uw infrastructuur in binnen de quota blijven. Overweeg anders aanvragen van een wijziging in uw quota's. | [Quota's oplossen](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selecteer de SKU (zoals VM-grootte) die beschikbaar is voor de locatie die u hebt geselecteerd. | [SKU oplossen](resource-manager-sku-not-available-errors.md) |
@@ -89,9 +89,9 @@ Er zijn twee typen fouten die u kunt ontvangen:
 * validatiefouten
 * fouten bij de implementatie
 
-Validatiefouten voortvloeien uit scenario's die vóór de implementatie kunnen worden bepaald. Ze bevatten syntaxisfouten in de sjabloon of het implementeren van resources die de abonnementquota voor uw wordt overschreden. Er ontstaan fouten bij de implementatie van voorwaarden die tijdens het implementatieproces optreden. Ze bevatten probeert te krijgen tot een resource die parallel wordt geïmplementeerd.
+Validatiefouten voortvloeien uit scenario's die vóór de implementatie kunnen worden bepaald. Ze bevatten syntaxisfouten in de sjabloon of proberen resources te implementeren waarmee uw abonnementquota worden overschreden. Er ontstaan fouten bij de implementatie van voorwaarden die tijdens het implementatieproces optreden. Bijvoorbeeld wanneer deze toegang proberen te krijgen tot een resource die parallel wordt geïmplementeerd.
 
-Beide typen fouten retourneert een foutcode die u gebruikt om op te lossen van de implementatie. Beide typen fouten worden weergegeven in de [activiteitenlogboek](resource-group-audit.md). Validatiefouten niet echter wel weergegeven in de implementatiegeschiedenis van uw omdat de implementatie is nooit gestart.
+Beide typen fouten retourneren een foutcode die u gebruikt om de problemen met de implementatie op te lossen. Beide typen fouten worden weergegeven in de [activiteitenlogboek](resource-group-audit.md). Validatiefouten worden echter niet weergegeven in de implementatiegeschiedenis omdat de implementatie niet is gestart.
 
 ### <a name="validation-errors"></a>Validatiefouten
 
@@ -110,7 +110,7 @@ Als de bewerking is gevalideerd, maar niet tijdens de implementatie, krijgt u ee
 Als u wilt zien van implementatie-foutcodes en berichten met PowerShell, gebruikt u:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+(Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
 ```
 
 Als u wilt zien van implementatie-foutcodes en berichten met Azure CLI, gebruikt u:
@@ -140,7 +140,7 @@ Soms moet u meer informatie over de aanvraag en respons voor meer informatie ove
 Stel in PowerShell, de **DeploymentDebugLogLevel** parameter op alle, obsah ResponseContent of RequestContent.
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName examplegroup `
   -TemplateFile c:\Azure\Templates\storage.json `
@@ -150,7 +150,7 @@ New-AzureRmResourceGroupDeployment `
 Controleer de aanvraag van inhoud met de volgende cmdlet:
 
 ```powershell
-(Get-AzureRmResourceGroupDeploymentOperation `
+(Get-AzResourceGroupDeploymentOperation `
 -DeploymentName exampledeployment `
 -ResourceGroupName examplegroup).Properties.request `
 | ConvertTo-Json
@@ -159,7 +159,7 @@ Controleer de aanvraag van inhoud met de volgende cmdlet:
 Of het antwoord inhoud met:
 
 ```powershell
-(Get-AzureRmResourceGroupDeploymentOperation `
+(Get-AzResourceGroupDeploymentOperation `
 -DeploymentName exampledeployment `
 -ResourceGroupName examplegroup).Properties.response `
 | ConvertTo-Json

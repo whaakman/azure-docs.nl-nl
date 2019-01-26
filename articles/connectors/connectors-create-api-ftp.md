@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: d57a80ec2a1ebfca173d7eaa165de4d344af2ccf
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391117"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913356"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Maken, bewaken en beheren van FTP-bestanden met behulp van Azure Logic Apps
 
@@ -29,7 +29,7 @@ Met Azure Logic Apps en de FTP-connector, kunt u geautomatiseerde taken en werks
 U kunt triggers die te antwoorden krijgen van uw FTP-server en de uitvoer beschikbaar voor andere acties. U kunt acties uitvoeren in uw logische apps gebruiken voor het beheren van bestanden op uw FTP-server. U kunt ook andere acties waarmee de uitvoer van de FTP-acties hebben. Als u regelmatig bestanden van uw FTP-server, kunt u e-mailberichten over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> De FTP-connector ondersteunt alleen de bestanden die zijn dan 50 MB of kleiner, tenzij u [logische groepen te verdelen voor het verwerken van grote berichten](../logic-apps/logic-apps-handle-large-messages.md). 
+> De FTP-connector ondersteunt alleen de bestanden die zijn dan 50 MB of kleiner, tenzij u [bericht opdelen in acties](../logic-apps/logic-apps-handle-large-messages.md). U niet op dit moment gebruiken logische groepen te verdelen voor triggers.
 >
 > Ook de FTP-connector ondersteunt alleen expliciete FTP via SSL (FTPS) en is niet compatibel met impliciete FTPS. 
 
@@ -66,13 +66,27 @@ U kunt triggers die te antwoorden krijgen van uw FTP-server en de uitvoer beschi
 
 1. Geef de benodigde informatie voor uw geselecteerde trigger of actie en doorgaan met het ontwikkelen van uw logische app-werkstroom.
 
+Bij het aanvragen van inhoud van ophalen de trigger niet bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon:
+
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+
+* Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Voorbeelden
+
+<a name="file-added-modified"></a>
 
 ### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP-trigger: Wanneer een bestand is toegevoegd of gewijzigd
 
 Deze trigger start een werkstroom voor logische Apps wanneer de trigger wordt gedetecteerd wanneer een bestand wordt toegevoegd of gewijzigd op een FTP-server. Dus bijvoorbeeld, dat kunt u een voorwaarde die controleert of de inhoud van het bestand en beslist of om op te halen die inhoud toevoegen op basis van of die inhoud voldoet aan een opgegeven voorwaarde. Ten slotte kunt u een actie toevoegen die de inhoud van het bestand opgehaald en die inhoud opslaat in een map op de SFTP-server. 
 
 **Voorbeeld van de onderneming**: U kunt deze trigger gebruiken voor het bewaken van een FTP-map voor nieuwe bestanden die klanten en orders te beschrijven. U kunt vervolgens een FTP-actie zoals gebruiken **bestandsinhoud ophalen**, zodat u kunt de volgorde van de inhoud voor verdere verwerking ophalen en deze volgorde opslaan in een orderdatabase.
+
+Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+
+* Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
 
 Een geldig en functionele logische app is een trigger en ten minste één actie vereist. Dus zorg ervoor dat u een actie toevoegen nadat u een trigger hebt toegevoegd.
 
@@ -101,9 +115,19 @@ Hier volgt een voorbeeld waarin deze trigger: **Wanneer een bestand wordt toegev
 
 Nu dat uw logische app een trigger heeft, voeg de acties die u wilt dat wordt uitgevoerd wanneer de logische app vindt een nieuw of bewerkte bestand. In dit voorbeeld kunt u een FTP-actie die de nieuwe of bijgewerkte inhoud opgehaald toevoegen.
 
+<a name="get-content"></a>
+
 ### <a name="ftp-action-get-content"></a>FTP-actie: Inhoud ophalen
 
 Deze actie wordt de inhoud opgehaald van een bestand in een FTP-server wanneer dat bestand is toegevoegd of bijgewerkt. U kunt bijvoorbeeld de trigger toevoegen uit het vorige voorbeeld en een actie die de inhoud van het bestand opgehaald nadat dit bestand wordt toegevoegd of bewerkt. 
+
+Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+
+* Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
+
+Hier volgt een voorbeeld waarin deze actie: **Inhoud ophalen**
 
 1. Kies onder de trigger of eventuele andere vereiste acties, **nieuwe stap**. 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9465be92d2289bb174834cc856d6f20b6b64c81b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8a5fd44f1122b682ee4e3b4c6fcf56408098cae1
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888121"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080703"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -176,7 +176,7 @@ Voor het verplaatsen van virtuele machines die zijn geconfigureerd met Azure Bac
 * Zoek de locatie van uw virtuele Machine.
 * Vinden van een resourcegroep met de volgende naamgevingspatroon: `AzureBackupRG_<location of your VM>_1` bijvoorbeeld AzureBackupRG_westus2_1
 * Als in Azure portal, klikt u vervolgens selectievakje ' verborgen typen weergeven"
-* Als in PowerShell, gebruikt u de `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* Als in PowerShell, gebruikt u de `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
 * Als u in de CLI, gebruikt u de `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Het vinden van de resource met het type `Microsoft.Compute/restorePointCollections` waarvoor het naamgevingspatroon `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Deze resource verwijderen. Deze bewerking wordt alleen de directe herstelpunten, niet de gegevens waarvan een back-up is gemaakt in de kluis verwijderd.
@@ -343,8 +343,8 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
   Voor Azure PowerShell gebruiken:
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   Gebruik voor Azure CLI:
@@ -364,14 +364,14 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
   Gebruik de volgende opdrachten om op te halen van de registratiestatus voor PowerShell:
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Gebruik het volgende voor het registreren van een resourceprovider:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   Gebruik de volgende opdrachten om op te halen van de status van de registratie voor Azure CLI:
@@ -475,12 +475,12 @@ Wanneer deze is voltooid, krijgt u een melding van het resultaat.
 
 ### <a name="by-using-azure-powershell"></a>Met behulp van Azure PowerShell
 
-Als u bestaande resources naar een andere resourcegroep of abonnement, gebruikt u de [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) opdracht. Het volgende voorbeeld ziet hoe u verschillende resources verplaatsen naar een nieuwe resourcegroep.
+Als u bestaande resources naar een andere resourcegroep of abonnement, gebruikt u de [verplaatsen AzResource](/powershell/module/az.resources/move-azresource) opdracht. Het volgende voorbeeld ziet hoe u verschillende resources verplaatsen naar een nieuwe resourcegroep.
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 Als u wilt verplaatsen naar een nieuw abonnement, een waarde bevatten voor de `DestinationSubscriptionId` parameter.

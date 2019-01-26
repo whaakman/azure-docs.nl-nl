@@ -4,13 +4,13 @@ Services: machine learning ms.service: machine learning ms.component: studio ms.
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
-# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Gegevens importeren in Azure Machine Learning Studio uit online-gegevensbronnen 
+# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Gegevens importeren in Azure Machine Learning Studio uit online-gegevensbronnen
 Dit artikel beschrijft de ondersteuning voor online-gegevens importeren uit verschillende bronnen en de informatie die nodig zijn voor het verplaatsen van gegevens uit deze bronnen in een Azure Machine Learning Studio-experiment.
 
 > [!NOTE]
 > In dit artikel bevat algemene informatie over de [importgegevens] [ import-data] module. Voor meer informatie over de typen gegevens die u kunt gedetailleerde, indelingen, parameters en antwoorden op veelgestelde vragen, Raadpleeg het naslagonderwerp voor de module voor de [importgegevens] [ import-data] module.
-> 
-> 
+>
+>
 
 ## <a name="introduction"></a>Inleiding
 Met behulp van de [importgegevens] [ import-data] -module, u kunt toegang tot gegevens van een van verschillende online gegevensbronnen terwijl uw experiment wordt uitgevoerd [Azure Machine Learning Studio](https://studio.azureml.net/Home):
@@ -29,14 +29,14 @@ Voor toegang tot bronnen in uw experiment Studio online-gegevens, toevoegen de [
 Houd er rekening mee dat omdat deze trainingsgegevens wordt geopend terwijl uw experiment wordt uitgevoerd, alleen beschikbaar in deze experiment is. Ter vergelijking: de gegevens die zijn opgeslagen in een gegevensset-module zijn beschikbaar voor een experiment in uw werkruimte.
 
 > [!IMPORTANT]
-> Op dit moment de [importgegevens] [ import-data] en [gegevens exporteren] [ export-data] modules kunnen lezen en schrijven van gegevens alleen uit die zijn gemaakt met de klassieke Azure-opslag implementatiemodel. Met andere woorden, is het nieuwe type uit Azure Blob Storage-account dat een hot storage-toegangslaag of cool storage-toegangslaag biedt nog niet ondersteund. 
-> 
-> Over het algemeen een Azure storage-accounts die u mogelijk hebt gemaakt voordat deze serviceoptie is beschikbaar geworden moet niet worden beïnvloed. 
-> Als u een nieuw account maken wilt, selecteert u **klassieke** voor de implementatie van het model, of gebruik van resourcemanager en selecteer **algemeen gebruik** in plaats van **Blob storage** voor  **Soort account**. 
-> 
+> Op dit moment de [importgegevens] [ import-data] en [gegevens exporteren] [ export-data] modules kunnen lezen en schrijven van gegevens alleen uit die zijn gemaakt met de klassieke Azure-opslag implementatiemodel. Met andere woorden, is het nieuwe type uit Azure Blob Storage-account dat een hot storage-toegangslaag of cool storage-toegangslaag biedt nog niet ondersteund.
+>
+> Over het algemeen een Azure storage-accounts die u mogelijk hebt gemaakt voordat deze serviceoptie is beschikbaar geworden moet niet worden beïnvloed.
+> Als u een nieuw account maken wilt, selecteert u **klassieke** voor de implementatie van het model, of gebruik van resourcemanager en selecteer **algemeen gebruik** in plaats van **Blob storage** voor  **Soort account**.
+>
 > Zie voor meer informatie, [Azure Blob-opslag: Hot en Cool Storage-lagen](../../storage/blobs/storage-blob-storage-tiers.md).
-> 
-> 
+>
+>
 
 ## <a name="supported-online-data-sources"></a>Online gegevensbronnen ondersteund
 Azure Machine Learning **importgegevens** module biedt ondersteuning voor de volgende gegevensbronnen:
@@ -53,7 +53,7 @@ Azure Machine Learning **importgegevens** module biedt ondersteuning voor de vol
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Implementeren van Azure ML-webservices die gebruikmaken van gegevensimport- en gegevensexportmodules](web-services-that-use-import-export-modules.md)
+[Implementeren van Azure Machine Learning studio-webservices die gebruikmaken van gegevensimport- en gegevensexportmodules](web-services-that-use-import-export-modules.md)
 
 
 <!-- Module References -->

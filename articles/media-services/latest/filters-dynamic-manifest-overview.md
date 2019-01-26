@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728037"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912030"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
 
@@ -113,8 +113,8 @@ U de volgende eigenschappen voor het beschrijven van de filters gebruiken.
 |Name|Description|
 |---|---|
 |firstQuality|De eerste kwaliteit bitrate van het filter.|
-|PresentationTimeRange|Het tijdsbereik van de presentatie. Deze eigenschap wordt gebruikt voor het filteren van manifest start/eindpunten, de lengte van de presentatie-venster en de beginpositie van live. <br/>Zie voor meer informatie, [PresentationTimeRange](#PresentationTimeRange).|
-|Sporen te wissen|De voorwaarden van de nummers selectie. Zie voor meer informatie, [sporen te wissen](#tracks)|
+|presentationTimeRange|Het tijdsbereik van de presentatie. Deze eigenschap wordt gebruikt voor het filteren van manifest start/eindpunten, de lengte van de presentatie-venster en de beginpositie van live. <br/>Zie voor meer informatie, [PresentationTimeRange](#PresentationTimeRange).|
+|sporen te wissen|De voorwaarden van de nummers selectie. Zie voor meer informatie, [sporen te wissen](#tracks)|
 
 ### <a name="presentationtimerange"></a>PresentationTimeRange
 
@@ -124,10 +124,10 @@ Gebruik deze eigenschap met **Asset Filters**. Het is niet raadzaam om in te ste
 |---|---|
 |**endTimestamp**|De grens van de absolute end-tijd. Van toepassing op Video on Demand (VoD). Voor de Live presentatie, wordt deze op de achtergrond genegeerd en toegepast wanneer de presentatie-ends en de stroom wordt weergegeven als VoD.<br/><br/>De waarde vertegenwoordigt een absolute eindpunt van de stroom. Dit wordt afgerond naar de dichtstbijzijnde volgende GOP starten.<br/><br/>Gebruik StartTimestamp en EndTimestamp waaruit de afspeellijst (manifest). Bijvoorbeeld, StartTimestamp = 40000000 en EndTimestamp = 100000000 een afspeellijst met media tussen StartTimestamp en EndTimestamp wordt gegenereerd. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in het manifest.<br/><br/>Zie ook de **forceEndTimestamp** definitie die volgt.|
 |**forceEndTimestamp**|Van toepassing op actieve filters.<br/><br/>**forceEndTimestamp** is de Booleaanse waarde die aangeeft of **endTimestamp** is ingesteld op een geldige waarde. <br/><br/>Als de waarde **waar**, wordt de **endTimestamp** waarde moet worden opgegeven. Als deze niet is opgegeven, wordt een onjuiste aanvraag geretourneerd.<br/><br/>Als bijvoorbeeld, u wilt definiëren van een filter op dat bij 5 minuten in de video-invoer begint en duurt tot het einde van de stroom, u stelt **forceEndTimestamp** op onwaar en laat de instelling **endTimestamp**.|
-|**liveBackoffDuration**|Geldt alleen voor Live. De eigenschap wordt gebruikt voor het afspelen van live positie definiëren. Deze regel gebruikt, kunt u live afspelen positie vertraging en maken van een buffer-serverzijde voor spelers. LiveBackoffDuration is ten opzichte van de live positie. De duur van de maximale live uitstel is 60 seconden.|
-|**presentationWindowDuration**|Van toepassing op Live. Gebruik **presentationWindowDuration** een sliding window toepassen op de afspeellijst. Bijvoorbeeld, stel presentationWindowDuration = 1200000000 om toe te passen een sliding window van twee minuten. Media binnen twee minuten van de rand van het live worden opgenomen in de afspeellijst. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in de afspeellijst. De duur van het venster minimale presentatie is 120 seconden.|
+|**liveBackoffDuration**|Geldt alleen voor Live. De eigenschap wordt gebruikt voor het afspelen van live positie definiëren. Deze regel gebruikt, kunt u live afspelen positie vertraging en maken van een buffer-serverzijde voor spelers. LiveBackoffDuration is ten opzichte van de live positie. De duur van de maximale live uitstel is 300 seconden.|
+|**presentationWindowDuration**|Van toepassing op Live. Gebruik **presentationWindowDuration** een sliding window toepassen op de afspeellijst. Bijvoorbeeld, stel presentationWindowDuration = 1200000000 om toe te passen een sliding window van twee minuten. Media binnen twee minuten van de rand van het live worden opgenomen in de afspeellijst. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in de afspeellijst. De duur van het venster minimale presentatie is 60 seconden.|
 |**startTimestamp**|Geldt voor VoD- of Live streams. De waarde vertegenwoordigt een absolute beginpunt van de stroom. De waarde wordt afgerond naar de dichtstbijzijnde volgende GOP starten.<br/><br/>Gebruik **startTimestamp** en **endTimestamp** waaruit de afspeellijst (manifest). Bijvoorbeeld, startTimestamp = 40000000 en endTimestamp = 100000000 een afspeellijst met media tussen StartTimestamp en EndTimestamp wordt gegenereerd. Als een fragment de grens gevestigd, wordt het hele fragment worden opgenomen in het manifest.|
-|**tijdschaal**|Geldt voor VoD- of Live streams. De tijdschaal die worden gebruikt door de tijdstempels en de hierboven opgegeven duur. De standaard-tijdschaal is 10000000. Een alternatieve tijdschaal kan worden gebruikt. De standaardwaarde is 10000000 HNS (100 nanoseconden).|
+|**timescale**|Geldt voor VoD- of Live streams. De tijdschaal die worden gebruikt door de tijdstempels en de hierboven opgegeven duur. De standaard-tijdschaal is 10000000. Een alternatieve tijdschaal kan worden gebruikt. De standaardwaarde is 10000000 HNS (100 nanoseconden).|
 
 ### <a name="tracks"></a>sporen te wissen
 
@@ -138,7 +138,7 @@ Eigenschap van de filtervoorwaarden bijhouden beschrijven tracktypen, waarden (i
 |Name|Description|
 |---|---|
 |**Bitrate**|Gebruik de bitrate van het spoor voor filteren.<br/><br/>De aanbevolen waarde is een reeks bitsnelheden in bits per seconde. Bijvoorbeeld: '0-2427000'.<br/><br/>Opmerking: tijdens een specifieke bitrate-waarde, zoals 250000 (bits per seconde), kunt u deze methode wordt niet aanbevolen, omdat de exacte bitsnelheden van een Asset naar een andere variëren kan.|
-|**Code**|Gebruik de waarde van de code van het spoor voor het filteren.<br/><br/>De waarde is het eerste element van codecs indeling, zoals opgegeven in [RFC 6381](https://tools.ietf.org/html/rfc6381). Op dit moment worden de volgende codecs ondersteund: <br/>Video: "Avc1", "hev1", "hvc1"<br/>Voor Audio: "Mp4a", "EG-3"<br/><br/>Om te bepalen van de waarden van de code voor de nummers in een actief [ophalen en bekijk het manifestbestand](#get-and-examine-manifest-files).|
+|**FourCC**|Gebruik de waarde van de code van het spoor voor het filteren.<br/><br/>De waarde is het eerste element van codecs indeling, zoals opgegeven in [RFC 6381](https://tools.ietf.org/html/rfc6381). Op dit moment worden de volgende codecs ondersteund: <br/>Video: "Avc1", "hev1", "hvc1"<br/>Voor Audio: "Mp4a", "EG-3"<br/><br/>Om te bepalen van de waarden van de code voor de nummers in een actief [ophalen en bekijk het manifestbestand](#get-and-examine-manifest-files).|
 |**Taal**|Gebruik de taal van de track voor filteren.<br/><br/>De waarde is de code van een taal die u opnemen wilt, als opgegeven in RFC 5646. Bijvoorbeeld, "en".|
 |**Naam**|Gebruik de naam van de track voor het filteren.|
 |**Type**|Gebruik het type van het spoor voor het filteren.<br/><br/>De volgende waarden zijn toegestaan: "video", 'audio' of 'tekst'.|

@@ -8,7 +8,7 @@ services: active-directory
 editor: ''
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: f73c4f7f606f264f899aeb6405ac7bfae71e518d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fc66f97b39f69af4144c5dd135eac5ea0a7f9a41
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948046"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075297"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Toepassing en service-principalobjecten in Azure Active Directory
 
@@ -86,7 +86,7 @@ Het volgende diagram illustreert de relatie tussen het toepassingsobject en de b
 
 In dit voorbeeldscenario:
 
-| Stap | Beschrijving |
+| Stap | Description |
 |------|-------------|
 | 1    | Is het proces voor het maken van de toepassing en service-principalobjecten in de starttenant van de toepassing. |
 | 2    | Wanneer beheerders van Contoso en Fabrikam toestemming hebt voltooid, wordt een service-principal-object gemaakt in Azure AD-tenant van hun bedrijf en de machtigingen die de beheerder van de toegewezen toegewezen. Houd er ook rekening mee dat de HR-app kan worden geconfigureerd/die is ontworpen om toe te staan van toestemming door gebruikers voor individueel gebruik. |

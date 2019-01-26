@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fe28eda7571bf95d1e86419f5caf3cf65e4020b3
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463334"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078641"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migreren van Federatie naar wachtwoord-hashsynchronisatie voor Azure Active Directory
 
@@ -30,7 +30,8 @@ De volgende vereisten zijn vereist voor de migratie van AD FS voor het gebruik v
 
 ### <a name="update-azure-ad-connect"></a>Update van Azure AD Connect
 
-Als u wilt de stappen die nodig is voor het migreren naar wachtwoord-hashsynchronisatie met succes hebt voltooid, hebt u [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 of een latere versie. In Azure AD Connect 1.1.819.0, de manier waarop de aanmelding bij de conversie is uitgevoerd wijzigingen op aanzienlijk. De totale tijd voor het migreren van AD FS voor verificatie van de cloud in deze versie is verkort van mogelijk uren en minuten.
+Minimaal uit te voeren de stappen voor het migreren naar wachtwoord-hashsynchronisatie, moeten er [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Deze versie bevat belangrijke wijzigingen aangebracht in de manier waarop aanmelden conversie wordt uitgevoerd en vermindert de totale tijd voor het migreren van Federatie naar Cloud-verificatie van mogelijk uren en minuten.
+
 
 > [!IMPORTANT]
 > U kunt lezen in verouderde documentatie, hulpprogramma's en blogs gebruikersconversie is vereist wanneer u domeinen van federatieve identiteiten naar beheerde identiteit converteren. *Converteren van gebruikers* is niet langer vereist. Microsoft werkt aan voor het bijwerken van documentatie en hulpprogramma's om deze wijziging weer te geven.

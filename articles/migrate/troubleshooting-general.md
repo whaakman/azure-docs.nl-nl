@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: MT
+ms.openlocfilehash: 8ec580c31901cdbb28fc3a66877f5b0f320f1f7f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827938"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912591"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -153,8 +153,12 @@ Azure Migrate collector PowerCLI downloadt en installeert deze op het apparaat. 
 Dit probleem kan optreden vanwege een probleem met de installatie van VMware PowerCLI. Volg de onderstaande stappen om het probleem te verhelpen:
 
 1. Als u niet op de nieuwste versie van het collector-apparaat, [uw Collector upgraden naar de nieuwste versie](https://aka.ms/migrate/col/checkforupdates) en controleer of het probleem opgelost is.
-2. Als u de meest recente versie van de collector al hebt, handmatig installeren [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) en controleer of het probleem opgelost is.
-3. Als de bovenstaande niet los het probleem, navigeer naar de map C:\Program Files\ProfilerService en verwijderen van de VMware.dll en VimService65.dll bestanden die aanwezig zijn in de map en start de 'Azure Migrate Collector-service in Windows-Services beheren (Open ' Voer ' en het type 'services.msc' om Windows Service Manager te openen).
+2. Als u de meest recente versie van de collector al hebt, volgt u de onderstaande stappen om u te doen een schone installatie van PowerCLI: een. Sluit de webbrowser in het apparaat.
+   b. Stop de 'Azure Migrate Collector-service door te gaan naar Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op stoppen, c. Verwijder alle mappen die beginnen met 'VMware' van de volgende locaties: C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules d. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
+   e. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing automatisch download en installeer de vereiste versie fo PowerCLI.
+
+3. Als de bovenstaande het probleem niet verhelpen, handmatig installeren [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) en controleer of het probleem opgelost is.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 

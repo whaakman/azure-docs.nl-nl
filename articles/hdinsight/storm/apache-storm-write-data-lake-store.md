@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: b11e1f35578eef07acb823081f0bbfdbaf467f9c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632464"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912830"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar Apache Hadoop HDFS van Apache Storm op HDInsight
 
@@ -135,7 +135,7 @@ Zie voor meer informatie over het framework lichtstroom [ https://storm.apache.o
 
 Storm op HDInsight omvat standaard niet de onderdelen die HdfsBolt gebruikt om te communiceren met Azure Storage of Data Lake-opslag in het klassepad van Storm. De volgende scriptactie gebruiken om toe te voegen deze onderdelen de `extlib` Active directory voor Storm op het cluster:
 
-* Script-URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
+* Script URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Knooppunten toe te passen op: Nimbus, Supervisor
 * Parameters: Geen
 
@@ -221,3 +221,5 @@ Storm-topologieën uitgevoerd totdat deze wordt gestopt of het cluster wordt ver
 
 U hebt geleerd hoe u Apache Storm gebruiken om te schrijven naar Azure Storage en Azure Data Lake Storage, Ontdek andere [voorbeelden voor Apache Storm voor HDInsight](apache-storm-example-topology.md).
 
+## <a name="see-also"></a>Zie ook
+* [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

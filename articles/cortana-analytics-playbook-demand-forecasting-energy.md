@@ -10,29 +10,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306485"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078777"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Sjabloon Playbook van Cortana Intelligence-oplossing voor vraagprognose van energie
 ## <a name="executive-summary"></a>Managementsamenvatting
-Internet of Things (IoT), alternatieve energiebronnen en big data in de afgelopen jaren hebben samengevoegd voor het maken van grote verkoopkansen in het hulpprogramma en de energie-domein. Op hetzelfde moment, hebben het hulpprogramma en de volledige energiesector verbruik plat maken om met klanten betere manieren voor het beheren van hun gebruik van energie veeleisende gezien. Daarom kan zijn het hulpprogramma en slimme grid bedrijven nodig voor het vernieuwen en vernieuwen zelf. Bovendien worden veel hulpprogramma's en energiebeheer rasters vaker het verouderde en zeer kostbaar zijn te onderhouden en beheren. Tijdens het afgelopen jaar werkt het team aan een aantal engagements binnen het domein energie. Tijdens deze betrokkenheid, Hiermee hebben we veel gevallen waarin de hulpprogramma's of ISV's (Independent Software Vendors) hebt op zoek was bij de prognoses voor toekomstige energievraag aangetroffen. Deze prognoses speelt een belangrijke rol in hun huidige en toekomstige activiteiten en de basis vormt voor verschillende gebruiksvoorbeelden zijn geworden. Het gaat hierbij om korte en lange termijn power load prognose, handel, taakverdeling, raster optimalisatie, enzovoort. BIG data en geavanceerde analyse (AA) methoden, zoals Machine Learning (ML) zijn de belangrijkste virtualisatielaag voor het produceren van nauwkeurige en betrouwbare prognoses.  
+Internet of Things (IoT), alternatieve energiebronnen en big data in de afgelopen jaren hebben samengevoegd voor het maken van grote verkoopkansen in het hulpprogramma en de energie-domein. Op hetzelfde moment, hebben het hulpprogramma en de volledige energiesector verbruik plat maken om met klanten betere manieren voor het beheren van hun gebruik van energie veeleisende gezien. Daarom kan zijn het hulpprogramma en slimme grid bedrijven nodig voor het vernieuwen en vernieuwen zelf. Bovendien worden veel hulpprogramma's en energiebeheer rasters vaker het verouderde en zeer kostbaar zijn te onderhouden en beheren. Tijdens het afgelopen jaar werkt het team aan een aantal engagements binnen het domein energie. Tijdens deze betrokkenheid, Hiermee hebben we veel gevallen waarin de hulpprogramma's of ISV's (Independent Software Vendors) hebt op zoek was bij de prognoses voor toekomstige energievraag aangetroffen. Deze prognoses speelt een belangrijke rol in hun huidige en toekomstige activiteiten en de basis vormt voor verschillende gebruiksvoorbeelden zijn geworden. Het gaat hierbij om korte en lange termijn power load prognose, handel, taakverdeling, raster optimalisatie, enzovoort. BIG data en geavanceerde analyse (AA) methoden, zoals Machine Learning (ML) zijn de belangrijkste virtualisatielaag voor het produceren van nauwkeurige en betrouwbare prognoses.
 
 In deze playbook we samengesteld de zakelijke en analytische richtlijnen die nodig zijn voor een geslaagde ontwikkeling en implementatie van de vraag naar energie prognose-oplossing. Deze voorgestelde richtlijnen kunnen u hulpprogramma's, gegevenswetenschappers en data-engineers bij het opstellen van volledig ingezette, cloudgebaseerde en on-demand prognose-oplossingen. Voor bedrijven die hun big data en geavanceerde analyse reis net begint, kan een dergelijke oplossing de basiswaarde in hun langetermijnstrategie slimme grid vertegenwoordigen.
 
 > [!TIP]
-> Zie voor het downloaden van een diagram een overzicht van de architectuur van deze sjabloon biedt [architectuur van de Cortana Intelligence-oplossingssjabloon voor on-demand prognose van energie](cortana-analytics-architecture-demand-forecasting-energy.md).  
-> 
-> 
+> Zie voor het downloaden van een diagram een overzicht van de architectuur van deze sjabloon biedt [architectuur van de Cortana Intelligence-oplossingssjabloon voor on-demand prognose van energie](cortana-analytics-architecture-demand-forecasting-energy.md).
+>
+>
 
 ## <a name="overview"></a>Overzicht
-In dit document bevat informatie over het bedrijf, gegevens en technische aspecten van het gebruik van Cortana Intelligence en in bepaalde Azure Machine Learning (AML) voor de implementatie- en implementatie van oplossingen voor energie voorspellen. Het document bestaat uit drie belangrijke onderdelen:  
+In dit document bevat informatie over het bedrijf, gegevens en technische aspecten van het gebruik van Cortana Intelligence en in bepaalde Azure Machine Learning (AML) voor de implementatie- en implementatie van oplossingen voor energie voorspellen. Het document bestaat uit drie belangrijke onderdelen:
 
-1. Inzicht in het bedrijf  
-2. Inzicht in gegevens  
+1. Inzicht in het bedrijf
+2. Inzicht in gegevens
 3. Technische implementatie
 
 De **inzicht in het bedrijf** onderdeel bevat een overzicht van het bedrijf aspect nodig zijn om te begrijpen en overwegen voordat u een beslissing investering. Hierin wordt uitgelegd hoe u het zakelijke probleem bij de hand om ervoor te zorgen dat predictive analytics en machine learning inderdaad effectief en van toepassing zijn. Het document verder vindt u de basisbeginselen van machine learning en hoe deze wordt gebruikt voor het voorspellen van energieverbruik problemen te verhelpen. Het bevat een overzicht van de vereisten en de kwalificatiecriteria van een use case. Een aantal voorbeelden use cases en het bedrijfsscenario scenario's zijn ook beschikbaar.
@@ -43,7 +43,7 @@ Het derde deel van het document bevat informatie over de **technische implementa
 
 Het document bevat bovendien referentiemateriaal dat beschikbaar is die u gebruiken kunt om te krijgen meer inzicht in het domein en de technologie.
 
-Het is belangrijk te weten dat we niet van plan bent om te kunnen krijgen in dit document het diepere data science process de wiskundige en technische aspecten. Deze informatie kunnen u vinden in [documentatie voor Azure ML](https://azure.microsoft.com/services/machine-learning/) en [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Het is belangrijk te weten dat we niet van plan bent om te kunnen krijgen in dit document het diepere data science process de wiskundige en technische aspecten. Deze informatie kunnen u vinden in [documentatie voor Azure Machine Learning-service](https://azure.microsoft.com/services/machine-learning/) en [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Doelgroep
 De doelgroep voor dit document is zowel zakelijke als technische medewerkers die graag willen kennis en inzicht in Machine Learning op basis van oplossingen en hoe deze worden gebruikt om precies binnen het domein energie voorspellen.
@@ -87,7 +87,7 @@ Korte termijn laden prognose (STLF) wordt in de context van de vraag naar energi
 * Taakverdeling en preventie overbelasten
 * Lange termijn Load prognoses
 * Fouttolerantie en anomaliedetectie
-* Piek inperking/herverdeling 
+* Piek inperking/herverdeling
 
 STLF model zijn voornamelijk gebaseerd op het dichtstbijzijnde verleden (afgelopen dag of week) gegevens over het verbruik en gebruik temperatuur als een belangrijke voorspelde prognose. Het verkrijgen van nauwkeurige temperatuur prognose voor het volgende uur en van 24 uur wordt steeds minder van een uitdaging nu dagen. Deze modellen zijn minder gevoelig zijn voor seizoensgebonden patronen of verbruikstrends van op de lange termijn.
 
@@ -189,9 +189,9 @@ De volgende alinea beschrijving van dit proces stap 4:
 
 1. **Het verzamelen van gegevens** : een geavanceerde op basis van analyseoplossing is gebaseerd op gegevens (Zie **gegevens wat**). Met name als het gaat om predictive analytics en prognoses, we zijn afhankelijk van continue, dynamische stroom van gegevens. In het geval van energie vraagprognose, deze gegevens kan worden opgevraagd rechtstreeks van slimme meters of al op een on-premises database worden samengesteld. We zijn ook afhankelijk van andere externe gegevensbronnen, zoals weer en temperatuur. Deze continue stroom van gegevens moet worden georganiseerd, gepland en opgeslagen. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) is onze belangrijkste werkpaard voor het uitvoeren van deze taak.
 2. **Modellering** – voor nauwkeurige en betrouwbare energie prognoses, moet een (train) ontwikkelen en onderhouden van een geweldige model dat maakt gebruik van de historische gegevens en de betekenis en voorspellende patronen in de gegevens worden geëxtraheerd. Het gebied van Machine Learning (ML) heeft snel groeien met meer geavanceerde algoritmen die regelmatig worden ontwikkeld. Azure ML Studio biedt een optimale ervaring waarmee u kunt gebruikmaken van de meest geavanceerde algoritmen binnen een volledige werkstroom. Werkstroom wordt weergegeven in een diagram van een intuïtieve stroom en de gegevens voor te bereiden, het ophalen van functies, modelleren en model evaluatie bevat. De gebruiker kan op te halen in honderden verschillende modellen die zijn opgenomen in deze omgeving. Aan het einde van deze fase heeft een gegevenswetenschapper een werkende-model dat zich volledig geëvalueerd en klaar voor implementatie.
-   
+
    Het volgende diagram wordt een afbeelding van een werkstroom:
-   
+
    ![Modellering van een werkstroom](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **Implementatie** – met een model werkt echter in de volgende stap is voor implementatie. Hier wordt het model omgezet in een webservice die een RESTful API die gelijktijdig kunnen worden aangeroepen van verschillende verbruik clients via Internet beschikbaar stelt. Azure ML biedt een eenvoudige manier van het implementeren van een model rechtstreeks vanuit de Azure ML Studio met één klik een knop. Het proces voor de hele gebeurt achter de schermen. Deze oplossing kan automatisch worden geschaald om te voldoen aan de vereiste verbruik.
 4. **Verbruik** : In deze fase, maken we daadwerkelijk gebruik van het prognosemodel voor het produceren van voorspellingen. Het verbruik worden bepaald vanuit de gebruikerstoepassing van een (*bijvoorbeeld*, dashboard) of rechtstreeks vanuit een operationele systeem zoals vraag/aanbod balancing systeem of een raster optimalisatie-oplossing. Meerdere gebruiksmogelijkheden worden bepaald vanuit één model.
@@ -321,8 +321,8 @@ In de afgelopen jaren zijn geavanceerde algoritmen ontwikkeld voor time series-p
 
 > [!NOTE]
 > In deze sectie is niet bedoeld om te worden gebruikt als een machine learning en voorspeld overzicht, maar in plaats van als een korte enquête van het modelleren van technieken die vaak worden gebruikt voor de prognose van vraag. Voor meer informatie en educatieve materiaal over time series-prognoses, is het raadzaam het online boek [Forecasting: principes en praktijken](https://www.otexts.org/).
-> 
-> 
+>
+>
 
 #### <a name="ma-moving-average"></a>**MA (zwevend gemiddelde)**
 Zwevend gemiddelde is een van de eerste analytische technieken die is gebruikt voor time series-prognoses en is nog steeds een van de meest gangbare technieken vanaf vandaag. Het is ook de basis voor meer geavanceerde technieken prognose. Met het zwevend gemiddelde zijn we het volgende gegevenspunt gemiddelde over de meest recente punten K, waarbij K de volgorde van de zwevend gemiddelde geeft van de prognose.

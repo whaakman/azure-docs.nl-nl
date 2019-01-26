@@ -6,7 +6,7 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: b1711b86042c74eba47fe1cfa41bbbd36ceaf127
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abdeeacc22d2709a3107c9e9e05bd982705d7dea
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248755"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079066"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Instellen van on-premises voorwaardelijke toegang met behulp van Azure Active Directory device Registration service
 
@@ -64,7 +64,7 @@ Deze mogelijkheden zijn beschikbaar voor klanten die een Azure Active Directory 
 
 In dit scenario wordt ervan uitgegaan dat u hebt een hybride omgeving die bestaan uit een Azure AD-tenant en een on-premises Active Directory. Deze tenants moeten zijn verbonden met Azure AD Connect, met een geverifieerd domein en met AD FS voor eenmalige aanmelding. Gebruik de volgende controlelijst om hulp bij het configureren van uw omgeving op basis van de vereisten.
 
-## <a name="checklist-prerequisites-for-conditional-access-scenario"></a>Controlelijst: Vereisten voor het scenario voor voorwaardelijke toegang
+## <a name="checklist-prerequisites-for-conditional-access-scenario"></a>Checklist: Vereisten voor het scenario voor voorwaardelijke toegang
 
 Verbinding maken met uw Azure AD-tenant met uw on-premises Active Directory-exemplaar.
 
@@ -76,7 +76,7 @@ Deze handleiding wordt ervan uitgegaan dat u Windows Server Active Directory heb
 
 Voor het implementeren van de Azure Active Directory device registratieservice aan uw Azure Active Directory-tenant, moet u de taken in de volgende controlelijst in volgorde uitvoeren. Wanneer een koppeling u naar een conceptueel onderwerp gaat, terug naar deze controlelijst daarna, zodat u kunt doorgaan met de resterende taken. Sommige taken omvatten een scenario validatiestap kunt u controleren of de stap is voltooid.
 
-## <a name="part-1-enable-azure-active-directory-device-registration"></a>Deel 1: Schakel Azure Active Directory device Registration service
+## <a name="part-1-enable-azure-active-directory-device-registration"></a>Deel 1: Azure Active Directory-apparaatregistratie inschakelen
 
 Volg de stappen in de controlelijst voor het inschakelen en configureren van de Azure Active Directory device registratieservice.
 
@@ -93,17 +93,17 @@ Volg de stappen in de controlelijst voor het inschakelen en configureren van de 
 | Implementeer Active Directory Domain Services met de schema-uitbreidingen voor Windows Server 2012 R2. U hoeft niet een van uw domeincontrollers upgraden naar Windows Server 2012 R2. De schema-upgrade is de enige vereiste. |[Uw Active Directory Domain Services-schema bijwerken](#upgrade-your-active-directory-domain-services-schema) |
 | Azure Active Directory device registratieservice detecteren apparaten door te zoeken naar bekende DNS-records. Uw bedrijfs-DNS configureren zodat apparaten kunnen uw Azure Active Directory device registration-service detecteren. |[Voorbereiden van uw Active Directory ondersteuning voor apparaten](#prepare-your-active-directory-to-support-devices) |
 
-## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Deel 3: Enable apparaat terugschrijven in Azure AD
+## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Deel 3: Apparaat terugschrijven inschakelen in Azure AD
 
 | Taak | Referentie |
 | --- | --- |
 | Deel twee van "Enabling device writeback in Azure AD Connect." Nadat u klaar bent, kunt u terugkeren naar deze handleiding. |[Apparaat terugschrijven inschakelen in Azure AD Connect](hybrid/how-to-connect-device-writeback.md) |
 
-## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Optioneel] Deel 4: Schakel multi-factor Authentication
+## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Optioneel] Deel 4: Multi-factor Authentication inschakelen
 
 Sterk aanbevolen dat u een van de verschillende opties voor meervoudige verificatie configureren. Als u wilt de meervoudige verificatie vereisen, Zie [kiest u de multi-factor Authentication-beveiligingsoplossing voor u](authentication/concept-mfa-whichversion.md). Het bevat een beschrijving van elke oplossing en koppelingen naar hulp bij het configureren van de oplossing van uw keuze.
 
-## <a name="part-5-verification"></a>Deel 5: verificatie
+## <a name="part-5-verification"></a>Deel 5: Verificatie
 
 De implementatie is voltooid en u enkele scenario's kunt uitproberen. Gebruik de volgende koppelingen om te experimenteren met de service en vertrouwd raken met de functies ervan.
 
@@ -158,7 +158,7 @@ Op de federatieserver, open een Windows PowerShell-opdrachtvenster en typ vervol
 
 ### <a name="prepare-azure-ad-connect-for-device-writeback"></a>Azure AD Connect voorbereiden voor write-back van apparaat
 
-Deel 1: voorbereiden van Azure AD Connect.
+Volledige deel 1: Voorbereiden van Azure AD Connect.
 
 ## <a name="join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service"></a>Apparaten toevoegen aan uw werkplek door met Azure Active Directory device registratieservice
 
@@ -197,7 +197,7 @@ Apparaatobjecten die worden teruggeschreven uit Azure Active Directory worden st
 
 ## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>Maak een beleid voor toepassingstoegang en een aangepast bericht voor geweigerde toegang
 
-Houd rekening met het volgende scenario: een Relying Party Trust in AD FS-toepassing maakt en configureert u een Uitgifteautorisatieregel waarmee alleen geregistreerde apparaten. Nu mogen alleen apparaten die zijn geregistreerd voor toegang tot de toepassing. 
+Houd rekening met het volgende scenario: U een Relying Party Trust in AD FS-toepassing maken en configureren van een Uitgifteautorisatieregel waarmee alleen geregistreerde apparaten. Nu mogen alleen apparaten die zijn geregistreerd voor toegang tot de toepassing. 
 
 Mogelijk te maken voor uw gebruikers toegang te krijgen tot de toepassing, moet u een aangepast toegang geweigerd bericht met instructies voor het toevoegen van hun apparaat configureren. Uw gebruikers hebben nu een naadloze manier voor het registreren van hun apparaten, zodat ze krijgen een toepassing tot toegang.
 

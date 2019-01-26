@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437602"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081242"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
@@ -22,7 +22,7 @@ Dit artikel leest u hoe u implementeert de vereisten voor AKS en Azure AD en ove
 
 Er gelden de volgende beperkingen:
 
-- Bestaande RBAC ingeschakeld AKS clusters kunnen niet op dit moment worden bijgewerkt voor RBAC gebruiken.
+- Azure AD kan alleen worden ingeschakeld wanneer u een nieuwe, RBAC-functionaliteit cluster maakt. U kunt Azure AD op een bestaand AKS-cluster niet inschakelen.
 - *Gast* gebruikers in Azure AD, bijvoorbeeld als u van een federatieve aanmelding vanuit een andere map gebruikmaakt, worden niet ondersteund.
 
 ## <a name="authentication-details"></a>Verificatiegegevens

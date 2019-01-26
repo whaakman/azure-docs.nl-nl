@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd54ae2c82d3baf716784c39951c5cad7ec364b3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0736ed32fa6f17cc840d6b144503409365c33d84
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731158"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077933"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager sjabloon aanbevolen procedures
 
@@ -82,7 +82,7 @@ De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](re
 
 * Gebruik `allowedValues` spaarzaam. Gebruik deze optie alleen als moet u ervoor zorgen dat bepaalde waarden niet zijn opgenomen in de toegestane opties. Als u `allowedValues` te breed u geldige implementaties mogelijk blokkeren door de lijst met niet up-to-date houden.
 
-* Wanneer een parameternaam in uw sjabloon overeenkomt met een parameter in de PowerShell-opdracht voor implementatie, Resource Manager deze naamgevingsconventie conflict opgelost doordat de postfix **FromTemplate** aan de sjabloonparameter. Bijvoorbeeld, als u een parameter met de naam opgeeft **ResourceGroupName** in uw sjabloon, deze conflicteert met de **ResourceGroupName** parameter in de [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Tijdens de implementatie van u wordt gevraagd om een waarde voor **ResourceGroupNameFromTemplate**.
+* Wanneer een parameternaam in uw sjabloon overeenkomt met een parameter in de PowerShell-opdracht voor implementatie, Resource Manager deze naamgevingsconventie conflict opgelost doordat de postfix **FromTemplate** aan de sjabloonparameter. Bijvoorbeeld, als u een parameter met de naam opgeeft **ResourceGroupName** in uw sjabloon, deze conflicteert met de **ResourceGroupName** parameter in de [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. Tijdens de implementatie van u wordt gevraagd om een waarde voor **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Aanbevelingen voor beveiliging voor de parameters
 

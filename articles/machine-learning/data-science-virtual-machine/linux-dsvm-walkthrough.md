@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7d567d01cef59a2402fa8cb9aecd35c68ae6c2bd
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157170"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077196"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
@@ -180,10 +180,10 @@ We gaan ook een willekeurige forest-model. Willekeurige forests trainen van een 
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Een model implementeren in Azure ML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is een cloudservice waarmee u eenvoudig predictive analytics-modellen bouwen en implementeren. Een van de leuke functies van AzureML is de mogelijkheid voor het publiceren van een R-functie als een webservice. Het AzureML-R-pakket kunt de implementatie eenvoudig doen vanuit de R-sessie op de DSVM.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Een model implementeren voor Azure Machine Learning studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) is een cloudservice waarmee u eenvoudig predictive analytics-modellen bouwen en implementeren. Een van de leuke functies van Azure Machine Learning studio is de mogelijkheid voor het publiceren van een R-functie als een webservice. De Azure Machine Learning studio R-pakket kunt de implementatie eenvoudig doen vanuit de R-sessie op de DSVM.
 
-Voor het implementeren van de decision tree code uit de vorige sectie, moet u zich aanmeldt bij Azure Machine Learning Studio. U moet uw werkruimte-ID en een verificatietoken aan te melden. Deze waarden vinden en de AzureML-variabelen met hen initialiseren:
+Voor het implementeren van de decision tree code uit de vorige sectie, moet u zich aanmeldt bij Azure Machine Learning Studio. U moet uw werkruimte-ID en een verificatietoken aan te melden. Deze waarden vinden en de Azure Machine Learning-variabelen met hen initialiseren:
 
 Selecteer **instellingen** in het menu links. Houd er rekening mee uw **WERKRUIMTE-ID**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -270,7 +270,7 @@ Voor het ontwikkelen met behulp van Python, zijn de distributies Anaconda Python
 Laten we enkele van de gegevensset spambase gelezen en de e-mailberichten classificeren met support vector machines in scikit-informatie:
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

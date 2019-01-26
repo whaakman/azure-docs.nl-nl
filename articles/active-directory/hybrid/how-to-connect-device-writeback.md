@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8be4274f2f971202172b09bbab2e6529fd5a8070
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412815"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075683"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Apparaat terugschrijven inschakelen
 > [!NOTE]
@@ -89,7 +89,7 @@ Als het selectievakje voor write-back van apparaat is niet ingeschakeld, zelfs a
 
 Eerste dingen eerste:
 
-* Zorg ervoor dat ten minste één forest Windows Server 2012R2 heeft. Het objecttype van het apparaat moet aanwezig zijn.
+* Het forest waar de apparaten aanwezig zijn, moet het forestschema bijgewerkt naar Windows 2012 R2-niveau, zodat het apparaatobject en de bijbehorende kenmerken aanwezig zijn.
 * Als de installatiewizard wordt al uitgevoerd, worden klikt u vervolgens eventuele wijzigingen niet gedetecteerd. In dit geval, voltooi de installatiewizard en start deze opnieuw.
 * Zorg ervoor dat het account dat u in het script voor initialisatie opgeeft daadwerkelijk de juiste gebruiker door de Active Directory-Connector gebruikt. U kunt dit controleren door de volgende stappen uit:
   * Open in het startmenu **Synchronization Service**.

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a0c351df535a1f2463c14a4719eac0e4c4896c2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5b330a8e0eebc2a6f3701534fbc25848296694b1
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464201"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912626"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Aanmelden-ervaringen met Azure AD Identity Protection
 Met Azure Active Directory Identity Protection, kunt u het volgende doen:
@@ -57,18 +57,13 @@ Beheerders kunnen een beleid waarbij gebruikers zich voor het instellen van hun 
 
 1. In de eerste stap van ontvangt de gebruiker een melding over de vereiste voor het account voor multi-factor authentication in te stellen. 
    
-    ![Herstel](./media/flows/301.png "herstel")
-
+    ![Herstel](./media/flows/140.png "herstel")
 2. Als u multi-factor authentication instelt, moet u het systeem weten hoe u wilt verbinding worden gemaakt met.
    
-    ![Herstel](./media/flows/302.png "herstel")
-
-3. Het systeem voorzien van uw nummer telefoonnummer en hoe u contact met u worden opgenomen.
-
-    ![Herstel](./media/flows/303.png "herstel")
-
-Als u wilt het registratieproces te voltooien, moet u ofwel reageren op een telefonische oproep of een code invoeren. 
-
+    ![Herstel](./media/flows/141.png "herstel")
+3. Het systeem dient een uitdaging voor u en u moet reageren.
+   
+    ![Herstel](./media/flows/142.png "herstel")
 
 ## <a name="risky-sign-in-recovery"></a>Riskante aanmelding herstel
 Wanneer een beheerder heeft een beleid voor aanmelden risico's worden geconfigureerd, worden de betrokken gebruikers worden gewaarschuwd wanneer ze proberen aan te melden. 

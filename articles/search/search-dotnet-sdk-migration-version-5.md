@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/24/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316864"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912047"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Een upgrade naar de Azure Search .NET SDK versie 5
 Als u versie 4.0-preview of ouder bent van de [Azure Search .NET SDK](https://aka.ms/search-sdk), in dit artikel helpt u bij het bijwerken van de toepassing kan versie 5 gebruiken.
@@ -44,17 +44,26 @@ Versie 5 van de Azure Search .NET SDK is gericht op de meest recente algemeen be
 ## <a name="steps-to-upgrade"></a>Stappen voor het bijwerken
 Update eerst uw NuGet-verwijzing voor `Microsoft.Azure.Search` met behulp van de NuGet Package Manager-Console of door met de rechtermuisknop op uw projectverwijzingen en 'Beheren NuGet-pakketten...' selecteren in Visual Studio.
 
-Nadat NuGet heeft de nieuwe pakketten en de bijbehorende afhankelijkheden gedownload, bouwt u uw project opnieuw. Tenzij u een preview-functie die zich niet in de nieuwe SDK voor algemene beschikbaarheid, de opnieuw is moet maken (zo niet, laat het ons weten op [GitHub](https://github.com/azure/azure-sdk-for-net/issues)). Als dit het geval is, bent u klaar om te beginnen.
+Nadat NuGet heeft de nieuwe pakketten en de bijbehorende afhankelijkheden gedownload, bouwt u uw project opnieuw. Afhankelijk van hoe uw code is opgebouwd, kan deze opnieuw is. Als dit het geval is, bent u klaar om te beginnen.
+
+Als uw build mislukt, ziet u een build-fout als volgt uit:
+
+    The name 'SuggesterSearchMode' does not exist in the current context
+
+De volgende stap is om deze build-fout te herstellen. Zie [belangrijke wijzigingen in versie 5](#ListOfChanges) voor meer informatie over wat de fout veroorzaakt en hoe u dit herstelt.
 
 Houd er rekening mee dat vanwege wijzigingen in de verpakking van de Azure Search .NET SDK, moet u uw toepassing om te kunnen gebruiken versie 5 opnieuw opbouwen. Deze wijzigingen worden beschreven in [belangrijke wijzigingen in versie 5](#ListOfChanges).
 
 Mogelijk ziet u aanvullende build waarschuwingen met betrekking tot verouderde methoden of eigenschappen. De waarschuwingen bevat instructies over wat u moet gebruiken in plaats van de afgeschafte functies. Als uw toepassing gebruikt bijvoorbeeld de `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType` methode, moet u ontvangt een waarschuwing met de tekst "Dit gedrag is nu standaard ingeschakeld, zodat u deze methode niet meer nodig is."
 
-Als u eventuele waarschuwingen build hebt opgelost, kunt u wijzigingen aanbrengen aan uw toepassing om te profiteren van nieuwe functionaliteit als u wenst. Nieuwe functies in de SDK worden beschreven in [wat is er nieuw in versie 5](#WhatsNew).
+Als u een build-fouten of waarschuwingen hebt opgelost, kunt u wijzigingen aanbrengen aan uw toepassing om te profiteren van nieuwe functionaliteit als u wenst. Nieuwe functies in de SDK worden beschreven in [wat is er nieuw in versie 5](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
 ## <a name="breaking-changes-in-version-5"></a>Belangrijke wijzigingen in versie 5
+
+### <a name="new-package-structure"></a>Nieuwe pakketstructuur
+
 De meest belangrijke belangrijke wijziging in versie 5 is dat de `Microsoft.Azure.Search` assembly en de inhoud ervan zijn is onderverdeeld in vier afzonderlijke assembly's die nu als vier afzonderlijke NuGet-pakketten worden gedistribueerd:
 
  - `Microsoft.Azure.Search`: Dit is een meta-pakket met alle andere Azure Search-pakketten als afhankelijkheden. Als u een vanaf een eerdere versie van de SDK upgrade uitvoert, moeten hoeft dit pakket bijwerken en opnieuw het bouwen van voldoende om te beginnen met de nieuwe versie.
@@ -65,6 +74,10 @@ De meest belangrijke belangrijke wijziging in versie 5 is dat de `Microsoft.Azur
 Deze wijziging is technisch belangrijke omdat veel typen zijn verplaatst tussen de assembly's. Dit is de reden waarom het opnieuw opbouwen van uw toepassing is nodig om te upgraden naar versie 5 van de SDK.
 
 Er wordt een klein aantal andere belangrijke wijzigingen in versie 5 waarvoor code gewijzigd naast opnieuw opbouwen van uw toepassing.
+
+### <a name="change-to-suggesters"></a>Wijzig in suggesties 
+
+De `Suggester` constructor heeft niet langer een `enum` parameter voor `SuggesterSearchMode`. Deze opsomming alleen heeft één waarde, en is daarom redundante. Als er fouten als gevolg van dit bouwen, verwijdert u gewoon verwijzingen naar de `SuggesterSearchMode` parameter.
 
 ### <a name="removed-obsolete-members"></a>Verouderde leden verwijderd
 

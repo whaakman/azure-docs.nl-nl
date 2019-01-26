@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7df9086fa5ffc6273a6cb063bdee3cfdfa73e34
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7852ff20a7f6528546063365ede10ad5536319a2
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013312"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079134"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code gebruiken om te trainen en machine learning-modellen implementeren
 
@@ -45,15 +45,15 @@ Deze uitbreiding ondersteunt diverse verschillende externe compute-doelen voor A
 
 1. Klik op het Azure-pictogram in de activiteitenbalk Visual Studio Code. De Azure Machine Learning-zijbalk wordt weergegeven.
 
-2. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service. Naam van het abonnement is 'Gratis' en de werkruimte is 'TeamWorkspace' in de animatie. 
+2. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service. Naam van het abonnement is 'Gratis' en de werkruimte is 'TeamWorkspace' in de animatie.
 
 3. Onder het werkruimteknooppunt met de rechtermuisknop op de **Compute** knooppunt en kies **maken Compute**.
 
-4. Kies het doeltype compute in de lijst. 
+4. Kies het doeltype compute in de lijst.
 
 5. Selecteer de grootte van een virtuele Machine in de Command Palette.
 
-6. Voer een naam op voor de compute-doel in het veld in de Command Palette. 
+6. Voer een naam op voor de compute-doel in het veld in de Command Palette.
 
 7. Geavanceerde eigenschappen opgeven in het JSON-configuratiebestand dat wordt geopend in een nieuw tabblad. U kunt eigenschappen, zoals een maximum aantal knooppunten opgeven...
 
@@ -63,12 +63,12 @@ Hier volgt een voorbeeld voor het maken van een Azure Machine Learning-Computing
 
 #### <a name="the-run-configuration-file"></a>Het bestand 'run configuration'
 
-De VS Code-extensie wordt automatisch maken van een lokale compute-doel en uitvoeren van configuraties voor uw **lokale** en **docker** omgevingen op uw lokale computer. De run-configuratiebestanden kunnen u vinden onder de bijbehorende compute-doel. 
+De VS Code-extensie wordt automatisch maken van een lokale compute-doel en uitvoeren van configuraties voor uw **lokale** en **docker** omgevingen op uw lokale computer. De run-configuratiebestanden kunnen u vinden onder de bijbehorende compute-doel.
 
 Dit is een fragment uit het lokale uitvoeren-configuratiebestand. Standaard `userManagedDependencies: True` , zodat u alle bibliotheken/afhankelijkheden zelf installeren moet en vervolgens lokale experimenten uw standaardomgeving Python zoals opgegeven in de VS Code Python-extensie gebruikt.
 
 ```yaml
-# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that Azure Machine Learning service will manage the user environment.
     userManagedDependencies: True
 # The python interpreter path
     interpreterPath: python
@@ -84,19 +84,19 @@ Dit is een fragment uit het lokale uitvoeren-configuratiebestand. Standaard `use
 
 ## <a name="train-and-tune-models"></a>Modellen trainen en afstemmen
 
-Azure Machine Learning voor VS Code (Preview) gebruiken om snel Voortborduren op uw code, doorlopen en fouten opsporen en uw oplossing voor bron code naar keuze gebruiken. 
+Azure Machine Learning voor VS Code (Preview) gebruiken om snel Voortborduren op uw code, doorlopen en fouten opsporen en uw oplossing voor bron code naar keuze gebruiken.
 
 **Uw experiment lokaal uitvoeren met Azure Machine Learning:**
 
 1. Klik op het Azure-pictogram in de activiteitenbalk Visual Studio Code. De Azure Machine Learning-zijbalk wordt weergegeven.
 
-1. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service. 
+1. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service.
 
-1. Vouw onder het werkruimteknooppunt, de **Compute** knooppunt en klik met de rechtermuisknop op de **uitvoeren Config** reken-en u wilt gebruiken. 
+1. Vouw onder het werkruimteknooppunt, de **Compute** knooppunt en klik met de rechtermuisknop op de **uitvoeren Config** reken-en u wilt gebruiken.
 
 1. Selecteer **Experiment uit te voeren**.
 
-1. Het script om uit te voeren in de Verkenner te selecteren. 
+1. Het script om uit te voeren in de Verkenner te selecteren.
 
 1. Klik op **weergave Experiment uitvoeren** om te zien van de geïntegreerde Azure Machine Learning-portal voor de uitvoering van uw controleren en Zie uw getrainde modellen.
 
@@ -120,13 +120,13 @@ name: project_environment
 dependencies:
   # The python interpreter version.
 
-  # Currently Azure ML only supports 3.5.2 and later.
+  # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
 - tensorflow
 
 - pip:
-    # Required packages for AzureML execution, history, and data preparation.
+    # Required packages for Azure Machine Learning service execution, history, and data preparation.
 
   - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
   - --extra-index-url https://pypi.python.org/simple
@@ -138,15 +138,15 @@ dependencies:
 
 1. Klik op het Azure-pictogram in de activiteitenbalk Visual Studio Code. De Azure Machine Learning-zijbalk wordt weergegeven.
 
-1. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service. 
+1. Vouw in de structuurweergave wordt weergegeven, uw Azure-abonnement en de werkruimte van Azure Machine Learning-service.
 
-1. Met de rechtermuisknop op uw python-script in het editorvenster en selecteer **AML: Run as-Experiment in Azure**. 
+1. Met de rechtermuisknop op uw python-script in het editorvenster en selecteer **AML: Run as-Experiment in Azure**.
 
-1. Selecteer in het Opdrachtenpalet de compute-doel. 
+1. Selecteer in het Opdrachtenpalet de compute-doel.
 
-1. Voer de configuratienaam van de uitvoeren in het veld in de Command Palette. 
+1. Voer de configuratienaam van de uitvoeren in het veld in de Command Palette.
 
-1. Bewerk het bestand conda_dependencies.yml voor het opgeven van het experiment runtime-afhankelijkheden en klik vervolgens op **indienen** in de rechterbenedenhoek van het scherm. 
+1. Bewerk het bestand conda_dependencies.yml voor het opgeven van het experiment runtime-afhankelijkheden en klik vervolgens op **indienen** in de rechterbenedenhoek van het scherm.
 
 1. Klik op **weergave Experiment uitvoeren** om te zien van de geïntegreerde Azure Machine Learning-portal voor de uitvoering van uw controleren en Zie uw getrainde modellen.
 
@@ -154,7 +154,7 @@ Hier volgt een voorbeeld van een experiment uitvoert op een externe compute-doel
 
 
 ## <a name="deploy-and-manage-models"></a>Modellen implementeren en beheren
-Azure Machine Learning kunt implementeren en beheren van uw machine learning-modellen in de cloud en op de rand. 
+Azure Machine Learning kunt implementeren en beheren van uw machine learning-modellen in de cloud en op de rand.
 
 ### <a name="register-your-model-to-azure-machine-learning-from-vs-code"></a>Het model registreren bij Azure Machine Learning van VS Code
 
@@ -169,13 +169,13 @@ Geregistreerde modellen kunnen worden bijgehouden en worden geïmplementeerd.
 
 1. Onder het werkruimteknooppunt met de rechtermuisknop op **modellen** en kies **Model registreren**.
 
-1. Voer de modelnaam van een in het veld in de Command Palette. 
+1. Voer de modelnaam van een in het veld in de Command Palette.
 
-1. Kies of u wilt uploaden in de lijst, een **modelbestand** (voor één modellen) een **model map** (voor modellen met meerdere bestanden, zoals Tensorflow). 
+1. Kies of u wilt uploaden in de lijst, een **modelbestand** (voor één modellen) een **model map** (voor modellen met meerdere bestanden, zoals Tensorflow).
 
 1. Selecteer uw map of bestand.
 
-1. Wanneer u klaar bent u configureert de modeleigenschappen van uw, klikt u op **indienen** in de rechterbenedenhoek van het scherm. 
+1. Wanneer u klaar bent u configureert de modeleigenschappen van uw, klikt u op **indienen** in de rechterbenedenhoek van het scherm.
 
 Hier volgt een voorbeeld voor het registreren van uw AML-model: [![Registreren van een AML-Model](./media/vscode-tools-for-ai/RegisteringAModel.gif)](./media/vscode-tools-for-ai/RegisteringAModel.gif#lightbox)
 
@@ -184,9 +184,9 @@ Hier volgt een voorbeeld voor het registreren van uw AML-model: [![Registreren v
 
 Met behulp van VS Code, kunt u uw webservice te implementeren:
 + Azure Container exemplaar (ACI): voor het testen
-+ Azure Kubernetes Service (AKS): voor productie 
++ Azure Kubernetes Service (AKS): voor productie
 
-U hoeft niet te maken van een ACI-container voor het testen van tevoren nadat ze zijn gemaakt op elk gewenst moment. AKS-clusters hoeft echter vooraf worden geconfigureerd. 
+U hoeft niet te maken van een ACI-container voor het testen van tevoren nadat ze zijn gemaakt op elk gewenst moment. AKS-clusters hoeft echter vooraf worden geconfigureerd.
 
 Meer informatie over [implementatie met Azure Machine Learning](how-to-deploy-and-where.md) in het algemeen.
 
@@ -200,9 +200,9 @@ Meer informatie over [implementatie met Azure Machine Learning](how-to-deploy-an
 
 1. Met de rechtermuisknop op het model dat u wilt implementeren en kies **Service implementeren vanuit Model geregistreerd** opdracht in het contextmenu.
 
-1. Kies in het Opdrachtenpalet de compute-doel waarnaar u wilt implementeren in de lijst. 
+1. Kies in het Opdrachtenpalet de compute-doel waarnaar u wilt implementeren in de lijst.
 
-1. Voer een naam op voor deze service in het veld in de Command Palette.  
+1. Voer een naam op voor deze service in het veld in de Command Palette.
 
 1. Druk op de Enter-toets op het toetsenbord om te bladeren en selecteer het scriptbestand in de Command Palette.
 

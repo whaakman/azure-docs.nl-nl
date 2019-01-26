@@ -9,82 +9,84 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 785223f7da1f59288f4fca6e7a3955a6b3af41c0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974985"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910910"
 ---
-# <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Installeren en Presto gebruiken op HDInsight Hadoop-clusters
+# <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installeren en gebruiken Presto op Hadoop-gebaseerde HDInsight-clusters
 
-In dit document leert u hoe u Presto installeren op HDInsight Hadoop-clusters met behulp van scriptacties. U leert ook hoe u Airpal installeren op een bestaande Presto HDInsight-cluster.
+In dit artikel wordt uitgelegd hoe u Presto installeren op Hadoop-gebaseerde Adobe HDInsight-clusters met behulp van scriptacties. U leert ook hoe u Airpal installeren op een bestaande Presto HDInsight-cluster.
 
-HDInsight biedt ook de toepassing stervorm Presto voor Apache Hadoop-clusters. Zie voor meer informatie, [toepassingen van derden installeren op Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
+HDInsight biedt ook de toepassing stervorm Presto voor Apache Hadoop-clusters. Zie voor meer informatie, [Apache Hadoop-toepassingen van derden installeren op Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 
 > [!IMPORTANT]  
-> De stappen in dit document moet een **HDInsight 3.5 Hadoop-cluster** die gebruikmaakt van Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [HDInsight-versies](hdinsight-component-versioning.md).
+> De stappen in dit artikel moet een HDInsight 3.5 Hadoop-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie voor meer informatie, [HDInsight-versies](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>Wat is Presto?
 [Presto](https://prestodb.io/overview.html) is een snelle gedistribueerde SQL query-engine voor big data. Presto is geschikt voor interactieve query's uitvoeren met petabytes aan gegevens. Zie voor meer informatie over de onderdelen van Presto en hoe ze samenwerken, [Presto concepten](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
 
 > [!WARNING]  
-> Onderdelen van het HDInsight-cluster volledig worden ondersteund en Microsoft Support kunnen opsporen en oplossen van problemen met betrekking tot deze onderdelen.
+> Onderdelen van het HDInsight-cluster worden volledig ondersteund. Microsoft Support kunnen opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 > 
-> Aangepaste onderdelen, zoals Presto, commercieel redelijke ondersteuning om het probleem verder oplossen met u te helpen te ontvangen. Dit kan resulteren in het oplossen van het probleem of vraag of u contact opnemen met beschikbare kanalen voor de open source-technologieën waar uitgebreide expertise voor deze technologie kan worden gevonden. Er zijn bijvoorbeeld veel communitysites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Ook Apache-projecten project-sites hebben op [ https://apache.org ](https://apache.org), bijvoorbeeld: [Hadoop](https://hadoop.apache.org/).
+> Aangepaste onderdelen, zoals Presto ontvangen commercieel redelijke ondersteuning zodat u het probleem verder op te lossen. Deze ondersteuning kan los het probleem. Of u mogelijk gevraagd contact opnemen met beschikbare kanalen voor de open-source-technologieën waar uitgebreide expertise voor deze technologie kan worden gevonden. Er zijn veel communitysites die kunnen worden gebruikt. Voorbeelden zijn [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) en [Stack Overflow](https://stackoverflow.com). 
+>
+> Apache-projecten ook de project-sites hebben op de [Apache website](https://apache.org). Een voorbeeld is [Hadoop](https://hadoop.apache.org/).
 
 
-## <a name="install-presto-using-script-action"></a>Met behulp van scriptacties Presto installeren
+## <a name="install-presto-by-using-script-actions"></a>Presto installeren met behulp van scriptacties
 
-Deze sectie vindt u instructies over het gebruik van het voorbeeldscript bij het maken van een nieuw cluster met behulp van de Azure-portal. 
+In deze sectie wordt uitgelegd hoe u het voorbeeldscript gebruiken wanneer u een nieuw cluster maken met behulp van de Azure-portal: 
 
-1. Start het inrichten van een cluster met behulp van de stappen in [Provision Linux gebaseerde HDInsight-clusters](hdinsight-hadoop-create-linux-clusters-portal.md). Zorg ervoor dat u maakt de cluster via de **aangepaste** stroom maken van het cluster. Het cluster moet voldoen aan de volgende vereisten.
+1. Start het inrichten van een cluster door de stappen in [clusters in HDInsight op basis van Linux maken met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md). Zorg ervoor dat u het cluster maakt met behulp van de **aangepaste** stroom maken van het cluster. Het cluster moet voldoen aan de volgende vereisten:
 
     * Het moet een Hadoop-cluster met HDInsight versie 3.6.
 
-    * Het moet Azure Storage gebruiken als het gegevensarchief. Presto op een cluster dat gebruik maakt van Azure Data Lake Storage als de opslagoptie voor is niet nog een optie.
+    * Het moet Azure Storage gebruiken als het gegevensarchief. Presto met behulp van op een cluster dat gebruik maakt van Azure Data Lake Storage als de opslagoptie voor is niet nog een optie.
 
-    ![HDInsight-cluster maken met aangepaste opties](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+    ![HDInsight, aangepast (grootte, instellingen en apps)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. Op de **geavanceerde instellingen** gedeelte **scriptacties**, en de onderstaande informatie verstrekken. U kunt ook de optie 'Presto installeren' voor het scripttype.
+2. In de **geavanceerde instellingen** gedeelte **scriptacties**. Geef de volgende informatie. U kunt ook de **Presto installeren** optie voor het scripttype:
    
-   * **NAAM**: Voer een beschrijvende naam voor de scriptactie.
-   * **Bash-script-URI**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
-   * **HEAD**: Schakel deze optie.
-   * **WERKNEMER**: Schakel deze optie.
-   * **ZOOKEEPER**: Laat dit selectievakje leeg.
-   * **PARAMETERS**: Laat dit veld leeg.
+   * **NAME**. Voer een beschrijvende naam voor de scriptactie.
+   * **Bash-script-URI**. `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`.
+   * **HEAD**. Selecteer deze optie.
+   * **WERKNEMER**. Selecteer deze optie.
+   * **ZOOKEEPER**. Laat dit selectievakje leeg.
+   * **PARAMETERS**. Laat dit veld leeg.
 
 
-3. Aan de onderkant van de **scriptacties** gebied, klikt u op de **Selecteer** om de configuratie op te slaan. Ten slotte klikt u op de **Selecteer** knop aan de onderkant van de **geavanceerde instellingen** gebied om op te slaan van de configuratie-informatie.
+3. Aan de onderkant van de **scriptacties** gebied, kiest u de **Selecteer** om de configuratie op te slaan. En kies ten slotte de **Selecteer** knop aan de onderkant van de **geavanceerde instellingen** gebied om op te slaan van de configuratie-informatie.
 
-4. Doorgaan met het inrichten van het cluster, zoals beschreven in [Provision Linux gebaseerde HDInsight-clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
+4. Doorgaan met het inrichten van het cluster, zoals beschreven in [clusters in HDInsight op basis van Linux maken met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
     > [!NOTE]  
-    > Azure PowerShell, de klassieke Azure-CLI, de HDInsight .NET SDK of Azure Resource Manager-sjablonen kunnen ook worden gebruikt om toe te passen van scriptacties. U kunt ook scriptacties toepassen op clusters al wordt uitgevoerd. Zie voor meer informatie, [aanpassen HDInsight-clusters met scriptacties](hdinsight-hadoop-customize-cluster-linux.md).
+    > Azure PowerShell, de klassieke Azure-CLI, de HDInsight .NET SDK of Azure Resource Manager-sjablonen kunnen ook worden gebruikt om toe te passen van scriptacties. U kunt ook scriptacties toepassen op clusters al wordt uitgevoerd. Zie voor meer informatie, [aanpassen Linux gebaseerde HDInsight-clusters met behulp van scriptacties](hdinsight-hadoop-customize-cluster-linux.md).
     > 
     > 
 
 ## <a name="use-presto-with-hdinsight"></a>Presto gebruiken met HDInsight
 
-Als u wilt werken met, Presto in een HDInsight-cluster, gebruikt u de volgende stappen uit:
+Als u wilt werken met, Presto in een HDInsight-cluster, moet u de volgende stappen uitvoeren:
 
-1. Maak verbinding met het HDInsight-cluster via SSH:
+1. Verbinding maken met het HDInsight-cluster met behulp van SSH:
    
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
    
-    Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+    Zie voor meer informatie, [verbinding maken met HDInsight (Apache Hadoop) met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
      
 
-2. Start de Presto shell met de volgende opdracht.
+2. Start de Presto shell door het uitvoeren van de volgende opdracht uit:
    
-        presto --schema default
+    `presto --schema default`
 
-3. Een query uitvoeren op een voorbeeldtabel **hivesampletable**, die beschikbaar zijn op alle HDInsight-clusters standaard is.
+3. Een query uitvoeren op een voorbeeldtabel **hivesampletable**, die beschikbaar zijn op alle HDInsight-clusters standaard is:
    
-        select count (*) from hivesampletable;
+    `select count (*) from hivesampletable;`
    
-    Standaard [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) en [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors voor Presto al zijn geconfigureerd. Hive-connector is geconfigureerd voor het gebruik van de installatie van de Hive standaard geïnstalleerd, zodat alle tabellen van Hive automatisch zichtbaar in Presto worden.
+    Standaard [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) en [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors voor Presto al zijn geconfigureerd. De Hive-connector is geconfigureerd voor het gebruik van de standaardinstallatie van Hive. Zodat alle tabellen uit Hive worden automatisch weergegeven in Presto.
 
     Zie voor meer informatie, [Presto documentatie](https://prestodb.io/docs/current/index.html).
 
@@ -92,17 +94,17 @@ Als u wilt werken met, Presto in een HDInsight-cluster, gebruikt u de volgende s
 
 [Airpal](https://github.com/airbnb/airpal#airpal) is een open-source web gebaseerde QueryInterface voor Presto. Zie voor meer informatie over Airpal [Airpal documentatie](https://github.com/airbnb/airpal#airpal).
 
-Gebruik de volgende stappen voor het installeren van Airpal op het edge-knooppunt:
+De volgende stappen voor het installeren van Airpal op het edge-knooppunt:
 
 1. Met behulp van SSH verbinding maken met het hoofdknooppunt van het HDInsight-cluster dat Presto is geïnstalleerd:
    
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
    
-    Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+    Zie voor meer informatie, [verbinding maken met HDInsight (Apache Hadoop) met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Zodra u verbonden bent, kunt u de volgende opdracht uitvoeren.
+2. Nadat u verbonden bent, voert u de volgende opdracht uit:
 
-        sudo slider registry  --name presto1 --getexp presto 
+    `sudo slider registry  --name presto1 --getexp presto` 
    
     U ziet de uitvoer is vergelijkbaar met de volgende JSON:
 
@@ -113,70 +115,69 @@ Gebruik de volgende stappen voor het installeren van Airpal op het edge-knooppun
                 "updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
         } ]
 
-3. Uit de uitvoer, houd er rekening mee de waarde voor de **waarde** eigenschap. U moet deze waarde tijdens het installeren van Airpal op de edge van het cluster. In de bovenstaande uitvoer de waarde die u nodig hebt is **10.0.0.12:9090**.
+3. Uit de uitvoer, houd er rekening mee de waarde voor de **waarde** eigenschap. Wanneer u Airpal op de edge-knooppunt van het cluster installeert moet u deze waarde. In de bovenstaande uitvoer de waarde die u nodig hebt is **10.0.0.12:9090**.
 
-4. Gebruik de sjabloon **[hier](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** een edge van HDInsight-cluster maken en geef de waarden op zoals weergegeven in de volgende schermafbeelding.
+4. Gebruik [deze sjabloon](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json) te maken van het edge-knooppunt van een HDInsight-cluster. Geef de waarden in de volgende schermafbeelding wordt weergegeven.
 
-    ![HDInsight installeren Airpal op Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
+    ![Aangepaste implementatie](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
 
-5. Klik op **Kopen**.
+5. Selecteer **Aankoop**.
 
-6. Zodra de wijzigingen zijn toegepast op de configuratie van het cluster, kunt u toegang tot de Airpal webinterface met behulp van de volgende stappen uit de [Azure-portal](https://portal.azure.com):
+6. Nadat de wijzigingen worden toegepast op de configuratie van het cluster, toegang krijgen tot de Airpal webinterface door de volgende stappen uit de [Azure-portal](https://portal.azure.com):
 
     1. Selecteer in het menu links **alle services**.
 
     1. Onder **ANALYTICS**, selecteer **HDInsight-clusters**.
 
-    1. Selecteer uw cluster in de lijst, waardoor de standaardweergave wordt geopend.
+    1. Selecteer uw cluster in de lijst, die wordt geopend de standaardweergave.
 
     1. De standaardweergave onder **instellingen**, selecteer **toepassingen**.
 
-        ![HDInsight starten Airpal op Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
+        ![HDInsight, toepassingen](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    1. Uit de **geïnstalleerde Apps** pagina lokale de vermelding in de tabel voor **airpal**, en selecteer **Portal**.
+    1. Uit de **geïnstalleerde Apps** pagina, zoek de vermelding in de tabel voor **airpal**. Selecteer **Portal**.
 
-        ![HDInsight starten Airpal op Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
+        ![Geïnstalleerde apps](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-    1. Voer desgevraagd de referenties van de beheerder die u hebt opgegeven tijdens het maken van het HDInsight Hadoop-cluster.
+    1. Voer desgevraagd de referenties van de beheerder die u hebt opgegeven tijdens het maken van het Hadoop-gebaseerde HDInsight-cluster.
 
 ## <a name="customize-a-presto-installation-on-hdinsight-cluster"></a>Een Presto installeren op HDInsight-cluster aanpassen
 
-Gebruik de volgende stappen uit voor het aanpassen van de installatie:
+Voor het aanpassen van de installatie, moet u de volgende stappen uitvoeren:
 
 1. Met behulp van SSH verbinding maken met het hoofdknooppunt van het HDInsight-cluster dat Presto is geïnstalleerd:
    
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
    
-    Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+    Zie voor meer informatie, [verbinding maken met HDInsight (Apache Hadoop) met behulp van SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Uw configuratiewijzigingen aanbrengen in het bestand `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Zie voor meer informatie over de configuratie van de Presto [Presto configuratie voor clusters op basis van YARN](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
+2. Uw configuratiewijzigingen aanbrengen in het bestand `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. Zie voor meer informatie over de configuratie van de Presto [Presto configuratieopties voor clusters op basis van YARN](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
 
-3. Stop en de actieve sessie van Presto kill.
+3. Stoppen en de actieve sessie van Presto kill:
 
-        sudo slider stop presto1 --force
-        sudo slider destroy presto1 --force
+    `sudo slider stop presto1 --force` `sudo slider destroy presto1 --force`
 
-4. Start een nieuw exemplaar van Presto met de aanpassingen.
+4. Start een nieuw exemplaar van Presto met het aanpassen:
 
-       sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json
+    `sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
-5. Wachten op het nieuwe exemplaar worden gereed en houd er rekening mee presto coordinator-adres.
+5. Wachten op het nieuwe exemplaar gereed is. Houd rekening met het adres Presto coordinator:
 
 
-       sudo slider registry --name presto1 --getexp presto
+    `sudo slider registry --name presto1 --getexp presto`
 
 ## <a name="generate-benchmark-data-for-hdinsight-clusters-that-run-presto"></a>Benchmark-gegevens voor HDInsight-clusters met Presto genereren
 
-TPC DS is de industriestandaard voor het meten van de prestaties van veel besluit ondersteuning voor systemen, met inbegrip van big data-systemen. U kunt Presto gegevens genereren en te evalueren hoe deze wordt vergeleken met uw eigen HDInsight-benchmark-gegevens. Zie voor meer informatie, [hier](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
+TPC DS is de industriestandaard voor het meten van de prestaties van veel systemen voor ondersteuning voor besluitvorming, waaronder big data-systemen. U kunt Presto gegevens genereren en te evalueren hoe deze wordt vergeleken met uw eigen HDInsight-benchmark-gegevens. Zie voor meer informatie, [tpcds hdinsight](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
 
 
 
-## <a name="see-also"></a>Zie ook
-* [Installeren en Hue gebruiken op HDInsight-clusters](hdinsight-hadoop-hue-linux.md). HUE is een webinterface waarmee u eenvoudig maken, uitvoeren en opslaan van Apache Pig en Hive-taken.
+## <a name="next-steps"></a>Volgende stappen
+* [Installeren en Hue gebruiken op HDInsight Hadoop-clusters](hdinsight-hadoop-hue-linux.md). HUE is een webinterface waarmee u eenvoudig maken, uitvoeren en opslaan van Apache Pig en Hive-taken.
 
-* [Apache Giraph installeren op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md). Aanpassing van de cluster Giraph installeren op HDInsight Hadoop-clusters gebruiken. Giraph Hiermee kunt u grafische verwerking met behulp van Hadoop en kan worden gebruikt met Azure HDInsight.
+* [Apache Giraph installeren op HDInsight Hadoop-clusters en Giraph gebruiken om grootschalige grafieken te verwerken](hdinsight-hadoop-giraph-install-linux.md). Aanpassing van de cluster Giraph installeren op HDInsight Hadoop-gebaseerde clusters gebruiken. Met Giraph, kunt u grafische verwerking uitvoeren met behulp van Hadoop. Het kan ook worden gebruikt met Azure HDInsight.
 
-* [Apache Solr installeren op HDInsight-clusters](hdinsight-hadoop-solr-install-linux.md). Aanpassing van de cluster Solr installeren op HDInsight Hadoop-clusters gebruiken. Solr kunt u krachtige zoek-bewerkingen voor opgeslagen gegevens uit te voeren.
+* [Installeren en gebruiken van Apache Solr op HDInsight Hadoop-clusters](hdinsight-hadoop-solr-install-linux.md). Aanpassing van de cluster Solr installeren op HDInsight Hadoop-gebaseerde clusters gebruiken. Met behulp van Solr, kunt u krachtige zoek-bewerkingen voor opgeslagen gegevens uitvoeren.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

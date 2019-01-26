@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812536"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079253"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -33,7 +33,7 @@ Azure Migrate is een service voor beveiligingsbeoordeling die helpt u bij het de
 
 ### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>Wat is het verschil tussen het gebruik van Azure Migrate voor beoordelingen en de Map Toolkit?
 
-[Azure Migrate](migrate-overview.md) biedt migratie-analyse met name om te helpen bij de voorbereiding op de migratie en evaluatie van de on-premises werkbelastingen in Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) heeft andere functies. Voorbeeld: de migratie plannen voor nieuwere versies van Windows-client en server-besturingssystemen, software gebruik bijhouden enzovoort. Voor deze scenario's, echter ook doorgaan met de MAP Toolkit.
+[Azure Migrate](migrate-overview.md) biedt migratie-analyse met name om te helpen bij de voorbereiding op de migratie en evaluatie van de on-premises werkbelastingen in Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) heeft andere functies zoals migratieplanning voor nieuwere versies van Windows-client en server-besturingssystemen en het bijhouden van softwaregebruik. Voor deze scenario's, echter ook doorgaan met de MAP Toolkit.
 
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Wat is Azure Migrate verschil met Azure Site Recovery Deployment Planner?
@@ -198,7 +198,7 @@ Nee, de visualisatie van afhankelijkheden kan niet worden geëxporteerd. Echter,
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Hoe kan ik de installatie van Microsoft Monitoring Agent (MMA) en de agent voor afhankelijkheden automatiseren?
 
-[Hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) is een script dat u voor de installatie van agent voor afhankelijkheden gebruiken kunt. Voor de MMA, [hier](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) is een script dat beschikbaar is op TechNet waarvan u gebruik kunt maken.
+[Hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) is een script dat u voor de installatie van agent voor afhankelijkheden gebruiken kunt. [Hier](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) vindt u instructies over hoe u met behulp van de opdrachtregel of geautomatiseerde methoden MMA kunt installeren. Voor de MMA, kunt u ook gebruikmaken van een script beschikbaar [hier](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) op Technet.
 
 Naast scripts, kunt u ook gebruikmaken van hulpprogramma's voor implementatie, zoals System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) enzovoort naar de agents te implementeren.
 
@@ -213,10 +213,10 @@ De lijst van Windows-besturingssystemen wordt ondersteund door de agent voor afh
 De lijst met Linux-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Kan ik meer dan één uur duurt afhankelijkheden in Azure Migrate visualiseren?
-Nee, kunt u visualiseren afhankelijkheden voor de duur van maximaal één uur voor Azure Migrate. Azure Migrate kunt u terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, maar de maximale duur waarvoor u de afhankelijkheden visualiseren is tot 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur.
+Nee, kunt u visualiseren afhankelijkheden voor de duur van maximaal één uur voor Azure Migrate. Azure Migrate kunt u terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, maar de maximale duur waarvoor u de afhankelijkheden visualiseren is tot 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur. Echter, kunt u Log Analytics [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Visualisatie van afhankelijkheden is wordt ondersteund voor groepen met meer dan 10 virtuele machines?
-U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) dat hebben van 10 virtuele machines, hebt u een groep met meer dan 10 virtuele machines, we raden u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.
+U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) die maximaal 10 virtuele machines hebben. Als u een groep met meer dan 10 virtuele machines hebt, raden we u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.
 
 
 ## <a name="next-steps"></a>Volgende stappen

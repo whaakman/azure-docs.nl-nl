@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227991"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076431"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formules beheren
 
@@ -44,39 +44,35 @@ De volgende stappen begeleiden u bij het proces voor het maken van een formule v
 
 3. Selecteer de gewenste lab in de lijst met labs.  
 
-4. Selecteer op de blade van de testomgeving **formules (herbruikbare bases)**.
+4. Selecteer op de pagina van het lab **formules (herbruikbare bases)**.
    
     ![Menu formule](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
-5. Op de **formules** Selecteer **+ toevoegen**.
+5. Op de **formules** weergeeft, schakelt **+ toevoegen**.
    
     ![Een formule toevoegen](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. Op de **kiest u een base** blade, selecteer de base (aangepaste installatiekopie, Marketplace-installatiekopie of formule) van waaruit u wilt maken de formule.
+6. Op de **kiest u een base** pagina, selecteert u de base (aangepaste installatiekopie, Marketplace-installatiekopie of formule) van waaruit u wilt maken van de formule.
    
     ![Lijst met basis](./media/devtest-lab-create-formulas/base-list.png)
 
-7. Op de **formule maken** blade, geef de volgende waarden:
+7. Op de **basisinstellingen** tabblad van de **formule maken** pagina, de volgende waarden opgeven:
    
     * **Naam van formule** -Voer een naam in voor uw formule. Deze waarde wordt weergegeven in de lijst met basisinstallatiekopieën bij het maken van een virtuele machine. De naam wordt gevalideerd als u deze typen en als dat niet geldig is, een bericht geeft aan de vereisten voor een geldige naam.
-    * **Beschrijving** -Voer een duidelijke beschrijving voor de formule. Deze waarde is beschikbaar in het contextmenu van de formule bij het maken van een virtuele machine.
     * **Gebruikersnaam** -Voer een gebruikersnaam die wordt verleend beheerdersbevoegdheden.
     * **Wachtwoord** - Voer - of Selecteer in de vervolgkeuzelijst - u op een waarde die is gekoppeld aan de geheime sleutel (wachtwoord) die u wilt gebruiken voor de opgegeven gebruiker. Zie voor meer informatie over het opslaan van geheimen in een key vault en het gebruik ervan bij het maken van de labresources, [Store geheimen in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
-    * **VM-schijftype** – Geef een van beide harde schijf (harde schijf) of SSD (solid-state drive) om aan te geven welk opslagtype voor de schijf is toegestaan voor de virtuele machines zijn ingericht met behulp van deze basisinstallatiekopie.
-    * ** Virtuele machine grootte ** - Selecteer een van de vooraf gedefinieerde items die u opgeeft de processor-cores, RAM-geheugen en de grootte van de vaste schijf van de virtuele machine te maken. 
-    * **Artefacten** : Selecteer om te openen de **artefacten toevoegen** blade waarin selecteert en configureert u de artefacten die u wilt toevoegen aan de basisinstallatiekopie. Zie voor meer informatie over artefacten [maken van aangepaste artefacten voor uw virtuele machine van Azure DevTest Labs](devtest-lab-artifact-author.md).
-    * **Geavanceerde instellingen** : Selecteer om te openen de **Geavanceerd** blade waar u de volgende instellingen configureren:
-        * **Virtueel netwerk** -Geef de gewenste virtuele netwerk.
-        * **Subnet** -Geef de gewenste subnet.    
-        * **IP-adresconfiguratie** -opgeven of u de openbare, persoonlijke of gedeelde IP-adressen wilt. Zie voor meer informatie over gedeelde IP-adressen, [begrijpen gedeelde IP-adressen in Azure DevTest Labs](./devtest-lab-shared-ip.md).
-        * **Zorg dat deze machine claimbare** -maken van een virtuele machine 'claimbare' betekent dat het zal niet worden toegewezen eigendom op het moment van maken. In plaats daarvan is labgebruikers mogelijk eigenaar ("claim") de computer in de blade van de testomgeving.     
-    * **Afbeelding** -dit veld wordt de naam van de basisinstallatiekopie die u hebt geselecteerd op de vorige blade weergegeven. 
-     
-       ![Formule maken](./media/devtest-lab-create-formulas/create-formula.png)
+    * **VM-grootte** : Selecteer **grootte wijzigen** de grootte van de virtuele machine wijzigen. 
+    * **Artefacten** : Selecteer **toevoegen of verwijderen van artefacten** pagina waarin selecteert en configureert u de artefacten die u wilt toevoegen aan de basisinstallatiekopie. Zie voor meer informatie over artefacten [maken van aangepaste artefacten voor uw virtuele machine van Azure DevTest Labs](devtest-lab-artifact-author.md).
+8. Schakel over naar de **geavanceerde instellingen** tabblad, en geeft u de volgende waarden:
+    - **Virtueel netwerk** : als u wilt wijzigen van het virtuele netwerk, selecteert u **wijzigen Vnet**. 
+    - **Subnet** : als u wilt wijzigen van het subnet, selecteert u **Subnet wijzigen**. 
+    - **IP-adresconfiguratie** -opgeven of u de openbare, persoonlijke of gedeelde IP-adressen wilt. Zie voor meer informatie over gedeelde IP-adressen, [begrijpen gedeelde IP-adressen in Azure DevTest Labs](./devtest-lab-shared-ip.md).
+    - **Datum en tijd** : Geef de vervaldatum en tijd voor de virtuele machine, zodat de virtuele machine wordt automatisch verwijderd. 
+    - **Zorg dat deze machine claimbare** -maken van een virtuele machine 'claimbare' betekent dat het zal niet worden toegewezen eigendom op het moment van maken. In plaats daarvan is labgebruikers mogelijk eigenaar ("claim") de machine op de pagina van het lab.     
+    - **Aantal claimbare exemplaren** -opgeven hoeveel claimbare instacnes dat u wilt maken. 
+8. Selecteer **indienen** om de formule te maken.
 
-8. Selecteer **maken** om de formule te maken.
-
-9. Wanneer de formule is gemaakt, wordt weergegeven in de lijst op de **formules** blade.
+9. Wanneer de formule is gemaakt, wordt weergegeven in de lijst op de **formules** pagina.
 
 ### <a name="create-a-formula-from-a-vm"></a>Een formule van een virtuele machine maken
 De volgende stappen begeleiden u bij het proces voor het maken van een formule op basis van een bestaande virtuele machine. 
@@ -89,15 +85,15 @@ De volgende stappen begeleiden u bij het proces voor het maken van een formule o
 1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 3. Selecteer de gewenste lab in de lijst met labs.  
-4. Op van het lab **overzicht** blade, selecteer de virtuele machine van waaruit u wilt maken van de formule.
+4. Op van het lab **overzicht** pagina, selecteert u de virtuele machine van waaruit u wilt maken van de formule.
    
     ![Labs VM 's](./media/devtest-lab-create-formulas/my-vms.png)
-5. Selecteer op de blade van de virtuele machine **formule (op basis van herbruikbare) maken**.
+5. Selecteer op de pagina van de virtuele machine, **formule (op basis van herbruikbare) maken**.
    
     ![Formule maken](./media/devtest-lab-create-formulas/create-formula-menu.png)
-6. Op de **formule maken** blade, voer een **naam** en **beschrijving** voor uw nieuwe formule.
+6. Op de **formule maken** pagina een **naam** en **beschrijving** voor uw nieuwe formule.
    
-    ![Formule blade maken](./media/devtest-lab-create-formulas/create-formula-blade.png)
+    ![Formule-pagina maken](./media/devtest-lab-create-formulas/create-formula-blade.png)
 7. Selecteer **OK** om de formule te maken.
 
 ## <a name="modify-a-formula"></a>Een formule wijzigen
@@ -106,11 +102,11 @@ Volg deze stappen voor het wijzigen van een formule:
 1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 3. Selecteer de gewenste lab in de lijst met labs.  
-4. Selecteer op de blade van de testomgeving **formules (herbruikbare bases)**.
+4. Selecteer op de pagina van het lab **formules (herbruikbare bases)**.
    
     ![Menu formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. Op de **Lab formules** blade, selecteert u de formule die u wilt wijzigen.
-6. Op de **Aktualizovat vzorec** blade, de gewenste wijzigingen aanbrengen en selecteer **Update**.
+5. Op de **Lab formules** pagina, selecteert u de formule die u wilt wijzigen.
+6. Op de **Aktualizovat vzorec** pagina, de gewenste wijzigingen aanbrengen en selecteer **Update**.
 
 ## <a name="delete-a-formula"></a>Verwijderen van een formule
 Als u wilt verwijderen van een formule, de volgende stappen uit:
@@ -118,10 +114,10 @@ Als u wilt verwijderen van een formule, de volgende stappen uit:
 1. Meld u aan bij [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecteer **alle Services**, en selecteer vervolgens **DevTest Labs** in de lijst.
 3. Selecteer de gewenste lab in de lijst met labs.  
-4. In het lab **instellingen** Selecteer **formules**.
+4. In het lab **instellingen** weergeeft, schakelt **formules**.
    
     ![Menu formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. Op de **Lab formules** blade, selecteer het weglatingsteken rechts van de formule die u wilt verwijderen.
+5. Op de **Lab formules** pagina, selecteer het weglatingsteken rechts van de formule die u wilt verwijderen.
    
     ![Menu formule](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. Selecteer in het contextmenu van de formule, **verwijderen**.

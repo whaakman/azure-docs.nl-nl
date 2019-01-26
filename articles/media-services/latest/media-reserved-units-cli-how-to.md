@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2b10de83e00b3668f70461f76634c560bcbea1a4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9f95be8a9d75065deedd3bd7c92907145e966494
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133788"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913050"
 ---
 # <a name="scaling-media-processing"></a>Mediaverwerking schalen
 
@@ -32,19 +32,27 @@ In dit artikel ziet u hoe u [Media Services v3 CLI](https://aka.ms/ams-v3-cli-re
 
 ## <a name="prerequisites"></a>Vereisten 
 
-- Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
++ Installeer de [Azure CLI]( /cli/azure/install-azure-cli). In dit artikel is Azure CLI versie 2.0 of hoger vereist. Voer `az --version` uit om te zien welke versie u hebt. 
 
-    Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
-
-- [Een Azure Media Services-account maken](create-account-cli-how-to.md).
+    U kunt ook de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) gebruiken.
++ [Een Azure Media Services-account maken](create-account-cli-how-to.md).
 
 ## <a name="scale-media-reserved-units-with-cli"></a>Gereserveerde schaal Media-eenheden met CLI
 
-De volgende [az ams-account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) sets gereserveerde Media-eenheden op de 'amsaccount' rekening met de opdracht de **aantal** en **type** parameters.
+1. Voer de opdracht `login` uit. Voer deze opdracht ongeacht of u van de Azure cloudshell of de lokale CLI shell gebruikmaakt.
 
-```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
-```
+    ```azurecli
+    az login
+    ```
+    
+    Als de CLI uw standaardbrowser kan openen, gebeurt dat ook en wordt er een aanmeldingspagina gedownload. Anders moet u een browserpagina openen en volg de instructies op de opdrachtregel voor het invoeren van een autorisatiecode na het navigeren naar [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin) in uw browser.
+2. Voer de opdracht `mru` uit.
+
+    De volgende [az ams-account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) sets gereserveerde Media-eenheden op de 'amsaccount' rekening met de opdracht de **aantal** en **type** parameters.
+
+    ```azurecli
+    az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+    ```
 
 ## <a name="billing"></a>Billing
 

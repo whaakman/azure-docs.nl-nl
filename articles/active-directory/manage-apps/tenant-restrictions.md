@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 90cfb766e98bfa9706cd88342f8374269bc69d76
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478141"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911622"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Tenantbeperkingen gebruiken voor het beheren van toegang tot SaaS-cloudtoepassingen
 
@@ -89,7 +89,7 @@ Deze sectie wordt de ervaring voor eindgebruikers en beheerders.
 
 ### <a name="end-user-experience"></a>Eindgebruikerservaring
 
-Een van de voorbeeldgebruiker is in het Contoso-netwerk, maar wil toegang tot de Fabrikam-exemplaar van een gedeelde SaaS-toepassing, zoals Outlook online. Als Contoso een niet-toegestane tenant voor die instantie is, ziet de gebruiker de volgende pagina:
+Een van de voorbeeldgebruiker is in het Contoso-netwerk, maar wil toegang tot de Fabrikam-exemplaar van een gedeelde SaaS-toepassing, zoals Outlook online. Als Fabricam een tenant niet is toegestaan voor het Contoso-exemplaar is, ziet de gebruiker de volgende pagina:
 
 ![Pagina voor gebruikers in niet-toegestane tenants toegang geweigerd](./media/tenant-restrictions/end-user-denied.png)
 

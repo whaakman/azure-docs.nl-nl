@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e5949016281b5f8ba5d8770403a146e52d279c73
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431194"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079984"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -40,17 +40,16 @@ Er zijn twee typen uitvoeren als-Accounts:
 
 Als u wilt maken of bijwerken van een uitvoeren als-account, moet u de specifieke rechten en machtigingen hebben. Een globale beheerder/Medebeheerder kunt voltooien van de taken. In een situatie waarin u werkt met scheiding van functies, ziet de volgende tabel u een overzicht van de taken, de cmdlet equivalent en de machtigingen die nodig zijn:
 
-|Taak|Cmdlet  |Minimale machtigingen  |
-|---|---------|---------|
-|Azure AD-toepassing maken|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Developer toepassingsrol        |
-|Een referentie toevoegen aan de toepassing.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Beheerder van de toepassing of globale beheerder         |
-|Maken en een Azure AD-service-principal ophalen|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Beheerder van de toepassing of globale beheerder        |
-|Toewijzen of de RBAC-rol voor de opgegeven principal ophalen|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Beheerder van gebruikerstoegang of eigenaar        |
-|Maken of verwijderen van een Automation-certificaat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Inzender voor resourcegroep         |
-|Maken of verwijderen van een Automation-verbinding|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Inzender voor resourcegroep |
+|Taak|Cmdlet  |Minimale machtigingen  |Wanneer u de machtigingen instellen|
+|---|---------|---------|---|
+|Azure AD-toepassing maken|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Developer toepassingsrol<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registraties |
+|Een referentie toevoegen aan de toepassing.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Beheerder van de toepassing of globale beheerder<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registraties|
+|Maken en een Azure AD-service-principal ophalen|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Beheerder van de toepassing of globale beheerder        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registraties|
+|Toewijzen of de RBAC-rol voor de opgegeven principal ophalen|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Beheerder van gebruikerstoegang of eigenaar        | [Abonnement](../role-based-access-control/role-assignments-portal.md)</br>Start > abonnementen > \<abonnementsnaam\> -Access Control (IAM)|
+|Maken of verwijderen van een Automation-certificaat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Inzender voor resourcegroep         |Resourcegroep van Automation-Account|
+|Maken of verwijderen van een Automation-verbinding|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Inzender voor resourcegroep |Resourcegroep van Automation-Account|
 
-* Een AD-gebruikersaccount met machtigingen heeft die equivalent zijn aan de rol Inzender voor Microsoft.Automation-resources, zoals wordt beschreven in artikel [rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md#contributor).  
-* Gebruikers zonder beheerdersrechten in uw Azure AD-tenant kunnen [AD-toepassingen registreren](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) als de optie **Gebruikers kunnen toepassingen registreren** van de Azure AD-tenant op de pagina **Gebruikersinstellingen** is ingesteld op **Ja**. Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
+<sup>1</sup> kunnen gebruikers zonder beheerdersrechten in uw Azure AD-tenant [AD-toepassingen registreren](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) als de Azure AD-tenant **gebruikers kunnen toepassingen registreren** optie **gebruikersinstellingen**pagina is ingesteld op **Ja**. Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
 
 Als u niet lid zijn van Active Directory-exemplaar van het abonnement voordat u bent toegevoegd aan de globale beheerder/medebeheerder rol van het abonnement, bent u als Gast toegevoegd. In dit geval ontvangt u een `You do not have permissions to create…` waarschuwing op de **Automation-Account toevoegen** pagina. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 

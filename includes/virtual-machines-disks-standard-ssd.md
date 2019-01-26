@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572030"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906304"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Standard-SSD Managed Disks voor Azure Virtual machine-werkbelasting
 
@@ -21,14 +21,14 @@ Azure Standard-schijven SSD (Solid State) Managed Disks is een goedkope opslagop
 
 ## <a name="standard-ssd-features"></a>Standard-SSD-functies
 
-**Beheerde schijven**: standaard SSD's zijn alleen beschikbaar als beheerde schijven. Niet-beheerde schijven en pagina-Blobs worden niet ondersteund op Standard-SSD. Tijdens het maken van de beheerde schijf, geeft u het schijftype als Standard-SSD en de grootte van de schijf die u nodig hebt en Azure maakt en beheert de schijf voor u.
+**Managed Disks**: Standard-SSD's zijn alleen beschikbaar als beheerde schijven. Niet-beheerde schijven en pagina-Blobs worden niet ondersteund op Standard-SSD. Tijdens het maken van de beheerde schijf, geeft u het schijftype als Standard-SSD en de grootte van de schijf die u nodig hebt en Azure maakt en beheert de schijf voor u.
 Standard-SSD's ondersteunen alle classic deployment model bewerkingen die worden aangeboden door beheerde schijven. Bijvoorbeeld, u kunt maken, kopieert of momentopname van Standard-SSD Managed Disks op dezelfde manier als u doen met Managed Disks.
 
-**Virtuele Machines**: standaard SSD's kunnen worden gebruikt met alle Azure-VM's, met inbegrip van de VM-typen die geen ondersteuning voor Premium-schijven. Bijvoorbeeld, als u een A-serie VM, of de VM uit de N-serie of de DS-serie, of elke andere virtuele Azure-machine-serie, kunt u standaard SSD's aan die virtuele machine. Met de introductie van Standard-SSD, zijn we een breed scala aan werkbelastingen die u eerder hebt gebruikt op basis van HDD-schijven voor de overgang naar op basis van SSD-schijven en consistente prestaties, hogere beschikbaarheid, betere latentie en een betere algehele ervaring inschakelen ervaring die afkomstig zijn met SSD's.
+**Virtuele Machines**: Standard-SSD's kunnen worden gebruikt met alle Azure-VM's, met inbegrip van de VM-typen die geen ondersteuning voor Premium-schijven. Bijvoorbeeld, als u een A-serie VM, of de VM uit de N-serie of de DS-serie, of elke andere virtuele Azure-machine-serie, kunt u standaard SSD's aan die virtuele machine. Met de introductie van Standard-SSD, zijn we een breed scala aan werkbelastingen die u eerder hebt gebruikt op basis van HDD-schijven voor de overgang naar op basis van SSD-schijven en consistente prestaties, hogere beschikbaarheid, betere latentie en een betere algehele ervaring inschakelen ervaring die afkomstig zijn met SSD's.
 
-**Duurzaam en hoge beschikbaarheid**: standaard SSD's zijn gebouwd op de dezelfde Azure Disks-platform, die consistent is geleverd voor hoge beschikbaarheid en duurzaamheid voor schijven. Azure-schijven zijn ontworpen voor 99,999 procent beschikbaarheid. Net als alle Managed Disks voorzien Standard-SSD's ook van lokaal redundante opslag (LRS). Met LRS, het platform meerdere replica's van gegevens voor elke schijf onderhoudt en zakelijke consistent heeft geleverd duurzaamheid voor IaaS-schijven, met een toonaangevende nul procent op jaarbasis foutpercentage.
+**Duurzaam en hoge beschikbaarheid**: Standard-SSD's zijn gebouwd op de dezelfde Azure Disks-platform, die consistent is geleverd voor hoge beschikbaarheid en duurzaamheid voor schijven. Azure-schijven zijn ontworpen voor 99,999 procent beschikbaarheid. Net als alle Managed Disks voorzien Standard-SSD's ook van lokaal redundante opslag (LRS). Met LRS, het platform meerdere replica's van gegevens voor elke schijf onderhoudt en zakelijke consistent heeft geleverd duurzaamheid voor IaaS-schijven, met een toonaangevende nul procent op jaarbasis foutpercentage.
 
-**Momentopnamen**: net als alle Managed Disks, Standard-SSD's ook ondersteuning voor het maken van momentopnamen. Type momentopname kan worden standaard (HDD) of Premium (SSD). Voor het opslaan van de kosten, wordt aangeraden type momentopname van de standaard (HDD) voor alle Azure-schijftypes. Dit komt omdat wanneer u een beheerde schijf op basis van een momentopname maken, altijd kunt u een hogere laag, zoals de Standard-SSD- of Premium SSD kiezen.
+**Momentopnamen**: Net als alle Managed Disks ondersteuning Standard-SSD's ook voor het maken van momentopnamen. Type momentopname kan worden standaard (HDD) of Premium (SSD). Voor het opslaan van de kosten, wordt aangeraden type momentopname van de standaard (HDD) voor alle Azure-schijftypes. Dit komt omdat wanneer u een beheerde schijf op basis van een momentopname maken, altijd kunt u een hogere laag, zoals de Standard-SSD- of Premium SSD kiezen.
 
 ## <a name="scalability-and-performance-targets"></a>Schaalbaarheids- en prestatiedoelen
 
@@ -36,15 +36,17 @@ De volgende tabel bevat de schijfgrootten, die momenteel worden aangeboden voor 
 
 |Type van de Standard-SSD-schijf  |Schijfgrootte  |IOP's per schijf  |Doorvoer per schijf  |
 |---------|---------|---------|---------|
+|E4     |32 GiB         |Maximaal kunnen 120         |Maximaal 25 MiB per seconde         |
+|E6     |64 GiB         |Tot 240         |Maximaal 50 MiB per seconde         |
 |E10     |128 GiB         |Maximaal 500         |Maximaal 60 MiB per seconde         |
 |E15     |256 GiB         |Maximaal 500         |Maximaal 60 MiB per seconde         |
 |E20     |512 GiB         |Maximaal 500         |Maximaal 60 MiB per seconde         |
 |E30     |1.024 giB       |Maximaal 500         |Maximaal 60 MiB per seconde         |
-|E40     |2048 giB       |Maximaal 500         |Maximaal 60 MiB per seconde         |
-|E50     |4095 giB       |Maximaal 500         |Maximaal 60 MiB per seconde         |
-|E60 *     |8192 giB       |Maximaal 1.300       |Maximaal 300 MiB per seconde        |
-|E70 *    |16.384 giB      |Maximaal 2000       |Maximaal 500 MiB per seconde        |
-|E80 *    |32.767 giB      |Maximaal 2000       |Maximaal 500 MiB per seconde        |
+|E40     |2,048 GiB       |Maximaal 500         |Maximaal 60 MiB per seconde         |
+|E50     |4,095 GiB       |Maximaal 500         |Maximaal 60 MiB per seconde         |
+|E60 *     |8,192 GiB       |Maximaal 1.300       |Maximaal 300 MiB per seconde        |
+|E70 *    |16,384 GiB      |Maximaal 2000       |Maximaal 500 MiB per seconde        |
+|E80 *    |32,767 GiB      |Maximaal 2000       |Maximaal 500 MiB per seconde        |
 
 Standard-SSD's zijn ontworpen om latentie in milliseconden voor de meeste i/o-bewerkingen, en om u te bieden de IOPS en doorvoer van maximaal de limieten die worden beschreven in de bovenstaande tabel 99% van de tijd. Werkelijke IOPS en doorvoer kunnen soms variëren, afhankelijk van de patronen in het netwerkverkeer. Standard-SSD's biedt consistente prestaties dan de HDD-schijven met een lagere latentie.
 
@@ -61,13 +63,13 @@ Wanneer u de Standard-SSD's, zijn de volgende factureringsvoorwaarden van toepas
 - Uitgaande gegevensoverdracht
 - Transacties
 
-**Beheerde schijfgrootte**: beheerde schijven worden in rekening gebracht voor de ingerichte grootte. Azure wijst de ingerichte grootte (omhoog afgerond) toe aan de aanbieding voor schrijfgrootte die het dichtst in de buurt komt. Zie de tabel in Scalability and Performance Targets sectie hierboven voor meer informatie van de grootte van de schijven die worden aangeboden. Elke schijf wordt toegewezen aan een grootte van de ondersteunde ingerichte schijf en dienovereenkomstig kosten in rekening gebracht. Bijvoorbeeld, als u een 200 GiB Standard-SSD ingericht, deze wordt toegewezen aan de aanbieding van de grootte van schijf van E15 (256 GB). Facturering voor ingerichte schijven is per uur Pro rata met behulp van de maandelijkse prijs voor de Premium-opslag-aanbieding. Bijvoorbeeld, als u een schijf E10 ingericht en deze na 20 uur verwijderd, wordt u gefactureerd voor de aanbieding E10 20 uur Pro rata berekend. Dit is, ongeacht de hoeveelheid feitelijke gegevens geschreven naar de schijf.
+**Beheerde schijfgrootte**: Beheerde schijven worden in rekening gebracht voor de ingerichte grootte. Azure wijst de ingerichte grootte (omhoog afgerond) toe aan de aanbieding voor schrijfgrootte die het dichtst in de buurt komt. Zie de tabel in Scalability and Performance Targets sectie hierboven voor meer informatie van de grootte van de schijven die worden aangeboden. Elke schijf wordt toegewezen aan een grootte van de ondersteunde ingerichte schijf en dienovereenkomstig kosten in rekening gebracht. Bijvoorbeeld, als u een 200 GiB Standard-SSD ingericht, deze wordt toegewezen aan de aanbieding van de grootte van schijf van E15 (256 GB). Facturering voor ingerichte schijven is per uur Pro rata met behulp van de maandelijkse prijs voor de Premium-opslag-aanbieding. Bijvoorbeeld, als u een schijf E10 ingericht en deze na 20 uur verwijderd, wordt u gefactureerd voor de aanbieding E10 20 uur Pro rata berekend. Dit is, ongeacht de hoeveelheid feitelijke gegevens geschreven naar de schijf.
 
-**Momentopnamen**: momentopnamen van Managed Disks worden kosten in rekening gebracht voor de capaciteit die wordt gebruikt door de momentopnamen, op het doel en op de bron, indien van toepassing. Zie voor meer informatie over momentopnamen [momentopnamen van de beheerde schijf](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
+**Momentopnamen**: Momentopnamen van Managed Disks worden kosten in rekening gebracht voor de capaciteit die wordt gebruikt door de momentopnamen, op het doel en op de bron, indien van toepassing. Zie voor meer informatie over momentopnamen [momentopnamen van de beheerde schijf](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
-**Uitgaande gegevensoverdracht**: [uitgaande gegevensoverdrachten](https://azure.microsoft.com/pricing/details/bandwidth/) (gegevens die vanuit Azure-datacenters) worden gefactureerd voor bandbreedtegebruik.
+**Uitgaande gegevensoverdracht**: [Uitgaande gegevensoverdracht](https://azure.microsoft.com/pricing/details/bandwidth/) (gegevens die vanuit Azure-datacenters) worden gefactureerd voor bandbreedtegebruik.
 
-**Transacties**: net als bij standaard harde schijven, transacties voor Standard-SSD's worden gefactureerd. Transacties bestaan zowel uit lees- en schrijfbewerkingen op de schijf. Grootte van i/o die wordt gebruikt voor de transacties voor Standard-SSD accounting is 256 KiB. I/o-grotere worden geteld als meerdere i/o's van de grootte van 256 KiB.
+**Transacties**: Net als bij standaard harde schijven, transacties voor Standard-SSD's worden gefactureerd. Transacties bestaan zowel uit lees- en schrijfbewerkingen op de schijf. Grootte van i/o die wordt gebruikt voor de transacties voor Standard-SSD accounting is 256 KiB. I/o-grotere worden geteld als meerdere i/o's van de grootte van 256 KiB.
 
 Zie voor meer informatie over prijzen voor virtuele Machines en beheerde schijven:
 

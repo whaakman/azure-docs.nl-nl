@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 31be6b99d6c2ccc2c3f13484c409285ff85e12a0
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381523"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078663"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault gebruiken voor veilige parameterwaarde doorgeven tijdens implementatie
 
@@ -84,7 +84,7 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-Voor het gebruik van Resource Manager-sjabloon: Zie [zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault) voor meer informatie.
+Voor het gebruik van Resource Manager-sjabloon: Zie [zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md#prepare-a-key-vault) voor meer informatie.
 
 > [!NOTE]
 > Elke Azure-service heeft eigen wachtwoordvereisten. Bijvoorbeeld, de vereisten van de Azure virtuele machine kunnen worden gevonden op [wat zijn de wachtwoordvereisten bij het maken van een virtuele machine?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).

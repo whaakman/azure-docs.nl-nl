@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 487bf54d80c9249e5ce69c4b5aeff942a21d5b48
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025093"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913147"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
@@ -95,7 +95,7 @@ Er zijn een aantal verschillende DNS-caching pakketten beschikbaar zijn (zoals d
   * Start de service dnsmasq met `systemctl start dnsmasq.service`. 
   * Bewerken **/etc/sysconfig/network/config**, en wijzig *NETCONFIG_DNS_FORWARDER = ""* naar *dnsmasq*.
   * Bijwerken van resolv.conf met `netconfig update`om in te stellen de cache als de lokale DNS-resolver.
-* **OpenLogic (maakt gebruik van NetworkManager)**:
+* **OpenLogic (uses NetworkManager)**:
   * Installeer het pakket dnsmasq met `sudo yum install dnsmasq`.
   * Schakel de service dnsmasq met `systemctl enable dnsmasq.service`.
   * Start de service dnsmasq met `systemctl start dnsmasq.service`.
@@ -128,7 +128,7 @@ Het bestand resolv.conf wordt doorgaans automatisch gegenereerd en mag niet word
 * **SUSE** (maakt gebruik van netconf):
   1. Toevoegen *timeout:1 pogingen: 5* naar de **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** parameter in **/etc/sysconfig/network/config**. 
   2. Voer `netconfig update` om bij te werken.
-* **OpenLogic** (maakt gebruik van NetworkManager):
+* **OpenLogic** (uses NetworkManager):
   1. Voeg *echo "opties timeout:1 pogingen: 5'* naar **/etc/NetworkManager/dispatcher.d/11-dhclient**. 
   2. Werken met `service network restart`.
 
@@ -196,6 +196,11 @@ Wanneer u uw eigen DNS-servers gebruikt, is Azure biedt de mogelijkheid om op te
 
 Wanneer u van het Azure Resource Manager-implementatiemodel gebruikmaakt, kunt u DNS-servers voor een virtueel netwerk en een netwerkinterface opgeven. Zie voor meer informatie, [beheren van een virtueel netwerk](manage-virtual-network.md) en [beheren van een netwerkinterface](virtual-network-network-interface.md).
 
+> [!NOTE]
+> Als u ervoor voor aangepaste DNS-server voor het virtuele netwerk kiest, moet u ten minste één DNS-server IP-adres; virtueel netwerk wordt anders negeren van de configuratie en gebruik in plaats daarvan Azure verschafte DNS.
+> 
+> 
+
 Wanneer u van het klassieke implementatiemodel gebruikmaakt, kunt u DNS-servers voor het virtuele netwerk in Azure portal of de [netwerkconfiguratiebestand](https://msdn.microsoft.com/library/azure/jj157100). Voor cloudservices, kunt u DNS-servers via de [Service configuratiebestand](https://msdn.microsoft.com/library/azure/ee758710) of met behulp van PowerShell, met [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
@@ -213,5 +218,5 @@ Azure Resource Manager-implementatiemodel:
 Klassieke implementatiemodel:
 
 * [Het Schema van Azure-Service](https://msdn.microsoft.com/library/azure/ee758710)
-* [Virtual Network-configuratieschema](https://msdn.microsoft.com/library/azure/jj157100)
+* [Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100)
 * [Een Virtueelnetwerk configureren met behulp van een netwerkconfiguratiebestand](virtual-networks-using-network-configuration-file.md)

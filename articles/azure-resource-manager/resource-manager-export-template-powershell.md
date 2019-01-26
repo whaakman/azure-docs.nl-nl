@@ -1,6 +1,6 @@
 ---
 title: Met Azure PowerShell Resource Manager-sjabloon exporteren | Microsoft Docs
-description: Azure Resource Manager en Azure PowerShell gebruiken voor het exporteren van een sjabloon uit een resourcegroep.
+description: Azure Resource Manager en Azure PowerShell gebruiken om te exporteren van een sjabloon van een resourcegroep.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: c69bab9d2956568473dd6def86ecbd9bbb6577cf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359217"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081599"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exporteren van Azure Resource Manager-sjablonen met PowerShell
 
@@ -26,31 +26,31 @@ Met Resource Manager kunt u een Resource Manager-sjabloon exporteren uit bestaan
 
 Het is belangrijk te weten dat er zijn twee verschillende manieren om een sjabloon te exporteren:
 
-* U kunt exporteren de **werkelijke sjabloon die wordt gebruikt voor een implementatie**. De geëxporteerde sjabloon bevat alle parameters en variabelen precies zoals ze worden weergegeven in de oorspronkelijke sjabloon. Deze methode is handig als u nodig hebt voor het ophalen van een sjabloon.
-* U kunt een **gegenereerde sjabloon exporteren met de huidige status van de resourcegroep**. De geëxporteerde sjabloon is niet gebaseerd op een sjabloon die u voor de implementatie hebt gebruikt. In plaats daarvan wordt een sjabloon die een 'snapshot' of 'back-up' van de resourcegroep wordt gemaakt. De geëxporteerde sjabloon heeft veel vastgelegde waarden en waarschijnlijk niet zoveel parameters als u doorgaans zou definiëren. Gebruik deze optie om het implementeren van resources op de dezelfde resourcegroep. Als u wilt deze sjabloon voor een andere resourcegroep gebruikt, moet u wellicht aanzienlijk wijzigen.
+* U kunt exporteren de **daadwerkelijke sjabloon die wordt gebruikt voor een implementatie**. De geëxporteerde sjabloon bevat alle parameters en variabelen precies zoals ze worden weergegeven in de oorspronkelijke sjabloon. Deze methode is handig als u wilt ophalen van een sjabloon.
+* U kunt een **gegenereerde sjabloon exporteren met de huidige status van de resourcegroep**. De geëxporteerde sjabloon is niet gebaseerd op een sjabloon die u voor de implementatie hebt gebruikt. In plaats daarvan wordt een sjabloon die een 'snapshot' of 'back-up van de resourcegroep is gemaakt. De geëxporteerde sjabloon heeft veel vastgelegde waarden en waarschijnlijk niet zoveel parameters als u doorgaans zou definiëren. Gebruik deze optie om resources aan dezelfde resourcegroep opnieuw te implementeren. Mogelijk moet u voor het gebruik van deze sjabloon voor een andere resourcegroep, aanzienlijk te wijzigen.
 
-Dit artikel ziet beide benaderingen.
+In dit artikel bevat beide methoden.
 
 ## <a name="deploy-a-solution"></a>Een oplossing implementeren
 
-Ter illustratie van beide benaderingen voor het exporteren van een sjabloon, laten we beginnen met het implementeren van een oplossing voor uw abonnement. Als u al een resourcegroep in uw abonnement die u wilt exporteren hebt, hebt u niet voor het implementeren van deze oplossing. Echter, de rest van dit artikel verwijst naar de sjabloon voor deze oplossing. Het voorbeeldscript implementeert een opslagaccount.
+Ter illustratie van beide methoden voor het exporteren van een sjabloon, laten we beginnen met het implementeren van een oplossing aan uw abonnement. Als u al een resourcegroep in uw abonnement die u wilt exporteren hebt, hebt u niet om deze oplossing te implementeren. Echter, de rest van dit artikel verwijst naar de sjabloon voor deze oplossing. Het voorbeeldscript implementeert u een opslagaccount.
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -DeploymentName NewStorage
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```  
 
-## <a name="save-template-from-deployment-history"></a>Sjabloon opslaan in de implementatiegeschiedenis
+## <a name="save-template-from-deployment-history"></a>Sjabloon opslaan vanuit implementatiegeschiedenis
 
-U kunt een sjabloon ophalen uit de implementatiegeschiedenis van een met behulp van de [opslaan AzureRmResourceGroupDeploymentTemplate](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) opdracht. Het volgende voorbeeld wordt de sjabloon die u eerder implementeert:
+U kunt een sjabloon uit de implementatiegeschiedenis ophalen met behulp van de [opslaan AzureRmResourceGroupDeploymentTemplate](/powershell/module/az.resources/save-azresourcegroupdeploymenttemplate) opdracht. Het volgende voorbeeld wordt de sjabloon die u eerder hebt geïmplementeerd:
 
 ```powershell
-Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
+Save-AzResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
 ```
 
-Wordt de locatie van de sjabloon.
+Retourneert de locatie van de sjabloon.
 
 ```powershell
 Path
@@ -58,17 +58,17 @@ Path
 C:\Users\exampleuser\NewStorage.json
 ```
 
-Open het bestand en u ziet dat het is de exacte sjabloon die u voor implementatie gebruikt. De parameters en variabelen overeen met de sjabloon vanuit GitHub. U kunt deze sjabloon opnieuw implementeren.
+Open het bestand en u ziet dat het is de exacte sjabloon die u voor implementatie gebruikt. De parameters en variabelen overeenkomen met de sjabloon vanuit GitHub. U kunt deze sjabloon opnieuw implementeren.
 
 ## <a name="export-resource-group-as-template"></a>Resourcegroep exporteren als sjabloon
 
-In plaats van een sjabloon worden opgehaald uit de implementatiegeschiedenis van de, kunt u ophalen van een sjabloon die de huidige status van een resourcegroep met behulp van vertegenwoordigt de [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup) opdracht. U kunt deze opdracht gebruiken wanneer u veel wijzigingen hebt aangebracht in de resourcegroep en er geen bestaande sjabloon alle wijzigingen vertegenwoordigt. Het is bedoeld als een momentopname van de resourcegroep waarin u kunt implementeren naar dezelfde resourcegroep. Voor het gebruik van de geëxporteerde sjabloon voor andere oplossingen, moet u deze aanzienlijk wijzigen.
+U kunt een sjabloon die staat voor de huidige status van een resourcegroep met behulp van ophalen in plaats van het ophalen van een sjabloon uit de implementatiegeschiedenis, de [Export-AzureRmResourceGroup](/powershell/module/az.resources/export-azresourcegroup) opdracht. U kunt deze opdracht gebruiken wanneer u veel wijzigingen hebt aangebracht aan de resourcegroep en alle wijzigingen Hiermee geeft u geen bestaande sjabloon. Het is bedoeld als een momentopname van de resourcegroep die u gebruiken kunt om opnieuw aan dezelfde resourcegroep te implementeren. Als u wilt de geëxporteerde sjabloon gebruiken voor andere oplossingen, moet u deze aanzienlijk wijzigen.
 
 ```powershell
-Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
+Export-AzResourceGroup -ResourceGroupName ExampleGroup
 ```
 
-Wordt de locatie van de sjabloon.
+Retourneert de locatie van de sjabloon.
 
 ```powershell
 Path
@@ -76,7 +76,7 @@ Path
 C:\Users\exampleuser\ExampleGroup.json
 ```
 
-Open het bestand en u ziet dat deze anders dan de sjabloon in GitHub is. Bestaat uit verschillende parameters en geen variabelen. De SKU-opslag en de locatie zijn vastgelegde waarden. Het volgende voorbeeld ziet u de geëxporteerde sjabloon, maar uw sjabloon is een iets andere parameternaam:
+Open het bestand en u ziet dat deze anders dan de sjabloon in GitHub is. Bevat verschillende parameters en geen variabelen. De opslag-SKU en de locatie zijn vastgelegde waarden. Het volgende voorbeeld ziet u de geëxporteerde sjabloon, maar uw sjabloon is een enigszins parameternaam:
 
 ```json
 {
@@ -108,23 +108,23 @@ Open het bestand en u ziet dat deze anders dan de sjabloon in GitHub is. Bestaat
 }
 ```
 
-U kunt deze sjabloon kunt implementeren, maar het vereist raden een unieke naam voor het opslagaccount. De naam van de parameter is enigszins anders.
+U kunt deze sjabloon opnieuw implementeren, maar hiervoor heeft een unieke naam voor het opslagaccount. De naam van de parameter is enigszins anders.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateFile C:\Users\exampleuser\ExampleGroup.json `
   -storageAccounts_nf3mvst4nqb36standardsa_name tfnewstorage0501
 ```
 
 ## <a name="customize-exported-template"></a>Geëxporteerde sjabloon aanpassen
 
-U kunt deze sjabloon om deze te gebruiken gemakkelijker en flexibeler wijzigen. Als u wilt toestaan voor meer locaties, de locatie-eigenschap voor het gebruik van dezelfde locatie als de resourcegroep te wijzigen:
+U kunt deze sjabloon kunt u eenvoudiger te gebruiken en flexibeler kunt wijzigen. Als u wilt toestaan voor meer locaties, de locatie-eigenschap voor het gebruik van dezelfde locatie als de resourcegroep te wijzigen:
 
 ```json
 "location": "[resourceGroup().location]",
 ```
 
-Om te voorkomen dat te raden een uniques naam op voor storage-account, verwijdert u de parameter voor de opslagaccountnaam. Een parameter voor een achtervoegsel voor opslag en een opslag SKU toevoegen:
+Om te voorkomen dat een uniques-naam voor het opslagaccount te bedenken, verwijdert u de parameter voor de naam van het opslagaccount. Voeg een parameter voor een achtervoegsel van de naam van opslag en een opslag-SKU toe:
 
 ```json
 "parameters": {
@@ -147,7 +147,7 @@ Om te voorkomen dat te raden een uniques naam op voor storage-account, verwijder
 },
 ```
 
-Een variabele die wordt gemaakt van de naam van het opslagaccount met de functie uniqueString toevoegen:
+Een variabele die de naam van het opslagaccount met de functie uniqueString construeert toevoegen:
 
 ```json
 "variables": {
@@ -155,13 +155,13 @@ Een variabele die wordt gemaakt van de naam van het opslagaccount met de functie
   },
 ```
 
-De naam van het storage-account aan de variabele instellen:
+Stel de naam van het opslagaccount dat aan de variabele:
 
 ```json
 "name": "[variables('storageAccountName')]",
 ```
 
-De SKU op de parameter ingesteld:
+De SKU ingesteld op de parameter:
 
 ```json
 "sku": {
@@ -219,6 +219,6 @@ De sjabloon ziet er nu als volgt uit:
 De gewijzigde sjabloon opnieuw implementeert.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het exporteren van een sjabloon met de portal [een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md).
-* Om parameters te definiëren in de sjabloon, Zie [sjablonen](resource-group-authoring-templates.md#parameters).
-* Zie voor tips over het oplossen van algemene implementatiefouten [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Zie voor meer informatie over het gebruik van de portal om een sjabloon te exporteren, [een Azure Resource Manager-sjabloon exporteren uit bestaande resources](resource-manager-export-template.md).
+* Zie voor het definiëren van parameters in sjabloon, [-sjablonen maken](resource-group-authoring-templates.md#parameters).
+* Zie voor tips over het oplossen van veelvoorkomende implementatiefouten [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).

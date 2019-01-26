@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: MT
+ms.openlocfilehash: 3ed4d3874056eca93e5c94e225ba25d94e7826e3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452833"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911928"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -55,6 +55,24 @@ Als u uw beleid wilt werken, moet u het volgende configureren:
 
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>Hoe worden de beleidsregels voor voorwaardelijke toegang toegepast?
+
+Meer dan één beleid voor voorwaardelijke toegang mogelijk van toepassing wanneer een gebruiker toegang heeft tot een toepassing. In dit geval moeten alle beleidsregels die van toepassing worden voldaan. Bijvoorbeeld, als een beleid voor een gebruiker MFA vereist en de tweede vereist een compatibel apparaat de gebruiker moet MFA en een compatibel apparaat hebben. 
+
+Alle beleidsregels worden afgedwongen in twee fasen:
+
+- In de **eerste** fase, alle beleidsregels worden geëvalueerd en worden alle besturingselementen voor toegang die niet wordt voldaan aan zijn verzameld. 
+
+- In de **tweede** fase, wordt u gevraagd om te voldoen aan de vereisten die u dit nog niet hebt voldaan. Als een van de beleidsregels voor de toegang blokkeert, kunt u bent geblokkeerd en wordt niet gevraagd te voldoen aan andere besturingselementen voor beleid. Als geen van de beleidsregels voor u wordt geblokkeerd, wordt u gevraagd om te voldoen aan andere besturingselementen voor beleid in de volgende volgorde:
+
+    ![Bestellen](./media/best-practices/06.png)
+    
+    Externe MFA-providers en de gebruiksvoorwaarden van komen volgende.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>Hoe worden toewijzingen geëvalueerd?
 
@@ -154,4 +172,7 @@ Zie voor meer informatie, [klassiek beleid migreren in Azure portal](policy-migr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+Als u weten wilt:
+
+- Het beleid voor voorwaardelijke toegang configureren, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+- Over het plannen van uw beleid voor voorwaardelijke toegang, Zie [over het plannen van uw implementatie van voorwaardelijke toegang in Azure Active Directory](plan-conditional-access.md).

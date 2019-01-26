@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6a6782c5e1cd7b5f42b619cd52470b640813a905
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058415"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913611"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Hoe u doet bewijs van eigendom voor x.509-CA-certificaten met de Device Provisioning Service
 
@@ -54,7 +54,7 @@ Nu moet u zich aanmelden de *verificatiecode* met de persoonlijke sleutel die is
 Microsoft biedt hulpprogramma's en voorbeelden waarmee u kunnen een ondertekende verificatiecertificaat maken: 
 
 - De **C-SDK van Azure IoT Hub** biedt PowerShell (Windows) en (Linux) Bash-scripts voor het maken van de CA en leaf-certificaten voor het ontwikkelen en uit te voeren van bewijs van eigendom met behulp van een verificatiecode. U kunt downloaden de [bestanden](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevant zijn voor uw systeem naar een werkmap en volg de instructies in de [beheren CA certificaten Leesmij](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) bewijs van bezit uitvoeren op een CA-certificaat. 
-- De **Azure IoT Hub C# SDK** bevat de [voorbeeld van verificatie](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), die u kunt gebruiken om te doen bewijs van eigendom.
+- De **Azure IoT Hub C# SDK** bevat de [voorbeeld van verificatie](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), die u kunt gebruiken om te doen bewijs van eigendom.
  
 > [!IMPORTANT]
 > Naast het uitvoeren van bewijs van eigendom, kunnen de eerder genoemde ook PowerShell en Bash-scripts u basiscertificaten en tussenliggende certificaten leaf-certificaten die kunnen worden gebruikt om te verifiëren en inrichten van apparaten te maken. Deze certificaten moeten worden gebruikt voor het ontwikkelen van alleen. Ze moeten nooit worden gebruikt in een productieomgeving. 

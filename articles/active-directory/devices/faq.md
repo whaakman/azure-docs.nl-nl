@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: edb4e2b25e5fd7d6c59f07a02cc5d2f0630eac8e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 26133dbfe6b8e11128393957c377c1827e0d2a6e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904400"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076499"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
@@ -128,6 +128,12 @@ Verwijderd of uitgeschakelde gebruikers die zich niet in eerder heeft geen toega
 
 ---
 
+**V: Waarom mijn gebruikers hebben problemen in Azure AD gekoppelde apparaten na het wijzigen van de UPN?**
+
+**A:** UPN-wijzigingen worden op dit moment niet volledig ondersteund in Azure AD gekoppelde apparaten. Zo mislukt de verificatie met Azure AD nadat hun UPN is gewijzigd. Als gevolg hiervan hebben gebruikers eenmalige aanmelding en problemen met voorwaardelijke toegang op hun apparaten. Op dit moment moeten gebruikers zich aanmeldt bij Windows via de tegel 'Andere gebruiker' is de nieuwe UPN gebruiken om dit probleem te verhelpen. Er zijn momenteel gewerkt aan het aanpakken van dit probleem. Gebruikers aanmelden met Windows Hello voor bedrijven kunnen echter niet maken met dit probleem. 
+
+---
+
 **V: Mijn gebruikers kunnen geen printers uit Azure AD gekoppelde apparaten zoeken. Hoe kan ik afdrukken vanaf deze apparaten inschakelen?**
 
 **A:** Printers implementeren voor Azure AD gekoppelde apparaten, Zie [Windows Server hybride Cloud Print is implementeren met verificatie vooraf](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). U moet een Windows-Server on-premises implementatie van hybride cloud print. Afdrukservice cloud-gebaseerd is op dit moment niet beschikbaar. 
@@ -209,7 +215,15 @@ Dit gedrag is niet van toepassing op een andere gebruiker die zich aanmeldt op d
 
 Hybride Azure AD join heeft voorrang op de status geregistreerd bij Azure AD. Dus uw apparaat wordt beschouwd als hybrid Azure AD join voor elke verificatie en de evaluatie voor voorwaardelijke toegang. U kunt de record van het apparaat geregistreerd bij Azure AD veilig verwijderen van de Azure AD-portal. Meer informatie over het [voorkomen of opschonen van deze dubbele status op de computer met Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
+
 ---
+
+**V: Waarom mijn gebruikers hebben problemen op Windows 10 hybride Azure AD gekoppelde apparaten na het wijzigen van de UPN?**
+
+**A:** UPN-wijzigingen worden momenteel niet volledig ondersteund met hybride Azure AD gekoppelde apparaten. Terwijl gebruikers kunnen zich aanmelden bij het apparaat en toegang krijgen hun on-premises toepassingen tot, mislukt de verificatie met Azure AD nadat een UPN die is gewijzigd. Als gevolg hiervan hebben gebruikers eenmalige aanmelding en problemen met voorwaardelijke toegang op hun apparaten. Op dit moment dat u wilt loskoppelen van het apparaat uit Azure AD ('dsregcmd /leave' uitvoeren met verhoogde bevoegdheden) en opnieuw aanmelden (automatisch gebeurt) om het probleem te verhelpen. Er zijn momenteel gewerkt aan het aanpakken van dit probleem. Gebruikers aanmelden met Windows Hello voor bedrijven kunnen echter niet maken met dit probleem. 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>Veelgestelde vragen over het Azure AD registreren
 

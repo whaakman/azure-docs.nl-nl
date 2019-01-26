@@ -4,17 +4,17 @@ description: Azure Policy definition hebben verschillende effecten die bepalen h
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c84af250a9e8dbff578f58abc7e3558d95ecbe93
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904536"
+ms.locfileid: "54912506"
 ---
 # <a name="understand-policy-effects"></a>Inzicht in de effecten van het beleid
 
@@ -259,7 +259,7 @@ De **details** eigenschap van het DeployIfNotExists-effect heeft de subeigenscha
   - Deze eigenschap moet een matrix met tekenreeksen die overeenkomen met toegankelijk is op basis van de rol beheer rol-ID van het abonnement zijn. Zie voor meer informatie, [herstel - beleidsdefinitie configureren](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (optioneel)
   - Toegestane waarden zijn _abonnement_ en _ResourceGroup_.
-  - Hiermee stelt u het type van de implementatie die moet worden uitgevoerd. _Abonnement_ geeft aan dat een [implementatie op abonnementsniveau]((../../../azure-resource-manager/deploy-to-subscription)), _ResourceGroup_ geeft aan dat een implementatie naar een resourcegroep.
+  - Hiermee stelt u het type van de implementatie die moet worden uitgevoerd. _Abonnement_ geeft aan dat een [implementatie op abonnementsniveau](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ geeft aan dat een implementatie naar een resourcegroep.
   - Een _locatie_ eigenschap moet worden opgegeven in de _implementatie_ bij het gebruik van abonnement niveau implementaties.
   - De standaardwaarde is _ResourceGroup_.
 - **Implementatie** (vereist)

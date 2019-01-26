@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -18,14 +18,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: da229af181418d84e45f9ade8a8e5af008074f79
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845474"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080822"
 ---
-# <a name="how-to-use-the-azure-ad-graph-api"></a>Hoe: de Azure AD Graph API gebruiken
+# <a name="how-to-use-the-azure-ad-graph-api"></a>Procedure: De Azure AD Graph API gebruiken
 
 De Graph-API van Azure Active Directory (Azure AD) biedt programmatische toegang tot Azure AD via REST-API OData-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op mapgegevens en -objecten. Bijvoorbeeld, kunt u Azure AD Graph API om een nieuwe gebruiker maken, weergeven of bijwerken van eigenschappen van de gebruiker, wijzigt het wachtwoord van gebruiker, Controleer het groepslidmaatschap van voor toegang op basis van rollen, uitschakelen of verwijderen van de gebruiker. Zie voor meer informatie over Azure AD Graph API-functies en scenario's application [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) en [vereisten voor Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx).
 
@@ -38,10 +38,10 @@ In dit artikel is van toepassing op Azure AD Graph API. Zie voor vergelijkbare i
 
 In Graph-API voor toegang tot directory-gegevens en objecten (met andere woorden, resources of entiteiten) op basis waarvan u wilt uitvoeren van CRUD-bewerkingen, kunt u URL's op basis van de OData (Open Data)-Protocol gebruiken. De URL's die worden gebruikt in de Graph API bestaat uit vier hoofdonderdelen: basis, tenant-id, resourcepad en opties voor queryreeksen-service: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Het voorbeeld nemen van de volgende URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
-* **Service-hoofdmap**: In Azure AD Graph API, is de hoofdmap van de service altijd https://graph.windows.net.
-* **Tenant-id**: in deze sectie is een geverifieerde domeinnaam (geregistreerd), in het voorgaande voorbeeld contoso.com. Ook kan zijn de object-ID van een tenant of de "MijnOrganisatie" of "me" alias. Zie voor meer informatie, [adressering entiteiten en bewerkingen in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
-* **Resourcepad**: in dit gedeelte van een URL identificeert de bron die moet worden gecommuniceerd met (gebruikers, groepen, een bepaalde gebruiker of een bepaalde groep, enz.) In het bovenstaande voorbeeld is de op het hoogste niveau 'groepen'-adres dat resource ingesteld. U kunt ook een bepaalde entiteit, bijvoorbeeld oplossen ' gebruikers / {id} ' of ' gebruikers/userPrincipalName'.
-* **Queryparameters**: een vraagteken (?) worden gescheiden van de resource-padsectie van het gedeelte van de parameters van de query. De queryparameter 'api-versie' is vereist op alle aanvragen in Azure AD Graph API. Azure AD Graph API ondersteunt ook de volgende OData-queryopties: **$filter**, **$orderby**, **$expand**, **$top**, en **$format**. De volgende opties voor query's worden momenteel niet ondersteund: **$count**, **$inlinecount**, en **$skip**. Zie voor meer informatie, [ondersteunde query's, Filters en opties voor het wisselbestand in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
+* **Service-hoofdmap**: In de Azure AD Graph API, is de hoofdmap van de service altijd https://graph.windows.net.
+* **Tenant-id**: In deze sectie is een geverifieerde domeinnaam (geregistreerd), in het voorgaande voorbeeld contoso.com. Ook kan zijn de object-ID van een tenant of de "MijnOrganisatie" of "me" alias. Zie voor meer informatie, [adressering entiteiten en bewerkingen in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
+* **Resourcepad**: Deze sectie van een URL vindt u de bron die moet worden gecommuniceerd met (gebruikers, groepen, een bepaalde gebruiker of een bepaalde groep, enz.) In het bovenstaande voorbeeld is de op het hoogste niveau 'groepen'-adres dat resource ingesteld. U kunt ook een bepaalde entiteit, bijvoorbeeld oplossen ' gebruikers / {id} ' of ' gebruikers/userPrincipalName'.
+* **Queryparameters**: Een vraagteken (?) worden gescheiden van de resource-padsectie van het gedeelte van de parameters van de query. De queryparameter 'api-versie' is vereist op alle aanvragen in Azure AD Graph API. Azure AD Graph API ondersteunt ook de volgende OData-queryopties: **$filter**, **$orderby**, **$expand**, **$top**, en **$format**. De volgende opties voor query's worden momenteel niet ondersteund: **$count**, **$inlinecount**, en **$skip**. Zie voor meer informatie, [ondersteunde query's, Filters en opties voor het wisselbestand in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
 ## <a name="graph-api-versions"></a>Graph-API-versies
 
@@ -66,9 +66,9 @@ De volgende schermafbeelding is de uitvoer u ziet als u gaat u naar de Azure AD 
 
 ![Azure AD graph api-Verkenner](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Laden van de Azure AD Graph Explorer**: voor het laden van het hulpprogramma, gaat u naar [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Klik op **aanmelding** en meld u met de referenties van uw Azure AD-account om uit te voeren van de Azure AD Graph Explorer op basis van uw tenant. Als u Azure AD Graph Explorer in uw eigen tenant uitvoert, moet u of uw beheerder om in te stemmen tijdens het aanmelden. Als u een Office 365-abonnement hebt, hebt u automatisch een Azure AD-tenant. De referenties die u zich kunt aanmelden bij Office 365 zijn, in feite Azure AD-accounts, en u kunt deze referenties gebruiken met Azure AD Graph Explorer.
+**Laden van de Azure AD Graph Explorer**: Voor het laden van het hulpprogramma, gaat u naar [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Klik op **aanmelding** en meld u met de referenties van uw Azure AD-account om uit te voeren van de Azure AD Graph Explorer op basis van uw tenant. Als u Azure AD Graph Explorer in uw eigen tenant uitvoert, moet u of uw beheerder om in te stemmen tijdens het aanmelden. Als u een Office 365-abonnement hebt, hebt u automatisch een Azure AD-tenant. De referenties die u zich kunt aanmelden bij Office 365 zijn, in feite Azure AD-accounts, en u kunt deze referenties gebruiken met Azure AD Graph Explorer.
 
-**Een query uitvoeren**: als u wilt een query uitvoert, typt u uw query in het tekstvak van de aanvraag en op **ophalen** of klik op de **Voer** sleutel. De resultaten worden weergegeven in het antwoord. Bijvoorbeeld, `https://graph.windows.net/myorganization/groups?api-version=1.6` geeft een lijst van alle groepsobjecten in de aangemelde gebruiker in de directory.
+**Voer een query uit**: Als u wilt een query uitvoert, typt u uw query in het tekstvak van de aanvraag en op **ophalen** of klik op de **Voer** sleutel. De resultaten worden weergegeven in het antwoord. Bijvoorbeeld, `https://graph.windows.net/myorganization/groups?api-version=1.6` geeft een lijst van alle groepsobjecten in de aangemelde gebruiker in de directory.
 
 Houd rekening met de volgende functies en beperkingen van de Azure AD Graph Explorer:
 
@@ -86,9 +86,9 @@ Voor de toepassing van deze QuickStart, kunt u het foutopsporingsprogramma Fiddl
 
 In het onderstaande voorbeeld gebruikt u Fiddler Web foutopsporingsprogramma 'MyTestGroup' van een nieuwe beveiligingsgroep maken in uw Azure AD-directory.
 
-**Een toegangstoken verkrijgen**: voor toegang tot Azure AD Graph, clients moeten eerst naar Azure AD verifiëren. Zie voor meer informatie, [Verificatiescenario's voor Azure AD](authentication-scenarios.md).
+**Een toegangstoken verkrijgen**: Voor toegang tot Azure AD Graph, worden clients moeten eerst naar Azure AD verifiëren. Zie voor meer informatie, [Verificatiescenario's voor Azure AD](authentication-scenarios.md).
 
-**Produceer en een query uitvoeren**: Voer de volgende stappen uit:
+**Produceer en een query uitvoeren**: Voltooi de volgende stappen:
 
 1. Fiddler Web Debugger openen en schakel over naar de **Composer** tabblad.
 2. Omdat u een nieuwe beveiligingsgroep maken wilt, selecteert u **Post** als de HTTP-methode van de vervolgkeuzelijst. Zie voor meer informatie over bewerkingen en machtigingen voor een groepsobject [groep](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) binnen de [Azure AD Graph REST API-naslaginformatie](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).

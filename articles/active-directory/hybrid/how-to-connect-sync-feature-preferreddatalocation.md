@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7b54d1b746467695b2c5e6a4ba634c74a3801d4f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470695"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078726"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor Office 365-resources configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het kenmerk voor de gewenste gegevenslocatie configureren in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand maakt gebruik van meerdere geografische gebieden mogelijkheden in Office 365, gebruikt u dit kenmerk om de geo-locatie van Office 365-gegevens van de gebruiker toe te wijzen. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -31,7 +31,7 @@ Standaard bevinden Office 365-resources voor uw gebruikers zich in hetzelfde geo
 Door het kenmerk **preferredDataLocation**, kunt u geo van een gebruiker definiëren. Je kunt van de gebruiker Office 365 resources, zoals het postvak en OneDrive, in hetzelfde geografische gebied als de gebruiker, en nog één tenant voor uw hele organisatie.
 
 > [!IMPORTANT]
-> Meerdere geografische gebieden is momenteel beschikbaar voor klanten met een minimum van 5000 abonnementen voor Office 365-Services. Neem contact op met uw Microsoft-vertegenwoordiger voor meer informatie.
+> Meerdere geografische gebieden is momenteel beschikbaar voor klanten met een minimum van 2500 abonnementen voor Office 365-Services. Neem contact op met uw Microsoft-vertegenwoordiger voor meer informatie.
 >
 >
 
@@ -53,7 +53,7 @@ De geografische gebieden in Office 365 beschikbaar voor meerdere geografische ge
 | Verenigde Staten | NAM |
 
 * Worden als een geografisch gebied niet wordt vermeld in deze tabel (bijvoorbeeld, Zuid-Amerika), klikt u vervolgens deze kan niet gebruikt voor meerdere geografische gebieden.
-* Het geografische gebied voor India is alleen beschikbaar voor klanten met facturering-adres en softwarelicenties die zijn aangeschaft in deze geografische gebied.
+
 * Niet alle Office 365-werkbelastingen ondersteuning voor het gebruik van het instellen van een gebruiker geo.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect-ondersteuning voor synchronisatie

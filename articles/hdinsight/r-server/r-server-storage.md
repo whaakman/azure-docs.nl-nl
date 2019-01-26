@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4aae44745981951fa61836fe52d8d6b799c6cadf
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7b937158be39f9a1f7f9374611a150fd11837f02
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001512"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910263"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
 ML-Services op HDInsight kunt u een verscheidenheid aan oplossingen voor opslag gebruiken om vast te leggen van gegevens, code of objecten die bevatten de resultaten van analyse. Deze omvatten de volgende opties:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake-opslag](https://azure.microsoft.com/services/storage/data-lake-storage/)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure File storage](https://azure.microsoft.com/services/storage/files/)
 
 U hebt ook de mogelijkheid om toegang tot meerdere Azure storage-accounts of containers met uw HDInsight-cluster. Azure File storage is een handige gegevens voor de opslagoptie voor gebruik op het edge-knooppunt waarmee u een Azure Storage file share koppelen voor, bijvoorbeeld, het Linux-bestandssysteem. Maar Azure-bestandsshares kunnen worden gekoppeld en die worden gebruikt door een systeem met een ondersteund besturingssysteem, zoals Windows of Linux. 
@@ -172,4 +172,4 @@ Een groot voordeel van Azure Files is dat de bestandsshares kunnen worden gekopp
 * [Overzicht van Services voor ML-cluster in HDInsight](r-server-overview.md)
 * [Aan de slag met ML-Services-cluster op Apache Hadoop](r-server-get-started.md)
 * [Opties voor compute-context voor ML Services-cluster in HDInsight](r-server-compute-contexts.md)
-
+* [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

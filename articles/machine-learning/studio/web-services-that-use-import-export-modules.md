@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d17e4970636818eca14d2e750ec24135e64ddbb6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251382"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078662"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Azure Machine Learning Studio-webservices die gebruikmaken van gegevens importeren en exporteren van gegevens modules implementeren
 
@@ -44,9 +44,9 @@ De gegevens lezen uit de Azure SQL-tabel:
 5. Selecteer in het deelvenster met eigenschappen, **Azure SQL Database** in de **gegevensbron** vervolgkeuzelijst.
 6. In de **databaseservernaam**, **databasenaam**, **gebruikersnaam**, en **wachtwoord** velden, voer de juiste gegevens voor uw de database.
 7. Voer de volgende query in het queryveld Database.
-   
+
      Selecteer [leeftijd]
-   
+
         [workclass],
         [fnlwgt],
         [education],
@@ -68,17 +68,17 @@ De gegevens lezen uit de Azure SQL-tabel:
 De volgende instellen van de Voorspellend experiment van waaruit u uw webservice implementeert.
 
 1. Aan de onderkant van het experimentcanvas, klikt u op **webservice ingesteld** en selecteer **voorspellende webservice (aanbevolen)**.
-2. Verwijder de *Web Service invoer* en *Web Service uitvoer modules* uit de Voorspellend experiment. 
+2. Verwijder de *Web Service invoer* en *Web Service uitvoer modules* uit de Voorspellend experiment.
 3. Typ in het zoekvak onderdelen exporteren.
 4. In de lijst met resultaten, Voeg een *gegevens exporteren* module naar het experimentcanvas.
-5. Koppel de uitvoer van de *Score Model* module de invoer van de *gegevens exporteren* module. 
+5. Koppel de uitvoer van de *Score Model* module de invoer van de *gegevens exporteren* module.
 6. Selecteer in het deelvenster met eigenschappen, **Azure SQL Database** in de vervolgkeuzelijst voor het doel van gegevens.
 7. In de **databaseservernaam**, **databasenaam**, **accountnaam Server**, en **Server het wachtwoord voor gebruikersaccount** velden, voer de relevante informatie voor uw database.
 8. In de **door komma's gescheiden lijst met kolommen op te slaan** veld, typt u Scored Labels.
 9. In de **gegevensveld tabel naam**, typt u dbo. ScoredLabels. Als de tabel niet bestaat, wordt deze gemaakt wanneer het experiment wordt uitgevoerd of de webservice wordt aangeroepen.
 10. In de **door komma's gescheiden lijst met kolommen voor datatable** veld, typt u ScoredLabels.
 
-Wanneer u een toepassing die de laatste webservice roept schrijft, kunt u een andere invoer voor de query of doeltabel opgeven tijdens de uitvoering. Als u wilt deze invoer en uitvoer configureren, gebruikt u de functie Webserviceparameters om in te stellen de *importgegevens* module *gegevensbron* eigenschap en de *gegevens exporteren* modus gegevens doel-eigenschap.  Zie voor meer informatie over Webserviceparameters de [Webserviceparameters AzureML-vermelding](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) op de Cortana Intelligence en Machine Learning Blog.
+Wanneer u een toepassing die de laatste webservice roept schrijft, kunt u een andere invoer voor de query of doeltabel opgeven tijdens de uitvoering. Als u wilt deze invoer en uitvoer configureren, gebruikt u de functie Webserviceparameters om in te stellen de *importgegevens* module *gegevensbron* eigenschap en de *gegevens exporteren* modus gegevens doel-eigenschap.  Zie voor meer informatie over Webserviceparameters de [Azure Machine Learning studio Webserviceparameters vermelding](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) op de Cortana Intelligence en Machine Learning Blog.
 
 Parameters van de webservice voor de import-query en de doeltabel configureren:
 
@@ -108,22 +108,22 @@ Als een klassieke webservice implementeren en maken van een toepassing gebruikt:
 7. Kopieer en plak de C# voorbeeldcode in het bestand Program.cs en verwijder alle verwijzingen naar de blob-opslag.
 8. Werk de waarde van de *apiKey* variabele met de API-sleutel eerder hebt opgeslagen.
 9. Zoek de declaratie van de aanvraag en de waarden voor de Webserviceparameters die worden doorgegeven aan de *importgegevens* en *gegevens exporteren* modules. In dit geval u gebruikt u de oorspronkelijke query, maar de naam van een nieuwe tabel te definiëren.
-   
-        var request = new BatchExecutionRequest() 
-        {           
+
+        var request = new BatchExecutionRequest()
+        {
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
             }
         };
-10. Voer de toepassing uit. 
+10. Voer de toepassing uit.
 
 Na voltooiing van de uitvoering wordt een nieuwe tabel toegevoegd aan de database met de scoring resultaten.
 
 ### <a name="deploy-a-new-web-service"></a>Een nieuwe webservice implementeren
 
-> [!NOTE] 
-> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waarvoor u de webservice implementeert. Zie voor meer informatie, [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md). 
+> [!NOTE]
+> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waarvoor u de webservice implementeert. Zie voor meer informatie, [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md).
 
 Als een nieuwe webservice implementeren en maken van een toepassing gebruikt:
 
@@ -136,9 +136,9 @@ Als een nieuwe webservice implementeren en maken van een toepassing gebruikt:
 7. Kopieer en plak de C# voorbeeldcode in het bestand Program.cs.
 8. Werk de waarde van de *apiKey* variabele met de **primaire sleutel** zich in de **Basic verbruik info** sectie.
 9. Zoek de *scoreRequest* declaratie en de waarden voor de Webserviceparameters die worden doorgegeven aan de *importgegevens* en *gegevens exporteren* modules. In dit geval u gebruikt u de oorspronkelijke query, maar de naam van een nieuwe tabel te definiëren.
-   
+
         var scoreRequest = new
-        {       
+        {
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -147,5 +147,5 @@ Als een nieuwe webservice implementeren en maken van een toepassing gebruikt:
                 { "Table", "dbo.ScoredTable3" },
             }
         };
-10. Voer de toepassing uit. 
+10. Voer de toepassing uit.
 

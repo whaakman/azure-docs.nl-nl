@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: f44f7167cff316b15124448678c4cae90b384ed9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8408d620ba78fed07c44feae74c607a555d5563b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890082"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910582"
 ---
 # <a name="administrator-roles-for-microsoft-365-workloads"></a>Voor workloads Microsoft 365-beheerdersrollen
 
-Dit artikel bevat een lijst van Microsoft 365-werkbelastingen vergezeld gaan van koppelingen naar inhoud van de rollen en functie gebied API inhoud. Algemene discussies van overdracht oplossen kunnen u vinden in [rol delegeren in Azure Active Directory plannen](roles-concept-delegation.md).
+Alle producten van Microsoft 365 kunnen worden beheerd met beheerdersrollen in Azure AD. Sommige producten bieden ook aanvullende functies die specifiek voor dat product zijn. Voor informatie over de rollen die worden ondersteund door elk product, Zie de onderstaande tabel. Algemene discussies van overdracht oplossen kunnen u vinden in [rol delegeren in Azure Active Directory plannen](roles-concept-delegation.md).
 
 ## <a name="where-to-find-content"></a>Waar vind ik inhoud
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013697"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911741"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>On-premises Apache Hadoop-clusters migreren naar Azure HDInsight - opslag aanbevolen procedures
 
@@ -101,22 +101,23 @@ In het verleden had cloudanalyses te boeten op het gebied van prestaties, beheer
 
 - **Hadoop-compatibele toegang**: Azure Data Lake Storage Gen2 kunt u beheren en toegang tot gegevens, net zoals u zou met doen een [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). De nieuwe [ABFS stuurprogramma](../../storage/data-lake-storage/abfs-driver.md) is beschikbaar in alle Apache Hadoop-omgevingen die zijn opgenomen in [Azure HDInsight](../index.yml). Dit stuurprogramma kunt u toegang tot gegevens die zijn opgeslagen in Data Lake Storage Gen2.
 
-- **Een hoofdverzameling van POSIX-machtigingen**: het beveiligingsmodel voor Data Lake Gen2 biedt volledige ondersteuning voor ACL en POSIX-machtigingen, samen met enkele extra granulariteit die specifiek zijn voor Data Lake Storage Gen2. Instellingen kunnen worden geconfigureerd via de beheerhulpprogramma's of frameworks, zoals Hive- en Spark.
+- **Een hoofdverzameling van POSIX-machtigingen**: Het beveiligingsmodel voor Data Lake Gen2 biedt volledige ondersteuning voor ACL en POSIX-machtigingen, samen met enkele extra granulariteit die specifiek zijn voor Data Lake Storage Gen2. Instellingen kunnen worden geconfigureerd via de beheerhulpprogramma's of frameworks, zoals Hive- en Spark.
 
 - **Voordelige**: Data Lake Storage Gen2 is uitgerust met lage kosten voor de opslagcapaciteit en transacties. Als de overgang van de gegevens via de volledige levenscyclus, factureringstarieven wijzigen om te minimaliseren kosten via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](../../storage/common/storage-lifecycle-management-concepts.md).
 
 - **Werkt met Blob storage-hulpprogramma's, frameworks en -apps**: Data Lake Storage Gen2 blijft gewoon werken met een breed scala aan hulpprogramma's, frameworks en -toepassingen die vandaag beschikbaar zijn voor Blob-opslag.
 
-- **Geoptimaliseerde stuurprogramma**: het stuurprogramma van de Azure Blob-bestandssysteem (ABFS) is [speciaal geoptimaliseerd](../../storage/data-lake-storage/abfs-driver.md) voor analyse van big data. De bijbehorende REST-API's zijn opgehaald via het eindpunt van de DFS-dfs.core.windows.net.
+- **Geoptimaliseerde stuurprogramma**: Het stuurprogramma van de Azure Blob-bestandssysteem (ABFS) is [speciaal geoptimaliseerd](../../storage/data-lake-storage/abfs-driver.md) voor analyse van big data. De bijbehorende REST-API's zijn opgehaald via het eindpunt van de DFS-dfs.core.windows.net.
 
 Een van de volgende indelingen kan worden gebruikt voor toegang tot gegevens die zijn opgeslagen in ADLS Gen2:
 - `abfs:///`: Toegang tot de standaard Data Lake Storage voor het cluster.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Wordt gebruikt bij het communiceren met een niet-standaard Data Lake-opslag.
+- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Bij het communiceren met een niet-standaard Data Lake-opslag gebruikt.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Inleiding tot Azure Data Lake Storage Gen2 Preview](../../storage/data-lake-storage/introduction.md)
+- [Inleiding tot de preview van Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [Het bestandssysteem van Azure Blob-stuurprogramma (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Azure Storage-sleutels in configuratie van de on-premises Hadoop-cluster beveiligen
 
@@ -173,7 +174,7 @@ HDInsight standaard heeft volledige toegang tot gegevens in de Azure Storage-acc
 
 6. Gebruik de volgende waarden voor de **sleutel** en **waarde** velden:
 
-    **Sleutel**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **waarde**: de SAS-sleutel die wordt geretourneerd door de Python-toepassing vanaf stap 4 hierboven.
+    **sleutel**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Waarde**: De SAS-sleutel wordt geretourneerd door de Python-toepassing vanaf stap 4 hierboven.
 
 7. Klik op de **toevoegen** klikken om deze sleutel en waarde opslaan en klik vervolgens op de **opslaan** om op te slaan van de configuratiewijzigingen. Wanneer u hierom wordt gevraagd, een beschrijving van de wijziging ('toe te voegen toegang tot de SAS-opslag' bijvoorbeeld) toevoegen en klik vervolgens op **opslaan**.
 

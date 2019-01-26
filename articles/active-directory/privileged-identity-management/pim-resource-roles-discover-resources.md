@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/30/2018
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e81aab8268266c99c9f08e165a98df31f2106123
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306686"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912268"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Azure-resources te beheren in PIM detecteren
 
@@ -52,12 +52,16 @@ Wanneer u eerst ingesteld PIM voor Azure-resources, moet u om te detecteren en s
 
 1. Voeg een vinkje naast eventuele niet-beheerde resources die u wilt beheren.
 
+1. Klik op **resource beheren** om te beginnen met het beheren van de geselecteerde resources.
+
     > [!NOTE]
     > Zodra een beheergroep of het abonnement is ingesteld op beheerde, kan deze niet-beheerde niet. Dit voorkomt dat een andere resourcebeheerder PIM-instellingen worden verwijderd.
 
     ![Detectie - resource beheren](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Klik op **resource beheren** om te beginnen met het beheren van de geselecteerde resources.
+1. Als u een bericht om te bevestigen van de onboarding van de geselecteerde resource voor het beheer van ziet, klikt u op **Ja**.
+
+    ![Detectie - bron beheren](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

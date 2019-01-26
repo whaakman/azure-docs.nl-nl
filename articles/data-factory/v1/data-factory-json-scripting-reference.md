@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 32e0be682d5d216df6741fa38bb0a16e4b323ef6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 9f8ffe71743f4832d8ce633f050206d21f411276
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354192"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082194"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-scriptverwerking van verwijzing
 > [!NOTE]
@@ -5387,7 +5387,7 @@ Houd rekening met de volgende punten:
 - De **type** eigenschap is ingesteld op **HDInsightSpark**.
 - De **rootPath** is ingesteld op **adfspark\\pyFiles** waarbij adfspark is de Azure Blob-container en pyFiles fijn map in die container. In dit voorbeeld is de Azure Blob-opslag die is gekoppeld aan het Spark-cluster. U kunt het bestand uploaden naar een ander Azure-Opslagaccount. Als u dit doet, maakt u een gekoppelde Azure Storage-service als u wilt dat opslagaccount koppelen aan de data factory. Geef de naam van de gekoppelde service vervolgens als een waarde voor de **sparkJobLinkedService** eigenschap. Zie [Spark-activiteit eigenschappen](#spark-activity-properties) voor meer informatie over deze eigenschap en andere eigenschappen die worden ondersteund door de Spark-activiteit.
 - De **entryFilePath** is ingesteld op de **test.py**, dit is het python-bestand.
-- De **getDebugInfo** eigenschap is ingesteld op **altijd**, wat betekent dat de logboekbestanden altijd zijn gegenereerd (slagen of mislukken).  
+- De **getDebugInfo** eigenschap is ingesteld op **altijd**, wat betekent dat de logboekbestanden altijd zijn gegenereerd (slagen of mislukken).
 
     > [!IMPORTANT]
     > U wordt aangeraden dat u niet deze eigenschap op altijd in een productieomgeving stelt, tenzij u een probleem wilt oplossen.
@@ -5396,13 +5396,13 @@ Houd rekening met de volgende punten:
 Zie voor meer informatie over de activiteit [Spark-activiteit](data-factory-spark.md) artikel.
 
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning-batchuitvoeringsactiviteit
-U kunt de volgende eigenschappen opgeven in een Azure ML Batch uitvoering Activity in JSON-definitie. De eigenschap type voor de activiteit moet zijn: **AzureMLBatchExecution**. U moet maken van een Azure Machine Learning-gekoppelde service eerst en geef de naam van het als een waarde voor de **linkedServiceName** eigenschap. De volgende eigenschappen worden ondersteund in de **typeProperties** sectie als u het type van de activiteit ingesteld op AzureMLBatchExecution:
+U kunt de volgende eigenschappen opgeven in een Azure Machine Learning studio Batch tot uitvoering van activiteit JSON-definitie. De eigenschap type voor de activiteit moet zijn: **AzureMLBatchExecution**. U moet maken van een Azure Machine Learning-gekoppelde service eerst en geef de naam van het als een waarde voor de **linkedServiceName** eigenschap. De volgende eigenschappen worden ondersteund in de **typeProperties** sectie als u het type van de activiteit ingesteld op AzureMLBatchExecution:
 
 Eigenschap | Description | Vereist
 -------- | ----------- | --------
-webServiceInput | De gegevensset worden doorgegeven als invoer voor de Azure ML-webservice. Deze gegevensset moet ook worden opgenomen in de invoer voor de activiteit. |WebServiceInput of webServiceInputs gebruiken. |
-webServiceInputs | Geef gegevenssets moeten worden doorgegeven als invoer voor de Azure ML-webservice. Als de webservice meerdere invoergegevens heeft, gebruikt u de eigenschap webServiceInputs in plaats van de webServiceInput-eigenschap. Gegevenssets waarnaar wordt verwezen door de **webServiceInputs** moet ook zijn opgenomen in de activiteit **invoer**. | WebServiceInput of webServiceInputs gebruiken. |
-webServiceOutputs | De gegevenssets die zijn toegewezen als uitvoer voor de Azure ML-webservice. De webservice retourneert uitvoergegevens in deze gegevensset. | Ja |
+webServiceInput | De gegevensset worden doorgegeven als invoer voor de Azure Machine Learning studio-webservice. Deze gegevensset moet ook worden opgenomen in de invoer voor de activiteit. |WebServiceInput of webServiceInputs gebruiken. |
+webServiceInputs | Geef gegevenssets moeten worden doorgegeven als invoer voor de Azure Machine Learning studio-webservice. Als de webservice meerdere invoergegevens heeft, gebruikt u de eigenschap webServiceInputs in plaats van de webServiceInput-eigenschap. Gegevenssets waarnaar wordt verwezen door de **webServiceInputs** moet ook zijn opgenomen in de activiteit **invoer**. | WebServiceInput of webServiceInputs gebruiken. |
+webServiceOutputs | De gegevenssets die zijn toegewezen als uitvoer voor de Azure Machine Learning studio-webservice. De webservice retourneert uitvoergegevens in deze gegevensset. | Ja |
 globalParameters | Geef waarden voor parameters van de webservice in deze sectie. | Nee |
 
 ### <a name="json-example"></a>Voorbeeld van JSON
@@ -5452,7 +5452,7 @@ In het JSON-voorbeeld gebruikt de geïmplementeerde Azure Machine Learning-webse
 > Alleen de invoer en uitvoer van de activiteit AzureMLBatchExecution kunnen als parameters worden doorgegeven aan de webservice. In de bovenstaande JSON-codefragment is MLSqlInput bijvoorbeeld invoer voor de activiteit AzureMLBatchExecution, die wordt doorgegeven als invoer voor de webservice via webServiceInput-parameter.
 
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning-activiteit resources bijwerken
-U kunt de volgende eigenschappen opgeven in een Azure ML bijwerken Resource Activity in JSON-definitie. De eigenschap type voor de activiteit moet zijn: **AzureMLUpdateResource**. U moet maken van een Azure Machine Learning-gekoppelde service eerst en geef de naam van het als een waarde voor de **linkedServiceName** eigenschap. De volgende eigenschappen worden ondersteund in de **typeProperties** sectie als u het type van de activiteit ingesteld op AzureMLUpdateResource:
+U kunt de volgende eigenschappen opgeven in een Azure Machine Learning studio Update Resource Activity in JSON-definitie. De eigenschap type voor de activiteit moet zijn: **AzureMLUpdateResource**. U moet maken van een Azure Machine Learning-gekoppelde service eerst en geef de naam van het als een waarde voor de **linkedServiceName** eigenschap. De volgende eigenschappen worden ondersteund in de **typeProperties** sectie als u het type van de activiteit ingesteld op AzureMLUpdateResource:
 
 Eigenschap | Description | Vereist
 -------- | ----------- | --------
@@ -5460,7 +5460,7 @@ trainedModelName | De naam van het retrained model. | Ja |
 trainedModelDatasetName | De gegevensset die verwijst naar het iLearner-bestand dat is geretourneerd door de retraining-bewerking. | Ja |
 
 ### <a name="json-example"></a>Voorbeeld van JSON
-De pijplijn heeft twee activiteiten: **AzureMLBatchExecution** en **AzureMLUpdateResource**. De Azure ML-Batch Execution-activiteit neemt de trainingsgegevens als invoer en produceert een iLearner-bestand als uitvoer. De activiteit roept de training webservice (trainingsexperiment weergegeven als een webservice) met de invoer trainingsgegevens en ontvangt het ilearner-bestand van de webservice. De placeholderBlob is alleen een dummy uitvoergegevensset die door de Azure Data Factory-service is vereist voor het uitvoeren van de pijplijn.
+De pijplijn heeft twee activiteiten: **AzureMLBatchExecution** en **AzureMLUpdateResource**. De Azure Machine Learning studio Batch Execution-activiteit neemt de trainingsgegevens als invoer en produceert een iLearner-bestand als uitvoer. De activiteit roept de training webservice (trainingsexperiment weergegeven als een webservice) met de invoer trainingsgegevens en ontvangt het ilearner-bestand van de webservice. De placeholderBlob is alleen een dummy uitvoergegevensset die door de Azure Data Factory-service is vereist voor het uitvoeren van de pijplijn.
 
 
 ```json

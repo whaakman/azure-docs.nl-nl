@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7446c680ffdba28fef7eb68441d04a4c18398847
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816752"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912546"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -59,7 +59,7 @@ U lost dit probleem, verwijder de vergrendeling van de resourcegroep van de virt
 **Stap 1: [Verwijder de vergrendeling van de resourcegroep van de restore-punt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Stap 2: [Herstelpuntverzameling opschonen](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - back-up beschikt niet over voldoende machtigingen tot de key vault voor back-ups van versleutelde virtuele machines.
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - back-up beschikt niet over voldoende machtigingen tot de key vault voor back-ups van versleutelde virtuele machines
 
 **Foutcode**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Foutbericht**: Back-up beschikt niet over voldoende machtigingen tot de key vault voor back-ups van versleutelde virtuele machines. <br>
@@ -105,7 +105,7 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **Foutcode**: UserErrorUnsupportedDiskSize <br>
 **Foutbericht**: Momenteel biedt Azure Backup geen ondersteuning voor schijven groter dan 1023 GB <br>
 
-Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 1023GB omdat uw vault niet naar direct herstellen bijgewerkt is. Een upgrade naar direct herstellen biedt ondersteuning voor maximaal 4TB, ziet deze [artikel](backup-instant-restore-capability.md).  
+Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 1023GB omdat uw vault niet naar direct herstellen bijgewerkt is. Een upgrade naar direct herstellen biedt ondersteuning voor maximaal 4TB, ziet deze [artikel](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - momenteel Azure Backup biedt geen ondersteuning voor Standard-SSD-schijven
 
@@ -114,7 +114,7 @@ Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de g
 
 Azure Backup ondersteunt momenteel Standard-SSD-schijven alleen voor kluizen die zijn bijgewerkt naar [direct herstellen](backup-instant-restore-capability.md).
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - kan geen back-up initiëren omdat er momenteel een andere back-upbewerking wordt uitgevoerd.
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - kan geen back-up initiëren omdat er momenteel een andere back-upbewerking wordt uitgevoerd
 
 **Foutcode**: UserErrorBackupOperationInProgress <br>
 **Foutbericht**: Kan geen back-up initiëren omdat er momenteel een andere back-upbewerking wordt uitgevoerd<br>
@@ -132,7 +132,6 @@ Uw recente back-uptaak is mislukt omdat er een bestaande back-uptaak uitgevoerd 
 4. Voer back-up opnieuw uit.
 
 Als de geplande back-upbewerking langer conflicteert met de volgende back-upconfiguratie duurt Bekijk vervolgens de [Best Practices](backup-azure-vms-introduction.md#best-practices), [back-upprestaties](backup-azure-vms-introduction.md#backup-performance) en [overweging herstellen ](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen

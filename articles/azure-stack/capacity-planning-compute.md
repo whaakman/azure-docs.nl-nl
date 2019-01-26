@@ -16,12 +16,12 @@ ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.custom: mvc
-ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 314d40ba365f6dc9a279744ac3af874057fd2321
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962178"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076788"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack-compute-capaciteitsplanning
 De [VM-grootten in Azure Stack ondersteund](./user/azure-stack-vm-sizes.md) vormen een subset van die worden ondersteund op Azure. Azure legt resourcebeperkingen langs veel vectoren om te voorkomen dat overmatig van resources (server-service op het niveau en lokale). Zonder enige beperkingen met betrekking tot tenantverbruik opleggen, afnemen de tenant-ervaringen wanneer andere tenants overconsume resources. Voor netwerken uitgaande verkeer van de virtuele machine zijn er bandbreedte limieten in plaats van Azure Stack die overeenkomen met de Azure-beperkingen. Storage-resources, opslag IOPs-limieten geïmplementeerd in Azure Stack om te voorkomen dat basic overmatig van resources door tenants voor toegang tot opslag.  
@@ -29,10 +29,7 @@ De [VM-grootten in Azure Stack ondersteund](./user/azure-stack-vm-sizes.md) vorm
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>VM-plaatsing en aan fysieke virtuele kern overmatige inrichting
 In Azure Stack is er geen manier voor een tenant om op te geven van een specifieke server moet worden gebruikt voor VM-plaatsing. De enige overweging bij het plaatsen van virtuele machines is of er voldoende geheugen beschikbaar op de host voor dit type virtuele machine is. Azure Stack komt niet overcommit geheugen. echter, een overcommit van het aantal kernen is toegestaan. Aangezien plaatsing algoritmen niet op de bestaande virtuele kernverhouding fysieke overmatige inrichting als factor vindt, kan elke host een andere breedteverhouding hebben. 
 
-In Azure, voor het bereiken van hoge beschikbaarheid van het productiesysteem van een multi-VM, worden VM's geplaatst in een beschikbaarheidsset om te worden verdeeld over meerdere foutdomeinen. Dit betekent dat virtuele machines in een beschikbaarheidsset geplaatst fysiek geïsoleerd van elkaar op een rek om toe te staan voor fout tolerantie zijn, zoals wordt weergegeven in het volgende diagram:
-
-![Fout- en updatedomeinen](media/azure-stack-capacity-planning/domains.png)
-
+In Azure, voor het bereiken van hoge beschikbaarheid van het productiesysteem van een multi-VM, worden VM's geplaatst in een beschikbaarheidsset om te worden verdeeld over meerdere foutdomeinen. Een foutdomein in een beschikbaarheidsset is in Azure Stack gedefinieerd als een enkel knooppunt in de schaaleenheid.
 
 Terwijl de infrastructuur van Azure Stack tegen uitvallen is, de onderliggende technologie (Failoverclustering) nog steeds leidt tot enige uitvaltijd voor virtuele machines op een betrokken fysieke server in het geval van een hardwarestoring optreedt. Op dit moment ondersteunt Azure Stack met een beschikbaarheidsset met een maximum van drie foutdomeinen zodat deze overeenkomt met Azure. Virtuele machines in een beschikbaarheidsset geplaatst worden fysiek van elkaar geïsoleerd door ze zo gelijkmatig mogelijk te spreiden over meerdere foutdomeinen (Azure Stack-knooppunten). Als er een hardwarestoring optreedt, wordt virtuele machines van de mislukte foutdomein opnieuw gestart in de andere knooppunten, maar, indien mogelijk wordt gehouden in afzonderlijke foutdomeinen van de andere virtuele machines in dezelfde beschikbaarheidsset. Wanneer de hardware weer online komt, worden virtuele machines worden uitgevoerd voor het onderhouden van hoge beschikbaarheid.
 

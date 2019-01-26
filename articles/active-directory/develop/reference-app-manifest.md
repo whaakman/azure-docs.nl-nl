@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 77d1cf75017b369bb18aa890d63a45be49c0afb5
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157969"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912558"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-app-manifest
 
@@ -65,7 +65,7 @@ Het toepassingsmanifest configureren:
 | `name` | string | De weergavenaam voor de app. | `MyRegisteredApp` |
 | `oauth2AllowImplicitFlow` | booleaans | Hiermee geeft u op of deze web-app toegangstokens voor OAuth 2.0-impliciete stroom kan opvragen. De standaardwaarde is false. Met deze markering wordt gebruikt voor de browser gebaseerde apps, zoals Javascript-apps van één pagina. Voor meer informatie, voer `OAuth 2.0 implicit grant flow` in de inhoudsopgave en Zie de onderwerpen over de impliciete stroom. | `false` |
 | `oauth2AllowIdTokenImplicitFlow` | booleaans | Hiermee geeft u op of deze web-app ID-tokens van OAuth 2.0-impliciete stroom kan opvragen. De standaardwaarde is false. Met deze markering wordt gebruikt voor de browser gebaseerde apps, zoals Javascript-apps van één pagina. | `false` |
-| `oauth2Permissions` | Het type matrix | Hiermee geeft u het verzamelen van OAuth 2.0-machtigingsbereiken waarmee de web-API (resource)-app beschikbaar wordt gemaakt op client-apps. Dit bereik aan machtigingen kunnen tijdens toestemming op client-apps worden verleend. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"u| Hiermee geeft u het verzamelen van OAuth 2.0-machtigingsbereiken waarmee de web-API (resource)-app beschikbaar wordt gemaakt op client-apps. Dit bereik aan machtigingen kunnen tijdens toestemming op client-apps worden verleend. ser_impersonation"<br>&nbsp;&nbsp;}<br>]</code> |
+| `oauth2Permissions` | Het type matrix | Hiermee geeft u het verzamelen van OAuth 2.0-machtigingsbereiken waarmee de web-API (resource)-app beschikbaar wordt gemaakt op client-apps. Dit bereik aan machtigingen kunnen tijdens toestemming op client-apps worden verleend. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"user_impersonation"<br>&nbsp;&nbsp;}<br>] </code>|
 | `oauth2RequiredPostResponse` | booleaans | Hiermee geeft u op of, als onderdeel van OAuth 2.0 token aanvragen, Azure AD POST-aanvragen, in plaats van GET-aanvragen kunnen. De standaardwaarde is ingesteld op false, dat aangeeft dat alleen GET-aanvragen kunnen worden. | `false` |
 | `parentalControlSettings` | string | `countriesBlockedForMinors` Hiermee geeft u de landen waar de app is geblokkeerd voor minderjarigen.<br>`legalAgeGroupRule` Hiermee geeft u de regel voor meerderjarig die van toepassing op gebruikers van de app. Kan worden ingesteld op `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, of `BlockMinors`.  | <code>{<br>&nbsp;&nbsp;&nbsp;"countriesBlockedForMinors":[],<br>&nbsp;&nbsp;&nbsp;"legalAgeGroupRule":"Allow"<br>} </code> |
 | `passwordCredentials` | Het type matrix | Zie de beschrijving voor de `keyCredentials` eigenschap. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2016-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;&nbsp;}<br>] </code> |

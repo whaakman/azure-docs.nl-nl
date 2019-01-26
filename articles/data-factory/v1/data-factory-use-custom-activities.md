@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4ed919b76ddebde8337337c18c04093bc6072e82
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 25592f80abc8aea338679f199f03114c2d0785f6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121257"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077485"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -168,7 +168,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
     /// Execute method is the only method of IDotNetActivity interface you must implement.
     /// In this sample, the method invokes the Calculate method to perform the core logic.
     /// </summary>
-    
+
     public IDictionary<string, string> Execute(
         IEnumerable<LinkedService> linkedServices,
         IEnumerable<Dataset> datasets,
@@ -201,7 +201,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
 
         // get type properties from the dataset object
         inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
-    
+
         // log linked services passed in linkedServices parameter
         // you will see two linked services of type: AzureStorage
         // one for input dataset and the other for output dataset
@@ -239,7 +239,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
                                      continuationToken,
                                      null,
                                      null);
-    
+
             // Calculate method returns the number of occurrences of
             // the search term (“Microsoft”) in each blob associated
             // with the data slice. definition of the method is shown in the next step.
@@ -257,7 +257,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path
         logger.Write("Writing blob to the folder: {0}", folderPath);
 
         // create a storage object for the output blob.
@@ -293,7 +293,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
@@ -307,30 +307,30 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
     /// <summary>
     /// Gets the fileName value from the input/output dataset.
     /// </summary>
-    
+
     private static string GetFileName(Dataset dataArtifact)
     {
         if (dataArtifact == null || dataArtifact.Properties == null)
         {
             return null;
         }
-    
+
         // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
             return null;
         }
-    
+
         // return the blob/file name in the type properties
         return blobDataset.FileName;
     }
-    
+
     /// <summary>
     /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
     /// and prepares the output text that is written to the output blob.
     /// </summary>
-    
+
     public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
     {
         string output = string.Empty;
@@ -379,7 +379,7 @@ De methode retourneert een woordenlijst die kan worden gebruikt om aangepaste ac
     > Alle bestanden in het zip-bestand voor de aangepaste activiteit moeten zich op het **hoogste niveau** bevinden, zonder submappen.
 
     ![Binaire uitvoerbestanden](./media/data-factory-use-custom-activities/Binaries.png)
-14. Maak een blobcontainer met de naam **customactivitycontainer** als deze niet al bestaat. 
+14. Maak een blobcontainer met de naam **customactivitycontainer** als deze niet al bestaat.
 15. MyDotNetActivity.zip uploaden als een blob naar de customactivitycontainer in een **voor algemeen gebruik** Azure blob-opslag (niet warme/koude Blob storage) waarnaar wordt verwezen door AzureStorageLinkedService.
 
 > [!IMPORTANT]
@@ -420,9 +420,9 @@ Hier volgen de stappen die u in deze sectie uitvoeren:
    1. Klik op **een resource maken** in het menu links.
    2. Klik op **gegevens en analyses** in de **nieuw** blade.
    3. Klik op de blade **Gegevensanalyse** op **Gegevensfactory**.
-   
+
     ![Menu nieuwe Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. In de **nieuwe data factory** blade Voer **CustomActivityFactory** voor de naam. De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding weergegeven: **Naam gegevensfactory 'CustomActivityFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld **yournameCustomActivityFactory**) en probeer het opnieuw.
+2. In de **nieuwe data factory** blade Voer **CustomActivityFactory** voor de naam. De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als de volgende foutmelding wordt weergegeven: **Naam gegevensfactory 'CustomActivityFactory' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld **yournameCustomActivityFactory**) en probeer het opnieuw.
 
     ![Nieuwe Azure Data Factory-blade](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Klik op **GROEPSNAAM voor ACCOUNTRESOURCES**, en selecteer een bestaande resourcegroep of maak een resourcegroep.
@@ -430,7 +430,7 @@ Hier volgen de stappen die u in deze sectie uitvoeren:
 5. Klik op de blade **Nieuwe gegevensfactory** op **Maken**.
 6. U ziet de data factory die worden gemaakt in de **Dashboard** van de Azure-portal.
 7. Nadat de gegevensfactory is gemaakt, ziet u de Data Factory-blade, waarin u de inhoud van de data factory.
-    
+
     ![Blade Gegevensfactory](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Stap 2: Gekoppelde services maken
@@ -439,7 +439,7 @@ Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld a
 #### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maken
 1. Klik op de **auteur en implementeer** tegel op de **DATA FACTORY** blade voor **CustomActivityFactory**. U ziet de Data Factory Editor.
 2. Klik op **nieuw gegevensarchief** op de opdracht en kies **Azure storage**. U ziet het JSON-script voor het maken van een gekoppelde Azure Storage-service in de editor.
-    
+
     ![Nieuwe gegevensopslag - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. Vervang `<accountname>` met de naam van uw Azure storage-account en `<accountkey>` door de toegangssleutel van het Azure storage-account. Zie [Toegangssleutels voor opslag weergeven, kopiëren en opnieuw genereren](../../storage/common/storage-account-manage.md#access-keys) voor meer informatie over het verkrijgen van uw toegangssleutel voor opslag.
 
@@ -680,7 +680,7 @@ Het oplossen van bestaat uit enkele basistechnieken:
     ```
     Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
     ```
-2. Als u de volgende fout ziet, controleert u of de naam van de klasse in het bestand CS komt overeen met de naam die u hebt opgegeven voor de **EntryPoint** eigenschap in de pijplijn-JSON. In het scenario is de naam van de klasse: MyDotNetActivity en het ingangspunt in de JSON is: MyDotNetActivityNS. **MyDotNetActivity**.
+2. Als u de volgende fout ziet, controleert u of de naam van de klasse in het bestand CS komt overeen met de naam die u hebt opgegeven voor de **EntryPoint** eigenschap in de pijplijn-JSON. In het scenario is de naam van de klasse: MyDotNetActivity en het ingangspunt in de JSON is: MyDotNetActivityNS.**MyDotNetActivity**.
 
     ```
     MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
@@ -722,7 +722,7 @@ Het oplossen van bestaat uit enkele basistechnieken:
 Als u de code voor de aangepaste activiteit bijwerkt, bouw het en upload het zipbestand met nieuwe binaire bestanden naar de blob-opslag.
 
 ## <a name="appdomain-isolation"></a>AppDomain isolatie
-Zie [Cross AppDomain voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) die laat zien hoe u een aangepaste activiteit die niet tot assembly-versies die worden gebruikt door de Data Factory startprogramma voor apps beperkt is maken (voorbeeld: Verze 4.3.0 WindowsAzure.Storage Newtonsoft.Json v6.0.x, enz.).
+Zie [Cross AppDomain voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) die laat zien hoe u een aangepaste activiteit die niet tot assembly-versies die worden gebruikt door de Data Factory startprogramma voor apps beperkt is maken (voorbeeld: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
 
 ## <a name="access-extended-properties"></a>Toegang tot uitgebreide eigenschappen
 U kunt aangeven dat uitgebreide eigenschappen in de activiteits-JSON zoals wordt weergegeven in het volgende voorbeeld:
@@ -1024,8 +1024,8 @@ De [Azure Data Factory - lokale omgeving](https://github.com/gbrueckl/Azure.Data
 ## <a name="sample-custom-activities-on-github"></a>Aangepaste activiteiten voorbeeld op GitHub
 | Voorbeeld | Welke aangepaste activiteit doet |
 | --- | --- |
-| [Gegevens van HTTP-Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Gegevens downloadt van een HTTP-eindpunt naar Azure Blob Storage met behulp van aangepaste C#-activiteit in Data Factory. |
-| [Voorbeeld van Twitter-Sentimentanalyse](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Hiermee wordt een Azure ML-model en sentimentanalyse doen, score, voorspelling enzovoort. |
+| [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Gegevens downloadt van een HTTP-eindpunt naar Azure Blob Storage met behulp van aangepaste C#-activiteit in Data Factory. |
+| [Voorbeeld van Twitter-Sentimentanalyse](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Hiermee wordt een Azure Machine Learning studio-model en sentimentanalyse doen, score, voorspelling enzovoort. |
 | [R-Script uitvoeren](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |R-script aanroept uit te voeren RScript.exe op uw HDInsight-cluster dat al R is geïnstalleerd op deze is. |
 | [Cross-AppDomain .NET-activiteit](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Maakt gebruik van verschillende assembly-versies van resources die worden gebruikt door de Data Factory starten |
 | [Een model in Azure Analysis Services opnieuw verwerken](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Een model in Azure Analysis Services opnieuw verwerken. |

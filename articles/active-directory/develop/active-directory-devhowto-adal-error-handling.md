@@ -7,19 +7,19 @@ author: danieldobalian
 manager: mtillman
 ms.author: celested
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: d6e70048f5c86ad18962237d7ffcc442c82bf035
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e39c2716cd31e97ad71764f25befc1fc6e47e2a0
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107647"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079032"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fout bij het afhandelen van aanbevolen procedures voor Azure Active Directory Authentication Library (ADAL) clients
 
@@ -140,7 +140,7 @@ public void onError(Exception e) {
 
 De volgende instructies vindt u voorbeelden voor foutafhandeling in combinatie met ADAL methoden: 
 
-- acquireTokenSilentWithResource(...)
+- acquireTokenSilentWithResource(…)
 
 Uw code zou als volgt worden geïmplementeerd:
 
@@ -210,10 +210,10 @@ Foutafhandeling in systeemeigen toepassingen kan worden gedefinieerd door twee g
 
 De volgende instructies vindt u voorbeelden voor foutafhandeling in combinatie met alle niet-silent AcquireToken(...) ADAL methoden *behalve*: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
-- AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync(...,UserAssertion,...)   
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion,…)   
 
 Uw code zou als volgt worden geïmplementeerd:
 
@@ -346,7 +346,7 @@ Als u een .NET-web-app die worden aangeroepen ontvangt een token met behulp van 
 
 De volgende instructies vindt u voorbeelden voor foutafhandeling in combinatie met ADAL methoden: 
 
-- AcquireTokenByAuthorizationCodeAsync(...)
+- AcquireTokenByAuthorizationCodeAsync(…)
 
 Uw code zou als volgt worden geïmplementeerd:
 
@@ -415,10 +415,10 @@ Voor *alle* scenario's voor service-naar-service-toepassing, met inbegrip van on
 
 De volgende instructies vindt u voorbeelden voor foutafhandeling in combinatie met ADAL methoden: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
-- AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync (..., UserAssertion,...)
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion, …)
 
 Uw code zou als volgt worden geïmplementeerd:
 
@@ -443,7 +443,7 @@ Voor *op-andere gebruikers-of* toepassingsscenario's service-naar-service.
 
 De volgende instructies vindt u voorbeelden voor foutafhandeling in combinatie met ADAL methoden: 
 
-- AcquireTokenAsync (..., UserAssertion,...)
+- AcquireTokenAsync(…, UserAssertion, …)
 
 Uw code zou als volgt worden geïmplementeerd:
 

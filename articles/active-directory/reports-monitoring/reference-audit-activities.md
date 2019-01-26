@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6b5679a8d3f8cf449b9539e8595e14a87e882ac7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818180"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912881"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referentie voor auditactiviteiten van Azure AD
 
@@ -43,34 +43,36 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 
 |Controlecategorie|Activiteit|
 |---|---|
-|Mapbeheer|Administratieve eenheid toevoegen|
-|Mapbeheer|Lid aan administratieve eenheid toevoegen|
-|Mapbeheer|Administratieve eenheid verwijderen|
-|Mapbeheer|Lid uit administratieve eenheid verwijderen|
-|Mapbeheer|Administratieve eenheid bijwerken|
-|Mapbeheer|Beheer|
-|Gebruikersbeheer|Directory-bewerking|
-|Gebruikersbeheer|Exporteren|
-|Gebruikersbeheer|Importeren|
-|Gebruikersbeheer|Overige|
-|Gebruikersbeheer|Proces-escrow|
-|Gebruikersbeheer|Synchronisatieregelactie|
-|Gebruikersbeheer|Toepassing toevoegen|
-|Gebruikersbeheer|Toepassing verwijderen|
-|Gebruikersbeheer|Toepassing bijwerken|
-|Gebruikersbeheer|Modus voor eenmalige aanmelding voor toepassingen bijwerken|
-|Gebruikersbeheer|Automatische wachtwoordoverschakeling|
-|Gebruikersbeheer|V2-toepassingsmachtigingen toevoegen|
-|Gebruikersbeheer|V1-toepassing maken|
-|Gebruikersbeheer|V2-toepassing maken|
-|Gebruikersbeheer|V1-toepassing verwijderen|
-|Gebruikersbeheer|V2-toepassing verwijderen|
-|Gebruikersbeheer|V2-toepassingsmachtiging verwijderen|
-|Gebruikersbeheer|V1- en V2-toepassingen ophalen|
-|Gebruikersbeheer|V1-toepassing ophalen|
-|Gebruikersbeheer|V1-toepassingen ophalen|
-|Gebruikersbeheer|V2-toepassing ophalen|
-|Gebruikersbeheer|V2-toepassingen ophalen|
+|Toegangsbeoordelingen|Toegangsbeoordeling beëindigd|
+|Toegangsbeoordelingen|Goedkeurder toevoegen om goedkeuring te vragen|
+|Toegangsbeoordelingen|Revisor toevoegen voor toegang tot revisie|
+|Toegangsbeoordelingen|Toegangsbeoordeling toepassen|
+|Toegangsbeoordelingen|Toegangsbeoordeling maken|
+|Toegangsbeoordelingen|Programma maken|
+|Toegangsbeoordelingen|Aanvraaggoedkeuring maken|
+|Toegangsbeoordelingen|Toegangsbeoordeling verwijderen|
+|Toegangsbeoordelingen|Programma verwijderen|
+|Toegangsbeoordelingen|Programmabeheer koppelen|
+|Toegangsbeoordelingen|Onboarding bij Azure AD-toegangsbeoordelingen|
+|Toegangsbeoordelingen|Revisor verwijderen uit toegangsbeoordeling|
+|Toegangsbeoordelingen|Stoppen beoordeling aanvragen|
+|Toegangsbeoordelingen|Toepassen van beoordelingsresultaat aanvragen|
+|Toegangsbeoordelingen|RBAC-rollidmaatschap beoordelen|
+|Toegangsbeoordelingen|App-toewijzing beoordelen|
+|Toegangsbeoordelingen|Groepslidmaatschap beoordelen|
+|Toegangsbeoordelingen|Aanvraag voor goedkeuring aanvraag beoordelen|
+|Toegangsbeoordelingen|Programmabeheer ontkoppelen|
+|Toegangsbeoordelingen|Toegangsbeoordeling bijwerken|
+|Toegangsbeoordelingen|De status van Azure AD Access beoordelingen Onboarding bijwerken|
+|Toegangsbeoordelingen|Instellingen voor de e-mailmelding van de toegangsbeoordeling bijwerken|
+|Toegangsbeoordelingen|Instelling voor aantal herhalingen toegangsbeoordeling bijwerken|
+|Toegangsbeoordelingen|Instelling voor duur herhalingen toegangsbeoordeling bijwerken|
+|Toegangsbeoordelingen|Instelling voor eindtype herhalingen toegangsbeoordeling bijwerken|
+|Toegangsbeoordelingen|Instelling voor type herhalingen toegangsbeoordeling bijwerken|
+|Toegangsbeoordelingen|Herinneringsinstellingen toegangsbeoordeling bijwerken|
+|Toegangsbeoordelingen|Programma bijwerken|
+|Toegangsbeoordelingen|Aanvraaggoedkeuring bijwerken|
+|Toegangsbeoordelingen|Gebruiker uitgeschakeld|
 
 ## <a name="account-provisioning"></a>Account inrichten
 
@@ -526,23 +528,27 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 
 |Controlecategorie|Activiteit|
 |---|---|
-|Rolbeheer|Herinneringsinstellingen toegangsbeoordeling bijwerken|
-|Rolbeheer|Aanvraaggoedkeuring bijwerken|
-|Rolbeheer|App-roltoewijzing aan gebruiker toevoegen|
-|Rolbeheer|Gebruiker toevoegen|
-|Rolbeheer|Gegevens voor telefoon-app voor sterke verificatie van gebruikers toevoegen|
-|Rolbeheer|Gebruikerslicentie wijzigen|
-|Rolbeheer|Gebruikerswachtwoord wijzigen|
-|Rolbeheer|Federatieve gebruiker naar beheerd converteren|
-|Rolbeheer|Toepassingswachtwoord voor gebruiker maken|
-|Rolbeheer|Toepassingswachtwoord voor gebruiker verwijderen|
-|Rolbeheer|Gebruiker verwijderen|
-|Rolbeheer|Account uitschakelen|
-|Rolbeheer|Sterke verificatie inschakelen|
-|Rolbeheer|Gebruiker definitief verwijderen|
-|Rolbeheer|App-roltoewijzing uit gebruiker verwijderen|
-|Rolbeheer|Gegevens voor telefoon-app voor sterke verificatie van gebruikers verwijderen|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Toegevoegd|
+|PIM|AddedOutsidePIM|
+|PIM|Toewijzen|
+|PIM|DismissAlert|
+|PIM|Verhogen|
+|PIM|ReactivateAlert|
+|PIM|Verwijderd|
+|PIM|RemovedOutsidePIM|
+|PIM|Stoppen beoordeling aanvragen|
+|PIM|Wijzigingen van de rolinstelling|
+|PIM|ScanAlertsNow|
+|PIM|Registreren|
+|PIM|Toewijzing ongedaan maken|
+|PIM|Bevoegdheden verlagen|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>Groepsbeheer via selfservice
@@ -580,13 +586,16 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 
 |Controlecategorie|Activiteit|
 |---|---|
-|Beleidsbeheer|Wachtwoord wijzigen (selfservice)|
-|Beleidsbeheer|Wachtwoord opnieuw instellen (door beheerder)|
-|Beleidsbeheer|Wachtwoord opnieuw instellen (selfservice)|
-|Beleidsbeheer|Self-service voor stroomactiviteitvoortgang bij het opnieuw instellen van een wachtwoord|
-|Beleidsbeheer|Self-service voor stroomactiviteitvoortgang bij het opnieuw instellen van een wachtwoord|
-|Beleidsbeheer|Gebruikersaccount ontgrendelen (selfservice)|
-|Beleidsbeheer|Door gebruiker geregistreerd voor selfservice voor het opnieuw instellen van een wachtwoord|
+|Gebruiksvoorwaarden|Gebruiksvoorwaarden accepteren|
+|Gebruiksvoorwaarden|Gebruiksvoorwaarden maken|
+|Gebruiksvoorwaarden|Gebruiksvoorwaarden afwijzen|
+|Gebruiksvoorwaarden|Toestemming verwijderen|
+|Gebruiksvoorwaarden|Gebruiksvoorwaarden verwijderen|
+|Gebruiksvoorwaarden|Gebruiksvoorwaarden bewerken|
+|Gebruiksvoorwaarden|Gebruiksvoorwaarden verlopen|
+|Gebruiksvoorwaarden|Gebruiksvoorwaarden harde verwijderen|
+|Gebruiksvoorwaarden|Gebruiksvoorwaarden publiceren|
+|Gebruiksvoorwaarden|Publicatie van gebruiksvoorwaarden ongedaan maken|
 
 
 ## <a name="next-steps"></a>Volgende stappen

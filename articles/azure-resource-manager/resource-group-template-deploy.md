@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 083a318f008799713f4d8d9aeacfe2e27f6ad195
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6e6cd7f1677d8ae11f05c2a2bca4233603a29408
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085923"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075666"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Resources implementeren met Resource Manager-sjablonen en Azure PowerShell
 
@@ -25,7 +25,7 @@ In dit artikel wordt uitgelegd hoe u Azure PowerShell gebruiken met Resource Man
 
 De Resource Manager-sjabloon die u implementeert, kunnen een lokaal bestand op uw computer of een extern bestand dat in een opslagplaats, zoals GitHub bevindt zich. De sjabloon die u in dit artikel implementeert is beschikbaar als [sjabloon van de storage-account in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-Installeer zo nodig de Azure PowerShell-module door de instructies in de [Azure PowerShell-handleiding](/powershell/azure/overview) uit te voeren en voer vervolgens `Connect-AzureRmAccount` uit om verbinding te maken met Azure.
+Installeer zo nodig de Azure PowerShell-module door de instructies in de [Azure PowerShell-handleiding](/powershell/azure/overview) uit te voeren en voer vervolgens `Connect-AzAccount` uit om verbinding te maken met Azure.
 
 <a id="deploy-local-template" />
 
@@ -42,12 +42,12 @@ Een sjabloon kunt parameters waarmee u kunt het aanpassen van de implementatie b
 Het volgende voorbeeld wordt een resourcegroep en implementeert u een sjabloon van uw lokale computer:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
@@ -64,7 +64,7 @@ In plaats van Resource Manager-sjablonen op uw lokale computer, wellicht kunt u 
 Voor het implementeren van een externe-sjabloon, gebruiken de **TemplateUri** parameter. Gebruik de URI in het voorbeeld om de voorbeeldsjabloon uit GitHub te implementeren.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -storageAccountType Standard_GRS
 ```
@@ -76,8 +76,8 @@ Het vorige voorbeeld vereist een openbaar toegankelijke URI voor de sjabloon die
 Gebruik de volgende opdrachten in de Cloud Shell:
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri <copied URL> `
   -storageAccountType Standard_GRS
 ```
@@ -94,11 +94,11 @@ Als u wilt doorgeven van parameterwaarden, kunt u parameters inline of een param
 
 ### <a name="inline-parameters"></a>Inline-parameters
 
-Als u wilt in line-parameters kunt toevoegen, bevatten de namen van de parameter met de `New-AzureRmResourceGroupDeployment` opdracht. Bijvoorbeeld: een tekenreeks of matrix doorgeven aan een sjabloon, gebruiken:
+Als u wilt in line-parameters kunt toevoegen, bevatten de namen van de parameter met de `New-AzResourceGroupDeployment` opdracht. Bijvoorbeeld: een tekenreeks of matrix doorgeven aan een sjabloon, gebruiken:
 
 ```powershell
 $arrayParam = "value1", "value2"
-New-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\demotemplate.json `
   -exampleString "inline string" `
   -exampleArray $arrayParam
@@ -108,7 +108,7 @@ U kunt ook de inhoud van bestand ophalen en verstrekken die inhoud als een inlin
 
 ```powershell
 $arrayParam = "value1", "value2"
-New-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\demotemplate.json `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
@@ -141,7 +141,7 @@ Kopieer het voorgaande voorbeeld en sla deze op als een bestand met de naam `sto
 Als u wilt een lokale parameterbestand doorgeven, gebruikt u de **TemplateParameterFile** parameter:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
@@ -149,7 +149,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 Als u wilt een parameterbestand met externe doorgeven, gebruikt u de **TemplateParameterUri** parameter:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
@@ -162,21 +162,21 @@ Echter wanneer u een externe parameterbestand gebruikt, geeft u de kan geen ande
 
 ### <a name="parameter-name-conflicts"></a>Parameter naamconflicten
 
-Als de sjabloon een parameter met dezelfde naam als een van de parameters in de PowerShell-opdracht bevat, PowerShell biedt de parameter van de sjabloon voor het achtervoegsel **FromTemplate**. Bijvoorbeeld, een parameter met de naam **ResourceGroupName** in uw sjabloon veroorzaakt een conflict met de **ResourceGroupName** parameter in de [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) de cmdlet. U wordt gevraagd om een waarde voor **ResourceGroupNameFromTemplate**. In het algemeen moet u deze verwarring voorkomen door het niet naming parameters met dezelfde naam als parameters gebruikt voor implementatiebewerkingen.
+Als de sjabloon een parameter met dezelfde naam als een van de parameters in de PowerShell-opdracht bevat, PowerShell biedt de parameter van de sjabloon voor het achtervoegsel **FromTemplate**. Bijvoorbeeld, een parameter met de naam **ResourceGroupName** in uw sjabloon veroorzaakt een conflict met de **ResourceGroupName** parameter in de [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) de cmdlet. U wordt gevraagd om een waarde voor **ResourceGroupNameFromTemplate**. In het algemeen moet u deze verwarring voorkomen door het niet naming parameters met dezelfde naam als parameters gebruikt voor implementatiebewerkingen.
 
 ## <a name="test-a-template-deployment"></a>Een sjabloonimplementatie testen
 
-U kunt de waarden van uw sjabloon en de parameterbestanden testen zonder daadwerkelijk de resources te implementeren met [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
+U kunt de waarden van uw sjabloon en de parameterbestanden testen zonder daadwerkelijk de resources te implementeren met [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
 Als er geen fouten worden aangetroffen, wordt de opdracht is voltooid zonder een reactie. Als er een fout wordt gedetecteerd, wordt de opdracht een foutbericht weergegeven. Doorgeven van een onjuiste waarde voor het opslagaccount-SKU, retourneert bijvoorbeeld de volgende fout:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType badSku
 
 Code    : InvalidTemplate
@@ -189,7 +189,7 @@ Details :
 Als uw sjabloon een syntaxisfout heeft, retourneert de opdracht een foutbericht met dat de sjabloon kan niet worden geparseerd. Het bericht geeft aan dat het regelnummer en de positie van de fout bij het parseren.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
+Test-AzResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
   ". Path 'variables', line 31, position 3.
 ```
 

@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f8a4e7dcaa1bc2df71246f67d06fc63ae4fcd06
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: af2a9cd7f834f5c6f70a78d94e8826de2584127d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883497"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076369"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure Search-service in Azure portal controleren
 
 U kunt systeemgegevens over Resourcegebruik, plus query metrische gegevens zoals query's Per seconde (QPS), latentie van query en het percentage aanvragen die zijn beperkt weergeven op de pagina overzicht van uw Azure Search-service. Bovendien kunt u de portal gebruikmaken van een bereik van de bewakingsmogelijkheden in het Azure-platform om meer gedetailleerde gegevens te verzamelen. 
 
-In dit artikel wordt geïdentificeerd en vergelijkt de beschikbare opties voor logboekregistratie van Azure Search-bewerkingen. Deze handleiding bevat instructies voor het inschakelen van logboekregistratie en logboek-opslag en over het uitbreiden van de gegevens die worden verzameld.
+In dit artikel wordt geïdentificeerd en vergelijkt de beschikbare opties voor logboekregistratie van Azure Search-bewerkingen. Deze handleiding bevat instructies voor het inschakelen van logboekregistratie en logboek-opslag en over toegang tot informatie van de service- en gebruikersactiviteit.
 
-Als u een ondersteuningsticket indient, zijn er geen specifieke taken of informatie die u nodig hebt om te bieden. Ondersteuningsmedewerkers hebben de benodigde informatie voor het onderzoeken van specifieke problemen.  
+Instellen van de logboeken is handig voor selfservice-diagnostische gegevens en een geschiedenis van servicebewerkingen te behouden. Intern, logboeken voor een korte tijd, voldoende voor onderzoek en analyse bestaat als u een ondersteuningsticket. Als u wilt voor het beheren van de opslag van gegevens voor uw service, moet u instellen van een van de oplossingen die in dit artikel beschreven.
 
 ## <a name="metrics-at-a-glance"></a>Metrische gegevens in een oogopslag
 
@@ -39,6 +39,8 @@ De **gebruik** tabblad ziet u de beschikbaarheid van ten opzichte van de huidige
 
 De **bewaking** tabblad toont voortschrijdende gemiddelden voor metrische gegevens zoals zoeken *query's Per seconde* (QPS), bij elkaar opgeteld per minuut. 
 *Zoeklatentie* is de hoeveelheid tijd de search-service die nodig is voor het verwerken van zoekquery's bij elkaar opgeteld per minuut. *Beperkte zoekquery query percentage* (niet weergegeven), is het percentage van zoekquery's die zijn beperkt, ook bij elkaar opgeteld per minuut.
+
+Deze getallen zijn schattingen en zijn bedoeld om u te bieden u een algemeen beeld van hoe goed uw systeem is onderhoud van aanvragen. Werkelijke QPS is mogelijk hoger of lager is dan het aantal gerapporteerd in de portal.
 
 ![Query's per seconde activiteit](./media/search-monitor-usage/monitoring-tab.png "query's per seconde activiteit")
 
@@ -58,19 +60,20 @@ De volgende tabel vergelijkt de opties voor het opslaan van Logboeken en uitgebr
 
 | Resource | Gebruikt voor |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | [Zoekverkeer](search-traffic-analytics.md). Dit is de enige oplossing waarmee u meer informatie over aanvragen, die verder gaan dan de waarden die zijn geïdentificeerd in de onderstaande logboekregistratie en metrische gegevens schema wordt vastgelegd. Met deze methode voert u kopiëren en plakken instrumentation code in de bronbestanden voor het doorsturen van gegevens naar Application Insights voor analyse van de invoer in de query-term, query's met nul overeenkomsten en enzovoorts bedekt. Beste de Power BI als de front-end analytics gegevens die zijn opgeslagen in Application Insights.  |
-| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Aanvragen en metrische gegevens, op basis van de onderstaande schema's. Gebeurtenissen worden geregistreerd in een Blob-container. We raden je Excel of Power BI als de analytics-front-end aan opgeslagen gegevens in Azure Blob-opslag.|
-| [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Aanvragen en metrische gegevens, op basis van de schema's beschreven in dit artikel. Kies deze optie als een alternatieve data collection-Services voor zeer grote logboeken. |
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande, schema's verband houden met de gebruikersgebeurtenissen in uw app. Dit is de enige oplossing die gehouden gebruikersacties of signalen, toewijzing van gebeurtenissen van de gebruiker geïnitieerde zoeken, in plaats van filter aanvragen ingediend door de toepassingscode. Voor het gebruik van deze benadering, kopiëren en plakken instrumentation code in de bronbestanden op aanvraag voor informatie over de route naar Application Insights. Zie voor meer informatie, [Zoekverkeer](search-traffic-analytics.md). |
+| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden geregistreerd in een werkruimte van Log Analytics. U kunt query's uitvoeren op een werkruimte voor gedetailleerde informatie retourneren op het logboek. Zie voor meer informatie, [aan de slag met Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden vastgelegd in een Blob-container en opgeslagen in de JSON-bestanden. Een JSON-editor gebruiken om de inhoud van bestand weer te geven.|
+| [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de schema's beschreven in dit artikel. Kies deze optie als een alternatieve data collection-Services voor zeer grote logboeken. |
 
-Azure search biedt een controle [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) zodat u gegevens kunt analyseren. Het inhoudspakket bestaat uit rapporten die zijn geconfigureerd voor het automatisch verbinding maken met uw gegevens en een visueel overzicht over uw search-service geven. Zie voor meer informatie de [help-pagina](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
 
-De optie voor de Blob-opslag is beschikbaar als gratis gedeelde service zodat u dit zonder kosten voor de levensduur van uw Azure-abonnement uitproberen kunt. De volgende sectie helpt u door de stappen voor het inschakelen en gebruiken van Azure Blob-opslag voor het verzamelen en toegang krijgen tot logboekgegevens die zijn gemaakt door Azure Search-bewerkingen.
+
+Log Analytics- en Blob-opslag zijn beschikbaar als gratis gedeelde service zodat u dit zonder kosten voor de levensduur van uw Azure-abonnement uitproberen kunt. De volgende sectie helpt u door de stappen voor het inschakelen en gebruiken van Azure Blob-opslag voor het verzamelen en toegang krijgen tot logboekgegevens die zijn gemaakt door Azure Search-bewerkingen.
 
 ## <a name="enable-logging"></a>Logboekregistratie inschakelen
 
-Logboekregistratie voor indexeren en query-werkbelastingen is standaard uitgeschakeld en is afhankelijk van aanvullende oplossingen voor infrastructuur voor logboekregistratie en externe opslag. Zelfstandig gebruikt is de enige persistente gegevens in Azure Search indexen, zodat logboeken ergens anders moeten worden opgeslagen.
+Logboekregistratie voor indexeren en query-werkbelastingen is standaard uitgeschakeld en is afhankelijk van aanvullende oplossingen voor infrastructuur voor logboekregistratie en externe langetermijnopslag. Zelfstandig gebruikt is de enige persistente gegevens in Azure Search indexen, zodat logboeken ergens anders moeten worden opgeslagen.
 
-In deze sectie leert u hoe u Blob storage gebruiken voor gegevens in het logboek gebeurtenissen en metrische gegevens bevatten.
+In deze sectie leert u hoe u Blob storage gebruiken voor het opslaan van gegevens in het logboek gebeurtenissen en metrische gegevens.
 
 1. [Maak een opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) als u er nog geen hebt. U kunt deze plaatsen in dezelfde resourcegroep bevinden als de Azure Search te vereenvoudigen opschonen later als u wilt verwijderen van alle resources die in deze oefening gebruikt.
 
@@ -86,18 +89,20 @@ In deze sectie leert u hoe u Blob storage gebruiken voor gegevens in het logboek
 
 4. Sla het profiel.
 
-5. Test registratie door te maken of verwijderen van objecten (genereert een operationeel logboek) en door het verzenden van query's (genereert metrische gegevens). 
+5. Test registratie door te maken of verwijderen van objecten (maakt gebeurtenissen vastleggen in logboek) en door het verzenden van query's (genereert metrische gegevens). 
 
-Logboekregistratie is ingeschakeld wanneer u het profiel opslaan, containers worden alleen gemaakt wanneer er een gebeurtenis in het logboek of de meting. Het kan enige tijd duren voor de containers worden weergegeven. U kunt [de gegevens visualiseren in Power BI](#analyze-with-power-bi) zodra deze beschikbaar.
-
-Wanneer de gegevens worden gekopieerd naar een opslagaccount, worden de gegevens zijn opgemaakt als JSON en in twee containers geplaatst:
+Logboekregistratie is ingeschakeld wanneer u het profiel opslaan, containers worden alleen gemaakt wanneer er een gebeurtenis in het logboek of de meting. Het kan enige tijd duren voor de containers worden weergegeven. Wanneer de gegevens worden gekopieerd naar een opslagaccount, worden de gegevens zijn opgemaakt als JSON en in twee containers geplaatst:
 
 * Insights-logs-operationlogs: voor zoeken in logboeken over webverkeer
 * Insights-metrics-pt1m: voor metrische gegevens
 
-Er is een blob, per uur, per container.
+U kunt [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) of een andere JSON-editor om de bestanden weer te geven. Er is een blob, per uur, per container.
 
-Voorbeeldpad: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json`
+### <a name="example-path"></a>Van voorbeeldpad
+
+```
+resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
+```
 
 ## <a name="log-schema"></a>Logboek-schema
 BLOBs met de verkeerslogboeken van uw search-service zijn gestructureerd zoals beschreven in deze sectie. Elke blob heeft een basis-object met de naam **records** die een matrix van logboek-objecten. Elke blob bevat records voor alle bewerkingen die plaatsgevonden tijdens hetzelfde uur hebben.
@@ -146,25 +151,17 @@ Denk aan dit scenario gedurende één minuut: één seconde van hoog laden dat w
 
 ThrottledSearchQueriesPercentage, minimum, maximum, gemiddelde en totale, een hebben dezelfde waarde: het percentage van zoekquery's die zijn beperkt, van het totale aantal zoekquery's gedurende één minuut.
 
-## <a name="analyze-with-power-bi"></a>Analyseren met Power BI
+## <a name="download-and-open-in-visual-studio-code"></a>Downloaden en openen in Visual Studio Code
 
-Wordt u aangeraden [Power BI](https://powerbi.microsoft.com) om te verkennen en visualiseren van uw gegevens, met name als u ingeschakeld [zoekverkeer](search-traffic-analytics.md). Zie voor meer informatie de [help-pagina](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
+U kunt elke JSON-editor gebruiken om het logboekbestand weer te geven. Als u niet hebt, raden we [Visual Studio Code](https://code.visualstudio.com/download).
 
-Verbindingen vereisen naam en toegangssleutel van het opslagaccount, die u kunt ophalen uit Azure portal-pagina's op de **toegangssleutels** pagina van uw storage-account-dashboard.
+1. Open uw Storage-account in Azure portal. 
 
-1. Installeer de [Power BI-inhoudspakket](https://app.powerbi.com/getdata/services/azure-search). Het inhoudspakket wordt toegevoegd voor vooraf gedefinieerde grafieken en tabellen die handig is voor het analyseren van de aanvullende gegevens die zijn vastgelegd voor search traffic analytics. 
+2. Klik in het deelvenster navigatie aan de linkerkant **Blobs**. U ziet **insights-logs-operationlogs** en **insights-metrics-pt1m**. Deze containers worden gemaakt door Azure Search tijdens het exporteren van de logboekgegevens naar Blob-opslag.
 
-   Als u van Blob-opslag of een ander opslagmechanisme gebruikmaakt en u geen instrumentatie kunt aan uw code toevoegen hebt, kunt u het inhoudspakket overslaan en ingebouwde Power BI-visualisaties.
+3. Klik op in de mappenhiërarchie totdat u het .json-bestand.  Het contextmenu gebruiken om het bestand te downloaden.
 
-2. Open **Power BI**, klikt u op **gegevens ophalen** > **Services** > **Azure Search**.
-
-3. Voer de naam van het opslagaccount, selecteer **sleutel** voor verificatie en plak in een toegangssleutel.
-
-4. De gegevens te importeren en klik vervolgens op **inzien**.
-
-De volgende schermafbeelding ziet u de ingebouwde rapporten en grafieken voor het analyseren van zoekverkeer.
-
-![Power BI-dashboard voor Azure Search](./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png "Power BI-dashboard voor Azure Search")
+Zodra het bestand is gedownload, opent u het in een JSON-editor om de inhoud weer te geven.
 
 ## <a name="get-sys-info-apis"></a>Sys-info-API's ophalen
 Zowel de Azure Search REST-API en de .NET SDK bieden programmatisch toegang tot metrische gegevens, index en indexeerfunctie servicegegevens en document telt.
@@ -179,6 +176,3 @@ Zie de documentatie om in te schakelen met behulp van PowerShell of Azure CLI, [
 ## <a name="next-steps"></a>Volgende stappen
 
 [Uw zoekservice op Microsoft Azure beheren](search-manage.md) voor meer informatie over servicebeheer en [prestaties en optimalisatie](search-performance-optimization.md) voor het afstemmen van de richtlijnen.
-
-Meer informatie over het maken van geweldige rapporten. Zie [aan de slag met Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) voor meer informatie.
-

@@ -3,19 +3,19 @@ title: Oplossen van problemen en logboekregistratie in Azure AD wachtwoord prote
 description: Inzicht in Azure AD-wachtwoordbeveiliging logboekregistratie en het oplossen van algemene preview
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 008fba2fd6052ac9043de6ec217cb71d17f3ecce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 55139d7270d602d73605c484eeace7012ff3c1b8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427097"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076074"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Preview: Azure AD wachtwoord beveiliging bewaking, rapportage en probleemoplossing
 

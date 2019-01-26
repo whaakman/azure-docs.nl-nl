@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d8ca316b9d2f87e2d5540c81b0865381109f889d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264305"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080069"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-overzichtskaart voor Azure Machine Learning Studio
 
@@ -48,7 +48,7 @@ Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemate
 
   * In **leren zonder supervisie**, gegevenspunten hebben geen labels worden gekoppeld. In plaats daarvan is het doel van een algoritme zonder supervisie learning om de gegevens op een bepaalde manier te ordenen of om te beschrijven van de structuur. Dit kan betekenen dat groeperen in clusters, zoals K-means of kijken naar complexe gegevens zodat deze wordt weergegeven eenvoudiger op verschillende manieren vinden.
 
-  * In **bekrachtigingen**, de algoritme een actie te kiezen in reactie op elk gegevenspunt opgehaald. Het is een gebruikelijke aanpak in robotiek, waarbij de set sensorwaarden, serverlogs, op één punt in tijd een gegevenspunt, en het algoritme moet de volgende actie van de robot kiezen. Het is ook een natuurlijke geschikt voor Internet of Things-toepassingen. Het learning-algoritme ontvangt ook een signaal beloning korte tijd later, dat aangeeft hoe goed de beslissing is. Het algoritme wijzigt op basis hiervan de strategie om te realiseren van de hoogste prijs. Er zijn momenteel geen leren met bekrachtigingen beschikt learning-algoritme modules in Azure ML.
+  * In **bekrachtigingen**, de algoritme een actie te kiezen in reactie op elk gegevenspunt opgehaald. Het is een gebruikelijke aanpak in robotiek, waarbij de set sensorwaarden, serverlogs, op één punt in tijd een gegevenspunt, en het algoritme moet de volgende actie van de robot kiezen. Het is ook een natuurlijke geschikt voor Internet of Things-toepassingen. Het learning-algoritme ontvangt ook een signaal beloning korte tijd later, dat aangeeft hoe goed de beslissing is. Het algoritme wijzigt op basis hiervan de strategie om te realiseren van de hoogste prijs. Er zijn momenteel geen leren met bekrachtigingen beschikt learning-algoritme modules in Azure Machine Learning studio.
 
 * **Bayesiaanse methoden** ervan uitgegaan van statistisch onafhankelijke gegevenspunten. Dit betekent dat de unmodeled variabiliteit bij één gegevenspunt is niet-gerelateerde met anderen, dat wil zeggen, niet kan worden voorspeld. Bijvoorbeeld, als de gegevens worden opgenomen, is het aantal minuten op waarna de volgende train van de trein binnenkomt, twee metingen per dag uit elkaar gehouden statistisch onafhankelijk zijn. Echter twee metingen bij een minuut bij elkaar niet statistisch onafhankelijk zijn: de waarde van een zeer voorspelling van de waarde van de andere is.
 

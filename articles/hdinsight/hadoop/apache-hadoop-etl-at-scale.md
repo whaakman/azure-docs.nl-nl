@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 205ba822b1221de34f3ee1ae25974a406f2013cb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7897c677df38bb9b71222730a8b6a9ea11fb40bc
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438095"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912660"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraheren, transformeren en laden (ETL) op schaal
 
@@ -78,7 +78,7 @@ ADLS is ook geoptimaliseerd voor gebeurtenisopname met behulp van Azure Event Hu
 
 De netwerklatentie kan een groot probleem zijn met name als de gegevens afkomstig is van een on-premises locatie voor het uploaden van gegevenssets in het bereik terabyte.  In dergelijke gevallen kunt u de onderstaande opties:
 
-* Met Azure ExpressRoute:  Azure ExpressRoute kunt u particuliere verbindingen maken tussen Azure-datacenters en uw on-premises infrastructuur. Deze verbindingen bieden een betrouwbare optie voor het overbrengen van grote hoeveelheden gegevens. Zie voor meer informatie, [documentatie voor Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
+* Azure ExpressRoute:  Azure ExpressRoute kunt u particuliere verbindingen maken tussen Azure-datacenters en uw on-premises infrastructuur. Deze verbindingen bieden een betrouwbare optie voor het overbrengen van grote hoeveelheden gegevens. Zie voor meer informatie, [documentatie voor Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 * 'Offline' uploaden van gegevens. U kunt [Azure Import/Export-service](../../storage/common/storage-import-export-service.md) voor verzending van harde schijven met uw gegevens om een Azure-Datacenter. Uw gegevens eerst geüpload naar Azure Storage-Blobs. Vervolgens kunt u [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) of de [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) hulpprogramma gegevens kopiëren van Azure Storage-blobs naar Data Lake-opslag.
 
@@ -138,3 +138,4 @@ Zodra de gegevens in de gekozen locatie bestaat, moet u deze op te schonen, Comb
 
 * [Apache Pig gebruiken met Apache Hadoop op HDInsight](hdinsight-use-pig.md)
 * [Apache Hive gebruiken als een ETL-hulpprogramma](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

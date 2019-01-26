@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 51d3c1c63c07c3e2a36d5e963ec00c9f23831579
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 29fef9177e40bd89dd0f179b028d2f044af8addb
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634215"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913086"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>HDInsight Spark-cluster gebruiken voor het analyseren van gegevens in Data Lake-opslag
 
@@ -24,7 +24,7 @@ In deze zelfstudie gebruikt u [Jupyter-Notebook](https://jupyter.org/) beschikba
 
 * Azure Data Lake Storage-account. Volg de instructies op [aan de slag met Azure Data Lake Storage met behulp van de Azure-portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark-cluster met Data Lake-opslag als opslag. Volg de instructies in [Quick Start: Clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Azure HDInsight Spark-cluster met Data Lake-opslag als opslag. Volg de instructies in [Quick Start: clusters instellen in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden
@@ -131,3 +131,4 @@ Als u een HDInsight-cluster met Data Lake-opslag als extra opslag en Azure Stora
 * [Een zelfstandig Scala-toepassing uit te voeren op Apache Spark-cluster maken](apache-spark-create-standalone-application.md)
 * [HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ gebruiken om toepassingen van Apache Spark voor HDInsight Spark Linux-cluster te maken](apache-spark-intellij-tool-plugin.md)
 * [HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse gebruiken om toepassingen van Apache Spark voor HDInsight Spark Linux-cluster te maken](apache-spark-eclipse-tool-plugin.md)
+* [Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

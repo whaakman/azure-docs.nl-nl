@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979451"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910281"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van Azure Logic Apps
 
@@ -27,7 +27,7 @@ Voor het automatiseren van taken die bewaken, maken, verzenden en ontvangen van 
 * Inhoud van bestanden en metagegevens ophalen.
 * Pak archieven voor mappen.
 
-In vergelijking met de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md), de SFTP-connector kan lezen of schrijven maximaal 50 MB in grootte van bestanden, tenzij u [logische groepen te verdelen voor het verwerken van grote berichten](../logic-apps/logic-apps-handle-large-messages.md). Voor bestanden van maximaal 1 GB in grootte, gebruik de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md). Voor bestanden die groter zijn dan 1 GB, kunt u de SFTP-SSH connector plus [logische groepen te verdelen voor grote berichten](../logic-apps/logic-apps-handle-large-messages.md). 
+In vergelijking met de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md), de SFTP-connector kan lezen of schrijven maximaal 50 MB in grootte van bestanden, tenzij u [bericht opdelen in acties](../logic-apps/logic-apps-handle-large-messages.md). U niet op dit moment gebruiken logische groepen te verdelen voor triggers. Voor bestanden van maximaal 1 GB in grootte, gebruik de [SFTP-SSH-connector](../connectors/connectors-sftp-ssh.md). Voor bestanden die groter zijn dan 1 GB, kunt u de SFTP-SSH connector plus [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md). 
 
 U kunt triggers die gebeurtenissen op uw SFTP-server bewaken en uitvoer beschikbaar voor andere acties. U kunt acties waarmee verschillende taken worden uitgevoerd op uw SFTP-server gebruiken. U kunt ook andere acties in uw logische app de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailmeldingen over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector.
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -40,7 +40,7 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
 
   > [!NOTE]
   > 
-  > De SFTP-connector biedt ondersteuning voor deze persoonlijke sleutel indelingen: OpenSSH, ssh.com en PuTTY
+  > De SFTP-connector ondersteunt deze persoonlijke sleutel indelingen: OpenSSH ssh.com en PuTTY
   > 
   > Wanneer u uw logische app, maakt nadat u de SFTP-trigger of actie die u wilt toevoegen, moet u de verbindingsgegevens voor uw SFTP-server opgeven. 
   > Als u een persoonlijke SSH-sleutel gebruikt, zorg ervoor dat u ***kopie*** de sleutel van uw SSH bestand met persoonlijke sleutel en ***plakken*** die sleutel in de details van de verbinding, ***niet handmatig invoeren of de sleutelbewerken***, waardoor de verbinding is mislukt. 
@@ -97,22 +97,44 @@ De SFTP-triggers werken door het bestandssysteem SFTP polling en op zoek naar ee
 | SFTP-client | Bewerking | 
 |-------------|--------| 
 | Winscp | Ga naar **opties** > **voorkeuren** > **Transfer** > **bewerken**  >  **Behouden timestamp** > **uitschakelen** |
-| Filezilla werkt | Ga naar **Transfer** > **tijdstempels van overgebrachte bestanden behouden** > **uitschakelen** | 
+| FileZilla | Ga naar **Transfer** > **tijdstempels van overgebrachte bestanden behouden** > **uitschakelen** | 
 ||| 
 
 Als een trigger een nieuw bestand wordt gevonden, wordt de trigger wordt gecontroleerd dat het nieuwe bestand voltooid en geen gedeeltelijk geschreven is. Bijvoorbeeld, een bestand mogelijk wijzigingen wordt uitgevoerd wanneer de trigger wordt gecontroleerd voor de bestandsserver. Om te voorkomen dat een gedeeltelijk geschreven bestand retourneren, merkt de trigger de tijdstempel voor het bestand dat recente wijzigingen, maar niet direct dat bestand geretourneerd. De trigger retourneert het bestand alleen wanneer u een polling van de server opnieuw. Dit gedrag kan soms leiden tot een vertraging die is maximaal twee keer van de trigger polling-interval. 
 
+Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+
+* Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Voorbeelden
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP-trigger: wanneer een bestand wordt toegevoegd of gewijzigd
+<a name="file-add-modified"></a>
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP-trigger: Wanneer een bestand is toegevoegd of gewijzigd
 
 Deze trigger wordt een werkstroom voor logische app gestart wanneer een bestand wordt toegevoegd of gewijzigd op een SFTP-server. U kunt bijvoorbeeld een voorwaarde die controleert of de inhoud van het bestand en wordt de inhoud op basis van of de inhoud voldoet aan een opgegeven voorwaarde toevoegen. U kunt vervolgens een actie toevoegen die de bestandsinhoud opgehaald en die inhoud in een map op de SFTP-server geplaatst. 
 
 **Voorbeeld van de onderneming**: U kunt deze trigger gebruiken voor het bewaken van een SFTP-map voor nieuwe bestanden die staan voor klanten en orders. U kunt vervolgens een SFTP-actie zoals gebruiken **bestandsinhoud ophalen** , zodat u de volgorde van de inhoud ophalen voor verdere verwerking en die volgorde opslaan in een orderdatabase.
 
-### <a name="sftp-action-get-content"></a>SFTP-actie: inhoud ophalen
+Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+
+* Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
+### <a name="sftp-action-get-content"></a>SFTP-actie: Inhoud ophalen
 
 Deze actie wordt de inhoud opgehaald van een bestand in een SFTP-server. U kunt bijvoorbeeld de trigger toevoegen uit het vorige voorbeeld en een voorwaarde die moet voldoen aan de inhoud van het bestand. Als de voorwaarde waar is, wordt de actie die wordt de inhoud opgehaald kunt uitvoeren. 
+
+Bij het aanvragen van de inhoud van bestand krijg triggers geen bestanden groter zijn dan 50 MB. Als u bestanden groter zijn dan 50 MB, gaat u als volgt dit patroon: 
+
+* Gebruik van een trigger die eigenschappen, zoals retourneert **wanneer een bestand wordt toegevoegd of gewijzigd (alleen eigenschappen)**.
+
+* Ga als volgt de trigger met de actie die het volledige bestand, zoals leest **bestandsinhoud ophalen via pad**, en de actie gebruiken [bericht logische groepen te verdelen](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="connector-reference"></a>Connector-verwijzing
 

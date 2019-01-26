@@ -6,18 +6,18 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450504"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081021"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedures: De implementatie van voorwaardelijke toegang in Azure Active Directory plannen
 
@@ -32,7 +32,7 @@ Als aanvullende functies vereist zijn, moet u mogelijk ook verwante licenties op
 
 Er zijn twee soorten beleid voor voorwaardelijke toegang: basislijn- en standard. Een [Basisbeleid](baseline-protection.md) is een vooraf gedefinieerde voorwaardelijk toegangsbeleid. Het doel van dit beleid is om ervoor te zorgen dat u ten minste het niveau van de basislijn van de beveiliging is ingeschakeld hebt. Basislijn-beleid. Basislijn-beleidsregels zijn beschikbaar in alle edities van Azure AD en bieden alleen beperkte aanpassingsopties. Als een scenario meer flexibiliteit vereist, dient u het beleid van de basislijn en implementeren van uw vereisten in een aangepast beleid voor standard.
 
-In een standard voorwaardelijk toegangsbeleid kunt u alle instellingen voor het aanpassen van het beleid aan uw bedrijfsvereisten aanpassen. Standaardbeleid voor nodig een Azure AD Premium P1-licentie.
+In een standard-voorwaardelijk toegangsbeleid kunt u alle instellingen voor het aanpassen van het beleid aan uw bedrijfsvereisten aanpassen. Standaardbeleid voor nodig een Azure AD Premium P1-licentie.
 
 
 
@@ -54,9 +54,9 @@ Gebruik de volgende voorbeeldsjabloon om te maken van beleid voor voorwaardelijk
 
 |Wanneer *dit* gebeurt:|Voer *dit*:|
 |-|-|
-|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld aanmeldingsrisico)|Toegang tot de toepassing blokkeren|
-|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld aanmeldingsrisico)|Verlenen van toegang met (en):<br>-Vereiste 1 (bijvoorbeeld, MFA)<br>-Vereiste 2 (bijvoorbeeld apparaatnaleving)|
-|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld aanmeldingsrisico)|Verlenen van toegang met (of):<br>-Vereiste 1 (bijvoorbeeld, MFA)<br>-Vereiste 2 (bijvoorbeeld apparaatnaleving)|
+|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Toegang tot de toepassing blokkeren|
+|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Verlenen van toegang met (en):<br>-Vereiste 1 (bijvoorbeeld, MFA)<br>-Vereiste 2 (bijvoorbeeld apparaatnaleving)|
+|Een poging tot toegang is gemaakt:<br>-Voor een cloud-app*<br>: als u gebruikers en groepen*<br>Met behulp van:<br>-Voorwaarde 1 (bijvoorbeeld buiten het bedrijfsnetwerk)<br>-Voorwaarde 2 (bijvoorbeeld apparaatplatformen)|Verlenen van toegang met (of):<br>-Vereiste 1 (bijvoorbeeld, MFA)<br>-Vereiste 2 (bijvoorbeeld apparaatnaleving)|
 
 Ten minste **wanneer dit gebeurt** definieert de principal (**die**) die probeert te krijgen tot een cloud-app (**wat**). Indien nodig, kunt u ook opnemen **hoe** een poging tot toegang wordt uitgevoerd. Voorwaardelijke toegang, de elementen die definiëren in het wie, wat, hoe voorwaarden worden genoemd. Zie voor meer informatie, [wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory?](conditions.md) 
 
@@ -70,28 +70,42 @@ De combinatie van voorwaarden en uw besturingselementen voor toegang stellen een
 
 Zie voor meer informatie, [wat is vereist voor het maken van een beleid werkt](best-practices.md#whats-required-to-make-a-policy-work).
 
-Er op dit moment is een goed moment om te bepalen wat een naamgevingsnorm voor uw beleid. De naamgevingsnorm helpt u bij het zoeken van beleid en hun doel te begrijpen zonder deze te openen in de Azure-beheerportal. U moet een naam uw beleid om weer te geven:
+Op dit moment is het een goed moment om te bepalen wat een naamgevingsnorm voor uw beleid. De naamgevingsnorm helpt u bij het zoeken van beleid en hun doel te begrijpen zonder deze te openen in de Azure-beheerportal. U moet een naam uw beleid om weer te geven:
 
 - Een volgnummer
 - De cloud-app die is van toepassing op
 - Het antwoord
 - Die van toepassing op
-- Wanneer dit van toepassing is 
+- Als deze van toepassing is (indien van toepassing)
  
 ![Naamgevingsnorm](./media/plan-conditional-access/11.png)
 
-
+Terwijl een beschrijvende naam u helpt bij het bewaren van een overzicht van de implementatie van voorwaardelijke toegang, is het volgnummer is handig als u nodig hebt om te verwijzen naar een beleid in een gesprek. Bijvoorbeeld, als u een andere beheerder op de telefoon praten, kunt u vragen hem open beleid EM063 voor het oplossen van een probleem.
 
 
 
 Bijvoorbeeld, statussen de naam van de volgende dat het beleid MFA vereist voor de gebruikers op de externe netwerken met behulp van de app CRP Dynamics marketing:
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-Naast het actieve beleid, moet u ook implementeren uitgeschakeld beleid die als secundaire fungeren [besturingselementen in onderbreking/EMS-scenario's voor flexibele toegang](../authentication/concept-resilient-controls.md). Uw naamgevingsnorm moet ook dit doel zodat u gemakkelijk in te schakelen tijdens een storing. Bijvoorbeeld:
+Naast uw actieve beleidsregels kunt u wordt aangeraden ook implementeren uitgeschakeld beleid die als secundaire fungeren [besturingselementen in onderbreking/EMS-scenario's voor flexibele toegang](../authentication/concept-resilient-controls.md). Uw naamgevingsnorm voor het beleid voor onvoorziene gebeurtenissen moet een paar meer items bevatten: 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- `ENABLE IN EMERGENCY` aan het begin naar de naam van de opvallen tussen de andere beleidsregels.
+
+- De naam van een onderbreking van die deze moet worden toegepast.
+
+- Een bestellen volgnummer om de beheerder om te weten in welke volgorde beleid moeten worden ingeschakeld. 
+
+
+De naam van de volgende geeft bijvoorbeeld aan dat dit beleid is het eerste beleid uit vier die moet u in het geval van een onderbreking van de MFA inschakelen:
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## <a name="plan-policies"></a>Beleidsregels plant
@@ -118,12 +132,12 @@ Algemene scenario's om MFA te vereisen zijn toegang:
 
 - [Door beheerders](baseline-protection.md#require-mfa-for-admins)
 - [Tot bepaalde apps](app-based-mfa.md) 
-- [Van netwerklocaties die u niet vertrouwt](untrusted-networks.md).
+- [Van netwerklocaties, u niet vertrouwt](untrusted-networks.md).
 
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Reageren op mogelijk verdachte accounts
 
-Met voorwaardelijke toegangsbeleid, kunt u automatische antwoorden voor aanmeldingen vanaf mogelijk verdachte identiteiten implementeren. De kans dat een account is aangetast, uitgedrukt in de vorm van risiconiveaus. Er zijn twee risiconiveaus berekend door identity protection: aanmeldingsrisico en gebruikersrisico. Voor het implementeren van een reactie op een aanmeldingsrisico, hebt u twee opties:
+U kunt automatische antwoorden voor aanmeldingen vanaf mogelijk verdachte identiteiten implementeren met beleid voor voorwaardelijke toegang. De kans dat een account is aangetast, uitgedrukt in de vorm van risiconiveaus. Er zijn twee risiconiveaus berekend door identity protection: aanmeldingsrisico en gebruikersrisico. Voor het implementeren van een reactie op een aanmeldingsrisico, hebt u twee opties:
 
 - [De voorwaarde voor aanmeldingsrisico](conditions.md#sign-in-risk) in beleid voor voorwaardelijke toegang
 - [Het beleid voor aanmeldingsrisico](../identity-protection/howto-sign-in-risk-policy.md) in identiteitsbeveiliging 
@@ -214,7 +228,7 @@ Nu u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u weten of
 
 Testcases volgens uw testplan uitvoeren. In deze stap maakt uitvoeren u via een end-to-end-test van elk beleid voor uw testgebruikers om ervoor te zorgen dat elk beleid correct werkt. Gebruik de scenario's voor het uitvoeren van elke test hierboven hebt gemaakt.
 
-Het is belangrijk om ervoor te zorgen dat u de uitsluitingscriteria voor van een beleid voor de test. U kunt bijvoorbeeld een gebruiker of groep uitsluiten van een beleid dat MFA vereisen. U moet daarom als de uitgesloten gebruikers wordt gevraagd voor MFA, testen, omdat de combinatie van ander beleid MFA voor gebruikers vereisen kunt.
+Het is belangrijk om ervoor te zorgen dat u de uitsluitingscriteria voor van een beleid voor de test. U kunt bijvoorbeeld een gebruiker of groep uitsluiten van een beleid dat MFA vereist. U moet daarom als de uitgesloten gebruikers wordt gevraagd voor MFA, testen, omdat de combinatie van ander beleid MFA voor gebruikers vereisen kunt.
 
 
 ### <a name="cleanup"></a>Opschonen
@@ -232,7 +246,7 @@ De procedure opschonen bestaat uit de volgende stappen uit:
 
 ## <a name="move-to-production"></a>Verplaatsen naar productie
 
-Wanneer u klaar bent voor een nieuw beleid implementeren in uw omgeving, moet u dit doen in fasen:
+Wanneer er nieuwe beleidsregels zijn gereed voor uw omgeving, implementeert u deze in fasen:
 
 - Interne wijziging communicatie bieden aan eindgebruikers.
 

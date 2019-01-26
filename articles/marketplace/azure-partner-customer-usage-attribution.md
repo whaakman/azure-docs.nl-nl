@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66f850225faba8d45eaa07493a0817c9ed0ed52b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077739"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075581"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -32,11 +32,17 @@ Als een Microsoft-partner, kunt u gebruik van Azure kunt koppelen aan alle Azure
 - Azure Resource Manager-sjablonen: Resource Manager-sjablonen of sjablonen voor oplossingen met de Azure-services voor het uitvoeren van de partner software implementeren. Partners kunnen maken van een Resource Manager-sjabloon voor het definiëren van de infrastructuur en configuratie van hun Azure-oplossing. Resource Manager-sjabloon kunt u en uw klanten om uw oplossing gedurende de levenscyclus te implementeren. U kunt er zeker van te zijn dat uw resources worden geïmplementeerd in een consistente status zijn. 
 - Azure Resource Manager-API's: Partners kunnen de Resource Manager-API's rechtstreeks naar het Resource Manager-sjabloon implementeren of voor het genereren van de API-aanroepen voor het inrichten van Azure-services rechtstreeks aanroepen. 
 
-Klant gebruik attribution is vereist op alle [oplossingssjablonen](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) gepubliceerde op Azure Marketplace. 
+Klant gebruik attribution is vereist op [aanbieding van Azure-toepassing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) gepubliceerde op Azure Marketplace.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager-sjablonen gebruiken
 
-Veel oplossingen van partners zijn geïmplementeerd op het abonnement van een klant met behulp van Resource Manager-sjablonen. Hebt u een Resource Manager-sjabloon die beschikbaar is in de Azure Marketplace, op GitHub, of als een snelstartgids, moet het proces voor het wijzigen van de sjabloon om in te schakelen van een methode voor het nieuwe bijhouden rechtstreeks doorsturen. Zie voor meer informatie, [maken en implementeren van uw eerste Resource Manager-sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+Veel oplossingen van partners zijn geïmplementeerd op het abonnement van een klant met behulp van Resource Manager-sjablonen. Hebt u een Resource Manager-sjabloon die beschikbaar is in de Azure Marketplace, op GitHub, of als een snelstartgids, moet het proces voor het wijzigen van de sjabloon om in te schakelen van een methode voor het nieuwe bijhouden rechtstreeks doorsturen.
+
+Zie voor meer informatie over het maken en publiceren van sjablonen voor oplossingen
+
+* [Uw eerste Resource Manager-sjabloon maken en implementeren](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+* [Aanbieding voor Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+* Video: [Het bouwen van Oplossingssjablonen en beheerde toepassingen voor Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Een GUID toevoegen aan uw sjabloon

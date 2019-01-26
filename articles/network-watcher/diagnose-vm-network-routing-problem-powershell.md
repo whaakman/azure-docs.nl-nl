@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ace5901012c5bc66a560dafd3a403183d6ce8c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 81bbf2b69e0e492ea75e8cbbe980d7e83a86eae7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422827"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912847"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Een virtuele machine netwerk routeringsprobleem vaststellen - Azure PowerShell
 
@@ -127,7 +127,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-Zoals u in de vorige uitvoer, de route met ziet de **AaddressPrefix** van **0.0.0.0/0** al het verkeer dat niet is bestemd voor adressen binnen de adresvoorvoegsels van andere route met de volgende hop van **Internet**. Zoals u ook in de uitvoer ziet, maar er is een standaardroute voor het voorvoegsel 172.16.0.0/12, waaronder de 172.31.0.100-adres, de **nextHopType** is **geen**. Azure maakt een standaardroute naar 172.16.0.0/12, maar stelt geen volgend hoptype in, tenzij daar een reden voor is. Als u bijvoorbeeld het adresbereik 172.16.0.0/12 toegevoegd aan de adresruimte van het virtuele netwerk, Azure verandert de **nextHopType** naar **virtueel netwerk** voor de route. Vervolgens ziet u een selectievakje **virtueel netwerk** als de **nextHopType**.
+Zoals u in de vorige uitvoer, de route met ziet de **AddressPrefix** van **0.0.0.0/0** al het verkeer dat niet is bestemd voor adressen binnen de adresvoorvoegsels van andere route met de volgende hop van **Internet**. Zoals u ook in de uitvoer ziet, maar er is een standaardroute voor het voorvoegsel 172.16.0.0/12, waaronder de 172.31.0.100-adres, de **nextHopType** is **geen**. Azure maakt een standaardroute naar 172.16.0.0/12, maar stelt geen volgend hoptype in, tenzij daar een reden voor is. Als u bijvoorbeeld het adresbereik 172.16.0.0/12 toegevoegd aan de adresruimte van het virtuele netwerk, Azure verandert de **nextHopType** naar **virtueel netwerk** voor de route. Vervolgens ziet u een selectievakje **virtueel netwerk** als de **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

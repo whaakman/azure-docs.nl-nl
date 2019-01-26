@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331959"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913594"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Ontwerpen van schaalbare en performante tabellen
 
@@ -252,7 +252,7 @@ Veel ontwerpen moeten voldoen aan de vereisten voor het opzoeken van de entiteit
 
 ### <a name="sorting-data-in-the-table-service"></a>Sorteren van gegevens in de Table-service
 
-De resultaten van de query is geretourneerd door de zijn gesorteerd in oplopende volgorde op basis van **PartitionKey** en vervolgens op **RowKey**.
+Queryresultaten geretourneerd door de Table-service worden gesorteerd in oplopende volgorde op basis van **PartitionKey** en vervolgens op **RowKey**.
 
 > [!NOTE]
 > De resultaten van de query is geretourneerd door de Azure Table-API in Azure Cosmso DB worden niet gesorteerd op partitiesleutel of rijsleutel. Zie voor een gedetailleerd overzicht van de Functieverschillen [verschillen tussen de tabel-API in Azure Cosmos DB en Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
