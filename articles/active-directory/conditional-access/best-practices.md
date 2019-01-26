@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3ed4d3874056eca93e5c94e225ba25d94e7826e3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911928"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078947"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -47,9 +47,9 @@ Als u uw beleid wilt werken, moet u het volgende configureren:
 
 |Wat           | Hoe                                  | Waarom|
 |:--            | :--                                  | :-- |
-|**Cloud-apps** |U moet een of meer apps selecteren.  | Het doel van een beleid voor voorwaardelijke toegang is om te bepalen hoe gemachtigde gebruikers hebben toegang tot cloudapps.|
-| **Gebruikers en groepen** | U moet ten minste één gebruiker of groep die is gemachtigd voor toegang tot uw geselecteerde cloud-apps selecteren. | Beleid voor voorwaardelijke toegang dat er geen gebruikers en groepen die zijn toegewezen, wordt nooit geactiveerd. |
-| **Besturingselementen voor toegang** | U moet ten minste één toegangsbeheer selecteren. | Als uw voorwaarden wordt voldaan, moet de processor van uw beleid weten wat te doen.|
+|**Cloud-apps** |Selecteer een of meer apps.  | Het doel van een beleid voor voorwaardelijke toegang is om te bepalen hoe gemachtigde gebruikers hebben toegang tot cloudapps.|
+| **Gebruikers en groepen** | Selecteer ten minste één gebruiker of groep die is gemachtigd voor toegang tot uw geselecteerde cloud-apps. | Beleid voor voorwaardelijke toegang dat er geen gebruikers en groepen die zijn toegewezen, wordt nooit geactiveerd. |
+| **Besturingselementen voor toegang** | Selecteer ten minste één toegangsbeheer. | Als uw voorwaarden wordt voldaan, moet de processor van uw beleid weten wat te doen.|
 
 
 
@@ -60,11 +60,11 @@ Als u uw beleid wilt werken, moet u het volgende configureren:
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Hoe worden de beleidsregels voor voorwaardelijke toegang toegepast?
 
-Meer dan één beleid voor voorwaardelijke toegang mogelijk van toepassing wanneer een gebruiker toegang heeft tot een toepassing. In dit geval moeten alle beleidsregels die van toepassing worden voldaan. Bijvoorbeeld, als een beleid voor een gebruiker MFA vereist en de tweede vereist een compatibel apparaat de gebruiker moet MFA en een compatibel apparaat hebben. 
+Meer dan één beleid voor voorwaardelijke toegang mogelijk van toepassing wanneer u een cloud-app. In dit geval moeten alle beleidsregels die van toepassing worden voldaan. Bijvoorbeeld, als één beleid MFA vereist en de tweede een compatibel apparaat vereist, moet u doorlopen MFA en een compatibel apparaat gebruiken. 
 
 Alle beleidsregels worden afgedwongen in twee fasen:
 
-- In de **eerste** fase, alle beleidsregels worden geëvalueerd en worden alle besturingselementen voor toegang die niet wordt voldaan aan zijn verzameld. 
+- In de **eerste** fase, alle beleidsregels worden geëvalueerd en alle besturingselementen voor toegang die niet worden voldaan worden verzameld. 
 
 - In de **tweede** fase, wordt u gevraagd om te voldoen aan de vereisten die u dit nog niet hebt voldaan. Als een van de beleidsregels voor de toegang blokkeert, kunt u bent geblokkeerd en wordt niet gevraagd te voldoen aan andere besturingselementen voor beleid. Als geen van de beleidsregels voor u wordt geblokkeerd, wordt u gevraagd om te voldoen aan andere besturingselementen voor beleid in de volgende volgorde:
 
@@ -88,7 +88,7 @@ Als u nodig hebt om de locatievoorwaarde van een die van toepassing op alle verb
 
 Als u de Azure AD-portal vanwege een onjuiste instelling in een beleid voor voorwaardelijke toegang zijn vergrendeld:
 
-- Controleer of er nog andere beheerders in uw organisatie die nog niet zijn geblokkeerd. Een beheerder met toegang tot de Azure portal kunt uitschakelen van het beleid dat is van invloed op uw aanmelding. 
+- Controle is er zijn andere beheerders in uw organisatie die nog niet zijn geblokkeerd. Een beheerder met toegang tot de Azure portal kunt uitschakelen van het beleid dat is van invloed op uw aanmelding. 
 
 - Als geen van de beheerders in uw organisatie het beleid bijwerken kan, moet u een ondersteuningsaanvraag indienen. Ondersteuning van Microsoft kunt controleren en bijwerken van beleid voor voorwaardelijke toegang waardoor toegang.
 
@@ -140,13 +140,13 @@ In uw omgeving, moet u voorkomen dat de volgende configuraties:
 
 Als eerste stap, moet u evalueren uw beleid met de [hulpprogramma what-if](what-if-tool.md).
 
-Wanneer u klaar bent voor een nieuw beleid implementeren in uw omgeving, moet u dit doen in fasen:
+Wanneer er nieuwe beleidsregels zijn gereed voor uw omgeving, kunt u deze in fasen implementeren:
 
 1. Een beleid toepassen op een klein aantal gebruikers en controleer of de dat verwachte manier werkt. 
 
-2.  Wanneer u een beleid om op te nemen meer gebruikers wilt uitbreiden, blijven alle beheerders uitsluiten van het beleid. Dit zorgt ervoor dat beheerders nog steeds toegang hebt en een beleid kunnen worden bijgewerkt als er een wijziging is vereist.
+2.  Wanneer u een beleid om op te nemen meer gebruikers uitvouwt. Doorgaan met het uitsluiten van alle beheerders van het beleid om ervoor te zorgen dat ze nog steeds toegang hebt en een beleid kunnen worden bijgewerkt als er een wijziging is vereist.
 
-3. Alleen als dit echt nodig is, moet u een beleid toepassen op alle gebruikers. 
+3. Alleen indien nodig, kunt u een beleid toepassen op alle gebruikers. 
 
 Als een best practice, maakt u een gebruikersaccount dat is:
 
