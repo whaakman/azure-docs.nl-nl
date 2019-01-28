@@ -76,7 +76,7 @@ U kunt een variabele maken en de gegevens van het type en de initiële waarde - 
    |----------|----------|-------|--------------|
    | Name | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
    | Type | Ja | <*variabele-type*> | Het gegevenstype voor de variabele | 
-   | Waarde | Nee | <*Start-waarde*> | De beginwaarde van uw variabele <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd weet de beginwaarde voor de variabele wat. | 
+   | Value | Nee | <*Start-waarde*> | De beginwaarde van uw variabele <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd weet de beginwaarde voor de variabele wat. | 
    ||||| 
 
    ![Variabele initialiseren](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -211,7 +211,7 @@ Om te verhogen of *verhoging* toevoegen van een variabele met een constante waar
    | Eigenschap | Vereist | Waarde |  Beschrijving |
    |----------|----------|-------|--------------|
    | Name | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
-   | Waarde | Nee | <*incrementele waarde*> | De waarde die wordt gebruikt voor het verhogen van de variabele. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de waarde weet voor uw variabele verhoogd. | 
+   | Value | Nee | <*incrementele waarde*> | De waarde die wordt gebruikt voor het verhogen van de variabele. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de waarde weet voor uw variabele verhoogd. | 
    |||| 
 
    Bijvoorbeeld: 
@@ -331,7 +331,7 @@ Hier worden de eigenschappen voor de **variabele verlagen** actie:
 | Eigenschap | Vereist | Waarde |  Beschrijving |
 |----------|----------|-------|--------------|
 | Name | Ja | <*naam van de variabele*> | De naam van de variabele verlagen | 
-| Waarde | Nee | <*incrementele waarde*> | De waarde voor de variabele afneemt. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de specifieke waarde voor afneemt uw variabele weet. | 
+| Value | Nee | <*incrementele waarde*> | De waarde voor de variabele afneemt. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de specifieke waarde voor afneemt uw variabele weet. | 
 ||||| 
 
 Als u van de ontwerpfunctie voor de weergave-editor overschakelt, volgt u de manier waarop de **variabele verlagen** actie wordt weergegeven in het definitie logische app, dat zich in de JSON-indeling.
@@ -366,7 +366,7 @@ Hier worden de eigenschappen voor de **variabele instellen** actie:
 | Eigenschap | Vereist | Waarde |  Beschrijving | 
 |----------|----------|-------|--------------| 
 | Name | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
-| Waarde | Ja | <*nieuwe waarde*> | De waarde die u wilt toewijzen van de variabele. Beide moeten hetzelfde gegevenstype hebben. | 
+| Value | Ja | <*nieuwe waarde*> | De waarde die u wilt toewijzen van de variabele. Beide moeten hetzelfde gegevenstype hebben. | 
 ||||| 
 
 > [!NOTE]
@@ -424,7 +424,7 @@ Hier worden de eigenschappen voor de **toevoegen aan...**  acties:
 | Eigenschap | Vereist | Waarde |  Beschrijving | 
 |----------|----------|-------|--------------| 
 | Name | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
-| Waarde | Ja | <*toevoeg-waarde*> | De waarde die u toevoegen wilt, en die elk type kan hebben | 
+| Value | Ja | <*toevoeg-waarde*> | De waarde die u toevoegen wilt, en die elk type kan hebben | 
 |||||  
 
 Als u van de ontwerpfunctie voor de weergave-editor overschakelt, volgt u de manier waarop de **toevoegen aan een matrixvariabele** actie wordt weergegeven in het definitie logische app, dat zich in de JSON-indeling.
