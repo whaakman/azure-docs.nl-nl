@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0b934e7ac5b297b5c7349a9a9985f6c50d62d19f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 17fac6455ca225363726b347c428d176e78a1ff9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791945"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912796"
 documentType: LandingData
 title: Documentatie voor Bing Nieuws zoeken-API
 titleSuffix: Azure Cognitive Services
 metadata:
   title: Documentatie voor Bing Nieuws zoeken-API -zelfstudies, quickstarts, API-verwijzingen | Microsoft Docs
-  description: Informatie over het gebruik van de Bing Nieuws zoeken-API om nieuws te vinden op het web dat relevant is voor query's van gebruikers. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de service.
+  description: Lees hoe u de Bing Nieuws zoeken-API gebruikt om op internet te zoeken naar nieuws.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -19,29 +19,50 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: De Bing Nieuws zoeken-API biedt een ervaring die vergelijkbaar is met die van Bing Nieuws door nieuwsartikelen te retourneren die volgens Bing relevant zijn voor de query van een gebruiker.
+  description: Met de Bing Nieuws zoeken-API kunt u de zoekfunctionaliteit voor nieuws van Bing in uw toepassingen gebruiken. Door met de API zoekquery's te verzenden, kunt u relevante nieuwsartikelen ophalen uit meerdere categorieën en bronnen, vergelijkbaar met bing.com/news.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-news-search/search-the-web
+      html: <p>Informatie over de Bing Nieuws zoeken-API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is de Bing Nieuws zoeken-API?
+    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+      html: <p>Leer hoe u zoekaanvragen verzendt naar de Bing Nieuws zoeken-API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Zoekquery's verzenden
+    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+      html: <p>Informatie over het zoeken naar meerdere typen en categorieën nieuws.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Zoeken naar nieuws
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: 'Ga aan de slag met de Bing Nieuws zoeken-API door een query te maken en het JSON-antwoord te bekijken:'
+    text: 'Doorzoek internet voor nieuws met behulp van:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: news-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: news-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: news-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -49,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: news-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Apps ontwikkelen die gebruikmaken van de Bing Nieuws zoeken-API:'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Web-app van één pagina</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Broncode</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Web-app van één pagina</a>
 - title: Voorbeelden
   items:
   - type: paragraph

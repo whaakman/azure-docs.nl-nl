@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 854485863786a4892ea04d4d5400732742436210
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103686"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913067"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -40,13 +40,13 @@ Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x.
 
 ### <a name="v2"></a>Versie 2.x
 
-Versie 2.x van de hulpprogramma's maakt gebruik van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt, met inbegrip van [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux).
+Versie 2.x van de hulpprogramma's maakt gebruik van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt, met inbegrip van [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Installeer eerst de .NET Core SDK 2.x.
 
 #### <a name="windows-npm"></a>Windows
 
 De volgende stappen gebruikt npm Core Tools installeren op Windows. U kunt ook [Chocolatey](https://chocolatey.org/). Zie voor meer informatie de [Core Tools Leesmij](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installeer [.NET Core, 2.1 voor Windows](https://www.microsoft.com/net/download/windows).
+1. Installeer [2.x SDK voor .NET Core voor Windows](https://www.microsoft.com/net/download/windows).
 
 2. Installeer [Node.js], waaronder npm. Voor versie 2.x van de hulpprogramma's, alleen Node.js 8.5 en latere versies worden ondersteund.
 
@@ -60,7 +60,7 @@ De volgende stappen gebruikt npm Core Tools installeren op Windows. U kunt ook [
 
 De volgende stappen gebruikt Homebrew de essentiële hulpprogramma installeren op macOS.
 
-1. Installeer [2.1 van de .NET Core voor macOS](https://www.microsoft.com/net/download/macos).
+1. Installeer [.NET Core SDK 2.x voor macOS](https://www.microsoft.com/net/download/macos).
 
 2. Installeer [Homebrew](https://brew.sh/), als deze nog niet geïnstalleerd.
 
@@ -75,7 +75,7 @@ De volgende stappen gebruikt Homebrew de essentiële hulpprogramma installeren o
 
 De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op uw Ubuntu Debian/Linux-distributie. Zie voor andere Linux-distributies, de [Core Tools Leesmij](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installeer [.NET Core, 2.1 voor Linux](https://www.microsoft.com/net/download/linux).
+1. Installeer [2.x SDK voor .NET Core voor Linux](https://www.microsoft.com/net/download/linux).
 
 2. De sleutel voor de Microsoft-product als vertrouwd registreren:
 
@@ -96,7 +96,7 @@ De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
-    | Ubuntu 16.04/Linux voorkomt 18    | `xenial`  |
+    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
 4. Installeer het pakket Core-hulpprogramma's:
 
@@ -194,7 +194,7 @@ De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code
 
 + [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
 + [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
++ [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables)
 + [JavaScript](functions-reference-node.md#environment-variables)
 

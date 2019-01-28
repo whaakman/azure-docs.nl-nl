@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62bb4c70c2a5068c90196acc2a1898ceeaa6945c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 337c48d96a2ee679eda24500d9cb1a8d2581b2c7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787667"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912898"
 documentType: LandingData
-title: Documentatie voor Bing Visual Search
+title: API-documentatie voor Bing Visual Search
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: Documentatie voor Bing Visual Search - zelfstudies, API-verwijzing
-  description: Meer informatie over het gebruik van de Bing Visual Search-API om inzichten over een afbeelding te verkrijgen. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de service.
+  title: Documentatie voor Bing Visual Search-API -zelfstudies, quickstarts, API-verwijzingen | Microsoft Docs
+  description: Meer informatie over het gebruik van de Bing Visual Search-API om inzichten over een afbeelding te verkrijgen.
   services: cognitive-services
   author: swhite-msft
   manager: rosh
@@ -19,15 +19,36 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
+  ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: De Bing Visual Search-API biedt een ervaring die vergelijkbaar is met Bing.com/images door inzichten te retourneren over een afbeelding zoals visueel vergelijkbare afbeeldingen, bronnen voor winkelen voor producten die zijn gevonden in de afbeelding en gerelateerde zoekopdrachten.
+  description: Bing Visual Search-API biedt afbeeldingsdetails die vergelijkbaar zijn met die op Bing.com/images. Als u een afbeelding uploadt of een URL naar een afbeelding opgeeft, kan met de API een verscheidenheid aan details over de afbeelding worden geïdentificeerd, waaronder visueel vergelijkbare afbeeldingen, winkelbronnen, webpagina’s waarop de afbeelding wordt weergegeven, en meer.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-visual-search/overview
+      html: <p>Meer informatie over de Bing Visual Search-API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is Bing Visual Search-API?
+    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+      html: <p>Leer hoe u zoekaanvragen verzendt naar de Bing Visual Search API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Zoekquery's verzenden
+    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+      html: <p>Een token inzichtentoken van de Bing afbeeldingen zoeken-API gebruiken om een afbeelding te uploaden naar de Bing Visual Search-API</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Zoeken naar nieuws
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: 'Aan de slag met de Bing Visual Search-API door een afbeelding naar Bing te verzenden in inzichten over de afbeelding op te halen:'
+    text: 'Krijg met behulp van de Bing Visual Search-API inzichten over een afbeelding:'
   - type: table
     style: dataMatrix
     columns:
@@ -40,12 +61,12 @@ sections:
     - image:
         src: media/index/logo_python.svg
     rows:
-    - title: Uw eerste query
+    - title: ''
       values:
-      - href: quickstarts/csharp
-      - href: quickstarts/java
-      - href: quickstarts/nodejs
-      - href: quickstarts/python
+      - href: visual-search-sdk-c-sharp
+      - href: java
+      - href: visual-search-sdk-node
+      - href: visual-search-sdk-python
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
@@ -53,7 +74,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">Web-app van één pagina</a> | <a href="tutorial-bing-visual-search-single-page-app-source">broncode</a>
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Web-app van één pagina</a>
 - title: Naslaginformatie
   items:
   - type: list

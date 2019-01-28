@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c5120cdb743e031c081f727c947752419db3a9d7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807453"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081106"
 ---
 # <a name="r-developers-guide-to-azure"></a>R developer's guide voor Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -83,23 +83,23 @@ Het artikel ['Wat is Azure Databricks?'](https://docs.microsoft.com/azure/azure-
 krijgt u meer informatie over het platform en de hulp die u aan de slag.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
-[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) is een samenwerkingsverband slepen en neerzetten waarmee u gebruiken kunt om te bouwen, testen en implementeren van voorspellende analyseoplossingen in de cloud.  Hiermee kunt opkomende gegevenswetenschappers maken en implementeren van machine learning-modellen zonder de noodzaak om veel code te schrijven.
+[Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning-studio/) is een samenwerkingsverband slepen en neerzetten waarmee u gebruiken kunt om te bouwen, testen en implementeren van voorspellende analyseoplossingen in de cloud.  Hiermee kunt opkomende gegevenswetenschappers maken en implementeren van machine learning-modellen zonder de noodzaak om veel code te schrijven.
 
-ML Studio biedt ondersteuning voor R en Python.  U kunt R met ML Studio op twee manieren gebruiken.
+Azure Machine Learning studio biedt ondersteuning voor zowel R en Python.  U kunt R gebruiken met Azure Machine Learning studio op twee manieren.
 
 ### <a name="custom-r-scripts-in-your-experiments"></a>Aangepaste R-scripts in uw experimenten
 U kunt eerst de gegevens manipuleren en machine learning-mogelijkheden van ML Studio door aangepaste R-scripts te schrijven uitbreiden.
 Hoewel ML Studio een groot aantal modules bevat voor het voorbereiden en analyseren van gegevens, het mag niet overeenkomen met de mogelijkheden van een goed ontwikkelde taal, zoals R.  De service is daarom ontworpen zodat u kunt het introduceren van uw eigen aangepaste R-scripts in gevallen waarbij de opgegeven modules niet voldoen aan uw behoeften.
 
-Als u wilt gebruikmaken van deze mogelijkheid, slepen en neerzetten een 'R-Script uitvoeren'-module in uw experiment.  De code-editor in het deelvenster 'Eigenschappen' vervolgens gebruiken voor een nieuw R-script schrijven of plakt u een bestaand script.  U kunt verwijzen naar externe R-pakketten in het script.  U kunt het script gebruiken om gegevens te manipuleren of met het trainen van complexe ML-modellen die geen deel uitmaken van de standaard ML Studio-model-bibliotheek.
+Als u wilt gebruikmaken van deze mogelijkheid, slepen en neerzetten een 'R-Script uitvoeren'-module in uw experiment.  De code-editor in het deelvenster 'Eigenschappen' vervolgens gebruiken voor een nieuw R-script schrijven of plakt u een bestaand script.  U kunt verwijzen naar externe R-pakketten in het script.  U kunt het script gebruiken om gegevens te manipuleren of complexe ML-modellen die geen deel uitmaken van de bibliotheek standaard Azure Machine Learning studio-model te trainen.
 
-Voor een uitgebreide inleiding over het gebruik van R in experimenten in ML Studio, bekijkt u de ['Beknopte zelfstudie voor de programmeertaal R voor Azure Machine Learning'.](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
+Voor een uitgebreide inleiding over het gebruik van R in experimenten in ML Studio, bekijkt u de ["Snelstartzelfstudie voor de R-programmeertaal voor Azure Machine Learning studio."](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
 
 ### <a name="create-manage-and-deploy-experiments-from-your-local-r-environment"></a>Maken, beheren en implementeren van experimenten van uw lokale R-omgeving
-De andere manier dat u R met ML Studio gebruiken kunt, is met de
-<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> pakket bewaken en beheren van het proces van experimenteren met de programmeertaal R-omgeving.  Dit pakket wordt onderhouden door Microsoft, kunt u om te uploaden en downloaden van gegevenssets van en naar Azure ML experimenten voor R-functies als Azure ML-webservices, publiceren en voor het uitvoeren van R-gegevens via bestaande webservices en op te halen van de uitvoer status.
+De andere manier dat u R met Azure Machine Learning studio gebruiken kunt, is met de
+<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> pakket bewaken en beheren van het proces van experimenteren met de programmeertaal R-omgeving.  Dit pakket wordt onderhouden door Microsoft, kunt u om te uploaden en downloaden van gegevenssets kunnen en vanuit Azure Machine Learning studio, om te experimenten, voor het publiceren van R ondervragen fungeert als webservices, en om uit te voeren van R gegevens via het bestaande webservices en ophalen van de de uitvoer.
 
-Dit pakket maakt het veel eenvoudiger met Azure ML als implementatieplatform voor schaalbare voor uw R-code.  In plaats van te klikken en slepen in de gebruikersinterface, kunt u de volledige implementatie-proces met behulp van programma's die u al kent automatiseren.
+Dit pakket maakt het veel eenvoudiger met Azure Machine Learning studio als een implementatieplatform voor schaalbare voor uw R-code.  In plaats van te klikken en slepen in de gebruikersinterface, kunt u de volledige implementatie-proces met behulp van programma's die u al kent automatiseren.
 
 ## <a name="azure-batch"></a>Azure Batch
 Voor grootschalige R-taken, kunt u [Azure Batch](https://azure.microsoft.com/services/batch/).  Deze service biedt taakplanning en verwerkingsbeheer op cloudschaal taak, zodat u uw R-workload via tientallen, honderden of duizenden virtuele machines schalen kunt.  Omdat dit een gegeneraliseerde platform voor cloudcomputing, er een aantal opties voor het uitvoeren van R-taken op Azure Batch.

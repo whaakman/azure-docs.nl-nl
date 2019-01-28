@@ -99,7 +99,7 @@ Er is ook een scenario dat in de tegenovergestelde richting werkt. In dit geval 
 
 Een bekend voorbeeld is de levering van gegevens van financiële markten, bijvoorbeeld prijzen van grondstoffen, aandelen of obligaties, aan een slim contract.
 
-### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Directe levering van een Azure Blockchain Workbench in het verwachte formaat
+### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Directe levering van een Azure Blockchain Workbench-bericht in de verwachte indeling
 
 Sommige toepassingen zijn gebouwd om te integreren met Azure Blockchain Workbench en genereren en verzenden direct berichten in de verwachte formaten.
 
@@ -109,7 +109,7 @@ Deze levering vindt plaats met behulp van het eerder afgebeelde proces, waarbij:
 
 -   In een extern systeem vindt een gebeurtenis plaats die de aanmaak van een bericht voor Azure Blockchain Workbench in gang zet.
 -   Het externe systeem bevat code die is geschreven om dit bericht in een bekend formaat te maken en stuurt het rechtstreeks naar de Service Bus.
--   Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de Service Bus en haalt het bericht op.
+-   Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de servicebus en haalt het bericht op.
 -   Azure Blockchain Workbench initieert een aanroep naar het grootboek, waarbij gegevens van het externe systeem naar een specifiek contract worden verzonden.
 -   Na ontvangst van het bericht wordt het contract omgezet naar een nieuwe status.
 
@@ -124,7 +124,7 @@ Dit gebeurt met behulp van het eerder afgebeelde proces, waarbij:
 -   In een extern systeem vindt een gebeurtenis plaats waardoor het maken van een bericht wordt geactiveerd.
 -   Een Logic App of aangepaste code wordt gebruikt om dat bericht te ontvangen en het te transformeren naar een standaard Azure Blockchain Workbench-geformatteerd bericht.
 -   De logische app stuurt het getransformeerde bericht rechtstreeks naar de Service Bus.
--   Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de Service Bus en haalt het bericht op.
+-   Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de servicebus en haalt het bericht op.
 -   Azure Blockchain Workbench initieert een aanroep naar het grootboek en verzendt gegevens van het externe systeem naar een specifieke functie in het contract.
 -   De functie wordt uitgevoerd en wijzigt meestal de status. De statuswijziging zorgt ervoor dat de bedrijfswerkstroom die wordt weergegeven in het slimme contract verdergaat, waardoor nu indien nodig andere functies kunnen worden uitgevoerd.
 
@@ -146,7 +146,7 @@ Dit patroon wordt gewoonlijk geïmplementeerd met behulp van de volgende benader
 
 Afhankelijk van de mogelijkheid om het externe systeem aan te passen, kan het al dan niet in staat zijn om berichten af te leveren in een van de standaardindelingen die Azure Blockchain Workbench verwacht. Op basis van de mogelijkheid van het externe systeem om een van deze berichten te genereren, wordt bepaald welke van de volgende twee retourpaden wordt genomen.
 
-##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Directe levering van een Azure Blockchain Workbench in het verwachte formaat
+##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Directe levering van een Azure Blockchain Workbench-bericht in de verwachte indeling
 
 ![](./media/integration-patterns/direct-delivery.png)
 
@@ -171,7 +171,7 @@ In dit model waarbij een bericht in een standaardindeling niet rechtstreeks kan 
 1.  Nadat de voltooiing of een specifieke mijlpaal in de uitvoering van de externe code is bereikt, wordt een gebeurtenis verzonden naar de Service Bus die is verbonden met Azure Blockchain Workbench.
 2.  Een Logic App of aangepaste code wordt gebruikt om dat bericht te ontvangen en het te transformeren naar een standaard Azure Blockchain Workbench-geformatteerd bericht.
 3.  De logische app stuurt het getransformeerde bericht rechtstreeks naar de Service Bus.
-4.  Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de Service Bus en haalt het bericht op.
+4.  Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de servicebus en haalt het bericht op.
 5.  Azure Blockchain Workbench initieert een aanroep naar het grootboek, waarbij gegevens van het externe systeem naar een specifiek contract worden verzonden.
 6. De inhoud van het bericht wordt verpakt en verzonden naar een specifieke functie in het smart contract. Deze levering gebeurt namens de gebruiker die is gekoppeld aan het externe systeem.
 7.  De functie wordt uitgevoerd en wijzigt meestal de status. De statuswijziging zorgt ervoor dat de bedrijfswerkstroom die wordt weergegeven in het slimme contract verdergaat, waardoor nu indien nodig andere functies kunnen worden uitgevoerd.
@@ -196,7 +196,7 @@ Het proces toont een patroon:
 -   Een Logic App of andere code luistert naar de Service Bus die IoT Hub voor de route heeft ingesteld.
 -   De logische app of andere code haalt het bericht op en transformeert het naar een bekend formaat.
 -   Het getransformeerde bericht, nu in een standaardformaat, wordt naar de Service Bus voor Azure Blockchain Workbench verzonden.
--   Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de Service Bus en haalt het bericht op.
+-   Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de servicebus en haalt het bericht op.
 -   Azure Blockchain Workbench initieert een aanroep naar het grootboek, waarbij gegevens van het externe systeem naar een specifiek contract worden verzonden.
 -   Na ontvangst van het bericht evalueert het contract de gegevens en kan het de status wijzigen op basis van de uitkomst van die evaluatie, en bijvoorbeeld bij een hoge temperatuur de status wijzigen in *niet conform*.
 
