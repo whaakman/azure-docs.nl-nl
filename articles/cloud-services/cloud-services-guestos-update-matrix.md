@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/24/2019
+ms.date: 1/25/2019
 ms.author: raiye
-ms.openlocfilehash: 59afdd3bbb00dce6085ea76685768db3e8eec5cc
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900847"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075462"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -75,7 +75,7 @@ Het Gastbesturingssysteem van juni heeft uitgegeven.
 .NET framework is geïnstalleerd: 3.5, 4.7.2
 
 > [!NOTE]
-> De Windows Azure SDK voor .NET 3.0 kan worden gedownload [hier][Windows Azure SDK].
+> De Windows Azure SDK voor .NET - 3.0 kan worden gedownload [hier][Windows Azure SDK].
 >
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
@@ -155,6 +155,7 @@ Hoewel de [stopzetting van beleid voor de Azure SDK] [ retire policy sdk] geeft 
 
 | Gast-OS-familie | Compatibele SDK-versies |
 | --- | --- |
+| 6 |Versie 2.9.6+ |
 | 5 |Versie 2.9.5.1+ |
 | 4 |Versie 2.1 + |
 | 3 |Versie 1.8 + |
