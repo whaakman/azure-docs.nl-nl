@@ -1,4 +1,4 @@
----
+﻿---
 title: Slimme Contract integratiepatronen in Azure Blockchain Workbench
 description: Overzicht van slimme contract integratiepatronen in Azure Blockchain Workbench.
 services: azure-blockchain
@@ -190,7 +190,7 @@ Op het Azure-platform wordt integratie met apparaten meestal uitgevoerd met IoT 
 
 Het proces toont een patroon:
 
--   Een apparaat communiceert rechtstreeks of via een veldgateway met IoT Hub.
+-  Een apparaat communiceert rechtstreeks of via een veldgateway met IoT Hub.
 -   IoT Hub ontvangt de berichten en evalueert de berichten bijvoorbeeld op basis van routes die de inhoud van het bericht controleren. *Geeft de sensor een temperatuur van meer dan 50 graden aan?*
 -   De IoT Hub verzendt berichten die voldoen aan de criteria voor een gedefinieerde Service Bus voor de route.
 -   Een Logic App of andere code luistert naar de Service Bus die IoT Hub voor de route heeft ingesteld.
@@ -232,8 +232,8 @@ Om het een extern systeem of apparaat mogelijk te maken met het slimme contract 
 1. In de Azure Active Directory voor het consortium wordt een account gemaakt dat het externe systeem of apparaat vertegenwoordigt.
 2. Een of meer geschikte slimme contracten voor uw Azure Blockchain Workbench-applicatie hebben functies die zijn gedefinieerd om de gebeurtenissen van uw externe systeem of apparaat te accepteren.
 3. Het configuratiebestand van de toepassing voor uw slimme contract bevat de rol die aan het systeem of het apparaat is toegewezen.
-4. Het configuratiebestand van de toepassing voor uw slimme contract aangeeft in welke statussen dat deze functie wordt aangeroepen door de gedefinieerde rol.
-5. Het configuratiebestand van de toepassing en de slimme contracten worden geüpload naar Azure Blockchain Workbench.
+4. Het configuratiebestand van de toepassing voor uw smart contract geeft aan in welke statussen deze functie wordt genoemd door de gedefinieerde rol.
+5. Het configuratiebestand van de toepassing en de smart contracts worden geüpload naar Azure Blockchain Workbench.
 
 Nadat de toepassing is geüpload, wordt het Azure Active Directory-account voor het externe systeem toegewezen aan het contract en de bijbehorende rol.
 
