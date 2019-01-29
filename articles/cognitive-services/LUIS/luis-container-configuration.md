@@ -1,4 +1,4 @@
----
+﻿---
 title: Docker-container-instellingen
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: De LUIS container runtime-omgeving is geconfigureerd met behulp van de `docker run` opdracht argumenten. LUIS heeft enkele vereiste instellingen, samen met een aantal optionele instellingen.
