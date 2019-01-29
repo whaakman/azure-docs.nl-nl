@@ -11,16 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359631"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104549"
 ---
 # <a name="streaming-endpoints"></a>Streaming-eindpunten
 
-In Microsoft Azure Media Services (AMS), de [Streaming-eindpunten](https://docs.microsoft.com/rest/api/media/streamingendpoints) entiteit vertegenwoordigt een streamingservice waarmee u kunt inhoud rechtstreeks aan een client-afspeeltoepassing leveren, of aan een Content Delivery Network (CDN) voor meer distributie. De uitgaande stroom van de service van een Streaming-eindpunt mag bestaan uit een live stream of een video op aanvraag actief in Media Services-account. Wanneer u een Media Services-account, maakt een **standaard** Streaming-eindpunt is voor u gemaakt in een status ' gestopt '. U kunt niet verwijderen de **standaard** Streaming-eindpunt. Aanvullende Streaming-eindpunten kunnen worden gemaakt onder het account. Voor het starten van video's streamen, moet u start het Streaming-eindpunt van waaruit u wilt de video te streamen. 
+In Microsoft Azure Media Services (AMS), de [Streaming-eindpunten](https://docs.microsoft.com/rest/api/media/streamingendpoints) entiteit vertegenwoordigt een streamingservice waarmee u kunt inhoud rechtstreeks aan een client-afspeeltoepassing leveren, of aan een Content Delivery Network (CDN) voor meer distributie. De uitgaande stroom van een **Streaming-eindpunt** service mag bestaan uit een live stream of een video op aanvraag actief in Media Services-account. Wanneer u een Media Services-account, maakt een **standaard** Streaming-eindpunt is voor u gemaakt in een status ' gestopt '. U kunt niet verwijderen de **standaard** Streaming-eindpunt. Aanvullende Streaming-eindpunten kunnen worden gemaakt onder het account. 
+
+> [!NOTE]
+> Voor het starten van video's streamen, moet u start de **Streaming-eindpunt** vanwaaruit u wilt de video te streamen. 
 
 ## <a name="naming-convention"></a>Naamgevingsregels
 
@@ -34,7 +37,7 @@ Er zijn twee **streamingendpoint zo** typen: **Standard** en **Premium**. Het ty
 
 De tabel staan de typen:  
 
-|Type|Schaaleenheden|Description|
+|Type|Schaaleenheden|Beschrijving|
 |--------|--------|--------|  
 |**Standard Streaming-eindpunt** (aanbevolen)|0|De **Standard** type is de aanbevolen optie voor vrijwel alle streaming scenario's en doelgroepen van elke grootte. De **Standard** type automatisch wordt geschaald uitgaande bandbreedte. <br/>Voor klanten met een bijzonder veeleisende behoeften Media Services biedt **Premium** streaming-eindpunten, die kunnen worden gebruikt voor het opschalen van capaciteit voor de grootste internet doelgroepen. Als u verwacht grote doelgroepen en gelijktijdige viewers dat, contact met ons op amsstreaming@microsoft.com voor informatie over de noodzaak om te verplaatsen naar de **Premium** type. |
 |**Premium Streaming Endpoint**|>0|**Premium**-streaming-eindpunten zijn geschikt voor geavanceerde workloads omdat er gebruik wordt gemaakt van toegewezen, schaalbare bandbreedtecapaciteit. U verplaatst naar een **Premium** type door aan te passen `scaleUnits`. `scaleUnits` bieden u speciale uitgangscapaciteit die kan worden aangeschaft per 200 Mbps. Wanneer u de **Premium** type, elke ingeschakelde unit biedt extra bandbreedtecapaciteit voor de toepassing. |
@@ -56,7 +59,7 @@ U moet ook rekening houden met hoe adaptieve streaming werkt. Elke afzonderlijke
 
 In deze sectie geeft informatie over een aantal van de eigenschappen van de streamingendpoint zo. Zie voor meer voorbeelden van het maken van een nieuwe streaming-eindpunt en een beschrijving van alle eigenschappen [Streaming-eindpunt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-|Eigenschap|Description|  
+|Eigenschap|Beschrijving|  
 |--------------|----------|
 |`accessControl`|Gebruikt voor het configureren van de volgende instellingen voor dit streaming-eindpunt: Verificatiesleutels van Akamai handtekening-header en IP-adressen die zijn toegestaan verbinding maken met dit eindpunt.<br />Deze eigenschap kan worden ingesteld wanneer `cdnEnabled`' ' is ingesteld op false.|  
 |`cdnEnabled`|Geeft aan of de Azure CDN-integratie voor dit streaming-eindpunt is ingeschakeld (standaard uitgeschakeld.)<br /><br /> Als u instelt `cdnEnabled` op true, de volgende configuraties uitgeschakeld: `customHostNames` en `accessControl`.<br /><br />Niet alle datacenters ondersteuning voor de Azure CDN-integratie. Als u wilt controleren of uw datacenter de Azure CDN heeft integratie beschikbaar het volgende doen:<br /><br /> -Probeert in te stellen de `cdnEnabled` op ' True '.<br /><br /> -Controleer de geretourneerde resultaten voor een `HTTP Error Code 412` (PreconditionFailed) met het bericht "Streaming-eindpunt CdnEnabled eigenschap kan niet worden ingesteld op true als het CDN-functionaliteit is niet beschikbaar in de huidige regio."<br /><br /> Als u deze fout optreedt, kan het datacenter deze biedt geen ondersteuning. Probeer een ander datacenter.|  

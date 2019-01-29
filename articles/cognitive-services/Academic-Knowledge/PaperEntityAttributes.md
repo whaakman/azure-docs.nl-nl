@@ -6,35 +6,35 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: ae238a3c3af091b764147fcde8aa2a98986da92e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d36a39f10f9e0129af3b730a65387d7108209004
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158887"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168376"
 ---
 # <a name="paper-entity"></a>Document-entiteit
 
-<sub> * Hieronder kenmerken zijn specifiek voor document-entiteit. (Ty = "0") </sub>
+<sub> * Hieronder kenmerken zijn specifiek voor document-entiteit. (Ty = '0') </sub>
 
 
-Naam    |Beschrijving                                        |Type       | Bewerkingen
+Name    |Description                                        |Type       | Bewerkingen
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |Entiteits-id                                          |Int64      |Is gelijk aan
-TI      |Titel van document                                        |Reeks     |Is gelijk aan,<br/>StartsWith
+Ti      |Titel van document                                        |Reeks     |Is gelijk aan,<br/>StartsWith
 L       |Taalcode papier gescheiden door '\@@@ '            |Reeks     |Is gelijk aan
 J       |Papier jaar                                         |Int32      |Is gelijk aan,<br/>IsBetween
 D       |Papier datum                                         |Date       |Is gelijk aan,<br/>IsBetween
 CC      |Aantal citaat                                     |Int32      |geen  
 ECC     |Geschatte citaat tellen                           |Int32      |geen
-AA. AuN  |Naam van auteur                                        |Reeks     |Is gelijk aan,<br/>StartsWith
-AA. AuId |Auteur-ID                                          |Int64      |Is gelijk aan
+AA.AuN  |Naam van auteur                                        |Reeks     |Is gelijk aan,<br/>StartsWith
+AA.AuId |Auteur-ID                                          |Int64      |Is gelijk aan
 AA. AfN  |Relatie is de naam van auteur                            |Reeks     |Is gelijk aan,<br/>StartsWith
-AA. AfId |De auteur van relatie-ID                              |Int64      |Is gelijk aan
+AA.AfId |De auteur van relatie-ID                              |Int64      |Is gelijk aan
 AA. S    |Volgorde van de auteur van het document                         |Int32      |Is gelijk aan
 F.FN    |Veld van de naam van het onderzoek                                |Reeks     |Is gelijk aan,<br/>StartsWith
 F.FId   |Veld van de ID van het onderzoek                                  |Int64      |Is gelijk aan
@@ -42,15 +42,15 @@ J.JN    |De naam van het logboek                                       |Reeks   
 J.JId   |Wijzigingslogboek-ID                                         |Int64      |Is gelijk aan
 C.CN    |De naam van de vergadering-serie                             |Reeks     |Is gelijk aan,<br/>StartsWith
 C.CId   |Conferentie reeks-ID                               |Int64      |Is gelijk aan
-Verwijderen     |Waarnaar wordt verwezen, documenten-ID                              |Int64]    |Is gelijk aan
-W       |Woorden uit papier titel en samenvatting                |String]   |Is gelijk aan
+RId     |Waarnaar wordt verwezen, documenten-ID                              |Int64]    |Is gelijk aan
+W       |Woorden uit papier titel en samenvatting                |String[]   |Is gelijk aan
 E       |Uitgebreide metagegevens (Zie onderstaande tabel)                |Reeks     |geen  
         
 
 
 ## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##
 
-Naam    | Beschrijving               
+Name    | Beschrijving               
 --------|---------------------------    
 DN      | Weergavenaam van het document 
 S       | Bronnen - lijst van webbronnen van het document, gesorteerd op basis van statische positie
@@ -68,5 +68,5 @@ LP      | LastPage - laatste pagina van document
 DOI     | Digitale Object-id
 CC      | Instantiedocumentcitaat contexten: lijst met waarnaar wordt verwezen, artikel-id's en de bijbehorende context in het document (bijvoorbeeld [{123: ['bruine vossen bekend voor springen waarnaar wordt verwezen in document 123', 'de vertraagde honden zijn een historische misnomer zoals wordt weergegeven in het document 123']})
 IA      | Omgekeerde Abstract
-IA IndexLength| Aantal items in de index (abstract van word aantal)
-IA InvertedIndex| Overzicht van de abstracte woorden en hun bijbehorende positie in de oorspronkelijke abstract (bijvoorbeeld [{"het": [0, 15, 30]}, {'brown': [1]}, {"fox":[2]}])
+IA.IndexLength| Aantal items in de index (abstract van word aantal)
+IA.InvertedIndex| Overzicht van de abstracte woorden en hun bijbehorende positie in de oorspronkelijke abstract (bijvoorbeeld [{"het": [0, 15, 30]}, {'brown': [1]}, {"fox":[2]}])

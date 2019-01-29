@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2ae30996-864d-4872-90bc-f770e1ea159a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 80d8d1664100cdfbbf6d537b41823c2db0204040
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 84f6b42e932838413aafd7fa142067e1c72584ed
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318914"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Zelfstudie: Azure Active Directory-integratie met KnowledgeOwl
 
@@ -174,7 +174,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/knowledgeowl-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/knowledgeowl-tutorial/tutorial_general_400.png)
     
 1. Op de **KnowledgeOwl configuratie** sectie, klikt u op **configureren KnowledgeOwl** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 

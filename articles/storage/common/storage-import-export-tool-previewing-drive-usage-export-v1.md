@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 48c78f4c3332f28cc37aea0c663976ce7c2d489b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520568"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170943"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Op voorhand het schijfgebruik voor een exporttaak bekijken
 Voordat u een exporttaak maken, moet u kiezen van een reeks blobs worden geëxporteerd. De Microsoft Azure Import/Export-service kunt u voor het gebruik van een lijst met blob-paden of blob-voorvoegsels voor de blobs die u hebt geselecteerd.  
@@ -26,11 +26,11 @@ U kunt de volgende parameters gebruiken bij het gebruik van de `PreviewExport` o
 
 |Opdrachtregelparameter|Beschrijving|  
 |--------------------------|-----------------|  
-|**schakeloptie/LOGDIR op:**< LogDirectory\>|Optioneel. De logboekmap. Uitgebreide logboeken worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map worden gebruikt als de logboekmap.|  
-|**/sn:**< StorageAccountName\>|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
-|**/SK:**< StorageAccountKey\>|Vereist als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
-|**/csas:**< ContainerSas\>|Vereist als een sleutel van het opslagaccount is niet opgegeven. De container SAS voor het weergeven van de blobs in de taak voor het exporteren worden geëxporteerd.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Vereist. Pad naar het XML-bestand opslaan met lijst met blob-paden of blob-voorvoegsels voor pad voor de blobs worden geëxporteerd. De bestandsindeling die wordt gebruikt de `BlobListBlobPath` -element in de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) werking van de Import/Export-service REST-API.|  
+|**/logdir:**<LogDirectory\>|Optioneel. De logboekmap. Uitgebreide logboeken worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map worden gebruikt als de logboekmap.|  
+|**/sn:**<StorageAccountName\>|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
+|**/sk:**<StorageAccountKey\>|Vereist als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
+|**/csas:**<ContainerSas\>|Vereist als een sleutel van het opslagaccount is niet opgegeven. De container SAS voor het weergeven van de blobs in de taak voor het exporteren worden geëxporteerd.|  
+|**/ ExportBlobListFile:**< ExportBlobListFile\>|Vereist. Pad naar het XML-bestand opslaan met lijst met blob-paden of blob-voorvoegsels voor pad voor de blobs worden geëxporteerd. De bestandsindeling die wordt gebruikt de `BlobListBlobPath` -element in de [plaatsen taak](/rest/api/storageimportexport/jobs) werking van de Import/Export-service REST-API.|  
 |**/ DriveSize:**< DriveSize\>|Vereist. De grootte van schijven te gebruiken voor een exporttaak *bijvoorbeeld*, 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Voorbeeld van opdrachtregel

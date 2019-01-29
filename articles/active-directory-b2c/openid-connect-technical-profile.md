@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e8ee72b9add1947929e5c772edafd55d28edd79b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 730d32fd5b9451c2b4edfe0fb1e50c06c2156815
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851042"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159468"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch OpenId Connect-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | client_id | Ja | De toepassings-id van de id-provider. |
 | IdTokenAudience | Nee | De doelgroep van het id_token. Als u opgeeft, wordt Azure AD B2C controleert of het token in een claim die wordt geretourneerd door de id-provider is en gelijk aan de versie die is opgegeven is. |
@@ -92,7 +92,7 @@ Het technische profiel retourneert ook claims die niet zijn geretourneerd door d
 
 De **CryptographicKeys** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | client_secret | Ja | Het clientgeheim van de toepassing van id-provider. De cryptografische sleutel is alleen vereist als de **response_types** metagegevens is ingesteld op `code`. In dit geval wordt Azure AD B2C een aanroep voor het uitwisselen van de autorisatiecode voor een toegangstoken. Als de metagegevens is ingesteld op `id_token` kunt u de cryptografische sleutel weglaten.  |  
 

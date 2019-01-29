@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 87634539b9709e057c0e51297569c1005a7bea1f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852096"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187076"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: De gebruikersinterface met dynamische inhoud configureren met behulp van aangepaste beleidsregels
 
@@ -39,7 +39,7 @@ In een aangepast beleid definieert een inhoudsdefinitie de HTML5-pagina URI die 
 
 De `ContentDefinitions` sectie bevat een reeks `ContentDefinition` XML-elementen. Het kenmerk ID van de `ContentDefinition` element Hiermee geeft u het type van de pagina die is gekoppeld aan de definitie van de inhoud. Het element bepaalt dat wil zeggen, de context die u een aangepaste HTML5/CSS-sjabloon wilt toepassen. De volgende tabel beschrijft de set met inhoud definitie-id's die worden herkend door de engine IEF en de typen van de pagina's die betrekking hebben op deze.
 
-| De definitie van de inhoud-ID | Standaardsjabloon voor HTML5| Description | 
+| De definitie van de inhoud-ID | Standaardsjabloon voor HTML5| Beschrijving | 
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina voor het id-provider selecteren**. Deze pagina geeft een lijst met id-providers die gebruikers uit tijdens het aanmelden kiezen kunnen. De opties zijn meestal enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |

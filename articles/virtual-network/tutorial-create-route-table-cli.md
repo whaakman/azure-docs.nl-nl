@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849206"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157462"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Netwerkverkeer routeren met een routetabel met behulp van de Azure CLI
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 Een NVA is een VM die een netwerkfunctie uitvoert, zoals routering, firewall of WAN-optimalisatie.
 
-Maken van een NVA in het *DMZ* subnet met de [az vm maken](/cli/azure/vm#az_vm_create). Wanneer u een virtuele machine maakt, wordt Azure maakt en een openbaar IP-adres toegewezen aan de virtuele machine, standaard. De `--public-ip-address ""` parameter wordt gebruikt door Azure niet te maken en een openbaar IP-adres toewijzen aan de virtuele machine, omdat de virtuele machine hoeft niet te worden aangesloten op vanaf het internet. Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
+Maken van een NVA in het *DMZ* subnet met de [az vm maken](/cli/azure/vm). Wanneer u een virtuele machine maakt, wordt Azure maakt en een openbaar IP-adres toegewezen aan de virtuele machine, standaard. De `--public-ip-address ""` parameter wordt gebruikt door Azure niet te maken en een openbaar IP-adres toewijzen aan de virtuele machine, omdat de virtuele machine hoeft niet te worden aangesloten op vanaf het internet. Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 
 ```azure-cli-interactive
 az vm create \
@@ -161,7 +161,7 @@ De opdracht kan een minuut duren om uit te voeren.
 
 Maak twee VM's in het virtuele netwerk, zodat u dat verkeer van valideren kunt de *openbare* subnet wordt doorgestuurd naar de *persoonlijke* subnet via de NVA in een latere stap. 
 
-Maken van een virtuele machine in de *openbare* subnet met de [az vm maken](/cli/azure/vm#az_vm_create). De `--no-wait` parameter kunt u Azure aan de opdracht niet uitvoeren op de achtergrond, zodat u kunt doorgaan met de volgende opdracht. Een wachtwoord wordt gebruikt voor het stroomlijnen van dit artikel. Sleutels worden doorgaans gebruikt in productie-implementaties. Als u sleutels gebruikt, moet u ook doorsturen van SSH-agent configureren. Zie voor meer informatie de documentatie van uw SSH-client. Vervang `<replace-with-your-password>` in de volgende opdracht uit met een wachtwoord van uw keuze.
+Maken van een virtuele machine in de *openbare* subnet met de [az vm maken](/cli/azure/vm). De `--no-wait` parameter kunt u Azure aan de opdracht niet uitvoeren op de achtergrond, zodat u kunt doorgaan met de volgende opdracht. Een wachtwoord wordt gebruikt voor het stroomlijnen van dit artikel. Sleutels worden doorgaans gebruikt in productie-implementaties. Als u sleutels gebruikt, moet u ook doorsturen van SSH-agent configureren. Zie voor meer informatie de documentatie van uw SSH-client. Vervang `<replace-with-your-password>` in de volgende opdracht uit met een wachtwoord van uw keuze.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

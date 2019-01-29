@@ -8,7 +8,7 @@ writer: asmalser-msft
 manager: sakula
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 26642fefbb86b2709e110b13d782286fd18d5e60
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 11ab8bd5f5967f886d8bf1e03df4c9d88bf36b33
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348052"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156357"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Zelfstudie: Asana configureren voor het automatisch inrichten van gebruikers
 
 Het doel van deze zelfstudie is om u de stappen die u uitvoeren in Asana en Azure Active Directory (Azure AD wilt) voor het automatisch inrichten en verwijdering van gebruikersaccounts vanuit Azure AD naar Asana weer te geven.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
@@ -67,7 +67,7 @@ Deze sectie helpt u bij het verbinden van uw Azure AD aan Asana-gebruikersaccoun
 
 1. Stel **Inrichtingsmodus** naar **automatische**.
 
-    ![Asana-inrichting](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
+    ![Asana Provisioning](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
 1. Onder de **beheerdersreferenties** sectie, volgt u deze instructies voor het genereren van het token en geef deze op in **geheim Token**:
 
@@ -99,7 +99,7 @@ Nu de initiële synchronisatie wordt gestart voor alle gebruikers die zijn toege
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapporteren over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

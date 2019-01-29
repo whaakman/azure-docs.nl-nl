@@ -6,7 +6,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
@@ -15,14 +15,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: de0d8d5fb538619e94595ef322eeb80c4de743be
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6c68070a9b94cf867f8c1c930874a5f02a685294
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426285"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096735"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Hoe: SSO cross-app voor iOS met behulp van ADAL inschakelen
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedure: SSO voor cross-app voor iOS met behulp van ADAL inschakelen
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -252,7 +252,7 @@ Zijn de stappen te volgen:
 3. Registreren van een URL-schema.
 4. Een machtiging toevoegen aan uw info.plist-bestand.
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Stap 1: Broker-modus inschakelen in uw toepassing
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Stap 1: Schakel de broker-modus in uw toepassing
 
 De mogelijkheid voor uw toepassing voor het gebruik van de broker is ingeschakeld wanneer u de 'context' of de eerste installatie van uw verificatieobject maakt. Dit doet u door het instellen van het type van uw referenties in uw code:
 
@@ -262,7 +262,7 @@ De mogelijkheid voor uw toepassing voor het gebruik van de broker is ingeschakel
 ```
 De `AD_CREDENTIALS_AUTO` instelling zorgt ervoor dat de SDK probeert aan te roepen om naar de broker `AD_CREDENTIALS_EMBEDDED` wordt voorkomen dat de SDK aanroepen naar de broker.
 
-#### <a name="step-2-registering-a-url-scheme"></a>Stap 2: Een URL-schema registreren
+#### <a name="step-2-registering-a-url-scheme"></a>Stap 2: Registreren van een URL-schema
 
 Het identity-platform maakt gebruik van URL's voor het aanroepen van de broker en vervolgens terugkeren naar de toepassing. Als u wilt dat retour voltooien moet u een URL-schema voor uw toepassing die het identity-platform weet over geregistreerd. Dit kan zijn naast eventuele andere app-schema's die kan u eerder hebt geregistreerd met uw toepassing.
 

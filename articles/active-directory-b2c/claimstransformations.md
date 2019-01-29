@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 152149f94bba9077909d5b5c6bf92f3706b31b8c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 403e126795a877be018cf4f4eb42581dee080e9c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848441"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163157"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -35,7 +35,7 @@ Zodanig dat de lijst met claims transformatiefuncties die kunnen worden gebruikt
 
 De **ClaimsTransformation** conatains element de volgende kenmerken:
 
-| Kenmerk |Vereist | Description |
+| Kenmerk |Vereist | Beschrijving |
 | --------- |-------- | ----------- |
 | Id |Ja | Een id die wordt gebruikt voor het aanduiden van de claimtransformatie. De id wordt naar verwezen vanuit andere XML-elementen in het beleid. |
 | TransformationMethod | Ja | De transformatie te gebruiken in de claimtransformatie-methode. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#Claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
@@ -59,7 +59,7 @@ De **ClaimsTransformation** element bevat de volgende elementen:
 ```
 
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | Een lijst met **InputClaim** elementen die claimtypen die worden uitgevoerd opgeeft als invoer voor de claimtransformatie. Elk van deze elementen bevat een verwijzing naar een ClaimType al gedefinieerd in de sectie ClaimsSchema in het beleid. |
 | InputParameters | 0:1 | Een lijst met **InputParameter** elementen die zijn opgegeven als invoer voor de claimtransformatie.  
@@ -69,7 +69,7 @@ De **ClaimsTransformation** element bevat de volgende elementen:
 
 De **InputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | InputClaim | 1: n | Een verwachte invoer claimtype. |
 
@@ -77,7 +77,7 @@ De **InputClaims** element bevat het volgende element:
 
 De **InputClaim** element bevat de volgende kenmerken:
 
-| Kenmerk |Vereist | Description |
+| Kenmerk |Vereist | Beschrijving |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Ja | Een verwijzing naar een ClaimType al gedefinieerd in de sectie ClaimsSchema in het beleid. |
 | TransformationClaimType |Ja | Een id om te verwijzen naar een transformatie claimtype. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#Claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
@@ -86,23 +86,23 @@ De **InputClaim** element bevat de volgende kenmerken:
 
 De **invoerparameters** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | InputParameter | 1: n | Een verwachte invoerparameter. |
 
 #### <a name="inputparameter"></a>InputParameter
 
-| Kenmerk | Vereist |Description |
+| Kenmerk | Vereist |Beschrijving |
 | --------- | ----------- |----------- |
 | Id | Ja | Een id die is een verwijzing naar een parameter van de claims transformatie-methode. Elke claims transformatie-methode heeft zijn eigen waarden. Zie de tabel van de transformatie claims voor een volledige lijst van de beschikbare waarden. |
 | Gegevenstype | Ja | Het type gegevens van de parameter, zoals tekenreeks, Boole-waarde, Int of datum/tijd aan de hand van de opsomming gegevenstype in het beleid voor aangepaste XML-schema. Dit type wordt gebruikt om de rekenkundige bewerkingen correct wordt uitgevoerd. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#Claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |
-| Waarde | Ja | Een waarde die verbatim wordt doorgegeven aan de transformatie. Sommige van de waarden zijn willekeurige, sommige u kiezen uit de claims transformatie-methode. |
+| Value | Ja | Een waarde die verbatim wordt doorgegeven aan de transformatie. Sommige van de waarden zijn willekeurige, sommige u kiezen uit de claims transformatie-methode. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
 De **OutputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0: n | Verwachte uitvoer claimtype. |
 
@@ -110,7 +110,7 @@ De **OutputClaims** element bevat het volgende element:
 
 De **OutputClaim** element bevat de volgende kenmerken:
 
-| Kenmerk |Vereist | Description |
+| Kenmerk |Vereist | Beschrijving |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Ja | Een verwijzing naar een ClaimType al gedefinieerd in de sectie ClaimsSchema in het beleid.
 | TransformationClaimType | Ja | Een id om te verwijzen naar een transformatie claimtype. Elke claimtransformatie heeft een eigen waarden. Zie de [claims transformatie verwijzing](#Claims-transformations-reference) voor een volledige lijst van de beschikbare waarden. |

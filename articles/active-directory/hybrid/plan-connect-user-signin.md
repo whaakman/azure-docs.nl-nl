@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 57f1879e79dfdfe8eff421deb466b3098f5a5c60
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4a851883d612119e49cc47b1a4c8e2ec470de064
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463453"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197361"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-aanmelden-gebruikersopties
 Azure Active Directory (Azure AD) Connect kan uw gebruikers zich aanmelden bij zowel cloud en on-premises resources met behulp van dezelfde wachtwoorden. Dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel aan bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
@@ -123,7 +123,7 @@ De Azure Active Directory-aanmeldingservaring, is afhankelijk van of in Azure AD
 Azure AD Connect bevat de UPN-achtervoegsels die zijn gedefinieerd voor de domeinen en er wordt geprobeerd deze overeenkomen met een aangepast domein in Azure AD. Vervolgens kunt u met de juiste actie die moet worden ondernomen.
 De aanmeldingspagina van Azure AD bevat de UPN-achtervoegsels die zijn gedefinieerd voor on-premises Active Directory en de bijbehorende status voor elk achtervoegsel wordt weergegeven. De waarden van de status kunnen zijn dat een van de volgende:
 
-| Status | Description | Actie vereist |
+| Status | Beschrijving | Actie vereist |
 |:--- |:--- |:--- |
 | Geverifieerd |Azure AD Connect gevonden dat een overeenkomende geverifieerd domein in Azure AD. Alle gebruikers voor dit domein kunnen zich aanmelden met behulp van hun on-premises referenties. |U hoeft geen actie te ondernemen. |
 | Niet gecontroleerd |Azure AD Connect een overeenkomende aangepaste domein in Azure AD worden gevonden, maar deze is niet geverifieerd. Het UPN-achtervoegsel van de gebruikers van dit domein wordt gewijzigd in de standaard. het achtervoegsel onmicrosoft.com na synchronisatie als het domein is niet geverifieerd. | [Controleer of het aangepaste domein in Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |

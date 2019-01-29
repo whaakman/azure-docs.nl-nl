@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215227"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194284"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Inleiding tot de statuscontrole Service Fabric
 Azure Service Fabric introduceert een statusmodel dat u uitgebreide, flexibele en uitbreidbare evalueren en rapportage kunt. Het model kunt bijna-realtime bewaking van de status van het cluster en de services die erin worden uitgevoerd. U kunt eenvoudig ophalen van gegevens over de servicestatus en corrigeren mogelijke problemen voordat ze zich opstapelen en enorme storingen veroorzaken. In het model typische services rapporten op basis van hun lokale weergaven verzenden, en dat gegevens worden samengevoegd voor een algemene-niveau cluster weergeven.
@@ -68,7 +68,7 @@ De health-hiërarchie is samengesteld uit de relaties tussen bovenliggende en on
 De health-hiërarchie staat voor de meest recente status van het systeem op basis van de meest recente statusrapporten dat is bijna real-time informatie.
 Interne en externe watchdogs kunnen rapporteren dat op de dezelfde entiteiten op basis van toepassingsspecifieke logica of aangepaste bewaakte voorwaarden. Gebruikersrapporten worden gecombineerd met de systeemrapporten.
 
-Plan te investeren in het rapport en reageren op status tijdens het ontwerpen van een grote cloudservice. Deze vooraf investement vergemakkelijkt de service om foutopsporing, bewaken en beheren.
+Plan te investeren in het rapport en reageren op status tijdens het ontwerpen van een grote cloudservice. Deze investeringen vooraf wordt de service gemakkelijker fouten opsporen, bewaken en beheren.
 
 ## <a name="health-states"></a>Statussen
 Service Fabric maakt gebruik van drie statussen voor het beschrijven van of een entiteit in orde of niet is: OK, waarschuwingen en fouten. Een rapport wordt verzonden naar de store health moet een van deze statussen opgeven. Het resultaat van evaluatie van health is een van deze statussen.
@@ -200,10 +200,10 @@ De [statusrapporten](https://docs.microsoft.com/dotnet/api/system.fabric.health.
 * **SourceId**. Een tekenreeks is die de journalist van de health-gebeurtenis wordt aangeduid.
 * **Id van de entiteit**. Hiermee geeft u de entiteit wanneer het rapport wordt toegepast. Het verschilt op basis van de [entiteitstype](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Het cluster. Geen.
+  * Cluster. Geen.
   * Knooppunt. Naam van knooppunt (tekenreeks).
   * de toepassing. Toepassingsnaam (URI). Hiermee geeft u de naam van het exemplaar van de toepassing geïmplementeerd in het cluster.
-  * De service. Servicenaam (URI). Hiermee geeft u de naam van de service-exemplaar geïmplementeerd in het cluster.
+  * Service. Servicenaam (URI). Hiermee geeft u de naam van de service-exemplaar geïmplementeerd in het cluster.
   * De partitie. Partitie-ID (GUID). Hiermee geeft u de unieke id van de partitie.
   * De replica. De stateful service-replica-ID of de stateless service-exemplaar-ID (INT64).
   * DeployedApplication. Toepassingsnaam (URI) en de naam van knooppunt (tekenreeks).

@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902566"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171649"
 ---
 # <a name="interpret-method"></a>Methode interpreteren
 
@@ -29,28 +29,28 @@ Voor een interactieve ervaring, kunt u deze methode herhaaldelijk aanroept na el
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Naam     | Waarde | Vereist?  | Beschrijving
+Name     | Value | Vereist?  | Beschrijving
 ---------|---------|---------|---------
-**Query**    | Tekenreeks met tekst | Ja | De query is opgegeven door de gebruiker.  Als voltooid is ingesteld op 1, wordt de query worden geïnterpreteerd als een voorvoegsel voor genereren suggesties voor het automatisch aanvullen van query.        
-**Model**    | Tekenreeks met tekst | Nee  | De naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.        
+**query**    | Tekenreeks met tekst | Ja | De query is opgegeven door de gebruiker.  Als voltooid is ingesteld op 1, wordt de query worden geïnterpreteerd als een voorvoegsel voor genereren suggesties voor het automatisch aanvullen van query.        
+**model**    | Tekenreeks met tekst | Nee  | De naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.        
 **Voltooien** | 0 of 1 | Nee<br>Standaard: 0  | 1 betekent dat er automatisch aanvullen suggesties worden gegenereerd op basis van de grammatica en graph-gegevens.         
-**Aantal**    | Aantal | Nee<br>Standaard: 10 | Maximum aantal interpretaties om terug te keren.         
+**count**    | Aantal | Nee<br>Standaard: 10 | Maximum aantal interpretaties om terug te keren.         
 **offset**   | Aantal | Nee<br>Standaard: 0  | De index van de eerste interpretatie om terug te keren. Bijvoorbeeld, *count = 2 & offset 0 =* retourneert interpretaties 0 en 1. *aantal = 2 & offset = 2* retourneert interpretaties 2 en 3.       
 **Time-out**  | Aantal | Nee<br>Standaard: 1000 | Time-out in milliseconden. Alleen interpretaties gevonden voordat de time-out is verstreken, worden geretourneerd.
 <br>
   
 ## <a name="response-json"></a>Antwoord (JSON)
-Naam     | Beschrijving
+Name     | Beschrijving
 ---------|---------
-**Query** |De *query* parameter van de aanvraag.
-**een perfecte ervaring bij** |Een matrix van 0 of meer verschillende methoden die overeenkomt met de invoer van de gebruiker op basis van de grammatica.
-**.logprob interpretaties [x]**  |De relatieve natuurlijke logboek kans van de vertaling. Hogere waarden waarschijnlijk meer.
-**.parse interpretaties [x]**  |Een XML-tekenreeks die laat zien hoe elk onderdeel van de query is geïnterpreteerd.
-**.rules interpretaties [x]**  |Een matrix met 1 of meer regels, zoals gedefinieerd in de grammatica die tijdens de interpretatie zijn aangeroepen. Voor de Academic Knowledge-API, altijd worden er 1 regel.
+**query** |De *query* parameter van de aanvraag.
+**interpretations** |Een matrix van 0 of meer verschillende methoden die overeenkomt met de invoer van de gebruiker op basis van de grammatica.
+**interpretations[x].logprob**  |De relatieve natuurlijke logboek kans van de vertaling. Hogere waarden waarschijnlijk meer.
+**interpretations[x].parse**  |Een XML-tekenreeks die laat zien hoe elk onderdeel van de query is geïnterpreteerd.
+**interpretations[x].rules**  |Een matrix met 1 of meer regels, zoals gedefinieerd in de grammatica die tijdens de interpretatie zijn aangeroepen. Voor de Academic Knowledge-API, altijd worden er 1 regel.
 **interpretaties [.name .rules [j] x]**  |naam van de regel.
-**interpretaties [.output .rules [j] x]**  |De uitvoer van de regel.
-**interpretaties [.output.type .rules [j] x]** |Het gegevenstype van de uitvoer van de regel.  Voor de Academic Knowledge-API, wordt dit altijd 'query' zijn.
-**interpretaties [.output.value .rules [j] x]**  |De uitvoer van de regel. Voor de Academic Knowledge-API is dit een querytekenreeks van de expressie die kan worden doorgegeven aan de methoden evalueren en calchistogram.
+**interpretations[x].rules[y].output**  |De uitvoer van de regel.
+**interpretations[x].rules[y].output.type** |Het gegevenstype van de uitvoer van de regel.  Voor de Academic Knowledge-API, wordt dit altijd 'query' zijn.
+**interpretations[x].rules[y].output.value**  |De uitvoer van de regel. Voor de Academic Knowledge-API is dit een querytekenreeks van de expressie die kan worden doorgegeven aan de methoden evalueren en calchistogram.
 **afgebroken** | Waar, als de aanvraag is een time-out.
 
 <br>

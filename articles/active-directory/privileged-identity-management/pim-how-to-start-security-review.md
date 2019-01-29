@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5c7216a419ba01c1b2df744e305bf059cf68104e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1cf3d29bd3d7af56f3e20c1d2344ed90095229bf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224379"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196664"
 ---
 # <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Een toegangscontrole voor Azure AD directory-rollen in PIM starten
 Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Om te reduceren het risico dat samenhangt met deze verouderde roltoewijzingen bevoorrechte rol moeten medewerkers of hoofdbeheerders regelmatig maken toegangsbeoordelingen om te vragen van beheerders voor het controleren van de functies die gebruikers hebben gekregen. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Azure AD Privileged Identity Management (PIM).
@@ -63,8 +63,8 @@ Er zijn drie opties voor het uitvoeren van een beoordeling. U kunt de beoordelin
 2. Kies een van de opties:
    
    * **Selecteer de revisor**: Gebruik deze optie als u niet weet die toegang nodig heeft. Met deze optie kunt u de controle toewijzen aan een resource-eigenaar of groepmanager om te voltooien.
-   * **Mij**: handig als u wilt zien hoe toegang tot beoordelingen voor werk of u wenst te namens de mensen die niet kan controleren.
-   * **Leden lees zelf**: Gebruik deze optie om de gebruikers hun eigen roltoewijzingen bekijken.
+   * **Mij**: Dit is handig als u wilt zien hoe toegang tot beoordelingen voor werk of u wenst te namens de mensen die niet kan controleren.
+   * **Leden lees zelf**: Gebruik deze optie om de gebruikers hun eigen roltoewijzingen te bekijken.
 
 ### <a name="start-the-review"></a>De revisie starten
 Ten slotte hebt u de mogelijkheid om te vereisen dat gebruikers een reden opgeven als ze hun toegang goedkeuren. Indien gewenst een beschrijving van de beoordeling toevoegen en selecteer **Start**.
@@ -80,5 +80,5 @@ Totdat de periode van de toegangsbeoordeling voltooid is, kunt u Herinner de geb
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Een toegangscontrole voor Azure AD directory-rollen in PIM voltooien](pim-how-to-complete-review.md)
-- [Een toegangscontrole van mijn Azure AD-directory-rollen in PIM uitvoeren](pim-how-to-perform-security-review.md)
+- [Perform an access review of my Azure AD directory roles in PIM](pim-how-to-perform-security-review.md) (Een toegangsbeoordeling uitvoeren van mijn Azure AD-directoryrollen in PIM)
 - [Een toegangscontrole voor Azure resource-rollen in PIM starten](pim-resource-roles-start-access-review.md)

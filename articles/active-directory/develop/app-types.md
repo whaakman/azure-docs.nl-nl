@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b4b49cd679ee5d770696b4fa5cc29ebdd908cecf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816341"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093118"
 ---
 # <a name="application-types-in-v10"></a>Toepassingstypen in v1.0
 
@@ -33,11 +33,11 @@ Het volgende diagram illustreert de scenario's en de toepassingstypen, en hoe de
 
 Dit zijn de vijf primaire toepassing-scenario's ondersteund door Azure AD:
 
-- **[Toepassing met één pagina (SPA)](single-page-application.md)**: een gebruiker moet zich aanmelden bij een toepassing met één pagina die wordt beveiligd door Azure AD.
-- **[Web-App de webbrowser](web-app.md)**: een gebruiker moet zich aanmelden bij een webtoepassing die wordt beveiligd door Azure AD.
-- **[Systeemeigen toepassing voor de web-API](native-app.md)**: een systeemeigen toepassing die wordt uitgevoerd op een telefoon, tablet of PC moet een gebruiker voor resources van een web-API die wordt beveiligd door Azure AD verifiëren.
-- **[Webtoepassing aan web-API](web-api.md)**: een web-App nodig heeft om op te halen van resources van een web-API is beveiligd door Azure AD.
-- **[Web-API-daemon of server toepassing](service-to-service.md)**: een daemon-toepassing of een servertoepassing zonder gebruikersinterface web moet de resources ophalen uit een web-API is beveiligd door Azure AD.
+- **[Toepassing met één pagina (SPA)](single-page-application.md)**: Er moet een gebruiker zich aanmeldt bij een toepassing met één pagina die wordt beveiligd door Azure AD.
+- **[Web-App de webbrowser](web-app.md)**: Er moet een gebruiker zich aanmeldt bij een webtoepassing die wordt beveiligd door Azure AD.
+- **[Systeemeigen toepassing voor de web-API](native-app.md)**: Een systeemeigen toepassing die wordt uitgevoerd op een telefoon, tablet of PC moet een gebruiker voor resources van een web-API die wordt beveiligd door Azure AD verifiëren.
+- **[Webtoepassing aan web-API](web-api.md)**: Een web-App nodig heeft om op te halen van resources van een web-API is beveiligd door Azure AD.
+- **[Web-API-daemon of server toepassing](service-to-service.md)**: Een daemon-toepassing of een servertoepassing zonder gebruikersinterface web moet resources ophalen uit een web-API die is beveiligd door Azure AD.
 
 Volg de koppelingen voor meer informatie over elk type app en inzicht in geavanceerde scenario's voordat u aan de slag gaat met de code. U kunt ook meer informatie over de verschillen die u nodig hebt bij het schrijven van een bepaalde app die geschikt is voor de v1.0 eindpunt of v2.0-eindpunt.
 
@@ -69,7 +69,7 @@ Informatie voor meer informatie over hoe u [een app registreren bij de Azure AD-
 Inrichting wordt duidelijker als u weet wat er zijn twee soorten toepassingen die kunnen worden ontwikkeld en geïntegreerd met Azure AD:
 
 * **Eén tenant toepassing** -een toepassing met één tenant is bedoeld voor gebruik in een organisatie. Dit zijn doorgaans line-of-business (LoB)-toepassingen die is geschreven door de ontwikkelaar in een organisatie. Een toepassing met één tenant moet alleen worden geopend door gebruikers in een map en als gevolg hiervan alleen moet worden ingericht in een map. Deze toepassingen zijn meestal geregistreerd door een ontwikkelaar in de organisatie.
-* **Toepassing met meerdere tenants** -een toepassing met meerdere tenants is bedoeld voor gebruik in veel organisaties niet slechts één organisatie. Dit zijn doorgaans software-as-a-service (SaaS)-toepassingen die is geschreven door een onafhankelijke softwareleverancier (ISV). Toepassingen met meerdere tenants moeten worden ingericht in elke map waar ze worden gebruikt, welke gebruiker of beheerder toestemming om u te registreren. Dit proces toestemming wordt gestart wanneer een toepassing in de directory is geregistreerd en toegang tot de Graph API of een andere web-API krijgen wordt. Wanneer een gebruiker of beheerder van een andere organisatie zich registreert voor het gebruik van de toepassing, worden ze weergegeven met een dialoogvenster waarin de machtigingen die voor de toepassing moet worden weergegeven. De gebruiker of beheerder kan vervolgens akkoord met de toepassing, die de toepassing toegang geeft tot de opgegeven gegevens en tot slot, registreert u de toepassing in de directory. Zie voor meer informatie, [overzicht van het Framework toestemming geven](consent-framework.md).
+* **Toepassing met meerdere tenants** -een toepassing met meerdere tenants is bedoeld voor gebruik in veel organisaties niet slechts één organisatie. Dit zijn normaliter Software-as-a-Service-toepassingen (SaaS), geschreven door een onafhankelijke softwareleverancier (ISV). Toepassingen met meerdere tenants moeten worden ingericht in elke map waar ze worden gebruikt, welke gebruiker of beheerder toestemming om u te registreren. Het toestemmingsproces begint wanneer een toepassing in de map is geregistreerd en toegang verkrijgt tot de Graph-API of wellicht zelfs een andere web-API. Wanneer een gebruiker of beheerder van een andere organisatie zich registreert voor het gebruik van de toepassing, worden ze weergegeven met een dialoogvenster waarin de machtigingen die voor de toepassing moet worden weergegeven. De gebruiker of beheerder kan vervolgens akkoord met de toepassing, die de toepassing toegang geeft tot de opgegeven gegevens en tot slot, registreert u de toepassing in de directory. Zie voor meer informatie, [overzicht van het Framework toestemming geven](consent-framework.md).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Aanvullende overwegingen bij het ontwikkelen van één of meerdere tenant-apps
 

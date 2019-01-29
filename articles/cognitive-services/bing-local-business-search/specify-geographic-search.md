@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: baf2f2ed3487bbc8b680a54d86b42d27d76a0ba9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5861ec60790cbdbf1144996b1d46eb223d5935d4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957225"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158023"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Geografische grenzen gebruiken voor het filteren van resultaten van de Bing API voor zoeken van lokale bedrijven
 
@@ -33,9 +33,9 @@ Als u een circulaire geografische zoekgebied, kies een breedtegraad en lengtegra
 
 Volledige query:
 
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
-````
+```
 
 ## <a name="localmapview"></a>localMapView
 
@@ -45,12 +45,12 @@ Als u een rechthoekige zoekgebied, twee sets breedtegraad/lengtegraad coördinat
 
 Volledige query:
 
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Lokale bedrijven zoeken Java-snelstartgids](quickstarts/local-search-java-quickstart.md)
 - [Lokale bedrijven zoeken C# Quick Start](quickstarts/local-quickstart.md)
 - [Lokale bedrijven zoeken Node-Quickstart](quickstarts/local-search-node-quickstart.md)
-- [Lokale bedrijven zoeken Python-snelstartgids](quickstarts/local-search-python-quickstart.md)
+- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md)

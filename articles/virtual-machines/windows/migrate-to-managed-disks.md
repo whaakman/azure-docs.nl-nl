@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.component: disks
-ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b87e27ae914a01f03ce78eafe5792433d18e417f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474214"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193706"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure-VM's migreren naar Managed Disks in Azure
 
@@ -37,7 +37,7 @@ U kunt migreren naar Managed Disks in de volgende scenario's:
 | Migreren...                                            | Koppeling voor documentatie                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Zelfstandige virtuele machines en virtuele machines in een beschikbaarheidsset naar beheerde schijven converteren   | [Virtuele machines voor het gebruik van beheerde schijven converteren](convert-unmanaged-to-managed-disks.md) |
-| Een enkele virtuele machine van klassiek naar Resource Manager op beheerde schijven     | [Een enkele virtuele machine migreren](migrate-single-classic-to-resource-manager.md)  | 
+| Een enkele virtuele machine van klassiek naar Resource Manager op beheerde schijven     | [Een virtuele machine maken van een klassieke VHD](create-vm-specialized-portal.md)  | 
 | Alle virtuele machines in een vNet van het klassieke implementatiemodel, naar Resource Manager op beheerde schijven     | [Migreren van IaaS-resources van klassiek naar Resource Manager](migration-classic-resource-manager-ps.md) en vervolgens [een VM van niet-beheerde schijven converteren naar beheerde schijven](convert-unmanaged-to-managed-disks.md) | 
 
 

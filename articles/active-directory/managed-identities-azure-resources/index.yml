@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c4613654e5f1da6ef55c1f648fff1687b21fe87d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: fd9c4513c2cda3fb6283e748f2458043b02ab482
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901935"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203569"
 documentType: LandingData
 title: Documentatie over in Azure AD beheerde identiteiten voor Azure-resources
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: Documentatie over in Azure AD beheerde identiteiten voor Azure-resources
   description: Leer hoe u beheerde identiteiten voor Azure-resources kunt gebruiken voor veilige verificatie bij Azure-cloudservices zonder dat u de referenties in uw broncode hoeft te bewaren.
   services: active-directory
-  ms.component: msi
+  ms.subservice: msi
   author: priyamohanram
   manager: daveba
   ms.service: active-directory

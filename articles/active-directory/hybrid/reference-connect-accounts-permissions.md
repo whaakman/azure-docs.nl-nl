@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 784599d682ab05b599f32b3fb502ed840f031ce8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7234c1a5f7914ad3ce0ff415b387bfee386198c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902004"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169600"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -162,7 +162,7 @@ Als u aangepaste instellingen, klikt bent u verantwoordelijk voor het account te
 ### <a name="adsync-service-account"></a>ADSync-serviceaccount
 De synchronisatieservice kan uitvoeren onder verschillende accounts. Het kan worden uitgevoerd onder een **Virtual Service Account** (leverancierspecifiek Kenmerk), een **groep beheerd serviceaccount** (gMSA/sMSA), of een normaal gebruikersaccount. De ondersteunde opties zijn gewijzigd met de 2017 April versie van Connect wanneer u een nieuwe installatie uitvoeren. Als u een upgrade vanaf een eerdere versie van Azure AD Connect uitvoert, zijn deze extra opties niet beschikbaar.
 
-| Type account | Installatie-optie | Description |
+| Type account | Installatie-optie | Beschrijving |
 | --- | --- | --- |
 | [Virtual serviceaccount](#virtual-service-account) | Express en aangepast, 2017 April en hoger | Dit is de optie gebruikt voor alle installaties van snelle, met uitzondering van installaties op een domeincontroller. Voor aangepaste, is er op de standaardoptie, tenzij een andere optie wordt gebruikt. |
 | [Groep beheerd serviceaccount](#group-managed-service-account) | Aangepaste, 2017 April en hoger | Als u een externe SQL server gebruikt, klikt u vervolgens het beste aan een groep beheerd serviceaccount gebruiken. |

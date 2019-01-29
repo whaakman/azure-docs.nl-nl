@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315771"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103069"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
@@ -48,7 +48,7 @@ Deze blauwdruk is bedoeld om te fungeren als een modulaire basis voor klanten om
 
 -   **Architecturaal diagram.** Het diagram toont de referentiearchitectuur gebruikt voor de blauwdruk en het voorbeeld van de use-casescenario.
 
--   [IaaS-extensie](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) deze oplossing wordt gedemonstreerd hoe u een on-premises op basis van SQL-oplossing migreren naar Azure, en voor het implementeren van een werkstation Privieged toegang als u wilt beheren veilig cloud bsed services en oplossingen. 
+-   [IaaS-extensie](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) deze oplossing wordt gedemonstreerd hoe u een on-premises op basis van SQL-oplossing migreren naar Azure, en voor het implementeren van een Privileged Access Workstation voor het veilig beheren van cloud-bsed services en oplossingen. 
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 
@@ -123,7 +123,7 @@ Het is de taak van deze functie om de status van individuele patiënten te bewak
 
 -   Bereik: ResourceGroup
 
-### <a name="auditor"></a>Revisor
+### <a name="auditor"></a>Auditor
 
 
 De revisor evalueert de oplossing voor naleving. Ze hebben geen directe toegang tot het netwerk.
@@ -154,7 +154,7 @@ De blauwdruk omvat een groot aantal anonieme medische dossiers ter illustratie v
 
 Alex van taak is het evalueren van de technologieën die kunnen reductie van de werkbelasting van het beheer van een on-premises netwerk en verlagen voor beheer. Alex evalueren Azure heeft gedurende een bepaalde periode, maar heeft pogingen gedaan om de services die hij nodig heeft om te voldoen aan de nalevingsvereisten HiTrust patiënt gegevens opslaan in de cloud te configureren. Alex heeft de status van Azure AI voor het implementeren van een oplossing de status gereed is voor naleving, die de vereisten om te voldoen aan de eisen van klanten voor HiTrust heeft verwerkt geselecteerd.
 
-**Gegevenswetenschapper Debra**
+**Data Scientist -- Debra**
 
 *E-mail: Debra\_DataScientist*
 
@@ -166,12 +166,12 @@ Debra is verantwoordelijk voor het maken en gebruiken van modellen die medische 
 
 Danny is de belangrijkste contactpersoon voor alles wat met betrekking tot de Microsoft SQL Server de patiënt gegevens voor Contosoclinic slaat. Danny is een ervaren SQL Server-beheerder die onlangs met Azure SQL Database raken is.
 
-**Chief Medical Information Officer--Caroline**
+**Chief Medical Information Officer -- Caroline**
 
 Caroline werkt samen met de Care Line Manager Chris en Debra de Gegevenswetenschapper om te bepalen welke factoren van invloed zijn op de verblijfsduur.
 De voorspellingen op basis van de lengte van blijven (LOS)-oplossing Caroline gebruikt om te bepalen als resources op de juiste wijze worden toegewezen in het ziekenhuisnetwerk. Bijvoorbeeld, met behulp van het dashboard dat is opgegeven in deze oplossing.
 
-**Care Line Manager--Chris**
+**Care Line Manager -- Chris**
 
 *E-mail: Chris\_CareLineManager*
 
@@ -374,7 +374,7 @@ De oplossing biedt ondersteuning voor Azure Event Grid, een geïntegreerde servi
 
     -   Beveiliging en controle
 
-    -   Azure SQL DB-analyse
+    -   Azure SQL DB Analytics
 
     -   [Azure WebApp Analytics](/azure/log-analytics/log-analytics-azure-web-apps-analytics) oplossing
 

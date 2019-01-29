@@ -2,19 +2,19 @@
 title: Populatie van Azure AD UserPrincipalName
 description: Het volgende document wordt beschreven hoe het kenmerk UserPrincipalName wordt ingevuld.
 author: billmath
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: daveba
-ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b2043ae15cd99b50e33fa6cf896af73f03ef6b66
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468094"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197803"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Populatie van Azure AD UserPrincipalName
 
@@ -24,7 +24,7 @@ De waarde van het kenmerk UserPrincipalName is de Azure AD-gebruikersnaam voor d
 ## <a name="upn-terminology"></a>UPN-terminologie
 In dit artikel gebruikt de volgende terminologie:
 
-|Termijn|Description|
+|Termijn|Beschrijving|
 |-----|-----|
 |Eerste domein|Het standaarddomein (onmicrosoft.com) in de Azure AD-Tenant. Bijvoorbeeld contoso.onmicrosoft.com.|
 |Microsoft Online routering E‑mailadres (MOERA)|Berekent de MOERA van het kenmerk MailNickName van Azure AD en de eerste Azure AD-domein als de Azure AD &lt;MailNickName&gt;&#64;&lt;eerste domein&gt;.|

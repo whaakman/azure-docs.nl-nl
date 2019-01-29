@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 34c284f3fdd78d8b2f56ec7c36e139f9ac9d78bf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c31f104b3a7ae37d768a2a483a70385852dc47ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473500"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156816"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Plan voor het verbeteren van de beveiliging van gegevens via een goede oplossing voor identiteitsbeheer
 De eerste stap bij het beveiligen van gegevens is om te bepalen wie toegang heeft tot die gegevens. U moet ook een identiteitsoplossing die kan worden geïntegreerd met uw systeem zodat de mogelijkheden van verificatie en autorisatie hebt. Verificatie en autorisatie worden vaak verward met elkaar en hun rollen verkeerd begrepen. In werkelijkheid zijn deze verschillend, zoals wordt weergegeven in de afbeelding hieronder:

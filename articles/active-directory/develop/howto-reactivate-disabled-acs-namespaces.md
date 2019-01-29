@@ -6,7 +6,7 @@ documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 085923dd124a4f973a709f0e59a07ad4137c6901
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a8e1d1b73d360b55375e5164670ff16268941ede
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438493"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092216"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedure: Uitgeschakelde naamruimten van de Access Control Service opnieuw activeren
 
@@ -92,7 +92,7 @@ Verder wordt niet meer automatisch worden goedgekeurd. Als u meer tijd om te mig
 1. Meld u aan bij de Azure-portal en maak een [nieuwe ondersteuningsaanvraag](https://portal.azure.com/#create/Microsoft.Support).
 1. Vul in nieuw aanvraagformulier voor de ondersteuning, zoals weergegeven in het volgende voorbeeld.
 
-    | Ondersteuning voor het veld | Waarde |
+    | Ondersteuning voor het veld | Value |
     |-----------------------|--------------------|
     | **Probleemtype** | `Technical` |
     | **Abonnement** | Ingesteld op uw abonnement |

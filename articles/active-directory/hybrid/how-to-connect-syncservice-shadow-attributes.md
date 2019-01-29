@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 12067b4413924717228547fccdc3ef07d07beaf8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7be6570d61bc3697bec143478404d32123b4f8d2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470372"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184220"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync-service de kenmerken van
 De meeste kenmerken worden dezelfde manier weergegeven in Azure AD zoals in uw on-premises Active Directory. Maar bepaalde kenmerken enkele speciale verwerking hebben en de waarde van het kenmerk in Azure AD is mogelijk anders dan wat Azure AD Connect synchroniseert.
@@ -37,7 +37,7 @@ Ze hebben meerdere UPN-achtervoegsels in hun on-premises Active Directory, maar 
 ### <a name="userprincipalname"></a>userPrincipalName
 Een gebruiker heeft de volgende kenmerkwaarden in een niet-gecontroleerd domein:
 
-| Kenmerk | Waarde |
+| Kenmerk | Value |
 | --- | --- |
 | on-premises userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
@@ -52,7 +52,7 @@ Hetzelfde proces voor het opnemen van alleen geverifieerde domeinen vindt ook pl
 
 Voor de postvakgebruiker van een, on-premises of in Exchange Online, worden er alleen waarden voor geverifieerde domeinen weergegeven. Het kan er als volgt:
 
-| Kenmerk | Waarde |
+| Kenmerk | Value |
 | --- | --- |
 | on-premises proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |

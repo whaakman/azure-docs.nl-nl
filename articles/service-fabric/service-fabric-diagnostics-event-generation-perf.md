@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 114d71227e3cf3d0f235fc63135534b1030d4adc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290770"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188336"
 ---
 # <a name="performance-metrics"></a>Metrische gegevens voor prestaties
 
@@ -31,15 +31,15 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 
 | Categorie | Naam van teller |
 | --- | --- |
-| Logische schijf | Beschikbare ruimte logische schijf |
-| Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf lezen |
-| Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf schrijven |
-| Fysieke schijf (per schijf) | Gem. Schijf sec/lezen |
-| Fysieke schijf (per schijf) | Gem. Schijf sec/schrijven |
-| Fysieke schijf (per schijf) | Schijf lezen per seconde |
-| Fysieke schijf (per schijf) | Bytes gelezen op schijf/sec |
-| Fysieke schijf (per schijf) | Schijf schrijven per seconde |
-| Fysieke schijf (per schijf) | Bytes geschreven naar schijf/sec |
+| Logische schijf | Logical Disk Free Space |
+| PhysicalDisk(per Disk) | Gem. Wachtrijlengte voor schijf lezen |
+| PhysicalDisk(per Disk) | Gem. Wachtrijlengte voor schijf schrijven |
+| PhysicalDisk(per Disk) | Gem. Schijf sec/lezen |
+| PhysicalDisk(per Disk) | Gem. Schijf sec/schrijven |
+| PhysicalDisk(per Disk) | Schijf lezen per seconde |
+| PhysicalDisk(per Disk) | Bytes gelezen op schijf/sec |
+| PhysicalDisk(per Disk) | Schijf schrijven per seconde |
+| PhysicalDisk(per Disk) | Bytes geschreven naar schijf/sec |
 | Geheugen | Beschikbare megabytes (MB) |
 | PagingFile | % Gebruik |
 | Processor(Total) | % Processortijd |
@@ -80,7 +80,7 @@ De volgende prestatiemeteritems verzamelen als u .NET-services met uw cluster im
 
 Service Fabric genereert een aanzienlijke hoeveelheid van het aangepaste prestatiemeteritems. Als u de SDK is geïnstalleerd hebt, kunt u de uitgebreide lijst zien op uw Windows-computer in uw toepassing Prestatiemeter (Start > Prestatiemeter). 
 
-In de toepassingen die u implementeert met uw cluster, als u gebruikmaakt van Reliable Actors, toe te voegen countes van `Service Fabric Actor` en `Service Fabric Actor Method` categorieën (Zie [Service Fabric Reliable Actors-Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
+In de toepassingen die u implementeert voor uw cluster, als u van Reliable Actors gebruikmaakt toevoegen tellers van `Service Fabric Actor` en `Service Fabric Actor Method` categorieën (Zie [Service Fabric Reliable Actors-Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
 Als u betrouwbare Services of Service voor externe toegang gebruikt, hebben we op dezelfde manier `Service Fabric Service` en `Service Fabric Service Method` teller categorieën dat u over items, Zie verzamelen moet [bewaking met service remoting](service-fabric-reliable-serviceremoting-diagnostics.md) en [betrouwbare Services-prestatiemeteritems](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 

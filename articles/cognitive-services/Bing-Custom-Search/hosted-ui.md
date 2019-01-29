@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: e30c36cbde3bf112b012526e6268dfc4414f64a9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0336cc922e8f86792814196719e659d33a943bb8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555469"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193604"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configureren van uw gehoste gebruikersinterface-ervaring
 
@@ -81,9 +81,9 @@ De gehoste-gebruikersinterface, ofwel gebruiken:
   > De volgende queryparameters toevoegen aan de URL indien nodig. Zie voor meer informatie over deze parameters [Custom Search-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) verwijzing.
   >
   > - q
-  > - Mkt
+  > - mkt
   > - veilig zoeken
-  > - taal instellen
+  > - setlang
 
   > [!IMPORTANT]
   > De pagina kan uw privacyverklaring of andere kennisgevingen en voorwaarden niet weergeven. Geschiktheid voor uw gebruik kan variëren.  
@@ -161,7 +161,7 @@ De volgende configuraties van toepassing alleen als u de gebruikersinterface die
 - Werkbalk thema
 - Titel van de URL van koppeling
 - Logo-URL
-- Faviicon-URL  
+- Faviicon URL  
 
 ## <a name="next-steps"></a>Volgende stappen
 

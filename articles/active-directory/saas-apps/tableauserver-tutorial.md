@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: c1917375-08aa-445c-a444-e22e23fa19e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: c727cddf41c269c214b541134cd9f688017ee687
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a68ffb867a738e11c9895416bbdf2009b268c0c6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789718"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Server
 
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Tableau Server, moet u de volg
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -143,7 +143,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://azure.<domain name>.link`
 
-    c. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    c. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     ![image](./media/tableauserver-tutorial/tutorial-tableauserver-url.png)
      

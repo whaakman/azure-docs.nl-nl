@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a7647e4a54cdfa4eff284c4b1d8bd579e51fdbe3
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 7dffa1480be73f1dbf5e99d11fd8d33eb2ab9038
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847523"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196409"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>De resource-eigenaar wachtwoord referentiestroom in Azure Active Directory B2C met een aangepast beleid configureren
 
@@ -267,7 +267,7 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 - Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant.
 - Vervang `B2C_1A_ROPC_Auth` met de volledige naam van uw resource-eigenaar wachtwoordbeleid referenties.
 
-| Sleutel | Waarde |
+| Sleutel | Value |
 | --- | ----- |
 | gebruikersnaam | `user-account` |
 | wachtwoord | `password1` |
@@ -313,7 +313,7 @@ Maken van een POST-aanroep zoals hier weergegeven. Gebruik de informatie in de v
 - Vervang `your-tenant-name` met de naam van uw Azure AD B2C-tenant.
 - Vervang `B2C_1A_ROPC_Auth` met de volledige naam van uw resource-eigenaar wachtwoordbeleid referenties.
 
-| Sleutel | Waarde |
+| Sleutel | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

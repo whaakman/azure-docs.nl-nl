@@ -5,18 +5,18 @@ services: active-directory
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 48f06d0f8b36c129ab7fa99a037cf2ccdb5b7004
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: af605f4ad7c4167936a07f2ae8ffd3d2850cda75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473347"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185199"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Externe toegang tot on-premises toepassingen via de toepassingsproxy van Azure Active Directory 
 
@@ -56,7 +56,7 @@ Het volgende diagram laat zien hoe Azure AD en Application Proxy werken samen vo
 5. De connector stuurt de aanvraag naar de on-premises toepassing.  
 6. Het antwoord is verzonden via de connector en de service voor toepassingsproxy voor de gebruiker.
 
-| Onderdeel | Description |
+| Onderdeel | Beschrijving |
 | --------- | ----------- |
 | Eindpunt  | Het eindpunt is een URL of een [eindgebruikersportal](end-user-experiences.md). Gebruikers kunnen toepassingen terwijl buiten uw netwerk bereiken door het openen van een externe URL. Gebruikers in uw netwerk kunnen de toepassing openen via een URL of een eindgebruikersportal. Wanneer gebruikers naar een van deze eindpunten gaat, worden ze verifiëren in Azure AD en vervolgens worden gerouteerd via de connector op de on-premises toepassing.|
 | Azure AD | Azure AD voert de verificatie met behulp van de tenant-directory die zijn opgeslagen in de cloud. |

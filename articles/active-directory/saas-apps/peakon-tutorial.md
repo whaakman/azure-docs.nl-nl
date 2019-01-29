@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a944c397-ed3f-4d45-b9b2-6d4bcb6b0a09
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: af3402aab6e4a3a1b0401d66d42e82e449552867
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 637988179228fbf0a6000de74a1185af98277e3c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977605"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Zelfstudie: Azure Active Directory-integratie met Peakon
 
@@ -30,7 +30,7 @@ Peakon integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Peakon heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Peakon (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -44,10 +44,10 @@ Voor het configureren van Azure AD-integratie met Peakon, moet u de volgende ite
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - Gebruik geen productie-omgeving, als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+- Als u niet beschikt over een evaluatieomgeving in Azure AD, kunt u [een gratis proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
@@ -70,15 +70,15 @@ Voor het configureren van de integratie van Peakon in Azure AD, moet u Peakon ui
 
     ![De blade Enterprise-toepassingen][2]
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Peakon**, selecteer **Peakon** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Peakon in de lijst met resultaten](./media/peakon-tutorial/tutorial_peakon_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Peakon op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -100,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **Peakon** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
 
@@ -110,26 +110,26 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](common/editconfigure.png)
 
-4. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+4. Voer in het gedeelte **Standaard SAML-configuratie** de volgende stappen uit als u de toepassing in de door **IDP geïnitieerde** modus wilt configureren:
 
     ![Peakon domein en URL's, eenmalige aanmelding informatie](./media/peakon-tutorial/tutorial_peakon_url.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://app.peakon.com/saml/<companyid>/metadata`
+    a. Typ in het tekstvak **Id** een URL met het volgende patroon: `https://app.peakon.com/saml/<companyid>/metadata`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://app.peakon.com/saml/<companyid>/assert`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://app.peakon.com/saml/<companyid>/assert`
 
-5. Klik op **extra URL's instellen** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
     ![Peakon domein en URL's, eenmalige aanmelding informatie](./media/peakon-tutorial/tutorial_peakon_url1.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL typen: `https://app.peakon.com/login`
+    Typ een URL in het tekstvak **Aanmeldings-URL**: `https://app.peakon.com/login`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id en antwoord-URL die is latert uitgelegd in de zelfstudie.
+    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke-id en antwoord-URL die is latert uitgelegd in de zelfstudie.
 
 6. In de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** downloaden **certificaat (Raw)** en sla het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/peakon-tutorial/tutorial_peakon_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/peakon-tutorial/tutorial_peakon_certificate.png) 
 
 7. Op de **Peakon instellen** sectie, kopieert u de juiste URL aan de hand van uw behoeften.
 
@@ -137,7 +137,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. Azure AD-id
 
-    c. URL voor afmelden
+    c. Afmeldings-URL
 
     ![Peakon configuratie](common/configuresection.png)
 
@@ -173,9 +173,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
     ![Azure AD-gebruiker maken][100]
 
@@ -187,9 +187,9 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-    a. In de **naam** veld **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
   
-    b. In de **gebruikersnaam** veld, typt u **brittasimon@yourcompanydomain.extension**  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
@@ -201,7 +201,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 Voor het inschakelen van Azure AD-gebruikers zich aanmelden bij Peakon, moeten ze worden ingericht voor Peakon.  
 In het geval van Peakon is inrichten een handmatige taak.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u aan uw bedrijf Peakon site als een beheerder.
 
@@ -243,7 +243,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][203]
 
-5. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
 6. In de **toevoegen toewijzing** dialoogvenster, selecteer de **toewijzen** knop.
 

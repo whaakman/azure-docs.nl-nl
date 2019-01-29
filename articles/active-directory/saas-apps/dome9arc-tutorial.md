@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a313acecf0660e527508f28e1ea86485996cc4f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387851"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Zelfstudie: Azure Active Directory-integratie met Dome9 boog
 
@@ -30,7 +30,7 @@ Dome9 boog integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Dome9 boog heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij de boog Dome9 (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Dome9 boog, moet u de volgende
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -71,15 +71,15 @@ Voor het configureren van de integratie van Dome9 boog in Azure AD, moet u Dome9
 
     ![De blade Enterprise-toepassingen][2]
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Dome9 boog**, selecteer **Dome9 boog** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Dome9 boog in de lijst met resultaten](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Dome9 boog op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -87,13 +87,13 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Dome9 boog, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 3. **[Maak een testgebruiker Dome9 boog](#create-a-dome9-arc-test-user)**  : als u wilt een equivalent van Britta Simon Dome9 boog die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Dome9 boog.
 
@@ -101,7 +101,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **Dome9 boog** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
@@ -113,7 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. In de **id** tekstvak typt u de URL: `https://secure.dome9.com/`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
     > [!NOTE]
     > De waarde van uw bedrijf naam selecteert u in de beheerportal dome9, die later in de zelfstudie wordt uitgelegd.
@@ -122,12 +122,12 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Dome9 boog domein en URL's, eenmalige aanmelding informatie](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
+    Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
  
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Dome9 boog Client ondersteuningsteam](https://dome9.com/about/contact-us/) om deze waarden te verkrijgen. 
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de echte antwoord-URL en aanmeldings-URL. Neem contact op met [Dome9 boog Client ondersteuningsteam](https://dome9.com/about/contact-us/) om deze waarden te verkrijgen. 
 
-5. De toepassing Dome9 boog Software wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+5. De toepassing Dome9 boog Software wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. In de volgende schermopname ziet u een voorbeeld hiervan.
 
     ![Single Sign-On attb configureren](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
 
@@ -135,7 +135,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     | Naam kenmerk  | Waarde kenmerk | 
     | --------------- | --------------- | 
-    | memberOf | User.assignedroles |
+    | memberOf | user.assignedroles |
     
     a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -143,7 +143,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Single Sign-On bewerken attb configureren](./media/dome9arc-tutorial/tutorial_attribute_05.png)
 
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
     c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
 
@@ -154,11 +154,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
 
 8. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/dome9arc-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/dome9arc-tutorial/tutorial_general_400.png)
 
 9. Op de **Dome9 boog configuratie** sectie, klikt u op **configureren Dome9 boog** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
@@ -188,7 +188,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     e. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -235,7 +235,7 @@ Om Azure AD-gebruikers zich aanmelden bij Dome9 boog, moeten ze worden ingericht
 
     ![Werknemer toevoegen](./media/dome9arc-tutorial/user1.png)
 
-3. Klik op **gebruiker toevoegen**.
+3. Klik op **ADD USER**.
 
     ![Werknemer toevoegen](./media/dome9arc-tutorial/user2.png)
 
@@ -251,7 +251,7 @@ Om Azure AD-gebruikers zich aanmelden bij Dome9 boog, moeten ze worden ingericht
 
     d. Controleer **SSO gebruiker** als **op**.
 
-    e. Klik op **maken**.
+    e. Klik op **MAKEN**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

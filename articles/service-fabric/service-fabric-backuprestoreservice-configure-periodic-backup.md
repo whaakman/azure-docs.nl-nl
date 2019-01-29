@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322092"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193723"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informatie over periodieke back-upconfiguratie in Azure Service Fabric
 
@@ -219,9 +219,9 @@ Zodra de noodzaak van opschorting uitgevoerd is, kan klikt u vervolgens de gegev
 * Als de onderbreking is toegepast op een _partitie_, en vervolgens moet worden hervat met behulp van [partitie back-up hervatten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Verschil tussen de back-ups van de stand-by- en uitschakelen
-Schakel back-up moet worden gebruikt als back-ups niet langer vereist voor een bepaalde toepassing, service of partitie zijn. Één kan infact aanroepen uitschakelen back-upaanvraag samen met de parameter schone back-ups te zijn ' True ' wat betekent dat alle bestaande back-ups worden ook verwijderd. Echter, onderbreken moet worden gebruikt in scenario's waarbij een wil uitschakelen back-ups tijdelijk zoals wanneer de lokale schijf vol raakt of uploaden van back-up is mislukt vanwege bekende netwerkprobleem enzovoort. 
+Schakel back-up moet worden gebruikt als back-ups niet langer vereist voor een bepaalde toepassing, service of partitie zijn. Een kunt back-upaanvraag uitschakelen, samen met de parameter schone back-ups te zijn ' True ' wat betekent dat alle bestaande back-ups worden ook verwijderd aanroepen. Echter, onderbreken moet worden gebruikt in scenario's waarbij een wil uitschakelen back-ups tijdelijk zoals wanneer de lokale schijf vol raakt of uploaden van back-up is mislukt vanwege bekende netwerkprobleem enzovoort. 
 
-Hoewel uitschakelen alleen op een niveau kan worden aangeroepen die eerder is ingeschakeld voor back-up explicilty echter onderbreking kan worden toegepast op elk niveau die momenteel is ingeschakeld voor back-up ofwel rechtstreeks of via overname / hiërarchie. Als de back-up is ingeschakeld op het toepassingsniveau van een, kan een bijvoorbeeld uitschakelen aanroepen alleen op het toepassingsniveau van de echter onderbreken kan worden aangeroepen op de toepassing, een service of de partitie in die toepassing. 
+Hoewel uitschakelen alleen op een niveau kan worden aangeroepen die eerder is ingeschakeld voor back-up expliciet echter onderbreking kan worden toegepast op elk niveau die momenteel is ingeschakeld voor back-up ofwel rechtstreeks of via overname / hiërarchie. Als de back-up is ingeschakeld op het toepassingsniveau van een, kan een bijvoorbeeld uitschakelen aanroepen alleen op het toepassingsniveau van de echter onderbreken kan worden aangeroepen op de toepassing, een service of de partitie in die toepassing. 
 
 ## <a name="auto-restore-on-data-loss"></a>Automatisch herstel op verlies van gegevens
 De servicepartitie kan gegevens vanwege onverwachte fouten worden verbroken. Bijvoorbeeld, wordt de schijf voor twee van de drie replica's voor een partitie (met inbegrip van de primaire replica) beschadigd of wordt gewist.

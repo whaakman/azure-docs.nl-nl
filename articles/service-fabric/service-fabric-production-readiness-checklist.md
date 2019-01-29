@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: 4e6d5cb3191be7188c1a7c4753200cf049800f04
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ac263ef842c780e09576303f2f49e782612294c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436004"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159111"
 ---
 # <a name="production-readiness-checklist"></a>Controlelijst voor productiegereedheid
 
@@ -27,15 +27,15 @@ Uw toepassing en het cluster gereed is voor productieverkeer? Uitvoeren en teste
 
 
 ## <a name="pre-requisites-for-production"></a>Vereisten voor productie
-1. [Aanbevolen procedures van Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) zijn: 
+1. [Aanbevolen procedures van Azure Service Fabric-beveiliging](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) zijn: 
 * Gebruik van x.509-certificaten
 * Beveiligingsbeleid configureren
 * SSL configureren voor Azure Service Fabric
 * Netwerkisolatie en beveiliging met Azure Service Fabric gebruiken
 * Azure Key Vault instellen voor beveiliging
-* Gebruikers aan rollen toewijzen
+* Microsoft.Network/loadBalancersAssign gebruikers aan rollen
 * De beveiligingsconfiguratie Reliable Actors implementeren als de actoren programmeermodel
-2. Voor clusters met meer dan 20 kernen of 10 knooppunten, maakt u een toegewezen primaire knooppunttype van systeemservices. Voeg [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) reserveren van het primaire knooppunttype van systeemservices. 
+2. Voor clusters met meer dan 20 kernen of 10 knooppunten, maakt u een toegewezen primaire knooppunttype van systeemservices. Voeg [plaatsingsbeperkingen](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) reserveren van het primaire knooppunttype van systeemservices.
 3. Gebruik een D2v2 of een hogere SKU voor het primaire knooppunttype. Het verdient aanbeveling een SKU kiezen met ten minste 50 GB harde schijfcapaciteit.
 4. Productieclusters moeten [beveiligde](service-fabric-cluster-security.md). Zie voor een voorbeeld van het instellen van een beveiligd cluster [clustersjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Gebruik algemene namen voor certificaten en Vermijd het gebruik van zelf ondertekende certificaten.
 5. Voeg [resource beperkingen met betrekking tot containers en services](service-fabric-resource-governance.md), zodat ze niet meer dan 75% van knooppunt resources verbruiken. 
@@ -61,8 +61,8 @@ Als u de Service Fabric Reliable Services of Reliable Actors-programmeermodel ge
 22. Upgrade uitvoeren van toepassingen tijdens de lokale ontwikkeling om te controleren dat de servicecode van uw naleven van de annulering token in de `RunAsync` methode en aangepaste communicatielisteners te sluiten.
 23. Vermijd [veel voorkomende valkuilen](service-fabric-work-with-reliable-collections.md) bij het gebruik van betrouwbare verzamelingen.
 24. De prestaties van het geheugen .NET CLR tellers bij het uitvoeren van belastingtesten en controleren op hoge frequenties van garbagecollection of overmatig heap groei bewaken.
-25. Offline back-up van onderhouden [Reliable Services en Reliable Actors](service-fabric-reliable-services-backup-restore.md) en testen van het herstelproces. 
-
+25. Offline back-up van onderhouden [Reliable Services en Reliable Actors](service-fabric-reliable-services-backup-restore.md) en testen van het herstelproces.
+26. Het primaire NodeType virtuele Machine-exemplaren in het ideale geval moet gelijk zijn aan het minimale aantal voor uw Clusters betrouwbaarheidslaag; voorwaarden wanneer dat nodig is meer dan de minimale laag bevat: tijdelijk als verticaal schalen u bent van uw primaire NodeTypes Virtual Machine Scale de SKU.
 
 ## <a name="optional-best-practices"></a>Optionele procedures
 

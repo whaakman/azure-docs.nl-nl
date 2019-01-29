@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ada75f9ebe38615d17276c9e5b731924a45c8e75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307105"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148453"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Snelstartgids: Een query verzenden naar de Bing lokale bedrijven zoeken-API met behulp van Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Quickstart: Een query verzenden naar de Bing lokale bedrijven zoeken-API met behulp van Java
 
 Gebruik deze Quick Start om te beginnen met het verzenden van aanvragen naar de Bing lokale bedrijven zoeken-API, dit is een Cognitive Service van Azure. Terwijl deze eenvoudige toepassing is geschreven in Java, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen en parseren van JSON.
 
@@ -27,7 +27,7 @@ In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit 
 
 * De [Kit(JDK) voor Java-ontwikkeling](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing Zoeken-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. Moet u de toegangssleutel die is opgegeven tijdens het activeren van uw gratis proefversie.  Zie ook [Cognitive Services prijsinformatie: Bing zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing Zoeken-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die is verstrekt tijdens het activeren van uw gratis proefversie.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit de query voor een *hotel in Bellevue*.
 
@@ -35,7 +35,7 @@ In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit 
 
 De volgende code maakt een `WebRequest`, stelt u de koptekst van de toegang en wordt een querytekenreeks voor 'hotel in Bellevue' toegevoegd.  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
 
-````
+```
     // construct URL of search request (endpoint + query string)
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -47,7 +47,7 @@ De volgende code maakt een `WebRequest`, stelt u de koptekst van de toegang en w
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="run-the-complete-application"></a>De volledige toepassing uitvoeren
 
@@ -58,7 +58,7 @@ De Bing lokale bedrijven zoeken-API retourneert de resultaten van de Bing zoeken
 4. Vervang de waarde van subscriptionKey door een geldige toegangssleutel voor uw abonnement.
 5. Voer het programma uit.
 
-````
+```
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -162,9 +162,9 @@ public class LocalSearchCls {
         }
     }
 
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Snelstartgids voor lokale bedrijven zoeken](local-quickstart.md)
 - [Lokale bedrijven zoeken Node-quickstart](local-search-node-quickstart.md)
-- [Lokale bedrijven zoeken Python-snelstartgids](local-search-python-quickstart.md)
+- [Local Business Search Python quickstart](local-search-python-quickstart.md)

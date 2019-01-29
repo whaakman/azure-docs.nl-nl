@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 01/15/2019
+ms.date: 01/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 5c3a61eb4509742f8f5a8732f5d4e81cab59ff78
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: afdc71e5bbc70d3553adeb161e0bfc48a129b3c6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830268"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094084"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -53,8 +53,8 @@ ms.locfileid: "54830268"
                                                                     <p> 
                                                                         <a href="/azure/azure-monitor/overview">Wat is Azure Monitor?</a><br/>
                                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">Huisstijlwijzigingen voor</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/monitoring-data-sources">Bewaking van gegevensbronnen</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-service-providers">Overwegingen bij het ontwerp voor serviceproviders</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/data-sources">Bewaking van gegevensbronnen</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/service-providers">Overwegingen bij het ontwerp voor serviceproviders</a><br/>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -103,7 +103,7 @@ ms.locfileid: "54830268"
                                                     <h3>Bewaking</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-collection">Metrische gegevens en Logboeken</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">Tijd van beveiligingslogboek gegevens opnemen</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">Tijd van beveiligingslogboek gegevens opnemen</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>Gegevensbronnen</h3>
@@ -147,7 +147,7 @@ ms.locfileid: "54830268"
                                                         <br>
                                                         <h3>Reageren op incidenten</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified">Overzicht van waarschuwingen</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-overview">Overzicht van waarschuwingen</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Automatisch schalen</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-unified-log">Waarschuwingen voor logboeken</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-activity-log">Waarschuwingen voor activiteitenlogboeken</a><br/>

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 8d5e3060d31a260ddba2e7b23d468568ea9569c0
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c3b30085e1036e49706d73fd68b80221e5177d03
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078029"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095733"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning-integratie in Stream Analytics
 Stream Analytics ondersteunt de gebruiker gedefinieerde functies die met Azure Machine Learning-eindpunten aanroepen. REST-API-ondersteuning voor deze functie wordt beschreven in de [REST-API voor Stream Analytics-bibliotheek](https://msdn.microsoft.com/library/azure/dn835031.aspx). In dit artikel bevat aanvullende informatie die nodig zijn voor een succesvolle implementatie van deze mogelijkheid in Stream Analytics. Een zelfstudie is ook geboekt en is beschikbaar [hier](stream-analytics-machine-learning-integration-tutorial.md).
@@ -44,9 +44,9 @@ U kunt de taak voor het aanroepen van functies van de Azure machinetaal configur
 ## <a name="creating-a-udf-with-basic-properties"></a>Het maken van een UDF met basiseigenschappen
 Als u bijvoorbeeld de volgende voorbeeldcode wordt een scalaire UDF met de naam *newudf* die wordt gebonden aan een Azure Machine Learning-eindpunt. Houd er rekening mee dat de *eindpunt* (service-URI) kunt u vinden op de API help-pagina voor de gekozen service en de *apiKey* vindt u op de hoofdpagina van Services.
 
-````
+```
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
-````
+```
 
 Voorbeeld van de aanvraag hoofdtekst:
 
@@ -71,9 +71,9 @@ Voorbeeld van de aanvraag hoofdtekst:
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Aanroep RetrieveDefaultDefinition-eindpunt voor standaard UDF
 Zodra het basisproject UDF is gemaakt wordt de volledige definitie van de UDF nodig. Het eindpunt van de RetrieveDefaultDefinition krijgt u de standaarddefinitie voor een scalaire functie die is gekoppeld aan een Azure Machine Learning-eindpunt. De nettolading van de onderstaande moet u de standaard UDF-definitie voor een scalaire functie die is gekoppeld aan een Azure Machine Learning-eindpunt ophalen. Hierin worden de werkelijke eindpunt niet opgegeven als deze al is opgegeven tijdens de PUT-aanvraag. Stream Analytics roept het eindpunt dat is opgegeven in de aanvraag als het expliciet is opgegeven. Als deze wordt gebruikt met een oorspronkelijk waarnaar wordt verwezen. De UDF-wordt één parameter (een zin) en retourneert één uitvoer van het type tekenreeks tekenreeks hier wat het label 'gevoel' voor de zin dat aangeeft.
 
-````
+```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
-````
+```
 
 Voorbeeld van de aanvraag hoofdtekst:
 
@@ -130,9 +130,9 @@ Een voorbeeld van uitvoer van deze wilt zoekt u naar iets dat hieronder.
 ## <a name="patch-udf-with-the-response"></a>Patch UDF met de reactie
 De UDF moet nu worden gevuld met het vorige antwoord, zoals hieronder wordt weergegeven.
 
-````
+```
 PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
-````
+```
 
 Aanvraagtekst (uitvoer van de RetrieveDefaultDefinition):
 

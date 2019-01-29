@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Configuratie probleemoplossing Network Security Group | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Configuratie voor het oplossen van Network Security Group | Microsoft Docs'
 description: Oplossen van problemen met NSG-configuratie voor Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -8,25 +8,25 @@ manager: ''
 editor: ''
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6e7d025e9e83f5511fce25d0c24e4da3b04d7e54
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957535"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181891"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Ongeldige configuratie van netwerken voor uw beheerde domein oplossen
 Dit artikel helpt u problemen op te lossen netwerkgerelateerde configuratiefouten die in het volgende bericht weergegeven resulteren:
 
 ## <a name="alert-aadds104-network-error"></a>Waarschuwing AADDS104: Netwerkfout
-**Waarschuwing:** *Microsoft kan niet worden bereikt van de domeincontrollers voor dit beheerde domein is. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke reden is als er een door de gebruiker gedefinieerde route die het inkomende verkeer vanaf internet blokkeert.*
+**Waarschuwing:** *Microsoft kan niet tot de domeincontrollers voor dit beheerde domein. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke reden is als er een door de gebruiker gedefinieerde route die het inkomende verkeer vanaf internet blokkeert.*
 
 Ongeldige NSG-configuraties zijn de meest voorkomende oorzaak van netwerkfouten voor Azure AD Domain Services. De Netwerkbeveiligingsgroep (NSG) is geconfigureerd voor het virtuele netwerk toegang tot geven moet [specifieke poorten](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Als deze poorten worden geblokkeerd, kan Microsoft controleren of bijwerken van uw beheerde domein. Bovendien wordt de synchronisatie tussen uw Azure AD-directory en uw beheerde domein beïnvloed. Tijdens het maken van uw NSG, laat u deze poorten open zijn om te voorkomen dat wordt onderbroken.
 
@@ -38,10 +38,10 @@ Ongeldige NSG-configuraties zijn de meest voorkomende oorzaak van netwerkfouten 
 4. Controleer de regels op locatie en bepalen welke regels worden blokkeert de toegang tot [deze poorten](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
 5. De NSG om te voldoen door de regel wordt verwijderd, een regel toe te voegen of het maken van een nieuwe NSG volledig bewerken. Stappen om [toevoegen van een regel](#add-a-rule-to-a-network-security-group-using-the-azure-portal) of [maken van een nieuwe, voldoen aan het beleid NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) zijn hieronder
 
-## <a name="sample-nsg"></a>Voorbeeld van NSG
+## <a name="sample-nsg"></a>Sample NSG
 De volgende tabel ziet u een voorbeeld van een Netwerkbeveiligingsgroep die uw beheerde domein beveiligen houdt terwijl Microsoft om te controleren, beheren en bijwerken van gegevens.
 
-![Voorbeeld van NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
+![sample NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 >[!NOTE]
 > Azure AD Domain Services vereist onbeperkte uitgaande toegang van het virtuele netwerk. We raden aan geen te maken van een extra NSG-regel waarmee uitgaande toegang voor het virtuele netwerk wordt beperkt.

@@ -8,19 +8,19 @@ writer: zhchia
 manager: beatrizd-msft
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: ce27a6f78dfdeb00e1e7b2c82c928d28f1504a1d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 91271888adf8e467e807c409f445fe85e9c3aa22
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347514"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169889"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Zelfstudie: BlueJeans configureren voor het automatisch inrichten van gebruikers
 
@@ -29,7 +29,7 @@ Het doel van deze zelfstudie is ter illustratie van de stappen om te worden uitg
 > [!NOTE]
 > Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt:
 
@@ -40,14 +40,14 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al het volgende hebt
 > [!NOTE]
 > De integratie wordt ingericht op Azure AD is afhankelijk van de [BlueJeans API](https://BlueJeans.github.io/developer), die beschikbaar zijn voor teams BlueJeans Standard-abonnement of hoger is.
 
-## <a name="adding-bluejeans-from-the-gallery"></a>BlueJeans uit de galerie toe te voegen
+## <a name="adding-bluejeans-from-the-gallery"></a>BlueJeans toevoegen vanuit de galerie
 Voordat u BlueJeans configureert voor het automatisch gebruikers inrichten met Azure AD, moet u BlueJeans uit de galerie met Azure AD toevoegen aan uw lijst met beheerde SaaS-toepassingen.
 
 **Als u wilt toevoegen BlueJeans uit de galerie met Azure AD, moet u de volgende stappen uitvoeren:**
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op de **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 2. Navigeer naar **bedrijfstoepassingen** > **alle toepassingen**.
 
@@ -55,17 +55,17 @@ Voordat u BlueJeans configureert voor het automatisch gebruikers inrichten met A
     
 3. Als u wilt toevoegen BlueJeans, klikt u op de **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **BlueJeans**.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansAppSearch.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansAppSearch.png)
 
 5. Selecteer in het deelvenster resultaten **BlueJeans**, en klik vervolgens op de **toevoegen** knop BlueJeans toevoegen aan uw lijst met SaaS-toepassingen.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansAppSearchResults.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansAppSearchResults.png)
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansAppCreate.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansAppCreate.png)
     
 ## <a name="assigning-users-to-bluejeans"></a>Gebruikers toewijzen aan BlueJeans
 
@@ -94,15 +94,15 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 2. Selecteer BlueJeans uit de lijst met SaaS-toepassingen.
  
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/Bluejeans2.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/Bluejeans2.png)
 
 3. Selecteer de **Provisioning** tabblad.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
 4. Stel de **Inrichtingsmodus** naar **automatische**.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Admin Username**, en **beheerderswachtwoord** van uw account BlueJeans. Voorbeelden van deze waarden zijn:
 
@@ -112,35 +112,35 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-inricht
 
 6. Bij het invullen van de velden die in stap 5 wordt weergegeven, klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met BlueJeans. Als de verbinding is mislukt, zorg ervoor dat uw account BlueJeans beheerdersmachtigingen heeft en probeer het opnieuw.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
 7. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet de inrichting fout ontvangen en schakel het selectievakje in - **een e-mailmelding verzenden wanneer een foutoptreedt**.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
 8. Klik op **Opslaan**.
 
 9. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers aan BlueJeans**.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
 10. Controleer de kenmerken van de gebruiker die van Azure AD worden gesynchroniseerd naar BlueJeans in de **kenmerk toewijzing** sectie. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in BlueJeans voor update-bewerkingen. Selecteer de **opslaan** knop wijzigingen doorvoeren.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
 11. Als u wilt configureren bereikfilters, raadpleegt u de volgende instructies in de [Scoping filter zelfstudie](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Wijzigen zodat de Azure AD-inrichtingsservice voor BlueJeans de **Inrichtingsstatus** naar **op** in de **instellingen** sectie.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
 13. De gebruikers en/of groepen die u wilt definiëren voor het inrichten van BlueJeans door het kiezen van de gewenste waarden in **bereik** in de **instellingen** sectie.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 
 14. Wanneer u klaar om in te richten bent, klikt u op **opslaan**.
 
-    ![BlueJeans inrichten](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+    ![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
 
 Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers en/of groepen die zijn gedefinieerd **bereik** in de **instellingen** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de Azure AD-inrichtingsservice wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van rapport van de activiteit, die alle acties die worden uitgevoerd door de Azure AD-inrichtingsservice op BlueJeans beschrijft.
 
@@ -150,7 +150,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 
 * Bluejeans is niet toegestaan voor gebruikersnamen die meer dan 30 tekens bevatten.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 977466d77bee2d6fe49c0438aa1d9d4489f8eb5f
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fd2d9bd325d79a1fd8aa0da74da64f6ba98decda
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888223"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101053"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatisch schalen van Azure HDInsight-clusters (Preview)
 
@@ -22,7 +22,7 @@ Azure HDInsight-cluster voor automatisch schalen functie het aantal worker-knoop
 
 ## <a name="getting-started"></a>Aan de slag
 
-### <a name="create-cluster-with-azure-portal"></a>Cluster maken met Azure portal
+### <a name="create-a-cluster-with-the-azure-portal"></a>Een cluster maken met de Azure-portal
 
 > [!Note]
 > Automatisch schalen is momenteel alleen ondersteund voor Azure HDInsight Hive, MapReduce en Spark-clusters versie 3.6.
@@ -48,7 +48,7 @@ Uw abonnement heeft een quotum van de capaciteit voor elke regio. Het totale aan
 > [!Note]  
 > Als u het totaal aantal core limiet overschrijdt, ontvangt u een foutmelding dat "het maximale aantal knooppunt overschrijdt de beschikbare kerngeheugens gebruikt in deze regio Kies een andere regio of neem contact op met de ondersteuning om het quotum te verhogen."
 
-### <a name="create-cluster-with-an-resource-manager-template"></a>Cluster maken met een Resource Manager-sjabloon
+### <a name="create-a-cluster-with-a-resource-manager-template"></a>Een cluster maken met Resource Manager-sjabloon
 
 HDInsight-cluster maken stappen met behulp van Resource Manager-sjablonen kunnen u vinden op [Apache Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  Wanneer u een HDInsight-cluster met een Azure Resource Manager-sjabloon maakt, moet u de volgende instellingen in de sectie "computeProfile"-"workernode" toevoegen en dienovereenkomstig te bewerken:
 
@@ -74,7 +74,7 @@ HDInsight-cluster maken stappen met behulp van Resource Manager-sjablonen kunnen
 }
 ```
 
-### <a name="enable-and-disabling-autoscale-for-a-running-cluster"></a>Automatisch schalen voor een actieve cluster uitschakelen en inschakelen
+### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>In- of uitschakelen voor automatisch schalen voor een actieve cluster
 
 Automatisch schalen inschakelen voor een actieve cluster wordt niet ondersteund tijdens de private preview. Dit moet worden ingeschakeld tijdens het maken van clusters.
 
@@ -82,7 +82,7 @@ Automatisch schalen uitschakelen of wijzigen van instellingen voor automatisch s
 
 ## <a name="monitoring"></a>Bewaking
 
-U kunt de schaal cluster omhoog en omlaag geschiedenis als onderdeel van de cluster-metrische gegevens weergeven. U kunt alle schaalacties lijst gedurende de laatste dag, week of een langere periode.
+U kunt de cluster omhoog schalen en schaal omlaag geschiedenis als onderdeel van de cluster-metrische gegevens weergeven. U kunt ook alle vergroten/verkleinen acties weergeven gedurende de laatste dag, week of een langere periode.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 

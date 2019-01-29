@@ -3,23 +3,23 @@ title: Delen van uw aangepaste zoekopdrachten - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Beschrijft hoe u voor het delen van een exemplaar voor aangepast zoeken.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: b6834681f2b6478943c43e44d694ae278ddd4682
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 8c984e7c4b85940d457955b1e3cba93d7eb964e5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815916"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183574"
 ---
 # <a name="share-your-custom-search-instance"></a>Uw aangepaste zoekinstantie delen
 
-U kunt eenvoudig toestaan gezamenlijke bewerken en het testen van uw exemplaar door met leden van uw team te delen. U kunt uw exemplaar delen met iedereen met hun e-mailadres. Voor het delen van een exemplaar:
+U kunt het gezamenlijk bewerken en testen van uw exemplaar eenvoudig toestaan door het te delen met leden van uw team. U kunt uw exemplaar delen met iedereen met hun e-mailadres. Voor het delen van een exemplaar:
 
 - Aanmelden bij [aangepast zoeken](https://customsearch.ai)
 - Selecteer een exemplaar voor aangepast zoeken voor

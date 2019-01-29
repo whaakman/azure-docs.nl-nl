@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046651"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170416"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Een nieuw rapport maken van een gegevensset in Power BI-Werkruimteverzamelingen
 
@@ -32,7 +32,7 @@ Bij het maken van een ingesloten rapport, zijn de tokens die zijn uitgegeven voo
 
 Power BI Workspace Collections gebruiken een ingesloten token, dat HMAC is ondertekend JSON-Webtokens. De tokens zijn ondertekend door de toegangssleutel van uw Power BI-Werkruimteverzameling. Sluit tokens, standaard, worden gebruikt voor alleen-lezen toegang tot een rapport insluiten in een toepassing. Sluit tokens worden uitgegeven voor een specifiek rapport en moet worden gekoppeld aan een ingesloten URL.
 
-Toegangstokens moeten worden gemaakt op de server als de toegangssleutels voor het teken/versleutelen van de tokens worden gebruikt. Zie voor meer informatie over het maken van een toegangstoken [Authenticating en autoriseren met Power BI Workspace Collections](app-token-flow.md). U kunt ook bekijken de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methode. Hier volgt een voorbeeld van hoe dit eruit met de .NET SDK voor Power BI.
+Toegangstokens moeten worden gemaakt op de server als de toegangssleutels voor het teken/versleutelen van de tokens worden gebruikt. Zie voor meer informatie over het maken van een toegangstoken [Authenticating en autoriseren met Power BI Workspace Collections](app-token-flow.md). U kunt ook bekijken de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) methode. Hier volgt een voorbeeld van hoe dit eruit met de .NET SDK voor Power BI.
 
 In dit voorbeeld hebben we onze gegevensset-ID die we maken van het nieuwe rapport willen op. Er moet ook de bereiken voor toevoegen *Dataset.Read en Workspace.Report.Create*.
 

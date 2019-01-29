@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Azure virtuele machines herstellen met REST-API'
+title: 'Azure Backup: Herstellen van virtuele Azure-machines met behulp van REST-API'
 description: bewerkingen voor het herstellen van Azure VM Backup met behulp van REST-API beheren
 services: backup
 author: pvrk
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289727"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100193"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Herstellen van Azure Virtual machines met behulp van REST-API
 
@@ -37,7 +37,7 @@ De *ophalen* URI heeft de vereiste parameters. Er is niet nodig voor een aanvull
 
 ### <a name="responses"></a>Antwoorden
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Beschrijving  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -127,9 +127,9 @@ Als er een nodig om aan te passen van het maken van een virtuele machine van de 
 
 U activeert op deze manier is een *POST* aanvraag. Raadpleeg voor meer informatie over het terugzetten van schijven, de [REST-API 'terugzetbewerking kan worden geactiveerd'](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 De `{containerName}` en `{protectedItemName}` zijn samengesteld [hier](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` 'Azure' is en de `{recoveryPointId}` is de `{name}` veld van het herstelpunt vermeld [hierboven](#example-response).
 
@@ -137,7 +137,7 @@ De `{containerName}` en `{protectedItemName}` zijn samengesteld [hier](backup-az
 
 Hier volgen voor het activeren van een schijf herstellen vanaf een back-up van virtuele Azure-machine, de onderdelen van de aanvraagtekst.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Beschrijving  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ Raadpleeg voor de volledige lijst met definities van de aanvraagtekst en andere 
 
 De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vereist voor het activeren van een schijf herstellen.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,15 +163,15 @@ De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vere
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>Antwoord
 
 Het activeren van een schijf terugzetten is een [asynchrone bewerking](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Dit betekent dat deze bewerking wordt gemaakt van een andere bewerking waardoor moet afzonderlijk worden bijgehouden.
 
-Deze twee antwoorden retourneert: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en klik vervolgens op 200 (OK) wanneer deze bewerking is voltooid.
+Deze retourneert twee antwoorden: 202 (aanvaard) wanneer een andere bewerking wordt gemaakt en vervolgens 200 (OK) wanneer deze bewerking is voltooid.
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Beschrijving  |
 |---------|---------|---------|
 |202 geaccepteerd     |         |     Geaccepteerd    |
 
@@ -243,7 +243,7 @@ Zodra de langlopende taak voltooid is, zijn de schijven en de configuratie van d
 
 De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vereist voor het activeren van een virtuele machine herstellen.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ De hoofdtekst van de volgende aanvraag definieert de eigenschappen die zijn vere
       }
     }
 }
-````
+```
 
 Het antwoord moet worden verwerkt op dezelfde manier als [hierboven is uitgelegd voor het herstellen van schijven](#response).
 

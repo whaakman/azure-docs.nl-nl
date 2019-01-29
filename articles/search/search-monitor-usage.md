@@ -1,6 +1,6 @@
 ---
-title: Resource gebruiks- en statistieken controleren voor een search-service - Azure Search
-description: Query metrische gegevens van activiteiten, resourceverbruik en andere systeemgegevens ophalen uit een Azure Search-service.
+title: Gebruiks- en metrische gegevens voor resources voor een search-service - Azure Search bewaken
+description: Logboekregistratie inschakelen, metrische gegevens van de query activiteiten, Resourcegebruik en andere systeemgegevens ophalen uit een Azure Search-service.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: af2a9cd7f834f5c6f70a78d94e8826de2584127d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076369"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093237"
 ---
-# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure Search-service in Azure portal controleren
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Resource verbruik en query-activiteiten in Azure Search controleren
 
-U kunt systeemgegevens over Resourcegebruik, plus query metrische gegevens zoals query's Per seconde (QPS), latentie van query en het percentage aanvragen die zijn beperkt weergeven op de pagina overzicht van uw Azure Search-service. Bovendien kunt u de portal gebruikmaken van een bereik van de bewakingsmogelijkheden in het Azure-platform om meer gedetailleerde gegevens te verzamelen. 
+U kunt systeemgegevens over brongebruik, query metrische gegevens en hoeveel quotum is beschikbaar voor het maken van meer indexen, Indexeerfuncties en gegevensbronnen weergeven op de pagina overzicht van uw Azure Search-service. U kunt de portal ook gebruiken om log analytics of een andere resource die wordt gebruikt voor het verzamelen van permanente gegevens te configureren. 
 
-In dit artikel wordt geïdentificeerd en vergelijkt de beschikbare opties voor logboekregistratie van Azure Search-bewerkingen. Deze handleiding bevat instructies voor het inschakelen van logboekregistratie en logboek-opslag en over toegang tot informatie van de service- en gebruikersactiviteit.
+Instellen van de logboeken is handig voor selfservice-diagnostiek en behoud operationele geschiedenis. Intern, logboeken bevinden zich op de back-end voor een korte tijd, voldoende voor onderzoek en analyse als u een ondersteuningsticket. Als u wilt de controle- en toegangsbeheer om informatie te registreren, moet u instellen van een van de oplossingen die in dit artikel beschreven.
 
-Instellen van de logboeken is handig voor selfservice-diagnostische gegevens en een geschiedenis van servicebewerkingen te behouden. Intern, logboeken voor een korte tijd, voldoende voor onderzoek en analyse bestaat als u een ondersteuningsticket. Als u wilt voor het beheren van de opslag van gegevens voor uw service, moet u instellen van een van de oplossingen die in dit artikel beschreven.
+In dit artikel leert u over de controle-opties, over het inschakelen van logboekregistratie en meld u opslag en hoe u logboekinhoud weer te geven.
 
 ## <a name="metrics-at-a-glance"></a>Metrische gegevens in een oogopslag
 
-**Gebruik** en **bewaking** secties die zijn ingebouwd in overzicht opslagverbruik visualiseren en uitvoering van metrische gegevens op te vragen. Deze informatie is beschikbaar zodra u begint met de service, zonder configuratie vereist. Deze pagina wordt vernieuwd om de paar minuten. Als u bij het voltooien van beslissingen over [welke laag moet worden gebruikt voor werkbelastingen voor productie](search-sku-tier.md), of [aanpassen van het aantal actieve replica's en partities](search-capacity-planning.md), deze metrische gegevens kan u helpen bij deze beslissingen komen door die laat zien u hoe snel de resources worden gebruikt en hoe goed de huidige configuratie van de bestaande belasting verwerkt.
+**Gebruik** en **bewaking** secties die zijn ingebouwd in het overzicht van het rapport op resourceverbruik pagina en uitvoering van metrische gegevens op te vragen. Deze informatie is beschikbaar zodra u begint met de service, zonder configuratie vereist. Deze pagina wordt vernieuwd om de paar minuten. Als u bij het voltooien van beslissingen over [welke laag moet worden gebruikt voor werkbelastingen voor productie](search-sku-tier.md), of [aanpassen van het aantal actieve replica's en partities](search-capacity-planning.md), deze metrische gegevens kan u helpen bij deze beslissingen komen door die laat zien u hoe snel de resources worden gebruikt en hoe goed de huidige configuratie van de bestaande belasting verwerkt.
 
 De **gebruik** tabblad ziet u de beschikbaarheid van ten opzichte van de huidige [limieten](search-limits-quotas-capacity.md). De volgende afbeelding is voor de gratis service, die beperkt 3-objecten van elk type en 50 MB aan opslagruimte tot wordt. Een Basic- of Standard-service heeft een hogere limieten en als u de aantallen partitie verhoogt, maximumopslag toeneemt proportioneel.
 
@@ -65,13 +65,13 @@ De volgende tabel vergelijkt de opties voor het opslaan van Logboeken en uitgebr
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de onderstaande schema's. Gebeurtenissen worden vastgelegd in een Blob-container en opgeslagen in de JSON-bestanden. Een JSON-editor gebruiken om de inhoud van bestand weer te geven.|
 | [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Geregistreerde gebeurtenissen en metrische gegevens voor query's, op basis van de schema's beschreven in dit artikel. Kies deze optie als een alternatieve data collection-Services voor zeer grote logboeken. |
 
+Log Analytics- en Blob-opslag zijn beschikbaar als een gratis gedeelde service zodat u dit zonder kosten voor de levensduur van uw Azure-abonnement uitproberen kunt. Application Insights is gratis te registreren en gebruiken, zolang de grootte van toepassing onder bepaalde limieten is (Zie de [pagina met prijzen](https://azure.microsoft.com/ricing/details/monitor/) voor meer informatie).
 
-
-Log Analytics- en Blob-opslag zijn beschikbaar als gratis gedeelde service zodat u dit zonder kosten voor de levensduur van uw Azure-abonnement uitproberen kunt. De volgende sectie helpt u door de stappen voor het inschakelen en gebruiken van Azure Blob-opslag voor het verzamelen en toegang krijgen tot logboekgegevens die zijn gemaakt door Azure Search-bewerkingen.
+De volgende sectie helpt u door de stappen voor het inschakelen en gebruiken van Azure Blob-opslag voor het verzamelen en toegang krijgen tot logboekgegevens die zijn gemaakt door Azure Search-bewerkingen.
 
 ## <a name="enable-logging"></a>Logboekregistratie inschakelen
 
-Logboekregistratie voor indexeren en query-werkbelastingen is standaard uitgeschakeld en is afhankelijk van aanvullende oplossingen voor infrastructuur voor logboekregistratie en externe langetermijnopslag. Zelfstandig gebruikt is de enige persistente gegevens in Azure Search indexen, zodat logboeken ergens anders moeten worden opgeslagen.
+Logboekregistratie voor indexeren en query-werkbelastingen is standaard uitgeschakeld en is afhankelijk van aanvullende oplossingen voor infrastructuur voor logboekregistratie en externe langetermijnopslag. Zelfstandig gebruikt zijn de enige persistente gegevens in Azure Search de objecten maakt en beheert, zodat logboeken ergens anders moeten worden opgeslagen.
 
 In deze sectie leert u hoe u Blob storage gebruiken voor het opslaan van gegevens in het logboek gebeurtenissen en metrische gegevens.
 
@@ -91,12 +91,14 @@ In deze sectie leert u hoe u Blob storage gebruiken voor het opslaan van gegeven
 
 5. Test registratie door te maken of verwijderen van objecten (maakt gebeurtenissen vastleggen in logboek) en door het verzenden van query's (genereert metrische gegevens). 
 
-Logboekregistratie is ingeschakeld wanneer u het profiel opslaan, containers worden alleen gemaakt wanneer er een gebeurtenis in het logboek of de meting. Het kan enige tijd duren voor de containers worden weergegeven. Wanneer de gegevens worden gekopieerd naar een opslagaccount, worden de gegevens zijn opgemaakt als JSON en in twee containers geplaatst:
+Logboekregistratie is ingeschakeld wanneer u het profiel opslaan. Containers worden alleen gemaakt wanneer er een activiteit of meting. Wanneer de gegevens worden gekopieerd naar een opslagaccount, worden de gegevens zijn opgemaakt als JSON en in twee containers geplaatst:
 
 * Insights-logs-operationlogs: voor zoeken in logboeken over webverkeer
 * Insights-metrics-pt1m: voor metrische gegevens
 
-U kunt [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) of een andere JSON-editor om de bestanden weer te geven. Er is een blob, per uur, per container.
+Het duurt een uur voordat de containers wordt weergegeven in de Blob-opslag. Er is een blob, per uur, per container. 
+
+U kunt [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) of een andere JSON-editor om de bestanden weer te geven. 
 
 ### <a name="example-path"></a>Van voorbeeldpad
 
@@ -163,7 +165,7 @@ U kunt elke JSON-editor gebruiken om het logboekbestand weer te geven. Als u nie
 
 Zodra het bestand is gedownload, opent u het in een JSON-editor om de inhoud weer te geven.
 
-## <a name="get-sys-info-apis"></a>Sys-info-API's ophalen
+## <a name="use-system-apis"></a>Systeem-API's gebruiken
 Zowel de Azure Search REST-API en de .NET SDK bieden programmatisch toegang tot metrische gegevens, index en indexeerfunctie servicegegevens en document telt.
 
 * [Statistieken over Services ophalen](/rest/api/searchservice/get-service-statistics)

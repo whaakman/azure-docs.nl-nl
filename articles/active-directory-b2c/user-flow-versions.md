@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: eed5b27a2bdcc30aaf6befc19c5974936cabf849
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: b3750768eb7346938faec7e3c1ead232923a68bd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854155"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159485"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Gebruiker stroom versies in Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Nieuwe gebruikersstromen worden toegevoegd als nieuwe versies. Gebruikersstromen
 
 ## <a name="v1"></a>V1
 
-| Gebruikersstroom | Aanbevolen | Description |
+| Gebruikersstroom | Aanbevolen | Beschrijving |
 | --------- | ----------- | ----------- |
 | Wachtwoord opnieuw instellen | Ja | Kan een gebruiker een nieuw wachtwoord kiezen nadat u hebt gecontroleerd van hun e-mailadres. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>[Vereisten voor wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | Profiel bewerken | Ja | Kan een gebruiker configureren hun gebruikerskenmerken. Met dit beleid kunt configureren u: <ul><li>[Levensduur van token](active-directory-b2c-reference-tokens.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>Sessiegedrag</li></ul> |
@@ -39,7 +39,7 @@ Nieuwe gebruikersstromen worden toegevoegd als nieuwe versies. Gebruikersstromen
 
 ## <a name="v2"></a>V2
 
-| Gebruikersstroom | Aanbevolen | Description |
+| Gebruikersstroom | Aanbevolen | Beschrijving |
 | --------- | ----------- | ----------- |
 | Wachtwoord opnieuw instellen v2 | Nee | Kan een gebruiker een nieuw wachtwoord kiezen nadat u hebt gecontroleerd van hun e-mailadres. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>[Vereisten voor wachtwoordcomplexiteit](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | Aanmelden v2 | Nee | Kan een gebruiker zich aanmeldt bij hun account. Met dit beleid kunt configureren u: <ul><li>[Multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Levensduur van token](active-directory-b2c-reference-tokens.md)</li><li>Instellingen voor tokencompatibiliteit</li><li>Sessiegedrag</li><li>[Leeftijdsbeperking](basic-age-gating.md)</li><li>Aanpassing van de aanmeldingspagina opgeven</li></ul> |

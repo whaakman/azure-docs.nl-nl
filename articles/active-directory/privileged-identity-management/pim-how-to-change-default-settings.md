@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 28958627ee66d0586fabff30aa3e5d041fb7dd80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835162"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196749"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Azure AD directory rolinstellingen in PIM configureren
 
@@ -32,7 +32,7 @@ Volg deze stappen om de instellingen voor een Azure AD-directory-rol te openen.
 
 1. Klik op **Azure AD-maprollen**.
 
-1. Klik op **instellingen**.
+1. Klik op **Instellingen**.
 
     ![Azure AD-maprollen - instellingen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
@@ -77,7 +77,7 @@ Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers h
   * Voorwaardelijke toegang beheerder
   * CRM-servicebeheerder
   * Toegangsfiatteur voor Klanten-lockbox
-  * Adreslijstschrijvers
+  * Schrijvers van mappen
   * Exchange-beheerder
   * Globale beheerder
   * Information Protection-beheerder
@@ -85,7 +85,7 @@ Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers h
   * Servicebeheerder van Power BI
   * Beheerder met bevoorrechte rol
   * Beveiligingsbeheerder
-  * SharePoint Service-beheerder
+  * SharePoint-servicebeheerder
   * Skype voor Bedrijven-beheerder
   * Gebruikerbeheerder
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 1ff63dddfa21ba92bb3da44c6711b64e8ad3f1b6
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a5e6d63627764ff64ac5e0621e271140ab3ed828
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913840"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099812"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procedures: Risico-beleid configureren in Azure Active Directory identity protection (vernieuwd)
 
@@ -83,7 +83,7 @@ Als u wilt om MFA te vereisen voor riskante aanmeldingen, moet u:
 
 1. Schakel de [registratiebeleid voor meervoudige verificatie](#multi-factor-authentication-registration-policy) voor de betreffende gebruikers.
 
-2. Vereisen dat de betrokken gebruikers aan te melden een niet-riskante-sessie met het uitvoeren van een MFA-registratie.
+2. Vereisen dat u de betrokken gebruikers om aan te melden in een niet-riskante-sessie uit te voeren een MFA-registratie.
 
 Deze stappen uit te voeren, zorgt u ervoor dat meervoudige verificatie is vereist voor een riskante aanmelding.
 

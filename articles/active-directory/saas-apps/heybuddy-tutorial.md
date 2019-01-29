@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d51b5af6-018e-4678-9a3f-b70438394f67
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ef345d866de16b856d3c8b56fa086b83b74ae0f
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 123b74298ebb01e8ebcfd70d023b4e71a879e7f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289762"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197888"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Zelfstudie: Azure Active Directory-integratie met HeyBuddy
 
@@ -30,7 +30,7 @@ HeyBuddy integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot HeyBuddy heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij HeyBuddy (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met HeyBuddy, moet u de volgende i
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -70,15 +70,15 @@ Voor het configureren van de integratie van HeyBuddy in Azure AD, moet u HeyBudd
 
     ![De blade Enterprise-toepassingen][2]
 
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **HeyBuddy**, selecteer **HeyBuddy** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![HeyBuddy in de lijst met resultaten](./media/heybuddy-tutorial/tutorial_heybuddy_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met HeyBuddy op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -100,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **HeyBuddy** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
 
@@ -110,7 +110,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](common/editconfigure.png)
 
-4. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit:
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
     ![HeyBuddy domein en URL's, eenmalige aanmelding informatie](./media/heybuddy-tutorial/tutorial_heybuddy_url.png)
 
@@ -119,9 +119,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **id (entiteits-ID)** tekstvak, een URL met behulp van het volgende patroon: `YourCompanyInstanceofHeyBuddy`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id (entiteits-ID). De `Entity ID` in de aanmeldings-url is automatisch gegenereerd voor elke organisatie. Neem contact op met [HeyBuddy Client ondersteuningsteam](mailto:support@heybuddy.com) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke aanmeldings-URL en -id (entiteits-ID). De `Entity ID` in de aanmeldings-url is automatisch gegenereerd voor elke organisatie. Neem contact op met [HeyBuddy Client ondersteuningsteam](mailto:support@heybuddy.com) om deze waarden te verkrijgen.
 
-5. HeyBuddy toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken en Claims** sectie op de pagina van de toepassing-integratie. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **gebruikerskenmerken en Claims** dialoogvenster.
+5. HeyBuddy toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit de sectie **Gebruikerskenmerken en claims** op de integratiepagina van de toepassing-beheren. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **gebruikerskenmerken en Claims** dialoogvenster.
 
     ![image](./media/heybuddy-tutorial/tutorial_heybuddy_attribute.png)
 
@@ -130,37 +130,37 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 6. In de **gebruikersclaims** sectie op de **gebruikerskenmerken en Claims** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
     
-    | Naam  | Kenmerk van de gegevensbron  |
+    | Name  | Bronkenmerk  |
     | --------------- | --------------- |
-    | Rollen               | User.assignedroles |
+    | Rollen               | user.assignedroles |
 
-    a. Klik op **toevoegen nieuwe claim** openen de **gebruikersclaims beheren** dialoogvenster.
+    a. Klik op **Nieuwe claim toevoegen** om het dialoogvenster **Gebruikersclaims beheren** te openen.
 
     ![image](./common/new_save_attribute.png)
 
     ![image](./common/new_attribute_details.png)
 
-    b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
+    b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
     c. Laat de **Namespace** waarde leeg.
 
-    d. Selecteer de bron als **kenmerk**.
+    d. Selecteer Bron bij **Kenmerk**.
 
-    e. Uit de **bronkenmerk** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    e. Typ de kenmerkwaarde voor die rij in de lijst met **bronkenmerken**.
 
     f. Klik op **Opslaan**.
 
 7. Op de **SAML-handtekeningcertificaat** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op de kopiëren **pictogram** kopiëren **App federatieve metagegevens Url**  en plak deze in Kladblok.
 
-    ![De downloadkoppeling certificaat](./media/heybuddy-tutorial/tutorial_heybuddy_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/heybuddy-tutorial/tutorial_heybuddy_certificate.png) 
 
-8. Het configureren van eenmalige aanmelding op **HeyBuddy** zijde, moet u voor het verzenden van de gekopieerde **App-Url voor federatieve metagegevens** naar [HeyBuddy ondersteuningsteam](mailto:support@heybuddy.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+8. Het configureren van eenmalige aanmelding op **HeyBuddy** zijde, moet u voor het verzenden van de gekopieerde **App-Url voor federatieve metagegevens** naar [HeyBuddy ondersteuningsteam](mailto:support@heybuddy.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
     ![Azure AD-gebruiker maken][100]
 
@@ -172,9 +172,9 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](common/create_aaduser_02.png)
 
-    a. In de **naam** veld **BrittaSimon**.
+    a. Voer in het veld **Naam****Britta Simon** in.
   
-    b. In de **gebruikersnaam** veld, typt u **brittasimon@yourcompanydomain.extension**  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
     Bijvoorbeeld: BrittaSimon@contoso.com
 
     c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.

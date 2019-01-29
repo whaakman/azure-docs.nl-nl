@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 2a17cf3aca439c40d187e06fb29b76e78a036ccc
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 1454eb5dbf8c80dcf7024c150dbff6a2082dbd02
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976214"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100271"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd oplossen
-Er zijn verschillende redenen dat er Secure Shell (SSH)-fouten, SSH-verbindingsfouten optreden of SSH wordt geweigerd wanneer u probeert verbinding maken met een Linux virtuele machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt Azure portal, Azure CLI of VM-extensie voor toegang voor Linux gebruiken om problemen op te lossen problemen met de verbinding.
+Dit artikel helpt u bij het vinden en los de problemen die optreden als gevolg van Secure Shell (SSH)-fouten, fouten bij het verbinden van de SSH, of SSH wordt geweigerd wanneer u probeert verbinding maken met een Linux virtuele machine (VM). U kunt Azure portal, Azure CLI of VM-extensie voor toegang voor Linux gebruiken om problemen op te lossen problemen met de verbinding.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,16 +32,16 @@ Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnem
 ## <a name="quick-troubleshooting-steps"></a>Snelle stappen voor probleemoplossing
 Probeer opnieuw verbinding maken met de virtuele machine na elke stap.
 
-1. De SSH-configuratie opnieuw instellen.
-2. De referenties voor de gebruiker opnieuw instellen.
+1. [Opnieuw instellen van de SSH-configuratie](#reset-config).
+2. [De referenties opnieuw instellen](#reset-credentials) voor de gebruiker.
 3. Controleer of de [netwerkbeveiligingsgroep](../../virtual-network/security-overview.md) SSH-verkeer is toegestaan.
-   * Zorg ervoor dat een regel voor Netwerkbeveiligingsgroep bestaat SSH-verkeer toestaan (standaard TCP-poort 22).
+   * Zorg ervoor dat een [Network Security Group regel](#security-rules) bestaat SSH-verkeer toestaan (standaard TCP-poort 22).
    * U kunt geen gebruiken poortomleiding / zonder gebruik van een Azure load balancer toewijzen.
 4. Controleer de [VM resourcestatus](../../resource-health/resource-health-overview.md). 
    * Zorg ervoor dat de virtuele machine als in orde wordt gerapporteerd.
-   * Als u diagnostische gegevens over opstarten ingeschakeld hebt, controleert u of de virtuele machine is niet die opstartfouten rapporteren, in de logboeken.
-5. Start de VM opnieuw.
-6. De virtuele machine opnieuw implementeren.
+   * Als u hebt [diagnostische gegevens over ingeschakeld opstarten](boot-diagnostics.md), Controleer of de virtuele machine is niet die opstartfouten rapporteren, in de logboeken.
+5. [Start de VM opnieuw](#restart-vm).
+6. [De virtuele machine opnieuw implementeren](#redeploy-vm).
 
 Doorgaan met lezen voor meer gedetailleerde stappen voor probleemoplossing en uitleg.
 
@@ -49,7 +49,7 @@ Doorgaan met lezen voor meer gedetailleerde stappen voor probleemoplossing en ui
 U kunt opnieuw instellen van referenties of SSH-configuratie met behulp van een van de volgende methoden:
 
 * [Azure-portal](#use-the-azure-portal) - handig is als u wilt snel opnieuw instellen van de SSH-configuratie of de SSH-sleutel en u de Azure-hulpprogramma's geïnstalleerd hoeft.
-* [Azure CLI](#use-the-azure-cli) : als u zich al op de opdrachtregel snel opnieuw instellen van de SSH-configuratie of de referenties. U kunt ook de [Azure CLI](#use-the-azure-classic-cli)
+* [Azure CLI](#use-the-azure-cli) : als u zich al op de opdrachtregel snel opnieuw instellen van de SSH-configuratie of de referenties. Als u met een klassieke virtuele machine werkt, kunt u de [Azure klassieke CLI](#use-the-azure-classic-cli).
 * [Azure VMAccessForLinux-extensie](#use-the-vmaccess-extension) - maken en json-definitie-bestanden als u de referenties van de SSH-configuratie of de gebruiker opnieuw wilt gebruiken.
 
 Probeer opnieuw verbinding te maken met uw virtuele machine na elke stap. Als u nog steeds geen verbinding maken, probeert u de volgende stap.
@@ -57,19 +57,19 @@ Probeer opnieuw verbinding te maken met uw virtuele machine na elke stap. Als u 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 De Azure portal biedt een snelle manier om het opnieuw instellen van de referenties van de SSH-configuratie of de gebruiker zonder alle hulpprogramma's installeren op uw lokale computer.
 
-Selecteer de virtuele machine in Azure portal. Schuif omlaag naar de **ondersteuning + probleemoplossing** sectie en selecteer **wachtwoord opnieuw instellen** zoals in het volgende voorbeeld:
+Selecteer de virtuele machine in Azure portal om te beginnen. Schuif omlaag naar de **ondersteuning + probleemoplossing** sectie en selecteer **wachtwoord opnieuw instellen** zoals in het volgende voorbeeld:
 
 ![SSH-configuratie of de referenties in de Azure-portal opnieuw instellen](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
-### <a name="reset-the-ssh-configuration"></a>De SSH-configuratie opnieuw instellen
-Selecteer als eerste stap `Reset configuration only` van de **modus** Vervolgkeuzelijst zoals in de vorige schermafbeelding, en klik op de **opnieuw** knop. Zodra deze actie is voltooid, probeert u opnieuw toegang krijgen tot uw virtuele machine.
+### <a name="a-idreset-config-reset-the-ssh-configuration"></a><a id="reset-config" />De SSH-configuratie opnieuw instellen
+Als u wilt de SSH-configuratie opnieuw instellen, selecteert u `Reset configuration only` in de **modus** sectie zoals in de vorige schermafbeelding, en selecteer vervolgens **Update**. Zodra deze actie is voltooid, probeert u opnieuw toegang krijgen tot uw virtuele machine.
 
-### <a name="reset-ssh-credentials-for-a-user"></a>SSH-referenties voor een gebruiker opnieuw instellen
-Als u wilt de referenties van een bestaande gebruiker opnieuw instellen, selecteert u `Reset SSH public key` of `Reset password` uit de **modus** vervolgkeuzelijst zoals in de vorige schermafbeelding. Geef de gebruikersnaam en een SSH-sleutel of het nieuwe wachtwoord en klik op de **opnieuw** knop.
+### <a name="a-idreset-credentials-reset-ssh-credentials-for-a-user"></a><a id="reset-credentials" />SSH-referenties voor een gebruiker opnieuw instellen
+Als u wilt de referenties van een bestaande gebruiker opnieuw instellen, selecteert u `Reset SSH public key` of `Reset password` in de **modus** sectie zoals in de vorige schermafbeelding. Geef de gebruikersnaam en een SSH-sleutel of het nieuwe wachtwoord en selecteer vervolgens **Update**.
 
-U kunt ook een gebruiker met sudo-machtigingen op de virtuele machine in dit menu maken. Voer een nieuwe gebruikersnaam en het bijbehorende wachtwoord of de SSH-sleutel en klik vervolgens op de **opnieuw** knop.
+U kunt ook een gebruiker met sudo-machtigingen op de virtuele machine in dit menu maken. Voer een nieuwe gebruikersnaam en het bijbehorende wachtwoord of de SSH-sleutel en selecteer vervolgens **Update**.
 
-### <a name="check-security-rules"></a>Beveiligingsregels controleren
+### <a name="a-idsecurity-rules-check-security-rules"></a><a id="security-rules" />Beveiligingsregels controleren
 
 Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) om te bevestigen als verkeer naar of van een virtuele machine wordt geblokkeerd door een regel in een netwerkbeveiligingsgroep. U kunt ook bekijken beveiligingsgroepsregels om ervoor te zorgen inkomende 'toestaan' NSG-regel bestaat en met prioriteit wordt toegepast voor de SSH-poort (standaard 22). Zie voor meer informatie, [effectieve beveiligingsregels gebruiken om op te lossen VM verkeersstroom](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
@@ -78,12 +78,12 @@ Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-f
 Gebruik van Network Watcher van [van volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of van een virtuele machine. U kunt ook effectieve routes om te zien van alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie, [effectieve routes gebruiken om op te lossen VM verkeersstroom](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
-Als u niet hebt gedaan, installeert u de meest recente [Azure CLI](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Als u niet hebt gedaan, installeert u de meest recente [Azure CLI](/cli/azure/install-az-cli2) en aanmelden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Als u hebt gemaakt en een aangepaste installatiekopie van het Linux-schijf geüpload, controleert u of de [Microsoft Azure Linux Agent](../extensions/agent-windows.md) versie 2.0.5 of hoger is geïnstalleerd. Deze extensie voor toegang is al voor virtuele machines die zijn gemaakt met behulp van de galerie met installatiekopieën, geïnstalleerd en geconfigureerd voor u.
 
 ### <a name="reset-ssh-configuration"></a>SSH-configuratie opnieuw instellen
-U kunt in eerste instantie probeer het opnieuw instellen van de SSH-configuratie op de standaardwaarden en de SSH-server op de virtuele machine opnieuw wordt opgestart. Houd er rekening mee dat dit niet de gebruikersnaam, wachtwoord of SSH-sleutels verandert.
+U kunt in eerste instantie probeer het opnieuw instellen van de SSH-configuratie op de standaardwaarden en de SSH-server op de virtuele machine opnieuw wordt opgestart. De gebruikersnaam, wachtwoord of SSH-sleutels worden niet gewijzigd.
 Het volgende voorbeeld wordt [az vm gebruiker opnieuw instellen-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) opnieuw instellen van de SSH-configuratie op de virtuele machine met de naam `myVM` in `myResourceGroup`. Gebruik uw eigen waarden als volgt:
 
 ```azurecli
@@ -182,21 +182,13 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
     --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
 ```
 
-
-## <a name="restart-a-vm"></a>Een VM opnieuw opstarten
+## <a name="a-idrestart-vm-restart-a-vm"></a><a id="restart-vm" />Een VM opnieuw opstarten
 Als u de SSH-configuratie en de gebruiker referenties opnieuw instellen, of is een fout opgetreden in dat geval, kunt u proberen opnieuw op de virtuele machine naar onderliggende problemen van de compute-adres te starten.
 
 ### <a name="azure-portal"></a>Azure Portal
-Als u wilt starten op een virtuele machine met behulp van de Azure portal, selecteer de virtuele machine en klik op de **opnieuw** knop zoals in het volgende voorbeeld:
+Als u wilt starten op een virtuele machine met behulp van de Azure portal, selecteer de virtuele machine en selecteer vervolgens **opnieuw** zoals in het volgende voorbeeld:
 
 ![Start opnieuw op een virtuele machine in Azure portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
-
-### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
-Het volgende voorbeeld wordt opnieuw opgestart van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
-
-```azurecli
-azure vm restart --resource-group myResourceGroup --name myVM
-```
 
 ### <a name="azure-cli"></a>Azure-CLI
 Het volgende voorbeeld wordt [az vm restart](/cli/azure/vm#az_vm_restart) opnieuw opstarten van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
@@ -205,26 +197,25 @@ Het volgende voorbeeld wordt [az vm restart](/cli/azure/vm#az_vm_restart) opnieu
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
+### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
+Het volgende voorbeeld wordt opnieuw opgestart van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
 
-## <a name="redeploy-a-vm"></a>Een virtuele machine opnieuw implementeren
+```azurecli
+azure vm restart --resource-group myResourceGroup --name myVM
+```
+
+## <a name="a-idredeploy-vm-redeploy-a-vm"></a><a id="redeploy-vm" />Een virtuele machine opnieuw implementeren
 U kunt een virtuele machine naar een ander knooppunt binnen Azure, die mogelijk onderliggende netwerkproblemen opgelost opnieuw implementeren. Zie voor informatie over een virtuele machine opnieuw te implementeren, [opnieuw implementeren van virtuele machine naar de nieuwe Azure-knooppunt](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
-> Nadat deze is voltooid, kortstondige schijfgegevens gaan verloren en dynamische IP-adressen die gekoppeld aan de virtuele machine zijn wordt bijgewerkt.
+> Nadat deze is voltooid, schijfgegevens van de tijdelijke verloren zijn gegaan en dynamische IP-adressen die gekoppeld aan de virtuele machine zijn worden bijgewerkt.
 > 
 > 
 
 ### <a name="azure-portal"></a>Azure Portal
-Als u wilt implementeren op een virtuele machine met behulp van de Azure portal, selecteer de virtuele machine en schuif omlaag naar de **ondersteuning + probleemoplossing** sectie. Klik op de **opnieuw implementeren** knop zoals in het volgende voorbeeld:
+Als u wilt implementeren op een virtuele machine met behulp van de Azure portal, selecteer de virtuele machine en schuif omlaag naar de **ondersteuning + probleemoplossing** sectie. Selecteer **opnieuw implementeren** zoals in het volgende voorbeeld:
 
 ![Een virtuele machine in Azure portal opnieuw implementeren](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
-
-### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
-Het volgende voorbeeld implementeert de virtuele machine met de naam opnieuw `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
-
-```azurecli
-azure vm redeploy --resource-group myResourceGroup --name myVM
-```
 
 ### <a name="azure-cli"></a>Azure-CLI
 Het volgende voorbeeld van het gebruik [az vm opnieuw implementeren](/cli/azure/vm#az_vm_redeploy) opnieuw implementeren van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
@@ -233,11 +224,18 @@ Het volgende voorbeeld van het gebruik [az vm opnieuw implementeren](/cli/azure/
 az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
+### <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
+Het volgende voorbeeld implementeert de virtuele machine met de naam opnieuw `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
+
+```azurecli
+azure vm redeploy --resource-group myResourceGroup --name myVM
+```
+
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>Virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel
 Probeer de volgende stappen om op te lossen van de meest voorkomende fouten van de SSH-verbinding voor VM's die zijn gemaakt met behulp van het klassieke implementatiemodel. Probeer opnieuw verbinding maken met de virtuele machine na elke stap.
 
-* Opnieuw instellen van externe toegang via de [Azure-portal](https://portal.azure.com). De Azure-portal, selecteer de virtuele machine en klik op de **extern opnieuw instellen...**  knop.
-* Start de VM opnieuw. Op de [Azure-portal](https://portal.azure.com), selecteer de virtuele machine en klik op de **opnieuw** knop.
+* Opnieuw instellen van externe toegang via de [Azure-portal](https://portal.azure.com). Selecteer de virtuele machine in Azure portal, en selecteer vervolgens **extern opnieuw instellen...** .
+* Start de VM opnieuw. Op de [Azure-portal](https://portal.azure.com), selecteer de virtuele machine en selecteer **opnieuw**.
     
 * Implementeer de virtuele machine naar een nieuw Azure-knooppunt opnieuw. Zie voor meer informatie over hoe u een virtuele machine opnieuw implementeren [opnieuw implementeren van virtuele machine naar de nieuwe Azure-knooppunt](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
@@ -254,5 +252,3 @@ Probeer de volgende stappen om op te lossen van de meest voorkomende fouten van 
 * Als u zich nog steeds niet SSH met uw virtuele machine na de volgende stappen na, Zie [meer gedetailleerde stappen voor probleemoplossing](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) om te controleren van aanvullende stappen om uw probleem te verhelpen.
 * Zie voor meer informatie over het oplossen van toegang tot toepassingen [problemen oplossen met toegang tot een toepassing die wordt uitgevoerd op een virtuele machine van Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Zie voor meer informatie over het oplossen van virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel [opnieuw instellen van een wachtwoord of SSH voor virtuele machines op basis van Linux](../linux/classic/reset-access-classic.md).
-
-

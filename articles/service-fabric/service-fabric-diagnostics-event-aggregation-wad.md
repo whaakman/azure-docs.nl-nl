@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002396"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187433"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregatie van de gebeurtenis en verzameling met Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -187,7 +187,7 @@ Nadat u het template.json-bestand hebt gewijzigd zoals wordt beschreven, publice
 
 ### <a name="update-storage-quota"></a>Opslaglimiet bijwerken
 
-Sinds de tabellen die is gevuld met de extensie toeneemt totdat het quotum is bereikt, kunt u rekening houden met het quotum te verkleinen. De standaardwaarde is 50 GB en kan worden geconfigureerd in de sjabloon onder de `overallQuotainMB` veld onder `DiagnosticMonitorConfiguration`
+Sinds de tabellen die is gevuld met de extensie toeneemt totdat het quotum is bereikt, kunt u rekening houden met het quotum te verkleinen. De standaardwaarde is 50 GB en kan worden geconfigureerd in de sjabloon onder de `overallQuotaInMB` veld onder `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",

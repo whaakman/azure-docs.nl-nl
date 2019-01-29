@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3148d4d63ad1464dbd45c361237ac9cd4ffd485a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ebd25fe7b60cb3f8701793f222bbbc8bd4990e5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268237"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196766"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning-service
 
@@ -24,7 +24,7 @@ U kunt een model implementeren als een webservice op [programmable gate arrays (
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u geen Azure-abonnement hebt, een gratis account maken voordat u begint. Probeer de [gratis of betaalde versie van Azure Machine Learning-service](http://aka.ms/AMLFree) vandaag nog.
+- Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 - Een werkruimte van Azure Machine Learning-service en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
  
@@ -165,7 +165,7 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>Beveiligde FPGA-webservices
 
-Azure Machine Learning-modellen die worden uitgevoerd op FPGA's bieden ondersteuning voor SSL en verificatie op basis van een sleutel. Hiermee kunt u toegang tot uw service en beveiligd door clients verzonden gegevens te beperken. [Meer informatie over het beveiligen van de webservice](how-to-secure-web-service.md).
+Azure Machine Learning-service-modellen die worden uitgevoerd op FPGA's bieden ondersteuning voor SSL en verificatie op basis van een sleutel. Hiermee kunt u toegang tot uw service en beveiligd door clients verzonden gegevens te beperken. [Meer informatie over het beveiligen van de webservice](how-to-secure-web-service.md#fpga).
 
 
 ## <a name="next-steps"></a>Volgende stappen

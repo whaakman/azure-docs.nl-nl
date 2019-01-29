@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c4a18fa022304e7ccfb4503cf2e02650555d6d7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 19199d25b960d768f844d725616220fb78e7d983
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425119"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094050"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Toegang verlenen aan webtoepassingen voor Azure Active Directory met behulp van de OAuth 2.0-stroom voor het verlenen van code
 
@@ -62,8 +62,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode |optioneel |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app. Kan `query`, `fragment`, of `form_post`. `query` biedt de code als een queryreeks-parameter op uw omleidings-URI. Als u een ID-token met behulp van de impliciete stroom aanvragen, u niet gebruiken `query` zoals opgegeven in de [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Als u alleen de code aanvragen, kunt u `query`, `fragment`, of `form_post`. `form_post` voert een bericht met de code op uw omleidings-URI. De standaardwaarde is `query` voor een codestroom.  |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
 | Bron | Aanbevolen |De App-ID-URI van de doel-web-API (beveiligde resource). U kunt de URI van de App-ID vinden in de Azure Portal op **Azure Active Directory**, klikt u op **toepassingsregistraties**, van de toepassing openen **instellingen** pagina en klik vervolgens op  **Eigenschappen van**. Mogelijk ook een externe bron, zoals `https://graph.microsoft.com`. Dit is vereist in een van de autorisatie- of token aanvragen. Om ervoor te zorgen minder verificatie plaats vragen deze in de autorisatieaanvraag om ervoor te zorgen toestemming wordt ontvangen van de gebruiker. |
-| scope | **genegeerd** | Voor apps in Azure AD v1, scopes statisch moeten worden geconfigureerd in de Azure-Portal onder de toepassingen **instellingen**, **vereiste machtigingen**. |
-| prompt |optioneel |Aangeven welk type tussenkomst van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: de gebruiker moet worden gevraagd om u te verifiëren. <p> *select_account*: de gebruiker wordt gevraagd om te selecteren van een account dat eenmalige aanmelding op wordt onderbroken. De gebruiker kan Selecteer een bestaand account aangemeld, zijn referenties invoeren voor een account onthouden of wilt gebruiken een ander account kan worden overgeslagen. <p> *toestemming geven*: gebruikerstoestemming heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om in te stemmen. <p> *admin_consent*: een beheerder moet worden gevraagd om in te stemmen namens alle gebruikers in hun organisatie |
+| scope | **ignored** | Voor apps in Azure AD v1, scopes statisch moeten worden geconfigureerd in de Azure-Portal onder de toepassingen **instellingen**, **vereiste machtigingen**. |
+| prompt |optioneel |Aangeven welk type tussenkomst van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *Aanmelding*: De gebruiker moet worden gevraagd om u te verifiëren. <p> *select_account*: De gebruiker gevraagd om te selecteren van een account dat eenmalige aanmelding wordt onderbroken op. De gebruiker kan Selecteer een bestaand account aangemeld, zijn referenties invoeren voor een account onthouden of wilt gebruiken een ander account kan worden overgeslagen. <p> *Toestemming geven*: Toestemming van de gebruiker heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om in te stemmen. <p> *admin_consent*: Een beheerder moet worden gevraagd om in te stemmen namens alle gebruikers in hun organisatie |
 | login_hint |optioneel |Kan worden gebruikt om het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten. Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden geëxtraheerd uit een vorige aanmelden met behulp van de `preferred_username` claim. |
 | domain_hint |optioneel |Biedt een aanwijzing over de tenant of het aanmeldingsdomein waarmee de gebruiker moet zich. De waarde van de domain_hint is een geregistreerde domein voor de tenant. Als de tenant met een on-premises directory is gefedereerd, is AAD wordt omgeleid naar de opgegeven tenant federation-server. |
 | code_challenge_method | Aanbevolen    | De methode die wordt gebruikt om te coderen de `code_verifier` voor de `code_challenge` parameter. Een van `plain` of `S256`. Als uitgesloten, `code_challenge` wordt ervan uitgegaan dat als tekst zonder opmaak als `code_challenge` is opgenomen. Azure AAD v1.0 ondersteunt zowel `plain` en `S256`. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -87,7 +87,7 @@ Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | Parameter | Beschrijving |
 | --- | --- |
 | admin_consent |De waarde is True als een beheerder ingestemd met een toestemmingsprompt van de aanvraag. |
-| Code |De autorisatiecode die de toepassing heeft aangevraagd. De toepassing kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. |
+| code |De autorisatiecode die de toepassing heeft aangevraagd. De toepassing kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. |
 | session_state |Een unieke waarde die aangeeft van de sessie van de huidige gebruiker. Deze waarde is van een GUID, maar moet worden behandeld als een onduidelijke waarde die wordt doorgegeven zonder onderzoek. |
 | state |Als een parameter state is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. Het is raadzaam voor de toepassing om te controleren dat de provincie-waarden in de aanvraag en respons identiek zijn voordat u het antwoord. Hiermee kunt u detecteren [Cross-Site aanvragen kunnen worden vervalst (CSRF) aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12) op basis van de client. |
 
@@ -113,7 +113,7 @@ De volgende tabel beschrijft de verschillende foutcodes die kunnen worden gereto
 | --- | --- | --- |
 | invalid_request |Protocolfout in, zoals een ontbrekende vereiste parameter. |Los en verzend de aanvraag opnieuw. Dit is een fout, ontwikkeling en is meestal aangetroffen tijdens de eerste test. |
 | unauthorized_client |De clienttoepassing is niet toegestaan om aan te vragen van een autorisatiecode. |Dit gebeurt meestal wanneer de clienttoepassing is niet geregistreerd in Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en toe te voegen aan Azure AD. |
-| ACCESS_DENIED |Resource-eigenaar toestemming geweigerd |De clienttoepassing kan de gebruiker die deze kan niet worden voortgezet, tenzij de gebruiker toestemming heeft melden. |
+| access_denied |Resource-eigenaar toestemming geweigerd |De clienttoepassing kan de gebruiker die deze kan niet worden voortgezet, tenzij de gebruiker toestemming heeft melden. |
 | unsupported_response_type |De autorisatie-server biedt geen ondersteuning voor het antwoord van het type in de aanvraag. |Los en verzend de aanvraag opnieuw. Dit is een fout, ontwikkeling en is meestal aangetroffen tijdens de eerste test. |
 | server_error |De server heeft een onverwachte fout aangetroffen. |De aanvraag opnieuw. Deze fouten kunnen worden veroorzaakt door tijdelijke omstandigheden. De clienttoepassing mogelijk uitleggen aan de gebruiker dat de reactie is vertraagd vanwege een tijdelijke fout. |
 | temporarily_unavailable |De server is tijdelijk bezet en kan de aanvraag te verwerken. |De aanvraag opnieuw. De clienttoepassing mogelijk uitleggen aan de gebruiker dat de reactie is vertraagd vanwege een tijdelijke situatie. |
@@ -143,7 +143,7 @@ grant_type=authorization_code
 | tenant |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
 | client_id |vereist |De toepassings-Id die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in Azure portal. De toepassings-Id wordt weergegeven in de instellingen van de app-registratie. |
 | grant_type |vereist |Moet `authorization_code` voor de autorisatiecodestroom. |
-| Code |vereist |De `authorization_code` die u in de vorige sectie hebt verkregen |
+| code |vereist |De `authorization_code` die u in de vorige sectie hebt verkregen |
 | redirect_uri |vereist |Dezelfde `redirect_uri` waarde die is gebruikt voor het verkrijgen van de `authorization_code`. |
 | client_secret |vereist voor web-apps is niet toegestaan voor openbare clients |Het toepassingsgeheim die u hebt gemaakt in de Azure-Portal voor uw app bij **sleutels**. Het kan niet worden gebruikt in een systeemeigen app (openbare client), omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Dit is vereist voor de web-apps en web-API's (alle vertrouwelijke clients), waarvoor de mogelijkheid om op te slaan de `client_secret` veilig op de server. De waarde voor client_secret moet URL gecodeerd voordat het wordt verzonden. |
 | Bron | Aanbevolen |De App-ID-URI van de doel-web-API (beveiligde resource). U kunt de URI van de App-ID vinden in de Azure Portal op **Azure Active Directory**, klikt u op **toepassingsregistraties**, van de toepassing openen **instellingen** pagina en klik vervolgens op  **Eigenschappen van**. Mogelijk ook een externe bron, zoals `https://graph.microsoft.com`. Dit is vereist in een van de autorisatie- of token aanvragen. Om ervoor te zorgen minder verificatie plaats vragen deze in de autorisatieaanvraag om ervoor te zorgen toestemming wordt ontvangen van de gebruiker. Als in de autorisatieaanvraag en de tokenaanvraag, de resource' parameters moeten overeenkomen. | 

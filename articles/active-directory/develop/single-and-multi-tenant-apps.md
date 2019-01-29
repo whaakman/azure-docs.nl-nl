@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1e9509cfe94153eb7820023075495db75c6a3b9e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424337"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097024"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenants in Azure Active Directory
 
@@ -38,7 +38,7 @@ U kunt uw app om te worden van één tenant of meerdere tenants door in te stell
 | Doelgroep | Eén/meerdere-tenant | Wie zich kan aanmelden | 
 |----------|--------| ---------|
 | Accounts in deze map alleen | Eén tenant | Alle gebruikers- en gastaccounts in uw map kunnen gebruikmaken van uw toepassing of API.<br>*Gebruik deze optie als uw doelgroep intern voor uw organisatie is.* |
-| Accounts in een Azure AD-directory | Multitenant | Alle gebruikers en gasten met een werk- of schoolaccount van Microsoft kunnen u uw toepassing of de API gebruiken. Dit omvat scholen en bedrijven die gebruikmaken van Office 365.<br>*Gebruik deze optie als de doelgroep bestaat uit bedrijf of onderwijsinstelling klanten.* |
+| Accounts in een Azure AD-map | Multitenant | Alle gebruikers en gasten met een werk- of schoolaccount van Microsoft kunnen u uw toepassing of de API gebruiken. Dit omvat scholen en bedrijven die gebruikmaken van Office 365.<br>*Gebruik deze optie als de doelgroep bestaat uit bedrijf of onderwijsinstelling klanten.* |
 | Accounts in een Azure AD-directory en persoonlijke Microsoft-accounts (zoals Skype, Xbox, Outlook.com) | Multitenant | Alle gebruikers met een werk- of school- of persoonlijk Microsoft-account kunnen gebruiken voor uw toepassing of de API. Het bevat scholen en bedrijven die gebruikmaken van Office 365, evenals persoonlijke accounts die worden gebruikt om aan te melden bij services als Xbox en Skype.<br>*Gebruik deze optie om het doel van de uitgebreide set Microsoft-accounts.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Aanbevolen procedures voor apps met meerdere tenants

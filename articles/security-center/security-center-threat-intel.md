@@ -1,6 +1,6 @@
 ---
 title: Threat intelligence en beveiliging waarschuwing toewijzen in Azure Security Center | Microsoft Docs
-description: Informatie over het gebruik van de correct waarschuwing kaart en bedreigingen van bedreigingsinformatie in Azure Security Center voor het identificeren van mogelijke bedreigingen in uw virtuele machines en computers.
+description: Informatie over het gebruik van de kaart en threat intelligence beveiligingswaarschuwingen in Azure Security Center voor het identificeren van mogelijke bedreigingen in uw virtuele machines en computers.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 85930ef8d0753c28cf4bfa2eb2eb487e419ed5f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241716"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092095"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Overzicht beveiligingswaarschuwingen en informatie over bedreigingen
 In dit artikel helpt u bij het gebruik van de Azure Security Center security waarschuwingen kaart en beveiliging op basis van gebeurtenissen bedreigingsinformatiekaart beveiligingsgerelateerde om problemen te verhelpen.

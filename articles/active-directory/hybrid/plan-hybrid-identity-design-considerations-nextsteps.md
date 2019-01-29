@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37c89771823649f6a2590911ba41eaf64c6ccbd8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab11783d48756796beae7485d65da73e58d0b71e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161309"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybride identiteit ontwerp overwegingen voor volgende stappen
 Nu dat u uw vereisten definiëren en controleren van de opties voor uw beheeroplossing voor mobiele apparaten hebt voltooid, u kunt de volgende stappen voor het implementeren van de infrastructuur met ondersteuning voor die voor u en uw organisatie.

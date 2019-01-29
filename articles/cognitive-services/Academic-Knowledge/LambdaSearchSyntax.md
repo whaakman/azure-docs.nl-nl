@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902685"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203926"
 ---
 # <a name="lambda-search-syntax"></a>Lambda-Zoeksyntaxis
 
@@ -45,13 +45,13 @@ Voor *VisitNode()*, die ook kunnen worden doorgegeven in een lambda-expressie va
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
 ```
 
-## <a name="inode"></a>*Inodes* 
+## <a name="inode"></a>*INode* 
 
 *Inodes* biedt *alleen-lezen* data access-interfaces en een aantal ingebouwde hulpfuncties die op een knooppunt. 
 
 ### <a name="basic-data-access-interfaces"></a>Basic data access-interfaces
 
-##### <a name="long-cellid"></a>lange CellID
+##### <a name="long-cellid"></a>long CellID
 
 De 64-bits-ID van het knooppunt. 
 
@@ -59,7 +59,7 @@ De 64-bits-ID van het knooppunt.
 
 Hiermee haalt u de waarde van de opgegeven eigenschap. *T* is het gewenste type dat het veld worden geïnterpreteerd moet als. Automatische type casten zal worden uitgevoerd als het gewenste type kan niet impliciet worden geconverteerd van het type van het veld. Opmerking: als de eigenschap is meerdere waarden *GetField\<tekenreeks\>*  zorgt ervoor dat de lijst om te worden geserialiseerd naar een Json-tekenreeks ["val1", "val2',...]. Als de eigenschap niet bestaat, wordt een uitzondering en afbreken van de huidige graph verkennen.
 
-##### <a name="bool-containsfieldstring-fieldname"></a>BOOL ContainsField (veldnaam tekenreeks)
+##### <a name="bool-containsfieldstring-fieldname"></a>bool ContainsField(string fieldName)
 
 Geeft aan of een veld met de opgegeven naam in het huidige knooppunt bestaat.
 
@@ -93,7 +93,7 @@ Retourneert *Action.Continue* als de voorwaarde is *waar*. Als de voorwaarde is 
 
 Genereert een willekeurig getal dat groter is dan of gelijk zijn aan 0,0 en kleiner dan 1,0 liggen. Deze functie retourneert *waar* alleen als het getal is kleiner dan of gelijk zijn aan *p*.
 
-Vergeleken met *json* zoeken, *lambda* zoekopdracht heeft meer expressieve: C# lambda-expressies kunnen rechtstreeks worden gebruikt om op te geven querypatronen. Hier volgen twee voorbeelden.
+Vergeleken met *json* zoeken, *lambda* zoekopdracht heeft meer expressieve: C#Lambda-expressies kunnen rechtstreeks worden gebruikt om op te geven querypatronen. Hier volgen twee voorbeelden.
 
 ```
 MAG.StartFrom(@"{

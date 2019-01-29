@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: ae9f55943d4b178096230269215ac771ee1d20a1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: dabffd88965a10fe4feca2b600cfaf5741e2f664
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856098"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157904"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Een technisch profiel voor een JWT-token certificaatverlener in een aangepast Azure Active Directory B2C-beleid definiëren
 
@@ -44,7 +44,7 @@ De **InputClaims**, **OutputClaims**, en **PersistClaims** elementen zijn leeg o
 
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Ja | De claim die moet worden gebruikt als de gebruikers-id claimen binnen de OAuth2-autorisatiecodes en vernieuwingstokens. Standaard moet u dit instellen op `objectId`, tenzij u een andere SubjectNamingInfo claimtype opgeven. | 
 | SendTokenResponseBodyWithJsonNumbers | Nee | Altijd ingesteld op `true`. Voor oudere indeling waar numerieke waarden zijn opgegeven als tekenreeksen in plaats van JSON-nummers, die is ingesteld op `false`. Dit kenmerk is vereist voor clients die een afhankelijkheid op een eerdere implementatie dat dergelijke eigenschappen als tekenreeksen geretourneerd hebt ondernomen. | 
@@ -60,7 +60,7 @@ De **InputClaims**, **OutputClaims**, en **PersistClaims** elementen zijn leeg o
 
 Het element CryptographicKeys bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | issuer_secret | Ja | De X509 certificaat (RSA-sleutelpaar) moet worden gebruikt om te ondertekenen van de JWT-token. Dit is de `B2C_1A_TokenSigningKeyContainer` sleutel u geconfigureerd kan [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md). | 
 | issuer_refresh_token_key | Ja | De X509 (RSA-sleutelpaar) te gebruiken voor het versleutelen van het vernieuwingstoken dat certificaat. U hebt geconfigureerd de `B2C_1A_TokenEncryptionKeyContainer` sleutel in [aan de slag met aangepaste beleidsregels](active-directory-b2c-get-started-custom.md) |

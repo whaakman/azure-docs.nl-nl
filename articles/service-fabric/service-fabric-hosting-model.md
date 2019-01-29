@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348477"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172371"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric-hostingmodel
 In dit artikel biedt een overzicht van modellen die worden geleverd door Azure Service Fabric-toepassing en beschrijving van de verschillen tussen de **gedeeld proces** en **exclusieve proces** modellen. Hierin wordt beschreven hoe een geïmplementeerde toepassing analyseert in een Service Fabric-knooppunt en de relatie tussen de replica's (of exemplaren) van de service en het hostproces van de service.
@@ -150,25 +150,25 @@ Voor bepaalde gevallen, Service Fabric kunt ook meer dan één *ServiceType* per
 
 De exclusieve proces hostingmodel is niet samenhangend met een toepassingsmodel met meerdere *ServiceTypes* per *ServicePackage*. Dit komt doordat meerdere *ServiceTypes* per *ServicePackage* zijn ontworpen om te realiseren hogere resource delen tussen de replica's, en kunt u hogere dichtheid van replica per proces. De exclusieve procesmodel is ontworpen voor verschillende resultaten te bereiken.
 
-Neem het geval van meerdere *ServiceTypes* per *ServicePackage*, met een andere *CodePackage* registreren van elke *ServiceType*. Stel dat we hebben een *ServicePackage* 'MultiTypeServicePackge', met twee *CodePackages*:
+Neem het geval van meerdere *ServiceTypes* per *ServicePackage*, met een andere *CodePackage* registreren van elke *ServiceType*. Stel dat we hebben een *ServicePackage* 'MultiTypeServicePackage', met twee *CodePackages*:
 
-- 'MyCodePackageA', waardoor wordt geregistreerd *ServiceType* 'MyServiceTypeA'.
-- 'MyCodePackageB', waardoor wordt geregistreerd *ServiceType* 'MyServiceTypeB'.
+- 'MyCodePackageA', which registers *ServiceType* 'MyServiceTypeA'.
+- 'MyCodePackageB', which registers *ServiceType* 'MyServiceTypeB'.
 
 Nu, laten we zeggen dat we maken van een toepassing **fabric: / SpecialApp**. Binnen **fabric: / SpecialApp**, maken we twee services met de exclusieve procesmodel te volgen:
 
 - Service **fabric: / SpecialApp/ServiceA** van het type 'MyServiceTypeA', met twee partities (bijvoorbeeld **P1** en **P2**), en drie replica's per partitie.
 - Service **fabric: / SpecialApp/ServiceB** van het type 'MyServiceTypeB', met twee partities (**P3** en **P4**), en drie replica's per partitie.
 
-Op een bepaald knooppunt hebben beide van de services elke twee replica's. Omdat we de exclusieve procesmodel gebruikt voor het maken van de services, wordt een nieuw exemplaar van 'MyServicePackage' voor elke replica in Service Fabric geactiveerd. Elke activering van 'MultiTypeServicePackge' Start een exemplaar van 'MyCodePackageA' en 'MyCodePackageB'. Echter slechts één van de 'MyCodePackageA' of 'MyCodePackageB' als host fungeert voor de replica waarvoor 'MultiTypeServicePackge' is geactiveerd. Het volgende diagram toont de weergave van het knooppunt:
+Op een bepaald knooppunt hebben beide van de services elke twee replica's. Omdat we de exclusieve procesmodel gebruikt voor het maken van de services, wordt een nieuw exemplaar van 'MyServicePackage' voor elke replica in Service Fabric geactiveerd. Each activation of 'MultiTypeServicePackage' starts a copy of 'MyCodePackageA' and 'MyCodePackageB'. Echter slechts één van de 'MyCodePackageA' of 'MyCodePackageB' als host fungeert voor de replica waarvoor 'MultiTypeServicePackage' is geactiveerd. Het volgende diagram toont de weergave van het knooppunt:
 
 
 ![Diagram van de weergave van het knooppunt van de geïmplementeerde toepassing][node-view-five]
 
 
-In het activeren van 'MultiTypeServicePackge' voor de replica van de partitie **P1** van service **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' als host fungeert voor de replica. 'MyCodePackageB' wordt uitgevoerd. Op deze manier in het activeren van 'MultiTypeServicePackge' voor de replica van de partitie **P3** van service **fabric: / SpecialApp/XPb**, 'MyCodePackageB' als host fungeert voor de replica. 'MyCodePackageA' wordt uitgevoerd. Dus, hoe groter het aantal *CodePackages* (registreren van verschillende *ServiceTypes*) per *ServicePackage*, hoe hoger het redundante Resourcegebruik. 
+In het activeren van 'MultiTypeServicePackage' voor de replica van de partitie **P1** van service **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' als host fungeert voor de replica. 'MyCodePackageB' is running. Op deze manier in het activeren van 'MultiTypeServicePackage' voor de replica van de partitie **P3** van service **fabric: / SpecialApp/XPb**, 'MyCodePackageB' als host fungeert voor de replica. 'MyCodePackageA' wordt uitgevoerd. Dus, hoe groter het aantal *CodePackages* (registreren van verschillende *ServiceTypes*) per *ServicePackage*, hoe hoger het redundante Resourcegebruik. 
  
- Echter, als we de services maakt **fabric: / SpecialApp/ServiceA** en **fabric: / SpecialApp/XPb** met de gedeelde procesmodel, Service Fabric activeert slechts één exemplaar van ' MultiTypeServicePackge' voor de toepassing **fabric: / SpecialApp**. 'MyCodePackageA' als host fungeert voor alle replica's voor de service **fabric: / SpecialApp/ServiceA**. 'MyCodePackageB' als host fungeert voor alle replica's voor de service **fabric: / SpecialApp/XPb**. Het volgende diagram toont de weergave van het knooppunt in deze instelling: 
+ Echter, als we de services maakt **fabric: / SpecialApp/ServiceA** en **fabric: / SpecialApp/XPb** met de gedeelde procesmodel, Service Fabric activeert slechts één exemplaar van ' MultiTypeServicePackage' voor de toepassing **fabric: / SpecialApp**. 'MyCodePackageA' als host fungeert voor alle replica's voor de service **fabric: / SpecialApp/ServiceA**. 'MyCodePackageB' als host fungeert voor alle replica's voor de service **fabric: / SpecialApp/XPb**. Het volgende diagram toont de weergave van het knooppunt in deze instelling: 
 
 
 ![Diagram van de weergave van het knooppunt van de geïmplementeerde toepassing][node-view-six]

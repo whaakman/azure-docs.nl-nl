@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427930"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155303"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -143,9 +143,6 @@ Toepassing echter samen met scripts voor installatie kan worden gedownload vanaf
 
 Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
 
-> [!IMPORTANT]
-> De v1.3.0 (recentste) van de Patch Orchestration-toepassing heeft een bekend probleem die worden uitgevoerd op Windows Server 2012. Als u Windows Server 2012 worden uitgevoerd, download v1.2.2 van de toepassing [hier](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). Koppeling SFPkg [hier](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
-
 ## <a name="configure-the-app"></a>De app configureren
 
 Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoen aan uw behoeften. De standaardwaarden overschrijven door te geven in de parameter van de toepassing tijdens het maken van de toepassing of update. Parameters voor de toepassing kunnen worden opgegeven door op te geven `ApplicationParameter` naar de `Start-ServiceFabricApplicationUpgrade` of `New-ServiceFabricApplication` cmdlets.
@@ -156,7 +153,7 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy geeft aan dat het beleid dat moet worden gebruikt door de Coordinator-Service op Windows-updates installeren via de Service Fabric-clusterknooppunten.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten die behoren tot een upgradedomein kunnen gaan voor Windows Update.)<br> Raadpleeg [Veelgestelde vragen over](#frequently-asked-questions) sectie over het bepalen welke het beste geschikt beleid voor uw cluster.
 |LogsDiskQuotaInMB   |Lang  <br> (Standaard: 1024)               |Maximale grootte van de patch orchestration app registreert in MB, hetgeen kan lokaal worden opgeslagen op de knooppunten.
 | WUQuery               | string<br>(Standaard: "IsInstalled=0")                | Query voor het ophalen van Windows-updates. Zie voor meer informatie, [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: true)                 | Gebruik deze eigenschap om te bepalen welke updates moeten worden gedownload en geïnstalleerd. Volgende waarden zijn toegestaan <br>True - installeert alleen de updates van Windows-besturingssysteem.<br>ONWAAR: installeert alle beschikbare updates op de machine.          |
+| InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: false)                 | Gebruik deze eigenschap om te bepalen welke updates moeten worden gedownload en geïnstalleerd. Volgende waarden zijn toegestaan <br>True - installeert alleen de updates van Windows-besturingssysteem.<br>ONWAAR: installeert alle beschikbare updates op de machine.          |
 | WUOperationTimeOutInMinutes | Int <br>(Standaard: 90)                   | Hiermee geeft u de time-out voor een Windows Update-bewerking (zoeken of downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
 | WURescheduleCount     | Int <br> (Standaard: 5)                  | Het maximum aantal keren dat de service opnieuw gepland voor de Windows update als een bewerking blijft mislukken.          |
 | WURescheduleTimeInMinutes | Int <br>(Standaard: 30) | Het interval waarmee de service wordt automatisch opnieuw gepland met de Windows update als fout zich blijft voordoen. |
@@ -295,7 +292,7 @@ Op basis van het beleid voor de toepassing, ofwel een knooppunt kan uitvallen ti
 
 Aan het einde van de Windows Update-installatie, de knooppunten zijn ingeschakeld boeken opnieuw opstarten.
 
-In het volgende voorbeeld wordt het cluster is een fout op een foutstatus tijdelijk omdat twee knooppunten niet actief was en het beleid MaxPercentageUnhealthNodes is geschonden. De fout is tijdelijk totdat de patch-bewerking momenteel uitgevoerd wordt.
+In het volgende voorbeeld wordt het cluster is een fout op een foutstatus tijdelijk omdat twee knooppunten niet actief was en het beleid MaxPercentageUnhealthyNodes is geschonden. De fout is tijdelijk totdat de patch-bewerking momenteel uitgevoerd wordt.
 
 ![Afbeelding van het cluster niet in orde](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -330,7 +327,7 @@ V. **Hoe lang duurt het voor het vullen van een geheel cluster?**
 A. De tijd die nodig is voor het vullen van een geheel cluster is afhankelijk van de volgende factoren:
 
 - De tijd die nodig is voor het vullen van een knooppunt.
-- Het beleid van de Coordinator-Service. -Het standaardbeleid `NodeWise`, resulteert in het patchen van slechts één knooppunt tegelijk, die langzamer dan zijn `UpgradeDomainWise`. Bijvoorbeeld: Als een knooppunt ~ 1 uur moet worden gevuld, voordat kan worden uitgevoerd voor het vullen van een 20-knooppunt (hetzelfde type knooppunten) van het cluster met 5 upgradedomeinen, elk met 4 knooppunten.
+- Het beleid van de Coordinator-Service. -Het standaardbeleid `NodeWise`, resulteert in het patchen van slechts één knooppunt tegelijk, die langzamer dan zijn `UpgradeDomainWise`. Bijvoorbeeld: Als een knooppunt ~ 1 uur moet worden gevuld, als u wilt een 20 patch knooppunt (hetzelfde type knooppunten) van het cluster met 5 upgradedomeinen, elk met 4 knooppunten.
     - Het duurt ongeveer 20 uur voor het vullen van het hele cluster als het beleid is `NodeWise`
     - Het duurt ongeveer 5 uur als beleid is `UpgradeDomainWise`
 - Belasting van de cluster - elke patch-bewerking moet de workload van een klant verplaatsen naar andere beschikbare knooppunten in het cluster. Knooppunt die een patch op zou zijn [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) status gedurende deze tijd. Als het cluster wordt uitgevoerd in de buurt van piekbelasting, zou de uitschakelen proces langer duren. Daarom lijkt algehele patchproces langzaam in dergelijke extreme omstandigheden.
@@ -411,3 +408,8 @@ Een beheerder moet waarbij en te bepalen waarom de toepassing of het cluster is 
 - InstallWindowsOSOnlyUpdates nu instellen op false, worden alle beschikbare updates geïnstalleerd.
 - De logica van het uitschakelen van automatische updates is gewijzigd. Hiermee een bug opgelost wanneer Automatische updates niet ophalen van uitgeschakeld op Server 2016 en hoger.
 - Plaatsing beperking voor zowel de microservices van POA voor geavanceerde usecases als parameters gebruikt.
+
+### <a name="version-131"></a>Versie 1.3.1
+- Regressie oplossen waar POA 1.3.0 werkt niet op Windows Server 2012 R2 of lager vanwege een fout bij het uitschakelen van automatische updates. 
+- Bug opgelost waarbij InstallWindowsOSOnlyUpdates configuratie altijd wordt opgehaald als de waarde True.
+- De standaardwaarde van InstallWindowsOSOnlyUpdates wijzigen in False.

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 72b560aa742fb509b55fe5e27cb87b9a224bce7e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ce791e2b230360a04a3051a8964e39c6d5a457ab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607764"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191360"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Een toegangscontrole van leden van een groep of gebruikers toegang tot een toepassing in Azure AD voltooien
 
@@ -48,7 +48,7 @@ Een geconfigureerde automatisch toepassen van controleren of het selecteren van 
 
 Als u wilt ophalen van de resultaten van de evaluatie, selecteer **goedkeuringen** en selecteer vervolgens **downloaden**. Het resulterende CSV-bestand kan worden weergegeven in Excel of in andere programma's die UTF-8-codering CSV-bestanden.
 
-## <a name="optional-delete-a-review"></a>Optioneel: Het verwijderen van een beoordeling
+## <a name="optional-delete-a-review"></a>Optioneel: Verwijderen van een beoordeling
 Als u niet meer geïnteresseerd in het onderzoek bent, kunt u deze kunt verwijderen. Selecteer **verwijderen** te verwijderen van de beoordeling van Azure AD.
 
 > [!IMPORTANT]

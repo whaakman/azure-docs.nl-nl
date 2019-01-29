@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 409e4d2e71766ddba2b1d7bcf7e10afdbe298104
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e58bd9afcbb7684cae93d3e71bae89d49f640111
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968535"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203960"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snelstartgids: Een query verzenden naar de Bing lokale bedrijven zoeken-API met behulp van Node.js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Quickstart: Een query verzenden naar de Bing lokale bedrijven zoeken-API met behulp van Node.js
 
 Gebruik deze Quick Start om te beginnen met het verzenden van aanvragen naar de Bing lokale bedrijven zoeken-API, dit is een Cognitive Service van Azure. Terwijl deze eenvoudige toepassing is geschreven in Node.js, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen en parseren van JSON.
 
@@ -27,7 +27,7 @@ In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit 
 
 * Nieuwste versie van [Node.js](https://nodejs.org/en/download/).
 
-* De [aanvraag van de JavaScript-bibliotheek](https://github.com/request/request)
+* De [JavaScript-aanvragenbibliotheek](https://github.com/request/request)
 
 Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids. Gebruik de toegangssleutel die is geleverd door de gratis proefversie.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -43,7 +43,7 @@ De volgende code haalt definieert en stuurt de aanvraag. De code wordt geïmplem
 
 Dit is de volledige code voor deze demo:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -90,10 +90,10 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Snelstartgids voor lokale bedrijven zoeken](local-quickstart.md)
-* [Lokale bedrijven zoeken Java-snelstartgids](local-search-java-quickstart.md)
-* [Lokale bedrijven zoeken Python-snelstartgids](local-search-python-quickstart.md)
+* [Local Business Search Java quickstart](local-search-java-quickstart.md)
+* [Local Business Search Python quickstart](local-search-python-quickstart.md)

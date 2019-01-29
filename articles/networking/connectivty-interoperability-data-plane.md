@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabiliteit in Azure back-end-connectiviteit-functies: gegevens vlak analyse | Microsoft Docs'
+title: 'Interoperabiliteit in Azure back-end-connectiviteit-functies: Gegevens analysis vlak | Microsoft Docs'
 description: Dit artikel bevat de gegevens vlak analyse van de test-instellingen die u gebruiken kunt voor het analyseren van interoperabiliteit tussen ExpressRoute, een site-naar-site VPN- en virtueel netwerk in Azure-peering.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 8b9e5b2b073309f177fa0ce4bb2a2d08009a06ff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5e648c1f1b051d7b65d9b007a69aece2d99d9df4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614410"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176179"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabiliteit in Azure back-end-connectiviteit-functies: gegevens vlak analyse
+# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabiliteit in Azure back-end-connectiviteit-functies: Analyse van gegevens vlak
 
 In dit artikel beschrijft de gegevens vlak analyse van de [instellingen testen][Setup]. U kunt ook bekijken de [setup Testconfiguratie] [ Configuration] en de [besturingselement vlak analysis] [ Control-Analysis] van de test-installatie.
 
@@ -496,7 +496,7 @@ In de VNet-peering binnen een regio, knooppunt VNets hub VNet-gateways (VPN- en 
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>VNet-connectiviteit vertakking met behulp van site-naar-site-VPN
 
-U kunt de vertakking VNets die zich in verschillende regio's en on-premises netwerken met elkaar communiceren via een hub VNet. De systeemeigen Azure-oplossing voor dit cofiguration is site-naar-site VPN-verbinding via een VPN-verbinding. Een alternatief is het gebruik van een virtueel netwerkapparaat (NVA) voor de routering in de hub.
+U kunt de vertakking VNets die zich in verschillende regio's en on-premises netwerken met elkaar communiceren via een hub VNet. De systeemeigen Azure-oplossing voor deze configuratie is de site-naar-site VPN-verbinding met behulp van een VPN. Een alternatief is het gebruik van een virtueel netwerkapparaat (NVA) voor de routering in de hub.
 
 Zie voor meer informatie, [wat is VPN-Gateway?] [ VPN] en [implementeren van een maximaal beschikbare NVA][Deploy-NVA].
 

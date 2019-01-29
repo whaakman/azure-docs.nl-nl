@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 12764574c92c494e27290f98f274d2b76c7a4dc6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465170"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183222"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik gegevens datawarehouse-momentopnamen voor herstel of uw datawarehouse kopiëren naar een vorige herstelpunt in de primaire regio. Gebruik datawarehouse-geografisch redundante back-ups om terug te zetten naar een andere geografische regio. 
@@ -73,7 +73,7 @@ Geo-back-ups zijn standaard ingeschakeld. Als uw datawarehouse Gen1 is, kunt u [
 
 
 ## <a name="backup-and-restore-costs"></a>Kosten voor back-up en herstel
-U ziet dat de Azure-factuur heeft een regelitem voor opslag en een regelitem voor Disaster Recovery-opslag. De kosten voor opslag zijn de totale kosten voor het opslaan van gegevens in de primaire regio, samen met de incrementele wijzigingen vastgelegd door momentopnamen. Voor een meer gedetailleerde uitleg over hoe momentopnamen op dit moment worden gemaakt, verwijzen naar dit [documentatie](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). De kosten voor geografisch redundante dekt de kosten voor het opslaan van de geo-back-ups.  
+U ziet dat de Azure-factuur heeft een regelitem voor opslag en een regelitem voor Disaster Recovery-opslag. De kosten voor opslag zijn de totale kosten voor het opslaan van gegevens in de primaire regio, samen met de incrementele wijzigingen vastgelegd door momentopnamen. Raadpleeg voor een meer gedetailleerde uitleg van hoe momentopnamen worden in rekening gebracht, [inzicht in hoe momentopnamen toerekenen kosten](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). De kosten voor geografisch redundante dekt de kosten voor het opslaan van de geo-back-ups.  
 
 De totale kosten voor uw primaire datawarehouse en gedurende zeven dagen van de momentopname van wijzigingen wordt afgerond op het dichtstbijzijnde aantal TB. Bijvoorbeeld, als uw datawarehouse 1,5 TB is en de momentopnamen worden vastgelegd van 100 GB, u in rekening gebracht voor 2 TB aan gegevens in Azure Premium Storage-tarieven. 
 

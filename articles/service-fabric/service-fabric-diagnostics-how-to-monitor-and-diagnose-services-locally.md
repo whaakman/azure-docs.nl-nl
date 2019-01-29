@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 740864276b8d4d7a40a263a0d6d2e09c3534dbd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054166"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190901"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Controle en diagnose van services in een lokale machine development setup
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Bewaking, detecteren, onderzoeken en oplossen van problemen kunt voor diensten o
 * **Er is een ingebouwde ondersteuning in Service Fabric-Visual Studio-hulpprogramma's om ETW-gebeurtenissen weer te geven.** ETW-gebeurtenissen worden weergegeven in de weergave van diagnostische gebeurtenissen van Visual Studio als Visual Studio correct is geconfigureerd met Service Fabric. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Bekijk systeemgebeurtenissen voor Service Fabric in Visual Studio
-Service Fabric verzendt ETW-gebeurtenissen om te begrijpen wat er gebeurt in het platform voor ontwikkelaars van toepassingen. Als u dit nog niet hebt gedaan, gaat u verder en volg de stappen in [maken van uw eerste toepassing in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Deze informatie krijgt u een toepassing actief en werkend krijgen met de Viewer voor diagnostische gebeurtenissen van de traceringsberichten.
+Service Fabric verzendt ETW-gebeurtenissen om te begrijpen wat er gebeurt in het platform voor ontwikkelaars van toepassingen. Als u dit nog niet hebt gedaan, gaat u verder en volg de stappen in [maken van uw eerste toepassing in Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Deze informatie krijgt u een toepassing actief en werkend krijgen met de Viewer voor diagnostische gebeurtenissen van de traceringsberichten.
 
 1. Als de diagnostische gegevens over het venster gebeurtenissen niet automatisch wordt weergegeven, gaat u naar de **weergave** tabblad in Visual Studio, kiest u **andere Windows** en vervolgens **Viewer voor diagnostische gebeurtenissen**.
 2. Elke gebeurtenis is standaard metagegevens die u leest het knooppunt, toepassing en service afkomstig is van de gebeurtenis. U kunt ook de lijst met gebeurtenissen filteren met behulp van de **gebeurtenissen filteren** vak aan de bovenkant van het venster gebeurtenissen. U kunt bijvoorbeeld filteren op **knooppuntnaam** of **servicenaam.** En als u geïnteresseerd bent in de details van gebeurtenis, kunt u ook onderbreken met behulp van de **onderbreken** knop aan de bovenkant van het venster gebeurtenissen en later hervatten zonder verlies van gebeurtenissen.

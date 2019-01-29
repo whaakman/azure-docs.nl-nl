@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a02166b6dedb91a1a82a0b5a77e693c1fe390957
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160060"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104586"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Overwegingen voor Azure Stack-netwerken
 
@@ -34,7 +34,7 @@ Dit artikel bevat een overzicht van de unieke overwegingen voor Azure Stack-netw
 |  | DNS-zones per abonnement | 100 (standaard)<br>Op aanvraag kunnen worden verhoogd. | 100 |
 |  | DNS-recordsets per zone | 5000 (standaard)<br>Op aanvraag kunnen worden verhoogd. | 5000 |
 |  | Naamservers voor zoneoverdracht | Azure biedt vier de naamservers voor elke gebruiker (tenant)-zone die wordt gemaakt. | Azure Stack biedt twee naamservers voor elke gebruiker (tenant)-zone die wordt gemaakt. |
-| Virtueel netwerk | Peering op virtueel netwerk | Verbinding maken met twee virtuele netwerken in dezelfde regio via het Azure-backbone-netwerk. | Nog niet ondersteund |
+| Virtual Network | Peering op virtueel netwerk | Verbinding maken met twee virtuele netwerken in dezelfde regio via het Azure-backbone-netwerk. | Nog niet ondersteund |
 |  | IPv6-adressen | U kunt een IPv6-adres toewijzen als onderdeel van de [Netwerkinterfaceconfiguratie](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Alleen IPv4 wordt ondersteund. |
 |  | DDoS-beschermingsplan | Ondersteund | Nog niet ondersteund. |
 |  | Virtual Machine Scale sets IP-configuraties | Ondersteund | Nog niet ondersteund. |
@@ -47,7 +47,7 @@ Dit artikel bevat een overzicht van de unieke overwegingen voor Azure Stack-netw
 |  | Toepassingsbeveiligingsgroepen | Ondersteund | Nog niet ondersteund. |
 | Virtuele netwerkgateways | Punt-naar-Site VPN-Gateway | Ondersteund | Nog niet ondersteund. |
 |  | Vnet-naar-Vnet-Gateway | Ondersteund | Nog niet ondersteund. |
-|  | Gateway van het Type virtueel netwerk | Azure ondersteunt VPN<br> Express Route <br> Hyper-netto | Azure Stack biedt ondersteuning voor VPN-type op dit moment. |
+|  | Gateway van het Type virtueel netwerk | Azure ondersteunt VPN<br> ExpressRoute <br> Hyper-netto | Azure Stack biedt ondersteuning voor VPN-type op dit moment. |
 |  | VPN-Gateway-SKU 's | Ondersteuning voor Basic, GW1, GW2, GW3, standaard krachtige, zeer hoge prestaties. | Ondersteuning voor Basic, Standard en High Performance SKU's. |
 |  | VPN-Type | Azure ondersteunt zowel op basis van beleid en op basis van Route. | Azure Stack biedt ondersteuning voor Route op basis van alleen. |
 |  | BGP-instellingen | Azure biedt ondersteuning voor configuratie van-adres van BGP-Peering en gewicht van Peer. | BGP-Peering-adres en het gewicht van Peer worden automatisch geconfigureerd in Azure Stack. Er is geen manier voor de gebruiker deze instellingen configureren met hun eigen waarden. |
@@ -70,8 +70,8 @@ Dit artikel bevat een overzicht van de unieke overwegingen voor Azure Stack-netw
 | Network Watcher | Network Watcher tenantnetwerk bewakingsmogelijkheden | Ondersteund | Nog niet ondersteund. |
 | CDN | Content Delivery Network-profielen | Ondersteund | Nog niet ondersteund. |
 | Toepassingsgateway | Taakverdeling voor laag 7 | Ondersteund | Nog niet ondersteund. |
-| Verkeerbeheer | Inkomend verkeer routeren voor optimale toepassingsprestaties en betrouwbaarheid. | Ondersteund | Nog niet ondersteund. |
-| Express Route | Instellen van een snelle particuliere verbinding met Microsoft cloud-services van uw on-premises infrastructuur of CO-locatiefaciliteit. | Ondersteund | Ondersteuning voor Azure Stack verbinden met een Express Route-circuit. |
+| Traffic Manager | Inkomend verkeer routeren voor optimale toepassingsprestaties en betrouwbaarheid. | Ondersteund | Nog niet ondersteund. |
+| ExpressRoute | Instellen van een snelle particuliere verbinding met Microsoft cloud-services van uw on-premises infrastructuur of CO-locatiefaciliteit. | Ondersteund | Ondersteuning voor Azure Stack verbinden met een Express Route-circuit. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

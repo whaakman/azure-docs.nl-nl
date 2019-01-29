@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 5f7770d9331df46c16ed7f5e565c781a864bc5e1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 86fccf71463a2f00b31f5f1e6082db4c404bbf9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077930"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152193"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Gegevens kopiëren van of naar Azure File Storage met behulp van Azure Data Factory
 
@@ -42,8 +42,8 @@ De volgende eigenschappen worden ondersteund voor Azure File Storage gekoppelde 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **FileServer**. | Ja |
-| host | Hiermee geeft u het eindpunt van de Azure File Storage als `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ja |
-| gebruikers-id | Geef de gebruiker voor toegang tot de Azure File Storage als `"userid": "AZURE\\<storage name>"`. | Ja |
+| host | Hiermee geeft u het eindpunt van de Azure File Storage als: <br/>-Met UI: Geef `\\<storage name>.file.core.windows.net\<file service name>`<br/>-Met behulp van JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ja |
+| gebruikers-id | Geef de gebruiker voor toegang tot de Azure File Storage als: <br/>-Met UI: Geef `AZURE\<storage name>`<br/>-Met behulp van JSON: `"userid": "AZURE\\<storage name>"`. | Ja |
 | wachtwoord | Geef de toegangssleutel voor opslag. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee voor bron, Ja voor sink |
 

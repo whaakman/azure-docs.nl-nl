@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 74587d05ec27e87d87aa3647c22f5c90a9cdcf58
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436387"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096701"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding van machines voor beheer met Azure Automation State Configuration
 
@@ -168,7 +168,7 @@ On-premises Linux-computers, Linux-machines in Azure en Linux-machines in niet-A
 1. Zorg ervoor dat de nieuwste versie van [PowerShell Desired State Configuration voor Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is geïnstalleerd op de machines die u voorbereiden voor Azure Automation State Configuration wilt.
 1. Als de [standaardinstellingen voor PowerShell DSC Local Configuration Manager](/powershell/dsc/metaconfig4) overeenkomen met uw situatie, en u wilt vrijgeven machines zodanig dat ze **beide** ophalen uit en te rapporteren aan de configuratie van Azure Automation-status:
 
-   - Gebruik op elke Linux-machine voor Onboarding van Azure Automation status Configuratin `Register.py` moet worden vrijgegeven met de standaardinstellingen voor PowerShell DSC Local Configuration Manager:
+   - Gebruik op elke Linux-machine voor Onboarding van Azure Automation State Configuration, `Register.py` moet worden vrijgegeven met de standaardinstellingen voor PowerShell DSC Local Configuration Manager:
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 

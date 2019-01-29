@@ -9,16 +9,16 @@ ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.openlocfilehash: 762033bbe05b9e1ee497180e004eb8aaa47ba195
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ab3de9b010c0356dea17520b497235e0bf7c818e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827394"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181313"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Uw instellingen beheren voor verificatie in twee stappen
 In dit artikel vindt u antwoorden op vragen over het bijwerken van instellingen voor verificatie in twee stappen verificatie of multi-factor authentication. Als u problemen met aanmelden bij uw account hebt, raadpleegt u [problemen hebt met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) voor oplossingen voor problemen.

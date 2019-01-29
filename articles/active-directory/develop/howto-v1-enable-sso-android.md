@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f0cc19ae220d27de620e5bd347fe78d9bfab2d5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422844"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093288"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Hoe: verschillende Apps SSO inschakelen op Android met behulp van ADAL
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedure: SSO voor cross-app op Android met behulp van ADAL inschakelen
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -108,7 +108,7 @@ Zijn de stappen te volgen:
 2. Tot stand brengen van een nieuwe omleidings-URI en bieden die zowel de app als uw app-registratie
 3. Instellen van de juiste machtigingen in het Android-manifest
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Stap 1: Broker-modus inschakelen in uw toepassing
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Stap 1: Schakel de broker-modus in uw toepassing
 
 De mogelijkheid voor uw toepassing voor het gebruik van de broker is ingeschakeld wanneer u de 'instellingen' of de eerste installatie van de verificatie-exemplaar maakt. Om dit te doen in uw app:
 

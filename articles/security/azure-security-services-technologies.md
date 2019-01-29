@@ -30,7 +30,7 @@ Bij het evalueren van cloud serviceprovider-opties, is het handig om deze inform
 Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg ervoor dat u deze pagina regelmatig op de hoogte van onze services met betrekking tot beveiliging en -technologieën wilt controleren.
 
 ## <a name="general-azure-security"></a>Algemene Azure-beveiliging
-|Service|Description|
+|Service|Beschrijving|
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../security-center/security-center-intro.md)| Een cloud-workload oplossing voor gegevensbescherming waarmee beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor hybride cloudworkloads.|
 |[Azure Key Vault](../key-vault/key-vault-overview.md)| Een beveiligd geheimenarchief voor de wachtwoorden, verbindingsreeksen en andere informatie die u nodig hebt om uw apps werken te houden. |
@@ -40,7 +40,7 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
 
 ## <a name="storage-security"></a>Opslagbeveiliging
-|Service|Description|
+|Service|Beschrijving|
 |------|--------|
 | [Azure&nbsp;Storage&nbsp;Service&nbsp;Encryption](../storage/common/storage-service-encryption.md)|Een beveiligingsfunctie die automatisch uw gegevens in Azure storage versleutelt.   |
 |[StorSimple hybride opslag versleuteld](../storsimple/storsimple-ova-overview.md)| Een geïntegreerde opslagaccountoplossing waarmee tussen on-premises apparaten en Azure-cloud-opslag opslagtaken.|
@@ -53,7 +53,7 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 <!------>
 
 ## <a name="database-security"></a>Databasebeveiliging
-|Service|Description|
+|Service|Beschrijving|
 |------|--------|
 | [Azure&nbsp;SQL&nbsp;Firewall](../sql-database/sql-database-firewall-configure.md)|Een netwerk besturingselement onderdeel toegang biedt bescherming tegen aanvallen op het netwerk naar de database. |
 |[Azure&nbsp;SQL&nbsp;Cell&nbsp;Level Encryption](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| Een database beveiligingstechnologie waarmee versleuteling op een gedetailleerd niveau biedt.  |
@@ -64,7 +64,7 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 
 
 ## <a name="identity-and-access-management"></a>Identiteits- en toegangsbeheer
-|Service|Description|
+|Service|Beschrijving|
 |------|--------|
 | [Azure&nbsp;rol&nbsp;op basis van&nbsp;Access Control](../active-directory/role-based-access-control-configure.md)|Een functie voor toegang is ontworpen om gebruikers toegang krijgen tot alleen de resources die ze vereist voor toegang op basis van hun rol binnen de organisatie zijn.  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Een cloud-gebaseerde authenticatie-opslagplaats die ondersteuning biedt voor een map met meerdere tenants, cloud-gebaseerde en meerdere identity management-services binnen Azure.  |
@@ -73,13 +73,13 @@ Na verloop van tijd, wordt deze lijst wijzigt en groeien, net als Azure. Zorg er
 | [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Een security inrichten met de diverse verschillende vormen van verificatie en verificatie voordat de toegang tot beveiligde gegevens. |
 
 ## <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgevallen
-|Service|Description|
+|Service|Beschrijving|
 |------|--------|
 | [Azure&nbsp;Backup](../backup/backup-introduction-to-azure-backup.md)| Een Azure-service gebruikt voor het back-up en herstellen van gegevens in de Azure-cloud. |
 | [Azure&nbsp;Site&nbsp;Recovery](../site-recovery/site-recovery-overview.md)|Een online service die worden gerepliceerd van workloads die worden uitgevoerd op fysieke en virtuele machines (VM's) van een primaire site naar een secundaire locatie om in te schakelen van herstel van services na een storing. |
 
 ## <a name="networking"></a>Netwerken
-|Service|Description|
+|Service|Beschrijving|
 |------|--------|
 | [Netwerk&nbsp;Security&nbsp;groepen](../virtual-network/virtual-networks-nsg.md)| Een netwerk gebaseerde functie voor toegang met behulp van een 5-tuple waarmee toestaan of weigeren van beslissingen.  |
 | [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Een netwerkapparaat dat wordt gebruikt als een VPN-eindpunt om toe te staan cross-premises toegang tot Azure Virtual Networks.  |

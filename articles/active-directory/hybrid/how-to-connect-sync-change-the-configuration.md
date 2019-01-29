@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8c6fe9952beb8daeb9b96cf9244cccf85d9c2203
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463368"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165452"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: Breng een wijziging aan in de standaardconfiguratie
 Het doel van dit artikel is waarmee u stapsgewijs hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure Active Directory (Azure AD) Connect-synchronisatie. Het biedt stappen voor enkele algemene scenario's. Met deze kennis moet u het volgende kunnen eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -265,10 +265,10 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
 3. Klik op de **nieuwe regel toevoegen** om te maken van een nieuwe regel voor binnenkomende verbindingen.
 4. Onder de **beschrijving** tabblad, geeft u de volgende configuratie:
 
-    | Kenmerk | Waarde | Details |
+    | Kenmerk | Value | Details |
     | --- | --- | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, *In uit Active Directory-gebruiker UserType* |
-    | Description | *Geef een beschrijving* |  |
+    | Beschrijving | *Geef een beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises AD-connector* |  |
     | Verbonden systeem objecttype | **User** |  |
     | Metaverse-objecttype | **Person** |  |
@@ -277,7 +277,7 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
 
 5. Ga naar de **Scoping filter** tabblad en voeg een **één filter bereikgroep** met de volgende component:
 
-    | Kenmerk | Operator | Waarde |
+    | Kenmerk | Operator | Value |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Gebruiker\_ |
 
@@ -307,10 +307,10 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 3. Klik op de **nieuwe regel toevoegen** knop.
 4. Onder de **beschrijving** tabblad, geeft u de volgende configuratie:
 
-    | Kenmerk | Waarde | Details |
+    | Kenmerk | Value | Details |
     | ----- | ------ | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, *Out voor AAD-gebruiker UserType* |
-    | Description | *Geef een beschrijving* ||
+    | Beschrijving | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de AAD-connector* ||
     | Verbonden systeem objecttype | **User** ||
     | Metaverse-objecttype | **Person** ||
@@ -319,7 +319,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 
 5. Ga naar de **Scoping filter** tabblad en voeg een **één filter bereikgroep** met twee componenten:
 
-    | Kenmerk | Operator | Waarde |
+    | Kenmerk | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | GELIJK AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |

@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250488"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188623"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing webzoekopdrachten-API-reactie structuur en -antwoordsessie-typen  
 
@@ -288,7 +288,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Een wiskundige expressie kan de volgende symbolen bevatten:
 
-|Symbool|Description|
+|Symbool|Beschrijving|
 |------------|-----------------|
 |+|Aanvulling|
 |-|Aftrekken|
@@ -302,9 +302,9 @@ Een wiskundige expressie kan de volgende symbolen bevatten:
 
 Een rekenkundige expressie mag de volgende constanten toe:
 
-|Symbool|Description|
+|Symbool|Beschrijving|
 |------------|-----------------|
-|PI|3,14159...|
+|PI|3.14159...|
 |Mate|Mate|
 |Ik|Denkbeeldige getal|
 |e|e 2.71828...|
@@ -312,15 +312,15 @@ Een rekenkundige expressie mag de volgende constanten toe:
 
 Een rekenkundige expressie mag de volgende functies:
 
-|Symbool|Description|
+|Symbool|Beschrijving|
 |------------|-----------------|
 |WORTEL|Vierkantswortel|
 |SIN [x], Cos [x], Tan [x]<br />Csc [x], [x] Sec Cot [x]|Trigonometrische functies (met argumenten in radialen)|
-|ArcSin [x], [x] ArcCos ArcTan [x]<br />ArcCsc [x], [x] ArcSec ArcCot [x]|Inverse trigonometrische functies (waardoor de resultaten in radialen)|
-|EXP [x] E ^ x|Exponentiële functie|
-|Log [x]|Natuurlijk logaritme|
+|ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Inverse trigonometrische functies (waardoor de resultaten in radialen)|
+|Exp[x], E^x|Exponentiële functie|
+|Log[x]|Natuurlijk logaritme|
 |SINH [x], [x] Cosh Tanh [x]<br />Csch [x], [x] Sech Coth [x]|Hyperbolische functies|
-|ArcSinh [x], [x] ArcCosh ArcTanh [x]<br />ArcCsch [x], [x] ArcSech ArcCoth [x]|Inverse hyperbolische functies|
+|ArcSinh[x], ArcCosh[x], ArcTanh[x]<br />ArcCsch[x], ArcSech[x], ArcCoth[x]|Inverse hyperbolische functies|
 
 Wiskundige expressies die variabelen (voor bijvoorbeeld 4 x + 6 = 18, waarbij x staat voor de variabele) bevatten, worden niet ondersteund.
 

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 738e4a4f94d86fc3a1acbb2e43c5b1974d6abac2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849260"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188488"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>De gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C aanpassen
 
@@ -167,7 +167,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 
-| HTML5-sjabloon | Description |
+| HTML5-sjabloon | Beschrijving |
 |----------------|-------------|
 | *phonefactor.html* | Dit bestand gebruiken als een sjabloon voor een multi-factor authentication-pagina. |
 | *resetpassword.html* | Dit bestand gebruiken als een sjabloon voor een pagina voor vergeten wachtwoorden. |
@@ -177,7 +177,7 @@ De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 
 In de [, wijzigt u de beleidssectie van uw aangepaste voor registreren of aanmelden](#modify-your-sign-up-or-sign-in-custom-policy), u hebt geconfigureerd dat de definitie van de inhoud voor `api.idpselections`. De volledige set met inhoud roldefinitie-id's die worden herkend door de Azure AD B2C identiteitservaring-framework en de bijbehorende beschrijvingen zijn in de volgende tabel:
 
-| De definitie van de inhoud-ID | Description | 
+| De definitie van de inhoud-ID | Beschrijving | 
 |-----------------------|-------------|
 | *api.error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | **Pagina voor het id-provider selecteren**. Deze pagina bevat een lijst met id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze opties zijn enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |

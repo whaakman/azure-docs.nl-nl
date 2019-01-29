@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 715035072ddc2ceb087d003dd5da5bc47572e9b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52d976761ad5962f09f40565cfa04ae78386d1ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444348"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Zelfstudie: Azure Active Directory-integratie met OpsGenie
 
@@ -43,10 +43,10 @@ Azure AD-integratie configureren met OpsGenie, moet u de volgende items:
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
+- Als u nog geen proefversie van Azure AD hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) een proefversie van één maand aanvragen.
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -59,17 +59,17 @@ Voor het configureren van de integratie van OpsGenie in Azure AD, moet u OpsGeni
 
 **Als u wilt toevoegen OpsGenie uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **OpsGenie**.
 
@@ -116,9 +116,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
 
-    ![De downloadkoppeling certificaat](./media/opsgenie-tutorial/tutorial_opsgenie_certificate.png)
+    ![De link om het certificaat te downloaden](./media/opsgenie-tutorial/tutorial_opsgenie_certificate.png)
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/opsgenie-tutorial/tutorial_general_400.png)
 
@@ -148,10 +148,10 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     b. In de **metagegevens-Url:** tekstvak plakken **App-Url voor federatieve metagegevens** waarde die u hebt gekopieerd vanuit Azure portal.
     
-    c. Klik op **wijzigingen opslaan**.
+    c. Klik op **Wijzigingen opslaan**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -191,7 +191,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
    
    ![Instellingen voor OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
-1. Klik op **gebruiker toevoegen**.
+1. Klik op **Add User**.
 
 1. Op de **gebruiker toevoegen** dialoogvenster, voer de volgende stappen uit:
    

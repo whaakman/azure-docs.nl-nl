@@ -1,6 +1,6 @@
 ---
-title: Uitvoeren van een Azure Service Fabric-service onder een beheerd serviceaccount | Microsoft Docs
-description: Informatie over het uitvoeren van een service als een gMSA op een zelfstandige Service Fabric Windows cluster.
+title: Uitvoeren van een Azure Service Fabric-service onder een gMSA-account | Microsoft Docs
+description: Leer hoe u een service uitvoeren als een gMSA op een zelfstandige Service Fabric Windows cluster.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 5f93285061708172b9b6ac40dc97fce08f7b2a86
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 56a7478ab7221a1ccb4394a245540d3181e4ad8e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206710"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155575"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Een service uitvoeren als door een groep beheerd serviceaccount
-Op een zelfstandige cluster van Windows Server, kunt u een service uitvoeren als een groep beheerde serviceaccount (gMSA) voor met behulp van een RunAs-beleid.  Service Fabric-toepassingen worden standaard uitgevoerd onder het account waaronder het Fabric.exe-proces wordt uitgevoerd onder. Uitvoeren van toepassingen onder verschillende accounts, zelfs in een gedeelde gehoste omgeving zorgt ervoor dat ze van elkaar veiliger. Houd er rekening mee dat dit maakt gebruik van Active Directory on-premises binnen uw domein en niet Azure Active Directory (Azure AD). Met behulp van een gMSA, is er geen wachtwoord of versleutelde wachtwoord opgeslagen in het toepassingsmanifest.  U kunt ook uitvoeren met een service als een [Active Directory-gebruiker of groep](service-fabric-run-service-as-ad-user-or-group.md).
+Op een zelfstandige cluster van Windows Server, kunt u een service uitvoeren als een groep beheerd-serviceaccount (gMSA) met behulp van een RunAs-beleid.  Standaard wordt Service Fabric-toepassingen uitvoeren onder het account dat de Fabric.exe-proces wordt uitgevoerd onder. Uitvoeren van toepassingen onder verschillende accounts, zelfs in een gedeelde omgeving, zorgt ervoor dat ze beter te beveiligen van elkaar. Houd er rekening mee dat dit maakt gebruik van on-premises Active Directory in uw domein en niet Azure Active Directory (Azure AD). Met behulp van een gMSA, is er geen wachtwoord of het versleutelde wachtwoord opgeslagen in het toepassingsmanifest.  U kunt ook uitvoeren met een service als een [Active Directory-gebruiker of groep](service-fabric-run-service-as-ad-user-or-group.md).
 
-Het volgende voorbeeld ziet u het maken van een beheerd serviceaccount voor aangeroepen *svc-Test$*; beheerde serviceaccount implementeren op de clusterknooppunten; en het configureren van de user principal.
+In het volgende voorbeeld laat zien hoe u een gMSA-account met de naam *svc Test$*; over het implementeren van het beheerde serviceaccount voor de clusterknooppunten; en het configureren van de principal van gebruiker.
 
 Vereisten:
 - Het domein moet een KDS-hoofdsleutel.
 - Het domein moet op een Windows Server 2012 of hoger functionaliteitsniveau.
 
-1. Vraagt u een Active Directory-domein-beheerder maakt een groep beheerde service account met behulp van de `New-ADServiceAccount` commandlet en zorg ervoor dat de `PrincipalsAllowedToRetrieveManagedPassword` bevat alle knooppunten van het service fabric. `AccountName`, `DnsHostName`, en `ServicePrincipalName` moeten uniek zijn.
+1. Vraagt u een Active Directory-domein-beheerder maakt een groep beheerde service account met behulp van de `New-ADServiceAccount` commandlet en zorg ervoor dat de `PrincipalsAllowedToRetrieveManagedPassword` bevat alle van de service fabric-clusterknooppunten. `AccountName`, `DnsHostName`, en `ServicePrincipalName` moet uniek zijn.
 
-    ```poweshell
+    ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
     ```
 
-2. Op elk van de Service Fabric clusterknooppunten (bijvoorbeeld `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), installeren en testen van de gMSA.
+2. Op elk van de Service Fabric-clusterknooppunten (bijvoorbeeld `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), installeren en testen van de gMSA.
     
     ```powershell
     Add-WindowsFeature RSAT-AD-PowerShell
@@ -44,7 +44,7 @@ Vereisten:
     Test-AdServiceAccount svc-Test$
     ```
 
-3. De User principal configureren en configureer de RunAsPolicy om te verwijzen naar de gebruiker.
+3. Configureren van de principal van gebruiker en configureer de RunAsPolicy om te verwijzen naar de gebruiker.
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -65,13 +65,12 @@ Vereisten:
     ```
 
 > [!NOTE] 
-> Als u een Run as-beleid op een service toepassen en de servicemanifest eindpunt resources met de HTTP-protocol declareert, moet u een **SecurityAccessPolicy**.  Zie voor meer informatie [toewijzen van een beveiligingsbeleid voor toegang voor HTTP en HTTPS-eindpunten](service-fabric-assign-policy-to-endpoint.md). 
+> Als u een Run as-beleid op een service toepassen en het servicemanifest eindpunt resources met de HTTP-protocol verklaart, moet u een **SecurityAccessPolicy**.  Zie voor meer informatie, [toewijzen van een beveiligingsbeleid voor toegang voor HTTP en HTTPS-eindpunten](service-fabric-assign-policy-to-endpoint.md). 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-Lees de volgende artikelen een volgende stap:
-* [Inzicht in het toepassingsmodel](service-fabric-application-model.md)
-* [Bronnen opgeven in een servicemanifest](service-fabric-service-manifest-resources.md)
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Lees de volgende stap, de volgende artikelen:
+* [Inzicht krijgen in het toepassingsmodel](service-fabric-application-model.md)
+* [Resources specificeren in een servicemanifest](service-fabric-service-manifest-resources.md)
 * [Een app implementeren](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 8ec9e5a50f2350a17d5845f5c52954df10fa1d10
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176009"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -44,7 +44,7 @@ Het volgende voorbeeld wordt een **RelyingParty** -element in de *B2C_1A_signup_
   <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
-      <SingleSignOn Scope="TrustFramework" />
+      <SingleSignOn Scope="TrustFramework" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
       <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -74,7 +74,7 @@ Het volgende voorbeeld wordt een **RelyingParty** -element in de *B2C_1A_signup_
 
 De optionele **RelyingParty** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | De gebruikersbeleving standaard voor de RP-toepassing. |
 | UserJourneyBehaviors | 0:1 | Het bereik van de reis gebruikersgedrag. |
@@ -102,7 +102,7 @@ De `DefaultUserJourney` element Hiermee geeft u een verwijzing naar de id van de
 
 De **DefaultUserJourney** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van de gebruikersbeleving in het beleid. Zie voor meer informatie, [gebruiker reizen](userjourneys.md) |
 
@@ -110,7 +110,7 @@ De **DefaultUserJourney** element bevat het volgende kenmerk:
 
 De **UserJourneyBehaviors** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Het bereik van de eenmalige aanmelding (SSO) sessiegedrag van een gebruikersbeleving. |
 | SessionExpiryType |0:1 | Het verificatiegedrag van de sessie. Mogelijke waarden: `Rolling` of `Absolute`. De `Rolling` waarde (standaard) geeft aan dat de gebruiker aangemeld blijft zolang de gebruiker voortdurend actief zijn in de toepassing is. De `Absolute` waarde geeft aan dat de gebruiker wordt gedwongen om te verifiëren na de periode die is opgegeven door de toepassingssessie levensduur. |
@@ -122,15 +122,16 @@ De **UserJourneyBehaviors** element bevat de volgende elementen:
 
 De **SingleSignOn** element in het volgende kenmerk bevat:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Bereik | Ja | Het bereik van het gedrag van eenmalige aanmelding. Mogelijke waarden: `Suppressed`, `Tenant`, `Application`, of `Policy`. De `Suppressed` waarde geeft aan dat het probleem wordt onderdrukt. Bijvoorbeeld geen sessie wordt bijgehouden voor de gebruiker in het geval van een sessie voor eenmalige aanmelding en de gebruiker altijd een prompt wordt voor de selectie van een id-provider. De `TrustFramework` waarde geeft aan dat het gedrag voor alle beleidsregels in het kader van de vertrouwensrelatie wordt toegepast. Bijvoorbeeld, navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Tenant` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels in de tenant. Bijvoorbeeld, navigeren door twee trajecten van beleid voor een tenant van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Application` waarde geeft aan dat het probleem wordt toegepast op alle beleidsregels voor de toepassing die de aanvraag. Bijvoorbeeld, navigeren door twee beleid trajecten voor een toepassing van een gebruiker niet gevraagd voor de selectie van een id-provider. De `Policy` waarde geeft aan dat het gedrag is alleen van toepassing op een beleid. Bijvoorbeeld, wordt navigeren door twee trajecten van beleid voor het kader van een vertrouwensrelatie van een gebruiker gevraagd een id-provider selecteren bij het schakelen tussen beleid. |
+| KeepAliveInDays | Ja | Hiermee bepaalt u hoe lang de gebruiker blijft aangemeld. Als u de waarde op 0 schakelt KMSI functionaliteit. Zie voor meer informatie, [aangemeld blijven](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
 De **JourneyInsights** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Ja | De waarde moet `ApplicationInsights`. | 
 | InstrumentationKey | Ja | De tekenreeks is die de instrumentatiesleutel voor de application insights-element bevat. |
@@ -151,13 +152,13 @@ Het volgende voorbeeld wordt een parameter met de naam doorgegeven `campaignId` 
 
 De **ContentDefinitionParameters** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0: n | Een tekenreeks zijn met de sleutel-waardepaar dat wordt toegevoegd aan de querytekenreeks van een inhoudsdefinitie laden URI. |
 
 De **ContentDefinitionParameter** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Name | Ja | De naam van de sleutel-waardepaar. |
 
@@ -167,16 +168,16 @@ Zie voor meer informatie, [configureren van de gebruikersinterface met dynamisch
 
 De **TechnicalProfile** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- | 
 | Id | Ja | De waarde moet `PolicyProfile`. |
 
 De **TechnicalProfile** bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | De tekenreeks zijn met de naam van het technische profiel dat wordt weergegeven aan gebruikers. |
-| Description | 0:1 | De tekenreeks zijn met de beschrijving van het technische profiel dat wordt weergegeven aan gebruikers. |
+| Beschrijving | 0:1 | De tekenreeks zijn met de beschrijving van het technische profiel dat wordt weergegeven aan gebruikers. |
 | Protocol | 1:1 | Het protocol dat wordt gebruikt voor de Federatie. |
 | Metagegevens | 0:1 | De verzameling van *Item* van sleutel/waarde-paren die door het protocol voor communicatie met het eindpunt in de loop van een transactie worden gebruikt voor het configureren van interactie tussen de relying party's en andere deelnemers aan de community. |
 | OutputClaims | 0:1 | Een lijst met claimtypen die worden uitgevoerd als uitvoer in het technische profiel. Elk van deze elementen bevat een verwijzing naar een **ClaimType** al gedefinieerd in de **ClaimsSchema** sectie of in een beleid dat dit beleidsbestand overneemt. |
@@ -184,7 +185,7 @@ De **TechnicalProfile** bevat de volgende elementen:
 
 De **Protocol** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Name | Ja | De naam van een geldig protocol dat wordt ondersteund door Azure AD B2C die wordt gebruikt als onderdeel van het technische profiel. Mogelijke waarden: `OpenIdConnect` of `SAML2`. De `OpenIdConnect` waarde vertegenwoordigt de OpenID Connect 1.0-protocol standaard aan de hand van OpenID foundation-specificatie. De `SAML2` vertegenwoordigt de standaard SAML 2.0-protocol aan de hand van OASIS-specificatie. Gebruik een SAML-token niet in de productieomgeving. |
 
@@ -192,13 +193,13 @@ De **Protocol** element bevat het volgende kenmerk:
 
 De **OutputClaims** element bevat het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0: n | De naam van een verwachte claimtype in de lijst met ondersteunde voor het beleid waarnaar de relying party is geabonneerd. Deze claim fungeert als een uitvoer op voor het technische profiel. |
 
 De **OutputClaim** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Een verwijzing naar een **ClaimType** al gedefinieerd in de **ClaimsSchema** sectie in het beleid-bestand. |
 | Standaardwaarde | Nee | Een standaardwaarde die kan worden gebruikt als de claimwaarde leeg is. |
@@ -212,7 +213,7 @@ Met de **SubjectNameingInfo** -element, u de waarde van het onderwerp van de tok
 
 De **SubjectNamingInfo** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | ClaimType | Ja | Een verwijzing naar een uitvoerclaim **PartnerClaimType**. De uitvoer claims moeten worden gedefinieerd in het beleid voor relying party **OutputClaims** verzameling. |
 

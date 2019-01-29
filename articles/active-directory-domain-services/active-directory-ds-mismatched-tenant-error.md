@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: 7f69214304161c091a4550aff770b6333656972c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d3586293574cc71011ad96fece5e5a4fdfa0b70f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844208"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191989"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Los de fouten niet-overeenkomende map voor bestaande Azure AD Domain Services beheerde domeinen
 Hebt u een bestaande Azure AD Domain Services beheerde domein. Wanneer u gaat u naar de Azure-portal en het beheerde domein, ziet u de volgende strekking weergegeven:

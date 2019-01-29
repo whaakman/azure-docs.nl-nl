@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3dfe47bc9a1d91e103d09794bfd50a270c99c3e8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477631"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165265"
 ---
 # <a name="configure-recognize-text-containers"></a>Tekst herkennen containers configureren
 
@@ -33,7 +33,7 @@ Configuratie-instellingen van Computer Vision-containers zijn hiërarchische en 
 * [Gebruiksrechtovereenkomst](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
 * [Referentie-instellingen voor HTTP-proxy](#http-proxy-credentials-settings)
-* [Logboekregistratie](#logging-configuration-settings)
+* [Logging](#logging-configuration-settings)
 * [Hiermee wordt gekoppeld](#mounts-configuration-settings)
 
 U kunt een gebruiken [omgevingsvariabelen](#configuration-settings-as-environment-variables) of [opdrachtregelargumenten](#configuration-settings-as-command-line-arguments) om op te geven van configuratie-instellingen bij het instantiëren van een container van Computer Vision-containers.

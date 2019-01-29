@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258728"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168410"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pakket maken en implementeren van een bestaand uitvoerbaar bestand naar Service Fabric
 Bij het verpakken van een bestaand uitvoerbaar bestand als een [Gast kan worden uitgevoerd](service-fabric-guest-executables-introduction.md), kunt u ofwel een Visual Studio-projectsjabloon gebruiken of [handmatig maken van het toepassingspakket](#manually). Met behulp van Visual Studio, worden de toepassing pakketstructuur en de manifest-bestanden door de nieuwe projectsjabloon, maken voor u gemaakt.
@@ -143,7 +143,7 @@ Het element CodePackage Hiermee geeft u de locatie (en -versie) van de code van 
 
 De `Name` element wordt gebruikt om op te geven van de naam van de map in het toepassingspakket met de code van de service. `CodePackage` heeft ook de `version` kenmerk. Dit kan worden gebruikt om op te geven van de versie van de code en kan ook worden gebruikt om upgradecode van de service met behulp van de application lifecycle management-infrastructuur in Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Optioneel: Update SetupEntrypoint
+#### <a name="optional-update-setupentrypoint"></a>Optioneel: SetupEntrypoint bijwerken
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -157,7 +157,7 @@ Er is slechts één SetupEntryPoint zodat installatiescripts worden gegroepeerd 
 
 In het voorgaande voorbeeld de wordt uitgevoerd een batchbestand met de naam van de SetupEntryPoint `LaunchConfig.cmd` die bevindt zich in de `scripts` submap van de codemap (ervan uitgaande dat het element WorkingFolder is ingesteld op CodeBase).
 
-#### <a name="update-entrypoint"></a>EntryPoint bijwerken
+#### <a name="update-entrypoint"></a>Update EntryPoint
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -302,4 +302,4 @@ In dit artikel hebt u geleerd hoe kunnen worden verpakt een Gast kan worden uitg
 * [Voorbeeld voor het verpakken en implementeren van een Gast kan worden uitgevoerd](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), met inbegrip van een koppeling naar de voorlopige versie van het hulpprogramma verpakking
 * [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceren via de Naming-service met behulp van REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd](service-fabric-deploy-multiple-apps.md)
-* [Uw eerste Service Fabric-toepassing met Visual Studio maken](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Uw eerste Service Fabric-toepassing met Visual Studio maken](service-fabric-tutorial-create-dotnet-app.md)

@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249662"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156918"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Een dynamische groep maken en de status controleren
 
@@ -54,17 +54,17 @@ Ziet u het lidmaatschap van de status en het laatst bijgewerkt op verwerking op 
 
 De volgende statusberichten kunnen worden weergegeven voor **lidmaatschap verwerking** status:
 
-* **Evaluatie van**: de groepswijziging is ontvangen en de updates worden geëvalueerd.
+* **Evaluatie van**:  De groepswijziging is ontvangen en de updates worden geëvalueerd.
 * **Verwerking van**: Updates worden verwerkt.
-* **Bijwerken voltooid**: verwerking is voltooid en alle toepasselijke updates zijn aangebracht.
+* **Bijwerken voltooid**: Verwerking is voltooid en alle toepasselijke updates zijn aangebracht.
 * **Verwerkingsfout**: Er is een fout opgetreden tijdens het evalueren van de regel voor de verzameling en verwerking kan niet worden voltooid.
-* **Update onderbroken**: updates zijn onderbroken door de beheerder van de regel voor dynamisch lidmaatschap. MembershipRuleProcessingState is ingesteld op 'Onderbroken'.
+* **Update onderbroken**: Dynamische lidmaatschap regel updates zijn onderbroken door de beheerder. MembershipRuleProcessingState is ingesteld op 'Onderbroken'.
 
 De volgende statusberichten kunnen worden weergegeven voor **lidmaatschap laatst bijgewerkt** status:
 
-* &lt;**Datum en tijd**&gt;: de laatste keer dat het lidmaatschap is bijgewerkt.
+* &lt;**Datum en tijd**&gt;: De laatste keer dat het lidmaatschap is bijgewerkt.
 * **Bezig**: Updates worden momenteel uitgevoerd.
-* **Onbekende**: de laatste updatetijd kan niet worden opgehaald. Het kan zijn vanwege de groep wordt pas gemaakt.
+* **Onbekende**: De laatste updatetijd kan niet worden opgehaald. Het kan zijn vanwege de groep wordt pas gemaakt.
 
 Als er een fout optreedt tijdens het verwerken van de lidmaatschapsregel voor een specifieke groep, een waarschuwing wordt weergegeven bovenaan het **overzichtspagina** voor de groep. Als niet in afwachting van lidmaatschap van dynamische updates kunnen worden verwerkt voor alle groepen in de tenant voor meer dan 24 uur, een waarschuwing wordt weergegeven boven in het **alle groepen**.
 

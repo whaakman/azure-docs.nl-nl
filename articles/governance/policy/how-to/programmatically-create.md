@@ -4,17 +4,17 @@ description: Dit artikel helpt u bij het programmatisch beleid maken en beheren 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847047"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101784"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmatisch beleid maken en compatibiliteitsgegevens weergeven
 
@@ -201,17 +201,34 @@ Gebruik de volgende procedure voor het maken van een beleidsdefinitie:
   }
   ```
 
+   Zie voor meer informatie over het ontwerpen van een beleidsdefinitie [structuur van beleidsdefinities Azure](../concepts/definition-structure.md).
+
 1. Voer de volgende opdracht om een beleidsdefinitie maken:
 
    ```azurecli-interactive
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
+   De opdracht maakt u een beleidsdefinitie met de naam _Audit Storage Accounts openen met een openbaar netwerk_.
+   Zie voor meer informatie over andere parameters die u kunt gebruiken, [az beleidsdefinitie maken](/cli/azure/policy/definition#az-policy-definition-create).
+
+   Wanneer aangeroepen zonder locatieparameters, `az policy definition creation` standaard ingesteld op het opslaan van de beleidsdefinitie in het geselecteerde abonnement van de context van sessies. Als u wilt de definitie van de opslaan naar een andere locatie, gebruik de volgende parameters:
+
+   - **--abonnement** -opslaan naar een ander abonnement. Vereist een _GUID_ waarde voor de abonnements-ID of een _tekenreeks_ waarde voor de naam van het abonnement.
+   - **--beheergroep** -opslaan in een beheergroep. Vereist een _tekenreeks_ waarde.
+
 1. Gebruik de volgende opdracht om een beleidstoewijzing te maken. Vervang voorbeeldinformatie in &lt; &gt; symbolen door uw eigen waarden.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
+
+   De **--bereik** parameter op `az policy assignment create` werkt met de beheergroep, abonnement, resourcegroep of één resource. De parameter maakt gebruik van een volledige resource-pad. Het patroon voor **--bereik** voor elke container als volgt is. Vervang `{rName}`, `{rgName}`, `{subId}`, en `{mgName}` met de resourcenaam van uw, resourcegroep de naam, abonnements-ID en naam van beheergroep, respectievelijk. `{rType}` zou worden vervangen door de **resourcetype** van de resource, zoals `Microsoft.Compute/virtualMachines` voor een virtuele machine.
+
+   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resourcegroep: `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Abonnement: `/subscriptions/{subID}`
+   - Beheergroep- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 U kunt de Beleidstoewijzings-ID opvragen met behulp van PowerShell met de volgende opdracht:
 

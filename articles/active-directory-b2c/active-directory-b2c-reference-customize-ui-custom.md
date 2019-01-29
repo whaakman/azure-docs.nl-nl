@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 1953e23c0676a0c81576a47f3f3ca36c3861935f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855053"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195933"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>De gebruikersinterface van een gebruikersbeleving met aangepast beleid aanpassen
 
@@ -138,7 +138,7 @@ Het opslagaccount moet nu een blobcontainer met de naam bevatten *b2c* in de afb
 
 De volgende tabel beschrijft het doel van de voorgaande HTML5-pagina's.
 
-| HTML5-sjabloon | Description |
+| HTML5-sjabloon | Beschrijving |
 |----------------|-------------|
 | *phonefactor.html* | Deze pagina kan worden gebruikt als een sjabloon voor een multi-factor authentication-pagina. |
 | *resetpassword.html* | Deze pagina kan worden gebruikt als een sjabloon voor een pagina voor vergeten wachtwoorden. |
@@ -154,7 +154,7 @@ De aangepaste sjablonen die HTML5/CSS gebruiken in de gebruikersbeleving moeten 
 
 De volgende tabel beschrijft de set met inhoud roldefinitie-id's wordt herkend door de identiteit van de Azure AD B2C-engine en het type van pagina's dat is gekoppeld aan deze optreden.
 
-| De definitie van de inhoud-ID | Description |
+| De definitie van de inhoud-ID | Beschrijving |
 |-----------------------|-------------|
 | *api.error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | **Pagina voor het id-provider selecteren**. Deze pagina bevat een lijst met id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze providers zijn enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts (op basis van e-mailadres of gebruikersnaam naam). |

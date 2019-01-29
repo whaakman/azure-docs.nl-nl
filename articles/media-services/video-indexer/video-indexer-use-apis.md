@@ -1,5 +1,5 @@
 ---
-title: De Video Indexer-API gebruiken
+title: Gebruik de Video Indexer-API - Azure
 titlesuffix: Azure Media Services
 description: Met dit artikel leert u hoe u aan de slag gaat met de Video Indexer-API.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d7af0d8961d5fa4d3f76b76a48ec613d954298ad
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d162f8caef0a14d86547539681f1da9b1b07ea1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292293"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190493"
 ---
-# <a name="use-the-video-indexer-api"></a>De Video Indexer-API gebruiken
+# <a name="tutorial-use-the-video-indexer-api"></a>Zelfstudie: De Video Indexer-API gebruiken
 
 > [!Note]
 > De Video Indexer V1-API is afgeschaft op 1 augustus 2018. U moet nu de Video Indexer v2-API gebruiken. <br/>Bekijk [hier](https://api-portal.videoindexer.ai/) de instructies voor ontwikkeling met de Video Indexer v2-API's. 

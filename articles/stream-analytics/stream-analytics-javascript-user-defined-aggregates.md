@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702371"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097968"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics gebruiker gedefinieerde JavaScript-verzamelingen (Preview)
  
@@ -28,7 +28,7 @@ Een door de gebruiker gedefinieerde aggregatie wordt gebruikt op een specificati
 
 AccumulateOnly statistische functies kunnen alleen nieuwe gebeurtenissen naar de status oplopen, deaccumulation van waarden niet wordt toegestaan door de algoritme. Kies dit type aggregatie dat wanneer een gebeurtenis deaccumulate gegevens uit de statuswaarde is niet mogelijk om te implementeren. Hieronder vindt u de JavaScript-sjabloon voor AccumulatOnly statistische functies:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +43,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate statistische functies
 
 AccumulateDeaccumulate statistische functies toestaan deaccumulation van een vorige samengevoegde waarde van de status, bijvoorbeeld, een sleutel / waarde-paar verwijderen uit een lijst met waarden van de gebeurtenis of een waarde van een toestand van de totale som aftrekken. Hieronder vindt u de JavaScript-sjabloon voor AccumulateDeaccumulate statistische functies:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +72,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>UDA - declaratie voor JavaScript-functie
 
@@ -106,11 +106,11 @@ De methode accumulate() berekent de UDA-status op basis van de vorige status en 
 
 De methode deaccumulate() worden opnieuw berekend op basis van de vorige status en de huidige waarden van de gebeurtenis status. Deze methode wordt aangeroepen wanneer een gebeurtenis een SLIDINGWINDOW verlaat.
 
-### <a name="method--deaccumulatestate"></a>Methode – deaccumulateState()
+### <a name="method--deaccumulatestate"></a>Method – deaccumulateState()
 
 De methode deaccumulateState() worden opnieuw berekend op basis van de vorige status en de status van een hop staat. Deze methode wordt aangeroepen wanneer een reeks gebeurtenissen laat een HOPPINGWINDOW.
 
-### <a name="method--computeresult"></a>Methode – computeResult()
+### <a name="method--computeresult"></a>Method – computeResult()
 
 De methode computeResult() retourneert geaggregeerde resultaat op basis van de huidige status. Deze methode wordt aangeroepen aan het einde van een bepaalde periode (TUMBLINGWINDOW, HOPPINGWINDOW en SLIDINGWINDOW).
 
@@ -129,7 +129,7 @@ Nu gaan we een JavaScript-UDA onder een bestaande ASA-taak maken door de stappen
 1. Selecteer op de nieuwe functie-weergave, **JavaScript-UDA** als het Type functie vervolgens ziet u een standaardsjabloon UDA weergegeven in de editor.
 1. Vul "TWA' als de UDA-alias en wijzigt u de functie-implementatie als het volgende:
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +167,7 @@ Nu gaan we een JavaScript-UDA onder een bestaande ASA-taak maken door de stappen
             return result;
         }
     }
-    ````
+    ```
 
 1. Zodra u op de knop 'Opslaan' klikt, wordt de status van uw UDA wordt weergegeven in de lijst met de functie.
 
@@ -177,7 +177,7 @@ Nu gaan we een JavaScript-UDA onder een bestaande ASA-taak maken door de stappen
 
 In Azure portal en open uw taak, de query bewerken en roep TWA()-functie met een voorvoegsel voor opdracht 'uda.'. Bijvoorbeeld:
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +191,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>Testen van query's uitvoeren met UDA
 
 Maken van een lokaal JSON-bestand met de onderstaande inhoud en upload het bestand naar Stream Analytics-taak testen boven de query.
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +223,7 @@ Maken van een lokaal JSON-bestand met de onderstaande inhoud en upload het besta
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>Help opvragen
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8635d943120f0e79b8efcfe1f9be0b74d8bb4fac
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: adc780577e8c83411e173a5bfad75c3555119f11
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433897"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093508"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -214,7 +214,7 @@ Virtuele machines die zijn gemaakt via de on-demand Red Hat Enterprise Linux (RH
 
 Voor het maken van een nieuwe update-implementatie selecteert **update-implementatie plannen**. De **nieuwe Update-implementatie** deelvenster wordt geopend. Voer waarden in voor de eigenschappen die worden beschreven in de volgende tabel en klik vervolgens op **maken**:
 
-| Eigenschap | Description |
+| Eigenschap | Beschrijving |
 | --- | --- |
 | Name |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
@@ -262,7 +262,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="windows"></a>Windows
 
-|Classificatie  |Description  |
+|Classificatie  |Beschrijving  |
 |---------|---------|
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |
@@ -275,7 +275,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 
 ### <a name="linux"></a>Linux
 
-|Classificatie  |Description  |
+|Classificatie  |Beschrijving  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een probleem met de productspecifieke, productspecifieke beveiliging.         |
 |Andere Updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
@@ -443,8 +443,8 @@ on SourceComputerId
 on SourceComputerId
 | extend WorstMissingUpdateSeverity=coalesce(WorstMissingUpdateSeverity, -1)
 | summarize computersBySeverity=count() by WorstMissingUpdateSeverity)
-| summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
-| summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeeedOtherUpdatesCount=sum(computersNeeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
+| summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
+| summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeedOtherUpdatesCount=sum(computersNeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
 | extend allComputersCount=assessedComputersCount+notAssessedComputersCount
 
 
@@ -574,7 +574,7 @@ Zie voor meer informatie over het integreren van de oplossing voor beheer met Sy
 
 Opname van de update kunt u opgeven van specifieke updates om toe te passen. Patches of pakketten die opgenomen zijn, zijn geïnstalleerd. Wanneer Patches of pakketten opgenomen worden en een classificatie ook is geselecteerd, worden de opgenomen items en de items die voldoen aan de classificatie geïnstalleerd.
 
-Het is belangrijk te weten dat uitsluitingen insluitingen overschrijven. Bijvoorbeeld, als u een uitsluitingsregel van definieert `*`, en er zijn geen patches of pakketten worden geïnstalleerd als ze zijn al uitgesloten. Voor Linux-machines als een pakket opgenomen is, maar een afhankelijk pakket die is uitgesloten, heeft is het pakket niet geïnstalleerd.
+Het is belangrijk te weten dat uitsluitingen insluitingen overschrijven. Bijvoorbeeld, als u een uitsluitingsregel van definieert `*`, en er zijn geen patches of pakketten worden geïnstalleerd als ze zijn al uitgesloten. Als het ontbreken van de machine nog steeds weergeven patches uitgesloten. Voor Linux-machines als een pakket opgenomen is, maar een afhankelijk pakket die is uitgesloten, heeft is het pakket niet geïnstalleerd.
 
 ## <a name="patch-linux-machines"></a>Patch voor Linux-machines
 

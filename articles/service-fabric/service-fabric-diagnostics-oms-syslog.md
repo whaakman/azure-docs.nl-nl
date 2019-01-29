@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 32e67343c5d799157d67408b34753da5a38b6f8e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959528"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197242"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Gebeurtenissen van de service Fabric Linux-cluster in Syslog
 
@@ -35,7 +35,7 @@ Alle Syslog-gebeurtenis is 4-onderdelen
 * Bericht
 * Severity
 
-De SyslogConsumer schrijft alle platform-gebeurtenissen met behulp van functie `Local0`. U kunt bijwerken naar een geldige faciliteitnaam door het veranderen van de configuratie van de configuratie. De identiteit die wordt gebruikt is `ServicFabric`. Het veld bericht bevat de volledige gebeurtenis geserialiseerd in JSON, zodat deze kan worden opgevraagd of die worden gebruikt door verschillende hulpprogramma's. 
+De SyslogConsumer schrijft alle platform-gebeurtenissen met behulp van functie `Local0`. U kunt bijwerken naar een geldige faciliteitnaam door het veranderen van de configuratie van de configuratie. De identiteit die wordt gebruikt is `ServiceFabric`. Het veld bericht bevat de volledige gebeurtenis geserialiseerd in JSON, zodat deze kan worden opgevraagd of die worden gebruikt door verschillende hulpprogramma's. 
 
 ## <a name="enable-syslogconsumer"></a>SyslogConsumer inschakelen
 
@@ -83,7 +83,7 @@ Om in te schakelen de SyslogConsumer, moet u een upgrade van uw cluster uitvoere
 
 Hier volgen de wijzigingen te belichten
 1. In het algemene gedeelte is een nieuwe parameter met de naam `LinuxStructuredTracesEnabled`. **Dit is vereist voor het Linux-gebeurtenissen gestructureerde en geserialiseerd als deze is verzonden naar de Syslog.**
-2. In de sectie diagnostische gegevens, een nieuwe ConsumerInstance: SyslogConsumer is toegevoegd. Hiermee wordt aangegeven het platform is er een andere gebruiker van de gebeurtenissen. 
+2. In de sectie diagnostische gegevens van een nieuwe ConsumerInstance: SyslogConsumer is toegevoegd. Hiermee wordt aangegeven het platform is er een andere gebruiker van de gebeurtenissen. 
 3. De nieuwe sectie SyslogConsumer moet `IsEnabled` als `true`. Het is geconfigureerd om gebruik van de faciliteit Local0 automatisch. U kunt dit opheffen door een andere parameter toe te voegen.
 
 ```json
@@ -114,7 +114,7 @@ U vindt deze Syslog-gebeurtenissen in een hulpprogramma voor bewaking, zoals Log
     Syslog | where ProcessName == "ServiceFabric" | extend $payload = parse_json(SyslogMessage) | project $payload
 ```
 
-![Syslog-query](media/service-fabric-diagnostics-oms-syslog/syslog-query.png)
+![Syslog query](media/service-fabric-diagnostics-oms-syslog/syslog-query.png)
 
 Het bovenstaande voorbeeld is van een gebeurtenis NodeDown. U vindt de volledige lijst van gebeurtenissen [hier](service-fabric-diagnostics-event-generation-operational.md).
 

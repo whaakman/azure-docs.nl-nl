@@ -10,18 +10,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: b090633ee33582a235a92ab7100741e0be48cb27
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: abcf22dfebee695de54c36952c8f93dfaae31d57
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200153"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178763"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabiliteit in Azure back-end-connectiviteit-functies: Test-installatie
 
 Dit artikel wordt een test-instellingen die u gebruiken kunt om te analyseren hoe Azure netwerkservices samenwerken op het besturingselement vlak niveau en gegevens vlak niveau beschreven. Laten we kijken kort de Azure VPN-onderdelen:
 
--   **Met Azure ExpressRoute**: Gebruik van persoonlijke peering in Azure ExpressRoute particuliere IP-adresruimten in uw on-premises netwerk rechtstreeks verbinding te maken met uw Azure Virtual Network-implementaties. Met behulp van ExpressRoute kunt u een hogere bandbreedte en een particuliere verbinding. Veel ExpressRoute eco partners bieden ExpressRoute-connectiviteit met SLA's. Zie voor meer informatie over ExpressRoute en voor informatie over het configureren van ExpressRoute [Inleiding tot ExpressRoute][ExpressRoute].
+-   **Azure ExpressRoute**: Gebruik van persoonlijke peering in Azure ExpressRoute particuliere IP-adresruimten in uw on-premises netwerk rechtstreeks verbinding te maken met uw Azure Virtual Network-implementaties. Met behulp van ExpressRoute kunt u een hogere bandbreedte en een particuliere verbinding. Veel ExpressRoute eco partners bieden ExpressRoute-connectiviteit met SLA's. Zie voor meer informatie over ExpressRoute en voor informatie over het configureren van ExpressRoute [Inleiding tot ExpressRoute][ExpressRoute].
 -   **Site-naar-site VPN**: U kunt Azure VPN-Gateway als een site-naar-site VPN-netwerk veilig verbinding maken met een on-premises netwerk naar Azure via internet of met behulp van ExpressRoute. Zie voor informatie over het configureren van een site-naar-site-VPN verbinding maken met Azure, [VPN-Gateway configureren][VPN].
 -   **VNet-peering**: Gebruik de peering op virtueel netwerk (VNet) om verbinding tussen VNets in Azure-netwerk te maken. Zie voor meer informatie over VNet-peering, de [zelfstudie over VNet-peering][VNet].
 
@@ -63,7 +63,7 @@ In de VNet-peering binnen een regio, knooppunt VNets hub VNet-gateways (VPN- en 
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>VNet-connectiviteit vertakking met behulp van site-naar-site-VPN
 
-U kunt de vertakking VNets die zich in verschillende regio's en on-premises netwerken met elkaar communiceren via een hub VNet. De systeemeigen Azure-oplossing voor dit cofiguration is site-naar-site VPN-verbinding via een VPN-verbinding. Een alternatief is het gebruik van een virtueel netwerkapparaat (NVA) voor de routering in de hub.
+U kunt de vertakking VNets die zich in verschillende regio's en on-premises netwerken met elkaar communiceren via een hub VNet. De systeemeigen Azure-oplossing voor deze configuratie is de site-naar-site VPN-verbinding met behulp van een VPN. Een alternatief is het gebruik van een virtueel netwerkapparaat (NVA) voor de routering in de hub.
 
 Zie voor meer informatie, [wat is VPN-Gateway?] [ VPN] en [implementeren van een maximaal beschikbare NVA][Deploy-NVA].
 

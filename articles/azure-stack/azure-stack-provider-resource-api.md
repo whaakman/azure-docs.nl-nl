@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945583"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177897"
 ---
 # <a name="provider-resource-usage-api"></a>Resourcegebruik-API voor providers
 De term *provider* geldt voor de servicebeheerder en voor elke gedelegeerde providers. Azure Stack-operators en gedelegeerde providers kunnen u de API voor het providergebruik gebruiken om het gebruik van hun directe tenants weer te geven. Bijvoorbeeld, zoals weergegeven in het diagram, P0 de API voor het ophalen van informatie over het gebruik van de P1-provider kan aanroepen en rechtstreeks gebruik van P2 en P1 voor informatie over het gebruik van P3 en P4 kunt aanroepen.
@@ -83,10 +83,10 @@ meterID1",
 | *id* |De unieke ID van het gebruik van statistische functie. |
 | *De naam* |De naam van het gebruik van statistische functie. |
 | *type* |De resourcedefinitie van de. |
-| *Abonnements-id* |Abonnements-id van de Azure Stack-gebruiker. |
+| *subscriptionId* |Abonnements-id van de Azure Stack-gebruiker. |
 | *usageStartTime* |UTC-begintijd van de gebruik bucket waartoe dit gebruik statistische functie behoort.|
 | *usageEndTime* |UTC-eindtijd van de gebruik bucket waartoe dit gebruik statistische functie behoort. |
-| *instanceData* |Sleutel / waarde-paren van exemplaardetails (in een nieuwe indeling):<br> *resourceUri*: volledig gekwalificeerde resource-ID, met inbegrip van de resourcegroepen en de naam van het exemplaar. <br> *locatie*: regio waarin deze service is uitgevoerd. <br> *tags*: resourcetags die zijn opgegeven door de gebruiker. <br> *aanvullende informatie*: meer informatie over de resource die is verbruikt, bijvoorbeeld, het type besturingssysteem versie of de afbeelding. |
+| *instanceData* |Sleutel / waarde-paren van exemplaardetails (in een nieuwe indeling):<br> *resourceUri*: Volledig gekwalificeerde resource-ID, met inbegrip van de resourcegroepen en de exemplaarnaam kan worden gebruikt. <br> *Locatie*: De regio waarin deze service is uitgevoerd. <br> *tags*: Resourcetags die zijn opgegeven door de gebruiker. <br> *additionalInfo*: Meer informatie over de resource die is verbruikt, bijvoorbeeld, de versie van het besturingssysteem of de installatiekopie typt. |
 | *Hoeveelheid* |Hoeveelheid van het gebruik van resources die in deze periode zijn opgetreden. |
 | *meterId* |Unieke ID voor de resource die is verbruikt (ook wel genoemd *ResourceID*). |
 

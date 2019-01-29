@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-Script voorbeeld - Peer twee virtuele netwerken | Microsoft Docs
-description: Azure PowerShell-Script voorbeeld - Peer twee virtuele netwerken
+title: Voorbeeld van Azure PowerShell-Script - twee virtuele netwerken Peeren | Microsoft Docs
+description: Voorbeeld van Azure PowerShell-Script - twee virtuele netwerken Peeren
 services: virtual-network
 documentationcenter: virtual-network
 author: georgewallace
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 6c475311f8b0299908dfc26aa590c1990e00bc4a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a892f109b368d7ff0d4ec2ad9174bb99114fd7c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598503"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100152"
 ---
-# <a name="peer-two-virtual-networks"></a>Peer twee virtuele netwerken
+# <a name="peer-two-virtual-networks"></a>Twee virtuele netwerken peeren
 
-Dit script wordt gemaakt en twee virtuele netwerken in de dezelfde regio trhough het Azure-netwerk met elkaar verbindt. Nadat het script is uitgevoerd, maakt u een peering tussen twee virtuele netwerken.
+Dit script maakt en twee virtuele netwerken in dezelfde regio via het Azure-netwerk verbindt. Nadat het script is uitgevoerd, maakt u een peering tussen twee virtuele netwerken.
 
 Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure PowerShell handleiding](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) en voer vervolgens `Connect-AzureRmAccount` uit om verbinding te maken met Azure.
 
@@ -57,4 +57,4 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 
 Zie [Documentatie over Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) voor meer informatie over Azure PowerShell.
 
-Aanvullende voorbeelden voor netwerken PowerShell-script kunnen worden gevonden in de [overzicht van Azure-netwerken documentatie](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Aanvullende PowerShell-voorbeeldscripts voor netwerken vindt u in de [Documentatie met een overzicht van Azure-netwerken](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/21/2018
-ms.openlocfilehash: d18630f9b4cea28bd19b2ac24e7b8c3d1822e17c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196647"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Aan de slag met tijdelijke tabellen in Azure SQL-Database
 Tijdelijke tabellen zijn een nieuwe functie van het programmeren van Azure SQL Database waarmee u kunt bijhouden en analyseren van de volledige geschiedenis van wijzigingen in uw gegevens, zonder de noodzaak voor aangepaste codering. Tijdelijke tabellen houden gegevens die nauw verwant aan de context van de tijd dat opgeslagen gegevens kunnen worden geïnterpreteerd als geldig alleen binnen de bepaalde periode. Deze eigenschap van tijdelijke tabellen kan efficiënt analyse op basis van tijd en verkrijgen van inzichten van de ontwikkeling van gegevens.
@@ -50,7 +50,7 @@ Kies in SSDT, 'Tijdelijke tabel (System-Versioned)'-sjabloon bij het toevoegen v
 
 U kunt ook de tijdelijke tabel maken door rechtstreeks op de Transact-SQL-instructies te geven, zoals wordt weergegeven in het onderstaande voorbeeld. Houd er rekening mee dat de verplichte elementen van elke tijdelijke tabel zijn de definitie van de periode en de SYSTEM_VERSIONING-component met een verwijzing naar een andere gebruikerstabel historische rij-versies worden opgeslagen:
 
-````
+```
 CREATE TABLE WebsiteUserInfo 
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED 
@@ -61,7 +61,7 @@ CREATE TABLE WebsiteUserInfo
   , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
  )  
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
-````
+```
 
 Wanneer u de tijdelijke systeemversietabel maakt, worden de bijbehorende geschiedenistabel met de standaardconfiguratie wordt automatisch gemaakt. De geschiedenistabel standaard bevat een geclusterde B-tree-index in de periode (einde, start)-kolommen met pagina compressie is ingeschakeld. Deze configuratie is geoptimaliseerd voor de meeste scenario's waarin tijdelijke tabellen worden gebruikt, met name voor [gegevens controle](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0). 
 
@@ -73,11 +73,11 @@ In dit specifieke geval streven we ernaar om uit te voeren op basis van tijd tre
 
 Het volgende script toont hoe standaardindex in de geschiedenistabel kan worden gewijzigd in de geclusterde columnstore:
 
-````
+```
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
 ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
-````
+```
 
 Tijdelijke tabellen worden weergegeven in het Object Explorer met het specifieke pictogram voor makkelijker te herkennen, terwijl de geschiedenistabel wordt weergegeven als een onderliggend knooppunt.
 
@@ -86,7 +86,7 @@ Tijdelijke tabellen worden weergegeven in het Object Explorer met het specifieke
 ### <a name="alter-existing-table-to-temporal"></a>De bestaande tabel naar tijdelijke wijzigen
 We hebben betrekking op de alternatieve scenario waarin de tabel WebsiteUserInfo bestaat al, maar is niet ontworpen voor het bijhouden van wijzigingen. In dit geval kunt u gewoon de bestaande tabel om te worden tijdelijke, zoals wordt weergegeven in het volgende voorbeeld uitbreiden:
 
-````
+```
 ALTER TABLE WebsiteUserInfo 
 ADD 
     ValidFrom datetime2 (0) GENERATED ALWAYS AS ROW START HIDDEN  
@@ -102,38 +102,38 @@ GO
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
 ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
-````
+```
 
-## <a name="step-2-run-your-workload-regularly"></a>Stap 2: Uw workload regelmatig wordt uitgevoerd
+## <a name="step-2-run-your-workload-regularly"></a>Stap 2: Uw werkbelasting regelmatig wordt uitgevoerd
 Het belangrijkste voordeel van tijdelijke tabellen is dat u niet wilt wijzigen of aanpassen van uw website op een manier om uit te voeren van wijzigingen bijhouden. Nadat u hebt gemaakt, behouden tijdelijke tabellen transparant eerdere versies van de rij telkens wanneer u wijzigingen op uw gegevens uitvoeren. 
 
 Als u wilt gebruikmaken van automatisch bijhouden voor dit specifieke scenario, gaan we net kolom bijwerken **PagesVisited** telkens wanneer de gebruiker installatieserver sessie op de website beëindigd:
 
-````
+```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
 WHERE [UserID] = 1;
-````
+```
 
 Het is belangrijk dat u ziet dat de update-query hoeft niet te weten de precieze tijd wanneer de huidige bewerking is opgetreden en hoe de historische gegevens blijven behouden voor toekomstig gebruik. Beide aspecten worden automatisch verwerkt door de Azure SQL Database. Het volgende diagram illustreert hoe gegevens van geschiedenis van elke update wordt gegenereerd.
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-## <a name="step-3-perform-historical-data-analysis"></a>Stap 3: Voer een analyse van historische gegevens
+## <a name="step-3-perform-historical-data-analysis"></a>Stap 3: Analyse van historische gegevens
 Als tijdelijke systeemsamenstelling is ingeschakeld, is de analyse van historische gegevens nu slechts één query weg van u. In dit artikel biedt we een aantal voorbeelden die veelvoorkomende vragen van de analyse - alle informatie, Verken verschillende opties die zijn geïntroduceerd in de [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) component.
 
 Als u wilt zien van de 10 belangrijkste gebruikers besteld op het aantal bezochte webpagina's vanaf een uur geleden, voer deze query uit:
 
-````
+```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
 SELECT TOP 10 * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME AS OF @hourAgo
 ORDER BY PagesVisited DESC
-````
+```
 
 U kunt deze query voor het analyseren van de site bezoeken vanaf een dag geleden, een maand geleden eenvoudig wijzigen of op elk gewenst moment in het verleden die u wilt.
 
 Gebruik eenvoudige statistische analyses uitvoeren voor de vorige dag, het volgende voorbeeld:
 
-````
+```
 DECLARE @twoDaysAgo datetime2 = DATEADD(DAY, -2, SYSUTCDATETIME());
 DECLARE @aDayAgo datetime2 = DATEADD(DAY, -1, SYSUTCDATETIME());
 
@@ -143,17 +143,17 @@ STDEV (PagesVisited) as StDevViistedPages
 FROM dbo.WebsiteUserInfo 
 FOR SYSTEM_TIME BETWEEN @twoDaysAgo AND @aDayAgo
 GROUP BY UserId
-````
+```
 
 Als u wilt zoeken naar activiteiten van een specifieke gebruiker binnen een bepaalde periode, gebruik de component die zijn opgenomen:
 
-````
+```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
 DECLARE @twoHoursAgo datetime2 = DATEADD(HOUR, -2, SYSUTCDATETIME());
 SELECT * FROM dbo.WebsiteUserInfo 
 FOR SYSTEM_TIME CONTAINED IN (@twoHoursAgo, @hourAgo)
 WHERE [UserID] = 1;
-````
+```
 
 Grafische visualisatie is met name handig is voor tijdelijke query's, zoals u trends en gebruikspatronen in een intuïtieve manier erg eenvoudig weergeven kunt:
 
@@ -162,27 +162,27 @@ Grafische visualisatie is met name handig is voor tijdelijke query's, zoals u tr
 ## <a name="evolving-table-schema"></a>Tabelschema in ontwikkeling
 Normaal gesproken moet u het schema van de tijdelijke tabel niet wijzigen terwijl u app-ontwikkeling doen. Voor die, voert u eenvoudigweg reguliere ALTER TABLE-instructies en Azure SQL Database wordt op de juiste wijze wijzigingen worden doorgegeven aan de geschiedenistabel. Het volgende script toont hoe u extra kenmerk voor het bijhouden kunt toevoegen:
 
-````
+```
 /*Add new column for tracking source IP address*/
 ALTER TABLE dbo.WebsiteUserInfo 
 ADD  [IPAddress] varchar(128) NOT NULL CONSTRAINT DF_Address DEFAULT 'N/A';
-````
+```
 
 Op deze manier kunt u de definitie van kolom wijzigen terwijl uw werkbelasting actief is:
 
-````
+```
 /*Increase the length of name column*/
 ALTER TABLE dbo.WebsiteUserInfo 
     ALTER COLUMN  UserName nvarchar(256) NOT NULL;
-````
+```
 
 Ten slotte kunt u een kolom die u niet meer nodig hebt.
 
-````
+```
 /*Drop unnecessary column */
 ALTER TABLE dbo.WebsiteUserInfo 
     DROP COLUMN TemporaryColumn; 
-````
+```
 
 U kunt ook de laatste gebruiken [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) schema van de tijdelijke tabel wijzigen wanneer u met de database (onlinemodus) of als onderdeel van de database-project (offlinemodus verbonden bent).
 

@@ -10,18 +10,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: da974800e39a7b3a305af2a2d10b2174e017245a
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 465ee5acb768e772dd708037f10d7ea13fe17758
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607757"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148754"
 ---
-# <a name="review-your-access"></a>Uw toegang controleren
+# <a name="review-your-access"></a>Uw toegang beoordelen
 
 Azure Active Directory (Azure AD) vereenvoudigt de manier waarop ondernemingen toegang tot toepassingen en leden van groepen beheren in Azure AD en andere Microsoft Online Services met een functie met de naam van de toegang beoordeelt. U kunt mogelijk geen e-mail ontvangen van Microsoft waarmee u wordt gevraagd te toegang beoordelen voor leden van een groep of gebruikers met toegang tot een toepassing. 
 

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/21/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80510b4f3f07b96b9084108fcb89c75e108cbc65
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815225"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096840"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption voor IaaS-VM's Veelgestelde vragen
 
@@ -42,8 +42,8 @@ Azure Disk Encryption wordt ondersteund op de volgende server Linux-distributies
 
 | Linux-distributie | Versie | Volumetype wordt ondersteund voor versleuteling|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Besturingssysteem- en schijf |
-| Ubuntu | 14.04.5-DAILY-LTS | Besturingssysteem- en schijf |
+| Ubuntu | 16.04| Besturingssysteem- en schijf |
+| Ubuntu | 14.04.5</br>[met Azure afgestemd op de kernel bijgewerkt naar 4.15 of hoger](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Besturingssysteem- en schijf |
 | RHEL | 7.5 | Besturingssysteem- en schijf * |
 | RHEL | 7.4 | Besturingssysteem- en schijf * |
 | RHEL | 7.3 | Besturingssysteem- en schijf * |
@@ -59,12 +59,10 @@ Azure Disk Encryption wordt ondersteund op de volgende server Linux-distributies
 | CentOS | 6.7 | Gegevensschijf |
 | CentOS | 6.6 | Gegevensschijf |
 | CentOS | 6.5 | Gegevensschijf |
-| openSUSE | 13.2 | Gegevensschijf |
-| SLES | 12 SP1 | Gegevensschijf |
-| SLES | Prioriteit: 12-SP1 | Gegevensschijf |
-| SLES | HPC 12 | Gegevensschijf |
-| SLES | Prioriteit: 11-SP4 | Gegevensschijf |
-| SLES | 11 SP4 | Gegevensschijf |
+| openSUSE | SUSE:openSUSE-Leap:42.3:latest | Gegevensschijf |
+| SLES | SUSE:SLES-prioriteit: 12-SP4:latest | Gegevensschijf |
+| SLES | SUSE:SLES-HPC:12-SP3:latest | Gegevensschijf |
+| SLES | SUSE:SLES-prioriteit: 12-SP3:latest | Gegevensschijf |
 
 
 *__Nieuwe ade-implementatie wordt ondersteund voor RHEL-besturingssysteem en de gegevensschijf voor RHEL7 betalen per gebruik-installatiekopieën. ADE wordt momenteel niet ondersteund voor installatiekopieën van RHEL Bring-Your-Own-abonnement (BYOS). Neem ook verwijzen naar de [Azure Disk Encryption voor Linux](azure-security-disk-encryption-linux.md) artikel voor meer informatie.__

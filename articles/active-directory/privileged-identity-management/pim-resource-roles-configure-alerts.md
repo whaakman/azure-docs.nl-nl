@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5d990d86124a7360dbc0398cf4250f9b088c183b
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 564517052796ee5dbc022ff92afcaa0216bdf8ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465568"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196834"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren
 Privileged Identity Management (PIM) voor Azure-resources genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina met waarschuwingen. 
@@ -40,9 +40,9 @@ Selecteer een waarschuwing om te zien van een rapport met de gebruikers of rolle
 
 
 ### <a name="severity"></a>Severity
-* **Hoge**: direct actie vereist vanwege een schending van het beleid. 
-* **Gemiddeld**: geen directe actie is vereist, maar geeft een mogelijke schending van het beleid.
-* **Lage**: geen directe actie is vereist, maar stelt u een beleidswijziging van het gewenste.
+* **Hoge**: Onmiddellijke actie vereist vanwege een schending van het beleid. 
+* **Gemiddeld**: Geen directe actie is vereist, maar geeft een mogelijke schending van het beleid.
+* **Lage**: Geen directe actie is vereist, maar stelt een beleidswijziging van het gewenste.
 
 ## <a name="configure-security-alert-settings"></a>Instellingen voor beveiligingswaarschuwingen configureren
 Op de pagina met waarschuwingen, gaat u naar **instellingen**.

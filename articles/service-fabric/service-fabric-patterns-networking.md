@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 2fce90f971d13b94c73012d4089cca05739c5440
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7f6e95b28482ed6d75bb76773da05aebd1855a66
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853707"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093382"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric-netwerkpatronen
 U kunt uw Azure Service Fabric-cluster integreren met andere Azure-netwerkfuncties. In dit artikel hebben we laten zien hoe u het maken van clusters die gebruikmaken van de volgende functies:
@@ -81,7 +81,7 @@ In de voorbeelden in dit artikel gebruiken we de Service Fabric-template.json. D
 
 1. Wijzig de subnet-parameter op de naam van het bestaande subnet en voegt u twee nieuwe parameters om te verwijzen naar het bestaande virtuele netwerk:
 
-    ```
+    ```json
         "subnet0Name": {
                 "type": "string",
                 "defaultValue": "default"
@@ -108,26 +108,26 @@ In de voorbeelden in dit artikel gebruiken we de Service Fabric-template.json. D
 
 2. Commentaar `nicPrefixOverride` kenmerk van `Microsoft.Compute/virtualMachineScaleSets`, omdat u van bestaande subnet gebruikmaakt en u deze variabele in stap 1 hebt uitgeschakeld.
 
-    ```
+    ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
     ```
 
 3. Wijzig de `vnetID` variabele om te verwijzen naar het bestaande virtuele netwerk:
 
-    ```
+    ```json
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
 4. Verwijder `Microsoft.Network/virtualNetworks` van uw resources, zodat Azure maakt een nieuw virtueel netwerk:
 
-    ```
+    ```json
     /*{
     "apiVersion": "[variables('vNetApiVersion')]",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('virtualNetworkName')]",
     "location": "[parameters('computeLocation')]",
-    "properities": {
+    "properties": {
         "addressSpace": {
             "addressPrefixes": [
                 "[parameters('addressPrefix')]"
@@ -151,7 +151,7 @@ In de voorbeelden in dit artikel gebruiken we de Service Fabric-template.json. D
 
 5. Een opmerking bij het virtuele netwerk van de `dependsOn` kenmerk van `Microsoft.Compute/virtualMachineScaleSets`, zodat u niet afhankelijk zijn van het maken van een nieuw virtueel netwerk:
 
-    ```
+    ```json
     "apiVersion": "[variables('vmssApiVersion')]",
     "type": "Microsoft.Computer/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType0Name')]",
@@ -185,7 +185,7 @@ Zie voor een ander voorbeeld: [dat is niet specifiek voor Service Fabric](https:
 
 1. Voeg parameters voor de naam van de bestaande statische IP-resourcegroep, de naam en de volledig gekwalificeerde domeinnaam (FQDN):
 
-    ```
+    ```json
     "existingStaticIPResourceGroup": {
                 "type": "string"
             },
@@ -199,7 +199,7 @@ Zie voor een ander voorbeeld: [dat is niet specifiek voor Service Fabric](https:
 
 2. Verwijder de `dnsName` parameter. (Het statische IP-adres heeft al een.)
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -209,13 +209,13 @@ Zie voor een ander voorbeeld: [dat is niet specifiek voor Service Fabric](https:
 
 3. Een variabele om te verwijzen naar de bestaande statisch IP-adres toevoegen:
 
-    ```
+    ```json
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
 4. Verwijder `Microsoft.Network/publicIPAddresses` van uw resources, zodat Azure maakt geen nieuwe IP-adres:
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -237,7 +237,7 @@ Zie voor een ander voorbeeld: [dat is niet specifiek voor Service Fabric](https:
 
 5. Een opmerking bij het IP-adres van de `dependsOn` kenmerk van `Microsoft.Network/loadBalancers`, zodat u niet afhankelijk zijn van het maken van een nieuw IP-adres:
 
-    ```
+    ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
     "type": "Microsoft.Network/loadBalancers",
     "name": "[concat('LB', '-', parameters('clusterName'), '-', parameters('vmNodeType0Name'))]",
@@ -251,7 +251,7 @@ Zie voor een ander voorbeeld: [dat is niet specifiek voor Service Fabric](https:
 
 6. In de `Microsoft.Network/loadBalancers` resource, wijzigen de `publicIPAddress` element van `frontendIPConfigurations` om te verwijzen naar de bestaande statisch IP-adres in plaats van een van de zojuist gemaakte:
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -267,7 +267,7 @@ Zie voor een ander voorbeeld: [dat is niet specifiek voor Service Fabric](https:
 
 7. In de `Microsoft.ServiceFabric/clusters` resource, wijziging `managementEndpoint` op de DNS-FQDN van het statische IP-adres. Als u een beveiligd cluster gebruikt, controleert u of u kunt wijzigen *http://* naar *https://*. (Houd er rekening mee dat deze stap alleen voor Service Fabric-clusters geldt. Als u van een virtuele-machineschaalset gebruikmaakt, deze stap overslaan.)
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -294,7 +294,7 @@ In dit scenario wordt vervangen door de externe load balancer in de standaardsja
 
 1. Verwijder de `dnsName` parameter. (Dit niet nodig.)
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -304,7 +304,7 @@ In dit scenario wordt vervangen door de externe load balancer in de standaardsja
 
 2. Als u een statische toewijzingsmethode gebruiken, kunt u eventueel een parameter statische IP-adres toevoegen. Als u een dynamische toewijzingsmethode gebruikt, hoeft u niet te doen in deze stap.
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -313,7 +313,7 @@ In dit scenario wordt vervangen door de externe load balancer in de standaardsja
 
 3. Verwijder `Microsoft.Network/publicIPAddresses` van uw resources, zodat Azure maakt geen nieuwe IP-adres:
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -335,7 +335,7 @@ In dit scenario wordt vervangen door de externe load balancer in de standaardsja
 
 4. Het IP-adres verwijderen `dependsOn` kenmerk van `Microsoft.Network/loadBalancers`, zodat u niet afhankelijk zijn van het maken van een nieuw IP-adres. Toevoegen van het virtuele netwerk `dependsOn` omdat de load balancer is nu afhankelijk van het subnet van het virtuele netwerk is van het kenmerk:
 
-    ```
+    ```json
                 "apiVersion": "[variables('lbApiVersion')]",
                 "type": "Microsoft.Network/loadBalancers",
                 "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'))]",
@@ -348,7 +348,7 @@ In dit scenario wordt vervangen door de externe load balancer in de standaardsja
 
 5. Wijzigen van de load balancer `frontendIPConfigurations` instellen op basis van met behulp van een `publicIPAddress`, voor het gebruik van een subnet en `privateIPAddress`. `privateIPAddress` maakt gebruik van een vooraf gedefinieerde statische interne IP-adres. Voor het gebruik van een dynamisch IP-adres, verwijder de `privateIPAddress` -element en wijzig vervolgens `privateIPAllocationMethod` naar **dynamische**.
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -369,7 +369,7 @@ In dit scenario wordt vervangen door de externe load balancer in de standaardsja
 
 6. In de `Microsoft.ServiceFabric/clusters` resource, wijziging `managementEndpoint` om te verwijzen naar een adres voor de interne load balancer. Als u een beveiligd cluster gebruikt, zorg ervoor dat u *http://* naar *https://*. (Houd er rekening mee dat deze stap alleen voor Service Fabric-clusters geldt. Als u van een virtuele-machineschaalset gebruikmaakt, deze stap overslaan.)
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',reference(variables('lbID0')).frontEndIPConfigurations[0].properties.privateIPAddress,':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -394,7 +394,7 @@ In een cluster met twee knooppunttype, wordt één knooppunttype is op de extern
 
 1. De parameter statische interne load balancer IP-adres toevoegen. (Zie eerdere secties van dit artikel voor notities over het gebruik van een dynamisch IP-adres.)
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -405,7 +405,7 @@ In een cluster met twee knooppunttype, wordt één knooppunttype is op de extern
 
 3. Toevoegen van interne versies van de bestaande netwerken variabelen, kopiëren en plakken en toevoegen '-Int ' op de naam:
 
-    ```
+    ```json
     /* Add internal load balancer networking variables */
             "lbID0-Int": "[resourceId('Microsoft.Network/loadBalancers', concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal'))]",
             "lbIPConfig0-Int": "[concat(variables('lbID0-Int'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -418,7 +418,7 @@ In een cluster met twee knooppunttype, wordt één knooppunttype is op de extern
 
 4. Als u met de portal gegenereerde sjabloon die gebruikmaakt van poort 80 van de toepassing begint, de portal standaardsjabloon AppPort1 toegevoegd (poort 80) op de externe load balancer. In dit geval AppPort1 verwijderen van de externe load balancer `loadBalancingRules` en tests, zodat u deze aan de interne load balancer toevoegen kunt:
 
-    ```
+    ```json
     "loadBalancingRules": [
         {
             "name": "LBHttpRule",
@@ -495,7 +495,7 @@ In een cluster met twee knooppunttype, wordt één knooppunttype is op de extern
 
 5. Voeg een tweede `Microsoft.Network/loadBalancers` resource. Deze lijkt op de interne load balancer gemaakt in de [alleen-interne load balancer](#internallb) sectie, maar gebruikt het '-Int "load balancer-variabelen en implementeert u alleen de toepassingspoort 80. Bovendien worden `inboundNatPools`, zodat RDP-eindpunten op de openbare load balancer. Als u RDP op de interne load balancer wilt, verplaatsen `inboundNatPools` vanaf het externe load balancer aan deze interne load balancer:
 
-    ```
+    ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
             {
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -580,7 +580,7 @@ In een cluster met twee knooppunttype, wordt één knooppunttype is op de extern
 
 6. In `networkProfile` voor de `Microsoft.Compute/virtualMachineScaleSets` resource, de interne back-end-adresgroep toevoegen:
 
-    ```
+    ```json
     "loadBalancerBackendAddressPools": [
                                                         {
                                                             "id": "[variables('lbPoolID0')]"

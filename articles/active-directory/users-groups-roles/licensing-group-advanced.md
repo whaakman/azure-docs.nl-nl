@@ -10,16 +10,16 @@ editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215409"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195153"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenario's, beperkingen en bekende problemen met behulp van groepen beheren in Azure Active Directory-licentieverlening
 
@@ -187,7 +187,7 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 > ```
 
 3. Als u wilt zien van het volledige logboek voor hoe een groep is verwerkt, met inbegrip van alle wijzigingen van de gebruiker, stel de volgende filters:
-  - **Gestart door (Actor)**: ' Microsoft Azure AD-groep op basis van licentieverlening "
+  - **Gestart door (Actor)**: "Microsoft Azure AD-groep op basis van licentieverlening"
   - **Datumbereik** (optioneel): aangepast bereik voor wanneer u een specifieke groep weet gestart en de verwerking is voltooid
 
 In dit voorbeeld van de uitvoer ziet u het begin van de verwerking, alle resulterende wijzigingen van gebruiker en de einddatum van de verwerking.
@@ -201,7 +201,7 @@ In dit voorbeeld van de uitvoer ziet u het begin van de verwerking, alle resulte
 
 Het is niet mogelijk om te verwijderen van een groep met een actieve licentie is toegewezen. Een beheerder kan een groep niet realiseren dat hierdoor licenties moeten worden verwijderd uit de gebruikers - om deze reden dat hebben we alle licenties voor het eerst worden verwijderd uit de groep, voordat deze kan worden verwijderd nodig verwijderen.
 
-Bij het verwijderen van een groep in Azure portal ziet u mogelijk een foutmelding als volgt: ![schermafbeelding groep verwijderen is mislukt](./media/licensing-group-advanced/groupdeletionfailed.png)
+Bij het verwijderen van een groep in Azure portal ziet u mogelijk een foutmelding als volgt: ![Kan de schermopname groep verwijderen](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Ga naar de **licenties** tabblad in de groep en zien of er licenties zijn toegewezen. Zo ja, deze licenties verwijderen en probeer opnieuw te verwijderen de groep.
 

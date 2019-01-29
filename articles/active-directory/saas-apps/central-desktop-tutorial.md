@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 82a6911c85dd1438aa8f60cb36194a2916bc91e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc8aec25d6493d87393a45549fb89f978c469912
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429043"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Zelfstudie: Azure Active Directory-integratie met centraal Desktop
 
@@ -44,7 +44,7 @@ Voor het configureren van Azure AD-integratie met centraal Desktop, moet u de vo
 > [!NOTE]
 > U kunt beter geen een productie-omgeving voor het testen van de stappen in deze zelfstudie.
 
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 - Gebruik uw productie-omgeving niet als dat nodig is.
 - Als u nog een proefversie Azure AD-omgeving hebt [een gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
@@ -62,21 +62,21 @@ Voor het configureren van de integratie van centrale Desktop in Azure AD, moet u
 
 1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![De knop Azure Active Directory][1]
 
 1. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![De blade Bedrijfstoepassingen][2]
     
 1. Als u wilt toevoegen van nieuwe toepassingen, selecteert u de **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **centrale Desktop**. Selecteer **centrale Desktop** vanuit het deelvenster met resultaten en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
 
     ![Centrale bureaublad in de lijst met resultaten](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met centrale bureaublad op basis van een testgebruiker met de naam "Britta Simon."
 
@@ -92,7 +92,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met centrale Desk
 1. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 1. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw centrale Desktop-toepassing.
 
@@ -100,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **centrale Desktop** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 1. Voor het inschakelen van eenmalige aanmelding in de **eenmalige aanmelding** in het dialoogvenster de **modus** vervolgkeuzelijst, selecteer **SAML gebaseerde aanmelding**.
  
@@ -121,11 +121,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     c. In de **antwoord-URL** vak, typ een URL met het volgende patroon: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke-id, antwoord-URL en aanmeldings-URL. Neem contact op met de [centrale Desktop client-ondersteuningsteam](https://imeetcentral.com/contact-us) om deze waarden te verkrijgen. 
+    > Dit zijn geen echte waarden. Deze waarden bijwerken met de werkelijke-id, antwoord-URL en aanmeldings-URL. Neem contact op met de [centrale Desktop client-ondersteuningsteam](https://imeetcentral.com/contact-us) om deze waarden te verkrijgen. 
 
 1. In de **SAML-handtekeningcertificaat** sectie, selecteer **certificaat**. Sla het certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
 
 1. Selecteer de knop **Opslaan**.
 
@@ -168,21 +168,21 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com) tijdens het instellen van de app. Nadat u deze app uit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad, en vervolgens toegang tot de ingesloten documentatie via de **configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie op [documentatie over Azure AD embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Maak een testgebruiker Azure AD][100]
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
 1. Selecteer in de Azure portal, in het linkerdeelvenster de **Azure Active Directory** knop.
 
-    ![De Azure Active Directory-knop](./media/central-desktop-tutorial/create_aaduser_01.png)
+    ![De knop Azure Active Directory](./media/central-desktop-tutorial/create_aaduser_01.png)
 
 1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**. Selecteer vervolgens **alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/central-desktop-tutorial/create_aaduser_02.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](./media/central-desktop-tutorial/create_aaduser_02.png)
 
 1. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
@@ -190,7 +190,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
-    ![Het dialoogvenster gebruiker](./media/central-desktop-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster Gebruiker](./media/central-desktop-tutorial/create_aaduser_04.png)
 
     a. In de **naam** in het vak **BrittaSimon**.
 
@@ -215,7 +215,7 @@ Voor Azure AD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht in de
 
 1. Selecteer **interne leden toevoegen**.
 
-    ![Mensen](./media/central-desktop-tutorial/ic781051.png "personen")
+    ![People](./media/central-desktop-tutorial/ic781051.png "People")
     
 1. In de **e-mailadres van de nieuwe leden** typt u een Azure AD-account dat u wilt inrichten, en selecteer vervolgens **volgende**.
 
@@ -246,13 +246,13 @@ In deze sectie maakt inschakelen u gebruiker Britta Simon Azure eenmalige aanmel
 
     ![De centrale Desktop-koppeling in de lijst met toepassingen](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
 
-1. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+1. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![De koppeling Gebruikers en groepen][202]
 
-1. Selecteer de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** in het dialoogvenster.
+1. Selecteer de knop **Add**. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** in het dialoogvenster.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+    ![Het deelvenster Toewijzing toevoegen][203]
 
 1. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
 

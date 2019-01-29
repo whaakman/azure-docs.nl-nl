@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 2a4f55ea15c933094befb8855185c4b7e353dee3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 26e902cb31a77ffb1516f084bb71b5a99a89fba9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055668"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188640"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell gebruiken voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows
 
@@ -84,13 +84,13 @@ De configuratie moet worden bijgewerkt met het volgende:
   * De resource-ID kan worden samengesteld met behulp van het volgende patroon: ' / subscriptions / {*abonnements-ID voor het abonnement met de virtuele machine*} /resourceGroups/ {*de resourcegroup-naam voor de virtuele machine*} / providers/Microsoft.Compute/virtualMachines/ {*naam van de VM*} '.
   * Bijvoorbeeld, als het abonnement-ID voor het abonnement waarin de virtuele machine wordt uitgevoerd is **11111111-1111-1111-1111-111111111111**, de naam van de resourcegroep voor de resourcegroep is **MyResourceGroup**, en de De naam van de virtuele machine is **MyWindowsVM**, klikt u vervolgens de waarde voor *resourceID* zou zijn:
     
-      ```
+      ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
   * Voor meer informatie over hoe u metrische gegevens worden gegenereerd op basis van de configuratie van tellers en metrische gegevens over prestaties, Zie [metrische gegevenstabel voor Azure Diagnostics in opslag](diagnostics-template.md#wadmetrics-tables-in-storage).
 * De **StorageAccount** element moet worden bijgewerkt met de naam van het opslagaccount voor diagnostische gegevens.
   
-    ```
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
         <WadCfg>

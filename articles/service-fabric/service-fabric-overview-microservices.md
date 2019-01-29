@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 48df598ab12c509952b7712bb8cc9fe21355325f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613678"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102813"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Waarom een microservices-benadering voor het bouwen van toepassingen?
 
@@ -33,11 +33,11 @@ De wisselende bedrijfsbehoeften van uw zijn:
 
 Deze behoeften van uw bedrijf van invloed zijn op *hoe* we bij het bouwen van toepassingen.
 
-Lees voor meer informatie over de aanpak van Azure om microservices [Microservices: een toepassing revolution mogelijk gemaakt door de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+Lees voor meer informatie over de aanpak van Azure om microservices [Microservices: Een toepassing revolution mogelijk gemaakt door de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Monolithische versus microservice-benadering voor ontwerp
 
-Toepassingen loop der tijd veranderen. Succesvolle toepassingen veranderen door handig voor gebruikers. Mislukte toepassingen niet doen ontwikkelen en uiteindelijk zijn afgeschaft. De vraag is: hoeveel wist u dat u over de vereisten voor vandaag en wat ze worden in de toekomst? Stel dat het bouwen van een reporting-toepassing voor een afdeling. U bent of de toepassing is alleen van toepassing binnen het bereik van uw bedrijf en of de rapporten tijdelijke zijn. Uw keuze van benadering wijkt af van, zeg, video-inhoud bouwen van een service die voorziet in tientallen miljoenen klanten.
+Toepassingen loop der tijd veranderen. Succesvolle toepassingen veranderen door handig voor gebruikers. Mislukte toepassingen niet doen ontwikkelen en uiteindelijk zijn afgeschaft. De vraag is: Hoeveel wist u dat u over de vereisten voor vandaag en wat ze worden in de toekomst? Stel dat het bouwen van een reporting-toepassing voor een afdeling. U bent of de toepassing is alleen van toepassing binnen het bereik van uw bedrijf en of de rapporten tijdelijke zijn. Uw keuze van benadering wijkt af van, zeg, video-inhoud bouwen van een service die voorziet in tientallen miljoenen klanten.
 
 Soms iets uit de deur krijgen als bewijs van concept is de drijvende factor, terwijl u weet dat de toepassing later kan worden ontworpen. Er is weinig punt in iets te veel engineering die nooit wordt gebruikt. Het is de gebruikelijke engineering verhouding. Wanneer bedrijven over het bouwen van voor de cloud praten, is de verwachting dat aan de andere kant groei en het gebruik. Het probleem is dat groei en de schaal onvoorspelbaar zijn. Willen we snel prototypen kunnen worden terwijl u ook weten dat er zich op een pad bevinden naar het omgaan met succes in de toekomst. Dit is de methode lean opstarten: bouwen, meten, leren en herhalen.
 
@@ -181,7 +181,7 @@ Veel organisaties stoppen hier. Ze al de voordelen van containers en Service Fab
 Het toevoegen van nieuwe services naast de bestaande App code in een container. Als u nieuwe code te schrijven, is het raadzaam te besluiten te nemen van kleine stappen in het pad van microservices. Dit kan een nieuwe REST API-eindpunt of een nieuwe bedrijfsregels worden toegevoegd. Op deze manier die u op de reis van nieuwe microservices bouwen en praktijk ontwikkelen en implementeren van deze starten.
 
 **Innoveer**  
-Een microservices-benadering biedt plaats aan veranderende bedrijfsbehoeften. In dit stadium is de beslissing of u wilt beginnen met het splitsen van de monolithische app in de services of innoveren. Hier een voorbeeld is wanneer een database die wordt gebruikt als een werkstroom-wachtrij een bottleneck in de verwerking wordt. Als het aantal werkstroom toeneemt aanvragen, moet het werk voor schaal worden gedistribueerd. Dit scenario te splitsen in een microservice en Innoveer voor die bepaald onderdeel van de toepassing die niet wordt geschaald en moet die vaker worden bijgewerkt.
+Een microservices-benadering geschikt is voor de wisselende bedrijfsbehoeften van uw. In dit stadium is de beslissing of u wilt beginnen met het splitsen van de monolithische app in de services of innoveren. Hier een voorbeeld is wanneer een database die wordt gebruikt als een werkstroom-wachtrij een bottleneck in de verwerking wordt. Als het aantal werkstroom toeneemt aanvragen, moet het werk voor schaal worden gedistribueerd. Dit scenario te splitsen in een microservice en Innoveer voor die bepaald onderdeel van de toepassing die niet wordt geschaald en moet die vaker worden bijgewerkt.
 
 **Omgezet in microservices**  
 Dit is waar uw toepassing is volledig bestaat uit (of uit) microservices. Als u wilt bereiken hier, kunt u het traject microservices hebt gemaakt. U kunt hier beginnen, maar om dit te doen zonder een microservices-platform om u te helpen is een aanzienlijke investering. 

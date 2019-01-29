@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309158"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185462"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Controle en diagnose van services in een lokale machine development setup
 
@@ -51,7 +51,7 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-De map waarnaar wordt verwezen door de `app.properties` bestand moet bestaan. Na de `app.properties` bestand wordt gemaakt, moet u ook wijzigen van het invoerpunt-script, `entrypoint.sh` in de `<applicationfolder>/<servicePkg>/Code/` map om in te stellen de eigenschap `java.util.logging.config.file` naar `app.propertes` bestand. De vermelding moet eruitzien als in het volgende codefragment:
+De map waarnaar wordt verwezen door de `app.properties` bestand moet bestaan. Na de `app.properties` bestand wordt gemaakt, moet u ook wijzigen van het invoerpunt-script, `entrypoint.sh` in de `<applicationfolder>/<servicePkg>/Code/` map om in te stellen de eigenschap `java.util.logging.config.file` naar `app.properties` bestand. De vermelding moet eruitzien als in het volgende codefragment:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -74,7 +74,7 @@ Er zijn meerdere frameworks beschikbaar voor het traceren van CoreCLR-toepassing
 
 De eerste stap is het System.Diagnostics.Tracing bevatten, zodat u kunt uw logboeken naar geheugen, uitvoerstromen of console-bestanden schrijven.  Voor logboekregistratie met behulp van EventSource, moet u het volgende project toevoegen aan uw project.json:
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 

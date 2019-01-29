@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 01/25/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 2f984eb8cb09e5d65c4a366b827f695c739003f3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0415c329364f8df312667e725f3c5376ea13a6f4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163818"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098095"
 ---
 # <a name="about-expressroute-direct-preview"></a>Over ExpressRoute Direct (Preview)
 
@@ -22,7 +22,7 @@ ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde net
 Belangrijke functies van ExpressRoute Direct bevatten, maar niet beperkt tot:
 
 * Massale gegevensopname in services als Storage en Cosmos DB
-* Fysieke isolatie voor branches die worden geregeld en vereisen toegewezen en geïsoleerd verbinding, zoals: Bankieren-, overheids- en detailhandel
+* Fysieke isolatie voor branches die worden geregeld en vereisen toegewezen en geïsoleerd verbinding, zoals: het bankwezen, de overheid en de detailhandel
 * Gedetailleerde controle van circuitdistributie op basis van bedrijfsonderdelen
 
 > [!IMPORTANT]
@@ -70,7 +70,7 @@ ExpressRoute Direct biedt ondersteuning voor zowel QinQ en Dot1Q VLAN-tagging.
 
 ## <a name="workflow"></a>Werkstroom
 
-![werkstroom](./media/expressroute-erdirect-about/workflow1.png)
+[ ![Werkstroom](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>SLA
 

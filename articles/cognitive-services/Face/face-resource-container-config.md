@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9e1d4ae38b18feb01d32ff62d4923b14d33494fa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476917"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197667"
 ---
 # <a name="configure-containers"></a>Containers configureren
 
@@ -34,7 +34,7 @@ Hiërarchische configuratie-instellingen in de Face-container en alle containers
 * [Gebruiksrechtovereenkomst](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
 * [Referentie-instellingen voor HTTP-proxy](#http-proxy-credentials-settings)
-* [Logboekregistratie](#logging-configuration-settings)
+* [Logging](#logging-configuration-settings)
 * [Hiermee wordt gekoppeld](#mounts-configuration-settings)
 
 U kunt een gebruiken [omgevingsvariabelen](#configuration-settings-as-environment-variables) of [opdrachtregelargumenten](#configuration-settings-as-command-line-arguments) om op te geven van configuratie-instellingen bij het instantiëren van een gezicht-container.
@@ -185,7 +185,7 @@ De `Logging` configuratie-instellingen beheren van ASP.NET Core logboekregistrat
   | `Format` | Reeks | De indeling van de uitvoer voor de logboekbestanden.<br/> **Opmerking:** Deze waarde moet worden ingesteld op `json` om in te schakelen van de provider voor logboekregistratie. Als deze waarde is opgegeven zonder ook een koppelpunt uitvoer op te geven bij het instantiëren van een container, wordt er een fout optreedt. |
   | `MaxFileSize` | Geheel getal | De maximale grootte in megabytes (MB) van een logboekbestand. Wanneer de grootte van het huidige logboekbestand voldoet aan of deze waarde overschrijdt, wordt een nieuw logboekbestand wordt gestart door de provider voor logboekregistratie. Als -1 is opgegeven, wordt de grootte van het logboekbestand alleen beperkt door de maximale bestandsgrootte, indien aanwezig, voor het koppelen van de uitvoer. De standaardwaarde is 1. |
 
-Zie voor meer informatie over het configureren van ondersteuning voor ASP.NET Core-logboekregistratie [instellingen bestandsconfiguratie](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Zie voor meer informatie over het configureren van ondersteuning voor ASP.NET Core-logboekregistratie [instellingen bestandsconfiguratie](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
 
 ## <a name="mounts-configuration-settings"></a>Hiermee koppelt u configuratie-instellingen
 

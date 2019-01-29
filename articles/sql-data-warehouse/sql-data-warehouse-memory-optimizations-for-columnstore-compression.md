@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: de7cc0e67960edf95ace67808ffc677b57a46dab
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306829"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096990"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Rijgroep kwaliteit voor columnstore maximaliseren
 
@@ -67,9 +67,9 @@ from cte;
 ```
 
 De trim_reason_desc geeft aan of de rijgroep is verkleind (trim_reason_desc = NO_TRIM impliceert dat er is geen inkorten en Rijengroep is van de optimale kwaliteit). De volgende redenen knippen geven voortijdige inkorten van de rijgroep:
-- BULKLOAD: Beperkende om die reden wordt gebruikt wanneer de binnenkomende batch rijen voor de belasting minder dan 1 miljoen rijen is. De engine maakt gecomprimeerde Rijgroepen nodig als er meer dan 100.000 rijen worden ingevoegd (in plaats van in de store delta invoegen), maar wordt de beperkende reden ingesteld op BULKLOAD. In dit scenario kunt u verhoging van uw batch load-venster als u wilt meer rijen worden verzameld. Evalueer ook uw partitieschema om te controleren of dat dit is niet te gedetailleerde omdat Rijgroepen kunnen niet de grenzen van partities omvatten.
-- MEMORY_LIMITATION: Voor het maken van Rijgroepen met 1 miljoen rijen, een bepaalde hoeveelheid werkgeheugen is vereist door de engine. Wanneer het beschikbare geheugen van de sessie laden is kleiner dan het vereiste geheugen van de werkende, krijgen voortijdig Rijgroepen bijgesneden. In de volgende secties wordt uitgelegd hoe u schat geheugen die nodig is en meer geheugen toewijzen.
-- DICTIONARY_SIZE: Voor knippen daarom geeft aan dat rijgroep trimming opgetreden omdat er ten minste één kolom met tekenreeksen met brede en/of hoge kardinaliteit tekenreeksen. Grootte van de bibliotheek is beperkt tot 16 MB in het geheugen en zodra deze limiet is bereikt de rijgroep is gecomprimeerd. Als u in deze situatie uitvoert, kunt u overwegen de problematische kolom in een afzonderlijke tabel isoleren.
+- BULKLOAD: Knippen om die reden wordt gebruikt wanneer de binnenkomende batch rijen voor het laden van minder dan 1 miljoen rijen heeft. De engine maakt gecomprimeerde Rijgroepen nodig als er meer dan 100.000 rijen worden ingevoegd (in plaats van in de store delta invoegen), maar wordt de beperkende reden ingesteld op BULKLOAD. In dit scenario kunt u verhoging van uw batch load-venster als u wilt meer rijen worden verzameld. Evalueer ook uw partitieschema om te controleren of dat dit is niet te gedetailleerde omdat Rijgroepen kunnen niet de grenzen van partities omvatten.
+- MEMORY_LIMITATION: Een bepaalde hoeveelheid werkgeheugen is vereist voor het maken van Rijgroepen met 1 miljoen rijen, door de engine. Wanneer het beschikbare geheugen van de sessie laden is kleiner dan het vereiste geheugen van de werkende, krijgen voortijdig Rijgroepen bijgesneden. In de volgende secties wordt uitgelegd hoe u schat geheugen die nodig is en meer geheugen toewijzen.
+- DICTIONARY_SIZE: Knippen daarom geeft aan dat rijgroep trimming opgetreden omdat er ten minste één kolom met tekenreeksen met brede en/of hoge kardinaliteit tekenreeksen. Grootte van de bibliotheek is beperkt tot 16 MB in het geheugen en zodra deze limiet is bereikt de rijgroep is gecomprimeerd. Als u in deze situatie uitvoert, kunt u overwegen de problematische kolom in een afzonderlijke tabel isoleren.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Hoe u schat geheugenvereisten
 
@@ -88,7 +88,7 @@ waarbij de gegevenstypen string van gebruik maken van korte-tekenreeks-kolommen 
 
 Lange tekenreeksen worden gecomprimeerd met een compressiemethode die is ontworpen voor het comprimeren van tekst. Deze compressiemethode maakt gebruik van een *woordenlijst* voor het opslaan van patronen. De maximale grootte van een woordenlijst is 16 MB. Er is slechts één woordenlijst voor elke kolom lange tekenreeks in de rijgroep.
 
-Zie de video voor een uitgebreide beschrijving van de geheugenvereisten columnstore [Azure SQL Data Warehouse schalen: configuratie en richtlijnen](https://myignite.microsoft.com/videos/14822).
+Zie de video voor een uitgebreide beschrijving van de geheugenvereisten columnstore [Azure SQL Data Warehouse schalen: configuratie en richtlijnen](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Manieren om te beperken geheugenvereisten
 
