@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 319bae3025741d6a3130c92d876ae38fcbcdf11e
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333935"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096905"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Maak kennis met de Service Fabric-cluster resource manager
 Traditioneel beheer van IT-systemen of online services bedoeld specifieke fysieke of virtuele machines toe die specifieke services of systemen. Services zijn ontworpen als lagen. Er worden een 'web'-laag en een laag "gegevens" of 'opslag'. Toepassingen hoeft een berichtenservice waar aanvragen gestroomd en afmelden, evenals een set van machines speciaal voor opslaan in cache. Elke servicelaag of het type workload specifieke computers die zijn toegewezen aan deze was: de database hebt u een aantal machines die zijn toegewezen, de webservers van een enkele. Als een bepaald type werkbelasting de machines er veroorzaakt op uitvoeren te ' hot ', en vervolgens u meer machines met dezelfde configuratie hebt toegevoegd aan die laag. Echter niet van alle werkbelastingen kunnen zo gemakkelijk worden uitgebreid - met name met de gegevenslaag zou u meestal machines met grotere machines vervangen. Eenvoudig. Als een virtuele machine is mislukt, wordt die deel uitmaken van de algemene toepassing is op lagere capaciteit totdat de computer kan worden hersteld. Nog steeds redelijk eenvoudig is (als deze niet per se leuke).
@@ -53,7 +53,7 @@ In traditionele toepassingen met N lagen, er is altijd een [Load Balancer](https
 
 Balancers voor het netwerk of bericht routers geprobeerd om ervoor te zorgen dat de laag web/worker bleef ongeveer met gelijke taakverdeling. Strategieën voor taakverdeling van de gegevenslaag zijn verschillende en afhankelijke op als het gegevensopslagmechanisme. Taakverdeling van de gegevenslaag waarop gegevenssharding, caching, beheerde weergaven, opgeslagen procedures en andere mechanismen voor store-specifieke.
 
-Hoewel sommige van deze strategieën interessante zijn, is Service Fabric Cluster Resource Manager niet alles, zoals een network load balancer of een cache. Een Network Load Balancer verdeelt front-ends door verkeer spreiden over front-ends. De Service Fabric Cluster Resource Manager heeft een andere strategie. Fundamentele, Service Fabric verplaatst *services* waar ze zinvol zijn het meest, verkeer wordt verwacht of laden als u wilt volgen. Het kan bijvoorbeeld services verplaatsen naar knooppunten die zich momenteel koude omdat de services die er zijn niet veel werk doen. De knooppunten mogelijk koude omdat de services die aanwezig waren zijn verwijderd of verplaatst. Cluster Resource Manager kan nog een voorbeeld: een service van een virtuele machine ook verplaatsen. De machine is wellicht worden bijgewerkt, of door de services die erop worden uitgevoerd vanwege een piek in het verbruik is overbelast. Alernatively, de resourcevereisten van de service is mogelijk verhoogd. Als gevolg hiervan er zijn niet voldoende bronnen zijn op deze computer om door te gaan waarop deze wordt uitgevoerd. 
+Hoewel sommige van deze strategieën interessante zijn, is Service Fabric Cluster Resource Manager niet alles, zoals een network load balancer of een cache. Een Network Load Balancer verdeelt front-ends door verkeer spreiden over front-ends. De Service Fabric Cluster Resource Manager heeft een andere strategie. Fundamentele, Service Fabric verplaatst *services* waar ze zinvol zijn het meest, verkeer wordt verwacht of laden als u wilt volgen. Het kan bijvoorbeeld services verplaatsen naar knooppunten die zich momenteel koude omdat de services die er zijn niet veel werk doen. De knooppunten mogelijk koude omdat de services die aanwezig waren zijn verwijderd of verplaatst. Cluster Resource Manager kan nog een voorbeeld: een service van een virtuele machine ook verplaatsen. De machine is wellicht worden bijgewerkt, of door de services die erop worden uitgevoerd vanwege een piek in het verbruik is overbelast. U kunt ook kunnen de resourcevereisten van de service zijn toegenomen. Als gevolg hiervan er zijn niet voldoende bronnen zijn op deze computer om door te gaan waarop deze wordt uitgevoerd. 
 
 Omdat met Cluster Resource Manager verantwoordelijk is voor het verplaatsen van services rondom, bevat deze een andere functieset in vergelijking met wat u in een network load balancer zoeken wilt. Dit is omdat netwerk load balancers netwerkverkeer leveren waar services al zijn, zelfs als deze locatie niet ideaal is voor het uitvoeren van de service zelf. De Service Fabric Cluster Resource Manager maakt gebruik van fundamenteel verschillende strategieën om ervoor te zorgen dat de resources in het cluster efficiënt worden gebruikt.
 

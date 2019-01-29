@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: adaed5f15facb00b6ed624234ebad31f60782de1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105544"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094322"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Gegevensplatforms die worden ondersteund op de Data Science Virtual Machine
 
@@ -95,7 +95,7 @@ Voordat u uitvoert in Spark-context in Microsoft R Server op Ubuntu Linux-DSVM-e
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-U kunt de Hadoop stoppen gerelateerde services wanneer u ze niet door het uitvoeren van handelingen nodig ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` een voorbeeld laat zien hoe u kunt ontwikkelen en testen van MEVR in externe Spark-context (dit is de Spark-instantie van de zelfstandige versie van de DSVM) is opgegeven en beschikbaar in de `/dsvm/samples/MRS` de map. 
+U kunt de Hadoop stoppen gerelateerde services wanneer u ze niet door het uitvoeren van handelingen nodig ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` een voorbeeld laat zien hoe u kunt ontwikkelen en testen van MEVR in externe Spark-context (dit is de Spark-instantie van de zelfstandige versie van de DSVM) is opgegeven en beschikbaar in de `/dsvm/samples/MRS` de map. 
 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM? 

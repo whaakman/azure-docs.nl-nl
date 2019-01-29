@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900390"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166557"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -69,7 +69,7 @@ Project akoestische biedt nauwkeurige en betrouwbare akoestische parameters zelf
 
 ## <a name="what-exactly-happens-during-baking"></a>Wat er precies gebeurt tijdens het 'bakken'?
 
-Het systeem rekening gehouden met potentiële player locaties voor het genereren van een set met gelijke tussenruimte posities van 'Test'-voorbeeld. Een bake voor een niveau bestaat uit onafhankelijke taken voor elke test: het systeem rekening gehouden met een cuboid "Simulatie regio" is gericht op de test en biedt een gedetailleerde wave simulatie in die regio resolutie van maximaal 25 cm.
+Het systeem rekening gehouden met potentiële player locaties voor het genereren van een set met gelijke tussenruimte posities van 'Test'-voorbeeld. Er bestaat een bake voor een niveau van onafhankelijke taken voor elke test: Het systeem wordt rekening gehouden met een cuboid "Simulatie regio" is gericht op de test en biedt een gedetailleerde wave simulatie in die regio resolutie van maximaal 25 cm.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Verken de [voorbeeld scène](sample-walkthrough.md)

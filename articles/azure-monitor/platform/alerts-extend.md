@@ -1,5 +1,5 @@
 ---
-title: Waarschuwingen (kopie) Log Analytics uitbreiden naar Azure-waarschuwingen - overzicht
+title: (Kopie) Log Analytics-waarschuwingen in Azure Government-Cloud uitbreiden
 description: Overzicht van proces kopiëren waarschuwingen van Log Analytics in OMS-portal naar Azure-waarschuwingen met details adressering veelvoorkomende vragen van klanten.
 author: msvijayn
 services: azure-monitor
@@ -8,19 +8,21 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e2f2a739f78072a0479e77e68e84c8f4b395468f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422223"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099325"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
 
 > [!NOTE]
 > Microsoft is al voltooid voor de procedure beschreven in dit artikel voor de openbare versie van Azure. Het geldt nog steeds voor US government-versies.  
 
-Tot voor kort opgenomen Azure Log Analytics een eigen waarschuwing functionaliteit, die proactief te over voorwaarden op basis van Log Analytics-gegevens waarschuwen kan. U hebt beheerd waarschuwingsregels in de Microsoft Operations Management Suite-portal. Waarschuwingen voor verschillende services in Microsoft Azure is nu geïntegreerd in de nieuwe ervaring voor waarschuwingen. Deze optie is beschikbaar als **waarschuwingen** onder Azure Monitor in de Azure-portal en biedt ondersteuning voor waarschuwingen van activiteitenlogboeken, metrische gegevens en logboeken van Log Analytics en Azure Application Insights. 
+Tot voor kort opgenomen Azure Log Analytics een eigen waarschuwing functionaliteit, die proactief te over voorwaarden op basis van Log Analytics-gegevens waarschuwen kan. U hebt beheerd waarschuwingsregels in de Microsoft Operations Management Suite-portal. Waarschuwingen voor verschillende services in Microsoft Azure is nu geïntegreerd in de nieuwe ervaring voor waarschuwingen. Deze optie is beschikbaar als **waarschuwingen** onder Azure Monitor in de Azure-portal en biedt ondersteuning voor waarschuwingen van activiteitenlogboeken, metrische gegevens en logboeken van Log Analytics en Azure Application Insights.
+
+Azure Government cloud-klanten met behulp van de OMS-portal kunt [vrijwillig hun waarschuwingsregels uitbreiden naar Azure](alerts-extend-tool.md) van **1 februari 2019**. Vanaf **1 maart 2019** - Microsoft wordt automatisch-uitbreiden in een systematische manier alle bestaande waarschuwingsregels in Azure Government - OMS-portal naar Azure, zonder uitvaltijd of einde op uw bewaking. Een nieuwe werkruimte gemaakt op of na **1 maart 2019** in Azure Government-cloud OMS portal worden automatisch uitgebreid naar Azure.
 
 ## <a name="benefits-of-extending-your-alerts"></a>Voordelen van uw waarschuwingen uitbreiden
 Er zijn enkele voordelen van het maken en beheren van waarschuwingen in Azure portal, zoals:

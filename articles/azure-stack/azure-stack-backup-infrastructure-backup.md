@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4cb8ffe218ef1cd64b93201eddbbd09bb16026db
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 477d0bcebf8f699c49e0cf769a54ef3ae52a3a76
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087386"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096022"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Back-up en gegevensherstel voor Azure Stack met de infrastructuur voor Backup-Service
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 U kunt back-up en herstellen van configuratie- en service-gegevens met behulp van de infrastructuur voor Backup-Service. Elke Azure Stack-installatie bevat een exemplaar van de service. U kunt back-ups die zijn gemaakt door de service voor het opnieuw distribueren van de Azure Stack-Cloud gebruiken om terug te zetten van identiteit, beveiliging en Azure Resource Manager-gegevens.
 
@@ -43,7 +43,7 @@ De services bevatten de volgende functies.
 | Compressie en codering van de geëxporteerde gegevens van de back-up | Back-gegevens worden gecomprimeerd en versleuteld door het systeem voordat deze wordt geëxporteerd naar de locatie van de externe opslag die door de beheerder.                |
 | Back-uptaak controleren                              | Systeem waarschuwt als back-up mislukken en het doorvoeren stappen taken.                                                                                                |
 | Back-upbeheer ervaring                       | Back-RP biedt ondersteuning voor back-up van inschakelen.                                                                                                                         |
-| Cloudherstel                                     | Als er een onherstelbaar gegevensverlies, kunnen de back-ups worden gebruikt om te herstellen core Azure Stack informatie als onderdeel van de implementatie.                                 |
+| Cloud Recovery                                     | Als er een onherstelbaar gegevensverlies, kunnen de back-ups worden gebruikt om te herstellen core Azure Stack informatie als onderdeel van de implementatie.                                 |
 
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Vereisten voor de infrastructuur voor Backup-Service controleren
 

@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986539"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097058"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
 
@@ -48,7 +48,7 @@ Deze handleiding maakt gebruik van de volgende NuGet-pakketten:
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
-## <a name="set-up-your-project"></a>Instellen van uw project
+## <a name="set-up-your-project"></a>Uw project instellen
 
 In deze sectie biedt stapsgewijze instructies voor het integreren van een Windows Desktop .NET-toepassing (XAML) *aanmelden met Microsoft*. Vervolgens kan deze Web-API's waarvoor een token, zoals Microsoft Graph API opvragen.
 
@@ -60,7 +60,7 @@ Deze handleiding wordt gemaakt van een toepassing die wordt weergegeven een knop
 
 ### <a name="create-your-application"></a>Uw toepassing maken
 
-1. Selecteer in Visual Studio, **bestand** > **nieuw** > **Project**.
+1. Selecteer in Visual Studio **Bestand** > **Nieuw** > **Project**.
 2. Onder **sjablonen**, selecteer **Visual C#**.
 3. Selecteer **Lege app (Universal Windows)**.
 4. De naam van de app, en selecteer **OK**.
@@ -334,7 +334,7 @@ Om in te schakelen geïntegreerde Windows-verificatie als deze wordt gebruikt me
 > [!IMPORTANT]
 > Geïntegreerde Windows-verificatie is niet geconfigureerd voor dit voorbeeld standaard. Toepassingen die aanvragen *Ondernemingsverificatie* of *gedeelde gebruikerscertificaten* mogelijkheden vereisen een hoger niveau van controle door de Windows Store. Niet alle ontwikkelaars willen ook het hogere niveau van controle uitvoeren. Schakel deze instelling alleen als u geïntegreerde Windows-verificatie met een federatieve Azure Active Directory-domein.
 
-## <a name="test-your-code"></a>Testen van uw code
+## <a name="test-your-code"></a>Uw code testen
 
 Als u wilt testen van uw toepassing, selecteer F5 om uit te voeren van uw project in Visual Studio. Het hoofdvenster wordt weergegeven:
 
@@ -382,14 +382,14 @@ U ontvangt een van de volgende foutberichten weergegeven wanneer u zich aanmelde
  - Er is geen geldige certificaten gevonden in het certificaatarchief van de gebruiker.
  - Probeer opnieuw een andere verificatiemethode kiezen.
 
-**Oorzaak:** mogelijkheden voor ondernemingen en het certificaat is niet ingeschakeld.
+**Oorzaak:** Enterprise- en certificaat-mogelijkheden zijn niet ingeschakeld.
 
 **Oplossing:** Volg de stappen in [geïntegreerde verificatie op federatieve domeinen](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Probleem 2
 U hebt ingeschakeld [geïntegreerde verificatie op federatieve domeinen](#enable-integrated-authentication-on-federated-domains-optional) en probeer het Windows Hello gebruiken op een Windows 10-computer aan te melden voor een omgeving met meervoudige verificatie is geconfigureerd. De lijst van certificaten wordt weergegeven. Echter, als u ervoor kiest uw PINCODE moet gebruiken, het venster van de PINCODE wordt nooit weergegeven.
 
-**Oorzaak:** dit probleem is een bekende beperking van de webauthenticatiebroker in UWP-toepassingen die worden uitgevoerd op Windows 10 desktop. Het werkt prima op Windows 10 Mobile.
+**Oorzaak:** Dit probleem is een bekende beperking van de webauthenticatiebroker in UWP-toepassingen die worden uitgevoerd op Windows 10 desktop. Het werkt prima op Windows 10 Mobile.
 
 **Tijdelijke oplossing:** Selecteer **Meld u aan met andere opties**. Selecteer vervolgens **Meld u aan met een gebruikersnaam en wachtwoord**. Selecteer **geeft u uw wachtwoord**. Ga via de telefoon verificatieproces uit.
 

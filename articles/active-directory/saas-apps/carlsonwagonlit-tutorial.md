@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2745e165-94ab-43b1-970a-4547b4e5b501
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b1854b8e2c05fb2bcc5bd864c9ed8049250743b8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 564f78b28be96209012542fd0d2e4de94872e583
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054111"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188073"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Zelfstudie: Azure Active Directory-integratie met Carlson Wagonlit reizen
 
@@ -30,7 +30,7 @@ Carlson Wagonlit reizen integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Carlson Wagonlit reizen heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Carlson Wagonlit reizen (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Carlson Wagonlit reizen, moet 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Carlson Wagonlit reizen in Azure AD,
 
 **Als u wilt toevoegen Carlson Wagonlit reizen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,15 +68,15 @@ Voor het configureren van de integratie van Carlson Wagonlit reizen in Azure AD,
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **Carlson Wagonlit reizen**, selecteer **Carlson Wagonlit reizen** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Carlson Wagonlit reizen in de lijst met resultaten](./media/carlsonwagonlit-tutorial/tutorial_carlsonwagonlittravel_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Carlson Wagonlit reizen op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -86,13 +86,13 @@ In Carlson Wagonlit reizen, wijs de waarde van de **gebruikersnaam** in Azure AD
 
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Carlson Wagonlit reizen, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 3. **[Maak een testgebruiker Carlson Wagonlit reizen](#create-a-carlson-wagonlit-travel-test-user)**  : als u wilt een equivalent van Britta Simon in Carlson Wagonlit traject dat is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Carlson Wagonlit reizen.
 
@@ -100,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **Carlson Wagonlit reizen** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
@@ -118,15 +118,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 5. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/carlsonwagonlit-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/carlsonwagonlit-tutorial/tutorial_general_400.png)
 
-6. Het configureren van eenmalige aanmelding op **Carlson Wagonlit reizen** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Carlson Wagonlit reizen ondersteuningsteam](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+6. Het configureren van eenmalige aanmelding op **Carlson Wagonlit reizen** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Carlson Wagonlit reizen ondersteuningsteam](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies in [Azure Portal](https://portal.azure.com) lezen terwijl u de app instelt!  Klik nadat u deze app onder **Active Directory > Bedrijfstoepassingen** hebt toegevoegd op het tabblad **Eenmalige aanmelding** en open de ingesloten documentatie via het gedeelte **Configuratie** onderaan. Hier leest u meer over de functie voor ingesloten documentatie: [Ingesloten documentatie in Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -160,7 +160,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-a-carlson-wagonlit-travel-test-user"></a>Maak een testgebruiker Carlson Wagonlit reizen
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Carlson Wagonlit reizen. Werken met [Carlson Wagonlit reizen ondersteuningsteam](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) om toe te voegen de gebruikers in het platform Carlson Wagonlit reizen. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Carlson Wagonlit reizen. Werken met [Carlson Wagonlit reizen ondersteuningsteam](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) om toe te voegen de gebruikers in het platform Carlson Wagonlit reizen. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -202,7 +202,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3bb8d4796d23b84f815d28efa45af619efe19af3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c44e000a60e4391faf38cb275f35ec512e19aea3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338230"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101682"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Beveilig uw netwerkresources in Azure Security Center
 Azure Security Center analyseert voortdurend de beveiligingsstatus van uw Azure-resources voor best practices voor netwerkbeveiliging. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen om te versterken en beschermen van uw resources.
@@ -133,7 +133,7 @@ Het derde niveau wordt weergegeven in virtuele machines, vergelijkbaar met wat e
 |Machine|40|Netwerkbeveiligingsgroepen op virtuele machines inschakelen|Netwerkbeveiligingsgroepen voor het beheren van toegang tot het netwerk van uw virtuele machines inschakelen.|
 |Subnet|35|Netwerkbeveiligingsgroepen op subnetten inschakelen |Netwerkbeveiligingsgroepen voor het beheren van toegang tot het netwerk van de resources die zijn geïmplementeerd in uw subnetten inschakelen.|
 |Machine|30|Just-In-Time-netwerktoegangsbeheer toepassen|Just-in-time VM toegangsbeheer vergrendelen permanent toegang tot geselecteerde poorten van toepassing en kunnen gemachtigde gebruikers om ze te openen via het mechanisme voor dezelfde en voor een beperkte hoeveelheid tijd wordt opgelost.|
-|Machine|20|Toegang via een internetgericht eindpunt beperken|Beter beschermen de goups netwerk beveiliging van uw virtuele machines voor internetgerichte door het beperken van de toegang van uw bestaande regels voor toestaan.|
+|Machine|20|Toegang via een internetgericht eindpunt beperken|De netwerkbeveiligingsgroepen van uw virtuele machines voor internetgerichte door het beperken van de toegang van uw bestaande toestaan beter beschermen regels.|
 |Machine|10|Een firewall van de volgende generatie toevoegen|Een volgende generatie Firewall (NGFW)-oplossing voor het beveiligen van uw virtuele machines van de internetgerichte toevoegen.|
 |Machine|5|Verkeer routeren via een gateway netwerkfirewall alleen|Om de implementatie van de volgende generatie firewall-oplossing hebt voltooid, moet het verkeer naar uw beveiligde virtuele machines voor internetgerichte alleen via de volgende generatie firewall-oplossing worden gerouteerd.|
 |VNet|5|DDoS-bescherming standaard inschakelen|Toepassingen met openbare IP-adressen in deze virtuele netwerken zijn niet beveiligd met de DDOS protection-service standard. Het wordt aanbevolen om het te beperken van protocol aanvallen en breng netwerk inschakelen.|

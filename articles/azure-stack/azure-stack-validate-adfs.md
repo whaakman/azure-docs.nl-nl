@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e6c54add856a69e1750b0b6ca0a058c2d80bfd8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416508"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101725"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Valideren van de AD FS-integratie voor Azure Stack
 
@@ -29,7 +29,7 @@ Gebruik het hulpprogramma Azure Stack gereedheid van de Registercontrole (AzsRea
 De gereedheid van vereisten wordt gevalideerd:
 
 * De *federatiemetagegevens* bevat de geldige XML-elementen voor Federatie.
-* De *AD FS SSL-certificaat* kan worden opgehaald, en een keten van vertrouwen kan worden gebouwd. AD FS moeten de SSL-certificaat-keten vertrouwen op het stempel. Het certificaat moet worden ondertekend door dezelfde *certificeringsinstantie* als de Azure Stack-implementatie van certificaten of door een vertrouwde instantie partner. Zie voor de volledige lijst van vertrouwde basis-CA-partners, [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* De *AD FS SSL-certificaat* kan worden opgehaald, en een keten van vertrouwen kan worden gebouwd. AD FS moeten de SSL-certificaat-keten vertrouwen op het stempel. Het certificaat moet worden ondertekend door dezelfde *certificeringsinstantie* gebruikt voor de Azure Stack-implementatie van certificaten of door een vertrouwde instantie partner. Zie voor de volledige lijst van vertrouwde basis-CA-partners, [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * De *handtekeningcertificaat van de AD FS* vertrouwde en niet die bijna verlopen is.
 
 Zie voor meer informatie over de integratie van Azure Stack-datacenter [integratie van Azure Stack datacenter - identiteit](azure-stack-integrate-identity.md).
@@ -101,8 +101,8 @@ Standaard beide bestanden worden geschreven naar `C:\Users\<username>\AppData\Lo
 
 U kunt gebruiken:
 
-* **-OutputPath**: de *pad* parameter aan het einde van de opdracht uitvoeren om op te geven van een andere locatie.
-* **-CleanReport**: de parameter aan het einde van de opdracht uitvoeren om te wissen AzsReadinessCheckerReport.json van vorige rapportgegevens. Zie voor meer informatie, [Azure Stack-validatierapport](azure-stack-validation-report.md).
+* **-OutputPath**: De *pad* parameter aan het einde van de opdracht uitvoeren om op te geven van een andere locatie.
+* **-CleanReport**: De parameter die aan het einde van de opdracht uitvoeren om te wissen AzsReadinessCheckerReport.json van vorige rapportgegevens. Zie voor meer informatie, [Azure Stack-validatierapport](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Validatiefouten
 
@@ -116,7 +116,7 @@ De volgende voorbeelden geven richtlijnen op algemene validatiefouten.
 
 **Oorzaak**: PowerShell Autoload kan niet correct laden van de gereedheid van de controle-module.
 
-**Resolutie**: expliciet importeren van de gereedheid van de controle-module. Kopieer en plak de volgende code in PowerShell en update \<versie\> met het nummer voor de huidige geïnstalleerde versie.
+**Oplossing**: De module gereedheid Checker expliciet importeren. Kopieer en plak de volgende code in PowerShell en update \<versie\> met het nummer voor de huidige geïnstalleerde versie.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

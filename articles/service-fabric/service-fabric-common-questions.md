@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320596"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104079"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -73,7 +73,7 @@ Vereist een productiecluster ten minste 5 knooppunten vanwege de volgende drie r
 
 We willen dat het cluster moet beschikbaar zijn bij gelijktijdige storing van twee knooppunten. Voor een Service Fabric-cluster moet beschikbaar zijn, moeten de systeemservices beschikbaar zijn. Stateful system-services zoals naamgevingsservice en failover manager-service, die afhankelijk zijn van sterke consistentie bijhouden welke services zijn geïmplementeerd op het cluster en waar ze momenteel wordt gehost. De mogelijkheid om te verkrijgen die sterke consistentie op zijn beurt afhankelijk een *quorum* voor een bepaalde update naar de status van deze services, waarbij een quorum vertegenwoordigt een strikte meerderheid van de replica's (N/2 + 1) voor een bepaalde service. Dus als we willen tolerantie tegen gelijktijdige verlies van twee knooppunten (dus gelijktijdige verlies van twee replica's van een systeemservice), moet hebben we de clustergrootte - QuorumSize > = 2, waardoor de minimale grootte moet vijf. Om te zien die rekening houden met het cluster heeft N knooppunten en er zijn N replica's van een systeemservice--één op elk knooppunt. De grootte van het quorum voor een system-service is (N/2 + 1). De bovenstaande ongelijkheid ziet eruit als N - (N/2 + 1) > = 2. Er zijn twee mogelijke situaties rekening houden: wanneer N zelfs is en wanneer N oneven is. Als N zelfs het geval is, bijvoorbeeld N is = 2\*m waar m > = 1, de ongelijkheid eruit 2\*m - (2\*m/2 + 1) > = 2 of m > = 3. Het minimale aantal voor N 6 is en dat is bereikt wanneer m = 3. Aan de andere kant als N oneven is, zeg N = 2\*m + 1 waar m > = 1, de ongelijkheid eruit 2\*m + 1 - ((2\*m + 1) / 2 + 1) > = 2 of 2\*m + 1 - (m + 1) > = 2 of m > = 2. Het minimale aantal voor N is 5 en die is bereikt wanneer m = 2. Daarom tussen alle waarden van N die voldoen aan de ongelijkheid de clustergrootte - QuorumSize > = 2, de minimumwaarde is 5.
 
-Opmerking: in het bovenstaande argument dat we een veronderstelde hebben dat elk knooppunt is een replica van een systeemservice, duidt dit de quorum-grootte wordt berekend op basis van het aantal knooppunten in het cluster. Echter, door het veranderen van *TargetReplicaSetSize* maken we kan de grootte van de quorum minder dan (N / 2 + 1) die mogelijk de indruk dat we kan een cluster kleiner is dan 5 knooppunten hebt en nog steeds 2 extra knooppunten hierboven de grootte van de quorum geven. Bijvoorbeeld, in een cluster met 4 knooppunten als we de TargetReplicaSetSize ingesteld op 3, de quorum-grootte op basis van TargetReplicaSetSize is (3/2 + 1) of 2, dus hebben we CluserSize - QuorumSize = 4-2 > = 2. Echter, we kunnen niet garanderen dat de service is bij of boven quorum als we een paar knooppunten tegelijk, gaan verloren kan het zijn dat de twee knooppunten kwijt die als host twee replica's, fungeert zijn zodat de service wordt met ingang van quorumverlies (met alleen een enkele replica naar links) een ND wordt niet beschikbaar.
+Opmerking: in het bovenstaande argument dat we een veronderstelde hebben dat elk knooppunt is een replica van een systeemservice, duidt dit de quorum-grootte wordt berekend op basis van het aantal knooppunten in het cluster. Echter, door het veranderen van *TargetReplicaSetSize* maken we kan de grootte van de quorum minder dan (N / 2 + 1) die mogelijk de indruk dat we kan een cluster kleiner is dan 5 knooppunten hebt en nog steeds 2 extra knooppunten hierboven de grootte van de quorum geven. Bijvoorbeeld, in een cluster met 4 knooppunten als we de TargetReplicaSetSize ingesteld op 3, de quorum-grootte op basis van TargetReplicaSetSize is (3/2 + 1) of 2, dus hebben we de clustergrootte - QuorumSize = 4-2 > = 2. Echter, we kunnen niet garanderen dat de service is bij of boven quorum als we een paar knooppunten tegelijk, gaan verloren kan het zijn dat de twee knooppunten kwijt die als host twee replica's, fungeert zijn zodat de service wordt met ingang van quorumverlies (met alleen een enkele replica naar links) een ND wordt niet beschikbaar.
 
 Die gedachte, we gaan sommige clusterconfiguraties mogelijk:
 

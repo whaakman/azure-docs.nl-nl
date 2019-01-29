@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: be10af7096a11fb27971af9dc28036df4a4b0968
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 090f9771bf8d1010e4249d97d5768891f02c54b3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423555"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096599"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 en de OAuth 2.0-clientreferentiestroom
 
@@ -60,14 +60,14 @@ Een gebruikelijk is het gebruik van een ACL testen voor een web-App of voor een 
 
 Dit type autorisatie is gebruikelijk voor daemons en service-accounts die toegang moeten krijgen tot gegevens die eigendom zijn van consumenten-gebruikers met persoonlijke Microsoft-accounts. Voor gegevens die eigendom zijn van organisaties, wordt u aangeraden dat u de benodigde machtiging via machtigingen van de toepassing krijgt.
 
-### <a name="application-permissions"></a>Machtigingen van de toepassing
+### <a name="application-permissions"></a>Toepassingsmachtigingen
 
 U kunt in plaats van ACL's, API's gebruiken om een set machtigingen van de toepassing zichtbaar te maken. De machtiging voor een toepassing te krijgen tot een toepassing door de beheerder van een organisatie en kan alleen worden gebruikt voor toegang tot gegevens die eigendom zijn van die organisatie en haar medewerkers. Microsoft Graph beschrijft bijvoorbeeld verschillende machtigingen van de toepassing het volgende doen:
 
 * E-mail in alle postvakken lezen
-* Lezen en schrijven van e-mail in alle postvakken
-* E-mail verzenden als een willekeurige gebruiker
-* Mapgegevens lezen
+* E-mail in alle postvakken lezen en schrijven
+* E-mail met elke willekeurige gebruiker als afzender verzenden
+* Adreslijstgegevens lezen
 
 Voor meer informatie over de machtigingen van de toepassing, gaat u naar [Microsoft Graph](https://developer.microsoft.com/graph).
 
@@ -149,7 +149,7 @@ Nadat u een geslaagd antwoord van het eindpunt van app-inrichting ontvangen hebt
 
 Nadat u de benodigde machtiging hebt voor uw toepassing hebt verkregen, kunt u doorgaan met het verkrijgen van toegang tot tokens voor API's. Als u een token met behulp van de client clientreferenties, verzendt u een POST-aanvraag naar de `/token` v2.0-eindpunt:
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: aanvraag voor een toegangstoken met een gedeeld geheim
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: Aanvraag voor een toegangstoken met een gedeeld geheim
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -174,7 +174,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `client_secret` | Vereist | Het toepassingsgeheim die u voor uw app in de portal van de registratie van de app hebt gegenereerd. Het clientgeheim moet URL gecodeerd voordat het wordt verzonden. |
 | `grant_type` | Vereist | Moet `client_credentials`. |
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: aanvraag voor een toegangstoken met een certificaat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Aanvraag voor een toegangstoken met een certificaat
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity

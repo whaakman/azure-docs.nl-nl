@@ -60,7 +60,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parameter | Voorwaarde | Description |
+| Parameter | Voorwaarde | Beschrijving |
 | --- | --- | --- |
 | tenant |Vereist |De directory-tenant die u wilt toestemming van aanvragen. Dit kan zijn in de beschrijvende naamindeling of GUID.  |
 | client_id |Vereist |De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
@@ -70,7 +70,7 @@ scope=user.read%20openid%20profile
 
 Een geslaagde reactie is een JSON-object met de vereiste gegevens zodat de gebruiker zich aanmeldt.  
 
-| Parameter | Indeling | Description |
+| Parameter | Indeling | Beschrijving |
 | ---              | --- | --- |
 |`device_code`     |Reeks| Een lange tekenreeks die wordt gebruikt om te controleren of de sessie tussen de client en de autorisatie-server.  Dit wordt gebruikt door de client om aan te vragen van het toegangstoken van de autorisatie-server. |
 |`user_code`       |Reeks| Een korte tekenreeks aan de gebruiker, gebruikt voor het identificeren van de sessie op een tweede apparaat weergegeven.|
@@ -95,7 +95,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-|Parameter | Vereist | Description|
+|Parameter | Vereist | Beschrijving|
 | -------- | -------- | ---------- |
 |`grant_type` | Vereist| Moet zijn `urn:ietf:params:oauth:grant-type:device_code`|
 |`client_id`  | Vereist| Moet overeenkomen met de `client_id` wordt gebruikt in de eerste aanvraag. |
@@ -105,7 +105,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 Omdat de stroom van het apparaat een polling-protocol is, moet uw client verwacht voor het ontvangen van fouten voordat de verificatie van de gebruiker is voltooid.  
 
-| Fout | Description | Clientactie |
+| Fout | Beschrijving | Clientactie |
 |------ | ----------- | -------------|
 | `authorization_pending` |  De gebruiker is nog niet voltooid verificatie, maar niet de stroom is geannuleerd. | De aanvraag opnieuw nadat ten minste `interval` seconden. |
 | `authorization_declined`|  De eindgebruiker de autorisatieaanvraag geweigerd.| Stop polling en terugkeren naar een niet-geverifieerde status.  |
@@ -128,7 +128,7 @@ Een geslaagde respons token ziet er als:
 }
 ```
 
-| Parameter | Indeling | Description |
+| Parameter | Indeling | Beschrijving |
 | --------- | ------ | ----------- |
 |`token_type` | Reeks| Altijd 'Bearer. |
 |`scope` | Tekenreeksen gescheiden door spaties | Als een toegangstoken is geretourneerd, zijn dit de scopes die het toegangstoken is ongeldig voor. |

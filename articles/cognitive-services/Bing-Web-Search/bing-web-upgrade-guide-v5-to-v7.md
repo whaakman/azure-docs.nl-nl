@@ -7,16 +7,16 @@ author: swhite-msft
 manager: cgronlun
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: eb84c961d13c5abac7a0c9f426f099d21f034f20
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7c3e19fd809e442d58f7cb0e6922d4e565673fe2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129740"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188929"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Een upgrade uitvoeren voor Bing Web Search API versie 5 naar versie 7
 
@@ -39,7 +39,7 @@ Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van d
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
-|Code|De subCode|Beschrijving
+|Code|SubCode|Beschrijving
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. De reactie omvat deze fouten als de HTTP-statuscode 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.
@@ -75,7 +75,7 @@ Geblokkeerd|InvalidRequest.Blocked
 
 ### <a name="headers"></a>Headers
 
-- De optionele toegevoegd [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) aanvraagheader. Bing retourneert standaard in de cache inhoud, indien beschikbaar. Om te voorkomen dat Bing retourneren in de cache inhoud, stelt u de header Pragma op no-cache (bijvoorbeeld Pragma: niet-cache).
+- De optionele toegevoegd [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) aanvraagheader. Bing retourneert standaard cache-inhoud, indien beschikbaar. Om te voorkomen dat Bing inhoud uit de cache retourneert, stelt u de Pragma-header in op no-cache (bijvoorbeeld: Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Queryparameters
 

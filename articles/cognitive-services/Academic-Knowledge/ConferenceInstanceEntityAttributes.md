@@ -6,22 +6,22 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 6111ad00044943f12b2e098c4fd07ffb40185799
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: db025f377a3fab2f788252db0c8e3555837a6de8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902409"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196103"
 ---
 # <a name="conference-instance-entity"></a>Conferentie exemplaar entiteit
 
-<sub> * De volgende kenmerken zijn specifiek voor de Conferentie exemplaar entiteit. (Ty = "4") </sub>
+<sub> * De volgende kenmerken zijn specifiek voor de Conferentie exemplaar entiteit. (Ty = '4') </sub>
 
-Naam    |Beschrijving                            |Type       | Bewerkingen
+Name    |Description                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Entiteits-id                              |Int64      |Is gelijk aan
 CIN     |Conferentie genormaliseerde exemplaarnaam ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |Reeks     |Is gelijk aan
@@ -33,16 +33,16 @@ CIARD   |Abstracte registratie vervaldatum van de Conferentie  |Date       |Is g
 CISDD   |Verzending van vervaldatum van de Conferentie     |Date       |Is gelijk aan,<br/>IsBetween
 CIFVD   |Definitieve versie vervaldatum van de Conferentie  |Date       |Is gelijk aan,<br/>IsBetween
 CINDD   |Datum van de melding van de Conferentie   |Date       |Is gelijk aan,<br/>IsBetween
-CD. T    |Titel van een conferentie exemplaar van gebeurtenis   |Date       |Is gelijk aan,<br/>IsBetween
-CD. D    |Datum van een conferentie exemplaar van gebeurtenis    |Date       |Is gelijk aan,<br/>IsBetween
-PC 'S. ALGEMENE NAAM  |Naam van de Conferentie reeks van het exemplaar |Reeks     |Is gelijk aan
-PC 'S. CId |Conferentie reeks-ID van het exemplaar |Int64    |Is gelijk aan
+CD.T    |Titel van een conferentie exemplaar van gebeurtenis   |Date       |Is gelijk aan,<br/>IsBetween
+CD.D    |Datum van een conferentie exemplaar van gebeurtenis    |Date       |Is gelijk aan,<br/>IsBetween
+PCS.CN  |Naam van de Conferentie reeks van het exemplaar |Reeks     |Is gelijk aan
+PCS.CId |Conferentie reeks-ID van het exemplaar |Int64    |Is gelijk aan
 CC      |De totale citaat exemplaren Conferentie           |Int32      |geen  
 ECC     |De totale geschatte citaat exemplaren Conferentie |Int32      |geen
 
 
 ## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##
 
-Naam    | Beschrijving               
+Name    | Beschrijving               
 --------|---------------------------    
 FN      | Volledige naam Conferentie

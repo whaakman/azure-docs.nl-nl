@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 794a2c77c5601b76f258b2b73f5a01f3c6b8f8c9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2f7e6cd577b1eabbaabdfe87fca8ea0f036a062d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712293"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149387"
 ---
 # <a name="web-search-endpoint"></a>Eindpunt op het web zoeken
 
@@ -25,7 +25,7 @@ De **webzoekopdrachten-API** retourneert webpagina's, nieuws, afbeeldingen, vide
 
 Als u zoekresultaten voor webpagina's met behulp van de API voor Bing, verzendt een `GET` aanvraag naar het volgende eindpunt. De kop- en URL-parameters definiëren verder specificaties.
 
-**Eindpunt**: retourneert resultaten die relevant voor de gebruiker zijn gedefinieerd door zoekquery `?q=""`.
+**Eindpunt**: Retourneert resultaten die relevant voor de zoekquery van de gebruiker gedefinieerd zijn door `?q=""`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search

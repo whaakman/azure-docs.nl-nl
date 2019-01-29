@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815208"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102031"
 ---
-# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Hoe: uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
+# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedure: Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Wat is de Azure AD-toepassingsgalerie?
 
@@ -35,7 +35,7 @@ ms.locfileid: "48815208"
 - Wederzijdse klanten krijgen een stapsgewijze configuratie-zelfstudie.
 - Klanten die SCIM gebruiken kunt voor dezelfde app wordt ingericht.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 - Voor federatieve toepassingen (Open-ID en SAML/WS-Federation), moet de toepassing ondersteunt de SaaS-model voor het ophalen van die worden vermeld in de galerie van Azure AD. De galerie bedrijfstoepassingen moeten configuraties met meerdere klanten en niet voor elke klant met een specifieke ondersteunen.
 
@@ -72,14 +72,14 @@ Ons team controleert de details en hebt die u toegang dienovereenkomstig. Zodra 
 
 Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de volgende federation protocollen die worden ondersteund door Azure AD te implementeren en akkoord gaat met Azure AD-toepassing galerie voorwaarden en bepalingen. Lees de voorwaarden en bepalingen van de Azure AD-toepassingsgalerie van [hier](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **OpenID Connect**: als u wilt uw toepassing integreren met Azure AD met behulp van het Open ID Connect-protocol, volgt u de [ontwikkelaars instructies](authentication-scenarios.md).
+- **OpenID Connect**: Als u wilt uw toepassing integreren met Azure AD met behulp van het Open ID Connect-protocol, volgt u de [ontwikkelaars instructies](authentication-scenarios.md).
 
     ![Tijdlijn van de OpenID Connect-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/openid.png)
 
     * Als u wilt uw toepassing toevoegen aan lijst in de galerie met OpenID Connect, selecteer **OpenID Connect en OAuth 2.0** zoals hierboven.
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** of **WS-Federation**: als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** of **WS-Federation**: Als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
 
     ![Tijdlijn van SAML 2.0 of WS-Federation-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/saml.png)
 

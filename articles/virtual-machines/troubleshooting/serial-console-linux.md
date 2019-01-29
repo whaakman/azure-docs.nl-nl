@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438079"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098456"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriële console van de virtuele machine voor Linux
 
@@ -89,7 +89,7 @@ Onjuiste firewall-regels | Toegang tot de seriële console en op te lossen iptab
 Bestandssysteem beschadigd/selectievakje | Toegang tot de seriële console en het bestandssysteem herstellen.
 Problemen met SSH/RDP-configuratie | Toegang tot de seriële console en de instellingen wijzigen.
 Systeem voor het vergrendelen van netwerk| Toegang tot de seriële console van de Azure-portal voor het beheren van het systeem.
-Interactie met de bootloader | Toegang WORMGATEN via de seriële console. Zie voor meer informatie, [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
+Interactie met de bootloader | Start opnieuw op uw virtuele machine uit binnen de seriële console-blade voor toegang tot WORMGATEN op uw Linux-VM. Zie voor meer informatie, [seriële console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Uitschakelen van de seriële console
 Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console op het abonnementsniveau of op het niveau van de virtuele machine uitschakelen.

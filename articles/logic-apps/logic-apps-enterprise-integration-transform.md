@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125292"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095665"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Kaarten die XML tussen notaties in Azure Logic Apps met Enterprise Integration Pack transformeren maken
 
@@ -88,7 +88,7 @@ De transformatie-actie biedt ondersteuning voor kaarten ook of met een verwijzin
 
   In dit voorbeeld ziet u een kaart die verwijst naar een assembly met de naam 'XslUtilitiesLib' en roept de `circumreference` methode van de assembly.
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -109,13 +109,13 @@ De transformatie-actie biedt ondersteuning voor kaarten ook of met een verwijzin
      </circles>
     </xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### <a name="byte-order-mark"></a>Bytevolgordemarkering
 Het antwoord van de transformatie wordt standaard gestart met de Byte Order Mark (BOM). U kunt toegang tot deze functionaliteit alleen tijdens het werken in de weergave van Code-editor. Geef deze als functionaliteit wilt uitschakelen, `disableByteOrderMark` voor de `transformOptions` eigenschap:
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -129,7 +129,7 @@ Het antwoord van de transformatie wordt standaard gestart met de Byte Order Mark
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 

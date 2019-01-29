@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 60fbde1ea269dc43d35007287c38e852a5feedff
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d5a39efd932225eb2f71acdba742c88095df8ec9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075326"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098779"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Uitnodigingen voor B2B-gebruikers van bepaalde organisaties toestaan of blokkeren
 
@@ -86,71 +86,71 @@ Controleer de versie van de module (en of deze geïnstalleerd):
 1. Open Windows PowerShell als een verhoogde gebruiker (als Administrator uitvoeren). 
 2. Voer de volgende opdracht om te zien als u alle versies van de Azure Active Directory-Module voor Windows PowerShell op uw computer is geïnstalleerd:
 
-   ````powershell  
+   ```powershell  
    Get-Module -ListAvailable AzureAD*
-   ````
+   ```
 
 Als de module niet is geïnstalleerd, of u geen een vereiste versie hebt, een van de volgende handelingen uit:
 
 - Als er geen resultaten worden geretourneerd, voert u de volgende opdracht om de nieuwste versie van de AzureADPreview-module installeren:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Als alleen de module AzureAD wordt weergegeven in de resultaten, voer de volgende opdrachten de AzureADPreview-module installeren: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Als er slechts de AzureADPreview-module wordt weergegeven in de resultaten, maar de versie minder dan 2.0.0.98 is, voer de volgende opdrachten bij te werken: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-   ````
+   ```
 
 - Als de AzureAD AzureADPreview modules en in de resultaten worden weergegeven, maar de versie van de AzureADPreview-module minder dan 2.0.0.98 is, voer de volgende opdrachten bij te werken: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-    ````
+    ```
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>De AzureADPolicy-cmdlets gebruiken voor het beleid configureren
 
 Gebruik wilt maken van een toestaan of weigeren van de lijst, de [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Het volgende voorbeeld ziet hoe u een lijst weigeren die blokkeert het domein 'live.com' instelt.
 
-````powershell 
+```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
 
 New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
-````
+```
 
 Hieronder ziet u het hetzelfde voorbeeld, maar met de definitie van beleid inline.
 
-````powershell  
+```powershell  
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
-````
+```
 
 Als u wilt instellen van het toestaan of weigeren van beleid, gebruikt u de [Set AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Bijvoorbeeld:
 
-````powershell   
+```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
-````
+```
 
 Als u het beleid, gebruikt de [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Bijvoorbeeld:
 
-````powershell
+```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
-````
+```
 
 Als u wilt verwijderen van het beleid, gebruikt u de [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Bijvoorbeeld:
 
-````powershell
+```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

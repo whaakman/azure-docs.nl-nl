@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4bf40f76f5a8f788305b4dc9f91523f53fb59acf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 50d2e6a7ae1f34232a20e244ac65c2d3678f4f97
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448081"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Zelfstudie: Azure Active Directory-integratie met Coupa
 
@@ -30,7 +30,7 @@ Coupa integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot Coupa heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Coupa (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Voor het configureren van Azure AD-integratie met Coupa, moet u de volgende item
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Coupa in Azure AD, moet u Coupa uit 
 
 **Als u wilt toevoegen Coupa uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 
@@ -68,15 +68,15 @@ Voor het configureren van de integratie van Coupa in Azure AD, moet u Coupa uit 
 
     ![De blade Enterprise-toepassingen][2]
 
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 1. Typ in het zoekvak **Coupa**, selecteer **Coupa** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Coupa in de lijst met resultaten](./media/coupa-tutorial/tutorial_coupa_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Coupa op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -86,13 +86,13 @@ In Coupa, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Coupa, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+1. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 1. **[Maak een testgebruiker Coupa](#create-a-coupa-test-user)**  : als u wilt een equivalent van Britta Simon in Coupa die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Coupa.
 
@@ -100,7 +100,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **Coupa** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
@@ -110,12 +110,12 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Coupa domein en URL's, eenmalige aanmelding informatie](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.coupahost.com`
+    a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
-    > De aanmeldings-URL-waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Coupa Client ondersteuningsteam](https://success.coupa.com/Support/Contact_Us?) deze waarde op te halen.
+    > De waarde voor de aanmeldings-URL is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Coupa Client ondersteuningsteam](https://success.coupa.com/Support/Contact_Us?) deze waarde op te halen.
 
-    b. In de **id** tekstvak typt u de URL:
+    b. Typ de URL in het tekstvak **Id**:
 
     | Omgeving  | URL |
     |:-------------|----|
@@ -123,7 +123,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | Productie | `prdsso40.coupahost.com`|
     | | |
 
-    c. In de **antwoord-URL** tekstvak typt u de URL:
+    c. Typ de URL in het tekstvak **Antwoord-URL**:
 
     | Omgeving | URL |
     |------------- |----|
@@ -137,7 +137,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/coupa-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/coupa-tutorial/tutorial_general_400.png)
 
 1. Meld u aan bij uw bedrijf Coupa site als beheerder.
 
@@ -147,7 +147,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de **aanmelden met referenties Coupa** sectie, voert u de volgende stappen uit:
 
-    ![De metagegevens van Coupa SP](./media/coupa-tutorial/ic791901.png "Coupa SP-metagegevens")
+    ![Coupa SP metadata](./media/coupa-tutorial/ic791901.png "Coupa SP metadata")
 
     a. Selecteer **zich aanmelden met SAML**.
 
@@ -155,7 +155,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -193,13 +193,13 @@ Als u wilt inschakelen in Azure AD-gebruikers zich aanmelden bij Coupa, moeten z
 
 * In het geval van Coupa is inrichten een handmatige taak.
 
-**Als u wilt inrichten van gebruikers configureren, moet u de volgende stappen uitvoeren:**
+**Voer de volgende stappen uit om de gebruikersinrichting te configureren:**
 
 1. Meld u aan bij uw **Coupa** bedrijf site als administrator.
 
 1. Klik in het menu aan de bovenkant op **Setup**, en klik vervolgens op **gebruikers**.
 
-   ![Gebruikers](./media/coupa-tutorial/ic791908.png "gebruikers")
+   ![Gebruikers](./media/coupa-tutorial/ic791908.png "Gebruikers")
 
 1. Klik op **Create**.
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0287ca78c8d2df4af1aab043b0575bd52f9d5eb1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267331"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094248"
 ---
 # <a name="validate-azure-identity"></a>Valideren van de Azure-identiteit 
 Gebruik het hulpprogramma Azure Stack gereedheid van de Registercontrole (AzsReadinessChecker) om te valideren dat uw Azure Active Directory (Azure AD) klaar is voor gebruik met Azure Stack. Uw Azure identity-oplossing te valideren voordat u begint met een Azure Stack-implementatie.  
@@ -65,7 +65,7 @@ De volgende vereisten moeten worden voldaan.
    > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. Nadat het hulpprogramma wordt uitgevoerd, Controleer de uitvoer. Controleer of de status **OK** voor installatie-eisen. Een succesvolle validatie wordt weergegeven zoals in de volgende afbeelding: 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -76,7 +76,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 
 ## <a name="report-and-log-file"></a>Rapport en een logboekbestand
@@ -97,7 +97,7 @@ De volgende voorbeelden geven richtlijnen op algemene validatiefouten.
 
 ### <a name="expired-or-temporary-password"></a>Verlopen of tijdelijk wachtwoord 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -111,7 +111,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 **Oorzaak** -het account kan niet aanmelden omdat het wachtwoord is verlopen of tijdelijk is.     
 
 **Resolutie** : Voer In PowerShell de volgende en volg de aanwijzingen voor het wachtwoord opnieuw instellen.  
@@ -120,7 +120,7 @@ Invoke-AzsAzureIdentityValidation Completed
 U kunt ook, meld u aan bij https://portal.azure.com als het account en de gebruiker gedwongen om het wachtwoord te wijzigen.
 ### <a name="unknown-user-type"></a>Onbekende gebruikerstype 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -134,13 +134,13 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 **Oorzaak** -het account zich niet aanmelden bij de opgegeven Azure Active Directory (AADDirectoryTenantName). In dit voorbeeld *AzureChinaCloud* is opgegeven als de *AzureEnvironment*.
 
 **Resolutie** -bevestigen dat het account geldig voor de opgegeven Azure-omgeving is. Voer in PowerShell het volgende om te controleren of dat het account is geldig voor een specifieke omgeving:   Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Account is niet een beheerder 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -154,7 +154,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 **Oorzaak** -Hoewel het account zich aanmelden kan, het account is niet een beheerder van de Azure Active Directory (AADDirectoryTenantName).  
 

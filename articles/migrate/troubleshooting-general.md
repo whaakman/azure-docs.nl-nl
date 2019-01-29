@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 5a5fbcb4cd2e073192ec7032bdbed15ab49798ad
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075413"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102119"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -153,9 +153,17 @@ Azure Migrate collector PowerCLI downloadt en installeert deze op het apparaat. 
 Dit probleem kan optreden vanwege een probleem met de installatie van VMware PowerCLI. Volg de onderstaande stappen om het probleem te verhelpen:
 
 1. Als u niet op de nieuwste versie van het collector-apparaat, [uw Collector upgraden naar de nieuwste versie](https://aka.ms/migrate/col/checkforupdates) en controleer of het probleem opgelost is.
-2. Als u de meest recente versie van de collector al hebt, volgt u de onderstaande stappen om u te doen een schone installatie van PowerCLI: een. Sluit de webbrowser in het apparaat.
-   b. Stop de 'Azure Migrate Collector-service door te gaan naar Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op stoppen, c. Verwijder alle mappen die beginnen met 'VMware' van de volgende locaties: C:\Program Files\WindowsPowerShell\Modules  
-        C:\Program Files (x86)\WindowsPowerShell\Modules d. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
+2. Als u de meest recente versie van de collector al hebt, volgt u de onderstaande stappen om u te doen een schone installatie van PowerCLI:
+
+   a. Sluit de webbrowser in het apparaat.
+
+   b. Stop de 'Azure Migrate Collector-service door te gaan naar Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op stoppen.
+
+   c. Verwijder alle mappen die beginnen met 'VMware' van de volgende locaties: C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules
+
+   d. Start de 'Azure Migrate Collector-service in Windows Service Manager (Open 'Uitvoeren' en typ services.msc om Windows Service Manager te openen). Klik met de rechtermuisknop op de Azure Migrate Collector-Service en klik op Start.
+   
    e. Dubbelklik op het bureaublad een snelkoppeling 'Collector uitvoeren' om de collector-toepassing te starten. De collector-toepassing automatisch download en installeer de vereiste versie fo PowerCLI.
 
 3. Als de bovenstaande het probleem niet verhelpen, handmatig installeren [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) en controleer of het probleem opgelost is.
@@ -214,7 +222,7 @@ De lijst van Windows-besturingssystemen wordt ondersteund door de agent voor afh
 De lijst met Linux-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Ik kan geen visualiseren afhankelijkheden in Azure Migrate voor meer dan één uur duurt?
-Azure Migrate kunt u visualiseren afhankelijkheden voor maximaal één uur duurt. Hoewel Azure Migrate, u kunt terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, is de maximale duur waarvoor u de afhankelijkheden visualiseren maximaal 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur. Echter, kunt u Log Analytics [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode. 
+Azure Migrate kunt u visualiseren afhankelijkheden voor maximaal één uur duurt. Hoewel Azure Migrate, u kunt terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, is de maximale duur waarvoor u de afhankelijkheden visualiseren maximaal 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur. Echter, kunt u Log Analytics [query uitvoeren op de afhankelijkheidsgegevens](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) gedurende een langere periode.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Ik kan geen visualiseren afhankelijkheden voor groepen met meer dan 10 virtuele machines?
 U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) dat hebben van 10 virtuele machines, hebt u een groep met meer dan 10 virtuele machines, we raden u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.

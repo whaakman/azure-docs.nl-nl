@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3b60a659700b1e464f4d8f70516a2ceaa0f08b6b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b78d8a5bd5ebb0d7b2f3c2012ec2021e4f999c1f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423742"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100798"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen met OpenID Connect en Azure Active Directory
 
@@ -33,7 +33,7 @@ OpenID Connect is onze aanbeveling als u een webtoepassing die wordt gehost op e
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
-## <a name="authentication-flow-using-openid-connect"></a>Stroom voor verificatie met behulp van OpenID Connect
+## <a name="authentication-flow-using-openid-connect"></a>Verificatiestroom waarbij OpenID Connect wordt gebruikt
 
 De meest eenvoudige stroom aanmelden bevat de volgende stappen uit: elk van deze wordt beschreven in de hieronder beschreven.
 
@@ -144,7 +144,7 @@ De volgende tabel beschrijft de verschillende foutcodes die kunnen worden gereto
 | --- | --- | --- |
 | invalid_request |Protocolfout in, zoals een ontbrekende vereiste parameter. |Los en verzend de aanvraag opnieuw. Dit is een fout, ontwikkeling en is meestal aangetroffen tijdens de eerste test. |
 | unauthorized_client |De clienttoepassing is niet toegestaan om aan te vragen van een autorisatiecode. |Dit gebeurt meestal wanneer de clienttoepassing is niet geregistreerd in Azure AD of is niet toegevoegd aan Azure AD-tenant van de gebruiker. De toepassing kan het bericht met instructies voor het installeren van de toepassing en toe te voegen aan Azure AD. |
-| ACCESS_DENIED |Resource-eigenaar toestemming geweigerd |De clienttoepassing kan de gebruiker die deze kan niet worden voortgezet, tenzij de gebruiker toestemming heeft melden. |
+| access_denied |Resource-eigenaar toestemming geweigerd |De clienttoepassing kan de gebruiker die deze kan niet worden voortgezet, tenzij de gebruiker toestemming heeft melden. |
 | unsupported_response_type |De autorisatie-server biedt geen ondersteuning voor het antwoord van het type in de aanvraag. |Los en verzend de aanvraag opnieuw. Dit is een fout, ontwikkeling en is meestal aangetroffen tijdens de eerste test. |
 | server_error |De server heeft een onverwachte fout aangetroffen. |De aanvraag opnieuw. Deze fouten kunnen worden veroorzaakt door tijdelijke omstandigheden. De clienttoepassing mogelijk uitleggen aan de gebruiker dat de reactie is vertraagd vanwege een tijdelijke fout. |
 | temporarily_unavailable |De server is tijdelijk bezet en kan de aanvraag te verwerken. |De aanvraag opnieuw. De clienttoepassing mogelijk uitleggen aan de gebruiker dat de reactie is vertraagd vanwege een tijdelijke situatie. |
@@ -226,7 +226,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | Parameter | Beschrijving |
 | --- | --- |
 | id_token |De `id_token` die de app heeft aangevraagd. U kunt de `id_token` om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. |
-| Code |De authorization_code die de app heeft aangevraagd. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. Authorization_codes zijn korte duur en normaal verlopen na ongeveer 10 minuten. |
+| code |De authorization_code die de app heeft aangevraagd. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. Authorization_codes zijn korte duur en normaal verlopen na ongeveer 10 minuten. |
 | state |Als een parameter state is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of dat de provincie-waarden in de aanvraag en respons identiek zijn. |
 
 ### <a name="error-response"></a>Foutbericht

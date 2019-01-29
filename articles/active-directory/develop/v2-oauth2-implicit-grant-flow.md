@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ce54ad77893557b595f9777dfc82939aacf41608
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: c569d1be9a301b2282ad1b4fd6e21130f7de2575
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321514"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103527"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 
@@ -73,7 +73,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Als u wilt testen met behulp van de impliciete flow aanmelden, klikt u op <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Na het aanmelden, moet uw browser worden omgeleid naar `https://localhost/myapp/` met een `id_token` in de adresbalk.
 >
 
-| Parameter |  | Description |
+| Parameter |  | Beschrijving |
 | --- | --- | --- |
 | `tenant` | vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | vereist |De toepassings-Id die de portal voor wachtwoordregistratie ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) uw app is toegewezen. |
@@ -105,7 +105,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=12345
 ```
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | `access_token` |Opgenomen als `response_type` bevat `token`. Het toegangstoken dat de app is aangevraagd, in dit geval voor de Microsoft Graph. Het toegangstoken niet moet worden gedecodeerd of anders is gecontroleerd, moet dit worden beschouwd als een ondoorzichtige tekenreeks. |
 | `token_type` |Opgenomen als `response_type` bevat `token`. Altijd `Bearer`. |
@@ -124,7 +124,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | `error` |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -186,7 +186,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | `access_token` |Opgenomen als `response_type` bevat `token`. Het toegangstoken dat de app is aangevraagd, in dit geval voor de Microsoft Graph. Het toegangstoken niet moet worden gedecodeerd of anders is gecontroleerd, moet dit worden beschouwd als een ondoorzichtige tekenreeks. |
 | `token_type` | Altijd `Bearer`. |
@@ -206,7 +206,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| Parameter | Description |
+| Parameter | Beschrijving |
 | --- | --- |
 | `error` |Een tekenreeks voor de foutcode die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | `error_description` |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
@@ -235,7 +235,7 @@ De OpenIdConnect `end_session_endpoint` kan uw app een aanvraag verzenden naar h
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parameter |  | Description |
+| Parameter |  | Beschrijving |
 | --- | --- | --- |
 | `tenant` |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer details [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
 | `post_logout_redirect_uri` | Aanbevolen | De URL die de gebruiker moet worden geretourneerd aan na het afmelden is voltooid. Deze waarde moet overeenkomen met een van de omleidings-URI's die zijn geregistreerd voor de toepassing. Als niet is opgenomen, kan de gebruiker wordt een algemeen bericht met het v2.0-eindpunt worden weergegeven. |

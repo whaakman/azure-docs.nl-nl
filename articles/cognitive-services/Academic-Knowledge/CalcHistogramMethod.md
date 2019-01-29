@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321288"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192533"
 ---
 # <a name="calchistogram-method"></a>Methode CalcHistogram
 
@@ -30,29 +30,29 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Naam  |Waarde | Vereist?  |Beschrijving
+Name  |Value | Vereist?  |Beschrijving
 -----------|----------|--------|----------
-**markering**    |Tekenreeks met tekst | Ja  |Een query-expressie waarmee de entiteiten die voor het berekenen van histogrammen.
-**Model** |Tekenreeks met tekst | Nee |Selecteer de naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.
-**Kenmerken** | Tekenreeks met tekst | Nee<br>Standaard: | Een door komma's gescheiden lijst die Hiermee geeft u de kenmerkwaarden weer die zijn opgenomen in het antwoord. Kenmerknamen zijn hoofdlettergevoelig.
+**expr**    |Tekenreeks met tekst | Ja  |Een query-expressie waarmee de entiteiten die voor het berekenen van histogrammen.
+**model** |Tekenreeks met tekst | Nee |Selecteer de naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.
+**attributes** | Tekenreeks met tekst | Nee<br>Standaard: | Een door komma's gescheiden lijst die Hiermee geeft u de kenmerkwaarden weer die zijn opgenomen in het antwoord. Kenmerknamen zijn hoofdlettergevoelig.
 **count** |Aantal | Nee<br>Standaard: 10 |Het aantal resultaten dat moet worden geretourneerd.
 **offset**  |Aantal | Nee<br>Standaard: 0 |De index van het eerste resultaat om terug te keren.
 **Time-out**  |Aantal | Nee<br>Standaard: 1000 |Time-out in milliseconden. Alleen interpretaties gevonden voordat de time-out is verstreken, worden geretourneerd.
 
 ## <a name="response-json"></a>Antwoord (JSON)
 
-Naam | Beschrijving
+Name | Beschrijving
 --------|---------
-**markering**  |De markering-parameter van de aanvraag.
+**expr**  |De markering-parameter van de aanvraag.
 **num_entities** | Totaal aantal overeenkomende entiteiten.
-**histogrammen** |  Een matrix van histogrammen, één voor elk kenmerk dat is opgegeven in de aanvraag.
-**.attribute histogrammen [x]** | De naam van het kenmerk waarover het histogram is berekend.
+**histograms** |  Een matrix van histogrammen, één voor elk kenmerk dat is opgegeven in de aanvraag.
+**histograms[x].attribute** | De naam van het kenmerk waarover het histogram is berekend.
 **.distinct_values histogrammen [x]** | Het aantal distinctieve waarden tussen die overeenkomen met entiteiten voor dit kenmerk.
-**.total_count histogrammen [x]** | Totaal aantal instanties van de waarde tussen die overeenkomen met entiteiten voor dit kenmerk.
-**.histogram histogrammen [x]** | Histogramgegevens voor dit kenmerk.
+**histograms[x].total_count** | Totaal aantal instanties van de waarde tussen die overeenkomen met entiteiten voor dit kenmerk.
+**histograms[x].histogram** | Histogramgegevens voor dit kenmerk.
 **histogrammen [.histogram [j] .value x]** |  Een waarde voor het kenmerk.
-**histogrammen [.logprob .histogram [j] x]**  |Totaal aantal natuurlijke logboek waarschijnlijkheid die overeenkomen met entiteiten met de waarde van dit kenmerk.
-**histogrammen [.count .histogram [j] x]**  |Het aantal overeenkomende entiteiten met de waarde van dit kenmerk.
+**histograms[x].histogram[y].logprob**  |Totaal aantal natuurlijke logboek waarschijnlijkheid die overeenkomen met entiteiten met de waarde van dit kenmerk.
+**histograms[x].histogram[y].count**  |Het aantal overeenkomende entiteiten met de waarde van dit kenmerk.
 **afgebroken** | Waar, als de aanvraag is een time-out.
 
 

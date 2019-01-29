@@ -8,17 +8,16 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 8235ba65d9e2e000995d338c200a61845911fbff
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 05812d3c1f1596cbc560d50ac37a058d9438581a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426740"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101532"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
 
 Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](../../azure-monitor/platform/alerts-overview.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](../../azure-monitor/platform/alerts-classic.overview.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](../../azure-monitor/platform/metrics-supported.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
-
 
 U kunt de nieuwere metrische waarschuwingen ook gebruiken voor populaire Log Analytics-Logboeken als metrische gegevens hebt uitgepakt. Raadpleeg voor meer informatie, [metrische waarschuwingen voor logboeken](../../azure-monitor/platform/alerts-metric-logs.md).
 
@@ -65,57 +64,56 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 | Microsoft.Web/sites/slots | Ja | [App Service-sleuven](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 |Microsoft.OperationalInsights/workspaces| Ja|[Log Analytics workspaces](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 
-
-
 ## <a name="payload-schema"></a>De nettolading van schema
 
 De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in de buurt van nieuwere metrische waarschuwingen wanneer een op de juiste wijze geconfigureerde [actiegroep](../../azure-monitor/platform/action-groups.md) wordt gebruikt:
 
 ```json
-{"schemaId":"AzureMonitorMetricAlert","data":
-    {
+{
+  "schemaId": "AzureMonitorMetricAlert",
+  "data": {
     "version": "2.0",
     "status": "Activated",
     "context": {
-    "timestamp": "2018-02-28T10:44:10.1714014Z",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
-    "name": "StorageCheck",
-    "description": "",
-    "conditionType": "SingleResourceMultipleMetricCriteria",
-    "condition": {
-      "windowSize": "PT5M",
-      "allOf": [
-        {
-          "metricName": "Transactions",
-          "dimensions": [
-            {
-              "name": "AccountResourceId",
-              "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-            },
-            {
-              "name": "GeoType",
-              "value": "Primary"
-            }
-          ],
-          "operator": "GreaterThan",
-          "threshold": "0",
-          "timeAggregation": "PT5M",
-          "metricValue": 1.0
-        },
-      ]
+      "timestamp": "2018-02-28T10:44:10.1714014Z",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
+      "name": "StorageCheck",
+      "description": "",
+      "conditionType": "SingleResourceMultipleMetricCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "Transactions",
+            "dimensions": [
+              {
+                "name": "AccountResourceId",
+                "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
+              },
+              {
+                "name": "GeoType",
+                "value": "Primary"
+              }
+            ],
+            "operator": "GreaterThan",
+            "threshold": "0",
+            "timeAggregation": "PT5M",
+            "metricValue": 1
+          }
+        ]
+      },
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "resourceGroupName": "Contoso",
+      "resourceName": "diag500",
+      "resourceType": "Microsoft.Storage/storageAccounts",
+      "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
+      "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
     },
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-    "resourceGroupName": "Contoso",
-    "resourceName": "diag500",
-    "resourceType": "Microsoft.Storage/storageAccounts",
-    "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
-    "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-  },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
-        }
+    "properties": {
+      "key1": "value1",
+      "key2": "value2"
     }
+  }
 }
 ```
 
@@ -124,4 +122,3 @@ De POST-bewerking bevat de volgende JSON-nettolading en het schema voor alle in 
 * Meer informatie over de nieuwe [ervaring waarschuwingen](../../azure-monitor/platform/alerts-overview.md).
 * Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Meer informatie over [waarschuwingen in Azure](../../azure-monitor/platform/alerts-overview.md).
-

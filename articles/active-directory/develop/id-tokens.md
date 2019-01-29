@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ab2c0f671eaf6147baad24b426c4a527f07e136f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422402"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092744"
 ---
 # <a name="id-tokens"></a>Id-tokens
 
@@ -72,17 +72,17 @@ Dit token v2.0 voorbeeld in weergeven [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 |`exp` |  int, een UNIX-timestamp | De claim 'exp' (verlooptijd) identificeert de verlooptijd op of na die de JWT mag niet worden geaccepteerd voor verwerking.  Het is belangrijk te weten dat een resource het token voordat deze tijd ook - weigeren kan als u bijvoorbeeld een wijziging in de verificatie is vereist of intrekken van een token is gedetecteerd. |
 | `c_hash`| Reeks |De hash van de code is opgenomen in de ID-tokens, alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-autorisatiecode. Het kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`at_hash`| Reeks |Toegang tot de token-hash is opgenomen in de ID tokens alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-toegangstoken. Het kan worden gebruikt om te valideren de echtheid van een toegangstoken. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`aio` | Ondoorzichtige tekenreeks | Een interne claim die worden gebruikt door Azure AD om gegevens te noteren voor hergebruik van token. Moeten worden genegeerd.|
+|`aio` | Opaque String | Een interne claim die worden gebruikt door Azure AD om gegevens te noteren voor hergebruik van token. Moeten worden genegeerd.|
 |`preferred_username` | Reeks | De primaire gebruikersnaam die de gebruiker aangeeft. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een indeling die is opgegeven. De waarde ervan is veranderlijke en na verloop van tijd veranderen. Omdat dit veranderlijke, moet deze waarde niet worden gebruikt om autorisatie beslissingen te nemen. De `profile` bereik is vereist voor het ontvangen van deze claim.|
 |`email` | Reeks | De `email` claim bevindt zich standaard voor de gastaccounts waarvoor een e-mailadres.  Uw app kunt aanvragen tot de claim e-mailadres voor beheerde gebruikers (die uit dezelfde tenant als de resource) met behulp van de `email` [optionele claim](active-directory-optional-claims.md).  Op het v2.0-eindpunt kunt uw app ook vragen de `email` bereik OpenID Connect - hoeft u niet om aan te vragen de optionele claim en het bereik, om op te halen van de claim.  De e-claim ondersteunt alleen adresseerbare e-mail van de profielgegevens van de gebruiker. |
 |`name` | Reeks | De `name` claim biedt een leesbare waarde die aangeeft in het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek te zijn, is het veranderlijke en is ontworpen om alleen worden gebruikt voor weer te geven. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 |`nonce`| Reeks | De nonce overeenkomt met de parameter die is opgenomen in de oorspronkelijke / aanvraag om de id-provider te autoriseren. Als deze niet overeenkomt, moet uw toepassing het token weigeren. |
 |`oid` | Tekenreeks, een GUID | De onveranderbare id voor een object in het Microsoft-identiteitssysteem, in dit geval een gebruikersaccount. Deze ID is uniek voor de gebruiker voor toepassingen: twee verschillende toepassingen die zich in dezelfde gebruiker ontvangt de dezelfde waarde in de `oid` claim. De Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaalde gebruikersaccount. Omdat de `oid` kunnen meerdere apps correleren van gebruikers, de `profile` bereik is vereist voor het ontvangen van deze claim. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat: deze worden beschouwd als andere accounts, zelfs als de gebruiker meldt zich aan bij elk account met dezelfde referenties. |
-|`rh` | Ondoorzichtige tekenreeks |Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
+|`rh` | Opaque String |Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
 |`sub` | Tekenreeks, een GUID | De principal waarover het token worden bevestigd met gegevens, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Het onderwerp is een pairwise id - het is uniek is voor een bepaalde toepassing-ID. Als een enkele gebruiker zich in twee verschillende apps met behulp van de twee andere client-id's, krijgen die apps dus twee verschillende waarden voor de claim onderwerp. Dit kan wel of niet kan worden gewenst is afhankelijk van uw architectuur en privacy-vereisten. |
 |`tid` | Tekenreeks, een GUID | Een GUID die de Azure AD-tenant die door de gebruiker van vertegenwoordigt. De GUID is voor werk- en schoolaccounts accounts, de onveranderbare tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor het ontvangen van deze claim. |
 |`unique_name` | Reeks | Biedt een voor mensen leesbare waarde waarmee het onderwerp van het token wordt geïdentificeerd. Deze waarde is niet noodzakelijkerwijs uniek zijn binnen een tenant en mag alleen worden gebruikt voor weer te geven. Alleen uitgegeven met v1.0 `id_tokens`. |
-|`uti` | Ondoorzichtige tekenreeks | Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
+|`uti` | Opaque String | Een interne claim die door Azure gebruikt voor het valideren van tokens. Moeten worden genegeerd. |
 |`ver` | Tekenreeks, 1.0 of 2.0 | Geeft de versie van het id_token. |
 
 ## <a name="validating-an-idtoken"></a>Een id_token valideren

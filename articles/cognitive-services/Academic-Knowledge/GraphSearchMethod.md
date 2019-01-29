@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902377"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197633"
 ---
 # <a name="graph-search-method"></a>Zoekmethode Graph
 
@@ -29,9 +29,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Aanvraagparameters  
-Naam     | Waarde | Vereist?  | Beschrijving
+Name     | Value | Vereist?  | Beschrijving
 -----------|-----------|---------|--------
-**modus**       | Tekenreeks met tekst | Ja | De naam van de modus die u wilt gebruiken. De waarde is een *json* of *lambda*.
+**mode**       | Tekenreeks met tekst | Ja | De naam van de modus die u wilt gebruiken. De waarde is een *json* of *lambda*.
 
 De zoekmethode die grafiek moet worden aangeroepen via een HTTP POST-aanvraag. De post-aanvraag moet de inhoudstype-header bevatten: **application/json**.
 
@@ -46,11 +46,11 @@ Voor de *lambda* zoeken, in de hoofdtekst van bericht is een tekenreeks met teks
 
 <br>
 ## <a name="response-json"></a>Antwoord (JSON)
-Naam | Beschrijving
+Name | Beschrijving
 -------|-----   
 **Resultaten** | Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat de waarden van de aangevraagde kenmerken. Dit veld is aanwezig als de aanvraag is verwerkt.
-**Fout** | HTTP-statuscodes. Dit veld is aanwezig als de aanvraag is mislukt.
-**Bericht** | Foutbericht. Dit veld is aanwezig als de aanvraag is mislukt.
+**error** | HTTP-statuscodes. Dit veld is aanwezig als de aanvraag is mislukt.
+**message** | Foutbericht. Dit veld is aanwezig als de aanvraag is mislukt.
 
 Als een query kan niet worden verwerkt binnen _800 ms_, een _time-out_ fout wordt geretourneerd. 
 

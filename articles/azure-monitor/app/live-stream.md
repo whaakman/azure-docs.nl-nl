@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119210"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104607"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Bewaking en Diagnose met een latentie van 1 seconde
 
@@ -36,19 +36,19 @@ Met Live Metrics Stream, kunt u het volgende doen:
 
 [![Live Metrics Stream-video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
+Live metrische gegevens worden momenteel ondersteund voor ASP.NET, ASP.NET Core, Azure Functions en Java-apps.
+
 ## <a name="get-started"></a>Aan de slag
 
-1. Als u nog niet hebt [Application Insights geïnstalleerd](../../azure-monitor/app/asp-net.md) in uw ASP.NET-web-app of [app voor Windows server](../../azure-monitor/app/windows-services.md), doet u dat nu. 
-2. **Update naar de nieuwste versie** van het pakket Application Insights. In Visual Studio met de rechtermuisknop op uw project en kies **Nuget-pakketten beheren**. Open de **Updates** tabblad controle **Include prerelease**, en selecteer alle Microsoft.ApplicationInsights.*-pakketten.
+1. Als u nog niet hebt [Installeer Application Insights-](../../azure-monitor/azure-monitor-app-hub.md) in uw web-app, die nu te doen.
+2. Naast de standaard Application Insights-pakketten [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) is vereist om in te schakelen van Live Metrics stream.
+3. **Update naar de nieuwste versie** van het pakket Application Insights. In Visual Studio met de rechtermuisknop op uw project en kies **Nuget-pakketten beheren**. Open de **Updates** tabblad, en selecteer de Microsoft.ApplicationInsights.* pakketten.
 
     Implementeer uw app opnieuw.
 
 3. In de [Azure-portal](https://portal.azure.com), opent u de Application Insights-resource voor uw app en open Live Stream.
 
 4. [Beveiligen van het besturingskanaal](#secure-the-control-channel) als u gevoelige gegevens, zoals namen van klanten in de filters gebruiken.
-
-
-![Klik in de blade overzicht op Live Stream](./media/live-stream/live-stream-2.png)
 
 ### <a name="no-data-check-your-server-firewall"></a>Zijn er geen gegevens? Controleer de firewall van uw server
 
@@ -69,7 +69,7 @@ Controleer de [uitgaande poorten voor Live Metrics Stream](../../azure-monitor/a
 
 ## <a name="select-and-filter-your-metrics"></a>Selecteren en filteren van uw metrische gegevens
 
-(Beschikbaar op klassieke ASP.NET-apps met de nieuwste SDK).
+(Beschikbaar met ASP.NET, ASP.NET Core en Azure Functions (v2).)
 
 U kunt aangepaste KPI live bewaken met willekeurige filters zijn toegepast op geen Application Insights-telemetriegegevens vanuit de portal. Klik op het filterbesturingselement dat laat zien wanneer u muis een van de grafieken. Het volgende diagram wordt een aangepaste aanvraag aantal KPI met filters op basis-URL en de duur van de kenmerken plotten. Valideer uw filters met de Preview van Stream-sectie die wordt een dynamische feed van telemetrie die voldoet aan de criteria die u hebt opgegeven op elk gewenst moment in-time. 
 
@@ -111,7 +111,7 @@ Aangepaste Live Metrics Stream is beschikbaar in versie 2.4.0-beta2 of nieuwere 
 De aangepaste filters criteria die u opgeeft worden verzonden naar het onderdeel Live Metrics in Application Insights-SDK. De filters kunnen mogelijk vertrouwelijke gegevens zoals customerIDs bevatten. U kunt het kanaal beveiligde maken met een geheime sleutel van de API naast de instrumentatiesleutel.
 ### <a name="create-an-api-key"></a>Een API-sleutel maken
 
-![Api-sleutel maken](./media/live-stream/live-metrics-apikeycreate.png)
+![API-sleutel maken](./media/live-stream/live-metrics-apikeycreate.png)
 
 ### <a name="add-api-key-to-configuration"></a>API-sleutel toevoegen aan configuratie
 
@@ -161,6 +161,12 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
+### <a name="azure-function-apps"></a>Azure-functie-Apps
+
+Voor Azure Functions-Apps (v2) dat voor het beveiligen van het kanaal met een API kan de sleutel worden bewerkstelligd met een omgevingsvariabele. 
+
+Maak een API-sleutel van uw Application Insights-resource en Ga naar **toepassingsinstellingen** voor uw functie-App. Selecteer **nieuwe instelling toevoegen** en voer een naam in van `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` en een waarde die overeenkomt met uw API-sleutel.
+
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (vereist Application Insights ASP.NET Core-SDK 2.3.0-beta of hoger)
 
 Het bestand startup.cs als volgt wijzigen:
@@ -176,7 +182,6 @@ Klik in de methode ConfigureServices toevoegen:
 ``` C#
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
-
 
 Als u kent en de gekoppelde servers vertrouwt, kunt u de aangepaste filters zonder het geverifieerde kanaal proberen. Deze optie is beschikbaar voor zes maanden. Met deze onderdrukking is vereist wanneer elke nieuwe sessie, of als een nieuwe server online is.
 

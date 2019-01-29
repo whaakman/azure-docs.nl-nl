@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039884"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Zelfstudie: Azure Active Directory-integratie met dmarcian
 
@@ -29,7 +29,7 @@ Dmarcian integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot dmarcian heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij dmarcian (Single Sign-On) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie - Azure portal beheren.
+- U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +43,9 @@ Voor het configureren van Azure AD-integratie met dmarcian, moet u de volgende i
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -67,15 +67,15 @@ Voor het configureren van de integratie van dmarcian in Azure AD, moet u dmarcia
 
     ![De zakelijke toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![De knop Nieuwe toepassing][3]
 
 4. Typ in het zoekvak **dmarcian**, selecteer **dmarcian** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![dmarcian in de lijst met resultaten](./media/dmarcian-tutorial/tutorial_dmarcian_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met dmarcian op basis van een testgebruiker 'Julia steen' genoemd.
 
@@ -83,13 +83,13 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met dmarcian, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
 3. **[Maak een testgebruiker dmarcian](#create-a-dmarcian-test-user)**  : als u wilt een equivalent van Britta Simon in dmarcian die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
 In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing dmarcian.
 
@@ -97,7 +97,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. In de Azure-portal op de **dmarcian** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![Koppeling Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
@@ -107,14 +107,14 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![dmarcian domein en URL's één aanmeldings-informatie](./media/dmarcian-tutorial/tutorial_dmarcian_url.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon:
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon:
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
     | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
     | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon:
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -125,7 +125,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![dmarcian domein en URL's één aanmeldings-informatie](./media/dmarcian-tutorial/tutorial_dmarcian_url1.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon:
+    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -133,15 +133,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. U kunt deze waarden wordt bijgewerkt met de werkelijke-id, de antwoord-URL en aanmeldings-URL die later in de zelfstudie wordt uitgelegd. 
+    > Dit zijn geen echte waarden. U kunt deze waarden wordt bijgewerkt met de werkelijke-id, de antwoord-URL en aanmeldings-URL die later in de zelfstudie wordt uitgelegd. 
 
 5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
 
-    ![De downloadkoppeling certificaat](./media/dmarcian-tutorial/tutorial_dmarcian_certificate.png) 
+    ![De link om het certificaat te downloaden](./media/dmarcian-tutorial/tutorial_dmarcian_certificate.png) 
 
 6. Klik op **opslaan** knop.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/dmarcian-tutorial/tutorial_general_400.png)
+    ![De knop voor enkelvoudige aanmelding configureren](./media/dmarcian-tutorial/tutorial_general_400.png)
     
 7. In een ander browservenster aanmelden bij dmarcian als een beveiligingsbeheerder.
 
@@ -157,22 +157,22 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![De verificatie ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * Onder **dmarcian toevoegen aan uw id-Provider** sectie, klikt u op **kopie** kopiëren de **URL van de Bevestigingsconsumerservice** voor uw exemplaar en plak deze in  **Antwoord-URL** -tekstvak in **dmarcian domein en URL's sectie** in Azure portal.
+    * Onder **dmarcian toevoegen aan uw id-Provider** sectie, klikt u op **kopie** kopiëren de **URL van de Bevestigingsconsumerservice** voor uw exemplaar en plak deze in  **Antwoord-URL** -tekstvak in **dmarcian domein en URL's sectie** in Azure portal.
 
-    * Onder **dmarcian toevoegen aan uw id-Provider** sectie, klikt u op **kopie** kopiëren de **entiteit-ID** voor uw exemplaar en plak deze in **id**-tekstvak in **dmarcian domein en URL's sectie** in Azure portal.
+    * Onder **dmarcian toevoegen aan uw id-Provider** sectie, klikt u op **kopie** kopiëren de **entiteit-ID** voor uw exemplaar en plak deze in ** Id** -tekstvak in **dmarcian domein en URL's sectie** in Azure portal.
 
     * Onder **verificatie instellen** sectie in de **Identity Provider metagegevens** tekstvak plakken de **App-Url voor federatieve metagegevens**, die u hebt gekopieerd vanuit Azure portal.
 
     * Onder **verificatie instellen** sectie in de **kenmerk instructies** tekstvak plak de url `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    * Onder **aanmeldings-URL instellen** sectie, Kopieer de **aanmeldings-URL** voor uw exemplaar en plak deze in **aanmeldings-URL** -tekstvak in **dmarcian domein en URL's sectie** in Azure portal.
+    * Onder **aanmeldings-URL instellen** sectie, Kopieer de **aanmeldings-URL** voor uw exemplaar en plak deze in **aanmeldings-URL** -tekstvak in **dmarcian domein en URL's sectie** in Azure portal.
 
         > [!Note]
         > U kunt de **aanmeldings-URL** op basis van uw organisatie.
 
     * Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
@@ -208,7 +208,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij dmarcian, moeten ze worden ingericht voor dmarcian. In dmarcian is inrichten een handmatige taak.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**Als u een gebruikersaccount wilt inrichten, voert u de volgende stappen uit:**
 
 1. Meld u bij dmarcian als een beveiligingsbeheerder.
 
@@ -228,7 +228,7 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij dmarcian, moeten ze
 
     b. Als u verlenen van beheerdersrechten voor de gebruiker wilt, selecteert u **maken van de gebruiker een beheerder**.
 
-    c. Klik op **gebruiker toevoegen**.
+    c. Klik op **Add User**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

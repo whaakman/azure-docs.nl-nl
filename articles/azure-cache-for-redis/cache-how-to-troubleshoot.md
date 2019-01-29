@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 154f5200872dbc06550f396717cb215f3db4f7dd
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 58c1af860c5ccc87f4396c698b432f47f0ea7c65
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199575"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096956"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Problemen oplossen met Azure Cache voor Redis
 Dit artikel bevat richtlijnen voor het oplossen van de volgende categorieën van Azure Cache voor problemen met Redis.
@@ -187,10 +187,10 @@ Dit foutbericht bevat metrische gegevens waarmee u verwijzen naar de oorzaak en 
 | Fout bericht metrische gegevens | Details |
 | --- | --- |
 | inst |In de afgelopen tijdsperiode: 0-opdrachten zijn uitgegeven |
-| Mgr |Het uitvoeren van de manager socket `socket.select`, wat betekent dat deze vraag is het besturingssysteem om aan te geven van een socket dat er iets niet; in feite: de lezer is niet actief lezen vanaf het netwerk omdat het niet denkt er dat te doen |
+| mgr |Het uitvoeren van de manager socket `socket.select`, wat betekent dat deze vraag is het besturingssysteem om aan te geven van een socket dat er iets niet; in feite: de lezer is niet actief lezen vanaf het netwerk omdat het niet denkt er dat te doen |
 | wachtrij |Er zijn 73 totaal aantal lopende bewerkingen |
-| Qu |6 van de bewerkingen wordt uitgevoerd in de wachtrij staan niet verzonden en nog niet is geschreven met de uitgaande netwerk |
-| Qs |67 van de bewerkingen in uitvoering zijn verzonden naar de server, maar een antwoord is nog niet beschikbaar. Het antwoord kan worden `Not yet sent by the server` of `sent by the server but not yet processed by the client.` |
+| qu |6 van de bewerkingen wordt uitgevoerd in de wachtrij staan niet verzonden en nog niet is geschreven met de uitgaande netwerk |
+| qs |67 van de bewerkingen in uitvoering zijn verzonden naar de server, maar een antwoord is nog niet beschikbaar. Het antwoord kan worden `Not yet sent by the server` of `sent by the server but not yet processed by the client.` |
 | qc |0 van de bewerkingen in uitvoering antwoorden hebt gezien, maar nog niet is gemarkeerd als voltooid vanwege het wachten op de lus is voltooid |
 | wR |Er is een actieve writer (wat betekent dat het 6 unsent aanvragen worden niet genegeerd) bytes/activewriters |
 | in |Er zijn geen actieve lezers en nul bytes zijn beschikbaar om te lezen op de NIC-bytes/activereaders |
@@ -212,7 +212,7 @@ Dit foutbericht bevat metrische gegevens waarmee u verwijzen naar de oorzaak en 
             return lazyConnection.Value;
         }
     }
-    ````
+    ```
 
     Zie voor meer informatie, [verbinding maken met de cache met behulp van StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 

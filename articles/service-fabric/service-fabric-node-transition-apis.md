@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ff5d4267de172aa83fae6ce70a609ad9897d7374
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055400"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102682"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Het starten en stoppen knooppunten API's vervangen door de API van de overgang knooppunt
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Wat het knooppunt stoppen en starten knooppunt API's?
 
-De API-knooppunt stoppen (beheerd: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) stopt een Service Fabric-knooppunt.  Een Service Fabric-knooppunt is proces, niet een virtuele machine of computer – de virtuele machine of de machine wordt nog steeds worden uitgevoerd.  Voor de rest van het document betekent 'knooppunt' Service Fabric-knooppunt.  Stoppen van een knooppunt is ondergebracht in een *gestopt* staat waarin deze is geen lid van het cluster en services, dus simuleren kan geen host een *omlaag* knooppunt.  Dit is handig voor het injecteren van fouten in het systeem om uw toepassing te testen.  De API-knooppunt starten (beheerd: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) keert de API-knooppunt stoppen  dat het knooppunt wordt teruggebracht naar een normale status.
+De API-knooppunt stoppen (beheerd: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) stopt een Service Fabric-knooppunt.  Een Service Fabric-knooppunt is proces, niet een virtuele machine of computer – de virtuele machine of de machine wordt nog steeds worden uitgevoerd.  Voor de rest van het document betekent 'knooppunt' Service Fabric-knooppunt.  Stoppen van een knooppunt is ondergebracht in een *gestopt* staat waarin deze is geen lid van het cluster en services, dus simuleren kan geen host een *omlaag* knooppunt.  Dit is handig voor het injecteren van fouten in het systeem om uw toepassing te testen.  De API-knooppunt starten (beheerd: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) keert de API-knooppunt stoppen, die het knooppunt wordt teruggebracht naar een normale status.
 
 ## <a name="why-are-we-replacing-these"></a>Waarom zijn we deze vervangen?
 
@@ -45,7 +45,7 @@ Wij hebben oog voor deze problemen boven in een nieuwe set API's.  Het nieuwe kn
 Als de API van de overgang knooppunt een uitzondering wordt aangeroepen niet genereren heeft, klikt u vervolgens het systeem de asynchrone bewerking heeft geaccepteerd, en deze wordt uitgevoerd.  Een geslaagde aanroepen betekent niet dat de bewerking nog is voltooid.  Voor informatie over de huidige status van de bewerking, het knooppunt overgang voortgang-API aanroepen (beheerd: [GetNodeTransitionProgressAsync()][gntp]) met de guid die wordt gebruikt bij het aanroepen van knooppunt overgang API voor deze bewerking.  Het knooppunt overgang voortgang API retourneert een object NodeTransitionProgress.  Eigenschap van de status van dit object bevat de huidige status van de bewerking.  Als de status 'Running' is, wordt klikt u vervolgens de bewerking uitgevoerd.  Als deze is voltooid, wordt de bewerking is voltooid zonder fouten.  Als deze fout is opgetreden, moet u er een probleem opgetreden bij het uitvoeren van de bewerking is.  De eigenschap Result uitzondering eigenschap wordt aangegeven wat het probleem is.  Zie https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate voor meer informatie over de eigenschap State en het gedeelte 'Voorbeeld van gebruik' hieronder voor voorbeelden van code.
 
 
-**Verschillen tussen een gestopte knooppunt en een knooppunt omlaag** als een knooppunt is *gestopt* met behulp van het knooppunt overgang API, de uitvoer van een knooppunt-query (beheerd: [GetNodeListAsync()] [ nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) wordt aangegeven dat dit knooppunt heeft een *IsStopped* waarde van de eigenschap ' True ' geretourneerd.  Houd er rekening mee dit wijkt af van de waarde van de *NodeStatus* eigenschap, dit geeft aan *omlaag*.  Als de *NodeStatus* eigenschap heeft een waarde van *omlaag*, maar *IsStopped* is ingesteld op false, en vervolgens het knooppunt is niet gestopt met de API van de overgang knooppunt en *omlaag*  vanwege een andere reden.  Als de *IsStopped* eigenschap is ingesteld op true, en de *NodeStatus* eigenschap *omlaag*, en vervolgens deze wordt stilgelegd met behulp van de API van de overgang knooppunt.
+**Verschillen tussen een gestopte knooppunt en een knooppunt omlaag** als een knooppunt is *gestopt* met behulp van het knooppunt overgang API, de uitvoer van een knooppunt-query (beheerd: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) wordt aangegeven dat dit knooppunt heeft een *IsStopped* waarde van de eigenschap ' True ' geretourneerd.  Houd er rekening mee dit wijkt af van de waarde van de *NodeStatus* eigenschap, dit geeft aan *omlaag*.  Als de *NodeStatus* eigenschap heeft een waarde van *omlaag*, maar *IsStopped* is ingesteld op false, en vervolgens het knooppunt is niet gestopt met de API van de overgang knooppunt en *omlaag*  vanwege een andere reden.  Als de *IsStopped* eigenschap is ingesteld op true, en de *NodeStatus* eigenschap *omlaag*, en vervolgens deze wordt stilgelegd met behulp van de API van de overgang knooppunt.
 
 Starten van een *gestopt* knooppunt met de overgang knooppunt API om te fungeren als een normale lid van het cluster opnieuw wordt geretourneerd.  Ziet u de uitvoer van de API-knooppunt query *IsStopped* als onwaar, en *NodeStatus* als iets dat niet niet actief is (bijvoorbeeld omhoog).
 
@@ -159,7 +159,7 @@ Starten van een *gestopt* knooppunt met de overgang knooppunt API om te fungeren
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -202,7 +202,7 @@ Starten van een *gestopt* knooppunt met de overgang knooppunt API om te fungeren
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
