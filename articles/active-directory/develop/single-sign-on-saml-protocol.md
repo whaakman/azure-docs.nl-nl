@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424880"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098745"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocol voor eenmalige SAML-aanmelding
 
@@ -81,10 +81,10 @@ Een `NameIdPolicy` element ziet eruit als in het volgende voorbeeld:
 
 Als `NameIDPolicy` is opgegeven, kunt u de optionele opnemen `Format` kenmerk. De `Format` kenmerk kan hebben slechts één van de volgende waarden; eventuele andere waarde resulteert in een fout.
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: De claim NameID problemen azure Active Directory als pairwise-id.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory de claim NameID als een pairwise id uitgeeft.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory problemen met de claim NameID in e-mailadres.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: Deze waarde kan Azure Active Directory om de indeling van de claim te selecteren. Azure Active Directory de NameID als een pairwise id uitgeeft.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: De claim NameID problemen azure Active Directory als een willekeurig gegenereerde waarde die uniek is voor de huidige bewerking voor eenmalige aanmelding. Dit betekent dat de waarde tijdelijk is en kan niet worden gebruikt om de verifiërende gebruiker te identificeren.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory problemen met de claim NameID als een willekeurig gegenereerde waarde die uniek is voor de huidige bewerking voor eenmalige aanmelding. Dit betekent dat de waarde tijdelijk is en kan niet worden gebruikt om de verifiërende gebruiker te identificeren.
 
 Azure AD negeert de `AllowCreate` kenmerk.
 
@@ -153,7 +153,7 @@ Als een aangevraagde aanmelding is voltooid, wordt Azure AD een antwoord naar de
 De `Response` element bevat het resultaat van de autorisatieaanvraag. Azure AD-stelt de `ID`, `Version` en `IssueInstant` waarden in de `Response` element. Het stelt ook de volgende kenmerken:
 
 * `Destination`: Wanneer de aanmelding is voltooid, dit is ingesteld op de `RedirectUri` van de serviceprovider (cloudservice).
-* `InResponseTo`: Dit is ingesteld op de `ID` kenmerk van de `AuthnRequest` element dat het antwoord wordt gestart.
+* `InResponseTo`: Deze optie is ingesteld op de `ID` kenmerk van de `AuthnRequest` element dat het antwoord wordt gestart.
 
 ### <a name="issuer"></a>Verlener
 

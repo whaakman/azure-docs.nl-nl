@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1bf0ae8b0e9e0665f9b51935763d9f724b4bca4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 925bf325d128f1757d24d29013f4e27eb788d7e2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261890"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180667"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Beleid voor Azure-beveiliging bewaakt door Azure Security Center
 In dit artikel biedt een overzicht van Azure Policy-definities die kan worden bewaakt in Security Center. Zie voor meer informatie over beveiligingsbeleid, [werken met beleidsregels voor veiligheid](tutorial-security-policy.md).
@@ -34,7 +34,7 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 |Autorisatieregels voor Event Hub-naamruimten controleren|Event Hub-clients moeten een beleid voor het toegangsniveau van naamruimte die toegang tot alle wachtrijen en onderwerpen in een naamruimte biedt niet gebruiken. Om uit te lijnen met minimale bevoegdheden beveiligingsmodel, moet u toegangsbeleid maken op het entiteitsniveau van de voor wachtrijen en onderwerpen voor toegang tot alleen de specifieke entiteit.|
 |Aanwezigheid van autorisatieregels in Event Hub-entiteiten controleren|Controle sprake is van autorisatieregels voor Event Hub-entiteiten minste bevoegdheden toegang te verlenen.|
 |Onbeperkte netwerktoegang tot opslagaccounts controleren|Audit onbeperkte toegang tot het netwerk in de firewall-instellingen van uw storage-account. In plaats daarvan network-regels configureren, zodat alleen toepassingen van toegestane netwerken toegang het opslagaccount tot hebben. Als u wilt toestaan verbindingen van specifieke Internet of on-premises clients, kan toegang worden verleend aan verkeer van specifieke Azure-netwerken of aan het openbare Internet-IP-adresbereiken.|
-|Het gebruik van aangepaste RBAC-regels controleren|Controle van ingebouwde rollen, zoals eigenaar, rechten voor bijdragers, lezer in plaats van een aangepaste RBAC-rollen, die foutgevoelig zijn. Met behulp van aangepaste rollen wordt beschouwd als een uitzondering en vereist een strenge controleren en een risicomodel.|
+|Het gebruik van aangepaste RBAC-regels controleren|Controle van ingebouwde rollen, zoals eigenaar, Inzender, lezer in plaats van een aangepaste RBAC-rollen, die foutgevoelig zijn. Met behulp van aangepaste rollen wordt beschouwd als een uitzondering en vereist een strenge controleren en een risicomodel.|
 |Inschakelen van diagnostische logboeken in Azure Stream Analytics controleren|Audit logs in te schakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd.|
 |Veilige overdracht naar opslagaccounts controleren|De vereiste controle van Secure transfer in uw opslagaccount. Veilige overdracht is een optie die ervoor zorgt dat uw storage-account om te accepteren van aanvragen van beveiligde verbindingen (HTTPS). Gebruik van HTTPS-verificatie tussen de server en de service garandeert en gegevens die onderweg zijn beschermd tegen aanvallen op toepassingslagen, zoals man-in-the-middle, niet kan worden afgeluisterd en sessiehijacking netwerk.|
 |Inrichting van een Azure Active Directory-beheerder voor SQL-server controleren|Controleren met het inrichten van een Azure Active Directory-beheerder voor uw SQL-server voor Azure AD-verificatie. Azure AD-verificatie kunt u beheer van machtigingen vereenvoudigde en gecentraliseerde identiteitsbeheer van databasegebruikers en andere Microsoft-services.|
@@ -54,7 +54,7 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 |Configuratie van metrische waarschuwingsregels in Batch-accounts controleren|Configuratie van regels voor metrische waarschuwingen op Batch-account om in te schakelen van de vereiste metrische gegevens controleren.| 
 |Configuratie van metrische waarschuwingsregels in Batch-accounts controleren|Configuratie van regels voor metrische waarschuwingen op Batch-account om in te schakelen van de vereiste metrische gegevens controleren.| 
 |Inschakelen van diagnostische logboeken in Batch-accounts controleren|Audit logs in te schakelen en ze maximaal een jaar bewaren. Hiermee kunt u activiteit sporen onderzoek opnieuw maken wanneer een beveiligingsincident voordoet of uw netwerk is gecompromitteerd.| 
-|Inschakelen van versleuteling van Automation-accountvariabelen controleren|Het is belangrijk om in te schakelen van versleuteling van variabele assets van Automation-account bij het opslaan van gevoelige gegevens.| 
+|Inschakelen van versleuteling van Automation-accountvariabelen controleren|Het is belangrijk om de versleuteling van variabele assets in een Automation-account in te schakelen bij het opslaan van gevoelige gegevens.| 
 |Inschakelen van diagnostische logboeken in App Services controleren|Controle inschakelen van diagnostische logboeken op de app. Hiermee kunt u activiteit sporen onderzoek opnieuw maken als een beveiligingsincident optreedt of als uw netwerk is gecompromitteerd.| 
 |Controlestatus van transparante gegevensversleuteling|Controlestatus van transparante gegevensversleuteling voor SQL-databases.| 
 |Instellingen voor SQL-controle op serverniveau|Controleert het bestaan van de SQL-controle op serverniveau.| 
@@ -68,7 +68,7 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 |[Preview]: Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center|Servers die niet voldoen aan de ingestelde basislijn worden bewaakt door Azure Security Center als aanbevelingen.| 
 |[Preview]: Ontbrekende Endpoint Protection bewaken in Azure Security Center|Servers zonder een geïnstalleerde Endpoint Protection-agent worden bewaakt door Azure Security Center als aanbevelingen.| 
 |[Preview]: Niet-versleutelde VM-schijven in Azure Security Center bewaken|Virtuele machines zonder ingeschakelde schijfversleuteling worden door Azure Security Center als aanbevelingen bewaakt.| 
-|[Preview]: Beveiligingsproblemen van de monitor voor virtuele machines in Azure Security Center|Hiermee worden beveiligingsproblemen die door de oplossing voor evaluatie van beveiligingsproblemen zijn gedetecteerd en virtuele machines zonder oplossing voor evaluatie van beveiligingsproblemen bewaakt als aanbevelingen in Azure Security Center.| 
+|[Preview]: Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center|Hiermee worden beveiligingsproblemen die door de oplossing voor evaluatie van beveiligingsproblemen zijn gedetecteerd en virtuele machines zonder oplossing voor evaluatie van beveiligingsproblemen bewaakt als aanbevelingen in Azure Security Center.| 
 |[Preview]: Niet-beveiligde web-App in Azure Security Center bewaken|Webtoepassingen zonder Web Application Firewall bescherming wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
 |[Preview]: Netwerkeindpunten in Azure Security Center bewaken|Netwerkeindpunten zonder een Next Generation Firewall beveiliging wordt worden als aanbevelingen bewaakt door Azure Security Center.| 
 |[Preview]: Evaluatie van beveiligingsproblemen SQL monitor resulteert in Azure Security Center|Bewaken van de scanresultaten en aanbevelingen van de beveiligingsevaluatie over het herstellen van beveiligingsproblemen in een database.| 
@@ -78,7 +78,7 @@ Zie voor meer informatie over de ingebouwde beleidsregels die worden bewaakt doo
 |[Preview]: Accounts met schrijfmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met schrijfmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
 |[Preview]: Accounts met leesmachtigingen die geen MFA is ingeschakeld op een abonnement controleren|Schakel meervoudige verificatie (MFA) in voor alle abonnementsaccounts met leesmachtigingen om te voorkomen dat er inbreuk wordt gepleegd op accounts of resources.| 
 |[Preview]: Afgeschafte accounts met eigenaarsmachtigingen voor een abonnement controleren|Afgeschafte accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
-|[Preview]: Afgeschafte accounts op een abonnement controleren|Afgeschafte accounts moeten worden verwijderd uit uw abonnementen. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
+|[Preview]: Afgeschafte accounts op een abonnement controleren|Afgeschafte accounts moeten worden verwijderd van uw abonnementen. Afgeschafte accounts zijn accounts die zich zijn geblokkeerd.| 
 |[Preview]: Externe accounts met eigenaarsmachtigingen voor een abonnement controleren|Externe accounts met eigenaarsmachtigingen moeten worden verwijderd uit uw abonnement om onbewaakte toegang te voorkomen.| 
 |[Preview]: Controle van externe accounts met schrijfmachtigingen heeft voor een abonnement|Externe accounts met schrijfmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 
 |[Preview]: Externe accounts met leesmachtigingen voor een abonnement controleren|Externe accounts met leesmachtigingen moeten worden verwijderd van uw abonnement om onbewaakte toegang te voorkomen.| 

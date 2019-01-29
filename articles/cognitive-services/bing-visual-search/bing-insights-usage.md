@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d3619521644a9d0d3f44715a92cfef178cda73c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741739"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158720"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Voorbeelden van Bing insights gebruik
 
@@ -32,7 +32,7 @@ Het volgende wordt een koppeling weergegeven naar de webpagina van de eerste en 
 
 Hieronder ziet u hoe Bing winkelwagen bronnen voor producten die worden weergegeven in de afbeelding kan weergeven.
 
-![Bronnen voor winkelen](./media/shopping-sources.PNG)
+![Winkelbronnen](./media/shopping-sources.PNG)
 
 
 ## <a name="visualsearch-insight-example"></a>Voorbeeld van VisualSearch inzicht
@@ -83,7 +83,7 @@ Niet-standaard-tags bevatten het selectiekader waarmee het gebied van belang zij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt snel aan de slag met uw eerste aanvraag, Zie de snelstartgidsen: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Zie deze quickstarts om snel aan de slag te gaan met uw eerste aanvraag: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

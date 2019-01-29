@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189171"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160046"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Een toegangscontrole voor Azure resource-rollen in PIM starten
 Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Beheerders met bevoegdheid om het risico dat is gekoppeld aan deze verouderde roltoewijzingen, moeten regelmatig rollen controleren. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Privileged Identity Management (PIM) voor Azure-resources.
@@ -55,7 +55,7 @@ Er zijn drie opties voor het uitvoeren van een beoordeling. U kunt de beoordelin
 1. Kies een van de opties:
    
    * **Geselecteerde gebruikers**: Gebruik deze optie als u niet weet die toegang nodig heeft. Met deze optie kunt u de controle toewijzen aan een resource-eigenaar of groepmanager om te voltooien.
-   * **Toegewezen (zelf)**: Gebruik deze optie om de gebruikers hun eigen roltoewijzingen bekijken.
+   * **Toegewezen (zelf)**: Gebruik deze optie om de gebruikers hun eigen roltoewijzingen te bekijken.
    
 2. Ga naar **beoordelaars selecteren**.
    
@@ -74,5 +74,5 @@ Totdat de periode van de toegangsbeoordeling voltooid is, kunt u Herinner de geb
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Een toegangscontrole voor Azure-resource-rollen in PIM voltooien](pim-resource-roles-complete-access-review.md)
-- [Een toegangscontrole van mijn Azure-resource-rollen in PIM uitvoeren](pim-resource-roles-perform-access-review.md)
+- [Perform an access review of my Azure AD resource roles in PIM](pim-resource-roles-perform-access-review.md) (Een toegangsbeoordeling uitvoeren van mijn Azure AD-resourcerollen in PIM)
 - [Een toegangscontrole voor Azure AD directory-rollen in PIM starten](pim-how-to-start-security-review.md)
