@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 3da99506d50ec12140c188cd86cde2556be4a308
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282381"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099138"
 ---
 # <a name="whats-new-for-authentication"></a>Wat is er nieuw voor verificatie? 
 
@@ -30,7 +30,7 @@ ms.locfileid: "52282381"
 
 De verificatiesysteem wordt gewijzigd en voegt voortdurend te verbeteren, beveiliging en naleving van standaarden. Om te blijven up-to-date zijn met de meest recente ontwikkelingen, vindt in dit artikel u informatie over de volgende details:
 
-- Nieuwste functies
+- Meest recente functies
 - Bekende problemen
 - Protocol wijzigingen
 - Afgeschafte functies
@@ -46,11 +46,11 @@ Geen op dit moment is gepland.
 
 ### <a name="authorization-codes-can-no-longer-be-reused"></a>Autorisatiecodes niet meer opnieuw kunnen worden gebruikt
 
-**Ingangsdatum**: 15 November 2018
+**Ingangsdatum**: 15 november 2018
 
-**Eindpunten beïnvloed**: zowel v1.0 en v2.0
+**Eindpunten beïnvloed**: V1.0 zowel v2.0
 
-**Protocol beïnvloed**: [flow-Code](v2-oauth2-auth-code-flow.md)
+**Protocol beïnvloed**: [De stroom](v2-oauth2-auth-code-flow.md)
 
 Vanaf 15 November 2018, Azure AD wordt niet meer accepteren van eerder gebruikte verificatie codes voor apps. Deze wijziging in de beveiliging zorgt ervoor dat Azure AD in overeenstemming met de OAuth-specificatie brengen en worden afgedwongen op de v1- en v2-eindpunten.
 
@@ -62,11 +62,11 @@ Zie voor meer informatie over het vernieuwen van tokens [vernieuwen van de toega
 
 ### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>ID-tokens kunnen niet worden gebruikt voor de stroom OBO
 
-**Datum**: 1 mei 2018
+**Datum**: Vanaf 1 mei 2018
 
-**Eindpunten beïnvloed**: zowel v1.0 en v2.0
+**Eindpunten beïnvloed**: V1.0 zowel v2.0
 
-**Protocollen beïnvloed**: impliciete stroom en [OBO stroom](v1-oauth2-on-behalf-of-flow.md)
+**Protocollen beïnvloed**: Impliciete stroom en [OBO stroom](v1-oauth2-on-behalf-of-flow.md)
 
 Na 1 mei 2018 kan niet id_tokens worden gebruikt als de verklaring in een stroom OBO voor nieuwe toepassingen. Toegangstokens moeten in plaats daarvan worden gebruikt voor het beveiligen van API's, zelfs tussen een client en de middelste laag van dezelfde toepassing. Apps die zijn geregistreerd voor 1 mei 2018 blijven werken en kunnen voor het uitwisselen van id_tokens voor een toegangstoken; Dit patroon wordt echter niet beschouwd als een best practice.
 

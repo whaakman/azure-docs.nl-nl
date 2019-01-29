@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278641"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170926"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selecteer, beheren en gebruiken van Service Fabric-clusters.
@@ -33,7 +33,7 @@ Selecteer, beheren en gebruiken van Service Fabric-clusters.
 | gezondheidszorg | Hiermee haalt u de status van een Service Fabric-cluster. |
 | Het manifest | Haal het manifest van Service Fabric-cluster. |
 | bewerking annuleren | Een gebruiker veroorzaakte fouten geannuleerd. |
-| lijst van bewerking | Hiermee haalt u een lijst met gebruikers veroorzaakte fouten bewerkingen die zijn gefilterd op de opgegeven invoer. |
+| operation-list | Hiermee haalt u een lijst met gebruikers veroorzaakte fouten bewerkingen die zijn gefilterd op de opgegeven invoer. |
 | inrichten | De code of configuratie-pakketten van een Service Fabric-cluster inrichten. |
 | herstellen-systeem | Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de systeemservices die momenteel zijn vastgelopen sprake van quorumverlies. |
 | rapport-en statusbewaking | Verzendt een statusrapport over de Service Fabric-cluster. |
@@ -41,8 +41,8 @@ Selecteer, beheren en gebruiken van Service Fabric-clusters.
 | show-connection | Weergeven welke dit sfctl-exemplaar is verbonden met Service Fabric-cluster. |
 | inrichting verwijderen | Inrichting verwijderen van de code of configuratie-pakketten van een Service Fabric-cluster. |
 | upgrade | Start het bijwerken van de versie van de code of configuratie van een Service Fabric-cluster. |
-| upgrade-hervatten | Controleer de upgrade van het cluster gaat u verder met het volgende upgradedomein. |
-| upgrade terugdraaien | De upgrade van een Service Fabric-cluster terugdraaien. |
+| upgrade-resume | Controleer de upgrade van het cluster gaat u verder met het volgende upgradedomein. |
+| upgrade-rollback | De upgrade van een Service Fabric-cluster terugdraaien. |
 | upgrade-status | Hiermee haalt u de voortgang van de upgrade van het huidige cluster. |
 | upgrade-update | Werk de parameters voor het bijwerken van de upgrade van een Service Fabric-cluster. |
 
@@ -58,7 +58,7 @@ Hiermee haalt u een lijst met informatie over het fabric code-versies die zijn i
 | --code-versie | De versie van het product van Service Fabric. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -80,7 +80,7 @@ Hiermee haalt u een lijst met informatie over de fabric config-versies die zijn 
 | --config-versie | De config-versie van Service Fabric. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -106,7 +106,7 @@ EventsHealthStateFilter gebruiken voor het filteren van de verzameling van gemel
 | --knooppunten-health-status-filter | Hiermee kunt u filteren van het knooppunt status status objecten geretourneerd in het resultaat van het cluster health query op basis van hun status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de knooppunten die overeenkomen met het filter worden geretourneerd. Alle knooppunten worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden die zijn verkregen met behulp van bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde is 6 status van knooppunten met HealthState waarde OK (2) en waarschuwing (4) zijn teruggekeerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -127,7 +127,7 @@ Haal het manifest van Service Fabric-cluster. Het clustermanifest bevat eigensch
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -155,7 +155,7 @@ Uitleg\: OperationState.RollingBack betekent dat het systeem worden/ruimt intern
 | --forceren | Hiermee wordt aangegeven of probleemloos terugdraaien en het opschonen van de status van het interne systeem gewijzigd door de gebruiker die bewerking kan worden uitgevoerd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -176,9 +176,9 @@ Hiermee haalt u de lijst met gebruikers veroorzaakte fouten bewerkingen die zijn
 | --- | --- |
 | --staat-filter | Gebruikt om te filteren op de OperationState voor gebruiker-configuratieset bewerkingen. <br> 65535 - Alles selecteren <br> 1 - selecteren die wordt uitgevoerd <br> 2 - Selecteer ongedaan maken <br>8 - voltooid selecteren <br>16 - Faulted selecteren <br>32 - geannuleerd selecteren <br>64 - ForceCancelled selecteren.  <br>Standaard\: 65535. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --type filteren | Gebruikt om te filteren op OperationType voor gebruiker-configuratieset bewerkingen. <br> 65535 - Alles selecteren <br> 1 - PartitionDataLoss selecteren. <br> 2 - PartitionQuorumLoss selecteren. <br> 4 - PartitionRestart selecteren. <br> 8 - NodeTransition selecteren.  <br> Standaard\: 65535. |
+| --type filteren | Gebruikt om te filteren op OperationType voor gebruiker-configuratieset bewerkingen. <br> 65535 - Alles selecteren <br> 1     - select PartitionDataLoss. <br> 2     - select PartitionQuorumLoss. <br> 4 - PartitionRestart selecteren. <br> 8 - NodeTransition selecteren.  <br> Standaard\: 65535. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -201,7 +201,7 @@ Valideren en de code of configuratie-pakketten van een Service Fabric-cluster in
 | --code-bestandspad | Het cluster code pakket bestandspad. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -222,7 +222,7 @@ Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van 
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -245,13 +245,13 @@ Het rapport moet de informatie over de oorzaak van de health-rapport en de eigen
 | --status (vereist) | Mogelijke waarden zijn\: 'Ongeldige', 'Ok', 'Waarschuwing', 'Fout', 'Onbekend'. |
 | --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
 | --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --direct | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
-| --verwijderen wanneer verlopen | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
+| --immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
+| --remove-when-expired | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
 | --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -264,7 +264,7 @@ Het rapport moet de informatie over de oorzaak van de health-rapport en de eigen
 ## <a name="sfctl-cluster-select"></a>sfctl cluster selecteren
 Maakt verbinding met het eindpunt van een Service Fabric-cluster.
 
-Als verbinding maakt met een beveiligd cluster, geeft u een absoluut pad naar een certificaat (.crt) en -sleutelbestand (.key) of één bestand met beide (.pem). Geef niet beide. (Optioneel) als u verbinding maakt met een beveiligd cluster, ook opgeven een absoluut pad naar een CA bundle-bestand of map van vertrouwde CA-certificaten. Als u een map van de CA-certificaten, `c_rehash <directory>` geleverd door OpenSSL moet eerst worden uitgevoerd om de berekening van de certificaat-hashes en de juiste symbolics koppelingen maken.
+Als verbinding maakt met een beveiligd cluster, geeft u een absoluut pad naar een certificaat (.crt) en -sleutelbestand (.key) of één bestand met beide (.pem). Geef niet beide. (Optioneel) als u verbinding maakt met een beveiligd cluster, ook opgeven een absoluut pad naar een CA bundle-bestand of map van vertrouwde CA-certificaten. Als u een map van de CA-certificaten, `c_rehash <directory>` geleverd door OpenSSL moet eerst worden uitgevoerd om de berekening van de certificaat-hashes en de juiste symbolische koppelingen maken.
 
 ### <a name="arguments"></a>Argumenten
 
@@ -273,12 +273,12 @@ Als verbinding maakt met een beveiligd cluster, geeft u een absoluut pad naar ee
 | --eindpunt (vereist) | Eindpunt-URL, met inbegrip van de poort en HTTP of HTTPS-voorvoegsel van het cluster. |
 | --aad | Azure Active Directory gebruiken voor verificatie. |
 | --ca | Het absolute pad naar de directory van de CA certificaten moet worden behandeld als geldig of CA bundle-bestand. |
-| --certificaat | Het absolute pad naar een certificaatbestand. |
-| --sleutel | Het absolute pad naar certificaat-sleutelbestand. |
+| --cert | Het absolute pad naar een certificaatbestand. |
+| --key | Het absolute pad naar certificaat-sleutelbestand. |
 | --niet-controleren | Controle voor certificaten uitschakelen bij het gebruik van HTTPS, houd er rekening mee\: dit is een optie voor onveilig en mag niet worden gebruikt voor productie-omgevingen. |
 | --pem | Het absolute pad naar het clientcertificaat als een .pem-bestand. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -291,7 +291,7 @@ Als verbinding maakt met een beveiligd cluster, geeft u een absoluut pad naar ee
 ## <a name="sfctl-cluster-show-connection"></a>sfctl cluster show-connection
 Weergeven welke dit sfctl-exemplaar is verbonden met Service Fabric-cluster.
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -314,7 +314,7 @@ Het wordt ondersteund voor afzonderlijk inrichting van code en configuratie.
 | --config-versie | De versie van de cluster-manifest. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -340,21 +340,21 @@ Valideren van de opgegeven parameters voor de upgrade en start het bijwerken van
 | --delta-health-evaluatie | Hiermee kunt evalueren delta in plaats van absolute evalueren na voltooiing van elk upgradedomein. |
 | ----knooppunten met slechte deltastatus | De maximaal toegestane percentage van knooppunten verslechtering van de status toegestaan tijdens het upgraden van clusters.  Standaard\: 10. <br><br> De verschillen wordt tussen de status van de knooppunten aan het begin van de upgrade en de status van de knooppunten op het moment van de evaluatie van de status gemeten. De controle wordt uitgevoerd na elke upgrade upgradedomein is voltooid om ervoor te zorgen dat de algemene status van het cluster is binnen verdragen. |
 | --actie bij fout | Mogelijke waarden zijn\: 'Ongeldig', 'Terugdraaien', 'Manual'. |
-| --geforceerd opnieuw opstarten | Processen worden geforceerd opnieuw opgestart tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. <br><br> De upgrade wordt alleen gewijzigd configuratie of gegevens. |
+| --force-restart | Processen worden geforceerd opnieuw opgestart tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. <br><br> De upgrade wordt alleen gewijzigd configuratie of gegevens. |
 | --health-controle-opnieuw proberen | De hoeveelheid tijd tussen pogingen tot het uitvoeren van statuscontroles als de toepassing of het cluster niet in orde is. |
 | --health-controle-stabiel | De hoeveelheid tijd dat de toepassing of het cluster moet in orde blijft voordat de upgrade wordt uitgevoerd op het volgende upgradedomein. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
 | --wachtduur | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u begint met de status controleert proces. |
 | --replica-set-check-timeout | De maximale hoeveelheid tijd voor het verwerken van een upgradedomein blokkeren en voorkom het verlies van beschikbaarheid wanneer er onverwachte problemen zijn. <br><br> Wanneer deze time-out is verlopen, wordt de verwerking van het upgradedomein ongeacht beschikbaarheidsproblemen verlies voortgezet. De time-out is opnieuw ingesteld aan het begin van elke upgradedomein. Geldige waarden liggen tussen 0 en 42949672925 liggen. |
-| --rolling upgrade-modus | Mogelijke waarden zijn\: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaard\: UnmonitoredAuto. |
+| --rolling-upgrade-mode | Mogelijke waarden zijn\: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaard\: UnmonitoredAuto. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --beschadigde toepassingen | De maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding. <br><br> Bijvoorbeeld, om toe te staan 10% van de toepassingen niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van toepassingen die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigde toepassing is, wordt de status wordt geëvalueerd als waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster, met uitzondering van toepassingen van toepassingstypen die zijn opgenomen in de ApplicationTypeHealthPolicyMap. De berekening rondt af naar één tolereren op kleine aantallen toepassingen. |
 | --beschadigde knooppunten | De maximaal toegestane percentage van knooppunten met slechte voordat u een foutmelding. <br><br> Bijvoorbeeld, om toe te staan 10% van de knooppunten niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigd knooppunt is, wordt de status wordt geëvalueerd als waarschuwing. Het percentage wordt berekend door het aantal knooppunten met slechte delen via het totale aantal knooppunten in het cluster. De berekening rondt af naar één tolereren op kleine aantallen knooppunten. In grote clusters sommige knooppunten altijd worden omlaag of uit voor herstellingen, zodat dit percentage moet worden geconfigureerd om te tolereren die. |
 | --upgrade-domein---knooppunten met slechte deltastatus | De maximaal toegestane percentage van knooppunten in het upgradedomein verslechtering van de status toegestaan tijdens het upgraden van clusters.  Standaard\: 15. <br><br> De verschillen wordt tussen de status van de knooppunten in het upgradedomein aan het begin van de upgrade en de status van de knooppunten in het upgradedomein op het moment van de evaluatie van de status gemeten. De controle wordt uitgevoerd na elke upgrade upgradedomein is voltooid voor alle upgradedomeinen om te controleren of de status van de upgrade-domeinen binnen verdragen. |
 | --upgrade-domein-time-out | De hoeveelheid tijd elk upgradedomein is voltooid voordat FailureAction wordt uitgevoerd. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
 | --upgrade-time-out | De hoeveelheid tijd de algehele upgrade is voltooid voordat FailureAction wordt uitgevoerd. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --waarschuwing als fout | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
+| --warning-as-error | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -376,7 +376,7 @@ Overstappen cluster code of configuratie bijwerken op naar het volgende upgraded
 | --upgrade-domein (vereist) | Het volgende upgradedomein voor dit een clusterupgrade. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -397,7 +397,7 @@ De code of configuratie van de upgrade van een Service Fabric-cluster terugdraai
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -418,7 +418,7 @@ Hiermee haalt u de huidige voortgang van de lopende clusterupgrade. Als er momen
 | --- | --- |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |
@@ -440,12 +440,12 @@ Werk de parameters voor het bijwerken van de upgrade van een Service Fabric-clus
 | --delta-health-evaluatie | Hiermee kunt evalueren delta in plaats van absolute evalueren na voltooiing van elk upgradedomein. |
 | ----knooppunten met slechte deltastatus | De maximaal toegestane percentage van knooppunten verslechtering van de status toegestaan tijdens het upgraden van clusters.  Standaard\: 10. <br><br> De verschillen wordt tussen de status van de knooppunten aan het begin van de upgrade en de status van de knooppunten op het moment van de evaluatie van de status gemeten. De controle wordt uitgevoerd na elke upgrade upgradedomein is voltooid om ervoor te zorgen dat de algemene status van het cluster is binnen verdragen. |
 | --actie bij fout | Mogelijke waarden zijn\: 'Ongeldig', 'Terugdraaien', 'Manual'. |
-| --geforceerd opnieuw opstarten | Processen worden geforceerd opnieuw opgestart tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. <br><br> De upgrade wordt alleen gewijzigd configuratie of gegevens. |
+| --force-restart | Processen worden geforceerd opnieuw opgestart tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. <br><br> De upgrade wordt alleen gewijzigd configuratie of gegevens. |
 | --health-controle-opnieuw proberen | De hoeveelheid tijd tussen pogingen tot het uitvoeren van statuscontroles als de toepassing of het cluster niet in orde is. |
 | --health-controle-stabiel | De hoeveelheid tijd dat de toepassing of het cluster moet in orde blijft voordat de upgrade wordt uitgevoerd op het volgende upgradedomein. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
 | --wachtduur | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u begint met de status controleert proces. |
 | --replica-set-check-timeout | De maximale hoeveelheid tijd voor het verwerken van een upgradedomein blokkeren en voorkom het verlies van beschikbaarheid wanneer er onverwachte problemen zijn. <br><br> Wanneer deze time-out is verlopen, wordt de verwerking van het upgradedomein ongeacht beschikbaarheidsproblemen verlies voortgezet. De time-out is opnieuw ingesteld aan het begin van elke upgradedomein. Geldige waarden liggen tussen 0 en 42949672925 liggen. |
-| --rolling upgrade-modus | Mogelijke waarden zijn\: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaard\: UnmonitoredAuto. |
+| --rolling-upgrade-mode | Mogelijke waarden zijn\: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaard\: UnmonitoredAuto. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 | --beschadigde toepassingen | De maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding. <br><br> Bijvoorbeeld, om toe te staan 10% van de toepassingen niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van toepassingen die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigde toepassing is, wordt de status wordt geëvalueerd als waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster, met uitzondering van toepassingen van toepassingstypen die zijn opgenomen in de ApplicationTypeHealthPolicyMap. De berekening rondt af naar één tolereren op kleine aantallen toepassingen. |
 | --beschadigde knooppunten | De maximaal toegestane percentage van knooppunten met slechte voordat u een foutmelding. <br><br> Bijvoorbeeld, om toe te staan 10% van de knooppunten niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigd knooppunt is, wordt de status wordt geëvalueerd als waarschuwing. Het percentage wordt berekend door het aantal knooppunten met slechte delen via het totale aantal knooppunten in het cluster. De berekening rondt af naar één tolereren op kleine aantallen knooppunten. In grote clusters sommige knooppunten altijd worden omlaag of uit voor herstellingen, zodat dit percentage moet worden geconfigureerd om te tolereren die. |
@@ -453,9 +453,9 @@ Werk de parameters voor het bijwerken van de upgrade van een Service Fabric-clus
 | --upgrade-domein-time-out | De hoeveelheid tijd elk upgradedomein is voltooid voordat FailureAction wordt uitgevoerd. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
 | --upgrade-type | Mogelijke waarden zijn\: 'Ongeldig', 'Rolling', 'Rolling_ForceRestart'.  Standaard\: Rolling. |
 | --upgrade-time-out | De hoeveelheid tijd de algehele upgrade is voltooid voordat FailureAction wordt uitgevoerd. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --waarschuwing als fout | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
+| --warning-as-error | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
 
-### <a name="global-arguments"></a>Algemene argumenten
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Description|
 | --- | --- |

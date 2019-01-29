@@ -1,5 +1,5 @@
 ---
-title: Een Azure-abonnement koppelen aan Azure Active Directory B2C | Microsoft Docs
+title: 'Het koppelen van een Azure-abonnement: Azure Active Directory B2C | Microsoft Docs'
 description: Stapsgewijze handleiding voor het inschakelen van de facturering voor Azure AD B2C-tenant in een Azure-abonnement.
 services: active-directory-b2c
 author: davidmu1
@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853184"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196171"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Een Azure-abonnement koppelen aan een Azure AD B2C-tenant
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Een Azure-abonnement koppelen aan een Azure Active Directory B2C-tenant
 
 > [!IMPORTANT]
-> De meest recente informatie over het gebruik van facturering en prijzen voor Azure AD B2C is op de volgende pagina: [Azure AD B2C-prijzen](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Zie voor de meest recente informatie over het gebruik van facturering en prijzen voor Azure Active Directory (Azure AD) B2C, [prijzen van Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 Kosten voor het gebruik van Azure AD B2C worden gefactureerd met een Azure-abonnement. Wanneer een Azure AD B2C-tenant is gemaakt, wordt de tenantbeheerder moet expliciet de Azure AD B2C-tenant koppelen aan een Azure-abonnement. In dit artikel ziet u hoe u.
 
 > [!NOTE]
 > Een abonnement dat is gekoppeld aan een Azure AD B2C-tenant kan worden gebruikt voor de facturering van Azure AD B2C-gebruik of andere Azure-resources met inbegrip van aanvullende resources voor Azure AD B2C.  Het kan niet worden gebruikt voor het toevoegen van andere Azure-licentie op basis van services of Office 365-licenties in de Azure AD B2C-tenant.
 
- De abonnementskoppeling wordt bereikt door het maken van een Azure AD B2C 'resource' in de doel-Azure-abonnement. Veel Azure AD B2C 'resources' kunnen worden gemaakt binnen een enkel Azure-abonnement, samen met andere Azure-resources (bijvoorbeeld virtuele machines, gegevensopslag, LogicApps). Alle resources binnen het abonnement kunt u bekijken door te gaan naar de Azure AD-tenant waaraan het abonnement is gekoppeld.
+De abonnementskoppeling wordt bereikt door het maken van een Azure AD B2C 'resource' in de doel-Azure-abonnement. Veel Azure AD B2C 'resources' kunnen worden gemaakt binnen een enkel Azure-abonnement, samen met andere Azure-resources (bijvoorbeeld virtuele machines, gegevensopslag, LogicApps). Alle resources binnen het abonnement kunt u bekijken door te gaan naar de Azure AD-tenant waaraan het abonnement is gekoppeld.
+
+Azure Cloud Solution Providers (CSP)-abonnementen worden ondersteund in Azure AD B2C. De functionaliteit is beschikbaar voor Azure AD B2C en voor alle Azure-resources met behulp van de API's of de Azure-portal. Beheerders van CSP-abonnement kunnen koppelen, verplaatsen en verwijderen van relaties met Azure AD B2C op dezelfde manier die is uitgevoerd voor alle Azure-resources. Het beheer van Azure AD B2C met behulp van op rollen gebaseerd toegangsbeheer wordt niet beïnvloed door de koppeling tussen de Azure AD B2C-tenant en een Azure CSP-abonnement. Op rollen gebaseerd toegangsbeheer wordt bereikt door middel van de tenant-base-rollen, geen abonnement op basis van rollen.
 
 Er is een geldig Azure-abonnement nodig om door te gaan.
 
@@ -81,10 +83,6 @@ U kunt deze resource om te gebruiken:
 ![B2C-Resource-instellingen](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Bekende problemen
-
-### <a name="csp-subscriptions"></a>CSP-abonnementen
-
-Op dit moment een Azure AD B2C-tenant **kan geen** koppeling naar de CSP-abonnementen.
 
 ### <a name="self-imposed-restrictions"></a>Zelf opgelegde beperkingen
 

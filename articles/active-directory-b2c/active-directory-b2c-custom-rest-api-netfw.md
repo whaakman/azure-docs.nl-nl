@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 9e5f8171dde2f6da153441dafd9a87fc5c946e71
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853048"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157938"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie van de gebruikersinvoer
 
@@ -215,7 +215,7 @@ In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt
     De **Create App Service** venster wordt geopend. In deze maakt u alle benodigde Azure-resources voor het uitvoeren van de ASP.NET-web-app in Azure.
 
     > [!NOTE]
-    >Zie voor meer informatie over hoe u publiceert, [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Zie voor meer informatie over hoe u publiceert, [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. In de **Web-Appnaam** typt u een unieke app-naam (geldige tekens zijn a-z, 0-9 en afbreekstreepjes (-). De URL van de web-app is http://<APP_NAME>.azurewebsites.NET, waar *app_name* is de naam van uw web-app. U kunt de automatisch gegenereerde naam accepteren, die uiteraard uniek is.
 

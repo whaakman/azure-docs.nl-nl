@@ -72,7 +72,7 @@ U kunt een variabele maken en de gegevens van het type en de initiële waarde - 
 
 4. Geef deze informatie voor de variabele:
 
-   | Eigenschap | Vereist | Waarde |  Beschrijving |
+   | Eigenschap | Vereist | Value |  Beschrijving |
    |----------|----------|-------|--------------|
    | Name | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
    | Type | Ja | <*variabele-type*> | Het gegevenstype voor de variabele | 
@@ -208,7 +208,7 @@ Om te verhogen of *verhoging* toevoegen van een variabele met een constante waar
 
 3. Geef deze informatie voor het verhogen van de variabele:
 
-   | Eigenschap | Vereist | Waarde |  Beschrijving |
+   | Eigenschap | Vereist | Value |  Beschrijving |
    |----------|----------|-------|--------------|
    | Name | Ja | <*naam van de variabele*> | De naam van de variabele moet worden verhoogd | 
    | Value | Nee | <*incrementele waarde*> | De waarde die wordt gebruikt voor het verhogen van de variabele. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de waarde weet voor uw variabele verhoogd. | 
@@ -328,7 +328,7 @@ Om te verkleinen of *verlagen* een variabele met een constante waarde, volgt u d
 
 Hier worden de eigenschappen voor de **variabele verlagen** actie:
 
-| Eigenschap | Vereist | Waarde |  Beschrijving |
+| Eigenschap | Vereist | Value |  Beschrijving |
 |----------|----------|-------|--------------|
 | Name | Ja | <*naam van de variabele*> | De naam van de variabele verlagen | 
 | Value | Nee | <*incrementele waarde*> | De waarde voor de variabele afneemt. De standaardwaarde is een. <p><p>**Tip**: Hoewel dit optioneel is, moet u deze waarde instellen als een best practice, zodat u altijd de specifieke waarde voor afneemt uw variabele weet. | 
@@ -363,7 +363,7 @@ De waarde is vereist omdat met deze actie niet een standaardwaarde hebben.
 
 Hier worden de eigenschappen voor de **variabele instellen** actie:
 
-| Eigenschap | Vereist | Waarde |  Beschrijving | 
+| Eigenschap | Vereist | Value |  Beschrijving | 
 |----------|----------|-------|--------------| 
 | Name | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
 | Value | Ja | <*nieuwe waarde*> | De waarde die u wilt toewijzen van de variabele. Beide moeten hetzelfde gegevenstype hebben. | 
@@ -421,7 +421,7 @@ Voor variabelen waarin tekenreeksen of matrices, u kunt invoegen of *append* van
 
 Hier worden de eigenschappen voor de **toevoegen aan...**  acties:
 
-| Eigenschap | Vereist | Waarde |  Beschrijving | 
+| Eigenschap | Vereist | Value |  Beschrijving | 
 |----------|----------|-------|--------------| 
 | Name | Ja | <*naam van de variabele*> | De naam van de variabele te wijzigen | 
 | Value | Ja | <*toevoeg-waarde*> | De waarde die u toevoegen wilt, en die elk type kan hebben | 

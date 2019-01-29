@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0b486831118ace7d2112acf1562f5df4a64d1e1b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103162"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092089"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
@@ -33,7 +33,23 @@ Deze fout kan optreden als de OS-schijfversleuteling is geprobeerd op een omgevi
 - Schijven worden recursief gekoppeld onder de map /mnt/ of elke andere (bijvoorbeeld /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Andere Azure Disk Encryption [vereisten](azure-security-disk-encryption-prerequisites.md) voor Linux worden niet voldaan.
 
-## <a name="unable-to-encrypt"></a>Kan niet worden versleuteld
+## <a name="bkmk_Ubuntu14"></a> Bijwerken van de standaard-kernel voor Ubuntu 14.04 TNS
+
+De Ubuntu 14.04 LTS-installatiekopie wordt geleverd met een standaardversie voor de kernel van 4.4. Deze kernelversie is een bekend probleem waarbij van geheugen Killer niet goed wordt beëindigd de opdracht dd tijdens het versleutelingsproces OS. Deze fout is opgelost in de meest recente Azure afgestemd op de Linux-kernel. Om te voorkomen dat deze fout, vóór het inschakelen van versleuteling op de installatiekopie bijwerken naar de [Azure afgestemd op de kernel 4.15](https://packages.ubuntu.com/trusty/linux-azure) of met behulp van de volgende opdrachten:
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+Nadat de virtuele machine opnieuw is opgestart in de nieuwe kernel, kan de nieuwe kernelversie worden bevestigd met behulp van:
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>Kan niet voor het versleutelen van Linux-schijven
 
 In sommige gevallen kan is de Linux-schijfversleuteling lijkt te zijn vastgelopen bij 'OS-schijf versleuteling aan de slag'- en SSH uitgeschakeld. De versleuteling van 3-16 uur eindigen op een afbeelding voorraad kan duren. Als multi-terabyte-formaat gegevensschijven worden toegevoegd, kan dit proces kan dagen duren.
 

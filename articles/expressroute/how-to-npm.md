@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104727"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098575"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Netwerkprestatiemeter configureren voor ExpressRoute
 
@@ -38,11 +38,11 @@ U kunt:
 Monitoring agents zijn geïnstalleerd op meerdere servers, zowel on-premises en in Azure. De agents met elkaar communiceren, maar geen gegevens verzenden, ze TCP-handshake pakketten verzenden. De communicatie tussen de agents kan Azure de netwerktopologie en pad van het verkeer kan worden toegewezen.
 
 1. Een NPM-werkruimte maken. Dit is hetzelfde als een Log Analytics-werkruimte.
-2. Installeren en configureren van softwareagents: 
+2. Installeren en configureren van softwareagents. (Als u alleen controleren via Microsoft-Peering wilt, u hoeft niet te installeren en configureren van softwareagents.): 
     * Installatie monitoring-agents op de on-premises servers en de Azure VM's (voor persoonlijke peering).
     * Instellingen configureren op de monitoring agentservers om toe te staan de bewakingsagents om te communiceren. (Open firewallpoorten, enz.)
 3. Configureer regels voor network security group (NSG) om toe te staan de monitoring agent is geïnstalleerd op Azure Virtual machines om te communiceren met on-premises monitoring-agents.
-4. Controle instellen: Voer automatisch ontdekken en te beheren welke netwerken zijn zichtbaar in de NPM.
+4. Stel als volgt controleren: Voer automatisch ontdekken en te beheren welke netwerken zijn zichtbaar in de NPM.
 
 Als u al van Network Performance Monitor gebruikmaakt voor het bewaken van andere objecten of services, en u al werkruimte in een van de ondersteunde regio's hebt, kunt u stap 1 en stap 2 overslaan en beginnen met de configuratie met stap 3.
 
@@ -76,9 +76,9 @@ Een werkruimte maken in het abonnement waaraan de VNets koppelen aan het Express
 
    ![aanvullende configuratie](./media/how-to-npm/5.png)
 
-## <a name="agents"></a>Stap 2: Installeren en configureren van agents
+## <a name="agents"></a>Stap 2: Agents installeren en configureren
 
-### <a name="download"></a>2.1: de agent setup-bestand downloaden
+### <a name="download"></a>2.1: Download het installatiebestand van de agent
 
 1. Ga naar de **algemene instellingen die u** tabblad van de **configuratie van netwerkprestaties** -pagina voor uw resource. Klik op de agent die overeenkomt met de processor van de server van de **Log Analytics-Agents installeren** uit en download het setup-bestand.
 2. Kopieer vervolgens de **werkruimte-ID** en **primaire sleutel** naar Kladblok.
@@ -86,7 +86,7 @@ Een werkruimte maken in het abonnement waaraan de VNets koppelen aan het Express
 
   ![PowerShell-script](./media/how-to-npm/7.png)
 
-### <a name="installagent"></a>2.2: een monitoring agent installeren op elke controleserver (op elke VNET die u wilt bewaken)
+### <a name="installagent"></a>2.2: Een bewakingsagent installeren op elke controleserver (op elke VNET die u wilt bewaken)
 
 Het is raadzaam dat u ten minste twee agents op elke zijde van de ExpressRoute-verbinding voor redundantie (bijvoorbeeld on-premises Azure vnet's installeren). De agent moet worden geïnstalleerd op een Windows Server (2008 SP1 of hoger). Bewaking van ExpressRoute-circuits met behulp van Windows Desktop OS en Linux-besturingssysteem wordt niet ondersteund. Gebruik de volgende stappen uit om agents te installeren:
    
@@ -111,7 +111,7 @@ Het is raadzaam dat u ten minste twee agents op elke zijde van de ExpressRoute-v
     ![Account](./media/how-to-npm/10.png)
 6. Op de **gereed voor installatie** pagina, Controleer uw keuzes en klik vervolgens op **installeren**.
 7. Klik op de pagina **Configuratie voltooid** op **Voltooien**.
-8. Als u klaar bent, is de Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt de configuratie controleren en verifiëren dat de agent is verbonden met Azure Log Analytics. Wanneer verbinding is gemaakt, de agent wordt een bericht weergegeven: **The Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite service**.
+8. Als u klaar bent, is de Microsoft Monitoring Agent wordt weergegeven in het Configuratiescherm. U kunt de configuratie controleren en verifiëren dat de agent is verbonden met Azure Log Analytics. Wanneer verbinding is gemaakt, wordt de agent een bericht weergegeven: **De Microsoft Monitoring Agent verbonden is met de Microsoft Operations Management Suite service**.
 
 9. Herhaal deze procedure voor elke VNET die u nodig hebt om te worden bewaakt.
 
@@ -139,7 +139,7 @@ U kunt eenvoudig controleren of uw agents communiceren.
 
   ![status](./media/how-to-npm/12.png)
 
-### <a name="firewall"></a>2.5: open de firewallpoorten op de monitoring agentservers
+### <a name="firewall"></a>2.5: Open de firewallpoorten op de monitoring agentservers
 
 Als u wilt het TCP-protocol gebruiken, moet u de firewall-poorten om ervoor te zorgen dat de bewakingsagents kunnen communiceren openen.
 

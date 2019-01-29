@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 44fe3b54e2dfedb71b50a75befce96121ecebe05
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-jan
+ms.openlocfilehash: ec1f36bee1a764f98473d7a6d1a6d7359dde9ea7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320239"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156153"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als in Azure Active Directory-beheerder
 Dit artikel wordt beschreven in een niet-beheerde adreslijst in Azure Active Directory (Azure AD) een DNS-domeinnaam overnemen op twee manieren. Wanneer een selfservice-gebruiker zich registreert voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van het e-maildomein. Zie voor meer informatie over selfservice of 'viraal' aanmelden voor een service [wat is selfserviceregistratie voor Azure Active Directory?](directory-self-service-signup.md)
@@ -131,42 +131,42 @@ cmdlet | Gebruik
 ### <a name="powershell-example"></a>PowerShell-voorbeeld
 
 1. Verbinding maken met Azure AD met behulp van de referenties die zijn gebruikt om te reageren op de aanbieding selfservice:
-  ````
+  ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ````
+  ```
 2. Haal een lijst met domeinen:
   
-  ````
+  ```
     Get-MsolDomain
-  ````
+  ```
 3. De cmdlet Get-MsolDomainVerificationDns voor het maken van een uitdaging uitvoeren:
-  ````
+  ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ````
+  ```
 
 4. Kopieer de waarde (de challenge) die wordt geretourneerd door deze opdracht. Bijvoorbeeld:
-  ````
+  ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ````
+  ```
 5. Maak een DNS txt-record met de waarde die u in de vorige stap hebt gekopieerd in uw openbare DNS-naamruimte. De naam voor deze record is de naam van het bovenliggende domein, dus als u deze bronrecord maakt met behulp van de DNS-rol vanaf Windows Server, laat de plakken Record de naam leeg en alleen de waarde in het tekstvak.
 6. De Confirm-MsolDomain-cmdlet om te controleren of de uitdaging uitvoeren:
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ````
+  ```
   
   Bijvoorbeeld:
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ````
+  ```
 
 Een geslaagde uitdaging gaat u terug naar de prompt zonder fouten.
 

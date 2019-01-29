@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b4cffbd1ce240e4792fba84581dafb1933c71a62
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: f80eadf15148865f62e2d0f51e2e9d96ac4d147a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188548"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190520"
 ---
 # <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>Een toegangscontrole van mijn Azure AD-directory-rollen in PIM uitvoeren
 Azure Active Directory (AD) Privileged Identity Management vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 en Microsoft Intune beheren.  
@@ -48,4 +48,4 @@ Volg deze stappen om te zoeken en de toegangsbeoordeling voltooien:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een toegangscontrole van mijn Azure-resource-rollen in PIM uitvoeren](pim-resource-roles-perform-access-review.md)
+- [Perform an access review of my Azure AD resource roles in PIM](pim-resource-roles-perform-access-review.md) (Een toegangsbeoordeling uitvoeren van mijn Azure AD-resourcerollen in PIM)

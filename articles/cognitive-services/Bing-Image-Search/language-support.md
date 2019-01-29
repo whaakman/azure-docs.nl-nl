@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: aahi
-ms.openlocfilehash: e5c9a4291501c657a94509aec2edd90d00ab795d
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d214c227171066e0a401e22d20538014790a58d3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160424"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157326"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Ondersteuning voor taal en regio voor de Bing afbeeldingen zoeken-API
 
@@ -78,15 +78,15 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
-|Argentinië|Spaans|ES-AR|
+|Argentinië|Spaans|es-AR|
 |Australië|Nederlands|en-AU|
 |Oostenrijk|Duits|de-AT|
-|België|Nederlands|NL-worden|
-|België|Frans|FR-worden|
+|België|Nederlands|nl-BE|
+|België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
 |Canada|Nederlands|NL-CA|
 |Canada|Frans|fr-CA|
-|Chili|Spaans|ES-CL|
+|Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
 |Finland|Fins|fi-FI|
 |Frankrijk|Frans|fr-FR|
@@ -107,7 +107,7 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|NL-ZA|
+|Zuid-Afrika|Nederlands|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
@@ -115,8 +115,8 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
 |Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|nl-NL|
-|Verenigde Staten|Spaans|ES-US|
+|Verenigde Staten|Nederlands|en-US|
+|Verenigde Staten|Spaans|es-US|
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het zoeken in Bing nieuws-eindpunten [nieuws afbeeldingen zoeken-API voor Bing versie 7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).

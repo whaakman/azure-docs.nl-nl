@@ -7,7 +7,7 @@ author: negoe
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 12/20/2018
 ms.author: negoe
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
-ms.openlocfilehash: dfca40c14ad0da3a3e3a8a32757ec40ace9acf6a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2130cc4d51965a087ccdbaeb922eda5059ee1c82
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200561"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091577"
 ---
 # <a name="national-clouds"></a>Nationale clouds
 
@@ -44,7 +44,7 @@ De volgende tabel bevat de basis-URL's voor de Azure Active Directory (Azure AD)
 | Nationale cloud | Azure AD portal-eindpunt
 | --- | --- |
 | Azure AD voor de Amerikaanse overheid |https://portal.azure.us
-|Azure AD-Duitsland |https://portal.microsoftazure.de
+|Azure AD Germany |https://portal.microsoftazure.de
 |Azure AD-China, uitgevoerd door 21Vianet |https://portal.azure.cn
 |Azure AD (global service)|https://portal.azure.com 
 
@@ -57,7 +57,7 @@ De volgende tabel bevat de basis-URL's voor de Azure Active Directory (Azure AD)
 | Nationale cloud | Azure AD-verificatie-eindpunt
 | --- | --- |
 | Azure AD voor de Amerikaanse overheid |`https://login.microsoftonline.us`
-|Azure AD-Duitsland| `https://login.microsoftonline.de`
+|Azure AD Germany| `https://login.microsoftonline.de`
 |Azure AD-China, uitgevoerd door 21Vianet | `https://login.chinacloudapi.cn`
 |Azure AD (global service)|`https://login.microsoftonline.com`
 

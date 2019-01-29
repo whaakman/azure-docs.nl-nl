@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716579"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099897"
 ---
 # <a name="time-series-model"></a>Time Series-model
 
@@ -72,7 +72,7 @@ Voorbeeld:
         }
     }
 }
-``````
+```
 
 Zie voor meer informatie over de typen van Time Series-Model, de [referentiedocumentatie](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
@@ -89,7 +89,7 @@ De volgende matrix werkt als een legenda voor definities van de variabele:
 De volgende variabele typen worden ondersteund:
 
 * *numerieke*
-* *Statistische functie*
+* *Aggregate*
 
 ### <a name="variable-filter"></a>Variabele filter
 

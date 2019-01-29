@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0fc81a75e79d7f570bd55c9c30a464e5bbb9ad1c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e7c393f1eb654d30c5e06869f404c8523c56a21e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423429"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093146"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 en OAuth 2.0 namens-stroom
 
@@ -64,10 +64,10 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 Er zijn twee mogelijke situaties, afhankelijk van of de clienttoepassing moet worden beveiligd door een gedeeld geheim, of een certificaat kiest.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: aanvraag voor een toegangstoken met een gedeeld geheim
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: Aanvraag voor een toegangstoken met een gedeeld geheim
 Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-service toegang tot de volgende parameters:
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
 | client_id |vereist | De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
@@ -94,10 +94,10 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: aanvraag voor een toegangstoken met een certificaat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Aanvraag voor een toegangstoken met een certificaat
 Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volgende parameters:
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag met behulp van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
 | client_id |vereist | De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
@@ -131,7 +131,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ## <a name="service-to-service-access-token-response"></a>Service aan service access token antwoord
 Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Het bereik van de toegang is verleend in het token. |

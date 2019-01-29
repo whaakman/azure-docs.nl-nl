@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260530"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098335"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum bewijs van werk consortium-oplossingssjabloon
 
 De oplossingssjabloon Ethereum bewijs van werk Consortium is ontworpen voor u gemakkelijker en sneller te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum.
 
-Met een aantal van de invoer van gebruikers en een implementatie met één klik via de Azure-portal inrichten elk lid van de netwerk-footprint, met behulp van Microsoft Azure Compute, netwerken en opslagservices over de hele wereld. Netwerk-voetafdruk van elk lid bestaat uit een set met load balancing transactie knooppunten met die een toepassing of de gebruiker communiceren kan om in te dienen transacties, een set knooppunten van de analysestructuur voor vastleggen van transacties en een VPN-gateway. Een stap van de volgende verbinding maakt verbinding met de gateways voor het maken van een volledig geconfigureerde meerdere leden blockchain-netwerk.
+Met behulp van een Azure Resource Manager-sjabloon, kunt elk lid inrichten netwerk, met behulp van Microsoft Azure Compute, netwerken en opslagservices. Netwerk-voetafdruk van elk lid bestaat uit een set met load balancing transactie knooppunten met die een toepassing of de gebruiker communiceert om in te dienen transacties, een set knooppunten van de analysestructuur voor vastleggen van transacties en een VPN-gateway. Na de implementatie verbindt u de gateways voor het maken van een volledig geconfigureerde meerdere leden blockchain-netwerk.
 
 ## <a name="about-blockchain"></a>Over blockchains
 
@@ -35,7 +35,7 @@ Lid van een consortium kan maximaal vijf regio's met een of meer analysestructuu
 
 Alle knooppunten hebben een stabiele versie van de client gaat Ethereum (Geth) en zijn geconfigureerd als knooppunten van de analysestructuur. Als u een aangepaste genesis blok niet opgeeft hebt, gebruikt u alle knooppunten dezelfde Ethereum-adres en -sleutelpaar dat wordt beveiligd door het accountwachtwoord Ethereum. De door u opgegeven wachtwoordzin voor het Ethereum wordt gebruikt voor het genereren van het standaardaccount (coinbase) voor elk knooppunt van de analysestructuur. Als de knooppunten van de analysestructuur, Mijn, verzamelen van kosten die zijn toegevoegd aan dit account.
 
-Het aantal knooppunten van de analysestructuur per consortium lid, is afhankelijk van de totale grootte van het gewenste netwerk en de hoeveelheid hash power toegewezen aan elk lid. Hoe groter het netwerk, het meer knooppunten die nodig is om te krijgen van een oneerlijk voordeel. De sjabloon biedt ondersteuning voor maximaal 15 knooppunten van de analysestructuur per regio die zijn ingericht met behulp van schaalsets voor virtuele machines.
+Het aantal knooppunten van de analysestructuur per consortium lid, is afhankelijk van de totale grootte van het gewenste netwerk en de hoeveelheid hash power dat is toegewezen aan elk lid. Grotere netwerken vereist meer knooppunten om te krijgen van een oneerlijk voordeel is. De sjabloon biedt ondersteuning voor maximaal 15 knooppunten van de analysestructuur per regio die zijn ingericht met behulp van schaalsets voor virtuele machines.
 
 ### <a name="transaction-node-details"></a>Knooppunt-transactiedetails
 
@@ -45,7 +45,7 @@ Transactie-knooppunten zijn taakverdeling binnen een beschikbaarheidsset om hoge
 
 ### <a name="log-analytics-details"></a>Details van log analytics
 
-Elke implementatie maakt een nieuw exemplaar van de Log Analytics is ook of kan deelnemen aan een bestaand exemplaar. Hiermee wordt de bewaking van verschillende maatstaven voor prestaties van elke virtuele machine die het geïmplementeerde netwerk vormt.
+Elke implementatie maakt een nieuw exemplaar van Log analytics is ook of kan deelnemen aan een bestaand exemplaar. Log analytics kunt de bewaking van verschillende maatstaven voor prestaties van elke virtuele machine die het geïmplementeerde netwerk vormt.
 
 ## <a name="deployment-architecture"></a>Implementatie-architectuur
 
@@ -88,11 +88,9 @@ Abonnement| Het abonnement waaraan het implementeren van het netwerk consortium|
 Resourcegroep| De resourcegroep waaraan de consortium network implementeren.||N.v.t.
 Locatie| De Azure-regio voor de resourcegroep. ||N.v.t.
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-De blade Operations Management Suite (OMS) kunt u een OMS-resource voor het netwerk configureren. Met OMS wordt verzameld en surface nuttig metrische gegevens en logboeken van uw netwerk, biedt de mogelijkheid om snel te controleren de netwerkstatus of foutopsporing problemen. Het gratis aanbod van OMS wordt zonder problemen mislukken als de capaciteit is bereikt.
+Operations Management Suite (OMS) kunt u een OMS-resource voor het netwerk configureren. Met OMS wordt verzameld en surface nuttig metrische gegevens en logboeken van uw netwerk, biedt de mogelijkheid om snel te controleren de netwerkstatus of foutopsporing problemen. Het gratis aanbod van OMS wordt zonder problemen mislukken als de capaciteit is bereikt.
 
 ![Het maken van nieuwe OMS](./media/ethereum-deployment/new-oms.png)
 
@@ -143,8 +141,8 @@ Parameternaam |Description |Toegestane waarden|Standaardwaarden
 ConsortiumMember-ID|De ID die is gekoppeld aan elk lid van die deel uitmaken van het consortium netwerk gebruikt voor het configureren van IP-adresruimten om te voorkomen van conflicten. <br /><br />Lid-ID moet uniek zijn in verschillende organisaties in hetzelfde netwerk. Een unieke lid-ID is vereist, zelfs wanneer dezelfde organisatie wordt geïmplementeerd in meerdere regio's.<br /><br />Noteer de waarde van deze parameter omdat moet u deze delen met andere leden van de lid te worden.|0 - 255
 Ethereum Network ID|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplementeerd. Elk Ethereum-netwerk heeft een eigen netwerk-ID, met 1 wordt de ID voor het openbare netwerk. Toegang tot het netwerk is niet toegestaan voor de analysestructuur knooppunten, raden wij nog steeds gebruik van een groot aantal om te voorkomen van conflicten.|5 - 999,999,999| 10101010
 Aangepaste genesis blokkeren|Optie voor het automatisch genereren van een blok genesis of geef een aangepaste classificatie.|Ja/Nee| Nee
-Ethereum-accountwachtwoord (aangepaste genesis blok = Nee)|Het administrator-wachtwoord gebruikt om de Ethereum-account dat is geïmporteerd in elk knooppunt te beveiligen. Het wachtwoord moet bevatten het volgende: 1 hoofdletter, 1 kleine letter en 1 cijfer.|12 of meer tekens|N.v.t.
-Ethereum-wachtwoordzin voor persoonlijke sleutel (aangepaste genesis blok = Nee)|De wachtwoordzin die wordt gebruikt voor het genereren van de persoonlijke sleutel van ECC die zijn gekoppeld aan de standaard Ethereum-account die wordt gegenereerd. Een vooraf gegenereerde persoonlijke sleutel hoeft niet expliciet worden doorgegeven.<br /><br />Houd rekening met een wachtwoordzin met voldoende aanvraaggrootte om ervoor te zorgen voor een sterke persoonlijke sleutel en zonder overlap met andere leden consortium. De wachtwoordzin moet de volgende ten minste bevatten: 1 hoofdletter, 1 kleine letter en 1 cijfer.<br /><br />Houd er rekening mee als twee leden gebruikmaken van dezelfde wachtwoordzin de accounts die gegenereerd zijn hetzelfde. Dezelfde wachtwoordzin is handig als één organisatie probeert te implementeren in regio's en wil delen van één account (munt basis) voor alle knooppunten.|12 of meer tekens|N.v.t.
+Ethereum-accountwachtwoord (aangepaste genesis blok = Nee)|Het administrator-wachtwoord gebruikt om de Ethereum-account dat is geïmporteerd in elk knooppunt te beveiligen. Het wachtwoord moet bevatten: 1 hoofdletter, 1 kleine letter en 1 cijfer.|12 of meer tekens|N.v.t.
+Ethereum-wachtwoordzin voor persoonlijke sleutel (aangepaste genesis blok = Nee)|De wachtwoordzin die wordt gebruikt voor het genereren van de persoonlijke sleutel van ECC die zijn gekoppeld aan de standaard Ethereum-account die wordt gegenereerd. Een vooraf gegenereerde persoonlijke sleutel hoeft niet expliciet worden doorgegeven.<br /><br />Houd rekening met een wachtwoordzin met voldoende aanvraaggrootte om ervoor te zorgen voor een sterke persoonlijke sleutel en zonder overlap met andere leden consortium. De wachtwoordzin moet ten minste bevatten: 1 hoofdletter, 1 kleine letter en 1 cijfer.<br /><br />Houd er rekening mee als twee leden gebruikmaken van dezelfde wachtwoordzin de accounts die gegenereerd zijn hetzelfde. Dezelfde wachtwoordzin is handig als één organisatie probeert te implementeren in regio's en wil delen van één account (munt basis) voor alle knooppunten.|12 of meer tekens|N.v.t.
 Genesis blok (blok van aangepaste genesis = Yes)|JSON-tekenreeks voor aangepaste genesis blokkeren. U vindt meer informatie over de indeling van het blok genesis hier, aangepaste netwerken.<br /><br />Een Ethereum-account is nog steeds gemaakt bij het opgeven van een aangepaste genesis-blok. Houd rekening met het instellen van een prefunded Ethereum-account in het blok genesis niet na afloop van de analysestructuur.|Geldige JSON |N.v.t.
 Gedeelde sleutel voor de verbinding|Een gedeelde sleutel voor de verbinding tussen VNET-gateways.| 12 of meer tekens|N.v.t.
 Consortium gegevens-URL|De URL die verwijst naar de relevante consortium configuratiegegevens worden geleverd door een ander lid van de implementatie. <br /><br />Deze informatie wordt verstrekt door een lid is al verbonden met een implementatie. Als u de rest van het netwerk hebt geïmplementeerd, is de URL van de sjabloonuitvoer implementatie, met de naam CONSORTIUM-gegevens.||N.v.t.
@@ -154,7 +152,7 @@ Sleutel van de Peer informatie registrar|Peer-info primaire sleutel geleverd doo
 
 ### <a name="summary"></a>Samenvatting
 
-Klik op de blade samenvatting om te controleren van de invoer die is opgegeven en uit te voeren basisvalidatie vóór de implementatie.
+Klik in het overzicht bekijken van de invoer die is opgegeven en uit te voeren basisvalidatie vóór de implementatie.
 
 ![Samenvatting](./media/ethereum-deployment/summary.png)
 

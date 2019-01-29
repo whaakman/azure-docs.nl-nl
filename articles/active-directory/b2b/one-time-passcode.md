@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5259176328803d3b6c0715c741d7f43b6ecc2d8a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bc88b46182eadf431efcb5be89f05256a9e0eb1b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082524"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095550"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-mailbericht eenmalige wachtwoordcode verificatie (preview)
 
@@ -81,29 +81,29 @@ U moet eerst de meest recente versie van de Azure AD PowerShell voor Graph-modul
 #### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Voorwaarde: Installeer de nieuwste versie van de AzureADPreview-module
 Controleer eerst welke modules die u hebt geïnstalleerd. Open PowerShell als een gebruiker met verhoogde bevoegdheid (Uitvoeren als administrator) en voer de volgende opdracht uit:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Als de AzureADPreview-module zonder bericht verschijnt dat aangeeft dat er een nieuwere versie bestaat, bent u klaar. Anders doet u op basis van de uitvoer, het volgende:
 
 - Als er geen resultaten worden geretourneerd, voert u de volgende opdracht uit om de AzureADPreview-module te installeren:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Als alleen de AzureAD-module wordt weergegeven in de resultaten, voer de volgende opdrachten uit om de AzureADPreview-module installeren: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Als alleen de AzureADPreview-module wordt weergegeven in de resultaten, maar u een bericht ontvangt dat aangeeft dat er een latere versie, voer de volgende opdrachten uit om de module bij te werken: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Mogelijk krijgt u een opdrachtprompt dat u de module vanuit een niet-vertrouwde opslagplaats installeert. Dit gebeurt als u de opslagplaats PSGallery eerder niet hebt ingesteld als een vertrouwde opslagplaats. Druk op **Y** om de module te installeren.
 
@@ -111,25 +111,25 @@ Mogelijk krijgt u een opdrachtprompt dat u de module vanuit een niet-vertrouwde 
 
 Controleer vervolgens om te zien als een B2BManagementPolicy momenteel door het uitvoeren van de volgende bestaat:
 
-````powershell 
+```powershell 
 $currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 $currentpolicy -ne $null
-````
+```
 - Als de uitvoer ONWAAR is, bestaat het beleid nog niet. Maak een nieuwe B2BManagementPolicy en meldt zich aan voor de Preview-versie door het uitvoeren van de volgende:
 
-   ````powershell 
+   ```powershell 
    $policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
    New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
-   ````
+   ```
 
 - Als de uitvoer waar is, wordt het beleid B2BManagementPolicy momenteel bestaat. Voor het bijwerken van het beleid en meldt zich aan voor de Preview-versie, voert u het volgende:
   
-   ````powershell 
+   ```powershell 
    $policy = $currentpolicy.Definition | ConvertFrom-Json
    $features=[PSCustomObject]@{'Features'=@('OneTimePasscode')}; $policy.B2BManagementPolicy | Add-Member 'PreviewPolicy' $features -Force; $policy.B2BManagementPolicy
    $updatedPolicy = $policy | ConvertTo-Json -Depth 3
    Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-   ````
+   ```
 
 ## <a name="opting-out-of-the-preview-after-opting-in"></a>Wanneer u geen gebruik van de Preview-versie nadat in
 Het duurt een paar minuten voor de actie opt-out pas van kracht. Als u de Preview-versie uitschakelt, wordt alle gastgebruikers die een eenmalige wachtwoordcode hebt ingewisseld wordt pas weer aan te melden. U kunt de gastgebruiker verwijderen en kunt u de gebruiker om te kunnen aanmelden met een andere verificatiemethode uitnodigen.
@@ -144,17 +144,17 @@ Het duurt een paar minuten voor de actie opt-out pas van kracht. Als u de Previe
 ### <a name="to-turn-off-the-preview-using-powershell"></a>De Preview-versie met behulp van PowerShell uitschakelen
 De meest recente AzureADPreview-module installeren als u dit nog niet hebt (Zie [vereiste: Installeer de meest recente AzureADPreview-module](#prerequisite-install-the-latest-azureadpreview-module) hierboven). Controleer vervolgens of dat het beleid van de Preview-versie eenmalige wachtwoordcode momenteel door het uitvoeren van de volgende bestaat:
 
-````powershell 
+```powershell 
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 ($currentPolicy -ne $null) -and ($currentPolicy.Definition -like "*OneTimePasscode*")
-````
+```
 
 Als de uitvoer waar is, opt-out voor de Preview-versie door het uitvoeren van de volgende:
 
-````powershell 
+```powershell 
 $policy = $currentpolicy.Definition | ConvertFrom-Json
 $policy.B2BManagementPolicy.PreviewPolicy.Features = $policy.B2BManagementPolicy.PreviewPolicy.Features.Where({$_ -ne "OneTimePasscode"})
 $updatedPolicy = $policy | ConvertTo-Json -Depth 3
 Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-````
+```
 

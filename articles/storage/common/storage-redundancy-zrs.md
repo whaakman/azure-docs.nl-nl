@@ -8,40 +8,41 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 776feba239af5f2cafaf7229554960fab3417943
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868341"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093356"
 ---
-# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): toepassingen met hoge beschikbaarheid Azure Storage
+# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Ondersteuning en regionale beschikbaarheid
-ZRS ondersteunt momenteel de standard voor algemeen gebruik v2-accounttypen. Zie voor meer informatie over de storage-accounttypen [overzicht van Azure storage-account](storage-account-overview.md).
+ZRS ondersteunt momenteel de standard voor algemeen gebruik v2-accounttypen. Zie [Overzicht van Azure-opslagaccounts](storage-account-overview.md) voor meer informatie over de typen opslagaccounts.
 
 ZRS is beschikbaar voor blok-blobs, niet-schijf-pagina-blobs, bestanden, tabellen en wachtrijen.
 
 ZRS is algemeen beschikbaar in de volgende regio's:
 
+- Azië - zuidoost
+- Europa - west
+- Europa - noord
+- Frankrijk - centraal
+- Japan - oost
 - US - oost
 - US - oost 2
 - US - west 2
 - US - centraal
-- Europa - noord
-- Europa - west
-- Frankrijk - centraal
-- Azië - zuidoost
 
 Microsoft blijft ZRS in extra Azure-regio's inschakelen. Controleer de [Azure Service-Updates](https://azure.microsoft.com/updates/) pagina regelmatig voor informatie over nieuwe regio's.
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Wat gebeurt er wanneer een zone niet beschikbaar?
-Uw gegevens nog steeds beschikbaar, zelfs als een zone niet beschikbaar is. Microsoft raadt aan dat u blijven Volg de procedures voor afhandeling van tijdelijke fouten. Deze procedures omvatten de implementatie van beleid voor opnieuw proberen met exponentieel uitstel.
+Uw gegevens nog steeds beschikbaar voor zowel lezen en schrijven operations, zelfs als een zone niet beschikbaar. Microsoft raadt aan dat u blijven Volg de procedures voor afhandeling van tijdelijke fouten. Deze procedures omvatten de implementatie van beleid voor opnieuw proberen met exponentieel uitstel.
 
 Wanneer een zone niet beschikbaar is, zal Azure VPN-updates, zoals DNS repointing. Deze updates kunnen van invloed op uw toepassing als u toegang uw gegevens tot voordat de updates hebt voltooid.
 
-ZRS mag niet uw gegevens beveiligen tegen een regionaal noodgeval waar meerdere zones permanent worden beïnvloed. ZRS biedt flexibiliteit voor uw gegevens in plaats daarvan als deze tijdelijk niet beschikbaar wordt. Voor de bescherming tegen regionale noodsituaties, Microsoft adviseert geografisch redundante opslag (GRS). Zie voor meer informatie over GRS [geografisch redundante opslag (GRS): replicatie voor Azure Storage-overschrijdende](storage-redundancy-grs.md).
+ZRS mag niet uw gegevens beveiligen tegen een regionaal noodgeval waar meerdere zones permanent worden beïnvloed. ZRS biedt flexibiliteit voor uw gegevens in plaats daarvan als deze tijdelijk niet beschikbaar wordt. Voor de bescherming tegen regionale noodsituaties, Microsoft adviseert geografisch redundante opslag (GRS). Zie voor meer informatie over GRS [geografisch redundante opslag (GRS): Regio-overschrijdend-replicatie voor Azure Storage](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Converteren naar ZRS-replicatie
 Migreren naar of van LRS, GRS en RA-GRS is vrij eenvoudig. De Azure-portal of de Storage Resource Provider API gebruiken om uw accounttype redundantie te wijzigen. Azure repliceert uw gegevens vervolgens dienovereenkomstig. 
@@ -77,7 +78,7 @@ U kunt aanvragen livemigratie via de [ondersteuning van Azure portal](https://ms
 2. Voltooi de **basisbeginselen** op basis van gegevens over uw account. In de **Service** sectie, selecteer **Opslagaccountbeheer** en de resource die u wilt converteren naar ZRS. 
 3. Selecteer **Volgende**. 
 4. Geef de volgende waarden de **probleem** sectie: 
-    - **Ernst**: laat de standaardwaarde als-is.
+    - **Ernst**: Laat de standaardwaarde als-is.
     - **Probleemtype**: Selecteer **gegevensmigratie**.
     - **Categorie**: Selecteer **migreren naar ZRS binnen een regio**.
     - **Titel**: Typ een beschrijvende titel, bijvoorbeeld **ZRS-account migratie**.
@@ -98,9 +99,9 @@ ZRS Classic worden gegevens asynchroon gerepliceerd tussen datacenters binnen é
 
 ZRS Classic is alleen beschikbaar voor **blok-blobs** in algemeen gebruik V1 (GPv1) storage-accounts. Zie [Overzicht van Azure-opslagaccount](storage-account-overview.md) voor meer informatie over opslagaccounts.
 
-Handmatig ZRS-account om gegevens te migreren naar of van een LRS, ZRS Classic, GRS of RA-GRS-account, gebruikt u een van de volgende hulpprogramma's: AzCopy, Azure Storage Explorer, Azure PowerShell of Azure CLI. U kunt ook uw eigen migratieoplossing met een van de Azure Storage-clientbibliotheken bouwen.
+Handmatig ZRS-account om gegevens te migreren naar of van een LRS, ZRS Classic, GRS of RA-GRS-account, moet u een van de volgende hulpprogramma's gebruiken: AzCopy, Azure Storage Explorer, Azure PowerShell of Azure CLI. U kunt ook uw eigen migratieoplossing met een van de Azure Storage-clientbibliotheken bouwen.
 
 ## <a name="see-also"></a>Zie ook
 - [Azure Storage-replicatie](storage-redundancy.md)
-- [Lokaal redundante opslag (LRS): de gegevensredundantie lage kosten voor Azure Storage](storage-redundancy-lrs.md)
-- [Geografisch redundante opslag (GRS): regio-overschrijdend-replicatie voor Azure Storage](storage-redundancy-grs.md)
+- [Lokaal redundante opslag (LRS): Gegevensredundantie lage kosten voor Azure Storage](storage-redundancy-lrs.md)
+- [Geografisch redundante opslag (GRS): Regio-overschrijdend-replicatie voor Azure Storage](storage-redundancy-grs.md)

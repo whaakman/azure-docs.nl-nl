@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bdff930e00bfebe1d702e397a9dfc7de15aa3225
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262449"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156221"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Voorbeelden van toepassings- en servicemanifesten voor toepassingen met meerdere containers
 Hier volgen enkele voorbeelden van de toepassing en service manifesten voor een Service Fabric-toepassing met meerdere containers. Het doel van deze voorbeelden is om weer te geven welke instellingen zijn beschikbaar en het gebruik ervan. Deze toepassing en service manifesten zijn gebaseerd op de [voorbeeld van Windows Server 2016 Container](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifesten.
@@ -28,8 +28,8 @@ De volgende functies worden weergegeven:
 |Manifest|Functies|
 |---|---|
 |[Toepassingsmanifest](#application-manifest)| [omgevingsvariabelen overschrijven](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [toewijzing van de poort-naar-host configureren](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [verificatie containerregister configureren](service-fabric-get-started-containers.md#configure-container-registry-authentication), [resourcebeheer](service-fabric-resource-governance.md), [set-isolatiemodus](service-fabric-get-started-containers.md#configure-isolation-mode), [OS build-specifieke containerinstallatiekopieën opgeven](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
-|[FrontEndService servicemanifest](#frontendservice-service-manifest)| [Omgevingsvariabelen instellen](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [een eindpunt configureert](service-fabric-get-started-containers.md#configure-communication), opdrachten doorgeven aan de container, [een certificaat importeren in een container](service-fabric-securing-containers.md)| 
-|[BackEndService servicemanifest](#backendservice-service-manifest)|[Omgevingsvariabelen instellen](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [een eindpunt configureert](service-fabric-get-started-containers.md#configure-communication), [volume stuurprogramma configureren](service-fabric-containers-volume-logging-drivers.md)| 
+|[FrontEndService service manifest](#frontendservice-service-manifest)| [Omgevingsvariabelen instellen](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [een eindpunt configureert](service-fabric-get-started-containers.md#configure-communication), opdrachten doorgeven aan de container, [een certificaat importeren in een container](service-fabric-securing-containers.md)| 
+|[BackEndService service manifest](#backendservice-service-manifest)|[Omgevingsvariabelen instellen](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [een eindpunt configureert](service-fabric-get-started-containers.md#configure-communication), [volume stuurprogramma configureren](service-fabric-containers-volume-logging-drivers.md)| 
 
 Zie [manifest elementen van de toepassing](#application-manifest-elements), [FrontEndService service manifest elementen](#frontendservice-service-manifest-elements), en [BackEndService service manifest elementen](#backendservice-service-manifest-elements) voor meer informatie over specifieke XML-elementen.
 
@@ -164,7 +164,7 @@ Zie [manifest elementen van de toepassing](#application-manifest-elements), [Fro
 </ApplicationManifest>
 ```
 
-## <a name="frontendservice-service-manifest"></a>FrontEndService servicemanifest
+## <a name="frontendservice-service-manifest"></a>FrontEndService service manifest
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -195,7 +195,7 @@ Zie [manifest elementen van de toepassing](#application-manifest-elements), [Fro
     </EnvironmentVariables>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
   
@@ -214,7 +214,7 @@ Zie [manifest elementen van de toepassing](#application-manifest-elements), [Fro
 </ServiceManifest>
 ```
 
-## <a name="backendservice-service-manifest"></a>BackEndService servicemanifest
+## <a name="backendservice-service-manifest"></a>BackEndService service manifest
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -246,7 +246,7 @@ Zie [manifest elementen van de toepassing](#application-manifest-elements), [Fro
     </EnvironmentVariables>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -264,7 +264,7 @@ Zie [manifest elementen van de toepassing](#application-manifest-elements), [Fro
 ```
 
 ## <a name="application-manifest-elements"></a>Manifest elementen van de toepassing
-### <a name="applicationmanifest-element"></a>ApplicationManifest-Element
+### <a name="applicationmanifest-element"></a>ApplicationManifest Element
 Declaratief beschrijving van het toepassingstype en versie. Een of meer servicemanifesten van de bijbehorende services wordt voor het opstellen van een toepassingstype verwezen. Configuratie-instellingen van de bijbehorende services kunnen worden genegeerd met geparameteriseerde toepassingsinstellingen. Standaard services, servicesjablonen, beveiligings-principals, beleidsregels, diagnostische gegevens over configuratie en certificaten kan ook worden gedefinieerd op het toepassingsniveau van de. Zie voor meer informatie, [ApplicationManifest-Element](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
 
 ### <a name="parameters-element"></a>Parameters-Element
@@ -273,22 +273,22 @@ Verklaart de parameters die worden gebruikt in het manifest van deze toepassing.
 ### <a name="parameter-element"></a>Parameter-Element
 Een parameter van de toepassing moet worden gebruikt in dit manifest. De waarde van parameter kan worden gewijzigd tijdens instantiëring van toepassing, of, als er geen waarde is opgegeven de standaardwaarde wordt gebruikt. Zie voor meer informatie, [Parameter-Element](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)
 
-### <a name="servicemanifestimport-element"></a>ServiceManifestImport-Element
+### <a name="servicemanifestimport-element"></a>ServiceManifestImport Element
 Hiermee importeert u een servicemanifest die zijn gemaakt door de ontwikkelaar van de service. Een servicemanifest moet voor elke samenstellende service in de toepassing worden geïmporteerd. Configuratie overschreven en beleid kunnen worden gedeclareerd voor het servicemanifest. Zie voor meer informatie, [ServiceManifestImport-Element](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
 
-### <a name="servicemanifestref-element"></a>ServiceManifestRef-Element
+### <a name="servicemanifestref-element"></a>ServiceManifestRef Element
 Hiermee importeert u het servicemanifest met verwijzing. Op dit moment moet het manifestbestand van de service (ServiceManifest.xml) aanwezig zijn in de build-pakket. Zie voor meer informatie, [ServiceManifestRef-Element](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="policies-element"></a>Beleid-Element
 Beschrijving van het beleid (eindpunt binding, delen, run as-pakket en beveiliging toegang) moet worden toegepast op het geïmporteerde servicemanifest. Zie voor meer informatie, [beleid-Element](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy-Element
+### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy Element
 Hiermee definieert u de resource governance-beleid dat wordt toegepast op het niveau van de hele service-pakket. Zie voor meer informatie, [ServicePackageResourceGovernancePolicy-Element](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
 
-### <a name="resourcegovernancepolicy-element"></a>ResourceGovernancePolicy-Element
+### <a name="resourcegovernancepolicy-element"></a>ResourceGovernancePolicy Element
 Hiermee geeft u voor een codepakket. Zie voor meer informatie, [ResourceGovernancePolicy-Element](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
 
-### <a name="containerhostpolicies-element"></a>ContainerHostPolicies-Element
+### <a name="containerhostpolicies-element"></a>ContainerHostPolicies Element
 Hiermee geeft u een beleid voor het activeren van de hosts van de container. Zie voor meer informatie, [ContainerHostPolicies-Element](service-fabric-service-model-schema-elements.md#ContainerHostPoliciesElementContainerHostPoliciesTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
 
 ### <a name="repositorycredentials-element"></a>RepositoryCredentials-Element
@@ -331,7 +331,7 @@ Hiermee definieert u een stateless service. Zie voor meer informatie, [Stateless
 
 
 ## <a name="frontendservice-service-manifest-elements"></a>FrontEndService service manifest-elementen
-### <a name="servicemanifest-element"></a>ServiceManifest-Element
+### <a name="servicemanifest-element"></a>ServiceManifest Element
 Declaratief beschrijving van het servicetype en de versie. Geeft de onafhankelijk kan worden geüpgraded code, configuratie en gegevens-pakketten die samen een servicepakket ter ondersteuning van een of meer servicetypen opstellen. Resources, instellingen voor diagnostische gegevens en servicemetagegevens van de, zoals servicetype, status-eigenschappen en taakverdeling metrische gegevens ook worden opgegeven. Zie voor meer informatie, [ServiceManifest-Element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
 ### <a name="servicetypes-element"></a>ServiceTypes-Element
@@ -343,7 +343,7 @@ Beschrijft een type stateless service. Zie voor meer informatie, [StatelessServi
 ### <a name="codepackage-element"></a>CodePackage-Element
 Beschrijft een codepakket die ondersteuning biedt voor een gedefinieerde servicetype. Wanneer een service wordt gestart op basis van een van deze servicetypen, worden alle pakketten gedefinieerd in deze manifest geactiveerd door het uitvoeren van hun toegangspunten. De resulterende processen worden verwacht voor het registreren van de typen ondersteunde service tijdens runtime. Wanneer er meerdere pakketten, worden alle geactiveerd wanneer er wordt gezocht naar een van de gedeclareerde servicetypen. Zie voor meer informatie, [CodePackage-Element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="entrypoint-element"></a>EntryPoint-Element
+### <a name="entrypoint-element"></a>EntryPoint Element
 Het uitvoerbare bestand opgegeven door EntryPoint is meestal de ServiceHost langlopende. De aanwezigheid van een toegangspunt voor de afzonderlijke instellingen zo voorkomt u dat de ServiceHost met hoge bevoegdheden voor langere tijd worden uitgevoerd. Het uitvoerbare bestand opgegeven door EntryPoint wordt uitgevoerd nadat de SetupEntryPoint is afgesloten. De resulterende proces wordt bewaakt en opnieuw opgestart (begin opnieuw met SetupEntryPoint) als dit ooit wordt beëindigd of vastloopt. Zie voor meer informatie, [EntryPoint-Element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="containerhost-element"></a>ContainerHost-Element
@@ -358,7 +358,7 @@ Omgevingsvariabelen doorgeven aan de container of exe-bestand.  Zie voor meer in
 ### <a name="environmentvariable-element"></a>EnvironmentVariable-Element
 Omgevingsvariabele. Zie voor meer informatie, [EnvironmentVariable-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
-### <a name="configpackage-element"></a>ConfigPackage-Element
+### <a name="configpackage-element"></a>ConfigPackage Element
 Declareert u een map met de naam van het kenmerk Name, die een Settings.xml bestand bevat. Dit bestand bevat secties van de gebruiker gedefinieerde, sleutel / waarde-paar instellingen die het proces tijdens de uitvoering lezen kan. Tijdens een upgrade als alleen de ConfigPackage-versie is gewijzigd, klikt u vervolgens het proces dat wordt uitgevoerd is niet opnieuw opgestart. In plaats daarvan een retouraanroep hoogte gebracht van het proces dat configuratie-instellingen hebt gewijzigd, zodat ze kunnen dynamisch worden geladen. Zie voor meer informatie, [ConfigPackage-Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
 ### <a name="datapackage-element"></a>Gegevenspakket-Element
@@ -374,8 +374,8 @@ Hiermee definieert u eindpunten voor de service. Zie voor meer informatie, [eind
 Zie voor meer informatie, [Endpoint-Element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
 
-## <a name="backendservice-service-manifest-elements"></a>BackEndService service manifest-elementen
-### <a name="servicemanifest-element"></a>ServiceManifest-Element
+## <a name="backendservice-service-manifest-elements"></a>BackEndService service manifest elements
+### <a name="servicemanifest-element"></a>ServiceManifest Element
 Declaratief beschrijving van het servicetype en de versie. Geeft de onafhankelijk kan worden geüpgraded code, configuratie en gegevens-pakketten die samen een servicepakket ter ondersteuning van een of meer servicetypen opstellen. Resources, instellingen voor diagnostische gegevens en servicemetagegevens van de, zoals servicetype, status-eigenschappen en taakverdeling metrische gegevens ook worden opgegeven. Zie voor meer informatie, [ServiceManifest-Element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
 ### <a name="servicetypes-element"></a>ServiceTypes-Element
@@ -387,7 +387,7 @@ Beschrijft een type stateless service. Zie voor meer informatie, [StatelessServi
 ### <a name="codepackage-element"></a>CodePackage-Element
 Beschrijft een codepakket die ondersteuning biedt voor een gedefinieerde servicetype. Wanneer een service wordt gestart op basis van een van deze servicetypen, worden alle pakketten gedefinieerd in deze manifest geactiveerd door het uitvoeren van hun toegangspunten. De resulterende processen worden verwacht voor het registreren van de typen ondersteunde service tijdens runtime. Wanneer er meerdere pakketten, worden alle geactiveerd wanneer er wordt gezocht naar een van de gedeclareerde servicetypen. Zie voor meer informatie, [CodePackage-Element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="entrypoint-element"></a>EntryPoint-Element
+### <a name="entrypoint-element"></a>EntryPoint Element
 Het uitvoerbare bestand opgegeven door EntryPoint is meestal de ServiceHost langlopende. De aanwezigheid van een toegangspunt voor de afzonderlijke instellingen zo voorkomt u dat de ServiceHost met hoge bevoegdheden voor langere tijd worden uitgevoerd. Het uitvoerbare bestand opgegeven door EntryPoint wordt uitgevoerd nadat de SetupEntryPoint is afgesloten. De resulterende proces wordt bewaakt en opnieuw opgestart (begin opnieuw met SetupEntryPoint) als dit ooit wordt beëindigd of vastloopt. Zie voor meer informatie, [EntryPoint-Element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="containerhost-element"></a>ContainerHost-Element
@@ -405,7 +405,7 @@ Omgevingsvariabelen doorgeven aan de container of exe-bestand.  Zie voor meer in
 ### <a name="environmentvariable-element"></a>EnvironmentVariable-Element
 Omgevingsvariabele. Zie voor meer informatie, [EnvironmentVariable-Element](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
-### <a name="configpackage-element"></a>ConfigPackage-Element
+### <a name="configpackage-element"></a>ConfigPackage Element
 Declareert u een map met de naam van het kenmerk Name, die een Settings.xml bestand bevat. Dit bestand bevat secties van de gebruiker gedefinieerde, sleutel / waarde-paar instellingen die het proces tijdens de uitvoering lezen kan. Tijdens een upgrade als alleen de ConfigPackage-versie is gewijzigd, klikt u vervolgens het proces dat wordt uitgevoerd is niet opnieuw opgestart. In plaats daarvan een retouraanroep hoogte gebracht van het proces dat configuratie-instellingen hebt gewijzigd, zodat ze kunnen dynamisch worden geladen. Zie voor meer informatie, [ConfigPackage-Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
 ### <a name="resources-element"></a>Bronnen-Element

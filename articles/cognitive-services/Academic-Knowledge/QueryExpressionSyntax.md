@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c130c6cd5fcb5191195712f570db66408734200a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901274"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150866"
 ---
 # <a name="query-expression-syntax"></a>De syntaxis van de query-expressie
 
@@ -25,40 +25,40 @@ U kunt ook uw eigen query-expressies maken en ze gebruiken in een **evalueren** 
 
 Elke entiteit-kenmerk dat kan worden opgenomen in een query-expressie heeft een type specifieke gegevens en een set van mogelijke query-operators. De set kenmerken en de ondersteunde operators voor elk kenmerk is opgegeven in [Entiteitkenmerken](EntityAttributes.md). Een query met één waarde moet het kenmerk voor de ondersteuning van de *gelijk is aan* bewerking. Een query voorvoegsel moet het kenmerk voor de ondersteuning van de *StartsWith* bewerking. Numerieke bereik-query's moet het kenmerk voor de ondersteuning van de *IsBetween* bewerking.
 
-Sommige van de entiteitsgegevens worden opgeslagen als samengestelde kenmerken, zoals aangegeven door een punt '.' naam van het kenmerk. Bijvoorbeeld, wordt auteur/relatie informatie weergegeven als een samengesteld kenmerk. Deze 4 onderdelen bevat: AuN, AuId, AfN, AfId. Deze onderdelen zijn verschillende soorten gegevens die een waarde van het kenmerk één entiteit vormen.
+Sommige van de entiteitsgegevens worden opgeslagen als samengestelde kenmerken, zoals aangegeven door een punt '.' naam van het kenmerk. Bijvoorbeeld, wordt auteur/relatie informatie weergegeven als een samengesteld kenmerk. 4-onderdelen bevat: AuN, AuId, AfN, AfId. Deze onderdelen zijn verschillende soorten gegevens die een waarde van het kenmerk één entiteit vormen.
 
 
-**Tekenreeks-kenmerk: Één waarde** (met inbegrip van overeenkomsten op basis van synoniemen)  
+**Tekenreeks-kenmerk: Eén waarde** (met inbegrip van overeenkomsten op basis van synoniemen)  
 TI = 'indexering door latente semantische analyse'  
 Samengestelde (AA. AuN = 'gerechtelijke procedure dumais')
 
-**Tekenreeks-kenmerk: Exact één waarde** (komt overeen met alleen de canonieke waarden)  
+**Tekenreeks-kenmerk: Exacte één waarde** (komt overeen met alleen de canonieke waarden)  
 TI == 'indexering door latente semantische analyse'  
 Samengestelde (AA. AuN == 'susan t dumais')
      
-**Tekenreekskenmerk: Voorvoegsel**   
+**Tekenreeks-kenmerk: Waarde van het aanpassingsvoorvoegsel**   
 TI = 'indexering door latente seman'...  
 Samengestelde (AA. AuN =... 'gerechtelijke procedure du')
 
 **Numerieke kenmerk: Één waarde**  
-Y = 2010
+Y=2010
  
 **Numerieke kenmerk: Waarde van het bereik**  
-Y &GT; 2005  
-Y &GT; = 2005  
-Y &LT; 2010  
+Y>2005  
+Y>=2005  
+Y<2010  
 Y &LT; = 2010  
 Y =\[2010, 2012\) (alleen links grenswaarde bevat: 2010, 2011)  
 Y =\[2010, 2012\] (beide waarden bevat: 2010, 2011, 2012)
  
-**Numerieke kenmerk: Waarde van het Aanpassingsvoorvoegsel**  
+**Numerieke kenmerk: Waarde van het aanpassingsvoorvoegsel**  
 Y = '19'... (een numerieke waarde die met 19 begint) 
  
 **Datumkenmerk: Één waarde**  
-D = "2010-02-04'
+D='2010-02-04'
 
-**Datumkenmerk: Waarde voor het bereik**  
-D &GT; "2010-02-03'  
+**Datumkenmerk: Waarde van het bereik**  
+D>'2010-02-03'  
 D = ["2010-02-03', ' 2010-02-05']
 
 **En/of query's:**  
@@ -85,7 +85,7 @@ And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
 <br>In deze versie omdat Composite() wordt toegepast op de auteur en de relatie afzonderlijk voordat And(), krijgen we alle documenten waarbij een van de auteurs 'Mike Smith' en een van de auteurs connecties 'Harvard' is. Dit klinkt die vergelijkbaar is met het vorige voorbeeld, maar het is niet hetzelfde te doen.
 
-In het algemeen, bekijk het volgende voorbeeld: Er is een samengestelde kenmerk C dat bestaat uit twee onderdelen A en B. Een entiteit kan meerdere waarden hebben voor C. Dit zijn onze entiteiten:
+In het algemeen, houd rekening met het volgende voorbeeld: We hebben een samengestelde kenmerk C dat bestaat uit twee onderdelen A en B. Een entiteit kan meerdere waarden hebben voor C. Dit zijn onze entiteiten:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}

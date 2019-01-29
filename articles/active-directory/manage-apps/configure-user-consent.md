@@ -5,18 +5,18 @@ services: active-directory
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 852188714a55fe461d0788e9f1926bcbf3dccc5e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8f2d1580cfbf23bd54498243a8bfac43c32973ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472701"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183013"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>De manier waarop eindgebruikers toestemming voor een toepassing in Azure Active Directory geven configureren
 Informatie over het configureren van de manier waarop gebruikers toestemming voor machtigingen van de toepassing geven. Verleent toestemming van een beheerder kunt u de gebruikerservaring vereenvoudigen. Dit artikel bevat de verschillende manieren waarop die u toestemming van de gebruiker kunt configureren. De methoden van toepassing op alle gebruikers in uw tenant Azure Active Directory (Azure AD). 

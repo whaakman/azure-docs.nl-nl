@@ -6,22 +6,22 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 177fe9da8bbe821a69eae02d89a225e5d4009331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 344b26b16f74cd44982e3c93fa69295792daa9a0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900475"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190624"
 ---
 # <a name="affiliation-entity"></a>Relatie-entiteit
 
 <sub> * De volgende kenmerken zijn specifiek voor de relatie-entiteit. (Ty = '5') </sub>
 
-Naam    |Beschrijving                            |Type       | Bewerkingen
+Name    |Description                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Entiteits-id                              |Int64      |Is gelijk aan
 AfN     |Relatie genormaliseerde naam        |Reeks     |Is gelijk aan
@@ -31,6 +31,6 @@ ECC     |Relatie totale geschatte citaat tellen |Int32      |geen
 
 ## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##
 
-Naam    | Beschrijving               
+Name    | Description               
 --------|---------------------------    
 Pc      |Lidmaatschap van papier tellen

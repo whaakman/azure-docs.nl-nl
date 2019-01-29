@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 148a657b1a5db5b1b33c94e27d695e7c24dfb265
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 98638c2fbd3f60ec0db009b52507eadcadd87ab4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214638"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172320"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -71,7 +71,7 @@ Hieronder vindt u de eigenschappen van de gebruiker die u gebruiken kunt om een 
 | Properties | Toegestane waarden | Gebruik |
 | --- | --- | --- |
 | accountEnabled |waar onwaar |user.accountEnabled - eq true |
-| dirSyncEnabled |waar onwaar |user.dirSyncEnabled - eq true |
+| dirSyncEnabled |waar onwaar |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Eigenschappen van het typetekenreeks
 
@@ -79,30 +79,30 @@ Hieronder vindt u de eigenschappen van de gebruiker die u gebruiken kunt om een 
 | --- | --- | --- |
 | city |Een tekenreekswaarde of *null* |(user.city - eq "waarde") |
 | Land/regio |Een tekenreekswaarde of *null* |(zoals user.country - eq "waarde") |
-| Bedrijfsnaam | Een tekenreekswaarde of *null* | (user.companyName - eq "waarde") |
-| department |Een tekenreekswaarde of *null* |(user.department - eq "waarde") |
-| displayName |een string-waarde |(user.displayName - eq "waarde") |
-| werknemer-id |een string-waarde |(user.employeeId - eq "waarde")<br>(user.employeeId - ne *null*) |
-| facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber - eq "waarde") |
-| givenName |Een tekenreekswaarde of *null* |(user.givenName - eq "waarde") |
-| Functie |Een tekenreekswaarde of *null* |(user.jobTitle - eq "waarde") |
+| companyName | Een tekenreekswaarde of *null* | (user.companyName -eq "value") |
+| department |Een tekenreekswaarde of *null* |(user.department -eq "value") |
+| displayName |een string-waarde |(user.displayName -eq "value") |
+| werknemer-id |een string-waarde |(user.employeeId -eq "value")<br>(user.employeeId - ne *null*) |
+| facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Een tekenreekswaarde of *null* |(user.givenName -eq "value") |
+| Functie |Een tekenreekswaarde of *null* |(user.jobTitle -eq "value") |
 | mail |Een tekenreekswaarde of *null* (SMTP-adres van de gebruiker) |(user.mail - eq "waarde") |
-| mailNickName |Een string-waarde (e-mailalias van de gebruiker) |(user.mailNickName - eq "waarde") |
+| mailNickName |Een string-waarde (e-mailalias van de gebruiker) |(user.mailNickName -eq "value") |
 | mobiele |Een tekenreekswaarde of *null* |(user.mobile - eq "waarde") |
-| object-id |GUID van het gebruikersobject |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | On-premises beveiligings-id (SID) voor gebruikers die zijn gesynchroniseerd van on-premises naar de cloud. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
-| passwordPolicies |Geen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Een tekenreekswaarde of *null* |(user.physicalDeliveryOfficeName - eq "waarde") |
+| object-id |GUID van het gebruikersobject |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | On-premises beveiligings-id (SID) voor gebruikers die zijn gesynchroniseerd van on-premises naar de cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| passwordPolicies |Geen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
+| physicalDeliveryOfficeName |Een tekenreekswaarde of *null* |(user.physicalDeliveryOfficeName -eq "value") |
 | Postcode |Een tekenreekswaarde of *null* |(user.postalCode - eq "waarde") |
-| preferredLanguage |ISO 639-1-code |(user.preferredLanguage - eq "en-US") |
-| sipProxyAddress |Een tekenreekswaarde of *null* |(user.sipProxyAddress - eq "waarde") |
+| preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
+| sipProxyAddress |Een tekenreekswaarde of *null* |(user.sipProxyAddress -eq "value") |
 | state |Een tekenreekswaarde of *null* |(user.state - eq "waarde") |
-| streetAddress |Een tekenreekswaarde of *null* |(user.streetAddress - eq "waarde") |
+| streetAddress |Een tekenreekswaarde of *null* |(user.streetAddress -eq "value") |
 | Achternaam |Een tekenreekswaarde of *null* |(user.surname - eq "waarde") |
-| telephoneNumber |Een tekenreekswaarde of *null* |(user.telephoneNumber - eq "waarde") |
-| usageLocation |Twee letters landcode |(user.usageLocation - eq "US") |
+| telephoneNumber |Een tekenreekswaarde of *null* |(user.telephoneNumber -eq "value") |
+| usageLocation |Twee letters landcode |(user.usageLocation -eq "US") |
 | userPrincipalName |een string-waarde |(user.userPrincipalName -eq "alias@domain") |
-| UserType |lid Gast *null* |(user.userType - eq "Lid") |
+| userType |lid Gast *null* |(user.userType - eq "Lid") |
 
 ### <a name="properties-of-type-string-collection"></a>Eigenschappen van het type tekenreeks-verzameling
 
@@ -233,7 +233,7 @@ Eigenschappen van meerdere waarden zijn verzamelingen van objecten van hetzelfde
 
 | Properties | Waarden | Gebruik |
 | --- | --- | --- |
-| gebruikt u assignedPlans | Elk object in de verzameling beschrijft de tekenreekseigenschappen van de volgende: capabilityStatus, service, servicePlanId |user.assignedPlans-een (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- en assignedPlan.capabilityStatus - eq "Ingeschakeld") |
+| assignedPlans | Elk object in de verzameling beschrijft de tekenreekseigenschappen van de volgende: capabilityStatus, service, servicePlanId |user.assignedPlans-een (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- en assignedPlan.capabilityStatus - eq "Ingeschakeld") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses-een (\_ -bevat "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Met behulp van de - een en -alle operators
@@ -346,19 +346,19 @@ De volgende apparaatkenmerken kunnen worden gebruikt.
  Apparaatkenmerk  | Waarden | Voorbeeld
  ----- | ----- | ----------------
  accountEnabled | waar onwaar | (device.accountEnabled - eq true)
- displayName | een string-waarde |(device.displayName - eq "Rob Iphone")
+ displayName | een string-waarde |(device.displayName -eq "Rob Iphone”)
  deviceOSType | een string-waarde | (of device.deviceOSType - eq "iPad")- of (of device.deviceOSType - eq "iPhone")
  deviceOSVersion | een string-waarde | (device.deviceOSVersion - eq "9.1")
  deviceCategory | een geldige naam van de apparaatcategorie | (device.deviceCategory - eq "BYOD")
- deviceManufacturer | een string-waarde | (device.deviceManufacturer - eq "Samsung")
- deviceModel | een string-waarde | (device.deviceModel - eq "iPad lucht")
+ deviceManufacturer | een string-waarde | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | een string-waarde | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Persoonlijk, bedrijf, onbekend | (device.deviceOwnership - eq 'Bedrijf')
- Domeinnaam | een string-waarde | (device.domainName - eq 'contoso.com')
- enrollmentProfileName | Naam van Apple-Inschrijvingsprofiel voor apparaten of Windows Autopilot-profiel | (device.enrollmentProfileName - eq "DEP iPhones")
- isRooted | waar onwaar | (device.isRooted - eq true)
+ domainName | een string-waarde | (device.domainName - eq 'contoso.com')
+ enrollmentProfileName | Naam van Apple-Inschrijvingsprofiel voor apparaten of Windows Autopilot-profiel | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | waar onwaar | (device.isRooted -eq true)
  managementType | MDM (voor mobiele apparaten)<br>PC (voor computers die worden beheerd door de Intune-PC-agent) | (device.managementType - eq 'MDM')
  deviceId | een geldige Azure AD-apparaat-ID | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- object-id | een geldige Azure AD-object-ID |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ object-id | een geldige Azure AD-object-ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | een willekeurige tekenreeks die overeenkomt met de eigenschap voor Intune voor apparaten van de moderne werkplek tagging | (device.systemLabels-bevat "M365Managed")
 
 > [!Note]  

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 36496dd80111689b510bbbd27edc35a454d230a3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f865d08f742ebd1072b80a95960609e6ae5f4a82
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448289"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098405"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-versieprofielen met Go in Azure Stack gebruiken
 
@@ -33,9 +33,9 @@ Een profiel is een combinatie van verschillende resourcetypen met verschillende 
 
 In de Go SDK profielen zijn beschikbaar onder het pad profielen met de versie in de **jjjj-MM-DD** indeling. Op dit moment, is de meest recente versie van de API van Azure Stack-profiel **2017-03-09**. Voor het importeren van een bepaalde service van een profiel, de bijbehorende module te importeren uit het profiel. Bijvoorbeeld, om te importeren **Compute** service **2017-03-09** profiel, gebruikt u de volgende code:
 
-````go
+```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
-````
+```
 
 ## <a name="install-azure-sdk-for-go"></a>Azure SDK voor Go installeren
 

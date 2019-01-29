@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024787"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093145"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Netwerkmodi voor service Fabric-containers
 
@@ -78,7 +78,7 @@ Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt
             ],
     ```
     
-2. Instellen van de netwerk-profiel-sectie van de virtuele-Machineschaalset resource. Hiermee kunt meerdere IP-adressen worden geconfigureerd op elk knooppunt van het cluster. Het volgende voorbeeld stelt u vijf IP-adressen per knooppunt voor een Windows/Linux Service Fabric-cluster. U kunt vijf exemplaren van de service luistert op de poort op elk knooppunt hebben. Als u wilt de vijf IP-adressen worden toegankelijk is vanaf de Azure Load Balancer, inschrijven voor de vijf IP-adressen in de Azure Load Balancer-back-end-adresgroep zoals hieronder wordt weergegeven.  U ziet ook moet u de variabelen toevoegen aan de bovenkant van de sjabloon in de sectie met variabelen.
+2. Instellen van de netwerk-profiel-sectie van de virtuele-Machineschaalset resource. Hiermee kunt meerdere IP-adressen worden geconfigureerd op elk knooppunt van het cluster. Het volgende voorbeeld stelt u vijf IP-adressen per knooppunt voor een Windows/Linux Service Fabric-cluster. U kunt vijf exemplaren van de service luistert op de poort op elk knooppunt hebben. Als u wilt de vijf IP-adressen worden toegankelijk is vanaf de Azure Load Balancer, inschrijven voor de vijf IP-adressen in de Azure Load Balancer-back-end-adresgroep zoals hieronder wordt weergegeven.  U moet ook de variabelen toevoegen aan de bovenkant van de sjabloon in de sectie met variabelen.
 
     Deze sectie toevoegen aan variabelen:
 
@@ -264,7 +264,7 @@ Wanneer een containerservice opnieuw wordt opgestart of naar een ander knooppunt
    </Resources>
    ```
    
-6. Voor Windows, een virtuele machine opnieuw opstarten zorgt ervoor dat het open netwerk opnieuw worden gemaakt. Dit is om een onderliggende probleem in de netwerkstack te verhelpen. Standaard is het netwerk opnieuw te maken. Als dit gedrag worden uitgeschakeld moet, kan de volgende configuratie worden gebruikt gevolgd door een upgrade van een configuratie.
+6. Voor Windows, een virtuele machine opnieuw opstarten zorgt ervoor dat het open netwerk opnieuw worden gemaakt. Dit is om een onderliggende probleem in de netwerkstack te verhelpen. Het standaardgedrag is om het netwerk opnieuw te maken. Als dit probleem worden uitgeschakeld moet, kan de volgende configuratie worden gebruikt gevolgd door een upgrade van een configuratie.
 
 ```json
 "fabricSettings": [

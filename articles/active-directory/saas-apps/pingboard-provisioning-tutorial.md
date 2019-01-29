@@ -8,7 +8,7 @@ writer: asmalser-msft
 manager: sakula
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4daf52318fc707de2ae365a6c12b676226ef7fcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348953"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188402"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Zelfstudie: Pingboard configureren voor het automatisch inrichten van gebruikers
 
 Het doel van deze zelfstudie is om u de stappen die u moet volgen om in te schakelen van automatische inrichting en ongedaan maken van gebruikersaccounts via Azure Active Directory (Azure AD) in te richten Pingboard weer te geven.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
@@ -99,7 +99,7 @@ De initiële synchronisatie duurt langer dan het volgende wordt gesynchroniseerd
 
 Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapporteren over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

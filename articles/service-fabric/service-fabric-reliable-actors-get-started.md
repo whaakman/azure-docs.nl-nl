@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054746"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093142"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Aan de slag met Reliable Actors
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ De oplossing bevat drie projecten:
 
 * **De interfaceproject (HelloWorld.Interfaces)**. Dit project bevat de interfacedefinitie voor de actor. Actor-interfaces kunnen worden gedefinieerd in een project met een willekeurige naam.  De interface definieert het actorcontract dat wordt gedeeld met de actorimplementatie en de clients die de actor aanroepen.  Omdat afhankelijk van het client-projecten zijn, zinvol het doorgaans om te definiëren in een assembly die is gescheiden van de actorimplementatie.
 
-* **De actor-service-project (HelloWorld)**. Dit project definieert de Service Fabric-service die u voor het hosten van de actor. Deze bevat de implementatie van de actor *HellowWorld.cs*. De actorimplementatie van een is een klasse die is afgeleid van het basistype `Actor` en implementeert de interfaces die zijn gedefinieerd in de *MyActor.Interfaces* project. Een actor-klasse moet ook implementeren om een constructor die accepteert een `ActorService` exemplaar en een `ActorId` en geeft deze door aan de base `Actor` klasse.
+* **De actor-service-project (HelloWorld)**. Dit project definieert de Service Fabric-service die u voor het hosten van de actor. Deze bevat de implementatie van de actor *HelloWorld.cs*. De actorimplementatie van een is een klasse die is afgeleid van het basistype `Actor` en implementeert de interfaces die zijn gedefinieerd in de *MyActor.Interfaces* project. Een actor-klasse moet ook implementeren om een constructor die accepteert een `ActorService` exemplaar en een `ActorId` en geeft deze door aan de base `Actor` klasse.
     
     Dit project bevat ook *Program.cs*, waardoor actor klassen wordt geregistreerd met de Service Fabric-runtime via `ActorRuntime.RegisterActorAsync<T>()`. De `HelloWorld` klasse is al geregistreerd. De aanvullende actor implementaties die zijn toegevoegd aan het project moeten ook worden geregistreerd de `Main()` methode.
 

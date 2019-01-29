@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064828"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104640"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Herstellen van back-ups in Azure Service Fabric
 
@@ -229,7 +229,7 @@ De voortgang van de aanvraag voor herstellen in de volgende volgorde:
     ```
     
 3. **Succes**, **fout**, of **time-out**: Een aangevraagde terugzetbewerking kan worden uitgevoerd in een van de volgende statussen. Elke Amerikaanse staat zijn de gegevens van de volgende betekenis en antwoord:
-    - **Succes**: Een _succes_ terugzetten status geeft de status van een partitie heeft gekregen. De partitie-rapporten _RestoreEpoch_ en _RestordLSN_ Staten samen met de tijd in UTC.
+    - **Succes**: Een _succes_ terugzetten status geeft de status van een partitie heeft gekregen. De partitie-rapporten _RestoredEpoch_ en _RestoredLSN_ Staten samen met de tijd in UTC.
 
         ```
         RestoreState  : Success

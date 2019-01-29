@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727712"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095767"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Back-up en herstellen van Reliable Services en Reliable Actors
 Azure Service Fabric is een hoge beschikbaarheid-platform die de status over meerdere knooppunten voor deze hoge beschikbaarheid zijn gerepliceerd.  Dus zelfs als één knooppunt in het cluster is mislukt, blijven de services beschikbaar. Hoewel deze ingebouwde redundantie die wordt geleverd door het platform mogelijk voldoende zijn voor sommige, in bepaalde gevallen is het wenselijk zijn voor de service naar de back-ups (naar een externe opslag).
@@ -44,7 +44,7 @@ Een service wilt bijvoorbeeld een back-up van gegevens om u te beschermen tegen 
 De functie back-up/herstel kunnen services die zijn gebouwd op de betrouwbare Services-API maken en herstellen van back-ups. De back-API die is geleverd door het platform kunt back-upbestand(en) van de status van de servicepartitie van een, zonder blokkering lees- of schrijfbewerkingen. Het terugzetten van API's maken van de servicepartitie van een staat worden hersteld vanuit een gekozen back-up.
 
 ## <a name="types-of-backup"></a>Typen back-up
-Er zijn twee opties voor back-up: volledige en incrementele.
+Er zijn twee opties voor back-up: Volledige en incrementele.
 Een volledige back-up is een back-up waarin alle gegevens die nodig zijn om de status van de replica opnieuw te maken: controlepunten en alle records in logboek registreren.
 Omdat dit de controlepunten en het logboek heeft, kan een volledige back-up kan worden hersteld op zichzelf.
 
@@ -227,7 +227,7 @@ Nadat incrementele back-up is ingeschakeld, een incrementele back-up maken voor 
   - De replica heeft nooit genomen voor een volledige back-up omdat deze primair zijn geworden.
   - Enkele van de records in logboek registreren zijn afgekapt sinds de laatste back-up is gemaakt.
 
-Als incrementele back-up is ingeschakeld, `KvsActorStateProvider` circulaire buffer niet gebruikt voor het beheren van de records in logboek registreren en periodiek worden afgekapt. Als er geen back-up is gemaakt door gebruiker gedurende een periode van 45 minuten, wordt de records in logboek registreren in het systeem automatisch afgekapt. Dit interval kan worden geconfigureerd door op te geven `logTrunctationIntervalInMinutes` in `KvsActorStateProvider` constructor (net als bij het inschakelen van incrementele back-up). De records in logboek registreren kunnen ook ophalen afgekapt als primaire replica moet een andere replica kunt maken met alle bijbehorende gegevens te verzenden.
+Als incrementele back-up is ingeschakeld, `KvsActorStateProvider` circulaire buffer niet gebruikt voor het beheren van de records in logboek registreren en periodiek worden afgekapt. Als er geen back-up is gemaakt door gebruiker gedurende een periode van 45 minuten, wordt de records in logboek registreren in het systeem automatisch afgekapt. Dit interval kan worden geconfigureerd door op te geven `logTruncationIntervalInMinutes` in `KvsActorStateProvider` constructor (net als bij het inschakelen van incrementele back-up). De records in logboek registreren kunnen ook ophalen afgekapt als primaire replica moet een andere replica kunt maken met alle bijbehorende gegevens te verzenden.
 
 Bij het uitvoeren van terugzetten vanuit een back-keten, vergelijkbaar met Reliable Services de BackupFolderPath moet bevatten submappen met een submap met de volledige back-up en anderen met incrementele back-upbestand(en) submappen. De API terugzetten genereert FabricException met foutbericht weergegeven als de validatie van de back-certificaatketen mislukt. 
 

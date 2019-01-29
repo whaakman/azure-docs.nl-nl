@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091246"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163446"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Een virtuele machine van een VHD maken met behulp van Azure portal
 
@@ -28,6 +28,8 @@ Er zijn verschillende manieren om u te maken van een virtuele machine (VM) in Az
 - Als u al een virtuele harde schijf (VHD) te gebruiken of als u kopiëren van de VHD van een bestaande virtuele machine wilt te gebruiken, kunt u een nieuwe virtuele machine door *koppelen* de VHD met de nieuwe virtuele machine als een besturingssysteemschijf. 
 
 - U kunt een nieuwe virtuele machine maken van de VHD van een virtuele machine die is verwijderd. Bijvoorbeeld, als u een Azure-VM die niet goed werkt hebt, kunt u verwijderen van de virtuele machine en bijbehorende VHD gebruiken voor het maken van een nieuwe virtuele machine. U kunt dezelfde VHD gebruiken of een kopie van de VHD maken met het maken van een momentopname en vervolgens een nieuwe beheerde schijf maken op basis van de momentopname. Hoewel het maken van een momentopname van een enkele extra stappen nodig, blijven behouden de oorspronkelijke VHD en biedt u een terugval.
+
+- Een klassieke virtuele machine maken en gebruiken van de VHD te maken van een nieuwe virtuele machine die gebruikmaakt van de Resource Manager-implementatiemodel en beheerde schijven. Voor de beste resultaten **stoppen** de klassieke virtuele machine in Azure portal voor het maken van een momentopname.
  
 - U kunt een Azure-VM maken van een on-premises-VHD door de on-premises VHD uploaden en deze te koppelen aan een nieuwe virtuele machine. U PowerShell of een ander hulpprogramma gebruiken voor het uploaden van de VHD naar een opslagaccount en vervolgens maakt u een beheerde schijf van de VHD. Zie voor meer informatie, [een gespecialiseerde VHD uploaden](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
