@@ -41,13 +41,13 @@ De volgende lijst met methoden V2 en V3 identificeert de API's waarmee u de func
 
 | V2-API-methode   | V3 API-compatibiliteit |
 |:----------- |:-------------|
-| Vertalen     | [Vertalen](reference/v3-0-translate.md)          |
+| Translate     | [Vertalen](reference/v3-0-translate.md)          |
 | TranslateArray      | [Vertalen](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Talen](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Talen](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Spreken     | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detecteren     | [Detecteren](reference/v3-0-detect.md)         |
+| Speak     | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detect     | [Detecteren](reference/v3-0-detect.md)         |
 | DetectArray     | [Detecteren](reference/v3-0-detect.md)         |
 | AddTranslation     | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ De prijs van Microsoft Translator V3 wordt berekend op dezelfde manier als die v
 
 | V3-methode   | Tekens meegeteld voor facturering |
 |:----------- |:-------------|
-| Talen     | Er is geen tekens verzonden, geen geteld, er zijn geen kosten in rekening gebracht.          |
-| Vertalen     | Aantal is gebaseerd op het aantal tekens worden verzonden voor vertaling en het aantal talen de tekens worden vertaald. 50 tekens verzonden wordt, en 5 talen aangevraagd 50 x 5.           |
-| Transcriberen     | Aantal tekens dat is ingediend voor vele worden geteld.         |
-| Woordenlijst lookup & voorbeeld     | Aantal tekens dat is ingediend voor Dictionary lookup en voorbeelden worden geteld.         |
+| Languages     | Er is geen tekens verzonden, geen geteld, er zijn geen kosten in rekening gebracht.          |
+| Translate     | Aantal is gebaseerd op het aantal tekens worden verzonden voor vertaling en het aantal talen de tekens worden vertaald. 50 tekens verzonden wordt, en 5 talen aangevraagd 50 x 5.           |
+| Transliterate     | Aantal tekens dat is ingediend voor vele worden geteld.         |
+| Dictionary lookup & example     | Aantal tekens dat is ingediend voor Dictionary lookup en voorbeelden worden geteld.         |
 | BreakSentence     | Er zijn geen kosten in rekening gebracht.       |
-| Detecteren     | Er zijn geen kosten in rekening gebracht.      |
+| Detect     | Er zijn geen kosten in rekening gebracht.      |
 
 ## <a name="v3-end-points"></a>V3-eindpunten
 
