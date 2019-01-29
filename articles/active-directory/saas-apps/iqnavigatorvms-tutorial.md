@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f568f33de348289334c4b4c346e9525e28cce51c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 062c83c7e1d621a80a5e81cdaf6b070eb446453c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445119"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Zelfstudie: Azure Active Directory-integratie met IQNavigator VMS
 
@@ -43,9 +43,9 @@ Voor het configureren van Azure AD-integratie met IQNavigator VMS, moet u de vol
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
-- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Gebruik niet de productieomgeving, tenzij dit echt nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand hier [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
@@ -59,17 +59,17 @@ Voor het configureren van de integratie van IQNavigator VMS in Azure AD, moet u 
 
 **Als u wilt toevoegen IQNavigator VMS uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
 1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![Applicaties][2]
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![Applicaties][3]
 
 1. Typ in het zoekvak **IQNavigator VMS**.
 
@@ -114,7 +114,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     a. In de **id** tekstvak typt u de URL:`iqn.com`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
+    b. In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
 1. Controleer **geavanceerde URL-instellingen weergeven**, de volgende stap uitvoeren:
 
@@ -123,9 +123,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     In de **Relay-status** tekstvak, een URL met behulp van het volgende patroon:`https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Deze waarden met de huidige status van de antwoord-URL en Relay bijwerken. Neem contact op met [IQNavigator VM's Client-ondersteuningsteam](https://www.beeline.com/iqn-product-support/) om deze waarden te verkrijgen.
+    > Dit zijn geen echte waarden. Deze waarden met de huidige status van de antwoord-URL en Relay bijwerken. Neem contact op met [IQNavigator VM's Client-ondersteuningsteam](https://www.beeline.com/iqn-product-support/) om deze waarden te verkrijgen.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
     
     ![Eenmalige aanmelding configureren](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
@@ -133,7 +133,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     ![Eenmalige aanmelding configureren](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
-1. Klik op **opslaan** knop.
+1. Klik op de knop **Save**.
 
     ![Eenmalige aanmelding configureren](./media/iqnavigatorvms-tutorial/tutorial_general_400.png)
 
@@ -141,10 +141,10 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     ![Eenmalige aanmelding configureren](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
-1. Het configureren van eenmalige aanmelding op **IQNavigator VMS** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens**, **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [IQNavigator VMS ondersteuningsteam](https://www.beeline.com/iqn-product-support/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **IQNavigator VMS** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens**, **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [IQNavigator VMS ondersteuningsteam](https://www.beeline.com/iqn-product-support/). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
-Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -213,7 +213,7 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel IQNavigator VMS in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing IQNavigator VMS.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Zie [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

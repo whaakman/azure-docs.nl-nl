@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: b9f2c29806c29de18c8346e77ddbfcf2bdb411f1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 36efb943855d36d1f830ba08554eabd0a8a88f50
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075989"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169328"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -73,7 +73,7 @@ Als uw Azure AD-tenant de basismap van een gebruiker is, kunt u [opnieuw instell
  
 * Gastgebruikers die zich aanmelden met een Microsoft-account (bijvoorbeeld guestuser@live.com) kunnen hun eigen wachtwoorden via Self-service voor wachtwoordherstel (SSPR) van Microsoft-account opnieuw instellen. Zie [opnieuw instellen van het wachtwoord van uw Microsoft-account](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gastgebruikers die zich aanmelden met een Google-account of een andere externe id-provider kunnen opnieuw instellen van hun eigen wachtwoorden met behulp van de id-provider SSPR-methode. Bijvoorbeeld, een gastgebruiker met het Google-account guestuser@gmail.com kunnen hun wachtwoord opnieuw door de instructies in [wijzigen of uw wachtwoord opnieuw instellen](https://support.google.com/accounts/answer/41078).
-* Als de tenant-identiteit een just-in-time (JIT is) of 'viraal' tenant (wat betekent dat het een afzonderlijke, niet-beheerde Azure-tenant), alleen de gastgebruiker kan hun wachtwoord opnieuw instellen.
+* Als de tenant-identiteit een just-in-time (JIT is) of 'viraal' tenant (wat betekent dat het een afzonderlijke, niet-beheerde Azure-tenant), alleen de gastgebruiker kan hun wachtwoord opnieuw instellen. Soms een organisatie wordt [neemt het beheer van virale tenants](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) die worden gemaakt wanneer werknemers hun werk-e-mailadressen gebruiken om u te registreren voor services. Nadat de organisatie ten opzichte van een virale tenant heeft, kunt alleen een beheerder in die organisatie van de gebruiker-wachtwoord opnieuw instellen of SSPR inschakelen. Indien nodig, als de organisatie, kunt u het gastgebruikersaccount verwijderen uit uw directory en een uitnodiging opnieuw verzenden.
 * Als de basismap van de gastgebruiker uw Azure AD-tenant is, kunt u het wachtwoord van de gebruiker opnieuw instellen. Bijvoorbeeld, u mogelijk hebt gemaakt als een gebruiker klikt of een gebruiker is gesynchroniseerd vanuit uw on-premises Active Directory en hun UserType ingesteld op Gast. Omdat deze gebruiker is toegewezen in uw directory, kunt u het wachtwoord van de Azure-portal opnieuw instellen.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Biedt Microsoft Dynamics 365 online ondersteuning voor Azure AD B2B-samenwerking?

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbc6e7586e116df1fa19c6c9e0c5a5b17f00d646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416228"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096758"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Valideren van de graph-integratie voor Azure Stack
 
@@ -106,8 +106,8 @@ Standaard beide bestanden worden geschreven naar `C:\Users\<username>\AppData\Lo
 
 U kunt gebruiken:
 
-* **-OutputPath**: de *pad* parameter aan het einde van de opdracht uitvoeren om op te geven van een andere locatie.
-* **-CleanReport**: de parameter aan het einde van de opdracht uitvoeren om te wissen *AzsReadinessCheckerReport.json* van vorige rapportgegevens. Zie voor meer informatie, [Azure Stack-validatierapport](azure-stack-validation-report.md).
+* **-OutputPath**: De *pad* parameter aan het einde van de opdracht uitvoeren om op te geven van een andere locatie.
+* **-CleanReport**: De parameter aan het einde van de opdracht uitvoeren om te wissen *AzsReadinessCheckerReport.json* van vorige rapportgegevens. Zie voor meer informatie, [Azure Stack-validatierapport](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Validatiefouten
 

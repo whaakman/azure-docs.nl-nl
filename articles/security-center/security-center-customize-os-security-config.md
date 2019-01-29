@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 16c7ad523bcd4a1f7b7b1f80d99e4d36dade72df
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334190"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102427"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Aanpassen van de beveiligingsconfiguraties OS in Azure Security Center (Preview)
 
@@ -90,29 +90,29 @@ In het aanpassingsbestand heeft elke ondersteunde versie van het besturingssyste
 >
 >
 
-Wanneer u de aanpassingsbestand hebt bewerkt, kunt u een regel of alle mappen wijzigen. Elke ruleset bevat een *regels* sectie die wordt onderverdeeld in drie categorieën: register, beleid voor beveiligingscontrole en beveiligingsbeleid, zoals hier wordt weergegeven:
+Wanneer u de aanpassingsbestand hebt bewerkt, kunt u een regel of alle mappen wijzigen. Elke ruleset bevat een *regels* sectie die wordt onderverdeeld in drie categorieën: Register, beleid voor beveiligingscontrole en beveiligingsbeleid, zoals hier wordt weergegeven:
 
 ![Drie ruleset-categorieën](media/security-center-customize-os-security-config/rules-section.png)
 
 Elke categorie heeft een eigen set kenmerken. U kunt de volgende kenmerken wijzigen:
 
-- **expectedValue**: het gegevenstype veld van dit kenmerk moet overeenkomen met de ondersteunde waarden per *regeltype*, bijvoorbeeld:
+- **expectedValue**: Het gegevenstype veld van dit kenmerk moet overeenkomen met de ondersteunde waarden per *regeltype*, bijvoorbeeld:
 
-  - **baselineRegistryRules**: de waarde moet overeenkomen met de [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) die gedefinieerd in die regel.
+  - **baselineRegistryRules**: De waarde moet overeenkomen met de [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) die gedefinieerd in die regel.
 
-  - **baselineAuditPolicyRules**: gebruik een van de volgende tekenreekswaarden:
+  - **baselineAuditPolicyRules**: Gebruik een van de volgende tekenreekswaarden:
 
     - *Geslaagd en mislukt*
 
     - *Geslaagd*
 
-  - **baselineSecurityPolicyRules**: gebruik een van de volgende tekenreekswaarden:
+  - **baselineSecurityPolicyRules**: Gebruik een van de volgende tekenreekswaarden:
 
     - *Niemand*
 
-    - Lijst met toegestane gebruikersgroepen, bijvoorbeeld: *beheerders*, *back-upoperators*
+    - Lijst met toegestane gebruikersgroepen, bijvoorbeeld: *Beheerders*, *back-upoperators*
 
--   **status**: de tekenreeks mag de opties *uitgeschakelde* of *ingeschakeld*. Voor deze private preview-versie is de tekenreeks hoofdlettergevoelig.
+-   **status**: De tekenreeks mag de opties *uitgeschakelde* of *ingeschakeld*. Voor deze private preview-versie is de tekenreeks hoofdlettergevoelig.
 
 Dit zijn alleen de velden die kunnen worden geconfigureerd. Als u de indeling of de grootte schenden, kunt u zich niet de wijziging op te slaan. U ontvangt een foutmelding weergegeven die u moet een geldig JSON-configuratiebestand uploaden.
 
@@ -121,7 +121,7 @@ Zie voor een lijst van andere mogelijke fouten, [foutcodes](#error-codes).
 De volgende drie secties bevatten voorbeelden van de vorige regels. De *expectedValue* en *status* kenmerken kunnen worden gewijzigd.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -144,7 +144,7 @@ De volgende drie secties bevatten voorbeelden van de vorige regels. De *expected
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -161,7 +161,7 @@ De volgende drie secties bevatten voorbeelden van de vorige regels. De *expected
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -194,17 +194,17 @@ U kunt ook nieuwe regels maken. Voordat u een nieuwe regel maakt, houd rekening 
 
 Nieuwe aangepaste regels worden gemarkeerd met een nieuwe aangepaste bron (! = "Microsoft"). De *ruleId* veld kan niet null of leeg zijn. Als deze leeg is, genereert Microsoft een. Als deze niet leeg is, moet een geldige GUID die is uniek voor alle regels (standaard en aangepaste) hebben. Bekijk de volgende beperkingen voor de velden core:
 
--   **originalId**: kan niet null of leeg zijn. Als *originalId* is niet leeg is, moet dit een geldige GUID zijn.
+-   **originalId**: Kan niet null of leeg zijn. Als *originalId* is niet leeg is, moet dit een geldige GUID zijn.
 
--   **cceId**: kan niet null of leeg zijn. Als *cceId* is niet leeg is, deze moet uniek zijn.
+-   **cceId**: Kan niet null of leeg zijn. Als *cceId* is niet leeg is, deze moet uniek zijn.
 
 -   **ruleType**: (Selecteer een optie) register, AuditPolicy of SecurityPolicy.
 
 -   **Ernst**: (Selecteer een optie) onbekend, kritiek, waarschuwing of ter informatie.
 
--   **analyzeOperation**: moet *gelijk is aan*.
+-   **analyzeOperation**: Moet *gelijk is aan*.
 
--   **auditPolicyId**: moet een geldige GUID.
+-   **auditPolicyId**: Moet een geldige GUID zijn.
 
 -   **regValueType**: (Selecteer een optie) Int, Long, String en MultipleString.
 
@@ -216,7 +216,7 @@ Nieuwe aangepaste regels worden gemarkeerd met een nieuwe aangepaste bron (! = "
 Voorbeeld van een nieuwe aangepaste regel:
 
 **Register**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -225,7 +225,7 @@ Voorbeeld van een nieuwe aangepaste regel:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -233,7 +233,7 @@ Voorbeeld van een nieuwe aangepaste regel:
     }
 ```
 **Beveiligingsbeleid**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -248,7 +248,7 @@ Voorbeeld van een nieuwe aangepaste regel:
    }
 ```
 **Controlebeleid**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -275,7 +275,7 @@ Alle mogelijke fouten worden weergegeven in de volgende tabel:
 
 | **Fout**                                | **Beschrijving**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | De eigenschap *schemaVersion* is ongeldig of leeg zijn gevonden. De waarde moet worden ingesteld op *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | De eigenschap *schemaVersion* is ongeldig of leeg zijn gevonden. De waarde moet worden ingesteld op *{0}*.                                                         |
 | BaselineInvalidStringError               | De eigenschap *{0}* mag niet  *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | Lijst met de regels van de basislijn-configuratie bevat een regel met de waarde *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | De CCE-ID *{0}* is niet uniek.                                                                                                                  |
@@ -298,7 +298,7 @@ Alle mogelijke fouten worden weergegeven in de volgende tabel:
 | BaselineRuleTypeDoesntMatchError         | Het werkelijke type van de regel is *{0}*, maar de *ruleType* eigenschap *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Alleen *expectedValue* en *status* eigenschappen kunnen worden gewijzigd.                                                                       |
 | BaselineTooManyRules                     | Het maximum aantal toegestane aangepaste regels is {0} regels. De opgegeven configuratie bevat {1} regels, {2} standaardregels, en {3} aangepaste regels. |
-| ErrorNoConfigurationStatus               | Er is geen configuratie-status is gevonden. Status van de van gewenste configuratiestatus: *standaard* of *aangepaste*.                                    |
+| ErrorNoConfigurationStatus               | Er is geen configuratie-status is gevonden. Status van de van gewenste configuratiestatus: *Standaard* of *aangepaste*.                                    |
 | ErrorNonEmptyRulesetOnDefault            | De status van de configuratie is ingesteld op standaard. De *BaselineRulesets* lijst moet null of leeg zijn.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | De status van de opgegeven configuratie *aangepaste* , maar de *baselineRulesets* eigenschap is null of leeg zijn.                                             |
 | ErrorParsingBaselineConfig               | De opgegeven configuratie is ongeldig. Een of meer van de gedefinieerde waarden hebben een null-waarde of een ongeldig type.                                  |

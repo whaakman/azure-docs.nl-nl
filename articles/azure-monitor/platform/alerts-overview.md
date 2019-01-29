@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464108"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156408"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Overzicht van waarschuwingen in Microsoft Azure 
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven welke waarschuwingen zijn, hun voordelen, en hoe u 
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Wat zijn meldingen in Microsoft Azure?
 Waarschuwingen waarschuwen u proactief te wanneer belangrijke voorwaarden vindt u in uw bewakingsgegevens. Hiermee kunt u identificeren en oplossen van problemen voordat de gebruikers van uw systeem ziet u deze. 
 
-Dit artikel worden de waarschuwingen uniforme in Azure Monitor, nu met Log Analytics en Application Insights. De [waarschuwing ervaring](alerts-overview.md) Waarschuwingstypen worden genoemd **klassieke waarschuwingen**. U kunt deze oudere werkwijze en oudere Waarschuwingstype weergeven door te klikken op **klassieke waarschuwingen weergeven** aan de bovenkant van de pagina van de waarschuwing. 
+Dit artikel worden de waarschuwingen uniforme in Azure Monitor, nu met Log Analytics en Application Insights. De [waarschuwing ervaring](alerts-classic.overview.md) Waarschuwingstypen worden genoemd **klassieke waarschuwingen**. U kunt deze oudere werkwijze en oudere Waarschuwingstype weergeven door te klikken op **klassieke waarschuwingen weergeven** aan de bovenkant van de pagina van de waarschuwing. 
 
 ## <a name="overview"></a>Overzicht
 
@@ -63,12 +63,19 @@ U kunt waarschuwing bij Logboeken en metrische gegevens, zoals beschreven in [be
 - Status van de onderliggende Azure-platform
 - Tests voor de website van beschikbaarheid
 
+Voorheen moest Azure Monitor metrics, Application Insights, Log Analytics en status van de Service mogelijkheden voor afzonderlijke waarschuwingen. Na verloop van tijd, Azure is verbeterd en combinatie van de gebruikersinterface en de verschillende methoden van waarschuwingen. Dankzij deze consolidatie is nog steeds in behandeling. Als gevolg hiervan, zijn er nog enkele waarschuwingen mogelijkheden niet nog in het nieuwe waarschuwingensysteem.  
+
+| **Bron van de monitor** | **Signaaltype**  | **Beschrijving** | 
+|-------------|----------------|-------------|
+| Servicestatus | Activiteitenlogboek  | Wordt niet ondersteund. Zie [waarschuwingen voor activiteitenlogboek maken voor servicemeldingen](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Webtests voor beschikbaarheid | Wordt niet ondersteund. Zie [webtestwaarschuwingen](../../azure-monitor/app/monitor-web-app-availability.md). Beschikbaar voor elke website die geïnstrumenteerd om gegevens te verzenden naar Application Insights. Een melding ontvangen wanneer de beschikbaarheid of reactiesnelheid van een website lager dan de verwachtingen is. |
+
 ## <a name="manage-alerts"></a>Waarschuwingen beheren
 U kunt de status van een waarschuwing om op te geven waar deze zich in het proces van het probleem zou moeten instellen. Als de criteria die zijn opgegeven in de waarschuwingsregel wordt voldaan, een waarschuwing wordt gemaakt of geactiveerd, heeft de status van *nieuw*. U kunt de status wijzigen wanneer u erkent dat een waarschuwing en wanneer u deze sluiten. Alle wijzigingen worden opgeslagen in de geschiedenis van de waarschuwing.
 
 De volgende statussen worden ondersteund.
 
-| Status | Description |
+| Status | Beschrijving |
 |:---|:---|
 | Nieuw | Het probleem alleen is gedetecteerd en nog niet zijn beoordeeld. |
 | Bevestigd | Een beheerder heeft gecontroleerd van de waarschuwing en werken op deze gestart. |
@@ -91,7 +98,7 @@ Het niet weergeven of oudere bijhouden [klassieke waarschuwingen](#classic-alert
 
 U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 
-| Kolom | Description |
+| Kolom | Beschrijving |
 |:---|:---|
 | Abonnement | Selecteer maximaal vijf Azure-abonnementen. Alleen waarschuwingen in de geselecteerde abonnementen zijn opgenomen in de weergave. |
 | Resourcegroep | Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. |
@@ -99,7 +106,7 @@ U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aa
 
 Selecteer de volgende waarden aan de bovenkant van de pagina met waarschuwingen om een andere pagina te openen.
 
-| Waarde | Description |
+| Value | Beschrijving |
 |:---|:---|
 | Totaal aantal waarschuwingen | Het totale aantal waarschuwingen dat voldoet aan de geselecteerde criteria. Selecteer deze waarde in de weergave alle waarschuwingen openen met geen filter. |
 | Slimme groepen | Het totale aantal slimme groepen die zijn gemaakt op basis van de waarschuwingen die overeenkomen met de geselecteerde criteria. Selecteer deze waarde aan de groepslijst met slimme openen in de weergave alle waarschuwingen.
@@ -124,14 +131,7 @@ Deze vereenvoudigde ontwerpproces moet langer u weten wat de bron controleren of
 
 U kunt meer informatie over het maken van regels voor waarschuwingen in [maken, weergeven en beheren van waarschuwingen via Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Waarschuwingen zijn beschikbaar voor de verschillende Azure-services controleren. Zie voor informatie over hoe en wanneer het gebruik van elk van deze services [bewaking van Azure-toepassingen en bronnen](../../azure-monitor/overview.md). De volgende tabel bevat een overzicht van de typen regels voor waarschuwingen die beschikbaar in Azure zijn. Het bevat ook wat er wordt momenteel ondersteund in welke waarschuwingen ervaring.
-
-Voorheen moest Azure Monitor, Application Insights, Log Analytics en status van de Service mogelijkheden voor afzonderlijke waarschuwingen. Overwerk, Azure, is verbeterd en combinatie van de gebruikersinterface en de verschillende methoden van waarschuwingen. Dankzij deze consolidatie is nog steeds in behandeling. Als gevolg hiervan, zijn er nog enkele waarschuwingen mogelijkheden niet nog in het nieuwe waarschuwingensysteem.  
-
-| **Bron van de monitor** | **Signaaltype**  | **Beschrijving** | 
-|-------------|----------------|-------------|
-| Servicestatus | Activiteitenlogboek  | Wordt niet ondersteund. Zie [waarschuwingen voor activiteitenlogboek maken voor servicemeldingen](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Webtests voor beschikbaarheid | Wordt niet ondersteund. Zie [webtestwaarschuwingen](../../azure-monitor/app/monitor-web-app-availability.md). Beschikbaar voor elke website die geïnstrumenteerd om gegevens te verzenden naar Application Insights. Een melding ontvangen wanneer de beschikbaarheid of reactiesnelheid van een website lager dan de verwachtingen is. |
+Waarschuwingen zijn beschikbaar voor de verschillende Azure-services controleren. Zie voor informatie over hoe en wanneer het gebruik van elk van deze services [bewaking van Azure-toepassingen en bronnen](../../azure-monitor/overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Pagina met alle waarschuwingen 
@@ -141,7 +141,7 @@ Klik op het totaal aantal waarschuwingen om te zien van de pagina met alle waars
 
 U kunt de weergave filteren op de volgende waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 
-| Kolom | Description |
+| Kolom | Beschrijving |
 |:---|:---|
 | Abonnement | Selecteer maximaal vijf Azure-abonnementen. Alleen waarschuwingen in de geselecteerde abonnementen zijn opgenomen in de weergave. |
 | Resourcegroep | Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. |
@@ -162,7 +162,7 @@ De detailpagina van de waarschuwing wordt weergegeven wanneer u een waarschuwing
 
 De detailpagina van de waarschuwing bevat de volgende secties.
 
-| Sectie | Description |
+| Sectie | Beschrijving |
 |:---|:---|
 | Essentials | Geeft de eigenschappen en andere belangrijke informatie over de waarschuwing. |
 | Geschiedenis | Geeft een lijst van elke actie op die door de waarschuwing en eventuele wijzigingen in de waarschuwing. Momenteel beperkt tot de status verandert. |

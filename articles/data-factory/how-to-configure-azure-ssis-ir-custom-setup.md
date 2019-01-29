@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022356"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098728"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Setup voor de Azure-SSIS integratieruntime aanpassen
 
@@ -27,6 +27,8 @@ U configureren uw aangepaste instellingen door een script en de bijbehorende bes
 
 U kunt gratis of niet-gelicentieerde onderdelen en een betaalde versie of gelicentieerde onderdelen installeren. Als u een ISV bent, Zie [over het ontwikkelen van een betaalde versie of een licentie van onderdelen voor de Azure-SSIS-IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
+> [!IMPORTANT]
+> De v2-series-knooppunten van de Azure-SSIS IR zijn niet geschikt voor aangepaste installatie, dus gebruik in plaats daarvan de knooppunten v3-serie.  Als u al de v2-series-knooppunten, ga dan voor het gebruik van de knooppunten v3-serie zo snel mogelijk.
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 
@@ -78,7 +80,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        ![Een blob-container maken](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  Selecteer de nieuwe container en upload uw aangepaste setup-script en de bijbehorende bestanden. Zorg ervoor dat u uploadt `main.cmd` op het hoogste niveau van de container, niet in een map. 
+    1.  Selecteer de nieuwe container en upload uw aangepaste setup-script en de bijbehorende bestanden. Zorg ervoor dat u uploadt `main.cmd` op het hoogste niveau van de container, niet in een map. Controleer ook of dat uw container bevat alleen de benodigde aangepaste setup-bestanden, zodat deze worden gedownload naar uw Azure-SSIS IR later duurt niet lang.
 
        ![Bestanden uploaden naar de blob-container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -140,15 +142,15 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        1. Een `.NET FRAMEWORK 3.5` map een aangepaste instellingen bevat voor het installeren van een eerdere versie van .NET Framework die mogelijk vereist zijn voor aangepaste onderdelen op elk knooppunt van uw Azure-SSIS-IR.
 
-       1. Een `AAS` map een aangepaste instellingen bevat voor het installeren van clientbibliotheken op elk knooppunt van uw Azure-SSIS-IR waarmee uw Analysis Services-taken verbinding maken met Azure Analysis Services (AAS)-exemplaar met behulp van service-principal verificatie. Download eerst de meest recente **MSOLAP (amd64)** en **AMO** clientbibliotheken/Windows-installatieprogramma's - bijvoorbeeld `x64_15.0.900.108_SQL_AS_OLEDB.msi` en `x64_15.0.900.108_SQL_AS_AMO.msi` - van [hier](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), klikt u vervolgens upload deze allemaal samen met `main.cmd` in de container.  
-
        1. Een `BCP` map een aangepaste instellingen bevat voor het installeren van opdrachtregelprogramma's van SQL Server (`MsSqlCmdLnUtils.msi`), met inbegrip van het programma voor bulksgewijs kopiëren (`bcp`), op elk knooppunt van uw Azure-SSIS-IR.
 
        1. Een `EXCEL` map een aangepaste instellingen bevat voor het installeren van open-source-assembly's (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, en `ExcelDataReader.dll`) op elk knooppunt van uw Azure-SSIS-IR.
 
        1. Een `ORACLE ENTERPRISE` map, waarin een aangepaste setup-script (`main.cmd`) en config-bestand voor installatie op de achtergrond (`client.rsp`) voor het installeren van de Oracle-connectors en OCI stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Oracle Connection Manager, de bron en bestemming gebruiken. Download eerst Microsoft-Connectors 5.0 voor Oracle (`AttunitySSISOraAdaptersSetup.msi` en `AttunitySSISOraAdaptersSetup64.msi`) van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) en de meest recente Oracle-client - bijvoorbeeld `winx64_12102_client.zip` - van [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), upload vervolgens ze allemaal samen met `main.cmd` en `client.rsp` in de container. Als u verbinding maken met Oracle TNS, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze kan worden gekopieerd naar de installatiemap van Oracle tijdens de installatie.
 
-       1. Een `ORACLE STANDARD` map, waarin een aangepaste setup-script (`main.cmd`) voor het installeren van de Oracle-ODP.NET-stuurprogramma op elk knooppunt van uw Azure-SSIS-IR. Deze instelling kunt u de ADO.NET Connection Manager, de bron en bestemming gebruiken. Download de meest recente Oracle ODP.NET-stuurprogramma - eerst bijvoorbeeld `ODP.NET_Managed_ODAC122cR1.zip` - van [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), en upload het samen met `main.cmd` in de container.
+       1. Een `ORACLE STANDARD ADO.NET` map, waarin een aangepaste setup-script (`main.cmd`) voor het installeren van de Oracle-ODP.NET-stuurprogramma op elk knooppunt van uw Azure-SSIS-IR. Deze instelling kunt u de ADO.NET Connection Manager, de bron en bestemming gebruiken. Download de meest recente Oracle ODP.NET-stuurprogramma - eerst bijvoorbeeld `ODP.NET_Managed_ODAC122cR1.zip` - van [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), en upload het samen met `main.cmd` in de container.
+       
+       1. Een `ORACLE STANDARD ODBC` map, waarin een aangepaste setup-script (`main.cmd`) het Oracle ODBC-stuurprogramma installeren en configureren van DSN op elk knooppunt van uw Azure-SSIS-IR. Deze instelling kunt u de bron-Verbindingsbeheer ODBC-/ doel of de Power Query verbinding Manager/bron gebruiken met soort ODBC-gegevensbron verbinding maken met Oracle-server. Download eerst de meest recente Oracle-Instant Client (Basic of Basic Lite-pakket) en ODBC-pakket - bijvoorbeeld de 64-bits-pakketten uit [hier](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (Basic-pakket: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, Basic Lite-pakket: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, ODBC-pakket : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) of de 32-bits-pakketten uit [hier](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (Basic-pakket: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, Basic Lite-pakket: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, ODBC-pakket: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`), en deze vervolgens uploaden samen met `main.cmd` in de container.
 
        1. Een `SAP BW` map, waarin een aangepaste setup-script (`main.cmd`) voor het installeren van de SAP .NET connector assembly (`librfc32.dll`) op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de SAP BW Connection Manager, de bron en bestemming gebruiken. Eerst uploadt de 64-bits of de 32-bits versie van `librfc32.dll` uit de SAP-installatiemap naar de container, samen met de `main.cmd`. Kopieert de SAP-assembly in het script de `%windir%\SysWow64` of `%windir%\System32` map tijdens de installatie.
 

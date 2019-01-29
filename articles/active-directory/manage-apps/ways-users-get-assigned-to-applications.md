@@ -7,19 +7,19 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: cb477ccba648a15c88f2e216b39d4ba1676d43c7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fd677a34caa5a1871808b31477e91746ec9fdccb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464609"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170399"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Gebruikers toewijzen aan toepassingen
 
@@ -55,9 +55,9 @@ Voor een gebruiker toegang tot een toepassing, moeten ze eerst worden toegewezen
 
 8.  Een beheerder wijst een licentie toe aan een groep die de gebruiker een lid van een eerste toepassing van derden, zoals is [Microsoft Office 365](https://products.office.com/)
 
-9.  Een [administrator toestemming heeft voor een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) moet worden gebruikt door alle gebruikers en voer vervolgens een gebruiker zich aanmeldt bij de toepassing
+9.  Een [administrator toestemming heeft voor een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) moet worden gebruikt door alle gebruikers en voer vervolgens een gebruiker zich aanmeldt bij de toepassing
 
-10. Een gebruiker [toestemming heeft voor een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) zich aanmeldt bij de toepassing
+10. Een gebruiker [toestemming heeft voor een toepassing](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) zich aanmeldt bij de toepassing
 
 ## <a name="next-steps"></a>Volgende stappen
 [Toepassingen beheren met Azure Active Directory](what-is-application-management.md)

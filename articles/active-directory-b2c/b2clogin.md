@@ -1,5 +1,5 @@
 ---
-title: Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C | Microsoft Docs
+title: Set Omleidings-URL's op b2clogin.com - Azure Active Directory B2C | Microsoft Docs
 description: Meer informatie over het gebruik van b2clogin.com in uw Omleidings-URL's voor Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/28/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 147d8e80c66bd47ed56400deca024532fc7e39c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844923"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160901"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Set Omleidings-URL's op b2clogin.com voor Azure Active Directory B2C
 
@@ -23,8 +23,8 @@ Bij het instellen van een id-provider voor registratie en aanmelding in uw Azure
 
 Met b2clogin.com biedt extra voordelen, zoals:
 
-- Cookies worden niet langer worden gedeeld met andere Microsoft-services.
-- De URL's zijn niet langer een verwijzing naar Microsoft. Bijvoorbeeld `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
+- Ruimte in de kop van de cookie wordt gebruikt door Microsoft-services wordt verminderd.
+- De URL's zijn niet langer een verwijzing naar Microsoft. Bijvoorbeeld `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
 Houd rekening met deze instellingen die nodig hebt mogelijk bij het gebruik van b2clogin.com wijzigen:
 
@@ -60,7 +60,9 @@ Uw Azure AD B2C-toepassing waarschijnlijk verwijst naar `login.microsoftonline.c
 
 ## <a name="set-the-validateauthority-property"></a>Stel de eigenschap ValidateAuthority
 
-Als u MSAL, stelt u de **ValidateAuthority** naar `false`. Het volgende voorbeeld ziet u hoe u de eigenschap kunt instellen:
+Als u MSAL, stelt u de **ValidateAuthority** eigenschap `false`. Wanneer **ValidateAuthority** is ingesteld op `false`, omleidingen op b2clogin.com zijn toegestaan. 
+
+Het volgende voorbeeld ziet u hoe u de eigenschap kunt instellen:
 
 In [MSAL voor .net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
 

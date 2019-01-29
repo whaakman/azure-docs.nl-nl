@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044574"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164551"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Overzicht van de levenscyclus van Reliable Services
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Net als stateless services de van levenscyclusgebeurtenissen tijdens het afsluit
 3. Na `StatefulServiceBase.OnCloseAsync()` is voltooid, het service-object is destructed.
 
 ## <a name="stateful-service-primary-swaps"></a>Primaire swaps stateful service
-Terwijl een stateful service wordt uitgevoerd, alleen de primaire replica's van die stateful services hebben hun communicatielisteners geopend en de bijbehorende **RunAsync** methode met de naam. Secundaire replica's zijn gebouwd, maar er is geen verdere aanroepen weergeven. Terwijl een stateful service wordt uitgevoerd, de replica die momenteel is de primaire kunt wijzigen. Wat betekent dit in termen van de van levenscyclusgebeurtenissen die een replica kan zien? Het gedrag van dat de stateful replica ziet, is afhankelijk van de replica wordt gedegradeerd of gepromoveerd tijdens het wisselen.
+Terwijl een stateful service wordt uitgevoerd, alleen de primaire replica's van die stateful services hebben hun communicatielisteners geopend en de bijbehorende **RunAsync** methode met de naam. Secundaire replica's zijn gebouwd, maar er is geen verdere aanroepen weergeven. Terwijl een stateful service wordt uitgevoerd, wordt de replica die momenteel is de primaire kunt wijzigen als gevolg van fouten of optimalisatie balancing-cluster. Wat betekent dit in termen van de van levenscyclusgebeurtenissen die een replica kan zien? Het gedrag van dat de stateful replica ziet, is afhankelijk van de replica wordt gedegradeerd of gepromoveerd tijdens het wisselen.
 
 ### <a name="for-the-primary-thats-demoted"></a>Voor de primaire die wordt gedegradeerd
 Voor de primaire replica die wordt gedegradeerd, moet de Service Fabric deze replica verwerken van berichten stoppen en afsluiten van de achtergrondwerk bezig. Als gevolg hiervan, lijkt deze stap op wanneer de service wordt afgesloten. Een verschil is dat de service is niet destructed of gesloten omdat er een secundaire blijft. De volgende API's worden genoemd:

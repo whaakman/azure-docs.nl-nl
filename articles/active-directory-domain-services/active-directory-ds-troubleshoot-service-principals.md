@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Configuratie van Service-Principal voor het oplossen van problemen | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Oplossen van problemen met Service-Principal-configuratie | Microsoft Docs'
 description: De configuratie van het oplossen van problemen met Service-Principal voor Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035032"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191326"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Ongeldige configuratie van de Service-Principal voor uw beheerde domein oplossen
 
@@ -28,7 +28,7 @@ Dit artikel helpt u problemen op te lossen fouten van de service-principal-gerel
 
 ## <a name="alert-aadds102-service-principal-not-found"></a>Waarschuwing AADDS102: Service-Principal is niet gevonden
 
-**Waarschuwing:** *A Service-Principal is vereist voor Azure AD Domain Services te laten functioneren is verwijderd uit uw Azure AD-directory. Deze configuratie heeft gevolgen voor de mogelijkheid van Microsoft om te controleren, beheren, toepassen van patches en synchroniseren van uw beheerde domein.*
+**Waarschuwing:** *Een Service-Principal die is vereist voor Azure AD Domain Services te laten functioneren is verwijderd uit uw Azure AD-directory. Deze configuratie heeft gevolgen voor de mogelijkheid van Microsoft om te controleren, beheren, toepassen van patches en synchroniseren van uw beheerde domein.*
 
 [Service-principals](../active-directory/develop/app-objects-and-service-principals.md) zijn toepassingen die Microsoft gebruikt om te beheren, bijwerken en onderhouden van uw beheerde domein. Als ze worden verwijderd, wordt de mogelijkheid van Microsoft om uw domein.
 
@@ -50,7 +50,7 @@ Gebruik de volgende stappen uit om te bepalen welke service principals moeten op
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Maak opnieuw een ontbrekende Service-Principal met PowerShell
 Volg deze stappen als een service-principal met de ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` ontbreekt in uw Azure AD-directory.
 
-**Oplossing:** u moet Azure AD PowerShell om deze stappen te voltooien. Zie voor meer informatie over het installeren van Azure AD PowerShell [in dit artikel](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Oplossing:** U moet Azure AD PowerShell om deze stappen te voltooien. Zie voor meer informatie over het installeren van Azure AD PowerShell [in dit artikel](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Om dit probleem op te lossen, typt u de volgende opdrachten in een PowerShell-venster:
 1. De Azure AD PowerShell-module installeren en importeren.
@@ -78,7 +78,7 @@ Om dit probleem op te lossen, typt u de volgende opdrachten in een PowerShell-ve
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Opnieuw registreren bij de Microsoft AAD-naamruimte met behulp van de Azure portal
 Volg deze stappen als een service-principal met de ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` of ```abba844e-bc0e-44b0-947a-dc74e5d09022``` of ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` ontbreekt in uw Azure AD-directory.
 
-**Oplossing:** gebruiken de volgende stappen uit om te herstellen van Domain Services op de map:
+**Oplossing:** Gebruik de volgende stappen uit om terug te zetten Domain Services op de map:
 
 1. Navigeer naar de [abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) pagina in de Azure portal.
 2. Kies het abonnement uit de tabel die is gekoppeld aan uw beheerde domein
@@ -89,10 +89,10 @@ Volg deze stappen als een service-principal met de ID ```443155a6-77f3-45e3-882b
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Waarschuwing AADDS105: Wachtwoord synchronisatie van toepassing is verouderd
 
-**Waarschuwing:** de service-principal met de toepassings-ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" is verwijderd en vervolgens opnieuw. De recreatie blijven achter inconsistent machtigingen op Azure AD Domain Services-resources die nodig zijn om uw beheerde domein te behouden. Synchronisatie van wachtwoorden in uw beheerde domein kan worden beïnvloed.
+**Waarschuwing:** De service-principal met de toepassings-ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" is verwijderd en vervolgens opnieuw gemaakt. De recreatie blijven achter inconsistent machtigingen op Azure AD Domain Services-resources die nodig zijn om uw beheerde domein te behouden. Synchronisatie van wachtwoorden in uw beheerde domein kan worden beïnvloed.
 
 
-**Oplossing:** u moet Azure AD PowerShell om deze stappen te voltooien. Zie voor meer informatie over het installeren van Azure AD PowerShell [in dit artikel](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Oplossing:** U moet Azure AD PowerShell om deze stappen te voltooien. Zie voor meer informatie over het installeren van Azure AD PowerShell [in dit artikel](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Om dit probleem op te lossen, typt u de volgende opdrachten in een PowerShell-venster:
 1. De Azure AD PowerShell-module installeren en importeren.

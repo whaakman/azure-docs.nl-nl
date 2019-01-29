@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 20b1c8673bfdb3b2207ed63749f79539c396642c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 887c0bd4246c7c4215cb4d97dfd96db5d2aba6cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167908"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170015"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Wat is Azure AD identity governance?
 
@@ -75,12 +75,12 @@ Hoewel er geen perfecte oplossing of de aanbeveling voor elke klant, bieden de v
 
 - [Wat is een toegangsbeoordeling?](access-reviews-overview.md)
 - [Gebruikerstoegang beheren met toegangsbeoordelingen](manage-user-access-with-access-reviews.md)
-- [Toegang voor gasten met toegangsbeoordelingen beheren](manage-guest-access-with-access-reviews.md)
+- [Gastentoegang beheren met toegangsbeoordelingen](manage-guest-access-with-access-reviews.md)
 - [Een toegangscontrole van een directory-rol starten](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Gebruiksvoorwaarden
 
-- [Wat kan ik doen met de gebruiksvoorwaarden](active-directory-tou.md)
+- [Wat kan ik doen met Gebruiksvoorwaarden?](active-directory-tou.md)
 
 ### <a name="privileged-identity-management"></a>Privileged identity management
 

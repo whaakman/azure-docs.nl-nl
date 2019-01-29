@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4024ecddde4b0d020e2c657214a4a258ea0b2ea5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449007"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097806"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Metrische waarschuwingen met dynamische drempelwaarden in Azure Monitor (Preview-versie)
 
@@ -21,7 +21,7 @@ Waarschuwing voor metrische gegevens met dynamische drempelwaarden detectie maak
 
 Zodra een waarschuwingsregel is gemaakt, er volgt een waarschuwing alleen wanneer de bewaakte metrische gegevens niet wordt gedragen zich zoals verwacht, op basis van de op maat gemaakte drempelwaarden.
 
-Wij willen graag uw feedback horen, bewaart u deze binnenkort op azurealertsfeedback@microsoft.com.
+Wij willen graag uw feedback horen, bewaart u deze binnenkort op <azurealertsfeedback@microsoft.com>.
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Waarom en wanneer is met behulp van dynamische voorwaardetype aanbevolen?
 
@@ -37,7 +37,7 @@ Waarschuwingen met dynamische drempelwaarden kunnen worden geconfigureerd via Me
 
 ## <a name="how-are-the-thresholds-calculated"></a>Hoe worden de drempelwaarden berekend?
 
-Dynamische drempel continu de gegevens van de metrische gegevens uit de serie leert en probeert om modellen te maken met behulp van een set algoritmen en -methoden. en probeert om modellen te maken met behulp van een set algoritmen en methoden. Deze patronen in gegevens zoals seizoensgebondenheid (per uur / dagelijks / wekelijks) detecteert en ruis metrische gegevens (zoals machine CPU of geheugen) en metrische gegevens met lage spreiding (zoals beschikbaarheid en fout-tarief) overweg kan.
+Dynamische drempelwaarden continu de gegevens van de metrische gegevens uit de serie leert en probeert om modellen te maken met behulp van een set algoritmen en methoden. Deze patronen in gegevens zoals seizoensgebondenheid (per uur / dagelijks / wekelijks) detecteert en ruis metrische gegevens (zoals machine CPU of geheugen) en metrische gegevens met lage spreiding (zoals beschikbaarheid en fout-tarief) overweg kan.
 
 De drempelwaarden zijn geselecteerd in zodanig dat een afwijking van deze drempels geeft aan een anomalie in het metrische gedrag dat.
 
@@ -80,3 +80,80 @@ Waarschijnlijk niet. Dynamische drempelwaarden zijn geschikt voor grote afwijkin
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Hoeveel gegevens wordt gebruikt om te bekijken en vervolgens drempelwaarden te berekenen?
 
 De drempelwaarden die worden weergegeven in de grafiek, voordat een waarschuwingsregel wordt gemaakt op de metrische gegevens, worden berekend op basis van op de laatste 10 dagen van historische gegevens, zodra een waarschuwingsregel is gemaakt, de dynamische drempelwaarden wordt verkrijgen van aanvullende historische gegevens die beschikbaar is en wordt continu leren op basis van de nieuwe gegevens om de drempelwaarden meer nauwkeurige.
+
+## <a name="dynamic-thresholds-best-practices"></a>Aanbevolen procedures voor dynamische drempelwaarden
+
+Dynamische drempelwaarden kunnen worden toegepast op elk platform of aangepaste metrische gegevens in Azure Monitor en het is ook afgestemd op voor de algemene metrische gegevens van toepassingen en infrastructuur.
+De volgende items zijn aanbevolen procedures voor het configureren van waarschuwingen voor sommige van deze metrische gegevens met behulp van dynamische drempelwaarden.
+
+### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Dynamische drempelwaarden op virtuele machines CPU-percentage metrische gegevens
+
+1. In [Azure-portal](https://portal.azure.com), klikt u op **Monitor**. De Monitor-weergave worden samengevoegd voor alle controle-instellingen en gegevens in één weergave.
+
+2. Klik op **waarschuwingen** klikt u vervolgens op **+ nieuwe waarschuwingsregel**.
+
+    > [!TIP]
+    > De meeste resourceblades hebben ook **waarschuwingen** in hun resourcemenu onder **bewaking**, u kunt waarschuwingen maken ook.
+
+3. Klik op **doel selecteren**, in het deelvenster context die wordt geladen, selecteert u een doelresource die u een waarschuwing wilt maken. Gebruik **abonnement** en **'Virtuele Machines' resourcetype** vervolgkeuzelijsten om te vinden van de resource die u wilt bewaken. U kunt ook de zoekbalk te vinden van uw resource.
+
+4. Als u een doelbron hebt geselecteerd, klikt u op **voorwaarde toevoegen**.
+
+5. Selecteer de **CPU-Percentage**.
+
+6. (Optioneel) de metriek verfijnen door aan te passen **periode** en **aggregatie**. Het wordt afgeraden samenvoegingstype 'Maximaal' voor dit type metrische gegevens gebruiken, omdat dit minder vertegenwoordiger van het gedrag van. Voor type 'Maximale' aggregatie statische drempelwaarde mogelijk meer nodig.
+
+7. U ziet een grafiek voor de metrische gegevens voor de afgelopen 6 uur. Definieer de parameters voor waarschuwing:
+    1. **Type voorwaarde** -optie voor 'Dynamische'.
+    1. **Gevoeligheid** -Kies/Laag gevoeligheid voor waarschuwingsruis te verminderen.
+    1. **Operator** -groter is dan te kiezen, tenzij gedrag Hiermee geeft u het gebruik van toepassingen.
+    1. **Frequentie** -overwegen verlagen op basis van impact op bedrijf van de waarschuwing.
+    1. **Perioden mislukt** (geavanceerde optie) - het uiterlijk back-venster moet ten minste 15 minuten. Bijvoorbeeld, als de periode is ingesteld op vijf minuten, moet klikt u vervolgens mislukt perioden ten minste drie of meer.
+
+8. De grafiek met metrische gegevens, wordt de berekende drempelwaarden op basis van recente gegevens weergegeven.
+
+9. Klik op **Gereed**.
+
+10. Vul in **Waarschuwingsdetails** zoals **waarschuwing regelnaam**, **beschrijving**, en **ernst**.
+
+11. Een actiegroep toevoegen aan de waarschuwing door een bestaande actiegroep selecteren of door een nieuwe actiegroep maken.
+
+12. Klik op **gedaan** om op te slaan van de waarschuwingsregel voor metrische gegevens.
+
+> [!NOTE]
+> Waarschuwing voor metrische gegevens regels die zijn gemaakt via de portal worden gemaakt in dezelfde resourcegroep bevinden als de doelresource.
+
+### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Dynamische drempelwaarden in uitvoeringstijd van Application Insights HTTP-aanvraag
+
+1. In [Azure-portal](https://portal.azure.com), klikt u op **Monitor**. De Monitor-weergave worden samengevoegd voor alle controle-instellingen en gegevens in één weergave.
+
+2. Klik op **waarschuwingen** klikt u vervolgens op **+ nieuwe waarschuwingsregel**.
+
+    > [!TIP]
+    > De meeste resourceblades hebben ook **waarschuwingen** in hun resourcemenu onder **bewaking**, u kunt waarschuwingen maken ook.
+
+3. Klik op **doel selecteren**, in het deelvenster context die wordt geladen, selecteert u een doelresource die u een waarschuwing wilt maken. Gebruik **abonnement** en **type 'Application Insights-Resource** vervolgkeuzelijsten om te vinden van de resource die u wilt bewaken. U kunt ook de zoekbalk te vinden van uw resource.
+
+4. Als u een doelbron hebt geselecteerd, klikt u op **voorwaarde toevoegen**.
+
+5. Selecteer de **HTTP-aanvraag uitvoeringstijd**.
+
+6. (Optioneel) de metriek verfijnen door aan te passen **periode** en **aggregatie**. Het wordt afgeraden samenvoegingstype 'Maximaal' voor dit type metrische gegevens gebruiken, omdat dit minder vertegenwoordiger van het gedrag van. Voor type 'Maximale' aggregatie statische drempelwaarde mogelijk meer nodig.
+
+7. U ziet een grafiek voor de metrische gegevens voor de afgelopen 6 uur. Definieer de parameters voor waarschuwing:
+    1. **Type voorwaarde** -optie voor 'Dynamische'.
+    1. **Operator** -Kies 'Groter dan' te verminderen voor verbetering van de duur van de geactiveerde waarschuwingen.
+    1. **Frequentie** -overwegen verlagen op basis van impact op bedrijf van de waarschuwing.
+
+8. De grafiek met metrische gegevens, wordt de berekende drempelwaarden op basis van recente gegevens weergegeven.
+
+9. Klik op **Gereed**.
+
+10. Vul in **Waarschuwingsdetails** zoals **waarschuwing regelnaam**, **beschrijving**, en **ernst**.
+
+11. Een actiegroep toevoegen aan de waarschuwing door een bestaande actiegroep selecteren of door een nieuwe actiegroep maken.
+
+12. Klik op **gedaan** om op te slaan van de waarschuwingsregel voor metrische gegevens.
+
+> [!NOTE]
+> Waarschuwing voor metrische gegevens regels die zijn gemaakt via de portal worden gemaakt in dezelfde resourcegroep bevinden als de doelresource.

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845143"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172983"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Toegangstokens aanvragen
 
@@ -114,7 +114,7 @@ Als de `response_type` parameter in een `/authorize` verzoek bevat `token`, word
 
 In een is geslagen **toegang\_token** (vanuit de `/authorize` of `/token` eindpunt), de volgende claims aanwezig zijn:
 
-| Name | Claim | Description |
+| Name | Claim | Beschrijving |
 | --- | --- | --- |
 |Doelgroep |`aud` |De **toepassings-ID** van de afzonderlijke resource die de token verleent toegang tot. |
 |Bereik |`scp` |De machtigingen verleend aan de resource. Meerdere toegekende machtigingen worden gescheiden door een spatie. |

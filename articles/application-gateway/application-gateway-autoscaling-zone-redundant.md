@@ -1,25 +1,25 @@
 ---
 title: Automatisch schalen en Zone-redundante Application Gateway in Azure (Preview-versie)
-description: In dit artikel bevat informatie over web application firewall-aanvraaglimieten grootte en uitsluitingslijsten in Application Gateway met Azure portal.
+description: Dit artikel bevat de v2-SKU van Azure-toepassing, waaronder functies voor automatisch schalen en Zone-redundante.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: f5885fd2ac76550990c9a56a1d200bbe11555918
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7301460014e4d547d1950c8edfbd7534d8a4c103
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213753"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101665"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisch schalen en zoneredundante toepassingsgateway (openbare Preview)
 
 Application Gateway en Web Application Firewall (WAF) zijn nu beschikbaar in openbare preview-versie onder een nieuwe v2-SKU die biedt verbeterde prestaties en voegt ondersteuning toe voor belangrijke nieuwe functies zoals automatisch schalen, zoneredundantie en ondersteuning voor statische VIP's. Bestaande functies onder de algemeen beschikbare SKU's worden nog steeds ondersteund in de nieuwe v2-SKU, met een paar uitzonderingen die worden vermeld in de sectie bekende beperkingen. De nieuwe v2-SKU's zijn onder andere de volgende verbeteringen:
 
 - **Automatische schaling**: Application Gateway of WAF-implementaties voor de automatische schaalaanpassing SKU kunnen omhoog of omlaag op basis van veranderende verkeerspatronen laden. Automatisch schalen heft ook de vereiste op om tijdens het inrichten een implementatiegrootte of het aantal instanties te kiezen. Daarom kan biedt de SKU flexibiliteit van de waarde true. Application Gateway kan in de nieuwe SKU werken zowel in vaste capaciteit (automatisch schalen uitgeschakeld) en in de modus voor automatisch schalen ingeschakeld. Modus vaste capaciteit is handig voor scenario's met consistente en voorspelbare workloads. Modus voor automatisch schalen is het nuttig zijn in toepassingen die veel afwijkingen in het toepassingsverkeer te zien.
-   
+
    > [!NOTE]
    > Automatisch schalen is momenteel niet beschikbaar voor de WAF-SKU. WAF configureren met vaste capaciteit modus, in plaats van de modus voor automatisch schalen.
 - **Zone redundantie**: De implementatie van een Application Gateway of WAF kan meerdere Beschikbaarheidszones, verwijdert niet hoeft te richten en draaien afzonderlijke Application Gateway-instanties in elke zone met een Traffic Manager omvatten. U kunt een enkele zone of meerdere zones waarop Application Gateway-instanties zijn geïmplementeerd, duidt dit erop toezien dat fout zoneflexibiliteit. De back-endpool voor toepassingen kan op dezelfde manier worden verdeeld in meerdere beschikbaarheidszones.
@@ -33,10 +33,12 @@ Application Gateway en Web Application Firewall (WAF) zijn nu beschikbaar in ope
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
-AutoScaling SKU is beschikbaar in VS-Oost 2, VS centraal, West vs2, Noord-centraal VS, VS-West, VS Zuid-centraal, Frankrijk-centraal, West-Europa, Noord-Europa, UK-West, Zuidoost-Azië en Japan-Oost.
+
+De automatische schaalaanpassing SKU is beschikbaar in de volgende regio's: eastus2, westus2, Europa-West, southeastasia, centralus, francecentral, VS-Oost, japaneast, northeurope, southcentralus, ukwest, northcentralus, VS West, VS-Oost (BL) centralus (DM), japanwest (OS ).
 
 ## <a name="pricing"></a>Prijzen
-Er zijn geen kosten tijdens Preview-versie. U wordt gefactureerd voor andere resources dan application-gateway, zoals Key Vault, virtuele machines, enzovoort. 
+
+Er zijn geen kosten tijdens Preview-versie. U wordt gefactureerd voor andere resources dan application-gateway, zoals Key Vault, virtuele machines, enzovoort.
 
 ## <a name="known-issues-and-limitations"></a>Bekende problemen en beperkingen
 

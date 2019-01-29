@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306995"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092140"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Beveiliging-Frame: Controle en logboekregistratie | Oplossingen 
 | Product/Service | Artikel |
@@ -30,8 +30,8 @@ ms.locfileid: "43306995"
 | **Azure Storage** | <ul><li>[Met Azure Storage Analytics kunt u toegang tot Azure Storage controleren](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Voldoende logboekregistratie implementeren](#sufficient-logging)</li><li>[Implementeren met het verwerken van voldoende controle mislukt](#audit-failure-handling)</li></ul> |
 | **Web-API** | <ul><li>[Zorg ervoor dat de controle en logboekregistratie wordt afgedwongen op Web-API](#logging-web-api)</li></ul> |
-| **Veld voor IoT-Gateway** | <ul><li>[Zorg ervoor dat de juiste controle en logboekregistratie wordt afgedwongen op Veldgateway](#logging-field-gateway)</li></ul> |
-| **IoT-Cloud-Gateway** | <ul><li>[Zorg ervoor dat de juiste controle en logboekregistratie wordt afgedwongen op Cloudgateway](#logging-cloud-gateway)</li></ul> |
+| **IoT Field Gateway** | <ul><li>[Zorg ervoor dat de juiste controle en logboekregistratie wordt afgedwongen op Veldgateway](#logging-field-gateway)</li></ul> |
+| **IoT Cloud Gateway** | <ul><li>[Zorg ervoor dat de juiste controle en logboekregistratie wordt afgedwongen op Cloudgateway](#logging-cloud-gateway)</li></ul> |
 
 ## <a id="sensitive-entities"></a>Gevoelige entiteiten in uw oplossing te identificeren en implementeren van de controle van wijzigingen
 
@@ -196,7 +196,7 @@ Hier volgt een voorbeeldconfiguratie met controle is ingeschakeld
 
 ### <a name="example"></a>Voorbeeld
 De `<behavior/>` element van het configuratiebestand WCF geeft WCF niet de toepassing informeert wanneer WCF niet kan schrijven naar een auditlogboek.
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -207,7 +207,7 @@ De `<behavior/>` element van het configuratiebestand WCF geeft WCF niet de toepa
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 WCF om de hoogte van het programma wanneer deze kan niet schrijven naar een auditlogboek te configureren. Het programma moet beschikken over een alternatieve notification-schema op waarschuwing van de organisatie die audittrails worden niet bijgehouden. 
 
 ## <a id="logging-web-api"></a>Zorg ervoor dat de controle en logboekregistratie wordt afgedwongen op Web-API
@@ -225,7 +225,7 @@ WCF om de hoogte van het programma wanneer deze kan niet schrijven naar een audi
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | Veld voor IoT-Gateway | 
+| **Onderdeel**               | IoT Field Gateway | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |
@@ -236,7 +236,7 @@ WCF om de hoogte van het programma wanneer deze kan niet schrijven naar een audi
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
-| **Onderdeel**               | IoT-Cloud-Gateway | 
+| **Onderdeel**               | IoT Cloud Gateway | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N/A  |

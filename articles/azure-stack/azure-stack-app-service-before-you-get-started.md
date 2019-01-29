@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ec34b99f48fbe7b634d7d143e8e108e8f2868f67
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413019"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182724"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -73,7 +73,7 @@ Wanneer u de volgende PowerShell-opdracht uitvoert, hebt u voor het eindpunt van
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Description |
+| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Vereist | AzS-ERCS01 | Bevoegde eindpunt |
 | CloudAdminCredential | Vereist | AzureStack\CloudAdmin | Referenties van het domein account voor Azure Stack-cloud-beheerders |
@@ -98,7 +98,7 @@ Volg deze stappen voor het maken van de certificaten:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 script parameters
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Description |
+| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | pfxPassword | Vereist | Null | Wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen |
 | Domeinnaam | Vereist | local.azurestack.external | Azure Stack-achtervoegsel voor de regio en het domein |
@@ -331,7 +331,7 @@ Volg deze stappen:
 3. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 4. Voer de **maken AADIdentityApp.ps1** script. Wanneer u wordt gevraagd, typt u de Azure AD-tenant-ID die u voor uw Azure Stack-implementatie. Voer bijvoorbeeld **myazurestack.onmicrosoft.com**.
 5. In de **referentie** venster, Voer uw Azure AD-service admin-account en wachtwoord. Selecteer **OK**.
-6. Voer het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
+6. Voer het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
 7. Het script maakt een nieuwe toepassing in de tenant Azure AD-instantie. Noteer de toepassings-ID die wordt geretourneerd in de PowerShell-uitvoer. U hebt deze informatie tijdens de installatie nodig.
 8. Open een nieuw browservenster en meld u aan de [Azure-portal](https://portal.azure.com) als de Azure Active Directory-service-beheerder.
 9. Open de Azure AD-resourceprovider.
@@ -345,7 +345,7 @@ Volg deze stappen:
     Create-AADIdentityApp.ps1
 ```
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Description |
+| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Vereist | Null | Azure AD-tenant-ID. Geef de GUID of een tekenreeks. Een voorbeeld is myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Vereist | Null | Eindpunt van Admin Azure Resource Manager. Een voorbeeld is adminmanagement.local.azurestack.external. |
@@ -375,13 +375,13 @@ Volg deze stappen:
 3. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 4. Voer de **maken ADFSIdentityApp.ps1** script.
 5. In de **referentie** venster, Geef uw AD FS cloud-beheerdersaccount en het wachtwoord. Selecteer **OK**.
-6. Geef het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
+6. Geef het pad naar het certificaatbestand en het certificaatwachtwoord voor de [certificaat dat u eerder hebt gemaakt](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). Het certificaat dat is gemaakt voor deze stap standaard is **sso.appservice.local.azurestack.external.pfx**.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1
 ```
 
-| Parameter | Vereist of optioneel | Standaardwaarde | Description |
+| Parameter | Vereist of optioneel | Standaardwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Vereist | Null | Eindpunt van Admin Azure Resource Manager. Een voorbeeld is adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Vereist | Null | Bevoegde eindpunt. Een voorbeeld is AzS-ERCS01. |

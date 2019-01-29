@@ -1,6 +1,6 @@
 ---
-title: Rollover van een certificaat van de Azure Service Fabric-cluster | Microsoft Docs
-description: Meer informatie over hoe naar rollover van een Service Fabric-cluster certificaat aangeduid door de algemene naam van het certificaat.
+title: Rollover van een Azure Service Fabric-cluster-certificaat | Microsoft Docs
+description: Meer informatie over hoe op rollover van een Service Fabric-clustercertificaat geïdentificeerd door de algemene naam van het certificaat.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: df919e23fd608cdf41e93844f13342ca00657adb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205141"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192962"
 ---
-# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Overschakelen handmatig een certificaat voor Service Fabric-cluster
-Als een Service Fabric-cluster certificaat bijna verloopt, moet u het certificaat bijwerken.  Overschakeling van certificaat is eenvoudig als het cluster is [tot gebruikmaken van certificaten op basis van de algemene naam](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (in plaats van de vingerafdruk).  Een nieuw certificaat ophalen bij een certificeringsinstantie met een nieuwe vervaldatum.  Zelfondertekende certificaten, inclusief de gegenereerd bij het implementeren van een Service Fabric-cluster in de Azure portal, worden niet ondersteund.  Het nieuwe certificaat moet dezelfde algemene naam als een ouder certificaat hebben. 
+# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Handmatig een Service Fabric-cluster-certificaat vernieuwen
+Als een Service Fabric-clustercertificaat bijna verloopt, moet u het certificaat bijwerken.  Rollover van certificaten is eenvoudig als het cluster is [ingesteld voor gebruik certificaten op basis van de algemene naam](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (in plaats van vingerafdruk).  Haal een nieuw certificaat van een certificeringsinstantie met een nieuwe vervaldatum.  Zelfondertekende certificaten worden niet ondersteund voor productie Service Fabric-clusters, om op te nemen van certificaten die zijn gegenereerd tijdens de Azure portal Cluster maken-werkstroom. Het nieuwe certificaat moet dezelfde algemene naam als het certificaat voor oudere hebben. 
 
-Het volgende script een nieuw certificaat uploadt naar een sleutelkluis en installeert u het certificaat op de virtuele-machineschaalset.  De Service Fabric-cluster gebruiken automatisch het certificaat met de meest recente verloopdatum.
+Service Fabric-cluster wordt automatisch gebruikt voor het opgegeven certificaat met een verdere in de toekomstige vervaldatum; bij het valideren van meer dan één certificaat geïnstalleerd op de host. Een best practice is het gebruik van Resource Manager-sjabloon voor het inrichten van Azure-Resources. Voor niet-productieomgeving is het volgende script kan worden gebruikt om een nieuw certificaat uploaden naar een sleutelkluis, en installeert u het certificaat op de virtuele-machineschaalset: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -79,7 +79,10 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
 
-Voor meer informatie, lees het volgende:
-* Meer informatie over [beveiliging cluster](service-fabric-cluster-security.md).
-* [Bijwerken en beheren van clustercertificaten](service-fabric-cluster-security-update-certs-azure.md)
+>[!NOTE]
+> Virtual Machine Scale ingesteld geheimen bieden geen ondersteuning voor dezelfde resource-id voor twee afzonderlijke geheimen, berekent zoals elke geheim een samengestelde unieke resource is. 
+
+Voor meer informatie leest u het volgende:
+* Meer informatie over [cluster security](service-fabric-cluster-security.md).
+* [Bijwerken en clustercertificaten beheren](service-fabric-cluster-security-update-certs-azure.md)
 

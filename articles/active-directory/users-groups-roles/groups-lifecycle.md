@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9e73a979950e856a7fc2bfa2193ea4ca0d59bac2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242225"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166166"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
@@ -91,45 +91,45 @@ Het bewaarbeleid is geconfigureerd in de beveiligings- en Compliancecentrum. Of 
 Hier volgen enkele voorbeelden van hoe u PowerShell-cmdlets gebruiken kunt voor het configureren van de instellingen voor verlooptijd voor Office 365-groepen in uw tenant:
 
 1. De module voor PowerShell versie 2.0 Preview (2.0.0.137) installeren en meld u aan bij de PowerShell-prompt:
-  ````
+  ```
   Install-Module -Name AzureADPreview
   connect-azuread 
-  ````
-2. Configureer de instellingen voor verlooptijd New-AzureADMSGroupLifecyclePolicy: met deze cmdlet wordt de levensduur ingesteld voor alle Office 365-groepen in de tenant en 365 dagen. Meldingen voor het vernieuwen voor Office 365 groepen zonder eigenaren wordt verzonden naar 'emailaddress@contoso.com'
+  ```
+2. Configureer de instellingen voor verlooptijd New-AzureADMSGroupLifecyclePolicy:  Deze cmdlet wordt de levensduur ingesteld voor alle Office 365-groepen in de tenant en 365 dagen. Meldingen voor het vernieuwen voor Office 365 groepen zonder eigenaren wordt verzonden naar 'emailaddress@contoso.com'
   
-  ````
+  ```
   New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
-  ````
-3. Ophalen van het bestaande beleid Get-AzureADMSGroupLifecyclePolicy: met deze cmdlet haalt de huidige Office 365-groep vervaldatum instellingen die zijn geconfigureerd. In dit voorbeeld kunt u het volgende zien:
+  ```
+3. Ophalen van het bestaande beleid Get-AzureADMSGroupLifecyclePolicy: Dit smdlet haalt de huidige Office 365-groep vervaldatum instellingen die zijn geconfigureerd. In dit voorbeeld kunt u het volgende zien:
   * De beleids-ID 
   * De levensduur van alle Office 365-groepen in de tenant is ingesteld op 365 dagen
   * Meldingen voor het vernieuwen voor Office 365 groepen zonder eigenaren wordt verzonden naar 'emailaddress@contoso.com.'
   
-  ````
+  ```
   Get-AzureADMSGroupLifecyclePolicy
   
   ID                                    GroupLifetimeInDays ManagedGroupTypes AlternateNotificationEmails
   --                                    ------------------- ----------------- ---------------------------
   26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
-  ```` 
+  ``` 
    
-4. Bijwerken van het bestaande beleid Set-AzureADMSGroupLifecyclePolicy: met deze cmdlet wordt gebruikt om een bestaand beleid. In het onderstaande voorbeeld wordt de Groepslevensduur van de in het bestaande beleid gewijzigd van 365 dagen op 180 dagen. 
+4. Update het bestaande beleid Set-AzureADMSGroupLifecyclePolicy: Deze cmdlet wordt gebruikt voor het bijwerken van een bestaand beleid. In het onderstaande voorbeeld wordt de Groepslevensduur van de in het bestaande beleid gewijzigd van 365 dagen op 180 dagen. 
   
-  ````
+  ```
   Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
-  ````
+  ```
   
-5. Specifieke groepen toevoegen aan het beleid Add-AzureADMSLifecyclePolicyGroup: met deze cmdlet een gebruikersgroep wordt toegevoegd aan het lifecycle-beleid. Als u een voorbeeld: 
+5. Specifieke groepen toevoegen aan het beleid Add-AzureADMSLifecyclePolicyGroup: Een gebruikersgroep wordt toegevoegd aan het levenscyclusbeleid van deze cmdlet. Als u een voorbeeld: 
   
-  ````
+  ```
   Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
-  ````
+  ```
   
-6. Verwijder het bestaande beleid Remove-AzureADMSGroupLifecyclePolicy: met deze cmdlet verwijdert u de instellingen voor de Office 365 verloopt echter wel vereist dat de beleids-ID. Hiermee wordt de vervaldatum voor Office 365-groepen uitgeschakeld. 
+6. Verwijder het bestaande beleid Remove-AzureADMSGroupLifecyclePolicy: Deze cmdlet verwijdert de instellingen voor de Office 365 verloopt echter wel vereist dat de beleids-ID. Hiermee wordt de vervaldatum voor Office 365-groepen uitgeschakeld. 
   
-  ````
+  ```
   Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
-  ````
+  ```
   
 De volgende cmdlets kan worden gebruikt om het beleid configureren in meer detail. Zie voor meer informatie, [PowerShell-documentatie](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 17826bb250f1cc7c4d512f76400eeb43c2637c73
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: b88f1ff84cc26e1db88027a55b506fd37476aae5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994790"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197684"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -37,10 +37,10 @@ De service is beschikbaar in de algemeen beschikbare Azure-regio's. Niet alle AP
 
 Regio's                                        | Beschikbaarheid?                                 | Ondersteunde versies
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | Algemeen verkrijgbaar   | 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02-2017-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 01-02-2018
-[Azure China](https://www.azure.cn/)                                                           | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 01-02-2018
-[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 01-02-2018
+[Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | Algemeen verkrijgbaar   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure China](https://www.azure.cn/)                                                           | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 
 Deze tabel wordt bijgewerkt wanneer er service-updates beschikbaar zijn en of nieuwe ondersteunde versies zijn beschikbaar
 
@@ -303,10 +303,10 @@ plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/create
 publicKeys | Verzameling van openbare sleutels [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] toegewezen aan de virtuele machine en de paden | 2017-04-02
 vmScaleSetName | [Naam van de virtuele Machine ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) instellen van uw virtuele-machineschaalset | 2017-12-01
 zone | [Binnen een Beschikbaarheidszone](../../availability-zones/az-overview.md) van uw virtuele machine | 2017-12-01 
-IPv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
-IPv4/publicIpAddress | Openbare IPv4-adres van de virtuele machine | 2017-04-02
-subnetadres / | Subnetadres van de virtuele machine | 2017-04-02 
-/ subnetvoorvoegsel | Het subnetvoorvoegsel, voorbeeld 24 uur per dag | 2017-04-02 
+ipv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
+ipv4/publicIpAddress | Openbare IPv4-adres van de virtuele machine | 2017-04-02
+subnet/address | Subnetadres van de virtuele machine | 2017-04-02 
+subnet/prefix | Het subnetvoorvoegsel, voorbeeld 24 uur per dag | 2017-04-02 
 ipv6/ipAddress | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
 MAC-adres | VM-mac-adres | 2017-04-02 
 scheduledevents | Zie [geplande gebeurtenissen](scheduled-events.md) | 2017-08-01
@@ -496,7 +496,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Voor ondersteuning voor de service, maakt u een Ondersteuningsprobleem in Azure-portal voor de virtuele machine waar u zijn niet in staat om op te halen van de reactie met metagegevens na lange pogingen 
 9. Kan ik er is een time-out opgetreden voor de aanroep naar de service krijgen?
    * Metagegevens-aanroepen moeten worden gemaakt van het primaire IP-adres toegewezen aan de netwerkkaart van de virtuele machine, ook als u hebt gewijzigd uw routes er moeten een route voor 169.254.0.0/16 adres buiten uw netwerkkaart.
-10. Kan ik mijn labels in Virtual Machine Scale set bijgewerkt, maar ze niet weergegeven in de exemplaren in tegenstelling tot virtuele machines?
+10. Kan ik mijn labels in VM-schaalset bijgewerkt, maar ze niet weergegeven in de exemplaren in tegenstelling tot virtuele machines?
    * Op dit moment voor ScaleSets weergegeven labels alleen op de virtuele machine op een opnieuw opstarten/terugzetten van een installatiekopie/of een schijf met het exemplaar wijzigen. 
 
    ![Ondersteuning voor Instance-Metagegevens](./media/instance-metadata-service/InstanceMetadata-support.png)

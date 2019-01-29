@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391263"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096888"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Gebruik de volgende hop voor het vaststellen van problemen met de virtuele machine routering
 
@@ -42,4 +42,4 @@ Zie voor meer informatie over elk volgend hoptype [routeringoverzicht](../virtua
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het gebruik van volgende hop voor het vaststellen van problemen met VM-netwerk de routering, [vaststellen VM-netwerk op problemen met de routering](diagnose-vm-network-routing-problem.md).
+Zie voor meer informatie over het gebruik van volgende hop voor het vaststellen van problemen met VM-netwerk de routering, diagnosticeren VM-netwerk met behulp van problemen met de routering de [Azure-portal](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), of de [Azure CLI](diagnose-vm-network-routing-problem-cli.md).

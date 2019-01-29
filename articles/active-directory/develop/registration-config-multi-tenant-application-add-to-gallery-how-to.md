@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
-ms.openlocfilehash: b89be37d9c77fb83e607a1af0bc2f6ba716ab2c1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 073f6d925a6868937410972a9400daefa802876d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724055"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152039"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Toevoegen van een multitenant-toepassing naar de Azure AD-toepassingsgalerie
 
@@ -31,9 +31,9 @@ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud gebaseer
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Als uw toepassing SAML of OpenIDConnect ondersteunt
 Als u een multitenant-toepassing die u wilt die worden vermeld in de Azure AD-toepassingsgalerie hebt, moet u eerst zorgen dat uw toepassing ondersteuning biedt voor een van de volgende eenmalige aanmelding-technologieën:
 
-- **OpenID Connect**: als u wilt dat uw app weergegeven, de multitenant-toepassing in Azure AD maken en implementeren van de [Azure AD-toestemmingsframework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) voor uw toepassing. De aanmeldingsaanvraag naar een gemeenschappelijk eindpunt verzenden, zodat elke klant u toestemming voor de toepassing krijgt. U kunt de toegang van een gebruiker op basis van de tenant-ID en de UPN van de gebruiker in het token ontvangen. De aanvraag indienen met behulp van het proces wordt beschreven in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: Als u wilt dat uw app weergegeven, de multitenant-toepassing in Azure AD maken en implementeren van de [Azure AD-toestemmingsframework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) voor uw toepassing. De aanmeldingsaanvraag naar een gemeenschappelijk eindpunt verzenden, zodat elke klant u toestemming voor de toepassing krijgt. U kunt de toegang van een gebruiker op basis van de tenant-ID en de UPN van de gebruiker in het token ontvangen. De aanvraag indienen met behulp van het proces wordt beschreven in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-- **SAML**: als uw toepassing SAML 2.0 ondersteunt, de app kan worden weergegeven in de galerie. Volg de instructies in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: Als uw toepassing SAML 2.0 ondersteunt, kan de app worden weergegeven in de galerie. Volg de instructies in [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Als uw toepassing geen ondersteuning biedt voor SAML of OpenIDConnect
 Toepassingen die geen ondersteuning voor SAML of OpenIDConnect kunnen nog steeds worden geïntegreerd in de app-galerie met één wachtwoord aanmeldings-technologie.

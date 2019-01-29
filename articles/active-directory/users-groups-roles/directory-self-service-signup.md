@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394677"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195814"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Wat is selfserviceregistratie voor Azure Active Directory?
 In dit artikel wordt uitgelegd Self-serviceregistratie en hoe u voor de ondersteuning in Azure Active Directory (Azure AD). Als u wilt een domeinnaam overnemen van een niet-beheerde Azure AD-tenant, Zie [overnemen van een niet-beheerde adreslijst als administrator](domains-admin-takeover.md).
@@ -31,9 +31,9 @@ In dit artikel wordt uitgelegd Self-serviceregistratie en hoe u voor de onderste
 * Een zelf-Self-service gemaakte Azure AD-directory kan worden omgezet in een beheerde adreslijst die kan worden gebruikt voor andere services
 
 ## <a name="terms-and-definitions"></a>Termen en definities
-* **Self-serviceregistratie**: dit is de methode waarmee een gebruiker zich aanmeldt voor een service in de cloud en heeft een identiteit die automatisch voor ze zijn gemaakt in Azure AD op basis van hun e-maildomein.
-* **Niet-beheerde Azure AD-directory**: dit is de map waar deze identiteit is gemaakt. Een niet-beheerde adreslijst is een map die geen globale beheerder heeft.
-* **Via e-mail geverifieerde gebruiker**: dit is een type gebruikersaccount in Azure AD. Een gebruiker met een automatisch gemaakt nadat het aanmelden voor een aanbieding selfservice staat bekend als een gebruiker via e-mail geverifieerde identiteit. Een gebruiker via e-mail geverifieerde reguliere lid is van een map die is gemarkeerd met creationmethod = EmailVerified.
+* **Self-serviceregistratie**: Dit is de methode waarmee een gebruiker zich aanmeldt voor een service in de cloud en heeft een identiteit die automatisch voor ze zijn gemaakt in Azure AD op basis van hun e-maildomein.
+* **Niet-beheerde Azure AD-directory**: Dit is de map waar deze identiteit is gemaakt. Een niet-beheerde adreslijst is een map die geen globale beheerder heeft.
+* **Via e-mail geverifieerde gebruiker**: Dit is een type gebruikersaccount in Azure AD. Een gebruiker met een automatisch gemaakt nadat het aanmelden voor een aanbieding selfservice staat bekend als een gebruiker via e-mail geverifieerde identiteit. Een gebruiker via e-mail geverifieerde reguliere lid is van een map die is gemarkeerd met creationmethod = EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Hoe beheers ik selfservice-instellingen
 Beheerders hebben nu twee besturingselementen voor selfservice. Ze kunnen bepalen of:
@@ -63,9 +63,9 @@ Flow en PowerApps proefversie mogelijkheid niet wordt beheerd door de **AllowAdH
 ### <a name="how-do-the-controls-work-together"></a>Hoe de besturingselementen werken samen?
 Deze twee parameters kunnen worden gebruikt in combinatie meer nauwkeurige controle over Self-serviceregistratie definiëren. Bijvoorbeeld, de volgende opdracht kunnen gebruikers uit te voeren Self-serviceregistratie, maar alleen als deze gebruikers al een account in Azure AD hebben (met andere woorden, gebruikers die een worden gemaakt via e-mail geverifieerde account moet eerst niet uitvoeren Self-serviceregistratie):
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 Het volgende stroomdiagram wordt uitgelegd voor de verschillende combinaties van deze parameters en de resulterende voorwaarden voor de directory en self-serviceregistratie.
 

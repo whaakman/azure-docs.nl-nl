@@ -6,25 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: d81478e6bdaf4a1844d01278b961350c81b2edd6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5826ab8ac50a5d27f5a74cff4bebba4b2809d5f0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087726"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096616"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integratie van datacenter voor Azure Stack - syslog doorsturen
 
-Dit artikel ziet u hoe u Azure Stack-infrastructuur integreren met externe beveiliging oplossing(en) al geïmplementeerd in uw datacenter met syslog. Bijvoorbeeld, een Security informatie Event Management (SIEM)-systeem. De syslog-kanaal wordt aangegeven dat controles, waarschuwingen en beveiligingslogboeken van alle onderdelen van de Azure Stack-infrastructuur. Syslog doorsturen gebruiken voor integratie met oplossingen voor beveiligingsbewaking en/of Logboeken om op te halen van alle controles, waarschuwingen en beveiliging om op te slaan ze voor het bewaren van. 
+Dit artikel ziet u hoe u Azure Stack-infrastructuur integreren met externe beveiliging oplossing(en) al geïmplementeerd in uw datacenter met syslog. Bijvoorbeeld, een Security informatie Event Management (SIEM)-systeem. De syslog-kanaal wordt aangegeven dat controles, waarschuwingen en beveiligingslogboeken van alle onderdelen van de Azure Stack-infrastructuur. Syslog doorsturen gebruiken voor integratie met oplossingen voor beveiligingsbewaking en/of Logboeken om op te halen van alle controles, waarschuwingen en beveiliging om op te slaan ze voor het bewaren van.
 
 Beginnen met de update 1809, is Azure Stack een geïntegreerde syslog-client die, wanneer dit is geconfigureerd, verzendt de syslog-berichten met de nettolading in Common Event Format (CEF).
 
-Het volgende overzicht beschrijft de integratie van Azure Stack met een externe SIEM. Er zijn twee integratiepatronen die moeten worden overwogen: het eerst een (de computer in het blauw) is de Azure Stack-infrastructuur die overeenkomt met de infrastructuur-VM's en de Hyper-V-knooppunten. Alle controles, beveiligingslogboeken en waarschuwingen van deze onderdelen zijn centraal verzamelde en beschikbaar gemaakt via syslog met CEF-nettolading. Dit patroon integratie wordt beschreven in dit document-pagina.
-Het tweede integratie-patroon wordt afgebeeld in oranje en bevat informatie over de baseboard management controllers (bmc's), de hardware-lifecycle-host (HLH), de virtuele machines en/of virtuele apparaten met de hardware-partner bewaking en beheer software en de top van rack (TOR) switches. Aangezien deze onderdelen hardware-partner zijn specifiek, kunt u contact opnemen met uw partner hardware voor documentatie over hoe u ze integreren met een externe SIEM.
+Het volgende overzicht beschrijft de integratie van Azure Stack met een externe SIEM. Er zijn twee integratiepatronen die moeten worden overwogen: het eerst een (de computer in het blauw) is de Azure Stack-infrastructuur die overeenkomt met de infrastructuur-VM's en de Hyper-V-knooppunten. De audits, beveiligingslogboeken en waarschuwingen van deze onderdelen zijn centraal verzameld en beschikbaar gesteld via syslog met CEF-nettolading. Dit patroon integratie wordt beschreven in dit document-pagina.
+Het tweede integratie-patroon wordt afgebeeld in oranje en bevat informatie over de baseboard management controllers (bmc's), de hardware-lifecycle-host (HLH), de virtuele machines en/of virtuele apparaten met de hardware-partner bewaking en beheer software en de top van rack (TOR) switches. Aangezien deze onderdelen zijn specifiek, contact op met de hardware-partner van uw hardware partners voor documentatie over hoe u ze integreren met een externe SIEM.
 
 ![Syslog doorsturen van diagram](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -34,11 +34,11 @@ De syslog-client in Azure Stack ondersteunt de volgende configuraties:
 
 1. **Syslog via TCP met wederzijdse verificatie (client en server) en TLS 1.2-versleuteling:** In deze configuratie worden zowel de syslog-server en de syslog-client kunnen controleren of de identiteit van elkaar met behulp van certificaten. De berichten worden verzonden via een versleuteld kanaal TLS 1.2.
 
-2. **Syslog via TCP met server-verificatie en TLS 1.2-versleuteling:** In deze configuratie de syslog-client kunt controleren of de identiteit van de syslog-server via een certificaat. De berichten worden verzonden via een versleuteld kanaal TLS 1.2.
+2. **Syslog via TCP met server-verificatie en TLS 1.2-versleuteling:** In deze configuratie kan de syslog-client controleren of de identiteit van de syslog-server via een certificaat. De berichten worden verzonden via een versleuteld kanaal TLS 1.2.
 
-3. **Syslog via TCP met geen versleuteling:** In deze configuratie de syslog-client, noch syslog-server verifieert de identiteit van elkaar. De berichten worden verzonden in ongecodeerde tekst via TCP.
+3. **Syslog via TCP met geen versleuteling:** In deze configuratie de syslog-client en de identiteiten van syslog-server niet worden geverifieerd. De berichten worden verzonden in ongecodeerde tekst via TCP.
 
-4. **Syslog via UDP, met geen versleuteling:** In deze configuratie de syslog-client, noch syslog-server verifieert de identiteit van elkaar. De berichten worden verzonden in ongecodeerde tekst via UDP.
+4. **Syslog via UDP, met geen versleuteling:** In deze configuratie de syslog-client en de identiteiten van syslog-server niet worden geverifieerd. De berichten worden verzonden in ongecodeerde tekst via UDP.
 
 > [!IMPORTANT]
 > Microsoft adviseert om TCP met behulp van verificatie en versleuteling te gebruiken (configuratie #1 of in de zeer minimale #2) voor productieomgevingen ter bescherming tegen man-in-the-middle-aanvallen en niet kan worden afgeluisterd van berichten.
@@ -62,13 +62,13 @@ Parameters voor *Set SyslogServer* cmdlet:
 
 | Parameter | Beschrijving | Type | Vereist |
 |---------|---------|---------|---------|
-|*Servernaam* | FQDN of IP-adres van de syslog-server | Reeks | ja|
+|*ServerName* | FQDN of IP-adres van de syslog-server | Reeks | ja|
 |*ServerPort* | Poortnummer dat de syslog-server luistert | Reeks | ja|
 |*NoEncryption*| Afdwingen dat de client voor het verzenden van syslog-berichten in niet-versleutelde tekst | Vlag | nee|
 |*SkipCertificateCheck*| De validatie van het certificaat dat is geleverd door de syslog-server tijdens de initiële TLS-handshake overslaan | Vlag | nee|
 |*SkipCNCheck*| De validatie van de waarde van de algemene naam van het certificaat dat is geleverd door de syslog-server tijdens de initiële TLS-handshake overslaan | Vlag | nee|
 |*UseUDP*| Syslog met UDP als protocol-transport gebruiken |Vlag | nee|
-|*verwijderen*| Configuratie van de server van de client verwijderen en syslog doorsturen stoppen| Vlag | nee|
+|*Remove*| Configuratie van de server van de client verwijderen en syslog doorsturen stoppen| Vlag | nee|
 
 Parameters voor *Set SyslogClient* cmdlet:
 | Parameter | Beschrijving | Type |
@@ -129,7 +129,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Syslog doorsturen configureren met TCP, Server-verificatie en TLS 1.2-versleuteling
 
-Bij deze configuratie stuurt de syslog-client in Azure Stack berichten naar de syslog-server via TCP, met TLS 1.2-versleuteling. Tijdens de initiële handshake verifieert de client ook dat de server een geldig certificaat van vertrouwde biedt. Dit voorkomt dat de client om berichten te verzenden naar niet-vertrouwde doelen.
+Bij deze configuratie stuurt de syslog-client in Azure Stack berichten naar de syslog-server via TCP, met TLS 1.2-versleuteling. Tijdens de initiële handshake verifieert de client ook dat de server een geldig certificaat van vertrouwde biedt. Deze configuratie wordt voorkomen dat de client om berichten te verzenden naar niet-vertrouwde doelen.
 TCP-met behulp van verificatie en versleuteling is de standaardconfiguratie en Hiermee geeft u het minimale niveau van beveiliging die door Microsoft wordt aanbevolen voor een productie-omgeving. 
 
 ```powershell
@@ -258,7 +258,7 @@ PEP ernst tabel:
 
 | Severity | Niveau | Numerieke waarde |
 |----------|-------| ----------------|
-|0|Niet gedefinieerd|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
+|0|Undefined|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
 |10|Kritiek|Waarde: 1. Geeft aan dat de logboeken voor een kritieke waarschuwing|
 |8|Fout| Waarde: 2. Geeft aan dat de logboeken voor een fout|
 |5|Waarschuwing|Waarde: 3. Geeft aan dat de logboeken voor een waarschuwing|
@@ -288,7 +288,7 @@ Tabel van gebeurtenissen voor de recovery-eindpunt:
 REP Severity tabel:
 | Severity | Niveau | Numerieke waarde |
 |----------|-------| ----------------|
-|0|Niet gedefinieerd|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
+|0|Undefined|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
 |10|Kritiek|Waarde: 1. Geeft aan dat de logboeken voor een kritieke waarschuwing|
 |8|Fout| Waarde: 2. Geeft aan dat de logboeken voor een fout|
 |5|Waarschuwing|Waarde: 3. Geeft aan dat de logboeken voor een waarschuwing|
@@ -307,7 +307,7 @@ REP Severity tabel:
 Ernst van de tabel voor Windows-gebeurtenissen:
 | CEF-waarde voor ernst | Niveau van de Windows-gebeurtenissen | Numerieke waarde |
 |--------------------|---------------------| ----------------|
-|0|Niet gedefinieerd|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
+|0|Undefined|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
 |10|Kritiek|Waarde: 1. Geeft aan dat de logboeken voor een kritieke waarschuwing|
 |8|Fout| Waarde: 2. Geeft aan dat de logboeken voor een fout|
 |5|Waarschuwing|Waarde: 3. Geeft aan dat de logboeken voor een waarschuwing|
@@ -318,7 +318,7 @@ Aangepaste extensie-tabel voor Windows-gebeurtenissen in Azure Stack:
 | Naam van de aangepaste uitbreiding | Voorbeeld van de Windows-gebeurtenis | 
 |-----------------------|---------|
 |MasChannel | Systeem|
-|MasComputer | Test.azurestack.contoso.com|
+|MasComputer | test.azurestack.contoso.com|
 |MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasEventData| Svchost. 4132, G, 0. EseDiskFlushConsistency. ESENT. 0x800000|
@@ -334,11 +334,11 @@ Aangepaste extensie-tabel voor Windows-gebeurtenissen in Azure Stack:
 |MasOpcodeName |informatie|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
-|MasProviderName |Microsoft-Windows-architectuur|
+|MasProviderName |Microsoft-Windows-GroupPolicy|
 |MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Maken van het proces|
-|MasUserData|KB4093112. 5112. Geïnstalleerd. 0x0. WindowsUpdateAgent Xpath: / Event/UserData / *|
+|MasUserData|KB4093112!!5112!!Installed!!0x0!!WindowsUpdateAgent Xpath: /Event/UserData/*|
 |MasVersion|0|
 
 ### <a name="cef-mapping-for-alerts-created"></a>CEF-toewijzing voor waarschuwingen die zijn gemaakt
@@ -353,14 +353,14 @@ Aangepaste extensie-tabel voor Windows-gebeurtenissen in Azure Stack:
 Tabel van de ernst van waarschuwingen:
 | Severity | Niveau |
 |----------|-------|
-|0|Niet gedefinieerd|
+|0|Undefined|
 |10|Kritiek|
 |5|Waarschuwing|
 
 Aangepaste extensie-tabel voor waarschuwingen die zijn gemaakt in Azure Stack:
 | Naam van de aangepaste uitbreiding | Voorbeeld | 
 |-----------------------|---------|
-|MasEventDescription|Beschrijving: Een gebruikersaccount \<TestUser\> is gemaakt voor \<TestDomain\>. Het is een mogelijk beveiligingsrisico. --HERSTEL: Neem contact op met ondersteuning. Klantondersteuning is vereist om dit probleem te verhelpen. Probeer niet om op te lossen dit probleem zonder de hulp. Voordat u een ondersteuningsaanvraag opent, start u het bestand logboekverzamelproces volgens de richtlijnen van https://aka.ms/azurestacklogfiles |
+|MasEventDescription|BESCHRIJVING: Een gebruikersaccount \<TestUser\> is gemaakt voor \<TestDomain\>. Het is een mogelijk beveiligingsrisico. --HERSTEL: Neem contact op met ondersteuning. Klantondersteuning is vereist om dit probleem te verhelpen. Probeer niet om op te lossen dit probleem zonder de hulp. Voordat u een ondersteuningsaanvraag opent, start u het bestand logboekverzamelproces volgens de richtlijnen van https://aka.ms/azurestacklogfiles |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>CEF-toewijzing voor waarschuwingen gesloten
 

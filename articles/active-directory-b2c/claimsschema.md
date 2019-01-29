@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849087"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167067"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,13 +42,13 @@ De **ClaimsSchema** element definieert de claimtypen aan die kunnen worden verwe
 
 De **ClaimType** element bevat het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor het claimtype. Andere elementen kunt deze id in het beleid. |
 
 De **ClaimType** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | De titel die wordt weergegeven voor gebruikers op verschillende schermen. De waarde kan zijn [gelokaliseerde](localization.md). |
 | Gegevenstype | 0:1 | Het type van de claim. De gegevenstypen van Booleaanse waarde, datum, datum/tijd, int, long, string, stringCollection, alternativeSecurityIdCollection kan worden gebruikt. |
@@ -63,13 +63,13 @@ PredicateValidationReference| 0:1 | Een verwijzing naar een **PredicateValidatio
 
 De **DefaultPartnerClaimTypes** mag het volgende element:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | Protocol | 0: n | Lijst met protocollen met hun standaardpartner de naam van claim. |
 
 De **Protocol** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Name | Ja | De naam van een geldig protocol dat wordt ondersteund door Azure AD B2C. Mogelijke waarden zijn:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed of WsTrust. |
 | PartnerClaimType | Ja | De naam van het claim moet worden gebruikt. |
@@ -104,7 +104,7 @@ Als gevolg hiervan de JWT-token dat is uitgegeven door Azure AD B2C, verzendt de
 
 De **masker** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Type | Ja | Het type van het masker claim. Mogelijke waarden: `Simple` of `Regex`. De `Simple` waarde geeft aan dat een eenvoudige tekstmasker wordt toegepast op de toonaangevende gedeelte van een tekenreeks-claim. De `Regex` waarde geeft aan dat een reguliere expressie wordt toegepast op de claim tekenreeks als geheel.  Als de `Regex` waarde is opgegeven, wordt een optioneel kenmerk moet ook worden gedefinieerd met de reguliere expressie te gebruiken. |
 | Regex | Nee | Als **Type** is ingesteld op `Regex`, geef de reguliere expressie te gebruiken.
@@ -144,13 +144,13 @@ De Identity-Ervaringsframework wordt alleen de eerste letter van het e-mailadres
 
 De **beperking** element mag het volgende kenmerk:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | MergeBehavior | Nee | De methode die wordt gebruikt voor het samenvoegen van opsommingswaarden met een ClaimType in een bovenliggende beleid met dezelfde id. Gebruik dit kenmerk wanneer u een claim die is opgegeven in het Basisbeleid overschrijven. Mogelijke waarden: `Append`, `Prepend`, of `ReplaceAll`. De `Append` waarde is een verzameling van gegevens die moet worden toegevoegd aan het einde van de verzameling die is opgegeven in het bovenliggende beleid. De `Prepend` waarde is een verzameling van gegevens die moeten worden toegevoegd voordat u de verzameling die is opgegeven in het bovenliggende beleid. De `ReplaceAll` waarde is een verzameling van gegevens die zijn opgegeven in het bovenliggende beleid die moet worden genegeerd. |
 
 De **beperking** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | Opsomming | 1: n | De beschikbare opties in de gebruikersinterface voor de gebruiker selecteert voor een claim, zoals een waarde in een vervolgkeuzelijst. |
 | Patroon | 1:1 | De reguliere expressie te gebruiken. |
@@ -159,10 +159,10 @@ De **beperking** element bevat de volgende elementen:
 
 De **opsomming** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Tekst | Ja | De tekenreeks die weergeven die aan de gebruiker in de gebruikersinterface voor deze optie wordt weergegeven. |
-|Waarde | Ja | De waarde van de claim die is gekoppeld aan deze optie selecteert. |
+|Value | Ja | De waarde van de claim die is gekoppeld aan deze optie selecteert. |
 | SelectByDefault | Nee | Geeft aan of deze optie standaard in de gebruikersinterface moet worden geselecteerd. Mogelijke waarden: Waar of ONWAAR. |
 
 Het volgende voorbeeld wordt een **plaats** vervolgkeuzelijst lijst claim met een standaardwaarde ingesteld op `New York`:
@@ -188,7 +188,7 @@ Plaats vervolgkeuzelijst met een standaardwaarde ingesteld op New York:
 
 De **patroon** element mag de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | RegularExpression | Ja | De reguliere expressie die claims van dit type moeten overeenkomen met geldig. |
 | Help-tekst | Nee | Het patroon of reguliere expressie voor deze claim. |

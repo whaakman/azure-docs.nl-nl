@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 0884726e59d9ab3f5a5cfe7bb0608f6b5a5da250
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fe3f41e95cc3aa4f22ff2cdea24388f7e9974755
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449844"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181194"
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Administratieve eenheden beheren in Azure AD - openbare preview
 Dit artikel beschrijft administratieve eenheden: een nieuwe Azure Active Directory-container van resources die kunnen worden gebruikt voor het overdragen van machtigingen via subsets van gebruikers en -beleid toepassen op een subset van gebruikers. In Azure Active Directory kunnen administratieve eenheden centrale beheerders machtigingen delegeren naar regionale beheerders of gedetailleerde beleidsregels instellen.

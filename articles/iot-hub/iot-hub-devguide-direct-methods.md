@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: ab196645cc14acb3ed2e56ee785d4790a8df3c23
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: caccdcb0d90a817c82e8d7816f0770b09b4ea27a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052537"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101019"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Begrijpen en directe methoden uit IoT Hub aanroepen
 
@@ -36,7 +36,7 @@ Directe methoden zijn geïmplementeerd op het apparaat en mogelijk nul of meer v
 > Wanneer u een rechtstreekse methode op een apparaat aanroepen, namen en waarden mag alleen US-ASCII-afdrukbare uit alfanumerieke tekens, behalve in het volgende instellen: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-Directe methoden zijn synchrone en een slagen of mislukken na de time-outperiode (standaard: 30 seconden, instelbare van 3600 seconden). Directe methoden zijn handig in interactieve scenario's waar u een apparaat om te fungeren en alleen als het apparaat online en ontvangende opdrachten is. Bijvoorbeeld inschakelen een lichte op een telefoon. In deze scenario's die u wilt zien van een directe slagen of mislukken, zodat de service in de cloud kan worden uitgevoerd op het resultaat zo snel mogelijk. Het apparaat kan sommige berichttekst als gevolg van de methode retourneren, maar het is niet vereist voor de methode om dit te doen. Er is geen garantie op volgorde of een gelijktijdigheid-semantiek op methodeaanroepen.
+Directe methoden zijn synchrone en een slagen of mislukken na de time-outperiode (standaard: 30 seconden, instelbare van aan 300 seconden). Directe methoden zijn handig in interactieve scenario's waar u een apparaat om te fungeren en alleen als het apparaat online en ontvangende opdrachten is. Bijvoorbeeld inschakelen een lichte op een telefoon. In deze scenario's die u wilt zien van een directe slagen of mislukken, zodat de service in de cloud kan worden uitgevoerd op het resultaat zo snel mogelijk. Het apparaat kan sommige berichttekst als gevolg van de methode retourneren, maar het is niet vereist voor de methode om dit te doen. Er is geen garantie op volgorde of een gelijktijdigheid-semantiek op methodeaanroepen.
 
 Directe methoden zijn alleen HTTPS vanuit de cloud kant- en MQTT- of AMQP vanaf het apparaat.
 

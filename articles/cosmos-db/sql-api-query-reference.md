@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: b099848f2d0392a25a0906a96dba53885962c79b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354464"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102342"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
@@ -2169,7 +2169,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 -   `num_expr`  
   
-     Een geldige numerieke expressie is.  
+     Een geldige numerieke expressie is. Als num_expr negatief of niet-begrensde is, is het resultaat is niet gedefinieerd.
+
+  > [!NOTE]
+  > De maximale lengte van het resultaat is 10.000 tekens dat wil zeggen (length(str_expr) * num_expr) < = 10.000.
   
  **Typen retourneren**  
   

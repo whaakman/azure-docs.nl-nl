@@ -1,5 +1,5 @@
 ---
-title: Interpreteren van het schema van de inloggen in Azure Active Directory in Azure Monitor (preview) | Microsoft Docs
+title: Azure Active Directory-aanmelding log-schema in Azure Monitor (preview) | Microsoft Docs
 description: Beschrijf de Azure AD-aanmelding in een logboek-schema voor gebruik in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2957cd12fb6ef37b3e120b90b1500c6a43bb3e04
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3c67446f1e828ae528f2e4eb4a0292da2c993ded
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813420"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156289"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Het schema van de logboeken voor aanmelding bij Azure AD in Azure Monitor (preview) interpreteren
 

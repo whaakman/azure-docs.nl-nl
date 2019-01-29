@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f9389a7c0e80f075c01f2236fa1bdf9dc9544ac6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968afcba8b0a6ab9d46c5582eecbb4901975257c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987438"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101132"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Snelstartgids: Meld u aan gebruikers en de Microsoft Graph-API aanroepen vanuit een .NET-Desktop (WPF)-app
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Quickstart: Meld u aan gebruikers en de Microsoft Graph-API aanroepen vanuit een .NET-Desktop (WPF)-app
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -36,18 +36,18 @@ In deze snelstartgids leert u hoe u om een takenlijst voor .NET-WPF-toepassing t
 * Zoekt naar een map voor gebruikers met een opgegeven alias.
 * Gebruikers van de tekens uit.
 
-Voor het bouwen van de volledige, werkende toepassing, moet u het:
+Om de volledige, werkende toepassing te compileren, moet u het volgende doen:
 
-1. Uw toepassing registreren met Azure AD.
+1. Registreer de toepassing bij Azure AD.
 2. Installeer en configureer ADAL.
-3. Gebruikmaken van ADAL om op te halen van tokens van Azure AD.
+3. Gebruik ADAL om tokens op te halen uit Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt beginnen, moet u deze vereisten voldoen:
+Voordat u begint, zorgt u dat u aan deze vereisten voldoet:
 
 * [Het app-basisproject downloaden](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) of [het voltooide voorbeeld downloaden](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip)
-* Een Azure AD-tenant waar u kunt gebruikers maken en registreren van een toepassing hebben. Als u nog een tenant hebt [informatie over het verkrijgen van een](quickstart-create-new-tenant.md).
+* Een Azure AD-tenant waar u kunt gebruikers maken en registreren van een toepassing hebben. [Lees hier hoe u een tenant kunt verkrijgen](quickstart-create-new-tenant.md) als u er nog geen hebt.
 
 ## <a name="step-1-register-the-directorysearcher-application"></a>Stap 1: De toepassing DirectorySearcher registreren
 
@@ -66,7 +66,7 @@ Als u wilt inschakelen voor de app om op te halen van tokens, uw app registreren
 
 ## <a name="step-2-install-and-configure-adal"></a>Stap 2: Installeren en configureren van ADAL
 
-Nu dat u een toepassing in Azure AD hebt, kunt u ADAL installeert en uw identiteit gerelateerde code te schrijven. Voor de ADAL om te communiceren met Azure AD, moet u deze voorzien van enkele gegevens over uw app-registratie.
+Nu u een toepassing hebt in Azure AD, kunt u ADAL installeren en uw aan identiteit gerelateerde code schrijven. Als u wilt dat ADAL kan communiceren met Azure AD, moet u ADAL voorzien van bepaalde informatie gegevens over uw app-registratie.
 
 1. Begin door toe te voegen ADAL de `DirectorySearcher` project met behulp van de Package Manager-Console.
 
@@ -75,12 +75,12 @@ Nu dat u een toepassing in Azure AD hebt, kunt u ADAL installeert en uw identite
     ```
 
 1. In de `DirectorySearcher` project, open `app.config`.
-1. Vervang de waarden van de elementen in de `<appSettings>` gedeelte in overeenstemming met de waarden die u in de Azure-portal hebt ingevoerd. Uw code zal naar deze waarden verwijzen wanneer deze gebruikmaakt van ADAL.
+1. Vervang de waarden van de elementen in de `<appSettings>` gedeelte in overeenstemming met de waarden die u in de Azure-portal hebt ingevoerd. Uw code verwijst naar deze waarden wanneer deze gebruikmaakt van ADAL.
   * De `ida:Tenant` is het domein van uw Azure AD-tenant, bijvoorbeeld contoso.onmicrosoft.com
   * De `ida:ClientId` is de client-ID van uw toepassing die u hebt gekopieerd uit de portal.
   * De `ida:RedirectUri` is de omleidings-URL die u in de portal hebt geregistreerd.
 
-## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Stap 3: Gebruik ADAL tokens ophalen uit Azure AD
+## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Stap 3: Gebruikmaken van ADAL om op te halen van tokens van Azure AD
 
 Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, uw app roept `authContext.AcquireTokenAsync(...)`, en doet de rest van ADAL.
 
@@ -99,7 +99,7 @@ Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, uw a
     }
     ```
 
-1. Zoek de `Search(...)` methode die wordt aangeroepen wanneer de gebruiker selecteert de **zoeken** knop in de gebruikersinterface van de app. Deze methode maakt een GET-aanvraag voor de Azure AD Graph-API aan query voor gebruikers wiens UPN met de opgegeven zoekterm begint.
+1. Zoek de `Search(...)` methode die wordt aangeroepen wanneer de gebruiker selecteert de **zoeken** knop in de gebruikersinterface van de app. Met deze methode maakt u een GET-aanvraag voor de Azure AD Graph API om gebruikers op te vragen van wie de UPN begint met de opgegeven zoekterm.
 1. Om te vragen de Graph API, omvatten een access_token in de `Authorization` -header van de aanvraag, dit is waar ADAL is beschikbaar in.
 
     ```csharp
@@ -181,9 +181,9 @@ Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, uw a
     }
     ```
 
-Gefeliciteerd! U hebt nu een werkende .NET WPF-toepassing die u kunt gebruikers verifiëren, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en elementaire informatie over de gebruiker. Als u niet hebt gedaan, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers. Voer uw app DirectorySearcher uit en meld u aan met een van deze gebruikers. Zoeken naar andere gebruikers op basis van hun UPN. De app sluit en opnieuw te starten. U ziet hoe de sessie van de gebruiker intact blijft. Meld u af en meld u opnieuw aan als een andere gebruiker.
+Gefeliciteerd! U hebt nu een werkende .NET WPF-toepassing die u kunt gebruikers verifiëren, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en elementaire informatie over de gebruiker. Nu kunt u de tenant met gebruikers gaan vullen als u dat nog niet hebt gedaan. Voer uw app DirectorySearcher uit en meld u aan met een van deze gebruikers. Zoek andere gebruikers op basis van hun UPN. De app sluit en opnieuw te starten. U ziet hoe de sessie van de gebruiker intact blijft. Meld u af en meld u opnieuw aan als een andere gebruiker.
 
-ADAL kunt eenvoudig deze algemene identiteitsfuncties opnemen in uw toepassing. Dit zorgt dat het werk dirty bij u past, met inbegrip van Cachebeheer, ondersteuning voor OAuth protocol, dat de gebruiker met een gebruikersinterface, vervallen tokens en meer te vernieuwen. Alles wat u moet weten is dat één API-aanroep, `authContext.AcquireTokenAsync(...)`.
+ADAL kunt eenvoudig deze algemene identiteitsfuncties opnemen in uw toepassing. Dit zorgt dat het werk dirty bij u past, met inbegrip van Cachebeheer, ondersteuning voor OAuth protocol, dat de gebruiker met een gebruikersinterface, vervallen tokens en meer te vernieuwen. Het enige dat u hoeft te weten, is één API-aanroep, `authContext.AcquireTokenAsync(...)`.
 
 Voor een verwijzing naar het voltooide voorbeeld (zonder uw configuratiewaarden) [op GitHub](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).
 

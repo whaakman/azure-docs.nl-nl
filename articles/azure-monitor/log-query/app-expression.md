@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191832"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104657"
 ---
-# <a name="app-expression-in-log-analytics-query"></a>de expressie App() in Log Analytics-query
+# <a name="app-expression-in-log-analytics-query"></a>app() expression in Log Analytics query
 
 De `app` expressie wordt gebruikt in een Log Analytics-query voor het ophalen van gegevens uit een specifieke Application Insights-app in dezelfde resourcegroep, een andere resourcegroep of een ander abonnement. Dit is handig om op te nemen van toepassingsgegevens in een Log Analytics-query en om gegevens te doorzoeken voor meerdere toepassingen in een Application Insights-query.
 
@@ -28,19 +28,19 @@ De `app` expressie wordt gebruikt in een Log Analytics-query voor het ophalen va
 
 ## <a name="syntax"></a>Syntaxis
 
-`app(`*ID*`)`
+`app(`*Identifier*`)`
 
 
 ## <a name="arguments"></a>Argumenten
 
 - *Id*: Hiermee geeft u de app met een van de indelingen in de onderstaande tabel.
 
-| Id | Description | Voorbeeld
+| Id | Beschrijving | Voorbeeld
 |:---|:---|:---|
-| Resourcenaam | Menselijke leesbare naam van de app (AKA "naam van onderdeel") | App("fabrikamapp") |
-| Gekwalificeerde naam | Volledige naam van de app in het formulier: "resourceGroup-subscriptionName/componentName" | App('AI-prototype/Fabrikam/fabrikamapp') |
+| Resourcenaam | Menselijke leesbare naam van de app (AKA "naam van onderdeel") | app("fabrikamapp") |
+| Gekwalificeerde naam | Volledige naam van de app in het formulier: "resourceGroup-subscriptionName/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
 | Id | GUID van de app. | App("988ba129-363e-4415-8fe7-8cbab5447518") |
-| Azure-Resource-ID | ID voor de Azure-resource |App("/Subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/ResourceGroups/Fabrikam/providers/Microsoft.Insights/Components/fabrikamapp") |
+| Azure-Resource-ID | ID voor de Azure-resource |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
 ## <a name="notes"></a>Opmerkingen
@@ -48,6 +48,7 @@ De `app` expressie wordt gebruikt in een Log Analytics-query voor het ophalen va
 * U moet leestoegang tot de toepassing hebben.
 * Identificeren van een toepassing door de naam ervan, wordt ervan uitgegaan dat het is uniek voor alle toegankelijke abonnementen. Als u meerdere toepassingen met de opgegeven naam hebt, wordt de query mislukt vanwege een dubbelzinnigheid. In dit geval moet u een van de andere id's gebruiken.
 * Gebruik de bijbehorende expressie [werkruimte](workspace-expression.md) naar query uitvoeren in Log Analytics-werkruimten.
+* De expressie app() wordt momenteel niet ondersteund in de zoekquery bij het gebruik van de Azure-portal maken een [aangepaste log search waarschuwingsregel](../platform/alerts-log.md), tenzij een Application Insights-toepassing wordt gebruikt als de resource voor de waarschuwingsregel.
 
 ## <a name="examples"></a>Voorbeelden
 

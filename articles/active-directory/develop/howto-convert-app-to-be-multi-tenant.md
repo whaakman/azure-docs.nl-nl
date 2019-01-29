@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 5c904feacef4f5c15784c5f30c5f8bedf3940329
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425340"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097041"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Hoe: een Azure Active Directory-gebruiker met behulp van het patroon voor multitenant-toepassingen aanmelden
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedure: Meld u aan een Azure Active Directory-gebruiker met behulp van het patroon voor multitenant-toepassingen
 
 Als u een Software als een dienst (SaaS)-toepassing voor veel organisaties biedt, kunt u uw toepassing om te accepteren van aanmeldingen vanaf een tenant Azure Active Directory (Azure AD) kunt configureren. Deze configuratie wordt aangeroepen *maken van uw toepassing met meerdere tenants*. Gebruikers in een Azure AD-tenant zich aanmelden bij uw toepassing nadat ze hun account gebruiken met uw toepassing goedkeuren. 
 
@@ -59,7 +59,7 @@ In een toepassing met één tenant worden aanmeldingsaanvragen verzonden naar va
 
 Met een toepassing met meerdere tenants kent de toepassing niet een welke tenant de gebruiker is, zodat u kunt geen aanvragen naar eindpunt van een tenant verzenden. In plaats daarvan worden aanvragen verzonden naar een eindpunt dat multiplexes voor alle Azure AD-tenants: `https://login.microsoftonline.com/common`
 
-Azure AD ontvangt wanneer een aanvraag op de/Common eindpunt, wordt de gebruiker zich aanmeldt en, als gevolg hiervan, detecteert welke tenant de gebruiker van is. De/gemeenschappelijk eindpunt werkt met alle van de verificatieprotocollen die wordt ondersteund door Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 en WS-Federation.
+Azure AD ontvangt wanneer een aanvraag op de/Common eindpunt, wordt de gebruiker zich aanmeldt en, als gevolg hiervan, detecteert welke tenant de gebruiker van is. De/gemeenschappelijk eindpunt werkt met alle van de verificatieprotocollen die wordt ondersteund door Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0 en WS-Federation.
 
 Het antwoord aanmelden op de toepassing wordt vervolgens bevat een token voor de gebruiker. De waarde van de verlener in het token geeft een toepassing voor wat de gebruiker van is tenant. Wanneer een antwoord retourneert uit de/Common eindpunt, de uitgeverwaarde in het token komt overeen met de tenant van de gebruiker. 
 
@@ -114,15 +114,15 @@ Deze ervaring toestemming wordt beïnvloed door de machtigingen die zijn aangevr
 
 Sommige machtigingen kunnen worden gegeven door een gewone gebruiker, terwijl andere van een tenantbeheerder toestemming vereisen. 
 
-### <a name="admin-consent"></a>Toestemming van de beheerder
+### <a name="admin-consent"></a>toestemming van de beheerder
 
-Altijd een tenantbeheerder toestemming om alleen App-machtigingen. Als uw toepassing een alleen-app-machtigingen worden aangevraagd en een gebruiker wil zich aanmelden bij de toepassing, wordt een foutbericht weergegeven dat de gebruiker kan geen tot toestemming geven.
+Bij app-specifieke machtigingen is er altijd toestemming van een tenantbeheerder nodig. Als uw toepassing een alleen-app-machtigingen worden aangevraagd en een gebruiker wil zich aanmelden bij de toepassing, wordt een foutbericht weergegeven dat de gebruiker kan geen tot toestemming geven.
 
 Bepaalde gedelegeerde machtigingen ook vereist een tenantbeheerder toestemming. Bijvoorbeeld, nodig de mogelijkheid om terug te schrijven naar Azure AD als de aangemelde gebruiker toestemming om een tenantbeheerder. Als een gewone gebruiker wil zich aanmelden bij een toepassing die een overgedragen machtiging waarvoor goedgekeurd door een beheerder, vraagt ontvangt uw toepassing, zoals alleen-app-machtigingen, een foutbericht. Een machtiging vereist of toestemming van een beheerder is bepaald door de ontwikkelaar die de resource gepubliceerd, en kunt u vinden in de documentatie voor de resource. De documentatie van machtigingen voor de [Azure AD Graph API] [ AAD-Graph-Perm-Scopes] en [Microsoft Graph API] [ MSFT-Graph-permission-scopes] aangeven welke machtigingen de beheerder vereisen toestemming.
 
 Als uw toepassing gebruikmaakt van machtigingen voor toestemming van een beheerder, moet u een beweging, zoals een knop of koppeling hebt waarin de beheerder de actie kan initiëren. De aanvraag voor uw toepassing verzendt voor deze actie is de gebruikelijke OAuth2/OpenID Connect autorisatieaanvraag die ook de `prompt=admin_consent` query-tekenreeksparameter. Zodra de beheerder heeft ingestemd en de service-principal is gemaakt in de tenant van de klant, de volgende aanmelding aanvragen hoeft niet de `prompt=admin_consent` parameter. Omdat de beheerder heeft besloten dat de aangevraagde machtigingen worden geaccepteerd, wordt er geen andere gebruikers in de tenant wordt gevraagd om toestemming vanaf dat moment.
 
-Een tenantbeheerder kan de mogelijkheid voor normale gebruikers instemmen met toepassingen uitschakelen. Als deze mogelijkheid is uitgeschakeld, is toestemming van een beheerder altijd vereist voor de toepassing moet worden gebruikt in de tenant. Als u testen van uw toepassing met eindgebruikers toestemming geven uitgeschakeld wilt, vindt u de configuratie-switch in de [Azure-portal] [ AZURE-portal] in de **[gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** sectie onder **bedrijfstoepassingen**.
+Tenantbeheerders kunnen uitschakelen dat normale gebruikers toestemming kunnen geven voor toepassingen. Als dit wordt uitgeschakeld, is er altijd beheerderstoestemming nodig om een toepassing in een tenant te kunnen gebruiken. Als u testen van uw toepassing met eindgebruikers toestemming geven uitgeschakeld wilt, vindt u de configuratie-switch in de [Azure-portal] [ AZURE-portal] in de **[gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** sectie onder **bedrijfstoepassingen**.
 
 De `prompt=admin_consent` parameter kan ook worden gebruikt door toepassingen die aanvragen van de machtigingen toegewezen die geen toestemming van een beheerder vereist. Een voorbeeld van wanneer dit zou worden gebruikt, is als de toepassing een ervaring waar de tenant-beheerder vereist 'zich aanmeldt' één keer, en er geen andere gebruikers wordt gevraagd om toestemming vanaf dat moment op.
 

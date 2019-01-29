@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215001"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155065"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Licenties toewijzen aan gebruikers door groepslidmaatschappen in Azure Active Directory
 
@@ -59,9 +59,9 @@ In dit voorbeeld bevat de tenant een beveiligingsgroep met de naam **HR-afdeling
 We hebben hebt een licentiesjabloon voor de groep HR-afdeling nu opgegeven. Een achtergrondproces in Azure AD is gestart voor het verwerken van alle bestaande leden van die groep. Deze eerste bewerking kan enige tijd, afhankelijk van de huidige grootte van de groep duren. De volgende stap wordt beschreven hoe om te verifiëren dat het proces is voltooid en bepalen als meer aandacht is vereist voor het oplossen van problemen.
 
 > [!NOTE]
-> U kunt dezelfde toewijzing starten vanaf een alternatieve locatie: **gebruikers en groepen** in Azure AD. Ga naar **Azure Active Directory** > **gebruikers en groepen** > **alle groepen**. Zoek vervolgens de groep, selecteert u deze en gaat u naar de **licenties** tabblad. De **toewijzen** knop boven op het deelvenster opent u het deelvenster van de toewijzing van licentie.
+> U kunt dezelfde toewijzing starten vanaf een alternatieve locatie: **Gebruikers en groepen** in Azure AD. Ga naar **Azure Active Directory** > **gebruikers en groepen** > **alle groepen**. Zoek vervolgens de groep, selecteert u deze en gaat u naar de **licenties** tabblad. De **toewijzen** knop boven op het deelvenster opent u het deelvenster van de toewijzing van licentie.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Stap 2: Controleren of de eerste toewijzing is voltooid
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Stap 2: Controleer of de eerste toewijzing is voltooid
 
 1. Ga naar **Azure Active Directory** > **gebruikers en groepen** > **alle groepen**. Gaat u naar de **HR-afdeling** groep voor die licenties zijn toegewezen aan.
 
@@ -77,9 +77,9 @@ We hebben hebt een licentiesjabloon voor de groep HR-afdeling nu opgegeven. Een 
 
 3. Meer gedetailleerde informatie over het verwerken van onder licentie **Azure Active Directory** > **gebruikers en groepen** > *groepsnaam*  >  **Auditlogboeken**. Houd rekening met de volgende activiteiten:
 
-   - Activiteit: **Start toepassen op basis van groepslicentie op gebruikers**. Dit wordt geregistreerd wanneer het systeem het wijzigen van het toewijzen van licenties op de groep wordt opgehaald en wordt gestart toe te passen op alle gebruikersleden van de. Bevat informatie over de wijziging die is gemaakt.
+   - Activiteit: **Start de toepassing zijn op basis van groepslicentie op gebruikers**. Dit wordt geregistreerd wanneer het systeem het wijzigen van het toewijzen van licenties op de groep wordt opgehaald en wordt gestart toe te passen op alle gebruikersleden van de. Bevat informatie over de wijziging die is gemaakt.
 
-   - Activiteit: **toepassen op basis van groepslicentie op gebruikers voltooien**. Dit wordt geregistreerd wanneer het systeem is verwerkt alle gebruikers in de groep. Het bevat een overzicht van hoeveel gebruikers zijn verwerkt en hoeveel gebruikers Groepslicenties kunnen niet worden toegewezen.
+   - Activiteit: **Toepassen op basis van groepslicentie op gebruikers voltooien**. Dit wordt geregistreerd wanneer het systeem is verwerkt alle gebruikers in de groep. Het bevat een overzicht van hoeveel gebruikers zijn verwerkt en hoeveel gebruikers Groepslicenties kunnen niet worden toegewezen.
 
    [Lees deze sectie](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) voor meer informatie over hoe de logboeken voor controle kunnen worden gebruikt voor het analyseren van wijzigingen van Groepslicenties.
 

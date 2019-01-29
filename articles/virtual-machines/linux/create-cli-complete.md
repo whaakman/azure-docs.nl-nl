@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ec520e7d06f6c5a560af56e6616eeed8481520fe
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467482"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180361"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Een volledige Linux-machine maken met de Azure CLI
 Als u wilt snel een virtuele machine (VM) maken in Azure, kunt u een enkele Azure CLI-opdracht die gebruikmaakt van standaardwaarden om alle vereiste ondersteunende resources te maken. Resources, zoals een virtueel netwerk, openbare IP-adres en regels voor netwerkbeveiligingsgroepen worden automatisch gemaakt. Voor meer controle over uw omgeving in de productieomgeving gebruikt, u kunt deze resources vooraf maken en vervolgens uw virtuele machines toevoegen aan deze. In dit artikel begeleidt u bij het maken van een virtuele machine en elk van de ondersteunende resources één voor één.
@@ -30,13 +30,13 @@ Zorg ervoor dat u de meest recente hebt geïnstalleerd [Azure CLI](/cli/azure/in
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myVnet*, en *myVM*.
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Een resourcegroep moet worden gemaakt voordat u een virtuele machine en de ondersteunende virtuele-netwerkbronnen. Maak de resourcegroep met [az-groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Een resourcegroep moet worden gemaakt voordat u een virtuele machine en de ondersteunende virtuele-netwerkbronnen. Maak de resourcegroep met [az-groep maken](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-De uitvoer van Azure CLI-opdrachten is standaard in JSON (JavaScript Object Notation). De standaardwaarde uitvoer naar een lijst of tabel wijzigen, gebruikt u bijvoorbeeld [az--uitvoer configureren](/cli/azure/reference-index#az_configure). U kunt ook toevoegen `--output` wijzigen voor een opdracht voor een één keer in de indeling van uitvoer. In het volgende voorbeeld toont de JSON-uitvoer van de `az group create` opdracht:
+De uitvoer van Azure CLI-opdrachten is standaard in JSON (JavaScript Object Notation). De standaardwaarde uitvoer naar een lijst of tabel wijzigen, gebruikt u bijvoorbeeld [az--uitvoer configureren](/cli/azure/reference-index). U kunt ook toevoegen `--output` wijzigen voor een opdracht voor een één keer in de indeling van uitvoer. In het volgende voorbeeld toont de JSON-uitvoer van de `az group create` opdracht:
 
 ```json                       
 {
@@ -559,7 +559,7 @@ Als u wilt de standaardsite nginx geopend in actie zien, open uw webbrowser en v
 ![Standaard-NGINX-site op de virtuele machine](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Als een sjabloon exporteren
-Wat gebeurt er als u wilt nu een extra development environment maken met dezelfde parameters, of een productie-omgeving die overeenkomt met het? Resource Manager JSON-sjablonen die de parameters voor uw omgeving definieert gebruikt. U bouwen volledige omgevingen door te verwijzen naar deze JSON-sjabloon. U kunt [handmatig JSON-sjablonen samenstellen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of exporteren van een bestaande omgeving voor het maken van de JSON-sjabloon voor u. Gebruik [az group exporteren](/cli/azure/group#az_group_export) voor het exporteren van uw resourcegroep als volgt:
+Wat gebeurt er als u wilt nu een extra development environment maken met dezelfde parameters, of een productie-omgeving die overeenkomt met het? Resource Manager JSON-sjablonen die de parameters voor uw omgeving definieert gebruikt. U bouwen volledige omgevingen door te verwijzen naar deze JSON-sjabloon. U kunt [handmatig JSON-sjablonen samenstellen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of exporteren van een bestaande omgeving voor het maken van de JSON-sjabloon voor u. Gebruik [az group exporteren](/cli/azure/group) voor het exporteren van uw resourcegroep als volgt:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json

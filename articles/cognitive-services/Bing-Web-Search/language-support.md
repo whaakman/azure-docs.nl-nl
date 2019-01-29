@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 6d7b227ac182ca2cd30d6a6eaa428ea86757214c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: dbe9fe5b8e9cd31ca20d88b7db89a9d35e1fe8de
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164394"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161135"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Ondersteuning voor taal en regio voor de Bing webzoekopdrachten-API
 
@@ -70,15 +70,15 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
-|Argentinië|Spaans|ES-AR|
+|Argentinië|Spaans|es-AR|
 |Australië|Nederlands|en-AU|
 |Oostenrijk|Duits|de-AT|
-|België|Nederlands|NL-worden|
-|België|Frans|FR-worden|
+|België|Nederlands|nl-BE|
+|België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
 |Canada|Nederlands|NL-CA|
 |Canada|Frans|fr-CA|
-|Chili|Spaans|ES-CL|
+|Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
 |Finland|Fins|fi-FI|
 |Frankrijk|Frans|fr-FR|
@@ -93,14 +93,14 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
 |Nieuw-Zeeland|Nederlands|NL-NZ|
-|Noorwegen|Noors|uit den boze|
+|Noorwegen|Noors|no-NO|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
 |Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|NL-ZA|
+|Zuid-Afrika|Nederlands|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
@@ -108,5 +108,5 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
 |Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|nl-NL|
-|Verenigde Staten|Spaans|ES-US|
+|Verenigde Staten|Nederlands|en-US|
+|Verenigde Staten|Spaans|es-US|

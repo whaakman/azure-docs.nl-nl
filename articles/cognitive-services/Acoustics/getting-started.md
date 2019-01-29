@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 0aad231b4a57c2d9927a553a43394681282b5494
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902940"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155949"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Aan de slag met Project akoestische
 Deze snelstartgids wordt beschreven hoe integreren van de invoegtoepassing in uw Unity-project, het maken van uw scène en het toepassen van de akoestische geluid gegevensbronnen. Voor deze Quick Start, moet u eerst maken een [Azure batch-account](create-azure-account.md). Deze handleiding wordt ervan uitgegaan dat bekend zijn met Unity.
@@ -34,7 +34,7 @@ Importeer de akoestische UnityPackage aan uw project.
 
 ![Pakket importeren](media/ImportPackage.png)  
 
-* Kies **MicrosoftAcoustics.unitypackage**
+* Choose **MicrosoftAcoustics.unitypackage**
 
 Als u de invoegtoepassing in een bestaand project importeert, het project mogelijk al een **mcs.rsp** bestand in de hoofdmap van het project, die Hiermee geeft u opties voor het C#-compileerprogramma. U moet de inhoud van het bestand met de mcs.rsp-bestand dat wordt geleverd met de invoegtoepassing Project akoestische samenvoegen.
 

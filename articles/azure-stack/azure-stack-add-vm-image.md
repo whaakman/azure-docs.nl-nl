@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 54f7b596eebf2cc5ad7a9bf1b795fab087b6fac0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474367"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102478"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
@@ -82,14 +82,14 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 3. Open PowerShell met een opdrachtprompt en voer:
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
       -version "<#.#.#>” `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
-  ````
+  ```
 
   De **toevoegen AzsPlatformimage** cmdlet Hiermee geeft u waarden die worden gebruikt door de Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. De waarden zijn:
   - **publisher**  
@@ -157,24 +157,24 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 5. Voorbereiden van de installatiekopie voor een Windows of Linux-besturingssysteem in VHD-indeling (de VHDX niet), de installatiekopie uploaden naar uw storage-account en de URI waar de VM-installatiekopie kan worden opgehaald door PowerShell.  
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ````
+  ```
 
 6. (Optioneel) U kunt een matrix van gegevensschijven die als onderdeel van de VM-installatiekopie uploaden. De gegevensschijven van uw met behulp van de cmdlet New-DataDiskObject maken. Open PowerShell uit vanaf een opdrachtprompt en voer:
 
-  ````PowerShell  
+  ```PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
-  ````
+  ```
 
 7. Open PowerShell met een opdrachtprompt en voer:
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
-  ````
+  ```
 
     Zie voor meer informatie over de cmdlet Add-AzsPlatformimage en de cmdlet New-DataDiskObject, de Microsoft PowerShell [module-documentatie voor Azure Stack-operators](https://docs.microsoft.com/powershell/module/).
 
@@ -188,13 +188,13 @@ Wanneer u de installatiekopie van de virtuele machine die u hebt geüpload niet 
 
 3. Open PowerShell met een opdrachtprompt en voer:
 
-  ````PowerShell  
+  ```PowerShell  
   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
     -sku "<sku>" `
     -version "<version>" `
-  ````
+  ```
   De **Remove-AzsPlatformImage** cmdlet Hiermee geeft u waarden die worden gebruikt door de Azure Resource Manager-sjablonen om te verwijzen naar de VM-installatiekopie. De waarden zijn:
   - **publisher**  
     Bijvoorbeeld: `Canonical`  

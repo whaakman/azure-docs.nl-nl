@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a0abf2fd3502238af0e0f02cb8f9917cfb90b586
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854970"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187552"
 ---
 # <a name="localization"></a>Lokalisatie
 
@@ -39,13 +39,13 @@ De **lokalisatie** element kunt u ter ondersteuning van meerdere landinstellinge
 
 De **lokalisatie** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Ingeschakeld | Nee | Mogelijke waarden: `true` of `false`. |
 
 De **lokalisatie** element bevat een XML-elementen
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | SupportedLanguages | 1: n | Lijst met ondersteunde talen. | 
 | LocalizedResources | 0: n | Lijst met gelokaliseerde resources. |
@@ -54,7 +54,7 @@ De **lokalisatie** element bevat een XML-elementen
 
 De **SupportedLanguages** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Standaardtaal | Ja | De taal die moet worden gebruikt als de standaardlocatie voor gelokaliseerde bronnen. |
 | MergeBehavior | Nee | De opsommingswaarden van een van de waarden die worden samengevoegd, samen met eventuele ClaimType aanwezig zijn in een bovenliggende beleid met dezelfde id. Dit kenmerk gebruiken wanneer u een claim die is opgegeven in het Basisbeleid overschrijven. Mogelijke waarden: `Append`, `Prepend`, of `ReplaceAll`. De `Append` waarde geeft aan dat het verzamelen van gegevens aanwezig moet worden toegevoegd aan het einde van de verzameling die is opgegeven in het bovenliggende beleid. De `Prepend` waarde geeft aan dat het verzamelen van gegevens aanwezig zijn voordat u de verzameling die is opgegeven in het bovenliggende beleid moet worden toegevoegd. De `ReplaceAll` waarde geeft aan dat het verzamelen van gegevens die zijn gedefinieerd in het bovenliggende beleid moet worden genegeerd, in plaats daarvan de gegevens die zijn gedefinieerd in het huidige beleid gebruiken. |
@@ -63,7 +63,7 @@ De **SupportedLanguages** element bevat de volgende kenmerken:
 
 De **SupportedLanguages** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | SupportedLanguage | 1: n | Inhoud weergeven die aan een taalcode per RFC 5646 - Tags voor het identificeren van talen voldoet. | 
 
@@ -71,13 +71,13 @@ De **SupportedLanguages** element bevat de volgende elementen:
 
 De **LocalizedResources** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Id | Ja | Een id die wordt gebruikt voor het aanduiden van gelokaliseerde bronnen. |
 
 De **LocalizedResources** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0: n | Definieert de hele verzamelingen in verschillende culturen. Een verzameling kan verschillende aantal items en andere tekenreeksen voor verschillende culturen hebben. Voorbeelden van verzamelingen zijn de inventarisaties die worden weergegeven in de claimtypen. Bijvoorbeeld, wordt een land/regio-lijst weergegeven voor de gebruiker in een vervolgkeuzelijst. |
 | LocalizedStrings | 0: n | Hiermee definieert u alle van de tekenreeksen die, met uitzondering van de tekenreeksen die worden weergegeven in verzamelingen, in verschillende culturen. |
@@ -86,7 +86,7 @@ De **LocalizedResources** element bevat de volgende elementen:
 
 De **LocalizedCollections** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1: n | Lijst met ondersteunde talen. |
 
@@ -94,7 +94,7 @@ De **LocalizedCollections** element bevat de volgende elementen:
 
 De **LocalizedCollection** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | ElementType | Ja | Verwijst naar een ClaimType-element of een element van de gebruikersinterface in het beleid-bestand. |
 | ElementId | Ja | Een tekenreeks met een verwijzing naar een claimtype al gedefinieerd in de sectie ClaimsSchema dat wordt gebruikt als **ElementType** is ingesteld op een ClaimType. |
@@ -102,16 +102,16 @@ De **LocalizedCollection** element bevat de volgende kenmerken:
 
 De **LocalizedCollection** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | Item | 0: n | Hiermee definieert u een beschikbare optie voor de gebruiker selecteert voor een claim in de gebruikersinterface, zoals een waarde in een vervolgkeuzelijst. |
 
 De **Item** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Tekst | Ja | De gebruiksvriendelijke weergavereeks die de gebruiker in de gebruikersinterface voor deze optie moet worden weergegeven. |
-| Waarde | Ja | De tekenreeks claim waarde die is gekoppeld met deze optie selecteert. |
+| Value | Ja | De tekenreeks claim waarde die is gekoppeld met deze optie selecteert. |
 
 Het volgende voorbeeld ziet u het gebruik van de **LocalizedCollections** element. Deze bevat twee **LocalizedCollection** elementen, één voor Engels en een andere naam voor het Spaans. Beide ingesteld de **beperking** verzameling van de claim `Gender` met een lijst met items voor het Engels en Spaans.
 
@@ -138,13 +138,13 @@ Het volgende voorbeeld ziet u het gebruik van de **LocalizedCollections** elemen
 
 De **LocalizedStrings** element bevat de volgende elementen:
 
-| Element | Gevallen | Description |
+| Element | Gevallen | Beschrijving |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1: n | Een gelokaliseerde tekenreeks. |
 
 De **LocalizedString** element bevat de volgende kenmerken:
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | ElementType | Ja | Een verwijzing naar een element van het type claim of een element van de gebruikersinterface in het beleid. Mogelijke waarden: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, of. De `ClaimType` waarde wordt gebruikt om een van de claim-kenmerken, zoals opgegeven in de StringId lokaliseren. De `UxElement` waarde wordt gebruikt om een van de gebruikersinterface-elementen die zijn opgegeven in de StringId lokaliseren. De `ErrorMessage` waarde wordt gebruikt om een van de foutberichten systeem zoals opgegeven in de StringId lokaliseren. De `Predicate` waarde wordt gebruikt voor het lokaliseren van een van de [predicaat](predicates.md) foutberichten worden weergegeven, zoals opgegeven in de StringId. De `InputValidation` waarde wordt gebruikt voor het lokaliseren van een van de [PredicateValidation](predicates.md) foutberichten die zijn opgegeven in de StringId groep. |
 | ElementId | Ja | Als **ElementType** is ingesteld op `ClaimType`, `Predicate`, of `InputValidation`, dit element bevat een verwijzing naar een claimtype al gedefinieerd in de sectie ClaimsSchema. | 

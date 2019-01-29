@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9f95be8a9d75065deedd3bd7c92907145e966494
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: b40ab6bcc2f718eda85ff64d69a6689e12d60ab8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913050"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094832"
 ---
 # <a name="scaling-media-processing"></a>Mediaverwerking schalen
 
@@ -32,27 +32,19 @@ In dit artikel ziet u hoe u [Media Services v3 CLI](https://aka.ms/ams-v3-cli-re
 
 ## <a name="prerequisites"></a>Vereisten 
 
-+ Installeer de [Azure CLI]( /cli/azure/install-azure-cli). In dit artikel is Azure CLI versie 2.0 of hoger vereist. Voer `az --version` uit om te zien welke versie u hebt. 
+[Een Azure Media Services-account maken](create-account-cli-how-to.md).
 
-    U kunt ook de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) gebruiken.
-+ [Een Azure Media Services-account maken](create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="scale-media-reserved-units-with-cli"></a>Gereserveerde schaal Media-eenheden met CLI
 
-1. Voer de opdracht `login` uit. Voer deze opdracht ongeacht of u van de Azure cloudshell of de lokale CLI shell gebruikmaakt.
+Voer de opdracht `mru` uit.
 
-    ```azurecli
-    az login
-    ```
-    
-    Als de CLI uw standaardbrowser kan openen, gebeurt dat ook en wordt er een aanmeldingspagina gedownload. Anders moet u een browserpagina openen en volg de instructies op de opdrachtregel voor het invoeren van een autorisatiecode na het navigeren naar [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin) in uw browser.
-2. Voer de opdracht `mru` uit.
+De volgende [az ams-account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) sets gereserveerde Media-eenheden op de 'amsaccount' rekening met de opdracht de **aantal** en **type** parameters.
 
-    De volgende [az ams-account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) sets gereserveerde Media-eenheden op de 'amsaccount' rekening met de opdracht de **aantal** en **type** parameters.
-
-    ```azurecli
-    az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
-    ```
+```azurecli
+az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+```
 
 ## <a name="billing"></a>Billing
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c626601d9eae7732779020b153c624f80605b56a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051872"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104691"
 ---
 # <a name="connect-to-a-data-source"></a>Verbinding maken met een gegevensbron
 
@@ -30,7 +30,7 @@ Dit zijn de verschillen tussen **Importeren** en **DirectQuery**.
 | --- | --- |
 | Tabellen, kolommen, *en gegevens* worden geïmporteerd of gekopieerd naar de gegevensset van het rapport. Als u wilt zien wijzigingen zijn doorgevoerd in de onderliggende gegevens, moet u vernieuwen of een volledige, actuele gegevensset opnieuw importeren. |Alleen *tabellen en kolommen* worden geïmporteerd of gekopieerd naar de gegevensset van het rapport. U bekijken altijd de meest recente gegevens. |
 
-Met Power BI Workspace COllections, u kunt gebruikmaken van DirectQuery met cloud-gegevensbron, maar niet on-premises gegevensbronnen op dit moment.
+Met Power BI Workspace Collections, u kunt gebruikmaken van DirectQuery met cloud-gegevensbron, maar niet on-premises gegevensbronnen op dit moment.
 
 > [!NOTE]
 > De On-Premises gegevensgateway wordt niet ondersteund met Power BI Workspace Collections op dit moment. Dit betekent dat u niet DirectQuery gebruiken met on-premises gegevensbronnen.
@@ -38,7 +38,7 @@ Met Power BI Workspace COllections, u kunt gebruikmaken van DirectQuery met clou
 ## <a name="supported-data-sources"></a>Ondersteunde gegevensbronnen
 
 **DirectQuery**
-* Azure SQL-database
+* Azure SQL Database
 * Azure SQL Data Warehouse
 
 **Importeren**
@@ -52,7 +52,7 @@ Er zijn twee belangrijke voordelen bij het gebruik van **DirectQuery**:
 * **DirectQuery** kunt u visualisaties maken voor grote gegevenssets, waar dit anders onwerkbaar om naar de eerste import zijn zou alle gegevens.
 * Bij onderliggende gegevenswijzigingen kan vereisen een vernieuwing van gegevens en voor sommige rapporten kan de noodzaak tot het weergeven van actuele gegevens grote gegevensoverdrachten om de gegevens opnieuw importeren onwerkbaar om kunt vereist. Daarentegen **DirectQuery** rapporten altijd actuele gegevens gebruikt.
 
-## <a name="limitations-of-directquery"></a>Beperkingen van DirectQuery
+## <a name="limitations-of-directquery"></a>Limitations of DirectQuery
 
 Er zijn enkele beperkingen voor het gebruik van **DirectQuery**:
 

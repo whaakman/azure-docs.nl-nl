@@ -6,12 +6,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 55e9ef0f8bd268f36378c7d34cea95384c6f725e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101476"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099342"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering en horizontaal schalen in Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Een logische partitie definieert het bereik van databasetransacties. U kunt item
 
 ## <a name="physical-partitions"></a>Fysieke partities
 
-Azure Cosmos-container wordt geschaald door de gegevens en de doorvoer te verdelen over een groot aantal logische partities. Intern, een of meer logische partities zijn toegewezen aan een **fysieke partitie** die bestaat uit een verzameling van replica's ook aangeduid als een replica-set. Elke replicaset als host fungeert voor een exemplaar van de Azure Cosmos-database-engine. Een replica-set maakt de gegevens die zijn opgeslagen in de fysieke partitie duurzame, maximaal beschikbare en consistent. Een fysieke partitie ondersteuning biedt voor een vaste en maximale hoeveelheid opslag en ru's. Elke replica die bestaat uit de fysieke partitie neemt over van de opslag van inhoud. En alle replica's van een fysieke partitie gezamenlijk ondersteuning voor de doorvoer die is toegewezen aan de fysieke partitie. De volgende afbeelding ziet u hoe logische partities zijn toegewezen aan de fysieke partities die wereldwijd worden gedistribueerd:
+Azure Cosmos-container wordt geschaald door de gegevens en de doorvoer te verdelen over een groot aantal logische partities. Intern, een of meer logische partities zijn toegewezen aan een **fysieke partitie** die bestaat uit een verzameling van replica's ook aangeduid als een replica-set. Elke replicaset als host fungeert voor een exemplaar van de Azure Cosmos-database-engine. Een replica-set maakt de gegevens die zijn opgeslagen in de fysieke partitie duurzame, maximaal beschikbare en consistent. Maximale hoeveelheid opslag en ru's biedt ondersteuning voor een fysieke partitie. Elke replica die bestaat uit de fysieke partitie neemt over van de opslag van inhoud. En alle replica's van een fysieke partitie gezamenlijk ondersteuning voor de doorvoer die is toegewezen aan de fysieke partitie. De volgende afbeelding ziet u hoe logische partities zijn toegewezen aan de fysieke partities die wereldwijd worden gedistribueerd:
 
 ![Partitioneren van Azure Cosmos DB](./media/partition-data/logical-partitions.png)
 

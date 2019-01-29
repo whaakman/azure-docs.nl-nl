@@ -7,17 +7,17 @@ manager: daveba
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 6a55be6a7443017250a00a473fd57cd7d49226aa
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 0616118274c3698c8f49e02f80dbfb5e2e818074
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902717"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168160"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Download en installeer de Microsoft Authenticator-app
 De Microsoft Authenticator-app kunt u aanmelden bij uw accounts als u tweeledige verificatie. Tweeledige verificatie helpt u bij de toegang tot uw account veiliger, met name tijdens het bekijken van gevoelige informatie. Omdat wachtwoorden kunnen worden vergeten, gestolen of waarmee is geknoeid, tweeledige verificatie een extra beveiligingsstap waarmee de beveiliging van uw account is door waardoor het moeilijker is voor anderen in breken.
@@ -31,7 +31,7 @@ U kunt de Microsoft Authenticator-app gebruiken op verschillende manieren, met i
 >[!NOTE]
 >Als u problemen met aanmelden bij uw account, Zie [wanneer u zich niet aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429) voor hulp.  Meer informatie krijgen over wat er gebeurt wanneer u ontvangt de ['bestaat niet dat Microsoft-account'](https://support.microsoft.com/help/13811) wanneer u zich aanmeldt bij uw Microsoft-account.
 
-## <a name="download-and-install-the-app"></a>Download en installeer de app.
+## <a name="download-and-install-the-app"></a>De app downloaden en installeren
 Installeer de nieuwste versie van de Microsoft Authenticator-app op basis van uw besturingssysteem:
 
 - **Google Android.** Op uw Android-apparaat, gaat u naar de Google Play naar [downloaden en installeren van de Microsoft Authenticator-app](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
