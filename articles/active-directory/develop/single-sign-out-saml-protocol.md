@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: b1c0dddec93e913e543558893979b95c8f53ad47
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b1979f9b13774855ebcb33efad8ffcaf087bbfb7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581392"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097075"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Eenmalige afmelding SAML-Protocol
 
@@ -49,7 +49,7 @@ De `LogoutRequest` verzonden naar Azure AD-element vereist de volgende kenmerken
 * `Version` -Hiermee stelt u de waarde van dit element aan **2.0**. Deze waarde is verplicht.
 * `IssueInstant` -Dit is een `DateTime` tekenreeks met een waarde voor de coördinatie van Universal Time (UTC) en [traject indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een waarde van dit type verwacht, maar deze niet afdwingen.
 
-### <a name="issuer"></a>Certificaatverlener
+### <a name="issuer"></a>Verlener
 De `Issuer` -element in een `LogoutRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Meestal dit is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
 
 ### <a name="nameid"></a>NameID
@@ -70,7 +70,7 @@ Azure AD-verzendt een `LogoutResponse` in reactie op een `LogoutRequest` element
 ### <a name="logoutresponse"></a>LogoutResponse
 Azure AD-stelt de `ID`, `Version` en `IssueInstant` waarden in de `LogoutResponse` element. Stelt ook het `InResponseTo` element aan de waarde van de `ID` kenmerk van de `LogoutRequest` die opgewekt door het antwoord.
 
-### <a name="issuer"></a>Certificaatverlener
+### <a name="issuer"></a>Verlener
 Azure AD wordt deze waarde ingesteld op `https://login.microsoftonline.com/<TenantIdGUID>/` waar <TenantIdGUID> is de tenant-ID van de Azure AD-tenant.
 
 Om te evalueren van de waarde van de `Issuer` -element, gebruikt u de waarde van de **App ID URI** opgegeven tijdens de toepassingsregistratie.

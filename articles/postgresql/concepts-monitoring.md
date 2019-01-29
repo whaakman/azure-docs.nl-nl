@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c412ace453eb37646654375454d80a5c4e8dc3a6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540908"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101002"
 ---
 # <a name="monitor-and-tune"></a>Controleren en afstemmen
 Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor PostgreSQL biedt verschillende controle-opties te bieden inzicht in het gedrag van uw server.
@@ -22,7 +22,7 @@ Azure Database voor PostgreSQL biedt verschillende metrische gegevens geven inzi
 ### <a name="list-of-metrics"></a>Overzicht van metrische gegevens
 Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 
-|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Description|
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Beschrijving|
 |---|---|---|---|---|
 |cpu_percent|CPU-percentage|Procent|Het percentage van CPU gebruikt.|
 |memory_percent|Percentage geheugen|Procent|Het percentage gebruikt geheugen.|

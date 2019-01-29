@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254465"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168240"
 ---
 <a name="create-a-microsoft-developer-account"></a>Een Microsoft Developer-account maken
 ====================================
@@ -106,7 +106,7 @@ Het Microsoft Developer Center wordt gebruikt om de bedrijfsgegevens op één ke
    ![Land/regio selecteren](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >'Verkopen van'-landen: als u wilt uw services op Azure Marketplace verkopen, uw geregistreerde entiteit moet van een van de goedgekeurde 'verkoop-van'-landen die wordt weergegeven in de vervolgkeuzelijst. Deze beperking is omwille van de betalings- en belasting. Zie voor meer informatie het deelnamebeleid voor Marketplace.
+    >'Verkopen van'-landen: Als u wilt uw services op Azure Marketplace verkopen, moet uw geregistreerde entiteit uit een van de goedgekeurde 'verkoop-van'-landen die wordt weergegeven in de vervolgkeuzelijst. Deze beperking is omwille van de betalings- en belasting. Zie voor meer informatie het deelnamebeleid voor Marketplace.
 
 5. Selecteer **bedrijf** als uw 'Accounttype' en selecteer vervolgens **volgende**.
 
@@ -181,7 +181,8 @@ Als u wilt publiceren commerciële aanbiedingen voor aankoop, moet u payout toev
     - Selecteer **Volgende**.
 4.  Voer uw btw-gegevens, en selecteer vervolgens **volgende**.
 
->[WAARSCHUWING]! U niet mogelijk om te pushen naar uw commerciële aanbiedingen voor productie zonder op te geven bankrekening en btw-gegevens in uw Microsoft Developer Center-account.
+>[!WARNING]
+>U niet mogelijk om te pushen naar uw commerciële aanbiedingen voor productie zonder op te geven bankrekening en btw-gegevens in uw Microsoft Developer Center-account.
 
 ### <a name="developer-center-registration-issues"></a>Problemen met de registratie van Developer Center
 

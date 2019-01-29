@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: aec45e94e2cbec9093cdb72c896dabc633f118b2
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 9ee6d0f8b609b87fe7ed4083bc5886ceaf158cb2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748652"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188708"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Zoekcategorieën voor de Bing API voor zoeken van lokale bedrijven
 
@@ -41,7 +41,7 @@ Subcategorieën worden doorgegeven dezelfde manier als `localCategories`. Subcat
 | - | - | - | - |
 | BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants |
 | AmericanRestaurants | Bagels | BarbecueRestaurants |
-| Taverns | SportsBars | Balken |
+| Taverns | SportsBars | Bars |
 | BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
 | BritishRestaurants | CafeRestaurants | CaribbeanRestaurants |
 | ChineseRestaurants | CoffeeAndTea | Delicatessens | 
@@ -52,11 +52,11 @@ Subcategorieën worden doorgegeven dezelfde manier als `localCategories`. Subcat
 | HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
 | ItalianRestaurants | JapaneseRestaurants | SAP | 
 | KoreanRestaurants | LiquorStores | MexicanRestaurants |
-| MiddleEasternRestaurants | pizza | PolishRestaurants | 
+| MiddleEasternRestaurants | Pizza | PolishRestaurants | 
 | PortugueseRestaurants | Pretzels | Restaurants | 
 | RussianAndUkrainianRestaurants | Broodjes | SeafoodRestaurants | 
 | SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
-| Punt | ThaiRestaurants | TurkishRestaurants | 
+| TakeAway | ThaiRestaurants | TurkishRestaurants | 
 | VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
  
 ### <a name="see-do"></a>Zie doen 
@@ -64,7 +64,7 @@ Subcategorieën worden doorgegeven dezelfde manier als `localCategories`. Subcat
 | -- | -- | -- |
 | AmusementParks | Bezienswaardigheden | Carnivals |
 | Casino 's | LandmarksAndHistoricalSites | MiniatureGolfCourses |
-| MovieTheaters | Musea | Parken |
+| MovieTheaters | Museums | Parken |
 | SightseeingTours | TouristInformation | Dierentuinen |
  
 ### <a name="shop"></a>Winkelen 
@@ -99,7 +99,7 @@ Het aantal 'ziekenhuis' resultaten in de eerste drie geretourneerd van de Bing A
 
 Het volgende voorbeeld-JSON-antwoord bevat drie ziekenhuizen in het gebied met groter Seattle:
 
-````json
+```json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
 BingAPIs-SessionId: F89E7B8539B34BF58AAF811485E83B20
 X-MSEdge-ClientID: 1C44E64DBFAA6BCA1270EADDBE7D6A22
@@ -214,7 +214,7 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
       }
    }
 }
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Zoeken in geografische grenzen](specify-geographic-search.md)

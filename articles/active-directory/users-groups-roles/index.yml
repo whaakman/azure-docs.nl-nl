@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 153c3884d3802259fafac82650d79534472d7641
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb192b32928ef66f5722b4a0141eab437bddd27
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40209050"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203348"
 documentType: LandingData
 title: Documentatie voor Azure Active Directory-gebruikersbeheer
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: Documentatie voor gebruikers, groepen, rollen en licenties van Azure Active Directory
   description: Lees hoe u verificatie bij Azure cloudservices in uw tenant kunt beheren met behulp van gebruikers, groepen, rollen en licenties.
   services: active-directory
-  ms.component: users-groups-roles
+  ms.subservice: users-groups-roles
   author: curtand
   manager: mtillman
   ms.service: active-directory

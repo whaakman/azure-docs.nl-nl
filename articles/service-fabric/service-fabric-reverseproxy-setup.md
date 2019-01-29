@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852976"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102762"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instellen en configureren van omgekeerde proxy's in Azure Service Fabric
 Omgekeerde proxy is een optionele Azure Service Fabric-service waarmee microservices in een Service Fabric-cluster uitgevoerd detecteren en te communiceren met andere services die http-eindpunten hebben. Zie voor meer informatie, [omgekeerde proxy in Azure Service Fabric](service-fabric-reverseproxy.md). Dit artikel ziet u hoe u kunt instellen en configureren van omgekeerde proxy in het cluster. 
@@ -30,10 +30,10 @@ Azure portal biedt een optie voor het inschakelen van omgekeerde proxy bij het m
 
 Omgekeerde proxy configureren wanneer u [maken van een cluster met behulp van Azure portal](./service-fabric-cluster-creation-via-portal.md), zorg ervoor dat u het volgende doen:
 
-1. In **stap 2: configuratie van het Cluster**onder **configuratie van knooppunttypen**, selecteer **omgekeerde proxy inschakelen**.
+1. In **stap 2: Clusterconfiguratie**onder **configuratie van knooppunttypen**, selecteer **omgekeerde proxy inschakelen**.
 
    ![Omgekeerde proxy op portal inschakelen](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Optioneel) Als u wilt beveiligde omgekeerde proxy configureren, moet u een SSL-certificaat configureren. In **stap 3: beveiliging**op **beveiligingsinstellingen voor het cluster configureren**onder **configuratietype**, selecteer **aangepaste**. Klik vervolgens onder **omgekeerde Proxy SSL-certificaat**, selecteer **bevatten een SSL-certificaat voor omgekeerde proxy** en voer de certificaatdetails van uw.
+2. (Optioneel) Als u wilt beveiligde omgekeerde proxy configureren, moet u een SSL-certificaat configureren. In **stap 3: Beveiliging**op **beveiligingsinstellingen voor het cluster configureren**onder **configuratietype**, selecteer **aangepaste**. Klik vervolgens onder **omgekeerde Proxy SSL-certificaat**, selecteer **bevatten een SSL-certificaat voor omgekeerde proxy** en voer de certificaatdetails van uw.
 
    ![Beveiligde omgekeerde proxy configureren op de portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -239,7 +239,7 @@ Nadat u uw ClusterConfig.json-bestand voor het inschakelen van omgekeerde proxy 
 Om de omgekeerde proxy van buiten een Azure-cluster op te lossen, instellen van Azure Load Balancer-regels en een Azure-Statustest voor de omgekeerde-proxypoort. Deze stappen kunnen worden uitgevoerd met behulp van Azure portal of de Resource Manager-sjabloon op elk gewenst moment nadat u het cluster hebt gemaakt. 
 
 > [!WARNING]
-> Wanneer u de omgekeerde proxy poort in de Load Balancer configureert, kunnen alle microservices in het cluster die beschikbaar maken van een HTTP-eindpunt worden opgevraagd van buiten het cluster. Dit betekent dat de microservices is bedoeld voor intern mogelijk kunnen worden gedetecteerd door een bepaald kwaadwillende gebruiker. Deze potenially geeft ernstige problemen die kunnen worden misbruikt; bijvoorbeeld:
+> Wanneer u de omgekeerde proxy poort in de Load Balancer configureert, kunnen alle microservices in het cluster die beschikbaar maken van een HTTP-eindpunt worden opgevraagd van buiten het cluster. Dit betekent dat de microservices is bedoeld voor intern mogelijk kunnen worden gedetecteerd door een bepaald kwaadwillende gebruiker. Dit geeft kunnen ernstige problemen die kunnen worden misbruikt; bijvoorbeeld:
 >
 > * Een kwaadwillende gebruiker mogelijk een denial of service-aanval starten door een interne service beschikt niet over een voldoende beperkte kwetsbaarheid voor aanvallen herhaaldelijk aan te roepen.
 > * Een kwaadwillende gebruiker mogelijk onjuist ingedeelde pakketten leveren aan een interne service, wat resulteert in onbedoeld gedrag.

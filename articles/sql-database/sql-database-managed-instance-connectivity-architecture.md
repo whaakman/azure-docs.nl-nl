@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2077978ac9353531d10359edf396e4426e9d6988
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536046"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104408"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Connectiviteitsarchitectuur
 
@@ -68,7 +68,7 @@ We gaan meer informatie over Managed Instance connectiviteit architectuur. Het v
 
 ![connectiviteit architectuur diagram virtueel cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Clients verbinding maken met beheerd exemplaar met behulp van de naam van de host met een formulier `<mi_name>.<dns_zone>.database.windows.net`. Deze hostnaam wordt omgezet in privé-IP-adres, maar het is geregistreerd in de openbare DNS-zone en openbaar omgezette. De `zone-id` automatisch wordt gegenereerd wanneer het cluster is gemaakt. Als een nieuw cluster een secundaire beheerd exemplaar host is, wordt deze de zone-id deelt met de primaire-cluster. Zie voor meer informatie, [automatische failover-groepen](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
+Clients verbinding maken met beheerd exemplaar met behulp van de naam van de host met een formulier `<mi_name>.<dns_zone>.database.windows.net`. Deze hostnaam wordt omgezet in privé-IP-adres, maar het is geregistreerd in de openbare DNS-zone en openbaar omgezette. De `zone-id` automatisch wordt gegenereerd wanneer het cluster is gemaakt. Als een nieuw cluster een secundaire beheerd exemplaar host is, wordt deze de zone-ID deelt met de primaire-cluster. Zie voor meer informatie, [automatische failover-groepen](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
 
 Dit privé IP-adres behoort aan het beheerde exemplaar van interne Load Balancer (ILB) die verkeer naar het beheerd exemplaar Gateway (GW) stuurt. Als meerdere beheerde exemplaren kan mogelijk worden uitgevoerd in hetzelfde cluster, GW maakt gebruik van Managed Instance-hostnaam verkeer omleiden naar de juiste SQL-Engine-service.
 
@@ -78,7 +78,7 @@ Beheer en de implementatie services verbinding maken met behulp van Managed Inst
 
 De virtuele Azure SQL Database Managed Instance-cluster bevat een beheereindpunt die gebruikmaakt van Microsoft voor het beheren van het beheerde exemplaar. Het eindpunt is beveiligd met ingebouwde firewall netwerk certificaat niveau en wederzijdse verificatie op toepassingsniveau. U kunt [management eindpunt ip-adres vinden](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Wanneer verbindingen geïnitieerd worden vanuit binnen het beheerde exemplaar (back-up, auditlogboek) wordt weergegeven dat verkeer afkomstig is uit het beheer van eindpunt openbare IP-adres. U kunt toegang beperken tot openbare services van Managed Instance door in te stellen van firewallregels om toe te staan alleen het beheerd exemplaar IP-adres. Meer einformation over de methode die u kunt vinden [controleren of de ingebouwde Managed Instance-firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Wanneer verbindingen geïnitieerd worden vanuit binnen het beheerde exemplaar (back-up, auditlogboek) wordt weergegeven dat verkeer afkomstig is uit het beheer van eindpunt openbare IP-adres. U kunt toegang beperken tot openbare services van Managed Instance door in te stellen van firewallregels om toe te staan alleen het beheerd exemplaar IP-adres. Meer informatie over de methode die u kunt [controleren of de ingebouwde Managed Instance-firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
 > Dit is niet van toepassing op het instellen van de firewallregels voor Azure-services die zich in dezelfde regio als beheerd exemplaar als het Azure-platform heeft een optimalisatie voor het verkeer dat wordt verstuurd tussen de services die zijn geplaatst.
@@ -108,7 +108,7 @@ Managed Instance kunt u implementeren in een speciaal subnet (de Managed Instanc
 
 | Name       |Poort          |Protocol|Bron           |Doel|Bewerking|
 |------------|--------------|--------|-----------------|-----------|------|
-|beheer  |80, 443, 12000|TCP     |Alle              |Alle        |Toestaan |
+|beheer  |80, 443, 12000|TCP     |Alle              |Internet   |Toestaan |
 |mi_subnet   |Alle           |Alle     |Alle              |MI-SUBNET  |Toestaan |
 
   > [!Note]

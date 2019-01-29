@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5187052316e229273aa49eb784bf200c0f16a0f7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310213"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165384"
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximale limieten voor opslag, workloads en aantallen indexen, documenten, en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **gratis**, **Basic**, of **Standard** Prijscategorieën.
@@ -124,6 +124,10 @@ Resource-intensieve bewerkingen, zoals het analyseren van afbeeldingen in Azure 
 Maakt een schatting QPS moeten onafhankelijk van elkaar zijn ontwikkeld door elke klant. Zijn de primaire factoren van QPS indexgrootte en complexiteit, query-grootte en complexiteit en de hoeveelheid verkeer. Er is geen manier voor een zinvolle schattingen bij deze factoren zijn onbekend.
 
 Er zijn geen schattingen beter te voorspellen wanneer berekend op services die worden uitgevoerd op specifieke resources (Basic en Standard-lagen). U kunt meer QPS nauw schatten omdat u controle over meer van de parameters hebt. Zie voor instructies over het benadering schatting [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
+
+## <a name="data-limits-cognitive-search"></a>Gegevenslimieten (cognitief zoeken)
+
+Een [cognitief zoeken pijplijn](cognitive-search-concept-intro.md) waardoor aanroepen naar een Text Analytics-resource voor [entiteit erkenning](cognitive-search-skill-entity-recognition.md), [sleutel vindt er sleuteltermextractie plaats](cognitive-search-skill-keyphrases.md), [sentimentanalyse ](cognitive-search-skill-sentiment.md), en [taaldetectie](cognitive-search-skill-language-detection.md) is onderhevig aan de limieten van gegevens. De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten door `String.Length`. Als u splitst u uw gegevens wilt voordat deze worden verzonden naar de analyzer sentiment, gebruik de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
 
 ## <a name="api-request-limits"></a>Limieten voor API-aanvraag
 * Maximaal 16 MB per aanvraag <sup>1</sup>

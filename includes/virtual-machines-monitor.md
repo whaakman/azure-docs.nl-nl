@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54404662"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147935"
 ---
 U kunt profiteren van veel mogelijkheden voor het bewaken van uw virtuele machines te verzamelen, weergeven en analyseren van diagnostische en logboekgegevens. Eenvoudige doen [bewaking](../articles/azure-monitor/overview.md) van uw virtuele machine, kunt u het scherm overzicht voor de virtuele machine in Azure portal. U kunt [extensies](../articles/virtual-machines/windows/extensions-features.md) voor het configureren van diagnostische gegevens op uw VM's voor het verzamelen van aanvullende metrische gegevens. U kunt ook meer geavanceerde controle-opties, zoals gebruiken [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) en [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -41,7 +41,7 @@ U kunt maken [waarschuwingen](../articles/azure-monitor/platform/alerts-overview
 
 [Azure Resource health](../articles/service-health/resource-health-overview.md) helpt u bij het diagnosticeren en ondersteuning krijgen wanneer een Azure-probleem gevolgen heeft voor uw resources. Het biedt u informatie over de huidige en eerdere status van uw resources en helpt u problemen verhelpen. Resource Health biedt technische ondersteuning als u hulp nodig heeft bij problemen met Azure-services.
 
-## <a name="logs"></a>Logboeken
+## <a name="azure-activity-log"></a>Azure-activiteitenlogboek
 
 De [Azure Activity Log](../articles/azure-monitor/platform/activity-logs-overview.md) is een abonnementlogboek die biedt inzicht in gebeurtenissen op abonnementsniveau die hebben plaatsgevonden in Azure. Het logboek omvat een scala aan gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. U kunt klikken op activiteitenlogboek in Azure portal om het logboek voor uw virtuele machine weer te geven.
 
@@ -64,11 +64,13 @@ Enkele van de dingen die u met diagnostische logboeken doen kunt zijn onder ande
 
 ## <a name="advanced-monitoring"></a>Geavanceerde controle
 
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) is een service die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. U kunt een extensie installeren op een [Linux-VM](../articles/virtual-machines/linux/extensions-oms.md) of een [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) die de Log Analytics-agent wordt geïnstalleerd, en de virtuele machine voor een bestaande Log Analytics-werkruimte worden ingeschreven.
+- [Azure Monitor](../articles/azure-monitor/overview.md) is een service die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. Het biedt een uitgebreide oplossing voor het verzamelen, analyseren en uitvoeren van telemetrie van uw cloud en het on-premises omgevingen. Het helpt u begrijpen hoe uw toepassingen presteren en stelt proactief problemen vast die betrekking hebben op de toepassingen en de resources waarvan ze afhankelijk zijn. U kunt een extensie installeren op een [Linux-VM](../articles/virtual-machines/linux/extensions-oms.md) of een [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) waarmee de Log Analytics-agent voor het verzamelen van logboekgegevens en opslaan in een Log Analytics-werkruimte wordt geïnstalleerd.
 
-    Voor Windows en Linux-VM's is de aanbevolen methode voor het verzamelen van Logboeken en metrische gegevens door de Log Analytics-agent te installeren. De eenvoudigste manier om de Log Analytics-agent installeren op een virtuele machine is via de [Log Analytics VM-extensie](../articles/log-analytics/log-analytics-azure-vm-extension.md). De extensie vereenvoudigt het installatieproces en configureert automatisch de agent voor het verzenden van gegevens naar de Log Analytics-werkruimte die u opgeeft. De agent wordt bovendien automatisch bijgewerkt, zodat u over de nieuwste functies en correcties beschikt.
+    Voor Windows en Linux-VM's is de aanbevolen methode voor het verzamelen van Logboeken door de Log Analytics-agent te installeren. De eenvoudigste manier om de Log Analytics-agent installeren op een virtuele machine is via de [Log Analytics VM-extensie](../articles/log-analytics/log-analytics-azure-vm-extension.md). De extensie vereenvoudigt het installatieproces en configureert automatisch de agent voor het verzenden van gegevens naar de Log Analytics-werkruimte die u opgeeft. De agent wordt bovendien automatisch bijgewerkt, zodat u over de nieuwste functies en correcties beschikt.
 
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) kunt u voor het bewaken van uw virtuele machine en alle bijbehorende resources zoals ze betrekking op het netwerk waarin ze zich hebben bevinden. U kunt de extensie voor Network Watcher-Agent installeren op een [Linux-VM](../articles/virtual-machines/linux/extensions-nwa.md) of een [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md).
+
+- [Azure Monitor voor virtuele machines](../articles/azure-monitor/insights/vminsights-overview.md) bewaakt uw Azure virtual machines (VM) op schaal door het analyseren van de prestaties en status van uw Windows en Linux-VM's, met inbegrip van hun verschillende processen en de gekoppelde afhankelijkheden van andere bronnen en externe processen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 - Doorloop de stappen in [bewaken van een Windows-Machine met Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) of [bewaken van een virtuele Linux-Machine met de Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md).

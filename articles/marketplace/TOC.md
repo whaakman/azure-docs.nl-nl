@@ -35,7 +35,10 @@
 #### [Uw bedrijf promoten met Microsoft](./gtm-promote-your-business.md)
 #### [Voorkeursoplossingen](./preferred-solutions.md) 
 
-### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
+### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)
+#### [Veelgestelde vragen over Marketplace](./marketplace-faq-publisher-guide.md)
+#### [Voorwaarden van Marketplace](./marketplace-terms.md)
+#### [Deelnamebeleid voor Marketplace](./marketplace-participation-policy.md)
 
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
@@ -151,7 +154,6 @@
 #### [Aanbieding publiceren](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 #### [Bestaande aanbieding bijwerken](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 #### [SaaS-API’s](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-#### [SaaS-zelftestclient](./cloud-partner-portal/saas-app/cpp-selftest-client.md)
 
 ### [Virtuele-machineaanbieding](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 #### [Vereisten](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -176,6 +178,7 @@
 ###### [VHD-implementatiesjabloon](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
 ###### [Een VM implementeren vanuit marketplace](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 ##### [VM-installatiekopie certificeren](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+##### [VM-zelftestclient](./cloud-partner-portal/virtual-machine/cpp-selftest-client.md)
 ##### [SAS-URI ophalen](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 ##### [Veelvoorkomende problemen met SAS-URL](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
 #### [VM-aanbieding publiceren](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)

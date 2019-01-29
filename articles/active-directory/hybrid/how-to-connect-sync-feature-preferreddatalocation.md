@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7b54d1b746467695b2c5e6a4ba634c74a3801d4f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078726"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167084"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor Office 365-resources configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het kenmerk voor de gewenste gegevenslocatie configureren in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand maakt gebruik van meerdere geografische gebieden mogelijkheden in Office 365, gebruikt u dit kenmerk om de geo-locatie van Office 365-gegevens van de gebruiker toe te wijzen. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -123,10 +123,10 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
 3. Selecteer voor het maken van een nieuwe regel voor binnenkomende verbindingen, **nieuwe regel toevoegen**.
 4. Onder de **beschrijving** tabblad, geeft u de volgende configuratie:
 
-    | Kenmerk | Waarde | Details |
+    | Kenmerk | Value | Details |
     | --- | --- | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, "In uit Active Directory-gebruiker preferredDataLocation" |
-    | Description | *Geef een aangepaste beschrijving* |  |
+    | Beschrijving | *Geef een aangepaste beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises Active Directory-Connector* |  |
     | Verbonden systeem objecttype | **User** |  |
     | Metaverse-objecttype | **Person** |  |
@@ -152,10 +152,10 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 3. Selecteer **nieuwe regel toevoegen**.
 4. Onder de **beschrijving** tabblad, geeft u de volgende configuratie:
 
-    | Kenmerk | Waarde | Details |
+    | Kenmerk | Value | Details |
     | ----- | ------ | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, 'Out naar Azure AD-gebruiker preferredDataLocation" |
-    | Description | *Geef een beschrijving* ||
+    | Beschrijving | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de Azure AD-Connector* ||
     | Verbonden systeem objecttype | **User** ||
     | Metaverse-objecttype | **Person** ||
@@ -164,7 +164,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
 
 5. Ga naar de **Scoping filter** tabblad en toevoegen van een enkel bereik filtergroep met twee componenten:
 
-    | Kenmerk | Operator | Waarde |
+    | Kenmerk | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | GELIJK AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |

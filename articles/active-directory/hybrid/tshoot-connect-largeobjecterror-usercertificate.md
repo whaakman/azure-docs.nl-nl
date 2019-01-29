@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478617"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195586"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: Afhandeling van LargeObject-fouten die zijn veroorzaakt door userCertificate kenmerk
 
@@ -89,7 +89,7 @@ Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigu
 
 2. De search-filters te configureren met de volgende waarden:
 
-    | Kenmerk | Waarde |
+    | Kenmerk | Value |
     | --- | --- |
     | Richting |**Uitgaande** |
     | MV-objecttype |**Person** |
@@ -104,7 +104,7 @@ Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigu
 7. Selecteer in het scherm voor bewerken, de **Scoping filter** tabblad.
 8. Noteer de configuratie van het bereik. Als u van de synchronisatieregel OOB gebruikmaakt, precies moet er **één filter bereikgroep met twee componenten**, waaronder:
 
-    | Kenmerk | Operator | Waarde |
+    | Kenmerk | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | GELIJK AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
@@ -114,10 +114,10 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereikfilter** en **hogere 
 1. Klik in de Synchronization Rules Editor op de **nieuwe regel toevoegen** knop.
 2. Onder de **tabblad Beschrijving**, bieden de volgende configuratie:
 
-    | Kenmerk | Waarde | Details |
+    | Kenmerk | Value | Details |
     | --- | --- | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, *"Uit voor AAD-aangepaste onderdrukking voor userCertificate"* |
-    | Description | *Geef een beschrijving* | Bijvoorbeeld, *"Als kenmerk userCertificate meer dan 15 waarden heeft, exporteren null zijn."* |
+    | Beschrijving | *Geef een beschrijving* | Bijvoorbeeld, *"Als kenmerk userCertificate meer dan 15 waarden heeft, exporteren null zijn."* |
     | Verbonden systeem | *Selecteer de Azure AD-Connector* |
     | Verbonden systeem objecttype | **user** | |
     | Metaverse-objecttype | **person** | |
@@ -128,7 +128,7 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereikfilter** en **hogere 
 4. Overslaan de **Join regels** tabblad.
 5. Ga naar de **transformaties** tabblad om toe te voegen een nieuwe transformatie van de volgende configuratie:
 
-    | Kenmerk | Waarde |
+    | Kenmerk | Value |
     | --- | --- |
     | Type gebruikersstroom |**expressie** |
     | Doelkenmerk |**userCertificate** |

@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539786"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103391"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Autovacuum op Azure Database for PostgreSQL-server te optimaliseren 
 In dit artikel wordt beschreven hoe u effectief optimaliseren autovacuum op Azure Database voor PostgreSQL.
@@ -33,7 +33,7 @@ Als u niet van tijd tot tijd onderdruk uitvoert, wordt de dode tuples die worden
 - Hogere i/o's.
 
 ## <a name="monitoring-bloat-with-autovacuum-queries"></a>Bewaking van gegevensophoping met autovacuum query 's
-De volgende voorbeeldquery is ontworpen om het aantal inactieve en liveregioservers tuples in een tabel met de naam "XYZ" te identificeren: ' SELECT %{relname/, n_dead_tup, n_live_tup, (n_dead_tup / n_live_tup) als DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables waar %{relname/ = 'XYZ' order door n_dead_tup DESC;'
+De volgende voorbeeldquery is ontworpen om het aantal inactieve en liveregioservers tuples in een tabel met de naam "XYZ" te identificeren: 'SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;'
 
 ## <a name="autovacuum-configurations"></a>Autovacuum configuraties
 De configuratieparameters die autovacuum regelen gebaseerd op twee belangrijke vragen:
@@ -41,7 +41,7 @@ De configuratieparameters die autovacuum regelen gebaseerd op twee belangrijke v
 - Hoeveel moet het opschonen nadat deze is gestart?
 
 Hieronder worden enkele van de autovacuum configuratieparameters die u kunt bijwerken op basis van de bovenstaande vragen, samen met enkele richtlijnen:
-Parameter|Description|Standaardwaarde
+Parameter|Beschrijving|Standaardwaarde
 ---|---|---
 autovacuum_vacuum_threshold|Hiermee geeft u het minimum aantal bijgewerkte of verwijderde tuples die nodig zijn voor het activeren van een ONDERDRUK in de tabel. De standaardwaarde is 50 tuples. Deze parameter kan alleen worden ingesteld in het bestand postgresql.conf of op de server vanaf de opdrachtregel. De instelling kan worden overschreven voor afzonderlijke tabellen door het wijzigen van tabel storage parameters.|50
 autovacuum_vacuum_scale_factor|Hiermee geeft u een fractie van de grootte van de tabel toevoegen aan autovacuum_vacuum_threshold als u besluit een ONDERDRUK activeren. De standaardwaarde is 0.2 (20 procent van de tabelgrootte). Deze parameter kan alleen worden ingesteld in het bestand postgresql.conf of op de server vanaf de opdrachtregel. De instelling kan worden overschreven voor afzonderlijke tabellen door het wijzigen van tabel storage parameters.|5 procent
@@ -97,6 +97,6 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Autovacuum is een per tabel synchrone proces. De grotere procent van de dode tuples een tabel heeft een hogere de "kosten" autovacuum.  Tabellen waarvoor een hoge frequentie van updates/verwijdering in meerdere tabellen splitsen kunnen parallel autovacuum en verlagen van de "kosten" voor het voltooien van autovacuum voor één tabel. U kunt ook het aantal parallelle autovacuum werknemers om ervoor te zorgen werknemers opneemt zijn gepland verhogen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de volgende PostgreSQL documenatation voor meer informatie over het gebruik en het afstemmen van autovacuum:
+Controleer de volgende PostgreSQL-documentatie voor meer informatie over het gebruik en het afstemmen van autovacuum:
  - Documentatie voor PostgreSQL - [hoofdstuk 18, Server-configuratie](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - PostgreSQL-documentatie – [hoofdstuk 24 uur per dag, routinetaken voor Database-onderhoud](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

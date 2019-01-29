@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124032"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098660"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Afhandeling van uitzonderingen en logboekregistratie van fouten voor logische apps
 
@@ -57,7 +57,7 @@ Omdat we gaan de logboekrecord die afkomstig zijn uit Dynamics CRM Online, laten
 
 We gebruiken een **aanvragen** activeren zoals wordt weergegeven in het volgende voorbeeld:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ We gebruiken een **aanvragen** activeren zoals wordt weergegeven in het volgende
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>Stappen
@@ -402,7 +402,7 @@ Onze oplossing mogelijkheden met toegevoegde [Azure Cosmos DB](https://azure.mic
 Als u de fouten, kunt u een MVC-web-app om de foutrecords uit Cosmos DB weer te geven. De **lijst**, **Details**, **bewerken**, en **verwijderen** bewerkingen zijn opgenomen in de huidige versie.
 
 > [!NOTE]
-> Bewerking: Cosmos DB vervangt het hele document. De records die wordt weergegeven in de **lijst** en **Detail** weergaven zijn alleen voorbeelden. Ze zijn niet werkelijke patiënt afspraakrecords.
+> Bewerking bewerken: Cosmos DB vervangt het hele document. De records die wordt weergegeven in de **lijst** en **Detail** weergaven zijn alleen voorbeelden. Ze zijn niet werkelijke patiënt afspraakrecords.
 
 Hier volgen enkele voorbeelden van de gegevens van onze MVC-app gemaakt met de eerder beschreven methode.
 

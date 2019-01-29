@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 943c0d4eb25fad1282b3329b945ded45581aeba3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bee4bb74733f2142ad450dd53de0686f30ac2bbc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994559"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181840"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Geavanceerde netwerken configureren in Azure Kubernetes Service (AKS)
 
@@ -80,11 +80,11 @@ U kunt de maximale schillen per knooppunt in een bestaand AKS-cluster niet wijzi
 
 Wanneer u een AKS-cluster maakt, kunnen de volgende parameters worden geconfigureerd voor geavanceerde netwerken:
 
-**Virtueel netwerk**: het virtuele netwerk waarin u wilt de Kubernetes-cluster implementeren. Als u een nieuw virtueel netwerk voor uw cluster maken wilt, selecteert u *nieuw* en volg de stappen in de *virtueel netwerk maken* sectie. Zie voor meer informatie over de limieten en quota's voor een Azure virtual network [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+**Virtueel netwerk**: Het virtuele netwerk waarin u wilt de Kubernetes-cluster implementeren. Als u een nieuw virtueel netwerk voor uw cluster maken wilt, selecteert u *nieuw* en volg de stappen in de *virtueel netwerk maken* sectie. Zie voor meer informatie over de limieten en quota's voor een Azure virtual network [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Subnet**: het subnet binnen het virtuele netwerk waar u het cluster te implementeren. Als u een nieuw subnet in het virtuele netwerk voor uw cluster te maken wilt, selecteert u *nieuw* en volg de stappen in de *subnet maken* sectie. Voor hybride verbindingen, mag niet het adresbereik overlappen met andere virtuele netwerken in uw omgeving.
+**Subnet**: Het subnet binnen het virtuele netwerk waar u het cluster te implementeren. Als u een nieuw subnet in het virtuele netwerk voor uw cluster te maken wilt, selecteert u *nieuw* en volg de stappen in de *subnet maken* sectie. Voor hybride verbindingen, mag niet het adresbereik overlappen met andere virtuele netwerken in uw omgeving.
 
-**Kubernetes-service-adresbereik**: dit is de set van virtuele IP-adressen die Kubernetes wordt toegewezen aan [services] [ services] in uw cluster. U kunt elk bereik met privé-adres dat voldoet aan de volgende vereisten:
+**Kubernetes-service-adresbereik**: Dit is de set van virtuele IP-adressen die Kubernetes wordt toegewezen aan [services] [ services] in uw cluster. U kunt elk bereik met privé-adres dat voldoet aan de volgende vereisten:
 
 * Moet niet binnen het virtuele netwerk IP-adresbereik van het cluster
 * Mag niet overlappen met andere virtuele netwerken met die van het virtuele clusternetwerk collega 's
@@ -93,9 +93,9 @@ Wanneer u een AKS-cluster maakt, kunnen de volgende parameters worden geconfigur
 
 Hoewel het technisch mogelijk om op te geven van een service-adresbereik binnen hetzelfde virtuele netwerk als uw cluster, wordt doen zo niet aanbevolen. Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Zie voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions) sectie van dit artikel. Zie voor meer informatie over Kubernetes-services, [Services] [ services] in het Kubernetes-documentatie.
 
-**IP-adres van Kubernetes DNS-service**: het IP-adres van het cluster DNS-service. Dit adres moet zich binnen de *Kubernetes service-adresbereik*. Gebruik niet het eerste IP-adres in het adresbereik, bijvoorbeeld.1. Het eerste adres in het subnetbereik van uw wordt gebruikt voor de *kubernetes.default.svc.cluster.local* adres.
+**IP-adres van Kubernetes DNS-service**:  Het IP-adres van het cluster DNS-service. Dit adres moet zich binnen de *Kubernetes service-adresbereik*. Gebruik niet het eerste IP-adres in het adresbereik, bijvoorbeeld.1. Het eerste adres in het subnetbereik van uw wordt gebruikt voor de *kubernetes.default.svc.cluster.local* adres.
 
-**Docker Bridge-adres**: het IP-adres en netmasker om toe te wijzen aan de brug Docker. Dit IP-adres moet niet binnen het virtuele netwerk IP-adresbereik van het cluster.
+**Docker Bridge-adres**: De IP-adres en het IP-masker toewijzen aan de Docker bridge. Dit IP-adres moet niet binnen het virtuele netwerk IP-adresbereik van het cluster.
 
 ## <a name="configure-networking---cli"></a>Configureren van netwerken - CLI
 
@@ -162,9 +162,9 @@ Meer informatie over netwerken in AKS in de volgende artikelen:
 - [Maken van een controller voor binnenkomend verkeer met een dynamische openbare IP-adres en we gaan coderen voor het automatisch genereren van TLS-certificaten configureren][aks-ingress-tls]
 - [Maken van een controller voor binnenkomend verkeer met een statisch openbaar IP-adres en we gaan coderen voor het automatisch genereren van TLS-certificaten configureren][aks-ingress-static-tls]
 
-### <a name="aks-engine"></a>AKS-Engine
+### <a name="aks-engine"></a>AKS Engine
 
-[Azure Kubernetes Service Engine (Engine AKS)] [ aks-engine] is een open-source-project dat Azure Resource Manager-sjablonen die u gebruiken genereert kunt voor het implementeren van clusters op Azure Docker-functionaliteit. Kubernetes, DC/OS, Swarm-modus en Swarm-orchestrators kunnen worden geïmplementeerd met AKS-Engine.
+[Azure Kubernetes Service Engine (Engine AKS)] [ aks-engine] is een open-source-project die Azure Resource Manager-sjablonen die u gebruiken genereert kunt voor het implementeren van Kubernetes-clusters op Azure.
 
 Kubernetes-clusters die zijn gemaakt met AKS Engine ondersteunen zowel de [kubenet] [ kubenet] en [Azure CNI] [ cni-networking] invoegtoepassingen. Als zodanig worden basiseigenschappen en geavanceerde scenario's voor netwerken ondersteund door AKS-Engine.
 

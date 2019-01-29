@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: e0a00ffac1921adab3ce120d65fcccaa8b2d231f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 933ee0ce6885960d5b35f67a0a4ee50602fe55c8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381436"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147945"
 ---
 ### <a name="neural-voices"></a>Neurale stemmen
 
@@ -20,6 +20,9 @@ Neurale stemmen zijn beschikbaar in deze regio's:
 | US - oost | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Azië - zuidoost | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Europa -west | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
+
+> [!IMPORTANT]
+> Microsoft Server spraak tekst en spraak, spraak (zh-CN, XiaoxiaoNeural) is alleen beschikbaar via het eindpunt Zuidoost-Azië: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1. Zie voor een volledige lijst van neurale stemmen, [taalondersteuning](../articles/cognitive-services/speech-service/language-support.md).
 
 ### <a name="standard-voices"></a>Standard stemmen
 

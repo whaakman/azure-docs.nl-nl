@@ -14,12 +14,12 @@ ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0ffb4a4c4ea12292639b5a94b7f2990db6e45bd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 53309eceaab566836cef5f73dff2b69db5d9c135
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247806"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102410"
 ---
 # <a name="deploy-the-local-agent"></a>De lokale agent implementeren
 
@@ -77,7 +77,7 @@ Azure Stack wordt het systeem onder testen. De computer mag geen deel uit van Az
 
     **Parameters**
 
-    | Parameter | Description |
+    | Parameter | Beschrijving |
     | --- | --- |
     | aadServiceAdminUser | De globale beheerder voor uw Azure AD-tenant. Zo kan het zijn, vaasadmin@contoso.onmicrosoft.com. |
     | aadServiceAdminPassword | Het wachtwoord voor de globale beheerder. |
@@ -114,12 +114,12 @@ De tests zijn externe acties uitgevoerd. De machine waarop de tests moet toegang
 
 2. Voer de volgende opdracht uit:
 
-    ````PowerShell
+    ```PowerShell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
-    ````
+    ```
 
       **Parameters**  
-    | Parameter | Description |
+    | Parameter | Beschrijving |
     | --- | --- |
     | VaaSUserId | Gebruikers-ID gebruikt om aan te melden bij de VaaS Portal (bijvoorbeeld UserName@Contoso.com) |
     | VaaSTenantId | Azure AD-tenant-ID voor het Azure-account is geregistreerd bij validatie uit als een Service. |

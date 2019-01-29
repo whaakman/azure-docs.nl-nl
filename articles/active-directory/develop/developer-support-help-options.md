@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f8c5e5f598ab8566eacb594ff66b63ce3793f57f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337135"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093187"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opties voor ondersteuning en hulp voor ontwikkelaars
 
@@ -50,9 +50,9 @@ Waar *{uw zoektermen}* uw zoekwoorden is.
 
 ## <a name="use-our-development-support-tools"></a>Gebruik onze ondersteuning ontwikkelhulpprogramma 's
 
-|Hulpprogramma  |Description  |
+|Hulpprogramma  |Beschrijving  |
 |---------|---------|
-|[jwt.MS](https://jwt.ms)| Plak een ID of toegang tot tokens voor het decoderen van de claims-namen en waarden |
+|[jwt.ms](https://jwt.ms)| Plak een ID of toegang tot tokens voor het decoderen van de claims-namen en waarden |
 |[Fout code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Plak de foutcode van een ontvangen tijdens het aanmelden of toestemming geven pagina's om te zien van de mogelijke oorzaken en herstel |
 |[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Hulpprogramma waarmee u kunt aanvragen en antwoorden op basis van de Microsoft Graph API bekijken|
 
@@ -69,11 +69,11 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 |---------|---------|
 |ADAL-bibliotheek |[[adal]](https://stackoverflow.com/questions/tagged/adal)|
 |Bibliotheek met MSAL     |[[msal]](https://stackoverflow.com/questions/tagged/msal)|
-|OWIN-middleware  |[[azure active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure ad b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|OWIN-middleware  |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
+|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
 |[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
-|Een andere gebied met betrekking tot verificatie of autorisatie-onderwerpen |[[azure active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
+|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
+|Een andere gebied met betrekking tot verificatie of autorisatie-onderwerpen |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
 > De volgende posts in Stack Overflow bevatten tips over het maken van vragen en tips over het toevoegen van broncode - volgen van deze richtlijnen kunnen helpen verhogen van de kans op leden van de community om te beoordelen en snel reageren op uw vraag:

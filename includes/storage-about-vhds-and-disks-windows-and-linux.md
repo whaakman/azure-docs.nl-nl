@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 76ccbb3eabbf7186498ad0d57753314bdeffc2ea
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aa740cfb203f50dc97a06359774dae367a20252b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585680"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147938"
 ---
 ## <a name="about-vhds"></a>Over VHD's
 
@@ -66,11 +66,11 @@ We raden u aan Azure Managed Disks te gebruiken voor nieuwe virtuele machines en
 
 De volgende tabel bevat een vergelijking van de standaard harde schijven, Standard-SSD en Premium SSD voor niet-beheerde en beheerde schijven om te bepalen wat u wilt gebruiken. Grootte die is gemarkeerd met een sterretje zijn momenteel in preview.
 
-|    | Azure Premium Disk |Azure Standard-SSD-schijf | Azure Standard harde schijf
+|    | Azure Premium Disk |Azure Standard SSD Disk | Azure Standard HDD Disk
 |--- | ------------------ | ------------------------------- | -----------------------
 | Schijftype | Solid-state drives (SSD) | Solid-state drives (SSD) | Hardeschijfstation (HDD)  
 | Overzicht  | Hoogwaardige schijfondersteuning met lage latentie op basis van SSD's voor virtuele machines die IO-intensieve workloads uitvoeren of een bedrijfskritieke productieomgeving hosten |Consistente prestaties en betrouwbaarheid is dan de harde schijf. Geoptimaliseerd voor werkbelastingen met lage IOPS| Goedkoper zijn met schijf op basis van HDD voor incidentele toegang
 | Scenario  | Productie- en prestatiegevoelige workloads |Webservers, bedrijfstoepassingen weinig wordt gebruikt en Dev/Test| Back-up, niet-kritieke, incidentele toegang
-| Schijfgrootte | P4: 32 GiB (alleen voor beheerde schijven)<br>P6: 64 GiB (alleen voor beheerde schijven)<br>P10: 128 GiB<br>P15: 256 GB (alleen voor beheerde schijven)<br>P20: 512 GiB<br>P30: 1024 GiB<br>P40: 2048 GiB<br>P50: 4095 GiB<br>P60: 8192 GiB * (8 TiB)<br>P70: 16.384 GiB * (16 TiB)<br>P80: 32.767 GiB * (32 TiB) |Beheerde schijven alleen:<br>E10: 128 GiB<br>E15: 256 GB<br>E20: 512 GiB<br>E30: 1024 GiB<br>E40: 2048 GiB<br>E50: 4095 GiB<br>E60: 8192 GiB * (8 TiB)<br>E70: 16.384 GiB * (16 TiB)<br> E80: 32.767 GiB * (32 TiB) | Niet-beheerde schijven: 1 GiB – 4 TiB (4095 GiB) <br><br>Beheerde schijven:<br> S4: 32 GiB <br>S6: 64 GiB <br>S10: 128 GiB <br>S15: 256 GB <br>S20: 512 GiB <br>S30: 1024 GiB <br>S40: 2048 GiB<br>S50: 4095 GiB<br>S60: 8192 GiB * (8 TiB)<br>S70: 16.384 GiB * (16 TiB)<br>S80: 32.767 GiB * (32 TiB)
-| Max. doorvoer per schijf | P4: 25 MiB/s<br> P6: 50 MiB/s<br> P10: 100 MiB/s<br> P15: 125 MiB/s<br> P20: 150 MiB/s<br> P30: 200 MiB/s<br> P40-P50: 250 MiB/s<br> P60: 480 MiB/s *<br> P70-P80: 750 MiB/s * | E10-E50: tot 60 MiB/s<br> E60: maximaal 300 MiB/s *<br> E70-E80: 500 MiB/s *| S4 - S50: Upt o 60 MiB/s<br> S60: maximaal 300 MiB/s *<br> S70-S80: tot 500 MiB/s *
-| Max. IOP's per schijf | P4: 120 IOPS<br> P6: 240 IOPS<br> P10: 500 IOP 'S<br> P15: 1100 IOPS<br> P20: 2300 IOPS<br> P30: 5000 IOP 'S<br> P40-P50: 7500 IOPS<br> P60: 12.500 IOP 'S *<br> P70: 15.000 IOPS *<br> P80: 20.000 IOP 'S * | E10-E50: maximaal 500 IOP 's<br> E60: maximaal 1300 IOP's *<br> E70-E80: maximaal 2000 IOP's * | S4-S50: maximaal 500 IOP 's<br> S60: maximaal 1300 IOP's *<br> S70-S80: maximaal 2000 IOP's *
+| Schijfgrootte | P4: 32 giB (alleen voor beheerde schijven)<br>P6: 64 giB (alleen voor beheerde schijven)<br>P10: 128 GiB<br>P15: 256 GB (alleen voor beheerde schijven)<br>P20: 512 GiB<br>P30: 1024 GiB<br>P40: 2048 GiB<br>P50: 4,095 GiB<br>P60: 8192 giB * (8 TiB)<br>P70: 16.384 giB * (16 TiB)<br>P80: 32,767 GiB * (32 TiB) |Beheerde schijven alleen:<br>E4: 32 GiB<br>E6: 64 GiB<br>E10: 128 GiB<br>E15: 256 GiB<br>E20: 512 GiB<br>E30: 1024 GiB<br>E40: 2048 GiB<br>E50: 4095 GiB<br>E60: 8192 giB * (8 TiB)<br>E70: 16.384 giB * (16 TiB)<br> E80: 32,767 GiB * (32 TiB) | Unmanaged Disks: 1 GiB – 4 TiB (4095 GiB) <br><br>Beheerde schijven:<br> S4: 32 GiB <br>S6: 64 GiB <br>S10: 128 GiB <br>S15: 256 GiB <br>S20: 512 GiB <br>S30: 1024 GiB <br>S40: 2048 GiB<br>S50: 4095 GiB<br>S60: 8192 giB * (8 TiB)<br>S70: 16.384 giB * (16 TiB)<br>S80: 32,767 GiB * (32 TiB)
+| Max. doorvoer per schijf | P4: 25 MiB/s<br> P6: 50 MiB/s<br> P10: 100 MiB/s<br> P15: 125 MiB/s<br> P20: 150 MiB/s<br> P30: 200 MiB/s<br> P40-P50: 250 MiB/s<br> P60: 480 MiB/s *<br> P70-P80: 750 MiB/s * | E10-E50: Maximaal 60 MiB/s<br> E60: Maximaal 300 MiB/s *<br> E70-E80: 500 MiB/s *| S4 - S50: Upt o 60 MiB/s<br> S60: Maximaal 300 MiB/s *<br> S70-S80: Maximaal 500 MiB/s *
+| Max. IOP's per schijf | P4: 120 IOPS<br> P6: 240 IOPS<br> P10: 500 IOP's<br> P15: 1100 IOPS<br> P20: 2300 IOPS<br> P30: 5000 IOP's<br> P40-P50: 7500 IOPS<br> P60: 12.500 IOP 'S *<br> P70: 15.000 IOP 'S *<br> P80: 20.000 IOP 'S * | E10-E50: Maximaal 500 IOP 's<br> E60: Maximaal 1300 IOP's *<br> E70-E80: Maximaal 2000 IOP's * | S4-S50: Maximaal 500 IOP 's<br> S60: Maximaal 1300 IOP's *<br> S70-S80: Maximaal 2000 IOP's *

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179834"
 ---
 # <a name="register-in-dev-center"></a>Registreren in Dev Center  
 Om te controleren of u bent niet aangemeld bij een account persoonlijke browser, open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie.  
@@ -68,7 +68,7 @@ Om te controleren of u bent niet aangemeld bij een account persoonlijke browser,
 
 9.  In de `Registration - Review` sectie, gegevens over uw account bekijken en controleren of alles juist is.  
 
-    Lees de voorwaarden en bepalingen van de Microsoft Azure Marketplace-overeenkomst voor uitgevers.  
+    Lees de voorwaarden en bepalingen van de Microsoft Azure Marketplace [-overeenkomst voor uitgevers](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
 
     Klik op het selectievakje om aan te geven dat u hebt gelezen en de voorwaarden geaccepteerd.  
     
@@ -103,7 +103,7 @@ Als u problemen met de registratie van het Dev Center hebt, voert u deze stappen
 3.  Klik op de knop verzenden als u wilt het ticket verzendt. 
 
 
-## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Probleem: Bank en btw-gegevens toevoegen voor publisher betalingen  
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Probleem: Voeg informatie over de bank en belasting voor publisher betalingen  
 De bank en btw-informatie is vereist voor alle commerciële aanbiedingen met behulp van het type aanbieding transact.  
 *   Als u commerciële aanbiedingen voor aankoop publiceren wilt, moet klikt u vervolgens u toevoegen betalings- en btw-gegevens en Aanvraagvalidatie in Dev Center.  
     >[!IMPORTANT]
@@ -143,7 +143,7 @@ De bank en btw-informatie is vereist voor alle commerciële aanbiedingen met beh
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen: 
 
 *   **Welke uitgevers is vereist voor de registratie van een Dev Center-account?** 
-> Uitgever die zijn gepubliceerd in Transact type aanbieding: VM, Azure-apps: oplossingssjablonen en beheerde apps.  
+> De uitgever die zijn gepubliceerd in Transact type aanbieding: Virtuele machine, Azure-apps: oplossingssjablonen en beheerde apps.  
 
 *   **Waarom is het Dev Center-account nodig?**
 > Dev Center-account is een vereist zodat Microsoft de klant van de uitgever namens een factuur voor Transact type aanbieding. Dev Center-account registratie kan Microsoft voor het valideren van de juridische afdeling, fiscale en bankgegevens voor uw bedrijf. Voor meer informatie over meer Klik [hier.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
@@ -165,7 +165,7 @@ De bank en btw-informatie is vereist voor alle commerciële aanbiedingen met beh
 > Voltooi de [Marketplace-registratie](https://azuremarketplace.microsoft.com/en-us/sell/signup) formulier voor het ontvangen van een promotiecode Dev Center.
  
 *   **Wat kan ik verwachten als ik het registratieproces te voltooien?**
-> Zoek naar een e-mailbericht van verify@microsoft.com met onderwerpregel "actie vereist: Controleer of uw e-mailaccount met Microsoft '. Klik op de tijd gevoelige verificatiekoppeling om registratie te voltooien. *Als u een e-mailbericht binnen 24 uur niet hebt ontvangen, controleert u de map met ongewenste e-mail.*
+> Zoek naar een e-mailbericht van verify@microsoft.com met onderwerpregel "actie vereist: Controleer of uw e-mailaccount met Microsoft'. Klik op de tijd gevoelige verificatiekoppeling om registratie te voltooien. *Als u een e-mailbericht binnen 24 uur niet hebt ontvangen, controleert u de map met ongewenste e-mail.*
 
 *   **Wat zijn de volgende stappen na de verificatie van Dev Center?**
 > Ga naar 'Uw programma's ' (https://developer.microsoft.com/dashboard/Account/Programs) en meld u aan bij de Dev Center-account. Als u niet Azure als een geregistreerde programma ziet, kijk onder 'Aanbevolen programma's voor u' en zoek naar Azure om te selecteren "Aan de slag."

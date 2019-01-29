@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 94bae7ddfd0d7f885b8441ed3b9d5943d052dbaf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140962"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101917"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Naslaginformatie voor vooraf gedefinieerde voor uw LUIS-app
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
@@ -402,7 +402,7 @@ Het domein locaties biedt intents voor het verwerken van query's die betrekking 
 |CheckAccident|Vraag of er een ongeluk beschikbaar is op een opgegeven weg.|Is er een ongeluk op 880?<br/>Ongeluk informatie weergeven|
 |CheckAreaTraffic|Controleer het verkeer voor een algemene gebied of weg, niet op een opgegeven route.|Verkeer in Seattle<br/>Wat is het verkeer, zoals in Seattle?|
 |CheckIntoPlace|Controleer in op een plaats met behulp van sociale media.|Ik wil inchecken op Foursquare<br/>Kom hier|
-|CheckRouteTraffic| Controleer het verkeer van een specifieke route die is opgegeven door de gebruiker.|Hoe wordt het verkeer naar Mashiko?<br/>De traffice naar Kirkland weergeven<br/>Hoe wordt het verkeer naar Seattle?| 
+|CheckRouteTraffic| Controleer het verkeer van een specifieke route die is opgegeven door de gebruiker.|Hoe wordt het verkeer naar Mashiko?<br/>Het verkeer naar Kirkland weergeven<br/>Hoe wordt het verkeer naar Seattle?| 
 |Bevestigen|Controleer of een actie die betrekking hebben op een plaats.|Controleer of de reservering van mijn restaurant.|
 |Afsluiten|Actie om af te sluiten van een taak met betrekking tot een centrale locatie.|Sluit het.<br/>Sluit mij aanwijzingen geven|
 |FindPlace|Zoeken naar een locatie (business, instelling, restaurant, openbare ruimte, adres).|Waar is de dichtstbijzijnde bibliotheek?<br/>Me een goede Italiaanse restaurant vinden in de weergave Mountain|

@@ -28,6 +28,7 @@
 ### [Een aangepaste NuGet-feed gebruiken](how-to/use-custom-nuget-feed.md)
 ### [Kubectl gebruiken met Azure Dev Spaces](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Azure Dev Spaces-hulpprogramma's upgraden](how-to/upgrade-tools.md)
+### [Bedrijfscontinuïteit en herstel na noodgevallen voor Azure Dev Spaces](how-to/dev-spaces-business-continuity.md)
 
 ## [Problemen oplossen](troubleshooting.md)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981015"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203586"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Oracle ASM installeren op een virtuele Azure Linux-machine  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Een virtuele machine maken
 
-Een virtuele machine op basis van de installatiekopie met Oracle-Database maken en deze voor het gebruik van Oracle ASM configureren, gebruikt u de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. 
+Een virtuele machine op basis van de installatiekopie met Oracle-Database maken en deze voor het gebruik van Oracle ASM configureren, gebruikt u de [az vm maken](/cli/azure/vm) opdracht. 
 
 Het volgende voorbeeld wordt een virtuele machine met de naam myVM die een groot Standard_DS2_v2 met vier gekoppelde gegevensschijven van 50 GB. Als ze nog niet bestaan in de standaardsleutellocatie, maakt het ook SSH-sleutels.  Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
@@ -86,7 +86,7 @@ Gebruik de volgende opdracht voor het maken van een SSH-sessie met de virtuele m
 ssh <publicIpAddress>
 ```
 
-## <a name="install-oracle-asm"></a>Oracle ASM installeren
+## <a name="install-oracle-asm"></a>Install Oracle ASM
 
 Oracle ASM installeren, de volgende stappen. 
 
@@ -513,7 +513,7 @@ Als u de installatie van de Oracle ASM instelt, moet u de volgende stappen uitvo
 
    Oracle ASM-configuratie-assistent wordt geopend.
 
-2. In de **ASM configureren: schijfgroepen** in het dialoogvenster, klikt u op de `Create` knop en klik vervolgens op `Show Advanced Options`.
+2. In de **ASM configureren: Schijf groepen** in het dialoogvenster, klikt u op de `Create` knop en klik vervolgens op `Show Advanced Options`.
 
 3. In de **schijfgroep maken** in het dialoogvenster:
 
@@ -525,7 +525,7 @@ Als u de installatie van de Oracle ASM instelt, moet u de volgende stappen uitvo
 
    ![Schermopname van het dialoogvenster groep maken](./media/oracle-asm/asm02.png)
 
-4. In de **ASM configureren: schijfgroepen** in het dialoogvenster, klikt u op de `Create` knop en klik vervolgens op `Show Advanced Options`.
+4. In de **ASM configureren: Schijf groepen** in het dialoogvenster, klikt u op de `Create` knop en klik vervolgens op `Show Advanced Options`.
 
 5. In de **schijfgroep maken** in het dialoogvenster:
 
@@ -540,7 +540,7 @@ Als u de installatie van de Oracle ASM instelt, moet u de volgende stappen uitvo
 
 6. Selecteer **afsluiten** sluiten ASM-configuratie-assistent.
 
-   ![Schermafbeelding van de ASM configureren: in het dialoogvenster schijfgroepen met knop Afsluiten](./media/oracle-asm/asm05.png)
+   ![Schermafbeelding van de ASM configureren: In het dialoogvenster van schijf-groepen met knop Afsluiten](./media/oracle-asm/asm05.png)
 
 ## <a name="create-the-database"></a>De database maken
 
@@ -583,7 +583,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zelfstudie: Oracle DataGuard configureren](configure-oracle-dataguard.md)
+[Zelfstudie: Configure Oracle DataGuard](configure-oracle-dataguard.md)
 
 [Zelfstudie: Oracle GoldenGate configureren](Configure-oracle-golden-gate.md)
 

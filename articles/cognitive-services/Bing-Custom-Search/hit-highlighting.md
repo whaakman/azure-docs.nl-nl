@@ -3,19 +3,19 @@ title: Decoration markeringen gebruiken om te markeren van tekst - Bing Custom S
 titlesuffix: Azure Cognitive Services
 description: Laat zien hoe om in te schakelen in de reacties op webzoekopdrachten grafische tekstelementen.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 848255418e7cc0f80d10006aa4b13e89121c8834
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a535a31678dcdb611acb1606e6091a1a40a6d42e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466253"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184067"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Met behulp van markeringen decoration markeren van tekst
 
@@ -33,28 +33,28 @@ Als `textDecorations` is **waar**, Bing omvat mogelijk de volgende markeringen i
 
 |Unicode|HTML|Beschrijving
 |-|-|-
-|U + E000 TOT|\<b >|Het markeert het begin van de queryterm die (treffers markeren)
-|U + E001|\</b >|Het markeert het einde van de queryterm
-|U + E002|\<ik >|Het markeert het begin van cursieve inhoud 
-|U + E003|\</i >|Het markeert het einde van cursieve inhoud
-|U + E004|\<br / >|Een regeleinde markeert
-|U + E005||Het markeert het begin van een telefoonnummer
-|U + E006||Het einde van een telefoonnummer
-|U + E007||Het markeert het begin van een adres
-|U + E008||Het markeert het einde van een adres
-|U + E009|\&nbsp;|Markeert een vaste spatie
-|U + E00C|\<strong >|Het markeert het begin van vet inhoud
-|U + E00D|\</ strong >|Het markeert het einde van vet inhoud
-|U + E00E||Het markeert het begin van de inhoud waarvan achtergrond minder dan de omringende achtergrond moet
+|U+E000|\<b>|Het markeert het begin van de queryterm die (treffers markeren)
+|U+E001|\</b>|Het markeert het einde van de queryterm
+|U+E002|\<i>|Het markeert het begin van cursieve inhoud 
+|U+E003|\</i>|Het markeert het einde van cursieve inhoud
+|U+E004|\<br/>|Een regeleinde markeert
+|U+E005||Het markeert het begin van een telefoonnummer
+|U+E006||Het einde van een telefoonnummer
+|U+E007||Het markeert het begin van een adres
+|U+E008||Het markeert het einde van een adres
+|U+E009|\&nbsp;|Markeert een vaste spatie
+|U+E00C|\<strong>|Het markeert het begin van vet inhoud
+|U + E00D|\</strong>|Het markeert het einde van vet inhoud
+|U+E00E||Het markeert het begin van de inhoud waarvan achtergrond minder dan de omringende achtergrond moet
 |U + E00F||Het markeert het einde van de inhoud waarvan achtergrond minder dan de omringende achtergrond moet
-|U + E010||Het markeert het begin van de inhoud waarvan achtergrond donkerder zijn dan de omringende achtergrond moet
-|U + E011||Het markeert het einde van inhoud waarvan achtergrond donkerder zijn dan de omringende achtergrond moet
-|U + E012|\<DEL >|Het markeert het begin van de inhoud die moet worden gevonden door
-|U + E013|\</DEL >|Het markeert het einde van de inhoud die moet worden gevonden door
-|U + E016|\<Sub >|Het markeert het begin van subscript inhoud
-|U + E017|\</ sub >|Het markeert het einde van subscript inhoud
-|U + E018|\<sup >|Het markeert het begin van superscript inhoud
-|U + E019|\</ sup >|Het markeert het einde van superscript inhoud
+|U+E010||Het markeert het begin van de inhoud waarvan achtergrond donkerder zijn dan de omringende achtergrond moet
+|U+E011||Het markeert het einde van inhoud waarvan achtergrond donkerder zijn dan de omringende achtergrond moet
+|U+E012|\<del>|Het markeert het begin van de inhoud die moet worden gevonden door
+|U+E013|\</del>|Het markeert het einde van de inhoud die moet worden gevonden door
+|U+E016|\<sub>|Het markeert het begin van subscript inhoud
+|U+E017|\</sub>|Het markeert het einde van subscript inhoud
+|U+E018|\<sup>|Het markeert het begin van superscript inhoud
+|U+E019|\</sup>|Het markeert het einde van superscript inhoud
 
 Het volgende voorbeeld wordt een `Computation` antwoord dat subscript markeringen voor een termijn van de query log(2) bevat. De `expression` bevat de markeringen alleen als het veld ' textDecoration is **waar**.
 

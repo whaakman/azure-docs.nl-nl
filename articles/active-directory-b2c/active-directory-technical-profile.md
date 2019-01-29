@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: dc9cda92ef725bbfc1a12756912656f0c39474cd
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: b8dac47d1aa91eb8a8ee1ef9515809607b267437
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846741"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190698"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Het technische profiel van een Azure Active Directory in een aangepast Azure Active Directory B2C-beleid definiëren
 
@@ -252,7 +252,7 @@ De volgende technische profiel Hiermee verwijdert u een sociale gebruikersaccoun
 ```
 ## <a name="metadata"></a>Metagegevens
 
-| Kenmerk | Vereist | Description |
+| Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | Bewerking | Ja | De bewerking die moet worden uitgevoerd. Mogelijke waarden: `Read`, `Write`, `DeleteClaims`, of `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Nee | Als het gebruikersobject niet in de map bestaat, moet u een foutbericht. Mogelijke waarden: `true` of `false`. | 

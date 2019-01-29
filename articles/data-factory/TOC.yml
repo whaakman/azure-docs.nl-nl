@@ -264,7 +264,9 @@ items:
       href: connector-salesforce.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
-    - name: SAP Business Warehouse
+    - name: SAP Business Warehouse Open Hub
+      href: connector-sap-business-warehouse-open-hub.md
+    - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
@@ -412,6 +414,8 @@ items:
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Azure-SSIS-integratie-runtime opnieuw configureren
       href: manage-azure-ssis-integration-runtime.md
+    - name: Een data factory kopiëren of klonen
+      href: copy-clone-data-factory.md
   - name: Integratie-runtime maken
     items:
     - name: Azure Integration Runtime
@@ -484,9 +488,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Ondersteuningsopties
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 5c667c1e29870b2a8d120e63b27607dbb65496f3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bdee914a5ceaf1a0ac265c8827d95baf63f9f91e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120356"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188521"

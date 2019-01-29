@@ -5,24 +5,24 @@ services: active-directory
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/19/2018
 ms.author: barbkess
 ms.reviewer: baselden
-ms.openlocfilehash: 5d1a122194d27d2f9d4f6a8c03adeaf2b65f7310
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 40e9a6a7a8693f710fdb41e1c6738ecc70e5a0b7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477988"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189541"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Resources voor het migreren van toepassingen naar Azure Active Directory
 
 Bronnen voor hulp bij het migreren van toegang tot toepassingen en -verificatie met Azure Active Directory (Azure AD). Vul deze korte enquête (https://aka.ms/AppsMigrationFeedback) feedback wilt geven over uw ervaring migreren apps naar Azure AD (met inbegrip van blokkeringen voor de migratie, moet u voor hulpprogramma's / richtlijnen of de redenen voor het behoud van uw on-premises id-provider). 
 
-| Resource  | Description  |
+| Resource  | Beschrijving  |
 |:-----------|:-------------|
 |[Migreren van uw apps naar Azure AD](https://aka.ms/migrateapps/whitepaper) | Dit technische document biedt de voordelen van de migratie en wordt beschreven hoe u van plan bent voor migratie in vier fasen duidelijk beschreven: detectie, classificatie, migratie en beheer. U wordt geholpen bij het denken over het proces en u uw project in stukken eenvoudig te gebruiken. In het hele document vindt u koppelingen naar belangrijke bronnen waarmee u weg. |
 |[Gids met oplossingen: Apps uit Active Directory Federatieservices (AD FS) migreren naar Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Deze handleiding helpt u bij de dezelfde vier fasen van het plannen en uitvoeren van een toepassing migration-project op een hoger niveau in de migratie technisch document worden beschreven. In deze handleiding leert u hoe u deze fasen van toepassing op het specifieke doel van het verplaatsen van een toepassing van Azure Directory Federated Services (AD FS) naar Azure AD.|

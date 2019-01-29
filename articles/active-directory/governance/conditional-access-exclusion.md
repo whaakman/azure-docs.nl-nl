@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0ae6c27091dd2938ec7410e78ae12dbe20509029
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 12a9602ecd61da5dc497790ecca6d8d6f874252e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167904"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184288"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Gebruik Azure AD-toegangsbeoordelingen voor het beheren van gebruikers die zijn uitgesloten van beleid voor voorwaardelijke toegang
 
@@ -135,7 +135,7 @@ Stel dat u hebt een beleid voor voorwaardelijke toegang die blokkeert de toegang
 
     ![Een toegangsbeoordeling maken](./media/conditional-access-exclusion/create-access-review-2.png)
 
-**Pro-tip**: als u veel uitsluitingsgroepen hebben en moet daarom meerdere toegangsbeoordelingen maken, beschikken we nu over een API in de Microsoft Graph bèta-eindpunt waarmee u maken en deze programmatisch te beheren. Als u wilt beginnen, Zie de [API-verwijzing voor Azure AD-toegangsbeoordelingen](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) en [beoordelingen van voorbeeld van het ophalen van Azure AD-toegang via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+**Pro-tip**: Als u veel uitsluitingsgroepen hebben en moet daarom meerdere toegangsbeoordelingen maken, hebben we nu een API in de Microsoft Graph bèta-eindpunt waarmee u maken en ze op programmatische wijze beheren. Als u wilt beginnen, Zie de [API-verwijzing voor Azure AD-toegangsbeoordelingen](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) en [beoordelingen van voorbeeld van het ophalen van Azure AD-toegang via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## <a name="access-review-results-and-audit-logs"></a>Resultaten van de toegangsbeoordeling en auditlogboeken
 

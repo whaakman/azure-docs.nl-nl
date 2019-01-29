@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 81df0a776cd22490342230567deacb23097cd12e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256669"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094186"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Systeemvereisten voor Azure Data Box-Gateway (Preview)
 
@@ -31,7 +31,7 @@ De systeemvereisten voor het virtuele apparaat Data Box-Gateway zijn onder ander
 
 Het onderliggende hostsysteem voor de Data Box-Gateway kan besteden aan de volgende bronnen voor het inrichten van uw virtuele apparaat:
 
-| Specificaties                                          | Description              |
+| Specificaties                                          | Beschrijving              |
 |---------------------------------------------------------|--------------------------|
 | Virtuele processors (kernen)   | Minimaal 4 |            
 | Geheugen  | Minimaal 8 GB|
@@ -46,7 +46,7 @@ Hier volgt een lijst van de ondersteunde besturingssystemen voor clients of host
 
 | **Besturingssysteem/platform** | **Versies** |
 | --- | --- |
-| Windows Server |2012 R2 <br> 2016 |
+| Windows Server |2012 R2 <br> 2016 <br> 2019 |
 | Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12 (x86_64)|
 | Ubuntu |16.04.3 LTS|
@@ -56,15 +56,15 @@ Hier volgt een lijst van de ondersteunde besturingssystemen voor clients of host
 
 |**Protocol** |**Versies**   |**Opmerkingen**  |
 |---------|---------|---------|
-|SMB    | 2.X 3.X      | SMB-1 wordt niet ondersteund.|
-|NFS     | V3- en V4-processors        |         |
+|SMB    | 2.X, 3.X      | SMB-1 wordt niet ondersteund.|
+|NFS     | V3 and V4        |         |
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Ondersteunde virtualisatieplatforms voor apparaat
 
 | **Besturingssysteem/platform**  |**Versies**   |**Opmerkingen**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
-|VMware ESXi     | 6.0 <br> 6.5        |VMware-hulpprogramma's worden niet ondersteund.         |
+|VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware-hulpprogramma's worden niet ondersteund.         |
 
 
 ## <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
@@ -126,13 +126,13 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 |     URL-patroon                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Onderdeel/functionaliteit                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure Data Box-Gateway-service<br>Azure Service Bus<br>Verificatieservice    |
-|    http://*.Backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Activering van apparaat                                                                                    |
+|    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Activering van apparaat                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Het intrekken van certificaten                                                                               |
 |    https://*.core.windows.net/* https://*. data.microsoft.com http://*. msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure storage-accounts en bewaking                                                                |
-|    http://windowsupdate.microsoft.com<br>http://*. windowsupdate.microsoft.com<br>https://*. windowsupdate.microsoft.com<br>http://*. update.microsoft.com<br>https://*. update.microsoft.com<br>http://*. windowsupdate.com<br>http://download.microsoft.com<br>http://*. download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://*. ws.microsoft.com<br>https://*. ws.microsoft.com<br>http://*.MP.Microsoft.com        |    Microsoft Update-servers                                                                             |
-|    http://*.Deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                             |    Akamai CDN                                                                                           |
+|    http://windowsupdate.microsoft.com<br>http://*.windowsupdate.microsoft.com<br>https://*.windowsupdate.microsoft.com<br>http://*.update.microsoft.com<br>https://*.update.microsoft.com<br>http://*.windowsupdate.com<br>http://download.microsoft.com<br>http://*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://*.ws.microsoft.com<br>https://*.ws.microsoft.com<br>http://*.mp.microsoft.com        |    Microsoft Update-servers                                                                             |
+|    http://*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                             |    Akamai CDN                                                                                           |
 |    https://*.partners.extranet.microsoft.com/*                                                                                                                                                                                                                                                                                                                                                                                                        |    Ondersteuningspakket                                                                                      |
-|    http://*.Data.Microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                        |    Telemetrieservice in Windows, Zie de update voor de gebruikerservaring en diagnostische telemetrie      |
+|    http://*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                        |    Telemetrieservice in Windows, Zie de update voor de gebruikerservaring en diagnostische telemetrie      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                         |
 
 

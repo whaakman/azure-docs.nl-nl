@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 630413d15df04d27599389f647c57876fff9d295
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246681"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094424"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Aan de slag met Power BI Workspace Collections-voorbeeld
 
@@ -24,7 +24,7 @@ Met **Microsoft Power BI Workspace Collections**, kunt u Power BI-rapporten inte
 > [!IMPORTANT]
 > Power BI Workspace Collections is afgeschaft en is beschikbaar tot juni 2018 of tot de datum die in uw contract wordt aangegeven. Om onderbreking van uw toepassing te voorkomen, wordt u geadviseerd om een migratie naar Power BI Embedded te plannen. Voor meer informatie over het migreren van gegevens naar Power BI Embedded raadpleegt u [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/) (Inhoud van Power BI-werkruimteverzamelingen migreren naar Power BI Embedded).
 
-Voordat we verdergaan, u wilt opslaan in de volgende bronnen: ze u helpen bij het Power BI-rapporten te integreren in de voorbeeld-app en uw eigen apps.
+Voordat we verdergaan, die u wilt opslaan in de volgende bronnen: Ze helpen u bij het Power BI-rapporten te integreren in de voorbeeld-app en uw eigen apps.
 
 * [Voorbeeld werkruimte web-app](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI-werkruimte verzamelingen API-verwijzing](https://msdn.microsoft.com/library/azure/mt711507.aspx)
@@ -71,7 +71,7 @@ Op dit moment hebt u een Power BI PBIX-rapport dat is geïmporteerd in uw **werk
 De voorbeeld-web-app is een voorbeeldtoepassing die Hiermee maakt u rapporten die zijn geïmporteerd in uw **werkruimte**. Hier volgt een voorbeeld van de web-app configureren.
 
 1. In de **Power BI embedded** Visual Studio-oplossing met de rechtermuisknop op de **EmbedSample** webtoepassing en kies **instellen als opstartproject**.
-2. In **web.config**, in de **EmbedSample** webtoepassing, bewerken de **appSettings**: **AccessKey**,  **WorkspaceCollection** naam, en **WorkspaceId**.
+2. In **web.config**, in de **EmbedSample** webtoepassing, bewerken de **appSettings**: **AccessKey**, **WorkspaceCollection** naam, en **WorkspaceId**.
 
     ```
     <appSettings>
@@ -134,7 +134,7 @@ Met behulp van algemene server en database kenmerken is mislukt. Bijvoorbeeld: S
 
 De **weergave** beheert de weergave van Power BI **rapporten** en een Power BI- **rapport**.
 
-**Reports.cshtml**: herhalen **Model.Reports** maken een **ActionLink**. De **ActionLink** is als volgt samengesteld:
+**Reports.cshtml**: Herhalen **Model.Reports** maken een **ActionLink**. De **ActionLink** is als volgt samengesteld:
 
 | Onderdeel | Beschrijving |
 | --- | --- |
@@ -228,7 +228,7 @@ Zodra u hebt een **rapport**, gebruikt u een **IFrame** om in te sluiten van de 
 ```
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];

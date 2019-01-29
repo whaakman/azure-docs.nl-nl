@@ -13,9 +13,9 @@ items:
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Hulpmiddelen gebruiken voor importeren, indexeren en query's uitvoeren
+    - name: Overzicht van op een portal gebaseerde import-, index- en queryfunctionaliteit
       href: search-get-started-portal.md
-    - name: Cognitief zoeken proberen
+    - name: Verrijken met AI (cognitief zoeken)
       href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
@@ -52,6 +52,10 @@ items:
   items:
   - name: Azure-codevoorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=search
+- name: Training
+  items:
+  - name: Bootcamp voor knowledge mining
+    href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
 - name: Concepten
   items:
   - name: Zoeken in volledige tekst
@@ -146,6 +150,10 @@ items:
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synoniemen
       href: search-synonyms.md
+    - name: Relationele gegevens modelleren
+      href: search-example-adventureworks-modeling.md
+    - name: Facetten op meerdere niveaus modelleren
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Gegevens laden en vernieuwen
     items:
     - name: Overzicht van gegevensimport
@@ -289,9 +297,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 73d7949b65333b95a9431797b2f82e8947bba8b2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e65adf41bc6555e8e2bcd74be07e6a1b2b96514d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888070"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203824"

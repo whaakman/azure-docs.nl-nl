@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1dd434bbf71e482f5d0a52b3c84e46382079b43a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0f7d3f8a7a9c7bdd67dc80a98744e1cd6a2433a1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886396"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180820"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Ondersteuning voor taal en regio voor de Bing visuele zoekopdrachten-API
 
@@ -34,14 +34,14 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 > - Recept, aankopen en pagina's, inclusief inzichten zijn beschikbaar in de Amerikaanse markt.
 
 
-## <a name="countries"></a>Landen
+## <a name="countries"></a>Landen/regio's
 
 |Land/regio|Code|
 |-------|----|
 |Argentinië|AR|
-|Australië|AUSTRALIË|
+|Australië|AU|
 |Oostenrijk|AT|
-|België|WORDEN|
+|België|BE|
 |Brazilië|BR|
 |Canada|CA|
 |Chili|CL|
@@ -55,22 +55,22 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Italië|IT|
 |Japan|JP|
 |Korea|KR|
-|Maleisië|MIJN|
+|Maleisië|MY|
 |Mexico|MX|
 |Nederland|NL|
 |Nieuw-Zeeland|NZ|
-|Noorwegen|NEE|
-|China|ALGEMENE NAAM|
+|Noorwegen|NO|
+|China|CN|
 |Polen|PL|
 |Portugal|PT|
-|Filippijnen|PH|
+|Filipijnen|PH|
 |Rusland|RU|
 |Saoedi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
-|Zweden|TWEEDE EDITIE|
+|Zweden|SE|
 |Zwitserland|CH|
-|Taiwan|TWEE|
+|Taiwan|TW|
 |Turkije|TR|
 |Verenigd Koninkrijk|GB|
 |Verenigde Staten|VS|
@@ -80,15 +80,15 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
-|Argentinië|Spaans|ES-AR|
+|Argentinië|Spaans|es-AR|
 |Australië|Nederlands|en-AU|
 |Oostenrijk|Duits|de-AT|
-|België|Nederlands|NL-worden|
-|België|Frans|FR-worden|
+|België|Nederlands|nl-BE|
+|België|Frans|fr-BE|
 |Brazilië|Portugees|pt-BR|
 |Canada|Nederlands|NL-CA|
 |Canada|Frans|fr-CA|
-|Chili|Spaans|ES-CL|
+|Chili|Spaans|es-CL|
 |Denemarken|Deens|da-DK|
 |Finland|Fins|fi-FI|
 |Frankrijk|Frans|fr-FR|
@@ -106,10 +106,10 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filippijnen|Nederlands|NL-PH|
+|Filipijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
 |Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|NL-ZA|
+|Zuid-Afrika|Nederlands|en-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
@@ -117,5 +117,5 @@ U kunt ook opgeven de land/regio met behulp van de `cc` queryparameter. Als u ee
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
 |Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|nl-NL|
-|Verenigde Staten|Spaans|ES-US|
+|Verenigde Staten|Nederlands|en-US|
+|Verenigde Staten|Spaans|es-US|

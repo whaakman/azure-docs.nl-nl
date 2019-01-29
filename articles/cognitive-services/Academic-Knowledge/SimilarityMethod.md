@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 76e86eb78a06d98e3d5c6c54b244add3c0c245d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900458"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183336"
 ---
 # <a name="similarity-method"></a>Methode gelijkenis
 
@@ -30,12 +30,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>Aanvraagparameters
 Parameter        |Gegevenstype      |Vereist | Beschrijving
 ----------|----------|----------|------------
-**S1**        |Reeks   |Ja  |Tekenreeks * moet worden vergeleken
-**S2**        |Reeks   |Ja  |Tekenreeks * moet worden vergeleken
+**s1**        |Reeks   |Ja  |Tekenreeks * moet worden vergeleken
+**s2**        |Reeks   |Ja  |Tekenreeks * moet worden vergeleken
 <sub> * Tekenreeksen vergelijken, hebben een maximum lengte van 1MB. </sub>
 <br>
 ## <a name="response"></a>Antwoord
-Naam | Beschrijving
+Name | Beschrijving
 --------|---------
 **SimilarityScore**        |Een drijvende-kommawaarde vertegenwoordigt de gelijkenis cosinus van s1 en s2 met dichter bij 1.0 betekenis meer vergelijkbaar en waarden dichter naar-1.0 wat betekent dat kleiner
 <br>

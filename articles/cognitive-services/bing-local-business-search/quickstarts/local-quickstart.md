@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 3513ada8a911c36a31c5796214cfe35d088320b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 37cb122503dba31ba57dd6445317f3c54db08084
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316035"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181449"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Snelstartgids: Een query verzenden naar de Bing lokale bedrijven zoeken-API inC#
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Quickstart: Een query verzenden naar de Bing lokale bedrijven zoeken-API inC#
 
 Gebruik deze Quick Start om te beginnen met het verzenden van aanvragen naar de Bing lokale bedrijven zoeken-API, dit is een Cognitive Service van Azure. Terwijl deze eenvoudige toepassing is geschreven in C#, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen en parseren van JSON.
 
@@ -28,13 +28,13 @@ In dit voorbeeld van de toepassing lokaal antwoordgegevens worden opgehaald uit 
 * Elke versie van [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Als u Linux/MacOS gebruikt, kan deze toepassing worden uitgevoerd met behulp van [Mono](http://www.mono-project.com/).
 
-U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing Zoeken-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids.  Zie ook [Cognitive Services prijsinformatie: Bing zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing Zoeken-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstartgids.  Zie ook [Prijsinformatie Cognitive Services - Bing Zoeken-API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-the-request"></a>De aanvraag maken 
 
 De volgende code maakt een `WebRequest`, stelt u de koptekst van de toegang en wordt een querytekenreeks voor 'restaurant in Bellevue' toegevoegd.  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
 
-````
+```
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -50,7 +50,7 @@ De volgende code maakt een `WebRequest`, stelt u de koptekst van de toegang en w
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-````
+```
 
 ## <a name="run-the-complete-application"></a>De volledige toepassing uitvoeren
 
@@ -60,7 +60,7 @@ De Bing lokale bedrijven zoeken-API retourneert gelokaliseerde zoekresultaten va
 3. De waarde accessKey vervangen door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-````
+```
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -206,9 +206,9 @@ namespace localSearch
     }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Lokale bedrijven zoeken Java-snelstartgids](local-search-java-quickstart.md)
+- [Local Business Search Java quickstart](local-search-java-quickstart.md)
 - [Lokale bedrijven zoeken Node-quickstart](local-search-node-quickstart.md)
-- [Lokale bedrijven zoeken Python-snelstartgids](local-search-python-quickstart.md)
+- [Local Business Search Python quickstart](local-search-python-quickstart.md)

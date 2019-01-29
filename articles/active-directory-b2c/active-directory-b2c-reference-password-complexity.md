@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e728fb037895908882bbe6dc7e8414457ccf273f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d1106a67d084020b714f0204b9012076817f9a4c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845551"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176061"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Vereisten voor wachtwoordcomplexiteit voor wachtwoorden configureren
 
@@ -44,7 +44,7 @@ Dit zijn de typen gebruikersstromen waar wachtwoordcomplexiteit kan worden gecon
 
 ### <a name="comparison-chart"></a>Vergelijkingstabel
 
-| Complexiteit | Description |
+| Complexiteit | Beschrijving |
 | --- | --- |
 | Eenvoudig | Een wachtwoord dat ten minste 8 tot 64 tekens. |
 | Sterk | Een wachtwoord dat ten minste 8 tot 64 tekens. Hiervoor 3 van 4 van kleine letters, hoofdletters, cijfers en symbolen. |

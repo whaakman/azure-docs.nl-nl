@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: a9ca61d7845c427429282885c658f4a4cb9b7b7a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300435"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097657"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Met behulp van het eindpunt van de bevoegde in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Als Azure Stack-operators, moet u de administrator-portal, PowerShell of Azure Resource Manager-API's gebruiken voor meest dagelijkse beheertaken. Voor sommige minder veelvoorkomende bewerkingen, u moet echter gebruik van de *bevoegde eindpunt* (PEP). De PEP is een vooraf geconfigureerde externe PowerShell console waarmee u net voldoende mogelijkheden om u te helpen bij het uitvoeren van een vereiste taak. Maakt gebruik van het eindpunt [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) om slechts een beperkt aantal cmdlets zichtbaar te maken. Voor toegang tot de PEP en aanroepen van de beperkte set van cmdlets, wordt een account met beperkte bevoegdheden gebruikt. Er is geen administrator-accounts zijn vereist. Voor extra beveiliging is uitvoeren van scripts niet toegestaan.
 
@@ -52,29 +52,29 @@ Voordat u deze procedure voor een geïntegreerd systeem, zorg er dan voor dat u 
 
     - Voer de volgende opdracht uit vanuit een verhoogde Windows PowerShell-sessie de PEP toevoegen als een vertrouwde host op de beveiligde virtuele machine die wordt uitgevoerd op de host van de levenscyclus van hardware of het werkstation met bevoegde toegang op een geïntegreerd systeem.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - Als u de ASDK uitvoert, moet u zich aanmelden bij de host van development kit.
 
 2. Open op de beveiligde virtuele machine die wordt uitgevoerd op de host van de levenscyclus van hardware of het werkstation met bevoegde toegang, een Windows PowerShell-sessie. Voer de volgende opdrachten tot stand brengen van een externe sessie op de virtuele machine die als host fungeert voor de PEP:
  
     - Op een geïntegreerd systeem:
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       De `ComputerName` parameter is het IP-adres of de DNS-naam van een van de virtuele machines die als host fungeert voor de PEP. 
     - Als u de ASDK uitvoert:
      
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    Wanneer u hierom wordt gevraagd, gebruikt u de volgende referenties:
 
       - **Gebruikersnaam**: Geef het account CloudAdmin in de notatie  **&lt; *Azure Stack-domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam van de is **azurestack\cloudadmin**.)
@@ -88,7 +88,7 @@ Voordat u deze procedure voor een geïntegreerd systeem, zorg er dan voor dat u 
     Veel van deze cmdlets zijn alleen bedoeld voor omgevingen geïntegreerd systeem (zoals de cmdlets met betrekking tot datacenter-integratie). In de ASDK, zijn de volgende cmdlets gevalideerd:
 
     - Clear-Host
-    - Sluit PrivilegedEndpoint
+    - Close-PrivilegedEndpoint
     - Afsluiten PSSession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
@@ -96,7 +96,7 @@ Voordat u deze procedure voor een geïntegreerd systeem, zorg er dan voor dat u 
     - Get-FormatData
     - Get-Help
     - Get-ThirdPartyNotices
-    - Meting-Object
+    - Measure-Object
     - New-CloudAdminUser
     - Uitgaande standaard
     - Remove-CloudAdminUser
@@ -124,38 +124,38 @@ Voor het importeren van de sessie PEP op uw lokale computer, moet u de volgende 
 
     -Voer de volgende opdracht uit vanaf een verhoogde Windows PowerShell-sessie de PEP toevoegen als een vertrouwde host op de beveiligde virtuele machine die wordt uitgevoerd op de host van de levenscyclus van hardware of het Privileged Access Workstation op een geïntegreerd systeem.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - Als u de ASDK uitvoert, moet u zich aanmelden bij de host van development kit.
 
 2. Open op de beveiligde virtuele machine die wordt uitgevoerd op de host van de levenscyclus van hardware of het werkstation met bevoegde toegang, een Windows PowerShell-sessie. Voer de volgende opdrachten tot stand brengen van een externe sessie op de virtuele machine die als host fungeert voor de PEP:
  
     - Op een geïntegreerd systeem:
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       De `ComputerName` parameter is het IP-adres of de DNS-naam van een van de virtuele machines die als host fungeert voor de PEP. 
     - Als u de ASDK uitvoert:
      
-      ````PowerShell
+      ```PowerShell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    Wanneer u hierom wordt gevraagd, gebruikt u de volgende referenties:
 
       - **Gebruikersnaam**: Geef het account CloudAdmin in de notatie  **&lt; *Azure Stack-domein*&gt;\cloudadmin**. (Voor ASDK, de gebruikersnaam van de is **azurestack\cloudadmin**.)
       - **Wachtwoord**: Voer het wachtwoord dat is opgegeven tijdens de installatie voor de AzureStackAdmin domein administrator-account.
 
 3. De sessie PEP importeren in uw lokale computer
-    ````PowerShell 
+    ```PowerShell 
         Import-PSSession $session
-    ````
+    ```
 4. U kunt nu tab-aanvulling gebruiken en voer scripts gewoon op uw lokale PowerShell-sessie met de functies en -cmdlets van de PEP zonder het verlagen van de beveiligingsstatus van Azure Stack. Veel plezier!
 
 
@@ -178,4 +178,5 @@ Nadat de logboekbestanden van het transcript worden overgebracht naar de bestand
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [Azure Stack diagnostische hulpprogramma 's](azure-stack-diagnostics.md)

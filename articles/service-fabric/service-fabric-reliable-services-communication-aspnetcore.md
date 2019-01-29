@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310241"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151087"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Service Fabric Reliable Services
 
@@ -70,7 +70,7 @@ Beide communicatielisteners bieden een constructor die de volgende argumenten ne
 De `Microsoft.ServiceFabric.AspNetCore` NuGet-pakket bevat de `UseServiceFabricIntegration` uitbreidingsmethode op `IWebHostBuilder` die Service Fabric-bewuste middleware toevoegt. Deze middleware configureert de Kestrel of HttpSys `ICommunicationListener` voor het registreren van een unieke service-URL met de Service Fabric Naming-Service en vervolgens valideert aanvragen van clients zodat clients verbinding maken met de juiste service. Dit is nodig in een gedeelde-host-omgeving, zoals Service Fabric, waarbij meerdere webtoepassingen kunnen uitvoeren op de dezelfde fysieke of virtuele machine, maar gebruik geen unieke hostnamen, om te voorkomen dat clients per ongeluk verbinding maken met de verkeerde service. In dit scenario wordt beschreven in de volgende sectie in meer detail.
 
 ### <a name="a-case-of-mistaken-identity"></a>Een aanvraag van onjuiste identiteit
-Service-replica's, ongeacht het protocol, luisteren op een combinatie van unieke IP: poort. Nadat de replica van een service is gestart op een eindpunt IP: poort luistert, rapporteert deze die eindpuntadres aan de Service Fabric Naming-Service waar deze kan worden gedetecteerd door clients of andere services. Als services toepassingspoorten dynamisch wordt toegewezen, kan een service-replica hetzelfde IP: poort-eindpunt van een andere service die eerder op de dezelfde fysieke of virtuele machine was tegelijk gebruiken. Hierdoor kan een client mistakely verbinding maken met de verkeerde service. Dit kan gebeuren als de volgende reeks gebeurtenissen treedt op:
+Service-replica's, ongeacht het protocol, luisteren op een combinatie van unieke IP: poort. Nadat de replica van een service is gestart op een eindpunt IP: poort luistert, rapporteert deze die eindpuntadres aan de Service Fabric Naming-Service waar deze kan worden gedetecteerd door clients of andere services. Als services toepassingspoorten dynamisch wordt toegewezen, kan een service-replica hetzelfde IP: poort-eindpunt van een andere service die eerder op de dezelfde fysieke of virtuele machine was tegelijk gebruiken. Dit kan een client deze per ongeluk verbinding maken met de verkeerde service veroorzaken. Dit kan gebeuren als de volgende reeks gebeurtenissen treedt op:
 
  1. Service A luistert op 10.0.0.1:30000 via HTTP. 
  2. Client-Service een oplossing en adres 10.0.0.1:30000 opgehaald
@@ -354,7 +354,7 @@ Wanneer toegang heeft tot het Internet, moet een stateless service een bekende e
 
 |  |  | **Opmerkingen** |
 | --- | --- | --- |
-| Webserver | kestrel | Kestrel is de gewenste webserver, omdat het wordt ondersteund in Windows en Linux. |
+| Webserver | Kestrel | Kestrel is de gewenste webserver, omdat het wordt ondersteund in Windows en Linux. |
 | Poortconfiguratie | statisch | Een bekende statische poort moet worden geconfigureerd in de `Endpoints` configuratie van ServiceManifest.xml, zoals 80 voor HTTP en 443 voor HTTPS. |
 | ServiceFabricIntegrationOptions | Geen | De `ServiceFabricIntegrationOptions.None` optie moet worden gebruikt bij het configureren van Service Fabric-integratiemiddleware zodat de service niet probeert te valideren van binnenkomende aanvragen voor een unieke id. Externe gebruikers van uw toepassing weet niet de unieke identificerende gegevens die worden gebruikt door de middleware. |
 | Aantal instanties | -1 | In standaard use cases, moet het aantal instanties instellen worden ingesteld op "-1" zodat een exemplaar is beschikbaar op alle knooppunten die verkeer van een load balancer ontvangen. |
@@ -379,7 +379,7 @@ Stateless services die binnen het cluster alleen worden aangeroepen vanuit de un
 
 |  |  | **Opmerkingen** |
 | --- | --- | --- |
-| Webserver | kestrel | Hoewel HttpSys kunnen worden gebruikt voor interne stateless services, is Kestrel de aanbevolen om toe te staan van meerdere exemplaren van de service voor het delen van een host.  |
+| Webserver | Kestrel | Hoewel HttpSys kunnen worden gebruikt voor interne stateless services, is Kestrel de aanbevolen om toe te staan van meerdere exemplaren van de service voor het delen van een host.  |
 | Poortconfiguratie | dynamisch wordt toegewezen | Meerdere replica's van een stateful service kunnen een hostproces of het hostbesturingssysteem delen en dus moet unieke poorten. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Met dynamische poorttoewijzing, deze instelling voorkomt u dat het onjuiste identiteit probleem die eerder zijn beschreven. |
 | InstanceCount | willekeurig | Het aantal instanties instelling kan worden ingesteld op een willekeurige waarde die nodig zijn om de service. |
@@ -389,7 +389,7 @@ Stateful services die alleen worden opgeroepen binnen het cluster moeten dynamis
 
 |  |  | **Opmerkingen** |
 | --- | --- | --- |
-| Webserver | kestrel | De `HttpSysCommunicationListener` is niet bedoeld voor gebruik door stateful services waarin de replica's een hostproces delen. |
+| Webserver | Kestrel | De `HttpSysCommunicationListener` is niet bedoeld voor gebruik door stateful services waarin de replica's een hostproces delen. |
 | Poortconfiguratie | dynamisch wordt toegewezen | Meerdere replica's van een stateful service kunnen een hostproces of het hostbesturingssysteem delen en dus moet unieke poorten. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Met dynamische poorttoewijzing, deze instelling voorkomt u dat het onjuiste identiteit probleem die eerder zijn beschreven. |
 
