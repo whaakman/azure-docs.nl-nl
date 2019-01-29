@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: e0d319526bf9e604a98a1c926f7b6fc4f2834466
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: dc177ba7b20af61a4b6a875404a73fda5d08f7dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851144"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177318"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus-berichtuitzonderingen
 Dit artikel worden enkele uitzonderingen die worden gegenereerd door de Microsoft Azure Service Bus messaging-API's. Deze referentie is onderhevig aan wijzigingen, dus kom binnenkort voor updates.
@@ -37,7 +37,7 @@ De volgende tabel bevat de uitzonderingstypen berichten, en hun oorzaken en opme
 
 | **Uitzonderingstype** | **Beschrijving/oorzaak/voorbeelden** | **Voorgestelde actie** | **Houd er rekening mee automatisch/direct opnieuw proberen** |
 | --- | --- | --- | --- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |De server reageert niet op de aangevraagde bewerking binnen de opgegeven periode, die wordt beheerd door [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout). De server kan de aangevraagde bewerking hebt voltooid. Dit kan gebeuren vanwege netwerk- of andere infrastructuur vertragingen. |Controleer de status voor de consistentie en probeer indien nodig. Zie [time-outuitzonderingen](#timeoutexception). |Opnieuw proberen kan helpen in sommige gevallen; Voeg logica voor opnieuw proberen toe aan code. |
+| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |De server reageert niet op de aangevraagde bewerking binnen de opgegeven periode, die wordt beheerd door [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). De server kan de aangevraagde bewerking hebt voltooid. Dit kan gebeuren vanwege netwerk- of andere infrastructuur vertragingen. |Controleer de status voor de consistentie en probeer indien nodig. Zie [time-outuitzonderingen](#timeoutexception). |Opnieuw proberen kan helpen in sommige gevallen; Voeg logica voor opnieuw proberen toe aan code. |
 | [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |De aangevraagde gebruiker-bewerking is niet toegestaan in de server of -service. Zie het bericht van uitzondering voor meer informatie. Bijvoorbeeld, [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) deze uitzondering wordt gegenereerd als het bericht is ontvangen [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) modus. |Controleer de code en de documentatie. Zorg ervoor dat de aangevraagde bewerking is ongeldig. |Nieuwe poging werkt niet. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |Er is een poging gedaan om aan te roepen een bewerking op een object dat al is gesloten, is afgebroken, of verwijderd. In zeldzame gevallen is de ambient transactie al verwijderd. |Controleer de code en zorg ervoor dat deze bewerkingen op een verwijderd object niet gestart. |Nieuwe poging werkt niet. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |De [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) object kan niet een token verkrijgen, het token is ongeldig of het token bevat niet de claims die de bewerking moet worden uitgevoerd. |Zorg ervoor dat de tokenprovider wordt gemaakt met de juiste waarden. Controleer de configuratie van de Access Control-service. |Opnieuw proberen kan helpen in sommige gevallen; Voeg logica voor opnieuw proberen toe aan code. |
@@ -101,7 +101,7 @@ Een [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexceptio
 Controleer de waarde van de [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) eigenschap, als deze limiet bereikt kan ook leiden tot een [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 ### <a name="queues-and-topics"></a>Wachtrijen en onderwerpen
-Voor wachtrijen en onderwerpen, de time-out is opgegeven in de [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) , als onderdeel van de verbindingsreeks of via de eigenschap [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Het foutbericht zelf kan afwijken, maar bevat altijd de time-outwaarde voor de huidige bewerking opgegeven. 
+Voor wachtrijen en onderwerpen, de time-out is opgegeven in de [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) , als onderdeel van de verbindingsreeks of via de eigenschap [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Het foutbericht zelf kan afwijken, maar bevat altijd de time-outwaarde voor de huidige bewerking opgegeven. 
 
 
 

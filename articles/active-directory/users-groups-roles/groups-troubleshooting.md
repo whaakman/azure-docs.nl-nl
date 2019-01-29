@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ab5a3b00d063dfdd42e67247bb2cdc37866d0164
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293964"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164126"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Oplossen van problemen met dynamische lidmaatschappen voor groepen
 
@@ -33,15 +33,15 @@ ms.locfileid: "46293964"
 
 | Fout in regel parser | Fout-gebruik | Gecorrigeerde syntaxis |
 | --- | --- | --- |
-| Fout: Kenmerk wordt niet ondersteund. |(user.invalidProperty - eq "Waarde") |(user.department - eq "waarde")<br/><br/>Zorg ervoor dat het kenmerk is ingesteld op de [eigenschappenlijst ondersteund](groups-dynamic-membership.md#supported-properties). |
-| Fout: De Operator wordt niet ondersteund op kenmerk. |(user.accountEnabled-bevat waar) |(user.accountEnabled - eq true)<br/><br/>De operator die wordt gebruikt, wordt niet ondersteund voor de eigenschapstype (in dit voorbeeld-bevat kan niet worden gebruikt voor het type boolean). Gebruik de juiste operators voor het eigenschapstype. |
-| Fout: Fout bij schemacompilatie Query. | 1. (user.department - eq 'Verkoop') (user.department - eq "Marketing")<br>2. (user.userPrincipalName-overeenkomen met "*@domain.ext") | 1. Ontbrekende operator. Gebruik de - en - of twee join-predicaten<br>(user.department - eq 'Verkoop')- of (user.department - eq "Marketing")<br>2. Fout in reguliere expressie gebruikt in combinatie met - komt overeen met<br>(user.userPrincipalName-overeenkomen met '. *@domain.ext")<br>of u kunt ook: (user.userPrincipalName-overeenkomen met "@domain.ext$") |
+| Fout: Het kenmerk niet ondersteund. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Zorg ervoor dat het kenmerk is ingesteld op de [eigenschappenlijst ondersteund](groups-dynamic-membership.md#supported-properties). |
+| Fout: Operator wordt niet ondersteund op kenmerk. |(user.accountEnabled-bevat waar) |(user.accountEnabled -eq true)<br/><br/>De operator die wordt gebruikt, wordt niet ondersteund voor de eigenschapstype (in dit voorbeeld-bevat kan niet worden gebruikt voor het type boolean). Gebruik de juiste operators voor het eigenschapstype. |
+| Fout: Compilatiefout voor query. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2.  (user.userPrincipalName -match "*@domain.ext") | 1. Ontbrekende operator. Gebruik de - en - of twee join-predicaten<br>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br>2. Fout in reguliere expressie gebruikt in combinatie met - komt overeen met<br>(user.userPrincipalName -match ".*@domain.ext")<br>of u kunt ook: (user.userPrincipalName-overeenkomen met "@domain.ext$") |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
-* [Toepassingsbeheer in Azure Active Directory](../manage-apps/what-is-application-management.md)
+* [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md) (Toepassingsbeheer in Azure Active Directory)
 * [Wat is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

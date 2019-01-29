@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e4537c789bfae0fb485e818bf68e87de27b88720
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727337"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102049"
 ---
 # <a name="list-of-service-fabric-events"></a>Lijst met Service Fabric-gebeurtenissen 
 
@@ -27,7 +27,7 @@ Service Fabric wordt aangegeven dat een primaire set Clustergebeurtenissen om te
 
 Hier volgen enkele kenmerken van deze gebeurtenissen
 * Elke gebeurtenis is gekoppeld aan een bepaalde entiteit in het cluster bijvoorbeeld toepassing, Service, knooppunt, Replica.
-* Elke gebeurtenis een set algemene velden bevat: EventInstanceId EventName en categorie.
+* Elke gebeurtenis bevat een set algemene velden: EventInstanceId, EventName en categorie.
 * Elke gebeurtenis bevat de velden die de gebeurtenis terug naar de entiteit die is gekoppeld. De gebeurtenis ApplicationCreated hoeft bijvoorbeeld velden die de naam van de toepassing gemaakt.
 * Gebeurtenissen zijn gestructureerd zodanig dat ze kunnen worden gebruikt in een aantal hulpprogramma's om u te doen verdere analyse. Bovendien zijn relevante details van een gebeurtenis gedefinieerd als afzonderlijke eigenschappen in plaats van een lange tekenreeks. 
 * Gebeurtenissen worden geschreven door verschillende subsystemen weer in Service Fabric worden aangeduid met Source(Task) hieronder. Meer informatie vindt u op deze subsystemen in [Service Fabric-architectuur](service-fabric-architecture.md) en [technische overzicht van Service Fabric](service-fabric-technical-overview.md).
@@ -40,7 +40,7 @@ Hier volgt een lijst van deze Service Fabric-gebeurtenissen geordend op entiteit
 
 Meer informatie over het upgraden van clusters kunnen worden gevonden [hier](service-fabric-cluster-upgrade-windows-server.md).
 
-| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
+| Gebeurtenis-id | Name | Categorie | Description |Bron (taak) | Niveau | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Upgraden | Een clusterupgrade van een is gestart | CM | Informatief |
 | 29628 | ClusterUpgradeCompleted | Upgraden | Een clusterupgrade is voltooid | CM | Informatief | 
@@ -52,7 +52,7 @@ Meer informatie over het upgraden van clusters kunnen worden gevonden [hier](ser
 
 **Levenscyclusgebeurtenissen voor het knooppunt** 
 
-| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau |
+| Gebeurtenis-id | Name | Categorie | Description |Bron (taak) | Niveau |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | Deactivering van een knooppunt is voltooid | FM | Informatief | 
 | 18603 | NodeUp | StateTransition | Het cluster is gedetecteerd op dat een knooppunt is gestart | FM | Informatief | 
@@ -69,17 +69,17 @@ Meer informatie over het upgraden van clusters kunnen worden gevonden [hier](ser
 
 **Levenscyclus van toepassingsgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
+| Gebeurtenis-id | Name | Categorie | Description |Bron (taak) | Niveau | 
 | --- | --- | --- | --- | --- | --- | 
-| 29620 | ApplicationCreated | Levenscyclus | Een nieuwe toepassing is gemaakt | CM | Informatief | 
-| 29625 | ApplicationDeleted | Levenscyclus | Een bestaande toepassing is verwijderd | CM | Informatief | 
-| 23083 | ApplicationProcessExited | Levenscyclus | Een proces in een toepassing is afgesloten | Die als host fungeert | Informatief | 
+| 29620 | ApplicationCreated | LifeCycle | Een nieuwe toepassing is gemaakt | CM | Informatief | 
+| 29625 | ApplicationDeleted | LifeCycle | Een bestaande toepassing is verwijderd | CM | Informatief | 
+| 23083 | ApplicationProcessExited | LifeCycle | Een proces in een toepassing is afgesloten | Hosting | Informatief | 
 
 **Upgrade van toepassingsgebeurtenissen**
 
 Meer informatie over upgrades van toepassingen vindt [hier](service-fabric-application-upgrade.md).
 
-| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
+| Gebeurtenis-id | Name | Categorie | Description |Bron (taak) | Niveau | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Upgraden | Een upgrade van de toepassing is gestart | CM | Informatief | 
 | 29622 | ApplicationUpgradeCompleted | Upgraden | Een upgrade van de toepassing is voltooid | CM | Informatief | 
@@ -91,28 +91,28 @@ Meer informatie over upgrades van toepassingen vindt [hier](service-fabric-appli
 
 **Gebeurtenissen van de levenscyclus van service**
 
-| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
+| Gebeurtenis-id | Name | Categorie | Description |Bron (taak) | Niveau | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceCreated | Levenscyclus | Een nieuwe service is gemaakt | FM | Informatief | 
-| 18658 | ServiceDeleted | Levenscyclus | Een bestaande service is verwijderd | FM | Informatief | 
+| 18657 | ServiceCreated | LifeCycle | Een nieuwe service is gemaakt | FM | Informatief | 
+| 18658 | ServiceDeleted | LifeCycle | Een bestaande service is verwijderd | FM | Informatief | 
 
 ## <a name="partition-events"></a>Partitie-gebeurtenissen
 
 **Partitie verplaatsen gebeurtenissen**
 
-| Gebeurtenis-id | Naam | Categorie | Beschrijving |Bron (taak) | Niveau | 
+| Gebeurtenis-id | Name | Categorie | Description |Bron (taak) | Niveau | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | Levenscyclus | Een herconfiguratie van de partitie is voltooid | RA | Informatief | 
+| 18940 | PartitionReconfigured | LifeCycle | Een herconfiguratie van de partitie is voltooid | RA | Informatief | 
 
 ## <a name="container-events"></a>Containergebeurtenissen
 
 **Gebeurtenissen in de container levensduur** 
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContainerActivated | Een container is gestart | Die als host fungeert | Informatief | 1 |
-| 23075 | ContainerDeactivated | Een container is gestopt | Die als host fungeert | Informatief | 1 |
-| 23082 | ContainerExited | Een container is afgesloten: Controleer de vlag UnexpectedTermination | Die als host fungeert | Informatief | 1 |
+| 23074 | ContainerActivated | Een container is gestart | Hosting | Informatief | 1 |
+| 23075 | ContainerDeactivated | Een container is gestopt | Hosting | Informatief | 1 |
+| 23082 | ContainerExited | Een container is afgesloten: Controleer de vlag UnexpectedTermination | Hosting | Informatief | 1 |
 
 ## <a name="health-reports"></a>Statusrapporten
 
@@ -124,21 +124,21 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Cluster-rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Een nieuw cluster health rapport is beschikbaar | HM | Informatief | 1 |
 | 54437 | ClusterHealthReportExpired | Een bestaand cluster health rapport is verlopen | HM | Informatief | 1 |
 
 **Knooppunt rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | Een nieuw knooppunt health rapport is beschikbaar | HM | Informatief | 1 |
 | 54432 | NodeHealthReportExpired | Een bestaand knooppunt health rapport is verlopen | HM | Informatief | 1 |
 
 **Toepassing rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | Een nieuwe statusrapport van toepassing is gemaakt. Dit is voor niet-geïmplementeerde toepassingen. | HM | Informatief | 1 |
 | 54426 | DeployedApplicationNewHealthReport | Een nieuw geïmplementeerde toepassing health rapport is gemaakt | HM | Informatief | 1 |
@@ -149,21 +149,21 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Service health rapport-gebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | Een nieuwe service health-rapport is gemaakt | HM | Informatief | 1 |
 | 54433 | ServiceHealthReportExpired | Een bestaande service-statusrapport is verlopen | HM | Informatief | 1 |
 
 **Partitie rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | Een nieuwe statusrapport van de partitie is gemaakt | HM | Informatief | 1 |
 | 54431 | PartitionHealthReportExpired | Een bestaande partitie-statusrapport is verlopen | HM | Informatief | 1 |
 
 **Replica rapport statusgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | Een statusrapport stateful replica is gemaakt | HM | Informatief | 1 |
 | 54430 | StatelessInstanceNewHealthReport | Een nieuw exemplaar van staatloze health rapport is gemaakt | HM | Informatief | 1 |
@@ -174,28 +174,28 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Chaos-sessiegebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | Een Chaos testen van de sessie is gestart | Testbaarheid | Informatief | 1 |
 | 50023 | ChaosStopped | Een sessie testen Chaos is gestopt | Testbaarheid | Informatief | 1 |
 
 **Gebeurtenissen van chaos-knooppunt**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | Een knooppunt is gepland om opnieuw te starten als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
 | 50087 | ChaosNodeRestartCompleted | Een knooppunt is opnieuw op te starten als onderdeel van een Chaos sessie testen voltooid | Testbaarheid | Informatief | 1 |
 
 **Chaos-toepassingsgebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | Een code-pakket opnieuw opstarten is gepland tijdens een sessie testen Chaos | Testbaarheid | Informatief | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Code-pakket opnieuw worden opgestart is tijdens een sessie testen Chaos voltooid | Testbaarheid | Informatief | 1 |
 
 **Chaos-partitie gebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | Een primaire partitie is ingesteld om te verplaatsen als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | Een secundaire partitie is ingesteld om te verplaatsen als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
@@ -203,7 +203,7 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Chaos replica gebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | Replica opnieuw is gepland als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | De verwijdering van een replica is gepland als onderdeel van een Chaos sessie testen | Testbaarheid | Informatief | 1 |
@@ -213,15 +213,15 @@ De [Service Fabric-statusmodel](service-fabric-health-introduction.md) biedt een
 
 **Correlatiegebeurtenissen**
 
-| Gebeurtenis-id | Naam | Beschrijving |Bron (taak) | Niveau | Versie |
+| Gebeurtenis-id | Name | Description |Bron (taak) | Niveau | Versie |
 | --- | --- | ---| --- | --- | --- |
-| 65011 | CorrelationOperational | Een correlatie is detacted | Testbaarheid | Informatief | 1 |
+| 65011 | CorrelationOperational | Een correlatie er is aangetroffen | Testbaarheid | Informatief | 1 |
 
 ## <a name="events-prior-to-version-62"></a>Gebeurtenissen voorafgaand aan versie 6.2
 
 Hier volgt een uitgebreide lijst van gebeurtenissen die worden geleverd door de Service Fabric voorafgaand aan versie 6.2.
 
-| Gebeurtenis-id | Naam | Bron (taak) | Niveau |
+| Gebeurtenis-id | Name | Bron (taak) | Niveau |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Informatief |
 | 25621 | NodeOpenedSuccess | FabricNode | Informatief |
@@ -235,8 +235,8 @@ Hier volgt een uitgebreide lijst van gebeurtenissen die worden geleverd door de 
 | 29629 | ClusterUpgradeRollback | CM | Informatief |
 | 29630 | ClusterUpgradeRollbackComplete | CM | Informatief |
 | 29631 | ClusterUpgradeDomainComplete | CM | Informatief |
-| 23074 | ContainerActivated | Die als host fungeert | Informatief |
-| 23075 | ContainerDeactivated | Die als host fungeert | Informatief |
+| 23074 | ContainerActivated | Hosting | Informatief |
+| 23075 | ContainerDeactivated | Hosting | Informatief |
 | 29620 | ApplicationCreated | CM | Informatief |
 | 29621 | ApplicationUpgradeStart | CM | Informatief |
 | 29622 | ApplicationUpgradeComplete | CM | Informatief |

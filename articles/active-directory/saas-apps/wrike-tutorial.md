@@ -1,45 +1,45 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met MyWorkDrive | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en MyWorkDrive.
+title: 'Zelfstudie: Azure Active Directory-integratie met Wrike | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Wrike.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: 4d049778-3c7b-46c0-92a4-f2633a32334b
+ms.assetid: 894b7520-5136-4973-a1ba-942a9f7f0a03
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f0e2c499619df938bd6f4b05757ba607a9edf244
+ms.openlocfilehash: 1eba7769717f2dc92f9600b46162ec95a13bd84c
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183353"
+ms.locfileid: "55195746"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Zelfstudie: Azure Active Directory-integratie met MyWorkDrive
+# <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Zelfstudie: Azure Active Directory-integratie met Wrike
 
-In deze zelfstudie leert u over het integreren van MyWorkDrive met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Wrike integreren met Azure Active Directory (Azure AD).
 
-MyWorkDrive integreren met Azure AD biedt u de volgende voordelen:
+Wrike integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot MyWorkDrive heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij MyWorkDrive (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt beheren in Azure AD die toegang tot Wrike heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Wrike (Single Sign-On) met hun Azure AD-accounts inschakelen.
 - U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met MyWorkDrive, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Wrike, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een MyWorkDrive eenmalige aanmelding ingeschakeld abonnement
+- Een Wrike eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
@@ -53,14 +53,14 @@ Volg deze aanbevelingen als u de stappen in deze zelfstudie wilt testen:
 
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. MyWorkDrive uit de galerie toe te voegen
+1. Wrike uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-myworkdrive-from-the-gallery"></a>MyWorkDrive uit de galerie toe te voegen
+## <a name="adding-wrike-from-the-gallery"></a>Wrike uit de galerie toe te voegen
 
-Voor het configureren van de integratie van MyWorkDrive met Azure AD, moet u MyWorkDrive uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Voor het configureren van de integratie van Wrike in Azure AD, moet u Wrike uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen MyWorkDrive uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen Wrike uit de galerie, moet u de volgende stappen uitvoeren:**
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
@@ -74,31 +74,31 @@ Voor het configureren van de integratie van MyWorkDrive met Azure AD, moet u MyW
 
     ![De knop Nieuwe toepassing][3]
 
-4. Typ in het zoekvak **MyWorkDrive**, selecteer **MyWorkDrive** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Wrike**, selecteer **Wrike** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![MyWorkDrive in de lijst met resultaten](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
+    ![Wrike in de lijst met resultaten](./media/wrike-tutorial/tutorial_wrike_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met MyWorkDrive op basis van een testgebruiker 'Julia steen' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Wrike op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in MyWorkDrive is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in MyWorkDrive tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Wrike is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Wrike tot stand worden gebracht.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met MyWorkDrive, moet u de volgende bouwstenen voltooien:
+Om te configureren en testen van Azure AD eenmalige aanmelding met Wrike, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
 2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker MyWorkDrive](#creating-a-myworkdrive-test-user)**  : als u wilt een equivalent van Britta Simon in MyWorkDrive die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+3. **[Het maken van een testgebruiker Wrike](#creating-a-wrike-test-user)**  : als u wilt een equivalent van Britta Simon in Wrike die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
 4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
 5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing MyWorkDrive.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Wrike.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met MyWorkDrive, moet u de volgende stappen uitvoeren:**
+**Voor het configureren van Azure AD eenmalige aanmelding met Wrike, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **MyWorkDrive** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Wrike** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling Eenmalige aanmelding configureren][4]
 
@@ -110,47 +110,21 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](common/editconfigure.png)
 
-4. Voer in het gedeelte **Standaard SAML-configuratie** de volgende stappen uit als u de toepassing in de door **IDP geïnitieerde** modus wilt configureren:
+4. In de sectie **SAML-basisconfiguratie** hoeft de gebruiker geen enkele stap uit te voeren omdat de app al vooraf is geïntegreerd met Azure.
 
-    ![MyWorkDrive domein en URL's, eenmalige aanmelding informatie](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
+    ![Wrike domein en URL's, eenmalige aanmelding informatie](./media/wrike-tutorial/tutorial_wrike_url.png)
+    
+    a. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
-    In het tekstvak **Antwoord-URL** typt u een URL met behulp van het volgende patroon: `https://<SERVER.DOMAIN.COM>/SAML/AssertionConsumerService.aspx`
+    b. Typ een URL in het tekstvak **Aanmeldings-URL**: `https://www.wrike.com/login/`
 
-5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
+    ![Wrike domein en URL's, eenmalige aanmelding informatie](./media/wrike-tutorial/tutorial_wrike_url1.png)
 
-    ![MyWorkDrive domein en URL's, eenmalige aanmelding informatie](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
+5. Op de **SAML-handtekeningcertificaat** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** downloaden **voorfederatievemetagegevens-XML** en sla het bestand met metagegevens op uw computer.
 
-     Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
+    ![De link om het certificaat te downloaden](./media/wrike-tutorial/tutorial_wrike_certificate.png) 
 
-    > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke antwoord-URL en de aanmeldings-URL.  Voer uw eigen bedrijf MyWorkDrive Server host name:e.g.
-    > 
-    > Antwoord-URL: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
-    > 
-    > Aanmeldings-URL:`https://yourserver.yourdomain.com/Account/Login-saml`
-    > 
-    > Neem contact op met het ondersteuningsteam MyWorkDrive Client als u twijfelt over het instellen van uw eigen hostnaam en SSL-certificaat voor deze waarden.
-
-6. Op de **SAML-handtekeningcertificaat** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op kopiëren **pictogram** kopiëren **App federatieve metagegevens Url**en sla deze op uw computer...
-
-    ![De link om het certificaat te downloaden](./media/myworkdrive-tutorial/tutorial_myworkdrive_certificate.png)
-
-7. In een ander browservenster, meld u aan bij MyWorkDrive als een beveiligingsbeheerder.
-
-8. Klik op de MyWorkDrive Server in het deelvenster Beheer op **ENTERPRISE** en voer de volgende stappen uit:
-
-    ![De Beheerder](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
-
-    a. Schakel **SAML/ADFS SSO**.
-
-    b. Selecteer **SAML - Azure AD**
-
-    c. In de **Url voor federatieve metagegevens van Azure App** tekstvak, plak de waarde van **App-Url voor federatieve metagegevens** die u hebt gekopieerd vanuit Azure portal.
-
-    d. Klik op **Opslaan**.
-
-    >[!NOTE]
-    >Voor meer informatie raadpleegt de [MyWorkDrive Azure AD-ondersteuningsartikel](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
+6. Het configureren van eenmalige aanmelding op **Wrike** zijde, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** naar [Wrike ondersteuningsteam](mailto:support@team.wrike.com). Het team stelt de instellingen zo in dat de verbinding tussen SAML en eenmalige aanmelding aan beide zijden goed is ingesteld.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 
@@ -177,21 +151,23 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
     d. Selecteer **Maken**.
 
-### <a name="creating-a-myworkdrive-test-user"></a>Het maken van een testgebruiker MyWorkDrive
+### <a name="creating-a-wrike-test-user"></a>Het maken van een testgebruiker Wrike
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in MyWorkDrive. Werken met [MyWorkDrive ondersteuningsteam](mailto:support@myworkdrive.com) om toe te voegen de gebruikers in het MyWorkDrive-platform. Er moeten gebruikers worden gemaakt en geactiveerd voordat u eenmalige aanmelding kunt gebruiken.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Wrike. Wrike biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Wrike als deze nog niet bestaat.
+>[!Note]
+>Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Wrike ondersteuningsteam](mailto:support@team.wrike.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan MyWorkDrive.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Wrike.
 
 1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
 
     ![Gebruiker toewijzen][201]
 
-2. Selecteer in de lijst met toepassingen, **MyWorkDrive**.
+2. Selecteer in de lijst met toepassingen, **Wrike**.
 
-    ![Eenmalige aanmelding configureren](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png) 
+    ![Eenmalige aanmelding configureren](./media/wrike-tutorial/tutorial_wrike_app.png) 
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
@@ -209,7 +185,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u op de tegel MyWorkDrive in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing MyWorkDrive.
+Wanneer u op de tegel Wrike in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Wrike.
 Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources

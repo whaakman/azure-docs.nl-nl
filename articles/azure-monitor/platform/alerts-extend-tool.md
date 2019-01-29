@@ -1,5 +1,5 @@
 ---
-title: Waarschuwingen van Log Analytics uitbreiden naar Azure
+title: Waarschuwingen van Log Analytics uitbreiden naar Azure Government-Cloud
 description: Dit artikel beschrijft de hulpprogramma's en API waarmee u waarschuwingen van Log Analytics naar Azure-waarschuwingen kunt uitbreiden.
 author: msvijayn
 services: azure-monitor
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: dc8c1733f506870765523b17c1fc3e283ff9cbdb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423272"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103374"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Waarschuwingen van Log Analytics uitbreiden naar Azure-waarschuwingen
-De functie alerts in Azure Log Analytics wordt vervangen door de Azure-waarschuwingen. Als onderdeel van deze overgang, wordt de waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics worden uitgebreid naar Azure. Als u niet wachten tot deze worden automatisch verplaatst naar Azure wilt, kunt u het proces starten:
+De waarschuwingsfunctie in OMS-portal wordt vervangen door de Azure-waarschuwingen in Azure Government-cloud. Als onderdeel van deze overgang, wordt de waarschuwingen die u oorspronkelijk hebt geconfigureerd in Log Analytics worden uitgebreid naar Azure. Als u niet wachten tot deze worden automatisch verplaatst naar Azure wilt, kunt u het proces starten:
 
 - Handmatig vanuit de Operations Management Suite-portal. 
 - Programmatisch met behulp van de API AlertsVersion.  
 
 > [!NOTE]
-> Microsoft zal automatisch waarschuwingen die zijn gemaakt in de openbare cloud exemplaren van Log Analytics voor Azure-waarschuwingen, uitgebreid vanaf 14 mei 2018 wordt in een reeks terugkerende tot voltooid. Als er geen problemen voor het maken van [actiegroepen](../../azure-monitor/platform/action-groups.md), gebruikt u [deze herstelstappen](alerts-extend-tool.md#troubleshooting) om op te halen actiegroepen automatisch gemaakt. U kunt deze stappen gebruiken tot 5 juli 2018. *Niet van toepassing voor Azure Government en onafhankelijke cloudgebruikers van Log Analytics*. 
+> Microsoft zal automatisch waarschuwingen die zijn gemaakt in Azure Government OMS portal exemplaren van Log Analytics voor Azure-waarschuwingen, uitgebreid vanaf 1 maart 2019 een systematische manier. Als er geen problemen voor het maken van [actiegroepen](../../azure-monitor/platform/action-groups.md), gebruikt u [deze herstelstappen](alerts-extend-tool.md#troubleshooting) om op te halen actiegroepen automatisch gemaakt. U kunt deze stappen tot 15 maart 2019 gebruiken in Azure Government OMS-portal.
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Optie 1: Starten vanuit de Operations Management Suite-portal
-De volgende stappen wordt beschreven hoe u waarschuwingen voor de werkruimte van de Operations Management Suite-portal uitbreiden.  
+De volgende stappen wordt beschreven hoe u waarschuwingen voor de werkruimte van de Operations Management Suite-portal voor Azure Government-cloud uitbreiden.  
 
 1. Selecteer in de Azure-portal de optie **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. In het deelvenster voor abonnementen van Log Analytics een werkruimte selecteren en selecteer vervolgens de **OMS-Portal** tegel.
@@ -213,251 +213,11 @@ Dit antwoord geeft aan dat de waarschuwingen hebt uitgebreid naar Azure-waarschu
 
 ```
 
-
-## <a name="option-3-use-a-custom-powershell-script"></a>Optie 3: Gebruik een aangepaste PowerShell-script
- Als Microsoft niet is uitgebreid uw waarschuwingen vanuit de Operations Management Suite-portal naar Azure, kunt u dit handmatig doen tot 5 juli 2018. De twee opties voor handmatige extensie worden behandeld in de vorige twee secties.
-
-Alle waarschuwingen van de Operations Management Suite-portal worden na 5 juli 2018 uitgebreid naar Azure. Gebruikers die niet de [nodig herstelstappen](#troubleshooting) hun waarschuwingen die worden uitgevoerd zonder het uitvoeren van acties of meldingen, vanwege het gebrek aan zal worden gekoppeld [actiegroepen](../../azure-monitor/platform/action-groups.md). 
-
-Maken [actiegroepen](../../azure-monitor/platform/action-groups.md) voor waarschuwingen handmatig in Log Analytics, het volgende voorbeeldscript gebruiken:
-```PowerShell
-########## Input Parameters Begin ###########
-
-
-$subscriptionId = ""
-$resourceGroup = ""
-$workspaceName = "" 
-
-
-########## Input Parameters End ###########
-
-armclient login
-
-try
-{
-    $workspace = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/"$workspaceName"?api-version=2015-03-20 | ConvertFrom-Json
-    $workspaceId = $workspace.properties.customerId
-    $resourceLocation = $workspace.location
-}
-catch
-{
-    "Please enter valid input parameters i.e. Subscription Id, Resource Group and Workspace Name !!"
-    exit
-}
-
-# Get Extend Summary of the Alerts
-"`nGetting Extend Summary of Alerts for the workspace...`n"
-try
-{
-
-    $value = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview
-
-    "Extend preview summary"
-    "=========================`n"
-
-    $value
-
-    $result = $value | ConvertFrom-Json
-}
-catch
-{
-
-    $ErrorMessage = $_.Exception.Message
-    "Error occurred while fetching/parsing Extend summary: $ErrorMessage"
-    exit 
-}
-
-if ($result.version -eq 2)
-{
-    "`nThe alerts in this workspace have already been extended to Azure."
-    exit
-}
-
-$in = Read-Host -Prompt "`nDo you want to continue extending the alerts to Azure? (Y/N)"
-
-if ($in.ToLower() -ne "y")
-{
-    exit
-} 
-
-
-# Check for resource provider registration
-try
-{
-    $val = armclient get subscriptions/$subscriptionId/providers/microsoft.insights/?api-version=2017-05-10 | ConvertFrom-Json
-    if ($val.registrationState -eq "NotRegistered")
-    {
-        $val = armclient post subscriptions/$subscriptionId/providers/microsoft.insights/register/?api-version=2017-05-10
-    }
-}
-catch
-{
-    "`nThe user does not have required access to register the resource provider. Please try with user having Contributor/Owner role in the subscription"
-    exit
-}
-
-$actionGroupsMap = @{}
-try
-{
-    "`nCreating new action groups for alerts extension...`n"
-    foreach ($actionGroup in $result.migrationSummary.actionGroups)
-    {
-        $actionGroupName = $actionGroup.actionGroupName
-        $actions = $actionGroup.actions
-        if ($actionGroupsMap.ContainsKey($actionGroupName))
-        {
-            continue
-        } 
-        
-        # Create action group payload
-        $shortName = $actionGroupName.Substring($actionGroupName.LastIndexOf("AG_"))
-        $properties = @{"groupShortName"= $shortName; "enabled" = $true}
-        $emailReceivers = New-Object Object[] $actions.emailIds.Count
-        $webhookReceivers = New-Object Object[] $actions.webhookActions.Count
-        
-        $count = 0
-        foreach ($email in $actions.emailIds)
-        {
-            $emailReceivers[$count] = @{"name" = "Email$($count+1)"; "emailAddress" = "$email"}
-            $count++
-        }
-
-        $count = 0
-        foreach ($webhook in $actions.webhookActions)
-        {
-            $webhookReceivers[$count] = @{"name" = "$($webhook.name)"; "serviceUri" = "$($webhook.serviceUri)"}
-            $count++
-        }
-
-        $itsmAction = $actions.itsmAction
-        if ($itsmAction.connectionId -ne $null)
-        {
-            $val = @{
-            "name" = "ITSM"
-            "workspaceId" = "$subscriptionId|$workspaceId"
-            "connectionId" = "$($itsmAction.connectionId)"
-            "ticketConfiguration" = $itsmAction.templateInfo
-            "region" = "$resourceLocation"
-            }
-            $properties["itsmReceivers"] = @($val)  
-        }
-
-        $properties["emailReceivers"] = @($emailReceivers)
-        $properties["webhookReceivers"] = @($webhookReceivers)
-        $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
-
-    
-        # Azure Resource Manager call to create action group
-        $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
-
-        "Created Action Group with name $actionGroupName" 
-        $actionGroupsMap[$actionGroupName] = $actionGroup.actionGroupResourceId.ToLower()
-        $index++
-    }
-
-    "`nSuccessfully created all action groups!!"
-}
-catch
-{
-    $ErrorMessage = $_.Exception.Message
-
-    #Delete all action groups in case of failure
-    "`nDeleting newly created action groups if any as some error happened..."
-    
-    foreach ($actionGroup in $actionGroupsMap.Keys)
-    {
-        $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
-    }
-
-    "`nError: $ErrorMessage"
-    "`nExiting..."
-    exit
-}
-
-# Update all alerts configuration to the new version
-"`nExtending OMS alerts to Azure...`n"
-
-try
-{
-    $index = 1
-    foreach ($alert in $result.migrationSummary.alerts)
-    {
-        $uri = $alert.alertId + "?api-version=2015-03-20"
-        $config = armclient get $uri | ConvertFrom-Json
-        $aznsNotification = @{
-            "GroupIds" = @($actionGroupsMap[$alert.actionGroupName])
-        }
-        if ($alert.customWebhookPayload)
-        {
-            $aznsNotification.Add("CustomWebhookPayload", $alert.customWebhookPayload)
-        }
-        if ($alert.customEmailSubject)
-        {
-            $aznsNotification.Add("CustomEmailSubject", $alert.customEmailSubject)
-        }      
-
-        # Update alert version
-        $config.properties.Version = 2
-
-        $config.properties | Add-Member -MemberType NoteProperty -Name "AzNsNotification" -Value $aznsNotification
-        $payload = $config | ConvertTo-Json -Depth 4
-        $response = $payload | armclient put $uri
-    
-        "Extended alert with name $($alert.alertName)"
-        $index++
-    }
-}
-catch
-{
-    $ErrorMessage = $_.Exception.Message   
-    if ($index -eq 1)
-    {
-        "`nDeleting all newly created action groups as no alerts got extended..."
-        foreach ($actionGroup in $actionGroupsMap.Keys)
-        {
-            $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
-        }
-        "`nDeleted all action groups."  
-    }
-    
-    "`nError: $ErrorMessage"
-    "`nPlease resolve the issue and try extending again!!"
-    "`nExiting..."
-    exit
-}
-
-"`nSuccessfully extended all OMS alerts to Azure!!" 
-
-# Update version of workspace to indicate extension
-"`nUpdating alert version information in OMS workspace..." 
-
-$response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview&iversion=2"
-
-"`nExtension complete!!"
-```
-
-
-### <a name="about-the-custom-powershell-script"></a>Over de aangepaste PowerShell-script 
-De volgende is belangrijke informatie over het gebruik van het script:
-- Een vereiste is de installatie van [ARMclient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt het aanroepen van de Azure Resource Manager-API.
-- Het script wordt uitgevoerd, moet u een rol van inzender of eigenaar in het Azure-abonnement hebben.
-- U moet de volgende parameters opgeven:
-    - $subscriptionId: De Azure abonnements-ID die is gekoppeld aan de Operations Management Suite Log Analytics-werkruimte.
-    - $resourceGroup: De Azure-resourcegroep voor Operations Management Suite Log Analytics-werkruimte.
-    - $workspaceName: De naam van de Operations Management Suite Log Analytics-werkruimte.
-
-### <a name="output-of-the-custom-powershell-script"></a>Uitvoer van de aangepaste PowerShell-script
-Het script is uitgebreid en voert de stappen uit als dit wordt uitgevoerd: 
-- De samenvatting, waarin u de informatie over de bestaande Operations Management Suite Log Analytics-waarschuwingen in de werkruimte wordt weergegeven. De samenvatting bevat ook informatie over de Azure-actiegroepen worden gemaakt voor de acties die zijn gekoppeld aan deze. 
-- U wordt gevraagd om te gaan met de extensie of sluiten nadat de samenvatting bekijken.
-- Wanneer u verder met de extensie gaat, nieuwe Azure-actiegroepen worden gemaakt en alle bestaande waarschuwingen zijn gekoppeld aan deze. 
-- Het script wordt afgesloten door het bericht "Extensie is voltooid!" weer te geven Het script geeft de volgende fouten weer in het geval van eventuele tussenliggende fouten.
-
 ## <a name="troubleshooting"></a>Problemen oplossen 
 Tijdens het proces voor het uitbreiden van waarschuwingen, problemen kunnen voorkomen dat het systeem het maken van de benodigde [actiegroepen](../../azure-monitor/platform/action-groups.md). In dergelijke gevallen wordt er een foutbericht weergegeven in een banner in de **waarschuwing** gedeelte van de Operations Management Suite-portal of in de GET gereed is voor de API aanroepen.
 
 > [!IMPORTANT]
-> Als openbare Azure-cloud op basis van Log Analytics-gebruikers niet de volgende herstelstappen duren vóór 5 juli 2018, waarschuwingen in Azure wordt uitgevoerd, maar niet elke actie of een melding geactiveerd. Als u meldingen voor waarschuwingen, moet u handmatig bewerken en toevoegen [actiegroepen](../../azure-monitor/platform/action-groups.md), of gebruik de voorgaande [aangepaste PowerShell-script](#option-3---using-custom-powershell-script).
+> Als Azure Government-cloud op basis van gebruikers van de OMS-portal niet de volgende herstelstappen duren vóór 15 maart 2019, waarschuwingen in Azure wordt uitgevoerd, maar niet elke actie of een melding geactiveerd. Als u meldingen voor waarschuwingen, moet u handmatig de regels voor waarschuwingen in Azure te bewerken en toevoegen [actiegroepen](../../azure-monitor/platform/action-groups.md)
 
 Hier volgen de herstelstappen uit voor elke fout:
 - **Fout: Bereik vergrendeling aanwezig is op het niveau van bronabonnement/resourcegroep voor schrijfbewerkingen**:   ![Schermafbeelding van de Operations Management Suite waarschuwingsinstellingen-portalpagina met bereik vergrendelen foutbericht gemarkeerd](media/alerts-extend-tool/ErrorScopeLock.png)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43b482324f0244baf52edbb8989a56dd12833331
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242191"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104381"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Gebruik de Azure Import/Export-service voor het offline kopiëren van gegevens naar Azure Data Lake Storage Gen1
 In dit artikel leert u hoe u wilt kopiëren van grote gegevenssets (> 200 GB) in Azure Data Lake Storage Gen1 met behulp van methoden voor offline-exemplaar, zoals de [Azure Import/Export-service](../storage/common/storage-import-export-service.md). Het bestand dat wordt gebruikt als voorbeeld in dit artikel is specifiek, 339,420,860,416 bytes of ongeveer 319 GB op schijf. Noemen we deze 319GB.tsv bestand.
@@ -54,9 +54,9 @@ Volg de instructies in [met behulp van de Azure Import/Export-service](../storag
 2. Identificeer de Azure storage-account waar de gegevens worden gekopieerd nadat deze is verzonden naar de Azure-datacenter.
 3. Gebruik de [Azure Import/Export-hulpprogramma](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), een opdrachtregelprogramma. Hier volgt een voorbeeld-codefragment dat laat zien hoe u het hulpprogramma te gebruiken.
 
-    ````
+    ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
-    ````
+    ```
     Zie [met behulp van de Azure Import/Export-service](../storage/common/storage-import-export-service.md) voor meer voorbeelden codefragmenten.
 4. De voorgaande opdracht maakt een logboekbestand op de opgegeven locatie. Dit logboekbestand gebruiken om te maken van een import-taak uit de [Azure-portal](https://portal.azure.com).
 
@@ -72,7 +72,7 @@ Nadat de status van de import-taak ziet u dat deze voltooid, kunt u controleren 
 In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt om te maken van een Azure Data Factory-pijplijn voor het kopiëren van gegevens. U kunt deze JSON-definities van de [Azure-portal](../data-factory/tutorial-copy-data-portal.md) of [Visual Studio](../data-factory/tutorial-copy-data-dot-net.md).
 
 ### <a name="source-linked-service-azure-storage-blob"></a>Gekoppelde bron-service (Azure Storage-blob)
-````
+```
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -83,10 +83,10 @@ In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt om te ma
         }
     }
 }
-````
+```
 
 ### <a name="target-linked-service-azure-data-lake-storage-gen1"></a>Doel van de gekoppelde service (Azure Data Lake Storage Gen1)
-````
+```
 {
     "name": "AzureDataLakeStorageGen1LinkedService",
     "properties": {
@@ -99,9 +99,9 @@ In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt om te ma
         }
     }
 }
-````
+```
 ### <a name="input-data-set"></a>Gegevensset voor invoer
-````
+```
 {
     "name": "InputDataSet",
     "properties": {
@@ -119,9 +119,9 @@ In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt om te ma
         "policy": {}
     }
 }
-````
+```
 ### <a name="output-data-set"></a>Gegevensset voor uitvoer
-````
+```
 {
 "name": "OutputDataSet",
 "properties": {
@@ -137,9 +137,9 @@ In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt om te ma
     }
   }
 }
-````
+```
 ### <a name="pipeline-copy-activity"></a>Pijplijn (kopieeractiviteit)
-````
+```
 {
     "name": "CopyImportedData",
     "properties": {
@@ -186,7 +186,7 @@ In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt om te ma
         "pipelineMode": "Scheduled"
     }
 }
-````
+```
 Zie voor meer informatie, [gegevens verplaatsen van Azure Storage-blob naar Azure Data Lake Storage Gen1 met Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>De gegevensbestanden in Azure Data Lake Storage Gen1 reconstrueren
@@ -205,7 +205,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
 Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)

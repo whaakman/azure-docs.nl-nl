@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422742"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094373"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service-naar-service aanroepen die gebruik gedelegeerde gebruikersidentiteit in de On-Behalf-Of-stroom
 
@@ -37,7 +37,7 @@ De stroom voor OAuth 2.0 namens (OBO) kan een toepassing die een service of een 
 
 De OBO-stroom wordt gestart nadat de gebruiker is geverifieerd in een toepassing die gebruikmaakt van de [OAuth 2.0-autorisatiecode verlenen stroom](v1-protocols-oauth-code.md). Op dat moment een toegangstoken (token A) in de toepassing wordt verzonden op de middelste laag web API (A-API) met claims van de gebruiker en de toestemming voor toegang tot API A. API A maakt vervolgens een geverifieerde aanvraag voor de downstream web-API (API-B).
 
-De stroom op-andere gebruikers-Of deel uitmaken van deze stappen: ![namens-stroom voor OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+De stroom op-andere gebruikers-Of deel uitmaken van deze stappen: ![OAuth 2.0 op namens-stroom](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. De clienttoepassing doet een aanvraag bij API A met het token A.
 1. API A wordt geverifieerd op het eindpunt van de Azure AD-token-uitgifte en vraagt een token voor toegang tot API B.
@@ -103,11 +103,11 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 De clienttoepassing wordt beveiligd door een gedeeld geheim of door een certificaat.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: aanvraag voor een toegangstoken met een gedeeld geheim
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Eerste geval: Aanvraag voor een toegangstoken met een gedeeld geheim
 
 Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor de service-naar-service toegang tot de volgende parameters:
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JSON Web Token (JWT), zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
 | bevestiging |vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag. |
@@ -137,11 +137,11 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: aanvraag voor een toegangstoken met een certificaat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: Aanvraag voor een toegangstoken met een certificaat
 
 Een service-naar-service toegangstokenaanvraag met een certificaat bevat de volgende parameters:
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |vereist | Het type van het token aan te vragen. Een aanvraag OBO maakt gebruik van een JWT-toegangstoken, zodat de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
 | bevestiging |vereist | De waarde van het token wordt gebruikt in de aanvraag. |
@@ -179,7 +179,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Een geslaagd antwoord is een JSON OAuth 2.0-antwoord met de volgende parameters:
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Het bereik van de toegang is verleend in het token. |
@@ -251,7 +251,7 @@ Sommige OAuth gebaseerde webservices nodig voor toegang tot andere webservice-AP
 
 Een service-naar-service-aanvraag voor een SAML-verklaring bevat de volgende parameters:
 
-| Parameter |  | Beschrijving |
+| Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |vereist | Het type van het token aan te vragen. Voor een aanvraag die gebruikmaakt van een JWT, de waarde moet **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
 | bevestiging |vereist | De waarde van het toegangstoken wordt gebruikt in de aanvraag.|
@@ -263,14 +263,14 @@ Een service-naar-service-aanvraag voor een SAML-verklaring bevat de volgende par
 
 Het antwoord bevat een SAML-token dat is gecodeerd in UTF8 en Base64url.
 
-- **SubjectConfirmationData voor een SAML-verklaring afkomstig is van een aanroep van OBO**: als de doeltoepassing moet een waarde van de ontvanger in **SubjectConfirmationData**, en vervolgens de waarde moet een niet-jokertekens antwoord-URL in de configuratie van de bron-toepassing.
-- **Het knooppunt SubjectConfirmationData**: het knooppunt mag niet een **InResponseTo** omdat het geen deel uit van een SAML-antwoord van het kenmerk. De toepassing die is ontvangen van het SAML-token moet accepteren van de SAML-verklaring zonder een **InResponseTo** kenmerk.
+- **SubjectConfirmationData voor een SAML-verklaring afkomstig is van een aanroep van OBO**: Als de doeltoepassing moet een waarde van de ontvanger in **SubjectConfirmationData**, en vervolgens de waarde een niet-jokertekens antwoord-URL in de configuratie van de resource-toepassing moet.
+- **Het knooppunt SubjectConfirmationData**: Het knooppunt mag niet een **InResponseTo** omdat het geen deel uit van een SAML-antwoord van het kenmerk. De toepassing die is ontvangen van het SAML-token moet accepteren van de SAML-verklaring zonder een **InResponseTo** kenmerk.
 
-- **Toestemming geven**: toestemming moet worden verleend voor het ontvangen van een SAML-token met gebruikersgegevens op een OAuth-stroom. Zie voor meer informatie over machtigingen en toestemming voor het verkrijgen van beheerder [machtigingen en toestemming in het eindpunt van de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
+- **Toestemming geven**: Toestemming moet hebben gekregen voor het ontvangen van een SAML-token met gebruikersgegevens op een OAuth-stroom. Zie voor meer informatie over machtigingen en toestemming voor het verkrijgen van beheerder [machtigingen en toestemming in het eindpunt van de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
 ### <a name="response-with-saml-assertion"></a>Antwoord met SAML-verklaring
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 | --- | --- |
 | token_type |Geeft aan dat de waarde van het token. Het enige type dat Azure AD ondersteunt **Bearer**. Zie voor meer informatie over het bearer-tokens [OAuth 2.0 machtiging Framework: Bearer Token gebruik (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Het bereik van de toegang is verleend in het token. |
@@ -284,10 +284,10 @@ Het antwoord bevat een SAML-token dat is gecodeerd in UTF8 en Base64url.
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
-- bron: `https://api.contoso.com`
+- resource: `https://api.contoso.com`
 - access_token: \<SAML-verklaring\>
 - issued_token_type: urn: ietf:params:oauth:token-type: saml2
-- refresh_token: \<vernieuwingstoken\>
+- refresh_token: \<Token vernieuwen\>
 
 ## <a name="client-limitations"></a>Clientbeperkingen
 

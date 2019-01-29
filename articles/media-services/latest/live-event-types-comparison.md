@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725929"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153960"
 ---
-# <a name="liveevent-types-comparison"></a>LiveEvent typen vergelijking
+# <a name="live-event-types-comparison"></a>Vergelijking van de typen Live gebeurtenis
 
-In Azure Media Services, een [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) kan bestaan uit een van de twee typen: live codering en Pass Through-query. 
+In Azure Media Services, een [Live gebeurtenis](https://docs.microsoft.com/rest/api/media/liveevents) kan bestaan uit een van de twee typen: live codering en Pass Through-query. 
 
 ## <a name="types-comparison"></a>Typen vergelijking 
 
-De volgende tabel vergelijkt de functies van de twee LiveEvent typen.
+De volgende tabel vergelijkt de functies van de twee typen van de Live gebeurtenis.
 
-| Functie | Pass Through-LiveEvent | Standard LiveEvent |
+| Functie | Pass Through-Live-gebeurtenis | Standaard Live gebeurtenis |
 | --- | --- | --- |
 | Single-bitrate-invoer is gecodeerd in meerdere bitsnelheden in de cloud |Nee |Ja |
 | Maximale beeldschermresolutie voor bijdrage feed |4K (4096 x 2160 op 60 frames per seconde) |1080p (1920 x 1088 op 30 frames per seconde)|
@@ -39,7 +39,7 @@ De volgende tabel vergelijkt de functies van de twee LiveEvent typen.
 | Ondersteuning voor meerdere talen audionummers|Ja|Nee|
 | Ondersteunde invoer videocodecs |H.264/AVC en H.265/HEVC|H.264/AVC|
 | Ondersteunde uitvoer videocodecs|Hetzelfde als invoer|H.264/AVC|
-| Ondersteunde diepte van de video bits, invoer en uitvoer|Maximaal 10-bits inclusief Kopregel 10/HLG|8-bits|
+| Ondersteunde diepte van de video bits, invoer en uitvoer|Maximaal 10-bits inclusief Kopregel 10/HLG|8-bit|
 | Ondersteunde invoer audio-codecs|AAC-LC, hij AAC v1, v2 HE-AAC|AAC-LC, hij AAC v1, v2 HE-AAC|
 | Ondersteunde uitvoer audio-codecs|Hetzelfde als invoer|AAC-LC|
 | Maximale beeldschermresolutie van uitvoervideo|Hetzelfde als invoer|720p (op 30 frames per seconde)|
@@ -50,10 +50,10 @@ De volgende tabel vergelijkt de functies van de twee LiveEvent typen.
 | Ondersteuning voor slates invoegen|Nee|Nee|
 | Ondersteuning voor ad via de API-signalering| Nee|Nee|
 | Ondersteuning voor ad-signalering via SCTE 35 in-band-berichten|Ja|Ja|
-| Mogelijkheid om te herstellen van korte vertragingen in bijdrage feed|Ja|Nee (LiveEvent begint slating na 6 + seconden zonder invoergegevens)|
+| Mogelijkheid om te herstellen van korte vertragingen in bijdrage feed|Ja|Nee (Live gebeurtenis begint slating na 6 + seconden zonder invoergegevens)|
 | Ondersteuning voor niet-uniforme invoer GOPs|Ja|Nee – invoer GOP duur moet opgelost|
 | Ondersteuning voor variabele frame tarief invoer|Ja|Nee – moet dat invoer framesnelheid worden opgelost. Kleine variaties zijn toegestaan, bijvoorbeeld tijdens hoge beweging schermen. Maar de feed bijdrage kan de framesnelheid (bijvoorbeeld om 15 frames per seconde) niet verwijderen.|
-| Automatisch-signalen van LiveEvent als invoer-kanaal is verbroken|Nee|Na 12 uur, als er geen LiveOutput uitgevoerd|
+| Automatisch-signalen van Live gebeurtenis als invoer-kanaal is verbroken|Nee|Na 12 uur, als er geen LiveOutput uitgevoerd|
 
 ## <a name="next-steps"></a>Volgende stappen
 

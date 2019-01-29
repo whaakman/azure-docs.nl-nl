@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 85c990d6bfd90c93dea764383453d7f3cc53efde
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854912"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152328"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Aangepaste domeinnamen in uw Azure Active Directory beheren
 
@@ -86,14 +86,14 @@ Een fout wordt geretourneerd wanneer:
 
 ### <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-**V: Waarom wordt het domein verwijderen mislukt met een fout met de mededeling dat ik heb onder de knie Exchange-groepen op de domeinnaam van dit?** <br>
-**A:** vandaag, bepaalde groepen, zoals berichtgrootte-beveiligingsgroepen en gedistribueerde lijsten zijn ingericht door Exchange en moeten handmatig worden opgeschoond [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). Mogelijk worden er ProxyAddresses die afhankelijk zijn van de aangepaste domeinnaam en moet handmatig worden bijgewerkt naar een andere domeinnaam achtergebleven. 
+**V: Waarom is het domein verwijderen mislukt met een fout met de mededeling dat ik heb onder de knie Exchange-groepen op de domeinnaam van dit?** <br>
+**A:** Op dit moment, bepaalde groepen, zoals berichtgrootte-beveiligingsgroepen en gedistribueerde lijsten zijn ingericht door Exchange en moeten handmatig worden opgeschoond [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). Mogelijk worden er ProxyAddresses die afhankelijk zijn van de aangepaste domeinnaam en moet handmatig worden bijgewerkt naar een andere domeinnaam achtergebleven. 
 
-**V: ik ben aangemeld als admin@contoso.com , maar ik kan de domeinnaam 'contoso.com' niet verwijderen?**<br>
-**A:** u kan niet verwijzen naar de aangepaste domeinnaam die u probeert te verwijderen in de naam van uw gebruikersaccount. Zorg ervoor dat het account voor globale beheerders met behulp van de aanvankelijke standaarddomeinnaam (. onmicrosoft.com) zoals admin@contoso.onmicrosoft.com. Meld u aan met een andere globale beheerder zoals die account admin@contoso.onmicrosoft.com of een andere aangepaste domeinnaam zoals 'fabrikam.com"waar het account is admin@fabrikam.com.
+**V: Ik ben aangemeld als admin@contoso.com , maar ik kan de domeinnaam 'contoso.com' niet verwijderen?**<br>
+**A:** U kunt de aangepaste domeinnaam die u probeert te verwijderen in de naam van uw gebruikersaccount kan niet verwijzen naar. Zorg ervoor dat het account voor globale beheerders met behulp van de aanvankelijke standaarddomeinnaam (. onmicrosoft.com) zoals admin@contoso.onmicrosoft.com. Meld u aan met een andere globale beheerder zoals die account admin@contoso.onmicrosoft.com of een andere aangepaste domeinnaam zoals 'fabrikam.com"waar het account is admin@fabrikam.com.
 
-**V: Ik klikte op de knop verwijderen-domein en om te zien `In Progress` status voor de bewerking verwijderen. Hoe lang duurt het voordat? Wat gebeurt er als dit mislukt?**<br>
-**A:** de bewerking voor het verwijderen van domein is een asynchrone achtergrondtaak die wijzigt de naam van alle verwijzingen naar de domeinnaam. Het zou binnen een of twee minuten voltooid. Als het domein verwijderen is mislukt, zorgt u ervoor dat u hebt geen:
+**V: Ik klikte op de knop verwijderen-domein en Zie `In Progress` status voor de bewerking verwijderen. Hoe lang duurt het voordat? Wat gebeurt er als dit mislukt?**<br>
+**A:** De bewerking voor het verwijderen van domein is een asynchrone achtergrondtaak die wijzigt de naam van alle verwijzingen naar de domeinnaam. Het zou binnen een of twee minuten voltooid. Als het domein verwijderen is mislukt, zorgt u ervoor dat u hebt geen:
 
 * Apps die zijn geconfigureerd op de naam van het domein met de appIdentifierURI
 * Een e-mailgroep verwijst naar de aangepaste domeinnaam

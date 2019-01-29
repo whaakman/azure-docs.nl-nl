@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198522"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103425"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Herschrijf de HTTP-headers met Application Gateway (openbare preview)
 
@@ -94,8 +94,6 @@ Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabe
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | retourneert de lijst met coderingen die worden ondersteund door de client          |
 | ciphers_used               | retourneert de tekenreeks van de coderingen die worden gebruikt voor een SSL-verbinding tot stand gebrachte |
-| client_latitude            | om te bepalen van het land, regio en plaats, afhankelijk van de IP-adres van client |
-| client_longitude           | om te bepalen van het land, regio en plaats, afhankelijk van de IP-adres van client |
 | client_port                | Clientpoort                                                  |
 | client_tcp_rtt             | informatie over de client TCP-verbinding. beschikbaar op systemen die ondersteuning bieden voor de TCP_INFO socket-optie |
 | client_user                | Wanneer u HTTP-verificatie, de gebruikersnaam moet worden opgegeven voor verificatie |
@@ -103,13 +101,13 @@ Deze mogelijkheid ondersteunt herschrijven headers aan de volgende servervariabe
 | http_method                | de methode die wordt gebruikt voor het maken van de URL-aanvraag. Bijvoorbeeld GET, POST enzovoort. |
 | http_status                | sessiestatus, bijvoorbeeld: 200, 400, 403 enzovoort.                       |
 | http_version               | aanvraagprotocol, meestal "HTTP/1.0", ' HTTP/1.1' of "HTTP/2.0" |
-| QUERY_STRING               | de lijst met variabele / waarde-paren die vervolgens worden de '? ' in de aangevraagde URL. |
+| query_string               | de lijst met variabele / waarde-paren die vervolgens worden de '? ' in de aangevraagde URL. |
 | received_bytes             | aanvraaglengte (met inbegrip van de aanvraagregel, koptekst en hoofdtekst van de aanvraag) |
 | request_query              | argumenten in de aanvraagregel                                |
 | request_scheme             | schema van de aanvraag, 'http' of 'https'                            |
 | request_uri                | volledige oorspronkelijke aanvraag-URI (met argumenten)                   |
 | sent_bytes                 | aantal bytes dat wordt verzonden naar een client                             |
-| SERVER_PORT                | poort van de server, die een aanvraag geaccepteerd                 |
+| server_port                | poort van de server, die een aanvraag geaccepteerd                 |
 | ssl_connection_protocol    | retourneert het protocol van een SSL-verbinding tot stand gebrachte        |
 | ssl_enabled                | 'aan' als werkt verbinding in de SSL-modus of een lege tekenreeks anders |
 

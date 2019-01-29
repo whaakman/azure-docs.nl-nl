@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c30e18c42f310172b07995e0ad88a505a01c4218
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 494acc55001bd3180d345801ef8d62800dd5e837
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159601"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174026"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat de handleidingen voor probleemoplossing voor alle waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -124,7 +124,7 @@ In het virtuele netwerk, kunnen machines aanvragen versturen naar Azure-resource
 
 Azure AD Domain Services vereist een abonnement op de functie en kan niet worden verplaatst naar een ander abonnement. Omdat het Azure-abonnement waaraan uw beheerde domein is gekoppeld, is verwijderd, moet u opnieuw maken van een Azure-abonnement en Azure AD Domain Services.
 
-1. Een Azure-abonnement maken
+1. Maak een Azure-abonnement
 2. [Verwijderen van uw beheerde domein](active-directory-ds-disable-aadds.md) uit uw bestaande Azure AD-map.
 3. Ga als volgt de [aan de slag](active-directory-ds-getting-started.md) handleiding voor het opnieuw maken van een beheerd domein.
 

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: d60053de98e93d7414b1df3d80aff41ffe1e4756
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620163"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102152"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Machtigingen en toestemming in het eindpunt van de Azure Active Directory v1.0
 
@@ -60,7 +60,7 @@ Machtigingen in Azure AD hebben een aantal eigenschappen die gebruikers, beheerd
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Naam van eigenschap | Beschrijving | Voorbeeld |
+| Naam van eigenschap | Description | Voorbeeld |
 | --- | --- | --- |
 | `ID` | Een GUID-waarde met een unieke identificatie voor deze machtiging. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Geeft aan of deze machtiging beschikbaar is voor gebruik. | true |

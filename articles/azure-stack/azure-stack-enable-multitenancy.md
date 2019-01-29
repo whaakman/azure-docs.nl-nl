@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: 2861b0d1b7ac24a8e881ff052b865ca0384a55d6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 91d5f24eacff83f8c6263a20aaa08665871bfd04
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464782"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094016"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multitenancy in Azure Stack
 
@@ -41,10 +41,10 @@ Er zijn enkele vereisten ter compensatie van voordat u multitenancy in Azure Sta
  - Zorg ervoor dat u hebt [geïnstalleerd](azure-stack-powershell-install.md) en [geconfigureerd](azure-stack-powershell-configure-admin.md) PowerShell voor Azure Stack.
  - [Download de Azure Stack-Tools](azure-stack-powershell-download.md), en de verbinding en identiteit-modules importeren:
 
-    ````PowerShell  
+    ```PowerShell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
-    ````
+    ```
 
 ### <a name="configure-azure-stack-directory"></a>Azure Stack-directory configureren
 
@@ -54,7 +54,7 @@ Onboard de Gast Directory-Tenant (Fabrikam) naar Azure Stack door het configurer
 
 De Service-beheerder van contoso.onmicrosoft.com wordt uitgevoerd de volgende opdrachten.
 
-````PowerShell  
+```PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -75,7 +75,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
  -Location $location `
  -ResourceGroupName $ResourceGroupName
-````
+```
 
 ### <a name="configure-guest-directory"></a>Gastenlijst configureren
 
@@ -85,7 +85,7 @@ Zodra de beheerder van de Azure Stack / operator de Fabrikam-map moet worden geb
 
 De Directory-beheerder van Fabrikam Mary wordt uitgevoerd de volgende opdrachten in de Gast directory fabrikam.onmicrosoft.com.
 
-````PowerShell
+```PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
@@ -96,7 +96,7 @@ Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
  -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
-````
+```
 
 > [!IMPORTANT]
 > Als uw Azure Stack-beheerder in de toekomst nieuwe services of updates installeert, moet u mogelijk met dit script opnieuw uitvoeren.

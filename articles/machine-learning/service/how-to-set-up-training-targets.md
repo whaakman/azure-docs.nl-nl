@@ -11,33 +11,34 @@ ms.component: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75a1a8763125e1e93691e2a28bc90a6d02ed7c40
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1187460deff0ac1ec71ddc70e503169a728c8b5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246327"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099948"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
-Met Azure Machine Learning-service, kunt u uw model op een groot aantal bronnen of omgevingen, gezamenlijk aangeduid als trainen [ __compute-doelen__](concept-azure-machine-learning-architecture.md#compute-target). Een compute-doel is een lokale computer of een cloudresource, zoals een Azure Machine Learning-Computing, Azure HDInsight of een externe virtuele machine.  
+Met Azure Machine Learning-service, kunt u uw model op een groot aantal bronnen of omgevingen, gezamenlijk aangeduid als trainen [ __compute-doelen__](concept-azure-machine-learning-architecture.md#compute-target). Een compute-doel is een lokale computer of een cloudresource, zoals een Azure Machine Learning-Computing, Azure HDInsight of een externe virtuele machine.  U kunt ook compute-doelen voor de implementatie van model maken zoals beschreven in ["waar en hoe u uw modellen implementeren '](how-to-deploy-and-where.md).
 
 U kunt maken en beheren van een compute-doel met behulp van de SDK van Azure Machine Learning, Azure-portal of Azure CLI. Als u de compute-doelen die zijn gemaakt via een andere service (bijvoorbeeld: een HDInsight-cluster) hebt, kunt u ze kunt gebruiken door ze te koppelen aan uw werkruimte van Azure Machine Learning-service.
  
-In dit artikel leert u hoe u verschillende compute-doelen.  De stappen voor alle compute-doelen Volg dezelfde werkstroom:
+In dit artikel leert u hoe u met verschillende compute-doelen voor modeltraining.  De stappen voor alle compute-doelen Volg dezelfde werkstroom:
 1. __Maak__ een compute-doel als u er nog geen hebt.
 2. __Koppelen__ de compute-doel aan uw werkruimte.
 3. __Configureer__ de compute-doel zodat deze het Python-omgeving en afhankelijkheden die nodig zijn voor uw script bevat.
 
+
 >[!NOTE]
 > Code in dit artikel is getest met Azure Machine Learning SDK versie 1.0.6.
 
-## <a name="supported-compute-targets"></a>Ondersteunde compute-doelen
+## <a name="compute-targets-for-training"></a>COMPUTE-doelen voor training
 
 Azure Machine Learning-service heeft verschillende ondersteuning voor verschillende compute-doelen. Een typische model ontwikkelingscyclus begint met dev/experimenten op een kleine hoeveelheid gegevens. In deze fase, wordt u aangeraden een lokale omgeving. Bijvoorbeeld, de lokale computer of een cloud-gebaseerde VM. Als u uw training voor grotere gegevenssets opschalen of gedistribueerde training doen, wordt u aangeraden een één of meerdere node cluster maken dat automatisch wordt geschaald telkens wanneer die u een uitvoering verzenden met Azure Machine Learning-Computing. U kunt ook uw eigen compute-resource koppelen, hoewel ondersteuning voor verschillende scenario's als variëren kunnen hieronder uitgelegd:
 
 
-|COMPUTE-doel| GPU-versnelling | Geautomatiseerd<br/> hyperparameter afstemmen | Geautomatiseerd</br> machine learning | Geschikt voor pijplijn|
+|COMPUTE-doel voor training| GPU-versnelling | Geautomatiseerd<br/> hyperparameter afstemmen | Geautomatiseerd</br> machine learning | Geschikt voor pijplijn|
 |----|:----:|:----:|:----:|:----:|
 |[Lokale computer](#local)| Misschien | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-Computing](#amlcompute)| ✓ | ✓ | ✓ | ✓ |

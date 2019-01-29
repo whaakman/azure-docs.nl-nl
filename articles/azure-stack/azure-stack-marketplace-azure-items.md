@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 06252d2fc33fafc27371c45f41f792e8e5abd542
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306604"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196205"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit.*
 
-## <a name="virtual-machine-extensions"></a>Extensies virtuele machine
+## <a name="virtual-machine-extensions"></a>Extensies voor virtuele machines
 
 Wanneer er updates beschikbaar voor extensies voor virtuele machines (VM zijn) u wilt gebruiken, moet u deze downloaden. Extensies in het product hebt verzonden, niet bijwerken in de normale patch- en bijwerkproces; dus regelmatig controleren op updates. Andere extensies zijn alleen beschikbaar via de Marketplace-beheer.
 
@@ -46,7 +46,7 @@ Wanneer er updates beschikbaar voor extensies voor virtuele machines (VM zijn) u
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky hybride Cloud Security-Agent voor Windows](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | U kunt met Kaspersky hybride Cloud Security cyberbeveiliging mogelijkheden inrichten in uw cloud-workloads via Azure-extensies. | Kaspersky Lab | Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky hybride Cloud Security-Agent voor Linux](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | U kunt met Kaspersky hybride Cloud Security cyberbeveiliging mogelijkheden inrichten in uw cloud-workloads via Azure-extensies. | Kaspersky Lab | Linux |
 
-## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Installatiekopieën voor virtuele machines van Microsoft en Oplossingssjablonen
+## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft Virtual Machine-afbeeldingen en sjablonen voor oplossingen
 
 Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van Azure Marketplace en sjablonen voor oplossingen. Download alle afhankelijkheden afzonderlijk die u hebt genoteerd. Toepassingen zoals SQL Server- en Machine Learning Server moeten de juiste licentiëring, behalve wanneer gemarkeerd als gratis versie of proefversie.
 
@@ -97,10 +97,11 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>BYOL van derden, gratis en proefversie afbeeldingen en sjablonen voor oplossingen
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>BYOL van derden, gratis, evaluatieversie afbeeldingen en sjablonen voor oplossingen
 
 |  | Itemnaam | Description | Uitgever |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | De netwerken van A10-vThunder Application Delivery Controller voor Microsoft Azure is gebouwd om hoge prestaties, flexibiliteit en levering van toepassingen eenvoudig te implementeren en de server wordt de taakverdeling en geoptimaliseerd voor het systeemeigen uitvoeren binnen de Azure-cloud. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | De Arista vEOS Router is een kostenbeheeroplossing met meerdere Clouds uitgebreide, en multi-hypervisor virtual router waarmee ondernemingen en cloudproviders om op te bouwen consistente, zeer veilige en schaalbare hybride netwerken. | Arista Networks |
 | ![Barracuda Application Security Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Application Security Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Centraal beheren meerdere Barracuda Web Application Firewalls (WAF). | Barracuda Networks, Inc. |
 | ![Barracuda Email Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Email Security Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | E-security-gateway om te beveiligen tegen bedreigingen voor inkomende e-mail gedragen. | Barracuda Networks, Inc. |

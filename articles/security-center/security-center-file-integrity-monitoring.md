@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7e2a075df7d0d7f6bb68163414fab525aad25a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338512"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093441"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
 Informatie over het configureren van bestand integriteit controleren (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.
@@ -31,7 +31,7 @@ Security Center bestandsintegriteit controleren de integriteit van Windows-besta
 
 - Bestand en registerlocaties maken en verwijderen
 - Bestandswijzigingen (wijzigingen in de bestandsgrootte, access control lists en hash van de inhoud)
-- Register wijzigingen (wijzigingen in grootte, toegang conrol lijsten, type en de inhoud)
+- Register wijzigingen (wijzigingen in grootte, toegangsbeheerlijsten, type en de inhoud)
 
 Security Center raadt entiteiten te bewaken, die u kunt eenvoudig FIM inschakelen op. U kunt ook uw eigen beleid FIM of entiteiten voor het bewaken van definiëren. In deze procedure ziet u hoe.
 
@@ -152,7 +152,7 @@ Onder **voor het bijhouden van wijzigingen bewerken** kunt:
 - De entiteit niet verwijderen, de wijziging negeren of sla de wijziging
 
 ## <a name="add-a-new-entity-to-monitor"></a>Een nieuwe entiteit voor het bewaken van toevoegen
-1. Ga terug naar de **bestand integriteit bewaking dashboard** en selecteer **instellingen** aan de bovenkant. **Configuratie van de werkruimte** wordt geopend.
+1. Ga terug naar de **bestandsintegriteit controleren dashboard** en selecteer **instellingen** aan de bovenkant. **Configuratie van de werkruimte** wordt geopend.
 2. Onder **Werkruimteconfiguratie**, selecteer het tabblad voor het type entiteit die u wilt toevoegen: Windows-register, bestanden van Windows of Linux-bestanden. In dit voorbeeld wordt geselecteerd **Linux-bestanden**.
 
   ![Toevoegen van een nieuw item controleren][14]

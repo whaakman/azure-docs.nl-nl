@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902243"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169753"
 ---
 # <a name="bake-acoustics"></a>Akoestische maken
 
@@ -255,10 +255,10 @@ Installeren en configureren van Docker op de computer die de simulatie - verwerk
 
 Er zijn vier gegevensbestanden die zijn gemaakt door deze invoegtoepassing op verschillende tijdstippen. Slechts één van deze is nodig tijdens runtime, de andere drie zijn daarom in mappen met de naam 'Editor', zodat ze in uw project wordt niet worden gecompileerd.
 
-* **Activa-Editor / / [SceneName]\_AcousticsParameters.asset**: dit bestand slaat de gegevens die u in de velden in de gebruikersinterface van akoestische invoeren. De locatie en naam van dit bestand kunnen niet worden gewijzigd. Er zijn andere waarden die zijn opgeslagen in dit bestand die invloed hebben op de bake, maar ze zijn bedoeld voor ervaren gebruikers en mag niet worden gewijzigd.
-* **Activa/AcousticsData/akoestische\_[SceneName].ace.bytes**: dit bestand is wat wordt gemaakt tijdens de simulatie bake en bevat de opzoekgegevens gebruikt door de runtime voor de akoestische van uw scène renderen. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: dit bestand wordt opgeslagen de voxelized akoestische geometrie en eigenschappen van het materiaal. Berekend op basis van de **berekenen...**  knop op het tabblad tests. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
-* **Activa/AcousticsData /-Editor/akoestische\_[SceneName]\_config.xml**: dit bestand wordt opgeslagen parameters berekend op basis van de **berekenen...**  knop op de **tests** tabblad. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
+* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: Dit bestand slaat de gegevens die u in de velden in de gebruikersinterface van akoestische invoeren. De locatie en naam van dit bestand kunnen niet worden gewijzigd. Er zijn andere waarden die zijn opgeslagen in dit bestand die invloed hebben op de bake, maar ze zijn bedoeld voor ervaren gebruikers en mag niet worden gewijzigd.
+* **Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes**: Dit bestand is wat wordt gemaakt tijdens de simulatie bake en bevat de opzoekgegevens gebruikt door de runtime voor de akoestische van uw scène renderen. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
+* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: Dit bestand wordt opgeslagen de voxelized akoestische geometrie en eigenschappen van het materiaal. Berekend op basis van de **berekenen...**  knop op het tabblad tests. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
+* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: Dit bestand wordt opgeslagen parameters berekend op basis van de **berekenen...**  knop op de **tests** tabblad. De locatie en naam van dit bestand kunnen worden gewijzigd met de velden op de **tests** tabblad.
 
 Let erop dat niet als u wilt verwijderen de *. ace.bytes bestand gedownload uit de bake. Dit bestand is niet hersteld, met uitzondering van de scène rebaking.
 

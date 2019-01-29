@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0fd6058e95b941591f5cc71bf916c7d201fcfa54
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d6705f9f7e324c915c38d01c54bdf16826c62380
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855921"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180191"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>DNS beheren in een Azure AD Domain Services beheerde domein
 Azure Active Directory Domain Services bevat een DNS (Domain Name Resolution)-server waarmee de DNS-omzetting voor het beheerde domein. Af en toe moet u mogelijk DNS configureren in het beheerde domein. Mogelijk moet u DNS-records voor machines die niet zijn gekoppeld aan het domein maken, configureren van virtuele IP-adressen voor load balancers of instellen van externe DNS-doorstuurservers. Om deze reden zijn gebruikers die deel uitmaken van de groep 'AAD DC Administrators' bevoegdheden verleend voor DNS-beheer in het beheerde domein.

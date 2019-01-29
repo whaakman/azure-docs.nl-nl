@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261567"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198211"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Betrouwbare Service Fabric-services partitioneren
 In dit artikel bevat een inleiding tot de basisconcepten van Azure Service Fabric reliable services partitioneren. De broncode die wordt gebruikt in het artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -129,11 +129,7 @@ Als we letterlijk één partitie per letter hebben willen, kunnen we gebruiken 0
 1. Open **Visual Studio** > **bestand** > **nieuwe** > **Project**.
 2. In de **nieuw Project** dialoogvenster vak, kiest u de Service Fabric-toepassing.
 3. Het project "AlphabetPartitions" aanroepen.
-4. In de **maken van een Service** dialoogvenster vak, kiest u **Stateful** service en noem deze 'Alphabet.Processing' zoals wordt weergegeven in de onderstaande afbeelding.
-       ![Dialoogvenster voor nieuwe service in Visual Studio][1]
-
-  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
-
+4. In de **maken van een Service** dialoogvenster vak, kiest u **Stateful** service en noem deze 'Alphabet.Processing'.
 5. Stel het aantal partities. Open het bestand Applicationmanifest.xml zich in de map ApplicationPackageRoot van het project AlphabetPartitions en bijwerken van de parameter Processing_PartitionCount tot en met 26, zoals hieronder wordt weergegeven.
    
     ```xml
@@ -167,7 +163,7 @@ Als we letterlijk één partitie per letter hebben willen, kunnen we gebruiken 0
    
     Meerdere replica's van deze service kunnen worden gehost op dezelfde computer, dus dit adres moet uniek zijn voor de replica. Dit is de reden waarom de partitie-ID en replica-ID in de URL zijn. HttpListener kan op meerdere adressen op dezelfde poort luistert, zolang het URL-voorvoegsel uniek is.
    
-    De extra GUID is er voor een geavanceerde geval waarbij secundaire replica's ook naar aanvragen voor alleen-lezen luisteren. Als dit het geval is, wilt u om ervoor te zorgen dat een nieuw uniek adres wordt gebruikt bij het overstappen van primaire naar secundaire om af te dwingen van clients op het adres opnieuw omzetten. '+' wordt gebruikt als het adres hier zodat de replica luistert op alle beschikbare hosts (IP, FQDM, ' localhost ', enz.) De volgende code toont een voorbeeld.
+    De extra GUID is er voor een geavanceerde geval waarbij secundaire replica's ook naar aanvragen voor alleen-lezen luisteren. Als dit het geval is, wilt u om ervoor te zorgen dat een nieuw uniek adres wordt gebruikt bij het overstappen van primaire naar secundaire om af te dwingen van clients op het adres opnieuw omzetten. '+' wordt gebruikt als het adres hier zodat de replica luistert op alle beschikbare hosts (IP, FQDN-naam, ' localhost ', enz.) De volgende code toont een voorbeeld.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -365,7 +361,7 @@ Als we letterlijk één partitie per letter hebben willen, kunnen we gebruiken 0
 De volledige broncode van het voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Betrouwbare Services en Actor subprocessen vertakking
-Service Fabric biedt geen ondersteuning voor betrouwbare services en later reliable actors subprocessen vertakken. Een voorbeeld van waarom niet wordt ondersteund is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan niet worden gebruikt voor het registreren van een niet-ondersteunde subproces en annuleringstokens worden alleen verzonden voor geregistreerde processen, wat resulteert in allerlei problemen, zoals upgrade mislukt, wanneer subprocessen niet sluit nadat het bovenliggende proces-token van een annulering heeft ontvangen. 
+Service Fabric biedt geen ondersteuning voor betrouwbare services en later reliable actors subprocessen vertakken. Een voorbeeld van waarom niet wordt ondersteund is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan niet worden gebruikt voor het registreren van een niet-ondersteunde subproces en annulering tokens alleen naar geregistreerde verzonden worden verwerkt; dit resulteert in allerlei problemen, zoals upgrade mislukt, wanneer subprocessen niet sluit nadat het bovenliggende proces-token van een annulering heeft ontvangen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor informatie over Service Fabric-concepten, Zie de volgende:

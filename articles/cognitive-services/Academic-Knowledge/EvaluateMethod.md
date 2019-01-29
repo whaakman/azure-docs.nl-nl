@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902328"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187290"
 ---
 # <a name="evaluate-method"></a>Methode evalueren
 
@@ -28,20 +28,20 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## <a name="request-parameters"></a>Aanvraagparameters  
-Naam     | Waarde | Vereist?  | Beschrijving
+Name     | Waarde | Vereist?  | Description
 -----------|-----------|---------|--------
-**markering**       | Tekenreeks met tekst | Ja | Een query-expressie waarmee wordt aangegeven welke entiteiten moeten worden geretourneerd.
-**Model**      | Tekenreeks met tekst | Nee  | De naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.        
-**Kenmerken** | Tekenreeks met tekst | Nee<br>Standaard: Id | Een door komma's gescheiden lijst die Hiermee geeft u de kenmerkwaarden weer die zijn opgenomen in het antwoord. Kenmerknamen zijn hoofdlettergevoelig.
-**Aantal**        | Aantal | Nee<br>Standaard: 10 | Het aantal resultaten dat moet worden geretourneerd.
+**expr**       | Tekenreeks met tekst | Ja | Een query-expressie waarmee wordt aangegeven welke entiteiten moeten worden geretourneerd.
+**model**      | Tekenreeks met tekst | Nee  | De naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.        
+**attributes** | Tekenreeks met tekst | Nee<br>Standaard: Id | Een door komma's gescheiden lijst die Hiermee geeft u de kenmerkwaarden weer die zijn opgenomen in het antwoord. Kenmerknamen zijn hoofdlettergevoelig.
+**count**        | Aantal | Nee<br>Standaard: 10 | Het aantal resultaten dat moet worden geretourneerd.
 **offset**     | Aantal |   Nee<br>Standaard: 0    | De index van het eerste resultaat om terug te keren.
-**sorteren op** |   Tekenreeks met tekst | Nee<br>Standaard: door kans verkleinen | De naam van een kenmerk dat wordt gebruikt voor het sorteren van de entiteiten. U kunt desgewenst kan oplopend/aflopend worden opgegeven. De indeling is: *naam: asc* of *naam: desc*.
+**orderby** |   Tekenreeks met tekst | Nee<br>Standaard: door kans verkleinen | De naam van een kenmerk dat wordt gebruikt voor het sorteren van de entiteiten. U kunt desgewenst kan oplopend/aflopend worden opgegeven. De indeling is: *naam: asc* of *naam: desc*.
   
  <br>
 ## <a name="response-json"></a>Antwoord (JSON)
-Naam | Beschrijving
+Name | Description
 -------|-----   
-**markering** |  De *expr* parameter van de aanvraag.
+**expr** |  De *expr* parameter van de aanvraag.
 **Entiteiten** |  Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat een waarde voor de kans natuurlijke logboek en de waarden van andere aangevraagde kenmerken.
 **afgebroken** | Waar, als de aanvraag is een time-out.
 

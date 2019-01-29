@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 04de32b2df630eea918c786a7f065f404f4d8dca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413393"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164517"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-beveiliging en naleving blauwdruk - webtoepassing IaaS met drie lagen voor UK-OFFICIAL
 
@@ -129,7 +129,7 @@ Storage
 
 ### <a name="deployment-architecture"></a>Implementatie-architectuur:
 
-**On-Premises Network**: Een lokaal privénetwerk dat in een organisatie geïmplementeerd.
+**On-Premises Network**: Een lokaal privénetwerk dat geïmplementeerd in een organisatie.
 
 **Productie VNet**: De productie [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (Virtueelnetwerk) als host fungeert voor de toepassing en andere operationele resources die worden uitgevoerd in Azure. Elk VNet bevat mogelijk meerdere subnetten die worden gebruikt voor het isoleren en beheren van netwerkverkeer.
 
@@ -204,7 +204,7 @@ Klanten kunnen ook kunt u overwegen een [beheermodel voor verbeterde beveiliging
 
 **Scheiding van taken**: Deze referentiearchitectuur worden gescheiden van de VNets voor bewerkingen voor gegevensbeheer en zakelijke activiteiten. Afzonderlijke VNets en subnetten toestaan van verkeer management, met inbegrip van verkeer inkomend en uitgaand verkeer beperkingen, met behulp van NSGs tussen netwerksegmenten te volgen [Microsoft cloud services en -netwerkbeveiliging](https://docs.microsoft.com/azure/best-practices-network-security) aanbevolen procedures.
 
-**Resourcebeheer**: Azure-resources zoals VM's, VNets en load balancers worden beheerd door ze te groeperen in [Azure-resourcegroepen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Resource-toegangsbeheer op basis van rollen kunnen vervolgens worden toegewezen aan elke resourcegroep om toegang te beperken tot alleen geautoriseerde gebruikers.
+**Resourcebeheer**: Azure-resources zoals VM's, VNets en load balancers worden beheerd door ze te groeperen in [Azure-resourcegroepen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Resource-toegangsbeheer op basis van rollen kunnen vervolgens worden toegewezen aan elke resourcegroep om toegang te beperken tot alleen geautoriseerde gebruikers.
 
 **Toegang tot toegangsbeperkingen**: Gebruik [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) voor het beheren van de resources in uw toepassing met [aangepaste rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC kan worden gebruikt voor het beperken van de bewerkingen die DevOps op elke laag kan uitvoeren. Bij het verlenen van machtigingen, gebruiken de [principe van minimale bevoegdheden](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registreer alle beheergerelateerde bewerkingen en controleer regelmatig of eventuele configuratiewijzigingen inderdaad zo waren gepland.
 

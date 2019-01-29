@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b5c07c7d142e231c945906d6e75ce16a5bb1d252
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3a796733f5987f4cc550a606e06166395d1595cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985978"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156650"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Resources specificeren in een servicemanifest
 ## <a name="overview"></a>Overzicht
@@ -78,7 +78,7 @@ HTTP-eindpunten worden automatisch dat ACL zouden op Service Fabric.
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -198,7 +198,7 @@ Tijdens het implementeren van de toepassing kunt u deze waarden als ApplicationP
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Opmerking: Als de waarden voor de ApplicationParameters leeg is, we teruggaan naar de standaardwaarde die is opgegeven in het bestand servicemanifest.XML voor de bijbehorende EndPointName.
+Opmerking: Als de waarden voor de ApplicationParameters leeg is, teruggaan we naar de standaardwaarde die is opgegeven in het bestand servicemanifest.XML voor de bijbehorende EndPointName.
 
 Bijvoorbeeld:
 
@@ -214,4 +214,4 @@ Als in het bestand servicemanifest.XML die u hebt opgegeven
 
 En de waarde Port1 en Protocol1 voor parameters voor de toepassing is null of leeg zijn. De poort wordt nog steeds bepaald door de service fabric. En de TCP-Protocol wordt.
 
-Stel dat u een onjuiste waarde opgeven. Net als voor de poort u hebt opgegeven een string-waarde "Foo" in plaats van een int.  Nieuwe ServiceFabricApplication opdracht mislukt met fout: de parameter overschrijven met de naam 'ServiceEndpoint1' kenmerk 'Port1' in de sectie 'ResourceOverrides' is ongeldig. De opgegeven waarde is 'Foo' en 'integer' vereist is.
+Stel dat u een onjuiste waarde opgeven. Net als voor de poort u hebt opgegeven een string-waarde "Foo" in plaats van een int.  Nieuwe ServiceFabricApplication opdracht mislukt met fout: De parameter overschrijven met de naam 'ServiceEndpoint1' kenmerk 'Port1' in de sectie 'ResourceOverrides' is ongeldig. De opgegeven waarde is 'Foo' en 'integer' vereist is.

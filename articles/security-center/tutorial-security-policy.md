@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259961"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095514"
 ---
 # <a name="working-with-security-policies"></a>Werken met beveiligingsbeleid
 
@@ -36,7 +36,7 @@ Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en h
 
 Uw beveiligingsbeleid de aanbevelingen voor beveiliging die in Azure Security Center u krijgt het station. Naleving van deze kunt u mogelijke beveiligingsproblemen te identificeren en bedreigingen te verhelpen, kunt u controleren. Zie voor meer informatie over hoe om te bepalen welke optie geschikt is voor u is, de lijst met [ingebouwde beveiligingsbeleid](security-center-policy-definitions.md).
 
-Wanneer u Security Center inschakelt, wordt het beveiligingsbeleid ingebouwd in Security Center in Azure Policy weergegeven als een ingebouwde initiatief onder de categorie Security Center. De ingebouwde intitiative wordt automatisch toegewezen aan Security Center is geregistreerd op alle abonnementen (gratis of Standard-lagen). De ingebouwde initiatief bevat alleen controlebeleid. 
+Wanneer u Security Center inschakelt, wordt het beveiligingsbeleid ingebouwd in Security Center in Azure Policy weergegeven als een ingebouwde initiatief onder de categorie Security Center. Het ingebouwde initiatief wordt automatisch toegewezen aan alle abonnementen die bij Security Center zijn geregistreerd (gratis of Standard-categorie). Het ingebouwde initiatief bevat alleen controlebeleid. 
 
 
 ### <a name="management-groups"></a>Beheergroepen
@@ -121,7 +121,7 @@ De ingebouwde initiatief heeft alle beleidsregels van Security Center standaard 
 Vervang deze variabelen in de volgende voorbeelden:
 
 - **{bereik}**  Voer de naam van de beheergroep of abonnement u het beleid toepast.
-- **{poicyAssignmentName}**  Voer de [naam van de relevante beleidstoewijzing](#policy-names).
+- **{policyAssignmentName}**  Voer de [naam van de relevante beleidstoewijzing](#policy-names).
 - **{name}**  Voer uw naam of de naam van de beheerder die de beleidswijziging goedgekeurd.
 
 In dit voorbeeld laat zien hoe de ingebouwde Security Center-initiatief op een abonnement of beheergroep toewijzen
@@ -212,7 +212,7 @@ Dit voorbeeld ziet u hoe u een toewijzing verwijderen:
 |Beveiligingsconfiguraties |Beveiligingsproblemen van besturingssystemen bewaken in Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Eindpuntbeveiliging |Ontbrekende Endpoint Protection bewaken in Azure Security Center |endpointProtectionMonitoringEffect |
 |Schijfversleuteling |Niet-versleutelde VM-schijven in Azure Security Center bewaken |diskEncryptionMonitoringEffect|
-|Evaluatie van beveiligingsproblemen |Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Evaluatie van beveiligingsproblemen |Beveiligingsproblemen van virtuele machines bewaken in Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Web Application Firewall |Niet-beveiligde web-App in Azure Security Center bewaken |webApplicationFirewallMonitoringEffect |
 |Next Generation Firewall |Netwerkeindpunten in Azure Security Center bewaken| |
 

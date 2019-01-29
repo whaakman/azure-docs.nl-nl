@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358582"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096667"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
 Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse. 
@@ -37,7 +37,7 @@ U kunt een Service Fabric-invoegtoepassing in Eclipse installeren. De invoegtoep
 
 Installeer Eclipse Neon of hoger vanaf de [Eclipse-site](https://www.eclipse.org).  Installeer ook versie 2.2.1 of hoger van Buildship (de Service Fabric-invoegtoepassing is niet compatibel met oudere versies van Buildship):
 -   U kunt de versies van geïnstalleerde onderdelen controleren door in Eclipse **Help** > **About Eclipse** > **Installation Details** te kiezen.
--   Zie [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle) als u Buildship wilt bijwerken.
+-   Zie voor het bijwerken van Buildship [Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle][buildship-update].
 -   Als u updates voor Eclipse wilt zoeken en installeren, gaat u naar **Help** > **Check for Updates**.
 
 Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse naar **Help** > **Install New Software**.
@@ -112,7 +112,7 @@ Nadat u uw Service Fabric-toepassing hebt gebouwd, volg deze stappen voor het im
 
 Zie voor meer informatie over fouten opsporen in uw toepassing in Eclipse met behulp van het lokale cluster, [fouten opsporen in een Java-service in Eclipse](./service-fabric-debugging-your-application-java.md).
 
-U kunt ook uw toepassing in het lokale cluster wuth implementeren de **Publish Application** opdracht:
+U kunt ook implementeren met uw toepassing met het lokale cluster met de **Publish Application** opdracht:
 
 1. Met de rechtermuisknop op uw Service Fabric-toepassing en selecteer vervolgens **Service Fabric**.
 2. Klik in het contextmenu op **Publish Application...** .
@@ -165,7 +165,7 @@ Volg deze stappen voor het publiceren van uw toepassing in de cloud:
 
 Op een beveiligd Linux-clusters, als uw toepassing Reliable Services-services bevat, wordt ook moet u een certificaat configureren dat uw services gebruiken kunnen om aan te roepen van Service Fabric runtime-API's. Zie voor meer informatie, [een Reliable Services-app uit te voeren op Linux-clusters configureren](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
-Zie voor een snelle Walkthrough van hoe u een Service Fabric Reliable Services-toepassing die is geschreven in Java met een beveiligd Linux-cluster implementeert, [Quckstart: een Java Reliable Services-toepassing implementeren](./service-fabric-quickstart-java-reliable-services.md).
+Zie voor een snelle Walkthrough van hoe u een Service Fabric Reliable Services-toepassing die is geschreven in Java met een beveiligd Linux-cluster implementeert, [Quick Start: Een Java Reliable Services-toepassing implementeren](./service-fabric-quickstart-java-reliable-services.md).
 
 ## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Implementeer een Service Fabric-toepassing met behulp van Eclipse-uitvoerconfiguraties
 
@@ -211,7 +211,7 @@ Als u de optie **Automatically update application and service versions** inschak
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Uw Service Fabric Java-toepassing upgraden
 
-Stel dat u voor een upgradescenario het project **App1** hebt gemaakt met behulp van de Service Fabric-invoegtoepassing in Eclipse. U hebt dit vervolgens met behulp van de invoegtoepassing geïmplementeerd om een toepassing met de naam **fabric:/App1Application** te maken. Het toepassingstype is **App1AppicationType** en de toepassingsversie is 1.0. Nu wilt u een toepassingsupgrade uitvoeren zonder de beschikbaarheid van de toepassing te onderbreken.
+Stel dat u voor een upgradescenario het project **App1** hebt gemaakt met behulp van de Service Fabric-invoegtoepassing in Eclipse. U hebt dit vervolgens met behulp van de invoegtoepassing geïmplementeerd om een toepassing met de naam **fabric:/App1Application** te maken. Het toepassingstype is **App1ApplicationType**, en de toepassingsversie is 1.0. Nu wilt u een toepassingsupgrade uitvoeren zonder de beschikbaarheid van de toepassing te onderbreken.
 
 Breng eerst eventuele wijzigingen aan in de toepassing en bouw vervolgens de gewijzigde service opnieuw op. Werk het manifestbestand van de gewijzigde service (ServiceManifest.xml) bij met de bijgewerkte versies voor de service (en code, configuratie of gegevens, indien van toepassing). Wijzig ook het toepassingsmanifest (ApplicationManifest.xml) met het bijgewerkte versienummer voor de toepassing en de gewijzigde service.  
 
@@ -230,7 +230,7 @@ We hebben onlangs de bibliotheken van Java Service Fabric verplaatst van de Serv
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voor snelle stappen voor het bouwen van betrouwbare Java service-toepassing en het lokaal en implementeert naar Azure, Zie [Quckstart: een Java Reliable Services-toepassing implementeren](./service-fabric-quickstart-java-reliable-services.md).
+- Voor snelle stappen voor het bouwen van betrouwbare Java service-toepassing en het lokaal en implementeert naar Azure, Zie [Quick Start: Een Java Reliable Services-toepassing implementeren](./service-fabric-quickstart-java-reliable-services.md).
 - Zie voor meer informatie over fouten opsporen in een Java-toepassing op uw lokale cluster, [fouten opsporen in een Java-service in Eclipse](./service-fabric-debugging-your-application-java.md).
 - Zie voor meer informatie over controle en diagnose van Service Fabric-toepassingen, [bewaken en diagnosticeren van services in een lokale machine development setup](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 

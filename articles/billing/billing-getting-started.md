@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 6cc42477e167b7c1a72c1ef74af477073b9af16e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901901"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101648"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -75,7 +75,7 @@ In dit voorbeeld wordt de **Actual Cost Over Time** rapport voor het verzenden v
 5. Selecteer de **drempelwaarde** tabblad en selecteer vervolgens **Actual Cost vs. Threshold**. 
    1. In de **rode waarschuwing** drempelwaarde vak 10000. 
    2. In de **gele waarschuwing** drempelwaarde vak 9000. 
-   3. In de **aantal achtereenvolgende waarschuwingen** voert u het aantal achtereenvolgende waarschuwingen te ontvangen. Wanneer u het totale aantal waarschuwingen die u hebt opgegeven ontvangt, worden geen extra waarschuwingen meer verzonden. 
+   3. In de **aantal achtereenvolgende waarschuwingen** voert u het aantal achtereenvolgende waarschuwingen te ontvangen. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden. 
 6. Selecteer **Opslaan**.
 
     ![Voorbeeld met rode en gele waarschuwingen op basis van uitgavedrempelwaarden](./media/billing-getting-started/schedule-alert01.png)

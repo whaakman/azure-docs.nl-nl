@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 7446c680ffdba28fef7eb68441d04a4c18398847
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912546"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104232"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup oplossen: Problemen met de agent of de extensie
 
@@ -105,7 +105,7 @@ Nadat u hebt geregistreerd en plannen van een virtuele machine voor de Azure Bac
 **Foutcode**: UserErrorUnsupportedDiskSize <br>
 **Foutbericht**: Momenteel biedt Azure Backup geen ondersteuning voor schijven groter dan 1023 GB <br>
 
-Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 1023GB omdat uw vault niet naar direct herstellen bijgewerkt is. Een upgrade naar direct herstellen biedt ondersteuning voor maximaal 4TB, ziet deze [artikel](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
+Uw back-upbewerking kan mislukken wanneer back-ups van virtuele machine met de grootte van de schijf is groter dan 1023GB omdat uw vault niet naar direct herstellen bijgewerkt is. Een upgrade naar direct herstellen biedt ondersteuning voor maximaal 4TB, ziet deze [artikel](backup-instant-restore-capability.md#upgrading-to-instant-restore). Na de upgrade, wordt het duurt maximaal twee uur voor het abonnement op het gebruik van deze functionaliteit. Zorgen voor voldoende buffer voordat u de bewerking opnieuw.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - momenteel Azure Backup biedt geen ondersteuning voor Standard-SSD-schijven
 
