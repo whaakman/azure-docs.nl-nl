@@ -10,19 +10,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bf725a20a7c030b0a835439c0f97f23b3cbef71
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086502"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097867"
 ---
 # <a name="use-the-azure-stack-portal"></a>De Azure Stack-portal gebruiken
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 U kunt de Azure Stack-portal gebruiken om u te abonneren op openbare aanbiedingen en gebruik van de services die deze aanbiedingen bieden. Als u de globale Azure-portal hebt gebruikt, bent u al bekend bent met de werking van de site.
 
@@ -60,7 +60,7 @@ Als u hulp voor het gebruik van de beschikbare services nodig hebt, kunnen er ve
 
     In het bijzonder het is raadzaam dat u de volgende artikelen aan de slag bekijken:
 
-    - [Belangrijke overwegingen: met behulp van services of het bouwen van apps voor Azure Stack](azure-stack-considerations.md)
+    - [Belangrijke overwegingen: Met behulp van services of het bouwen van apps voor Azure Stack](azure-stack-considerations.md)
     - In de **aanwenden** sectie van de documentatie, er is een artikel overwegingen voor elke service. De overwegingen met betrekking tot pagina Beschrijving van de verschillen tussen de service die wordt aangeboden in Azure en dezelfde service aangeboden in Azure Stack. Zie voor een voorbeeld [overwegingen omtrent virtuele machines](azure-stack-vm-considerations.md). Mogelijk zijn er andere informatie in de **aanwenden** sectie die uniek is voor Azure Stack.
 
       U kunt de Azure-documentatie gebruiken als een algemene verwijzing voor een service, maar u moet rekening houden met deze verschillen. Begrijpt dat de documentatie van koppelingen op de **zelfstudies** tegel punt Azure-documentatie.
@@ -73,4 +73,4 @@ Als u de Azure Stack Development Kit, de [Azure Stack-forum](https://social.msdn
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Belangrijke overwegingen: met behulp van services of het bouwen van apps voor Azure Stack](azure-stack-considerations.md)
+[Belangrijke overwegingen: Met behulp van services of het bouwen van apps voor Azure Stack](azure-stack-considerations.md)

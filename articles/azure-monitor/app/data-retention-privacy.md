@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119744"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094526"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
 
@@ -148,7 +148,7 @@ Standaard `ServerTelemetryChannel` maakt gebruik van de huidige gebruiker lokale
 
 
 Via het configuratiebestand:
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -158,7 +158,7 @@ Via code:
 
 - ServerTelemetryChannel verwijderen uit het configuratiebestand
 - Dit codefragment toevoegen aan uw configuratie:
-```
+```csharp
 ServerTelemetryChannel channel = new ServerTelemetryChannel();
 channel.StorageFolder = @"D:\NewTestFolder";
 channel.Initialize(TelemetryConfiguration.Active);
@@ -171,7 +171,7 @@ Standaard `ServerTelemetryChannel` maakt gebruik van de huidige gebruiker lokale
 
 Het volgende codefragment laat zien hoe u om in te stellen `ServerTelemetryChannel.StorageFolder` in de `ConfigureServices()`  -methode van uw `Startup.cs` klasse:
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
@@ -246,7 +246,7 @@ De SDK's variëren tussen platforms en er zijn verschillende onderdelen die u ku
 | [Application Insights SDK toevoegen aan een Java-web-app][java] |ServerContext<br/>Afgeleid<br/>Aanvraag<br/>Sessie<br/>gebruikers |
 | [JavaScript SDK toevoegen aan webpagina][client] |ClientContext <br/>Afgeleid<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Standaard-eigenschappen definiëren][apiproperties] |**Eigenschappen van** op alle standaardentiteiten en aangepaste gebeurtenissen |
-| [TrackMetric aanroepen][api] |Numerieke waarden<br/>**Eigenschappen** |
+| [Call TrackMetric][api] |Numerieke waarden<br/>**Eigenschappen** |
 | [Aanroep bijhouden *][api] |Gebeurtenisnaam<br/>**Eigenschappen** |
 | [TrackException aanroepen][api] |**Uitzonderingen**<br/>Stackdump<br/>**Eigenschappen** |
 | SDK kan geen gegevens verzamelen. Bijvoorbeeld: <br/> -geen toegang tot de prestatiemeteritems<br/> -uitzondering in telemetrische initializer |Diagnostische gegevens van SDK |
