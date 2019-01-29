@@ -32,12 +32,12 @@ Deze container heeft de volgende configuratie-instellingen:
 |--|--|--|
 |Ja|[ApiKey](#apikey-setting)|Gebruikt voor het bijhouden van informatie over facturering.|
 |Nee|[ApplicationInsights](#applicationinsights-setting)|Hiermee kunt u toevoegen [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ondersteuning voor telemetrie naar de container.|
-|Ja|[Billing](#billing-setting)|Hiermee geeft u de URI van de bron van de service-eindpunt op Azure.|
+|Ja|[Billing](#billing-setting)|Hiermee wordt de eindpunt-URI van de serviceresource in Azure opgegeven.|
 |Ja|[Eula](#eula-setting)| Geeft aan dat u de licentie voor de container hebt geaccepteerd.|
 |Nee|[Fluentd](#fluentd-settings)|Logboek schrijven en, optioneel, metrische gegevens naar een Fluentd-server.|
 |Nee|[HTTP-Proxy](#http-proxy-credentials-settings)|Configureer een HTTP-proxy voor uitgaande aanvragen.|
 |Nee|[Logging](#logging-settings)|ASP.NET Core logboekregistratie van ondersteuning voor de container biedt. |
-|Ja|[Mounts](#mount-settings)|Gegevens lezen en schrijven van hostcomputer naar de container en naar de container weer met hostcomputer.|
+|Ja|[Mounts](#mount-settings)|Gegevens lezen en schrijven van de hostcomputer naar de container en van de container naar de hostcomputer.|
 
 > [!IMPORTANT]
 > De [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), en [ `Eula` ](#eula-setting) instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie deze, anders uw container start niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](luis-container-howto.md#billing).
