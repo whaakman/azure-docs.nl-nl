@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344922"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219767"
 ---
 # <a name="basic-concepts"></a>Basisbegrippen
 
@@ -75,8 +75,8 @@ Omdat de Service Microsoft Speech maakt deel uit van enkele van de Staten, defin
 
 De spraakherkenningsservice Microsoft biedt twee manieren voor ontwikkelaars voor het toevoegen van de spraakherkenning aan hun apps.
 
-- [REST API's](GetStarted/GetStartedREST.md): ontwikkelaars kunnen gebruikmaken van HTTP-aanroepen naar de service voor spraakherkenning van hun apps.
-- [Clientbibliotheken](GetStarted/GetStartedClientLibraries.md): voor geavanceerde functies, zijn de ontwikkelaars kunnen downloaden van Microsoft Speech-clientbibliotheken en de koppeling in hun apps.  De clientbibliotheken zijn beschikbaar op verschillende platformen (Windows, Android, iOS) met behulp van verschillende talen (C#, Java, JavaScript, ObjectiveC).
+- [REST-API's](GetStarted/GetStartedREST.md): Ontwikkelaars kunnen HTTP-aanroepen naar de service voor spraakherkenning van hun apps gebruiken.
+- [Clientbibliotheken](GetStarted/GetStartedClientLibraries.md): Voor geavanceerde functies, kunnen ontwikkelaars downloaden van Microsoft Speech-clientbibliotheken en koppel in hun apps.  De clientbibliotheken zijn beschikbaar op verschillende platformen (Windows, Android, iOS) met behulp van verschillende talen (C#, Java, JavaScript, ObjectiveC).
 
 | Gebruiksvoorbeelden | [REST API's](GetStarted/GetStartedREST.md) | [Clientbibliotheken](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|

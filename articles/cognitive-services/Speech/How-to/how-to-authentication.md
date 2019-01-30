@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 205eff6c79ba4699516a8898c5b1268eb3dfe644
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 163ec61dc534255470626468195dcab28b3e3250
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754013"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221824"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Verifiëren bij de spraak-API
 
@@ -34,7 +34,7 @@ Voor langdurig gebruik of een verbeterd quotum, zich aanmelden voor een [Azure-a
 
 Voor het gebruik van de REST-API voor spraakherkenning, moet u de abonnementssleutel in doorgeven de `Ocp-Apim-Subscription-Key` veld in de aanvraagheader.
 
-Name| Indeling| Description
+Name| Indeling| Beschrijving
 ----|-------|------------
 OCP-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
@@ -88,7 +88,7 @@ $OAuthToken
 
 ```
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 Het voorbeeld wordt curl gebruikt op Linux met bash. Als deze niet beschikbaar is op uw platform, moet u mogelijk curl installeren. Het voorbeeld werkt ook op Cygwin op Windows, Git Bash, zsh en andere shells.
 
@@ -183,7 +183,7 @@ $RecoResponse
 
 ```
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE

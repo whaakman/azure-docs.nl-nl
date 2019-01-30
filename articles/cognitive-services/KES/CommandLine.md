@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127134"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228522"
 ---
 # <a name="command-line-interface"></a>Opdrachtregelinterface
 
@@ -30,7 +30,7 @@ De opdrachtregelinterface voor Knowledge Exploration Service (KES) biedt de moge
 
 <a name="build_index-command"></a>
 
-## <a name="buildindex-command"></a>build_index opdracht
+## <a name="buildindex-command"></a>build_index Command
 
 De **build_index** opdracht bouwt een binair indexbestand uit een bestand van de definitie van schema en een gegevensbestand van objecten moeten worden geïndexeerd.  Het resulterende indexbestand kan worden gebruikt om gestructureerde queryexpressies te evalueren of voor het genereren van een perfecte ervaring bij van query's in natuurlijke taal in combinatie met een gecompileerde grammaticabestand.
 
@@ -48,7 +48,7 @@ Deze bestanden kunnen worden opgegeven met lokale paden of URL-paden naar Azure-
 
 Een beschrijving (optioneel) worden opgegeven voor het identificeren van een binaire index met de **describe_index** opdracht.  
 
-De index is standaard gebouwd op de lokale computer.  Lokale builds zijn buiten de Azure-omgeving, beperkt tot gegevensbestanden die maximaal 10.000 objecten bevatten.  Wanneer de--externe vlag is opgegeven, wordt de index op een tijdelijk gemaakte Azure-VM van de opgegeven grootte worden samengesteld.  Hiermee kunt grote indexen kunnen worden gebouwd efficiënt gebruik van virtuele Azure-machines met meer geheugen.  Om te voorkomen wisselbestand die het bouwproces vertraagt, wordt u aangeraden een virtuele machine met 3 keer de hoeveelheid RAM-geheugen als de bestandsgrootte van invoergegevens.  Zie voor een lijst van beschikbare VM-grootten, [grootten voor virtuele machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+De index is standaard gebouwd op de lokale computer.  Lokale builds zijn buiten de Azure-omgeving, beperkt tot gegevensbestanden die maximaal 10.000 objecten bevatten.  Wanneer de--externe vlag is opgegeven, wordt de index op een tijdelijk gemaakte Azure-VM van de opgegeven grootte worden samengesteld.  Hiermee kunt grote indexen kunnen worden gebouwd efficiënt gebruik van virtuele Azure-machines met meer geheugen.  Om te voorkomen wisselbestand die het bouwproces vertraagt, wordt u aangeraden een virtuele machine met 3 keer de hoeveelheid RAM-geheugen als de bestandsgrootte van invoergegevens.  Kijk voor een lijst met beschikbare VM-grootten op [Grootten voor virtuele machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
 > [!TIP] 
 > Post voor snellere builds voor de objecten in het bestand met door de kans te verkleinen.
@@ -70,7 +70,7 @@ Deze bestanden kunnen worden opgegeven met lokale paden of URL-paden naar Azure-
 
 <a name="host_service-command"/>
 
-## <a name="hostservice-command"></a>host_service opdracht
+## <a name="hostservice-command"></a>host_service Command
 
 De **host_service** opdracht als host fungeert voor een exemplaar van de service KES op de lokale computer.
 
@@ -88,7 +88,7 @@ Buiten de Azure-omgeving lokaal gehoste services beperkt zijn tot index maximaal
 
 <a name="deploy_service-command"/>
 
-## <a name="deployservice-command"></a>deploy_service opdracht
+## <a name="deployservice-command"></a>deploy_service Command
 
 De **deploy_service** opdracht wordt een exemplaar van de service KES geïmplementeerd in een Azure cloudservice.
 

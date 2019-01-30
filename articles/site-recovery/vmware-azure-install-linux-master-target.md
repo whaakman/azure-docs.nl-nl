@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811856"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217982"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installeren van een Linux-hoofddoelserver voor failback
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -130,7 +130,7 @@ Een Ubuntu 16.04.2 minimaal 64-bit ISO behouden in het DVD-station en start het 
 
     ![Selecteer software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Selecteer in de selction voor het installeren van de GRUB-opstartlaadprogramma **Ja**, en selecteer vervolgens **Enter**.
+1. Selecteer in de selectie voor het installeren van de GRUB-opstartlaadprogramma **Ja**, en selecteer vervolgens **Enter**.
      
     ![WORMGATEN opstarten installatieprogramma](./media/vmware-azure-install-linux-master-target/image20.png)
 

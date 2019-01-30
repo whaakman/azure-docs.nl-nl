@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: c2285b4d7764592d3e210177edd8f127ca4bfaee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.openlocfilehash: 43f4aa5cc0d8545c6148fc15991817356ff69827
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55090660"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228097"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL gebruiken voor het beveiligen van webservices met Azure Machine Learning-service
 
@@ -82,36 +82,11 @@ Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ing
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-<a name="fpga"></a>
-+ **Implementeren op veld Programmable Gate Arrays (FPGA's)**
-
-  Het antwoord van de `create_service` bewerking bevat het IP-adres van de service. Het IP-adres wordt gebruikt bij het toewijzen van de DNS-naam naar het IP-adres van de service. Het antwoord bevat ook een __primaire sleutel__ en __secundaire sleutel__ die worden gebruikt voor het gebruik van de service. Geef waarden op voor parameters met betrekking tot SSL zoals wordt weergegeven in het volgende codefragment:
-
-    ```python
-    from amlrealtimeai import DeploymentClient
-
-    subscription_id = "<Your Azure Subscription ID>"
-    resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your Azure Machine Learning service Model Management Account Name>"
-    location = "eastus2"
-
-    model_name = "resnet50-model"
-    service_name = "quickstart-service"
-
-    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-
-    with open('cert.pem','r') as cert_file:
-        with open('key.pem','r') as key_file:
-            cert = cert_file.read()
-            key = key_file.read()
-            service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
-    ```
-
 ## <a name="update-your-dns"></a>Werkt u uw DNS
 
 Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
 
-+ **Voor ACI en FPGA**:
++ **Voor ACI**:
 
   Gebruik de hulpprogramma's van uw domeinnaamregistrar om bij te werken van de DNS-record voor uw domeinnaam. De record moet verwijzen naar het IP-adres van de service.
 
@@ -122,6 +97,10 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
   Werk de DNS-server op het tabblad "Configuratie" van het 'openbare IP-adres' van het AKS-cluster, zoals weergegeven in de afbeelding. U vindt het openbare IP-adres als een van de resourcetypen die is gemaakt op basis van de resourcegroep met de AKS-knooppunten van de agent en andere netwerkresources.
 
   ![Azure Machine Learning-service: Beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
++ **Voor FPGA**:
+
+Gebruik van SSL met services die zijn geïmplementeerd op FPGA wordt momenteel niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 

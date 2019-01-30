@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 300ed77322f66150111ecda70dbf95ac373aad2c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 64af946c3f8f58808f1bca06f1ef21d92da8cda8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079168"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223558"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -71,7 +71,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten in de Azure-implementat
 | RequestDisallowedByPolicy | Uw abonnement bevat een resourcebeleid waarmee wordt voorkomen dat een actie die u wilt uitvoeren tijdens de implementatie. Zoek het beleid dat de actie wordt geblokkeerd. Indien mogelijk, wijzigen van uw implementatie om te voldoen aan de beperkingen van het beleid. | [Beleid oplossen](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Geef de naam van een resource die geen een gereserveerde naam. | [Gereserveerde resourcenamen](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wachten op verwijderen om te voltooien. | |
-| ResourceGroupNotFound | Controleer de naam van de doelresourcegroep voor de implementatie. Het moet al bestaan in uw abonnement. Controleer de context van uw abonnement. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/az.profile/set-azcontext) |
+| ResourceGroupNotFound | Controleer de naam van de doelresourcegroep voor de implementatie. Het moet al bestaan in uw abonnement. Controleer de context van uw abonnement. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Uw implementatie verwijst naar een resource die kan niet worden omgezet. Controleer uw gebruik van de **verwijzing** functie bevat de vereiste parameters voor uw scenario. | [Referenties oplossen](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | De implementatie is probeert te maken van resources die het quotum voor het abonnement, resourcegroep of regio. Wijzig, indien mogelijk, uw infrastructuur in binnen de quota blijven. Overweeg anders aanvragen van een wijziging in uw quota's. | [Quota's oplossen](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selecteer de SKU (zoals VM-grootte) die beschikbaar is voor de locatie die u hebt geselecteerd. | [SKU oplossen](resource-manager-sku-not-available-errors.md) |

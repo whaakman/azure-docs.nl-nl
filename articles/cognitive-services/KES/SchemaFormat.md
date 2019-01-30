@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 07f5536641b55aadf9d8b2623bf4797b8dcd7bd5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129247"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227298"
 ---
 # <a name="schema-format"></a>Schema-indeling
 
@@ -47,7 +47,7 @@ Hieronder volgt een lijst met ondersteunde kenmerk gegevenstypen:
 | Int32 | 32-bits geheel getal | gelijk aan, starts_with, is_between | 2016 |
 | Int64 | 64-bits geheel getal | gelijk aan, starts_with, is_between | 9876543210 |
 | Double-waarde | Dubbele precisie drijvende-kommawaarde | gelijk aan, starts_with, is_between | 1.602e-19 |
-| Date | Datum (1400-01-01 op 9999-12-31) | is gelijk aan, is_between | ' 2016-03-14' |
+| Date | Datum (1400-01-01 op 9999-12-31) | equals, is_between | '2016-03-14' |
 | GUID | Unieke id | is gelijk aan | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blob | Intern gecomprimeerde gegevens met niet-geïndexeerde | *Geen* | 'Elke persoon en iedere organisatie op de planeet om meer te bereiken maken' |
 | Samengestelde | Samenstelling van meerdere onderliggende kenmerken| *N.v.t.* | {"Naam": "harry shum", "Relatie": "microsoft"} |

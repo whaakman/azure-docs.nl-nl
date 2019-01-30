@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875396"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228284"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM 's
 
@@ -28,8 +28,8 @@ Site Recovery maakt herstel na noodgeval voor virtuele Azure-machines door Azure
 
 ExpressRoute kunt u on-premises netwerken in de Microsoft Azure-cloud uitbreiden via een persoonlijke verbinding, die wordt gefaciliteerd door een connectiviteitsprovider. Als u ExpressRoute geconfigureerd hebt, deze kan worden geïntegreerd met Site Recovery als volgt:
 
-- **Tijdens de replicatie tussen Azure-regio's**: replicatieverkeer voor noodherstel van Azure-VM is alleen in Azure en ExpressRoute niet nodig is of wordt gebruikt voor replicatie. Als u verbinding vanaf een on-premises site naar de Azure VM's in de primaire site voor Azure maakt, zijn er echter een aantal problemen rekening mee moet houden wanneer u van herstel na noodgevallen voor deze virtuele machines van Azure instellen bent.
-- **Failover tussen Azure-regio's**: als er uitval optreedt, schakelt u over Azure-VM's van de primaire naar secundaire Azure-regio. Na de failover wordt uitgevoerd naar een secundaire regio zijn er een aantal stappen doen om toegang te krijgen tot de Azure VM's in de secundaire regio met behulp van ExpressRoute.
+- **Tijdens de replicatie tussen Azure-regio's**: Replicatieverkeer voor noodherstel van Azure-VM is alleen in Azure, en ExpressRoute niet nodig is of wordt gebruikt voor replicatie. Als u verbinding vanaf een on-premises site naar de Azure VM's in de primaire site voor Azure maakt, zijn er echter een aantal problemen rekening mee moet houden wanneer u van herstel na noodgevallen voor deze virtuele machines van Azure instellen bent.
+- **Failover tussen Azure-regio's**: Als er uitval optreedt, schakelt u over Azure-VM's van de primaire naar secundaire Azure-regio. Na de failover wordt uitgevoerd naar een secundaire regio zijn er een aantal stappen doen om toegang te krijgen tot de Azure VM's in de secundaire regio met behulp van ExpressRoute.
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
@@ -93,7 +93,7 @@ Enterprise-implementaties hebben meestal verdeeld over meerdere Azure VNets, met
 - **Hub vNet**. Er is een hub vNet **bron Hub vNet**: 10.10.10.0/24.
     - Dit vNet hub fungeert als de gatekeeper.
     - Alle communicatie tussen subnetten zijn doorlopen van deze hub.
- - ** Hub vNet subnetten**. De hub vNet heeft twee subnetten:
+ - Hub vNet subnetten **. De hub vNet heeft twee subnetten:
      - **NVA-subnet**: 10.10.10.0/25. Dit subnet bevat een NVA (10.10.10.10).
      - **Gatewaysubnet**: 10.10.10.128/25. Dit subnet bevat een ExpressRoute-gateway verbonden met een ExpressRoute-verbinding die u routes naar de on-premises site via een persoonlijke peering routeringsdomein.
 - Het on-premises datacenter heeft een ExpressRoute-circuit-verbinding via een partner edge in Hong Kong SAR.
@@ -146,7 +146,7 @@ Nadat u een failover Azure-VM's met de doel-Azure-regio met behulp van Site Reco
 
 #### <a name="two-circuits-with-two-peering-locations"></a>Twee circuits met twee peeringlocaties
 
-Deze configuratie beveiligt ExpressRoute-circuits tegen regionale na noodgevallen. Als uw primaire peering loation uitgeschakeld wordt, worden verbindingen kunnen blijven van de andere locatie.
+Deze configuratie beveiligt ExpressRoute-circuits tegen regionale na noodgevallen. Als uw primaire locatie uitvalt, worden verbindingen kunnen blijven van de andere locatie.
 
 - Het circuit dat is verbonden met de productie-omgeving is meestal de primaire. Het secundaire circuit heeft meestal een lagere bandbreedte, die kan worden verhoogd als zich een noodgeval voordoet.
 - U kunt verbindingen van de secundaire ExpressRoute-circuit met de doel-vNet maken na een failover. U kunt ook verbindingen instellen en in geval van nood, klaar om te beperken van de algehele hersteltijd hebben.

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969104"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228352"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Een container klassiek register upgraden
 
@@ -52,7 +52,7 @@ Tijdens de conversie, alle `docker push` bewerkingen worden geblokkeerd, terwijl
 
 Niet verwijderen of wijzigen van de inhoud van het opslagaccount dat een back-up uw Classic-register tijdens de conversie. In dat geval kan leiden tot beschadiging van uw containerinstallatiekopieën.
 
-Nadat de migratie voltooid is, wordt het opslagaccount in uw abonnement die oorspronkelijk ondersteund uw Classic-register meer door ACR gebruikt. Nadat u hebt gecontroleerd of de migratie gelukt is, kunt u het verwijderen van het storage-account om u te helpen de kosten minimaliseren.
+Nadat de migratie voltooid is, wordt het opslagaccount in uw abonnement die oorspronkelijk ondersteund uw Classic-register niet meer door ACR gebruikt. Nadat u hebt gecontroleerd of de migratie gelukt is, kunt u het verwijderen van het storage-account om u te helpen de kosten minimaliseren.
 
 >[!IMPORTANT]
 > Een upgrade uitvoert van klassiek naar een van de beheerde SKU's is een **eenrichtingsproces**. Nadat u hebt een klassiek register naar Basic, Standard of Premium geconverteerd, kunt u niet terugkeren naar de klassieke. U kunt echter vrijelijk verplaatsen tussen beheerde SKU's met voldoende capaciteit voor uw register.

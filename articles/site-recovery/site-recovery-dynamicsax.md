@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c2151be1644cde0e737be7f026bdf63cef0b3686
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838137"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221960"
 ---
-# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Herstel na noodgevallen voor een met meerdere lagen Dynamics AX-toepassing instellen 
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Herstel na noodgevallen voor een met meerdere lagen Dynamics AX-toepassing instellen   
 
 
 
@@ -120,13 +120,13 @@ U kunt het herstelplan te gaan voor de Dynamics AX-toepassing aanpassen door het
 
 * **SQL Server failover stappen**: Zie voor meer informatie over herstelstappen die specifiek zijn voor SQL server [replicatie-toepassingen met SQL Server en Azure Site Recovery](site-recovery-sql.md).
 
-* **Failover-groep 1**: de toepassing Object Server virtuele machines een failover.
+* **Failover-groep 1**: De toepassing Object Server virtuele machines een failover.
 Zorg ervoor dat het geselecteerde herstelpunt wordt zo dicht mogelijk bij de PIT,-database, maar niet voor deze.
 
-* **Script**: toevoegen netwerktaakverdeler (alleen E-A).
+* **script**: Load balancer toevoegen (alleen E-A).
 Voeg een script (via Azure Automation) nadat de virtuele machine de Server van de toepassing-Object-groep wordt weergegeven aan een load balancer toevoegen. U kunt een script gebruiken voor deze taak. Zie voor meer informatie, [toevoegen van een load balancer voor noodherstel van de toepassing met meerdere lagen](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
-* **Failover-groep 2**: failover van de Dynamics AX-client VM's. Failover van de weblaag VM's als onderdeel van het herstelplan te gaan.
+* **Failover-groep met 2**: Failover van de Dynamics AX-client VM's. Failover van de weblaag VM's als onderdeel van het herstelplan te gaan.
 
 
 ### <a name="perform-a-test-failover"></a>Een testfailover uitvoeren

@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366795"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228114"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -24,9 +24,9 @@ Downloaden van de logboekbestanden die worden geproduceerd door Azure Custom Dec
 ## <a name="prerequisites"></a>Vereisten
 
 - Python 3: Geïnstalleerd en op het pad. U wordt aangeraden de 64-bits-versie voor het afhandelen van grote bestanden.
-- De *mwt-Microsoft-ds* opslagplaats: [kloon de opslagplaats](https://github.com/Microsoft/mwt-ds).
-- De *azure-storage-blob* pakket: voor installatiegegevens, gaat u naar [Microsoft Azure Storage-clientbibliotheek voor Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
-- Voer uw Azure storage-verbindingsreeks in *mwt-ds/DataScience/ds.config*: Volg de *my_app_id: my_connectionString* sjabloon. Kunt u meerdere `app_id`. Bij het uitvoeren van `LogDownloader.py`, als de invoer `app_id` is niet gevonden in `ds.config`, `LogDownloader.py` maakt gebruik van de `$Default` verbindingsreeks.
+- De *mwt-Microsoft-ds* opslagplaats: [Kloon de opslagplaats](https://github.com/Microsoft/mwt-ds).
+- De *azure-storage-blob* pakket: Voor installatie-informatie, gaat u naar [Microsoft Azure Storage-clientbibliotheek voor Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- Voer uw Azure storage-verbindingsreeks in *mwt-ds/DataScience/ds.config*: Ga als volgt de *my_app_id: my_connectionString* sjabloon. Kunt u meerdere `app_id`. Bij het uitvoeren van `LogDownloader.py`, als de invoer `app_id` is niet gevonden in `ds.config`, `LogDownloader.py` maakt gebruik van de `$Default` verbindingsreeks.
 
 ## <a name="usage"></a>Gebruik
 
@@ -50,7 +50,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-e END_DATE`, `--end_date END_DATE` | De downloaden einddatum (opgenomen), in *jjjj-MM-DD* indeling. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | De modus voor overschrijven om te gebruiken. | |
 | | `0`: Nooit overschrijven; Vraag de gebruiker of-blobs die momenteel worden gebruikt. | Standaard | |
-| | `1`: Vraagt de gebruiker voor de vervolgacties wanneer de bestanden verschillende grootte hebben of wanneer de blobs zijn momenteel wordt gebruikt. | |
+| | `1`: Vraag de gebruiker voor de vervolgacties wanneer de bestanden verschillende grootte hebben of wanneer de blobs zijn momenteel wordt gebruikt. | |
 | | `2`: Altijd overschreven; Download blobs die momenteel worden gebruikt. | |
 | | `3`: Nooit overschrijven en toevoeg-als de grootte groter is, zonder te vragen; Download blobs die momenteel worden gebruikt. | |
 | | `4`: Nooit overschrijven en toevoeg-als de grootte groter is, zonder te vragen; blobs overslaan die momenteel worden gebruikt. | |

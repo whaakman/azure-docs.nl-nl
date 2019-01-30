@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259984"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227944"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Gegevens in het Apache Hadoop met het Microsoft Avro Library serialiseren
 
@@ -1351,7 +1351,7 @@ Het zesde voorbeeld ziet u enkele programmeertechnieken die betrekking hebben op
 Het voorbeeld heeft de volgende taken:
 
 * Maakt verbinding met een bestaand HDInsight-service-cluster.
-* Serialiseert verschillende CSV-bestanden en het resultaat geüpload naar Azure Blob storage. (De CSV-bestanden samen met het voorbeeld worden gedistribueerd en uitpakken van AMEX voorraad historische gegevens worden verspreid door vertegenwoordigen [Infochimps](https://www.infochimps.com/) voor de periode 1970 2010. Het voorbeeld leest gegevens uit een CSV-bestand, converteert u de records voor exemplaren van de **voorraad** klasse en serialiseert u ze via reflectie. Aandelen typedefinitie is gemaakt op basis van een JSON-schema via het Microsoft Avro Library-hulpprogramma voor het genereren van code.
+* Serialiseert verschillende CSV-bestanden en het resultaat geüpload naar Azure Blob storage. (De CSV-bestanden samen met het voorbeeld worden gedistribueerd en uitpakken van AMEX voorraad historische gegevens worden verspreid door vertegenwoordigen [Infochimps](https://www.infochimps.org/) voor de periode 1970 2010. Het voorbeeld leest gegevens uit een CSV-bestand, converteert u de records voor exemplaren van de **voorraad** klasse en serialiseert u ze via reflectie. Aandelen typedefinitie is gemaakt op basis van een JSON-schema via het Microsoft Avro Library-hulpprogramma voor het genereren van code.
 * Hiermee maakt u een nieuwe externe tabel met de naam **voorraden** in Hive en koppelingen naar de gegevens in de vorige stap hebt geüpload.
 * Een query uitvoert met behulp van Hive via de **voorraden** tabel.
 

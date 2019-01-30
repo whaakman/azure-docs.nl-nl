@@ -4,22 +4,40 @@ description: Meer informatie over het oplossen van fouten met de updatebeheer, w
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879635"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228777"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Problemen oplossen bij het onboarding-oplossingen
 
 Fouten kunnen optreden tijdens het onboarding-oplossingen zoals updatebeheer of wijzigingen bijhouden en inventaris. In dit artikel beschrijft de verschillende fouten die optreden en hoe ze op te lossen.
 
 ## <a name="general-errors"></a>Algemene fouten
+
+### <a name="missing-write-permissions"></a>Scenario: Onboarding is mislukt met het bericht: de oplossing kan niet worden ingeschakeld
+
+#### <a name="issue"></a>Probleem
+
+U ontvangt het volgende bericht wanneer u te onboarden een virtuele machine naar een oplossing probeert:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout wordt veroorzaakt door onjuiste of ontbrekende machtigingen op de virtuele machine of voor de gebruiker.
+
+#### <a name="resolution"></a>Oplossing
+
+Zorg ervoor dat u hebt juiste machtigingen voor de Onboarding van de virtuele machine. Controleer de [machtigingen die nodig zijn voor Onboarding van machines](../automation-role-based-access-control.md#onboarding) en probeer zorgen voor onboarding de oplossing voor het opnieuw.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
@@ -55,7 +73,7 @@ De oplossing implementeren, moet u rekening houden met het wijzigen van het opge
   * Opnieuw die gericht is op het beleid op een specifieke bron (bijvoorbeeld bij een specifieke Automation-account).
   * Wijzigen van de set van resources dat beleid is geconfigureerd om te weigeren.
 
-Controleer de meldingen in de rechterbovenhoek van de Azure-portal of Ga naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure Policy bezoek: [overzicht van Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controleer de meldingen in de rechterbovenhoek van de Azure-portal of Ga naar de resourcegroep waarin uw automation-account en selecteer **implementaties** onder **instellingen** om de mislukte weer te geven de implementatie. Voor meer informatie over Azure Policy gaat u naar: [Overzicht van Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>MMA-extensies oplossen
 
@@ -67,7 +85,7 @@ Installatie van de MMA of Log Analytics-agent voor Linux kan om verschillende re
 
 Het volgende gedeelte bevat verschillende problemen die optreden kunnen wanneer onboarding die leiden een fout opgetreden bij de implementatie van de MMA-extensie tot.
 
-### <a name="webclient-exception"></a>Scenario: Een uitzondering is opgetreden tijdens een WebClient-aanvraag
+### <a name="webclient-exception"></a>Scenario: Er is een uitzondering opgetreden tijdens een WebClient-aanvraag
 
 De MMA-extensie op de virtuele machine is kan niet communiceren met externe bronnen en de implementatie mislukt.
 
@@ -126,7 +144,7 @@ Er zijn enkele mogelijke oorzaken voor deze fout:
 
 Deze fout is een tijdelijke fout in de natuur. De implementatie voor het installeren van de extensie opnieuw probeert.
 
-### <a name="installation-timeout"></a>Scenario: Installatie van time-out
+### <a name="installation-timeout"></a>Scenario: Time-out voor installatie
 
 De installatie van de MMA-extensie is niet voltooid vanwege een time-out.
 

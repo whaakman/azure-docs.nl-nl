@@ -6,29 +6,29 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095480"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217151"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Oplossen van de Spraakservice-SDK
 
 Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-Service-SDK gebruiken.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fout: De WebSocket-Upgrade is mislukt met een verificatiefout (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fout: WebSocket-Upgrade is mislukt met een verificatiefout (403)
 
 Mogelijk hebt u het juiste eindpunt voor uw regio of de service. Controleer de URI om te controleren of dat deze juist is.
 
 Bovendien kan er een probleem met uw abonnementssleutel of autorisatie token. Zie de volgende sectie voor meer informatie.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fout: HTTP 403 verboden of HTTP 401 Unauthorized
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fout: HTTP 403-verboden of HTTP 401-niet toegestaan
 
 Deze fout wordt vaak veroorzaakt door verificatieproblemen met. Verbindingsaanvragen zonder een geldig `Ocp-Apim-Subscription-Key` of `Authorization` header met de status 403 of 401 worden afgewezen.
 
@@ -108,7 +108,7 @@ Als u een verificatietoken voor de verificatie gebruikt, voert u een van de volg
 
 Deze fout treedt meestal op wanneer de aanvraagtekst ongeldige audiogegevens bevat. Alleen WAV-indeling wordt ondersteund. Controleer ook of de aanvraagheaders om te controleren of u de juiste waarden voor opgeven `Content-Type` en `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Fout: HTTP 408 time-out van aanvraag
+## <a name="error-http-408-request-timeout"></a>Fout: HTTP-408 time-out van aanvraag
 
 De meest waarschijnlijke fout treedt op omdat er geen audiogegevens worden verzonden naar de service. Deze fout kan ook worden veroorzaakt door netwerkproblemen.
 

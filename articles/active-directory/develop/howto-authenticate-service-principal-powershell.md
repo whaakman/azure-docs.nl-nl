@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: c768d5a35016b0725d4dbca2a418c8e780812d62
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 35a69f12dc73ef0cbf9bc1541fa75037f6ef06f5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091643"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228233"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedure: Azure PowerShell gebruiken om een service-principal met een certificaat te maken
 
@@ -46,7 +46,7 @@ De eenvoudigste manier om te controleren of uw account over de juiste machtiging
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Service-principal met een zelfondertekend certificaat maken
 
-In het volgende voorbeeld wordt een eenvoudig scenario behandeld. Hierbij [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) een service-principal maken met een zelfondertekend certificaat en maakt gebruik van [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) om toe te wijzen de [Inzender](../../role-based-access-control/built-in-roles.md#contributor) de rol aan de service-principal. De roltoewijzing is afgestemd op uw huidige, geselecteerde Azure-abonnement. Selecteer een ander abonnement, gebruikt u [Set AzContext](/powershell/module/az.profile/set-azcontext).
+In het volgende voorbeeld wordt een eenvoudig scenario behandeld. Hierbij [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) een service-principal maken met een zelfondertekend certificaat en maakt gebruik van [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) om toe te wijzen de [Inzender](../../role-based-access-control/built-in-roles.md#contributor) de rol aan de service-principal. De roltoewijzing is afgestemd op uw huidige, geselecteerde Azure-abonnement. Selecteer een ander abonnement, gebruikt u [Set AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
