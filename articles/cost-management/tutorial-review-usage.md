@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093604"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849971"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -43,7 +43,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="open-the-cloudyn-portal"></a>De Cloudyn-portal openen
 
-U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open de Cloudyn-portal vanuit de Azure-portal of ga naar https://azure.cloudyn.com en meld u aan.
+U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open de Cloudyn-portal vanuit Azure Portal of ga naar https://azure.cloudyn.com en meld u aan.
 
 ## <a name="track-usage-and-cost-trends"></a>Gebruiks- en kostentrends bijhouden
 
@@ -93,15 +93,23 @@ Azure Cost Management biedt ook aanbevelingen over kostenbesparingen voor Azure-
 
 ## <a name="create-alerts-for-unusual-spending"></a>Waarschuwingen maken voor ongebruikelijke uitgaven
 
-U kunt belanghebbenden automatisch waarschuwen als er sprake is van afwijkende bestedingen of kans op budgetoverschrijding. U kunt snel en eenvoudig waarschuwingen maken met behulp van rapporten die waarschuwingen op basis van budget en kostendrempels ondersteunen.
+Met waarschuwingen kunt u ook andere belanghebbenden automatisch op de hoogte stellen van afwijkende bestedingen of kans op budgetoverschrijdingen. U kunt waarschuwingen maken met behulp van rapporten die waarschuwingen op basis van budget en kostendrempels ondersteunen.
 
-U maakt een waarschuwing voor elke uitgave met behulp van een kostenrapport. In dit voorbeeld gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd) om u te waarschuwen wanneer de uitgaven voor een Azure-VM het totale budget naderen. De volgende stappen zijn nodig voor het maken van de waarschuwing. Klik op het menu bovenaan in de portal en klik op **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**. Klik rechtsboven in het rapport op **Actions** en selecteer **Schedule report**.
+In dit voorbeeld wordt het rapport **Actual Cost Over Time** (Werkelijke kosten in de loop van de tijd) gebruikt om u een waarschuwing te sturen wanneer uw uitgaven voor een Azure-VM het totale budget naderen. In dit scenario hebt u een totaalbudget van $ 20.000. U wilt een waarschuwing ontvangen wanneer bij $ 9000 de kosten de helft van het budget beginnen te naderen en een extra waarschuwing wanneer het bedrag van $ 10.000 wordt bereikt.
 
-Gebruik in het vak Save or Schedule this report het tabblad **Scheduling** om uzelf een e-mail met het rapport te sturen met de gewenste frequentie. Selecteer **Send via email**. Eventuele labels, groepen en filters die u gebruikt, worden toegepast op het rapport dat u per e-mail wordt toegezonden. Klik op het tabblad **Theshold** en selecteer **Actual Cost vs. Threshold**. Als u een totaal budget van $ 20.000 hebt en een melding wilt ontvangen wanneer de kosten in de buurt van de helft komen, maakt u een **rode waarschuwing** voor $ 10.000 en een **gele waarschuwing** voor $ 9.000. Gebruik geen komma's in waarden die u invoert. Kies vervolgens het aantal achtereenvolgende waarschuwingen. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden. Sla het geplande rapport op.
+1. Selecteer in het menu boven aan Cloudyn-portal de optie **Costs** > **Cost Analysis** > **Actual Cost Over Time**. 
+2. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**. 
+3. Selecteer rechtsboven in het rapport de optie **Actions** en selecteer **Schedule report**.
+4. Als u zelf op vaste tijden een e-mail met het rapport wilt ontvangen, selecteert u het tabblad **Scheduling** in het dialoogvenster **Save or Schedule this**. Selecteer **Send via email**. Alle labels, groepen en filters die u gebruikt, zijn opgenomen het rapport dat u per e-mail wordt toegezonden. 
+5. Selecteer het tabblad **Threshold** en selecteer **Actual Cost vs. Threshold**. 
+   1. In het vak voor de drempelwaarde **Red alert** voert u 10000 in. 
+   2. In het vak voor de drempelwaarde **Yellow alert** voert u 9000 in. 
+   3. In het vak **Number of consecutive alerts** voert u het aantal opeenvolgende te ontvangen waarschuwingen in. Wanneer u het door u opgegeven totaal aantal waarschuwingen hebt ontvangen, worden er geen extra waarschuwingen meer verzonden. 
+6. Selecteer **Opslaan**.
 
 ![Voorbeeld met rode en gele waarschuwingen op basis van uitgavedrempelwaarden](./media/tutorial-review-usage/schedule-alert01.png)
 
-U kunt ook de drempeloptie Cost Percentage vs. Budget kiezen om waarschuwingen te maken. Als u deze optie kiest, kunt u budgetpercentages in plaats van bedragen gebruiken.
+U kunt ook de drempeloptie **Cost Percentage vs. Budget** kiezen om waarschuwingen te maken. Hiermee kunt u de drempels opgeven als percentage van uw budget in plaats van bedragen.
 
 ## <a name="export-data"></a>Gegevens exporteren
 

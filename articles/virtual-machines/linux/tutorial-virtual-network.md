@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988512"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463759"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Linux-machines maken en beheren met Azure CLI
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Linux-machines maken en beheren met de Azure CLI
 
 Virtuele Azure-machines maken gebruik van Azure-netwerken voor interne en externe communicatie. In deze zelfstudie wordt uitgelegd hoe u twee virtuele machines implementeert en Azure-netwerken configureert voor deze virtuele machines. In de voorbeelden in deze zelfstudie wordt ervan uitgegaan dat de virtuele machines een webtoepassing met een databaseback-end hosten, maar er wordt geen toepassing geïmplementeerd in de zelfstudie. In deze zelfstudie leert u het volgende:
 
@@ -208,7 +208,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-De front-end VM is alleen toegankelijk op poort *22* en poort *80*. Al het andere binnenkomende verkeer wordt geblokkeerd bij de netwerkbeveiligingsgroep. Het kan handig zijn de configuratie van de netwerkbeveiligingsgroepregels te visualiseren. Haal de configuratie van de netwerkbeveiligingsgroepregels op met de opdracht [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
+De front-end VM is alleen toegankelijk op poort *22* en poort *80*. Al het andere binnenkomende verkeer wordt geblokkeerd bij de netwerkbeveiligingsgroep. Het kan handig zijn de configuratie van de netwerkbeveiligingsgroepregels te visualiseren. Haal de configuratie van de netwerkbeveiligingsgroepregels op met de opdracht [az network rule list](/cli/azure/network/nsg/rule). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-De back-end VM is alleen toegankelijk op poort *22* en poort *3306* via het front-endsubnet. Al het andere binnenkomende verkeer wordt geblokkeerd bij de netwerkbeveiligingsgroep. Het kan handig zijn de configuratie van de netwerkbeveiligingsgroepregels te visualiseren. Haal de configuratie van de netwerkbeveiligingsgroepregels op met de opdracht [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
+De back-end VM is alleen toegankelijk op poort *22* en poort *3306* via het front-endsubnet. Al het andere binnenkomende verkeer wordt geblokkeerd bij de netwerkbeveiligingsgroep. Het kan handig zijn de configuratie van de netwerkbeveiligingsgroepregels te visualiseren. Haal de configuratie van de netwerkbeveiligingsgroepregels op met de opdracht [az network rule list](/cli/azure/network/nsg/rule). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359405"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449568"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Veelgestelde vragen
 
@@ -192,7 +192,9 @@ Ga voor meer informatie naar [Data Box-beveiligingsfuncties](data-box-security.m
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>V. Ik heb Voorbereiding voor verzending afgerond en het apparaat uitgeschakeld. Kan ik nog steeds meer gegevens aan Data Box toevoegen?
 A. Ja. U kunt het apparaat inschakelen en meer gegevens toevoegen. Als u het kopiëren van gegevens hebt voltooid, moet u **Voorbereiding voor verzending** opnieuw uitvoeren.
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>V. Ik heb mijn apparaat ontvangen en ik kan het niet opstarten. Hoe stuur ik het apparaat terug?
+A. Als u uw apparaat niet kunt opstarten, gaat u terug naar uw bestelling in de Azure-portal. Download een verzendlabel en bevestig dat op het apparaat. Ga voor meer informatie naar [Verzendlabel downloaden](data-box-portal-admin.md#download-shipping-label).
 
 ## <a name="verify-and-upload"></a>Verifiëren en uploaden
 

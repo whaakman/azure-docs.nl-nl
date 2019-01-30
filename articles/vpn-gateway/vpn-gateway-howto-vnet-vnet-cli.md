@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2fc25235325db8a403c2b258dd5e4b3effc46ace
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971957"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846303"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
 
@@ -74,11 +74,11 @@ In dit artikel ziet u twee verschillende reeksen stappen voor een VNet-naar-VNet
 
 Voor deze oefening kunt u configuraties combineren of alleen de configuratie kiezen waarmee u wilt werken. Alle configuraties maken gebruik van het verbindingstype VNet-naar-VNet. Netwerkverkeer verloopt tussen de VNet's die rechtstreeks met elkaar zijn verbonden. In deze oefening wordt verkeer van TestVNet4 niet gerouteerd naar TestVNet5.
 
-* [VNet's die onderdeel uitmaken van hetzelfde abonnement:](#samesub) in de stappen voor deze configuratie wordt gebruikgemaakt van TestVNet1 en TestVNet4.
+* [VNets die tot hetzelfde abonnement behoren:](#samesub) De stappen voor deze configuratie maken gebruik van TestVNet1 en TestVNet4.
 
   ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [VNet's die onderdeel uitmaken van verschillende abonnementen:](#difsub) in de stappen voor deze configuratie wordt gebruikgemaakt van TestVNet1 en TestVNet5.
+* [VNets die tot verschillende abonnementen behoren:](#difsub) De stappen voor deze configuratie maken gebruik van TestVNet1 en TestVNet5.
 
   ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -97,22 +97,22 @@ In de voorbeelden worden de volgende waarden gebruikt:
 
 **Waarden voor TestVNet1:**
 
-* VNet-naam: TestVNet1
+* VNET-naam: TestVNet1
 * Resourcegroep: TestRG1
 * Locatie: US - oost
-* TestVNet1: 10.11.0.0/16 en 10.12.0.0/16
+* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
 * Openbare IP: VNet1GWIP
-* VPNType: op route gebaseerd
+* VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
 * Connection(1to5): VNet1toVNet5 (voor VNets in verschillende abonnementen)
 
 **Waarden voor TestVNet4:**
 
-* VNet-naam: TestVNet4
+* VNET-naam: TestVNet4
 * TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 * FrontEnd: 10.41.0.0/24
 * BackEnd: 10.42.0.0/24
@@ -121,7 +121,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 * Locatie: US - west
 * GatewayName: VNet4GW
 * Openbare IP: VNet4GWIP
-* VPNType: op route gebaseerd
+* VPNType: RouteBased
 * Verbinding: VNet4toVNet1
 
 ### <a name="Connect"></a>Stap 1: verbinding maken met uw abonnement
@@ -133,7 +133,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 1. Maak een resourcegroep.
 
   ```azurecli
-  az group create -n TestRG1  -l eastus
+  az group create -n TestRG1  -l eastus
   ```
 2. Maak TestVNet1 en de subnetten voor TestVNet1. In dit voorbeeld worden een virtueel netwerk met de naam TestVNet1 en een subnet met de naam FrontEnd gemaakt.
 
@@ -148,11 +148,11 @@ In de voorbeelden worden de volgende waarden gebruikt:
 4. Maak het back-endsubnet.
   
   ```azurecli
-  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
+  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
   ```
 5. Maak het gatewaysubnet. Het gatewaysubnet heet GatewaySubnet. Deze naam is verplicht. In dit voorbeeld maakt het gatewaysubnet gebruik van een /27. Het is mogelijk om een klein gatewaysubnet van /29 te maken, maar we raden u aan een groter subnet met meer adressen te maken door ten minste /28 of /27 te selecteren. Hierdoor hebt u genoeg adressen voor mogelijke aanvullende toekomstige configuraties.
 
-  ```azurecli 
+  ```azurecli 
   az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
   ```
 6. Vraag om een openbaar IP-adres toe te wijzen aan de gateway die u voor uw VNet gaat maken. De toewijzingsmethode is Dynamisch. U kunt het IP-adres dat u wilt gebruiken niet zelf opgeven. Het wordt dynamisch toegewezen aan uw gateway.
@@ -171,7 +171,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 1. Maak een resourcegroep.
 
   ```azurecli
-  az group create -n TestRG4  -l westus
+  az group create -n TestRG4  -l westus
   ```
 2. Maak TestVNet4.
 
@@ -182,13 +182,13 @@ In de voorbeelden worden de volgende waarden gebruikt:
 3. Extra subnetten voor TestVNet4 maken.
 
   ```azurecli
-  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
-  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
+  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
+  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
   ```
 4. Maak het gatewaysubnet.
 
   ```azurecli
-   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
+   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
   ```
 5. Vraag een openbaar IP-adres aan.
 
@@ -218,18 +218,18 @@ U hebt nu twee VNets met VPN-gateways. De volgende stap is het maken van VPN-gat
   Voorbeelduitvoer:
 
   ```
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
-  "enableBgp": false, 
-  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
-  "ipConfigurations":
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
+  "enableBgp": false, 
+  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
+  "ipConfigurations":
   ```
 
   Kopieer de waarden na **"id:"** binnen de aanhalingstekens.
@@ -247,7 +247,7 @@ U hebt nu twee VNets met VPN-gateways. De volgende stap is het maken van VPN-gat
 3. Maak de verbinding tussen TestVNet1 en TestVNet4. In deze stap maakt u de verbinding van TestVNet1 naar TestVNet4. Er wordt naar een gedeelde sleutel verwezen in de voorbeelden. U kunt uw eigen waarden voor de gedeelde sleutel gebruiken. Het belangrijkste is dat de gedeelde sleutel voor beide verbindingen moet overeenkomen. Het kan even duren voordat de verbinding tot stand is gebracht.
 
   ```azurecli
-  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
+  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
   ```
 4. Maak de verbinding tussen TestVNet4 en TestVNet1. Deze stap is vergelijkbaar met die hierboven, alleen maakt u de verbinding nu vanuit TestVNet4 naar TestVNet1. Zorg dat de gedeelde sleutels overeenkomen. Het duurt enkele minuten om de verbinding tot stand te brengen.
 
@@ -284,7 +284,7 @@ Als u extra verbindingen maakt, is het belangrijk dat u controleert of de IP-adr
 
 **Waarden voor TestVNet5:**
 
-* VNet-naam: TestVNet5
+* VNET-naam: TestVNet5
 * Resourcegroep: TestRG5
 * Locatie: Japan - oost
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
@@ -293,9 +293,9 @@ Als u extra verbindingen maakt, is het belangrijk dat u controleert of de IP-adr
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
 * Openbare IP: VNet5GWIP
-* VPNType: op route gebaseerd
+* VPNType: RouteBased
 * Verbinding: VNet5toVNet1
-* ConnectionType: VNet2VNet
+* ConnectionType: Vnet2Vnet
 
 ### <a name="TestVNet5"></a>Stap 7: TestVNet5 maken en configureren
 
@@ -304,7 +304,7 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement, abonne
 1. Zorg ervoor dat u bent verbonden met abonnement 5 en maak vervolgens een resourcegroep.
 
   ```azurecli
-  az group create -n TestRG5  -l japaneast
+  az group create -n TestRG5  -l japaneast
   ```
 2. Maak TestVNet5.
 
@@ -362,7 +362,7 @@ Deze stap is opgesplitst in twee CLI-sessies, aangeduid als **[Abonnement 1]** e
 
   Kopieer de uitvoer voor "id:". Verstuur de id en naam van de VNet-gateway (VNet5GW) via e-mail of een andere methode naar de beheerder van abonnement 1.
 
-3. **[Abonnement 1]** In deze stap maakt u de verbinding van TestVNet1 naar TestVNet5. U kunt uw eigen waarden voor de gedeelde sleutel gebruiken, maar de gedeelde sleutel moet voor beide verbindingen hetzelfde zijn. Het kan even duren voordat de verbinding is gemaakt. Zorg dat u verbinding maakt met Abonnement 1.
+3. **[Abonnement 1]** In deze stap maakt u de verbinding van TestVNet1 naar TestVNet5. U kunt uw eigen waarden voor de gedeelde sleutel gebruiken, maar de gedeelde sleutel moet voor beide verbindingen hetzelfde zijn. Het kan even duren voordat de verbinding is gemaakt. Zorg dat u verbinding maakt met Abonnement 1.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW

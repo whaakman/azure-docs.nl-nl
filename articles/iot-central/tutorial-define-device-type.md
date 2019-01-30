@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199966"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412900"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing
 
@@ -75,7 +75,7 @@ U hebt een Azure IoT Central-toepassing nodig om deze zelfstudie te voltooien. A
 
 ## <a name="create-a-new-custom-device-template"></a>Een nieuwe aangepaste apparaatsjabloon maken
 
-Als bouwer kunt u de apparaatsjablonen in uw toepassing maken en bewerken. Wanneer u een apparaatsjabloon maakt, genereert Azure IoT Central een gesimuleerd apparaat op basis van de sjabloon. Het gesimuleerde apparaat genereert telemetrie waarmee u het gedrag van uw toepassing kunt testen voordat u een fysiek apparaat aansluit.
+Als bouwer kunt u de apparaatsjablonen in uw toepassing maken en bewerken. Wanneer u een apparaatsjabloon maakt, genereert Azure IoT Central een gesimuleerd apparaat op basis van de sjabloon. Het gesimuleerde apparaat genereert telemetrie waarmee u het gedrag van uw toepassing kunt testen voordat u een echt apparaat aansluit.
 
 Als u een nieuwe apparaatsjabloon aan uw toepassing wilt toevoegen, gaat u naar de pagina **Toepassingsbouwer**. Kies hiervoor de **Toepassingsbouwer** in het navigatiemenu links.
 
@@ -155,7 +155,7 @@ De volgende stappen laten zien hoe u een nieuwe apparaatsjabloon, **Verbonden ai
 
 ## <a name="define-event-measurement"></a>Gebeurtenismeting definiëren
 
-U kunt Gebeurtenis gebruiken om tijdstipgegevens te definiëren die door het apparaat worden verzonden om iets van betekenis aan te geven, zoals een fout of een storing in een onderdeel. Net als telemetriemetingen kan Azure IoT Central apparaatgebeurtenissen simuleren, zodat u het gedrag van uw toepassing kunt testen voordat u een fysiek apparaat aansluit. U definieert gebeurtenismetingen voor uw apparaattype in de weergave **Metingen**.
+U kunt Gebeurtenis gebruiken om tijdstipgegevens te definiëren die door het apparaat worden verzonden om iets van betekenis aan te geven, zoals een fout of een storing in een onderdeel. Net als telemetriemetingen kan Azure IoT Central apparaatgebeurtenissen simuleren, zodat u het gedrag van uw toepassing kunt testen voordat u een echt apparaat aansluit. U definieert gebeurtenismetingen voor uw apparaattype in de weergave **Metingen**.
 
 1. Kies **Nieuwe meting** om de gebeurtenismeting **Storing ventilatormotor** toe te voegen. Kies vervolgens **Gebeurtenis** als het type meting:
 
@@ -191,7 +191,7 @@ U kunt Gebeurtenis gebruiken om tijdstipgegevens te definiëren die door het app
 
 ## <a name="define-state-measurement"></a>Statusmeting definiëren
 
-U kunt Status gebruiken om de status van het apparaat of een onderdeel ervan in de loop van de tijd te definiëren en te visualiseren. Net als telemetriemetingen kan Azure IoT Central de apparaatstatus simuleren, zodat u het gedrag van uw toepassing kunt testen voordat u een fysiek apparaat aansluit. U definieert statusmetingen voor uw apparaattype in de weergave **Metingen**.
+U kunt Status gebruiken om de status van het apparaat of een onderdeel ervan in de loop van de tijd te definiëren en te visualiseren. Net als telemetriemetingen kan Azure IoT Central apparaatstatussen simuleren, zodat u het gedrag van uw toepassing kunt testen voordat u een echt apparaat aansluit. U definieert statusmetingen voor uw apparaattype in de weergave **Metingen**.
 
 1. Kies **Nieuwe meting** om de meting **Ventilatormodus**  toe te voegen. Kies vervolgens **Status** als het type meting:
 

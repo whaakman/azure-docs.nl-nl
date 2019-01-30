@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Gesproken tekst herkennen in Python met behulp van de Speech Service SDK'
+title: 'Quickstart: Spraak herkennen, Python - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in Python met behulp van de Speech Service SDK
+description: Gebruik deze handleiding om een consoletoepassing voor spraak-naar-tekst te maken met de Speech-SDK voor Python. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7610b12b351b2652df7ade603711d4d92e587292
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 40869457ce933368e17a2054dfca50fc4505fa22
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723906"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381572"
 ---
-# <a name="quickstart-using-the-speech-service-from-python"></a>Quickstart: Speech Service van Python gebruiken
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -39,7 +39,7 @@ Voordat u begint, bekijkt u de lijst vereisten:
 
 * In Windows hebt u ook het [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) voor uw platform nodig.
 
-## <a name="get-the-speech-sdk-python-package"></a>Het Python Speech SDK-pakket ophalen
+## <a name="install-the-speech-sdk"></a>De Speech-SDK installeren
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -61,7 +61,7 @@ Raadpleeg de [ondersteuningspagina](./support.md) als u een probleem ondervindt 
 
 ## <a name="create-a-python-application-using-the-speech-sdk"></a>Een Python-toepassing maken met behulp van de Speech SDK
 
-### <a name="running-the-sample-in-a-terminal"></a>Het voorbeeld uitvoeren in een terminal
+### <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
 U kunt de [code](#quickstart-code) uit deze quickstart kopiëren naar een bronbestand `quickstart.py` en uitvoeren in uw IDE of in de console
 
@@ -71,11 +71,11 @@ python quickstart.py
 
 of u kunt deze quickstart-zelfstudie downloaden als een [Jupyter](https://jupyter.org)-notitieblok uit de [opslagplaats met Cognitive Services Speech-voorbeelden](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) en uitvoeren als een notitieblok.
 
-### <a name="quickstart-code"></a>Quickstart-code
+### <a name="sample-code"></a>Voorbeeldcode
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Het Python Speech SDK-pakket installeren en het voorbeeld uitvoeren in Visual Studio Code
+### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>De Speech-SDK installeren en gebruiken met Visual Studio Code
 
 1. [Download](https://www.python.org/downloads/) en installeer een 64-bits versie (3.5 of later) van Python op de computer.
 1. [Download](https://code.visualstudio.com/Download) en installeer Visual Studio Code.

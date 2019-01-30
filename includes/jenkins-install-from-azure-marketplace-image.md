@@ -9,67 +9,68 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.openlocfilehash: 4025dcc5824991baa9a52dbb912a5c07f4273d58
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943467"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383292"
 ---
-1. Open in uw browser de [Azure Marketplace-installatiekopie voor Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
+1. Open in de browser de [Azure Marketplace-installatiekopie voor Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
-1. Selecteer **ophalen IT nu**.
+1. Selecteer **GET IT NOW**.
 
-    ![Selecteer deze nu GIT om het installatieproces voor de Jenkins Marketplace-installatiekopie te starten.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-get-it-now.png)
+    ![Selecteer GET IT NOW om het installatieproces te starten voor de Jenkins Marketplace-installatiekopie.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-get-it-now.png)
 
-1. Bekijk de informatie over de prijzen details en voorwaarden en selecteer **doorgaan**.
+1. Bekijk de prijsgegevens en de voorwaarden, en selecteer **Continue**.
 
-    ![Jenkins Marketplace installatiekopie prijzen en voorwaarden informatie.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-pricing-and-terms.png)
+    ![Prijsgegevens en voorwaarden voor de Jenkins Marketplace-installatiekopie.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-pricing-and-terms.png)
 
-1. Selecteer **maken** de Jenkins-server configureren in de Azure portal. 
+1. Selecteer **Maken** om de Jenkins-server te configureren in de Azure-portal. 
 
     ![Installeer de Jenkins Marketplace-installatiekopie.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-create.png)
 
-1. In de **basisbeginselen** tabblad, geeft u de volgende waarden:
+1. Geef op het tabblad **Basisinformatie** de volgende waarden op:
 
-    - **Naam** -Voer `Jenkins`.
-    - **Gebruikersnaam** -Geef de gebruikersnaam moet worden gebruikt bij het aanmelden bij de virtuele machine waarop Jenkins wordt uitgevoerd. De gebruikersnaam moet voldoen aan [specifieke vereisten](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-    - **Verificatietype** : Selecteer **openbare SSH-sleutel**.
-    - **Openbare SSH-sleutel** -kopiëren en plakken een openbare RSA-sleutel in de indeling van één regel (beginnen met `ssh-rsa`) of meerdere regels PEM-indeling. U kunt met behulp van ssh-keygen in Linux en Mac OS of PuTTYGen in Windows SSH-sleutels genereren. Zie het artikel voor meer informatie over de SSH-sleutels en Azure [hoe SSH gebruiken sleutels met Windows in Azure](/azure/virtual-machines/linux/ssh-from-windows).
-    - **Abonnement** -het Azure-abonnement waaraan u wilt installeren Jenkins selecteren.
-    - **Resourcegroep** : Selecteer **nieuw**, en voer een naam voor de resourcegroep die fungeert als een logische container voor de verzameling van resources die gezamenlijk uw Jenkins-installatie.
-    - **Locatie** : Selecteer **VS-Oost**.
+    - **Naam**: voer `Jenkins` in.
+    - **Gebruikersnaam**: voer de gebruikersnaam in die moet worden gebruikt bij het aanmelden bij de virtuele machine waarop Jenkins wordt uitgevoerd. De gebruikersnaam moet voldoen aan [specifieke vereisten](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+    - **Verificatietype**: selecteer **Openbare SSH-sleutel**.
+    - **Openbare SSH-sleutel**: kopieer en plak een openbare RSA-sleutel in een indeling met één regel (de sleutel moet beginnen met `ssh-rsa`) of in de PEM-indeling met meerdere regels. U kunt SSH-sleutels genereren met ssh-keygen in Linux en macOS, of met PuTTYGen in Windows. Raadpleeg het artikel [SSH-sleutels gebruiken met Windows in Azure](/azure/virtual-machines/linux/ssh-from-windows) voor meer informatie over SSH-sleutels en Azure.
+    - **Abonnement**: selecteer het Azure-abonnement waarin u Jenkins wilt installeren.
+    - **Resourcegroep**: selecteer **Nieuwe maken** en voer een naam in voor de resourcegroep die dient als logische container voor de verzameling resources die samen de Jenkins-installatie vormen.
+    - **Locatie**: selecteer **US - oost**.
 
-    ![Voer de verificatie- en groepsgegevens voor Jenkins op het tabblad basis.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
+    ![Voer op het tabblad Basisinformatie de verificatie en resourcegroep voor Jenkins in.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
 
-1. Selecteer **OK** om door te gaan naar de **extra instellingen** tabblad. 
+1. Selecteer **OK** om verder naar het tabblad **Aanvullende instellingen** te gaan. 
 
-1. In de **extra instellingen** tabblad, geeft u de volgende waarden:
+1. Geef op het tabblad **Aanvullende instellingen** de volgende waarden op:
 
-    - **De grootte van** -formaat van de juiste optie voor uw Jenkins virtuele machine.
-    - **VM-schijftype** – Geef de harde schijf (harde schijf) of SSD (solid-state drive) om aan te geven welk type opslagschijf is toegestaan voor de Jenkins virtuele machine.
-    - **Virtueel netwerk** -(optioneel) Selecteer **virtueel netwerk** de standaardinstellingen wijzigen.
-    - **Subnetten** : Selecteer **subnetten**, Controleer de informatie en selecteer **OK**.
-    - **Openbaar IP-adres** -naam van het IP-adres wordt standaard ingesteld op de Jenkins-naam die u hebt opgegeven in de vorige pagina en het achtervoegsel - IP. U kunt de optie die standaard wijzigen.
-    - **Domeinnaamlabel** -Geef de waarde voor de volledige URL naar de Jenkins virtuele machine.
-    - **Versietype Jenkins** -Selecteer het type van de gewenste versie in de opties: `LTS`, `Weekly build`, of `Azure Verified`. De `LTS` en `Weekly build` opties worden beschreven in het artikel [Jenkins TNS Release regel](https://jenkins.io/download/lts/). De `Azure Verified` optie verwijst naar een [Jenkins LTS versie](https://jenkins.io/download/lts/) die worden uitgevoerd op Azure is geverifieerd. 
+    - **Grootte**: selecteer de juiste grootte voor de virtuele Jenkins-machine.
+    - **VM-schijftype**: kies HDD (hardeschijfstation) of SSD (solid-state drive) om aan te geven welk schijfopslagtype is toegestaan voor de virtuele Jenkins-machine.
+    - **Virtueel netwerk**: selecteer **Virtueel netwerk** om de standaardinstellingen te wijzigen. (optioneel)
+    - **Subnetten**: selecteer **Subnetten**, controleer de gegevens en selecteer **OK**.
+    - **Openbaar IP-adres**: de naam van het IP-adres is standaard de Jenkins-naam die u hebt opgegeven op de vorige pagina, met het achtervoegsel -IP. U kunt ervoor kiezen om deze standaardinstelling te wijzigen.
+    - **Domeinnaamlabel**: geef de waarde op voor de volledig gekwalificeerde URL naar de virtuele Jenkins-machine.
+    - **Jenkins-releasetype**: selecteer het gewenste releasetype uit de opties: `LTS`, `Weekly build` of `Azure Verified`. De opties `LTS` en `Weekly build` worden toegelicht in het artikel [Jenkins LTS Release Line](https://jenkins.io/download/lts/). De optie `Azure Verified` verwijst naar een [Jenkins LTS-versie](https://jenkins.io/download/lts/) die is geverifieerd voor uitvoering in Azure. 
+    - **JDK-type**: JDK die moet worden geïnstalleerd. Standaard wordt Zulu getest, gecertificeerde builds van OpenJDK.
 
-    ![Voer de virtuele machine-instellingen voor Jenkins op het tabblad instellingen.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
+    ![Voer op het tabblad Instellingen de instellingen in voor de virtuele Jenkins-machine.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
 
-1. Selecteer **OK** om door te gaan naar de **instellingen voor Adreslijstintegratie** tabblad.
+1. Selecteer **OK** om verder naar het tabblad **Integratie-instellingen** te gaan.
 
-1. In de **instellingen voor Adreslijstintegratie** tabblad, geeft u de volgende waarden:
+1. Geef op het tabblad **Integratie-instellingen** de volgende waarden op:
 
-    - **Service-Principal** -de service-principal is toegevoegd aan Jenkins als referentie voor verificatie met Azure. `Auto` betekent dat de principal wordt gemaakt door MSI (Service-identiteit beheerd). `Manual` betekent dat de principal door u moet worden gemaakt. 
-        - **Toepassings-ID** en **geheim** : als u selecteert de `Manual` optie voor de **Service-Principal** optie, moet u om op te geven de `Application ID` en `Secret` voor uw service-principal. Wanneer [maken van een service-principal](/cli/azure/create-an-azure-service-principal-azure-cli), Let op de standaardrol is **Inzender**, dit is voldoende voor het werken met Azure-resources.
-    - **Inschakelen van Cloud-Agents** -Geef de standaardsjabloon cloud voor agents waar `ACI` verwijst naar een exemplaar van Azure-Container, en `VM` verwijst naar virtuele machines. U kunt ook opgeven `No` als u niet wilt inschakelen van een cloud-agent.
+    - **Service-principal**: de service-principal wordt aan Jenkins toegevoegd als een referentie voor verificatie met Azure. `Auto` betekent dat de principal wordt gemaakt met MSI (Managed Service Identity). `Manual` betekent dat de principal door u moet worden gemaakt. 
+        - **Toepassings-id** en **Geheim**: als u de optie `Manual` selecteert voor de optie **Service-principal**, moet u de `Application ID` en `Secret` voor de service-principal opgeven. U ziet dat **Bijdrager** de standaardrol is tijdens het [maken van een service-principal](/cli/azure/create-an-azure-service-principal-azure-cli). Dit is voldoende om met Azure-resources te werken.
+    - **Cloud-agents inschakelen**: geef de standaardcloudsjabloon voor agents op, waarbij `ACI` verwijst naar Azure Container Instance en `VM` verwijst naar virtuele machines. U kunt ook `No` opgeven als u geen cloudagent wilt inschakelen.
 
-1. Selecteer **OK** om door te gaan naar de **samenvatting** tabblad.
+1. Selecteer **OK** om verder naar het tabblad **Overzicht** te gaan.
 
-1. Wanneer de **samenvatting** tabblad weergegeven, wordt de informatie hebt ingevoerd, wordt gevalideerd. Eenmaal u ziet de **validatie geslaagd** bericht (aan de bovenkant van het tabblad), selecteer **OK**. 
+1. Wanneer het tabblad **Overzicht** wordt weergegeven, wordt de ingevoerde informatie gevalideerd. Zodra het bericht **Validatie voltooid** wordt weergegeven (bovenaan het tabblad), selecteert u **OK**. 
 
-    ![Het tabblad Overzicht wordt weergegeven en valideert de geselecteerde opties.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-summary.png)
+    ![Het tabblad Overzicht toont en valideert de geselecteerde opties.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-summary.png)
 
-1. Wanneer de **maken** tabblad worden weergegeven, selecteert u **maken** de Jenkins virtuele machine maken. Wanneer de server klaar is, wordt een melding weergegeven in de Azure portal.
+1. Wanneer het tabblad **Maken** wordt weergegeven, selecteert u **Maken** om de virtuele Jenkins-machine te maken. Er wordt een melding weergegeven in de Azure-portal wanneer de server klaar is.
 
-    ![Jenkins is gereed melding.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-notification.png)
+    ![Melding dat Jenkins klaar is.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-notification.png)

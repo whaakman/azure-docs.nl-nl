@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d0d02f491f14cc6e0664d79bcfd2cda44d433b5b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706004"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389945"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Zelfstudie: Een leslokaallab instellen 
 In deze zelfstudie stelt u een leslokaallab in met virtuele machines die worden gebruikt door studenten in het leslokaal.  
@@ -93,7 +93,7 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 1. U ziet het **dashboard** voor het lab. 
     
     ![Dashboard Leslokaallab](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. Ga naar de pagina **Virtuele machines** en controleer of u virtuele machines ziet met de status **Niet-toegewezen**. Deze virtuele machines zijn nog niet toegewezen aan studenten. Deze horen de status **Gestopt** te hebben. Op deze pagina kunt u een student-VM starten, verbinding maken met de virtuele machine, de virtuele machine stoppen en de virtuele machine verwijderen. U kunt de virtuele machines zelf starten vanaf deze pagina of ze laten starten door de studenten. 
+4. Schakel over naar de pagina **Virtuele machines** door Virtuele machines te selecteren in het menu links of door de tegel Virtuele machines te selecteren. Controleer of u virtuele machines ziet met de status **Niet-toegewezen**. Deze virtuele machines zijn nog niet toegewezen aan studenten. Deze horen de status **Gestopt** te hebben. Op deze pagina kunt u een student-VM starten, verbinding maken met de virtuele machine, de virtuele machine stoppen en de virtuele machine verwijderen. U kunt de virtuele machines zelf starten vanaf deze pagina of ze laten starten door de studenten. 
 
     ![Virtuele machines met de status Gestopt](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -112,19 +112,12 @@ Als u een leslokaallab in een labaccount instelt, moet u lid zijn van de rol **L
 ## <a name="send-registration-link-to-students"></a>Registratiekoppeling naar studenten verzenden
 
 1. Schakel over naar de weergave **Gebruikers** als u nog niet op die pagina bent. 
-2. Selecteer de tegel **Registratiekoppeling ophalen**.
+2. Selecteer **Registratiekoppeling ophalen** op de werkbalk.
+1. Selecteer in het dialoogvenster **Gebruikersregistratie** de knop **Kopiëren**. De koppeling wordt naar het klembord gekopieerd.
 
-    ![Registratiekoppeling voor studenten](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. Selecteer in het dialoogvenster **Gebruikersregistratie** de knop **Kopiëren**. De koppeling wordt naar het klembord gekopieerd. 
-
-    ![Registratiekoppeling voor studenten](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. Selecteer in het dialoogvenster **Gebruikersregistratie** de optie **Sluiten**. 
-4. Deel de registratiekoppeling met een student zodat de student zich voor de les kan registreren. Als u de instelling **Optie beperken** hebt ingeschakeld en een lijst met gebruikers in de lijst hebt, voert u de volgende acties uit:
-    1. Selecteer het **e-mailadres** van de gebruiker in de lijst. 
-    2. U ziet een venster van uw standaard-e-mailprogramma met het **Aan**-adres ingevuld. 
-    3. Plak de **registratie-URL** die u eerder hebt gekopieerd in het bericht. 
-    4. Verzend het **e-mailbericht**.
-
+    ![Registratiekoppeling](../media/tutorial-setup-classroom-lab/registration-link.png)
+1. Selecteer in het dialoogvenster **Gebruikersregistratie** de optie **Sluiten**. 
+2. Deel de registratielink met een student zodat de student zich voor de les kan registreren.
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u een leslokaallab gemaakt en het lab geconfigureerd. Ga voor meer informatie over hoe een student toegang kan krijgen tot een virtuele machine in het lab met behulp van de registratiekoppeling naar de volgende zelfstudie:

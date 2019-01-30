@@ -9,14 +9,14 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 41f3e3fffba0dde5277a39f62ef13d4dfc21c67e
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 72412956d231ea2696c05ba250302faf5f90c91d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291550"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823280"
 ---
-# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Zelfstudie: registreren en uw eerste video uploaden
+# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Zelfstudie: Registreren en uw eerste video uploaden
 
 In deze zelfstudie ziet u hoe u zich registreert bij de Video Indexer-website en hoe u uw eerste video uploadt.
 
@@ -41,7 +41,7 @@ Als u wilt gaan ontwikkelen met Video Indexer, gaat u naar de website van [Video
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt nu de [Video Indexer](video-indexer-view-edit.md)-website of de [Video Indexer-ontwikkelaarsportal](video-indexer-use-apis.md) gebruiken om de inzichten van de video te bekijken. 
+U kunt nu de [Video Indexer](video-indexer-view-edit.md)-website of de [Video Indexer Developer-portal](video-indexer-use-apis.md) gebruiken om de inzichten van de video te bekijken. 
 
 ## <a name="see-also"></a>Zie ook
 

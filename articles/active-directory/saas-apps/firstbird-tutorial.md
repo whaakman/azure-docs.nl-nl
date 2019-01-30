@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: acab1200-32d3-4f4b-953f-f2a7e812b6a3
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4de6323d3cf6c642ea7714eabf45200e1be0c269
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d11674632599afa190237b2a4a516d7cce6e2150
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883693"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Zelfstudie: Azure Active Directory-integratie met Firstbird
 
@@ -79,8 +79,8 @@ Als u Azure AD-eenmalige aanmelding met [toepassingsnaam] wilt configureren en t
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)** als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Firstbird-eenmalige aanmelding configureren](#configure-firstbird-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker voor Firstbird maken](#create-firstbird-test-user)**: zodat u over een equivalent van Britta Simon in Firstbird beschikt die is gekoppeld aan de weergave van de gebruiker in Azure AD.
-5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[De testgebruiker voor Firstbird maken](#create-firstbird-test-user)**: zodat u over een equivalent van Britta Simon in Firstbird beschikt die is gekoppeld aan de weergave van de gebruiker in Azure AD.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -105,16 +105,16 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
 
     ![Gegevens voor eenmalige aanmelding bij het Firstbird-domein en -URL's](common/idp_intiated.png)
 
-    a. In het tekstvak **Id** typt u een URL en gebruikt u het volgende patroon: `https://<company-domain>.auth.1brd.com/saml/sp`.
+    a. In het tekstvak **Id** typt u een URL met het volgende patroon: `https://<company-domain>.auth.1brd.com/saml/sp`
 
-    b. In het tekstvak **Antwoord-URL** typt u een URL en gebruikt u het volgende patroon: `https://<company-domain>.auth.1brd.com/saml/callback`.
+    b. In het tekstvak **Antwoord-URL** typt u een URL met de volgende notatie: `https://<company-domain>.auth.1brd.com/saml/callback`
 
 5. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
     ![Gegevens voor eenmalige aanmelding bij het Firstbird-domein en -URL's](common/metadata_upload_additional_signon.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met het volgende patroon: `https://<company-domain>.1brd.com/login`.
-    
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<company-domain>.1brd.com/login`
+
     > [!NOTE]
     > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke-id, de antwoord-URL en de aanmeldings-URL. Neem contact op met [Firstbird Client ondersteuningsteam](mailto:support@firstbird.com) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
@@ -154,7 +154,7 @@ Voor het configureren van Azure AD-eenmalige aanmelding met [toepassingsnaam], m
 
 ### <a name="configure-firstbird-single-sign-on"></a>Firstbird-eenmalige aanmelding configureren
 
-Nadat u deze stappen hebt voltooid, moet u het XML-bestand met federatieve metagegevens per e-mail naar Firstbird verzenden als een ondersteuningsaanvraag. Stuur deze e-mail naar [support@firstbird.com](mailto:support@firstbird.com) met als onderwerp: 'SSO-configuratie'.
+Nadat u deze stappen hebt voltooid, moet u het XML-bestand met federatieve metagegevens in een ondersteuningsaanvraag per e-mail naar Firstbird verzenden. Stuur deze e-mail naar [support@firstbird.com](mailto:support@firstbird.com) met als onderwerp: "SSO-configuratie".
 
 Firstbird slaat vervolgens de configuratie op in het systeem en activeert eenmalige aanmelding voor uw account. Vervolgens neemt een lid van het ondersteuningsteam contact met u op om de configuratie te controleren.
 

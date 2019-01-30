@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042135"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452952"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Voorbeelden van SQL-query's voor het uitvoeren van query's vanuit Azure Cosmos DB
 
@@ -506,7 +506,7 @@ U kunt ook de aanroepen van de operator nesten, zoals in de onderstaande query.
 
 Net zoals bij andere operatoren voor query's geldt hier ook: als de eigenschappen waarnaar wordt verwezen in de voorwaardelijke expressie in een item ontbreken, of als de typen die worden vergeleken niet overeenkomen, worden die items niet in de queryresultaten opgenomen.
 
-De samenvoegingsoperator (??) kan worden gebruikt om efficiënt te controleren of een eigenschap aanwezig (oftewel gedefinieerd) is in een item. Deze operator is handig bij het uitvoeren van query's op semi-gestructureerde gegevens of gegevens van verschillende typen. Deze query retourneert bijvoorbeeld de eigenschap "lastName" (achternaam) als deze aanwezig is, of de eigenschap "surname" (achternaam) als deze niet aanwezig is.
+De samenvoegingsoperator (??) kan worden gebruikt om efficiënt te controleren of een eigenschap aanwezig is in een item. Deze operator is handig bij het uitvoeren van query's op semi-gestructureerde gegevens of gegevens van verschillende typen. Deze query retourneert bijvoorbeeld de eigenschap "lastName" (achternaam) als deze aanwezig is, of de eigenschap "surname" (achternaam) als deze niet aanwezig is.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

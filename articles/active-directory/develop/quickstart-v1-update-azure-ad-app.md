@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f311f951e09e064b8eac779b1082c666fe029479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a89768a5cf02cc8d4cdce670bdfb5b90f504bdf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977233"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447459"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Snelstart: Een toepassing bijwerken in Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Quickstart: Een toepassing bijwerken in Azure Active Directory
 
 Bedrijfsontwikkelaars en SaaS-providers (software-as-a-service) die toepassingen hebben geregistreerd bij Azure Active Directory (Azure AD) moeten mogelijk uw toepassingen configureren voor toegang tot andere resources, zoals web-API's, zodat deze beschikbaar zijn in andere organisaties, en meer.
 
@@ -111,7 +111,7 @@ In de volgende sectie leest u hoe u toegangsbereiken weergeeft door het wijzigen
   ```
 
   > [!NOTE]
-  > De waarde `id` moet worden gegenereerd via een programma of met behulp van een tool voor het genereren van een GUID zoals [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). De `id` staat voor een unieke id voor het bereik zoals het wordt weergegeven door de web-API. Nadat een client op de juiste wijze is geconfigureerd met machtigingen voor toegang tot uw web-API, wordt er een OAuth 2.0-toegangstoken voor uitgegeven door Azure Active Directory. Wanneer de client de web-API aanroept, presenteert deze het toegangstoken waarvan de bereikclaim (scp is) is ingesteld op de machtigingen die zijn aangevraagd in de registratie van de toepassing.
+  > De waarde `id` moet worden gegenereerd via een programma of met behulp van een hulpprogramma voor het genereren van een GUID zoals [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). De `id` staat voor een unieke id voor het bereik zoals het wordt weergegeven door de web-API. Nadat een client op de juiste wijze is geconfigureerd met machtigingen voor toegang tot uw web-API, wordt er een OAuth 2.0-toegangstoken voor uitgegeven door Azure Active Directory. Wanneer de client de web-API aanroept, presenteert deze het toegangstoken waarvan de bereikclaim (scp is) is ingesteld op de machtigingen die zijn aangevraagd in de registratie van de toepassing.
   >
   > U kunt aanvullende bereiken indien nodig later weergeven. Houd er rekening mee dat uw web-API mogelijk meerdere bereiken weergeeft die zijn gekoppeld aan een verscheidenheid van verschillende functies. Uw resource kan toegang tot de web-API tijdens runtime beheren, door de bereikclaim(s) (`scp`) te evalueren in het ontvangen OAuth 2.0-toegangstoken.
 

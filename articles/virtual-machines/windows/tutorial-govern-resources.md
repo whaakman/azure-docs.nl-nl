@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6b36cdecb178a7189773abbfe963411e19764401
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311385"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438657"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Zelfstudie: Meer informatie over het beheren van virtuele Windows-machines met Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "49311385"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Voor de voorbeelden in dit artikel hebt u versie 6.0 of hoger van Azure PowerShell nodig. Als u PowerShell lokaal uitvoert en niet beschikt over versie 6.0 of hoger, moet u [uw versie bijwerken](/powershell/azure/install-azurerm-ps). U moet ook `Connect-AzureRmAccount` uitvoeren om een verbinding met Azure tot stand te brengen. Voor lokale installaties moet u ook [de Azure AD PowerShell-module downloaden](https://www.powershellgallery.com/packages/AzureAD/) om een nieuwe Azure Active Directory-groep te maken.
+Voor de voorbeelden in dit artikel hebt u versie 6.0 of hoger van Azure PowerShell nodig. Als u PowerShell lokaal uitvoert en niet beschikt over versie 6.0 of hoger, moet u [uw versie bijwerken](/powershell/azure/azurerm/install-azurerm-ps). U moet ook `Connect-AzureRmAccount` uitvoeren om een verbinding met Azure tot stand te brengen. Voor lokale installaties moet u ook [de Azure AD PowerShell-module downloaden](https://www.powershellgallery.com/packages/AzureAD/) om een nieuwe Azure Active Directory-groep te maken.
 
 ## <a name="understand-scope"></a>Bereik
 

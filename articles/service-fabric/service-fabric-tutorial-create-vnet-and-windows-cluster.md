@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632888"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435376"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Zelfstudie: Een Windows Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 
@@ -51,7 +51,7 @@ Voor u met deze zelfstudie begint:
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installeer de [Service Fabric SDK en PowerShell-module](service-fabric-get-started.md)
-* Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+* Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 
 Met de volgende procedures wordt er een Service Fabric-cluster met vijf knooppunten gemaakt. Gebruik de [Azure-prijscalculator](https://azure.microsoft.com/pricing/calculator/) om de kosten te berekenen voor het uitvoeren van een Service Fabric-cluster in Azure.
 
@@ -98,8 +98,8 @@ In de resource **Microsoft.ServiceFabric/clusters** wordt een Windows-cluster ge
 * [DNS-service](service-fabric-dnsservice.md) is ingeschakeld
 * een bronzen [duurzaamheidsniveau](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
 * een zilveren [betrouwbaarheidsniveau](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (configureerbaar in de sjabloonparameters)
-* eindpunt van de clientverbinding: 19000 (configureerbaar in de sjabloonparameters)
-* eindpunt van de HTTP-gateway: 19080 (configureerbaar in de sjabloonparameters)
+* het eindpunt van de clientverbinding: 19000 (configureerbaar in de sjabloonparameters)
+* het eindpunt van de HTTP-gateway: 19080 (configureerbaar in de sjabloonparameters)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 

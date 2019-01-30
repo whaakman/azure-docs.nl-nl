@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1f2991b2e006c97087c6288d3ed3c20d2927e8c
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788613"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413478"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Zelfstudie: Een Service Fabric Mesh-toepassing implementeren
 
@@ -106,7 +106,8 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Open een webbrowser en navigeer naar de URL om de website in Azure uitgevoerd te zien worden.
 
-## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI instellen 
+## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI instellen
+
 U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken voor de resterende stappen. Installeer de Azure Service Fabric Mesh CLI-uitbreidingsmodule door de volgende [instructies](service-fabric-mesh-howto-setup-cli.md) te volgen.
 
 ## <a name="check-application-deployment-status"></a>De implementatiestatus van de toepassing controleren
@@ -117,6 +118,14 @@ De naam van de toepassing voor de zelfstudie-app is `todolistapp`. Haal de detai
 
 ```azurecli-interactive
 az mesh app show --resource-group $rg --name todolistapp
+```
+
+## <a name="get-the-ip-address-of-your-deployment"></a>Het IP-adres van implementatie verkrijgen
+
+Gebruik de volgende opdracht om het IP-adres voor uw toepassing te verkrijgen:
+  
+```azurecli-interactive
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Alle toepassingen bekijken die momenteel in uw abonnement zijn geïmplementeerd

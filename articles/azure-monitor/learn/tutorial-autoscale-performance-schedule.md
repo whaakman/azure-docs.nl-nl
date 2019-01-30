@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.component: autoscale
-ms.openlocfilehash: bf9cf931964fec9b2089cce100757e044788a972
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: autoscale
+ms.openlocfilehash: b9d54dc1483da20b4c411047af0b44b681fe197c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262316"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429273"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Een instelling maken voor automatisch schalen van Azure-resources op basis van prestatiegegevens of een planning
 
@@ -37,7 +37,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 ## <a name="create-a-web-app-and-app-service-plan"></a>Een Web-App en een App Service-plan maken
 1. Klik op de optie **Een resource maken** in het navigatievenster aan de linkerkant.
 2. Zoek en selecteer het item *Web-App* en klik op **Maken**.
-3. Selecteer een app-naam zoals *MyTestScaleWebApp*. Maak een nieuwe resourcegroep * myResourceGroup' en plaats deze in de resourcegroep van uw keuze.
+3. Selecteer een app-naam zoals *MyTestScaleWebApp*. Maak een nieuwe resourcegroep 'myResourceGroup' of plaats deze in de resourcegroep van uw keuze.
 
 Binnen een paar minuten moeten uw resources zijn ingericht. Gebruik de Web-App en het bijbehorende App Service-plan in de rest van deze zelfstudie.
 
@@ -185,3 +185,4 @@ Voor meer informatie over instellingen voor automatisch schalen gaat u naar het 
 
 > [!div class="nextstepaction"]
 > [Bewakingsgegevens archiveren](tutorial-archive-data.md)
+

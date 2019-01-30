@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 03/15/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 42fbb8b08a2dc24ced436c4a6104f03ae3bca1e9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 69c8e293186f955e86962a325fce2f54a2eefdc7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982807"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432163"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>B2B-samenwerking vergelijken met B2C in Azure Active Directory
 
@@ -30,9 +30,9 @@ De onderstaande tabel geeft een gedetailleerde vergelijking.
 
 B2B-samenwerkingsfunctionaliteiten |     Azure AD B2C zelfstandige aanbieding
 -------- | --------
-Bedoeld voor: organisaties die willen in staat zijn om gebruikers van een partnerorganisatie te kunnen verifiëren, ongeacht de id-provider. | Bedoeld voor: uitnodigen van klanten van uw mobiele en web-apps, zij het personen, institutionele of organisatie-klanten in uw Azure AD.
-Identiteiten die worden ondersteund: werknemers met werk- of schoolaccounts, partners met werk- of schoolaccounts of een e-mailadres. Binnenkort wordt directe federatie ondersteund.  | Identiteiten die worden ondersteund: consumentgebruikers met lokale toepassingen onder accounts (een e-adres of gebruikersnaam) of een ondersteund sociale id met directe federatie.
-In welke map de partnergebruikers zich bevinden: partnergebruikers van de externe organisatie worden beheerd in dezelfde map als werknemers, maar met een speciale aantekening. Ze kunnen op dezelfde manier als werknemers worden beheerd, kunnen worden toegevoegd aan dezelfde groepen, enzovoort  | In welke map de klant-gebruikersentiteiten zich bevinden: in de toepassingsmap. Afzonderlijk beheerd vanaf de werknemers- en partnermap van de organisatie (indien van toepassing.
+Bedoeld voor: Organisaties die gebruikers van een partnerorganisatie willen kunnen verifiëren, ongeacht de id-provider. | Bedoeld voor: uitnodigen van klanten van uw mobiele apps en web-apps, zoals personen, institutionele of organisatie-klanten in uw Azure AD.
+Ondersteunde identiteiten: werknemers met werk- of schoolaccounts, partners met werk- of schoolaccounts of een e-mailadres. Binnenkort wordt directe federatie ondersteund.  | Ondersteunde identiteiten: consumentgebruikers met lokale toepassingen onder accounts (een e-adres of gebruikersnaam) of een ondersteund sociale id met directe federatie.
+In welke map de partnergebruikers zich bevinden: partnergebruikers van de externe organisatie worden beheerd in dezelfde map als werknemers, maar met een speciale aantekening. Ze kunnen op dezelfde manier als werknemers worden beheerd, kunnen worden toegevoegd aan dezelfde groepen, enzovoort  | In welke map de klantgebruikers zich bevinden: in de toepassingsmap. Afzonderlijk beheerd vanaf de werknemers- en partnermap van de organisatie (indien van toepassing.
 Eenmalige aanmelding (SSO) voor alle Azure AD verbonden apps wordt ondersteund. U kunt bijvoorbeeld toegang bieden voor Office 365 of on-premises apps en andere SaaS-apps, zoals Salesforce of Workday.  |  SSO voor apps van klanten in de Azure AD B2C-tenants wordt ondersteund. SSO bij Office 365 of andere Microsoft- en niet-Microsoft SaaS-apps wordt niet ondersteund.
 Levenscyclus van de partner: beheerd door de host/uitnodigende organisatie.  | Levenscyclus van de klant: self-service of beheerd door de toepassing.
 Beveiligingsbeleid en naleving: beheerd door de host/uitnodigende organisatie (bijvoorbeeld met [beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Beveiligingsbeleid en naleving: beheerd door de toepassing.

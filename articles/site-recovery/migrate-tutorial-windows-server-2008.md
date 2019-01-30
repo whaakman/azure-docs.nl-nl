@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039942"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382877"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Servers waarop Windows Server 2008 wordt uitgevoerd, naar Azure migreren
 
@@ -119,7 +119,7 @@ Selecteer en controleer doelbronnen.
 1. Klik op **Infrastructuur voor Site Recovery** > **Herstelbeleid** > **+Herstelbeleid** om een nieuw replicatiebeleid te maken.
 2. Geef in **Replicatiebeleid maken** een beleidsnaam op.
 3. Geef in **RPO-drempelwaarde** de limiet van de Recovery Point Objective (RPO) op. Wanneer de replicatie-RPO deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
-4. Geef in **Bewaarperiode van het herstelpunt** op hoelang (in uren) de bewaarperiode voor elk herstelpunt is. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster. Voor computers die worden gerepliceerd naar Premium Storage, wordt een bewaarperiode van maximaal 24 uur ondersteund, en 72 uur voor computers die naar Standard Storage worden gerepliceerd.
+4. Geef in **Bewaarperiode van het herstelpunt** op hoelang (in uren) de bewaarperiode voor elk herstelpunt is. Gerepliceerde servers kunnen worden hersteld naar een willekeurig punt in dit tijdvenster. Voor computers die worden gerepliceerd naar Premium Storage, wordt een bewaarperiode van maximaal 24 uur ondersteund, en 72 uur voor computers die naar Standard Storage worden gerepliceerd.
 5. Geef in **Frequentie van de app-consistente momentopname** **Uit** op. Klik op **OK** om het beleid te maken.
 
 Het beleid wordt automatisch gekoppeld aan de configuratieserver.
@@ -154,13 +154,13 @@ Een failover uitvoeren voor de machines die u wilt migreren.
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. Selecteer het meest recente herstelpunt.
 3. Selecteer **Sluit de computer af voordat de failover wordt gestart**. Site Recovery tracht de virtuele bronmachine af te sluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
 4. Controleer of de virtuele Azure-machine in Azure wordt weergegeven zoals verwacht.
-5. Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine > **Migratie voltooien**. Er gebeurt nu het volgende:
+5. Klik in **Gerepliceerde items** met de rechtermuisknop op de server > **Migratie voltooien**. Er gebeurt nu het volgende:
 
-    - Het migratieproces wordt voltooid, de replicatie voor de AWS-VM wordt gestopt en Site Recovery-facturering voor de virtuele machine wordt gestopt.
+    - Het migratieproces wordt voltooid, de replicatie voor de server wordt gestopt en Site Recovery-facturering voor de server wordt gestopt.
     - Met deze stap worden de replicatiegegevens opgeschoond. De gemigreerde VM's worden niet verwijderd.
 
    ![Migratie voltooien](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **Annuleer nooit een failover die in uitvoering is**: De VM-replicatie wordt gestopt voordat de failover start. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.
+> **Annuleer nooit een failover die in uitvoering is**: De replicatie van de server wordt gestopt voordat de failover start. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar wordt de server niet meer gerepliceerd.

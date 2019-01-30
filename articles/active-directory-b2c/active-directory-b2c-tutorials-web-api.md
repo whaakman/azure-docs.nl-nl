@@ -3,19 +3,19 @@ title: 'Zelfstudie: toegang verlenen aan een web-API van ASP.NET vanuit een web-
 description: Zelfstudie over het gebruik van Active Directory B2C om een ASP.NET web-api te beveiligen en aan te roepen vanuit een ASP.NET-web-app.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4051c0438cfb7c33f36cf49542e422e54e723cfc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726403"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856057"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Zelfstudie: toegang verlenen aan een web-API van ASP.NET vanuit een web-app met behulp van Azure Active Directory B2C
 
@@ -116,13 +116,13 @@ Uw **Mijn voorbeeld-web-app** is geregistreerd om de beveiligde **Mijn voorbeeld
 
 Nu de web-API is geregistreerd en u bereiken hebt gedefinieerd, moet u de web-API-code configureren om uw Azure AD B2C-tenant te gebruiken. In deze zelfstudie gaat u een voorbeeld-web-API configureren. 
 
-De voorbeeld-web-API is opgenomen in het project dat u hebt gedownload in de zelfstudie die voorafgaande aan deze moet worden voltooid: [de zelfstudie Azure Active Directory B2C gebruiken voor gebruikersverificatie in een ASP.NET-web-app](active-directory-b2c-tutorials-web-app.md). Als u die vereiste zelfstudie nog niet hebt voltooid, moet u deze voltooien voordat u verdergaat.
+De voorbeeld-web-API bevindt zich in het project dat u hebt gedownload in de vereiste zelfstudie: [Zelfstudie Azure Active Directory B2C gebruiken voor gebruikersverificatie in een voor een ASP.NET-web-app](active-directory-b2c-tutorials-web-app.md). Als u die vereiste zelfstudie nog niet hebt voltooid, moet u deze voltooien voordat u verdergaat.
 
 Er bevinden zich twee projecten in de voorbeeldoplossing:
 
-**Voorbeeld-web-app (TaskWebApp):** een web-app om een takenlijst te maken of te bewerken. De web-app gebruikt de gebruikersstroom voor **registratie of aanmelding** om gebruikers met een e-mailadres te registreren of aan te melden.
+**Voorbeeld van web-app (TaskWebApp):** Web-app voor het maken en bewerken van een takenlijst. De web-app gebruikt de gebruikersstroom voor **registratie of aanmelding** om gebruikers met een e-mailadres te registreren of aan te melden.
 
-**Voorbeeld-web-API-app (TaskService):** een web-API die ondersteuning biedt voor het maken, lezen, bijwerken en verwijderen van takenlijstfunctionaliteit. De web-API wordt beveiligd door Azure AD B2C en aangeroepen door de web-app.
+**Web API-voorbeeld-app (TaskService):** Web-API die ondersteuning biedt voor functionaliteit voor het maken, lezen, bijwerken en verwijderen van takenlijsten. De web-API wordt beveiligd door Azure AD B2C en aangeroepen door de web-app.
 
 De voorbeeld-web-app en -web-API definiëren de configuratiewaarden als app-instellingen in het bestand Web.config van elk project.
 

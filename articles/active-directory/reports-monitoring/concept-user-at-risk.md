@@ -3,7 +3,7 @@ title: Beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risi
 description: Meer informatie over het beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a7a3877970d5ecf3b86471b94fbb1bf6e5efbb4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: de9cf73ba7ad68d84e43a7774617959f9c3789ee
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621068"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810751"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Rapport met gebruikers die risico lopen in de Azure-portal
 
@@ -55,19 +55,16 @@ Het rapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de 
 
 ![Riskante aanmeldingen](./media/concept-user-at-risk/03.png)
 
-Wanneer u op een gebruiker klikt, wordt de betreffende blade met gebruikersgegevens geopend. Controleer de aanmeldgeschiedenis van gebruikers die risico lopen en stel het wachtwoord indien nodig opnieuw in.
-
-![Riskante aanmeldingen](./media/concept-user-at-risk/46.png)
-
+Door een gebruiker te selecteren, kunt u aanmeldingsgegevens bekijken. Controleer de aanmeldgeschiedenis van gebruikers die risico lopen en stel het wachtwoord indien nodig opnieuw in.
 
 Dit rapport biedt de volgende mogelijkheden:
 
 - Het rapport downloaden
-
 - Gebruikers zoeken
 
-![Riskante aanmeldingen](./media/concept-user-at-risk/16.png)
+    ![Riskante aanmeldingen](./media/concept-user-at-risk/16.png)
 
+Voor gedetailleerdere informatie hebt u een premium-licentie nodig.
 
 ## <a name="users-at-risk-report-for-azure-ad-premium-editions"></a>Rapport met gebruikers die risico lopen voor Premium-edities van Azure AD
 

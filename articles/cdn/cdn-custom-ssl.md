@@ -12,20 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5b8277c0688d0fd08dfa81cb7d5f7155840843c0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092080"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413580"
 ---
-# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast Azure CDN-domein configureren
-
-> [!IMPORTANT]
-> Deze functie is niet beschikbaar bij **Azure CDN Standard van Akamai**-producten. Zie [Azure CDN-producteigenschappen vergelijken](cdn-features.md) voor een vergelijking van de functies van Azure Content Delivery Network (CDN).
+# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast domein van Azure CDN configureren
 
 In deze zelfstudie ziet u hoe u het HTTPS-protocol inschakelt voor een aangepast domein dat is gekoppeld aan een Azure CDN-eindpunt. Door het HTTPS-protocol te gebruiken in uw aangepaste domein, (bijvoorbeeld https:\//www.contoso.com) zorgt u ervoor dat uw gevoelige gegevens veilig worden afgeleverd via TLS/SSL-versleuteling wanneer deze via internet worden verzonden. Wanneer uw webbrowser is verbonden met een website via HTTPS, wordt het beveiligingscertificaat van de website gevalideerd en wordt er gecontroleerd of deze is uitgegeven door een legitieme certificeringsinstantie. Via dit proces zijn uw webtoepassingen beveiligd tegen aanvallen.
 
@@ -35,7 +32,7 @@ Enkele belangrijke kenmerken van de aangepaste HTTPS-functie zijn:
 
 - Geen extra kosten: er worden geen kosten in rekening gebracht voor het verwerven of vernieuwen van certificaten, of voor HTTPS-verkeer. U betaalt alleen voor de uitgaande GB van het CDN.
 
-- Eenvoudig inschakelen: inrichten met één klik is beschikbaar in [Azure Portal](https://portal.azure.com). U kunt ook REST API of andere hulpprogramma’s voor ontwikkelaars gebruiken om de functie in te schakelen.
+- Eenvoudig inschakelen: inrichten met één klik is beschikbaar in de [Microsoft Azure-portal](https://portal.azure.com). U kunt ook REST API of andere hulpprogramma’s voor ontwikkelaars gebruiken om de functie in te schakelen.
 
 - Volledig certificaatbeheer is beschikbaar: alle aanschaf en beheer van certificaten wordt voor u afgehandeld. Certificaten worden automatisch ingericht en vernieuwd vóór de verloopdatum. Hierdoor loopt u niet het risico dat de service wordt onderbroken omdat een certificaat is verlopen.
 
@@ -49,9 +46,9 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-profiel en ten minste één CDN-eindpunt maken. Zie voor meer informatie [Snelstartgids: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
+Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-profiel en ten minste één CDN-eindpunt maken. Zie voor meer informatie [Snelstart: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
 
-Daarnaast moet u een aangepast Azure CDN-domein koppelen aan uw CDN-eindpunt. Zie [Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt](cdn-map-content-to-custom-domain.md) voor meer informatie
+Daarnaast moet u een aangepast Azure CDN-domein koppelen aan uw CDN-eindpunt. Zie [Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt](cdn-map-content-to-custom-domain.md)
 
 ---
 
@@ -65,7 +62,7 @@ Wanneer u een door CDN beheerd certificaat gebruikt, kan de HTTPS-functie met ee
 
 Volg deze stappen om HTTPS in te schakelen in een aangepast domein:
 
-1. Ga in [Azure Portal](https://portal.azure.com) naar uw profiel in **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon**.
+1. Ga in de [Microsoft Azure-portal](https://portal.azure.com) naar uw profiel in **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon**.
 
 2. Selecteer in de lijst met CDN-eindpunten het eindpunt met het aangepaste domein.
 
@@ -188,6 +185,9 @@ Automatische validatie duurt meestal een paar minuten. Als het domein na een uur
 
 Als de CNAME-record voor uw eindpunt niet meer bestaat of als deze het subdomein cdnverify bevat, volgt u de rest van de instructies in deze stap.
 
+>[!NOTE]
+>E-mailvalidatie van aangepast domeineigendom is momenteel niet beschikbaar voor profielen van **Azure CDN van Akamai**. Deze functie staat momenteel op onze planning. 
+
 Nadat u HTTPS hebt ingeschakeld voor uw aangepaste domein, wordt met de DigiCert-CA het eigendom van het domein gevalideerd door contact op te nemen met de bijbehorende registrator, op basis van de [WHOIS](http://whois.domaintools.com/)-registratiegegevens van het domein. Contact verloopt via het e-mailadres (standaard) of het telefoonnummer dat staat vermeld in de WHOIS-registratie. U moet de domeinvalidatie voltooien voordat HTTPS actief is voor uw aangepaste domein. U hebt zes werkdagen de tijd om het domein goed te keuren. Aanvragen die niet binnen zes werkdagen zijn goedgekeurd, worden automatisch geannuleerd. 
 
 ![WHOIS-record](./media/cdn-custom-ssl/whois-record.png)
@@ -302,15 +302,11 @@ In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt na
     
     Voor een SAN-certificaat gelden dezelfde standaarden voor versleuteling en beveiliging als voor een toegewezen certificaat. Alle verleende SSL-certificaten maken gebruik van SHA-256 voor verbeterde serverbeveiliging.
 
-5. *Kan ik een aangepaste domein-HTTPS gebruiken met Azure CDN van Akamai?*
-
-    Op dit moment is deze functie niet beschikbaar bij **Azure CDN Standard van Akamai** -profielen. Microsoft werkt eraan om ergens in de komende maanden ondersteuning te gaan bieden voor deze functie.
-
-6. *Heb ik een CAA-record nodig bij mijn DNS-provider?*
+5. *Heb ik een CAA-record nodig bij mijn DNS-provider?*
 
     Nee, een CAA-record is momenteel niet vereist. Als u er echter wel een hebt, moet deze DigiCert bevatten als een geldige CA.
 
-7. *Vanaf 20 juni 2018 gebruikt Azure CDN van Verizon standaard een toegewezen certificaat met SNI TLS/SSL. Wat gebeurt er met mijn bestaande aangepaste domeinen die gebruik maken van een SAN-certificaat (Subject Alternative Names) en TLS/SSL op basis van IP?*
+6. *Vanaf 20 juni 2018 gebruikt Azure CDN van Verizon standaard een toegewezen certificaat met SNI TLS/SSL. Wat gebeurt er met mijn bestaande aangepaste domeinen die gebruik maken van een SAN-certificaat (Subject Alternative Names) en TLS/SSL op basis van IP?*
 
     Uw bestaande domeinen worden de komende maanden geleidelijk gemigreerd naar één certificaat, als Microsoft analyseert dat alleen SNI-clientaanvragen aan uw toepassing worden gericht. Als Microsoft detecteert dat er nog niet-SNI client-aanvragen aan uw toepassing worden gericht, behouden uw domeinen het SAN-certificaat met TLS/SSL op basis van IP. In elk geval is er geen onderbreking van uw service of ondersteuning van uw clientaanvragen, ongeacht of het SNI- of niet-SNI-aanvragen zijn.
 

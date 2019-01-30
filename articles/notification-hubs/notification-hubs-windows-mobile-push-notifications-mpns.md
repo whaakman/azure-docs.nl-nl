@@ -4,8 +4,8 @@ description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushme
 services: notification-hubs
 documentationcenter: windows
 keywords: pushmelding,pushmelding,windows phone-push
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: e055b51af19ad3958c0c9155490c598ed0f4a80e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 40d962e2724b36f97923f10a8a462848b137873b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235204"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452476"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Windows Phone-apps met Azure Notification Hubs
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 In deze zelfstudie ziet u hoe u met Azure Notification Hubs pushmeldingen verzendt naar Silverlight-toepassingen van Windows Phone 8 of Windows Phone 8.1. Als u ontwikkelt voor Windows Phone 8.1 (zonder Silverlight), raadpleegt u de [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)-versie van deze zelfstudie.
@@ -33,25 +34,26 @@ In deze zelfstudie maakt u een lege Windows Phone 8-app die pushmeldingen ontvan
 > [!NOTE]
 > De Notification Hubs Windows Phone SDK biedt geen ondersteuning voor het gebruik van Windows Push Notification Service (WNS) met Windows Phone 8.1 Silverlight-apps. Als u WNS (in plaats van MPNS) met Windows Phone 8.1 Silverlight-apps wilt gebruiken, raadpleegt u de [Notification Hubs - Windows Phone Silverlight-zelfstudie] waarin REST API's worden gebruikt.
 
-In deze zelfstudie leert u het volgende: 
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een Notification Hub maken
 > * Een Windows Phone-toepassing maken
-> * Een testmelding verzenden 
+> * Een testmelding verzenden
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Azure-abonnement**. Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-- [Visual Studio 2015 Express met onderdelen voor de ontwikkeling van mobiele apps](https://www.visualstudio.com/vs/older-downloads/)
+* **Azure-abonnement**. Als u nog geen abonnement op Azure hebt, [maakt u een gratis Azure-account](https://azure.microsoft.com/free/) voordat u begint.
+* [Visual Studio 2015 Express met onderdelen voor de ontwikkeling van mobiele apps](https://www.visualstudio.com/vs/older-downloads/)
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor Windows Phone 8-apps.
 
 ## <a name="create-your-notification-hub"></a>Een Notification Hub maken
+
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-
 ### <a name="configure-windows-phone-mpns-settings"></a>Windows Phone-instellingen (MPNS) configureren
+
 1. Selecteer **Windows Phone (MPNS)** onder **MELDINGSINSTELLINGEN**.
 2. Selecteer **Verificatiepush inschakelen**.
 3. Selecteer **Opslaan** op de werkbalk.
@@ -64,72 +66,70 @@ Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification 
     > In deze zelfstudie wordt MPNS in niet-geverifieerde modus gebruikt. Bij de niet-geverifieerde MPNS-modus gelden beperkingen voor meldingen die u naar elk kanaal kunt verzenden. Notification Hubs ondersteunt de [geverifieerde MPNS-modus](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) doordat u uw certificaat kunt uploaden.
 
 ## <a name="create-a-windows-phone-application"></a>Een Windows Phone-toepassing maken
-In deze sectie maakt u een Windows Phone-toepassing die zichzelf bij uw Notification Hub registreert. 
 
-1. Maak een nieuwe Windows Phone 8-toepassing in Visual Studio. 
-   
+In deze sectie maakt u een Windows Phone-toepassing die zichzelf bij uw Notification Hub registreert.
+
+1. Maak een nieuwe Windows Phone 8-toepassing in Visual Studio.
+
     ![Visual Studio - Nieuw project - Windows Phone-app][13]
-   
+
     In Visual Studio 2013 Update 2 of hoger maakt u daarentegen een Windows Phone Silverlight-toepassing.
-   
+
     ![Visual Studio - Nieuw project - Lege app - Windows Phone Silverlight][11]
 2. Klik met de rechtermuisknop op de oplossing in Visual Studio en klik vervolgens op **NuGet-pakketten beheren**.
 3. Zoek `WindowsAzure.Messaging.Managed` en klik op **Installeren**. Accepteer vervolgens de gebruiksvoorwaarden.
-   
+
     ![Visual Studio - NuGet Package Manager][20]
 4. Open het bestand App.xaml.cs en voeg de volgende `using`-instructies toe:
-   
+
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
-5. Voeg de volgende code toe aan de bovenkant van de **Application_Launching**-methode in App.xaml.cs:
-   
-        private void Application_Launching(object sender, LaunchingEventArgs e)
-        {
+5. Voeg de volgende code toe bovenaan methode `Application_Launching` in `App.xaml.cs`:
 
-            var channel = HttpNotificationChannel.Find("MyPushChannel");
-            if (channel == null)
-            {
-                channel = new HttpNotificationChannel("MyPushChannel");
-                channel.Open();
-                channel.BindToShellToast();
-            }
-       
-            channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
-            {
-                var hub = new NotificationHub("<hub name>", "<connection string>");
-                var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
-       
-                System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
-                {
-                    MessageBox.Show("Registration :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
-                });
-            });
+    ```csharp
+    private void Application_Launching(object sender, LaunchingEventArgs e)
+    {
+
+        var channel = HttpNotificationChannel.Find("MyPushChannel");
+        if (channel == null)
+        {
+            channel = new HttpNotificationChannel("MyPushChannel");
+            channel.Open();
+            channel.BindToShellToast();
         }
-   
+
+        channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
+        {
+            var hub = new NotificationHub("<hub name>", "<connection string>");
+            var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+
+            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                MessageBox.Show("Registration :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
+            });
+        });
+    }
+    ```
+
    > [!NOTE]
-   > De waarde **MyPushChannel** is een index die wordt gebruikt om een bestaand kanaal te zoeken in de collectie [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx). Als het kanaal niet wordt gevonden, maakt u een nieuwe vermelding met die naam.
-   > 
-   > 
-   
-    Voeg de naam van uw hub in en de verbindingsreeks met de naam **DefaultListenSharedAccessSignature** die u in de voorgaande sectie hebt genoteerd.
+   > De waarde `MyPushChannel` is een index die wordt gebruikt om een bestaand kanaal te zoeken in de collectie [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx). Als het kanaal niet wordt gevonden, maakt u een nieuwe vermelding met die naam.
+
+    Voeg de naam van uw hub in en de verbindingsreeks met de naam `DefaultListenSharedAccessSignature` die u in de voorgaande sectie hebt genoteerd.
     Met deze code wordt de kanaal-URI voor de app opgehaald uit MPNS en wordt vervolgens die kanaal-URI voor uw Notification Hub geregistreerd. Ook wordt hiermee gegarandeerd dat de kanaal-URI in uw Notification Hub wordt geregistreerd telkens wanneer de toepassing wordt gestart.
-   
+
    > [!NOTE]
-   > In deze zelfstudie wordt een pop-upmelding naar het apparaat verzonden. Wanneer u een tegelmelding verzendt, moet u in plaats daarvan de **BindToShellTile**-methode voor het kanaal aanroepen. Voor de ondersteuning van zowel pop-up- als tegelmeldingen roept u **BindToShellTile** en **BindToShellToast** aan.
-   > 
-   > 
-6. Vouw in Solution Explorer **Eigenschappen** uit, open het bestand `WMAppManifest.xml`, klik op het tabblad **Mogelijkheden** en zorg ervoor dat de mogelijkheid **ID_CAP_PUSH_NOTIFICATION** is ingeschakeld. Uw app kan nu pushmeldingen ontvangen. 
-   
-    ![Visual Studio - Windows Phone-app-mogelijkheden][14]    
-7. Druk op de toets `F5` om de app uit te voeren.
-   
-    Er wordt een registratiebericht in de app weergegeven.
-8. Sluit de app of ga naar de startpagina. 
-   
+   > In deze zelfstudie wordt een pop-upmelding naar het apparaat verzonden. Wanneer u een tegelmelding verzendt, moet u in plaats daarvan de methode `BindToShellTile` voor het kanaal aanroepen. Voor ondersteuning van zowel pop-up- als tegelmeldingen roept u zowel `BindToShellTile` als `BindToShellToast` aan.
+
+6. Vouw in Solution Explorer **Eigenschappen** uit, open het bestand `WMAppManifest.xml`, klik op het tabblad **Mogelijkheden** en zorg ervoor dat de mogelijkheid **ID_CAP_PUSH_NOTIFICATION** is ingeschakeld. Uw app kan nu pushmeldingen ontvangen.
+
+    ![Visual Studio - Windows Phone-app-mogelijkheden][14]
+7. Druk op de toets `F5` om de app uit te voeren. Er wordt een registratiebericht in de app weergegeven.
+8. Sluit de app of ga naar de startpagina.
+
    > [!NOTE]
    > Als u een pop-upmelding wilt ontvangen, moet de toepassing niet worden uitgevoerd op de voorgrond.
 
-## <a name="test-send-a-notification"></a>Een testmelding verzenden 
+## <a name="test-send-a-notification"></a>Een testmelding verzenden
 
 1. Ga in Azure Portal naar het tabblad Overzicht.
 2. Selecteer **Verzenden testen**.
@@ -137,22 +137,22 @@ In deze sectie maakt u een Windows Phone-toepassing die zichzelf bij uw Notifica
     ![Knop Verzenden testen](./media/notification-hubs-windows-phone-get-started/test-send-button.png)
 3. Voer in het venster **Verzenden testen** de volgende stappen uit:
 
-    1. Selecteer **Windows Phone** bij **Platforms**. 
-    2. Selecteer **Pop-up** bij **Meldingstype**. 
+    1. Selecteer **Windows Phone** bij **Platforms**.
+    2. Selecteer **Pop-up** bij **Meldingstype**.
     3. Selecteer **Verzenden**
-    4. Bekijk het **resultaat** in de lijst onderaan het venster. 
+    4. Bekijk het **resultaat** in de lijst onderaan het venster.
 
-        ![Het venster Verzenden testen](./media/notification-hubs-windows-phone-get-started/test-send-window.png)    
-4. Controleer in de Windows Phone-emulator of op de Windows-telefoon of u de melding ziet. 
+        ![Het venster Verzenden testen](./media/notification-hubs-windows-phone-get-started/test-send-window.png)
+4. Controleer in de Windows Phone-emulator of op de Windows-telefoon of u de melding ziet.
 
     ![Melding op Windows-telefoon](./media/notification-hubs-windows-phone-get-started/notification-on-windows-phone.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In dit eenvoudige voorbeeld hebt u pushmeldingen uitgezonden naar al uw Windows Phone 8-apparaten. Ga verder met de volgende zelfstudie als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke apparaten:
 
 > [!div class="nextstepaction"]
 >[Pushmeldingen verzenden naar specifieke apparaten](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
-
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
@@ -162,16 +162,11 @@ In dit eenvoudige voorbeeld hebt u pushmeldingen uitgezonden naar al uw Windows 
 [10]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
 [12]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
-
 [13]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
 [14]: ./media/notification-hubs-windows-phone-get-started/mobile-app-enable-push-wp8.png
 [15]: ./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png
 [20]: ./media/notification-hubs-windows-phone-get-started/notification-hub-windows-universal-app-install-package.png
 [213]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
-
-
-
-
 
 <!-- URLs. -->
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
@@ -181,4 +176,3 @@ In dit eenvoudige voorbeeld hebt u pushmeldingen uitgezonden naar al uw Windows 
 [toast catalog]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hubs - Windows Phone Silverlight-zelfstudie]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
-

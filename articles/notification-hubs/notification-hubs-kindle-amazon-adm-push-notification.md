@@ -3,8 +3,8 @@ title: Pushmeldingen verzenden naar Kindle-apps met Azure Notification Hubs | Mi
 description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verstuurt naar een Kindle-toepassing.
 services: notification-hubs
 documentationcenter: ''
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 346fc8e5-294b-4e4f-9f27-7a82d9626e93
 ms.service: notification-hubs
@@ -13,21 +13,22 @@ ms.tgt_pltfrm: mobile-kindle
 ms.devlang: Java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: bf5cb2851acdcf1f9353e88fc2f2caa3c356804e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: c9e582aa530e484cfe6c11f491be748bf4f33ecb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230360"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452569"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Aan de slag met Azure Notification Hubs voor Kindle-apps
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 In deze zelfstudie ziet u hoe u met Azure Notification Hubs pushmeldingen verstuurt naar een Kindle-toepassing. U maakt een lege Kindle-app die pushmeldingen ontvangt via Amazon Device Messaging (ADM).
 
-In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te voeren: 
+In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te voeren:
 
 > [!div class="checklist"]
 > * Een nieuwe app toevoegen aan de portal voor ontwikkelaars
@@ -37,53 +38,64 @@ In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te vo
 > * De ADM-berichtenhandler maken
 > * Uw API-sleutel aan uw app toevoegen
 > * De app uitvoeren
-> * Een testmelding verzenden 
+> * Een testmelding verzenden
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Download de Android-SDK (als u Eclipse gebruikt) van de <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android-site</a>.
-* Volg de stappen in <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Uw ontwikkelingsomgeving instellen</a> om uw ontwikkelingsomgeving voor Kindle in te stellen.
+* Download de Android-SDK (als u Eclipse gebruikt) van de [Android-ontwikkelaarsportal](https://go.microsoft.com/fwlink/?LinkId=389797).
+* Volg de stappen in [Uw ontwikkelingsomgeving instellen](https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html) om uw ontwikkelingsomgeving voor Kindle in te stellen.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Een nieuwe app toevoegen aan de portal voor ontwikkelaars
+
 1. Maak een app in de [Amazon-portal voor ontwikkelaars].
-   
+
     ![][0]
+
 2. Kopieer de **toepassingssleutel**.
-   
+
     ![][1]
+
 3. Klik in de portal op de naam van uw app en klik vervolgens op het tabblad **Device Messaging**.
-   
+
     ![][2]
+
 4. Klik op **Een nieuw beveiligingsprofiel maken** en maak vervolgens een nieuw beveiligingsprofiel (bijvoorbeeld **TestAdm-beveiligingsprofiel**). Klik vervolgens op **Opslaan**.
-   
+
     ![][3]
+
 5. Klik op **Beveiligingsprofielen** om het beveiligingsprofiel weer te geven dat u hebt gemaakt. Kopieer de waarden voor **Client-id** en **Clientgeheim** voor later gebruik.
-   
+
     ![][4]
 
 ## <a name="create-an-api-key"></a>Maak een API-sleutel.
+
 1. Open een opdrachtprompt met beheerdersbevoegdheden.
 2. Navigeer naar de map Android SDK.
 3. Voer de volgende opdracht in:
-   
-        keytool -list -v -alias androiddebugkey -keystore ./debug.keystore
-   
+
+    ```shell
+    keytool -list -v -alias androiddebugkey -keystore ./debug.keystore
+    ```
+
     ![][5]
+
 4. Voor het **KeyStore**-wachtwoord typt u **android**.
 5. Kopieer de **MD5**-vingerafdruk.
 6. Klik in de portal voor ontwikkelaars op het tabblad **Berichten**, klik op **Android/Kindle** en voer de naam in van het pakket voor uw app (bijvoorbeeld **com.sample.notificationhubtest**) en de **MD5**-waarde en klik vervolgens op **API-sleutel genereren**.
 
 ## <a name="add-credentials-to-the-hub"></a>Referenties aan de hub toevoegen
+
 Voeg in de portal het clientgeheim en de client-id in op het tabblad **Configureren** van uw Notification Hub.
 
 ## <a name="set-up-your-application"></a>Uw toepassing instellen
+
 > [!NOTE]
 > Wanneer u een toepassing maakt, gebruikt u ten minste API-niveau 17.
 
 De ADM-bibliotheken aan uw Eclipse-project toevoegen:
 
 1. Als u de ADM-bibliotheek wilt verkrijgen, [downloadt u de SDK]. Pak het SDK-zipbestand uit.
-2. Klik in Eclipse met de rechtermuisknop op het project en klik vervolgens op **Eigenschappen**. Selecteer **JavaBuild-pad** aan de linkerkant en vervolgens het tabblad Bibliotheken bovenaan. Klik op **Externe jar toevoegen** en selecteer het bestand `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` in de map waaruit u de Amazon SDK hebt opgehaald.
+2. Klik in Eclipse met de rechtermuisknop op het project en klik vervolgens op **Eigenschappen**. Selecteer **JavaBuild-pad** aan de linkerkant en vervolgens het tabblad **Bibliotheken** bovenaan. Klik op **Externe jar toevoegen** en selecteer het bestand `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` in de map waaruit u de Amazon SDK hebt opgehaald.
 3. Download de NotificationHubs Android-SDK (koppeling).
 4. Pak het pakket uit en sleep het bestand `notification-hubs-sdk.jar` in de `libs` map in Eclipse.
 
@@ -92,182 +104,186 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
 1. De Amazon-naamruimte in het basismanifestelement toevoegen:
 
     ```xml
-        xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+    xmlns:amazon="http://schemas.amazon.com/apk/res/android"
     ```
 
-1. Voeg machtigingen toe als het eerste element onder het manifestelement. Vervang **[NAAM VAN UW PAKKET]** door de naam het pakket dat u hebt gebruikt om uw app te maken.
-   
+2. Voeg machtigingen toe als het eerste element onder het manifestelement. Vervang **[NAAM VAN UW PAKKET]** door de naam het pakket dat u hebt gebruikt om uw app te maken.
+
     ```xml
-        <permission
-         android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
-         android:protectionLevel="signature" />
-   
-        <uses-permission android:name="android.permission.INTERNET"/>
-   
-        <uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
-   
-        <!-- This permission allows your app access to receive push notifications
-        from ADM. -->
-        <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
-   
-        <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
-        <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <permission
+        android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
+
+    <!-- This permission allows your app access to receive push notifications
+    from ADM. -->
+    <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
+
+    <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     ```
-2. Voeg het volgende element in als het eerste onderliggende item van het toepassingselement. Vervang **[NAAM VAN UW SERVICE]** door de ADM-berichtenhandler die u maakt in het volgende gedeelte (inclusief het pakket) en wijzig **[NAAM VAN UW PAKKET]** in de pakketnaam waarmee u uw app hebt gemaakt.
-   
+3. Voeg het volgende element in als het eerste onderliggende item van het toepassingselement. Vervang **[NAAM VAN UW SERVICE]** door de ADM-berichtenhandler die u maakt in het volgende gedeelte (inclusief het pakket) en wijzig **[NAAM VAN UW PAKKET]** in de pakketnaam waarmee u uw app hebt gemaakt.
+
     ```xml
-        <amazon:enable-feature
-              android:name="com.amazon.device.messaging"
-                     android:required="true"/>
-        <service
-            android:name="[YOUR SERVICE NAME]"
-            android:exported="false" />
-   
-        <receiver
-            android:name="[YOUR SERVICE NAME]$Receiver" />
-   
-            <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
-            android:permission="com.amazon.device.messaging.permission.SEND" >
-   
-            <!-- To interact with ADM, your app must listen for the following intents. -->
-            <intent-filter>
-          <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
-          <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-   
-          <!-- Replace the name in the category tag with your app's package name. -->
-          <category android:name="[YOUR PACKAGE NAME]" />
-            </intent-filter>
-        </receiver>
+    <amazon:enable-feature
+            android:name="com.amazon.device.messaging"
+                    android:required="true"/>
+    <service
+        android:name="[YOUR SERVICE NAME]"
+        android:exported="false" />
+
+    <receiver
+        android:name="[YOUR SERVICE NAME]$Receiver" />
+
+        <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
+        android:permission="com.amazon.device.messaging.permission.SEND" >
+
+        <!-- To interact with ADM, your app must listen for the following intents. -->
+        <intent-filter>
+        <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
+        <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
+
+        <!-- Replace the name in the category tag with your app's package name. -->
+        <category android:name="[YOUR PACKAGE NAME]" />
+        </intent-filter>
+    </receiver>
     ```
 
 ## <a name="create-your-adm-message-handler"></a>De ADM-berichtenhandler maken
+
 1. Maak een nieuwe klasse die eigenschappen overneemt van `com.amazon.device.messaging.ADMMessageHandlerBase` en geef deze de naam `MyADMMessageHandler`, zoals wordt weergegeven in de volgende afbeelding:
-   
+
     ![][6]
+
 2. Voeg de volgende `import` instructies toe:
-   
+
     ```java
-        import android.app.NotificationManager;
-        import android.app.PendingIntent;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.support.v4.app.NotificationCompat;
-        import com.amazon.device.messaging.ADMMessageReceiver;
-        import com.microsoft.windowsazure.messaging.NotificationHub
+    import android.app.NotificationManager;
+    import android.app.PendingIntent;
+    import android.content.Context;
+    import android.content.Intent;
+    import android.support.v4.app.NotificationCompat;
+    import com.amazon.device.messaging.ADMMessageReceiver;
+    import com.microsoft.windowsazure.messaging.NotificationHub
     ```
+
 3. Voeg de volgende code toe aan de klasse die u hebt gemaakt. Vervang de hubnaam en de verbindingsreeks (luisteren):
-   
+
     ```java
-        public static final int NOTIFICATION_ID = 1;
-        private NotificationManager mNotificationManager;
-        NotificationCompat.Builder builder;
-          private static NotificationHub hub;
-        public static NotificationHub getNotificationHub(Context context) {
-            Log.v("com.wa.hellokindlefire", "getNotificationHub");
-            if (hub == null) {
-                hub = new NotificationHub("[hub name]", "[listen connection string]", context);
-            }
-            return hub;
+    public static final int NOTIFICATION_ID = 1;
+    private NotificationManager mNotificationManager;
+    NotificationCompat.Builder builder;
+        private static NotificationHub hub;
+    public static NotificationHub getNotificationHub(Context context) {
+        Log.v("com.wa.hellokindlefire", "getNotificationHub");
+        if (hub == null) {
+            hub = new NotificationHub("[hub name]", "[listen connection string]", context);
         }
-   
-        public MyADMMessageHandler() {
-                super("MyADMMessageHandler");
-            }
-   
-            public static class Receiver extends ADMMessageReceiver
+        return hub;
+    }
+
+    public MyADMMessageHandler() {
+            super("MyADMMessageHandler");
+        }
+
+        public static class Receiver extends ADMMessageReceiver
+        {
+            public Receiver()
             {
-                public Receiver()
-                {
-                    super(MyADMMessageHandler.class);
-                }
+                super(MyADMMessageHandler.class);
             }
-   
-            private void sendNotification(String msg) {
-                Context ctx = getApplicationContext();
-   
-                mNotificationManager = (NotificationManager)
-                    ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-   
-            PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                  new Intent(ctx, MainActivity.class), 0);
-   
-            NotificationCompat.Builder mBuilder =
-                  new NotificationCompat.Builder(ctx)
-                  .setSmallIcon(R.mipmap.ic_launcher)
-                  .setContentTitle("Notification Hub Demo")
-                  .setStyle(new NotificationCompat.BigTextStyle()
-                         .bigText(msg))
-                  .setContentText(msg);
-   
-             mBuilder.setContentIntent(contentIntent);
-             mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
+
+        private void sendNotification(String msg) {
+            Context ctx = getApplicationContext();
+
+            mNotificationManager = (NotificationManager)
+                ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+                new Intent(ctx, MainActivity.class), 0);
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(ctx)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Notification Hub Demo")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(msg))
+                .setContentText(msg);
+
+            mBuilder.setContentIntent(contentIntent);
+            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+    }
     ```
 4. Voeg de volgende code toe aan de methode `OnMessage()`:
-   
+
     ```java
-        String nhMessage = intent.getExtras().getString("msg");
-        sendNotification(nhMessage);
+    String nhMessage = intent.getExtras().getString("msg");
+    sendNotification(nhMessage);
     ```
 5. Voeg de volgende code toe aan de methode `OnRegistered`:
-   
+
     ```java
-        try {
-            getNotificationHub(getApplicationContext()).register(registrationId);
-        } catch (Exception e) {
-            Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
-        }
+    try {
+        getNotificationHub(getApplicationContext()).register(registrationId);
+    } catch (Exception e) {
+        Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
+    }
     ```
 6. Voeg de volgende code toe aan de methode `OnUnregistered`:
-   
+
     ```java
-         try {
-             getNotificationHub(getApplicationContext()).unregister();
-         } catch (Exception e) {
-             Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
-         }
+    try {
+        getNotificationHub(getApplicationContext()).unregister();
+    } catch (Exception e) {
+        Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
+    }
     ```
 7. Voeg in de methode `MainActivity` de volgende importinstructie toe:
-   
+
     ```java
-        import com.amazon.device.messaging.ADM;
+    import com.amazon.device.messaging.ADM;
     ```
 8. Voeg de volgende code toe aan het einde van de methode `OnCreate`:
-   
+
     ```java
-        final ADM adm = new ADM(this);
-        if (adm.getRegistrationId() == null)
-        {
-           adm.startRegister();
-        } else {
-            new AsyncTask() {
-                  @Override
-                  protected Object doInBackground(Object... params) {
-                     try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
-                     } catch (Exception e) {
-                         Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
-                         return e;
-                     }
-                     return null;
-                 }
-               }.execute(null, null, null);
-        }
+    final ADM adm = new ADM(this);
+    if (adm.getRegistrationId() == null)
+    {
+        adm.startRegister();
+    } else {
+        new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    } catch (Exception e) {
+                        Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                        return e;
+                    }
+                    return null;
+                }
+            }.execute(null, null, null);
+    }
     ```
-    
+
 ## <a name="add-your-api-key-to-your-app"></a>Uw API-sleutel aan uw app toevoegen
-1. Maak in Eclipse een nieuw bestand met de naam **api_key.txt** in de map van uw project.
+
+1. Maak in Eclipse een nieuw bestand met de naam `api_key.txt` in de mapassets van uw project.
 2. Open het bestand en kopieer de API-sleutel die u in de Amazon-portal voor ontwikkelaars hebt gegenereerd.
 
 ## <a name="run-the-app"></a>De app uitvoeren
+
 1. Start de emulator.
 2. Veeg in de emulator vanaf de bovenkant en klik op **Instellingen**. Klik vervolgens op **Mijn account** en meld u aan met een geldig Amazon-account.
 3. Voer vervolgens de app uit in Eclipse.
 
 > [!NOTE]
 > Als er een probleem optreedt, controleert u het tijdstip van de emulator (of het apparaat). De tijdswaarde moet juist zijn. Voer de volgende opdracht uit de map Android SDK platform-hulpprogramma's uit als u de tijd van de Kindle-emulator wilt wijzigen:
-> 
 
-```
+```shell
 adb shell  date -s "yyyymmdd.hhmmss"
 ```
 
@@ -287,7 +303,8 @@ static void Main(string[] args)
 ![][7]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u meldingen uitgezonden naar al uw Kindle-apparaten die zijn geregistreerd bij de back-end. Als u wilt weten hoe u pushmeldingen naar specifieke Kindle-apparaten verstuurt, gaat u verder met de volgende zelfstudie. In deze zelfstudie wordt uitgelegd hoe u pushmeldingen naar specifieke Android-apparaten verstuurt, maar deze logica kan ook worden gebruikt voor het versturen van pushmeldingen naar specifieke Kindle-apparaten. 
+
+In deze zelfstudie hebt u meldingen uitgezonden naar al uw Kindle-apparaten die zijn geregistreerd bij de back-end. Ga verder met de volgende zelfstudie als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke Kindle-apparaten:  In de volgende zelfstudie wordt uitgelegd hoe u pushmeldingen naar specifieke Android-apparaten verstuurt, maar deze logica kan ook worden gebruikt voor het versturen van pushmeldingen naar specifieke Kindle-apparaten.
 
 > [!div class="nextstepaction"]
 >[Pushmeldingen verzenden naar specifieke apparaten](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
@@ -295,7 +312,6 @@ In deze zelfstudie hebt u meldingen uitgezonden naar al uw Kindle-apparaten die 
 <!-- URLs. -->
 [Amazon-portal voor ontwikkelaars]: https://developer.amazon.com/home.html
 [downloadt u de SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
-
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
 [2]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal3.png

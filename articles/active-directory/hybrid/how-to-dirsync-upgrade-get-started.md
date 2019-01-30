@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: upgraden van DirSync | Microsoft Docs'
+title: 'Azure AD Connect: Upgraden van DirSync | Microsoft Docs'
 description: Kom meer te weten over het upgraden van DirSync naar Azure AD Connect. In deze artikelen worden de stappen beschreven voor het upgraden van DirSync naar Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 41bbc2fd57617bb4bafb121f9c766b1f673dd075
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9ec2cdd26db03698a3093336b500cb66e2125c50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228620"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467805"
 ---
-# <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: upgraden van DirSync
+# <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Upgraden van DirSync
 Azure AD Connect is de opvolger van DirSync. In dit onderwerp vindt u de manieren voor het upgraden van DirSync. Deze stappen werken niet voor een upgrade van een andere versie van Azure AD Connect of Azure AD Sync.
 
-Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](https://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md) voltooit. In het bijzonder raden we u aan het volgende te lezen, omdat deze gebieden verschillen van DirSync:
+Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](https://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen uitvoert in [Azure AD Connect: Hardware en vereisten](how-to-connect-install-prerequisites.md). In het bijzonder raden we u aan het volgende te lezen, omdat deze gebieden verschillen van DirSync:
 
 * De vereiste versie van .Net en PowerShell. Nieuwere versies zijn vereist op de server voor DirSync.
 * De proxyserverconfiguratie. Als u een proxyserver gebruikt om verbinding te maken met internet, moet deze instelling worden geconfigureerd voordat u een upgrade uitvoert. DirSync gebruikte altijd de proxyserver die was geconfigureerd voor de gebruiker die de installatie uitvoerde, maar Azure AD Connect gebruikt de instellingen van de machine.
@@ -103,7 +103,7 @@ Extra stappen zijn vereist wanneer:
      De informatie over de huidige SQL Server-databaseserver die wordt gebruikt door DirSync wordt weergegeven. Maak, indien nodig, de juiste aanpassingen. Klik op **Volgende** om door te gaan met de installatie.
    * Als u meer dan 50.000 objecten hebt, ziet u dit scherm:  
      ![Analyse voltooid, gereed voor upgrade van DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
-     Klik om door te gaan met een in-place upgrade op het selectievakje naast dit bericht : **Doorgaan met het uitvoeren van de upgrade van DirSync op deze computer.**
+     Om door te gaan met een in-place upgrade, klikt u op het selectievakje naast dit bericht: **Doorgaan met het bijwerken van DirSync op deze computer**.
      Voor het uitvoeren van een [parallelle implementatie](#parallel-deployment) dient u de DirSync-configuratie-instellingen te exporteren en de configuratie naar de nieuwe server te verplaatsen.
 5. Geef het wachtwoord op voor het account dat u momenteel gebruikt om verbinding te maken met Azure AD. Dit moet het account zijn dat momenteel wordt gebruikt door DirSync.  
    ![Voer uw Azure AD-referenties in](./media/how-to-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
@@ -136,7 +136,7 @@ Als u minder dan 50.000 objecten hebt, maar nog steeds een parallelle implementa
 1. Start het Azure AD Connect-installatieprogramma (MSI) op.
 2. Als u het venster **Welkom bij Azure AD Connect** ziet, sluit u de installatiewizard door te klikken op 'X' in de rechterbovenhoek van het venster.
 3. Open een opdrachtprompt.
-4. Voer de volgende opdracht uit vanaf de locatie waar Azure AD Connect is geïnstalleerd (standaard: C:\Program Files\Microsoft Azure Active Directory Connect): `AzureADConnect.exe /ForceExport`.
+4. Vanaf de installatielocatie van Azure AD Connect (standaard: C:\Program Files\Microsoft Azure Active Directory Connect) voert u de volgende opdracht uit: `AzureADConnect.exe /ForceExport`.
 5. Klik op de knop **Instellingen exporteren**. Als u Azure AD Connect op een afzonderlijke server installeert, worden deze instellingen gemigreerd van uw huidige DirSync naar de nieuwe Azure AD Connect-installatie.
 
 ![Analyse voltooid](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
@@ -149,7 +149,7 @@ Wanneer u Azure AD Connect installeert op een nieuwe server, gaat deze ervan uit
 1. Start het Azure AD Connect-installatieprogramma (MSI) op.
 2. Als u het venster **Welkom bij Azure AD Connect** ziet, sluit u de installatiewizard door te klikken op 'X' in de rechterbovenhoek van het venster.
 3. Open een opdrachtprompt.
-4. Voer de volgende opdracht uit vanaf de locatie waar Azure AD Connect is geïnstalleerd (Standaard: C:\Program Files\Microsoft Azure Active Directory Connect)`AzureADConnect.exe /migrate`
+4. Vanaf de installatielocatie van Azure AD Connect (standaard: C:\Program Files\Microsoft Azure Active Directory Connect) voert u de volgende opdracht uit: `AzureADConnect.exe /migrate`.
    De Azure AD Connect-installatiewizard wordt gestart en geeft het volgende scherm weer:  
    ![Voer uw Azure AD-referenties in](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
 5. Selecteer het instellingenbestand dat is geëxporteerd vanuit uw DirSync-installatie.
@@ -213,8 +213,8 @@ Azure AD Connect is nu uw actieve server. Schakel niet over op de bestaande DirS
 ## <a name="next-steps"></a>Volgende stappen
 Nu u Azure AD Connect geïnstalleerd hebt kunt u [de installatie verifiëren en licenties toewijzen](how-to-connect-post-installation.md).
 
-Kom meer te weten over deze functies, die tijdens de installatie zijn ingeschakeld: [Automatische upgrade](how-to-connect-install-automatic-upgrade.md), [Onopzettelijk verwijderen voorkomen](how-to-connect-sync-feature-prevent-accidental-deletes.md) en [Azure AD Connect Health](how-to-connect-health-sync.md).
+Meer informatie over deze nieuwe functies, die tijdens de installatie werden ingeschakeld: [Automatische upgrade](how-to-connect-install-automatic-upgrade.md), [Onopzettelijke verwijderingen voorkomen](how-to-connect-sync-feature-prevent-accidental-deletes.md) en [Azure AD Connect Health](how-to-connect-health-sync.md).
 
-Kom meer te weten over deze veelvoorkomende onderwerpen: [Scheduler en het activeren van de synchronisatie](how-to-connect-sync-feature-scheduler.md).
+Meer informatie over deze algemene onderwerpen: [scheduler and how to trigger sync](how-to-connect-sync-feature-scheduler.md).
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](whatis-hybrid-identity.md).
