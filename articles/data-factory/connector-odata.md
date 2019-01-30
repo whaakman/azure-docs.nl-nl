@@ -274,18 +274,18 @@ Wanneer u gegevens uit OData-kopieert, worden de volgende toewijzingen tussen de
 | OData-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | BOOL |
+| Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | Decimaal |
-| Edm.Double | Double-waarde |
-| Edm.Single | Enkelvoudig |
-| Edm.Guid | GUID |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
+| Edm.Single | Single |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Reeks |
+| Edm.String | String |
 | Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
