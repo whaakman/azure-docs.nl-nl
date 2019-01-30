@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cf83c99f562029fae932bc294cfc87750c908c99
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107681"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828210"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Zelfstudie: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instances
 
@@ -37,7 +37,7 @@ Container Instances is niet ideaal voor productie-implementaties, maar het is ui
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Voer het `tutorials/img-classification-part2-deploy.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
+Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Voer het notebook *tutorials/img-classification-part2-deploy.ipynb* uit in [Azure Notebooks](https://notebooks.azure.com/) of op uw eigen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

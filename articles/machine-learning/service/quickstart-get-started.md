@@ -9,25 +9,23 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 12/04/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e3569f560224ab8c9a64ababb2fcea7e96e87367
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807717"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812451"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snelstart: Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning
 
-In deze snelstart leert u de Azure-portal te gebruiken om een Azure Machine Learning-werkruimte te maken. Deze werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. In deze snelstart wordt gebruikgemaakt van cloudresources en er is geen installatie vereist. Als u in plaats daarvan uw eigen Jupyter Notebook-server wilt configureren, ziet u [Snelstart: Python gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-create-workspace-with-python.md).  
+Gebruik de Azure-portal om een Azure Machine Learning-werkruimte te maken. Deze werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. In deze snelstart wordt gebruikgemaakt van cloudresources en er is geen installatie vereist. Als u in plaats daarvan uw eigen Jupyter Notebook-server wilt configureren, ziet u [Snelstart: Python gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-create-workspace-with-python.md).  
  
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
-
 In deze snelstart voert u de volgende acties uit:
 
 * Een werkruimte maken in uw Azure-abonnement.
-* Deze proberen met Python in een Azure Notebook en waarden vastleggen voor meerdere iteraties.
+* Deze proberen met Python in een Jupyter-notebook en waarden vastleggen voor meerdere iteraties.
 * De vastgelegde waarden in uw werkruimte weergeven.
 
 De volgende Azure-resources worden automatisch toegevoegd aan uw werkruimte wanneer deze regionaal beschikbaar zijn:
@@ -46,14 +44,14 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Klik op de pagina van de werkruimte op `Explore your Azure Machine Learning service Workspace`.
-
- ![De werkruimte verkennen](./media/quickstart-get-started/explore_aml.png)
-
 
 ## <a name="use-the-workspace"></a>De werkruimte gebruiken
 
-Nu ziet u hoe u een werkruimte u helpt uw machine learning-scripts te beheren. In deze sectie voert u de volgende stappen uit:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+
+
+
+U gaat nu leren hoe een werkruimte u helpt uw machine learning-scripts te beheren. In deze sectie voert u de volgende stappen uit:
 
 * Een notitieblok openen in Azure Notebooks.
 * Code uitvoeren die enkele vastgelegde waarden maakt.
@@ -63,46 +61,57 @@ Dit is een voorbeeld van hoe de werkruimte u kan helpen bij het bijhouden van in
 
 ### <a name="open-a-notebook"></a>Een notitieblok openen 
 
-Azure Notebooks biedt een gratis cloudplatform voor Jupyter-notebooks, dat vooraf is geconfigureerd met alles wat u nodig hebt om Machine Learning uit te voeren.  
+[Azure Notebooks](https://notebooks.azure.com) biedt een gratis cloudplatform voor Jupyter-notebooks dat vooraf is geconfigureerd met alles wat u nodig hebt om Machine Learning uit te voeren. U kunt dit platform vanuit uw werkruimte starten om aan de slag te gaan met uw werkruimte voor Azure Machine Learning Service.
 
-Selecteer `Open Azure Notebooks` om uw eerste experiment uit te voeren.
+1. Selecteer **De werkruimte voor de Azure Machine Learning Service verkennen** op de pagina met de werkruimte.
+
+ ![De werkruimte verkennen](./media/quickstart-get-started/explore_aml.png)
+
+1. Selecteer **Azure Notebooks openen** om uw eerste experiment in Azure Notebooks uit te voeren.  Azure Notebooks is een afzonderlijke service waarmee u Jupyter-notebooks gratis kunt uitvoeren in de cloud.  Wanneer u deze koppeling naar de service gebruikt, wordt informatie over hoe u verbinding maakt met uw werkruimte toegevoegd aan de bibliotheek die u in Azure Notebooks maakt.
 
  ![Azure Notebooks openen](./media/quickstart-get-started/explore_ws.png)
 
-Mogelijk moet in uw organisatie [beheerderstoestemming](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) worden verkregen voordat u zich kunt aanmelden.
+1. Meld u aan bij Azure Notebooks.  Meld u aan met hetzelfde account dat u hebt gebruikt om u aan te melden bij de Microsoft Azure-portal. Mogelijk moet in uw organisatie [beheerderstoestemming](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) worden verkregen voordat u zich kunt aanmelden.
 
-Meld u aan bij Azure Notebooks met hetzelfde account dat u hebt gebruikt om u aan te melden bij Azure Portal.  Nadat u zich hebt aangemeld, wordt er een nieuw tabblad geopend en wordt er een `Clone Library`-prompt weergegeven. Selecteer `Clone`.
+1. Nadat u zich hebt aangemeld, wordt er een nieuw tabblad geopend en wordt er een `Clone Library`-prompt weergegeven. Wanneer u deze bibliotheek kloont, wordt een verzameling notebooks en andere bestanden in uw Azure Notebooks-account geladen.  Met deze bestanden kunt u de mogelijkheden van Azure Machine Learning verkennen.
 
+1. Schakel het selectievakje **Openbaar** uit zodat u uw werkruimtegegevens niet met anderen deelt.
+
+1. Selecteer **Klonen**.
+
+ ![Een bibliotheek klonen](./media/quickstart-get-started/clone.png)
+
+1. Als u ziet dat de projectstatus is gestopt, klikt u op **Uitvoeren op gratis Compute** om de gratis notebookserver te gebruiken.
+
+    ![Uitvoeren op gratis compute](./media/quickstart-get-started/run-project.png)
 
 ### <a name="run-the-notebook"></a>Het notitieblok uitvoeren
 
-U ziet twee notitieblokken en een `config.json`-bestand. Dit configuratiebestand bevat informatie over de werkruimte die u hebt gemaakt.  
+In de lijst met bestanden voor dit project, ziet u het bestand `config.json`. Dit configuratiebestand bevat informatie over de werkruimte die u hebt gemaakt in de Microsoft Azure-portal.  Met dit bestand kan uw code verbinding maken met en gegevens toevoegen aan uw werkruimte.
 
-Klik op `01.run-experiment.ipynb` om het notitieblok te openen.
+1. Selecteer **01.run experiment.ipynb** om het notebook te openen.
 
-Voer de cellen één voor één uit (met Shift+Enter). U kunt ook `Cells` > `Run All` selecteren om het hele notitieblok uit te voeren. Als er een sterretje __*__ naast een cel staat, wordt deze uitgevoerd. Wanneer de code voor die cel is voltooid, verschijnt er een getal. 
+1. In het statusgebied ziet u een melding dat u moet wachten tot de kernel is gestart.  Zodra de kernel gereed is, verdwijnt het bericht.
+
+    ![Wachten tot de kernel is gestart](./media/quickstart-get-started/wait-for-kernel.png)
+
+1. Nadat de kernel is gestart, voert u de cellen één voor één uit met behulp van **Shift + Enter**. U kunt ook **Cellen** > **Alles uitvoeren** selecteren om het hele notebook uit te voeren. Als er een sterretje, __*__, naast een cel staat, wordt de cel nog uitgevoerd. Wanneer de code voor die cel is voltooid, verschijnt er een getal. 
+
+1. Volg de instructies in het notebook om uw Azure-abonnement te verifiëren.
 
 Nadat u de uitvoering van alle cellen in de notebook hebt voltooid, kunt u de vastgelegde waarden weergeven in uw werkruimte.
 
 ## <a name="view-logged-values"></a>Logboekwaarden weergeven
 
-Nadat alle cellen in het notitieblok zijn uitgevoerd, gaat u terug naar de portalpagina.  
+1. De uitvoer van de cel `run` bevat een koppeling terug naar de Microsoft Azure-portal om de resultaten van het experiment in uw werkruimte weer te geven. 
 
-Selecteer `View Experiments`.
+    ![Experimenten bekijken](./media/quickstart-get-started/view_exp.png)
 
-![Experimenten bekijken](./media/quickstart-get-started/view_exp.png)
+1. Klik op de **Koppeling naar Azure-portal** om informatie over de uitvoering in uw werkruimte weer te geven.  Met deze koppeling wordt uw werkruimte in de Microsoft Azure-portal geopend.
 
-Sluit het pop-upvenster `Reports`.
+1. De grafieken van vastgelegde waarden die u ziet, zijn automatisch in de werkruimte gemaakt. Wanneer u meerdere waarden met dezelfde naamparameter vastlegt, wordt automatisch een grafiek voor u gegenereerd.
 
-Selecteer `my-first-experiment`.
-
-Bekijk de informatie over de uitvoering die u zojuist hebt uitgevoerd. Schuif omlaag op de pagina om de tabel met uitvoeringen te zoeken. Selecteer de koppeling bij het uitvoeringsnummer.
-
- ![Koppeling naar uitvoeringsgeschiedenis](./media/quickstart-get-started/report.png)
-
-U ziet plots die automatisch zijn gemaakt van de vastgelegde waarden. Wanneer u meerdere waarden met dezelfde naamparameter vastlegt, wordt automatisch een grafiek voor u gegenereerd.
-
-   ![Geschiedenis weergeven](./media/quickstart-get-started/plots.png)
+   ![Geschiedenis weergeven](./media/quickstart-get-started/web-results.png)
 
 Omdat er in de code om pi te schatten gebruik wordt gemaakt van willekeurige waarden, worden er in uw plots andere waarden weergegeven.  
 

@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165314"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435458"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>Wat is Azure Data Box Gateway (preview-versie)? 
 
@@ -39,7 +39,10 @@ Data Box Gateway biedt de volgende voordelen:
 
 - **Gemakkelijke gegevensoverdracht** - Het verplaatsen van gegevens in en uit Azure-opslag is net zo gemakkelijk als het werken met een lokale netwerkshare.  
 - **Hoge prestaties** - Maakt overdracht van netwerkgegevens minder complex met snelle gegevensoverdrachten naar en vanuit Azure. 
-- **Snelle toegang**: De recentste bestanden worden in de cache opgeslagen voor snelle toegang tot on-premises bestanden.  
+- **Snelle toegang en gegevensopname met hoge snelheid tijdens kantooruren** - Data Box-Gateway heeft een lokale cache die u als de grootte van de lokale capaciteit definieert wanneer het virtuele apparaat is ingericht. De grootte van de gegevensschijf moet worden opgegeven volgens de [minimale vereisten voor virtuele apparaten](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). De lokale cache biedt de volgende voordelen:
+    - De lokale cache biedt de mogelijkheid tot gegevensopname met een hoge snelheid. Wanneer een grote hoeveelheid gegevens wordt opgenomen tijdens piekuren, kan de cache de gegevens bevatten en naar de cloud uploaden.
+    - De lokale cache biedt snelle leestoegang tot een bepaalde drempelwaarde. Totdat het apparaat voor 50 tot 60 % vol is, zijn alle leesbewerkingen van het apparaat toegankelijk vanuit de cache, zodat deze sneller kunnen plaatsvinden. Zodra de gebruikte ruimte op het apparaat deze drempelwaarde overschrijdt, gaat het apparaat lokale bestanden verwijderen. 
+ 
 - **Beperkt bandbreedtegebruik**: Gegevens kunnen zelfs naar Azure worden geschreven wanneer het netwerk wordt beperkt voor minder gebruik tijdens piekuren.  
 
 ## <a name="key-capabilities"></a>Belangrijkste mogelijkheden
@@ -98,7 +101,7 @@ De Data Box Gateway-oplossing bestaat uit een Data Box Gateway-resource, een vir
 Het fysieke Data Box Edge-apparaat, de Azure-resource en het doelopslagaccount waarnaar u gegevens overdraagt hoeven zich niet allemaal in dezelfde regio te bevinden.
 
 - **Beschikbaarheid van resources**: Voor deze release is de Data Box Edge-resource beschikbaar in de volgende regio’s:
-    - **Verenigde Staten** - West 2 en Oost
+    - **Verenigde Staten** - US - west 2 en US - oost
     - **Europese Unie** - West-Europa
     - **Azië en Stille Oceaan** - Zuidoost-Azië
 

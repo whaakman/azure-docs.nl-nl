@@ -9,32 +9,54 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 12/04/2018
-ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 1/17/2019
+ms.openlocfilehash: d5660d1a4d5d2a26af57e2a2411552e3f6267379
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557883"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389133"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Wat zijn de machine learning-producten van Microsoft?
 
 Microsoft biedt tal van producten voor het bouwen, implementeren en beheren van Machine Learning-modellen. Vergelijk deze producten en kies wat u nodig hebt om uw machine learning-oplossingen zo effectief mogelijk te ontwikkelen.
 
-| Machine learning-product | Wat is het? | Wat u ermee kunt doen |
+
+**Cloud-opties**
+
+De volgende opties zijn beschikbaar voor machine learning in de Azure-cloud.
+
+| Cloud&nbsp;-opties | Wat is het? | Wat u ermee kunt doen |
 |-|-|-|
-| ***In de cloud*** | | |
 | [Azure Machine Learning-service](#azure-machine-learning-services) | Beheerde cloudservice voor ML  | Modellen trainen, implementeren en beheren in Azure met behulp van Python en CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuele interface voor ML met slepen&ndash;en&ndash;neerzetten | Modellen bouwen en implementeren en ermee experimenteren met behulp van vooraf geconfigureerde algoritmen |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuele interface voor ML met slepen&ndash;en&ndash;neerzetten | Modellen bouwen en implementeren en ermee experimenteren met behulp van vooraf geconfigureerde algoritmen (Python en R)|
 | [Azure Databricks](#azure-databricks) | Op Spark gebaseerd analyseplatform | Modellen en gegevenswerkstromen bouwen en implementeren |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure-services met geïntegreerde AI- en ML-modellen | Eenvoudig intelligente functies aan uw apps toevoegen |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtuele machine met vooraf geïnstalleerde hulpprogramma 's voor data science | ML-oplossingen ontwikkelen in een vooraf geconfigureerde omgeving |
-| ***On-premises***<br>*(on-premises servers kunnen ook in een virtuele machine in de cloud worden uitgevoerd)* | | |
+
+**On-premises opties**
+
+De volgende opties zijn beschikbaar voor machine learning on-premises. On-premises servers kunnen ook in een virtuele machine in de cloud worden uitgevoerd.
+
+| On-premises &nbsp;opties | Wat is het? | Wat u ermee kunt doen |
+|-|-|-|
 | [SQL Server Machine Learning-services](#sql-server-machine-learning-services) | Analyse-engine ingesloten in SQL | Modellen bouwen en implementeren in SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Zelfstandige enterprise server voor voorspellende analyse | Modellen bouwen en implementeren met R en Python |
-| ***Ontwikkelhulpprogramma's*** | | |
+
+**Ontwikkelhulpprogramma's**
+
+De volgende ontwikkelhulpprogramma's zijn beschikbaar voor machine learning.
+
+| Ontwikkel&nbsp;hulpprogramma's | Wat is het? | Wat u ermee kunt doen |
+|-|-|-|
 | [ML.NET](#mlnet) | Open-source, platformoverschrijdende ML SDK | ML-oplossingen voor .NET-toepassingen ontwikkelen |
 | [Windows ML](#windows-ml) | ML-platform voor Windows 10 | Getrainde modellen evalueren op een Windows 10-apparaat |
+
+
+
+
+
+
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning-service
 

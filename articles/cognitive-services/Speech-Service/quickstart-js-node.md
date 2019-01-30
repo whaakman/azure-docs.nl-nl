@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Gesproken tekst in JavaScript herkennen in een browser met behulp van de Speech Service-SDK'
+title: 'Snelstart: Spraak herkennen, Node.js - Spraakservices'
 titleSuffix: Azure Cognitive Services
-description: Meer informatie over het herkennen van spraak in JavaScript in Node.js met behulp van de Speech Service-SDK
+description: Gebruik deze handleiding om een consoletoepassing voor spraak-naar-tekst te maken met de Speech-SDK voor Node.js. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e0ae916687ca32835dd8daf6e5059b8f6eea0ff6
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724422"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382171"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Quickstart: Gesproken tekst in JavaScript herkennen in een browser met behulp van de Speech Service-SDK
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,9 +29,9 @@ De toepassing is gebaseerd op de Microsoft [Cognitive Services Speech-SDK](https
 * Een Azure-abonnementssleutel voor de Spraakservice. [Gratis downloaden](get-started.md).
 * Een huidige versie van [Node.js](https://nodejs.org).
 
-## <a name="create-a-new-project-folder"></a>Een nieuwe projectmap maken
+## <a name="create-a-new-project"></a>Een nieuw project maken
 
-Maak een nieuwe, lege map en initialiseer deze als een nieuw JavaScript- en Node.js-project.
+Maak een nieuwe map en initialiseer het project.
 
 ```sh
 npm init -f
@@ -39,13 +39,17 @@ npm init -f
 
 Hiermee worden de package.json-bestanden geïnitialiseerd met standaardwaarden. Waarschijnlijk wilt u dit bestand later bewerken.
 
-## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>Installeer de Speech Service-SDK voor JavaScript in deze map
+## <a name="install-the-speech-sdk"></a>De Speech-SDK installeren
 
-Voeg de Speech Service-SDK via `npm install microsoft-cognitiveservices-speech-sdk` toe aan uw Node.js-project.
+Voeg de Speech-SDK toe aan uw Node.js-project.
 
-Hiermee worden de meest recente versie van de Speech Service-SDK en alle vereiste onderdelen van npmjs gedownload en geïnstalleerd. De SDK wordt geïnstalleerd in de map `node_modules` van de projectmap.
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
-## <a name="using-the-speech-sdk"></a>De Speech Service-SDK gebruiken
+Hiermee worden de meest recente versie van de Speech-SDK en alle vereiste onderdelen van npmjs gedownload en geïnstalleerd. De SDK wordt geïnstalleerd in de map `node_modules` van de projectmap.
+
+## <a name="use-the-speech-sdk"></a>De Speech-SDK gebruiken
 
 Maak een nieuw bestand in de map met de naam `index.js` en open dit bestand met een teksteditor.
 
@@ -58,7 +62,7 @@ Voeg de volgende JavaScript-code toe:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## <a name="running-the-sample-from-command-line"></a>Het voorbeeld uitvoeren vanaf de opdrachtregel
+## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
 Als u de app wilt starten, past u `YourSubscriptionKey`, `YourServiceRegion` en `YourAudioFile.wav` aan uw configuratie aan. Daarna kunt u de app uitvoeren door de volgende opdracht aan te roepen:
 
@@ -88,7 +92,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## <a name="running-the-sample-from-visual-studio-code"></a>Het voorbeeld uitvoeren vanuit Visual Studio Code
+## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>De Speech-SDK installeren en gebruiken met Visual Studio Code
 
 U kunt het voorbeeld ook uitvoeren vanuit Visual Studio Code. Volg deze stappen om de quickstart te installeren, te openen en uit te voeren:
 

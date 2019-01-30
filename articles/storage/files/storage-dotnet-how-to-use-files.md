@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 380a7be6a42109f90da5dbd39ea557c06be4be6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6926b9d6a9b5bc4f3744fbd6fe8864a925ff17
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253700"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819744"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Ontwikkelen voor Azure Files met .NET
 
@@ -58,8 +58,8 @@ U kunt de Azure Storage-clientbibliotheek gebruiken in elk type .NET-toepassing,
 ## <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
 Er zijn twee pakketten waarnaar u in uw project moet verwijzen om deze zelfstudie te kunnen voltooien:
 
-* [Microsoft Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): dit pakket biedt programmatisch toegang tot gegevensbronnen in uw opslagaccount.
-* [Configuration Manager-bibliotheek van Microsoft Azure voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
+* [Microsoft Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw opslagaccount.
+* [Microsoft Azure Configuration Manager-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
 
 Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
 
@@ -324,8 +324,8 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Op dezelfde manier kunt u een blob naar een bestand kopiëren. Als het bronobject een blob is, maakt u een SAS om tijdens de kopieerbewerking de toegang tot de blob toe te staan.
 
-## <a name="share-snapshots-preview"></a>Momentopnamen van shares (preview)
-Vanaf versie 8.5 van de Azure Storage-clientbibliotheek kunt u een momentopname van een share maken (preview). U kunt ook de lijst met momentopnamen van shares weergeven, door een lijst met momentopnamen van shares bladeren en momentopnamen van shares verwijderen. Momentopnamen van shares zijn alleen-lezen. Schrijfbewerkingen zijn dus niet toegestaan voor momentopnamen van shares.
+## <a name="share-snapshots"></a>Momentopnamen van shares
+Vanaf versie 8.5 van de Azure Storage-clientbibliotheek kunt u een momentopname van een share maken. U kunt ook de lijst met momentopnamen van shares weergeven, door een lijst met momentopnamen van shares bladeren en momentopnamen van shares verwijderen. Momentopnamen van shares zijn alleen-lezen. Schrijfbewerkingen zijn dus niet toegestaan voor momentopnamen van shares.
 
 **Momentopnamen van shares maken**
 

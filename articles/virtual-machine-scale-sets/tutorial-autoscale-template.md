@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: e1257cbe14d8d0fe9dc6d9b0f2a48dbb8b3cc6e4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 81c33818733b2896f98e1f3a3648b4fe9b823211
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466546"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413852"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Zelfstudie: Een schaalset met virtuele machines automatisch schalen met een Azure-sjabloon
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Zelfstudie: Een virtuele-machineschaalset automatisch schalen met een Azure-sjabloon
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren dat u wilt uitvoeren. Wanneer de vraag van de toepassing verandert, kunt u het aantal VM-exemplaren automatisch vergroten of verkleinen. De mogelijkheid van automatisch schalen stelt u in staat om altijd te voldoen aan de vraag van klanten houden of om gedurende de levenscyclus van uw app te reageren op wijzigingen in de prestaties van de toepassing. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
@@ -164,7 +164,7 @@ Het duurt enkele minuten om alle schaalsetresources en VM's te maken en te confi
 ## <a name="generate-cpu-load-on-scale-set"></a>CPU-belasting genereren voor schaalset
 Voor het testen van de regels voor automatisch schalen gaan we wat CPU-belasting genereren voor de VM-exemplaren in de schaalset. Deze gesimuleerde CPU-belasting zorgt ervoor dat de schaalset automatisch wordt uitgeschaald en het aantal VM-exemplaren dus wordt verhoogd. Als de gesimuleerde CPU-belasting vervolgens weer afneemt, wordt de schaalset ingeschaald en zakt het aantal VM-exemplaren.
 
-Gebruik eerst [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) om de adressen en poorten op te vragen waarmee VM-exemplaren in een schaalset moeten worden verbonden:
+Gebruik eerst [az vmss list-instance-connection-info](/cli/azure/vmss) om de adressen en poorten op te vragen waarmee VM-exemplaren in een schaalset moeten worden verbonden:
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -194,7 +194,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Wanneer **stress** uitvoer laat zien die vergelijkbaar is met *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, drukt u op *Enter* om terug te gaan naar de prompt.
+Als **stress** uitvoer laat zien die vergelijkbaar is met *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, drukt u op *Enter* om terug te gaan naar de prompt.
 
 Om te controleren of **stress** CPU-belasting genereert, onderzoekt u de actieve systeembelasting met het hulpprogramma **top**:
 
@@ -209,7 +209,7 @@ Ctrl-c
 exit
 ```
 
-Maak verbinding met het tweede VM-exemplaar met het poortnummer dat u hebt opgevraagd met de eerdere opdracht [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Maak verbinding met het tweede VM-exemplaar met het poortnummer dat u hebt opgevraagd met de eerdere opdracht [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003

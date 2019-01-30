@@ -2,19 +2,19 @@
 title: Vergelijking Azure-berichten - Event Grid, Event Hubs, Service Bus
 description: Beschrijft de drie berichtenservices van - Azure Event Grid, Event Hubs en Service Bus. Geeft een aanbeveling over welke service voor verschillende scenario's het meest geschikt is.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
 ms.date: 12/07/2018
-ms.author: tomfitz
+ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166520"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469845"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Kiezen tussen berichtenservices van Azure - Event Grid, Event Hubs en Service Bus
 
@@ -77,7 +77,7 @@ Het heeft de volgende kenmerken:
 
 ### <a name="service-bus"></a>Service Bus
 
-Service Bus is bedoeld voor traditionele bedrijfstoepassingen. Deze bedrijfstoepassingen hebben transacties, bestellingen, detectie van duplicaten en onmiddellijk consistentie nodig. Met Service Bus kunnen cloudsysteemeigen toepassingen betrouwbaar statusovergangsbeheer bieden voor bedrijfsprocessen. Gebruik Azure Service Bus bij de afhandeling van hoogwaardige berichten die niet verloren mogen gaan of gedupliceerd mogen worden. Service Bus vergemakkelijkt ook uitermate beveiligde communicatie tussen hybride cloudoplossingen en kan bestaande on-premises systemen verbinden met cloudoplossingen.
+Service Bus is bedoeld voor traditionele bedrijfstoepassingen. Deze bedrijfstoepassingen hebben transacties, bestellingen, detectie van duplicaten en onmiddellijk consistentie nodig. Met Service Bus kunnen [cloudsysteemeigen](https://azure.microsoft.com/overview/cloudnative/) toepassingen betrouwbaar statusovergangsbeheer bieden voor bedrijfsprocessen. Gebruik Azure Service Bus bij de afhandeling van hoogwaardige berichten die niet verloren mogen gaan of gedupliceerd mogen worden. Service Bus vergemakkelijkt ook uitermate beveiligde communicatie tussen hybride cloudoplossingen en kan bestaande on-premises systemen verbinden met cloudoplossingen.
 
 Service Bus is een Brokered Messaging-systeem. Het slaat berichten op in een 'broker' (bijvoorbeeld een wachtrij) tot de ontvangende partij gereed is om ze te ontvangen.
 

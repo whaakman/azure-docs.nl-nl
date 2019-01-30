@@ -14,14 +14,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: abe98cb809c47b6803d638b8e3f042189d2cc2b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe5dbfa368de400b4aad476c4aefbb70628d1145
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999270"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852150"
 ---
-# <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI-voorbeeld: een Batch-account maken in gebruikersabonnementmodus
+# <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI-voorbeeld: Een Batch-account maken in gebruikersabonnementmodus
 
 Met dit script wordt een Azure Batch-account gemaakt in gebruikersabonnementmodus. Een account dat rekenknooppunten in uw abonnement toewijst moet worden geauthenticeerd via een Azure Active Directory-token. De toegewezen rekenknooppunten tellen mee voor het vCPU-quotum (kernen) van uw abonnement. 
 
@@ -47,7 +47,7 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az role assignment create](/cli/azure/role#az-role-assignment-create) | Hiermee maakt u een nieuwe roltoewijzing voor een gebruiker, groep of service-principal. |
+| [az role assignment create](/cli/azure/role) | Hiermee maakt u een nieuwe roltoewijzing voor een gebruiker, groep of service-principal. |
 | [az group create](/cli/azure/group#az-group-create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create) | Hiermee wordt een sleutelkluis verwijderd. |
 | [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) | Hiermee wordt het beveiligingsbeleid van de opgegeven sleutelkluis bijgewerkt. |

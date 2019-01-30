@@ -3,7 +3,7 @@ title: Installatieprocedure voor Azure AD Connect en Azure AD Connect Health. | 
 description: Dit document bevat een overzicht van de installatieopties en -paden die beschikbaar zijn voor het installeren van Azure AD Connect en Connect Health.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 149c6436101750811af9ba3051ab715dd9eac021
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253190"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462332"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installatieprocedure voor Azure AD Connect en Azure AD Connect Health
 
@@ -55,7 +55,7 @@ U wilt u ook voorbereiden op [operationele](how-to-connect-sync-operations.md) p
 |Ondersteunde topologieën | [Topologieën voor Azure AD Connect](plan-connect-topologies.md)|
 |Ontwerpconcepten | [Ontwerpconcepten van Azure AD Connect](plan-connect-design-concepts.md)|
 |Accounts die worden gebruikt voor installatie | [Meer informatie over referenties en machtigingen van Azure AD Connect](reference-connect-accounts-permissions.md)|
-|Operationele planning | [Azure AD Connect-synchronisatie: operationele taken en overwegingen](how-to-connect-sync-operations.md)|
+|Operationele planning | [Azure AD Connect Sync: Operationele taken en overwegingen](how-to-connect-sync-operations.md)|
 |Opties aanmelden gebruiker | [Opties van Azure AD Connect voor het aanmelden van gebruikers](plan-connect-user-signin.md)|
 
 ## <a name="configure-sync-features"></a>Synchronisatie-functies configureren
@@ -76,13 +76,13 @@ De functie [Onopzettelijk verwijderen voorkomen](how-to-connect-sync-feature-pre
 ### <a name="next-steps-to-configure-sync-features"></a>De volgende stappen om synchronisatie-functies te configureren
 |Onderwerp |Koppeling|  
 | --- | --- |
-|Filtering configureren | [Azure AD Connect-synchronisatie: filtering configureren](how-to-connect-sync-configure-filtering.md)|
+|Filtering configureren | [Azure AD Connect Sync: Filteren configureren](how-to-connect-sync-configure-filtering.md)|
 |Synchronisatie van wachtwoord-hashes | [Synchronisatie van wachtwoord-hashes](how-to-connect-password-hash-synchronization.md)|
 |Pass-through-verificatie | [Pass-through-verificatie](how-to-connect-pta.md)
 |Wachtwoord terugschrijven | [Aan de slag met wachtwoordbeheer](../authentication/quickstart-sspr.md)|
 |Apparaat terugschrijven | [Apparaat terugschrijven inschakelen in Azure AD Connect](how-to-connect-device-writeback.md)|
-|Onopzettelijke verwijderingen voorkomen | [Azure AD Connect-synchronisatie: onopzettelijke verwijderingen voorkomen](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
-|Automatische upgrade | [Azure AD Connect: automatische upgrade](how-to-connect-install-automatic-upgrade.md)|
+|Onopzettelijke verwijderingen voorkomen | [Azure AD Connect Sync: Onopzettelijke verwijderingen voorkomen](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
+|Automatische upgrade | [Azure AD Connect: Automatische upgrade](how-to-connect-install-automatic-upgrade.md)|
 
 ## <a name="customize-azure-ad-connect-sync"></a>Azure AD Connect-synchronisatie aanpassen
 Azure AD Connect-synchronisatie wordt geleverd met een standaardconfiguratie waarmee de meeste klanten en topologieën kunnen werken. Maar er zijn altijd situaties waarin de standaardconfiguratie niet werkt en aangepast moet worden. Er kunnen wijzigingen gedaan worden zoals beschreven in deze sectie en gekoppelde onderwerpen.
@@ -97,10 +97,10 @@ Het gesynchroniseerde configuratiemodel heet [declaratieve inrichting](concept-a
 |Onderwerp |Koppeling|  
 | --- | --- |
 |Alle artikelen over Azure AD Connect-synchronisatie | [Azure AD Connect-synchronisatie](how-to-connect-sync-whatis.md)|
-|Technische concepten | [Azure AD Connect-synchronisatie: technische concepten](how-to-connect-sync-technical-concepts.md)|
-|Inzicht in de standaardconfiguratie | [Azure AD Connect-synchronisatie: inzicht in de standaardconfiguratie](concept-azure-ad-connect-sync-default-configuration.md)|
-|Inzicht krijgen in gebruikers en contactpersonen | [Azure AD Connect-synchronisatie: inzicht krijgen in gebruikers en contactpersonen](concept-azure-ad-connect-sync-user-and-contacts.md)|
-|Declaratieve inrichting | [Azure AD Connect-synchronisatie: inzicht krijgen in expressies declaratieve inrichting](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
+|Technische concepten | [Azure AD Connect Sync: Technische concepten](how-to-connect-sync-technical-concepts.md)|
+|Inzicht in de standaardconfiguratie | [Azure AD Connect Sync: Inzicht in de standaardconfiguratie](concept-azure-ad-connect-sync-default-configuration.md)|
+|Inzicht krijgen in gebruikers en contactpersonen | [Azure AD Connect Sync: Inzicht krijgen in gebruikers en contactpersonen](concept-azure-ad-connect-sync-user-and-contacts.md)|
+|Declaratieve inrichting | [Azure AD Connect Sync: Inzicht in verklarende inrichtingsexpressies](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
 |De standaardconfiguratie wijzigen | [Aanbevolen procedures voor het wijzigen van de standaardconfiguratie](how-to-connect-sync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Federatiekenmerken configureren
@@ -159,12 +159,12 @@ In de portal voor Azure AD Connect Health kunt u waarschuwingen weergeven, de pr
 ![Portal voor Azure AD Connect Health](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
 * **Snel starten**: wanneer u deze optie selecteert, wordt de blade **Snel starten** geopend. U kunt de Azure AD Connect Health-agent downloaden door **Hulpprogramma's downloaden** te selecteren. U kunt ook documentatie bekijken en feedback geven.
-* **Azure Active Directory Connect (Sync)**: deze optie verwijst u naar de Azure AD Connect-servers die momenteel door Azure AD Connect Health worden bewaakt. Onder de vermelding **Synchronisatiefouten** ziet u basissynchronisatiefouten van uw eerste geïmplementeerde synchronisatieservice per categorie. Wanneer u de vermelding **Synchronisatieservices** selecteert, vindt u op de blade die wordt geopend informatie over uw Azure AD Connect-servers. Zie [Azure AD Connect Health for Sync gebruiken](how-to-connect-health-sync.md) voor meer informatie over de mogelijkheden.
-* **Active Directory Federation Services**: met deze optie krijgt u alle AD FS-services te zien die momenteel worden bewaakt via Azure AD Connect Health. Wanneer u een exemplaar selecteert, staat er op de blade die wordt geopend informatie over dat service-exemplaar. Deze informatie omvat een overzicht, eigenschappen, waarschuwingen, controle en gebruiksanalyses. Zie [Azure AD Connect Health gebruiken met AD FS](how-to-connect-health-adfs.md) voor meer informatie over de mogelijkheden.
-* **Active Directory Domain Services**: met deze optie ziet u alle AD DS-forests die momenteel door Azure AD Connect Health worden bewaakt. Wanneer u een forest selecteert, staat er op de blade die wordt geopend informatie over die forest. Deze informatie bevat een overzicht van essentiële gegevens, een dashboard voor domeincontrollers, een dashboard voor replicatiestatus, waarschuwingen en bewaking. Zie [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor meer informatie over de mogelijkheden.
-* **Configureer**: deze sectie bevat opties voor het uit- of inschakelen van de volgende zaken:
+* **Azure Active Directory Connect (Sync)**: deze optie laat uw Azure AD Connect-servers zien die momenteel door Azure AD Connect Health worden bewaakt. Onder de vermelding **Synchronisatiefouten** ziet u basissynchronisatiefouten van uw eerste geïmplementeerde synchronisatieservice per categorie. Wanneer u de vermelding **Synchronisatieservices** selecteert, vindt u op de blade die wordt geopend informatie over uw Azure AD Connect-servers. Zie [Azure AD Connect Health for Sync gebruiken](how-to-connect-health-sync.md) voor meer informatie over de mogelijkheden.
+* **Active Directory Federation Services**: deze optie laat alle AD FS-services zien die momenteel door Azure AD Connect Health worden bewaakt. Wanneer u een exemplaar selecteert, staat er op de blade die wordt geopend informatie over dat service-exemplaar. Deze informatie omvat een overzicht, eigenschappen, waarschuwingen, controle en gebruiksanalyses. Zie [Azure AD Connect Health gebruiken met AD FS](how-to-connect-health-adfs.md) voor meer informatie over de mogelijkheden.
+* **Active Directory Domain Services**: deze optie laat alle AD DS-forests zien die momenteel door Azure AD Connect Health worden bewaakt. Wanneer u een forest selecteert, staat er op de blade die wordt geopend informatie over die forest. Deze informatie bevat een overzicht van essentiële gegevens, een dashboard voor domeincontrollers, een dashboard voor replicatiestatus, waarschuwingen en bewaking. Zie [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor meer informatie over de mogelijkheden.
+* **Configureren**: dit gedeelte bevat opties voor het uit- of inschakelen van de volgende zaken:
 
-  - De vermelding **Instellingen** bevat basisconfiguraties van de agents. De Automatische upgrade-instelling zorgt voor automatische updates, zodat de Azure AD Connect Health-agent automatisch wordt bijgewerkt naar de nieuwste versie: dit betekent dat uw systeem automatisch wordt bijgewerkt naar de nieuwste versie van de Azure AD Connect Health-agent zodra deze beschikbaar is. Deze optie is standaard ingeschakeld. Microsoft alleen toegang geven tot de statusgegevens van uw Azure AD-directory voor het oplossen van problemen: dit betekent dat als deze optie is ingeschakeld, Microsoft dezelfde gegevens kan zien als u. Dit kan handig zijn bij het oplossen van problemen en het verlenen van hulp. Deze optie is standaard uitgeschakeld.
+  - De vermelding **Instellingen** bevat basisconfiguraties van de agents. Met de instelling voor automatische upgrade wordt de Azure AD Connect Health-agent automatisch bijgewerkt naar de nieuwste versie: Er wordt automatisch bijgewerkt naar de nieuwste versies van de Azure AD Connect Health-agent zodra deze beschikbaar komen. Deze optie is standaard ingeschakeld. Microsoft alleen toegang geven tot de statusgegevens van uw Azure AD-directory voor het oplossen van problemen: Als deze optie is ingeschakeld, kan Microsoft dezelfde gegevens zien die u ziet. Dit kan handig zijn bij het oplossen van problemen en het verlenen van hulp. Deze optie is standaard uitgeschakeld.
 * **Op rollen gebaseerde toegangsbeheer (IAM)** is het gedeelte voor het beheren van de toegang tot Connect Health-gegevens op rolbasis. 
 
 ## <a name="next-steps"></a>Volgende stappen

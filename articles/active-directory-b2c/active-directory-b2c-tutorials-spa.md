@@ -3,21 +3,21 @@ title: 'Zelfstudie: verificatie van apps met één pagina inschakelen met behulp
 description: Zelfstudie over het gebruik van Azure Active Directory B2C voor het opgeven van gebruikersaanmeldingsreferenties voor een toepassing met één pagina (JavaScript).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: cce76a0e97e039ec6e6c3a976d1fc7caca7fde73
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 08372700e9740ca69ba73dfba49f9d120dfabc6d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834431"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850328"
 ---
-# <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Zelfstudie: verificatie van apps met één pagina inschakelen met behulp van Azure Active Directory B2C
+# <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie van apps met één pagina inschakelen met behulp van Azure Active Directory B2C
 
 Deze zelfstudie laat u zien hoe u Azure Active Directory B2C (Azure AD) kunt gebruiken voor het aanmelden en registreren van gebruikers in een toepassing met één pagina (SPA). Met Azure AD B2C zijn uw apps in staat om zich met behulp van open-standaardprotocollen te verifiëren bij sociale accounts, Enterprise-accounts en Azure Active Directory-accounts.
 

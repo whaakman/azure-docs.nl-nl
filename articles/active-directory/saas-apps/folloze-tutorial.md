@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b6265bbf-8216-4229-bda7-8dd1023a5f80
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 121e5ec57dd8ec87c0b7156dc761e0d9bd7b76eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78752c7a3c47c8a61b179998533dbe9081c0a5ff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883732"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Zelfstudie: Azure Active Directory-integratie met Folloze
 
@@ -79,8 +79,8 @@ Om Azure AD-eenmalige aanmelding te configureren en testen met Folloze, moet u d
 1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
 2. **[Folloze-eenmalige aanmelding configureren](#configure-folloze-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de clientzijde wil configureren.
 3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
-4. **[De testgebruiker voor Folloze maken](#create-folloze-test-user)**: als u een equivalent van Britta Simon in Folloze wilt hebben dat gekoppeld is aan de Azure AD-weergave van de gebruiker.
-5. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[De testgebruiker voor Folloze maken](#create-folloze-test-user)**: als u een equivalent van Britta Simon in Folloze wilt hebben dat gekoppeld is aan de Azure AD-weergave van de gebruiker.
 6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
@@ -158,7 +158,7 @@ Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam 
 
 1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![De koppelingen 'Gebruikers en groepen' en 'Alle gebruikers'](common/users.png)
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
 2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
@@ -191,7 +191,7 @@ In deze sectie schakelt u Britta Simon in voor gebruik van eenmalige aanmelding 
 
 3. Selecteer **Gebruikers en groepen** in het menu aan de linkerkant.
 
-    ![De koppeling 'Gebruikers en groepen'](common/users_groups_blade.png)
+    ![De koppeling Gebruikers en groepen](common/users_groups_blade.png)
 
 4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 

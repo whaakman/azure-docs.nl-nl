@@ -4,7 +4,7 @@ description: Op deze Azure AD Connect Health-pagina vindt u informatie over het 
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3d74a78d60959dc404165d0ac8c4483b8bd36a29
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278834"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464082"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](how-to-connect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -60,7 +60,7 @@ Om aanvullende gegevens te selecteren geeft u een tijdsperiode op, of klikt u me
 
 |Groeperen op | Wat houdt de groepering in en waarom heeft dit zin? |
 | --- | --- |
-| Fouttype | Hiermee wordt het aantal fouten op basis van vooraf gedefinieerde fouttypen weergegeven. Deze groepering is nuttig om meer inzicht te verkrijgen in de veelvoorkomende fouttypen. <ul><li>Onjuiste gebruikersnaam of wachtwoord: fouten als gevolg van onjuiste gebruikersnaam of wachtwoord.</li> <li>"Extranet Lockout": fouten omdat het verzoek werd ontvangen van een gebruiker die is uitgesloten van extranet </li><li> 'Wachtwoord verlopen': mislukt omdat de gebruiker zich heeft aangemeld met een verlopen wachtwoord.</li><li>"Account uitgeschakeld": mislukt omdat gebruikers zich aanmelden met een uitgeschakeld account.</li><li>"Apparaatverificatie": mislukt omdat gebruikers niet kunnen worden geverifieerd met behulp van Apparaatverificatie.</li><li>"Verificatie met gebruikerscertificaat": mislukt omdat gebruikers niet kunnen worden geverifieerd vanwege een ongeldig certificaat.</li><li>"MFA": mislukt omdat de gebruiker niet kan worden geverifieerd met behulp van Multi-Factor Authentication.</li><li>"Andere referentie": "Autorisatie uitgifte": mislukt vanwege autorisatiefouten.</li><li>"Overgedragen uitgifte": mislukt wegens fouten bij het delegeren van de uitgifte.</li><li>"Acceptatie token": mislukt omdat ADFS het token van een externe id-provider weigert.</li><li>"Protocol": mislukt wegens protocolfouten.</li><li>'Onbekend': algemene melding. Andere fouten die niet in de gedefinieerde categorieën vallen.</li> |
+| Fouttype | Hiermee wordt het aantal fouten op basis van vooraf gedefinieerde fouttypen weergegeven. Deze groepering is nuttig om meer inzicht te verkrijgen in de veelvoorkomende fouttypen. <ul><li>Gebruikersnaam of wachtwoord onjuist: fouten omdat de gebruikersnaam of het wachtwoord onjuist is.</li> <li>'Vergrendeling van het extranet': fouten omdat het verzoek werd ontvangen van een gebruiker die is uitgesloten van extranet </li><li> 'Wachtwoord verlopen': mislukt omdat de gebruiker zich heeft aangemeld met een verlopen wachtwoord.</li><li>'Account uitgeschakeld': mislukt omdat de gebruiker zich heeft aangemeld met een uitgeschakeld account.</li><li>'Apparaatverificatie': mislukt omdat de gebruiker niet kan worden geverifieerd met behulp van Apparaatverificatie.</li><li>'Verificatie met gebruikerscertificaat': mislukt omdat de gebruiker niet kan worden geverifieerd vanwege een ongeldig certificaat.</li><li>'MFA': mislukt omdat de gebruiker niet kan worden geverifieerd met behulp van Multi-Factor Authentication.</li><li>'Andere referentie': 'Uitgifte-autorisatie': mislukt vanwege autorisatiefouten.</li><li>'Overgedragen uitgifte': mislukt wegens fouten bij het delegeren van de uitgifte.</li><li>'Acceptatie token': mislukt omdat ADFS het token van een externe id-provider weigert.</li><li>'Protocol': mislukt wegens protocolfouten.</li><li>'Onbekend': Algemene melding. Andere fouten die niet in de gedefinieerde categorieën vallen.</li> |
 | Server | Hiermee worden fouten gegroepeerd op basis van de server. Dit is handig om te begrijpen hoe de fouten zijn verdeeld over de servers. Een ongelijke verdeling kan wijzen op een server die in slechte staat is. |
 | Netwerklocatie | Hiermee worden fouten gegroepeerd op basis van de netwerklocatie van de verzoeken (intranet vs. extranet). Zo kunt u beter zien wat voor type verzoeken het vaakst mislukt. |
 |  Toepassing | Hiermee worden fouten gegroepeerd op basis van de beoogde applicatie (Relying Party). Dit is handig om te begrijpen bij welke doeltoepassing de meeste fouten voorkomen. |
@@ -82,7 +82,7 @@ Door de filteroptie boven aan de blade te selecteren, kunt u filteren op server 
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Top 50 van gebruikers met mislukte aanmeldingen vanwege een verkeerde gebruikersnaam of verkeerd wachtwoord
 Een veelvoorkomende reden voor een mislukt verificatieverzoek op een AD FS-server is een verzoek met ongeldige referenties, dat wil zeggen, een onjuiste gebruikersnaam of wachtwoord. Dit gebeurt meestal vanwege complexe wachtwoorden, vergeten wachtwoorden of typfouten.
 
-Maar er zijn andere redenen die kunnen leiden tot een onverwacht aantal aanvragen die worden verwerkt door uw AD FS-servers, zoals een toepassing die gebruikersreferenties in een cache plaatst en de referenties verlopen of wanneer een kwaadwillende gebruiker zich probeert aan te melden bij een account met een reeks bekende wachtwoorden. De volgende twee voorbeelden zijn geldige oorzaken die tot een piek in aanvragen kunnen leiden.
+Er zijn echter andere redenen die kunnen leiden tot een onverwacht aantal verzoeken die moeten worden verwerkt door uw AD FS-servers: Een toepassing die de inloggegevens van een gebruiker opslaat in de cache waarbij de gegevens vervolgens verlopen, of een kwaadwillende gebruiker die probeert in te loggen op een account door middel van een reeks bekende wachtwoorden. De volgende twee voorbeelden zijn geldige oorzaken die tot een piek in aanvragen kunnen leiden.
 
 Azure AD Connect Health voor AD FS biedt een rapport over top 50 van gebruikers met mislukte inlogpogingen vanwege een ongeldige gebruikersnaam of wachtwoord. Dit rapport komt tot stand door het verwerken van de controlegebeurtenissen die worden gegenereerd door de AD FS-servers in de farms.
 
@@ -132,7 +132,7 @@ Daarnaast is het mogelijk dat vanaf één IP-adres meerdere aanmeldpogingen voor
 > 
 
 ### <a name="what-is-in-the-report"></a>Inhoud van het rapport
-Elk item in het rapport Riskant IP-adres toont verzamelde informatie over mislukte AD FS-aanmeldactiviteiten die de aangewezen drempelwaarde overschrijden. Het biedt de volgende informatie: ![Azure AD Connect Health-portal](./media/how-to-connect-health-adfs/report4a.png)
+Elk item in het rapport Riskant IP-adres toont verzamelde informatie over mislukte AD FS-aanmeldactiviteiten die de aangewezen drempelwaarde overschrijden. Het rapport bevat de volgende informatie: ![Portal voor Azure Active Directory Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Rapportitem | Beschrijving |
 | ------- | ----------- |

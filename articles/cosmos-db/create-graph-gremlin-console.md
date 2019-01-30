@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e94d52cc920759b0ddf462b7fb5d20b86ab61e6c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 676fd2322dee170b015d0029163800989ff4e814
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032173"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383014"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Een grafiek maken, hierop query's uitvoeren en deze doorlopen in de Gremlin-console
 
@@ -78,6 +78,8 @@ connectionPool: {
 }
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
 ```
+
+zorg dat u de waarde van parameter hosts tussen vierkante haken [] plaatst. 
 
 3. Voer in de terminal `bin/gremlin.bat` of `bin/gremlin.sh` uit of start de [Gremlinc-console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. Voer in de terminal `:remote connect tinkerpop.server conf/remote-secure.yaml` uit om verbinding te maken met uw appservice.

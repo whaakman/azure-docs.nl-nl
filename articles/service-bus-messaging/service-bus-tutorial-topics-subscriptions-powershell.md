@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fdf97234e840de5fdd2811f3cdae8dd4cdc76a22
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229149"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430004"
 ---
-# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Zelfstudie: voorraad bijwerken met behulp van PowerShell en onderwerpen/abonnementen
+# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Zelfstudie: Voorraad bijwerken met PowerShell en onderwerpen/abonnementen
 
 Microsoft Azure Service Bus is een multitenant-cloudberichtenservice waarmee u gegevens kunt versturen tussen toepassingen en services. Asynchrone bewerkingen bieden flexibele, Brokered Messaging, samen met gestructureerde FIFO-berichtenuitwisseling (first in, first out) en mogelijkheden voor publiceren/abonneren. 
 
@@ -286,4 +286,4 @@ Ga naar de volgende zelfstudie voor meer informatie over het gebruik van de moge
 > [Voorraad bijwerken met behulp van PowerShell en onderwerpen/abonnementen](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Azure PowerShell installeren en configureren]: /powershell/azure/install-azurerm-ps
+[Azure PowerShell installeren en configureren]: /powershell/azure/azurerm/install-azurerm-ps

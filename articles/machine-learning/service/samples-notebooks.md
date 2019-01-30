@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434525"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811091"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Jupyter-notebooks gebruiken om Azure Machine Learning Service te verkennen
 
@@ -31,7 +31,7 @@ Voltooi de [Python-quickstart voor Azure Machine Learning](quickstart-get-starte
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Azure Notebooks proberen: Gratis Jupyter-notebooks in de cloud
 
-U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK](https://aka.ms/aml-sdk) voor Python is al voor u geïnstalleerd en geconfigureerd in Azure Notebooks. De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
+U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
   
 + De **belangrijkste zelfstudie voor Notebooks** uitvoeren:
   1. Ga naar [Azure Notebooks](https://notebooks.azure.com/).

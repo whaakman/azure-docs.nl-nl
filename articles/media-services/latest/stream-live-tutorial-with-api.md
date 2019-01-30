@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/28/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969332"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811210"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Zelfstudie: live streamen met Azure Media Services v3 met behulp van API's
 
@@ -89,7 +89,7 @@ Als u wilt starten met Media Services API's met .NET, moet u een **AzureMediaSer
 
 ### <a name="create-a-live-event"></a>Een livegebeurtenis maken
 
-In deze sectie wordt beschreven hoe u een LiveEvent van het type **pass-through** maakt (LiveEventEncodingType ingesteld op None). Als u een LiveEvent wilt maken dat is ingeschakeld voor Live Encoding, stelt u LiveEventEncodingType in op Standard. 
+In deze sectie wordt beschreven hoe u een LiveEvent van het type **pass-through** maakt (LiveEventEncodingType ingesteld op None). Als u een LiveEvent wilt maken dat is ingeschakeld voor Live Encoding, stelt u LiveEventEncodingType in op **Standard**. 
 
 Er zijn een aantal andere zaken die u kunt opgeven bij het maken van de livegebeurtenis:
 
@@ -100,8 +100,12 @@ Er zijn een aantal andere zaken die u kunt opgeven bij het maken van de livegebe
 * IP-beperkingen voor de opname en voorbeeldweergave. U kunt de IP-adressen definiëren die zijn toegestaan om een video van dit LiveEvent op te nemen. Toegestane IP-adressen kunnen worden opgegeven als één IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld , ' 10.0.0.1(255.255.252.0)').
     
     Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
+    
+    De IP-adressen moeten een van de volgende indelingen hebben: IpV4-adres met 4 cijfers, CIDR-adresbereik.
 
-Bij het maken van de gebeurtenis kunt u opgeven dat deze automatisch wordt gestart. 
+* Bij het maken van de gebeurtenis kunt u opgeven dat deze automatisch wordt gestart. 
+
+    Wanneer autostart is ingesteld op True, wordt de Live gebeurtenis gestart na het maken ervan. Dit betekent dat facturering begint zodra de Live gebeurtenis wordt uitgevoerd. U moet expliciet Stop aanroepen in de LiveEvent-resource om verdere facturering stop te zetten. Zie [LiveEvent - statussen en facturering](live-event-states-billing.md) voor meer informatie.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

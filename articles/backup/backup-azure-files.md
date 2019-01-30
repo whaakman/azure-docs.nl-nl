@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4343e8f1c456d35ccee169f3d7d62f152d8274d8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793578"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465340"
 ---
 # <a name="back-up-azure-file-shares"></a>Een back-up maken van Azure-bestandsshares
 In dit artikel wordt uitgelegd hoe u met Azure Portal back-ups kunt maken van [Azure-bestandsshares](../storage/files/storage-files-introduction.md) en deze kunt herstellen.
@@ -31,7 +31,7 @@ In deze handleiding leert u het volgende:
 Voordat u een back-up van een Azure-bestandsshare probeert te maken, moet u nagaan of deze zich in een van de [ondersteunde typen opslagaccounts](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview) bevindt. Zodra u dit hebt bevestigd, kunt u uw bestandsshares beveiligen.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Beperkingen voor het maken van back-ups van Azure-bestandsshares in de preview-versie
-Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ondersteund in de accounts voor algemeen gebruik v1 en v2. De volgende back-upscenario's worden niet ondersteund voor Azure-bestandsshares:
+Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ondersteund voor de accounts voor algemeen gebruik v1 en v2. De volgende back-upscenario's worden niet ondersteund voor Azure-bestandsshares:
 - U kunt Azure-bestandsshares niet beveiligen in opslagaccounts met replicatie via [geografisch redundante opslag met leestoegang](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
 - U kunt Azure-bestandsshares niet beveiligen in opslagaccounts waarvoor virtuele netwerken zijn of een firewall is ingeschakeld.
 - Er is geen CLI beschikbaar voor het beveiligen van Azure Files met behulp van Azure Backup.
@@ -46,7 +46,7 @@ Back-up voor Azure-bestandsshares is in preview. Azure-bestandsshares worden ond
 Back-up voor Azure-bestandsshares in opslagaccounts met replicatie via [zone-redundante opslag](../storage/common/storage-redundancy-zrs.md) (ZRS) is momenteel alleen beschikbaar in US - centraal (CUS), US - oost (EUS), US - oost 2 (EUS2),Europa - noord (NE), Azië - zuidoost (SEA), Europa - west (WE) en US - west 2 (WUS2).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Back-up voor Azure-bestandsshare configureren
-Alle back-upgegevens worden opgeslagen in Recovery Services-kluizen. In deze zelfstudie wordt ervan uitgegaan dat u al een Azure-bestandsshare hebt gemaakt. Ga als volgt te werk om een back-up van uw Azure-bestandsshare te maken:
+In deze zelfstudie wordt ervan uitgegaan dat u al een Azure-bestandsshare hebt gemaakt. Ga als volgt te werk om een back-up van uw Azure-bestandsshare te maken:
 
 1. Maak een Recovery Services-kluis in dezelfde regio als waarin de bestandsshare zich bevindt. Als u al een kluis hebt, opent u de overzichtspagina van uw kluis en klikt u op **Back-up**.
 

@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a86547ad3eddb57328a2a0358ac453c979b84d37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 21f2081f5aae0bb93cb9066407140f5fd35dc06d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163302"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424023"
 ---
-# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Zelfstudie: een pilot van een Azure AD-selfservice voor wachtwoordherstel uitrollen
+# <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Zelfstudie: Een pilot van een Azure AD-selfservice voor wachtwoordherstel uitrollen
 
 In deze zelfstudie rolt u in uw organisatie een pilot uit van de Azure AD-selfservice voor wachtwoordherstel (SSPR) en test u deze met behulp van een niet-beheerdersaccount.
 
@@ -63,7 +63,7 @@ Test de selfservice voor wachtwoordherstel met behulp van een testgebruiker die 
 
 1. Open een nieuw browservenster om InPrivate- of incognitomodus.
 1. Gebruik een testgebruiker om u met behulp van de registratieportal op [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) te registreren voor het zelf opnieuw instellen van een wachtwoord.
-1. Ga als dezelfde testgebruiker naar de selfserviceportal voor wachtwoordherstel [​​https://aka.ms/sspr](https://aka.ms/sspr) en probeer uw wachtwoord opnieuw in te stellen met behulp van de informatie die u in de vorige stap hebt verstrekt.
+1. Ga als dezelfde testgebruiker naar de selfserviceportal voor wachtwoordherstel [​​ https://aka.ms/sspr](https://aka.ms/sspr) en probeer uw wachtwoord opnieuw in te stellen met behulp van de informatie die u in de vorige stap hebt verstrekt.
 1. U zou uw wachtwoord met succes opnieuw moeten kunnen instellen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen

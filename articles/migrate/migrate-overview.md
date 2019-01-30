@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c8aa7050163c2b58ca68adcf9a9b4d0bc96bb126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263197"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808354"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -57,7 +57,7 @@ Instellingen voor evaluatie kunnen worden aangepast op basis van uw behoeften. E
 
 **Eigenschap** | **Details**
 --- | ---
-**Doellocatie** | De Azure-locatie waarnaar u wilt migreren.<br/><br/>Azure Migrate biedt momenteel ondersteuning voor 33 regio’s als doellocaties voor migratie. [Regio's controleren](https://azure.microsoft.com/global-infrastructure/services/). De doellocatie is standaard ingesteld op US - west 2.
+**Doellocatie** | De Azure-locatie waarnaar u wilt migreren.<br/><br/>Azure Migrate biedt momenteel ondersteuning voor 33 regio’s als doellocaties voor migratie. [Regio's controleren](https://azure.microsoft.com/global-infrastructure/services/). De doellocatie is standaard ingesteld op US - oost.
 **Opslagtype** | Het type beheerde schijven dat u wilt toewijzen aan alle VM’s die onderdeel uitmaken van de evaluatie. Als het groottecriterium *aanpassen van de grootte op basis van on-premises* is, kunt u het type doelschijf opgeven als Premium-schijven (standaard), standaard-SSD-schijven of standaard-HDD-schijven. Voor *aanpassen van de grootte op basis van prestaties* hebt u, naast de bovenstaande opties, ook de optie om Automatisch te selecteren. Dit zorgt ervoor dat de aanbeveling voor het aanpassen van de schijfgrootte automatisch gebeurd op basis van de prestatiegegevens van de VM’s. Als u bijvoorbeeld een [enkel exemplaar VM SLA van 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) wilt bereiken, moet u het opslagtype opgeven als beheerde Premium-schijven. Dit zorgt ervoor dat alle schijven in de evaluatie worden aanbevolen als beheerde Premium-schijven. Houd er rekening mee dat Azure Migrate voor migratiebeoordeling alleen ondersteuning voor beheerde schijven biedt.
 **Gereserveerde instanties** |  Of u [gereserveerde instanties](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure hebt. Azure Migrate maakt dienovereenkomstig een schatting van de kosten.
 **Criterium voor het aanpassen van de grootte** | U kunt de grootte aanpassen op basis van de **prestatiegeschiedenis** van de on-premises VM's (standaard) of **als on-premises** zonder rekening te houden met de prestatiegeschiedenis.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465828"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848730"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Zelfstudie: Virtuele machines met hoge beschikbaarheid maken en implementeren met de Azure CLI
 
@@ -70,7 +70,7 @@ Met beschikbaarheidssets kunt u bronnen isoleren tussen foutdomeinen en domeinen
 
 VM's moeten worden gemaakt binnen de beschikbaarheidsset om ervoor te zorgen dat ze correct over de hardware worden verdeeld. U kunt een bestaande VM niet toevoegen aan een beschikbaarheidsset nadat deze is gemaakt.
 
-Wanneer er een VM is gemaakt met [az vm create](/cli/azure/vm#az_vm_create), gebruikt u de parameter `--availability-set` om de naam van de beschikbaarheidsset op te geven.
+Wanneer er een VM is gemaakt met [az vm create](/cli/azure/vm), gebruikt u de parameter `--availability-set` om de naam van de beschikbaarheidsset op te geven.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

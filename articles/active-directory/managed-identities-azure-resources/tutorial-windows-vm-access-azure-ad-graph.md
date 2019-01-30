@@ -4,7 +4,7 @@ description: Een zelfstudie die u helpt bij het doorlopen van het proces voor he
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 6e8f7f18196eb23900c815048e12d57a238d08f7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4396ab093b20e4a7fb89ddbfe821be117bb8ebfb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423053"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438674"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Zelfstudie: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot de Azure AD Graph API
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Zelfstudie: Een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot de Azure AD Graph API
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
@@ -66,7 +66,7 @@ In deze zelfstudie verleent u uw VM-identiteit toestemming om query's voor groep
 Azure AD Graph:
 - App-id van de service-principal (gebruikt om een app toestemming te geven): 00000002-0000-0000-c000-000000000000
 - Resource-id (gebruikt om toegangstokens voor beheerde identiteiten aan te vragen voor Azure-resources): https://graph.windows.net
-- Verwijzing toestemmingsbereik: [Azure AD Graph-toestemmingsverwijzing](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Naslaginformatie over machtigingsbereik: [Naslaginformatie over Azure Active Directory Graph-machtigingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-azure-ad-powershell"></a>Toepassingstoestemmingen verlenen met Azure AD PowerShell
 

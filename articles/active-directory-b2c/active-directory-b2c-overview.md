@@ -3,19 +3,19 @@ title: Wat is Azure Active Directory B2C? | Microsoft Docs
 description: Lees hoe u een aanmeldingservaring voor uw toepassing maakt en beheert met behulp van Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724023"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844990"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Wat is Azure Active Directory B2C?
 
@@ -102,13 +102,13 @@ In Azure AD B2C bestaat een tenant uit een adreslijst of directory met gebruiker
 
 Koppel de Azure AD B2C-tenant aan uw Azure-abonnement om te beschikken over alle functionaliteit en te betalen voor gebruikskosten. Registreer de toepassing in een Azure AD B2C-tenant om toe te staan dat klanten zich aanmelden bij de toepassing.
 
-Voordat u uw toepassing configureert voor het gebruik van Azure AD B2C, moet u eerst een Azure AD B2C-tenant maken en uw toepassing registreren. Om uw toepassing te registreren, voert u de zelfstudie [Een Azure Active Directory B2C-tenant maken](tutorial-register-applications.md) uit.
+Voordat u uw toepassing configureert voor het gebruik van Azure AD B2C, moet u eerst een Azure AD B2C-tenant maken en uw toepassing registreren. Om uw toepassing te registreren, voert u de zelfstudie: [Register an application to enable sign-up and sign-in using Azure AD B2C](tutorial-register-applications.md) (Een toepassing registreren om registratie en aanmelding met Azure AD B2C in te schakelen) uit.
   
-Als u ASP.NET webtoepassingen ontwikkelt, configureert u uw toepassing om accounts te verifiëren met behulp van de stappen in de zelfstudie [Een webtoepassing inschakelen om te verifiëren met accounts met behulp van Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
+Als u ASP.NET webtoepassingen ontwikkelt, configureert u uw toepassing om accounts te verifiëren met behulp van de stappen in de zelfstudie; [Een webtoepassing inschakelen om te verifiëren met accounts met behulp van Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
 
-Als u desktoptoepassingen ontwikkelt, configureert u uw toepassing om accounts te verifiëren met behulp van de stappen in de zelfstudie [Verificatie van desktop-apps inschakelen met accounts met behulp van Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
+Als u desktoptoepassingen ontwikkelt, configureert u uw toepassing om accounts te verifiëren met behulp van de stappen in de zelfstudie: [Verificatie van desktop-apps inschakelen met accounts met behulp van Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
 
-Als u toepassingen met één pagina ontwikkelt, configureert u uw toepassing om accounts te verifiëren met behulp van de stappen in de zelfstudie [Verificatie van apps met één pagina inschakelen met behulp van Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
+Als u toepassingen met één pagina ontwikkelt, configureert u uw toepassing om accounts te verifiëren met behulp van de stappen in de zelfstudie: [Verificatie van apps met één pagina inschakelen met behulp van Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

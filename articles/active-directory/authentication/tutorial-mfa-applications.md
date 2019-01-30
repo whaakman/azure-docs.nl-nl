@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 098973e2ece3477ec87b154c0304c4ca7e0246d1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163288"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427607"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Zelfstudie: Een Azure Multi-Factor Authentication-pilot implementeren
 
@@ -29,7 +29,7 @@ In deze zelfstudie vindt u stapsgewijze instructies voor het configureren van be
 
 * Een werkende Azure AD-tenant waarop minimaal een proeflicentie is ingeschakeld.
 * Een account met de bevoegdheden van een globale beheerder.
-* Zie het artikel [Snelstart: Nieuwe gebruikers toevoegen aan Azure Active Directory](../add-users-azure-active-directory.md) als een testgebruiker zonder beheerdersbevoegdheden een bij u bekend wachtwoord heeft voor testdoeleinden, en u een gebruiker moet maken.
+* Zie het artikel [Quickstart: Nieuwe gebruikers toevoegen aan Azure Active Directory](../add-users-azure-active-directory.md) als een testgebruiker zonder beheerdersbevoegdheden een wachtwoord heeft dat u kent, en u een gebruiker moet maken.
 * Zie het artikel [Een groep maken en leden toevoegen in Azure Active Directory](../active-directory-groups-create-azure-portal.md) als u een pilotgroep hebt om mee te testen waarvan de gebruiker zonder beheerdersbevoegdheden lid is, en u een groep wilt maken.
 
 ## <a name="enable-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication inschakelen

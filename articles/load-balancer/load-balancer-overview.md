@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246565"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382687"
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -156,7 +156,7 @@ Met een interne Load Balancer zijn de volgende typen taakverdeling mogelijk:
 
 Gebruik van Standard Load Balancer wordt in rekening gebracht.
 
-- Aantal geconfigureerde load-balancing en uitgaande regels (inkomende NAT-regels worden niet meegeteld in het totale aantal regels)
+- Aantal geconfigureerde load-balancing- en uitgaande regels (inkomende NAT-regels worden niet meegeteld in het totale aantal regels)
 - Hoeveelheid verwerkte inkomende en uitgaande gegevens, ongeacht de regel. 
 
 Ga naar de pagina [Prijs van Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) voor informatie over de prijs van Standard Load Balancer.
@@ -174,4 +174,4 @@ Ga naar de pagina [Load Balancer-SLA](https://aka.ms/lbsla) voor informatie over
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt nu een algemeen beeld van Azure Load Balancer. Om een Load Balancer te kunnen gebruiken, moet u er eerst een maken, maakt u vervolgens virtuele machines met daarop een aangepaste IIS-extensie geïnstalleerd, en past u taakverdeling toe op de web-app tussen de VM's. Zie de quickstart[Een Basic Load Balancer maken](quickstart-create-basic-load-balancer-portal.md) voor meer informatie.
+U hebt nu een algemeen beeld van Azure Load Balancer. Om een Load Balancer te kunnen gebruiken, moet u er eerst een maken, maakt u vervolgens virtuele machines met daarop een aangepaste IIS-extensie geïnstalleerd, en past u taakverdeling toe op de web-app tussen de VM's. Zie de snelstart[Een Basic Load Balancer maken](quickstart-create-basic-load-balancer-portal.md) voor meer informatie.

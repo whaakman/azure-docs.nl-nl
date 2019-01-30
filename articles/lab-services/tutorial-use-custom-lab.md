@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470860"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422895"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Zelfstudie: Een lab openen in Azure DevTest Labs
 In deze zelfstudie gebruikt u het lab dat is gemaakt in de [zelfstudie: Een lab maken in Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -68,14 +68,16 @@ Nadat u klaar bent met het gebruik van de virtuele machine, kunt u de claim op d
 1. Ga naar de pagina van de virtuele machine en selecteer **Claim ongedaan maken** op de werkbalk. 
 
     ![Claim op virtuele machine ongedaan maken](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. De virtuele machine wordt uitgeschakeld voordat de claim ongedaan wordt gemaakt. 
+1. De virtuele machine wordt uitgeschakeld voordat de claim ongedaan wordt gemaakt. U kunt de status van deze bewerking zien in meldingen.  
+3. Ga terug naar de DevTest Lab-pagina door in het breadcrumb-menu bovenaan op de naam van uw lab te klikken. 
+    
+    ![Terug navigeren naar lab](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. Controleer of de virtuele machine wordt weergegeven in de lijst met **Claimbare virtuele machines** onderaan het scherm.
 
-    ![Status van claim ongedaan maken](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. Nadat de claim ongedaan is gemaakt, ziet u de virtuele machine in de lijst met **Claimbare virtuele machines** onderaan. 
     
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u gezien hoe u toegang kunt krijgen tot en gebruik kunt maken van een lab dat is gemaakt met Azure DevTest Labs. Voor meer informatie over toegang tot en het gebruik van virtuele machines in een lab raadpleegt u 
 
 > [!div class="nextstepaction"]
-> [Virtuele machines gebruiken in een lab](devtest-lab-add-vm.md)
+> [Procedure: Virtuele machines gebruiken in een lab](devtest-lab-add-vm.md)
 

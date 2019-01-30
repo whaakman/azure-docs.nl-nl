@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 186d532f159db7d51ba4f93a250c00c7627280e0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e922e9e7741eb3338503e02cd0ca78387e32b1f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229521"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824096"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
@@ -177,7 +177,7 @@ Importeer het gedownloade bestand naar de vCenter Server.
     - Als de virtuele machine via een proxy toegang heeft tot internet, klikt u op **Proxyinstellingen** en geeft u het proxyadres en de controlepoort op. Geef referenties op als de proxy verificatie nodig heeft. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) meer over de vereisten voor internetconnectiviteit en de [lijst met URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) die de collector raadpleegt.
 
       > [!NOTE]
-      > Het proxyadres moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund. Als u een onderscheppende proxy hebt, kan de internetverbinding in eerste instantie mislukken als u het proxycertificaat niet hebt geïmporteerd. [Hier](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) vindt u meer informatie over hoe u dit kunt oplossen door het proxycertificaat te importeren als vertrouwd in de collector-VM.
+      > Het proxyadres moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund. Als u een onderscheppende proxy hebt, kan de internetverbinding in eerste instantie mislukken als u het proxycertificaat niet hebt geïmporteerd. [Hier](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) vindt u meer informatie over hoe u dit kunt oplossen door het proxycertificaat als vertrouwd in de collector-VM te importeren.
 
     - De collector controleert of de collector-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de collector-VM.
     - Download en installeer VMware PowerCLI.

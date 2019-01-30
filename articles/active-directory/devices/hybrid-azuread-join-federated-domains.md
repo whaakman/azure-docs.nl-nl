@@ -4,7 +4,7 @@ description: Hybride Azure Active Directory-koppeling configureren voor federati
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f904690187f6f2b020cb9cc32f9a20712d8bb53
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: af1495af69255c7daa7de94da6ce0321c13d7599
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107562"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448208"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-deelname configureren voor federatieve domeinen
 
@@ -73,11 +73,11 @@ De configuratiestappen in dit artikel zijn gebaseerd op deze wizard. Als u een o
 
 Voor hybride Azure AD-koppeling moeten de apparaten toegang tot de volgende Microsoft-bronnen hebben vanuit het netwerk van uw organisatie:  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - De STS van uw organisatie (federatieve domeinen)
-- https://autologon.microsoftazuread-sso.com (als u naadloze eenmalige aanmelding gebruikt of van plan bent te gebruiken)
+- https\://autologon.microsoftazuread-sso.com (als u naadloze eenmalige aanmelding gebruikt of van plan bent te gebruiken)
 
 Vanaf Windows 10 1803 is het zo dat als de directe Hybrid Azure AD-koppeling mislukt voor federatieve domeinen zoals AD FS, we vertrouwen op Azure AD Connect om het computerobject in Azure AD te synchroniseren dat vervolgens wordt gebruikt om de apparaatregistratie voor Hybrid Azure AD-koppeling te voltooien.
 

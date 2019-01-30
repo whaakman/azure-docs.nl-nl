@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ff8fe3c3c61777902269364df88a9fff4e8d1385
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515485"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425149"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Zelfstudie: De SQL-, IIS-, .NET-stack installeren op een Windows-VM met Azure PowerShell
 
@@ -34,7 +34,7 @@ In deze zelfstudie installeren we een SQL-, IIS-, .NET-stack met Azure PowerShel
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.7.0 of hoger van AzureRM.Compute vereist. Voer `Get-Module -ListAvailable AzureRM.Compute` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.7.0 of hoger van AzureRM.Compute vereist. Voer `Get-Module -ListAvailable AzureRM.Compute` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Een virtuele IIS-machine maken 
 

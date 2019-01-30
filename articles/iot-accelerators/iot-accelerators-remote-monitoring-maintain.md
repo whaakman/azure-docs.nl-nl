@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819217"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451712"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Zelfstudie: Problemen met apparaten opsporen en oplossen
 
@@ -84,6 +84,6 @@ U kunt controleren of de temperatuur van het apparaat is afgenomen door de telem
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u gezien hoe u waarschuwingen kunt gebruiken om problemen met apparaten te identificeren en welke acties u kunt ondernemen om de problemen op deze apparaten op te lossen. Ga verder met de praktische artikelen voor informatie over het verbinden van een fysiek apparaat met de oplossingsverbetering.
+In deze zelfstudie hebt u gezien hoe u waarschuwingen kunt gebruiken om problemen met apparaten te identificeren en welke acties u kunt ondernemen om de problemen op deze apparaten op te lossen. Ga verder met de praktische artikelen voor informatie over het verbinden van een echt apparaat met de oplossingsverbetering.
 
 Nu u hebt geleerd hoe u problemen met apparaten aanpakt, is de volgende stap die we willen voorstellen het [verbinden van uw apparaat met de oplossingsverbetering voor externe controle](iot-accelerators-connecting-devices.md).

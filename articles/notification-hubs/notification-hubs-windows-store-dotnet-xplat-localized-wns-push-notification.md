@@ -3,8 +3,8 @@ title: Gelokaliseerde meldingen verzenden naar Windows-apps met Azure Notificati
 description: Leer hoe u met behulp van Azure Notification Hubs gelokaliseerde meldingen voor belangrijk nieuws kunt verzenden.
 services: notification-hubs
 documentationcenter: windows
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
@@ -13,29 +13,31 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 0e78b00e49b2ef468e693abfdcde8a138313ba63
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 9f5177b4474152cf54eb7ea9eb935a0ba81dc760
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41917691"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451320"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Zelfstudie: Gelokaliseerde pushmeldingen verzenden naar Windows-apps met Azure Notification Hubs
+
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe u gelokaliseerde pushmeldingen naar mobiele apparaten kunt versturen die zijn geregistreerd bij de Notification Hubs-service. In de zelfstudie gaat u toepassingen bijwerken die zijn gemaakt in de zelfstudie [Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) om ondersteuning te bieden voor de volgende scenario's: 
+
+Deze zelfstudie laat zien hoe u gelokaliseerde pushmeldingen naar mobiele apparaten kunt versturen die zijn geregistreerd bij de Notification Hubs-service. In de zelfstudie gaat u toepassingen bijwerken die zijn gemaakt in de zelfstudie: [Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) om ondersteuning te bieden voor de volgende scenario's:
 
 - In de Windows Store-app kunnen clientapparaten een taal opgeven en zich abonneren op verschillende nieuwscategorieën.
-- De back-endapp verstuurt meldingen met behulp van **tags** en **sjablonen** van Azure Notification Hubs.
+- De back-endapp verstuurt meldingen met behulp van de **tag**- en **sjabloon**-functies van Azure Notification Hubs.
 
-Wanneer u de zelfstudie hebt voltooid, kunt u in de mobiele toepassing categorieën kiezen waarvoor u zich wilt registreren, evenals de taal waarin u meldingen voor die nieuwscategorieën wilt ontvangen. De back-endtoepassing verstuurt meldingen die per taal en apparaat zijn gelokaliseerd. 
+Wanneer u de zelfstudie hebt voltooid, kunt u in de mobiele toepassing categorieën kiezen waarvoor u zich wilt registreren, evenals de taal waarin u meldingen voor die nieuwscategorieën wilt ontvangen. De back-endtoepassing verstuurt meldingen die per taal en apparaat zijn gelokaliseerd.
 
-In deze zelfstudie leert u het volgende: 
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Windows-app bijwerken om landinstellingen te ondersteunen
@@ -43,9 +45,10 @@ In deze zelfstudie leert u het volgende:
 > * De app testen
 
 ## <a name="prerequisites"></a>Vereisten
-De zelfstudie [Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) voltooien. 
 
-In de zelfstudie [Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) bouwt u een app die gebruikmaakt van **tags** om zich te abonneren op meldingen voor verschillende nieuws**categorieën** . In deze zelfstudie gebruikt u de **sjabloon**-functie van Notification Hubs om eenvoudig **gelokaliseerde** meldingen van belangrijk nieuws te bezorgen.
+Voltooi de zelfstudie: [Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+
+In de zelfstudie: [Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) bouwt u een app die gebruikmaakt van **tags** om zich te abonneren op meldingen voor verschillende nieuws**categorieën**. In deze zelfstudie gebruikt u de **sjabloon**-functie van Notification Hubs om eenvoudig **gelokaliseerde** meldingen van belangrijk nieuws te bezorgen.
 
 In deze context zijn sjablonen een manier om de indeling op te geven waarin een specifiek apparaat een melding moet ontvangen. De sjabloon bepaalt de exacte indeling van de payload door te verwijzen naar eigenschappen die deel uitmaken van het bericht dat is verzonden door uw back-endapp. In deze zelfstudie verzendt de back-endtoepassing een bericht met alle ondersteunde talen:
 
@@ -69,12 +72,12 @@ De apparaten registreren zich bij een sjabloon die naar de juiste eigenschap ver
 </toast>
 ```
 
-Zie het artikel [Sjablonen](notification-hubs-templates-cross-platform-push-messages.md) voor meer informatie over sjablonen. 
+Zie [Push Templates](notification-hubs-templates-cross-platform-push-messages.md) (Pushsjablonen) voor meer informatie over sjablonen.
 
 ## <a name="update-windows-app-to-support-locale-information"></a>Windows-app bijwerken om landinstellingen te ondersteunen
 
-1. Open de Visual Studio-oplossing die u hebt gemaakt voor de zelfstudie [Meldingen verzenden naar UWP-apps (Universal Windows Platform) met behulp van Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). 
-2. Werk het bestand **MainPage.xaml** bij om een keuzelijst met invoervak toe te voegen voor het kiezen van een landinstelling:
+1. Open de Visual Studio-oplossing die u hebt gemaakt voor de zelfstudie: [Pushmeldingen verzenden naar specifieke Windows-apparaten met Universeel Windows-platform-toepassingen](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+2. Werk het bestand `MainPage.xaml` van de oplossing bij met een keuzelijst met invoervak voor landinstellingen:
 
     ```xml
     <Grid Margin="120, 58, 120, 80"  
@@ -106,9 +109,9 @@ Zie het artikel [Sjablonen](notification-hubs-templates-cross-platform-push-mess
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
     ```
-2. Voeg in de klasse **Notifications** een parameter voor de landinstelling (locale) toe aan de methoden **StoreCategoriesAndSubscribe** en **SubscribeToCateories**.
+3. Voeg in de klasse `Notifications` een landinstellingenparameter toe aan de methoden `StoreCategoriesAndSubscribe` en `SubscribeToCateories`.
 
-    ```csharp   
+    ```csharp
     public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
@@ -133,11 +136,11 @@ Zie het artikel [Sjablonen](notification-hubs-templates-cross-platform-push-mess
     }
     ```
 
-    In plaats van het aanroepen van de methode *RegisterNativeAsync*, roept u *RegisterTemplateAsync* aan. U registreert een specifieke indeling voor de melding waarin de sjabloon afhankelijk is van de landinstelling. U geeft ook een naam op voor de sjabloon ('localizedWNSTemplateExample'), aangezien u misschien meer dan één sjabloon wilt registreren (bijvoorbeeld één voor pop-upmeldingen en één voor tegels). U moet ook een naam opgeven om sjablonen te kunnen bijwerken of verwijderen.
-   
+    Roep in plaats van methode `RegisterNativeAsync` methode `RegisterTemplateAsync` aan. U registreert een specifieke indeling voor de melding waarin de sjabloon afhankelijk is van de landinstelling. U geeft ook een naam op voor de sjabloon ('localizedWNSTemplateExample'), aangezien u misschien meer dan één sjabloon wilt registreren (bijvoorbeeld één voor pop-upmeldingen en één voor tegels). U moet ook een naam opgeven om sjablonen te kunnen bijwerken of verwijderen.
+
     Als op een apparaat meerdere sjablonen met dezelfde tag zijn geregistreerd, worden er meerdere meldingen verstuurd naar het apparaat (één voor elke sjabloon) als er een bericht binnenkomt dat gericht is op deze tag. Dit gedrag is handig wanneer hetzelfde logische bericht moet resulteren in meerdere visual meldingen (bijvoorbeeld een badge en een pop-up weergeven in een Windows Store-toepassing).
-3. Voeg de volgende methode toe om de opgeslagen landinstelling op te halen:
-   
+4. Voeg de volgende methode toe om de opgeslagen landinstelling op te halen:
+
     ```csharp
     public string RetrieveLocale()
     {
@@ -146,8 +149,8 @@ Zie het artikel [Sjablonen](notification-hubs-templates-cross-platform-push-mess
     }
     ```
 
-4. Werk in het bestand **MainPage.xaml.cs** de handler voor het klikken op de knop Subscribe bij door de huidige waarde van de keuzelijst met invoervak Locale op te halen en door te geven aan de aanroep van de klasse Notifications, zoals hieronder wordt weergegeven:
-   
+5. Werk in het bestand `MainPage.xaml.cs` de knop-klikhandler bij voor het ophalen van de huidige waarde van de keuzelijst met invoervak voor landinstellingen en geef deze waarde door aan de aanroep van de klasse `Notifications`:
+
     ```csharp
     private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
     {
@@ -170,9 +173,9 @@ Zie het artikel [Sjablonen](notification-hubs-templates-cross-platform-push-mess
         await dialog.ShowAsync();
     }
     ```
-4. Open het bestand App.xaml.cs en werk de methode `InitNotificationsAsync` bij, zodat deze de landinstelling ophaalt en gebruikt op het moment van abonneren:
+6. Ten slotte werkt u in het bestand `App.xaml.cs` de methode `InitNotificationsAsync` bij om de landinstelling op te halen en gebruikt u deze bij het abonneren:
 
-    ```csharp   
+    ```csharp
     private async void InitNotificationsAsync()
     {
         var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
@@ -188,6 +191,7 @@ Zie het artikel [Sjablonen](notification-hubs-templates-cross-platform-push-mess
     ```
 
 ## <a name="send-localized-notifications-from-your-back-end"></a>Gelokaliseerde meldingen verzenden vanuit de back-end
+
 Wanneer u sjabloonmeldingen verstuurt, hoeft u alleen een set eigenschappen op te geven. In deze zelfstudie verstuurt de back-endtoepassing de set eigenschappen met de gelokaliseerde versie van het actuele nieuws, bijvoorbeeld:
 
 ```json
@@ -198,22 +202,20 @@ Wanneer u sjabloonmeldingen verstuurt, hoeft u alleen een set eigenschappen op t
 }
 ```
 
-In deze sectie gaat u het consoletoepassingsproject in de oplossing bijwerken. Wijzig de methode `SendTemplateNotificationAsync` in de console-app die u eerder hebt gemaakt met de volgende code: 
+In deze sectie gaat u het consoletoepassingsproject in de oplossing bijwerken. Wijzig de methode `SendTemplateNotificationAsync` in de console-app die u eerder hebt gemaakt met de volgende code:
 
 > [!IMPORTANT]
-> Geef in de code de naam en verbindingsreeks met volledige toegang op voor uw meldingshub. 
-
+> Geef in de code de naam en verbindingsreeks met volledige toegang op voor uw meldingshub.
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
 {
     // Define the notification hub.
-    NotificationHubClient hub = 
-        NotificationHubClient.CreateClientFromConnectionString(
-            "<connection string with full access>", "<hub name>");
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(
+        "<connection string with full access>", "<hub name>");
 
-    // Sending the notification as a template notification. All template registrations that contain 
-    // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
+    // Sending the notification as a template notification. All template registrations that contain
+    // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications.
     // This includes APNS, GCM, WNS, and MPNS template registrations.
     Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
@@ -239,29 +241,29 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-Met deze eenvoudige aanroep wordt het gelokaliseerde nieuwsbericht bezorgd op **alle** apparaten, ongeacht het platform. Dit kan doordat uw meldingshub de juiste payload voor het platform samenstelt en verstuurt naar alle apparaten die zijn geabonneerd op een bepaalde tag.
+Met deze eenvoudige aanroep wordt het gelokaliseerde nieuwsbericht bezorgd op **alle** apparaten, ongeacht het platform. Dit kan doordat uw Notification Hub de juiste payload voor het platform samenstelt en verstuurt naar alle apparaten die zijn geabonneerd op een bepaalde tag.
 
 ## <a name="test-the-app"></a>De app testen
+
 1. Voer de Universal Windows Store-toepassing uit. Wacht tot u het bericht ziet dat de **registratie is gelukt**.
 
     ![Registratie van mobiele toepassing](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-1. Selecteer de **categorieën** en **locale** (landinstelling), en klik op **Subscribe**. De app zet de geselecteerde categorieën om in tags en vraagt bij Notification Hubs een nieuwe apparaatregistratie aan voor de geselecteerde tags.
+2. Selecteer de **categorieën** en **locale** (landinstelling), en klik op **Subscribe**. De app zet de geselecteerde categorieën om in tags en vraagt bij Notification Hubs een nieuwe apparaatregistratie aan voor de geselecteerde tags.
 
     ![Mobiele toepassing](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-2.  U ziet een **bevestigingsbericht** over de **abonnementen**. 
+3. U ziet een **bevestigingsbericht** over de **abonnementen**.
 
     ![Abonnementsbericht](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-1. Als u een bevestiging hebt ontvangen, voert u de **console-app** uit om meldingen te verzenden voor elke categorie en in elke ondersteunde taal. Controleer of u alleen een melding krijgt voor de categorieën waarop u zich hebt geabonneerd en of het bericht overeenkomt met de landinstelling die u hebt geselecteerd. 
+4. Als u een bevestiging hebt ontvangen, voert u de **console-app** uit om meldingen te verzenden voor elke categorie en in elke ondersteunde taal. Controleer of u alleen een melding krijgt voor de categorieën waarop u zich hebt geabonneerd en of het bericht overeenkomt met de landinstelling die u hebt geselecteerd.
 
     ![Meldingen](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
- 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u gelokaliseerde pushmeldingen kunt verzenden naar specifieke apparaten door een tag te koppelen aan hun registraties. Als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke gebruikers die mogelijk meer dan één apparaat gebruiken, gaat u verder met de volgende zelfstudie: 
+
+In deze zelfstudie hebt u geleerd hoe u gelokaliseerde pushmeldingen kunt verzenden naar specifieke apparaten door een tag te koppelen aan hun registraties. Als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke gebruikers die mogelijk meer dan één apparaat gebruiken, gaat u verder met de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
 >[Pushmeldingen verzenden naar specifieke gebruikers](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
-
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -277,7 +279,6 @@ In deze zelfstudie hebt u geleerd hoe u gelokaliseerde pushmeldingen kunt verzen
 [Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -288,7 +289,6 @@ In deze zelfstudie hebt u geleerd hoe u gelokaliseerde pushmeldingen kunt verzen
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx

@@ -1,274 +1,265 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Adobe Sign | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Adobe Sign.
+description: Leer hoe u eenmalige aanmelding configureert tussen Azure Active Directory en Adobe Sign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
+ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/26/2018
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: d5cdc2ec0c6cfcf52f84629485d0dd879fbf6fa2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: MT
+ms.openlocfilehash: 117cd2a546128499c1f9bbc75be40034875fa76e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053995"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809360"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Zelfstudie: Azure Active Directory-integratie met Adobe Sign
+# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Zelfstudie: Azure Active Directory-integratie met Adobe Creative Sign
 
-In deze zelfstudie leert u hoe u Adobe Sign integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Adobe Sign integreert met Azure Active Directory (Azure AD).
+De integratie van Adobe Sign met Azure AD heeft de volgende voordelen:
 
-Integratie van Adobe Sign in Azure AD biedt u de volgende voordelen:
+* U kunt in Azure AD beheren wie toegang heeft tot Adobe Sign.
+* U kunt inschakelen dat gebruikers automatisch met hun Azure AD-account worden aangemeld bij Adobe Sign.
+* U kunt uw accounts vanaf één centrale locatie beheren: de Azure-portal.
 
-- U kunt beheren in Azure AD die toegang tot de Adobe Sign heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Adobe Sign (eenmalige aanmelding) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie, de Azure-portal beheren.
-
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Zie [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?) als u wilt graag meer wilt weten over de integratie van SaaS-apps met Azure AD.
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Adobe Sign, hebt u het volgende nodig:
+U hebt de volgende items nodig om Azure AD-integratie met Adobe Sign te configureren:
 
-- Een Azure AD-abonnement
-- Een Adobe Sign eenmalige aanmelding ingeschakeld abonnement
-
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
-
-- Gebruik uw productie-omgeving, niet als dat nodig is.
-- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
+* Een Azure AD-abonnement Als u geen Azure AD-omgeving hebt, kunt u [hier](https://azure.microsoft.com/pricing/free-trial/) de proefversie van één maand krijgen.
+* Een abonnement op Adobe Sign waarvoor eenmalige aanmelding is ingeschakeld
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Toevoegen van Adobe Sign in de galerie.
-2. Configureren en testen van Azure AD eenmalige aanmelding.
+In deze zelfstudie gaat u in een testomgeving eenmalige aanmelding van Azure AD configureren en testen.
 
-## <a name="add-adobe-sign-from-the-gallery"></a>Adobe Sign uit de galerie toevoegen
-Voor het configureren van de integratie van Adobe Sign in Azure AD, moet u Adobe Sign uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+* Adobe Sign ondersteunt door **SP** geïnitieerde eenmalige aanmelding (SSO)
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram. 
+## <a name="adding-adobe-sign-from-the-gallery"></a>Adobe Sign toevoegen vanuit de galerie
 
-    ![Schermafbeelding van het Azure Active Directory-pictogram][1]
+Om de integratie van Adobe Sign met Azure AD te configureren, moet u Adobe Sign vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-2. Blader naar **bedrijfstoepassingen** > **alle toepassingen**.
+**Voer de volgende stappen uit om Adobe Sign toe te voegen vanuit de galerie:**
 
-    ![Schermopname van Azure Active Directory-menu's, met zakelijke toepassingen en alle toepassingen die zijn gemarkeerd][2]
-    
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u **nieuwe toepassing** aan de bovenkant van het dialoogvenster.
+1. Klik in het linkernavigatievenster in de **[Azure-portal](https://portal.azure.com)** op het **Azure Active Directory**-pictogram.
 
-    ![Schermafbeelding van de nieuwe optie voor de App aan de bovenkant van het dialoogvenster][3]
+    ![De knop Azure Active Directory](common/select-azuread.png)
 
-4. Typ in het zoekvak **Adobe Sign**.
+2. Navigeer naar **Bedrijfstoepassingen** en selecteer vervolgens de optie **Alle toepassingen**.
 
-    ![Schermopname van het zoekvak](./media/adobe-echosign-tutorial/tutorial_adobesign_search.png)
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-5. Selecteer in het deelvenster resultaten **Adobe Sign**, en selecteer vervolgens **toevoegen**.
+3. Als u de nieuwe toepassing wilt toevoegen, klikt u op de knop **Nieuwe toepassing** boven aan het dialoogvenster.
 
-    ![Schermopname van het deelvenster resultaten](./media/adobe-echosign-tutorial/tutorial_adobesign_addfromgallery.png)
+    ![De knop Nieuwe toepassing](common/add-new-app.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Adobe Sign, op basis van een testgebruiker met de naam "Britta Simon."
+4. Typ **Adobe Sign** in het zoekvak, selecteer **Adobe Sign** in het deelvenster met resultaten en klik op **Toevoegen** om de toepassing toe te voegen.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD voor het herkennen van een gekoppelde relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Adobe Sign.
+     ![Adobe Sign in de lijst met resultaten](common/search-new-app.png)
 
-Voor het maken van de gekoppelde relatie in Adobe Sign, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam**.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD-eenmalige aanmelding configureren en testen
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Adobe Sign, voert u de volgende bouwstenen:
+In deze sectie gaat u eenmalige aanmelding bij Adobe Sign met Azure AD configureren en testen op basis van een testgebruiker met de naam **Britta Simon**.
+Eenmalige aanmelding werkt alleen als er een koppelingsrelatie tussen een Azure AD-gebruiker en de daaraan gerelateerde gebruiker in Adobe Sign tot stand is gebracht.
 
-1. [Azure AD eenmalige aanmelding configureren](#configuring-azure-ad-single-sign-on) zodat uw gebruikers deze functie wilt gebruiken.
-2. [Maak een Azure AD-testgebruiker](#creating-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. [Maak een testgebruiker Adobe Sign](#creating-an-adobe-sign-test-user) hebben een equivalent van Britta Simon in Adobe Sign die gekoppeld is aan de Azure AD-weergave van de gebruiker.
-4. [Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. [Eenmalige aanmelding testen](#testing-single-sign-on) om te controleren of de configuratie werkt.
+U hebt de volgende bouwstenen nodig om eenmalige aanmelding van Azure AD met Adobe Sign te configureren en te testen:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
+1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**: als u wilt dat uw gebruikers deze functie kunnen gebruiken.
+2. **[Eenmalige aanmelding voor Adobe Sign configureren](#configure-adobe-sign-single-sign-on)**: als u de instellingen voor eenmalige aanmelding aan de toepassingszijde wilt configureren.
+3. **[Een Azure AD-testgebruiker maken](#create-an-azure-ad-test-user)**: als u Azure AD-eenmalige aanmelding wil testen met Britta Simon.
+4. **[De testgebruiker van Azure AD-toewijzen](#assign-the-azure-ad-test-user)**: als u wilt dat Britta Simon gebruik kan maken van Azure AD-eenmalige aanmelding.
+5. **[Een testgebruiker maken voor Adobe Sign](#create-adobe-sign-test-user)** als u een equivalent van Britta Simon in Adobe Sign wilt hebben die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**: als u wilt controleren of de configuratie werkt.
 
-In deze sectie kunt u Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw toepassing Adobe Sign.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD configureren voor eenmalige aanmelding
 
-1. In de Azure-portal op de **Adobe Sign** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
+In deze sectie gaat u Azure AD-eenmalige aanmelding in de Azure-portal inschakelen.
 
-    ![Schermafbeelding van Adobe Sign integratie toepassingspagina met eenmalige aanmelding is gemarkeerd][4]
+Voer de volgende stappen uit om eenmalige aanmelding met Azure AD te configureren voor Adobe Sign:
 
-2. Op de **eenmalige aanmelding** in het dialoogvenster voor **modus**, selecteer **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Ga in de [Azure-portal](https://portal.azure.com/) naar de overzichtspagina van de integratie voor **Adobe Sign** en selecteer **Eenmalige aanmelding**.
 
-    ![Schermafbeelding van één aanmelding in het dialoogvenster met de modus in gemarkeerd](./media/adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
+    ![Koppeling Eenmalige aanmelding configureren](common/select-sso.png)
 
-3. In de **Adobe Sign domein en URL's** sectie, voert u de volgende stappen uit:
+2. In het dialoogvenster **Een methode voor eenmalige aanmelding selecteren** selecteert u de modus **SAML/WS-Federation** om eenmalige aanmelding in te schakelen.
 
-    ![Schermafbeelding van Adobe Sign domein en URL's sectie](./media/adobe-echosign-tutorial/tutorial_adobesign_url.png)
+    ![De modus Eenmalige aanmelding selecteren](common/select-saml-option.png)
 
-    a. In de **aanmeldings-URL** tekstvak typt u een URL die gebruikmaakt van het volgende patroon: `https://<companyname>.echosign.com/`
+3. Op de pagina **Eenmalige aanmelding met SAML instellen** klikt u op het pictogram **Bewerken** om het dialoogvenster **Standaard SAML-configuratie** te openen.
 
-    b. In de **id** tekstvak typt u een URL die gebruikmaakt van het volgende patroon: `https://<companyname>.echosign.com`
+    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Adobe Sign Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) om deze waarden te verkrijgen.
+4. In de sectie **Standaard SAML-configuratie** voert u de volgende stappen uit:
 
-4. In de **SAML-handtekeningcertificaat** sectie, selecteer **Certificate(Base64)**, en sla het certificaatbestand op uw computer.
+    ![Informatie over eenmalige aanmelding voor domein en URL's van Adobe Sign](common/sp-identifier.png)
 
-    ![Schermafbeelding van SAML-handtekeningcertificaat sectie](./media/adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
+    a. In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<companyname>.echosign.com/`
 
-5. Selecteer **Opslaan**.
+    b. In het tekstvak **Id (Entiteits-id)** typt u een URL met de volgende notatie: `https://<companyname>.echosign.com`
 
-    ![Schermafbeelding van opslaan](./media/adobe-echosign-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dit zijn geen echte waarden. Werk deze waarden bij met de werkelijke aanmeldings-URL en id. Neem contact op met het [ondersteuningsteam van Adobe Sign](https://helpx.adobe.com/in/contact/support.html) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-6. In de **Adobe Sign configuratie** sectie, selecteer **configureren Adobe Sign** openen de **aanmelding configureren** venster. Kopiëren de **afmelding URL**, **SAML entiteit-ID**, en **Single Sign-On Service URL voor SAML** uit de **Naslaggids** sectie.
+4. Op de pagina **Eenmalige aanmelding met SAML instellen** in de sectie **SAML-handtekeningcertificaat** klikt u op **Downloaden** om het **Certificaat (Base64)** te downloaden uit de opgegeven opties overeenkomstig uw behoeften, en slaat u dit op uw computer op.
 
-    ![Schermafbeelding van Adobe Sign configuratiesectie, met configureren van Adobe Sign gemarkeerd](./media/adobe-echosign-tutorial/tutorial_adobesign_configure.png)
+    ![De link om het certificaat te downloaden](common/certificatebase64.png)
 
-7. Voordat de configuratie, neem contact op met de [Adobe Sign Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) aan lijst met geaccepteerde uw domein in de Adobe Sign. Dit is het toevoegen van het domein:
+6. In de sectie **Adobe Sign instellen** kopieert u de juiste URL('s) op basis van uw behoeften.
 
-    a. De [Adobe Sign Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) stuurt u een willekeurig gegenereerde token. Uw domein, is het token als volgt: **verifiëren van adobe sign xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx =**
+    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
-    b. Het verificatietoken publiceren in een DNS-record voor tekst en op de hoogte stellen de [Adobe Sign Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html).
+    a. Aanmeldings-URL
+
+    b. Azure AD-id
+
+    c. Afmeldings-URL
+
+### <a name="configure-adobe-sign-single-sign-on"></a>Eenmalige aanmelding configureren voor Adobe Sign
+
+7. Neem vóór de configuratie contact op met het [Clientondersteuningsteam van Adobe Sign](https://helpx.adobe.com/in/contact/support.html) om uw domein in Adobe Sign te laten opnemen als toegestaan domein. U voegt het domein als volgt toe:
+
+    a. Het [Clientondersteuningsteam van Adobe Sign](https://helpx.adobe.com/in/contact/support.html) stuurt u een willekeurig gegenereerd token. Voor uw domein ziet het token er ongeveer als volgt uit: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+
+    b. Publiceer het verificatietoken in een DNS-tekstrecord en stel het [Clientondersteuningsteam van Adobe Sign ](https://helpx.adobe.com/in/contact/support.html) op de hoogte.
     
     > [!NOTE]
-    > Dit duurt enkele dagen, of meer. Houd er rekening mee dat het DNS-doorgifte vertragingen betekent dat een waarde die is gepubliceerd in DNS mogelijk niet zichtbaar voor een uur of langer. Uw IT-beheerder moet kennis van hoe u dit token publiceert in een record van DNS-tekst.
+    > Dit kan enkele dagen duren. Een vertraging van de DNS-doorgifte betekent dat een waarde die is gepubliceerd in DNS mogelijk gedurende een uur of langer niet zichtbaar. Uw IT-beheerder moet weten hoe u dit token publiceert in een DNS-tekstrecord.
     
-    c. Wanneer u de hoogte stellen de [Adobe Sign Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) via het ondersteuningsticket nadat het token is gepubliceerd, zij het domein valideren en toe te voegen aan uw account.
+    c. Wanneer u het [Clienondersteuningsteam van Adobe Sign](https://helpx.adobe.com/in/contact/support.html) via het ondersteuningsticket ervan op de hoogte stelt dat het token is gepubliceerd, wordt het domein gevalideerd en toegevoegd aan uw account.
     
-    d. Over het algemeen als volgt het publiceren van het token op een DNS-record:
+    d. Over het algemeen verloopt het publiceren van het token op een DNS-record als volgt:
 
     * Aanmelden bij uw domeinaccount
-    * De pagina voor het bijwerken van de DNS-record vinden. Deze pagina kan worden aangeroepen voor DNS-beheer, Name Server Management of geavanceerde instellingen.
-    * De TXT-records vinden voor uw domein.
-    * Voeg een TXT-record met de volledige token waarde die is geleverd door Adobe.
+    * Zoek de pagina voor het bijwerken van de DNS-record. Deze pagina wordt ook wel DNS Management, Name Server Management of Advanced Settings genoemd.
+    * Zoek de TXT-records voor uw domein.
+    * Voeg een TXT-record toe met de volledige tokenwaarde die is verstrekt door Adobe.
     * Sla uw wijzigingen op.
 
-8. In een ander browservenster aanmelden bij uw bedrijf Adobe Sign site als beheerder.
+8. Meld u in een andere browser als beheerder aan bij de bedrijfssite van Adobe Sign.
 
-9. Selecteer in het menu SAML **Accountinstellingen** > **SAML-instellingen**.
+9. Selecteer in het menu SAML de optie **Account Settings** > **SAML Settings**.
    
-    ![Schermafbeelding van Adobe Sign SAML instellingenpagina](./media/adobe-echosign-tutorial/ic789520.png "Account")
+    ![Schermafbeelding van de pagina SAML Settings](./media/adobe-echosign-tutorial/ic789520.png "Account") van Adobe Sign
 
-10. In de **SAML-instellingen** sectie, voert u de volgende stappen uit:
+10. Voer in de sectie **SAML Settings** de volgende stappen uit:
   
-    ![Schermopname van het SAML-instellingen](./media/adobe-echosign-tutorial/ic789521.png "SAML-instellingen")
+    ![Schermafbeelding van SAML Settings](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings")
    
-    a. Onder **SAML modus**, selecteer **SAML verplichte**.
-   
-    b. Selecteer **Echosign-accountbeheerders toestaan om aan te melden met hun referenties Echosign**.
-   
-    c. Onder **maken door gebruiker**, selecteer **automatisch toevoegen van gebruikers worden geverifieerd via SAML**.
+    ![Schermafbeelding van SAML Settings](./media/adobe-echosign-tutorial/ic789522.png "SAML Settings")
 
-    d. Plakken **SAML entiteit-ID**, die u hebt gekopieerd vanuit de Azure portal in de **URL van de entiteit-ID/verlener** in het tekstvak.
+    a. Selecteer onder **SAML Mode** de optie **SAML Mandatory**.
+   
+    b. Selecteer **Allow Echosign Account Administrators to log in using their Echosign Credentials**.
+   
+    c. Selecteer onder **User Creation** de optie **Automatically add users authenticated through SAML**.
+
+    d. Plak in het tekstvak **IDP Entity ID** de waarde van **Azure AD-id** die u hebt gekopieerd uit de Azure-portal.
     
-    e. Plakken **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal in de **URL/SSO-eindpunt voor aanmelding** in het tekstvak.
+    e. Plak de **aanmeldings-URL**, die u in de Azure-portal hebt gekopieerd, in het tekstvak **Idp Login URL**.
    
-    f. Plakken **afmelding URL**, die u hebt gekopieerd vanuit de Azure portal in de **URL/SLO Afmeldingseindpunt** in het tekstvak.
+    f. Plak de **afmeldings-URL**, die u in de Azure-portal hebt gekopieerd, in het tekstvak **Idp Logout URL**.
 
-    g. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok. Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **IdP certificaat** in het tekstvak.
+    g. Open het gedownloade bestand **Certificate(Base64)** in Kladblok. Kopieer de inhoud ervan in het klembord en plak deze in het tekstvak **IdP Certificate**.
 
-    h. Selecteer **wijzigingen opslaan**.
+    h. Selecteer **Save changes**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
-Het doel van deze sectie is het maken van een testgebruiker Britta Simon, met de naam in Azure portal.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken 
 
-![Schermafbeelding van de gebruikersnaam testen in Azure portal][100]
+Het doel van deze sectie is om in de Azure-portal een testgebruiker met de naam Britta Simon te maken.
 
-1. In de **Azure-portal**, selecteer in het linkerdeelvenster de **Azure Active Directory** pictogram.
+1. Selecteer in het linkerdeelvenster in de Azure-portal de optie **Azure Active Directory**, selecteer **Gebruikers** en selecteer vervolgens **Alle gebruikers**.
 
-    ![Schermafbeelding van het Azure AD-pictogram](./media/adobe-echosign-tutorial/create_aaduser_01.png) 
+    ![De koppelingen Gebruikers en groepen en Alle gebruikers](common/users.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer **alle gebruikers**.
-    
-    ![Schermafbeelding van de Azure AD-menu's, met gebruikers en groepen en alle gebruikers die zijn gemarkeerd](./media/adobe-echosign-tutorial/create_aaduser_02.png) 
+2. Selecteer **Nieuwe gebruiker** boven aan het scherm.
 
-3. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen**.
- 
-    ![Schermafbeelding van de bovenkant van alle gebruikers in het dialoogvenster met de optie toevoegen gemarkeerd](./media/adobe-echosign-tutorial/create_aaduser_03.png) 
+    ![Knop Nieuwe gebruiker](common/new-user.png)
 
-4. Op de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
- 
-    ![Schermopname van dialoogvenster](./media/adobe-echosign-tutorial/create_aaduser_04.png) 
+3. In Gebruikerseigenschappen voert u de volgende stappen uit.
 
-    a. In de **naam** in het tekstvak **BrittaSimon**.
+    ![Het dialoogvenster Gebruiker](common/user-properties.png)
 
-    b. In de **gebruikersnaam** tekst typt u het e-mailadres van BrittaSimon.
+    a. Voer in het veld **Naam****Britta Simon** in.
+  
+    b. In het veld **Gebruikersnaam** typt u **brittasimon@yourcompanydomain.extension**.  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    c. Selecteer **wachtwoord weergeven**, en noteer de waarde van de **wachtwoord**.
+    c. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak Wachtwoord.
 
-    d. Selecteer **Maken**.
- 
-### <a name="create-an-adobe-sign-test-user"></a>Maak een testgebruiker Adobe Sign
-
-Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Adobe Sign, moeten ze worden ingericht voor Adobe Sign. Dit is een handmatige taak.
-
->[!NOTE]
->U kunt een andere hulpprogramma's voor Adobe Sign gebruiker-account maken of API's uit Adobe Sign gebruiken voor het inrichten van gebruikersaccounts van de Azure AD. 
-
-1. Aanmelden bij uw **Adobe Sign** bedrijf site als beheerder.
-
-2. Selecteer in het menu aan de bovenkant, **Account**. Selecteer in het linkerdeelvenster **gebruikers en groepen** > **maken van een nieuwe gebruiker**.
-   
-    ![Schermafbeelding van Adobe Sign bedrijfsportal-website met het Account, gebruikers en groepen, en maak een nieuwe gebruiker gemarkeerd](./media/adobe-echosign-tutorial/ic789524.png "Account")
-   
-3. In de **nieuwe gebruiker maken** sectie, voert u de volgende stappen uit:
-   
-    ![Schermafbeelding van de nieuwe gebruiker maken sectie](./media/adobe-echosign-tutorial/ic789525.png "gebruiker maken")
-   
-    a. Type de **e-mailadres**, **voornaam**, en **achternaam** van een geldige Azure AD-account die u inrichten in de bijbehorende tekstvakken wilt.
-   
-    b. Selecteer **gebruiker maken**.
-
->[!NOTE]
->De houder van Azure Active Directory-account ontvangt een e-mailbericht een koppeling om te bevestigen dat het account bevat voordat deze geactiveerd wordt. 
+    d. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding, door toegang te verlenen aan Adobe Sign.
+In deze sectie geeft u Britta Simon de mogelijkheid om eenmalige aanmelding van Azure te gebruiken door haar toegang te geven tot Adobe Sign.
 
-![Schermafbeelding van de Azure portal eenmalige aanmelding][200] 
+1. Selecteer **Bedrijfstoepassingen** in de Azure-portal, selecteer **Alle toepassingen** en selecteer vervolgens **Adobe Sign**.
 
-1. Open de toepassingen in de Azure-portal. Blader vervolgens naar de map weergeven, gaat u naar **bedrijfstoepassingen**, en selecteer **alle toepassingen**.
+    ![De blade Bedrijfstoepassingen](common/enterprise-applications.png)
 
-    ![Schermafbeelding van de Azure portal toepassingen weergeven, met zakelijke toepassingen en alle toepassingen die zijn gemarkeerd][201] 
+2. Typ en selecteer **Adobe Sign** in de lijst met toepassingen.
 
-2. Selecteer in de lijst met toepassingen, **Adobe Sign**.
+    ![De koppeling naar Adobe Sign in de lijst met toepassingen](common/all-applications.png)
 
-    ![Schermafbeelding van de lijst met toepassingen, met Adobe Sign gemarkeerd](./media/adobe-echosign-tutorial/tutorial_adobesign_app.png) 
+3. Selecteer in het menu aan de linkerkant **Gebruikers en groepen**.
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+    ![De koppeling Gebruikers en groepen](common/users-groups-blade.png)
 
-    ![Schermopname van menu met gebruikers en groepen die zijn gemarkeerd][202] 
+4. Klik op de knop**Gebruiker toevoegen** en selecteer vervolgens **Gebruikers en groepen** in het dialoogvenster **Toewijzing toevoegen**.
 
-4. Selecteer **Toevoegen**. Klik in de **toevoegen toewijzing** sectie, selecteer **gebruikers en groepen**.
+    ![Het deelvenster Toewijzing toevoegen](common/add-assign-user.png)
 
-    ![Schermopname van gebruikers en groepen-pagina- en toewijzing toevoegen][203]
+5. Selecteer in het dialoogvenster **Gebruikers en groepen** **Britta Simon** in de lijst met gebruikers en klik op de knop **Selecteren** onder aan het scherm.
 
-5. In **gebruikers en groepen** in het dialoogvenster, in de gebruikerslijst, selecteer **Britta Simon**.
+6. Als u een waarde voor een rol verwacht in de SAML-bewering, moet u in het dialoogvenster **Rol selecteren** de juiste rol voor de gebruiker in de lijst selecteren en vervolgens op de knop **Selecteren** onder aan het scherm klikken.
 
-6. In de **gebruikers en groepen** in het dialoogvenster, klikt u op **Selecteer**.
+7. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-7. In de **toevoegen toewijzing** in het dialoogvenster, selecteer **toewijzen**.
-    
-### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
+### <a name="create-adobe-sign-test-user"></a>Testgebruiker maken voor Adobe Sign
 
-Wanneer u de tegel Adobe Sign in het toegangsvenster selecteert, moet u ophalen automatisch aangemeld bij uw toepassing Adobe Sign. Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij Adobe Sign, moeten ze worden ingericht in Adobe Sign. Dit is een handmatige taak.
+
+>[!NOTE]
+>U kunt voor het inrichten van Azure AD-gebruikersaccounts andere hulpprogramma's of API's voor het maken van Adobe Sign-gebruikersaccount gebruiken die door Adobe Sign worden verstrekt. 
+
+1. Meld u als beheerder aan bij de bedrijfssite van **Adobe Sign**.
+
+2. Selecteer in het menu bovenaan de optie **Account**. Selecteer in het linkerdeelvenster **Users & Groups** > **Create a new user**.
+   
+    ![Schermafbeelding van de bedrijfssite van Adobe Sign met Account, Create a new user gemarkeerd](./media/adobe-echosign-tutorial/ic789524.png "Account")
+   
+3. Voer in de sectie **Create New User** de volgende stappen uit:
+   
+    ![Schermafbeelding van de sectie Create New User](./media/adobe-echosign-tutorial/ic789525.png "Create User")
+   
+    a. Typ in de betreffende tekstvakken het **e-mailadres**, de **voornaam** en **achternaam** van een geldig Azure AD-account dat u wilt inrichten.
+   
+    b. Selecteer **Create User**.
+
+>[!NOTE]
+>De houder van het Azure Active Directory-account ontvangt een e-mail met een koppeling om het account te bevestigen voordat het actief wordt. 
+
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen 
+
+In deze sectie gaat u uw configuratie van Azure AD-eenmalige aanmelding testen via het toegangsvenster.
+
+Wanneer u in het toegangsvenster op de tegel Adobe Sign klikt, wordt u automatisch aangemeld bij de instantie van Adobe Sign waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) (Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (Wat is toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?)
 
-[1]: ./media/adobe-echosign-tutorial/tutorial_general_01.png
-[2]: ./media/adobe-echosign-tutorial/tutorial_general_02.png
-[3]: ./media/adobe-echosign-tutorial/tutorial_general_03.png
-[4]: ./media/adobe-echosign-tutorial/tutorial_general_04.png
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/adobe-echosign-tutorial/tutorial_general_100.png
-
-[200]: ./media/adobe-echosign-tutorial/tutorial_general_200.png
-[201]: ./media/adobe-echosign-tutorial/tutorial_general_201.png
-[202]: ./media/adobe-echosign-tutorial/tutorial_general_202.png
-[203]: ./media/adobe-echosign-tutorial/tutorial_general_203.png

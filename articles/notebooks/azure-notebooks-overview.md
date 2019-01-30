@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246208"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848594"
 ---
 # <a name="overview-of-azure-notebooks"></a>Overzicht van Azure Notebooks
 
 Azure Notebooks is een gratis gehoste service om Jupyter-notebooks te ontwikkelen en uitvoeren in de cloud, zonder installatie. [Jupyter](https://jupyter.org/) (voorheen IPython) is een opensourceproject waarmee u eenvoudig Markdown-tekst, uitvoerbare code en permanente gegevens, afbeeldingen en visualisaties kunt combineren op één deelbaar canvas, het *notebook* (de afbeelding is ter beschikking gesteld door jupyter.org):
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter Notebooks")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Voorbeelden van Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Vanwege deze krachtige combinatie van code, afbeeldingen en verklarende tekst is Jupyter populair geworden voor vele toepassingen, waaronder onderwijs in datawetenschap, het opschonen en transformeren van gegevens, numerieke simulatie, statistisch modelleren en de ontwikkeling van modellen voor machine learning.
 
@@ -55,9 +55,9 @@ Kortom, met Azure Notebooks kunt u uw werk efficiënter uitvoeren en dus meer vo
 
 ## <a name="pricing-and-quotas"></a>Prijzen en quota
 
-Azure Notebooks is een gratis service, maar elk project heeft een beperkt geheugen (4 GB) en een beperkte hoeveelheid gegevens (1 GB) om misbruik te voorkomen. Legitieme gebruikers die deze quota overschrijden, krijgen een captcha aangeboden als ze notebooks willen blijven gebruiken.
+Azure Notebooks is een gratis service, maar om misbruik te voorkomen is elk project beperkt tot 4 GB geheugen en 1 GB gegevens. Legitieme gebruikers die deze quota overschrijden, krijgen een captcha aangeboden als ze notebooks willen blijven gebruiken.
 
-Als u alle beperkingen wilt opheffen, meld u zich met behulp van Azure Active Directory aan bij Azure Notebooks met een account (bijvoorbeeld een zakelijk account). Als dit account is gekoppeld aan een Azure-abonnement, kunt u Azure Data Science Virtual Machine-rekenlagen gebruiken.
+Als u alle beperkingen wilt opheffen, meld u zich met behulp van Azure Active Directory aan bij Azure Notebooks met een account (bijvoorbeeld een zakelijk account). Als dit account is gekoppeld aan een Azure-abonnement, kunt u elk Azure Data Science Virtual Machine-exemplaar binnen dat abonnement verbinden. Zie [Manage and configure projects - Compute tier](configure-manage-azure-notebooks-projects.md#compute-tier) (Projecten beheren en configureren - Compute-laag) voor meer informatie.
 
 ## <a name="available-kernels-and-environments"></a>Beschikbare kernels en omgevingen
 

@@ -4,8 +4,8 @@ description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushme
 services: notification-hubs
 keywords: ios-pushmeldingen,pushberichten,pushmeldingen,pushbericht
 documentationcenter: xamarin
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/23/2018
-ms.author: dimazaid
-ms.openlocfilehash: 4704d9bb04f6dc69c69df434562c03b868baf045
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: f81066489d09bd6abef3f96ed83bea1108f99b77
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917700"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447442"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Xamarin.iOS-apps met Azure Notification Hubs
 
@@ -44,11 +44,11 @@ In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te vo
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Azure-abonnement**. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-- Meest recente versie van [Xcode][Install Xcode]
-- Een apparaat dat compatibel is met iOS 10 (of een hogere versie)
-- [Apple Developer Program](https://developer.apple.com/programs/)-lidmaatschap
-- [Visual Studio voor Mac]
+* **Azure-abonnement**. Als u nog geen abonnement op Azure hebt, [maakt u een gratis Azure-account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
+* Meest recente versie van [Xcode][Install Xcode]
+* Een apparaat dat compatibel is met iOS 10 (of een hogere versie)
+* [Apple Developer Program](https://developer.apple.com/programs/)-lidmaatschap
+* [Visual Studio voor Mac]
   
   > [!NOTE]
   > Vanwege configuratievereisten voor iOS-pushmeldingen moet u de voorbeeldtoepassing op een fysiek iOS-apparaat (iPhone of iPad) implementeren en testen in plaats van in de simulator.
@@ -90,13 +90,13 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
 
     ![Visual Studio - iOS-app configureren][32]
 
-4. Dubbelklik in de oplossingsweergave op *Entitlements.plist* en zorg ervoor dat er een vinkje staat bij **Pushmeldingen inschakelen****.
+4. Dubbelklik in de oplossingsweergave op de `Entitlements.plist` en controleer of **Pushmeldingen inschakelen**** is ingeschakeld.
 
     ![Visual Studio - iOS-rechten configureren][33]
 
 5. Voeg het Azure Messaging-pakket toe. Klik in de oplossingsweergave met de rechtermuisknop op het project en selecteer **Toevoegen** > **NuGet-pakketten toevoegen**. Zoek naar **Xamarin.Azure.NotificationHubs.iOS** en voeg het pakket toe aan uw project.
 
-6. Voeg een nieuw bestand toe aan de klasse, geef deze de naam **Constants.cs**, voeg de volgende variabelen toe en vervang de tijdelijke aanduidingen voor tekenreeksen door uw *hubnaam* en de *DefaultListenSharedAccessSignature* die u eerder hebt genoteerd.
+6. Voeg een nieuw bestand toe aan de klasse en geef deze de naam `Constants.cs`. Voeg de volgende variabelen toe en vervang de tijdelijke aanduidingen voor tekenreeksen door de `hubname` en `DefaultListenSharedAccessSignature` die u eerder hebt genoteerd.
 
     ```csharp
     // Azure app-specific connection string and hub path
@@ -104,19 +104,19 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
     public const string NotificationHubName = "<Azure Notification Hub Name>";
     ```
 
-7. Voeg in **AppDelegate.cs** de volgende instructie toe:
+7. Voeg in `AppDelegate.cs` de volgende using-instructie toe:
 
     ```csharp
     using WindowsAzure.Messaging;
     ```
 
-8. Declareer een exemplaar van **SBNotificationHub**:
+8. Declareer een instantie van `SBNotificationHub`:
 
     ```csharp
     private SBNotificationHub Hub { get; set; }
     ```
 
-9. Werk in **AppDelegate.cs** het item **FinishedLaunching()** zo bij dat het overeenkomt met de volgende code:
+9. In `AppDelegate.cs` werkt u `FinishedLaunching()` zo bij dat deze overeenkomt met de volgende code:
 
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -145,7 +145,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
     }
     ```
 
-10. Overschrijf de **RegisteredForRemoteNotifications()**-methode in **AppDelegate.cs**:
+10. In `AppDelegate.cs` overschrijft u de methode `RegisteredForRemoteNotifications()`:
 
     ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -168,7 +168,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
     }
     ```
 
-11. Overschrijf de **ReceivedRemoteNotification()**-methode in **AppDelegate.cs**:
+11. In `AppDelegate.cs` overschrijft u de methode `ReceivedRemoteNotification()`:
 
     ```csharp
     public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -177,7 +177,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
     }
     ```
 
-12. Maak de volgende **ProcessNotification()**-methode in **AppDelegate.cs**:
+12. In `AppDelegate.cs` maakt u de methode `ProcessNotification()`:
 
     ```csharp
     void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -216,7 +216,7 @@ De Notification Hub is nu geconfigureerd om te werken met APNs en u hebt de verb
     ```
 
     > [!NOTE]
-    > U kunt ervoor kiezen **FailedToRegisterForRemoteNotifications()** te overschrijven om situaties zoals het ontbreken van een netwerkverbinding af te handelen. Dit is vooral belangrijk wanneer de gebruiker de toepassing in de offlinemodus start (bijvoorbeeld in een vliegtuig) en u scenario's voor het verzenden van pushberichten wilt afhandelen die specifiek zijn voor uw app.
+    > U kunt ervoor kiezen `FailedToRegisterForRemoteNotifications()` te overschrijven om situaties zoals het ontbreken van een netwerkverbinding af te handelen. Dit is vooral belangrijk wanneer de gebruiker de toepassing in de offlinemodus start (bijvoorbeeld in een vliegtuig) en u scenario's voor het verzenden van pushberichten wilt afhandelen die specifiek zijn voor uw app.
 
 13. Voer de app uit op uw apparaat.
 
@@ -239,24 +239,19 @@ In deze zelfstudie hebt u meldingen uitgezonden naar al uw iOS-apparaten die zij
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [213]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-console-app.png
-
 [215]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler1.png
 [216]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler2.png
-
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
 [33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
-
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio voor Mac]: https://visualstudio.microsoft.com/vs/mac/
-
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Azure Portal]: https://portal.azure.com

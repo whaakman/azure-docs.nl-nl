@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841623"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382804"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vergeleken met klassieke implementatie: implementatiemodellen en de status van uw resources begrijpen
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager versus klassieke implementatie: implementatiemodellen en de status van uw resources begrijpen
 
 > [!NOTE]
 > De informatie in dit artikel wordt alleen gebruikt wanneer u een migratie van de klassieke implementatie naar de Azure Resource Manager-implementatie uitvoert.
@@ -153,6 +153,7 @@ Alle automatisering en scripts die u hebt gemaakt, blijven werken voor de bestaa
 U vindt een uitgebreide set startsjablonen voor Azure Resource Manager op [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Zie [Uw eerste Azure Resource Manager-sjabloon maken en implementeren](resource-manager-template-walkthrough.md) voor stapsgewijze instructies voor het maken van een sjabloon met de definitie van een virtuele machine, een opslagaccount en een virtueel netwerk.
 * [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](resource-group-template-deploy.md) voor informatie over de opdrachten voor het implementeren van een sjabloon.
 

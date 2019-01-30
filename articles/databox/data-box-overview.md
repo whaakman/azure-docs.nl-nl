@@ -7,20 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b43dac7f81b92ac504427dab164d23d9ebb1ec03
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955334"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411404"
 ---
 # <a name="what-is-azure-data-box"></a>Wat is Azure Data Box?
 
 Met de cloudoplossing Microsoft Azure Data Box kunt u terabytes aan on-premises gegevens op een snelle, goedkope en betrouwbare manier naar Azure verzenden. De veilige gegevensoverdracht wordt versneld door u een systeemeigen Data Box-opslagapparaat toe te sturen. Elk opslagapparaat heeft een maximaal bruikbare opslagcapaciteit van 80 TB en wordt via een regionale koerier naar uw datacenter vervoerd. Dit apparaat heeft een stevige behuizing om uw gegevens tijdens het verzenden te beschermen.
 
-U kunt het Data Box-apparaat bestellen via de Azure Portal. Nadat het apparaat is ontvangen, kunt u het snel instellen via de lokale webinterface. Kopieer de gegevens van uw servers naar het apparaat en stuur het terug naar Azure. In het Azure-datacenter worden uw gegevens automatisch van de schijven naar Azure geüpload. Het volledige proces wordt gevolgd door de Data Box-service in de Azure Portal.
+U kunt het Data Box-apparaat bestellen via de Azure Portal. Nadat het apparaat is ontvangen, kunt u het snel instellen via de lokale webinterface. Kopieer de gegevens van uw servers naar het apparaat en stuur het terug naar Azure. In het Azure-datacenter worden uw gegevens automatisch geüpload van de schijven naar Azure. Het volledige proces wordt gevolgd door de Data Box-service in de Azure-portal.
 
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
@@ -63,6 +63,7 @@ Het Data Box-apparaat biedt de volgende functies in deze versie.
 | Rackruimte                                              | 7 U wanneer het op zijn apparaat in het rack wordt geplaatst (kan niet in rack worden gemonteerd)|
 | Vereiste kabels                                         | 1 x voedingskabel (inbegrepen) <br> 2 RJ45-kabels <br> 2 x SFP+ Twinax-koperen kabels|
 | Opslagcapaciteit                                        | 100 TB-apparaat bevat bruikbare capaciteit van 80 TB na RAID 5-bescherming|
+| Nominaal vermogen                                            | De voedingseenheid is geraamd op 700 W. <br> Normaal gesproken verbruikt de eenheid 375 W.|
 | Netwerkinterfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - Eén beheerinterface, niet configureerbaar door gebruikers, gebruikt voor eerste installatie <br> DATA3 - Voor gegevens, kan door gebruiker worden geconfigureerd en is standaard dynamisch <br> MGMT en DATA 3 kunnen ook werken als 10 GbE <br> 2 x 10 GbE-interface - DATA 1, DATA 2 <br> Beide zijn voor gegevens en kunnen dynamisch (standaard) of statisch worden geconfigureerd |
 | Media voor gegevensoverdracht                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
 | Beveiliging                                                | Robuust apparaat met fraudebestendige, aangepaste schroeven <br> Verzegeling aan de onderkant van het apparaat|
@@ -121,9 +122,9 @@ Data Box kan bestanden overgedragen op basis van de regio waarin de service is g
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Systeemvereisten voor Data Box](data-box-system-requirements.md) lezen.
-- Informatie over de [limieten voor Data Box](data-box-limits.md).
-- [Azure Data Box](data-box-quickstart-portal.md) snel implementeren in de Azure Portal.
+- De [Systeemvereisten voor Data Box](data-box-system-requirements.md) lezen.
+- Informatie over de [Limieten voor Data Box](data-box-limits.md).
+- [Azure Data Box](data-box-quickstart-portal.md) snel implementeren in de Azure-portal.
 
 
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2017
+ms.date: 01/17/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 27a114378cf72e766e894dc0dd6886197f56a841
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720725"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390258"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Zelfstudie: Bewaking en diagnose van een ASP.NET Core-toepassing in Service Fabric met behulp van Application Insights
 
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="set-up-an-application-insights-resource"></a>Een Application Insights-resource instellen
 
-Application Insights is het beheerplatform voor toepassingsprestaties van Azure en het aanbevolen platform van Service Fabric om toepassingen te controleren en te onderzoeken. Als u een Application Insights-resource wilt maken, navigeert u naar [Azure Portal](https://portal.azure.com). Klik op **Een resource maken** in het navigatiemenu links om Azure Marketplace te openen. Klik op **Bewaking en beheer** en vervolgens op **Application Insights**.
+Application Insights is het beheerplatform voor toepassingsprestaties van Azure en het aanbevolen platform van Service Fabric om toepassingen te controleren en te onderzoeken. Als u een Application Insights-resource wilt maken, navigeert u naar [Azure Portal](https://portal.azure.com). Klik op **Een resource maken** in het navigatiemenu links om Azure Marketplace te openen. Klik op **Application Insights**.
 
 ![Een nieuwe AI-resource maken](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -76,13 +76,8 @@ Start Visual Studio 2017 met verhoogde bevoegdheden. U doet dit door met de rech
 
 Volg deze stappen voor om Application Insights voor zowel VotingWeb- als VotingData-services te configureren:
 
-1. Klik met de rechtermuisknop op de naam van de service en klik op **Application Insights configureren...**.
-
-    ![AI Configureren](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
->[!NOTE]
->Afhankelijk van het projecttype moet u, wanneer u met de rechtermuisknop op de naam van de service klikt, mogelijk klikken op Toevoegen -> Application Insights Telemetry ...
-
-2. Kik op **Gratis beginnen**.
+1. Klik met de rechtermuisknop op de naam van de service en selecteer **Toevoegen -> Application Insights Telemetry ...**.    
+2. Klik op **Aan de slag**.
 3. Meld u aan bij uw account (waarmee u ook uw Azure-abonnement hebt ingesteld) en selecteer het abonnement waarin u de Application Insights-resource hebt gemaakt. U vindt de resource onder *Bestaande Application Insights-resource* in de vervolgkeuzelijst 'Resource'. Klik op **Registreren** om Application Insights toe te voegen aan uw service.
 
     ![AI registreren](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
@@ -101,8 +96,8 @@ Hier volgen de stappen om de NuGet in te stellen:
 2. Klik op **Bladeren** in het bovenste navigatiemenu van het venster 'NuGet--oplossing' en vink het vakje **Voorlopige versie opnemen** naast de zoekbalk aan.
 3. Zoek naar `Microsoft.ApplicationInsights.ServiceFabric.Native` en klik op het juiste NuGet-pakket.
 
->[!NOTE]
->Wellicht moet u het pakket Microsoft.ServiceFabric.Diagnostics.Internal op vergelijkbare wijze installeren als het pakket niet vooraf is geïnstalleerd, voordat u het Application Insights-pakket installeert.
+    >[!NOTE]
+    >Wellicht moet u het pakket Microsoft.ServiceFabric.Diagnostics.Internal op vergelijkbare wijze installeren als het pakket niet vooraf is geïnstalleerd, voordat u het Application Insights-pakket installeert.
 
 4. Vink rechts de twee vakjes aan naast de twee services in de toepassing, **VotingWeb** en **VotingData**, en klik op **Installeren**.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8e3cdd99c99a300d7f1198826ae881373e179414
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340590"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433693"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Een Azure VPN-gateway maken en beheren met behulp van Microsoft Azure PowerShell
 
@@ -40,7 +40,7 @@ Het volgende diagram toont het virtuele netwerk en de VPN-gateway die zijn gemaa
 
 [!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.3 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.3 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
 
 ## <a name="common-network-parameter-values"></a>Algemene parameterwaarden van het netwerk
 
@@ -74,7 +74,7 @@ New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Azure VPN-gateway biedt cross-premises connectiviteit en P2S-VPN-server-functionaliteit voor uw virtuele netwerk. Voeg de VPN-gateway toe aan een bestaand virtueel netwerk of maak een nieuw virtueel netwerk en de gateway. In dit voorbeeld maakt u een nieuw virtueel netwerk met drie subnetten: Frontend, Backend en GatewaySubnet met [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) en [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+Azure VPN-gateway biedt cross-premises connectiviteit en P2S-VPN-server-functionaliteit voor uw virtuele netwerk. Voeg de VPN-gateway toe aan een bestaand virtueel netwerk of maak een nieuw virtueel netwerk en de gateway. In dit voorbeeld wordt een nieuw virtueel netwerk met drie subnetten gemaakt: front-end, back-end en GatewaySubnet met behulp van [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) en [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
 ```azurepowershell-interactive
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
@@ -117,7 +117,7 @@ New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 Sleutelparameterwaarden:
 * GatewayType: Gebruik **Vpn** voor site-naar-site- en VNet-naar-VNet-verbindingen
 * VpnType: Gebruik **RouteBased** om te communiceren met meer verschillende VPN-apparaten en meer routeringsfuncties
-* GatewaySku: **VpnGw1** is de standaardinstelling; wijzig deze naar VpnGw2 of VpnGw3 als u hogere doorvoercapaciteit of meer verbindingen nodig hebt. Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor meer informatie.
+* GatewaySku: **VpnGw1** is de standaardinstelling; wijzig deze in VpnGw2 of VpnGw3 als u hogere doorvoercapaciteit of meer verbindingen nodig hebt. Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor meer informatie.
 
 Nadat het maken van de gateway is voltooid, kunt u een verbinding maken tussen uw virtuele netwerk en een ander VNet of een verbinding maken tussen uw virtuele netwerk en een on-premises locatie. U kunt ook een P2S-verbinding configureren voor uw VNet vanaf een clientcomputer.
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: wat is Azure AD Connect, Active Directory installeren, vereiste onderdelen voor Azure AD
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1cdf332e34df5f0b3d2058ba5980b67582f14a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248823"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471630"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](how-to-connect-install-express.md) niet aan uw implementatie of topologie voldoet.
 
-Zorg ervoor dat u, voordat u begint met de installatie van Azure AD Connect, [Azure AD Connect downloadt](https://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md) voltooit. Zorg er ook voor dat de benodigde accounts beschikbaar zijn, zoals beschreven in [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md).
+Zorg voordat u begint met de installatie van Azure AD Connect dat u [Azure AD Connect downloadt](https://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware en vereisten](how-to-connect-install-prerequisites.md) voltooit. Zorg er ook voor dat de benodigde accounts beschikbaar zijn, zoals beschreven in [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md).
 
 Als de aangepaste instellingen niet met uw topologie overeenkomen, bijvoorbeeld om DirSync te upgraden, bekijk dan de [verwante documentatie](#related-documentation) voor andere scenario's.
 
@@ -136,7 +136,7 @@ Het kenmerk sourceAnchor is onveranderbaar tijdens de levensduur van een gebruik
 
 | Instelling | Beschrijving |
 | --- | --- |
-| Azure het bronanker voor mij laten beheren | Selecteer deze optie als u wilt dat Azure AD het kenmerk voor u selecteert. Als u deze optie selecteert, wordt in de wizard Azure AD Connect de selectielogica voor het kenmerk sourceAnchor toegepast die wordt beschreven in [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) (Azure AD Connect: Ontwerpconcepten - ms-DS-ConsistencyGuid gebruiken als sourceAnchor). De wizard geeft aan welk kenmerk is geselecteerd als het kenmerk SourceAnchor nadat de aangepaste installatie is voltooid. |
+| Azure het bronanker voor mij laten beheren | Selecteer deze optie als u wilt dat Azure AD het kenmerk voor u selecteert. Als u deze optie selecteert, wordt in de wizard Azure AD Connect de selectielogica voor het kenmerk sourceAnchor toegepast die wordt beschreven in [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) (Azure AD Connect: Ontwerpconcepten - ms-DS-ConsistencyGuid gebruiken als sourceAnchor). De wizard geeft aan welk kenmerk is geselecteerd als het kenmerk SourceAnchor nadat de aangepaste installatie is voltooid. |
 | Een specifiek kenmerk | Selecteer deze optie als u een bestaand AD-kenmerk opgeeft als het kenmerk sourceAnchor. |
 
 Omdat het kenmerk niet kan worden gewijzigd, moet u een goed kenmerk kiezen. Een goede kandidaat is objectGUID. Dit kenmerk wordt niet gewijzigd, tenzij het gebruikersaccount worden verplaatst tussen forests/domeinen. Vermijd kenmerken die wijzigen wanneer iemand trouwt of een andere taak krijgt. U kunt geen kenmerken met een @-sign gebruiken, dus het e-mailadres en userPrincipalName kunnen niet worden gebruikt. Het kenmerk is ook hoofdlettergevoelig, dus als u een object tussen forests verplaatst, zorg dan dat de hoofdletters en kleine letters hetzelfde blijven. Binaire kenmerken krijgen base64-codering, maar andere kenmerktypen blijven ongecodeerd. In scenario's met federatie en in sommige Azure AD-interfaces wordt dit kenmerk ook wel onveranderbare id genoemd. Meer informatie over het bronanker vindt u in de [ontwerpconcepten](plan-connect-design-concepts.md#sourceanchor).
@@ -159,7 +159,7 @@ In dit scherm kunt u de optionele functies voor uw specifieke scenario's selecte
 >[!WARNING]
 >Azure AD Connect-versies **1.0.8641.0** en ouder zijn afhankelijk van de Azure Access Control Service voor het terugschrijven van wachtwoorden.  Deze service wordt op **7 november 2018** buiten gebruik gesteld.  Als u een van deze versies van Azure AD Connect gebruikt en wachtwoord terugschrijven hebt ingeschakeld, kunnen gebruikers mogelijk niet meer hun wachtwoord wijzigen of opnieuw instellen wanneer de service buiten gebruik is gesteld. Het terugschrijven van wachtwoorden met deze versies van Azure AD Connect zal niet worden ondersteund.
 >
->Zie [Procedure: migreren vanuit de Azure Access Control Service](../develop/active-directory-acs-migration.md) voor meer informatie over de Azure Access Control Service
+>Zie [Procedure: Migreren vanuit de Azure Access Control Service](../develop/active-directory-acs-migration.md) voor meer informatie over de Azure Access Control Service
 >
 >Klik [hier](https://www.microsoft.com/en-us/download/details.aspx?id=47594) om de nieuwste versie van Azure AD Connect te downloaden.
 
@@ -385,7 +385,7 @@ Azure AD Connect verifieert de DNS-instellingen voor u wanneer u op Verifiëren 
 Als u wilt controleren of end-to-end-verificatie is gelukt, voert u een of meer van de volgende tests handmatig uit:
 
 * Als de synchronisatie is voltooid, gebruikt u de aanvullende taak Federatieve aanmelding verifiëren in Azure AD Connect om de verificatie voor een on-premises gebruikersaccount naar keuze te controleren.
-* Controleer of u zich kunt aanmelden met een browser op een computer op het intranet die aan het domein is gekoppeld: Maak verbinding met https://myapps.microsoft.com en controleer de aanmelding met uw aangemelde account. Het ingebouwde beheerdersaccount van AD DS wordt niet gesynchroniseerd en kan niet worden gebruikt voor verificatie.
+* Controleer of u zich kunt aanmelden met een browser op een computer op het intranet die aan het domein is gekoppeld: maak verbinding met https://myapps.microsoft.com en controleer de aanmelding met het account waarmee u bent aangemeld. Het ingebouwde beheerdersaccount van AD DS wordt niet gesynchroniseerd en kan niet worden gebruikt voor verificatie.
 * Controleer of u zich kunt aanmelden met een apparaat vanaf het extranet. Maak op een computer thuis of op een mobiel apparaat verbinding met https://myapps.microsoft.com en voer uw referenties in.
 * Aanmelding uitgebreide client controleren. Maak verbinding met https://testconnectivity.microsoft.com, kies het tabblad **Office 365** en vervolgens **Office 365 Test Eenmalige aanmelding**.
 
@@ -416,7 +416,7 @@ Nadat de installatie is voltooid, dient u zich af te melden en weer aan te melde
 
 Nu u Azure AD Connect geïnstalleerd hebt kunt u [de installatie verifiëren en licenties toewijzen](how-to-connect-post-installation.md).
 
-Meer informatie over deze functies, die tijdens de installatie zijn ingeschakeld: [Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md) en [Azure AD Connect Health](how-to-connect-health-sync.md).
+Meer informatie over deze functies, die tijdens de installatie zijn ingeschakeld: [Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md) (Onopzettelijke verwijderingen voorkomen) en [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Meer informatie over deze algemene onderwerpen: [scheduler and how to trigger sync](how-to-connect-sync-feature-scheduler.md).
 

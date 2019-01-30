@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/12/2018
+ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077247"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382580"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web-API met behulp van Kestrel
 
@@ -158,7 +158,9 @@ serviceContext =>
         }))
 ```
 
-Voeg ook de volgende methode toe zodat Kestrel het certificaat kan vinden in het `Cert:\LocalMachine\My`-archief met behulp van het onderwerp.  Vervang '&lt;your_CN_value&gt;' door 'mytestcert' als u een zelfondertekend certificaat hebt gemaakt met de vorige PowerShell-opdracht, of gebruik de algemene naam van uw certificaat.
+Voeg ook de volgende methode toe zodat Kestrel het certificaat kan vinden in het `Cert:\LocalMachine\My`-archief met behulp van het onderwerp.  
+
+Vervang '&lt;your_CN_value&gt;' door 'mytestcert' als u een zelfondertekend certificaat hebt gemaakt met de vorige PowerShell-opdracht, of gebruik de algemene naam van uw certificaat.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -347,7 +349,7 @@ Sla alle bestanden op en druk op F5 om de toepassing lokaal uit te voeren.  Nada
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Certificaat installeren op clusterknooppunten
 
-Voordat u de toepassing in Azure implementeert, installeert u het certificaat in het `Cert:\LocalMachine\My`-archief van de externe clusterknooppunten.  Wanneer de front-end webservice wordt gestart op een clusterknooppunt, zoekt het opstartscript naar het certificaat en worden er toegangsmachtigingen geconfigureerd.
+Voordat u de toepassing in Azure implementeert, installeert u het certificaat in het `Cert:\LocalMachine\My`-archief alle externe clusterknooppunten.  Services kunnen worden verplaatst naar andere knooppunten van het cluster.  Wanneer de front-end webservice wordt gestart op een clusterknooppunt, zoekt het opstartscript naar het certificaat en worden er toegangsmachtigingen geconfigureerd.
 
 Exporteer als eerste het certificaat naar een PFX-bestand. Open de toepassing certlm.msc en navigeer naar **Persoonlijk**>**Certificaten**.  Klik met de rechtermuisknop op het certificaat *mytestcert* en selecteer **Alle taken**>**Exporteren**.
 
