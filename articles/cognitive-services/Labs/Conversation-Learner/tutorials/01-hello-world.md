@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c08e3d2e8f712f5eb7c56585507a283c7fd040c1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b2c43ad2475ab75d251e57fca6009eb1fa2e1f00
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796756"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225292"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Over het maken van een 'Hallo wereld'-model met Conversatiecursist
 
@@ -67,14 +67,14 @@ Dit is waar u het Model voor het reageren op gebruiker-uitingen te trainen.
 5. Typ in het antwoord van de gebruiker, "Tot ziens".
 6. Klik op de knop 'Acties Score'.
 7. Klik op het "+ actie" knop.
-8. Type "tot ziens!" veld en klik op de knop 'Maken' in '... van Bot-response'.
+8. Type "Goodbye!" veld en klik op de knop 'Maken' in '... van Bot-response'.
     - U ziet de Bot reageerde met dat actie u zojuist hebt gemaakt.
 9. Klik op de knop 'Opslaan'. 
     - Dit wordt beëindigd en sla dit dialoogvenster Training.
 
 U hebt nu een dialoogvenster voor Training in het Model, samen met een enkele entiteit en twee acties.
 
-#### <a name="second-training-dialog"></a>Tweede Training-dialoogvenster
+#### <a name="second-training-dialog"></a>Second Training Dialog
 Laten we doen een meer training en Zie hoe de Bot reageert.
 
 1. Klik op de knop 'Nieuwe Train dialoogvenster'.
@@ -95,7 +95,7 @@ Dit is waar u Test, weergeven en corrigeren gesprekken die u of de echte gebruik
 1. Klik op "Log-dialoogvensters" en vervolgens de knop 'Dialoogvenster voor een nieuwe Log' in het linkerdeelvenster.
 2. Typ 'Hallo er'.
 3. Wacht even, de Bot automatisch moet reageren met "Hallo"
-4. Voer 'byebye'
+4. Enter 'byebye'
 5. Wacht even, opnieuw de Bot automatisch moet reageren met "Hallo".
 6. Klik op de knop 'Gedaan testen'.
 

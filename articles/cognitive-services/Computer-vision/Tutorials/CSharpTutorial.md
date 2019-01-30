@@ -6,17 +6,17 @@ services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b944325287593a028d28545731370dc9ea6a5ac2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232750"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224918"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Zelfstudie: Bouw een installatiekopie voor het verwerken van app - C&#35;
 
@@ -66,7 +66,7 @@ U moet eerst de voorbeeld-app bouwen zodat Visual Studio afhankelijkheden, oplos
 1. Zorg ervoor dat de Visual Studio-oplossing twee projecten bevat:  
 
    * SampleUserControlLibrary
-   * VisionAPI-WPF-voorbeelden  
+   * VisionAPI-WPF-Samples  
 
    Als het project SampleUserControlLibrary niet beschikbaar is, controleert u of die u gekloond recursief hebt de `Microsoft/Cognitive-Vision-Windows` opslagplaats.
 1. In Visual Studio, druk op Ctrl + Shift + B of kies **bouwen** in het lintmenu en kies vervolgens **Build Solution** om de oplossing te bouwen.
@@ -88,7 +88,7 @@ U kunt de voorbeeld-app, om te zien hoe deze samenwerkt met u en de Computer Vis
 
 1. Onder **selecteert u een scenario** in het navigatiedeelvenster, selecteer een van de scenario's die momenteel is opgenomen in de voorbeeld-app:  
 
-   | Scenario | Description |
+   | Scenario | Beschrijving |
    |----------|-------------|
    |Afbeelding analyseren | Maakt gebruik van de [analyseren installatiekopie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) bewerking voor het analyseren van een lokale of externe-installatiekopie. U kunt kiezen voor de visuele kenmerken en de taal voor de analyse en zowel de installatiekopie als de resultaten zien.  |
    |Afbeelding met domeinmodel analyseren | Maakt gebruik van de [lijst domeinspecifieke modellen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) bewerking om de domeinmodellen van waaruit u selecteren kunt, weer te geven en de [herkennen domein specifieke inhoud](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) bewerking voor het analyseren van een lokale of externe-installatiekopie met de model van het geselecteerde domein. U kunt ook de taal voor de analyse. |
@@ -113,7 +113,7 @@ De Visual Studio-oplossing voor de Computer Vision-voorbeeld-app bevat twee proj
     Een pagina met een gestandaardiseerde indeling voor het invoeren van een abonnement-sleutel en het eindpunt-URL voor de voorbeeld-app. De Computer Vision-voorbeeld-app maakt gebruik van deze pagina om de abonnementssleutel te beheren en eindpunt-URL wordt gebruikt door de scenario's.
   * VideoResultControl  
     Een UserControl waarmee een gestandaardiseerde presentatie voor informatie over de video. De Computer Vision-voorbeeld-app gebruik niet van dit besturingselement.
-* VisionAPI-WPF-voorbeelden  
+* VisionAPI-WPF-Samples  
   Het belangrijkste project voor de Computer Vision-voorbeeld-app, dit project bevat alle functionaliteit die interessante voor Computer Vision. Het project bevat het volgende:
   * AnalyzeInDomainPage.xaml  
     De scenario-pagina voor de installatiekopie van het analyseren met domeinmodel scenario.

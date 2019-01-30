@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343688"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226040"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Snelstartgids: Gebruik de Bing Speech-service-bibliotheek voor opname in C&#35; voor .NET Windows
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Quickstart: Gebruik de Bing Speech-service-bibliotheek voor opname in C&#35; voor .NET Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -64,17 +64,17 @@ Druk op Ctrl + Shift + B, of selecteer **bouwen** in het lintmenu. Selecteer ver
 
 3. Voer `SpeechClientSample.exe` met de volgende argumenten:
 
-   * Func [0]: Geef een invoerbestand audio WAV.
-   * Func [1]: Geef de audio landinstelling.
-   * Argument [2]: Geef de opname-modi: *korte* voor de `ShortPhrase` modus en *lang* voor de `LongDictation` modus.
-   * Argument [3]: De abonnementssleutel voor toegang tot de spraakherkenningsservice opgeven.
+   * Arg[0]: Geef een invoerbestand audio WAV.
+   * Arg[1]: Geef de audio landinstelling.
+   * Argument [2]: Geef de opname-modi: *Korte* voor de `ShortPhrase` modus en *lang* voor de `LongDictation` modus.
+   * Arg[3]: Geef de abonnementssleutel voor toegang tot de spraakherkenningsservice.
 
 ## <a name="samples-explained"></a>Voorbeelden uitgelegd
 
 ### <a name="recognition-modes"></a>Opname-modi
 
-* `ShortPhrase` modus: een utterance tot maximaal 15 seconden lang. Gegevens worden verzonden naar de server, ontvangt de client meerdere gedeeltelijke resultaten en één eindresultaat aanbevolen.
-* `LongDictation` modus: een utterance maximaal 10 minuten lang. Gegevens worden verzonden naar de server, ontvangt de client meerdere gedeeltelijke resultaten en meerdere eindresultaten, op basis van waar de server pauzes in zinnen aangeeft.
+* `ShortPhrase` modus: Een utterance tot maximaal 15 seconden lang. Gegevens worden verzonden naar de server, ontvangt de client meerdere gedeeltelijke resultaten en één eindresultaat aanbevolen.
+* `LongDictation` modus: Een utterance maximaal 10 minuten lang. Gegevens worden verzonden naar de server, ontvangt de client meerdere gedeeltelijke resultaten en meerdere eindresultaten, op basis van waar de server pauzes in zinnen aangeeft.
 
 ### <a name="supported-audio-formats"></a>Audio-indelingen ondersteund
 
@@ -97,11 +97,11 @@ Voor het maken van een SpeechClient, moet u eerst een voorkeuren-object maken. H
 
 Het object SpeechInput bestaat uit twee velden:
 
-* **Audio**: de implementatie van een stream van uw keuze van waaruit de SDK audio haalt. Kan dit een [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) die ondersteuning biedt voor het lezen.
+* **Audio**: De implementatie van een stream van uw keuze van waaruit de SDK audio haalt. Kan dit een [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) die ondersteuning biedt voor het lezen.
    > [!NOTE]
    > De SDK het einde van de stroom wordt gedetecteerd wanneer de stroom wordt **0** in lezen.
 
-* **RequestMetadata**: metagegevens over de spraak-aanvraag. Zie voor meer informatie de [verwijzing](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+* **RequestMetadata**: Metagegevens over de spraak-aanvraag. Zie voor meer informatie de [verwijzing](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
 
 ### <a name="speech-request"></a>Spraak-aanvraag
 
@@ -122,7 +122,7 @@ Deze gebeurtenis wordt aangeroepen wanneer Spraakservice wat u mogelijk worden z
 **Resultaat opmaken** | Beschrijving |
 ------|------
 **LexicalForm** | Dit formulier is optimaal is voor gebruik door toepassingen waarvoor herkenningsresultaten ruwe, niet-verwerkte spraak.
-**Weergavetekst** | De herkende woordgroep met tekst omkeren normalisering, hoofdletters, interpunctie en grof taalgebruik maskering toegepast. Grof taalgebruik wordt gemaskeerd met sterretjes na het eerste teken, bijvoorbeeld, "d ***." Dit formulier is geoptimaliseerd voor gebruik door toepassingen die de resultaten van de spraak-herkenning aan een gebruiker worden weergegeven.
+**DisplayText** | De herkende woordgroep met tekst omkeren normalisering, hoofdletters, interpunctie en grof taalgebruik maskering toegepast. Grof taalgebruik wordt gemaskeerd met sterretjes na het eerste teken, bijvoorbeeld, "d ***." Dit formulier is geoptimaliseerd voor gebruik door toepassingen die de resultaten van de spraak-herkenning aan een gebruiker worden weergegeven.
 **vertrouwen** | De mate van betrouwbaarheid de herkende woordgroep vertegenwoordigt voor de bijbehorende audio zoals gedefinieerd door de server van de herkenning van spraak.
 **MediaTime** | De huidige tijd ten opzichte van het begin van de audiostream (in eenheden van 100 nanoseconden van tijd).
 **MediaDuration** | De huidige woordgroep duur/lengte ten opzichte van de audio-segment (in eenheden van 100 nanoseconden van tijd).
@@ -133,7 +133,7 @@ Als u klaar bent met het spreken (in `ShortPhrase` modus), deze gebeurtenis word
 **Resultaat opmaken** | Beschrijving |
 ------|------|
 **RecognitionStatus** | De status op hoe de opname is gemaakt. Bijvoorbeeld, is deze gemaakt als gevolg van geslaagde opname of als gevolg van het annuleren van de verbinding, enzovoort.
-**Zinnen** | De set met n-beste herkende zinnen met de opname-vertrouwen.
+**Phrases** | De set met n-beste herkende zinnen met de opname-vertrouwen.
 
 Zie voor meer informatie over herkenningsresultaten [uitvoerindeling](../Concepts.md#output-format).
 

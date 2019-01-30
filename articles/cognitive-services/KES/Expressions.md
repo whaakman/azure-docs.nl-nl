@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 335bcc025d2f3e972a02234da89e35c90c91afeb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129162"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222692"
 ---
 # <a name="structured-query-expression"></a>Gestructureerde Query-expressie
 
@@ -34,12 +34,12 @@ Een kenmerk query-expressie wordt een set van objecten op basis van overeenkomst
 | Reeks | is gelijk aan | Titel = 'latente semantische analyse' (canonieke + synoniemen) |
 | Reeks | is gelijk aan | Author.Name=='susan t dumais (canonieke alleen)|
 | Reeks | starts_with | Titel = 'latente s'... |
-| Int32/Int64/Double-waarde | is gelijk aan | Jaar 2000 = |
+| Int32/Int64/Double-waarde | is gelijk aan | Year=2000 |
 | Int32/Int64/Double-waarde | starts_with | Jaar = "20"... (een decimale waarde beginnen met "20") |
 | Int32/Int64/Double-waarde | is_between | Jaar&lt;2000 <br/> Jaar&lt;= 2000 <br/> Jaar&gt;2000 <br/> Jaar&gt;= 2000 <br/> Year=[2010,2012) *(alleen links grenswaarde bevat: 2010, 2011)* <br/> Jaar = [2000,2012] *(beide waarden bevat: 2010, 2011, 2012)* |
-| Date | is gelijk aan | Geboortedatum ='1984-05-14' |
+| Date | is gelijk aan | BirthDate='1984-05-14' |
 | Date | is_between | Geboortedatum&lt;=' 2008/03/14' <br/> Publicatiedatum = ['2000-01-01', ' 31-12-2009'] |
-| GUID | is gelijk aan | Id = '602DD052-CC47-4B23-A16A-26B52D30C05B' |
+| GUID | is gelijk aan | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 
 Bijvoorbeeld, de expressie "Title = 'latente s'... ' komt overeen met alle academische publicaties waarvan u de titel met de tekenreeks"latente s begint".  Als u wilt evalueren deze expressie, moet de titel van het kenmerk de bewerking 'starts_with' opgeven in het schema dat wordt gebruikt voor het bouwen van de index.

@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e1a80de1e6d0deebaff81207717886a4a8bbcc63
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e524df191bc7e621d5b048a373a8c424fbe2a721
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259476"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214140"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Het gebruik van de functie dynamische woordenlijst van de Translator Text-API
 
@@ -27,9 +27,9 @@ Als u de vertaling die u wilt toepassen op een woord of woordgroep al kent, kunt
 
 **Voorbeeld: nl-nl:**
 
-Invoer van bron: het woord < mstrans:dictionary vertaling =\"wordomatic\"> woord of woordgroep < / mstrans:dictionary > is een dictionary-vermelding.
+Invoer van de bron: Het woord < mstrans:dictionary vertaling =\"wordomatic\"> woord of woordgroep < / mstrans:dictionary > is een dictionary-vermelding.
 
-Uitvoer als doel: Das Wort "wordomatic" is een Wörterbucheintrag.
+Doeluitvoer: DAS Wort "wordomatic" is een Wörterbucheintrag.
 
 Deze functie werkt op dezelfde manier met en zonder HTML-modus.
 

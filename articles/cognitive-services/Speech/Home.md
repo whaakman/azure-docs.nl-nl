@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340355"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217642"
 ---
 # <a name="what-is-bing-speech"></a>Wat is de Bing Speech?
 
@@ -28,10 +28,10 @@ De cloud gebaseerde Microsoft Bing Speech-API biedt ontwikkelaars een eenvoudige
 
 ## <a name="speech-to-text-speech-recognition"></a>Spraak naar tekst (spraakherkenning)
 
-Microsoft-spraakherkenning API *transcribes* audiostreams naar tekst die uw toepassing kan worden weergegeven voor de gebruiker of bij het fungeren als invoer opdracht. Het biedt twee manieren voor ontwikkelaars voor het toevoegen van de spraakherkenning aan hun apps: REST-API's **of** op basis van Websocket-clientbibliotheken.
+Microsoft-spraakherkenning API *transcribes* audiostreams naar tekst die uw toepassing kan worden weergegeven voor de gebruiker of bij het fungeren als invoer opdracht. Het biedt twee manieren voor ontwikkelaars voor het toevoegen van de spraakherkenning aan hun apps: REST API's **of** op basis van Websocket-clientbibliotheken.
 
-- [REST API's](GetStarted/GetStartedREST.md): ontwikkelaars kunnen gebruikmaken van HTTP-aanroepen naar de service voor spraakherkenning van hun apps.
-- [Clientbibliotheken](GetStarted/GetStartedClientLibraries.md): voor geavanceerde functies, zijn de ontwikkelaars kunnen downloaden van Microsoft Speech-clientbibliotheken en de koppeling in hun apps.  De clientbibliotheken zijn beschikbaar op verschillende platformen (Windows, Android, iOS) met behulp van verschillende talen (C#, Java, JavaScript, ObjectiveC). In tegenstelling tot de REST-API's, de clientbibliotheken gebruikmaken van op basis van Websocket-protocol.
+- [REST-API's](GetStarted/GetStartedREST.md): Ontwikkelaars kunnen HTTP-aanroepen naar de service voor spraakherkenning van hun apps gebruiken.
+- [Clientbibliotheken](GetStarted/GetStartedClientLibraries.md): Voor geavanceerde functies, kunnen ontwikkelaars downloaden van Microsoft Speech-clientbibliotheken en koppel in hun apps.  De clientbibliotheken zijn beschikbaar op verschillende platformen (Windows, Android, iOS) met behulp van verschillende talen (C#, Java, JavaScript, ObjectiveC). In tegenstelling tot de REST-API's, de clientbibliotheken gebruikmaken van op basis van Websocket-protocol.
 
 | Gebruiksvoorbeelden | [REST API's](GetStarted/GetStartedREST.md) | [Clientbibliotheken](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
@@ -45,7 +45,7 @@ Welke benadering ontwikkelaars kiezen (REST-API's of -clientbibliotheken), Micro
 - Geavanceerde spraak technologieën van Microsoft die worden gebruikt door Cortana, dicteren Office Translator Office en andere Microsoft-producten.
 - Realtime continue herkenning. De the spraakherkennings-API kan gebruikers audio naar tekst in realtime, met ondersteuning voor het ontvangen van de tussenliggende resultaten van de woorden die tot nu toe zijn herkend transcriberen. De spraakservice biedt ook ondersteuning voor end-of-speech detectie. Gebruikers kunnen daarnaast aanvullende opmaakopties mogelijkheden, zoals de hoofdletters en interpunctie, maskering grof taalgebruik en tekst normalisering kiezen.
 - Ondersteunt geoptimaliseerd spraak herkenningsresultaten voor *interactieve*, *conversatie*, en *dicteren* scenario's. Voor gebruiker-scenario's waarvoor aangepaste taalmodellen en akoestische modellen [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md) kunt u spraakmodellen die zijn afgestemd op uw toepassing en uw gebruikers maken.
-- Ondersteuning voor vele talen in meerdere talen. Zie voor de volledige lijst van ondersteunde talen in beide modi erkenning, [erkenning talen](api-reference-rest/supportedlanguages.md).
+- Ondersteuning voor vele talen in meerdere dialecten. Zie voor de volledige lijst van ondersteunde talen in beide modi erkenning, [erkenning talen](api-reference-rest/supportedlanguages.md).
 - Integratie met language understanding. Naast de audio-invoer converteren naar tekst, de *spraak naar tekst* biedt toepassingen een aanvullende mogelijkheden om te begrijpen wat de tekst betekent. Hierbij de [Language Understanding Intelligent Service(LUIS)](../LUIS/what-is-luis.md) intenties en entiteiten ophalen uit de herkende tekst.
 
 ### <a name="next-steps"></a>Volgende stappen
@@ -60,4 +60,4 @@ Welke benadering ontwikkelaars kiezen (REST-API's of -clientbibliotheken), Micro
 
 ### <a name="next-steps"></a>Volgende stappen
 
-- Aan de slag om Microsoft text to speech-service te gebruiken: [tekst naar spraak-API-verwijzing](api-reference-rest/bingvoiceoutput.md). Zie voor de volledige lijst met talen en stemmen ondersteund door de tekst naar spraak, [ondersteunde landinstellingen en Spraakstijlen](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Aan de slag om Microsoft text to speech-service te gebruiken: [Text to Speech-API-verwijzing](api-reference-rest/bingvoiceoutput.md). Zie voor de volledige lijst met talen en stemmen ondersteund door de tekst naar spraak, [ondersteunde landinstellingen en Spraakstijlen](api-reference-rest/bingvoiceoutput.md#SupLocales).

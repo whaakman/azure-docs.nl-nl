@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43d72b88c96b45939cb394a26881b1272e250819
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754661"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217251"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Zelfstudie: Gerelateerde gegevens groeperen en herkennen
 In deze zelfstudie voegt u een samengestelde entiteit die u wilt de opgehaalde gegevens van verschillende typen in een enkele containerentiteit bundelen. De clienttoepassing kan door de gegevens bundeling, gerelateerde gegevens in verschillende gegevenstypen eenvoudig extraheren.
@@ -33,7 +33,7 @@ De samengestelde entiteit is geschikt voor dit type gegevens omdat de gegevens:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * De voorbeeld-app importeren
+> * Voorbeeld-app importeren
 > * Intent maken
 > * Een samengestelde entiteit toevoegen 
 > * Trainen
@@ -42,7 +42,7 @@ De samengestelde entiteit is geschikt voor dit type gegevens omdat de gegevens:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>De voorbeeld-app importeren
+## <a name="import-example-app"></a>Voorbeeld-app importeren
 
 1.  Download en sla de [app JSON-bestand](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) uit de lijst met entiteit-zelfstudie.
 
@@ -60,8 +60,8 @@ Voorbeeld-uitingen hiervoor intentie zijn:
 
 |Voorbeelden van utterances|
 |--|
-|John W. Smith verplaatsen naar de afdeling boekhouding|
-|Jill Jones van overbrengen naar R & D|
+|move John W. Smith to the accounting department|
+|transfer Jill Jones from to R&D|
  
 De verplaatsingsaanvraag moet bevatten de afdelingsnaam van de en de naam van de werknemer. 
 
@@ -104,15 +104,15 @@ LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemen
 
 1. Controleer of dat alle uitingen in het doel zijn gelabeld met de samengestelde entiteit. 
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>De app trainen, zodat de wijzigingen aan het doel kunnen worden getest. 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>De app trainen zodat de wijzigingen aan de intentie kunnen worden getest 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publiceer de app, zodat het getrainde model waarin u kunt zoeken van het eindpunt is
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>De app publiceren zodat op het getrainde model query's kunnen worden uitgevoerd vanaf het eindpunt
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Ophalen van intentie en entiteit voorspelling van eindpunt 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Voorspelling van intenties en entiteiten ophalen van eindpunt 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -192,9 +192,9 @@ LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemen
 
 * [Lijst met entiteit-zelfstudie](luis-quickstart-intents-only.md)
 * [Samengestelde entiteit](luis-concept-entity-types.md) conceptuele informatie
-* [Hoe u met het trainen van](luis-how-to-train.md)
+* [Trainen](luis-how-to-train.md)
 * [Hoe u kunt publiceren](luis-how-to-publish-app.md)
-* [Testen in de portal van LUIS](luis-interactive-test.md)
+* [Testen in de LUIS-portal](luis-interactive-test.md)
 
 
 ## <a name="next-steps"></a>Volgende stappen

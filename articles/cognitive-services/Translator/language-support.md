@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 3d25cfd39b4b4278fedf33e042d394208fd5eafc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 96f73d7d1324de9e5531aefcc4ee3b9a054cf941
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713176"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228046"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Ondersteuning voor taal en regio voor de Translator Text-API
 
@@ -35,7 +35,7 @@ De Translator Text-API ondersteunt de volgende talen voor tekst naar tekst conve
 
 **V3-API van Translator** de Translator-API V3 is standaard neurale en statistische systemen zijn alleen beschikbaar wanneer geen neurale systeem bestaat. Aangepaste Translator kan alleen worden gebruikt met neurale talen. 
 
-|Taal|  Taalcode|  V2-API| V3-API|
+|Taal|  Taalcode|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Alleen statistisch|  Neurale|
 |Arabisch|    `ar`    |Neurale beschikbaar|  Neurale|
@@ -109,7 +109,7 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 | Taal    | Taalcode | Script | Aan/uit | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabisch | `ar` | Arabisch `Arab` | <--> | Latijns `Latn` |
-|Bengalees  | `bn` | Bengaals `Beng` | <--> | Latijns `Latn` |
+|Bengalees  | `bn` | Bengali `Beng` | <--> | Latijns `Latn` |
 | Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Latijns `Latn` |
 | Chinees (vereenvoudigd) | `zh-Hans` | Vereenvoudigd Chinees `Hans`| <--> | Traditioneel Chinees `Hant`|
 | Chinees (traditioneel) | `zh-Hant` | Traditioneel Chinees `Hant`| <--> | Latijns `Latn` |
@@ -119,9 +119,9 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latijns `Latn` |
 | Japans | `ja` | Japans `Jpan` | <--> | Latijns `Latn` |
 | Kanarees | `kn` | Kannada `Knda` | --> | Latijns `Latn` |
-| Malayalam | `ml` | Malajalam `Mlym` | --> | Latijns `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | --> | Latijns `Latn` |
 | Mahratti | `mr` | Devanagari `Deva` | --> | Latijns `Latn` |
-| Odia | `or` | Odia `Orya` | <--> | Latijns `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latijns `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latijns `Latn`  |
 | Servisch (Cyrillisch) | `sr-Cyrl` | Cyrillisch `Cyrl`  | --> | Latijns `Latn` |
 | Servisch (Latijns) | `sr-Latn` | Latijns `Latn` | --> | Cyrillisch `Cyrl`|

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: MT
+ms.openlocfilehash: b098ce78143cbcfd53d6ab1c7e4127df336f2bc4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815868"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212032"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Een ontwikkelomgeving configureren voor Azure Machine Learning
 
@@ -64,7 +64,7 @@ Als u al een Python 3-omgeving hebt, of alleen de basisstappen voor het installe
 
 Om te beginnen met ontwikkelen met Azure-laptops, Zie [aan de slag met Azure Machine Learning-service](quickstart-get-started.md).
 
-Azure-notitieblokken gebruikt standaard een gratis service-laag die is beperkt tot 4GB geheugen en 1GB aan gegevens. U kunt deze limieten echter verwijderen door het koppelen van een Data Science Virtual Machine-instantie aan het project Azure notitieblokken. Zie voor meer informatie, [beheren en configureren van Azure-notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Azure-notitieblokken gebruikt standaard een gratis service-laag die is beperkt tot 4GB geheugen en 1GB aan gegevens. U kunt deze limieten echter verwijderen door het koppelen van een Data Science Virtual Machine-instantie aan het project Azure notitieblokken. Zie voor meer informatie, [beheren en configureren van Azure-notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a id="dsvm"></a>Virtuele Machine voor Datatechnologie
 
@@ -248,7 +248,7 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
 
 1. Maak een [Databricks-cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) met de volgende instellingen:
 
-    | Instelling | Waarde |
+    | Instelling | Value |
     |----|---|
     | Clusternaam | yourclustername |
     | Databricks Runtime | Een runtime niet ML (niet ML 4.x, 5.x) |
@@ -257,7 +257,7 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
 
     Gebruik deze instellingen alleen als u automatische machine learning met op Databricks:
     
-    |   Instelling | Waarde |
+    |   Instelling | Value |
     |----|---|
     | VM-typen voor worker-knooppunt | Virtuele machine bij voorkeur is geoptimaliseerd voor geheugen |
     | Automatisch schalen inschakelen | Schakel het selectievakje |
@@ -271,13 +271,13 @@ Voorbereiden van uw Databricks-cluster en voorbeeldnotitieblokken ophalen:
     * [Maken van een bibliotheek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) met een van deze instellingen (_slechts één van deze opties kiest_):
     
         * Azure Machine Learning-SDK installeren _zonder_ geautomatiseerde van machine learning-mogelijkheden:
-            | Instelling | Waarde |
+            | Instelling | Value |
             |----|---|
             |Bron | Uploaden van Python EI of PyPI
             |De naam van de PyPi | azureml-sdk[databricks]
     
         * Azure Machine Learning-SDK installeren _met_ geautomatiseerde van machine learning:
-            | Instelling | Waarde |
+            | Instelling | Value |
             |----|---|
             |Bron | Uploaden van Python EI of PyPI
             |De naam van de PyPi | azureml-sdk[automl_databricks]

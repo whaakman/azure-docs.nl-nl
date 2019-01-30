@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809094"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225926"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Een virtuele Windows-machine oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met behulp van de Azure-portal voor herstel
 Als uw Windows virtuele machine (VM) in Azure een opstart- of schijffout-fout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert de virtuele machine dat wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf naar een andere Windows-virtuele machine om eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met Azure portal.
@@ -37,12 +37,11 @@ Voor de virtuele machine die beheerde schijf gebruikt, kunnen we nu Azure PowerS
 ## <a name="determine-boot-issues"></a>Opstartproblemen met bepalen
 Om te bepalen waarom de virtuele machine kan niet correct worden opgestart, controleert u de diagnostische gegevens over opstarten VM-schermopname. Een veelvoorkomend voorbeeld zou worden van een mislukte toepassingsupdate, of een onderliggende virtuele harde schijf wordt verwijderd of verplaatst.
 
-Selecteer de virtuele machine in de portal en schuif vervolgens omlaag naar de **ondersteuning + probleemoplossing** sectie. Klik op **diagnostische gegevens over opstarten** om weer te geven in de schermafbeelding. Houd er rekening mee om te bepalen waarom de virtuele machine een probleem is gestuit specifieke foutberichten of foutcodes. Het volgende voorbeeld ziet u een virtuele machine bij het wachten op het stoppen van services:
+Selecteer de virtuele machine in de portal en schuif vervolgens omlaag naar de **ondersteuning + probleemoplossing** sectie. Klik op **diagnostische gegevens over opstarten** om weer te geven in de schermafbeelding. Houd er rekening mee om te bepalen waarom de virtuele machine een probleem is gestuit specifieke foutberichten of foutcodes. 
 
 ![Diagnostische gegevens over opstarten console weergeven VM Logboeken](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-U kunt ook klikken op **schermafbeelding** voor het downloaden van een opname van de VM-schermopname.
-
+U kunt ook klikken op **schermopname downloaden** voor het downloaden van een opname van de VM-schermopname.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Bestaande virtuele harde schijfdetails weergeven
 Voordat u de virtuele harde schijf aan een andere virtuele machine koppelen kunt, moet u de naam van de virtuele harde schijf (VHD). 

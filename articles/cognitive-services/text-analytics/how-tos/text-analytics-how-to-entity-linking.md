@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230553"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220380"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Herkenning van entiteit met de naam gebruiken in Text Analytics (Preview)
 
@@ -43,22 +43,22 @@ Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende 
 
 | Type  | SubType | Voorbeeld |
 |:-----------   |:------------- |:---------|
-| Person        | N.V.T.\*         | "Jan", "Bill Gates"     |
-| Locatie      | N.V.T.\*         | "Redmond, Washington", "Parijs"  |
-| Organisatie  | N.V.T.\*         | 'Microsoft'   |
-| Hoeveelheid      | Aantal        | '6', "zes"     | 
+| Person        | N.V.T.\*         | "Jeff", "Bill Gates"     |
+| Locatie      | N.V.T.\*         | "Redmond, Washington", "Paris"  |
+| Organisatie  | N.V.T.\*         | "Microsoft"   |
+| Hoeveelheid      | Aantal        | "6", "six"     | 
 | Hoeveelheid      | Percentage    | "50%", "50%"| 
 | Hoeveelheid      | Volgnummer       | "2", "tweede"     | 
 | Hoeveelheid      | NumberRange   | "4-8"     | 
 | Hoeveelheid      | Leeftijd           | "90 dagen oud is", "30 jaar oude"    | 
-| Hoeveelheid      | Valuta      | "$10,99"     | 
+| Hoeveelheid      | Valuta      | "$10.99"     | 
 | Hoeveelheid      | Dimensie     | "10 mijl", "40 cm"     | 
-| Hoeveelheid      | Temperatuur   | "32 graden"    |
+| Hoeveelheid      | Temperatuur   | "32 degrees"    |
 | DateTime      | N.V.T.\*         | "6:30 PM 4 februari 2012"      | 
 | DateTime      | Date          | "Mei 2e 2017", "05/02/2017"   | 
-| Datum tijd     | Time          | "8 am", "8:00"  | 
+| Datum en tijd     | Time          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "Mei 2e op 5 mei"    | 
-| DateTime      | timeRange     | "18: 00 uur tot 19: 00"     | 
+| DateTime      | TimeRange     | "18: 00 uur tot 19: 00"     | 
 | DateTime      | Duur      | '1 minuut en 45 seconden'   | 
 | DateTime      | Instellen           | "elke dinsdag"     | 
 | DateTime      | TimeZone      |    | 
@@ -89,11 +89,11 @@ De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt 
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Stap 1: Structuur van de aanvraag
+## <a name="step-1-structure-the-request"></a>Stap 1: Structureer de aanvraag
 
 Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST**-aanvraag. Controleer de API-documentatie voor deze aanvraag: [Entity Linking-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
 + Stel het HTTP-eindpunt voor het ophalen van de entiteit. Deze moet de `/entities`-resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities` bevatten
 
@@ -104,7 +104,7 @@ Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Anal
 > [!Tip]
 > Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) om de aanvraag te structureren en POST deze in de service.
 
-## <a name="step-2-post-the-request"></a>Stap 2: De aanvraag posten
+## <a name="step-2-post-the-request"></a>Stap 2: Plaats de aanvraag
 
 Analyse wordt uitgevoerd na ontvangst van de aanvraag. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag kan maximaal 1 MB zijn.
 

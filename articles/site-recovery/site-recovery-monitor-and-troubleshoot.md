@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845636"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210417"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Bewaken en problemen oplossen van Site Recovery
 
@@ -153,13 +153,13 @@ In het dashboard toevoegen, kunt u machines op de pagina virtuele machines bewak
 4. Klik op **Filter** om informatie op basis van specifieke parameters, zoals de replicatiestatus van of een bepaalde replicatiebeleid weer te geven.
 5. Met de rechtermuisknop op een machine bewerkingen zoals het test-failover voor het starten of om details van de specifieke fout die is gekoppeld aan deze weer te geven.
 6. Klik op een machine om te zoomen op meer informatie voor het. Details omvatten:
-      - **Replicatiegegevens**: huidige status en integriteit van de machine.
-      - **RPO** (recovery point objective): huidige RPO voor de virtuele machine en de tijd waarbinnen de RPO voor het laatst is berekend.
-      - **Herstelpunten**: meest recente beschikbare herstelpunten voor de machine.
-      - **Failover-gereedheid**: geeft aan of een test-failover is uitgevoerd voor de virtuele machine, de agent-versie die wordt uitgevoerd op de computer (voor machines waarop de Mobility-service wordt uitgevoerd) en eventuele configuratieproblemen.
-      - **Fouten**: lijst met replicatie fout symptomen momenteel waargenomen op de machine en de mogelijke oorzaken/acties.
-      - **Gebeurtenissen**: een chronologische lijst met recente gebeurtenissen die invloed hebben op de machine. Details van deze fout ziet u de symptomen momenteel waarneembare fout terwijl gebeurtenissen is een historisch overzicht van de problemen die mogelijk invloed hebben de machine.
-      - **Infrastructuurweergave**: toont de status van de infrastructuur voor het scenario dat bij het repliceren van machines naar Azure.
+      - **Replicatiegegevens**: Huidige status en integriteit van de machine.
+      - **RPO** (recovery point objective): Huidige RPO voor de virtuele machine en de tijd waarbinnen de RPO voor het laatst is berekend.
+      - **Herstelpunten**: Meest recente beschikbare herstelpunten voor de machine.
+      - **Failover-gereedheid**: Geeft aan of een test-failover is uitgevoerd voor de virtuele machine, de agent-versie die wordt uitgevoerd op de computer (voor machines waarop de Mobility-service wordt uitgevoerd) en eventuele configuratieproblemen.
+      - **Fouten**: Lijst met replicatie fout symptomen momenteel waargenomen op de machine en de mogelijke oorzaken en/of acties.
+      - **Gebeurtenissen**: Een chronologische lijst met recente gebeurtenissen die invloed hebben op de machine. Details van deze fout ziet u de symptomen momenteel waarneembare fout terwijl gebeurtenissen is een historisch overzicht van de problemen die mogelijk invloed hebben de machine.
+      - **Infrastructuurweergave**: Toont de status van de infrastructuur voor het scenario dat bij het repliceren van machines naar Azure.
 
     ![Site Recovery gerepliceerd item details/overzicht](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

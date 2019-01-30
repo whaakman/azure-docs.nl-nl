@@ -6,17 +6,17 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: personality-chat
+ms.subservice: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 274b232f321b3ad739d18a8580b4a178dbde633e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 95a6511ce818fda6db0cec507a1f9e3b034f17b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219818"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219053"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -28,10 +28,10 @@ Project persoonlijkheid chat wordt een bot met algemene kleine praten die worden
 
 Selecteer de dichtstbijzijnde persona uit de beschikbare standaardregels Persona's. U kunt vandaag de dag de redactionele-bibliotheek en de antwoorden beter aan de behoeften van uw merk bewerken. In de toekomst kunt u een voorbeeld reeks uitingen uploaden vanaf uw gekozen persoonlijkheid en de dichtstbijzijnde versie van de persona-ID vinden. Er zijn ook manieren opnieuw trainen en het model aanpassen.
 
-## <a name="is-this-service-powering-existing-intelligent-agents-such-as-zo"></a>Is deze service bestaande intelligente agents zoals Zo inschakelen?
+## <a name="is-this-service-powering-existing-intelligent-agents-such-aszo"></a>Is deze service bestaande intelligente agents zoals Zo inschakelen?
 
 De services die mogelijk maakt Zo, Cortana en Project persoonlijkheid Chat sommige vergelijkbare technieken delen, maar andere stacks zijn. Het heeft geleerde lessen van de ervaringen met Zo en Cortana verwerkt.
 
 ## <a name="can-this-service-lead-to-bad-customer-experiences"></a>Kan deze service leiden tot slechte ervaringen voor klanten?
 
-Als u wilt een rijkere ervaring bieden, persoonlijkheid Chat kunt genereren antwoorden die in de redactionele gegevensset en er wordt geprobeerd met het interpreteren van alle invoer van de gebruiker. Het is dus mogelijk dat een reactie wordt niet lijken rechts in de context. Een aantal besturingselementen zijn om te voorkomen dat ongunstig antwoorden bouwen met behulp van kennis van intelligente agents zoals Zo ingevoerd. Om te reageren op herkende gebruiker intents uitsluitend is Project persoonlijkheid Chat standaard ingesteld. U wilt testen of Project persoonlijkheid Chat geschikt voor uw situatie is. Uw feedback is Welkom als er waarvoor aanvullende trainingen. Als u deze service in de toekomst met uw klanten gebruiken, raden wij u rekening houden met geanonimiseerde logeboekregistratie bij het identificeren van problemen met live gebruikersinteracties.
+Als u wilt een rijkere ervaring bieden, persoonlijkheid Chat kunt genereren antwoorden die in de redactionele gegevensset en er wordt geprobeerd met het interpreteren van alle invoer van de gebruiker. Het is dus mogelijk dat een reactie wordt niet lijken rechts in de context. Er zijn verschillende controles ingebouwd om ongunstig antwoorden te voorkomen dat. Hiervoor wordt voortgeborduurd op kennis van intelligente agents zoals Zo. De standaardinstelling is dat Personality Chat alleen reageert op herkende intenties van gebruikers. U kunt uitproberen of Project Personality Chat geschikt is voor uw situatie. Uw feedback wordt zeer op prijs gesteld als u van mening bent dat ergens meer training vereist is. Als u deze service in de toekomst met uw klanten gebruiken, raden wij u rekening houden met geanonimiseerde logeboekregistratie bij het identificeren van problemen met live gebruikersinteracties.

@@ -5,16 +5,16 @@ description: Het beheren van instellingen, -werkruimte maken, delen van de werkr
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 7b6dd0ec271d335d1055381a8cb7256600be283f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627362"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227077"
 ---
 # <a name="how-to-manage-settings"></a>Over het beheren van instellingen
 
@@ -85,11 +85,11 @@ In aangepaste Translator kunt u uw werkruimte delen met anderen, als ander deel 
 
 ## <a name="sharing-permissions"></a>Machtigingen voor delen
 
-1.  **Lezer:** een lezer in de werkruimte is mogelijk om alle gegevens in de werkruimte weer te geven. 
+1.  **Lezer:** Een lezer in de werkruimte is mogelijk om alle gegevens in de werkruimte weer te geven. 
 
-2.  **Editor:** een editor in de werkruimte is mogelijk documenten toevoegen, het trainen van modellen en het verwijderen van documenten en projecten. Ze kunnen een abonnementssleutel toevoegen, maar kan niet wijzigen die de werkruimte wordt gedeeld met, verwijderen van de werkruimte of wijzig de Werkruimtenaam van de.
+2.  **Editor:** Een editor in de werkruimte zich documenten toevoegen, het trainen van modellen en het verwijderen van documenten en projecten. Ze kunnen een abonnementssleutel toevoegen, maar kan niet wijzigen die de werkruimte wordt gedeeld met, verwijderen van de werkruimte of wijzig de Werkruimtenaam van de.
 
-3.  **Eigenaar:** eigenaar volledige rechten heeft in de werkruimte.
+3.  **Eigenaar:** Een eigenaar heeft volledige machtigingen tot de werkruimte.
 
 ## <a name="change-sharing-permission"></a>Machtiging voor delen wijzigen
 

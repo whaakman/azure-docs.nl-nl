@@ -6,16 +6,16 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
-ms.openlocfilehash: 01f75d333e3eea5af35ca57bd44bc76148a481f2
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: db993693acc7e64a789564b92f4d0eacfa0e69f7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867612"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225258"
 ---
 # <a name="call-api-from-a-browser"></a>API aanroepen vanuit een browser
 
@@ -23,7 +23,7 @@ Dit artikel helpt u aanroepen naar de Azure Custom Decision Service API's rechts
 
 Zorg ervoor dat u [uw toepassing registreren](custom-decision-service-get-started-register.md), eerste.
 
-Laten we beginnen. Uw toepassing is gemodelleerd als bestaande uit een front-pagina die is gekoppeld aan meerdere pagina's het artikel. De front-pagina wordt Custom Decision Service om op te geven de volgorde van de artikelpagina's die worden gebruikt. Voeg de volgende code in de HTML-kop van de front-pagina:
+Aan de slag. Uw toepassing is gemodelleerd als bestaande uit een front-pagina die is gekoppeld aan meerdere pagina's het artikel. De front-pagina wordt Custom Decision Service om op te geven de volgorde van de artikelpagina's die worden gebruikt. Voeg de volgende code in de HTML-kop van de front-pagina:
 
 ```html
 // Define the "callback function" to render UI

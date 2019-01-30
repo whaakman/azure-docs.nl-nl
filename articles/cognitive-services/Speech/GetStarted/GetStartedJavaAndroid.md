@@ -6,20 +6,20 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345251"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222487"
 ---
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Snelstartgids: De opname van de Bing Speech-API in Java op Android gebruiken
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Snelstart: De opname van de Bing Speech-API in Java op Android gebruiken
 
 Met de Bing Speech-API, kunt u Android-toepassingen die gebruikmaken van de cloud gebaseerde Bing Speech-Service naar gesproken audio naar tekst converteren ontwikkelen. De API ondersteunt realtime streaming, zodat uw toepassing kunt tegelijkertijd en asynchroon gedeeltelijke herkenningsresultaten ontvangen op hetzelfde moment het verzendt audio naar de service.
 
@@ -118,7 +118,7 @@ De clientbibliotheek biedt vooraf geïmplementeerde erkenning clientklassen voor
 
 * `DataRecognitionClient`: Spraakherkenning met PCM-gegevens (bijvoorbeeld van de bron van een bestand of audio). De gegevens wordt opgedeeld in buffers en elke buffer naar spraak-Service is verzonden. Geen aanpassing is gereed om terug te de buffers, zodat de gebruiker de Stiltedetectie van hun eigen toepassen kunt, indien gewenst. Als de gegevens wordt geleverd door WAV-bestanden, kunt u gegevens vanaf de rechterkant van het bestand naar spraak-Service verzenden. Als u hebt de onbewerkte gegevens, bijvoorbeeld audio die afkomstig zijn via Bluetooth, u eerst een indeling-header verzenden naar Spraakservice gevolgd door de gegevens.
 * `MicrophoneRecognitionClient`: Spraakherkenning met audio die afkomstig zijn van de microfoon. Zorg ervoor dat de microfoon is ingeschakeld en de gegevens van de microfoon is verzonden naar de spraakherkenningsservice. Een ingebouwde "stiltedetector' wordt toegepast op de microfoon gegevens voordat deze wordt verzonden naar de opname-service.
-* `DataRecognitionClientWithIntent` en `MicrophoneRecognitionClientWithIntent`: deze clients retourneren, naast de tekst van de spraakherkenning, gestructureerde informatie over het doel van de spreker, die kan worden gebruikt om verdere acties te stimuleren door uw toepassingen. Voor het gebruik van 'Doel', moet u eerst een model met behulp van de trein [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` en `MicrophoneRecognitionClientWithIntent`: Deze clients retourneren naast herkenning van tekst, gestructureerde informatie over het doel van de spreker, die kan worden gebruikt om verdere acties te stimuleren door uw toepassingen. Voor het gebruik van 'Doel', moet u eerst een model met behulp van de trein [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>OCR-taal
 
@@ -135,9 +135,9 @@ U moet ook opgeven `SpeechRecognitionMode` bij het maken van de client met `Spee
 
 U kunt verschillende gebeurtenis-handlers koppelen aan de client u hebt gemaakt:
 
-* **Gedeeltelijke resultaten gebeurtenissen**: deze gebeurtenis wordt aangeroepen wanneer Spraakservice wat u mogelijk worden zeggen voorspelt, voordat u klaar bent met het spreken (als u `MicrophoneRecognitionClient`) of u klaar bent met het verzenden van gegevens (als u `DataRecognitionClient`).
-* **Gebeurtenissen op foutniveau**: wordt aangeroepen wanneer de service een fout wordt gedetecteerd.
-* **Intentie gebeurtenissen**: met de naam op "WithIntent" clients (alleen in `ShortPhrase` modus) nadat de laatste herkenningsresultaat wordt geparseerd in een gestructureerde JSON-doel.
+* **Gedeeltelijke resultaten gebeurtenissen**: Deze gebeurtenis wordt aangeroepen wanneer Spraakservice wat u mogelijk worden zeggen voorspelt, voordat u klaar bent met het spreken (als u `MicrophoneRecognitionClient`) of u klaar bent met het verzenden van gegevens (als u `DataRecognitionClient`).
+* **Gebeurtenissen op foutniveau**: Wordt aangeroepen wanneer de service een fout wordt gedetecteerd.
+* **Intentie gebeurtenissen**: Met de naam op "WithIntent" clients (alleen in `ShortPhrase` modus) nadat de laatste herkenningsresultaat wordt geparseerd in een gestructureerde JSON-doel.
 * **Gebeurtenissen resulteren**:
   * In `ShortPhrase` modus, deze gebeurtenis wordt genoemd en n-beste resultaten retourneert nadat u klaar bent met het spreken.
   * In `LongDictation` modus wordt de gebeurtenis-handler heet meerdere keren op basis van waar de service pauzes in zinnen aangeeft.

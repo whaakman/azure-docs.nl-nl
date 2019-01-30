@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957688"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210128"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-Service in Azure naar Azure-replicatie
 
@@ -25,7 +25,7 @@ Azure Site Recovery heeft een maandelijkse vrijgeeffrequentie waar verbeteringen
  
 ## <a name="how-does-automatic-update-work"></a>Hoe werkt automatisch bijwerken
 
-Zodra u Site Recovery voor het beheren van updates toestaat, wordt een algemene runbook (die wordt gebruikt door Azure-services) geïmplementeerd via een automation-account wordt gemaakt in hetzelfde abonnement als de kluis. Een automation-account wordt gebruikt voor een bepaalde kluis. Het runbook wordt gecontroleerd op elke virtuele machine in een kluis waarvoor automatische updates zijn ingeschakeld en start een upgrade van de Mobility-Service-extensie als een nieuwere versie beschikbaar is. De standaardplanning van de runbook-recurrs elke dag om 12:00 uur aan de hand van de tijdzone van de gerepliceerde virtuele machine van geografische gebied. De planning voor runbook kan ook worden gewijzigd via het automation-account door de gebruiker, indien nodig. 
+Zodra u Site Recovery voor het beheren van updates toestaat, wordt een algemene runbook (die wordt gebruikt door Azure-services) geïmplementeerd via een automation-account wordt gemaakt in hetzelfde abonnement als de kluis. Een automation-account wordt gebruikt voor een bepaalde kluis. Het runbook wordt gecontroleerd op elke virtuele machine in een kluis waarvoor automatische updates zijn ingeschakeld en start een upgrade van de Mobility-Service-extensie als een nieuwere versie beschikbaar is. De standaardplanning van het runbook wordt herhaald elke dag om 12:00 uur aan de hand van de tijdzone van de gerepliceerde virtuele machine van geografische gebied. De planning voor runbook kan ook worden gewijzigd via het automation-account door de gebruiker, indien nodig. 
 
 > [!NOTE]
 > Inschakelen van automatische updates vereist geen herstart van uw Azure-VM's en heeft geen invloed op continue replicatie.
@@ -46,14 +46,14 @@ U kunt kiezen om Site Recovery voor het beheren van updates in de volgende manie
 
 Wanneer u replicatie inschakelt voor een virtuele machine te beginnen [uit de weergave van de virtuele machine](azure-to-azure-quickstart.md), of [vanuit de recovery services-kluis](azure-to-azure-how-to-enable-replication.md), krijgt u een optie om te kiezen om een Site Recovery beheren van updates voor de extensie voor Site Recovery of dezelfde handmatig te beheren.
 
-![inschakelen replicatie-automatisch bijwerken](./media/azure-to-azure-autoupdate/enable-rep.png)
+![enable-replication-auto-update](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Schakelen tussen de extensie-instellingen in de kluis bijwerken
 
 1. Navigeer in de kluis naar **beheren**-> **Site Recovery-infrastructuur**
 2. Onder **voor Azure virtual Machines**-> **extensie Update-instellingen**, klikt u op de wisselknop om te kiezen of u wilt toestaan dat *ASR om updates te beheren* of *handmatig beheren*. Klik op **Opslaan**.
 
-![kluis-in-/ uitschakelen-autuo-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![kluis-in-/ uitschakelen-automatisch bijwerken](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > Als u ervoor kiest *ASR toestaan voor het beheren van*, de instelling wordt toegepast op alle virtuele machines in de betreffende kluis.
@@ -81,7 +81,7 @@ Als er een probleem met de automatische updates, krijgt u een bericht van dezelf
 
 U hebt geprobeerd om in te schakelen van automatische updates en is mislukt, Raadpleeg hieronder voor het oplossen van problemen.
 
-**Fout**: U bent niet gemachtigd voor het maken van een Azure uitvoeren als-account (service-principal) en de rol Inzender verlenen aan de service-principal. 
+**Fout**: U hebt geen machtigingen om een Uitvoeren als-account voor Azure (service-principal) te maken en de rol Inzender aan de service-principal toe te wijzen. 
 - Aanbevolen actie: Zorg ervoor dat het aangemelde account de inzender voor is toegewezen en probeer het opnieuw. Raadpleeg [dit](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) document voor meer informatie over het toewijzen van de juiste machtigingen.
  
 Wanneer automatische updates zijn ingeschakeld, de meeste van de problemen kunnen worden hersteld door de Site Recovery-service en moet u op de '**herstellen**' knop.
@@ -90,10 +90,10 @@ Wanneer automatische updates zijn ingeschakeld, de meeste van de problemen kunne
 
 Als de knop herstellen niet beschikbaar is, raadpleegt u het foutbericht dat wordt weergegeven onder het deelvenster voor extensie-instellingen.
 
- - **Fout**: de uitvoeren als-account beschikt niet over de machtiging voor toegang tot de recovery services-resource.
+ - **Fout**: Uitvoeren als-account heeft geen toegangsrechten voor de recovery services-resource.
 
-    **Aanbevolen actie**: verwijderen en vervolgens [opnieuw uitvoeren als-account maken](https://docs.microsoft.com/azure/automation/automation-create-runas-account) of zorg ervoor dat het Automation uitvoeren als-account van Azure Active Directory-toepassing toegang tot de recovery services-resource heeft.
+    **Aanbevolen actie**: Verwijderen en vervolgens [opnieuw uitvoeren als-account maken](https://docs.microsoft.com/azure/automation/automation-create-runas-account) of zorg ervoor dat het Automation uitvoeren als-account van Azure Active Directory-toepassing toegang tot de recovery services-resource heeft.
 
-- **Fout**: uitvoeren als-account is niet gevonden. Een van deze is verwijderd of is niet gemaakt: Azure Active Directory-toepassing, Service-Principal, rol, Automation-certificaatasset, Automation-verbindingsasset- of de vingerafdruk is niet identiek certificaat en de verbinding. 
+- **Fout**: Uitvoeren als-account is niet gevonden. Een van deze is verwijderd of is niet gemaakt: Azure Active Directory-toepassing, Service-Principal, rol, Automation-certificaatasset, Automation-verbindingsasset- of de vingerafdruk is niet identiek certificaat en de verbinding. 
 
-    **Aanbevolen actie**: verwijderen en [en maak opnieuw uitvoeren als-account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Aanbevolen actie**: Verwijderen en [en maak opnieuw uitvoeren als-account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

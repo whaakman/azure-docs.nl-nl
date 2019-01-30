@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 331e932a328fabeb6dc4418bec92f9bae3c92fcb
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a3a059e8edc286b2c1433c9b414dc275a433e2fd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098387"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217676"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Back-up en herstel van versleutelde virtuele machines met Azure Backup
 In dit artikel vertelt de stappen voor het back-up en herstellen van virtuele machines (VM's) met behulp van Azure Backup. Het bevat ook informatie over ondersteunde scenario's, vereisten en stappen voor probleemoplossing voor foutgevallen.
@@ -138,7 +138,7 @@ Als u een versleutelde VM herstellen, eerst schijven herstellen met de volgende 
 ## <a name="troubleshooting-errors"></a>Fouten oplossen
 | Bewerking | Foutdetails | Oplossing |
 | --- | --- | --- |
-|Backup | Foutcode: UserErrorKeyVaultPermissionsNotConfigured<br><br>Foutbericht: Back-up beschikt niet over voldoende machtigingen tot de key vault voor back-ups van versleutelde virtuele machines. | Back-up moet deze machtigingen worden opgegeven door de [stappen in de vorige sectie](#provide-permissions-to-azure-backup). Of u kunt de PowerShell-stappen in de sectie 'Beveiliging inschakelen' van het artikel volgen [PowerShell gebruiken om te back-up en herstellen van virtuele machines](backup-azure-vms-automation.md#enable-protection). |  
+|Backup | Foutcode: UserErrorKeyVaultPermissionsNotConfigured<br><br>Foutbericht: Azure Backup-Service beschikt niet over voldoende machtigingen voor Key Vault voor back-up van versleutelde virtuele Machines. | Back-up moet deze machtigingen worden opgegeven door de [stappen in de vorige sectie](#provide-permissions-to-azure-backup). Of u kunt de PowerShell-stappen in de sectie 'Beveiliging inschakelen' van het artikel volgen [PowerShell gebruiken om te back-up en herstellen van virtuele machines](backup-azure-vms-automation.md#enable-protection). |  
 | Herstellen | U kunt deze versleutelde VM niet herstellen omdat de sleutelkluis die is gekoppeld aan deze virtuele machine bestaat niet. |Een sleutelkluis maken met behulp van [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md). Zie [herstellen van een key vault-sleutel en een geheim met behulp van Azure Backup](backup-azure-restore-key-secret.md) om terug te zetten van een sleutel en een geheim als ze niet aanwezig zijn. |
-| Herstellen | Foutcode: UserErrorKeyVaultKeyDoesNotExist<br><br> Foutbericht: U kunt deze versleutelde VM niet herstellen omdat de sleutel en het geheim die is gekoppeld aan deze virtuele machine niet bestaat. |Zie [herstellen van een key vault-sleutel en een geheim met behulp van Azure Backup](backup-azure-restore-key-secret.md) om terug te zetten van een sleutel en een geheim als ze niet aanwezig zijn. |
-| Herstellen | Foutcode: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Foutbericht: Back-up beschikt niet over de machtiging voor toegang tot resources in uw abonnement. |Zoals eerder vermeld, herstel de schijven eerst met de volgende stappen in de sectie 'Een back-up schijven herstellen' in [kiest u de configuratie van een virtuele machine terugzetten](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Gebruik PowerShell om te daarna [maken van een VM van herstelde schijven](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+| Herstellen | Foutcode: UserErrorKeyVaultKeyDoesNotExist<br><br> Foutbericht: U kunt deze versleutelde VM niet herstellen omdat de sleutel die is gekoppeld aan deze virtuele machine bestaat niet. |Zie [herstellen van een key vault-sleutel en een geheim met behulp van Azure Backup](backup-azure-restore-key-secret.md) om terug te zetten van een sleutel en een geheim als ze niet aanwezig zijn. |
+| Herstellen | Foutcode: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Foutbericht: De Backup-service heeft geen toegang tot resources in uw abonnement. |Zoals eerder vermeld, herstel de schijven eerst met de volgende stappen in de sectie 'Een back-up schijven herstellen' in [kiest u de configuratie van een virtuele machine terugzetten](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Gebruik PowerShell om te daarna [maken van een VM van herstelde schijven](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 4118e52e8fac34e860f05e17effb01e9375582ec
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2571c4a1e5a3ff6228cd6647c4367555d0add866
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913831"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212561"
 ---
 # <a name="networking"></a>Netwerken
 
@@ -48,7 +48,7 @@ Optimale prestaties van de virtuele Machine met versnelde netwerken, is door op 
 ```
 Service Fabric-cluster kan worden ingericht op [Linux met versnelde netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), en [Windows met versnelde netwerken](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Versneld netwerken wordt ondersteund voor Azure Virtual Machine-serie-SKU's: D/DSv2-, D/DSv3, E/ESv3, F/FS, FSv2 en Ms-/ Mms. Versneld netwerken is getest met de SKU Standard_DS8_v3 23-1/2019.
+Versneld netwerken wordt ondersteund voor Azure Virtual Machine-serie-SKU's: D/DSv2-, D/DSv3, E/ESv3, F/FS, FSv2 en Ms-/ Mms. Versneld netwerken is getest met succes met behulp van de SKU Standard_DS8_v3 23-1/2019 voor een Service Fabric Windows-Cluster en het gebruik van Standard_DS12_v2 01/29/2019 voor een Service Fabric Linux-Cluster.
 
 Om in te schakelen versnelde netwerken op een bestaande Service Fabric-cluster, moet u eerst [schalen van een Service Fabric-cluster af door het toevoegen van een virtuele-Machineschaalset](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), voer de volgende stappen uit:
 1. Inrichten van een NodeType met versnelde netwerken ingeschakeld

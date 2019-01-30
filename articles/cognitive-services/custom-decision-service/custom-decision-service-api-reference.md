@@ -6,22 +6,22 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 3d9b87241946a04ae71fabde9958b24ad626c0db
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3476c353a2b5c5eeaaa7406712bebd178ac5c1e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364020"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227740"
 ---
 # <a name="api"></a>API
 
 Azure Custom Decision Service biedt twee API's die worden aangeroepen voor elk besluit: de [Trefwoordenrangschikking API](#ranking-api) voor het invoeren van de volgorde van de acties en de [beloning API](#reward-api) om uit te voeren van de prijs. Daarnaast bieden u een [actie ingesteld API](#action-set-api-customer-provided) om op te geven welke acties moeten Azure Custom Decision Service. In dit artikel bevat informatie over deze drie API's. Een typisch scenario is hieronder gebruikt om weer te geven wanneer Custom Decision Service de rangorde van artikelen optimaliseert.
 
-## <a name="ranking-api"></a>Volgorde-API
+## <a name="ranking-api"></a>Ranking API
 
 De classificatie-API maakt gebruikt van een standaard [JSONP](https://en.wikipedia.org/wiki/JSONP)-stijl communicatiepatroon om de latentie te optimaliseren en overslaan van de [beleid voor zelfde oorsprong](https://en.wikipedia.org/wiki/Same-origin_policy). De laatste verboden JavaScript uit het ophalen van gegevens die zich buiten de oorsprong van de pagina.
 
@@ -58,7 +58,7 @@ callback({
                  {"id":"<A2>","lastRefresh":"2017-04-30T22:34:25.3401438Z"}]});
 ```
 
-De browser vervolgens deze tekenreeks wordt uitgevoerd als een aanroep naar de `callback()` functie.
+Deze tekenreeks wordt vervolgens in de browser uitgevoerd als een aanroep naar de functie `callback()`.
 
 De parameter voor de callbackfunctie in het voorgaande voorbeeld is het volgende schema:
 
@@ -144,7 +144,7 @@ Hier `data` is het argument voor de `callback()` functioneren, zoals eerder besc
 Alleen voor testdoeleinden, de API van derden kan worden aangeroepen [cURL](https://en.wikipedia.org/wiki/CURL):
 
 ```sh
-curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
+curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
 Het verwachte resultaat is een HTTP-respons van 200 (OK). U ziet de prijs van 1 voor deze gebeurtenis in het logboek (als de sleutel van een Azure storage-account is opgegeven in de portal).

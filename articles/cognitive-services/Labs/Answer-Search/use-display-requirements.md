@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b57e80370c778e7cebdb4a5ccd888ced324be0aa
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 521deef5c09d80eb37a26de384704fcfe540b87e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469483"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225105"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Project antwoord zoeken gebruiken en weergavevereisten
 
@@ -85,7 +85,7 @@ De enige uitzondering op het internet zoeken ervaring vereiste is voor de detect
 - om in te schakelen van de eindgebruiker toegang tot resultaten die eerder zijn geretourneerd naar die eindgebruikers op het apparaat (bijvoorbeeld in het geval van service wordt onderbroken); of
 - voor het opslaan van resultaten voor uw proactieve query persoonlijke in afwachting van de behoeften van de eindgebruiker op basis van signalen die van de eindgebruiker (bijvoorbeeld in het geval van verwachte service wordt onderbroken).
 
-**De server.** U bewaren resultaten die specifiek zijn voor een enkele gebruiker veilig op een server die u beheren en weergeven van de ingehouden resultaten alleen:
+**Server.** U bewaren resultaten die specifiek zijn voor een enkele gebruiker veilig op een server die u beheren en weergeven van de ingehouden resultaten alleen:
 
 - om in te schakelen van de eindgebruiker toegang tot een historisch rapport van de resultaten eerder geretourneerd voor die gebruiker in uw oplossing, mits de resultaten niet (i) gedurende meer dan 21 dagen vanaf het moment van de eerste query van de eindgebruiker behouden mogelijk en (ii) in reactie op een einde u weergegeven Ser van nieuwe of herhaalde query. of
 - persoonlijke in afwachting van een eindgebruiker behoeften op basis van signalen die van de gebruiker voor de laagste van (i) 24 uur vanaf het moment van de query of (ii) tot en met een eindgebruiker dient een andere query voor de bijgewerkte resultaten voor het opslaan van resultaten die voor uw proactieve query zijn geretourneerd.

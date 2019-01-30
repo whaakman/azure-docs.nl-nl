@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8e46f47f1d3a95e4635609f24dc413141304d3c2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321548"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228165"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>De Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -42,7 +42,7 @@ U moet eerst een lijst maken met de virtuele machines die u wilt profileren. U k
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. U kunt desgewenst de volgende opdracht uitvoeren als Connect VIServer niet wordt herkend als de naam van de cmdlet.
+4. U moet mogelijk (optioneel) de volgende opdracht uitvoeren als Connect VIServer niet wordt herkend als de naam van cmdlet.
 
             Add-PSSnapin VMware.VimAutomation.Core
 
@@ -65,7 +65,7 @@ Als u de lijst met te profileren virtuele machines hebt opgesteld, kunt u het hu
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Parameternaam | Description |
+| Parameternaam | Beschrijving |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | De FQDN-naam of het IP-adres van de vCenter-server of vSphere ESXi-host waarvan de virtuele machines moeten worden geprofileerd.|
@@ -145,7 +145,7 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Parameternaam | Description |
+|Parameternaam | Beschrijving |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  De FQDN-naam of het IP-adres van de vCenter- of vSphere-server (gebruik dezelfde naam of hetzelfde IP-adres als op het moment van profilering) waar de geprofileerde virtuele machines zich bevinden waarvan een rapport wordt gegenereerd. Let op: als u ten tijde van de profilering een vCenter-server hebt gebruikt, kunt u geen vSphere-server gebruiken voor het genereren van rapporten en omgekeerd.|
@@ -257,7 +257,7 @@ Open een opdrachtregelconsole en ga naar de map met het hulpprogramma voor de Si
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Parameternaam | Description |
+|Parameternaam | Beschrijving |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Geef het type virtualisatie op (VMware of Hyper-V).|

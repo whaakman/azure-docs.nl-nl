@@ -6,16 +6,16 @@ services: cognitive-services
 author: wsturman
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: fdd22e14e0b7636dbc337a20dd69bf93696bb924
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416277"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218002"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migreren van Bing Speech naar de Speech-Service
 
@@ -39,7 +39,7 @@ De spraak-Service is grotendeels vergelijkbaar met de Bing Speech, met de volgen
 
 Functie | Bing Speech | Speech Service | Details
 -|-|-|-
-SDK VOOR C++ | : heavy_minus_sign: | :heavy_check_mark: | Speech Service biedt ondersteuning voor Windows en Linux.
+C++ SDK | : heavy_minus_sign: | :heavy_check_mark: | Speech Service biedt ondersteuning voor Windows en Linux.
 Java-SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service biedt ondersteuning voor Android- en spraakherkenning apparaten.
 C# SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service biedt ondersteuning voor Windows 10, Universal Windows Platform (UWP) en .NET Standard 2.0.
 Continue spraakherkenning | 10 minuten | Onbeperkt (met de SDK) | Bing Speech zowel spraak Service WebSockets protocollen ondersteunen maximaal tien minuten per aanroep. De spraak-SDK automatisch opnieuw verbinding maken met een time-out of echter verbreken.
@@ -90,7 +90,7 @@ Ga naar de Speech-Service voor spraak-Service, SDK en API-ondersteuning, [onders
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Speech Service gratis uitproberen](get-started.md)
-* [Snelstartgids: Herkennen gesproken tekst in een UWP-app met behulp van de spraak-SDK](quickstart-csharp-uwp.md)
+* [Snelstart: Herkent de gesproken tekst in een UWP-app met behulp van de spraak-SDK](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Zie ook
 * [Opmerkingen bij de release van de spraak-Service](releasenotes.md)

@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341817"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217285"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protocol
 
@@ -77,7 +77,7 @@ Content-Length: 0
 
 De volgende headerinformatie is vereist voor token-toegang.
 
-| Naam | Indeling | Beschrijving |
+| Name | Indeling | Beschrijving |
 |----|----|----|
 | OCP-Apim-Subscription-Key | ASCII | Uw abonnementssleutel |
 
@@ -99,9 +99,9 @@ Clients *moet* een juiste Speech Service-eindpunt gebruiken. Het eindpunt is geb
 
 | Modus | Pad | Service-URI |
 | -----|-----|-----|
-| Interactief | /Speech/Recognition/Interactive/cognitiveservices/V1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Gesprek | /Speech/Recognition/CONVERSATION/cognitiveservices/V1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| Dicteren | /Speech/Recognition/Dictation/cognitiveservices/V1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Interactief | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Gesprek | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| Dicteren | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 Zie voor meer informatie de [URI van de Service](../GetStarted/GetStartedREST.md#service-uri) pagina.
 
@@ -149,7 +149,7 @@ De belangrijkste berichten verzonden door de client naar de services zijn `speec
 
 De volgende headers zijn vereist voor alle berichten die afkomstig zijn van een client.
 
-| Header | Waarde |
+| Header | Value |
 |----|----|
 | Pad | Het pad weergegeven die zijn opgegeven in dit document |
 | X-RequestId | UUID in 'niet-dash'-indeling |
@@ -178,11 +178,11 @@ Clients *moet* verzendt een `speech.config` bericht zodra ze maken van de verbin
 
 #### <a name="required-message-headers"></a>Vereiste berichtkoppen
 
-| Header-naam | Waarde |
+| Headernaam | Value |
 |----|----|
 | Pad | `speech.config` |
 | X-Timestamp | Client UTC klok tijdstempel in ISO 8601-notatie |
-| Inhoudstype | Application/json; charset = utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 
 Net als bij alle berichten in het protocol Speech Service, die afkomstig is van een client de `speech.config` bericht *moet* bevatten een *X-Timestamp* -header die records van de client UTC clock-tijd waarop het bericht is verzonden met de service. De `speech.config` bericht *niet* vereisen een *X-RequestId* header omdat dit bericht is niet gekoppeld aan een bepaalde spraak-aanvraag.
 
@@ -218,8 +218,8 @@ Het element system.version van de `speech.config` bericht bevat de versie van de
 
 | Veld | Beschrijving | Gebruik |
 |-|-|-|
-| OS.platform | De OS-platform die als host fungeert van de toepassing, bijvoorbeeld, Windows, Android, iOS- of Linux |Vereist |
-| OS.name | De productnaam besturingssysteem, bijvoorbeeld Debian of Windows 10 | Vereist |
+| os.platform | De OS-platform die als host fungeert van de toepassing, bijvoorbeeld, Windows, Android, iOS- of Linux |Vereist |
+| os.name | De productnaam besturingssysteem, bijvoorbeeld Debian of Windows 10 | Vereist |
 | OS.Version | De versie van het besturingssysteem in de vorm *major.minor.build.branch* | Vereist |
 
 ##### <a name="device-element"></a>Apparaat-element
@@ -227,7 +227,7 @@ Het element system.version van de `speech.config` bericht bevat de versie van de
 | Veld | Beschrijving | Gebruik |
 |-|-|-|
 | Device.Manufacturer | De fabrikant van apparaat | Vereist |
-| Device.model | Het Apparaatmodel | Vereist |
+| device.model | Het Apparaatmodel | Vereist |
 | Device.Version | De versie van het apparaat software is geleverd door de fabrikant van het apparaat. Deze waarde bevat een versie van het apparaat dat kan worden gevolgd door de fabrikant. | Vereist |
 
 ### <a name="message-audio"></a>Bericht `audio`
@@ -249,12 +249,12 @@ Speech Service maakt gebruik van de eerste `audio` -mailbericht met een unieke a
 
 De volgende headers zijn vereist voor alle `audio` berichten.
 
-| Header         |  Waarde     |
+| Header         |  Value     |
 | ------------- | ---------------- |
 | Pad | `audio` |
 | X-RequestId | UUID in 'niet-dash'-indeling |
 | X-Timestamp | Client UTC klok tijdstempel in ISO 8601-notatie |
-| Inhoudstype | De audio inhoudstype. Het type moet een *audio/x-wav* (PCM) of *audio/zijde* (ZIJDE). |
+| Content-Type | De audio inhoudstype. Het type moet een *audio/x-wav* (PCM) of *audio/zijde* (ZIJDE). |
 
 #### <a name="supported-audio-encodings"></a>Ondersteunde audio coderingen
 
@@ -309,7 +309,7 @@ Clients het einde van een inschakelen door te sturen moeten bevestigen een `tele
 | WebSocket-bericht coderen | Tekst |
 | Pad | `telemetry` |
 | X-Timestamp | Client UTC klok tijdstempel in ISO 8601-notatie |
-| Inhoudstype | `application/json` |
+| Content-Type | `application/json` |
 | Hoofdtekst | Een JSON-structuur met clientinformatie over het inschakelen |
 
 Het schema voor de hoofdtekst van de `telemetry` bericht is gedefinieerd in de [telemetrie schema](#telemetry-schema) sectie.
@@ -330,7 +330,7 @@ De `speech.startDetected` bericht geeft aan dat Spraakservice spraak gedetecteer
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Tekst |
 | Pad | `speech.startDetected` |
-| Inhoudstype | Application/json; charset = utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 | Hoofdtekst | De JSON-structuur die informatie over de voorwaarden bevat wanneer het begin van spraak is gedetecteerd. De *Offset* veld in deze structuur geeft de verschuiving (in eenheden van 100 nanoseconden) wanneer spraak in de audiostream, ten opzichte van het begin van de stroom is gedetecteerd. |
 
 #### <a name="sample-message"></a>Voorbeeldbericht
@@ -356,7 +356,7 @@ Tijdens de spraakherkenning genereert Speech Service regelmatig hypothesen over 
 | WebSocket-bericht coderen | Tekst |
 | Pad | `speech.hypothesis` |
 | X-RequestId | UUID in 'niet-dash'-indeling |
-| Inhoudstype | application/json |
+| Content-Type | application/json |
 | Hoofdtekst | De spraak-hypothese JSON-structuur |
 
 #### <a name="sample-message"></a>Voorbeeldbericht
@@ -387,7 +387,7 @@ Wanneer Spraakservice bepaalt dat er voldoende informatie voor het produceren va
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Tekst |
 | Pad | `speech.phrase` |
-| Inhoudstype | application/json |
+| Content-Type | application/json |
 | Hoofdtekst | De spraak-woordgroep JSON-structuur |
 
 De spraak woordgroep JSON-schema bevat de volgende velden: `RecognitionStatus`, `DisplayText`, `Offset`, en `Duration`. Zie voor meer informatie over deze velden, [transcriptie antwoorden](../concepts.md#transcription-responses).
@@ -416,7 +416,7 @@ De `speech.endDetected` bericht geeft aan dat de clienttoepassing moet worden st
 | WebSocket-bericht coderen | Tekst |
 | Pad | `speech.endDetected` |
 | Hoofdtekst | De JSON-structuur met de verschuiving van het einde van spraak is gedetecteerd. De offset wordt weergegeven in eenheden van 100 nanoseconden verschuiving vanaf het begin van de audio die wordt gebruikt voor opname. |
-| Inhoudstype | Application/json; charset = utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>Voorbeeldbericht
 
@@ -440,7 +440,7 @@ De `turn.start` geeft aan het begin van een inschakelen vanuit het perspectief v
 | ------------- | ---------------- |
 | WebSocket-bericht coderen | Tekst |
 | Pad | `turn.start` |
-| Inhoudstype | Application/json; charset = utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 | Hoofdtekst | JSON-structuur |
 
 #### <a name="sample-message"></a>Voorbeeldbericht
@@ -507,10 +507,10 @@ De `Connection` metrische waarde geeft meer informatie over verbindingspogingen 
 
 | Veld | Beschrijving | Gebruik |
 | ----- | ----------- | ----- |
-| Naam | `Connection` | Vereist |
+| Name | `Connection` | Vereist |
 | Id | De verbinding id-waarde die is gebruikt in de *X ConnectionId* -header voor deze aanvraag | Vereist |
 | Starten | Het tijdstip waarop de client de verbindingsaanvraag verzonden | Vereist |
-| Einde | De tijd bij het ontvangen van de client de verbinding is tot stand is gebracht of, in foutgevallen, afgewezen, geweigerd of is mislukt | Vereist |
+| Beëindigen | De tijd bij het ontvangen van de client de verbinding is tot stand is gebracht of, in foutgevallen, afgewezen, geweigerd of is mislukt | Vereist |
 | Fout | Een beschrijving van de fout is opgetreden, indien van toepassing. Als de verbinding geslaagd is, moeten clients laat dit veld weg. De maximale lengte van dit veld is 50 tekens. | Vereist voor foutgevallen, anders wordt weggelaten |
 
 De beschrijving van de fout moet maximaal 50 tekens lang zijn en in het ideale geval moet een van de waarden die worden vermeld in de volgende tabel. Als het probleem komt niet overeen met een van deze waarden, clients een beknopte beschrijving van de fout kunnen gebruiken met behulp van [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) zonder spaties bevatten. De mogelijkheid voor het verzenden van een *telemetrie* bericht moet worden verbonden met de service, zodat alleen tijdelijke of tijdelijke fouten kunnen worden gerapporteerd de *telemetrie* bericht. Foutsituaties die *permanent* blok een client van een verbinding te maken met de service te voorkomen dat de client een bericht verzenden naar de service, met inbegrip van *telemetrie* berichten.
@@ -547,9 +547,9 @@ De *End* tijd-waarde voor de `Microphone` metriek legt de tijd wanneer het strea
 
 | Veld | Beschrijving | Gebruik |
 | ----- | ----------- | ----- |
-| Naam | Microfoon | Vereist |
+| Name | Microfoon | Vereist |
 | Starten | De tijd wanneer de client aan de slag met audio-invoer van de microfoon of andere audiostream of een trigger hebt ontvangen van het sleutelwoord spotter | Vereist |
-| Einde | De tijd wanneer de client is gestopt met behulp van de microfoon of audio-stream | Vereist |
+| Beëindigen | De tijd wanneer de client is gestopt met behulp van de microfoon of audio-stream | Vereist |
 | Fout | Een beschrijving van de fout is opgetreden, indien van toepassing. Als de bewerkingen van de microfoon gelukt is, moeten clients laat dit veld weg. De maximale lengte van dit veld is 50 tekens. | Vereist voor foutgevallen, anders wordt weggelaten |
 
 ### <a name="metric-listeningtrigger"></a>Metrische gegevens `ListeningTrigger`
@@ -567,9 +567,9 @@ Gebruik de volgende voorbeelden als richtlijnen voor de opname *Start* en *End* 
 
 | Veld | Beschrijving | Gebruik |
 | ----- | ----------- | ----- |
-| Naam | ListeningTrigger | Optioneel |
+| Name | ListeningTrigger | Optioneel |
 | Starten | Het tijdstip waarop de luisterende client-trigger is gestart | Vereist |
-| Einde | De tijd waarop de luisterende client-trigger is beëindigd | Vereist |
+| Beëindigen | De tijd waarop de luisterende client-trigger is beëindigd | Vereist |
 | Fout | Een beschrijving van de fout is opgetreden, indien van toepassing. Als de triggerbewerking voltooid is, moeten clients laat dit veld weg. De maximale lengte van dit veld is 50 tekens. | Vereist voor foutgevallen, anders wordt weggelaten |
 
 #### <a name="sample-message"></a>Voorbeeldbericht
@@ -700,9 +700,9 @@ Als een ander voorbeeld: Stel dat een gebruiker spreekt het sleutelwoord-trigger
 | WebSocketsStatus code | Beschrijving | Problemen oplossen |
 | - | - | - |
 | 1000 normale sluiting | De service verbroken de WebSocket-verbinding zonder fouten. | Als de sluiting WebSocket werd niet verwacht, lees opnieuw in de documentatie om ervoor te zorgen dat u begrijpt hoe en wanneer de service de WebSocket-verbinding kunt beëindigen. |
-| Protocolfout 1002 | De client kan niet voldoen aan de vereisten voor protocol. | Zorg ervoor dat u inzicht in de documentatie van het protocol en schakel over de vereisten. Raadpleeg de vorige documentatie over de fout redenen om te zien als u vereisten voor protocol bent schenden. |
-| 1007 Ongeldige nettolading | De client heeft een ongeldige nettolading verzonden in een protocolbericht. | Controleer het laatste bericht dat u hebt verzonden naar de service op fouten. Raadpleeg de vorige documentatie over fouten met nettolading. |
-| 1011-serverfout | De service is een interne fout opgetreden en kan niet voldoen aan de aanvraag. | Deze fout is tijdelijk in de meeste gevallen. De aanvraag opnieuw. |
+| 1002 Protocol Error | De client kan niet voldoen aan de vereisten voor protocol. | Zorg ervoor dat u inzicht in de documentatie van het protocol en schakel over de vereisten. Raadpleeg de vorige documentatie over de fout redenen om te zien als u vereisten voor protocol bent schenden. |
+| 1007 Invalid Payload Data | De client heeft een ongeldige nettolading verzonden in een protocolbericht. | Controleer het laatste bericht dat u hebt verzonden naar de service op fouten. Raadpleeg de vorige documentatie over fouten met nettolading. |
+| 1011 Server Error | De service is een interne fout opgetreden en kan niet voldoen aan de aanvraag. | Deze fout is tijdelijk in de meeste gevallen. De aanvraag opnieuw. |
 
 ## <a name="related-topics"></a>Verwante onderwerpen
 

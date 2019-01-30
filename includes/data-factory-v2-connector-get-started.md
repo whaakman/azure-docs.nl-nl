@@ -4,17 +4,17 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 8f00a683895faa4813f79fbba2b24ec3f7155eb1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 74ae5cab5430c508f31a5ba4ad7fbdefe89abdd8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572041"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55235970"
 ---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-U kunt een van de volgende hulpprogramma's en SDK's gebruiken voor het gebruik van Kopieeractiviteit met een pijplijn. Selecteer een koppeling voor stapsgewijze instructies:
+U kunt een van de volgende hulpprogramma's en SDK's gebruiken voor het gebruik van de kopieeractiviteit met een pijplijn. Selecteer een koppeling voor stapsgewijze instructies:
 
 - [Data-hulpprogramma voor kopiëren](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
 - [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)

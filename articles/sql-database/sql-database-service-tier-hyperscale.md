@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2d5fdde14c1a33ace81e8999dbb365dac9de3e6e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872880"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227893"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Zeer grootschalige servicelaag (preview) voor maximaal 100 TB
 
 Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
 - Algemeen doel/Standard 
-- Kritieke zakelijke/Premium
+- Business Critical/Premium
 - Hyperscale
 
 De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier in het op vCore gebaseerde aankoopmodel. Deze servicelaag is een zeer schaalbare opslag en compute-prestatielaag die gebruikmaakt van de Azure-architectuur om te schalen om de opslag en rekenresources voor een Azure SQL-Database aanzienlijk buiten de grenzen beschikbaar voor de algemeen gebruik en het bedrijf Kritieke Servicelagen.
@@ -40,7 +40,7 @@ De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier i
 De servicelaag grootschalige in Azure SQL Database biedt de volgende aanvullende mogelijkheden:
 
 - Ondersteuning voor maximaal 100 TB grootte van de database
-- Nagenoeg onmiddellijke back-ups (op basis van bestand momentopnamen die zijn opgeslagen in Azure Blob-opslag), ongeacht de grootte geen i/o-invloed hebben op Compute-database
+- Nagenoeg onmiddellijke back-ups (op basis van bestand momentopnamen die zijn opgeslagen in Azure Blob-opslag), ongeacht de grootte geen i/o-invloed hebben op Compute-database   
 - Database terugzetten (op basis van momentopnamen van het bestand) in minuten in plaats van uren of dagen snel (niet een grootte van gegevens)
 - Betere algehele prestaties vanwege de hogere doorvoer van het logboek en snellere transactie doorvoeren tijden, ongeacht de gegevensvolumes
 - Snelle scale-out - kunt u een of meer alleen-lezen knooppunten voor het offloaden van uw workload voor lezen en voor gebruik als hot-stand-bys inrichten
@@ -133,9 +133,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> [Transparante Database Encryption (TDE)](transparent-data-encryption-azure-sql.md) moet worden uitgeschakeld voordat het wijzigen van de database van een niet-flexibele op grote schaal.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Verbinding maken met een leesschaal replica van een grootschalige-database
 
 In grote databases, de `ApplicationIntent` argument in de verbindingsreeks die is opgegeven door de client bepaalt of de verbinding wordt doorgestuurd naar de replica schrijven of naar een secundaire replica alleen-lezen. Als de `ApplicationIntent` ingesteld op `READONLY` en de database heeft geen een secundaire replica, verbinding worden doorgestuurd naar de primaire replica en de standaard ingesteld op `ReadWrite` gedrag.
@@ -147,7 +144,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Beschikbare regio's
 
-Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar zijn in de volgende Azure-regio's: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, Europa West, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de volgende Azure-regio's: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 
@@ -158,7 +155,8 @@ Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar 
 | Als een databasebestand tijdens de migratie vanwege een actieve werkbelasting toeneemt en de 1 TB per bestand grens snijdt, mislukt de migratie | Oplossingen: <br> -Migreren van de database indien mogelijk, als er geen update-workload uitgevoerd.<br> -Probeer opnieuw de migratie, het slaagt, zolang de grens van 1 TB niet tijdens de migratie is overschreden.|
 | Managed Instance is momenteel niet ondersteund. | Momenteel niet ondersteund |
 | Migratie naar grootschalige is momenteel een enkelvoudige bewerking | Zodra een database wordt gemigreerd naar grootschalige, worden niet het rechtstreeks aan de servicelaag van een niet-flexibele gemigreerd. Op dit moment is de enige manier om een database migreren van grootschalige naar niet-flexibele te exporteren/importeren met behulp van een BACPAC-bestand.|
-| Migratie van databases met objecten in het geheugen wordt momenteel niet ondersteund. | Objecten in het geheugen moeten worden verwijderd en opnieuw als niet-In-Memory-objecten worden gemaakt voordat u een database migreren naar de grootschalige service tier.
+| Migratie van databases met objecten in het geheugen wordt momenteel niet ondersteund. | Objecten in het geheugen moeten worden verwijderd en opnieuw als niet-In-Memory-objecten worden gemaakt voordat u een database migreren naar de grootschalige service tier.|
+| Bijhouden van gegevens is momenteel niet ondersteund. | Niet mogelijk het gebruik van bijhouden van gegevens met zeer grootschalige databasess.
 
 ## <a name="next-steps"></a>Volgende stappen
 

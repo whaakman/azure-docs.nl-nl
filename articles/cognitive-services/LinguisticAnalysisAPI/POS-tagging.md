@@ -5,17 +5,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 41383b5bbad0eb5c32b98c57f3ea35e6018993e8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973958"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218118"
 ---
 # <a name="part-of-speech-tagging"></a>Part-of-Speech Tagging
 
@@ -30,7 +30,7 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 
 ## <a name="list-of-part-of-speech-tags"></a>Lijst met Part-of-Speech Tags
 
-| Label | Description | Voorbeeld van de woorden |
+| Label | Beschrijving | Voorbeeld van de woorden |
 |-----|-------------|---------------|
 | $ | dollar | $ |
 | \`\` | aanhalingsteken openen | \` \`\` |
@@ -42,7 +42,7 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 | . | zin eindteken | . ! ? |
 | : | dubbele punt of de drie puntjes | : ; ... |
 | CC | combinatie, coördineren | en maar of nog|
-| CD | cijfer, kardinaalcurve | negen 20 1980 ' 96 |
+| CD | cijfer, kardinaalcurve | nine 20 1980 '96 |
 | DT | determiner |een de een alle beide geen van beide|
 | EX | Er zijn existentieel: | Er zijn |
 | FW | refererende word | enfant terrible hoi polloi je ne sais quoi |
@@ -60,7 +60,7 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 | POS | genitive markering | ' van |
 | PRP | Overeenkomst, persoonlijke | ze hij het ik we ze u |
 | PRP$ | Overeenkomst, possessive | haar zijn de mijn onze hun uw |
-| DEGRESSIEVE | bewerkingsparameter | klinisch alleen |
+| RB | bewerkingsparameter | klinisch alleen |
 | RBR | bewerkingsparameter, vergelijkende | meer versomberden grander graver groter grimmer moeilijker zwaardere gezondere zwaardere hogere echter groter hoger slanker zijn omslachtiger minder perfect minder lonelier meer harder kleine meer... |
 | RESOURCESTRUCTUUR | bewerkingsparameter, superlative | beste grootste bluntest vroegste verst eerste verst moeilijkst heartiest hoogste grootste minst minder meeste dichtstbijzijnde tweede strengste slechtste |
 | RP | Particle | op off-up maken van informatie over |
@@ -74,9 +74,9 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 | VBP | term, de tegenwoordige aanwezig, niet 3e persoon rapportgebruiker | Geef elk gewenst moment toewijzen |
 | VBZ | term, de tegenwoordige aanwezig, 3e persoon rapportgebruiker | biedt wijst vliegt naar |
 | WDT | W determiner | die welke die |
-| WO | W-overeenkomst | wie wie |
-| WO$ | W-overeenkomst, possessive | waarvan |
-| WRB | W-bewerkingsparameter | hoe echter wanneer waar |
+| WP | WH-pronoun | wie wie |
+| WP$ | W-overeenkomst, possessive | waarvan |
+| WRB | Wh-adverb | hoe echter wanneer waar |
 
 ## <a name="specification"></a>Specificatie
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 273b54961adafb58fe9faa7993003ff74d50b6f9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646005"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218153"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF-rapportage (Collaborative Translation Framework) gebruiken
 
@@ -36,9 +36,9 @@ Het eindpunt van de CTF rapportage-API http://api.microsofttranslator.com/v2/bet
 
 
 ## <a name="methods"></a>Methoden
-| Naam |    Beschrijving|
+| Name |    Beschrijving|
 |:---|:---|
-| Methode GetUserTranslationCounts | Telt het aantal van de vertaling op die zijn gemaakt door de gebruiker ophalen. |
+| GetUserTranslationCounts Method | Telt het aantal van de vertaling op die zijn gemaakt door de gebruiker ophalen. |
 | Methode GetUserTranslations | Hiermee haalt u de vertalingen die zijn gemaakt door de gebruiker. |
 
 Deze methoden kunnen u naar:
@@ -82,7 +82,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 | tot | **Optionele** een tekenreeks voor de taalcode voor de omzetting van de tekst in.|
 | minRating| **Optionele** een integerwaarde voor de beoordeling van de minimale kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
 | maxRating| **Optionele** een integerwaarde voor de beoordeling van de hoogste kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
-| Gebruiker | **Optionele** een tekenreeks is die wordt gebruikt voor het filteren van het resultaat op basis van de afzender van de inzending. |
+| user | **Optionele** een tekenreeks is die wordt gebruikt voor het filteren van het resultaat op basis van de afzender van de inzending. |
 | category| **Optionele** een tekenreeks met de categorie of het domein van de vertaling. Deze parameter ondersteunt alleen de standaardoptie algemeen.|
 | minDateUtc| **Optionele** de datum uit als u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie. |
 | maxDateUtc| **Optionele** de datum tot wanneer u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie. |
@@ -109,7 +109,7 @@ De resultatenset bevat een matrix van de **UserTranslationCount**. Elke UserTran
 
 | Uitzondering | Bericht | Voorwaarden |
 |:---|:---|:---|
-| Opgetreden | De parameter '**maxDateUtc**'moet groter zijn dan of gelijk zijn aan'**minDateUtc**'.| De waarde van de parameter **maxDateUtc** lager is dan de waarde van de parameter **minDateUtc**.|
+| ArgumentOutOfRangeException | De parameter '**maxDateUtc**'moet groter zijn dan of gelijk zijn aan'**minDateUtc**'.| De waarde van de parameter **maxDateUtc** lager is dan de waarde van de parameter **minDateUtc**.|
 | TranslateApiException | IP is hoger dan het quotum.| <ul><li>De limiet voor het aantal aanvragen per minuut is bereikt.</li><li>De aangevraagde grootte blijft beperkt 10000 tekens.</li><li>Elk uur en een dagelijkse quotum beperkt het aantal tekens dat de Microsoft Translator-API accepteert.</li></ul>|
 | TranslateApiException | AppId is hoger dan het quotum.| De toepassings-ID overschreden de Uurlijkse of dagelijkse quotum.|
 
@@ -153,7 +153,7 @@ UserTranslation[] GetUserTranslations (
 | tot| **Optionele** een tekenreeks voor de taalcode voor de omzetting van de tekst in.|
 | minRating| **Optionele** een integerwaarde voor de beoordeling van de minimale kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
 | maxRating| **Optionele** een integerwaarde voor de beoordeling van de hoogste kwaliteit voor de vertaalde tekst. Er is een geldige waarde tussen 10 en 10. De standaardwaarde is 1.|
-| Gebruiker| **Optioneel. Een tekenreeks is die wordt gebruikt voor het filteren van het resultaat op basis van de afzender van het verzenden van de**|
+| user| **Optioneel. Een tekenreeks is die wordt gebruikt voor het filteren van het resultaat op basis van de afzender van het verzenden van de**|
 | category| **Optionele** een tekenreeks met de categorie of het domein van de vertaling. Deze parameter ondersteunt alleen de standaardoptie algemeen.|
 | minDateUtc| **Optionele** de datum uit als u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie.|
 | maxDateUtc| **Optionele** de datum tot wanneer u wilt ophalen van de vertalingen. De datum moet zich in de UTC-notatie.|
@@ -182,7 +182,7 @@ De resultatenset bevat een matrix van de **UserTranslation**. Elke UserTranslati
 
 | Uitzondering | Bericht | Voorwaarden |
 |:---|:---|:---|
-| Opgetreden | De parameter '**maxDateUtc**'moet groter zijn dan of gelijk zijn aan'**minDateUtc**'.| De waarde van de parameter **maxDateUtc** lager is dan de waarde van de parameter **minDateUtc**.|
+| ArgumentOutOfRangeException | De parameter '**maxDateUtc**'moet groter zijn dan of gelijk zijn aan'**minDateUtc**'.| De waarde van de parameter **maxDateUtc** lager is dan de waarde van de parameter **minDateUtc**.|
 | TranslateApiException | IP is hoger dan het quotum.| <ul><li>De limiet voor het aantal aanvragen per minuut is bereikt.</li><li>De aangevraagde grootte blijft beperkt 10000 tekens.</li><li>Elk uur en een dagelijkse quotum beperkt het aantal tekens dat de Microsoft Translator-API accepteert.</li></ul>|
 | TranslateApiException | AppId is hoger dan het quotum.| De toepassings-ID overschreden de Uurlijkse of dagelijkse quotum.|
 

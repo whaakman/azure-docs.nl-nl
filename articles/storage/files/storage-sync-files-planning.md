@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 55d73d51cf7d1867b868b3a9b8385340e01cdd02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809187"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223375"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -283,3 +283,4 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 * [Implementatie van Azure Files plannen](storage-files-planning.md)
 * [Azure Files implementeren](storage-files-deployment-guide.md)
 * [Azure Files Sync implementeren](storage-sync-files-deployment-guide.md)
+* [Monitor voor Azure File Sync](storage-sync-files-monitoring.md)

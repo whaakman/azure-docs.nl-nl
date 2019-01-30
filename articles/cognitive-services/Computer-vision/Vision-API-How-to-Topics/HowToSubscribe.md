@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 820531cc2254d9cbc7aaf7e758dd0457b282d892
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c4c7ee1ab756f458c6e9fed4ff5ee54dfaba919e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580804"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222232"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Abonnementssleutels ophalen
 
@@ -30,10 +30,10 @@ Uw abonnementssleutels zijn geldig voor slechts één van deze [Microsoft Azure-
 | Regio | Adres |
 |---|---|
 | US - west | westus.API.cognitive.Microsoft.com |
-| US - oost 2 | eastus2.API.cognitive.Microsoft.com |
-| US - west-centraal | westcentralus.API.cognitive.Microsoft.com |
-| Europa -west | westeurope.API.cognitive.Microsoft.com |
-| Azië - zuidoost | southeastasia.API.cognitive.Microsoft.com |
+| US - oost 2 | eastus2.api.cognitive.microsoft.com |
+| US - west-centraal | westcentralus.api.cognitive.microsoft.com |
+| Europa -west | westeurope.api.cognitive.microsoft.com |
+| Azië - zuidoost | southeastasia.api.cognitive.microsoft.com |
 
 Als u zich registreert met behulp van de gratis proefversie van Computer Vision, uw abonnementssleutels zijn geldig voor de **westcentral** regio (`https://westcentralus.api.cognitive.microsoft.com/`). Dat is het meest voorkomende geval. Echter, als u zich aanmeldt voor Computer Vision met uw Microsoft Azure-via account de [ https://azure.microsoft.com/ ](https://azure.microsoft.com/) website, u de regio opgeven voor de evaluatie van de voorgaande lijst met regio's.
 

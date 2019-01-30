@@ -5,16 +5,16 @@ description: Wanneer uw training is voltooid, controleert u systeemtests voor he
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630339"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215245"
 ---
 # <a name="view-system-test-results"></a>Testresultaten voor systeem weergeven
 
@@ -54,11 +54,11 @@ Klik op de koppeling vertalingen downloaden als een zipbestand wilt downloaden. 
 
 Deze gedownloade zip-archief bevat drie bestanden.
 
-1.  **Custom.MT.txt:** Dit bestand bevat automatische vertalingen van zinnen source-taal in de doeltaal gedaan door het model is getraind met gegevens van de gebruiker.
+1.  **custom.mt.txt:** Dit bestand bevat automatische vertalingen van zinnen source-taal in de doeltaal gedaan door het model is getraind met gegevens van de gebruiker.
 
-2.  **Ref.txt:** Dit bestand bevat door de gebruiker opgegeven vertalingen van zinnen source-taal in de doel-taal.
+2.  **ref.txt:** Dit bestand bevat door de gebruiker opgegeven vertalingen van zinnen source-taal in de doel-taal.
 
-3.  **Source.txt:** Dit bestand bevat zinnen in de source-taal.
+3.  **source.txt:** Dit bestand bevat zinnen in de source-taal.
 
     ![De resultaten van gedownloade system](media/how-to/how-to-download-system-test.png)
 

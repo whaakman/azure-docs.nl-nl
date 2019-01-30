@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 6c64b89c2eb933e9bcc24bdc3097e7a0b2aab368
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d9b8b5a2ad8ccb447462ef7d34a8c25e5af6ef4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342463"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225020"
 ---
 # <a name="transcription-guidelines"></a>Transcriptierichtlijnen
 
@@ -79,7 +79,7 @@ Hier volgen enkele voorbeelden
 | 14 NE 3rd Dr. | 14 noordoosten derde schijf |
 | Dr. Strangelove | Doctor Strangelove |
 | James Bond 007 | James obligaties dubbele oh zeven |
-| Ke$ ha | Kesha |
+| Ke$ha | Kesha |
 | Hoe lang is de 2 x 4 | Hoe lang is de twee door vier |
 | De vergadering gaat van 1-3 uur | Deze zijn van één tot drie uur van de vergadering |
 | Mijn bloed-type is O + | Mijn bloed O positief is |
@@ -95,7 +95,7 @@ Het is belangrijk om te voorkomen dat het gebruik van de halve breedte leesteken
 | Unicode om te voorkomen | ASCII-vervanging |
 |----- | ----- |
 | "你好" (openen en sluiten dubbele aanhalingstekens) | "你好' (dubbele aanhalingstekens) |
-| 需要什么帮助? (vraagteken) | 需要什么帮助? |
+| 需要什么帮助? (vraagteken) | 需要什么帮助？ |
 
 ### <a name="text-normalization-performed-by-the-custom-speech-service"></a>Tekst normalisering uitgevoerd door de Custom Speech Service
 
@@ -114,7 +114,7 @@ Hier volgen enkele voorbeelden:
 | ￥3.5 | 三 元 五 角 |
 | w f y z | W F Y Z |
 | 1992年8月8日 | 一 九 九 二 年 八 月 八 日 |
-| 你吃饭了吗? | 你 吃饭 了 吗 |
+| 你吃饭了吗 ? | 你 吃饭 了 吗 |
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
@@ -154,7 +154,7 @@ Hier volgen enkele voorbeelden
 | "Hallo, Mama!" sagt die Tochter. | Hallo mama sagt die tochter |
 | ¡EINE Frage! | een frage |
 | WIR, haben | WIR haben |
-| DAS-macht $10 | DAS macht zehn dollar |
+| Das macht $10 | DAS macht zehn dollar |
 
 
 ### <a name="text-normalization-required-by-users"></a>Tekst normalisering vereist door gebruikers
@@ -176,9 +176,9 @@ Hier volgen enkele voorbeelden
 | Oorspronkelijke tekst | Na de normalisering van gebruiker | Nadat system normalisering
 |--------  | ----- | -------- |
 | ES is 12.23Uhr | ES is 12:23Uhr | ES is zwölf uhr drei en zwanzig uhr |
-| {12,45} | {12,45} | zwölf komma vier fünf |
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 3 < 5 | 3 kleiner als 5 | drei kleiner als vier |
-| 2 + 3-4 | 2 en 3 min 4 | u plus drei min vier|
+| 2 + 3 - 4 | 2 en 3 min 4 | u plus drei min vier|
 | DAS-macht 12€ | DAS-macht 12 euro 's | DAS macht zwölf euro 's |
 
 

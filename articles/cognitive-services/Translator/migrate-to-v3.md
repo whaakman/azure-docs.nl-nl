@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682588"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227774"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text-API V2 naar V3-migratie
 
@@ -41,13 +41,13 @@ De volgende lijst met methoden V2 en V3 identificeert de API's waarmee u de func
 
 | V2-API-methode   | V3 API-compatibiliteit |
 |:----------- |:-------------|
-| Translate     | [Vertalen](reference/v3-0-translate.md)          |
+| Vertalen     | [Vertalen](reference/v3-0-translate.md)          |
 | TranslateArray      | [Vertalen](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Talen](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Talen](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [Detecteren](reference/v3-0-detect.md)         |
+| Spreken     | [Microsoft Speech-Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detecteren     | [Detecteren](reference/v3-0-detect.md)         |
 | DetectArray     | [Detecteren](reference/v3-0-detect.md)         |
 | AddTranslation     | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Hub van Microsoft Translator-API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -59,7 +59,7 @@ De volgende lijst met methoden V2 en V3 identificeert de API's waarmee u de func
 
 Microsoft Translator tekst vertalen V2 geaccepteerd en geretourneerd van gegevens in XML-indeling. Alle gegevens verzonden en ontvangen met behulp van de API wordt in V3 in JSON-indeling. XML wordt niet meer worden geaccepteerd of die worden geretourneerd in V3.
 
-Deze wijziging heeft invloed op verschillende aspecten van een toepassing die is geschreven voor de V2 tekst Spraakomzettings-API. Als een voorbeeld: talen om de API retourneert informatie over de taal voor tekstvertaling vele methoden, en de twee woordenlijst. U kunt alle taalinformatie voor alle methoden in één aanroep aanvragen of ze afzonderlijk aanvraagt.
+Deze wijziging heeft invloed op verschillende aspecten van een toepassing die is geschreven voor de V2 tekst Spraakomzettings-API. Als u een voorbeeld: De talen-API retourneert taalinformatie voor tekstvertaling vele methoden, en de twee woordenlijst. U kunt alle taalinformatie voor alle methoden in één aanroep aanvragen of ze afzonderlijk aanvraagt.
 
 De methode talen vereist niet-authenticatie. door te klikken op de volgende koppeling ziet u de taalinformatie voor V3 in JSON:
 
@@ -75,18 +75,18 @@ De prijs van Microsoft Translator V3 wordt berekend op dezelfde manier als die v
 
 | V3-methode   | Tekens meegeteld voor facturering |
 |:----------- |:-------------|
-| Languages     | Er is geen tekens verzonden, geen geteld, er zijn geen kosten in rekening gebracht.          |
-| Translate     | Aantal is gebaseerd op het aantal tekens worden verzonden voor vertaling en het aantal talen de tekens worden vertaald. 50 tekens verzonden wordt, en 5 talen aangevraagd 50 x 5.           |
-| Transliterate     | Aantal tekens dat is ingediend voor vele worden geteld.         |
-| Dictionary lookup & example     | Aantal tekens dat is ingediend voor Dictionary lookup en voorbeelden worden geteld.         |
+| Talen     | Er is geen tekens verzonden, geen geteld, er zijn geen kosten in rekening gebracht.          |
+| Vertalen     | Aantal is gebaseerd op het aantal tekens worden verzonden voor vertaling en het aantal talen de tekens worden vertaald. 50 tekens verzonden wordt, en 5 talen aangevraagd 50 x 5.           |
+| Transcriberen     | Aantal tekens dat is ingediend voor vele worden geteld.         |
+| Woordenlijst lookup & voorbeeld     | Aantal tekens dat is ingediend voor Dictionary lookup en voorbeelden worden geteld.         |
 | BreakSentence     | Er zijn geen kosten in rekening gebracht.       |
-| Detect     | Er zijn geen kosten in rekening gebracht.      |
+| Detecteren     | Er zijn geen kosten in rekening gebracht.      |
 
 ## <a name="v3-end-points"></a>V3-eindpunten
 
 Wereldwijd
 
-* API.cognitive.microsofttranslator.com
+* api.cognitive.microsofttranslator.com
 
 
 ## <a name="v3-api-text-translations-methods"></a>V3 API tekst vertalingen-methoden
@@ -113,8 +113,8 @@ Neurale vertalingen met de tekst van V3 API biedt geen ondersteuning voor het ge
 
 | |Eindpunt|    GDPR-naleving voor Processor|  Translator Hub gebruiken| Gebruik aangepaste Translator (Preview)|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text-API versie 2| API.microsofttranslator.com|    Nee  |Ja    |Nee|
-|Translator Text-API versie 3| API.cognitive.microsofttranslator.com|  Ja|    Nee| Ja|
+|Translator Text-API versie 2| api.microsofttranslator.com|    Nee  |Ja    |Nee|
+|Translator Text-API versie 3| api.cognitive.microsofttranslator.com|  Ja|    Nee| Ja|
 
 **Translator Text-API versie 3**
 * Is algemeen beschikbaar en volledig wordt ondersteund.
@@ -136,7 +136,7 @@ Er is geen versie van de API van Translator maakt een record van uw vertalingen.
 
 ## <a name="links"></a>Koppelingen
 
-* [Microsoft-privacybeleid](https://privacy.microsoft.com/privacystatement)
+* [Microsoft Privacy Policy](https://privacy.microsoft.com/privacystatement)
 * [Juridische informatie voor Microsoft Azure](https://azure.microsoft.com/support/legal)
 * [Voorwaarden voor Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
