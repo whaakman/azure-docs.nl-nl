@@ -1,6 +1,6 @@
 ---
 Titel: Webservice in Excel titleSuffix gebruiken: Azure Machine Learning Studio description: Azure Machine Learning Studio maakt het eenvoudig om aan te roepen webservices rechtstreeks vanuit Excel zonder code te schrijven.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
 ---

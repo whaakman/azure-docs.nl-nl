@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: ad76e19e324c29c277e72f1e93d2b505984b50ba
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 10a333e8521c781a223c767660ae6acaa1286929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368709"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251815"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack-capaciteitsplanning
 Bij het evalueren van een Azure Stack-oplossing, zijn er hardware-configuratie-opties die een directe invloed op de totale capaciteit van de Azure Stack-Cloud hebben. Dit zijn de klassieke keuzes van CPU, geheugen dichtheid, opslagconfiguratie, en algemene oplossing schalen of het aantal servers. De eenvoudige rekenkundige van deze onderdelen om te bepalen aan bruikbare capaciteit in tegenstelling tot een traditionele virtualisatieoplossing, is niet van toepassing. De eerste reden hiervoor is dat Azure Stack is ontworpen voor het hosten van de infrastructuur of management onderdelen binnen de oplossing zelf. De tweede reden is dat een aantal van de oplossing capaciteit wordt gereserveerd ter ondersteuning van tolerantie; het bijwerken van de software van de oplossing op een manier om onderbreking van de tenantwerkbelastingen te minimaliseren.
@@ -41,7 +42,7 @@ Een uitgebreidere beschrijving van de complexiteit van capaciteitsberekeningen w
 
 |     |Per servercapaciteit|| Schaal eenheid capaciteit|  |  |||
 |-----|-----|-----|-----|-----|-----|-----|-----|
-|     | Geheugen | CPU-kernen | Aantal servers | Geheugen | CPU-kernen | Tenant-VM's<sup>1</sup>     | Per kern<sup>2</sup>    |
+|     | Geheugen | CPU Cores | Aantal servers | Geheugen | CPU Cores | Tenant-VM's<sup>1</sup>     | Per kern<sup>2</sup>    |
 |Voorbeeld 1|256 GB|28|4|1024 GB| 112 | 54 |4:3|
 |Voorbeeld 2|512 GB|28|4|2024 GB|112|144|4:1|
 |Voorbeeld 3|384 GB|28|12|4608 GB|336|432|3:1|

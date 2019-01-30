@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.lastreviewed: 09/28/2018
+ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886821"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246361"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>API-versieprofielen gebruiken met Java in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 De Java-SDK voor Azure Stack Resource Manager biedt hulpprogramma's waarmee u kunt bouwen en beheren van uw infrastructuur. Resourceproviders in de SDK zijn onder andere compute, networking, storage, app-services, en [KeyVault](../../key-vault/key-vault-whatis.md). De Java-SDK bevat API-profielen door afhankelijkheden op te nemen in het Pom.xml-bestand dat de juiste modules in het bestand startactiviteit wordt geladen. Echter, u kunt meerdere profielen als toevoegen afhankelijkheden, zoals de **2018-03-01-hybride**, of **nieuwste** als de Azure-profiel. Met behulp van deze afhankelijkheden, wordt de juiste module geladen zo in dat wanneer u het resourcetype maakt, u kunt selecteren welke API-versie van deze profielen die u wilt gebruiken. Hiermee kunt u het gebruik van de meest recente versies in Azure, tijdens het ontwikkelen van op basis van de meest recente versie van de API voor Azure Stack. Met de Java SDK, kunt een ervaring voor ontwikkelaars van echte hybride cloud. API-profielen in de Java SDK inschakelen ontwikkeling van hybride cloud, doordat u schakelen tussen de globale Azure-resources en resources in Azure Stack.
 
@@ -77,9 +78,9 @@ Gebruik de volgende stappen voor het installeren van de Java SDK:
 
 4.  De pakketten die moeten worden geïnstalleerd, is afhankelijk van de Profielversie die u wilt gebruiken. De Pakketnamen van het voor de profielversies zijn:
     
-   - **com.Microsoft.Azure.profile\_2018\_03\_01\_hybride**
-   - **com.Microsoft.Azure**
-      - **meest recente**
+   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure**
+      - **latest**
 
 5.  Als niet beschikbaar is, maakt u een abonnement en de abonnements-ID voor later gebruik opslaan. Zie voor instructies over het maken van een abonnement [abonnementen voor aanbiedingen maken in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
@@ -91,7 +92,7 @@ Gebruik de volgende stappen voor het installeren van de Java SDK:
 
 Voor het gebruik van de Java-SDK van Azure met Azure Stack, moet u de volgende waarden opgeven en vervolgens waarden met omgevingsvariabelen instellen. Als u wilt de omgevingsvariabelen instellen, raadpleegt u de instructies onder de tabel voor uw besturingssysteem.
 
-| Waarde                     | Omgevingsvariabelen | Beschrijving                                                                                                                                                                                                          |
+| Waarde                     | Omgevingsvariabelen | Description                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Tenant-id                 | AZURE_TENANT_ID            | De waarde van uw Azure Stack [ <span class="underline">tenant-ID</span>](../azure-stack-identity-overview.md).                                                          |
 | Client-id                 | AZURE_CLIENT_ID             | De service principal toepassings-ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.                                                                                              |
@@ -149,9 +150,9 @@ JSON-voorbeeldbestand:
 
 ## <a name="existing-api-profiles"></a>Bestaande API-profielen
 
-1.  **com.Microsoft.Azure.profile\_2018\_03\_01\_hybride**: nieuwste die is gebouwd voor Azure Stack-profiel. Gebruik dit profiel voor services meest compatibel is met Azure Stack, zolang er op het stempel 1808 of verdere.
+1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Meest recente profiel die is gebouwd voor Azure Stack. Gebruik dit profiel voor services meest compatibel is met Azure Stack, zolang er op het stempel 1808 of verdere.
 
-2.  **com.Microsoft.Azure**: profiel met de nieuwste versies van alle services. Gebruik de nieuwste versies van alle services.
+2.  **com.microsoft.azure**: Profiel met de nieuwste versies van alle services. Gebruik de nieuwste versies van alle services.
 
 Zie voor meer informatie over Azure Stack- en API-profielen, de [samenvatting van de API-profielen](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 

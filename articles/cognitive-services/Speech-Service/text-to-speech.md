@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7439a2c5466784a881e71649fa86a8e51d757957
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226414"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251551"
 ---
 # <a name="about-the-text-to-speech-api"></a>Over de Text to Speech-API
 
@@ -37,6 +37,9 @@ In welke spraak synthese wordt toegepast scenario's omvatten:
 ## <a name="voice-support"></a>Voice-ondersteuning
 
 De Microsoft **tekst naar spraak** service biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van deze standaard 'spraakstijlen', moet u alleen de naam van de gesproken met een aantal andere parameters opgeven wanneer u een van de service REST-API aanroept. Zie voor meer informatie over ondersteunde talen, landinstellingen en stemmen [ondersteunde talen](language-support.md#text-to-speech).
+
+> [!IMPORTANT]
+> Kosten variëren voor standaard, aangepaste en neurale stemmen. Zie voor meer informatie, [prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="neural-voices"></a>Neurale stemmen
 

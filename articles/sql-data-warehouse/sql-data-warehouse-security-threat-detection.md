@@ -6,16 +6,16 @@ author: kavithaj
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 112d093946099e623d1edfa4555eda681069892e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300931"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243382"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Detectie van bedreigingen in Azure SQL Data Warehouse
 Configureer detectie van bedreigingen en verdachte gebeurtenissen in Azure SQL Data Warehouse verkennen.

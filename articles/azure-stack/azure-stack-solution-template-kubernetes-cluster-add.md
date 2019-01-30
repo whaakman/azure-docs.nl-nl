@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: b7e293018f2dc248fae8de8bd9e82943606f4ead
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388477"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239499"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -68,7 +69,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
 
     - U hebt de volgende soorten informatie nodig:
 
-       | Waarde | Description |
+       | Value | Beschrijving |
        | ---   | ---         |
        | Wachtwoord | Wachtwoord voor het certificaat. |
        | Pad naar het lokale certificaat | Het pad en de naam van het certificaat. Bijvoorbeeld: `path\certfilename.pfx` |
@@ -108,7 +109,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
 
     - U hebt de volgende soorten informatie nodig:
 
-       | Waarde | Description                     |
+       | Value | Beschrijving                     |
        | ---   | ---                             |
        | ERCS IP | In de ASDK, is het eindpunt van de bevoegde normaal gesproken `AzS-ERCS01`. |
        | De naam van de toepassing | Een eenvoudige naam voor de service-principal van toepassing. |

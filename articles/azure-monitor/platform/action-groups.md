@@ -5,19 +5,19 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432554"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252214"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
-Een actiegroep is een verzameling van voorkeuren voor meldingen gedefinieerd door de eigenaar van een Azure-abonnement. Waarschuwingen van Azure Monitor en de servicestatus actiegroepen gebruiken om gebruikers te waarschuwen dat een waarschuwing is geactiveerd. Verschillende waarschuwingen kunnen gebruiken voor de actiegroep dezelfde of verschillende actiegroepen, afhankelijk van de vereisten van de gebruiker.
+Een actiegroep is een verzameling van voorkeuren voor meldingen gedefinieerd door de eigenaar van een Azure-abonnement. Waarschuwingen van Azure Monitor en de servicestatus actiegroepen gebruiken om gebruikers te waarschuwen dat een waarschuwing is geactiveerd. Verschillende waarschuwingen kunnen gebruiken voor de actiegroep dezelfde of verschillende actiegroepen, afhankelijk van de vereisten van de gebruiker. U kunt maximaal 2.000 actiegroepen configureren in een abonnement.
 
 Wanneer een actie is geconfigureerd voor het verwittigen van een persoon via e-mail of SMS de persoon ontvangt een bevestiging die aangeeft dat hij / zij is toegevoegd aan de actiegroep.
 
@@ -88,15 +88,18 @@ Mogelijk hebt u maximaal 1000 e-mailacties in een actiegroep. Zie de [snelheidsb
 **Stem** -mogelijk hebt u maximaal 10 Voice-acties in een actiegroep</dd>
 Zie de [snelheidsbeperking informatie](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel</dd>
 
-**Webhook** -mogelijk hebt u maximaal 10 Webhook-acties in een actiegroep. Logica voor opnieuw proberen - de time-outperiode voor een antwoord 10 seconden is. De webhook-aanroep is geprobeerd een maximum van 2 tijden wanneer de volgende HTTP-statuscodes worden weergegeven: 408, 429, 503, 504 of het HTTP-eindpunt reageert niet. De eerste poging gebeurt na tien seconden. De tweede en laatste poging gebeurt na 100 seconden.
+**Webhook** -mogelijk hebt u maximaal 10 Webhook-acties in een actiegroep.
+Logica voor opnieuw proberen - de time-outperiode voor een antwoord 10 seconden is. De webhook-aanroep is geprobeerd een maximum van 2 tijden wanneer de volgende HTTP-statuscodes worden weergegeven: 408, 429, 503, 504 of het HTTP-eindpunt reageert niet. De eerste poging gebeurt na tien seconden. De tweede nieuwe poging gebeurt na 100 seconden. Na twee fouten wordt het eindpunt niet worden aangeroepen voor 30 minuten uit een actiegroep.
 
 Bron-IP-adresbereiken
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 Voor het ontvangen van updates over wijzigingen in deze IP-adressen aangeraden dat u configureert een [statuswaarschuwing voor de Service](./../../azure-monitor/platform/service-notifications.md) die voor informatieve meldingen over de service actiegroepen bewaakt.
 

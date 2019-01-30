@@ -8,13 +8,13 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: blobs
+ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240695"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244909"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Shared Access Signatures, deel 2: Maken en een SAS gebruiken met Blob-opslag
 
@@ -28,9 +28,9 @@ ms.locfileid: "51240695"
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
 In deze zelfstudie maken we twee consoletoepassingen die laten zien van het maken en gebruiken van handtekeningen voor gedeelde toegang voor containers en blobs:
 
-**Toepassing 1**: de management-toepassing. Genereert een shared access signature voor een container en een blob. De toegangssleutel voor opslagaccount bevat in de broncode.
+**Toepassing 1**: De management-toepassing. Genereert een shared access signature voor een container en een blob. De toegangssleutel voor opslagaccount bevat in de broncode.
 
-**Toepassing 2**: de clienttoepassing. Toegang tot container- en blobnaam resources met behulp van de handtekeningen voor gedeelde toegang gemaakt met de eerste toepassing. Maakt gebruik van alleen de handtekeningen voor gedeelde toegang tot toegang tot container en blobbronnen--doet *niet* de toegangssleutel voor opslagaccount bevatten.
+**Toepassing 2**: De clienttoepassing. Toegang tot container- en blobnaam resources met behulp van de handtekeningen voor gedeelde toegang gemaakt met de eerste toepassing. Maakt gebruik van alleen de handtekeningen voor gedeelde toegang tot toegang tot container en blobbronnen--doet *niet* de toegangssleutel voor opslagaccount bevatten.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Deel 1: Maak een consoletoepassing voor het genereren van handtekeningen voor gedeelde toegang
 Eerst voor zorgen dat u de Azure Storage-clientbibliotheek voor .NET geïnstalleerd hebt. U kunt installeren de [NuGet-pakket](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet-pakket") met de meest recente assembly's voor de clientbibliotheek. Dit is de aanbevolen methode om ervoor te zorgen dat u de meest recente oplossingen hebt. U kunt ook de clientbibliotheek downloaden als onderdeel van de meest recente versie van de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/).
@@ -589,7 +589,7 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Handtekeningen voor gedeelde toegang, deel 1: Inzicht in het SAS-Model](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Shared Access Signatures, deel 1: Inzicht in het SAS-Model](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md)
 * [Toegang delegeren met een shared access signature (REST-API)](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Maak kennis met de tabel en wachtrij SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

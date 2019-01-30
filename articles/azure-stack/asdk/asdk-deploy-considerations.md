@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 4bcb71829b2fb5f35398f36dee36d4e98c5a609b
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 12/12/2018
+ms.openlocfilehash: f874be6081a1ea01ecf616c9b97db878554d441c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106730"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242413"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack-implementatie planningsoverwegingen
 Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw development kit host-computer voldoet aan de vereisten die worden beschreven in dit artikel.
@@ -32,9 +33,9 @@ Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw 
 | Schijfstations: Besturingssysteem |1 besturingssysteemschijf met minimaal 200 GB beschikbaar voor de systeempartitie (SSD of HDD) |1 besturingssysteemschijf met minimaal 200 GB beschikbaar voor de systeempartitie (SSD of HDD) |
 | Schijfstations: Algemene development kit gegevens<sup>*</sup>  |4 schijven. Elke schijf biedt minimaal 240 GB capaciteit (SSD of HDD). Alle beschikbare schijven worden gebruikt. |4 schijven. Elke schijf biedt een minimum van 400 GB capaciteit (SSD of HDD). Alle beschikbare schijven worden gebruikt. |
 | COMPUTE: CPU |Dual-Socket: 16 fysieke processorkernen (totaal) |Dual-Socket: 20 fysieke processorkernen (totaal) |
-| COMPUTE: Geheugen |192 GB RAM-GEHEUGEN |256 GB RAM-GEHEUGEN |
+| COMPUTE: Geheugen |192 GB RAM |256 GB RAM-GEHEUGEN |
 | COMPUTE: BIOS |Hyper-V ingeschakeld (met ondersteuning voor SLAT) |Hyper-V ingeschakeld (met ondersteuning voor SLAT) |
-| Netwerk: NIC |Windows Server 2012 R2-certificering. Er zijn geen gespecialiseerde functies vereist |Windows Server 2012 R2-certificering. Er zijn geen gespecialiseerde functies vereist |
+| Netwerk: NIC |Windows Server 2012 R2 Certification. Er zijn geen gespecialiseerde functies vereist |Windows Server 2012 R2 Certification. Er zijn geen gespecialiseerde functies vereist |
 | Logocertificering HW |[Gecertificeerd voor Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Gecertificeerd voor WindowsServer 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> U moet meer dan dit capaciteit aanbevolen als u van plan bent over het toevoegen van veel van de [marketplace-items](asdk-marketplace-item.md) van Azure.

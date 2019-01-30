@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: f17a76b62c511e1cdcd98e387fe0132e2bd15c16
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971790"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238064"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Gebruik en facturering in Azure Stack
 
@@ -59,7 +60,7 @@ Elke klant beschikt over de identiteit die wordt vertegenwoordigd door een ander
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Registreren bij Azure Stack](azure-stack-registration.md)
-- [Rapport van Azure Stack-gebruiksgegevens naar Azure](azure-stack-usage-reporting.md)
+- [Azure Stack-gebruiksgegevens rapporteren in Azure](azure-stack-usage-reporting.md)
 - [Resourcegebruik-provider API](azure-stack-provider-resource-api.md)
-- [Resourcegebruik-API voor de tenantsleutel](azure-stack-tenant-resource-usage-api.md)
+- [Resourcegebruik-API voor tenants](azure-stack-tenant-resource-usage-api.md)
 - [Veelgestelde vragen over het gebruik gerelateerde](azure-stack-usage-related-faq.md)

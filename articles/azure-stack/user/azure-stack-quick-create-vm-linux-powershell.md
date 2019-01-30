@@ -14,16 +14,17 @@ ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: a2dea792db39c753d0ea720c8e610a399401315f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: fd7dd06692e20eb0e7cc02af8d2f36c4dad8b597
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840568"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251925"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snelstartgids: Een virtuele Linux-server-machine maken met behulp van PowerShell in Azure Stack
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Quickstart: Een virtuele Linux-server-machine maken met behulp van PowerShell in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 U kunt een Ubuntu Server 16.04 LTS-machine maken met behulp van PowerShell voor Azure Stack. Volg de stappen in dit artikel te maken en gebruiken van een virtuele machine.  Dit artikel vindt u ook de stappen voor het:
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: a4e04bc9071f4f677230d112a7baa708e9e8dc34
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340185"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243229"
 ---
 # <a name="network-connectivity"></a>Verbinding met het netwerk
 Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te bepalen hoe u het beste Azure Stack integreren met uw bestaande netwerkomgeving. 
@@ -29,7 +30,7 @@ Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te be
 > Om op te lossen externe DNS-namen van Azure Stack (bijvoorbeeld www.bing.com), moet u DNS-servers voor het doorsturen van DNS-aanvragen opgeven. Zie voor meer informatie over de vereisten voor Azure Stack DNS [integratie van Azure Stack datacenter - DNS-](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Het fysieke netwerk ontwerpen
-De oplossing Azure Stack is een robuuste en maximaal beschikbare fysieke infrastructuur ter ondersteuning van de werking en -services vereist. Uplinks vanaf ToR naar rand switches zijn beperkt tot SFP + of SFP28 media en 1 GB, 10 GB of 25 GB snelheden worden bereikt. Neem contact op met uw hardwareleverancier oorspronkelijke leveranciers (OEM) voor beschikbaarheid. Het volgende diagram toont onze aanbevolen ontwerp:
+De Azure Stack-oplossing is een robuuste en maximaal beschikbare fysieke infrastructuur ter ondersteuning van de werking en services. Uplinks vanaf ToR naar rand switches zijn beperkt tot SFP + of SFP28 media en 1 GB, 10 GB of 25 GB snelheden worden bereikt. Neem contact op met uw hardwareleverancier oorspronkelijke leveranciers (OEM) voor beschikbaarheid. Het volgende diagram toont onze aanbevolen ontwerp:
 
 ![Aanbevolen ontwerp voor Azure Stack-netwerk](media/azure-stack-network/recommended-design.png)
 

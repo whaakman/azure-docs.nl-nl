@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 04de32b2df630eea918c786a7f065f404f4d8dca
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164517"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239911"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-beveiliging en naleving blauwdruk - webtoepassing IaaS met drie lagen voor UK-OFFICIAL
 
@@ -129,7 +129,7 @@ Storage
 
 ### <a name="deployment-architecture"></a>Implementatie-architectuur:
 
-**On-Premises Network**: Een lokaal privénetwerk dat geïmplementeerd in een organisatie.
+**On-Premises Network**: Een lokaal privénetwerk dat in een organisatie geïmplementeerd.
 
 **Productie VNet**: De productie [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (Virtueelnetwerk) als host fungeert voor de toepassing en andere operationele resources die worden uitgevoerd in Azure. Elk VNet bevat mogelijk meerdere subnetten die worden gebruikt voor het isoleren en beheren van netwerkverkeer.
 
@@ -226,7 +226,7 @@ De Cloud Security Alliance (CSA) gepubliceerd bovendien de Cloud Control Matrix 
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-Er zijn twee methoden die implementatiegebruikers gebruiken mogelijk voor het implementeren van deze blauwdruk automatisering. De eerste methode maakt gebruik van een PowerShell-script dat de tweede methode maakt gebruik van Azure portal om de referentiearchitectuur te implementeren. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukofficial-iaaswa-repo).
+Er zijn twee methoden die implementatiegebruikers gebruiken mogelijk voor het implementeren van deze blauwdruk automatisering. De eerste methode maakt gebruik van een PowerShell-script dat de tweede methode maakt gebruik van de Azure-portal om de referentiearchitectuur te implementeren. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## <a name="disclaimer"></a>Vrijwaring
 

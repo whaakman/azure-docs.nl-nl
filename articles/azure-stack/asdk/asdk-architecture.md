@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 21c54e2e996bb987f7a27ac3e6333df6f74d6f4b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 2cee4d75a111f56012782228d8070bb728720aca
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338621"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238332"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Architectuur van Microsoft Azure Stack Development Kit
 De Azure Stack Development Kit (ASDK) is een implementatie van één knooppunt van Azure Stack. Alle onderdelen zijn geïnstalleerd op virtuele machines die worden uitgevoerd op één enkele hostcomputer. 
@@ -33,10 +34,10 @@ Het volgende diagram illustreert de logische architectuur van de ASDK en de bijb
 ## <a name="virtual-machine-roles"></a>Virtuele-machinefuncties
 De ASDK biedt services met behulp van de volgende virtuele machines die worden gehost op de hostcomputer development kit:
 
-| Naam | Beschrijving |
+| Name | Beschrijving |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack storage-services.|
-| **AzS-ADFS01** | Active Directory Federatieservices (ADFS).  |
+| **AzS-ADFS01** | Active Directory Federation Services (ADFS).  |
 | **AzS-BGPNAT01** | Edge-router en NAT- en VPN biedt voor Azure Stack. |
 | **AzS-CA01** | Certificaatservices van de instantie voor Azure Stack-functieservices.|
 | **AzS-DC01** | Active Directory, DNS en DHCP-services voor Microsoft Azure Stack.|

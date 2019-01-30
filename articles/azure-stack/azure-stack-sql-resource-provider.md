@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 3d608843ef31a1ed665fcb1fd90b822f34f77fdd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: 7183cae491287042c778c2e56be8a1451c8c71a2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086349"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247762"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-databases gebruiken op Microsoft Azure Stack
 
-Gebruik van de adapter van SQL Server resource provider voor SQL-databases als een service van [Azure Stack](azure-stack-poc.md). Nadat u de resourceprovider installeren en met een of meer exemplaren van SQL Server verbinden, kunnen u en uw gebruikers maken:
+Gebruik van de adapter van SQL Server resource provider voor SQL-databases als een service van [Azure Stack](azure-stack-poc.md). Nadat u de resourceprovider hebt geïnstalleerd en deze hebt verbonden met een of meer exemplaren van SQL Server, kunnen u en uw gebruikers het volgende maken:
 
 - Databases voor cloud-eigen apps.
 - Websites die gebruikmaken van SQL.
@@ -46,4 +47,4 @@ U moet ten minste één exemplaar van SQL Server maakt of toegang bieden tot de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[De SQL Server-resourceprovider implementeren](azure-stack-sql-resource-provider-deploy.md)
+[De resourceprovider van SQL Server implementeren](azure-stack-sql-resource-provider-deploy.md)

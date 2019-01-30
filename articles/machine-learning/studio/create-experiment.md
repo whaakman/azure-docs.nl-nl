@@ -1,6 +1,6 @@
 ---
 Titel: Eenvoudig experiment titleSuffix: Azure Machine Learning Studio description: Deze zelfstudie over Machine Learning leidt u door een eenvoudig gegevenswetenschapexperiment. We voorspellen de prijs van een auto met behulp van een regressiealgoritme.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: zelfstudie
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: zelfstudie
 
 Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/20/2017
 ---

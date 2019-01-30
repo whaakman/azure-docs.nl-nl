@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
-ms.openlocfilehash: cfd46f8178f36213ecc16db0e092e81ac2d0eff1
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.lastreviewed: 01/19/2019
+ms.openlocfilehash: e9e24bd19243f13b89d54f0105195b5c17505925
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414774"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251502"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-or-vnet-to-vnet-connections"></a>IPsec/IKE-beleid voor site-naar-site VPN- of VNet-naar-VNet-verbindingen configureren
 
@@ -102,10 +103,10 @@ De volgende tabel bevat de bijbehorende Diffie-Hellman-groepen die door het aang
 |----------------------|-----------|---------------|---------------|
 | 1                    | DHGroup1  | PFS1          | 768-bits MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024-bits MODP |
-| 14                   | DHGroup14 |               |               |
-| DHGroup2048          | PFS2048   | 2048-bits MODP |               |
+| 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048-bits MODP |
 | 19                   | ECP256    | ECP256        | 256-bits ECP   |
-| 20                   | ECP384    | ECP284        | 384-bits ECP   |
+| 20                   | ECP384    | ECP384        | 384-bits ECP   |
+| 24                   | DHGroup24 | PFS24         | 2048-bits MODP |
 
 Zie voor meer informatie, [RFC3526](https://tools.ietf.org/html/rfc3526) en [RFC5114](https://tools.ietf.org/html/rfc5114).
 

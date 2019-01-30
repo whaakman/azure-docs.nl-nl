@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 66cd20eaa401261bcb18bedbbc16f5bcf40ee192
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342980"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241641"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Oplossing voor externe controle integreren met Azure Stack
 
@@ -80,10 +81,10 @@ De invoegtoepassingbestand "Azurestack_plugin.py" configureren met de volgende p
 | *arm_endpoint* | Azure Resource Manager (beheerder)-eindpunt |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Azure Resource Manager (beheerder)-eindpunt  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Beheerder abonnements-ID | Ophalen via de beheerdersportal of PowerShell |
-| *Gebruikersnaam* | Operator abonnement gebruikersnaam | operator@myazuredirectory.onmicrosoft.com |
+| *User_name* | Operator abonnement gebruikersnaam | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operator abonnement wachtwoord | mijnwachtwoord |
 | *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *Regio* |  Azure Stack voor de naam van de regio | lokaal |
+| *region* |  Azure Stack voor de naam van de regio | lokaal |
 |  |  |
 
 * De PowerShell-GUID die wordt geleverd is universal. U kunt deze gebruiken voor elke implementatie.

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 09/12/2018
+ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962678"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251874"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Datacenter-integratie-overwegingen voor Azure Stack-geïntegreerde systemen
 Als u geïnteresseerd in een geïntegreerde Azure Stack-systeem bent, moet u enkele van de belangrijkste Beschouwingen over planning om de implementatie en hoe het systeem past in uw datacenter te begrijpen. In dit artikel bevat een overzicht van deze overwegingen om u te helpen u belangrijke infrastructuur beslissingen voor uw Azure Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met de leverancier van de OEM-hardware omdat ze Azure Stack in uw datacenter implementeren.  
@@ -87,7 +88,7 @@ U moet denken over de manier waarop u wilt plannen van uw Azure Stack-naamruimte
 
 De volgende tabel geeft een overzicht van deze domein naming beslissingen.
 
-| Naam | Beschrijving | 
+| Name | Beschrijving | 
 | -------- | ------------- | 
 |Regionaam | De naam van uw eerste Azure Stack-regio. Deze naam wordt gebruikt als onderdeel van de FQDN-naam voor de openbare virtuele IP-adressen (VIP's) die Azure Stack wordt beheerd. De regionaam van de is meestal een fysieke locatie-id, zoals de locatie van een datacenter.<br><br>De regionaam van de moet bestaan uit alleen letters en getallen tussen 0-9. Er zijn geen speciale tekens zoals "-" of "#", enzovoort zijn toegestaan.| 
 | De naam van het externe domein | De naam van de Domain Name System (DNS)-zone voor eindpunten met extern gerichte VIP's. In de FQDN-naam gebruikt voor deze openbare VIP's. | 
@@ -162,7 +163,7 @@ De volgende tabel geeft een overzicht van de lijst met beschikbare opties.
 
 | Onderwerp | Oplossing voor externe controle |
 | -- | -- |
-| Azure Stack-software | [Azure Stack Managementpack voor Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios-invoegtoepassing](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Op basis van REST API-aanroepen | 
+| Azure Stack-software | [Azure Stack Managementpack voor Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Op basis van REST API-aanroepen | 
 | Fysieke servers (bmc's via IPMI) | OEM-hardware - leverancier van managementpack van Operations Manager<br>OEM-hardware leverancier verstrekte-oplossing<br>Hardwareleverancier Nagios-invoegtoepassingen | OEM-partner ondersteund voor controle (opgenomen) | 
 | Netwerkapparaten (SNMP) | Operations Manager de detectie van netwerkapparaten<br>OEM-hardware leverancier verstrekte-oplossing<br>Nagios-switch invoegtoepassing |
 | Statuscontrole voor tenant-abonnement | [System Center Management Pack voor Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
@@ -196,7 +197,7 @@ Als u wilt repliceren van gegevens naar een secundaire locatie en failover van d
 ## <a name="learn-more"></a>Meer informatie
 
 - Zie voor informatie over gebruiksvoorbeelden, aanschaffen, partners en leveranciers van OEM-hardware, de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) productpagina.
-- Voor informatie over de roadmap en geo-beschikbaarheid voor Azure Stack geïntegreerde systemen, Zie het technische document: [Azure Stack: een uitbreiding van Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Geïntegreerde systemen, Zie het technische document voor informatie over de roadmap en geografische beschikbaarheid voor Azure Stack: [Azure Stack: Een uitbreiding van Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Azure Stack-verbinding implementatiemodellen](azure-stack-connection-models.md)

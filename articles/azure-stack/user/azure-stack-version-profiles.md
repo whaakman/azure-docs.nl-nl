@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9c4b66501cfb51088609de81fe00b5b041e056d3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 28ff7c9f6ca5fc6365b3fe1b9a91d2159c8b3f48
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037525"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247609"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Beheren van API-versieprofielen in Azure Stack
 
@@ -40,7 +41,7 @@ Dit onderwerp helpt u:
 - API-profielen zijn gemaakt voor u om sjablonen te maken over meerdere Azure-clouds. Profielen bieden een interface compatibel en stabiel.
 - Profielen worden vrijgegeven vier keer per jaar.
 - Drie profiel naamconventies worden gebruikt:
-    - **meest recente**  
+    - **latest**  
         Bevat de meest recente API-versies die zijn uitgebracht in globale Azure.
     - **yyyy-mm-dd-hybrid**  
     Elk half jaar uitgebracht, deze release is gericht op consistentie en stabiliteit in meerdere clouds. Dit profiel is bedoeld voor optimale Azure Stack-compatibiliteit.
@@ -50,13 +51,13 @@ Dit onderwerp helpt u:
 
 De nieuwste Azure-API-profielen zijn niet compatibel met Azure Stack. U kunt de volgende naamconventies gebruiken om te identificeren welke profielen wilt gebruiken voor uw Azure Stack-oplossingen.
 
-**meest recente**  
+**Latest**  
 Dit profiel is de meest recente API-versies gevonden in de globale Azure, die niet in Azure Stack werken. **Meest recente** is het grootste aantal wijzigingen die fouten veroorzaken. Het profiel hebt gereserveerd stabiliteit en compatibiliteit met andere clouds. Als u probeert te gebruiken van de meest recente API-versies, **nieuwste** is het profiel dat u moet gebruiken.
 
-**Jjjj-mm-dd-hybride**  
+**Yyyy-mm-dd-hybrid**  
 Dit profiel wordt vrijgegeven in maart en September elk jaar. Het bevat optimale stabiliteit en compatibiliteit met verschillende clouds. **Jjjj-mm-dd-hybride** is ontworpen om u te richten op algemene Azure en Azure Stack. De Azure-API-versies die worden vermeld in dit profiel is hetzelfde als die worden vermeld in Azure Stack. U kunt dit profiel gebruiken voor het ontwikkelen van code voor hybride cloudoplossingen.
 
-**jjjj-mm-dd-profiel**  
+**yyyy-mm-dd-profile**  
 Dit profiel is die zijn uitgebracht voor algemene Azure in juni en December. Werkt niet met Azure Stack; Normaal gesproken wordt er veel belangrijke wijzigingen. Hoewel het optimale stabiliteit en de nieuwste functies, het verschil tussen saldi **nieuwste** en dit profiel is die **nieuwste** bestaat altijd de nieuwste API-versies, ongeacht wanneer de API is uitgebracht. Bijvoorbeeld, als een nieuwe API-versie morgen voor de Compute-API gemaakt wordt, die API-versie wordt weergegeven in de **nieuwste**, maar niet in de **jjjj-mm-dd-profiel** -profiel, omdat dit profiel al bestaat. **jjjj-mm-dd-profiel** bevat informatie over de meest recente versies die zijn uitgebracht vóór juni of vóór December.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager-API-profielen

@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: c9288d47dc9df8604c7eb676ba5d93f91a6b0063
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959193"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245681"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Wijzig de eigenaar voor een Azure Stack-gebruikersabonnement
 
@@ -28,7 +29,7 @@ Azure Stack-operators kunnen PowerShell gebruiken om te wijzigen van de eigenaar
 
 Er zijn twee soorten *eigenaren* die zijn toegewezen aan een abonnement:
 
-- **De eigenaar van de facturering**: de eigenaar van de facturering is standaard het gebruikersaccount dat wordt opgehaald van het abonnement van een aanbieding en vervolgens is eigenaar van de facturering regelen voor dat abonnement. Dit account is ook een beheerder van het abonnement. Slechts één gebruikersaccount kan deze aanwijzing van een abonnement hebben. De eigenaar van een facturering is vaak een lead organisatie of team. 
+- **De eigenaar van de facturering**: De eigenaar van de facturering is standaard, het gebruikersaccount dat wordt opgehaald van het abonnement van een aanbieding en vervolgens is eigenaar van de facturering regelen voor dat abonnement. Dit account is ook een beheerder van het abonnement. Slechts één gebruikersaccount kan deze aanwijzing van een abonnement hebben. De eigenaar van een facturering is vaak een lead organisatie of team. 
 
   U de PowerShell-cmdlet gebruikt de [Set AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) te wijzigen van de eigenaar van de facturering.  
 

@@ -1,6 +1,6 @@
 ---
 Titel: Algoritme voorbeelden titleSuffix: Azure Machine Learning Studio description: Een overzicht eenvoudig te begrijpen van de basisprincipes van machine learning bevat algoritmevoorbeelden. De downloadbare infographic dekt de meeste machine learning-vragen.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: seodc18 ms.date: 12/18/2017
 ---

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.component: blobs
-ms.openlocfilehash: f928f27c8c1dbfe6c65cb25cb5c34680fc58bff3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: blobs
+ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955867"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236935"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Het Blob storage gebruiken met C++
 
@@ -34,7 +34,7 @@ Hiervoor moet u de Azure-opslagclientbibliotheek voor C++ installeren en een Azu
 Voor het installeren van de Azure-opslagclientbibliotheek voor C++ kunt u de volgende methoden gebruiken:
 
 * **Linux:** Volg de instructies de [Azure Storage-clientbibliotheek voor C++ Leesmij](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) pagina.  
-* **Windows:** klik in Visual Studio op **Tools > NuGet Package Manager > Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **ENTER**.  
+* **Windows:** Klik in Visual Studio op **Tools > NuGet Package Manager > Package Manager Console**. Typ de volgende opdracht in de [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) en druk op **ENTER**.  
   
      Install-Package wastorage
 
@@ -82,7 +82,7 @@ Vervolgens krijgt u een verwijzing naar een **cloud_blob_client** klasse aangezi
 azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 ```
 
-## <a name="how-to-create-a-container"></a>Hoe: een container maken
+## <a name="how-to-create-a-container"></a>Procedure: Een container maken
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
 In dit voorbeeld ziet u hoe u een container kunt maken als deze nog niet bestaat:  
@@ -119,7 +119,7 @@ container.upload_permissions(permissions);
 
 Iedereen op Internet kan blobs in een openbare container zien, maar u kunt wijzigen of ze alleen verwijderen als u de juiste toegangssleutel hebben.  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>Hoe: een blob uploaden naar een container
+## <a name="how-to-upload-a-blob-into-a-container"></a>Procedure: Een blob uploaden naar een container
 Azure Blob storage ondersteunt blokkeren blobs en pagina-blobs. In de meeste gevallen is een blok-blob het aangewezen type om te gebruiken.  
 
 Om een bestand naar een blok-blob te uploaden, haalt u een containerverwijzing op en gebruikt u deze om een blok-blobverwijzing op te halen. Zodra u een blobverwijzing hebt, kunt u elke gewenste gegevensstroom van gegevens naar uploaden door het aanroepen van de **upload_from_stream** methode. Met deze bewerking wordt de blob gemaakt (als deze nog niet bestaat) of overschreven (als deze wel al bestaat). Het volgende voorbeeld laat zien hoe u een blob uploadt naar een container. Hierbij wordt ervan uitgegaan dat de container al is gemaakt.  
@@ -154,7 +154,7 @@ blob3.upload_text(U("other text"));
 
 U kunt ook kunt u de **upload_from_file** methode voor het uploaden van een bestand naar een blok-blob.
 
-## <a name="how-to-list-the-blobs-in-a-container"></a>Hoe: de blobs in een container te vermelden
+## <a name="how-to-list-the-blobs-in-a-container"></a>Procedure: De blobs in een container in een lijst weergeven
 Als u een lijst van de blobs in een container wilt weergeven, moet u eerst een containerverwijzing ophalen. Vervolgens kunt u van de container **list_blobs** methode voor het ophalen van de blobs en/of de mappen hierin. Voor toegang tot de uitgebreide set eigenschappen en methoden voor een geretourneerde **list_blob_item**, moet u aanroepen de **list_blob_item.as_blob** methode om op te halen een **cloud_blob** -object, of de **list_blob.as_directory** methode voor het ophalen van een cloud_blob_directory-object. De volgende code toont hoe u kunt ophalen en de uitvoer van de URI van elk item in de **my-sample-container** container:
 
 ```cpp
@@ -184,7 +184,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 Zie voor meer informatie over het weergeven van bewerkingen [lijst met Azure Storage-Resources in C++](../storage-c-plus-plus-enumeration.md).
 
-## <a name="how-to-download-blobs"></a>Hoe: blobs downloaden
+## <a name="how-to-download-blobs"></a>Procedure: Blobs downloaden
 Blobs downloaden, eerst een blobverwijzing ophalen en roep vervolgens de **download_to_stream** methode. Het volgende voorbeeld wordt de **download_to_stream** methode voor het overdragen van de blob-inhoud naar een stroomobject, dat u vervolgens persistent naar een lokaal bestand maken kunt.  
 
 ```cpp
@@ -232,7 +232,7 @@ azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(
 utility::string_t text = text_blob.download_text();
 ```
 
-## <a name="how-to-delete-blobs"></a>Hoe: verwijderen van blobs
+## <a name="how-to-delete-blobs"></a>Procedure: Blobs verwijderen
 Als u wilt verwijderen van een blob, eerst een blobverwijzing ophalen en vervolgens roept de **delete_blob** methode.  
 
 ```cpp

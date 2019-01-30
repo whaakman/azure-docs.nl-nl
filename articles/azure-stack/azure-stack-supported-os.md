@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: cd44aa1dcc0ac5f97d39dee91fb547a333cb6ccf
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247704"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247847"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gastbesturingssystemen die worden ondersteund in Azure Stack
 
@@ -30,9 +31,9 @@ ms.locfileid: "54247704"
 
 Azure Stack biedt ondersteuning voor de Windows-gastbesturingssystemen die worden vermeld in de volgende tabel:
 
-| Besturingssysteem | Description | Beschikbaar in de Marketplace |
+| Besturingssysteem | Beschrijving | Beschikbaar in de Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Windows Server, versie 1709 | 64-bits | Core met Containers |
+| Windows Server, version 1709 | 64-bits | Core met Containers |
 | Windows Server 2016 | 64-bits |  Datacenter, Datacenter-Core, Datacenter met Containers |
 | Windows Server 2012 R2 | 64-bits |  Datacenter |
 | Windows Server 2012 | 64-bits |  Datacenter |
@@ -56,7 +57,7 @@ Linux-distributies die worden vermeld als beschikbaar in de Marketplace bevatten
 >
 > [cloud-init](https://cloud-init.io/) wordt niet ondersteund in Azure Stack op dit moment.
 
-| Distributie | Description | Uitgever | Marketplace |
+| Distributie | Beschrijving | Uitgever | Marketplace |
 | --- | --- | --- | --- | --- | --- |
 | Op basis van centOS 6,9 | 64-bits | Rogue Wave | Ja |
 | Op basis van centOS 7.4 | 64-bits | Rogue Wave | Ja |

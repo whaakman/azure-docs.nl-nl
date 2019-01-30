@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 47ce2b39f1733c99ef8c15926d42aa62e1fcd44c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: blobs
+ms.openlocfilehash: bbbb7f96ebf14781e2f461f5ffbb3e1172595928
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634555"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241284"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domeinnaam voor uw Azure storage-account configureren
 
@@ -33,7 +33,7 @@ De volgende tabel ziet u enkele voorbeeld-URL's voor blob-gegevens die zich in e
 | Storage-account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Root-container | http://mystorageaccount.blob.core.windows.net/myblob of http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob of http://www.contoso.com/$root/myblob |
-| Web |  http://mystorageaccount. [zone].web.core.windows.net/$web/[indexdoc] of http://mystorageaccount. [ zone].Web.Core.Windows.NET/[indexdoc] of http://mystorageaccount. [ zone].Web.Core.Windows.NET/$web of http://mystorageaccount. [ zone].Web.Core.Windows.NET/ | http://www.contoso.com/$web of http://www.contoso.com/ of http://www.contoso.com/$web / [indexdoc] of http://www.contoso.com/[indexdoc] |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/$web or http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web or http://www.contoso.com/ or http://www.contoso.com/$web/[indexdoc] or  http://www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > Zoals u in de volgende secties, alle voorbeelden voor het eindpunt van blob service ook van toepassing op het web service-eindpunt.

@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/08/2019
+ms.date: 01/08/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: af3858ae283213de1591cf8f3c4e2acb307ce182
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 5ae8297f8e189fbe9374cec826bf5e566e5403da
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246123"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241939"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Tenant-registratie in Azure Stack beheren
 
@@ -47,7 +48,7 @@ Zie voor meer informatie over Azure Stack en API-profielen, [beheren API-versiep
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Description |
+| Parameter                  | Beschrijving |
 |---                         | --- |
 | registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de registratie. |
 | customerSubscriptionID     | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt van de aanbieding van Cloud Service Provider (CSP) tot en met de Partner Center. Als een klant meer dan één tenant heeft, moet u een abonnement voor de tenant voor aanmelding bij Azure Stack gemaakt. |
@@ -82,7 +83,7 @@ Haal een lijst van alle tenants die zijn toegevoegd aan een registratie.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Description          |
+| Parameter                  | Beschrijving          |
 |---                         | ---                  |
 | registrationSubscriptionId | De Azure-abonnement dat is gebruikt voor de registratie.   |
 | resourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen.    |
@@ -132,7 +133,7 @@ U kunt een tenant die is toegevoegd aan een registratie verwijderen. Als deze te
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter                  | Description          |
+| Parameter                  | Beschrijving          |
 |---                         | ---                  |
 | registrationSubscriptionId | Abonnements-ID voor de registratie.   |
 | resourceGroup              | De resourcegroep voor de registratie.   |

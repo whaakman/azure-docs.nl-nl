@@ -6,16 +6,16 @@ author: sachinpMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686599"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250552"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Capaciteitslimieten voor SQL Data Warehouse
 Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is toegestaan.
@@ -28,7 +28,7 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 | Databaseverbinding |Gelijktijdige sessies op openen |1024<br/><br/>Elk van de actieve sessies 1024 kan aanvragen met een SQL Data Warehouse-database verzenden op hetzelfde moment. Opmerking: Er zijn beperkingen voor het aantal query's die gelijktijdig kan worden uitgevoerd. Wanneer de limiet voor gelijktijdigheid wordt overschreden, de aanvraag wordt verwerkt in een interne wachtrij waar wacht om te worden verwerkt. |
 | Databaseverbinding |Maximale hoeveelheid geheugen voor voorbereide instructies |20 MB |
 | [Werklastbeheer](resource-classes-for-workload-management.md) |Maximum aantal gelijktijdige query 's |128<br/><br/> SQL Data Warehouse kan een maximum van 128 gelijktijdige query's en wachtrijen resterende query's worden uitgevoerd.<br/><br/>Het aantal gelijktijdige query's kan afnemen wanneer gebruikers worden toegewezen aan hogere resourceklassen of wanneer het SQL Data Warehouse heeft een lagere [datawarehouse unit](memory-and-concurrency-limits.md) instelling. Sommige query's, zoals DMV-query's, zijn altijd toegestaan te worden uitgevoerd en niet van invloed op de limiet voor gelijktijdige query's. Zie voor meer informatie over het uitvoeren van gelijktijdige query's, de [gelijktijdigheid maximumwaarden](memory-and-concurrency-limits.md#concurrency-maximums) artikel. |
-| [TempDB](sql-data-warehouse-tables-temporary.md) |Maximale GB |399 GB per DW100. Daarom wordt bij DWU1000, tempdb 3,99 TB grootte. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximum GB |399 GB per DW100. Daarom wordt bij DWU1000, tempdb 3,99 TB grootte. |
 
 ## <a name="database-objects"></a>Databaseobjecten
 | Categorie | Beschrijving | Maximum |
@@ -51,7 +51,7 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 | Opgeslagen procedures |Maximum aantal geneste niveaus. |8 |
 | Weergave |Kolommen per weergeven |1,024 |
 
-## <a name="loads"></a>Belasting
+## <a name="loads"></a>Loads
 | Categorie | Beschrijving | Maximum |
 |:--- |:--- |:--- |
 | Polybase-Loads |MB per rij |1<br/><br/>Polybase laadt alleen op rijen die kleiner zijn dan 1 MB en kunnen niet worden geladen naar VARCHAR(MAX), NVARCHAR(MAX) of VARBINARY(MAX).<br/><br/> |
@@ -69,7 +69,7 @@ Maximale waarden voor verschillende onderdelen van Azure SQL Data Warehouse is t
 | SELECT |Kolommen per JOIN |1024 kolommen<br/><br/>U kunt nooit meer dan 1024 kolommen hebben in de JOIN. Er is geen garantie dat u kunt altijd 1024 hebben. Als het JOIN-plan een tijdelijke tabel met meer kolommen dan de JOIN-resultaten vereist, is de 1024-limiet van toepassing op de tijdelijke tabel. |
 | SELECT |Aantal bytes per GROEPEREN op kolommen. |8060<br/><br/>De kolommen in de component GROUP BY kunnen een maximum van 8060 bytes hebben. |
 | SELECT |Bytes per ORDER BY kolommen |8060 bytes<br/><br/>De kolommen in de component ORDER BY mag maximaal van 8060 bytes hebben. |
-| Id's per instructie |Aantal waarnaar wordt verwezen, id 's |65,535<br/><br/>SQL Data Warehouse, beperkt het aantal id's die kunnen worden opgenomen in één expressie van een query. Meer dan dit aantal resultaten in SQL Server-fout 8632. Zie voor meer informatie, [interne fout: een expressie services limiet is bereikt](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
+| Id's per instructie |Aantal waarnaar wordt verwezen, id 's |65,535<br/><br/>SQL Data Warehouse, beperkt het aantal id's die kunnen worden opgenomen in één expressie van een query. Meer dan dit aantal resultaten in SQL Server-fout 8632. Zie voor meer informatie, [interne fout: Een expressie services limiet is bereikt](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Letterlijke tekenreeks | Nummer van de letterlijke tekenreeks in een instructie | 20,000 <br/><br/>SQL Data Warehouse, beperkt het aantal tekenreeksconstanten in één expressie van een query. Meer dan dit aantal resultaten in SQL Server-fout 8632.|
 
 ## <a name="metadata"></a>Metagegevens

@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 8049db848e34b0aa9bc23f08169a8c63f765791a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: c7c23352cea4f9e79b371f38112fb66ac31ac849
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389757"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242294"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API-versieprofielen gebruiken met Python in Azure Stack
 
@@ -50,7 +51,7 @@ De Python-SDK biedt ondersteuning voor API-versieprofielen om u te richten op ve
 
 Als u wilt de Azure-SDK voor Python gebruiken met Azure Stack, moet u de volgende waarden opgeven en vervolgens waarden met omgevingsvariabelen instellen. Zie de instructies onder de tabel voor uw besturingssysteem voor het instellen van de omgevingsvariabelen.
 
-| Waarde | Omgevingsvariabelen | Description |
+| Value | Omgevingsvariabelen | Description |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Tenant-id | AZURE_TENANT_ID | De waarde van uw Azure Stack [tenant-ID](../azure-stack-identity-overview.md). |
 | Client-id | AZURE_CLIENT_ID | De service principal toepassings-ID opgeslagen bij het service-principal is gemaakt in de vorige sectie van dit artikel. |

@@ -13,13 +13,14 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: aa4e8cf0745f3af3d16369e31129f0603e6402e6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 460edc7f092764cce3584c81371db4801fbd69bc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244746"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240009"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Zelfstudie: Resources voor validatie als een Service instellen
 
@@ -49,7 +50,7 @@ Een tenant maken specifiek voor gebruik met VaaS met een beschrijvende naam, bij
  
     Toestaan dat gebruikers in uw tenant om uit te voeren van acties in VaaS door toe te wijzen op een van de volgende rollen:
 
-    | Naam van rol | Description |
+    | Naam van rol | Beschrijving |
     |---------------------|------------------------------------------|
     | Eigenaar | Heeft volledige toegang tot alle resources. |
     | Lezer | Alle resources weergeven, maar niet maken of te beheren. |
@@ -71,7 +72,7 @@ Dit proces wordt geautoriseerd voor uw tenant met de **Azure Stack-validatieserv
 
 1. De volgende informatie over de tenant verzenden naar Microsoft op [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-    | Gegevens | Description |
+    | Gegevens | Beschrijving |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Naam van organisatie | De naam van de officiële organisatie. |
     | De naam van de map Azure AD-Tenant | De naam van de Azure AD-Tenant-map wordt geregistreerd. |

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2f1a3c46c9d343c305292a217fff5750f442fa
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 173846e4828228bdc51fc42858e0c6c9b00cafd6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682551"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242787"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
 Azure SQL Data Warehouse een upgrade uitvoert naar de nieuwste generatie van Azure hardware- en storage-architectuur.
@@ -78,7 +78,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="start-the-upgrade"></a>Start de upgrade
 
-1. Ga naar uw Compute geoptimaliseerd Gen1 laag datawarehouse in Azure portal en klik op de **upgraden naar Gen2** kaart op het tabblad taken: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Ga naar uw Compute geoptimaliseerd Gen1 laag datawarehouse in Azure portal en klik op de **upgraden naar Gen2** kaart op het tabblad taken:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > Als u niet ziet de **upgraden naar Gen2** kaart op het tabblad taken, uw abonnementstype is beperkt in de huidige regio.
@@ -113,7 +113,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
    De tweede stap van het upgradeproces is gegevensmigratie ('upgrade - Online'). Migratie van gegevens is een achtergrondproces online nieuwe deze langzaam kolomgegevens van de oude opslagarchitectuur verplaatst naar de nieuwe opslagarchitectuur gebruik te maken van een lokale SSD-cache. Gedurende deze tijd is uw datawarehouse online zijn voor het uitvoeren van query's en het laden. Al uw gegevens zijn beschikbaar om op te vragen, ongeacht of deze is gemigreerd of niet. De gegevensmigratie gebeurt tegen een tarief variëren, afhankelijk van de gegevensgrootte van uw, het prestatieniveau en het nummer van de columnstore-segmenten. 
 
-5. **Optionele aanbeveling:** versnellen het achtergrondproces voor migratie van gegevens, kunt u de verplaatsing van gegevens direct forceren door uit te voeren [Alter Index opnieuw opbouwen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) op alle primaire columnstore-tabellen worden query's op een grotere SLO uitvoeren zou en resourceklasse. Deze bewerking is **offline** vergeleken met het nieuwe achtergrondproces dat uur, afhankelijk van het aantal en de grootte van uw tabellen kunt duren; gegevensmigratie zijn echter veel sneller waar u kunt vervolgens profiteren van de nieuwe verbeterde opslagarchitectuur als u klaar bent met hoogwaardige Rijgroepen. 
+5. **Optionele aanbeveling:** Het migratieproces achtergrond versnellen, kunt u de verplaatsing van gegevens direct forceren door uit te voeren [Alter Index opnieuw opbouwen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) op alle primaire columnstore-tabellen zou u query's op een grotere SLO en resource-klasse. Deze bewerking is **offline** vergeleken met het nieuwe achtergrondproces dat uur, afhankelijk van het aantal en de grootte van uw tabellen kunt duren; gegevensmigratie zijn echter veel sneller waar u kunt vervolgens profiteren van de nieuwe verbeterde opslagarchitectuur als u klaar bent met hoogwaardige Rijgroepen. 
 
 De volgende query worden de vereiste Alter Index Rebuild-opdrachten voor het versnellen van het migratieproces van gegevens gegenereerd:
 

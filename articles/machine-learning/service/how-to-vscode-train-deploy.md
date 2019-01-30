@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning service
 description: Meer informatie over Azure Machine Learning voor Visual Studio Code en het starten van training en het implementeren van machine learning en deep learning-modellen in Azure Machine Learning-service met behulp van Visual Studio Code.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7852ff20a7f6528546063365ede10ad5536319a2
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 409d1bb30dc956bb19e9a37212d93990d1401e7b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079134"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240111"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code gebruiken om te trainen en machine learning-modellen implementeren
 

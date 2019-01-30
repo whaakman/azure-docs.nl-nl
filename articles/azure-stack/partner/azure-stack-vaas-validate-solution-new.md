@@ -13,13 +13,14 @@ ms.topic: quickstart
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c8a723137761c12ab335af79dfffb9e124348eac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 57aa0146f29d45dbcb5b1a0ac2f4fbdf31cb045b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246599"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238751"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Een nieuwe Azure Stack-oplossing te valideren
 
@@ -75,9 +76,9 @@ Wanneer een test is voltooid en de **planning** actie wordt uitgeschakeld.
     - Engine voor cloud-simulatie
     - COMPUTE operationele SDK-pakket
     - Test voor schijf-ID
-    - Key Vault-extensie SDK operationele Suite
-    - Operationele KeyVault-SDK-pakket
-    - Operationele Suite van netwerk-SDK
+    - KeyVault Extension SDK Operational Suite
+    - KeyVault SDK Operational Suite
+    - Network SDK Operational Suite
     - Storage-Account SDK operationele Suite
 
 3. Selecteer **planning** in het contextmenu om een prompt voor het plannen van de test-exemplaar te openen.

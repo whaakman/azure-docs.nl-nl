@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 90830c4e27e90af6c9d77509844696f64e4909f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 78ea9071f220b2a78c6d9260d47145f22284d760
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994765"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250262"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Maken van een IoT-hub met behulp van de Azure CLI
 
@@ -32,9 +32,9 @@ Als u Azure CLI lokaal in plaats van met behulp van Cloud Shell uitvoert, moet u
 
 Voer bij de opdrachtprompt de [aanmeldingsopdracht](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
 
-    ```azurecli
-    az login
-    ```
+   ```azurecli
+   az login
+   ```
 
 Volg de instructies om te verifiëren met de code en meld u aan bij uw Azure-account via een webbrowser.
 

@@ -13,16 +13,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: 4641dce6fe8518016ee85cd480de6d11354fe170
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 09d3d996e4c939d6691162d66f303536a3f2038d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037212"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239261"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Updates controleren in Azure Stack met behulp van de bevoegde eindpunt
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 U kunt de [bevoegde eindpunt](azure-stack-privileged-endpoint.md) voor het bewaken van de voortgang van een Azure Stack update-uitvoering en hervatten van een mislukte update uitvoeren vanaf de laatste geslaagde stap moet de Azure Stack-portal niet beschikbaar.  Met behulp van de Azure Stack-portal is de aanbevolen methode voor het beheren van updates in Azure Stack.
 
@@ -35,7 +36,7 @@ De volgende nieuwe PowerShell-cmdlets voor het updatebeheer van de zijn opgenome
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Controleer of dat de cmdlets zijn beschikbaar
-Omdat de cmdlets nieuw in het updatepakket van 1710 voor Azure Stack zijn, moet het updateproces 1710 om te gaan naar een bepaald moment voordat de detectie beschikbaar is. Normaal gesproken de cmdlets zijn beschikbaar als de status in de beheerdersportal geeft aan dat de update 1710 aan de **opslag Hosts opnieuw** stap. Met name de cmdlet update plaatsvindt tijdens **stap: uitvoeren van stap 2.6 - PrivilegedEndpoint werken geaccepteerde**.
+Omdat de cmdlets nieuw in het updatepakket van 1710 voor Azure Stack zijn, moet het updateproces 1710 om te gaan naar een bepaald moment voordat de detectie beschikbaar is. Normaal gesproken de cmdlets zijn beschikbaar als de status in de beheerdersportal geeft aan dat de update 1710 aan de **opslag Hosts opnieuw** stap. Met name de cmdlet update plaatsvindt tijdens **stap: Uitvoeren van stap 2.6 - de Update PrivilegedEndpoint whitelist**.
 
 U kunt ook bepalen of de cmdlets zijn beschikbaar via een programma door het opvragen van de lijst met opdrachten van de bevoegde eindpunt. U doet dit door de volgende opdrachten worden uitgevoerd vanaf de host van de levenscyclus van hardware of op een werkstation met bevoegde toegang. Controleer ook of dat het eindpunt van de bevoegde is een vertrouwde host. Voor meer informatie raadpleegt u stap 1 van [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 

@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716023"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247728"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>De ASDK vanaf de opdrachtregel implementeren
 De ASDK is een omgeving voor testen en ontwikkeling die u implementeren kunt om te evalueren en Azure Stack-functies en -services demonstreren. Als u deze moet actief en werkend is, u de hardware van de omgeving voorbereiden en sommige scripts (dit duurt enkele uren) uitgevoerd. Hierna kunt u zich de portals beheerder en gebruiker aan de slag met Azure Stack.
@@ -105,7 +106,7 @@ De development kit implementeren **met AD FS als id-provider**, voer de volgende
 
 In AD FS-implementaties, de standaardstempel Active Directory wordt gebruikt als de id-provider. Het standaardaccount voor het aanmelden is azurestackadmin@azurestack.local, en het wachtwoord wordt ingesteld op wat u hebt opgegeven als onderdeel van de PowerShell-opdrachten voor installatie.
 
-De implementatie kan enkele uren duren, gedurende welke het systeem automatisch opnieuw wordt opgestart nadat. Wanneer de implementatie is geslaagd, de PowerShell-console wordt weergegeven: **voltooid: actie 'Implementatie'**. Als de implementatie mislukt, kunt u proberen uitvoeren van het script opnieuw uit met behulp van de - parameter opnieuw uitvoeren. U kunt [opnieuw implementeren ASDK](asdk-redeploy.md) helemaal.
+De implementatie kan enkele uren duren, gedurende welke het systeem automatisch opnieuw wordt opgestart nadat. Als de implementatie is geslaagd, wordt de PowerShell-console wordt weergegeven: **VOLTOOID: Actie 'Implementatie'**. Als de implementatie mislukt, kunt u proberen uitvoeren van het script opnieuw uit met behulp van de - parameter opnieuw uitvoeren. U kunt [opnieuw implementeren ASDK](asdk-redeploy.md) helemaal.
 
 > [!IMPORTANT]
 > Als u de voortgang van de implementatie controleren wilt nadat de host ASDK opnieuw is opgestart, moet u zich aanmelden als AzureStack\AzureStackAdmin. Als u zich aanmeldt als een lokale beheerder nadat de computer opnieuw opgestart (en toegevoegd aan het domein azurestack.local), kunt u de voortgang van de implementatie niet weergegeven. Implementatie opnieuw uitvoeren, meld u in plaats daarvan als azurestack aan om te valideren dat deze wordt uitgevoerd niet.
@@ -147,7 +148,7 @@ Als er geen DHCP ingeschakeld voor uw omgeving is, moet u de volgende extra para
 |DNSForwarder|Optioneel|Een DNS-server gemaakt als onderdeel van de Azure Stack-implementatie. Geef uw bestaande infrastructuur DNS-server zodat computers in de oplossing voor het omzetten van namen buiten de stempel. De DNS-server in het stempel onbekende naam resolutie stuurt aanvragen door naar deze server.|
 |NatIPv4Address|Vereist voor DHCP NAT-ondersteuning|Hiermee stelt een statisch IP-adres voor MAS-BGPNAT01. Gebruik deze parameter alleen als de DHCP geen geldig IP-adres voor toegang tot het internet kan toewijzen.|
 |NatIPv4Subnet|Vereist voor DHCP NAT-ondersteuning|IP-Subnet-voorvoegsel wordt gebruikt voor DHCP via NAT-ondersteuning. Gebruik deze parameter alleen als de DHCP geen geldig IP-adres voor toegang tot het internet kan toewijzen.|
-|PublicVlanId|Optioneel|Hiermee stelt u de VLAN-ID. Gebruik deze parameter alleen als de host en MAS-BGPNAT01 VLAN-ID voor toegang tot het fysieke netwerk (en Internet) moet configureren. Bijvoorbeeld,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
+|PublicVlanId|Optioneel|Hiermee stelt u de VLAN-ID. Gebruik deze parameter alleen als de host en MAS-BGPNAT01 VLAN-ID voor toegang tot het fysieke netwerk (en Internet) moet configureren. For example, .\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
 |Opnieuw uitvoeren|Optioneel|Gebruik deze eigenschap implementatie opnieuw uit te voeren. Alle vorige invoer wordt gebruikt. Opnieuw in te voeren gegevens eerder hebt opgegeven wordt niet ondersteund omdat verschillende unieke waarden worden gegenereerd en voor implementatie gebruikt.|
 
 

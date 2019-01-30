@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b7d2b6d2aef4567197fe18607cb50d1e9a4206b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2fa0912d120760ddba3b3d21f718e214e9d7c26b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247235"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238921"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Aanbevolen procedures voor validatie als een Service
 
@@ -33,7 +34,7 @@ In dit artikel bevat informatie over aanbevolen procedures voor het beheren van 
 
 Gebruik een consistente naamgeving voor alle oplossingen die zijn geregistreerd in VaaS. Bijvoorbeeld: naam van de oplossing kan worden samengesteld uit de hardware-eigenschappen hieronder als volgt:
 
-|Productnaam | Unieke Hardware-Element 1 | Unieke Hardware-Element 2 | De naam van oplossing
+|Productnaam | Unique Hardware Element 1 | Unique Hardware Element 2 | De naam van oplossing
 |---|---|---|---|
 Mijn XYZ-oplossing |  Alle Flash | Mijn Switch X01 | MySolutionXYZ_AllFlash_MySwitchX01
 

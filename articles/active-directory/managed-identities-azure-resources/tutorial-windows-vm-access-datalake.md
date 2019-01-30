@@ -4,7 +4,7 @@ description: Een zelfstudie die laat zien hoe u toegang krijgt tot Azure Data La
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
 ms.author: daveba
-ms.openlocfilehash: 4beaf9f1a4206f6840bdb3277770e1996dbc83e1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: abc7d4bea47c84c3fba0ee04e8b1d6293e726b7a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623208"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424333"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Zelfstudie: Een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Data Lake Store
 
@@ -67,7 +67,7 @@ In deze zelfstudie gebruikt u PowerShell voor het maken van REST-aanvragen om te
 1. Navigeer in Azure Portal naar **Virtuele machines**, ga naar uw virtuele Windows-machine, en klik op de pagina **Overzicht** op **Verbinden**.
 2. Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
 3. Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u **PowerShell** in de externe sessie. 
-4. Gebruik de cmdlet `Invoke-WebRequest` van Powershell om een aanvraag te versturen naar de lokale beheerde identiteiten om een toegangstoken voor Azure Data Lake Store op te halen voor het Azure-resources-eindpunt.  De resource-id voor Data Lake Storage is ‘ https://datalake.azure.net/’.  Voor Data Lake moet u een exact overeenkomende resource-id opgeven, met de schuine streep op het einde.
+4. Gebruik de cmdlet `Invoke-WebRequest` van Powershell om een aanvraag te versturen naar de lokale beheerde identiteiten om een toegangstoken voor Azure Data Lake Store op te halen voor het Azure-resources-eindpunt.  De resource-id voor Data Lake Storage is ‘https://datalake.azure.net/’.  Voor Data Lake moet u een exact overeenkomende resource-id opgeven, met de schuine streep op het einde.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

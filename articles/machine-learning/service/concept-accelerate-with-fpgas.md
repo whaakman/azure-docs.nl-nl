@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Informatie over het versnellen van modellen en deep neural networks met FPGA's op Azure. Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe de Azure Machine Learning-service biedt realtime kunstmatige intelligentie (AI) wanneer u uw model naar een Azure-FPGA implementeert.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: aaca3f346fafdc6ecde069676dbe0f089a26fca8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306114"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242991"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>Wat zijn FPGA's en Project Brainwave?
 

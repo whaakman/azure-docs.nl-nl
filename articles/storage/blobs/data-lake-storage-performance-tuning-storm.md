@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 Storm prestaties richtlijnen over het afstem
 description: Azure Data Lake Storage Gen2 Storm prestaties richtlijnen over het afstemmen
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 845bb739408cb38d823ae662e261d6955726d28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975191"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247905"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Richtlijnen voor Storm op HDInsight en Azure Data Lake Storage Gen2 afstemmen van prestaties
 
@@ -22,7 +22,7 @@ Begrijp de factoren die moeten worden overwogen bij het afstemmen van de prestat
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een account met Azure Data Lake Storage Gen2**. Zie voor instructies over het maken van een [Quickstart: maken van een account voor analytische](data-lake-storage-quickstart-create-account.md).
+* **Een account met Azure Data Lake Storage Gen2**. Zie voor instructies over het maken van een [Quick Start: Maken van een account voor analytische](data-lake-storage-quickstart-create-account.md).
 * **Een Azure HDInsight-cluster** met toegang tot een Data Lake Storage Gen2-account. Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
 * **Een Storm-cluster uitgevoerd op Data Lake Storage Gen2**. Zie voor meer informatie, [Storm op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Richtlijnen voor het Data Lake Storage Gen2 afstemmen van prestaties**.  Zie voor de prestaties van de algemene concepten, [Data Lake Storage Gen2 afstemmen Prestatierichtlijnen](data-lake-storage-performance-tuning-guidance.md).   

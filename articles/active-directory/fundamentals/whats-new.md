@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: b5f3c406996e47792d0a4b907d542066cf6f6e0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0847096674d446940ed3fed3390457e3d2e894bf
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168036"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248449"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -37,6 +37,84 @@ Azure AD ontvangt verbeteringen regelmatig. Als u wilt bijhouden met de meest re
 Deze pagina wordt maandelijks bijgewerkt, dus regelmatig bezoekt. Als u naar items die ouder dan zes maanden zoekt zijn, kunt u vinden in de [archief voor de wat is er nieuw in Azure Active Directory](whats-new-archive.md).
 
 ---
+## <a name="january-2019"></a>Januari 2019
+
+### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nieuwe Azure AD-toepassingsproxy cookie-instellingen
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** App-proxy  
+**Product-mogelijkheid:** Toegangsbeheer
+
+We hebben drie nieuwe cookie-instellingen, beschikbaar voor uw apps die worden gepubliceerd via toepassingsproxy geïntroduceerd:
+
+- **Gebruik alleen HTTP-cookie.** Stelt de **HTTPOnly** vlag aan de Application Proxy toegangs- en sessiebeleid cookies. Deze instelling inschakelt, biedt extra voordelen, zoals het helpen om te voorkomen dat kopiëren of wijzigen van cookies met behulp van client-side '-scripts. We raden u deze vlag inschakelt (Kies **Ja**) voor de extra voordelen.
+
+- **Veilige cookie gebruiken.** Stelt de **Secure** vlag aan de Application Proxy toegangs- en sessiebeleid cookies. Deze instelling inschakelt, biedt de voordelen van de extra beveiliging, door ervoor te zorgen dat cookies worden alleen verzonden via TLS beveiligde kanalen, zoals HTTPS. We raden u deze vlag inschakelt (Kies **Ja**) voor de extra voordelen.
+
+- **Permanente cookie gebruiken.** Hiermee voorkomt dat toegang cookies verlopen wanneer de webbrowser wordt gesloten. Deze cookies laatste gedurende de levensduur van het toegangstoken. Cookies worden echter opnieuw ingesteld als de vervaltijd is bereikt of als de gebruiker de cookie voor het handmatig verwijdert. We raden u aan de standaardinstelling **Nee**, alleen de instelling voor oudere apps die geen cookies tussen processen delen inschakelen.
+
+Zie voor meer informatie over de nieuwe cookies [Cookie-instellingen voor toegang tot on-premises toepassingen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - januari 2019
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Bedrijfsapps  
+**Product-mogelijkheid:** Integratie met toepassing van derden
+ 
+In januari 2019, hebben we deze 35 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
+
+[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial), [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial), [Talent palet](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial), [Cisco overkoepelende](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial), [Zscaler Beheerder van Internet](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial), [vervaldatum herinnering](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial), [InstaVR Viewer](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial), [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial), [term](https://app.verb.net/login), [MazeMap koppeling](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso digitale sluit](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial), [ GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial), [Cloud Service PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial), [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial), [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial), [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial), [ CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO-systeem](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial), [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial), [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial), [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial), [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial), [are voor Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial), [K2 voor Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [ iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial), [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial), [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial), [Korn veerboot ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial), [CaféX Portal (vergaderingen) ](https://docs.microsoft.com/azure/active-directory/saas-apps/caf%c3%a9xportal%28meetings%29-tutorial), [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial), [Adoddle cSaas Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)        
+
+Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Active Directory](https://aka.ms/appstutorial). Zie voor meer informatie over het aanbieden van uw toepassing in de Azure AD-app-galerie [uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>Verbeteringen van Azure AD Identity Protection (preview-versie)
+
+**Type:** Gewijzigde functie  
+**Categorie van de service:** Identiteitsbeveiliging  
+**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+
+We zijn trots te kunnen aankondigen dat er de volgende verbeteringen is toegevoegd aan de aanbieding van Azure AD Identity Protection preview-versie, met inbegrip van:
+
+- Een bijgewerkte en meer geïntegreerde gebruikersinterface
+
+- Aanvullende API's
+
+- Verbeterde risico-evaluatie van machine Learning
+
+- Uitlijning van de gehele product voor riskante gebruikers en riskante aanmeldingen
+
+Zie voor meer informatie over de verbeteringen voor [wat is Azure Active Directory Identity Protection (vernieuwd)?](https://aka.ms/IdentityProtectionDocs) voor meer informatie en deel uw ideeën tot en met de stappen in het product.
+
+---
+
+### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>Nieuwe App Lock-functie voor de Microsoft Authenticator-app op iOS en Android-apparaten
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Microsoft Authenticator-App  
+**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
+
+Uw wachtwoordcodes eenmalig, app-gegevens en app-instellingen om veiliger te houden, kunt u de App-Lock-functie in de Microsoft Authenticator-app inschakelen. Inschakelen van App-vergrendeling betekent dat u waarschijnlijk gevraagd verifiëren met behulp van uw PINCODE of biometrische telkens wanneer u de Microsoft Authenticator-app opent.
+
+Zie voor meer informatie de [Microsoft Authenticator-app Veelgestelde vragen over](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-faq).
+
+---
+
+### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>Verbeterde Azure AD Privileged Identity Management (PIM) exporteren mogelijkheden
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** Privileged Identity Management  
+**Product-mogelijkheid:** Privileged Identity Management
+
+Privileged Identity Management (PIM)-beheerders kunnen nu alle actieve en in aanmerking komende roltoewijzingen voor een specifieke bron, waaronder roltoewijzingen voor alle onderliggende resources exporteren. Voorheen was het moeilijk voor beheerders om een volledige lijst van roltoewijzingen voor een abonnement en ze had roltoewijzingen voor elke specifieke resource te exporteren.
+
+Zie voor meer informatie, [activiteit en audit geschiedenis weergeven voor Azure-resource-rollen in PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
+
+---
+
 ## <a name="novemberdecember-2018"></a>November/December 2018
 
 ### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Gebruikers verwijderd uit synchronisatie bereik niet langer switch naar alleen-cloud-accounts
@@ -803,165 +881,5 @@ Dit is een opt-in voor openbare preview-versie. Beheerders kunnen inschakelen op
 Deze functie kunt niet-beheerders hun identiteit te verifiëren bij het herstellen van een wachtwoord met behulp van een melding of de code van de Microsoft Authenticator (of een andere verificator-app). Nadat beheerders inschakelen dit self-service voor wachtwoord opnieuw instellen van methode, gebruikers die zich hebben geregistreerd een mobiele app via aka.ms/mfasetup of aka.ms/setupsecurityinfo kunnen hun mobiele app gebruiken als een verificatiemethode tijdens hun wachtwoord opnieuw instellen.
 
 Mobiele app-meldingen kan alleen worden ingeschakeld als onderdeel van een beleid dat is vereist twee methoden voor uw wachtwoord opnieuw instellen.
-
----
-
-## <a name="june-2018"></a>Juni 2018
-
-### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>U ziet dat wijzigen: Beveiliging-oplossing voor de autorisatiestroom gedelegeerde voor apps met behulp van Logboeken API van Azure AD-activiteit
-
-**Type:** Plan voor wijziging  
-**Categorie van de service:** Rapportage  
-**Product-mogelijkheid:** Controleren en rapporteren
-
-Vanwege de naleving van onze sterkere beveiliging, moesten we hebben een wijziging aanbrengt in de machtigingen voor apps die gebruikmaken van een autorisatiestroom gedelegeerde voor toegang tot [Azure AD-activiteit logboeken-API's](https://aka.ms/aadreportsapi). Deze wijziging wordt uitgevoerd door **26 juni 2018**.
-
-Als een van uw apps in Azure AD-activiteit Log-API's gebruikt, volg deze stappen om te controleren of dat de app niet wordt beëindigd nadat de wijziging gebeurt.
-
-**Uw app-machtigingen bijwerken**
-
-1. Aanmelden bij Azure portal, selecteer **Azure Active Directory**, en selecteer vervolgens **App-registraties**.
-2. Selecteer de app die gebruikmaakt van de activiteit logboeken API van Azure AD, selecteer **instellingen**, selecteer **vereiste machtigingen**, en selecteer vervolgens de **Windows Azure Active Directory** API.
-3. In de **overgedragen machtigingen** gebied van de **toegang inschakelen** blade, schakel het selectievakje in naast **lezen directory** gegevens en selecteer vervolgens **opslaan**.
-4. Selecteer **machtigingen verlenen**, en selecteer vervolgens **Ja**.
-    
-    >[!Note]
-    >U moet een globale beheerder om machtigingen aan de app te verlenen.
-
-Zie voor meer informatie de [machtigingen verlenen](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal#grant-permissions) gebied van de vereisten voor toegang tot de Azure AD-rapportage-API-artikel.
-
----
-
-### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Verbinding maken met Azure AD-services voor het PCI DSS-compliance TLS-instellingen configureren
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** N/A  
-**Product-mogelijkheid:** Platform
-
-Transport Layer Security (TLS) is een protocol waarmee privacy en integriteit tussen twee communicerende toepassingen en is het meest geïmplementeerde beveiligingsprotocol tegenwoordig gebruikt.
-
-De [PCI Security Standards Council heeft onlangs](https://www.pcisecuritystandards.org/) heeft vastgesteld dat er vroege versies van TLS en Secure Sockets Layer (SSL) moeten worden uitgeschakeld en vervangen door het inschakelen van nieuwe en beter beveiligde app protocollen, met het starten van naleving op **en met 30 juni 2018**. Deze wijziging betekent dat als u verbinding met Azure AD-services maken en voldoen aan PCI DSS-beleid moet, moet u de TLS 1.0 uitschakelen. Er zijn meerdere versies van TLS beschikbaar, maar TLS 1.2 is de meest recente versie die beschikbaar zijn voor Azure Active Directory-Services. Wij raden verplaatsen rechtstreeks naar TLS 1.2 voor combinaties van zowel de client/server en de browser of de server.
-
-Verouderde browsers ondersteunen mogelijk niet de nieuwere TLS-versies, zoals TLS 1.2. Als u wilt zien welke versies van TLS worden ondersteund door uw browser, Ga naar de [Qualys SSL Labs](https://www.ssllabs.com/) site en op **testen van uw browser**. We raden u upgraden naar de nieuwste versie van uw webbrowser en bij voorkeur inschakelen alleen TLS 1.2.
-
-**Om in te schakelen van TLS 1.2, door de browser**
-
-- **Microsoft Edge en Internet Explorer (beide zijn ingesteld met behulp van Internet Explorer)**
-
-    1. Open Internet Explorer, selecteer **extra** > **Internetopties** > **Geavanceerd**.
-    2. In de **Security** gedeelte **gebruik van TLS 1.2**, en selecteer vervolgens **OK**.
-    3. Alle browservensters sluiten en opnieuw starten van Internet Explorer. 
-
-- **Google Chrome**
-
-    1. Open Google Chrome, type *chrome://settings/* in de adresbalk en druk op **Enter**.
-    2. Vouw de **Geavanceerd** opties, Ga naar de **System** vlak- en selecteer **proxy-instellingen openen**.
-    3. In de **Interneteigenschappen** Schakel de **Geavanceerd** tabblad, Ga naar de **Security** gedeelte **gebruik van TLS 1.2**, en selecteer vervolgens  **OK**.
-    4. Alle browservensters sluiten en opnieuw starten van Google Chrome.
-
-- **Mozilla Firefox**
-
-    1. Open Firefox, type *over: config* in de adresbalk en druk **Enter**.
-    2. Zoek naar de term *TLS*, en selecteer vervolgens de **security.tls.version.max** vermelding.
-    3. Stel de waarde voor **3** om af te dwingen de browser wilt gebruiken om versie TLS 1.2 en selecteer vervolgens **OK**.
-
-        >[!NOTE]
-        >Firefox versie 60,0 biedt ondersteuning voor TLS 1.3, zodat u kunt ook de waarde security.tls.version.max instellen op **4**.
-
-    4. Sluit alle browservensters en Mozilla Firefox opnieuw.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - juni 2018
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Integratie met toepassing van derden
- 
-In juni 2018, hebben we deze 15 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
-
-[Skytap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skytap-tutorial), [vereffenen muziek](https://docs.microsoft.com/azure/active-directory/active-directory-saas-settlingmusic-tutorial), [SAML 1.1 Token ingeschakeld LOB-App](https://docs.microsoft.com/azure/active-directory/active-directory-saas-saml-tutorial), [Supermood](https://docs.microsoft.com/azure/active-directory/active-directory-saas-supermood-tutorial), [Autotask](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [ Back-ups](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Skyhigh netwerken](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skyhighnetworks-tutorial), Smartway2, [TonicDM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tonicdm-tutorial), [Moconavi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-moconavi-tutorial), [Zoho één](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zohoone-tutorial), [ SharePoint on-premises](https://docs.microsoft.com/azure/active-directory/active-directory-saas-sharepoint-on-premises-tutorial), [voorzien CX Suite](https://docs.microsoft.com/azure/active-directory/active-directory-saas-foreseecxsuite-tutorial), [Vidyard](https://docs.microsoft.com/azure/active-directory/active-directory-saas-vidyard-tutorial), [ChronicX](https://docs.microsoft.com/azure/active-directory/active-directory-saas-chronicx-tutorial)
-
-Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Active Directory](https://aka.ms/appstutorial). Zie voor meer informatie over het aanbieden van uw toepassing in de Azure AD-app-galerie [uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing). 
-
----
-
-### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Azure AD-wachtwoordbeveiliging is beschikbaar in openbare preview
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Identiteitsbeveiliging  
-**Product-mogelijkheid:** Gebruikersverificatie
-
-Azure AD-wachtwoord Protection gebruiken om u te helpen voorkomen gemakkelijk geraden wachtwoorden van uw omgeving. Deze wachtwoorden elimineren kunt u het risico van inbreuk op basis van een wachtwoord spray type aanval.
-
-Met name kunt Azure AD-wachtwoord Protection u:
-
-- Beveiligen van uw organisatie-accounts in zowel Azure AD en Windows Server Active Directory (AD). 
-- Hiermee stopt u uw gebruikers met een wachtwoord op een lijst van de meest gebruikte wachtwoorden meer dan 500 en meer dan 1 miljoen tekens vervanging varianten van deze wachtwoorden.
-- Beheren van Azure AD-wachtwoord beveiliging vanaf één locatie in de Azure AD-portal voor zowel Azure AD en on-premises Windows Server AD.
-
-Zie voor meer informatie over Azure AD-wachtwoord Protection [onjuiste wachtwoorden in uw organisatie te elimineren](https://aka.ms/aadpasswordprotectiondocs).
-
----
-
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nieuwe "alle gasten" voorwaardelijke toegang beleidssjabloon gemaakt tijdens het maken van gebruiksvoorwaarden (gebruiksvoorwaarden)
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Gebruiksvoorwaarden  
-**Product-mogelijkheid:** Beheer
-
-Tijdens het maken van uw gebruiksvoorwaarden (gebruiksvoorwaarden), wordt ook een nieuwe beleidssjabloon van voorwaardelijke toegang gemaakt voor 'alle gasten' en 'alle apps'. Deze nieuwe beleidssjabloon is van toepassing de zojuist gemaakte gebruiksvoorwaarden, stroomlijnen het maken en het afdwingen van proces voor gasten.
-
-Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
-
----
-
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nieuwe 'aangepaste' voorwaardelijk beleidssjabloon gemaakt tijdens het maken van gebruiksvoorwaarden (gebruiksvoorwaarden)
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Gebruiksvoorwaarden  
-**Product-mogelijkheid:** Beheer
-
-Tijdens het maken van uw gebruiksvoorwaarden (gebruiksvoorwaarden), wordt ook een nieuwe sjabloon voor 'aangepaste' voorwaardelijk beleid gemaakt. Deze nieuwe beleidssjabloon kunt u de gebruiksvoorwaarden lezen maken en onmiddellijk gaat u naar de blade voor voorwaardelijke toegang beleid voor het maken, zonder handmatig via de portal navigeren.
-
-Zie voor meer informatie, [Azure Active Directory-voorwaarden van de functie gebruiken](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
-
----
-
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nieuwe en uitgebreide richtlijnen over het implementeren van Azure multi-factor Authentication
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Overige  
-**Product-mogelijkheid:** Identiteitbeveiliging en -bescherming
- 
-We hebben nieuwe Stapsgewijze instructies over het implementeren van Azure multi-factor Authentication (MFA) in uw organisatie uitgebracht.
-
-Als u de MFA-implementatiehandleiding, gaat u naar de [identiteit implementatiehandleidingen](https://aka.ms/DeploymentPlans) op GitHub. Voor feedback over de implementatiehandleidingen, gebruikt u de [implementatie plannen feedbackformulier](https://aka.ms/deploymentplanfeedback). Hebt u vragen hebt over de implementatiehandleidingen, contact met ons op [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
-
----
-
-### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD gedelegeerd beheer van apps rollen in openbare preview zijn
-
-**Type:** Nieuwe functie  
-**Categorie van de service:** Bedrijfsapps  
-**Product-mogelijkheid:** Toegangsbeheer
-
-Beheerders kunt nu beheertaken delegeren zonder de globale beheerdersrol toewijzen. De nieuwe functies en mogelijkheden zijn:
-
-- **Nieuwe standaard Azure AD-beheerdersrollen:**
-
-    - **Beheerder van de toepassing.** De mogelijkheid voor het beheren van alle aspecten van alle apps, met inbegrip van de registratie, SSO-instellingen, app-toewijzingen en licentieverlening, App proxy-instellingen en toestemming verleent (behalve aan Azure AD-resources).
-
-    - **Beheerder van de cloudtoepassing.** Verleent alle van de mogelijkheden van de beheerder van de toepassing, behalve App proxy omdat het niet mogelijk om toegang tot on-premises.
-
-    - **De ontwikkelaar van de toepassing.** Hebben de mogelijkheid om te maken van app-registraties, zelfs als de **toestaan dat gebruikers om apps te registreren** optie is uitgeschakeld.
-
-- **Eigenaar (per app-registratie en per enterprise-app instellen, vergelijkbaar met het proces voor het eigendom van groep:**
- 
-    - **De eigenaar van de App-registratie.** Hebben de mogelijkheid voor het beheren van alle aspecten van die eigendom zijn app-registratie, met inbegrip van het app-manifest en meer eigenaren toe te voegen.
-
-    - **Eigenaar van de Enterprise-App.** Hebben de mogelijkheid om u te veel aspecten van eigendom zakelijke apps, inclusief SSO-instellingen, app-toewijzingen en toestemming beheren (met uitzondering van Azure AD-resources).
-
-Zie voor meer informatie over de openbare preview-versie, de [overgedragen Toepassingsbeheer rollen in openbare preview zijn van Azure AD.](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. Zie voor meer informatie over rollen en machtigingen, [beheerdersrollen toewijzen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
 ---

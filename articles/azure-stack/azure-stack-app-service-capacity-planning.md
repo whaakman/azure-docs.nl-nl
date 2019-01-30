@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: a769bb4cce84fe78f442cce8440e6e828ed7f76d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 03d29b7f072aaab09b0677031ee34bd61d876ce6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354135"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242838"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Capaciteitsplanning voor Azure App Service-server-rollen in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Als u een gereed productie-implementatie van Azure App Service in Azure Stack instelt, moet u van plan bent voor de capaciteit die u verwacht dat het systeem om te ondersteunen.  
 
@@ -43,31 +44,31 @@ U kunt met behulp van deze richtlijnen strategie voor de capaciteit van uw App S
 
 ## <a name="controller-role"></a>De functie van domeincontroller
 
-**Aanbevolen minimum**: twee exemplaren van Standard A1
+**Aanbevolen minimum**: Twee exemplaren van Standard A1
 
 De Azure App Service-controller ervaringen doorgaans laag verbruik van CPU, geheugen- en netwerkbronnen. Voor hoge beschikbaarheid, moet u echter twee controllers hebben. Twee controllers zijn ook het maximum aantal domeincontrollers dat is toegestaan. Kunt u de tweede websites-controller direct van het installatieprogramma tijdens de implementatie.
 
 ## <a name="front-end-role"></a>-Front-endrol
 
-**Aanbevolen minimum**: twee exemplaren van Standard A1
+**Aanbevolen minimum**: Twee exemplaren van Standard A1
 
 De front-end worden aanvragen gerouteerd naar webwerkrollen, afhankelijk van beschikbaarheid van de werknemer web. Voor hoge beschikbaarheid, hebt u meer dan één front-end en u kunt meer dan twee hebben. Voor doeleinden voor capaciteitsplanning, kunt u dat elke core ongeveer 100 aanvragen per seconde kan verwerken.
 
 ## <a name="management-role"></a>Beheerrol
 
-**Aanbevolen minimum**: twee exemplaren van Standard A3
+**Aanbevolen minimum**: Twee exemplaren van Standard A3
 
 De Azure App Service management-rol is verantwoordelijk voor het App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de gegevensservice. De beheerserverrol is meestal alleen ongeveer 4 GB RAM-geheugen in een productieomgeving. Het kan echter hoog CPU-niveaus optreden wanneer u veel beheertaken (zoals het maken van web site) worden uitgevoerd. Voor hoge beschikbaarheid, moet u meer dan één server die is toegewezen aan deze rol hebben en ten minste twee cores per server.
 
 ## <a name="publisher-role"></a>Uitgeverrol
 
-**Aanbevolen minimum**: twee exemplaren van Standard A1
+**Aanbevolen minimum**: Twee exemplaren van Standard A1
 
 Als veel gebruikers gelijktijdig publiceert, kan de uitgeversrol van de intensief CPU-gebruik optreden. Voor hoge beschikbaarheid, zorgt u ervoor dat meer dan één uitgeversrol beschikbaar. FTP-/ FTPS-verkeer wordt alleen verwerkt door de uitgever.
 
 ## <a name="web-worker-role"></a>Web-werkrol
 
-**Aanbevolen minimum**: twee exemplaren van Standard A1
+**Aanbevolen minimum**: Twee exemplaren van Standard A1
 
 Voor hoge beschikbaarheid, moet u ten minste vier webwerkrollen, twee voor de modus gedeelde web site en twee voor elke specifieke werkrol-laag die u van plan bent te bieden hebben. De gedeelde en toegewijde compute-modi bieden verschillende niveaus van de service aan tenants. U moet mogelijk meer webwerkrollen als veel van uw klanten zijn:
 
@@ -80,9 +81,9 @@ Azure Functions om aan te bieden gebruikers in het plan verbruik model, moet u g
 
 Bij het bepalen van het aantal gedeelde webwerkrollen wilt gebruiken, Controleer deze overwegingen:
 
-- **Geheugen**: geheugen is de meest kritieke resource voor een web-werkrol. Er is onvoldoende geheugen heeft invloed op prestaties van de web site wanneer virtueel geheugen van de schijf wordt gewisseld. Elke server vereist ongeveer 1,2 GB aan RAM-geheugen voor het besturingssysteem. RAM-geheugen boven deze drempelwaarde kan worden gebruikt om uit te voeren van websites.
-- **Percentage van actieve websites**: normaal gesproken ongeveer 5 procent van de toepassingen in een Azure App Service op Azure Stack-implementatie actief zijn. Het percentage van de toepassingen die actief op elk gewenst moment zijn kan echter hoger of lager zijn. Het maximum aantal toepassingen te plaatsen in een Azure App Service op Azure Stack-implementatie moet een actieve toepassing snelheid van 5%, minder dan 20 keer het aantal actieve websites (5 x 20 = 100).
-- **Het geheugengebruik van gemiddelde**: het gemiddelde geheugengebruik voor toepassingen die zijn waargenomen in een productieomgeving is ongeveer 70 MB. Met behulp van deze footprint, het geheugen toegewezen voor alle web worker-rol computers of virtuele machines kan worden als volgt berekend:
+- **Geheugen**: Geheugen is de meest kritieke resource voor een web-werkrol. Er is onvoldoende geheugen heeft invloed op prestaties van de web site wanneer virtueel geheugen van de schijf wordt gewisseld. Elke server vereist ongeveer 1,2 GB aan RAM-geheugen voor het besturingssysteem. RAM-geheugen boven deze drempelwaarde kan worden gebruikt om uit te voeren van websites.
+- **Percentage van actieve websites**: Normaal gesproken zijn ongeveer 5 procent van de toepassingen in een Azure App Service op Azure Stack-implementatie actief. Het percentage van de toepassingen die actief op elk gewenst moment zijn kan echter hoger of lager zijn. Het maximum aantal toepassingen te plaatsen in een Azure App Service op Azure Stack-implementatie moet een actieve toepassing snelheid van 5%, minder dan 20 keer het aantal actieve websites (5 x 20 = 100).
+- **Het geheugengebruik van gemiddelde**: Het gemiddelde geheugengebruik voor toepassingen die zijn waargenomen in een productieomgeving is bijna 70 MB. Met behulp van deze footprint, het geheugen toegewezen voor alle web worker-rol computers of virtuele machines kan worden als volgt berekend:
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
 

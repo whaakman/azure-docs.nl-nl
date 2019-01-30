@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 03/20/2018
+ms.openlocfilehash: 9288ffa406b0e5765b35fa9b23aa13dee5754e9a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971892"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240025"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service op Azure Stack update 1 release-opmerkingen
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en oplossingen in Azure App Service op Azure Stack Update 1 en bekende problemen. Bekende problemen zijn onderverdeeld in problemen direct verband houden met de implementatie, het updateproces en problemen met de build (na de installatie).
 
@@ -202,13 +203,13 @@ Site-sleuf wisselen is onderverdeeld in deze release. Voor het herstellen van de
 
 Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen de worker-subnet en de bestandsserver aan te geven. Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
 
-- Bron:
+- Bron: Alle
 - Poortbereik van bron: *
 - Bestemming: IP-adressen
-- Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+- Doel-IP-adresbereik: Bereik van IP-adressen voor uw bestandsserver
 - Poortbereik van doel: 445
 - Protocol: TCP
-- Actie: toestaan
+- Actie: Toestaan
 - Prioriteit: 700
 - Naam: Outbound_Allow_SMB445
 

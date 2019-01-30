@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: fce89cc754ac179054a60ce837949bb02b2102c6
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.subservice: common
+ms.openlocfilehash: 6cecb2d5fde4fc651cf0ba971189ef62fa330c13
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408694"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241701"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Blob- en wachtrijgegevens met RBAC (Preview)
 
@@ -43,7 +43,7 @@ U kunt ook aangepaste rollen voor gebruik met containers en wachtrijen definiër
 
 Een RBAC-rol toewijzen aan een Azure-identiteit om machtigingen aan containers of wachtrijen in uw opslagaccount te verlenen. U kunt het bereik van de toewijzing van rol met de storage-account, of aan een bepaalde container of de wachtrij. De volgende tabel geeft een overzicht van de rechten verleend door de ingebouwde rollen, afhankelijk van bereik:
 
-|Bereik|De eigenaar van de BLOB-gegevens|Inzender voor BLOB-gegevens|Gegevenslezer voor opslagblob|Inzender voor wachtrij Data|Gegevenslezer voor opslagwachtrij|
+|Bereik|Blob Data Owner|Inzender voor BLOB-gegevens|Blob Data Reader|Inzender voor wachtrij Data|Gegevenslezer voor opslagwachtrij|
 |---|---|---|---|---|---|
 |Abonnementsniveau|Toegang voor lezen/schrijven en POSIX toegang beheren tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle containers en blobs in het abonnement| Leestoegang tot alle containers en blobs in het abonnement|Lees-/ schrijftoegang tot alle wachtrijen in het abonnement|Leestoegang tot alle wachtrijen in het abonnement|
 |Het niveau van resourcegroep|Toegang voor lezen/schrijven en POSIX toegang beheren tot alle containers en blobs in de resourcegroep|Lees-/ schrijftoegang tot alle containers en blobs in de resourcegroep|Leestoegang tot alle containers en blobs in de resourcegroep|Lees-/ schrijftoegang tot alle wachtrijen in de resourcegroep|Leestoegang tot alle wachtrijen in de resourcegroep|

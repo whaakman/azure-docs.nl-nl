@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 8a67ae74f753fdbe3c5301c543e5a57544695922
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904213"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237848"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen
 
@@ -109,7 +110,7 @@ Wanneer u uw Kubernetes-cluster implementeert, kunt u de status van de implement
 
 4.  Raadpleeg het venster voor het oplossen van problemen. Elke geïmplementeerde resources bevat de volgende informatie:
     
-    | Eigenschap | Description |
+    | Eigenschap | Beschrijving |
     | ----     | ----        |
     | Resource | De naam van de resource. |
     | Type | De resourceprovider en het type resource. |
@@ -151,7 +152,7 @@ Als u zich aanmeldt, moet u de volgende stappen uitvoeren:
     ```
 
 4. Controleer de parameters en stel de waarden op basis van uw omgeving.
-    | Parameter           | Description                                                                                                      | Voorbeeld                                                                       |
+    | Parameter           | Beschrijving                                                                                                      | Voorbeeld                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -i,-identiteits-bestand | De RSA bestand met persoonlijke sleutel om de Kubernetes hoofd-VM verbinding te maken. De sleutel moeten beginnen met `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
     | h-,--host          | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de hoofd-VM's van de cluster in Kubernetes. De naam van de virtuele machine wordt gestart met `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |

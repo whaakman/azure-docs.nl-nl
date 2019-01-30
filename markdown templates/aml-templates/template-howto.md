@@ -3,18 +3,18 @@ title: 'Term actie voor Azure Machine Learning-service in 59 tekens of minder. D
 description: Leer hoe u dit doet en dat met behulp van de klant in Azure Machine Learning woorden. Deze tekenreeks beschrijving van het artikel in 115 tot 145 tekens. Zoekmachineoptimalisatie actieve werkwoorden soort hier gebruiken. Deze informatie wordt weergegeven in de inline van de pagina zoeken met de datumstempel artikel. Als uw para inleiding de bedoeling van uw artikel beschrijft, kunt u deze hier bewerkt voor lengte.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
-ms.openlocfilehash: 1fd64cca8eb51cdcaa2eb6e8cbce853b6a55b0e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1367f09fa9cac3a5d3a23a1192ada49f16976125
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013007"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245552"
 ---
 # <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Deze H1 is de titel van het artikel. Deze wordt weergegeven in het zoekvak, wordt weergegeven aan de bovenkant van het artikel, tweede grootste impact op zoeken, 100 tekens of minder
 

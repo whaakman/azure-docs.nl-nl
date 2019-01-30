@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 11/07/2018
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: a16a6596d6bc33200f87a1dfd3b2ea5b02628e10
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.lastreviewed: 11/07/2018
+ms.openlocfilehash: b739db654a182433bbe1f47528d1ab99f1b10c08
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277814"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242158"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architectuur voor cloudidentiteit voor Azure Stack
 Voordat u ervoor een id-provider kiest te gebruiken met Azure Stack, begrijpt u de belangrijke verschillen tussen de opties van Azure Active Directory (Azure AD) en Active Directory Federation Services (AD FS). 
@@ -43,7 +44,7 @@ De id-provider die u kunt uw opties, waaronder ondersteuning voor multitenancy b
 |Toepassingen kunnen gebruikmaken van de Graph-service           |Ja |Nee|
 |Toepassingen kunnen id-provider gebruiken voor aanmelden |Ja |Ja. Vereist dat toepassingen om te federeren met on-premises AD FS-exemplaren. |
 
-## <a name="topologies"></a>Topologieën
+## <a name="topologies"></a>Topologies
 De volgende secties worden de verschillende identiteit topologieën die u kunt gebruiken.
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: één tenant-topologie 

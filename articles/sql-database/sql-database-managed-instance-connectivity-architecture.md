@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 2077978ac9353531d10359edf396e4426e9d6988
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104408"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245664"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Connectiviteitsarchitectuur
 
@@ -111,6 +111,9 @@ Managed Instance kunt u implementeren in een speciaal subnet (de Managed Instanc
 |beheer  |80, 443, 12000|TCP     |Alle              |Internet   |Toestaan |
 |mi_subnet   |Alle           |Alle     |Alle              |MI-SUBNET  |Toestaan |
 
+  > [!Note]
+  > MI-SUBNET verwijst naar het IP-adresbereik voor het subnet in het formulier 10.x.x.x/y. Deze informatie kan worden gevonden in de Azure-portal (via de subneteigenschappen).
+  
   > [!Note]
   > Hoewel de verplichte beveiligingsregels voor binnenkomend verkeer toestaan verkeer van _eventuele_ bron op poorten 9000, 9003, 1438, 1440, 1452 deze poorten worden beveiligd door ingebouwde firewall. Dit [artikel](sql-database-managed-instance-find-management-endpoint-ip-address.md) laat zien hoe u IP-adres voor beheer-eindpunt detecteren en controleer of de firewall-regels. 
   

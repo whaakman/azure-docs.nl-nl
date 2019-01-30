@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: e596123cb218a542166d80b53916a73034f71760
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975254"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243314"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Gebruik de Azure Data Lake Storage Gen2 URI
 
@@ -27,23 +27,23 @@ Als het Data Lake Storage Gen2 geschikt account u adres wilt **is niet** instell
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Schema-id**: de `abfs` -protocol wordt gebruikt als de schema-id. U hebt de optie verbinding maken met of zonder een secure socket layer (SSL)-verbinding. Gebruik `abfss` om te verbinden met een secure socket layer-verbinding.
+1. **Schema-id**: De `abfs` -protocol wordt gebruikt als de schema-id. U hebt de optie verbinding maken met of zonder een secure socket layer (SSL)-verbinding. Gebruik `abfss` om te verbinden met een secure socket layer-verbinding.
 
-2. **Bestandssysteem**: de bovenliggende locatie waarin de bestanden en mappen. Dit is hetzelfde als Containers in de service Azure Storage-Blobs.
+2. **Bestandssysteem**: De bovenliggende locatie waarin de bestanden en mappen. Dit is hetzelfde als Containers in de service Azure Storage-Blobs.
 
-3. **Accountnaam**: de naam van uw storage-account tijdens het maken van.
+3. **Accountnaam**: De naam die aan uw storage-account tijdens het maken van.
 
-4. **Paden**: een slash als scheidingsteken (`/`) weergave van de mapstructuur.
+4. **Paden**: Een slash als scheidingsteken (`/`) weergave van de mapstructuur.
 
-5. **Bestandsnaam**: de naam van de afzonderlijke bestanden. Deze parameter is optioneel als u een map hebben betrekking op.
+5. **Bestandsnaam**: De naam van de afzonderlijke bestanden. Deze parameter is optioneel als u een map hebben betrekking op.
 
 Maar als het account dat u adres wilt is ingesteld als het standaardbestandssysteem tijdens het maken van accounts, is klikt u vervolgens de verkorte versie van URI-syntaxis:
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **Pad**: een slash als scheidingsteken (`/`) weergave van de mapstructuur.
+1. **Pad**: Een slash als scheidingsteken (`/`) weergave van de mapstructuur.
 
-2. **De naam van het bestand**: de naam van de afzonderlijke bestanden.
+2. **De naam van het bestand**: De naam van de afzonderlijke bestanden.
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 398a33e3f2f16cd694e77224dbd26324fe332fa1
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 05dd3b292f90964c6af21890aaeafab9849a09ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306400"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242974"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Hulpprogramma's voor Azure Stack downloaden vanuit GitHub
 
@@ -51,7 +52,7 @@ cd AzureStack-Tools-master
 
 De **AzureStack-hulpprogramma's** opslagplaats bevat een PowerShell-modules die ondersteuning bieden voor de volgende functies voor Azure Stack:  
 
-| Functionaliteit | Description | Wie kan deze module gebruiken? |
+| Functionaliteit | Beschrijving | Wie kan deze module gebruiken? |
 | --- | --- | --- |
 | [Mogelijkheden van de cloud](user/azure-stack-validate-templates.md) | Gebruik deze module om op te halen van de mogelijkheden van de cloud van een cloud. Bijvoorbeeld, met behulp van deze module, krijgt u de mogelijkheden van de cloud, zoals API-versie en Azure Resource Manager-resources. U kunt ook de VM-extensies voor Azure Stack en Azure-clouds ophalen met behulp van deze module. | Cloudoperators en gebruikers |
 | [Resource Manager-beleid voor Azure Stack](user/azure-stack-policy-module.md) | Gebruik deze module voor het configureren van een Azure-abonnement of een Azure-resourcegroep met de dezelfde versiebeheer en service-beschikbaarheid als Azure Stack. | Cloudoperators en gebruikers |

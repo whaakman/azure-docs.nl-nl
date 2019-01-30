@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning Studio
 description: U kunt exporteren en verwijderen van uw gebruikergegevens in het product uit Azure AI Gallery met behulp van de interface of de API van AI-galerie Catalog. In dit artikel ziet u hoe u.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 14f46ffd45f0b1948dfc4892a45dc880dc378355
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 85d7286c1fd075da7034a2a43d46a158550d2fe9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263984"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247711"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Weergeven en verwijderen van gegevens in het product van gebruiker uit Azure AI Gallery
 

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.lastreviewed: 01/25/2018
+ms.openlocfilehash: 9568ac58e646be03d367fe466ae972955f23488c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177897"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252231"
 ---
 # <a name="provider-resource-usage-api"></a>Resourcegebruik-API voor providers
 De term *provider* geldt voor de servicebeheerder en voor elke gedelegeerde providers. Azure Stack-operators en gedelegeerde providers kunnen u de API voor het providergebruik gebruiken om het gebruik van hun directe tenants weer te geven. Bijvoorbeeld, zoals weergegeven in het diagram, P0 de API voor het ophalen van informatie over het gebruik van de P1-provider kan aanroepen en rechtstreeks gebruik van P2 en P1 voor informatie over het gebruik van P3 en P4 kunt aanroepen.

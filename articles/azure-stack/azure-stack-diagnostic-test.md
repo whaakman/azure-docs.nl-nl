@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 63a198b082c7486de2392153291a11be5bcb2f9e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103220"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245647"
 ---
 # <a name="validate-azure-stack-system-state"></a>Valideren van de systeemstatus van de Azure Stack
 
@@ -71,11 +72,11 @@ Deze tests weinig impact op het niveau van een infrastructuur werken en u voorzi
 | Overzicht van Azure Stack back-Upshare toegankelijkheid       | AzsBackupShareAccessibility       |
 | Overzicht van Azure Stack besturingselement vlak                    | AzsControlPlane                   |
 | Defender-overzicht van Azure Stack                         | AzsDefenderSummary                |
-| Azure Stack samenvatting van de Firmware infrastructuur die als host fungeert  | AzsHostingInfraFWSummary          |
-| Azure Stack-Cloud die als host fungeert voor infrastructuur-overzicht     | AzsHostingInfraSummary            |
-| Azure Stack-Cloud die als host fungeert voor het gebruik van de infrastructuur | AzsHostingInfraUtilization        |
+| Azure Stack Hosting Infrastructure Firmware Summary  | AzsHostingInfraFWSummary          |
+| Azure Stack Cloud Hosting Infrastructure Summary     | AzsHostingInfraSummary            |
+| Azure Stack Cloud Hosting Infrastructure Utilization | AzsHostingInfraUtilization        |
 | Azure Stack-infrastructuurcapaciteit                  | AzsInfraCapacity                  |
-| Prestaties van de Azure Stack-infrastructuur               | AzsInfraPerformance               |
+| Azure Stack Infrastructure Performance               | AzsInfraPerformance               |
 | Overzicht van Azure Stack-infrastructuur-rollen              | AzsInfraRoleSummary               |
 | Samenvatting van Azure Stack                           | AzsInfraUpdateSummary             |
 | Azure Stack-Portal en API-overzicht                   | AzsPortalAPISummary               |
@@ -85,7 +86,7 @@ Deze tests weinig impact op het niveau van een infrastructuur werken en u voorzi
 | Overzicht van Azure Stack-Service Fabric-rollen              | AzsSFRoleSummary                  |
 | Overzicht van Azure Stack BMC                              | AzsStampBMCSummary                |
 | Overzicht van Azure Stack Storage-Services                 | AzsStorageSvcsSummary             |
-| Overzicht van Azure Stack SQL Store                        | AzsStoreSummary                   |
+| Azure Stack SQL Store Summary                        | AzsStoreSummary                   |
 | Azure Stack VM-plaatsing samenvatting                     | AzsVmPlacement                    |
 
 ### <a name="cloud-scenario-tests"></a>Tests voor cloud-scenario

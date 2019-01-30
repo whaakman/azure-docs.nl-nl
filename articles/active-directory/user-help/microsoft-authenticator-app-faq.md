@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: a108d89ab3eb3cf9c7a729f14e3c88bf2b67b20b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5a646f83d3bd6a2c2824aef679f8a46e352f2263
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154096"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246929"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Veelgestelde vragen over Microsoft Authenticator-app
 
@@ -47,6 +47,8 @@ De Microsoft Authenticator-app de app Azure Authenticator vervangen en is de aan
 |Krijg ik een communicatiefout tussen de Apple Watch en mijn telefoon. Wat kan ik doen om op te lossen?|Deze fout treedt op wanneer het scherm volgen gaat u naar de slaapstand voordat het communiceren met uw telefoon is.<br><br><b>Als dit tijdens de installatie gebeurt:</b><br>Probeer te Voer setup opnieuw uit, zorg ervoor dat uw Watch actief houden totdat het proces is voltooid. Open de app op uw telefoon op hetzelfde moment, en reageren op prompts die worden weergegeven.<br><br>Als uw telefoon en bekijk nog steeds worden niet communiceren, kunt u het volgende proberen:<ol><li>Geforceerd de Microsoft Authenticator-telefoon-app sluit en opnieuw openen op uw iPhone.</li><li>Force sluit de companion-app op uw Apple Watch.<ol><li> Open de Microsoft Authenticator companion-app op uw horloge</li><li>Houd de knop naast totdat de **afsluiten** scherm wordt weergegeven.</li><li>De knop naast de release en houdt u de digitale kroon sluiten om af te dwingen de actieve app.</li></ol></li><li>Zowel Bluetooth- en Wi-Fi uit te schakelen voor uw telefoon en uw Watch en vervolgens weer terug.</li><li>Start opnieuw op uw iPhone en uw Watch.</li></ol><b>Als dit gebeurt wanneer u probeert een melding goed te keuren:</b><br>De volgende keer dat u wilt een melding op uw Apple Watch goed te keuren houden het scherm actief totdat de aanvraag voltooid is en u het geluid die aangeeft dat goed is verlopen.|
 |Waarom is niet de bijbehorende Microsoft Authenticator-app voor Apple Watch synchroniseren of weergegeven op mijn watch?|Als de app wordt niet op uw horloge weergegeven, probeert u het volgende: <ol><li>Zorg ervoor dat uw Watch watchOS 4.0 of hoger is uitgevoerd.</li><li>Uw Watch opnieuw gesynchroniseerd.</li></ol>|
 |Mijn Apple Watch companion-app is vastgelopen. Kan ik u Mijn crash logboeken verzenden, zodat u kunt onderzoeken? |U moet eerst Zorg ervoor dat u hebt gekozen voor het delen van uw analyses met ons. Als u een TestFlight-gebruiker bent, bent u al aangemeld. Anders gaat u naar **instellingen > Privacy > Analytics** en selecteert u zowel de **delen iPhone & Watch analytics** en de **delen met App-ontwikkelaars** opties.<br><br>Nadat u bent aangemeld, kunt u proberen om het te reproduceren uw crashes, zodat uw crash-logboeken automatisch naar ons voor onderzoek verzonden worden. Echter, als u uw probleem niet reproduceren, kunt u handmatig kopiëren van uw logboekbestanden en verzend dit naar ons.<ol><li>Open de Watch-app op uw telefoon, gaat u naar **instellingen > Algemeen**, en klik vervolgens op **kopie Watch Analytics**.</li><li>Vinden van de bijbehorende crash onder **instellingen > Privacy > Analytics > Analytics-gegevens**, en kopieert u handmatig de volledige tekst.</li><li>Open de Microsoft Authenticator-app op uw telefoon en plakken die de gekopieerde tekst in de **delen met App-ontwikkelaars** tekstvak op de **logboeken verzenden** pagina.</li></ol>|
+|Wat is de App-Lock-functie en waarvoor dient het me meer om veilig te houden?|Uw wachtwoordcodes eenmalig, app-gegevens en app-instellingen om veiliger te houden, kunt u de App-Lock-functie in de Microsoft Authenticator-app inschakelen. Inschakelen van App-vergrendeling van het **instellingen** scherm van de Microsoft Authenticator-app betekent dat u wordt gevraagd om te verifiëren met behulp van uw PINCODE of biometrische telkens wanneer u de Microsoft Authenticator-app opent. Deze functie biedt extra beveiliging, de manier waarop u de meldingen in de Microsoft Authenticator-app goedkeuren worden niet gewijzigd.<br><br>**Opmerking**<br>Als u naar de Microsoft Authenticator-app uitgevoerd op een Android-apparaat in minder dan 30 seconden terugkeert, wordt u niet gevraagd opnieuw te verifiëren.| 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

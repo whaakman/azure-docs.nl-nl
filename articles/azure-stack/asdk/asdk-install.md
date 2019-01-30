@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718218"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249902"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>De Azure Stack Development Kit (ASDK) installeren
 Na [voorbereiden van de hostcomputer ASDK](asdk-prepare-host.md), de ASDK kan worden geïmplementeerd in de installatiekopie van het CloudBuilder.vhdx met behulp van de volgende stappen in dit artikel.
@@ -38,8 +39,8 @@ De stappen in dit artikel ziet u over het implementeren van de ASDK met behulp v
     ![](media/asdk-install/1.PNG) 
 
 3. In de id-Provider **Type** vervolgkeuzelijst, selecteer **Azure-Cloud** of **AD FS**. Onder **lokale Administrator-wachtwoord** typt u het lokale administrator-wachtwoord (dit moet overeenkomen met de huidige geconfigureerde lokale administrator-wachtwoord) in de **wachtwoord** vak en klik vervolgens op  **Volgende**.
-    - **Azure-Cloud**: Hiermee configureert u Azure Active Directory (Azure AD) als de id-provider. Als u wilt deze optie gebruikt, moet u een internetverbinding, de volledige naam van een Azure AD directory-tenant in de vorm van *domainname*. onmicrosoft.com of een Azure AD geverifieerd aangepaste domeinnaam en de referenties van de globale beheerder voor de opgegeven de map. Na de implementatie is Azure Active Directory-globale beheerder toestemming niet vereist. Bepaalde bewerkingen is echter mogelijk de referentie van de globale beheerder. Bijvoorbeeld, een resource provider installatieprogramma script of een nieuwe functie die een machtiging worden verleend. U kunt tijdelijk opnieuw installeren van de account hoofdbeheerder machtigingen of gebruik een afzonderlijke globale beheerder-account dat is eigenaar van de *providerabonnement standaard*.
-    - **AD FS**: standaard stempel Active Directory wordt gebruikt als de id-provider. Het standaardaccount voor het aanmelden is azurestackadmin@azurestack.local, en het wachtwoord te gebruiken is die u als onderdeel van de installatie is opgegeven.
+    - **Azure Cloud**: Hiermee configureert u Azure Active Directory (Azure AD) als de id-provider. Als u wilt deze optie gebruikt, moet u een internetverbinding, de volledige naam van een Azure AD directory-tenant in de vorm van *domainname*. onmicrosoft.com of een Azure AD geverifieerd aangepaste domeinnaam en de referenties van de globale beheerder voor de opgegeven de map. Na de implementatie is Azure Active Directory-globale beheerder toestemming niet vereist. Bepaalde bewerkingen is echter mogelijk de referentie van de globale beheerder. Bijvoorbeeld, een resource provider installatieprogramma script of een nieuwe functie die een machtiging worden verleend. U kunt tijdelijk opnieuw installeren van de account hoofdbeheerder machtigingen of gebruik een afzonderlijke globale beheerder-account dat is eigenaar van de *providerabonnement standaard*.
+    - **AD FS**: De standaard stempel directory-service wordt gebruikt als de id-provider. Het standaardaccount voor het aanmelden is azurestackadmin@azurestack.local, en het wachtwoord te gebruiken is die u als onderdeel van de installatie is opgegeven.
 
     ![](media/asdk-install/2.PNG) 
     
@@ -53,8 +54,8 @@ De stappen in dit artikel ziet u over het implementeren van de ASDK met behulp v
     > [!TIP]
     > De BGPNAT01-machine is de edge router die NAT- en VPN voor Azure Stack biedt.
 
-    - **DHCP** (standaard): de virtuele machine krijgt de netwerk-IP-configuratie van de DHCP-server.
-    - **Statische**: Gebruik deze optie alleen als DHCP geen geldig IP-adres voor Azure Stack voor toegang tot het Internet toewijzen. **Een statisch IP-adres moet worden opgegeven met de lengte van subnetmasker in CIDR-indeling (bijvoorbeeld 10.0.0.5/24)**.
+    - **DHCP** (standaard): De virtuele machine krijgt de netwerk-IP-configuratie van de DHCP-server.
+    - **Statisch**: Gebruik deze optie alleen als DHCP geen geldig IP-adres voor Azure Stack voor toegang tot het Internet toewijzen. **Een statisch IP-adres moet worden opgegeven met de lengte van subnetmasker in CIDR-indeling (bijvoorbeeld 10.0.0.5/24)**.
     - Voer een geldige **IP-adres van tijd** adres. Dit vereiste veld Hiermee stelt u de time-server moet worden gebruikt door de development kit. Deze parameter moet worden opgegeven als het IP-adres van een geldige tijd-server. De namen worden niet ondersteund.
 
       > [!TIP]
@@ -62,7 +63,7 @@ De stappen in dit artikel ziet u over het implementeren van de ASDK met behulp v
 
     - **U kunt desgewenst**, instellen van de volgende waarden:
         - **VLAN-ID**: Hiermee stelt u de VLAN-ID. Gebruik deze optie alleen als de host en AzS-BGPNAT01 VLAN-ID voor toegang tot het fysieke netwerk (en internet) moet configureren. 
-        - **DNS-doorstuurserver**: een DNS-server is gemaakt als onderdeel van de Azure Stack-implementatie. Geef uw bestaande infrastructuur DNS-server zodat computers in de oplossing voor het omzetten van namen buiten de stempel. De DNS-server in het stempel onbekende naam resolutie stuurt aanvragen door naar deze server.
+        - **DNS-doorstuurserver**: Een DNS-server gemaakt als onderdeel van de Azure Stack-implementatie. Geef uw bestaande infrastructuur DNS-server zodat computers in de oplossing voor het omzetten van namen buiten de stempel. De DNS-server in het stempel onbekende naam resolutie stuurt aanvragen door naar deze server.
 
     ![](media/asdk-install/4.PNG)
 
@@ -81,7 +82,7 @@ De stappen in dit artikel ziet u over het implementeren van de ASDK met behulp v
 
     ![](media/asdk-install/7.PNG)
 
-11. Het implementatieproces duurt een paar uur, gedurende welke de hostcomputer automatisch opnieuw eenmaal opgestart wordt. Als u controleren van de voortgang van de implementatie wilt, meld u als azurestack\AzureStackAdmin nadat de development kit host opnieuw is opgestart. Wanneer de implementatie is geslaagd, de PowerShell-console wordt weergegeven: **voltooid: actie 'Implementatie'**. 
+11. Het implementatieproces duurt een paar uur, gedurende welke de hostcomputer automatisch opnieuw eenmaal opgestart wordt. Als u controleren van de voortgang van de implementatie wilt, meld u als azurestack\AzureStackAdmin nadat de development kit host opnieuw is opgestart. Als de implementatie is geslaagd, wordt de PowerShell-console wordt weergegeven: **VOLTOOID: Actie 'Implementatie'**. 
     > [!IMPORTANT]
     > Als u zich aanmeldt als een lokale beheerder nadat de computer is toegevoegd aan het domein, kunt u de voortgang van de implementatie niet weergegeven. Implementatie opnieuw uitvoeren, meld u in plaats daarvan als azurestack\AzureStackAdmin aan om te valideren dat deze wordt uitgevoerd niet.
 

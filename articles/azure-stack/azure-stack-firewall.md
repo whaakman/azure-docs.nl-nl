@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960648"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246430"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack-firewall-integratie
 Het verdient aanbeveling dat u een firewall-apparaat gebruiken om te beveiligen Azure Stack. Hoewel firewalls bij items zoals gedistribueerde denial-of-service (DDOS)-aanvallen, inbraakdetectie en inhoudsinspectie helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services, zoals blobs, tabellen en wachtrijen.
@@ -34,7 +35,7 @@ Voor ondernemingen, kan het externe netwerk het bestaande bedrijfsnetwerk zijn. 
 ### <a name="network-address-translation"></a>Network Address Translation
 NAT (Network Address Translation) is de aanbevolen methode om toe te staan van de implementatie van virtuele machine (DVM) voor toegang tot de externe bronnen en het internet tijdens de implementatie, evenals de Emergency Recovery Console (ERCS) virtuele machines of bevoegde eindpunt (PEP) tijdens registratie en het oplossen van problemen.
 
-NAT kan ook een alternatief voor het openbare IP-adressen op het externe netwerk of de openbare VIP's zijn. Het is echter niet aanbevolen om dit te doen omdat het beperken van de gebruikerservaring van de tenant en verhoogt de complexiteit. De twee opties voor een NAT-1:1 apparaat die nog steeds een openbaar IP-adres per gebruiker IP-adres op de groep of veel vereist zou zijn: 1 NAT waarvoor een NAT-regel per gebruiker VIP die koppelingen naar alle poorten bevat van een gebruiker kan gebruiken.
+NAT kan ook een alternatief voor het openbare IP-adressen op het externe netwerk of de openbare VIP's zijn. Het is echter niet aanbevolen om dit te doen omdat het beperken van de gebruikerservaring van de tenant en verhoogt de complexiteit. De twee opties zou een 1:1 NAT die nog steeds een openbaar IP-adres per gebruiker IP-adres op de groep of veel vereist zijn: 1 NAT waarvoor een NAT-regel per gebruiker VIP-adres dat koppelingen naar alle poorten bevat een gebruiker kan gebruiken.
 
 Enkele van de nadelen van het gebruik van NAT voor openbaar VIP-adres zijn:
 - NAT wordt overhead toegevoegd bij het beheren van firewall-regels, omdat gebruikers hun eigen eindpunten en hun eigen regels voor publicatie in de stack software gedefinieerde netwerken (SDN beheren). Gebruikers moeten contact opnemen met de Azure Stack-operators om hun VIP's gepubliceerd en bijwerken van de lijst met poorten.
@@ -54,7 +55,7 @@ Normaal gesproken zijn openbaar routeerbare IP-adressen opgegeven voor de openba
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranet- of perimeter network firewall bedrijfsscenario
 In een enterprise-implementatie van intranet of een perimeternetwerk, Azure Stack geïmplementeerd op een ingedeeld in de multi-zone-firewall of tussen de edge-firewall en firewall van het interne, zakelijke netwerk. Het verkeer wordt dan gedistribueerd tussen de beveiligde, perimeternetwerk bevinden (of DMZ) en niet-beveiligde zones als hieronder beschreven:
 
-- **Beveiligde zone**: dit is het interne netwerk dat gebruikmaakt van interne of zakelijke routeerbare IP-adressen. Het beveiligde netwerk kan worden onderverdeeld, uitgaande toegang tot internet via NAT hebben op de Firewall en meestal toegankelijk is vanaf een willekeurige plaats in uw datacenter via het interne netwerk. Alle Azure Stack-netwerken moeten zich bevinden in de veilige zone, met uitzondering van het externe netwerk openbare VIP-groep.
+- **Beveiligde zone**: Dit is het interne netwerk dat gebruikmaakt van interne of zakelijke routeerbare IP-adressen. Het beveiligde netwerk kan worden onderverdeeld, uitgaande toegang tot internet via NAT hebben op de Firewall en meestal toegankelijk is vanaf een willekeurige plaats in uw datacenter via het interne netwerk. Alle Azure Stack-netwerken moeten zich bevinden in de veilige zone, met uitzondering van het externe netwerk openbare VIP-groep.
 - **Perimeter-zone**. Het perimeternetwerk is wanneer het externe of internetgerichte toepassingen, zoals webservers worden doorgaans geïmplementeerd. Dit wordt meestal bewaakt door een firewall om te voorkomen dat aanvallen, zoals DDoS en indringers (hacken) terwijl u nog steeds opgegeven binnenkomend verkeer van internet. Alleen het externe netwerk openbare VIP-groep van Azure Stack moet zich bevinden in de DMZ-zone.
 - **Niet-beveiligde zone**. Dit is het externe netwerk, het internet. Deze **is niet** aanbevolen om te implementeren, Azure Stack in de niet-beveiligde zone.
 

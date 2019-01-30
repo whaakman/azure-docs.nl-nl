@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613092"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249677"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows-Server in Azure Stack Marketplace Veelgestelde vragen
 
@@ -37,10 +38,10 @@ Vervolgens als een virtuele-Machineschaalsets naar een specifieke versie verwijs
 
 Microsoft biedt twee versies van Windows Server-installatiekopieën via de Azure Stack Marketplace:
 
-- **Betalen naarmate u**: deze installatiekopieën worden uitgevoerd met de volledige prijs Windows-meters. 
-   Wie: Enterprise Agreement (EA)-klanten die gebruikmaken van de *verbruik factureringsmodel*; CSP's die niet willen gebruiken SPLA-licentieverlening.
-- **Bring Your Own License (BYOL)**: basic meters deze installatiekopieën worden uitgevoerd.
-   Wie: EA-klanten met een Windows Server-licentie; CSP's die gebruikmaken van SPLA-licentieverlening.
+- **Betalen naarmate u**: Deze installatiekopieën worden uitgevoerd met de volledige prijs Windows-meters. 
+   Wie moet gebruiken: Enterprise Agreement (EA)-klanten die gebruikmaken van de *verbruik factureringsmodel*; CSP's die niet willen gebruiken SPLA-licentieverlening.
+- **Bring Your Own License (BYOL)**: Deze installatiekopieën basic meters worden uitgevoerd.
+   Wie moet gebruiken: EA-klanten met een Windows Server-licentie; CSP's die gebruikmaken van SPLA-licentieverlening.
 
 Azure Hybrid Use Benefit (AHUB) wordt niet ondersteund in Azure Stack. Klanten die een licentie via het capaciteitsmodel '' moeten de BYOL-installatiekopie gebruiken. Als u wilt testen met de Azure Stack Development Kit (ASDK), kunt u een van deze opties.
 

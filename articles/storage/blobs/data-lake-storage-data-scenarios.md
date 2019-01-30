@@ -3,17 +3,17 @@ title: Scenario's voor gegevens met betrekking tot Azure Data Lake Storage Gen2 
 description: Informatie over de verschillende scenario's en hulpprogramma's die in gegevens die u kunt die zijn opgenomen, verwerkt, gedownload en gevisualiseerd in Data Lake Storage Gen2 (voorheen bekend als Azure Data Lake Store)
 services: storage
 author: normesta
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: 978f86141d72cc7be43f24909f9780ab9570605d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974890"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239025"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Met behulp van Azure Data Lake Storage Gen2 voor big data-vereisten
 
@@ -37,7 +37,7 @@ Dit staat voor kleinere gegevenssets die worden gebruikt voor het maken van een 
 | Gegevensbron | Met behulp van opnemen |
 | --- | --- |
 | Lokale computer |<ul> <li>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)</ul> |
-| Azure Storage-Blob |<ul> <li>[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)</li> <li>[AzCopy-hulpprogramma](../common/storage-use-azcopy-v10.md)</li><li>[DistCp die worden uitgevoerd op HDInsight-cluster](data-lake-storage-use-distcp.md)</li> </ul> |
+| Azure Storage Blob |<ul> <li>[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)</li> <li>[AzCopy-hulpprogramma](../common/storage-use-azcopy-v10.md)</li><li>[DistCp die worden uitgevoerd op HDInsight-cluster](data-lake-storage-use-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Gestreamde gegevens
 Dit verwijst naar gegevens die worden gegenereerd door verschillende bronnen, zoals toepassingen, apparaten, sensoren, enzovoort. Deze gegevens kan worden opgenomen in Data Lake Storage Gen2 door verschillende hulpprogramma's. Deze hulpprogramma's wordt meestal opnemen en verwerken van de gegevens op basis van door gebeurtenis in realtime, en schrijf vervolgens de gebeurtenissen in batches in Data Lake Storage Gen2 zodat ze verder kunnen worden verwerkt.
