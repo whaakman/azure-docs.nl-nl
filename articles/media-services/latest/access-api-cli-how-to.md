@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 54a92e56df21b59430ed12f191a9cf7a918e14c9
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 43f9443e4b5cd700500bd9803f2737ed9e0aa633
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612896"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223158"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Toegang tot Azure mediaservices API met de Azure CLI
  
@@ -32,13 +32,11 @@ In dit artikel leest u hoe de Azure CLI gebruiken voor een Azure AD-toepassing e
 
 ## <a name="prerequisites"></a>Vereisten 
 
-- Installeren en de CLI lokaal gebruikt, in dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+[Een Azure Media Services-account maken](create-account-cli-how-to.md).
 
-    Op dit moment niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) opdrachten werken in de Azure Cloud Shell. Het verdient de CLI lokaal gebruikt.
-
-- [Een Media Services-account maken](create-account-cli-how-to.md).
-
-    Zorg ervoor dat u vergeet niet de waarden die u voor de naam van de resourcegroep en de naam van de Media Services-account gebruikt.
+Vergeet niet de waarden die u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account.
+ 
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

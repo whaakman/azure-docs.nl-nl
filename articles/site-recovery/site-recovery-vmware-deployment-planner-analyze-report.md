@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: ecb1d4cca5ebc8a699988c6556b080ffa810eca8
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7b308f3298af436b6537234cff571759551a2d4e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319843"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221593"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Rapport van de Azure Site Recovery-Implementatieplanner voor VMware naar Azure een noodgeval analyseren
 
@@ -275,7 +275,7 @@ Premium P10 of P15 schijf | 32 kB of meer | 8 MB/s | 672 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 8 kB    | 5 MB/s | 421 GB per schijf
 Premium P20 of P30 of P40 of P50 schijf | 16 kB of meer |10 MB/s | 842 GB per schijf
 
-**brongegevensverloop** | **Maximumlimiet**
+**brongegevensverloop** | **Maximumaantal**
 ---|---
 Gemiddeld gegevensverloop per VM| 25 MB/s
 Piekgegevensverloop over alle schijven op een VM | 54 MB/s

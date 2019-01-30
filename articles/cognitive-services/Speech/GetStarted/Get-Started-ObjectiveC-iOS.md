@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338693"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211794"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Snelstartgids: Gebruik de Bing Speech-API in Objective-C in iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Quickstart: Gebruik de Bing Speech-API in Objective-C in iOS
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -115,7 +115,7 @@ De clientbibliotheek biedt vooraf geïmplementeerde erkenning clientklassen voor
 
 * `DataRecognitionClient`: Spraakherkenning met PCM-gegevens (bijvoorbeeld van de bron van een bestand of audio). De gegevens wordt opgedeeld in buffers en elke buffer naar spraak-Service is verzonden. Geen aanpassing is gereed om terug te de buffers, zodat gebruikers hun eigen Stiltedetectie toepassen kunnen, indien gewenst. Als de gegevens wordt geleverd door WAV-bestanden, kunt u gegevens verzenden vanaf de rechterkant van het bestand met de server. Als u hebt de onbewerkte gegevens, bijvoorbeeld audio die afkomstig zijn via Bluetooth, u eerst een indeling-header verzenden naar de server die wordt gevolgd door de gegevens.
 * `MicrophoneRecognitionClient`: Spraakherkenning met audio die afkomstig zijn van de microfoon. Zorg ervoor dat de microfoon is ingeschakeld en dat de gegevens van de microfoon naar de spraakherkenningsservice wordt verzonden. Een ingebouwde "stiltedetector' wordt toegepast op de microfoon gegevens voordat deze wordt verzonden naar de opname-service.
-* `DataRecognitionClientWithIntent` en `MicrophoneRecognitionClientWithIntent`: naast de tekst van de spraakherkenning, retourneert deze clients gestructureerde informatie over het doel van de spreker, die uw toepassingen gebruiken kunnen om verdere acties te stimuleren. Voor het gebruik van 'Doel', moet u eerst een model met behulp van de trein [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` en `MicrophoneRecognitionClientWithIntent`: Naast de tekst van de spraakherkenning retourneert deze clients gestructureerde informatie over het doel van de spreker, die uw toepassingen gebruiken kunnen om verdere acties te stimuleren. Voor het gebruik van 'Doel', moet u eerst een model met behulp van de trein [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>OCR-taal
 
@@ -132,9 +132,9 @@ U moet ook opgeven `SpeechRecognitionMode` bij het maken van de client met `Spee
 
 U kunt verschillende gebeurtenis-handlers koppelen aan de client u hebt gemaakt:
 
-* **Gedeeltelijke resultaten gebeurtenissen**: deze gebeurtenis wordt aangeroepen telkens wanneer die Speech-Service wordt voorspeld wat u mogelijk worden zeggen, voordat u klaar bent met het spreken (als u `MicrophoneRecognitionClient`) of u klaar bent met het verzenden van gegevens (als u `DataRecognitionClient`).
-* **Gebeurtenissen op foutniveau**: wordt aangeroepen wanneer de service een fout wordt gedetecteerd.
-* **Intentie gebeurtenissen**: met de naam op de clients 'WithIntent' (alleen in de modus ShortPhrase) na de laatste opname resultaat in een gestructureerde JSON-doel wordt geparseerd.
+* **Gedeeltelijke resultaten gebeurtenissen**: Deze gebeurtenis wordt aangeroepen telkens wanneer die Speech-Service wordt voorspeld wat u mogelijk worden zeggen, voordat u klaar bent met het spreken (als u `MicrophoneRecognitionClient`) of u klaar bent met het verzenden van gegevens (als u `DataRecognitionClient`).
+* **Gebeurtenissen op foutniveau**: Wordt aangeroepen wanneer de service een fout wordt gedetecteerd.
+* **Intentie gebeurtenissen**: Met de naam op de clients 'WithIntent' (alleen in de modus ShortPhrase) na de laatste opname resultaat in een gestructureerde JSON-doel wordt geparseerd.
 * **Gebeurtenissen resulteren**:
   * In `SpeechRecognitionMode_ShortPhrase` modus, deze gebeurtenis wordt genoemd en n-beste resultaten retourneert nadat u klaar bent met het spreken.
   * In `SpeechRecognitionMode_LongDictation` modus wordt de gebeurtenis-handler heet meerdere keren op basis van waar de service pauzes in zinnen aangeeft.

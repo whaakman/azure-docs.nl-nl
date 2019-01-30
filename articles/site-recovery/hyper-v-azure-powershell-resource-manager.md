@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4e1b25133914a65f34e281c145d7db5969b0581
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846926"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208020"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Instellen van herstel na noodgevallen naar Azure voor Hyper-V-machines met behulp van PowerShell en Azure Resource Manager
 
@@ -45,9 +45,9 @@ Het specifieke voorbeeld in dit artikel beschreven heeft bovendien de volgende v
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Stap 1: Aanmelden bij uw Azure-account
 
-1. Open een PowerShell-console en voer deze opdracht uit om aan te melden bij uw Azure-account. De cmdlet wordt een webpagina vraagt u om uw accountreferenties: **Connect-AzureRmAccount**.
+1. Open een PowerShell-console en voer deze opdracht uit om aan te melden bij uw Azure-account. De cmdlet wordt een webpagina vraagt u om referenties voor uw account: **Connect-AzureRmAccount**.
     - U kunt ook uw accountreferenties opnemen als een parameter in de **Connect-AzureRmAccount** cmdlet, met behulp van de **-referentie** parameter.
-    - Als u de CSP-partner werken namens een tenant bent, geeft u de klant als een tenant met behulp van de naam van de primaire domeincontroller tenant-id of tenant. Bijvoorbeeld: **Connect-AzureRmAccount-Tenant "fabrikam.com"**
+    - Als u de CSP-partner werken namens een tenant bent, geeft u de klant als een tenant met behulp van de naam van de primaire domeincontroller tenant-id of tenant. Bijvoorbeeld: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. Koppel het abonnement dat u gebruiken met het account wilt, omdat een account kan meerdere abonnementen hebben:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -102,7 +102,7 @@ De context van de kluis als volgt instellen:
 
 5. De gedownloade sleutel kopiëren naar de Hyper-V-host. U moet de sleutel voor het registreren van de Hyper-V-host naar de site.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Stap 5: Installeer de Provider en agent
+## <a name="step-5-install-the-provider-and-agent"></a>Stap 5: De Provider en agent installeren
 
 1. Download het installatieprogramma voor de meest recente versie van de Provider van [Microsoft](https://aka.ms/downloaddra).
 2. Voer het installatieprogramma op theHyper-V-host.
@@ -132,7 +132,7 @@ Houd er rekening mee dat het opgegeven opslagaccount moet zich in dezelfde Azure
         $protectionContainer = Get-AsrProtectionContainer
 3. Koppel de beveiligingscontainer aan het replicatiebeleid als volgt:
 
-     $Policy = get-AsrPolicy - FriendlyName $PolicyName $associationJob = New-AsrProtectionContainerMapping-naam $mappingName-beleid $Policy - PrimaryProtectionContainer $protectionContainer [0]
+     $Policy = Get-AsrPolicy -FriendlyName $PolicyName   $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 
 4. Wachten op de koppeling-taak is voltooid.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Docker-container-instellingen
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: De LUIS container runtime-omgeving is geconfigureerd met behulp van de `docker run` opdracht argumenten. LUIS heeft enkele vereiste instellingen, samen met een aantal optionele instellingen.
@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 40cfadd3880b1875e775aae21e667ba0e20086ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468332"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219750"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding docker-containers configureren 
 

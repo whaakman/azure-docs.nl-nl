@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 63c8ebe8eda049a770cecfd445757e4b5a2de1ea
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ec1858256c942fd50818a214de426fd00c3c2c88
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067038"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216928"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Ondersteuning voor taal en regio voor de Tekstanalyse-API
 
@@ -33,7 +33,7 @@ Voor sentimentanalyse, sleuteltermextractie en herkenning entiteit wordt de lijs
 
 Taalondersteuning wordt in eerste instantie in de Preview-versie opwaarderen naar algemeen beschikbaar (GA) status, onafhankelijk van elkaar en van de algehele Text Analytics-service uitgerold. Het is mogelijk voor talen die moet worden bewaard in de Preview-versie, zelfs terwijl de Tekstanalyse-API-overgangen naar algemeen beschikbaar.
 
-| Taal    | Taalcode | Sentiment | Sleutelfrasen | Herkenning van entiteit |   Opmerkingen  |
+| Taal    | Taalcode | Sentiment | Sleutelfrasen | Herkenning van entiteiten |   Opmerkingen  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Deens      | `da`          | ✔ \*     | ✔           |             |     |
 | Nederlands       | `nl`          | ✔ \*     | ✔          |             |     |
@@ -45,7 +45,7 @@ Taalondersteuning wordt in eerste instantie in de Preview-versie opwaarderen naa
 | Italiaans     | `it`          | ✔ \*     | ✔           |             |     |
 | Japans    | `ja`          |          | ✔           |            |     |
 | Koreaans      | `ko`          |          | ✔           |            |     |
-| Noors (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
+| Norwegian  (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
 | Pools      | `pl`          | ✔ \*     |  ✔          |             |     |
 | Portugees (Portugal) | `pt-PT`| ✔        |  ✔          |       |`pt` ook geaccepteerd|
 | Portugees (Brazilië)   | `pt-BR`|          |  ✔   |         |     |

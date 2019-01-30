@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 487bf54d80c9249e5ce69c4b5aeff942a21d5b48
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913147"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221195"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Naamomzetting voor resources in Azure-netwerken
 
@@ -157,7 +157,7 @@ Wanneer u van Azure geleverd naamomzetting gebruikmaakt, Azure Dynamic Host Conf
 
 Indien nodig, kunt u de interne DNS-achtervoegsel bepalen met behulp van PowerShell of de API.
 
-* Voor virtuele netwerken in Azure Resource Manager-implementatiemodel, het achtervoegsel is beschikbaar via de [netwerkinterface REST-API](/rest/api/virtualnetwork/networkinterfaces/get), wordt de [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell-cmdlet en de [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI-opdracht.
+* Voor virtuele netwerken in Azure Resource Manager-implementatiemodel, het achtervoegsel is beschikbaar via de [netwerkinterface REST-API](/rest/api/virtualnetwork/networkinterfaces), wordt de [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell-cmdlet en de [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI-opdracht.
 * In het klassieke implementatiemodel, het achtervoegsel is beschikbaar via de [implementatie API ophalen](https://msdn.microsoft.com/library/azure/ee460804.aspx) aanroepen of de [Get-AzureVM-Debug](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet.
 
 Als het doorsturen van query's naar Azure niet passen aan uw behoeften, kunt u uw eigen DNS-oplossing moet opgeven. Uw DNS-oplossing moet:

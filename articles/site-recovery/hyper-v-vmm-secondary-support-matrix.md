@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cd26eef236063eff72d909c0cd86c7f9485bfc4d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793288"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210026"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van Hyper-V-machines naar een secundaire site
 
@@ -62,7 +62,7 @@ Host - IPv6 | Nee
 Gast-VM - NIC-koppeling | Nee
 Gast-VM - IPv4 | Ja
 Gast-VM - IPv6 | Nee
-Statische IP-adres Gues VM Windows/Linux- | Ja
+Gast-VM Windows/Linux - statisch IP-adres | Ja
 Gast-VM - Multi-NIC | Ja
 
 
@@ -104,11 +104,11 @@ Multipath (MPIO) | Ja
 Verplaatsen van kluizen andere resourcegroepen (binnen of tussen abonnementen) |  Nee
 Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen (binnen of tussen abonnementen) | Nee
 
-## <a name="azure-site-recovery-provider"></a>Azure Site Recovery-Provider
+## <a name="azure-site-recovery-provider"></a>Azure Site Recovery Provider
 
 De Provider coördineert de communicatie tussen VMM-servers. 
 
-**meest recente** | **Updates**
+**Latest** | **Updates**
 --- | --- | --- | --- | ---
 5.1.19 ([beschikbaar is via de portal](https://aka.ms/downloaddra) | [Nieuwste functies en correcties](https://support.microsoft.com/kb/3155002)
 

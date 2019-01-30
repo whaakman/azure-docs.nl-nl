@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 778005ee321c981fec1d1271cee54229bb3a522f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976593"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214168"
 ---
 # <a name="constituency-parsing"></a>Frasestructuur parseren
 
@@ -65,14 +65,14 @@ Er zijn verschillende dergelijke zinnen: *Ik*, *een nieuwe hybride auto*, *Bluet
 
 ## <a name="phrase-types"></a>Woordgroep typen
 
-| Label | Description | Voorbeeld |
+| Label | Beschrijving | Voorbeeld |
 |-------|-------------|---------|
 |ADJP   | Bijvoeglijke naamwoorden woordgroep | "daarom ruwe" |
 |ADVP   | Bewerkingsparameter woordgroep | "wissen via" |
 |CONJP  | Combinatie woordgroep | ", evenals" |
-|TOTAAL AANTAL   | Fragment, die wordt gebruikt voor invoer onvolledig is of een verloop | ' Ten zeerste aangeraden...' |
+|FRAG   | Fragment, die wordt gebruikt voor invoer onvolledig is of een verloop | ' Ten zeerste aangeraden...' |
 |INTJ   | Tussenwerpsel | "Zeer Blije" |
-|OVERZICHT    | Markering van de lijst, met inbegrip van interpunctie | "#4)" |
+|LST    | Markering van de lijst, met inbegrip van interpunctie | "#4)" |
 |NAC    | Niet A samenstellende, die wordt gebruikt om aan te geven van een zin niet alle scopes |  'en voor een groot deel' in 'u alles en bieden voor een goede' |
 |NP | Zelfstandig naamwoord woordgroep | "een uw achtergebleven pancake" |
 |NX | In bepaalde complexe NPs gebruikt voor het markeren van de kop| |
@@ -85,11 +85,11 @@ Er zijn verschillende dergelijke zinnen: *Ik*, *een nieuwe hybride auto*, *Bluet
 |SBAR   | Onderliggend niveau component, vaak geïntroduceerd door een subordinating combinatie | "als ik naar links' in"Ik hebben wat als ik."|
 |SBARQ  | Directe vraag geïntroduceerd door een w- of - meer woorden | "Wat was het punt?" |
 |SINV   | Omgekeerde declaratieve zin | "Op geen enkel moment zijn ze op de hoogte." (Houd er rekening mee "hoe het onderwerp van de normale deze" is verplaatst naar nadat de term 'zijn") |
-|VIERKANTE | Ja/Nee omgekeerde vraag of de main-component van een w-vraag | "Ze krijg de auto?" |
+|SQ | Ja/Nee omgekeerde vraag of de main-component van een w-vraag | "Ze krijg de auto?" |
 |UCP    | In tegenstelling tot gecoördineerde woordgroep| 'kleine en met fouten' (Houd er rekening mee hoe geadjectiveerde en een woordgroep voorzetsel zijn conjoined met 'en')|
-|ADJUNCT-DIRECTEUR | Term woordgroep | "uitgevoerd in het bos" |
+|VP | Term woordgroep | "uitgevoerd in het bos" |
 |WHADJP | W-bijvoeglijk naamwoord woordgroep | "het voelt" |
-|WHADVP | W-bewerkingsparameter woordgroep| 'when' |
+|WHADVP | W-bewerkingsparameter woordgroep| "when" |
 |WHNP   | W-zelfstandig naamwoord woordgroep| "welke achtergebleven", "hoeveel soep"|
 |WHPP   | W prepositional woordgroep| 'in welk land"|
 |X  | Onbekend, niet zeker of unbracketable.| eerste 'de' in ' de... de soep " |

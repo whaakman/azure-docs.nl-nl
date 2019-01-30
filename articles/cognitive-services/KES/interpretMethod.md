@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4f950734081be6cf76770b1c6cb2feca7efdae70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128000"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221400"
 ---
 # <a name="interpret-method"></a>Methode interpreteren
 
@@ -25,7 +25,7 @@ De *interpreteren* methode neemt een querytekenreeks van natuurlijke taal en ret
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Naam|Waarde| Beschrijving
+Name|Value| Beschrijving
 ----|----|----
 query    | Tekenreeks met tekst | De query is opgegeven door de gebruiker.  Als voltooid is ingesteld op 1, wordt de query worden geïnterpreteerd als een voorvoegsel voor genereren suggesties voor het automatisch aanvullen van query.        
 Voltooien | 0 (standaardinstelling) of 1 | 1 betekent dat er automatisch aanvullen suggesties worden gegenereerd op basis van de gegevens en index grammatica.         
@@ -41,16 +41,16 @@ JSONPath     | Beschrijving
 ---------|---------
 $.query |*query* parameter van de aanvraag.
 $.interpretations   |Matrix van 0 of meer manieren zodat deze overeenkomen met de invoer voor de query op basis van de grammatica.
-$.interpretations [\*] .logprob   |Relatieve log kans van de interpretatie (< = 0).  Hogere waarden waarschijnlijk meer.
-$.interpretations [\*] .parse |XML-tekenreeks die laat zien hoe elk onderdeel van de query is geïnterpreteerd.
-$.interpretations [\*] .rules |Matrix van 1 of meer regels zoals gedefinieerd in de grammatica aangeroepen tijdens de interpretatie.
-$.interpretations [\*] .rules [\*] .name    |naam van de regel.
-$.interpretations [\*] .rules [\*] .output  |Semantische uitvoer van de regel.
-$.interpretations [\*] .rules [\*]. output.type |Het gegevenstype van de semantische uitvoer.
-$.interpretations [\*] .rules [\*]. output.value|De waarde van de semantische uitvoer.  
+$.interpretations[\*].logprob   |Relatieve log kans van de interpretatie (< = 0).  Hogere waarden waarschijnlijk meer.
+$.interpretations[\*].parse |XML-tekenreeks die laat zien hoe elk onderdeel van de query is geïnterpreteerd.
+$.interpretations[\*].rules |Matrix van 1 of meer regels zoals gedefinieerd in de grammatica aangeroepen tijdens de interpretatie.
+$.interpretations[\*].rules[\*].name    |naam van de regel.
+$.interpretations[\*].rules[\*].output  |Semantische uitvoer van de regel.
+$.interpretations[\*].rules[\*].output.type |Het gegevenstype van de semantische uitvoer.
+$.interpretations[\*].rules[\*].output.value|De waarde van de semantische uitvoer.  
 $.aborted | Waar, als de aanvraag is een time-out.
 
-### <a name="parse-xml"></a>XML parseren
+### <a name="parse-xml"></a>Parse XML
 
 Het parseren van XML annotates de (voltooid) query met informatie over hoe deze overeenkomt met op basis van de regels in de grammatica en kenmerken in de index.  Hieronder volgt een voorbeeld van het domein academische publicaties:
 

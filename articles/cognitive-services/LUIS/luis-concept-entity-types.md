@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6dba36eadde9bc9bb1e6ca778a3bce07b561e54
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999982"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207289"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entiteitstypen en hun ten behoeve van LUIS
 
@@ -86,14 +86,14 @@ Entiteiten kunnen worden geëxtraheerd met machine-learning, waardoor LUIS om me
 
 Nadat de entiteit is uitgepakt, kunt u de entiteitsgegevens weergegeven als één eenheid van informatie of in combinatie met andere entiteiten om te vormen een eenheid met gegevens die de client-toepassing kunt gebruiken.
 
-|Machine geleerd|Kunt markeren|Zelfstudie|Voorbeeld<br>Antwoord|Entiteitstype|Doel|
+|Machine geleerd|Can Mark|Zelfstudie|Voorbeeld<br>Antwoord|Entiteitstype|Doel|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Samengestelde**](#composite-entity)|Groepering van entiteiten, ongeacht het entiteitstype.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiërarchische**](#hierarchical-entity)|Groepering van eenvoudige entiteiten.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lijst met**](#list-entity)|Lijst met items en hun synoniemen geëxtraheerd met exact overeenkomende tekst overeenkomen.|
+|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarchical**](#hierarchical-entity)|Groepering van eenvoudige entiteiten.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lijst met items en hun synoniemen geëxtraheerd met exact overeenkomende tekst overeenkomen.|
 |Gemengd||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|De entiteit waarin einde van de entiteit moeilijk is te bepalen.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Vooraf gedefinieerde**](#prebuilt-entity)|Al getraind om op te halen van verschillende soorten gegevens.|
-|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Reguliere expressie**](#regular-expression-entity)|Maakt gebruik van reguliere expressie zodat deze overeenkomen met de tekst.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Al getraind om op te halen van verschillende soorten gegevens.|
+|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Regular Expression**](#regular-expression-entity)|Maakt gebruik van reguliere expressie zodat deze overeenkomen met de tekst.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Eenvoudige**](#simple-entity)|Een enkele concept in woord of woordgroep bevat.|
 
 Alleen entiteiten hebt geleerd van een Machine moeten worden gemarkeerd in de voorbeeld-uitingen voor elke doel. Machine geleerde entiteiten werken het beste wanneer getest [eindpunt query's](luis-concept-test.md#endpoint-testing) en [eindpunt uitingen controleren](luis-how-to-review-endoint-utt.md). 
@@ -153,7 +153,7 @@ De entiteit is een goede passen wanneer de gegevens:
 
 * Een bekende set zijn.
 * De set maximale [begrenzingen](luis-boundaries.md) van LUIS voor dit entiteitstype niet overschrijdt.
-* De tekst in de utterance is een exact overeenkomst met een synoniem of de canonieke naam. LUIS niet de lijst buiten komt overeen met exact overeenkomende tekst gebruiken. Als gevolg meervouden en andere variaties niet worden opgelost met een lijst met entiteit. Voor het beheren van afwijkingen, kunt u overwegen een [patroon](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) met de syntaxis van de optionele tekst.
+* De tekst in de utterance is een exact overeenkomst met een synoniem of de canonieke naam. LUIS gebruikt de lijst alleen voor exact tekstovereenkomsten. Als gevolg meervouden en andere variaties niet worden opgelost met een lijst met entiteit. Hiervoor kunt u overwegen een [patroon](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) met de optionele tekstsyntaxis te gebruiken.
 
 ![lijst met entiteiten](./media/luis-concept-entities/list-entity.png)
 

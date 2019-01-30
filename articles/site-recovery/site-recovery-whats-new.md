@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: raynew
-ms.openlocfilehash: fef6dc7937b2c83e67a281c69267bdf29216793d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 61e66a19b625141c69a9473373d3d5d808e18fde
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199017"
+ms.locfileid: "55211114"
 ---
-# <a name="whats-new-in-site-recovery"></a>Wat is er nieuw in Site Recovery
+# <a name="whats-new-in-site-recovery"></a>Nieuw in Site Recovery
 
 De [Azure Site Recovery](site-recovery-overview.md) service is bijgewerkt en verbeterd regelmatig. Als u wilt, kunt u op de hoogte blijven vindt in dit artikel u informatie over de meest recente versies, nieuwe functies en nieuwe inhoud. Deze pagina wordt regelmatig bijgewerkt.
 
@@ -59,7 +59,7 @@ Azure geïntroduceerd [standaard stations SSD (Solid State)](https://docs.micros
 
 ### <a name="support-for-azure-storage-firewall"></a>Ondersteuning voor de firewall van Azure storage
 
-U kunt Azure storage-accounts in een specifieke set netwerken beveiligen door het inschakelen van firewall-regels voor het account. U opslagaccounts voor het weigeren van verkeer van interne netwerken en het internet standaard configureren en vervolgens toegang verleend aan verkeer vanuit specifieke VNets. Site Recovery biedt ondersteuning voor replicatie voor virtuele machines met niet-beheerde schijven op firewa ingeschakeld storage-accounts naar een secundaire regio. In de doelregio voor niet-beheerde schijven, kunt u storage-accounts met een firewall is ingeschakeld. U kunt ook toegang tot het cacheopslagaccount beperken door het beperken van toegang tot het netwerk met alleen netwerk waarin de bron-VM's zich bevinden. Houd er rekening mee dat u moet [toegang toestaan](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) voor vertrouwde Microsoft-services.
+U kunt Azure storage-accounts in een specifieke set netwerken beveiligen door het inschakelen van firewall-regels voor het account. U opslagaccounts voor het weigeren van verkeer van interne netwerken en het internet standaard configureren en vervolgens toegang verleend aan verkeer vanuit specifieke VNets. Site Recovery biedt ondersteuning voor replicatie voor virtuele machines met niet-beheerde schijven op de firewall ingeschakeld storage-accounts naar een secundaire regio. In de doelregio voor niet-beheerde schijven, kunt u storage-accounts met een firewall is ingeschakeld. U kunt ook toegang tot het cacheopslagaccount beperken door het beperken van toegang tot het netwerk met alleen netwerk waarin de bron-VM's zich bevinden. Houd er rekening mee dat u moet [toegang toestaan](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) voor vertrouwde Microsoft-services.
 
 ## <a name="q3-2018"></a>Q3 2018 
 

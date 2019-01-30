@@ -1,38 +1,38 @@
 ---
-title: 'Snelstartgids: Gebruik cURL antwoord ophalen uit knowledge base - QnA Maker'
+title: 'Snelstart: Gebruik cURL antwoord ophalen uit knowledge base - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids helpt u bij het ophalen van een antwoord uit uw knowledge base met cURL.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 0cbd25c0ea906c0b0f35b6ac0ae798505863ac8a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6eccf4014eb663d0a3275d70c4e997f9ed324762
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273252"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211981"
 ---
-# <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Snelstartgids: Antwoord ophalen uit knowledge base met cURL
+# <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Quickstart: Antwoord ophalen uit knowledge base met cURL
 
 In deze snelstartgids op basis van een cURL begeleidt u bij het ophalen van een antwoord uit uw knowledge base.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Meest recente [ **cURL**](https://curl.haxx.se/).
-* Hebt u een [QnA Maker-service](../How-To/set-up-qnamaker-service-azure.md) en hebben een [knowledge base met vragen en antwoorden](../Tutorials/create-publish-query-in-portal.md).
+* Latest [**cURL**](https://curl.haxx.se/).
+* U moet over een [QnA Maker-service](../How-To/set-up-qnamaker-service-azure.md) en een [knowledge base met vragen en antwoorden](../Tutorials/create-publish-query-in-portal.md) beschikken.
 
-## <a name="publish-to-get-endpoint"></a>Publiceren-eindpunt ophalen
+## <a name="publish-to-get-endpoint"></a>Publiceren om eindpunten te verkrijgen
 
-Wanneer u klaar bent voor het genereren van een antwoord op een vraag uit uw knowledge base, [publiceren](../How-to/publish-knowledge-base.md) uw knowledge base.
+Wanneer u klaar bent voor het genereren van een antwoord op een vraag uit uw knowledge base, [publiceert](../How-to/publish-knowledge-base.md) u uw knowledge base.
 
 ## <a name="use-production-endpoint-with-curl"></a>Productie-eindpunt gebruiken met cURL
 
-Wanneer uw knowledge base wordt gepubliceerd, de **publiceren** pagina vindt u de instellingen van de HTTP-aanvraag voor het genereren van een antwoord. De **CURL** tabblad bevat de instellingen die vereist zijn voor het genereren van een antwoord van het opdrachtregelprogramma [CURL](https://www.getpostman.com).
+Wanneer uw knowledge base is gepubliceerd, geeft de pagina **Publiceren** de instellingen van de HTTP-aanvraag weer voor het genereren van een antwoord. De **CURL** tabblad bevat de instellingen die vereist zijn voor het genereren van een antwoord van het opdrachtregelprogramma [CURL](https://www.getpostman.com).
 
 [![Resultaten publiceren](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 
@@ -67,9 +67,9 @@ Voor het genereren van een antwoord met CURL, voert u de volgende stappen uit:
     }
     ```
 
-## <a name="use-staging-endpoint-with-curl"></a>Staging-eindpunt gebruiken met cURL
+## <a name="use-staging-endpoint-with-curl"></a>Faseringseindpunt gebruiken met cURL
 
-Als u wilt op een antwoord van de staging-eindpunt, gebruikt u de Booleaanse parameter querystring `isTest` met de waarde van `true`.
+Als u een antwoord van het faseringseindpunt wilt krijgen, gebruikt u de booleaanse parameter `isTest` van de queryreeks met de waarde van `true`.
 
 `isTest=true`
 
@@ -78,4 +78,4 @@ Als u wilt op een antwoord van de staging-eindpunt, gebruikt u de Booleaanse par
 De pagina publiceren bevat ook informatie om [een antwoord genereren](get-answer-from-kb-using-postman.md) met Postman. 
 
 > [!div class="nextstepaction"]
-> [Tijdens het genereren van een antwoord met behulp van metagegevens](../How-to/metadata-generateanswer-usage.md)
+> [Metagegevens gebruiken tijdens het genereren van een antwoord](../How-to/metadata-generateanswer-usage.md)

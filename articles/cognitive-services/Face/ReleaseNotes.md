@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 545f3669f04c3cd30f4766357c5d582dfe515c80
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121988"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215585"
 ---
 # <a name="face-api-release-notes"></a>Opmerkingen bij de Release van Face-API
 
@@ -29,7 +29,7 @@ In dit artikel geldt voor de Face-API-Service, versie 1.0.
 
 ### <a name="release-changes-in-march-2018"></a>Release-wijzigingen in maart 2018
 
-* Containergroepen toegevoegd miljoen-schaal: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) en [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Meer informatie in [over het gebruik van de functie voor grootschalige](Face-API-How-to-Topics/how-to-use-large-scale.md).
+* Toegevoegde miljoen schaal Container: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) en [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Meer informatie in [over het gebruik van de functie voor grootschalige](Face-API-How-to-Topics/how-to-use-large-scale.md).
 
 * Verhoogd [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` parameter uit [1, 5] naar [1, 100] en standaard 10.
 
@@ -51,7 +51,7 @@ In dit artikel geldt voor de Face-API-Service, versie 1.0.
 * De grootte van de face-detecteerbare om te controleren of dat het is uitsluitend tussen 36 x 36 naar 4096 x 4096 pixels opgelost.
 
 ### <a name="release-changes-in-november-2016"></a>Release-wijzigingen in November 2016
-* Face Storage Standard-abonnement extra permanente gezichten opslaan wanneer u toegevoegd [PersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) of [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) voor identificatie of gelijkenis die overeenkomt met. De opgeslagen afbeeldingen worden in rekening gebracht op $0,5 per 1000 gezichten en dit tarief is per dagelijks Pro rata. De laag gratis abonnementen nog steeds beperkt tot 1000 totale personen.
+* Face Storage Standard-abonnement extra permanente gezichten opslaan wanneer u toegevoegd [PersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) of [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) voor identificatie of gelijkenis die overeenkomt met. De opgeslagen afbeeldingen worden als volgt in rekening gebracht: $0,5 per 1000 gezichten. Dit tarief is per dag pro rato. De laag gratis abonnementen nog steeds beperkt tot 1000 totale personen.
 
 ### <a name="release-changes-in-october-2016"></a>Wijzigingen van de release oktober 2016
 * Het foutbericht van meer dan één gezicht in de targetFace van 'Zijn meer dan één gezicht in de afbeelding' naar 'Is er meer dan één gezicht in de afbeelding' gewijzigd in [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) en [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
@@ -66,7 +66,7 @@ In dit artikel geldt voor de Face-API-Service, versie 1.0.
 * Optionele toegevoegd `start` en `top` parameters in [PersonGroup - lijst](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248) zodat de gebruiker het beginpunt en het totale aantal PersonGroups aan lijst op te geven.
 
 ### <a name="v10-changes-from-v0"></a>Wijzigingen van V0 V1.0
-* Root-service-eindpunt van bijgewerkt ```https://westus.api.cognitive.microsoft.com/face/v0/``` naar ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Wijzigingen zijn toegepast op: [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) en [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+* Root-service-eindpunt van bijgewerkt ```https://westus.api.cognitive.microsoft.com/face/v0/``` naar ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Wijzigingen zijn toegepast op: [Face - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [geconfronteerd - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) en [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 * De grootte van de minimale detecteerbare face bijgewerkt naar 36 x 36 pixels. Gezichten die kleiner zijn dan 36 x 36 pixels niet gedetecteerd.
 

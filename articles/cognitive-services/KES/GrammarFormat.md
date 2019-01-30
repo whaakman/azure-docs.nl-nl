@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4b4010152622cd9a1d8111ac92dd1960e78d4601
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f3cb307a52cfddebfa97c1b8608549acdd89169d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125150"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215064"
 ---
 # <a name="grammar-format"></a>Grammatica-indeling
 
@@ -130,9 +130,9 @@ De volgende tabel bevat de ondersteunde `op` waarden voor elk kenmerktype.  Het 
 |----|----|----|----|
 | Reeks | eq | Exacte tekenreeksovereenkomst | is gelijk aan |
 | Reeks | starts_with | Voorvoegsel tekenreeksovereenkomst | starts_with |
-| Double-waarde voor Int32, Int64, | eq |  Numerieke gelijkheid | is gelijk aan |
-| Double-waarde voor Int32, Int64, | lt, le, gt, ge | Numerieke ongelijkheid overeenkomst (<, < =, >, > =) | is_between |
-| Double-waarde voor Int32, Int64, | starts_with | Voorvoegselovereenkomst van waarde in decimale notatie | starts_with |
+| Int32, Int64, Double | eq |  Numerieke gelijkheid | is gelijk aan |
+| Int32, Int64, Double | lt, le, gt, ge | Numerieke ongelijkheid overeenkomst (<, < =, >, > =) | is_between |
+| Int32, Int64, Double | starts_with | Voorvoegselovereenkomst van waarde in decimale notatie | starts_with |
 
 Voorbeelden:
 * `<attrref uri="academic#Year" op="lt" name="year"/>` komt overeen met de ingevoerde tekenreeks '2000' en alle documenten raadplegen die zijn gepubliceerd voordat het jaar 2000 uitsluitend retourneert.

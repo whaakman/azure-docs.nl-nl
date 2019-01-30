@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 961bc2f5d8d619c5a1815b0f4be3b837f72513f4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1f184d54c0d9edc8e203b697c06c2178436172ff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340032"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206933"
 ---
 # <a name="supported-languages"></a>Ondersteunde talen
 
@@ -36,7 +36,7 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen in `interactive`
 | en-GB | Engels (Verenigd Koninkrijk) |pl-PL | Pools (Polen) |
 | NL-IN | English (India) | pt-BR | Portugees (Brazilië)  |
 | NL-NZ | Engels (Nieuw-Zeeland) |pt-PT | Portugees (Portugal)  |
-| nl-NL | Engels (Verenigde Staten) | ru-RU | Russisch (Rusland) |
+| en-US | Engels (Verenigde Staten) | ru-RU | Russisch (Rusland) |
 | es-ES | Spaans (Spanje) | SV-SE | Zweeds (Zweden) |
 | es-MX | Spaans (Mexico) |zh-CN | Chinees (Mandarijn, vereenvoudigd)  |
 | fi-FI | Fins (Finland) |zh-HK | Chinees (Hongkong SAR) |
@@ -49,8 +49,8 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen in `conversation
 
 | Code | Taal | Code | Taal |
 |-----|-----|-----|-----|
-| ar-bijvoorbeeld | Arabisch (Egypte), moderne standard | IT-IT | Italiaans (Italië) |
+| ar-bijvoorbeeld | Arabisch (Egypte), moderne standard | It-IT | Italiaans (Italië) |
 | de-DE | Duits (Duitsland) | ja-JP | Japans (Japan) |
-| nl-NL | Engels (Verenigde Staten) | pt-BR | Portugees (Brazilië) |
+| en-US | Engels (Verenigde Staten) | pt-BR | Portugees (Brazilië) |
 | es-ES | Spaans (Spanje) | ru-RU | Russisch (Rusland) |
 | fr-FR | Frans (Frankrijk) | zh-CN | Chinees (Mandarijn, vereenvoudigd) |

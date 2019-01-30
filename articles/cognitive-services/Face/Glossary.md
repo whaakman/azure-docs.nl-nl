@@ -1,21 +1,21 @@
 ---
 title: Verklarende woordenlijst - Face-API-Service
 titleSuffix: Azure Cognitive Services
-description: De verklarende woordenlijst verklaart de termen die u kunt tegenkomen wanneer u met de Face-API-Service werkt.
+description: De woordenlijst verklaart de termen die u kunt tegenkomen wanneer u met de Face-API-Service werkt.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 215b780bc403ab2df40567c3eb5a7ae86c9fe130
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127360"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214293"
 ---
 # <a name="glossary"></a>Woordenlijst
 
@@ -48,7 +48,7 @@ Raadpleeg voor meer informatie de handleiding [geconfronteerd - identificeren](h
 
 Vertrouwen is een meting onthullen de overeenkomsten tussen [gezichten](#Face) of [persoon](#Person) in numerieke waarden, die wordt gebruikt in [identificatie](#Identification), en [ verificatie](#Verification) om aan te geven van de overeenkomsten van de resultaten van gezocht, geïdentificeerd en gecontroleerd.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [geconfronteerd: controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Raadpleeg de volgende handleidingen voor meer informatie: [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [geconfronteerd: controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="d"></a>D
 
@@ -72,7 +72,7 @@ Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](http
 
 Face-API is een cloud-gebaseerde API biedt de meest geavanceerde algoritmen voor gezichtsdetectie en herkenning. De belangrijkste functionaliteit van de Face-API kan worden onderverdeeld in twee categorieën: face [detectie](#Detection-Face-Detection) met [kenmerken](#Face-Attributes-Facial-Attributes), en face [erkenning](#Recognition).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [Face-API-overzicht](./Overview.md), [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [geconfronteerd: controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Raadpleeg de volgende handleidingen voor meer informatie: [Face-API-overzicht](./Overview.md), [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [geconfronteerd - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [ Face: controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 #### <a name="face-attributesfacial-attributes"></a>Face kenmerken/videodetectie kenmerken
 
@@ -108,19 +108,19 @@ Raadpleeg voor meer informatie de handleiding [geconfronteerd - detecteren](http
 
 FaceList is een verzameling van [PersistedFace](#PersistedFace) en is de maateenheid [Zoek vergelijkbare](#Find-Similar). Een FaceList wordt geleverd met een [FaceList ID](#FaceList-ID), en andere kenmerken zoals [naam](#Name) en [gebruikersgegevens](#UserData-User-Data).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [FaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
+Raadpleeg de volgende handleidingen voor meer informatie: [FaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
 #### <a name="facelist-id"></a>FaceList-ID
 
 FaceList-ID is een door de gebruiker opgegeven-tekenreeks die wordt gebruikt als een id van een [FaceList](#FaceList). De FaceList-ID moet uniek zijn binnen het abonnement.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [FaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
+Raadpleeg de volgende handleidingen voor meer informatie: [FaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
 #### <a name="find-similar"></a>Zoek vergelijkbare
 
 Deze API wordt gebruikt om zoekquery soortgelijke gezichten op basis van een verzameling van gezichten wordt uitgevoerd. Query gezichten en face verzamelingen worden weergegeven als [face id's](#Face-ID) of [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID) in de aanvraag. Geretourneerde resultaten zijn gezochte soortgelijke gezichten, vertegenwoordigd door [face id's](#Face-ID) of [PersistedFace-id's](#PersistedFace-ID).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
+Raadpleeg de volgende handleidingen voor meer informatie: [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
 
 ## <a name="g"></a>G
 
@@ -166,7 +166,7 @@ Meerdere gezichten in de invoer afzonderlijk worden beschouwd, en elk gezicht he
 > De LargePersonGroup/PersonGroup moet zijn voordat de identificatie worden getraind. Als de LargePersonGroup/PersonGroup niet is getraind, of de training [status](#Status-Train) wordt niet weergegeven als 'geslaagd' (dat wil zeggen ' actief', 'mislukt' of 'time'), het aanvraagantwoord is 400.
 > 
 
-Raadpleeg voor meer informatie de volgende handleidingen: [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [LargePersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [ LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
+Raadpleeg de volgende handleidingen voor meer informatie: [Face - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [LargePersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup Persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
 #### <a name="isidentical"></a>IsIdentical
 
@@ -188,25 +188,25 @@ Raadpleeg [geconfronteerd oriëntatiepunten](#Face-Landmarks-Facial-Landmarks).
 
 LargeFaceList is een verzameling van [PersistedFace](#PersistedFace) en is de maateenheid [Zoek vergelijkbare](#Find-Similar). Een LargeFaceList wordt geleverd met een [LargeFaceList ID](#LargeFaceList-ID), en andere kenmerken zoals [naam](#Name) en [gebruikersgegevens](#UserData-User-Data).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargeFaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - lijst Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - lijst Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
 
 #### <a name="largefacelist-id"></a>LargeFaceList-ID
 
 LargeFaceList-ID is een door de gebruiker opgegeven-tekenreeks die wordt gebruikt als een id van een [LargeFaceList](#LargeFaceList). De LargeFaceList-ID moet uniek zijn binnen het abonnement.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargeFaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce).
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
 LargePersonGroup is een verzameling van [personen](#Person) en is de maateenheid [identificatie](#Identification). Een LargePersonGroup wordt geleverd met een [LargePersonGroup ID](#LargePersonGroup-ID), en andere kenmerken zoals [naam](#Name) en [gebruikersgegevens](#UserData-User-Data).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargePersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup persoon - lijst](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup Person - List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
 
-#### <a name="largepersongroup-id"></a>LargePersonGroup-ID
+#### <a name="largepersongroup-id"></a>LargePersonGroup ID
 
 LargePersonGroup-ID is een door de gebruiker opgegeven-tekenreeks die wordt gebruikt als een id van een [LargePersonGroup](#LargePersonGroup). De LargePersonGroup-ID moet uniek zijn binnen het abonnement.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargePersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e).
 
 ## <a name="m"></a>M
 
@@ -222,13 +222,13 @@ Raadpleeg voor meer informatie de handleiding [geconfronteerd - groep](https://w
 
 De naam is een gebruiksvriendelijke beschrijvende tekenreeks voor [persoon](#Person). In tegenstelling tot de [ID van de persoon](#Person-ID), de naam van mensen in een groep kan worden gedupliceerd.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargePersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup persoon - ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ Ophalen van de persoon die PersonGroup -](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
 #### <a name="name-largepersongrouppersongroup"></a>Naam (LargePersonGroup/PersonGroup)
 
 De naam is ook een gebruiksvriendelijke beschrijvende tekenreeks voor [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup). In tegenstelling tot de [LargePersonGroup ID](#LargePersonGroup-ID)/[PersonGroup ID](#PersonGroup-ID), de naam van LargePersonGroups/PersonGroups binnen een abonnement kan worden gedupliceerd.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargePersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [ PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
 
 ## <a name="o"></a>O
 
@@ -238,37 +238,37 @@ Raadpleeg voor meer informatie de volgende handleidingen: [LargePersonGroup - ma
 
 PersistedFace is een gegevensstructuur in Face-API. PersistedFace wordt geleverd met een [PersistedFace ID](#PersistedFace-ID), en andere kenmerken zoals [naam](#Name), en [gebruikersgegevens](#UserData-User-Data).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
 #### <a name="person-id"></a>ID van de persoon
 
 ID van de persoon wordt gegenereerd wanneer een [PersistedFace](#PersistedFace) is gemaakt. Een tekenreeks is gemaakt voor deze gezicht in [Face-API](#Face-API).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
 #### <a name="person"></a>Person
 
 Persoon is een gegevensstructuur die worden beheerd in de Face-API. Persoon wordt geleverd met een [ID van de persoon](#Person-ID), en andere kenmerken zoals [naam](#Name), een verzameling van [PersistedFace](#PersistedFace), en [gebruikersgegevens](#UserData-User-Data).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargePersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup persoon - ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ Ophalen van de persoon die PersonGroup -](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
 #### <a name="person-id"></a>ID van de persoon
 
 ID van de persoon wordt gegenereerd wanneer een [persoon](#Person) is gemaakt. Een tekenreeks is gemaakt voor deze persoon in [Face-API](#Face-API).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargePersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup persoon - ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ Ophalen van de persoon die PersonGroup -](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
 #### <a name="persongroup"></a>PersonGroup
 
 PersonGroup is een verzameling van [personen](#Person) en is de maateenheid [identificatie](#Identification). Een PersonGroup wordt geleverd met een [PersonGroup ID](#PersonGroup-ID), en andere kenmerken zoals [naam](#Name) en [gebruikersgegevens](#UserData-User-Data).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup persoon - lijst](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
+Raadpleeg de volgende handleidingen voor meer informatie: [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup persoon - lijst](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
 
 #### <a name="persongroup-id"></a>PersonGroup-ID
 
 PersonGroup-ID is een door de gebruiker opgegeven-tekenreeks die wordt gebruikt als een id van een [PersonGroup](#PersonGroup). De groeps-ID moet uniek zijn binnen het abonnement.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
+Raadpleeg de volgende handleidingen voor meer informatie: [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
 
 #### <a name="pose-attribute"></a>Met zich meebrengen (kenmerk)
 
@@ -278,11 +278,11 @@ Raadpleeg [opleveren, Head](#Head-Pose-Attribute).
 
 ## <a name="r"></a>R
 
-#### <a name="recognition"></a>Erkenning
+#### <a name="recognition"></a>Herkenning
 
 Herkenning is een populaire module voor face-technologieën, zoals [Zoek vergelijkbare](#Find-Similar), [groeperen](#Grouping), [identificeren](#Identification),[hetzelfde of niet verifiëren dat twee gezichten ](#Verification).
 
-Raadpleeg voor meer informatie de volgende handleidingen: [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [geconfronteerd: controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Raadpleeg de volgende handleidingen voor meer informatie: [Face - Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Face - Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 #### <a name="rectangle-face"></a>Rechthoek (gezicht)
 
@@ -316,7 +316,7 @@ De abonnementssleutel is een tekenreeks die u nodig hebt om op te geven als een 
 
 Deze API wordt gebruikt voor het vooraf verwerken van de [LargeFaceList](#LargeFaceList)/[LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup) om te controleren of de [zoeken Vergelijkbare](#Find-Similar)/[identificatie](#Identification) prestaties. Als de training niet wordt beheerd, of de [Training Status](#Status-Train) wordt niet weergegeven als is voltooid, de id voor deze PersonGroup zal leiden tot fouten.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargeFaceList - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249), [geconfronteerd - identificeren ](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargeFaceList - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249), [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="u"></a>U
 
@@ -324,7 +324,7 @@ Raadpleeg voor meer informatie de volgende handleidingen: [LargeFaceList - Train
 
 Gebruikersgegevens is extra informatie die is gekoppeld aan [persoon](#Person) en [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup). Gebruikersgegevens is ingesteld door gebruikers gegevens gemakkelijker te gebruiken, te begrijpen en houd er rekening mee.
 
-Raadpleeg voor meer informatie de volgende handleidingen: [LargePersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Update](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f), [LargePersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup persoon - Update](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41), [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Update](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a), [PersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ Bijwerken van de persoon die PersonGroup -](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242).
+Raadpleeg de volgende handleidingen voor meer informatie: [LargePersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Update](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f), [LargePersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup persoon - Update](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41), [PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Update](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a), [PersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup persoon - Update](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242).
 
 ## <a name="v"></a>V
 

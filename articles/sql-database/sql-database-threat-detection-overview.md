@@ -11,24 +11,23 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 587c0718e333f121d0ff8b32d8c2a7dad6b8f774
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/29/2019
+ms.openlocfilehash: 2f52cbaf5d50eca13a87ff8e745b0f8baefbe23e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037137"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210366"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database Threat Detection
 
 Azure SQL-Bedreigingsdetectie voor [Azure SQL Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven.
 
-Detectie van bedreigingen maakt deel uit van de [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP)-aanbieding, dit een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL is. Detectie van bedreigingen kan worden geopend en worden beheerd via de centrale SQL ATP-portal.
+Detectie van bedreigingen maakt deel uit van de [SQL geavanceerde gegevensbeveiliging](sql-advanced-threat-protection.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. Detectie van bedreigingen kan worden geopend en worden beheerd via de centrale SQL AD-portal.
 
 > [!NOTE]
 > Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 
-Threat detection-service wordt in rekening gebracht 15$ / maand voor alle databases per logische Server of een beheerd exemplaar met de eerste 30 dagen gratis.
 
 ## <a name="what-is-threat-detection"></a>Wat is de detectie van bedreigingen
 
@@ -69,7 +68,7 @@ U ontvangt een e-mailmelding bij detectie van afwijkende activiteiten. Het e-mai
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Meldingen voor geconstateerde bedreigingen voor uw database in Azure portal verkennen
 
-SQL Database Threat Detection integreert de waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/). Een live SQL threat detection-tegels in de database en SQL ATP blades in Azure portal bijhouden de status van actieve bedreigingen.
+SQL Database Threat Detection integreert de waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/). Live SQL threat detection-tegels in de database en SQL-ADVERTENTIES blades in Azure portal de status van actieve bedreigingen bijhouden.
 
 Klik op **Threat detection waarschuwing** naar de Azure Security Center start waarschuwingen pagina en krijg een overzicht van actieve SQL-bedreigingen gedetecteerd op de database of het datawarehouse.
 
@@ -81,7 +80,7 @@ Klik op **Threat detection waarschuwing** naar de Azure Security Center start wa
 
 - Meer informatie over [detectie van bedreigingen in één Database](sql-database-threat-detection.md).
 - Meer informatie over [detectie van bedreigingen in het beheerde exemplaar](sql-database-managed-instance-threat-detection.md).
-- Meer informatie over [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
+- Meer informatie over [SQL Advanced gegevensbeveiliging](sql-advanced-threat-protection.md).
 - Meer informatie over [Azure SQL Database Auditing](sql-database-auditing.md)
 - Meer informatie over [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Zie voor meer informatie over prijzen voor de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/)  

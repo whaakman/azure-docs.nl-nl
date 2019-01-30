@@ -6,17 +6,17 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 80cf0d9970eb7052eeb19fb297176453864202cf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599413"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205692"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
@@ -92,7 +92,7 @@ ms.locfileid: "53599413"
 
 * C++ toegevoegd en C# samplea voor gebruik in de pull-abonnementen en push de stroom in de [voorbeeldopslagplaats](https://aka.ms/csspeech/samples).
 
-## <a name="speech-sdk-101"></a>Spraak SDK 1.0.1
+## <a name="speech-sdk-101"></a>Speech SDK 1.0.1
 
 Verbeteringen van de betrouwbaarheid en oplossingen voor problemen:
 

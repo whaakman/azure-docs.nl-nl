@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8712f9e79965e09e21df768b1c06561a896b8e01
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608474"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214089"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Met behulp van metagegevens en de GenerateAnswer-API
 
@@ -84,8 +84,8 @@ U aanroepen GenerateAnswer met een HTTP POST-aanvraag. Voorbeeld van code die la
         - **score**: Een rangorde tussen 0 en 100 liggen.
         - **vragen over**: De vragen die is opgegeven door de gebruiker.
         - **antwoord**: Het antwoord op de vraag.
-        - **bron**: De naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.
-        - **metagegevens**: De metagegevens die zijn gekoppeld aan het antwoord.
+        - **source**: De naam van de bron van waaruit het antwoord is uitgepakt of opgeslagen in het knowledge base.
+        - **metadata**: De metagegevens die zijn gekoppeld aan het antwoord.
             - Naam: Naam voor de metagegevens. (string, maximumlengte: 100, vereist)
             - Waarde: De waarde van de metagegevens. (string, maximumlengte: 100, vereist)
         - **Id**: Een unieke ID die is toegewezen aan het antwoord.

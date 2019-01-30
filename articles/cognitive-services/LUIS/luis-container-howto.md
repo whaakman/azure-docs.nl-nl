@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6f13994d404d58082b953fc98ac6028eea2e43e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463279"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216191"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -169,7 +169,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Tijdelijke aanduiding | Waarde |
+| Tijdelijke aanduiding | Value |
 |-------------|-------|
 |{APPLICATION_ID} | De toepassings-ID van de gepubliceerde LUIS-app. |
 |{APPLICATION_ENVIRONMENT} | De omgeving van de gepubliceerde LUIS-app. Gebruik een van de volgende waarden:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -197,7 +197,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Tijdelijke aanduiding | Waarde |
+| Tijdelijke aanduiding | Value |
 |-------------|-------|
 |{APPLICATION_ID} | De toepassings-ID van het getrainde LUIS-toepassing. |
 |{APPLICATION_VERSION} | De versie van de toepassing van het getrainde LUIS-toepassing. |
@@ -219,7 +219,7 @@ Als dit lukt, is het antwoord een LUIS-pakketbestand. Sla het bestand in de opsl
 
 Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren van de container. De opdracht maakt gebruik van de volgende parameters:
 
-| Tijdelijke aanduiding | Waarde |
+| Tijdelijke aanduiding | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Deze sleutel wordt gebruikt voor het starten van de container. Gebruik niet de starter-sleutel. |
 |{BILLING_ENDPOINT} | De facturering eindpuntwaarde is beschikbaar op de pagina van de taal begrijpen overzicht van de Azure portal.|
@@ -342,7 +342,7 @@ Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbind
 
 De `docker run` maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
 
-| Optie | Description |
+| Optie | Beschrijving |
 |--------|-------------|
 | `ApiKey` | De API-sleutel van de _Language Understanding_ resource gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte Azure LUIS resource die is opgegeven `Billing`. |
 | `Billing` | Het eindpunt van de _Language Understanding_ resource gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte LUIS Azure-resource van het eindpunt.|

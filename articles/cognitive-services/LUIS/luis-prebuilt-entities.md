@@ -7,16 +7,16 @@ author: diberry
 ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 160721560b6cf311f146cd0f48ae719d95b30a0f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103928"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206277"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Vooraf gemaakte entiteiten voor het herkennen van veelvoorkomende gegevenstypen
 
@@ -60,7 +60,7 @@ Test de nieuwe doel op het eindpunt toegevoegd door een waarde voor de **q** par
 
  Als u wilt markeren van dit type token, waar dat onderdeel van deze al is gemarkeerd met een vooraf gedefinieerde entiteit, de vooraf gedefinieerde entiteit uit de LUIS-app te verwijderen. U hoeft niet te trainen van de app. Markeert vervolgens het token aan uw eigen aangepaste entiteit. Voeg de vooraf gedefinieerde entiteit terug naar de LUIS-app.
 
- Voor een ander voorbeeld kunt u overwegen de utterance als een lijst van de klasse voorkeuren: `I want first year spanish, second year calculus, and fourth year english lit.` als de LUIS-app het rangtelwoord voor de Prebuild toegevoegd heeft, `first`, `second`, en `fourth` al gemarkeerd met rangtelwoorden. Als u wilt dat het rangtelwoord voor de en de klasse vast te leggen, kunt u een samengestelde entiteit maken en deze teruglopen van de vooraf gedefinieerde volgnummer en de aangepaste entiteit voor de klassenaam van de.
+ Houd rekening met de utterance als een lijst van de klasse voorkeuren voor een ander voorbeeld: `I want first year spanish, second year calculus, and fourth year english lit.` Als de LUIS-app het rangtelwoord voor de Prebuild toegevoegd heeft, `first`, `second`, en `fourth` al gemarkeerd met rangtelwoorden. Als u wilt dat het rangtelwoord voor de en de klasse vast te leggen, kunt u een samengestelde entiteit maken en deze teruglopen van de vooraf gedefinieerde volgnummer en de aangepaste entiteit voor de klassenaam van de.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ebd25fe7b60cb3f8701793f222bbbc8bd4990e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: f93457315fec03210213ddfd79d027c8cfec4555
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196766"
+ms.locfileid: "55227315"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning-service
 
@@ -165,7 +165,7 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>Beveiligde FPGA-webservices
 
-Azure Machine Learning-service-modellen die worden uitgevoerd op FPGA's bieden ondersteuning voor SSL en verificatie op basis van een sleutel. Hiermee kunt u toegang tot uw service en beveiligd door clients verzonden gegevens te beperken. [Meer informatie over het beveiligen van de webservice](how-to-secure-web-service.md#fpga).
+FPGA-webservices met SSL beveiligen wordt momenteel niet ondersteund.
 
 
 ## <a name="next-steps"></a>Volgende stappen

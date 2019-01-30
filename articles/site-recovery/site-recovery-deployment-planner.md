@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 9a9129d376c0a39c54f297fcae883f8d90016970
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4d4ddcdd025a040c84be66b1a36803645c839121
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320562"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206218"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Over de Azure Site Recovery-Implementatieplanner voor VMware naar Azure
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery Deployment Planner voor productie-installaties van het type VMware-naar-Azure.
@@ -75,10 +75,10 @@ Aantal servers dat kan worden geprofileerd per actief exemplaar van de Site Reco
 ## <a name="prerequisites"></a>Vereisten
 Het hulpprogramma heeft twee belangrijke fasen: profileren en rapporten genereren. Er is ook een derde optie, waarmee alleen doorvoer wordt berekend. Raadpleeg de volgende tabel voor de vereisten voor de server waarop de profilering en meting van de doorvoersnelheid worden uitgevoerd.
 
-| Serververeiste | Description|
+| Serververeiste | Beschrijving|
 |---|---|
 |Profileren en meten van doorvoer| <ul><li>Besturingssysteem: WindowsServer 2016 of Windows Server 2012 R2<br>(bij voorkeur met minimaal de [aanbevolen waarden voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machineconfiguratie: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>Instellingen voor VMware vCenter-statistieken niveau kunnen 1 of hoger niveau worden</li><li>VCenter-poort (standaard 443) toestaan: Site Recovery Deployment Planner gebruikt deze poort voor verbinding maken met de vCenter-server/ESXi-host</ul></ul>|
-| Rapporten genereren | Een Windows-PC of Windows Server met Excel 2013 of hoger.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) is alleen vereist als u doorgeeft - optie van de gebruiker in de opdracht voor het rapport genereren voor het ophalen van de meest recente configuratiegegevens voor de virtuele machine van de virtuele machines. De Planner Depolyment maakt verbinding met vCenter-server. VCenter-poort (standaard 443)-poort verbinding maken met vCenter server toestaan.</li>|
+| Rapporten genereren | Een Windows-PC of Windows Server met Excel 2013 of hoger.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) is alleen vereist als u doorgeeft - optie van de gebruiker in de opdracht voor het rapport genereren voor het ophalen van de meest recente configuratiegegevens voor de virtuele machine van de virtuele machines. De Deployment Planner maakt verbinding met vCenter-server. VCenter-poort (standaard 443)-poort verbinding maken met vCenter server toestaan.</li>|
 | Gebruikersmachtigingen | Alleen-lezen-machtiging voor het gebruikersaccount dat tijdens het profileren wordt gebruikt voor toegang tot de VMware vCenter-server of VMware vSphere ESXi-host |
 
 > [!NOTE]

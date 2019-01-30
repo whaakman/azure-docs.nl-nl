@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bc88b46182eadf431efcb5be89f05256a9e0eb1b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 14b00dd354618edb3a1f41c292d62b5a13a1f10d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095550"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216044"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-mailbericht eenmalige wachtwoordcode verificatie (preview)
 
@@ -29,7 +29,7 @@ De functie voor e-mailbericht eenmalige wachtwoordcode verifieert B2B-gastgebrui
 Deze functie is momenteel beschikbaar voor Preview-versie (Zie [inschrijving voor de Preview-versie](#opting-in-to-the-preview) hieronder). Na de Preview-versie, wordt deze functie ingeschakeld standaard voor alle tenants.
 
 > [!NOTE]
-> Eenmalige wachtwoordcode gebruikers moeten aanmelden met een koppeling met de tenant-context, bijvoorbeeld `https://myapps.microsoft.com/?tenantid=<tenant id>`. Directe koppelingen naar toepassingen en bronnen ook werken, zolang ze de context van de tenant zijn. Gastgebruikers ook kunnen zijn op dit moment kan niet aanmelden met behulp van eindpunten waarvoor geen tenant-context. Bijvoorbeeld, met behulp van `https://myapps.microsoft.com`, `https://portal.azure.com`, of het algemene Teams-eindpunt resulteert in een fout. 
+> Eenmalige wachtwoordcode gebruikers moeten aanmelden met een koppeling met de context van de tenant (bijvoorbeeld `https://myapps.microsoft.com/?tenantid=<tenant id>` of `https://portal.azure.com/<tenant id>`, of in geval van een geverifieerde standaarddomein `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Directe koppelingen naar toepassingen en bronnen ook werken, zolang ze de context van de tenant zijn. Gastgebruikers ook kunnen zijn op dit moment kan niet aanmelden met behulp van eindpunten waarvoor geen tenant-context. Bijvoorbeeld, met behulp van `https://myapps.microsoft.com`, `https://portal.azure.com`, of het algemene Teams-eindpunt resulteert in een fout. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Gebruikerservaring voor gastgebruikers eenmalige wachtwoordcode
 Met verificatie van de eenmalige wachtwoordcode, kan de gastgebruiker de uitnodiging inwisselen door een directe koppeling te klikken of met behulp van de uitnodiging per e-mail. In beide gevallen moet een bericht in de browser geeft aan dat een code naar e-mailadres van de gastgebruiker verzonden. De gastgebruiker selecteert **code naartoe sturen**:

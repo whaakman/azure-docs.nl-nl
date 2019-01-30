@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343024"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215857"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech-API
 
@@ -40,7 +40,7 @@ Content-Length: 0
 
 De vereiste header-informatie voor token-toegang is als volgt.
 
-Naam| Indeling | Beschrijving
+Name| Indeling | Beschrijving
 ----|----|----
 OCP-Apim-Subscription-Key | ASCII | Uw abonnementssleutel
 
@@ -59,11 +59,11 @@ Clients moeten het volgende eindpunt gebruiken voor toegang tot de Text to Speec
 
 De volgende tabel ziet u de HTTP-headers die worden gebruikt voor spraak synthese aanvragen.
 
-Header |Waarde |Opmerkingen
+Header |Value |Opmerkingen
 ----|----|----
-Inhoudstype | toepassing/ssml + xml | De invoer inhoudstype.
-X-Microsoft-uitvoerindeling | **1.** ssml-16 khz-16-bits-mono-tts <br> **2.** raw-16 khz-16-bits-mono-pcm <br>**3.** audio-16 khz-16 kbps-mono-siren <br> **4.** riff-16 khz-16 kbps-mono-siren <br> **5.** riff-16 khz-16-bits-mono-pcm <br> **6.** audio-16 khz-128kbitrate-mono-mp3 <br> **7.** audio-16 khz-64kbitrate-mono-mp3 <br> **8.** audio-16 khz-32kbitrate-mono-mp3 | De uitvoer audio-indeling.
-X-Search-toepassings-id | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de clienttoepassing wordt aangeduid. Dit kan de opslag-ID voor apps zijn. Als een niet beschikbaar is, kan de ID gebruiker gegenereerd voor een toepassing zijn.
+Content-Type | application/ssml+xml | De invoer inhoudstype.
+X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bits-mono-tts <br> **2.** raw-16 khz-16-bits-mono-pcm <br>**3.** audio-16 khz-16 kbps-mono-siren <br> **4.** riff-16 khz-16 kbps-mono-siren <br> **5.** riff-16 khz-16-bits-mono-pcm <br> **6.** audio-16 khz-128kbitrate-mono-mp3 <br> **7.** audio-16 khz-64kbitrate-mono-mp3 <br> **8.** audio-16 khz-32kbitrate-mono-mp3 | De uitvoer audio-indeling.
+X-Search-AppId | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de clienttoepassing wordt aangeduid. Dit kan de opslag-ID voor apps zijn. Als een niet beschikbaar is, kan de ID gebruiker gegenereerd voor een toepassing zijn.
 X-Search-ClientID | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de instantie van een toepassing voor elke installatie wordt aangeduid.
 Gebruikersagent | De naam van de toepassing | De toepassingsnaam is vereist en moet minder dan 255 tekens.
 Autorisatie | Autorisatietoken |  Zie de <a href="#Subscription">Autorisatietoken</a> sectie.
@@ -125,8 +125,8 @@ Fout | Beschrijving
 ----|----
 HTTP-/ 400 Ongeldige aanvraag | Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Eén reden voor het ophalen van het antwoord 'Ongeldige' is een tekenreekswaarde die langer is dan de toegestane lengte doorgegeven. Een korte beschrijving van de problematische parameter is opgenomen.
 HTTP/401-niet gemachtigd | De aanvraag is niet gemachtigd.
-HTTP-/ 413 RequestEntityTooLarge  | De invoer SSML is groter dan wat wordt ondersteund.
-HTTP 502/BadGateway | Er is een probleem met netwerk of een probleem met de serverzijde.
+HTTP/413 RequestEntityTooLarge  | De invoer SSML is groter dan wat wordt ondersteund.
+HTTP/502 BadGateway | Er is een probleem met netwerk of een probleem met de serverzijde.
 
 Een voorbeeld van een foutbericht is als volgt:
 
@@ -179,7 +179,7 @@ Text to Speech-API van Microsoft SSML 1.0 ondersteunt, zoals gedefinieerd in W3C
   ```
 
 > [!NOTE]
-> De gegevens heeft om te worden van 8 kB of 16 kB wav wordt ingediend in de volgende indeling: **CRC code** (CRC-32): 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0xFFFFFFFF; **Audio-indeling vlag**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0xFFFFFFFF; **Aantal**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0x7FFFFFFF; **Grootte van de hoofdtekst van de binaire**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0x7FFFFFFF; **Binaire hoofdtekst**: n bytes.
+> Houd er rekening mee de audiogegevens is 8 kB of 16 kB wav wordt ingediend in de volgende indeling: **CRC code** (CRC-32): 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0xFFFFFFFF; **Audio-indeling vlag**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0xFFFFFFFF; **Aantal**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0x7FFFFFFF; **Grootte van de hoofdtekst van de binaire**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0x7FFFFFFF; **Binaire hoofdtekst**: n bytes.
 
 ## <a name="SampleApp"></a>Voorbeeld van een toepassing
 
@@ -214,9 +214,9 @@ NL-Internet Explorer | Man | "Microsoft Server spraak tekst en spraak, spraak (e
 NL-IN | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Heera, Apollo)"
 NL-IN | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, PriyaRUS)"
 NL-IN | Man | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Ravi, Apollo)"
-nl-NL | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, ZiraRUS)"
-nl-NL | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, JessaRUS)"
-nl-NL | Man | "Microsoft Server spraak tekst en spraak, spraak (en-US, BenjaminRUS)"
+en-US | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, ZiraRUS)"
+en-US | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, JessaRUS)"
+en-US | Man | "Microsoft Server spraak tekst en spraak, spraak (en-US, BenjaminRUS)"
 es-ES | Vrouw | "Microsoft Server tekst naar spraak stem (es-ES, Laura, Apollo)"
 es-ES | Vrouw | "Microsoft Server tekst naar spraak stem (es-ES, HelenaRUS)"
 es-ES | Man | "Microsoft Server tekst naar spraak stem (es-ES, Pablo, Apollo)"

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964013"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207391"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Over de Azure Site Recovery Deployment Planner voor Hyper-V-noodherstel naar Azure
 
@@ -84,7 +84,7 @@ Het hulpprogramma heeft drie belangrijke fasen voor Hyper-V: lijst ophalen met d
 
 | Serververeiste | Beschrijving |
 |---|---|
-|VM-lijst ophalen, profileren en meten van doorvoer |<ul><li>Besturingssysteem: Microsoft Windows Server 2016 of Microsoft Windows Server 2012 R2 </li><li>Machineconfiguratie: 8 vCPU's, 16 GB RAM, 300 GB harde schijf</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>De virtuele machine waarop u de Azure Site Recovery ontwikkelingsplannertool uitvoert moet worden toegevoegd aan de TrustedHosts-lijst van alle Hyper-V-servers.</li><li>Virtuele machines voor alle Hyper-V-servers die geprofileerd moeten worden dienen te worden toegevoegd aan de TrustedHosts-lijst van de client VM van waar het hulpprogramma wordt uitgevoerd. [Meer informatie voor het toevoegen van servers in de lijst TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Het hulpprogramma moet met Beheerdersrechten worden uitgevoerd vanuit PowerShell of de opdrachtregelconsole op de client</ul></ul>|
+|VM-lijst ophalen, profileren en meten van doorvoer |<ul><li>Besturingssysteem: Microsoft Windows Server 2016 of Microsoft Windows Server 2012 R2 </li><li>Machineconfiguratie: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>De virtuele machine waarop u de Azure Site Recovery ontwikkelingsplannertool uitvoert moet worden toegevoegd aan de TrustedHosts-lijst van alle Hyper-V-servers.</li><li>Alle Hyper-V-servers moeten worden geprofileerd moeten worden toegevoegd aan de TrustedHosts-lijst van de client VM van waar het hulpprogramma wordt uitgevoerd. [Meer informatie voor het toevoegen van servers in de lijst TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Het hulpprogramma moet met Beheerdersrechten worden uitgevoerd vanuit PowerShell of de opdrachtregelconsole op de client</ul></ul>|
 | Rapporten genereren | Een Windows-pc of Windows-server met Microsoft Excel 2013 of hoger |
 | Gebruikersmachtigingen | Administrator-account voor toegang tot het Hyper-V cluster/de Hyper-V-host tijdens weergave van de VM's en profileringsbewerkingen.<br>Alle hosts die moeten worden geprofileerd dienen een administrator-account te hebben voor het account met dezelfde referenties, dat wil zeggen gebruikersnaam en wachtwoord
  |
@@ -115,9 +115,9 @@ De aanbevolen configuratie van de virtuele machine: 8 Vcpu, 16 GB RAM-geheugen, 
 1.  Pak de gecomprimeerde map uit.
 De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDeploymentPlanner.exe in de map op het hoogste niveau.
 
-Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit. E:\ASR implementatie Planner_v2.3.zip
+Voorbeeld: Kopieer het ZIP-bestand naar station E:\ en pak het uit. E:\ASR Deployment Planner_v2.3.zip
 
-E:\ASR implementatie Planner_v2.3\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Bijwerken naar de nieuwste versie van de implementatieplanner
 Als u een eerdere versie van de implementatieplanner hebt, doe dan het volgende:

@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366545"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219818"
 ---
 # <a name="experimentation"></a>Experiment
 
@@ -35,8 +35,8 @@ Met behulp van het logboekbestand, zoekt experimenten te vinden van het beleid m
 * Evaluatie van het beleid test `--cb_type` (inverse neiging zullen zijn score (`ips`) of dubbel robuuste (`dr`). Zie voor meer informatie, [contextuele bandieten voorbeeld](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
 * Tests randnummers.
 * Tests kwadratische interactieve functies:
-   * **brute-force fase**: alle combinaties met test `--q_bruteforce_terms` paren of minder.
-   * **greedy fase**: voegt het beste paar totdat er is geen verbetering voor `--q_greedy_stop` wordt afgerond.
+   * **brute-force fase**: Test alle combinaties met `--q_bruteforce_terms` paren of minder.
+   * **greedy fase**: Voegt de beste combinatie totdat er is geen verbetering voor `--q_greedy_stop` wordt afgerond.
 * Een tweede opschoning van hyper-parameters uitvoert (`learning rate`, `L1 regularization`, en `power_t`).
 
 De parameters waarmee deze stappen bevatten sommige argumenten Vowpal Wabbit:
@@ -54,12 +54,12 @@ Zie voor een gedetailleerde uitleg van de bovenstaande argumenten [Vowpal Wabbit
 
 ## <a name="prerequisites"></a>Vereisten
 - Vowpal Wabbit: Geïnstalleerd en op het pad.
-  - Windows: [gebruiken de `.msi` installatieprogramma](https://github.com/eisber/vowpal_wabbit/releases).
+  - Windows: [Gebruik de `.msi` installatieprogramma](https://github.com/eisber/vowpal_wabbit/releases).
   - Andere platforms: [Haal de broncode](https://github.com/JohnLangford/vowpal_wabbit/releases).
 - Python 3: Geïnstalleerd en op het pad.
 - NumPy: Gebruik de package manager van uw keuze.
-- De *mwt-Microsoft-ds* opslagplaats: [kloon de opslagplaats](https://github.com/Microsoft/mwt-ds).
-- Besluit Service JSON-logboekbestand: omvat standaard de base opdracht `--dsjson`, waardoor Decision Service JSON parseren van het bestand invoergegevens. [Ophalen van een voorbeeld van deze indeling](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- De *mwt-Microsoft-ds* opslagplaats: [Kloon de opslagplaats](https://github.com/Microsoft/mwt-ds).
+- Besluit Service JSON-logboekbestand: De basis-opdracht bevat standaard `--dsjson`, waardoor Decision Service JSON parseren van het bestand invoergegevens. [Ophalen van een voorbeeld van deze indeling](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Gebruik
 Ga naar `mwt-ds/DataScience` en uit te voeren `Experimentation.py` met de relevante argumenten, zoals beschreven in de volgende code:

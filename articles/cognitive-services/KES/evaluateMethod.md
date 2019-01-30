@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d6ddb76954108c037dc4135393df8622c9dbd101
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128261"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220770"
 ---
 # <a name="evaluate-method"></a>Methode evalueren
 
@@ -27,13 +27,13 @@ Normaal gesproken worden een expressie opgehaald uit een antwoord aan de methode
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-Naam|Waarde|Beschrijving
+Name|Value|Beschrijving
 ----|----|----
-markering       | Tekenreeks met tekst | Gestructureerde query-expressie die een subset van entiteiten van de index geselecteerd.
+expr       | Tekenreeks met tekst | Gestructureerde query-expressie die een subset van entiteiten van de index geselecteerd.
 Kenmerken | Tekenreeks met tekst | Met door komma's gescheiden lijst van kenmerken om op te nemen in de reactie.
 count      | Getal (standaard = 10) | Maximum aantal resultaten dat moet worden geretourneerd.
 offset     | Getal (standaard = 0) | De index van het eerste resultaat om terug te keren.
-sorteren op |   Tekenreeks met tekst | Naam van het kenmerk dat wordt gebruikt om de resultaten, gevolgd door de optionele sorteervolgorde te sorteren (standaard = asc): "*attrname*[: (asc&#124;desc)] '.  Indien niet opgegeven, worden de resultaten worden geretourneerd door het natuurlijke logboek kans te verkleinen.
+orderby |   Tekenreeks met tekst | Naam van het kenmerk dat wordt gebruikt om de resultaten, gevolgd door de optionele sorteervolgorde te sorteren (standaard = asc): "*attrname*[: (asc&#124;desc)] '.  Indien niet opgegeven, worden de resultaten worden geretourneerd door het natuurlijke logboek kans te verkleinen.
 timeout  | Getal (standaard = 1000) | Time-out in milliseconden. Alleen de resultaten berekend voordat de time-out is verstreken, worden geretourneerd.
 
 Met behulp van de *aantal* en *offset* parameters, een groot aantal resultaten kan worden verkregen incrementeel ten opzichte van meerdere aanvragen.

@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 71aa20c779ae0c73db3d7ce6f267524c5bf71ea5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340457"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214557"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migreren van implementaties naar het nieuwe prijsmodel
 
@@ -37,7 +37,7 @@ De toewijzing van de oude lagen eenheden schalen wordt weergegeven in de volgend
 
 Als u wilt migreren naar de nieuwe laag, het volgende doen:
 
-## <a name="step-1-check-your-existing-deployment"></a>Stap 1: Controleer de bestaande implementatie
+## <a name="step-1-check-your-existing-deployment"></a>Stap 1: Uw bestaande implementatie controleren
 Ga naar de [Custom Speech Service portal](http://cris.ai), en controleert u uw bestaande implementaties. In ons voorbeeld zijn er twee implementaties. Een implementatie wordt uitgevoerd op een S0-laag en de andere implementatie wordt uitgevoerd op een S1-laag. De implementaties worden weergegeven in de **implementatieopties** kolom van de volgende tabel:
 
 ![De pagina implementaties](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
@@ -57,7 +57,7 @@ Ga naar de [Custom Speech Service portal](http://cris.ai), en controleert u uw b
 
     ![De pagina 'Uw prijscategorie kiezen'](../../../media/cognitive-services/custom-speech-service/custom-speech-update-pricing.png)
 
-## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>Stap 3: Controleer de migratiestatus in de portal voor Custom Speech Service
+## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>Stap 3: De migratiestatus van de in de portal voor Custom Speech Service controleren
 Ga terug naar de Custom Speech Service-portal en controleer uw implementaties. (Als het browservenster nog steeds geopend is, vernieuwd.) 
 
 De status van de gerelateerde implementatie moet zijn overgeschakeld naar *verwerking*. U kunt ook de migratie valideren door het controleren van de **implementatieopties** kolom. Er kan nu vindt u informatie over schaaleenheden en logboekregistratie. De schaaleenheden moeten overeenkomen met uw vorige prijscategorie. De logboekregistratie moet ook worden ingeschakeld op, zoals wordt weergegeven in de tabel:
@@ -72,5 +72,5 @@ De status van de gerelateerde implementatie moet zijn overgeschakeld naar *verwe
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer zelfstudies:
 * [Een aangepast akoestisch model maken](cognitive-services-custom-speech-create-acoustic-model.md)
-* [Een aangepaste taalmodel maken](cognitive-services-custom-speech-create-language-model.md)
+* [Een aangepast taalmodel maken](cognitive-services-custom-speech-create-language-model.md)
 * [Maak een aangepaste spraak-naar-tekst-eindpunt](cognitive-services-custom-speech-create-endpoint.md)

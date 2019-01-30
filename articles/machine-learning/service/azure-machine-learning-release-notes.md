@@ -11,16 +11,49 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: MT
+ms.openlocfilehash: 9556a87b8de08dadb211d73e93f3daa9033c2cc1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304091"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221314"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
 In dit artikel meer informatie over de versies van de Azure Machine Learning-service. 
+
+## <a name="2019-01-28"></a>2019-01-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine Learning-SDK voor Python v1.0.10
+
++ **SDK-referentiedocumenten**: https://aka.ms/aml-sdk
+
++ **Wijzigingen**: 
+  + Azure ML-SDK heeft niet langer azure cli-pakketten als afhankelijkheid. Basisversie van azure cli en azure-cli-profiel afhankelijkheden zijn specifiek, verwijderd uit de azureml-core. Dit zijn de gebruiker die invloed hebben op wijzigingen:
+    + Als u 'az login' uitvoeren en klik vervolgens met behulp van azureml-sdk, doet de SDK de browser of apparaataanmelding code nog een keer. Het niet de status van alle referenties die zijn gemaakt door 'az login' gebruiken.
+    + Gebruik voor de Azure CLI-verificatie, zoals het gebruik van 'az login', _azureml.core.authentication.AzureCliAuthentication_ klasse. Voer voor de Azure CLI-verificatie, _pip-installatie azure-cli_ in de Python-omgeving waarin u de azureml-sdk hebt geïnstalleerd.
+    + Als u 'az login' met behulp van een service-principal voor automatisering, wordt u aangeraden _azureml.core.authentication.ServicePrincipalAuthentication_ klasse, zoals azureml-sdk niet de status van de referenties die zijn gemaakt door azure CLI gebruiken. 
+
++ **Oplossingen voor problemen**: Deze release bevat voornamelijk kleine correcties
+
+### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning Data Prep SDK v1.0.8
+
++ **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
+
++ **Oplossingen voor problemen**
+  + De prestaties van het ophalen van gegevens profielen aanzienlijk verbeterd.
+  + Kleine problemen opgelost met betrekking tot rapportage van fouten.
+  
+### <a name="azure-portal-new-features"></a>Azure-portal: nieuwe functies
++ Nieuwe slepen en neerzetten grafieken ervaring voor rapporten. Gebruikers kunnen slepen een kolom of een kenmerk van de bron naar het grafiekgebied waarin het systeem automatisch een juiste grafiektype voor de gebruiker op basis van het type gegevens wordt selecteren. Gebruikers kunnen het grafiektype wijzigen naar andere van toepassing typen of extra kenmerken toevoegen.
+
+    Grafiektypen ondersteund:
+    - Lijndiagram
+    - Histogram
+    - Gestapeld staafdiagram
+    - BoxPlot
+    - Spreidingsplot
+    - Bel tekengebied
 
 ## <a name="2019-01-14"></a>2019-01-14
 

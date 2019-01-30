@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 4154950cf8d8b6ec2e47a9f8100cb7983ac127bf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 5ff6666eceeaee2296c6323eaa4e7201841a1526
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648034"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212457"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Grof taalgebruik filteren met de Translator Text-API toevoegen
 
@@ -26,7 +26,7 @@ Als u wilt om te voorkomen dat grof taalgebruik in de vertaling, zelfs als grof 
 De methode Translate() neemt de parameter 'opties', waarin het nieuwe element 'ProfanityAction'. De geaccepteerde waarden van ProfanityAction zijn "NoAction", "Gemarkeerd" en "Verwijderd."
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Geaccepteerde waarden van ProfanityAction en voorbeelden
-|ProfanityAction waarde | Bewerking | Voorbeeld: Bron - Japans | Voorbeeld: Target - Engels|
+|ProfanityAction waarde | Bewerking | Voorbeeld: Bron - Japans | Voorbeeld: Doel - Engels|
 | :---|:---|:---|:---|
 | NoAction | Standaard. Hetzelfde als de instelling van de optie. Grof taalgebruik wordt doorgegeven vanuit de bron naar doel. | 彼は変態です。 | Hij is aardig. |
 | Gemarkeerd | Grof woorden worden omringd door de XML-tags \<grof taalgebruik >... \</profanity >. | 彼は変態です。 | Hij is een \<grof taalgebruik > jerk\</profanity >. |

@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340287"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209387"
 ---
 # <a name="how-to-improve-your-classifier"></a>Hoe u de classificatie verbeteren
 
@@ -41,23 +41,23 @@ Een andere overweging is dat u moet ervoor zorgen dat uw gegevens is verdeeld. B
 
 Installatiekopieën die representatief zijn voor wat worden verzonden naar de classificatie bij normaal gebruik bieden. Bijvoorbeeld, als u een classificatie 'apple', de gehanteerde classificatie mogelijk niet nauwkeurig als u foto's van de appels in platen, maar zorg voorspellingen op foto's van appels op structuren alleen trainen. Met inbegrip van tal van installatiekopieën zorgen ervoor dat de classificatie is niet gericht en goed kunt generaliseren. Hieronder worden enkele manieren die kunt u uw training diverser ingesteld:
 
-__Achtergrond:__ installatiekopieën van het object in het zicht van verschillende achtergronden (dat wil zeggen, de vruchten op plaat versus vruchten in eigenschappenverzameling voor kruidenierswaren) bieden. Foto's in de context zijn beter dan foto's in het zicht van neutrale achtergronden, zoals ze vindt u meer informatie voor de classificatie.
+__Achtergrond:__ Installatiekopieën van het object in het zicht van verschillende achtergronden (dat wil zeggen, de vruchten op plaat versus vruchten in eigenschappenverzameling voor kruidenierswaren) bevatten. Foto's in de context zijn beter dan foto's in het zicht van neutrale achtergronden, zoals ze vindt u meer informatie voor de classificatie.
 
 ![Afbeelding van achtergrond-voorbeelden](./media/getting-started-improving-your-classifier/background.png)
 
-__Verlichting:__ installatiekopieën voorzien van uiteenlopende belichting (dat wil zeggen, genomen met flash, hoge blootstelling, enz.), met name als de afbeeldingen die worden gebruikt voor voorspelling verschillende belichting hebben. Het is ook handig om op te nemen van installatiekopieën met gevarieerde verzadiging, hue en helderheid.
+__Verlichting:__ Installatiekopieën met gevarieerde belichting opgeven (dat wil zeggen, genomen met flash, hoge blootstelling, enz.), met name als de afbeeldingen die worden gebruikt voor voorspelling verschillende belichting hebben. Het is ook handig om op te nemen van installatiekopieën met gevarieerde verzadiging, hue en helderheid.
 
 ![Afbeelding van verlichting voorbeelden](./media/getting-started-improving-your-classifier/lighting.png)
 
-__Objectgrootte van:__ Geef installatiekopieën waarin de objecten van zijn verschillende grootte voor het vastleggen van verschillende onderdelen van het object. Een foto van Boeket bijvoorbeeld worden gepresenteerd bananen en een Close-up van een enkele bananen. Verschillende sizing helpt de classificatie beter te generaliseren.
+__Objectgrootte van:__ Afbeeldingen waarin de objecten van uiteenlopende sizing vastleggen van verschillende onderdelen van het object opgeven. Een foto van Boeket bijvoorbeeld worden gepresenteerd bananen en een Close-up van een enkele bananen. Verschillende sizing helpt de classificatie beter te generaliseren.
 
 ![Afbeelding van de grootte van voorbeelden](./media/getting-started-improving-your-classifier/size.png)
 
-__Camerahoek:__ installatiekopieën die zijn gemaakt met verschillende camerahoeken te bieden. Als uw foto's worden genomen met een set van vaste camera's (zoals surveillancecamera's), zorg er dan voor dat u een ander label toewijzen aan elke camera, zelfs als ze dezelfde objecten om te voorkomen dat overfitting - modellering van niet-gerelateerde objecten (zoals lampposts) als de belangrijkste functie vastleggen.
+__Camerahoek:__ Afbeeldingen die met verschillende camerahoeken bieden. Als uw foto's worden genomen met een set van vaste camera's (zoals surveillancecamera's), zorg er dan voor dat u een ander label toewijzen aan elke camera, zelfs als ze dezelfde objecten om te voorkomen dat overfitting - modellering van niet-gerelateerde objecten (zoals lampposts) als de belangrijkste functie vastleggen.
 
 ![Afbeelding van de hoek-voorbeelden](./media/getting-started-improving-your-classifier/angle.png)
 
-__Stijl:__ afbeeldingen van verschillende stijlen van dezelfde klasse (dat wil zeggen, verschillende soorten citrus) bieden. Echter, hebt u afbeeldingen van objecten van hebt u aanzienlijk verschillende stijlen (dat wil zeggen, Mickey muis ten opzichte van een echte gesprekken rat), het verdient aanbeveling hun afzonderlijke functies label als afzonderlijke klassen beter vertegenwoordigen.
+__Stijl:__ Installatiekopieën van verschillende stijlen van dezelfde klasse (dat wil zeggen, verschillende soorten citrus) bevatten. Echter, hebt u afbeeldingen van objecten van hebt u aanzienlijk verschillende stijlen (dat wil zeggen, Mickey muis ten opzichte van een echte gesprekken rat), het verdient aanbeveling hun afzonderlijke functies label als afzonderlijke klassen beter vertegenwoordigen.
 
 ![Afbeelding van de stijl van voorbeelden](./media/getting-started-improving-your-classifier/style.png)
 

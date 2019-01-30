@@ -6,16 +6,16 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 58fb5d4be2137eed7d62e702f08bdd66c80be347
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9ed4f14ee5c3f6023e5529aca7fbd824f5ca460a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468055"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207034"
 ---
 # <a name="support-and-help-options"></a>Opties voor ondersteuning en hulp
 
@@ -61,11 +61,11 @@ Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een
 
 |Onderdeel/gebied  |Tags  |
 |---------|---------|
-|Spraakherkenning |[[microsoft-cognitieve + spraak-naar-tekst]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Spraaksynthese |[[microsoft-cognitieve + tekst-naar-spraak]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Spraakomzetting |[[microsoft-cognitieve + vertaling]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Bedoeling van spraak |[[microsoft-cognitieve + luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|Algemene spraak SDK |[[microsoft-cognitieve +-spraak-api van microsoft]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Spraakherkenning |[[microsoft-cognitive+speech-to-text]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Spraaksynthese |[[microsoft-cognitive+text-to-speech]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Spraakomzetting |[[microsoft-cognitive+translation]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Bedoeling van spraak |[[microsoft-cognitive+luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > De volgende posts in Stack Overflow tips over het formulier vragen bevatten en broncode toevoegen. Deze richtlijnen volgt, kan u helpen verhogen van de kans dat leden van de community beoordelen en snel reageren op uw vraag:  

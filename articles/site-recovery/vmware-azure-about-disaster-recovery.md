@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 0984f53c70baa50916e125d096a612ad8f061228
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972818"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210332"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Over herstel na noodgevallen van virtuele VMware-machines naar Azure
 
@@ -72,7 +72,7 @@ On-premises dit is wat u nodig hebt om te doen:
 
 1. U moet een aantal accounts instellen:
 
-    - Als u virtuele VMware-machines repliceert, is een account voor Site Recovery voor toegang tot vCenter-SErver of vSphere ESXi-hosts nodig voor het automatisch detecteren van virtuele machines.
+    - Als u virtuele VMware-machines repliceert, is een account voor Site Recovery voor toegang tot vCenter-Server of vSphere ESXi-hosts nodig voor het automatisch detecteren van virtuele machines.
     - Er is een account nodig voor het installeren van de Site Recovery Mobility service-agent op elke fysieke computer of de virtuele machine die u wilt repliceren.
 
 2. U moet de compatibiliteit van uw VMware-infrastructuur controleren als u die eerder niet hebt gedaan.

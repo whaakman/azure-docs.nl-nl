@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: b03ee4ebf1113fd422d34ebf219461e75c4a5a45
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970760"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208173"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Ondersteuningsmatrix voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar een secundaire site
 
@@ -40,7 +40,7 @@ De volgende tabel geeft een overzicht van ondersteuning voor het besturingssyste
 **Besturingssysteem** | **Details**
 --- | ---
 Windows Server | 64-bits Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 met op minimaal SP1.
-Linux | Red Hat Enterprise Linux 6.7, 6,8, 6,9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6,8, 6,9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6,8 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
+Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6,8 met Red Hat compatibele kernel of Unbreakable Enterprise Kernel versie 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
 
 
 ## <a name="linux-machine-storage"></a>Opslag van de Linux-machine
@@ -64,7 +64,7 @@ Host - IPv6 | Nee
 Gast-VM - NIC-koppeling | Nee
 Gast-VM - IPv4 | Ja
 Gast-VM - IPv6 | Nee
-Statische IP-adres Gues VM Windows/Linux- | Ja
+Gast-VM Windows/Linux - statisch IP-adres | Ja
 Gast-VM - Multi-NIC | Ja
 
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b6ea1ee4eb8b55d2da4069ef19a268ec68f49cb4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796746"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216265"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Het gebruik van andere invoer
 
@@ -86,7 +86,7 @@ U hebt nu de drie acties.
 
 Laten we trainen het model door het maken van een ander dialoogvenster van de trein meer.
 
-### <a name="second-model-train-dialog"></a>Dialoogvenster van de trein tweede Model
+### <a name="second-model-train-dialog"></a>Second Model Train Dialog
 
 1. In het linkerdeelvenster klikt u op "Train-dialoogvensters" en vervolgens de knop 'Nieuwe Train dialoogvenster'.
 2. In het deelvenster chat, waarbij de status "Typ uw bericht …", typt u "Kunt u doen?"

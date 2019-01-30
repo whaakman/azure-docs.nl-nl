@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e9b9620c3c631a9984bc6d1d02dc792c592b6e69
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078386"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210672"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault beheerd opslagaccount - CLI
 
@@ -82,8 +82,46 @@ In de onderstaande instructies volgen, zijn we Key Vault toewijzen als een servi
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+    
+## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Toegang tot uw storage-account met SAS-tokens
+
+In deze sectie bespreken we hoe u bewerkingen op uw storage-account kunt doen met het ophalen van [SAS-tokens](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) uit Key Vault
+
+In de onderstaande sectie we laten zien hoe u uw storage-accountsleutel die zijn opgeslagen in Key Vault ophalen en deze te gebruiken om te maken van de definitie van een SAS (Shared Access Signature) voor uw opslagaccount.
+
+> [!NOTE] 
+  Er zijn 3 manieren om te verifiëren naar Key Vault, omdat u kunt lezen de [basisconcepten](key-vault-whatis.md#basic-concepts)
+- Met behulp van de beheerde Service-identiteit (ten zeerste aanbevolen)
+- Met behulp van Service-Principal en certificaat 
+- Met Service-Principal en het wachtwoord (niet aanbevolen)
+
+```cs
+// Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
+
+// Get a SAS token for our storage from Key Vault. SecretUri is of the format https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
+var sasToken = await kv.GetSecretAsync("SecretUri");
+
+// Create new storage credentials using the SAS token.
+var accountSasCredential = new StorageCredentials(sasToken.Value);
+
+// Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
+var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null);
+
+var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
+```
+
+Als uw SAS-token bijna verlopen is, klikt u vervolgens u het SAS-token opnieuw ophalen uit de Sleutelkluis en de code bijwerken
+
+```cs
+// If your SAS token is about to expire, get the SAS Token again from Key Vault and update it.
+sasToken = await kv.GetSecretAsync("SecretUri");
+accountSasCredential.UpdateSASToken(sasToken);
+```
+
+
 ### <a name="relavant-azure-cli-cmdlets"></a>Relavant Azure CLI-cmdlets
-- [Opslag-Cmdlets van Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
+[Opslag-Cmdlets van Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>Relevante Powershell-cmdlets
 

@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239299"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208632"
 ---
 # <a name="analyze-method"></a>Analysemethode
 
 > [!IMPORTANT]
-> De Preview-versie voor de linguïstische analyse uit gebruik is genomen op 9 augustus 2018. Wordt u aangeraden [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) voor tekst-verwerking en analyse.
+> De preview van Linguistic Analysis is op 9 augustus 2018 uit gebruik genomen. We raden u aan [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) te gebruiken voor tekstverwerking en -analyse.
 
 De **analyseren** REST-API wordt gebruikt voor het analyseren van de invoer van een bepaalde natuurlijke taal.
 Dat kan worden te vinden de [zinnen en tokens](Sentences-and-Tokens.md) binnen die invoer, zoeken de [part-of-speech tags](POS-tagging.md), of het vinden van de [constitutency structuur](Constituency-Parsing.md).
@@ -38,11 +38,11 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Naam | Type | Vereist | Beschrijving
+Name | Type | Vereist | Beschrijving
 -----|-------|----------|------------
-**Taal**    | tekenreeks | Ja | ISO taalcode die moet worden gebruikt voor analyse van de twee letters. Engels is bijvoorbeeld "en".
+**language**    | string | Ja | ISO taalcode die moet worden gebruikt voor analyse van de twee letters. Engels is bijvoorbeeld "en".
 **analyzerIds** | lijst met tekenreeksen | Ja | Lijst met GUID's van de analyzers om toe te passen. Zie de Analyzers-documentatie voor meer informatie.
-**Tekst**        | tekenreeks | Ja | Onbewerkte invoer kunnen worden geanalyseerd. Dit wordt mogelijk een korte tekenreeks, zoals een woord of woordgroep, een volledige zin, of een volledige alinea of discourse.
+**text**        | string | Ja | Onbewerkte invoer kunnen worden geanalyseerd. Dit wordt mogelijk een korte tekenreeks, zoals een woord of woordgroep, een volledige zin, of een volledige alinea of discourse.
 
 ## <a name="response-json"></a>Antwoord (JSON)
 
@@ -50,25 +50,25 @@ Een matrix van analysis-uitvoer, één voor elk kenmerk dat is opgegeven in de a
 
 De resultaten er als volgt uitzien:
 
-Naam | Type | Beschrijving
+Name | Type | Beschrijving
 -----|------|--------------
-analyzerId | tekenreeks | GUID van de opgegeven analyzer
+analyzerId | string | GUID van de opgegeven analyzer
 Resultaat | object | resultaat van de Analyzer
 
 Houd er rekening mee dat het type van het resultaat is afhankelijk van het type invoer analyzer.
 
 ### <a name="tokens-response-json"></a>Tokens antwoord (JSON)
 
-Naam | Type | Beschrijving
+Name | Type | Beschrijving
 -----|------|-------------
 Resultaat | lijst met objecten zin | zin grenzen geïdentificeerd binnen de tekst |
-resultaat [x]. Offset | int | tekenverschuiving van de eerste van elke zin |
+result[x].Offset | int | tekenverschuiving van de eerste van elke zin |
 resultaat [x]. Len | int | de lengte in tekens van elke zin |
 resultaat [x]. Tokens | lijst met tokens objecten | token grenzen die zijn geïdentificeerd in de zin |
-resultaat [x]. [J]-tokens. Offset | int | vanaf teken offset van het token |
+result[x].Tokens[y].Offset | int | vanaf teken offset van het token |
 resultaat [x]. [J]-tokens. Len | int | de lengte in tekens van het token |
-resultaat [x]. [J]-tokens. RawToken | tekenreeks | de tekens in het token, voordat u normalisering |
-resultaat [x]. [J]-tokens. NormalizedToken | tekenreeks | een gestandaardiseerde vorm van het teken, veilige voor gebruik in een [parseren structuur](Constituency-Parsing.md); bijvoorbeeld, een haakje openen ' (' - LRB - wordt |
+resultaat [x]. [J]-tokens. RawToken | string | de tekens in het token, voordat u normalisering |
+resultaat [x]. [J]-tokens. NormalizedToken | string | een gestandaardiseerde vorm van het teken, veilige voor gebruik in een [parseren structuur](Constituency-Parsing.md); bijvoorbeeld, een haakje openen ' (' - LRB - wordt |
 
 Voorbeeld van invoer: ' Dit is een test. Hello.'
 Voorbeeld van JSON-antwoord:
@@ -158,7 +158,7 @@ Aanvraagtekst: JSON-nettolading
 }
 ```
 
-Antwoord: JSON
+Reactie: JSON
 ```json
 [
   {

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 5477b1b3dc14a94713074a72751b732262880258
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 3c67a6fc7345cb533ad0c7088ac09fb02d3da1f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650961"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213971"
 ---
 <h1>Documentatie over Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.</p>
@@ -131,7 +131,7 @@ ms.locfileid: "53650961"
                     <div class="cardText">
                         <h3>Afbeeldingen analyseren met behulp van Computer Vision</h3>
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">C# gebruiken</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/java-analyze">Java gebruiken</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Java gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Node.js gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze">Python gebruiken</a></p>
                     </div>

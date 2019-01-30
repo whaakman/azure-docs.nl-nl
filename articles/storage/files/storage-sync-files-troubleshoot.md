@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cf86d2a644c2732f27442a807dec1ad960b94af5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fe712648cf3e76f4161f9f3a7b97b7990bc692a1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095154"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214463"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -879,6 +879,7 @@ Als het probleem niet is opgelost, moet u het hulpprogramma AFSDiag uitvoeren:
 6. Een ZIP-bestand met Logboeken en logboekbestanden voor tracering wordt opgeslagen in de uitvoermap die u hebt opgegeven.
 
 ## <a name="see-also"></a>Zie ook
+- [Monitor voor Azure File Sync](storage-sync-files-monitoring.md)
 - [Veelgestelde vragen over Azure Files](storage-files-faq.md)
 - [Problemen met Azure Files in Windows oplossen](storage-troubleshoot-windows-file-connection-problems.md)
 - [Problemen met Azure Files oplossen in Linux](storage-troubleshoot-linux-file-connection-problems.md)

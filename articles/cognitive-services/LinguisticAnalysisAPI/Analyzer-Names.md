@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 997dcdd6ce99815a79006b40b87568e573c63ff3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237227"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221672"
 ---
 # <a name="analyzer-names"></a>Analysenamen
 
 > [!IMPORTANT]
-> De Preview-versie voor de linguïstische analyse uit gebruik is genomen op 9 augustus 2018. Wordt u aangeraden [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) voor tekst-verwerking en analyse.
+> De preview van Linguistic Analysis is op 9 augustus 2018 uit gebruik genomen. We raden u aan [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) te gebruiken voor tekstverwerking en -analyse.
 
 Een enigszins gecompliceerd naamgevingsconventie voor analyse gebruiken we beide flexibiliteit voor analyse en precisie begrijpen wat een naam betekent toe te passen.
 Analysenamen bestaat uit vier onderdelen: een ID, de soort een specificatie en een van de implementatie.

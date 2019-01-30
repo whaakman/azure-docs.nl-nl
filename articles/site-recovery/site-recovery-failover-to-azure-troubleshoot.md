@@ -1,26 +1,22 @@
 ---
 title: Problemen met failover naar Azure fouten oplossen | Microsoft Docs
 description: In dit artikel worden manieren voor het oplossen van veelvoorkomende fouten in de failover wordt uitgevoerd naar Azure beschreven.
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255088"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207493"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Fouten bij het uitvoeren van een failover een virtuele machine naar Azure oplossen
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Fouten bij het uitvoeren van een failover VM met VMware of fysieke machine naar Azure oplossen
 
 Mogelijk ontvangt u een van de volgende fouten tijdens de failover van een virtuele machine naar Azure. Om op te lossen, gebruikt u de stappen beschreven voor elke fout.
 
@@ -48,7 +44,9 @@ Site Recovery kan niet een mislukte maken via de klassieke virtuele machine in A
 
 Site Recovery kan niet een mislukte maken via de virtuele machine in Azure. Dit kan gebeuren omdat een interne activiteiten van de hydration is mislukt voor de on-premises virtuele machine.
 
-Als wilt maken van een machine in Azure, is de Azure-omgeving vereist enkele van de stuurprogramma's in opstarten start status en -services zoals DHCP moet in staat automatisch starten. Dus hydration activiteit, op het moment van failover, converteert het opstarttype van **atapi, intelide, storflt, storvsc en vmbus stuurprogramma's** opstarten Start. Ook wordt het opstarttype van enkele services, zoals DHCP geconverteerd naar automatisch starten. Deze activiteit kan mislukken vanwege problemen met de specifieke. Als u wilt wijzigen handmatig het opstarttype van de stuurprogramma's, volgt u de onderstaande stappen te volgen:
+Als wilt maken van een machine in Azure, is de Azure-omgeving vereist enkele van de stuurprogramma's in opstarten start status en -services zoals DHCP moet in staat automatisch starten. Dus hydration activiteit, op het moment van failover, converteert het opstarttype van **atapi, intelide, storflt, storvsc en vmbus stuurprogramma's** opstarten Start. Ook wordt het opstarttype van enkele services, zoals DHCP geconverteerd naar automatisch starten. Deze activiteit kan mislukken vanwege problemen met de specifieke. 
+
+Handmatig wijzigen het opstarttype van de stuurprogramma's voor **Windows Guest OS**, volgt u de onderstaande stappen te volgen:
 
 1. [Download](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) Nee-hydratie script en voer als volgt. Met dit script controleert als virtuele machine is vereist dat hydration.
 
@@ -78,8 +76,8 @@ Als wilt maken van een machine in Azure, is de Azure-omgeving vereist enkele van
 
 Als de **Connect** knop op de failover-VM in Azure is uitgeschakeld en u bent niet verbonden met Azure via een Express Route of Site-naar-Site VPN-verbinding, vervolgens
 
-1. Ga naar **virtuele machine** > **netwerken**, klik op de naam van de netwerkinterface vereist.  ![de netwerkinterface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navigeer naar **Ip-configuraties**, klikt u op het naamveld van de vereiste IP-configuratie. ![IP-configuraties](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. Ga naar **virtuele machine** > **netwerken**, klik op de naam van de netwerkinterface vereist.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navigeer naar **Ip-configuraties**, klikt u op het naamveld van de vereiste IP-configuratie. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Om in te schakelen openbaar IP-adres, klikt u op **inschakelen**. ![IP inschakelen](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Klik op **vereiste instellingen configureren** > **nieuw**. ![Maak een nieuwe](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Voer de naam van het openbare adres, kiest u de standaardopties voor **SKU** en **toewijzing**, klikt u vervolgens op **OK**.

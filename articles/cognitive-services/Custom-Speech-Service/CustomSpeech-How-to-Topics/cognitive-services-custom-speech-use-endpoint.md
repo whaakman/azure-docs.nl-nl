@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3f99172f486c374cdbd0b6ebd50fdf7bfec98ec3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341796"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227145"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Een aangepast spraak naar tekst-eindpunt gebruiken
 
@@ -36,7 +36,7 @@ De service wordt ervan uitgegaan dat de gegevens in realtime wordt verzonden. Al
 
 Voor het verzenden van aanvragen naar uw aangepast eindpunt met behulp van de speech client-bibliotheek, start u de opname-client. Gebruik de Speech Client SDK van [NuGet](http://nuget.org/). Zoeken naar *spraakherkenning*, en selecteer het pakket met spraakherkenning van Microsoft voor uw platform. Een voorbeeld van code kan worden gevonden op [GitHub](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). De Speech Client-SDK biedt een klasse factory **SpeechRecognitionServiceFactory**, die biedt de volgende methoden:
 
-  *   ```CreateDataClient(...)```: Een gegevens-opname-client.
+  *   ```CreateDataClient(...)```: Een client opname van gegevens.
   *   ```CreateDataClientWithIntent(...)```: Een opname-client voor gegevens met de bedoeling.
   *   ```CreateMicrophoneClient(...)```: Een microfoon opname-client.
   *   ```CreateMicrophoneClientWithIntent(...)```: Een microfoon opname-client met de bedoeling.

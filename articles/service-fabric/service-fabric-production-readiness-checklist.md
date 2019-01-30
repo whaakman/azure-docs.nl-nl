@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: ac263ef842c780e09576303f2f49e782612294c2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159111"
+ms.locfileid: "55206966"
 ---
 # <a name="production-readiness-checklist"></a>Controlelijst voor productiegereedheid
 
@@ -62,7 +62,7 @@ Als u de Service Fabric Reliable Services of Reliable Actors-programmeermodel ge
 23. Vermijd [veel voorkomende valkuilen](service-fabric-work-with-reliable-collections.md) bij het gebruik van betrouwbare verzamelingen.
 24. De prestaties van het geheugen .NET CLR tellers bij het uitvoeren van belastingtesten en controleren op hoge frequenties van garbagecollection of overmatig heap groei bewaken.
 25. Offline back-up van onderhouden [Reliable Services en Reliable Actors](service-fabric-reliable-services-backup-restore.md) en testen van het herstelproces.
-26. Het primaire NodeType virtuele Machine-exemplaren in het ideale geval moet gelijk zijn aan het minimale aantal voor uw Clusters betrouwbaarheidslaag; voorwaarden wanneer dat nodig is meer dan de minimale laag bevat: tijdelijk als verticaal schalen u bent van uw primaire NodeTypes Virtual Machine Scale de SKU.
+26. Het primaire NodeType virtuele Machine-exemplaren in het ideale geval moet gelijk zijn aan het minimale aantal voor uw Clusters betrouwbaarheidslaag; voorwaarden wanneer dat nodig is meer dan de minimale laag bevat: tijdelijk als verticaal schalen van uw primaire NodeTypes Virtual Machine Scale de SKU.
 
 ## <a name="optional-best-practices"></a>Optionele procedures
 

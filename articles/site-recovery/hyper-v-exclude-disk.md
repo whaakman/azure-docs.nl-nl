@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: 9b26c80b59a57b4a9b2423e1a9028cf723f40fb1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321225"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216962"
 ---
 # <a name="exclude-disks-from-replication"></a>Schijven uitsluiten van replicatie
 In dit artikel wordt beschreven hoe u schijven uitsluit van replicatie. Door schijven uit te sluiten, kunt u de verbruikte replicatiebandbreedte optimaliseren of de resources aan de doelzijde waarvan deze schijven gebruikmaken, optimaliseren.
@@ -59,7 +59,7 @@ We leggen het uitsluiten van schijven uit aan de hand van twee scenario's:
 - tempdb-schijf in SQL Server
 - Schijf van het wisselbestand (pagefile.sys)
 
-## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Excample 1: De tempdb-schijf in SQL Server uitsluiten
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Voorbeeld 1: De tempdb-schijf in SQL Server uitsluiten
 We gaan uit van een virtuele SQL Server-machine met een tempdb die kan worden uitgesloten.
 
 De naam van de virtuele schijf is SalesDB.

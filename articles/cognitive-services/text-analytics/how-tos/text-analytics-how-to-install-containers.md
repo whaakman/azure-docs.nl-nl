@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: e3b1655207f3baba6ea6e3cf2f00e3540a3602ad
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c874bdd36813438edbb4546d3ee11705535d5d51
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969366"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207119"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installeren en uitvoeren van de Text Analytics-containers
 
@@ -116,7 +116,7 @@ Als de container op de [hostcomputer](#the-host-computer), de volgende procedure
 
 Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren op een van de drie containers. De opdracht maakt gebruik van de volgende parameters:
 
-| Tijdelijke aanduiding | Waarde |
+| Tijdelijke aanduiding | Value |
 |-------------|-------|
 |{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de pagina van de Text Analytics sleutels van de Azure portal.  |
 |{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de pagina van de Text Analytics overzicht van de Azure portal.|
@@ -176,7 +176,7 @@ Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbind
 
 De `docker run` opdracht maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
 
-| Optie | Description |
+| Optie | Beschrijving |
 |--------|-------------|
 | `ApiKey` | De API-sleutel van de _Tekstanalyse_ resource gebruikt voor het bijhouden van informatie over facturering. |
 | `Billing` | Het eindpunt van de _Tekstanalyse_ resource gebruikt voor het bijhouden van informatie over facturering.|

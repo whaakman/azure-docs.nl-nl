@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 00ce83a7ec52e24ce858c720e834b8396c2f808c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 118ecc08604cbe05181dd3ba943fd73a34fd47f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523962"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212474"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Een Azure File Sync-servereindpunt toevoegen/verwijderen
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het transformeren van uw Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -29,16 +29,16 @@ Voor het maken van een servereindpunt, moet u eerst ervoor zorgen dat de volgend
 - Zorg ervoor dat een synchronisatiegroep is geïmplementeerd. Meer informatie over het [maken van een synchronisatiegroep](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Zorg ervoor dat de server is verbonden met internet en dat Azure toegankelijk is. We gebruiken poort 443 voor alle communicatie tussen de server en onze service.
 
-## <a name="add-a-server-endpoint"></a>Een servereindpunt toevoegen
+## <a name="add-a-server-endpoint"></a>Servereindpunt toevoegen
 Een servereindpunt toevoegen, gaat u naar de gewenste synchronisatiegroep, en selecteer 'Servereindpunt toevoegen'.
 
-![Een nieuw servereindpunt toevoegen in het deelvenster van de groep synchroniseren](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
+![Nieuw servereindpunt toevoegen in het deelvenster met de synchronisatiegroep](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
 De volgende informatie is vereist onder **servereindpunt toevoegen**:
 
-- **Geregistreerde server**: de naam van de server of het cluster te maken van het servereindpunt op.
-- **Pad**: het pad op de Windows-Server moeten worden gesynchroniseerd als onderdeel van de groep voor synchronisatie.
-- **Cloud Tiering**: overschakelen naar de in- of uitschakelen van cloud tiering. Wanneer dit is ingeschakeld, cloud trapsgewijs worden *laag* bestanden naar uw Azure-bestandsshares. Dit converteert on-premises bestandsshares naar een cache in plaats van een volledige kopie van de gegevensset, om u te helpen bij het beheren van de ruimte-efficiëntie op de server.
+- **Geregistreerde server**: De naam van de server of het cluster te maken van het servereindpunt op.
+- **Pad**: Het pad op de Windows-Server moeten worden gesynchroniseerd als onderdeel van de groep voor synchronisatie.
+- **Cloud-Opslaglagen**: Overschakelen naar de in- of uitschakelen van cloud tiering. Wanneer dit is ingeschakeld, cloud trapsgewijs worden *laag* bestanden naar uw Azure-bestandsshares. Dit converteert on-premises bestandsshares naar een cache in plaats van een volledige kopie van de gegevensset, om u te helpen bij het beheren van de ruimte-efficiëntie op de server.
 - **Beschikbare volumeruimte**: de hoeveelheid vrije ruimte te reserveren op het volume dat het servereindpunt zich bevindt. Bijvoorbeeld, als de vrije ruimte op volume is ingesteld op 50% op een volume met een eindpunt met één server, ongeveer de helft van de hoeveelheid gegevens wordt in tiers worden verdeeld naar Azure Files. Ongeacht of cloud tiering is ingeschakeld, wordt uw Azure-bestandsshare is altijd een volledige kopie van de gegevens in de groep voor synchronisatie.
 
 Selecteer **maken** het servereindpunt toevoegen. De bestanden in een naamruimte uit een groep voor synchronisatie wordt nu synchroon worden gehouden. 
@@ -70,3 +70,4 @@ Het servereindpunt verwijdert:
 ## <a name="next-steps"></a>Volgende stappen
 - [Een server met Azure File Sync registreren/registratie](storage-sync-files-server-registration.md)
 - [Planning voor de implementatie van een Azure File Sync](storage-sync-files-planning.md)
+- [Monitor voor Azure File Sync](storage-sync-files-monitoring.md)

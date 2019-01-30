@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: fa25c144737c4d070b2dbd08700c68e617950e0d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 148efb47d123938c3914f36e1432d447e277b051
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210554"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -59,9 +59,9 @@ China | China-Oost, China-Noord, China North2, China-Oost 2
 >
 > - Voor **Brazilië-Zuid** regio, die u kunt repliceren en failover naar een van de volgende: Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noord-centraal VS-regio's. Er moet worden opgemerkt Site Recovery is alleen ingeschakeld voor Brazilië-Zuid moet worden gebruikt als een regio van de gegevensbron van waar de virtuele machines kunnen worden beveiligd. Deze **kan niet worden gebruikt als een doel-DR-regio** voor het gebruik van de Azure-regio's, zoals Zuid-centraal VS. De reden hiervoor is dat van latentie waargenomen vanwege geografische afstand dat het verdient aanbeveling om te selecteren van een andere Amerika andere regio dan Brazilië-Zuid.
 > 
-> - Als u **niet kunnen zien van een regio** waar u **een kluis maken** Controleer vervolgens of uw abonnement heeft toegang tot resources in die regio maken. Bijvoorbeeld: Als u niet kunt-kluis maken in Frankrijk-Zuid kunnen uw abonnement geen toegang hebben tot Frankrijk-Zuid-regio. Ondersteuningsticket bestand onder probleem Type "abonnementsbeheer" en probleem Typ 'Overige algemene vragen' onderwerp ' whitlelist abonnement voor de XXX Azure-regio '
+> - Als u **niet kunnen zien van een regio** waar u **een kluis maken** Controleer vervolgens of uw abonnement heeft toegang tot resources in die regio maken. Bijvoorbeeld: Als u niet kunt-kluis maken in Frankrijk-Zuid kunnen uw abonnement geen toegang hebben tot Frankrijk-Zuid-regio. Ondersteuningsticket bestand onder probleem Type "abonnementsbeheer" en probleem Typ 'Overige algemene vragen' onderwerp ' abonnement voor de XXX geaccepteerde Azure-regio '
 > 
-> - Als u **niet kunnen zien van een regio** binnen een geografische cluster **tijdens het inschakelen van replicatie** Controleer vervolgens of uw abonnement heeft toegang tot de virtuele machine maken in deze regio. Bijvoorbeeld: Als u probeert te beveiligen van virtuele machines van Frankrijk-centraal aan Frankrijk-Zuid en ziet Frankrijk-Zuid onder de regio vervolgkeuzelijst en vervolgens uw abonnement heeft geen toegang tot het implementeren van virtuele machine in deze regio. Ondersteuningsticket bestand onder probleem Type "abonnementsbeheer" en probleem Typ 'Overige algemene vragen' onderwerp ' whitlelist abonnement voor de XXX Azure-regio '
+> - Als u **niet kunnen zien van een regio** binnen een geografische cluster **tijdens het inschakelen van replicatie** Controleer vervolgens of uw abonnement heeft toegang tot de virtuele machine maken in deze regio. Bijvoorbeeld: Als u probeert te beveiligen van virtuele machines van Frankrijk-centraal aan Frankrijk-Zuid en ziet Frankrijk-Zuid onder de regio vervolgkeuzelijst en vervolgens uw abonnement heeft geen toegang tot het implementeren van virtuele machine in deze regio. Ondersteuningsticket bestand onder probleem Type "abonnementsbeheer" en probleem Typ 'Overige algemene vragen' onderwerp ' abonnement voor de XXX geaccepteerde Azure-regio '
 > - U kunt geen regio's in meerdere geografische computerclusters hierboven genoemde selecteren.
 
 

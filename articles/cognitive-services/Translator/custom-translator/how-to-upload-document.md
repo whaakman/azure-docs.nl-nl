@@ -5,16 +5,16 @@ description: U kunt met behulp van de functie voor uploaden parallelle document 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633245"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217217"
 ---
 # <a name="upload-a-document"></a>Een document uploaden
 
@@ -37,11 +37,11 @@ Van [aangepaste Translator](https://portal.customtranslator.azure.ai) portal, kl
 
     a.  Document van het type:
 
-    -  Training: Deze documenten worden gebruikt voor trainingen.
-    -  Afstemmen: Zal deze documenten worden gebruikt voor het afstemmen van de set.
+    -  Training: Deze documenten wordt gebruikt voor de trainingset.
+    -  Tuning: Deze documenten wordt gebruikt voor het afstemmen van de set.
     -  Testen: Deze documenten wordt gebruikt voor het testen van de set.
-    -  Woordgroep woordenboek: Deze documenten worden gebruikt voor woordgroep woordenlijst.
-    -  Zin woordenboek: Deze documenten worden gebruikt voor de zin woordenlijst
+    -  Woordgroep woordenboek: Deze documenten wordt gebruikt voor de zinsnede woordenlijst.
+    -  Woordenlijst voor zin: Deze documenten worden gebruikt voor de zin woordenlijst
 
     b.  Combinatie van taal
 
@@ -50,9 +50,9 @@ Van [aangepaste Translator](https://portal.customtranslator.azure.ai) portal, kl
     d.  Vul in de betreffende sectie voor parallelle gegevens of gegevens van de keuzelijst met invoervak.
 
     -  Parallelle gegevens:
-        -  Bronbestand: Selecteer brontaal bestand vanaf uw lokale computer.
+        -  Bronbestand: Selecteer source-taalbestand vanaf uw lokale computer.
         -  Doelbestand: Selecteer doeltaal bestand vanaf uw lokale computer.
-        -  De naam van document: alleen gebruikt als u parallelle bestanden uploadt.
+        -  Naam van het document: Alleen gebruikt als u parallelle bestanden uploadt.
 
     - Keuzelijst met invoervak voor gegevens:
         -  Keuzelijst met invoervak voor bestand: Selecteer het bestand keuzelijst met invoervak voor vanaf uw lokale computer. Het bestand keuzelijst met invoervak voor bevat zowel de bron- en doeltaal zinnen. [Naamgevingsconventie](document-formats-naming-convention.md) is belangrijk voor de keuzelijst met invoervak voor bestanden.

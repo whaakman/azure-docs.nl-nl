@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413665"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228794"
 ---
 # <a name="azure-advanced-threat-detection"></a>Geavanceerde bedreigingsdetectie van Azure
 
@@ -115,7 +115,7 @@ Gegevensbronnen en oplossingen voor elke afzonderlijke recordtypen maken met hun
 
 Het merendeel van uw interactie met Log Analytics is via de Azure-portal, die wordt uitgevoerd in een browser en biedt u toegang tot configuratie-instellingen en verschillende hulpprogramma's om te analyseren en benutten van verzamelde gegevens. Vanuit de portal, kunt u het volgende gebruiken:
 * [Zoekopdrachten](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) waar het samenstellen van query's om verzamelde gegevens te analyseren.
-* [Dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), die u kunt aanpassen met grafische views van uw waardevolste zoekopdrachten.
+* [Dashboards](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), die u kunt aanpassen met grafische views van uw waardevolste zoekopdrachten.
 * [Oplossingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), die aanvullende functionaliteit en analysehulpprogramma's bieden.
 
 ![Analyseprogramma 's](./media/azure-threat-detection/azure-threat-detection-fig6.png)

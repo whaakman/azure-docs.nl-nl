@@ -5,16 +5,16 @@ description: Aangepaste Translator verklarende woordenlijst
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 35d2ef734e1d1ce71ae6c8d7a607fe0dad1915fb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 28f9ca2cdb622e54bf4938863e4dd826c28d92de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627394"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206422"
 ---
 # <a name="glossary"></a>Woordenlijst
 
@@ -35,4 +35,4 @@ De [aangepaste Translator](https://portal.customtranslator.azure.ai) verklarende
 | Bestanden testen            | Deze bestanden zijn vaak afgeleide bestanden, willekeurig geselecteerd uit de trainingsset (als u testset niet selecteert). Het doel van deze zinnen is om te evalueren van de nauwkeurigheid van de NAT-model. Dit zijn zinnen die u wilt om te controleren of dat het systeem zet nauwkeurig. Mogelijk wilt u dus een testset maken en uploaden naar de translator om ervoor te zorgen dat deze zinnen worden gebruikt in de evaluatie van het systeem (het genereren van een score BLEU).   |
 | Keuzelijst met invoervak voor bestand               | Een type bestand waarin de bron- en vertaalde zinnen zijn opgenomen in hetzelfde bestand. Ondersteunde bestandsindelingen (".tmx", ".xliff", ".xlf", ".lcl", '.xlsx').                                                                                                                                                                                                                                                                                                                       |
 | Archiefbestand             | Een bestand dat andere bestanden bevat. Ondersteunde bestandsindelingen (zip, gz, tgz).                                                                                                                                                                                                                                                                                                                                                                                                |
-| BLEU Score               | [BLEU](what-is-bleu-score.md) is de standaardmethode voor het evalueren van de 'precisie' of de nauwkeurigheid van het objectmodel vertaling. Hoewel er zich andere methoden voor evaluatie, vertrouwt Microsoft Translator BLEU methode nauwkeurigheid van het rapport voor Project eigenaars.
+| BLEU-score               | [BLEU](what-is-bleu-score.md) is de standaardmethode voor het evalueren van de 'precisie' of de nauwkeurigheid van het objectmodel vertaling. Hoewel er zich andere methoden voor evaluatie, vertrouwt Microsoft Translator BLEU methode nauwkeurigheid van het rapport voor Project eigenaars.

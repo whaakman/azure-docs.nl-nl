@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 399a0e6dd2b5c83a599aa50973417ba5a9be708d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 890ed64779c6e5704915609552cdd7490ede123a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813352"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210298"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren met behulp van technologieën In het geheugen in SQL-Database
 
@@ -163,7 +163,7 @@ Wanneer u niet-geclusterde columnstore-indexen, wordt de basistabel nog steeds o
 Als u hebt een **geclusterde** columnstore-index, de hele tabel niet meer beschikbaar is na de downgrade. Daarom raden wij aan dat u alle neerzetten *geclusterde* columnstore-indexen voordat u uw database naar een niet-ondersteunde servicelaag of het niveau downgraden.
 
 > [!Note]
-> Beheerd exemplaar ondersteunt Columstore indexen in alle lagen.
+> Beheerd exemplaar ondersteunt ColumnStore-indexen in alle lagen.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 

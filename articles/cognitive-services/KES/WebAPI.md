@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 131d8d58982b5430063aa3dc7b3d1982cd430148
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122022"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211301"
 ---
 # <a name="web-api-interface"></a>Web-API-Interface
 
@@ -29,8 +29,8 @@ Samen worden gebruikt, toestaan deze API-methoden voor het maken van een rijke s
 
 **Voorbeeld**
 
-In een domein academische publicaties, als een gebruiker de tekenreeks "latente s", de *interpreteren* methode krijgt u een set gerangschikte interpretaties, stellen dat de gebruiker kan worden te zoeken naar het sleutelwoord 'latente semantische analyse', de titel "latente structuur analysis', of andere expressies die beginnen met"latente s".  Deze informatie kan worden gebruikt voor het snel de gebruiker naar de gewenste lijst met zoekresultaten.
+In een domein academische publicaties, als een gebruiker de tekenreeks "latente s", de *interpreteren* methode krijgt u een set gerangschikte interpretaties, stellen dat de gebruiker kan worden te zoeken naar het sleutelwoord 'latente semantische analyse', de titel "latente structuur analysis', of andere expressies die beginnen met"latente s".  Deze informatie kan worden gebruikt om de gebruiker snel naar de gewenste zoekresultaten te leiden.
 
 Voor dit domein, de *evalueren* methode kan worden gebruikt om een set die overeenkomt met de publicaties van de academische index te halen en de *calchistogram* methode kan worden gebruikt voor het berekenen van de distributie van kenmerk waarden voor de overeenkomende publicaties, die kunnen worden gebruikt voor het verder filteren en verfijnen van de lijst met zoekresultaten.
 
-Houd er rekening mee dat de REST API-aanroepen ter verbetering van de leesbaarheid van de voorbeelden tekens (zoals spaties) die niet gecodeerd met een URL zijn bevatten. Uw code moet de juiste URL-codering van toepassing.
+Teneinde de voorbeelden beter leesbaar te maken, bevatten de aanroepen van de REST-API tekens (zoals spaties) die niet zijn gecodeerd als een URL. In uw code moet echter wel de juiste URL-codering worden toegepast.

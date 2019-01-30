@@ -5,16 +5,16 @@ description: Een woordenlijst is een uitgelijnde document een lijst van zinnen o
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a92e41ad9611981777012cd231845587a6f947b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627363"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212406"
 ---
 # <a name="what-is-a-dictionary"></a>Wat is een woordenlijst?
 
@@ -32,7 +32,7 @@ De woordenlijst zin kunt u een exacte doel vertaling voor een zin bron opgeven. 
 U kunt een model met behulp van alleen de gegevens van de woordenlijst trainen. Om dit te doen, selecteert u alleen de woordenlijst-document (of meerdere woordenlijst documenten) die u wilt opnemen en tik op model maken. Omdat dit een alleen-woordenlijst training is, is er geen minimum aantal training zinnen vereist. Uw model wordt meestal veel sneller dan een standaard training training voltooid.  De resulterende modellen gebruikt de Microsoft baseline modellen voor vertaling met de toevoeging van de woordenlijsten die u hebt toegevoegd.  U krijgt een controlelijst.
 
 >[!Note]
->Aangepaste Translator heeft geen zin uitlijnen woordenlijstbestanden, het is dus belangrijk dat er een gelijk aantal bron en doel-zinnen/zinnen in de woordenlijst-documenten zijn en dat ze exact zijn uitgelijnd.
+>Aangepaste Translator heeft geen zin uitlijnen woordenlijstbestanden, het is dus belangrijk dat er een gelijk aantal bron- en zinnen zijn / zinnen in de woordenlijst documenten en dat ze exact zijn uitgelijnd.
 
 ## <a name="recommendations"></a>Aanbevelingen
 

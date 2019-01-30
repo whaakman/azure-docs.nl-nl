@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342327"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219070"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Snelstartgids: Gebruik de Bing the spraakherkennings-API in C&#35; voor .NET in Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Quickstart: Gebruik de Bing the spraakherkennings-API in C&#35; voor .NET in Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -78,9 +78,9 @@ De spraak-API maakt deel uit van Cognitive Services (eerder Project Oxford). U k
 
    Elke categorie heeft drie erkenning modi:
 
-    * **ShortPhrase modus**: een utterance tot maximaal 15 seconden lang. Gegevens worden verzonden naar de server, ontvangt de client meerdere gedeeltelijke resultaten en één eindresultaat met meerdere n-beste keuzen.
-    * **LongDictation modus**: een utterance tot twee minuten lang. Gegevens worden verzonden naar de server, ontvangt de client meerdere gedeeltelijke resultaten en meerdere eindresultaten, op basis van waar de server pauzes in zinnen aangeeft.
-    * **Detectie van intentie**: de server retourneert meer gestructureerde informatie over de spraak. Voor het gebruik van detectie van intentie, moet u eerst een model met behulp van de trein [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+    * **ShortPhrase modus**: Een utterance tot maximaal 15 seconden lang. Gegevens worden verzonden naar de server, ontvangt de client meerdere gedeeltelijke resultaten en één eindresultaat met meerdere n-beste keuzen.
+    * **LongDictation modus**: Een utterance tot twee minuten lang. Gegevens worden verzonden naar de server, ontvangt de client meerdere gedeeltelijke resultaten en meerdere eindresultaten, op basis van waar de server pauzes in zinnen aangeeft.
+    * **Detectie van intentie**: De server retourneert meer gestructureerde informatie over de spraak. Voor het gebruik van detectie van intentie, moet u eerst een model met behulp van de trein [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 Voorbeeld-bestanden met deze voorbeeldtoepassing gebruiken. De bestanden in de opslagplaats die u hebt gedownload met dit voorbeeld onder de map samples/SpeechRecognitionServiceExample vinden. Deze voorbeeld-audiobestanden automatisch wordt uitgevoerd als er geen andere bestanden worden gekozen wanneer u selecteert **wav-bestanden gebruiken voor de modus Shortphrase** of **wav-bestanden gebruiken voor de modus Longdictation** als uw spraakinvoer. Op dit moment wordt alleen WAV audio-indeling ondersteund.
 
@@ -90,9 +90,9 @@ Voorbeeld-bestanden met deze voorbeeldtoepassing gebruiken. De bestanden in de o
 
 ### <a name="recognition-events"></a>Herkenning van gebeurtenissen
 
-* **Gedeeltelijke resultaten gebeurtenissen**: deze gebeurtenis wordt aangeroepen wanneer Spraakservice wat u mogelijk worden zeggen voorspelt, voordat u klaar bent met het spreken (als u `MicrophoneRecognitionClient`) of u klaar bent met het verzenden van gegevens (als u `DataRecognitionClient`).
-* **Gebeurtenissen op foutniveau**: wordt aangeroepen wanneer de service een fout wordt gedetecteerd.
-* **Intentie gebeurtenissen**: met de naam op de clients 'WithIntent' (alleen in de modus ShortPhrase) na de laatste opname resultaat in een gestructureerde JSON-doel wordt geparseerd.
+* **Gedeeltelijke resultaten gebeurtenissen**: Deze gebeurtenis wordt aangeroepen wanneer Spraakservice wat u mogelijk worden zeggen voorspelt, voordat u klaar bent met het spreken (als u `MicrophoneRecognitionClient`) of u klaar bent met het verzenden van gegevens (als u `DataRecognitionClient`).
+* **Gebeurtenissen op foutniveau**: Wordt aangeroepen wanneer de service een fout wordt gedetecteerd.
+* **Intentie gebeurtenissen**: Met de naam op de clients 'WithIntent' (alleen in de modus ShortPhrase) na de laatste opname resultaat in een gestructureerde JSON-doel wordt geparseerd.
 * **Gebeurtenissen resulteren**:
   * In `ShortPhrase` modus, deze gebeurtenis wordt genoemd en retourneert de resultaten van de n-beste nadat u klaar bent met het spreken.
   * In `LongDictation` modus wordt de gebeurtenis-handler heet meerdere keren op basis van waar de service pauzes in zinnen aangeeft.

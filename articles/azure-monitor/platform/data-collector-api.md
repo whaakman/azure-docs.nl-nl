@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 01/28/2019
 ms.author: bwren
-ms.openlocfilehash: 674a26b9c8eb5fe8f44b416b5296b61c6678d2cd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186171"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211097"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview-versie)
 Dit artikel ziet u hoe u de API HTTP Data Collector gebruikt om gegevens te verzenden naar Log Analytics van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Log Analytics.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -47,17 +47,17 @@ Voor het gebruik van de API HTTP Data Collector, maakt u een POST-aanvraag met d
 | Inhoudstype |application/json |
 
 ### <a name="request-uri-parameters"></a>Aanvraag-URI-parameters
-| Parameter | Description |
+| Parameter | Beschrijving |
 |:--- |:--- |
-| Klant-id |De unieke id voor de Log Analytics-werkruimte. |
+| CustomerID |De unieke id voor de Log Analytics-werkruimte. |
 | Resource |De naam van de API-resource: / api/logs. |
 | API-versie |De versie van de API voor gebruik met deze aanvraag. Het is momenteel, 2016-04-01. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
-| Header | Description |
+| Header | Beschrijving |
 |:--- |:--- |
 | Autorisatie |De autorisatie-handtekening. Later in dit artikel, kunt u lezen over het maken van een HMAC-SHA256-header. |
-| Log-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens bevatten. De maximale grootte voor deze parameter is 100 tekens. |
+| Log-Type |Geef het recordtype van de gegevens die wordt verzonden. De maximale grootte voor deze parameter is 100 tekens. |
 | x-ms-date |De datum waarop de aanvraag is verwerkt, in de RFC 1123-indeling. |
 | Time-gegenereerd-veld |De naam van een veld in de gegevens die met het tijdstempel van het gegevensitem. Als u een veld opgeven en vervolgens de inhoud ervan worden gebruikt voor **TimeGenerated**. Als dit veld niet wordt opgegeven, de standaardwaarde voor **TimeGenerated** is de tijd die het bericht wordt opgenomen. De inhoud van het berichtenveld diende de ISO 8601-notatie jjjj-MM-ddTHH. |
 
@@ -138,7 +138,7 @@ Voor het identificeren van het gegevenstype van een eigenschap, voegt Log Analyt
 
 | Eigenschap gegevenstype | Achtervoegsel |
 |:--- |:--- |
-| Reeks |_K |
+| Reeks |_s |
 | Booleaans |_b |
 | Double-waarde |_d |
 | Datum/tijd |_t |
@@ -177,7 +177,7 @@ De HTTP-statuscode 200 betekent dat de aanvraag is ontvangen voor verwerking. Hi
 
 Deze tabel bevat de volledige reeks statuscodes die de service kan worden geretourneerd:
 
-| Code | Status | Foutcode | Description |
+| Code | Status | Foutcode | Beschrijving |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |De aanvraag is geaccepteerd. |
 | 400 |Ongeldig verzoek |InactiveCustomer |De werkruimte is gesloten. |

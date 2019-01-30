@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8dfcee6e7f0e2fd21c35ed2507b572c6e8cffc42
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232984"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217234"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasegegevens detectie en classificatie
 
@@ -28,7 +28,7 @@ Detecteren en classificeren van uw meest gevoelige gegevens (business, financië
 - Verschillende security-scenario's, zoals bewaking (controle) en waarschuwingen voor afwijkende toegang tot gevoelige gegevens.
 - Toegang tot beheren en beperken van de beveiliging van databases met zeer gevoelige gegevens.
 
-Gegevensdetectie en classificatie maakt deel uit van de [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP)-aanbieding, dit een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL is. Gegevensdetectie en classificatie kan worden geopend en worden beheerd via de centrale SQL ATP-portal.
+Gegevensdetectie en classificatie maakt deel uit van de [SQL geavanceerde gegevensbeveiliging](sql-advanced-threat-protection.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. Gegevensdetectie en classificatie kan worden geopend en worden beheerd via de centrale SQL AD-portal.
 
 > [!NOTE]
 > Dit document heeft alleen betrekking op Azure SQL Database. Zie voor SQL Server (on-premises) [SQL-gegevensdetectie en classificatie](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -41,7 +41,7 @@ Gegevensdetectie en classificatie introduceert een aantal geavanceerde services 
 
   De classificatie-engine van uw database scant en identificeert de kolommen die potentieel gevoelige gegevens bevatten. Vervolgens wordt u een eenvoudige manier om te bekijken en toepassen van de juiste classificatie aanbevelingen voor afstemming via Azure portal.
 
-- **Labels**
+- **Labeling**
 
   Gevoeligheid classificatielabels kunnen persistent worden gelabeld voor kolommen met nieuwe classificatie metagegevens kenmerken die zijn geïntroduceerd in de SQL-Engine. Deze metagegevens kan vervolgens worden gebruikt voor geavanceerde op basis van gevoeligheid controle en bescherming van scenario's.
 
@@ -77,7 +77,7 @@ Zodra de tenant-brede, door het beleid is gedefinieerd, kunt u doorgaan met de c
 
 1. Ga naar de [Azure Portal](https://portal.azure.com).
 
-2. Navigeer naar **Advanced Threat Protection** onder de kop van de beveiliging in uw Azure SQL Database-deelvenster. Klik voor Advanced Threat Protection inschakelen en klik vervolgens op de **gegevensdetectie en -classificatie (preview)** kaart.
+2. Navigeer naar **gegevensbeveiliging geavanceerde** onder de kop van de beveiliging in uw Azure SQL Database-deelvenster. Klik om te schakelen van geavanceerde gegevensbeveiliging, en klik vervolgens op de **gegevensdetectie en -classificatie (preview)** kaart.
 
    ![Een database controleren](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -134,8 +134,8 @@ T-SQL kunt u kolomclassificaties toevoegen/verwijderen, evenals alle classificat
 > [!NOTE]
 > Bij het gebruik van T-SQL voor het beheren van labels, is er geen validatie die labels toegevoegd aan een kolom in de organisatie information protection-beleid (de set van labels die worden weergegeven in de portal aanbevelingen) bestaan. Het is daarom aan u kunt dit controleren.
 
-- De indeling van een of meer kolommen toevoegen/bijwerken: [GEVOELIGHEIDSCLASSIFICATIE toevoegen](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- De classificatie uit een of meer kolommen verwijderen: [GEVOELIGHEIDSCLASSIFICATIE niet verwijderen](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- De indeling van een of meer kolommen toevoegen/bijwerken: [GEVOELIGHEIDSCLASSIFICATIE TOEVOEGEN](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- De classificatie uit een of meer kolommen verwijderen: [GEVOELIGHEIDSCLASSIFICATIE VERWIJDEREN](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Alle classificaties weergeven op de database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 U kunt ook REST-API's gebruiken voor het programmatisch beheren van classificaties. De gepubliceerde REST-API's ondersteunen de volgende bewerkingen:
@@ -147,7 +147,7 @@ U kunt ook REST-API's gebruiken voor het programmatisch beheren van classificati
 
 ## <a id="subheading-5"></a>Volgende stappen
 
-- Meer informatie over [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
+- Meer informatie over [SQL Advanced gegevensbeveiliging](sql-advanced-threat-protection.md).
 - Overweeg de configuratie van [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) voor bewaking en controle van toegang tot uw geclassificeerde gevoelige gegevens.
 
 <!--Anchors-->
