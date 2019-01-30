@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2740da5a51e95a327a868734a7f009dddf40219a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/20/2018
+ms.openlocfilehash: 41b89e5239d72954de7202b87aaf02a2bdf90fd1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964931"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241080"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Verwijderen van de MySQL-resourceprovider
 
@@ -51,7 +52,7 @@ De Azure Stack-Operator is verantwoordelijk voor de volgende Opschoningstaken:
 4. Voer het script DeployMySqlProvider.ps1 is met de volgende parameters:
     - **Verwijder**. Hiermee verwijdert u de resourceprovider en alle bijbehorende resources.
     - **PrivilegedEndpoint**. De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden.
-    - **Azure-omgeving**. De Azure-omgeving gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties.
+    - **AzureEnvironment**. De Azure-omgeving gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties.
     - **CloudAdminCredential**. De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot de bevoorrechte eindpunt.
     - **DirectoryTenantID**
     - **AzCredential**. De referentie voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack.

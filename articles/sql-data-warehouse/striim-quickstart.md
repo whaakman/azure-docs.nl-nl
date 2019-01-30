@@ -6,16 +6,16 @@ author: hirokib
 manager: jrj
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 09f3126725b9a2cd6a8277447c0eed4a16838429
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1f8c2590ea01e9a819ebdacd6b3774555dded800
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355455"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250837"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Realtimeplatform Azure SQL DW Marketplace bieden installatiehandleiding
 
@@ -47,7 +47,7 @@ Voer de volgende opdrachten het JDBC jar-bestand naar Realtimeplatform van lib m
 
    1. sudo su
    2. map/Tmp cd
-   3. MV sqljdbc42.jar /opt/striim/lib
+   3. mv sqljdbc42.jar /opt/striim/lib
    4. systemctl stop realtimeplatform-knooppunt
    5. systemctl stop realtimeplatform-DBMS-systemen
    6. systemctl start realtimeplatform-DBMS-systemen

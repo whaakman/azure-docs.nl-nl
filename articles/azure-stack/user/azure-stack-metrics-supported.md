@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.lastreviewed: 12/06/2018
+ms.openlocfilehash: c7b0332d2a1df9d61b95b73699bf04f32e3165ff
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097893"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240536"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Ondersteunde metrische gegevens met Azure Monitor in Azure Stack
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen*
+*Van toepassing op: Azure Stack-geïntegreerde systemen*
 
 U kunt uw metrische gegevens ophalen uit Azure monitor in Azure Stack in hetzelfde als de globale Azure. U kunt uw metingen maken in de portal, de REST-API ophalen of query's voor uitvoert met PowerShell of CLI.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 61d2c82f875c4f40e370515fd249e23601e91678
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7ab8b66d516368bf866aa9d2a202ccd261394b93
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232053"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243144"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure voor on-demand Red Hat Enterprise Linux-machines in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kunt u cloudproviders, zoals Azure, voor het spiegelen van de inhoud van Red Hat gehoste opslagplaats, aangepaste opslagplaatsen maken met Azure-specifieke inhoud en het beschikbaar maken voor virtuele machines door eindgebruikers.
@@ -51,12 +51,12 @@ Sommige klanten willen hun RHEL VM's naar een bepaalde kleine RHEL-versie vergre
 
 1. Niet-EUS opslagplaatsen uitschakelen:
     ```bash
-    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    sudo yum --disablerepo='*' remove 'rhui-azure-rhel7'
     ```
 
 1. EUS opslagplaatsen toevoegen:
     ```bash
-    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
 1. De variabele releasever vergrendelen:
@@ -103,15 +103,10 @@ De nieuwe Azure RHUI-servers worden geïmplementeerd met [Azure Traffic Manager]
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Verlopen RHUI-clientcertificaat op een virtuele machine bijwerken
 
-Als u een oudere RHEL VM-installatiekopie, bijvoorbeeld RHEL 7.4 (image-URN: `RedHat:RHEL:7.4:7.4.2018010506`), wordt er verbindingsproblemen met RHUI vanwege een SSL-clientcertificaat nu is verlopen (op 21 november-2018). Werk de RHUI-clientpakket op de virtuele machine met behulp van de volgende opdracht uit om dit probleem oplossen:
+Als u een oudere RHEL VM-installatiekopie, bijvoorbeeld RHEL 7.4 (image-URN: `RedHat:RHEL:7.4:7.4.2018010506`), wordt er verbindingsproblemen met RHUI vanwege een nu verlopen SSL-clientcertificaat. De fout die u ziet eruit als _'SSL peer geweigerd uw certificaat als verlopen'_. Werk de RHUI-clientpakket op de virtuele machine met behulp van de volgende opdracht uit om dit probleem oplossen:
 
 ```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
-```
-
-Als uw RHEL VM in US Government-cloud, gebruikt u de volgende opdracht uit:
-```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
 U kunt ook uitgevoerd `sudo yum update` werkt ook de certificaat-clientpakket ondanks fouten van 'verlopen SSL-certificaat' u voor andere opslagplaatsen ziet. Na de update, normale connectiviteit met andere opslagplaatsen RHUI dient te worden hersteld, zodat u kunt uitvoeren `sudo yum update` is.

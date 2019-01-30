@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
-ms.component: common
-ms.openlocfilehash: 5c77d7d8f1ce3b4a13e497d461244aae5b34d08c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631359"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247796"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheren van de Azure Blob-opslag Lifecycle (Preview)
 
@@ -209,7 +209,7 @@ Als u meer dan één actie op dezelfde blob definieert, is levensduurbeheer van 
 
 Preview-versie zijn de voorwaarden van de uitvoering van actie op basis van leeftijd. Basis-blobs gebruikt u de laatst gewijzigd om bij te houden van de leeftijd en blob-momentopnamen gebruiken de aanmaaktijd van de momentopname voor het bijhouden van leeftijd.
 
-| Actie tot uitvoering van voorwaarde | Voorwaarde-waarde | Description |
+| Actie tot uitvoering van voorwaarde | Voorwaarde-waarde | Beschrijving |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Geheel getal-waarde die aangeeft van de leeftijd in dagen | Geldige voorwaarde voor base blob-acties |
 | daysAfterCreationGreaterThan     | Geheel getal-waarde die aangeeft van de leeftijd in dagen | Geldige voorwaarde voor acties van blob-momentopname | 

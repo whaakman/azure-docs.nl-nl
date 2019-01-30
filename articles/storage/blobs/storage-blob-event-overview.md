@@ -7,13 +7,13 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
-ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.subservice: blobs
+ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735881"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247745"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van Blob storage
 
@@ -28,7 +28,7 @@ Kijk eens [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - CLI
 ![Event Grid-Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Blob Storage-accounts
-Gebeurtenissen van BLOB storage zijn beschikbaar in opslagaccounts voor algemeen gebruik v2 en Blob storage-accounts. **Algemeen gebruik v2** storage-accounts ondersteunen alle functies voor alle storage-services, waaronder Blobs, bestanden, wachtrijen en tabellen. Een **Blob-opslagaccount** is een opslagaccount dat speciaal is bedoeld om ongestructureerde gegevens als blobs (objecten) op te slaan in Azure Storage. Blob-opslagaccounts zijn vergelijkbaar met de opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Zie voor meer informatie, [overzicht van Azure storage-account](../common/storage-account-overview.md).
+Blob-opslaggebeurtenissen zijn beschikbaar in v2-opslagaccounts en Blob-opslagaccounts. **Algemeen gebruik v2** storage-accounts ondersteunen alle functies voor alle storage-services, waaronder Blobs, bestanden, wachtrijen en tabellen. Een **Blob-opslagaccount** is een opslagaccount dat speciaal is bedoeld om ongestructureerde gegevens als blobs (objecten) op te slaan in Azure Storage. Blob-opslagaccounts zijn vergelijkbaar met de opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie.
 
 ## <a name="available-blob-storage-events"></a>Beschikbare gebeurtenissen van Blob storage
 Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees.  Gebeurtenisabonnementen voor BLOB-opslag kunnen twee soorten gebeurtenissen omvatten:  
@@ -43,24 +43,24 @@ Gebeurtenissen van BLOB storage bevatten alle informatie die u nodig hebt om te 
 
 > |Eigenschap|Type|Beschrijving|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |onderwerp|tekenreeks|Volledige Azure Resource Manager-id van het opslagaccount dat u de gebeurtenis verzendt.|
-> |Onderwerp|tekenreeks|De relatieve resourcepad naar het object dat het onderwerp van de gebeurtenis is met behulp van dezelfde uitgebreid Azure Resource Manager-indeling die we gebruiken om te beschrijven van storage-accounts, services en containers voor Azure RBAC.  Deze indeling bevat een blobnaam letters behouden blijven.|
-> |eventTime|tekenreeks|Datum/tijd die de gebeurtenis is gegenereerd, in ISO 8601-notatie|
-> |type gebeurtenis|tekenreeks|"Microsoft.Storage.BlobCreated" of "Microsoft.Storage.BlobDeleted"|
-> |Id|tekenreeks|De unieke id als deze gebeurtenis|
-> |dataVersion|tekenreeks|De schemaversie van het gegevensobject.|
-> |metadataVersion|tekenreeks|De schemaversie van de eigenschappen van het hoogste niveau.|
+> |onderwerp|string|Volledige Azure Resource Manager-id van het opslagaccount dat u de gebeurtenis verzendt.|
+> |onderwerp|string|De relatieve resourcepad naar het object dat het onderwerp van de gebeurtenis is met behulp van dezelfde uitgebreid Azure Resource Manager-indeling die we gebruiken om te beschrijven van storage-accounts, services en containers voor Azure RBAC.  Deze indeling bevat een blobnaam letters behouden blijven.|
+> |eventTime|string|Datum/tijd die de gebeurtenis is gegenereerd, in ISO 8601-notatie|
+> |eventType|string|"Microsoft.Storage.BlobCreated" of "Microsoft.Storage.BlobDeleted"|
+> |Id|string|De unieke id als deze gebeurtenis|
+> |dataVersion|string|De schemaversie van het gegevensobject.|
+> |metadataVersion|string|De schemaversie van de eigenschappen van het hoogste niveau.|
 > |gegevens|object|Verzamelen van gegevens voor blob storage-specifieke gebeurtenis|
-> |data.contentType|tekenreeks|Het inhoudstype van de blob, zoals in de header Content-Type worden geretourneerd met de blob|
+> |data.contentType|string|Het inhoudstype van de blob, zoals in de header Content-Type worden geretourneerd met de blob|
 > |data.contentLength|getal|De grootte van de blob zoals integer voor een aantal bytes, zoals in de Content-Length-header worden geretourneerd met de blob in.  Met BlobCreated gebeurtenis, maar niet met BlobDeleted verzonden.|
-> |data.url|tekenreeks|De url van het object dat het onderwerp van de gebeurtenis|
-> |data.eTag|tekenreeks|De etag van het object wanneer deze gebeurtenis wordt gestart.  Niet beschikbaar voor de gebeurtenis BlobDeleted.|
-> |data.api|tekenreeks|De naam van de api-bewerking die deze gebeurtenis wordt geactiveerd. Deze waarde is voor BlobCreated gebeurtenissen, 'PutBlob', 'PutBlockList' of 'CopyBlob'. Deze waarde is voor BlobDeleted gebeurtenissen, 'DeleteBlob'. Deze waarden zijn de api-namen die aanwezig in de diagnostische logboeken van Azure Storage zijn. Zie [vastgelegd Operations en statusberichten](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |Data.sequencer|tekenreeks|Een ondoorzichtige tekenreeks-waarde voor de logische volgorde van gebeurtenissen voor elke specifieke blobnaam.  Gebruikers kunnen standaard tekenreeksvergelijking gebruiken om te begrijpen van de relatieve volgorde van de twee gebeurtenissen op de naam van de dezelfde blob.|
-> |data.requestId|tekenreeks|Service gegenereerde aanvraag-id voor de storage-API-bewerking. Kan worden gebruikt om te relateren aan Azure Storage diagnostische logboeken met het veld 'aanvraag-id-header' in de logboeken en wordt geretourneerd vanaf het initiëren van API-aanroepen in de header 'x-ms-request-id'. Zie [-indeling van logboekbestand](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.clientRequestId|tekenreeks|De opgegeven client aanvraag-id voor de opslag-API-bewerking. Kan worden gebruikt voor het correleren van diagnostische logboeken van Azure Storage met behulp van het veld 'client-request-id' in de logboeken en kan worden opgegeven in aanvragen van clients met behulp van de header 'x-ms-client-request-id'. Zie [-indeling van logboekbestand](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+> |data.url|string|De url van het object dat het onderwerp van de gebeurtenis|
+> |data.eTag|string|De etag van het object wanneer deze gebeurtenis wordt gestart.  Niet beschikbaar voor de gebeurtenis BlobDeleted.|
+> |data.api|string|De naam van de api-bewerking die deze gebeurtenis wordt geactiveerd. Deze waarde is voor BlobCreated gebeurtenissen, 'PutBlob', 'PutBlockList' of 'CopyBlob'. Deze waarde is voor BlobDeleted gebeurtenissen, 'DeleteBlob'. Deze waarden zijn de api-namen die aanwezig in de diagnostische logboeken van Azure Storage zijn. Zie [vastgelegd Operations en statusberichten](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
+> |data.sequencer|string|Een ondoorzichtige tekenreeks-waarde voor de logische volgorde van gebeurtenissen voor elke specifieke blobnaam.  Gebruikers kunnen standaard tekenreeksvergelijking gebruiken om te begrijpen van de relatieve volgorde van de twee gebeurtenissen op de naam van de dezelfde blob.|
+> |data.requestId|string|Service gegenereerde aanvraag-id voor de storage-API-bewerking. Kan worden gebruikt om te relateren aan Azure Storage diagnostische logboeken met het veld 'aanvraag-id-header' in de logboeken en wordt geretourneerd vanaf het initiëren van API-aanroepen in de header 'x-ms-request-id'. Zie [-indeling van logboekbestand](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
+> |data.clientRequestId|string|De opgegeven client aanvraag-id voor de opslag-API-bewerking. Kan worden gebruikt voor het correleren van diagnostische logboeken van Azure Storage met behulp van het veld 'client-request-id' in de logboeken en kan worden opgegeven in aanvragen van clients met behulp van de header 'x-ms-client-request-id'. Zie [-indeling van logboekbestand](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 > |data.storageDiagnostics|object|Diagnostische gegevens van tijd tot tijd worden opgenomen door de Azure Storage-service. Indien aanwezig, moet worden genegeerd door consumenten van gebeurtenissen.|
-|data.blobType|tekenreeks|Het type van de blob. Geldige waarden zijn 'BlockBlob' of 'PageBlob'.| 
+|data.blobType|string|Het type van de blob. Geldige waarden zijn 'BlockBlob' of 'PageBlob'.| 
 
 Hier volgt een voorbeeld van een gebeurtenis BlobCreated:
 ```json

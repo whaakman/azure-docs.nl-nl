@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359541"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247388"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -125,7 +126,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Description |  
+   | Parameter | Beschrijving |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -153,7 +154,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Description |  
+   | Parameter | Beschrijving |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -189,7 +190,7 @@ Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze
       Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Parameter | Description |  
+   | Parameter | Beschrijving |  
    |-----|-----|
    | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
@@ -444,7 +445,7 @@ Als u wilt de cmdlet uitvoert, hebt u het volgende nodig:
     <String>] [<CommonParameters>]
    ```
 
-| Parameter | Type | Description |
+| Parameter | Type | Beschrijving |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Reeks | Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
@@ -466,7 +467,7 @@ Get-AzsRegistrationToken genereert een registratietoken van de invoerparameters.
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parameter | Type | Description |
+| Parameter | Type | Beschrijving |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Reeks |  Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |

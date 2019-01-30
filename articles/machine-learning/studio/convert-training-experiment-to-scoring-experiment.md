@@ -1,6 +1,6 @@
 ---
 Titel: Model voor implementatie titleSuffix voorbereiden: Azure Machine Learning Studio description: Klik hier voor meer informatie over het voorbereiden van het getrainde model voor implementatie als een webservice op uw Machine Learning Studio-trainingsexperiment converteren naar een Voorspellend experiment.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.date: 03/28/2017
 ---

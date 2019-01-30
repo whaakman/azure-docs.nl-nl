@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968729"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246480"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Herstel na onherstelbare gegevensverlies
 
-*Is van toepassing op: Azure Stack-geïntegreerde systemen.*
+*Van toepassing op: Azure Stack-geïntegreerde systemen.*
 
 Azure Stack Azure-services worden uitgevoerd in uw datacenter. Azure Stack kunt uitvoeren op omgevingen zo klein is als vier knooppunten in één rack zijn geïnstalleerd. Daarentegen Azure wordt uitgevoerd in meer dan 40 regio's in meerdere datacenters en meerdere zones in elke regio. Gebruikersbronnen kunnen meerdere servers, rekken, datacenters en regio's omvatten. Met Azure Stack nog u alleen kiezen waarmee u uw volledige in de cloud implementeren met een enkele rack. Hiermee wordt aangegeven dat de cloud om het risico van catastrofale gebeurtenissen in uw datacenter of storingen als gevolg van belangrijke productfouten. Wanneer zich een noodsituatie voordoet, wordt het Azure Stack-exemplaar offline gaat. Alle gegevens is mogelijk niet kan worden hersteld.
 
@@ -32,11 +33,11 @@ Afhankelijk van de hoofdoorzaak van het verlies van gegevens moet u een service 
 
 In dit scenario adressen herstellen van de volledige installatie in het geval van een storing van de apparatuur en het opnieuw distribueren van de privécloud.
 
-| Scenario                                                           | Verlies van gegevens                            | Overwegingen                                                             |
+| Scenario                                                           | Data Loss                            | Overwegingen                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
 | Herstel na onherstelbare gegevensverlies vanwege een natuurramp of product-fout | Alle infrastructuur en de gebruiker en de app-gegevens | Gebruikerstoepassing en de gegevens zijn afzonderlijk uit infrastructuur-gegevens beveiligd |
 
-## <a name="workflows"></a>Werkstromen
+## <a name="workflows"></a>Workflows
 
 De reis van het beveiligen van Azure starten begint met het afzonderlijk back-ups van de infrastructuur en -app/tenant-gegevens. In dit document bevat informatie over het beveiligen van de infrastructuur. 
 

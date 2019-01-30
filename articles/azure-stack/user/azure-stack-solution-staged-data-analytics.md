@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 88c72994ec0c6cfc6222ccb31cabae7e354412eb
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/01/2018
+ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245528"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247354"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een gefaseerde data analytics-oplossing maken met Azure en Azure Stack 
 
@@ -131,7 +132,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
 4.  De functie-app maken met de instellingen die zijn opgegeven in de tabel onder de afbeelding.
 
-    | Instelling | Voorgestelde waarde | Description |
+    | Instelling | Voorgestelde waarde | Beschrijving |
     | ---- | ---- | ---- |
     | Naam van app | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app wordt aangeduid. Geldige tekens zijn `a` - `z`, `0``-9`, en `-`. |
     | Abonnement | Uw abonnement | Het abonnement waarmee deze nieuwe functie-app is gemaakt. |
@@ -182,7 +183,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
 3.  Gebruik de instellingen zoals opgegeven in de onderstaande tabel:
 
-    | Instelling | Voorgestelde waarde | Description |
+    | Instelling | Voorgestelde waarde | Beschrijving |
     | ------- | ------- | ------- |
     | Name | Uniek in uw functie-app | Naam van deze door Blob geactiveerde functie. |
     | Pad | \<het pad van de bovenstaande opslaglocatie > | Locatie in Blob Storage die wordt bewaakt. De bestandsnaam van de blob wordt doorgegeven in de binding als de parameter name. |
@@ -242,7 +243,7 @@ Gebruik de stappen en de instellingen die hierboven worden beschreven om te make
 
 2.  Gebruik de instellingen zoals opgegeven in de onderstaande tabel:
 
-    | Instelling | Voorgestelde waarde | Description |
+    | Instelling | Voorgestelde waarde | Beschrijving |
     | ------- | ------- | ------- |
     | Name | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
     | Pad | \<het pad van de bovenstaande opslaglocatie > | De locatie in de opslag die worden bewaakt. De bestandsnaam van de wachtrij wordt doorgegeven in de binding als de parameter name. |

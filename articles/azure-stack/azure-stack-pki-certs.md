@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024940"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244246"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -71,13 +72,13 @@ Voor uw implementatie, de [regio] en [externalfqdn] waarden moeten overeenkomen 
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | Openbare-Portal | Portal. &lt;regio >. &lt;FQDN-naam > | Portals | &lt;region>.&lt;fqdn> |
 | Beheerportal | adminportal. &lt;regio >. &lt;FQDN-naam > | Portals | &lt;region>.&lt;fqdn> |
-| Openbare Azure Resource Manager | beheer. &lt;regio >. &lt;FQDN-naam > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager-beheerder | adminmanagement. &lt;regio >. &lt;FQDN-naam > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager Public | beheer. &lt;regio >. &lt;FQDN-naam > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager-beheerder | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | * .table. &lt;regio >. &lt;FQDN-naam ><br>(Wildcard-SSL-certificaat) | Table Storage | de tabel. &lt;regio >. &lt;FQDN-naam > |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Queue Storage | wachtrij. &lt;regio >. &lt;FQDN-naam > |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Key Vault | kluis. &lt;regio >. &lt;FQDN-naam > |
-| KeyVaultInternal | *.adminvault. &lt;regio >. &lt;FQDN-naam ><br>(Wildcard-SSL-certificaat) |  Interne Keyvault |  adminvault. &lt;regio >. &lt;FQDN-naam > |
+| KeyVaultInternal | *.adminvault. &lt;regio >. &lt;FQDN-naam ><br>(Wildcard-SSL-certificaat) |  Interne Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
 | Beheerdersuitbreiding Host | *.adminhosting. \<regio >. \<FQDN-naam > (Wildcard-SSL-certificaten) | Beheerdersuitbreiding Host | adminhosting. \<regio >. \<FQDN-naam > |
 | Host van de openbare-extensie | * .hosting. \<regio >. \<FQDN-naam > (Wildcard-SSL-certificaten) | Host van de openbare-extensie | die als host fungeert. \<regio >. \<FQDN-naam > |
 

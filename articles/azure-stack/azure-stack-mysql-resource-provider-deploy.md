@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: 5609cb3cfeab7cbaae493403aac68b0ce56d299a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 118eeadb3611f6f176bd866f98c52545e4e6d7e1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244610"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247626"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider van MySQL in Azure Stack implementeren
 
@@ -89,19 +89,19 @@ Voer de **DeployMySqlProvider.ps1** script, dat bestaat uit de volgende taken:
 
 U kunt deze parameters vanaf de opdrachtregel opgeven. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven.
 
-| Parameternaam | Description | Opmerking of de standaardwaarde |
+| Parameternaam | Beschrijving | Opmerking of de standaardwaarde |
 | --- | --- | --- |
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ |
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |
 | **VMLocalCredential** | De referenties voor het lokale administrator-account van de MySQL-resourceprovider VM. | _Vereist_ |
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ |
-| **Azure-omgeving** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure AD-China **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure AD-China **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Voor alleen geïntegreerde systemen, moet uw certificaat-pfx-bestand in deze map worden geplaatst. Download voor niet-verbonden enviroments [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) naar deze map. U kunt eventueel een pakket voor Windows Update MSU hier kopiëren. | _Optionele_ (_verplichte_ voor geïntegreerde systemen of niet-verbonden omgevingen) |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
 | **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 |
 | **RetryDuration** | De time-outinterval tussen nieuwe pogingen in seconden. | 120 |
 | **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de opmerkingen bij de volgende). | Nee |
-| **Fouten opsporen-modus** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee |
+| **DebugMode** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee |
 | **AcceptLicense** | Hiermee slaat u de prompt om de GPL-licentie te accepteren.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>De MySQL-resourceprovider met behulp van een aangepast script implementeren

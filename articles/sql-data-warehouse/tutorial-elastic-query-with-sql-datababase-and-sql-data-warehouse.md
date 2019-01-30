@@ -6,18 +6,18 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 355ae1c27d0af8f77c2c9bda61c3581562050fc4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b1ac2edd39ac2e5a765eaf6223ba01c9f9e5df91
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307089"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238331"
 ---
-# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Zelfstudie: Gebruik elastische Query voor toegang tot gegevens in Azure SQL Data Warehouse in Azure SQL Database
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Zelfstudie: Elastische query's voor toegang tot gegevens in Azure SQL Data Warehouse gebruik van Azure SQL Database
 
 In deze zelfstudie wordt de functie elastische query's op Azure SQL Data Warehouse-query uit een Azure SQL Database. 
 
@@ -25,7 +25,7 @@ In deze zelfstudie wordt de functie elastische query's op Azure SQL Data Warehou
 
 Voordat u de zelfstudie begint, moet u de volgende vereisten:
 
-1. Geïnstalleerde SQL Server Management Studio (SSMS).
+1. Installed SQL Server Management Studio (SSMS).
 2. Een Azure SQL-server gemaakt met een database en het datawarehouse binnen deze server.
 3. Firewallregels voor toegang tot de Azure SQL-Server instellen.
 

@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986229"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251619"
 ---
 # <a name="add-public-ip-addresses"></a>Openbare IP-adressen toevoegen
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*  
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*  
 
 Leer hoe u meer openbare IP-adressen toevoegen aan Azure Stack.  In dit artikel, verwijzen we naar de externe adressen als openbare IP-adressen, maar in Azure Stack is dit bedoeld om te verwijzen naar het IP-adresblokken toe te voegen aan het externe netwerk.  Of dat externe netwerk openbare Internet routeerbaar is of is op een Intranet en maakt gebruik van privé-adresruimte maakt niet uit voor de doeleinden van dit artikel.  De stappen zijn hetzelfde. 
 

@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 12/06/2018
 keywords: ''
-ms.openlocfilehash: f9e76b255647f62b273fef8336ed845e365261cf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 563534424cad7f3e02be07ad582be0b3966950b4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731162"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237979"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Data-at-rest versleuteling in Azure Stack
 
@@ -42,7 +43,7 @@ Get-AzsRecoveryKeys
 
 Optionele parameters voor *Get-AzsRecoveryKeys* cmdlet:
 
-| Parameter | Description | Type | Vereist |
+| Parameter | Beschrijving | Type | Vereist |
 |---------|---------|---------|---------|
 |*onbewerkte* | retourneert de onbewerkte gegevens van de toewijzing tussen de herstelsleutel, computernaam en wachtwoord op voor elk volume dat is gecodeerd  | Switch | geen (ontworpen voor ondersteuning van scenario's)|
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.subservice: common
+ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427413"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251687"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Verifiëren van toegang tot blobs en wachtrijen met beheerde identiteiten voor Azure-Resources (Preview)
 
@@ -43,7 +43,7 @@ Als u wilt een beheerde identiteit van uw Azure Storage-toepassing verifiëren, 
 
 Als u wilt verifiëren met een beheerde identiteit, moet uw toepassing of script een beheerde identiteit-toegangstoken verkrijgen. Zie voor meer informatie over hoe u een toegangstoken verkrijgen, [over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## <a name="net-code-example-create-a-block-blob"></a>.NET-codevoorbeeld: maken van een blok-blob
+## <a name="net-code-example-create-a-block-blob"></a>Voorbeeld van .NET-code: Een blok-blob maken
 
 De voorbeeldcode wordt ervan uitgegaan dat u een toegangstoken beheerde identiteit hebt. Het toegangstoken wordt gebruikt voor de autorisatie van de beheerde identiteit om te maken van een blok-blob.
 

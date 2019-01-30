@@ -7,16 +7,16 @@ author: swatig007
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 48f714a505bc79f0556a829206821aef986ad5d0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100732"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240256"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Afstemmen van hyperparameters voor uw model met Azure Machine Learning-service
 
@@ -255,15 +255,15 @@ Als er geen beleid is opgegeven, kunt de hyperparameter afstemmen van de service
 
 Budget voor de resource voor uw experiment afstemmen door op te geven het maximum aantal trainingsuitvoeringen hyperparameter beheren.  (Optioneel) Geef de maximale duur voor uw hyperparameter experiment afstemmen.
 
-* `max_total_runs`: Totaal aantal maximum van trainingsuitvoeringen die worden gemaakt. Bovengrens - mogelijk zijn er minder wordt uitgevoerd, bijvoorbeeld, als de ruimte hyperparameter beperkt is en minder voorbeelden. Moet een getal tussen 1 en 1000.
-* `max_duration_minutes`: De maximale duur van het experiment afstemmen hyperparameter in minuten. Parameter is optioneel en als deze aanwezig is, geen runs worden gestart dat zou worden uitgevoerd na deze periode automatisch worden geannuleerd.
+* `max_total_runs`: Maximum aantal trainingsuitvoeringen die worden gemaakt. Bovengrens - mogelijk zijn er minder wordt uitgevoerd, bijvoorbeeld, als de ruimte hyperparameter beperkt is en minder voorbeelden. Moet een getal tussen 1 en 1000.
+* `max_duration_minutes`: Maximale duur van het experiment afstemmen hyperparameter in minuten. Parameter is optioneel en als deze aanwezig is, geen runs worden gestart dat zou worden uitgevoerd na deze periode automatisch worden geannuleerd.
 
 >[!NOTE] 
 >Als beide `max_total_runs` en `max_duration_minutes` zijn opgegeven, wordt de hyperparameter afstemmen experiment wordt beëindigd wanneer de eerste dag van deze twee drempelwaarden is bereikt.
 
 Daarnaast Geef dat het maximum aantal training wordt uitgevoerd om uit te voeren gelijktijdig tijdens uw hyperparameter afstemmen zoeken.
 
-* `max_concurrent_runs`: Het maximum aantal uitvoeringen om uit te voeren gelijktijdig op elk gewenst moment. Als er niets opgegeven, alle `max_total_runs` parallel wordt gestart. Als u opgeeft, moet een getal tussen 1 en 100 liggen.
+* `max_concurrent_runs`: Maximum aantal uitvoeringen om uit te voeren gelijktijdig op elk gewenst moment. Als er niets opgegeven, alle `max_total_runs` parallel wordt gestart. Als u opgeeft, moet een getal tussen 1 en 100 liggen.
 
 >[!NOTE] 
 >Het aantal gelijktijdige uitvoeringen worden geregeld op de beschikbare resources in de opgegeven compute-doel. Daarom moet u ervoor zorgen dat de compute-doel de beschikbare resources voor de gewenste gelijktijdigheid is.

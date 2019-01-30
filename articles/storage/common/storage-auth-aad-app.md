@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: b817723120f07de9159e47c1259a68eb95b9c2e3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.subservice: common
+ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140775"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240723"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Verifiëren met Azure Active Directory vanaf een aanvraag voor toegang tot blobs en wachtrijen (Preview)
 
@@ -66,7 +66,7 @@ De **vereiste machtigingen** windows nu ziet u dat uw Azure AD-toepassing toegan
 
 ![Schermopname van registreren app-machtigingen](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
-## <a name="net-code-example-create-a-block-blob"></a>.NET-codevoorbeeld: maken van een blok-blob
+## <a name="net-code-example-create-a-block-blob"></a>Voorbeeld van .NET-code: Een blok-blob maken
 
 Het codevoorbeeld toont hoe u een token uit Azure AD. Het toegangstoken wordt gebruikt voor het verifiëren van de opgegeven gebruiker en klikt u vervolgens autoriseren een aanvraag voor het maken van een blok-blob. Als u dit voorbeeld werkt, volgt u eerst de stappen die worden beschreven in de voorgaande secties.
 

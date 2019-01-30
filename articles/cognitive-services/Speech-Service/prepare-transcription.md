@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 44f2cb9e95a9a79c85c23b0eebd919851b94c1f8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467732"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228131"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Transcriptie richtlijnen voor het gebruik van de Speech-Service
 
@@ -53,7 +53,7 @@ Hier volgen enkele voorbeelden:
 | 'Wat?' Deze Batman sidekick, Robin. | welke genoemde batman sidekick robin |
 | Ga ophalen - em! | Ga get em |
 | Ik ben double-jointed | Ik ben dubbele samengevoegd |
-| 104 elm straat | een oh vier Elm straat |
+| 104 Elm Street | een oh vier Elm straat |
 | Stemmen op 102.7 | stemmen op een oh twee zeven |
 | Pi is ongeveer 3,14 | pi is ongeveer drie punt een vier |
 | Het kost $3,14 | kosten hiervoor drie 14 |
@@ -73,7 +73,7 @@ Hier volgen enkele voorbeelden:
 | 14 NE 3rd Dr. | 14 noordoosten derde schijf |
 | Dr. Bruce Banner | Doctor Bruce Banner |
 | James Bond, 007 | James Bond, dubbelklik oh zeven |
-| Ke$ ha | Kesha |
+| Ke$ha | Kesha |
 | Hoe lang is de 2 x 4 | Hoe lang is de twee door vier |
 | De vergadering gaat van 1-3 uur | Deze zijn van één tot drie uur van de vergadering |
 | Mijn bloed-type is O + | Mijn bloed O positief is |
@@ -90,7 +90,7 @@ Vermijd het gebruik van de halve breedte leestekens. Deze tekens worden opgenome
 | Tekens om te voorkomen | Vervanging |
 |----- | ----- |
 | "你好" (openen en sluiten van dubbele aanhalingstekens) | "你好' (dubbele aanhalingstekens) |
-| 需要什么帮助? (vraagteken) | 需要什么帮助? |
+| 需要什么帮助? (vraagteken) | 需要什么帮助？ |
 
 ### <a name="text-normalization-rules-for-chinese"></a>Tekst normalisering regels voor Chinees
 
@@ -165,8 +165,8 @@ Hier volgen enkele voorbeelden:
 | Oorspronkelijke tekst | Na de normalisering van gebruiker | Nadat system normalisering
 |--------  | ----- | -------- |
 | ES is 12.23 Uhr | ES is 12:23 Uhr | ES is zwölf uhr drei en zwanzig uhr |
-| {12,45} | {12,45} | zwölf komma vier fünf ||
-| 2 + 3-4 | 2 en 3 min 4 | u plus drei min vier|
+| {12.45} | {12,45} | zwölf komma vier fünf ||
+| 2 + 3 - 4 | 2 en 3 min 4 | u plus drei min vier|
 
 ## <a name="next-steps"></a>Volgende stappen
 

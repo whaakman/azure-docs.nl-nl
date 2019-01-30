@@ -9,18 +9,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078753"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250803"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Een Deep Learning virtuele Machine op Azure inrichten 
 
@@ -38,21 +38,21 @@ Hier volgen de stappen voor het maken van een exemplaar van de Deep Learning Vir
    
    1. **Basisinstellingen**
       
-      1. **Naam**: naam van uw data science-server die u maakt.
+      1. **Naam**: De naam van de data science-server die u maakt.
       2. **Type besturingssysteem selecteren voor de Deep Learning VM**: Kies Windows of Linux (voor Windows 2016 en base Ubuntu Linux-DSVM)
       2. **Gebruikersnaam**: Admin-account aanmeldings-id.
-      3. **Wachtwoord**: wachtwoord voor beheerdersaccount.
-      4. **Abonnement**: als u meer dan één abonnement hebt, selecteert u het een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht.
+      3. **Wachtwoord**: Wachtwoord voor beheerdersaccount.
+      4. **Abonnement**: Als u meer dan één abonnement hebt, selecteert u een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht.
       5. **Resourcegroep**: U kunt een nieuwe groep maken of gebruik een **leeg** bestaande Azure-resourcegroep in uw abonnement.
       6. **Locatie**: Selecteer het datacenter die het meest geschikt is. Dit is meestal het datacenter dat de meeste van uw gegevens of zich het dichtst bij uw fysieke locatie voor de snelste toegang tot het netwerk. 
       
 > [!NOTE]
 > De DLVM biedt ondersteuning voor alle NC- en ND-serie GPU VM-exemplaren. Bij het inrichten van de DLVM, moet u een van de locaties in Azure met GPU's kiezen. Controleer de [Azure-producten per regio pagina](https://azure.microsoft.com/regions/services/) pagina voor de beschikbare locaties en zoek naar **NC-serie**, **NCv2-serie**, **uit de NCv3-serie** , of **ND-serie** onder **Compute**. 
 
-   2. **Instellingen voor**: Selecteer een van de NC-serie (NC, de NCv2, NCv3) of de ND-serie GPU VM-grootten die voldoet aan de vereisten van het functionele en kostenbeperkingen. Maak een opslagaccount voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
+   2. **Instellingen voor**: Selecteer een van de NC-serie (NC, NCv2, NCv3) of de ND-serie GPU VM-grootten die voldoet aan de vereisten van het functionele en kostenbeperkingen. Maak een opslagaccount voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
    
-   3. **Samenvatting**: Controleer of dat alle informatie die u hebt ingevoerd juist is.
-   5. **Kopen**: klik op **kopen** om te beginnen met het inrichten. Er wordt een koppeling gegeven naar de voorwaarden van de transactie. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
+   3. **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is.
+   5. **Kopen**: Klik op **kopen** om te beginnen met het inrichten. Er wordt een koppeling gegeven naar de voorwaarden van de transactie. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
 
 > [!NOTE]
 > De inrichting duurt ongeveer 10-20 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
@@ -79,12 +79,12 @@ De Linux DLVM is al ingericht met X2Go-server en gereed voor clientverbindingen 
 1. Download en installeer de client X2Go voor uw clientplatform van [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. De X2Go-client wordt uitgevoerd, en selecteer **nieuwe sessie**. Er verschijnt een configuratievenster met meerdere tabbladen. Voer de volgende configuratieparameters:
    * **Tabblad sessie**:
-     * **Host**: de hostnaam of IP-adres van uw Linux Data Science VM.
-     * **Aanmelding**: de naam van de gebruiker op de Linux-VM.
-     * **SSH-poort**: 22, de standaardwaarde accepteren.
+     * **Host**: De hostnaam of IP-adres van uw Linux Data Science VM.
+     * **Aanmelding**: De naam van de gebruiker op de Linux-VM.
+     * **SSH poort**: Laat op de standaardwaarde 22.
      * **Sessietype**: Wijzig de waarde in **XFCE**. De Linux-DSVM ondersteunt momenteel alleen XFCE desktop.
-   * **Tabblad Media**: U kunt uitschakelen geluid ondersteuning en client afdrukken als u niet nodig hebt om ze te gebruiken.
-   * **Gedeelde mappen**: als u mappen van uw clientmachines die gekoppeld is op de Linux-VM wilt, voegt u de mappen op de client computer die u wilt delen met de virtuele machine op dit tabblad.
+   * **Tabblad Media**: U kunt geluid ondersteuning en afdrukken als u niet nodig hebt om ze te gebruiken-client uitschakelen.
+   * **Gedeelde mappen**: Als u mappen van uw clientmachines die gekoppeld is op de Linux-VM wilt, voegt u de mappen op de client computer die u wilt delen met de virtuele machine op dit tabblad.
 
 Nadat u zich aanmeldt bij de virtuele machine met behulp van de SSH-client of de XFCE grafische bureaublad via de client X2Go, bent u klaar om te beginnen met de hulpprogramma's die zijn geïnstalleerd en geconfigureerd op de virtuele machine. Op XFCE ziet u snelkoppelingen voor toepassingen in het menu en pictogrammen op het bureaublad voor veel van de hulpprogramma's.
 

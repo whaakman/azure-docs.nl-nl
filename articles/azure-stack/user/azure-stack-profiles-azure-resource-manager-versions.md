@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: 6866c6d208468e53b04ede1b5e596f0ea625c49d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264611"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248466"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versies ondersteund door de profielen in Azure Stack
 
@@ -230,11 +231,11 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Locaties/quota | 2016-01-01 |
 | Bewerkingen | 2016-01-01 |
 | StorageAccounts | 2016-01-01 |
-| Het gebruik van | 2016-01-01 |
+| Gebruik | 2016-01-01 |
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Details van de 2018-03-01-hybride
 
-### <a name="microsoft-authorization"></a>Microsoft-authorisatie
+### <a name="microsoft-authorization"></a>Microsoft-autorisatie
 
 | Resourcetypen | API-versies |
 |---------------------|---------------------------------|
@@ -325,7 +326,7 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | Locaties/quota | 2016-01-01 |
 | Bewerkingen | 2016-01-01 |
 | StorageAccounts | 2016-01-01 |
-| Het gebruik van | 2016-01-01 |
+| Gebruik | 2016-01-01 |
 
 ## <a name="next-steps"></a>Volgende stappen
 

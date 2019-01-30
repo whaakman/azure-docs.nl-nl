@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230983"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239771"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -99,8 +99,8 @@ Alle logboekbestanden blobs worden opgeslagen met metagegevens die kan worden ge
 | Kenmerk | Beschrijving |
 | --- | --- |
 | LogType |Hierin wordt beschreven of het logboek informatie over als u wilt lezen bevat, schrijven of verwijderen van bewerkingen. Deze waarde kan een type of een combinatie van alle drie, gescheiden door komma's bevatten. Voorbeeld 1: schrijven. Voorbeeld 2: lezen, schrijven; Voorbeeld 3: lezen, schrijven, verwijderen. |
-| startTime |De vroegste tijd van een vermelding in het logboek, in de vorm van jjjj-MM-ddTHH. Bijvoorbeeld: 2011-07-31T18:21:46Z. |
-| Eindtijd |De laatste tijd van een vermelding in het logboek, in de vorm van jjjj-MM-ddTHH. Bijvoorbeeld: 2011-07-31T18:22:09Z. |
+| StartTime |De vroegste tijd van een vermelding in het logboek, in de vorm van jjjj-MM-ddTHH. Bijvoorbeeld: 2011-07-31T18:21:46Z. |
+| EndTime |De laatste tijd van een vermelding in het logboek, in de vorm van jjjj-MM-ddTHH. Bijvoorbeeld: 2011-07-31T18:22:09Z. |
 | LogVersion |De versie van de indeling voor logboekbestanden. De enige ondersteunde waarde is momenteel 1.0. |
 
 De volgende lijst bevat een compleet voorbeeld metagegevens met behulp van de eerdere voorbeelden.
@@ -135,9 +135,9 @@ Metrische gegevens die transactie worden geregistreerd voor zowel de aanvragen v
 
 Capaciteit gegevens per dag worden geregistreerd voor de Blob-service van het opslagaccount en twee tabelitems worden geschreven. Een entiteit voorziet in statistieken voor gebruikersgegevens en de andere voorziet in statistieken over de `$logs` blobcontainer die wordt gebruikt door Storage Analytics. De `$MetricsCapacityBlob` tabel bevat de volgende statistische gegevens:
 
-* **Capaciteit**: de hoeveelheid opslag die wordt gebruikt door de storage-account Blob-service, in bytes.
-* **ContainerCount**: het aantal blob-containers in het opslagaccount-Blob-service.
-* **ObjectCount**: het aantal vastgelegde en niet-doorgevoerde blok of pagina-blobs in Blob-service van het storage-account.
+* **Capaciteit**: De hoeveelheid opslag die wordt gebruikt door de storage-account Blob-service, in bytes.
+* **ContainerCount**: Het aantal blob-containers in het opslagaccount-Blob-service.
+* **ObjectCount**: Het aantal vastgelegde en niet-doorgevoerde blok of pagina-blobs in Blob-service van het storage-account.
 
 Zie voor meer informatie over de metrische gegevens over de capaciteit, [tabelschema van metrische gegevens van Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
 

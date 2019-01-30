@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5f5b43a96d5fad5d5f7737ef82585593cd05a7b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242152"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240655"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -54,7 +54,7 @@ Het vCore-gebaseerde service lagen voornamelijk worden onderscheiden, is afhanke
 | **Opslaggrootte** | Individuele database / elastische pool | 5 GB – 4 TB | Maximaal 100 TB | 5 GB – 4 TB |
 | | Beheerd exemplaar  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **I/o-doorvoer** | Één database ** | 500 IOP's per vCore met 7000 maximale IOPS | Nog onbekend | 5000 IOP's met 200.000 maximale IOPS|
-| | Beheerd exemplaar | Afhankelijk van de grootte van bestand | N/A | Beheerd exemplaar: Is afhankelijk van de grootte van bestand|
+| | Beheerd exemplaar | Afhankelijk van de grootte van bestand | N/A | Beheerd exemplaar: Afhankelijk van de grootte van bestand|
 |**Beschikbaarheid**|Alle|1 replica, geen leesschaal, geen lokale cache | Meerdere replica's, maximaal 15 leesschaal, gedeeltelijke lokale cache | 3 replica's, 1 leesschaal, zone-redundante HA, volledige lokale cache |
 |**Back-ups**|Alle|RA-GRS, 7 en 35 dagen (7 dagen standaard)| RA-GRS, 7 en 35 dagen (7 dagen standaard), constante tijd punt in0time recovery (PITR) | RA-GRS, 7 en 35 dagen (7 dagen standaard) |
 
@@ -73,7 +73,7 @@ De servicelaag van grootschalige is voornamelijk bedoeld voor klanten die hebben
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Welke regio's ondersteunen momenteel zeer grootschalige
 
-Zeer grootschalige is momenteel beschikbaar voor individuele databases in de volgende regio's: West US1, West vs2 US1 VS-Oost, VS-midden, West-Europa, Noord-Europa, UK-West, Zuidoost-Azië, Japan-Oost, Korea-centraal, Australië-Zuidoost en Australië-Oost.
+Zeer grootschalige is momenteel beschikbaar voor individuele databases in de volgende regio's:  West US1, West vs2, US1 VS-Oost, VS-midden, West-Europa, Noord-Europa, UK-West, Zuidoost-Azië, Japan-Oost, Korea-centraal, Australië-Zuidoost en Australië-Oost.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Ik kan meerdere grootschalige databases per logische server maken
 
@@ -98,7 +98,7 @@ SQL Database grootschalige biedt snelle schaalbaarheid op basis van de vraag van
 
 ## <a name="deep-dive-questions"></a>Duik de diepte vragen
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>Kan ik grootschalig en individuele databases combineren een mijn logische server
+### <a name="can-i-mix-hyperscale-and-single-databases-on-my-logical-server"></a>Ik kan grootschalig en individuele databases combineren op mijn logische server
 
 Ja, dat is mogelijk.
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Maken en uitvoeren van een machine learning-pijplijn met de Azure Machine Learning-SDK voor Python. U kunt pijplijnen maken en beheren van de werkstromen die fasen geniet samen machine learning (ML). Deze fasen bevatten gegevens voor te bereiden, modeltraining modelimplementatie en inferentietaken.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5d0fe5d010fc53db3ca280620d224d405d0ccf42
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478192"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251653"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 

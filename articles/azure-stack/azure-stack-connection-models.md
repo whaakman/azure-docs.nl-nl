@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7509d00815f56dc46bd276ffc67c4c607c54070a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: d55cebf380c4ca5183e8ff15fd193e254b66c30b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338893"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246582"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Geïntegreerde Azure Stack-systemen verbinding modellen
 Als u geïnteresseerd in een geïntegreerde Azure Stack-systeem bent, moet u om te begrijpen [overwegingen met betrekking tot verschillende datacenter-integratie](azure-stack-datacenter-integration.md) voor Azure Stack-implementatie om te bepalen hoe het systeem past in uw datacenter. Bovendien moet u besluiten precies hoe u wordt integreren met Azure Stack uw hybride cloudomgeving. Dit artikel bevat een overzicht van deze belangrijke beslissingen, waaronder Azure-verbinding, opslag, identiteit, en het facturering modelbeslissingen.

@@ -1,6 +1,6 @@
 ---
 Titel: Studio-webservice met web-app-sjabloon titleSuffix gebruiken: Azure Machine Learning Studio description: Een web-appsjabloon gebruiken in Azure Marketplace een voorspellende webservice in Azure Machine Learning gebruiken.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

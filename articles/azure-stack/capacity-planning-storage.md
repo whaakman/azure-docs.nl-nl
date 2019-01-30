@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368691"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245147"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack opslag-capaciteitsplanning
 De volgende secties bieden Azure Stack opslagcapaciteit informatie over de planning om u te helpen bij het plannen voor de opslagbehoeften van de oplossingen.
 
 ## <a name="uses-and-organization-of-storage-capacity"></a>Gebruik en de organisatie van de opslagcapaciteit
-De hyper-geconvergeerde configuratie van Azure Stack kunt voor het delen van fysieke opslagapparaten. De drie belangrijkste afdelingen van de beschikbare opslag zijn tussen de infrastructuur, de tijdelijke opslag van de virtuele machines van tenants en de opslag-blobs, tabellen en wachtrijen van de services van Azure Consistent opslag (ACS) een back-up.
+Dankzij de hypergeconvergeerde configuratie van Azure Stack kunnen fysieke opslagapparaten worden gedeeld. De drie belangrijkste afdelingen van de beschikbare opslag zijn tussen de infrastructuur, de tijdelijke opslag van de virtuele machines van tenants en de opslag-blobs, tabellen en wachtrijen van de services van Azure Consistent opslag (ACS) een back-up.
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>Opslagruimten directe Cache en Capaciteitslagen
-Er is voor de opslagcapaciteit die wordt gebruikt voor het besturingssysteem, lokale logboekregistratie, dumpbestanden voor foutopsporing en andere infrastructuur voor tijdelijke opslag behoeften. Deze capaciteit voor lokale opslag is (apparaten en -capaciteit) te scheiden van de opslagapparaten onder beheer van de configuratie van opslagruimten Direct gebracht. De rest van de opslagapparaten is in één groep van opslagcapaciteit, ongeacht het aantal servers in de schaaleenheid geplaatst. Deze apparaten zijn twee typen: Cache en -capaciteit.  De Cache-apparaten zijn alleen die-Cache. Opslagruimten Direct gebruiken van deze apparaten voor write-back en opslaan in cache lezen is. De capaciteit van deze Cache-apparaten, terwijl gebruikt, worden niet doorgegeven aan opgemaakte 'zichtbaar' capaciteit van de geformatteerde virtuele schijven. De capaciteitsapparaten voor dit doel worden gebruikt en de "home locatie' van de gegevens die worden beheerd door opslagruimten te bieden.
+Er is voor de opslagcapaciteit die wordt gebruikt voor het besturingssysteem, lokale logboekregistratie, dumpbestanden voor foutopsporing en andere infrastructuur voor tijdelijke opslag behoeften. Deze capaciteit voor lokale opslag is (apparaten en -capaciteit) te scheiden van de opslagapparaten onder beheer van de configuratie van opslagruimten Direct gebracht. De rest van de opslagapparaten is in één groep van opslagcapaciteit, ongeacht het aantal servers in de schaaleenheid geplaatst. Deze apparaten zijn twee typen: Cache en capaciteit.  De Cache-apparaten zijn alleen die-Cache. Opslagruimten Direct gebruiken van deze apparaten voor write-back en opslaan in cache lezen is. De capaciteit van deze Cache-apparaten, terwijl gebruikt, worden niet doorgegeven aan opgemaakte 'zichtbaar' capaciteit van de geformatteerde virtuele schijven. De capaciteitsapparaten voor dit doel worden gebruikt en de "home locatie' van de gegevens die worden beheerd door opslagruimten te bieden.
 
 Alle opslagcapaciteit is toegewezen en direct worden beheerd door de Azure Stack-infrastructuur. De operator hoeft te keuzes over de configuratie, toewijzing, of omgaan met opties als het gaat om de capaciteit uitbreiden. Deze ontwerpbeslissingen zijn aangebracht aan te passen aan de vereisten van de oplossing en tijdens de initiële installatie/implementatie of capaciteitsuitbreiding worden geautomatiseerd. Meer informatie over tolerantie, gereserveerde capaciteit voor opnieuw op te bouwen en andere details zijn beschouwd als onderdeel van het ontwerp. 
 
@@ -51,7 +52,7 @@ De virtuele schijven automatisch gemaakt en de bijbehorende capaciteit zijn als 
 
 
 
-|Naam|Capaciteit berekening|Beschrijving|
+|Name|Capaciteit berekening|Beschrijving|
 |-----|-----|-----|
 |Lokale/opstartapparaat|Minimaal 340 GB<sup>1</sup>|Afzonderlijke serveropslagruimte voor installatiekopieën van besturingssystemen en "local" infrastructuur-VM 's|
 |Infrastructuur|3,5 TB|Gebruik voor alle Azure Stack-infrastructuur|

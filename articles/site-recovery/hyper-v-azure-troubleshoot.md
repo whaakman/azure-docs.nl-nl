@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844988"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228199"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V naar Azure-replicatie en failover oplossen
 
@@ -110,9 +110,9 @@ Een app-consistente momentopname is een point-in-time-momentopname van de toepas
 5. Controleer of de Backup-service is ingeschakeld. Controleer of deze is ingeschakeld **Hyper-V-instellingen** > **Integration Services**.
 6. Zorg ervoor dat er zijn geen conflicten met apps VSS-momentopnamen te maken. Als u meerdere apps wilt VSS-momentopnamen op de dezelfde tijd conflicten optreden. Bijvoorbeeld als een back-up-app duurt VSS-momentopnamen wanneer Site Recovery door uw replicatiebeleid is gepland om een momentopname.   
 7. Controleer als de virtuele machine een hoog verloop zich voordoet:
-    - U kunt de dagelijkse veranderingssnelheid van gegevens meten voor de Gast-VM's, met behulp van prestatiemeteritems op Hyper-V-host. Inschakelen als u wilt meten de veranderingssnelheid van gegevens, het volgende item. Een voorbeeld van deze waarde in de VM-schijven voor 5 tot 15 minuten, Aggregrate om op te halen van het verloop van de virtuele machine.
+    - U kunt de dagelijkse veranderingssnelheid van gegevens meten voor de Gast-VM's, met behulp van prestatiemeteritems op Hyper-V-host. Inschakelen als u wilt meten de veranderingssnelheid van gegevens, het volgende item. Een voorbeeld van deze waarde in de VM-schijven samenvoegen voor 5 tot 15 minuten, om op te halen van het verloop van de virtuele machine.
         - Categorie: "Hyper-V virtuele opslagapparaat"
-        - Item: "geschreven Bytes per seconde"</br>
+        - Item: "Geschreven Bytes per seconde"</br>
         - Het verloop van deze gegevens toe- of blijven op een hoog niveau, afhankelijk van hoeveel de virtuele machine of de apps zijn.
         - Het gemiddelde gegevensverloop van schijf is 2 MB/s voor standard-opslag voor Site Recovery. [Meer informatie](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Daarnaast kunt u [schaalbaarheidsdoelen opslag controleren](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
@@ -125,7 +125,7 @@ Een app-consistente momentopname is een point-in-time-momentopname van de toepas
 1. Controleer het gebeurtenislogboek voor VSS-fouten en aanbevelingen:
     - Open het gebeurtenislogboek van Hyper-V-beheer in op de Hyper-V-hostserver **logboeken** > **logboeken toepassingen en Services** > **Microsoft**  >  **Windows** > **Hyper-V** > **Admin**.
     - Controleer of er zijn geen gebeurtenissen die duiden op fouten van de app-consistente momentopname.
-    - Een veelvoorkomende fout is: "Hyper-V VSS-momentopname instellen voor de virtuele machine 'XYZ' genereren is mislukt: een niet-tijdelijke fout opgetreden. De VSS-service opnieuw te starten mogelijk problemen oplossen als de service reageert niet."
+    - Een veelvoorkomende fout is: "Hyper-V is mislukt voor het genereren van VSS-momentopname instellen voor de virtuele machine 'XYZ': Een niet-tijdelijke fout opgetreden. De VSS-service opnieuw te starten mogelijk problemen oplossen als de service reageert niet."
 
 2. Voor het genereren van VSS-momentopnamen voor de virtuele machine die Hyper-V-integratieservices zijn geïnstalleerd op de virtuele machine, en dat de back-up (VSS) Integration-Service is ingeschakeld.
     - Zorg ervoor dat de Integration Services VSS-service/daemons worden uitgevoerd op de Gast en zich in een **OK** staat.
@@ -136,7 +136,7 @@ Een app-consistente momentopname is een point-in-time-momentopname van de toepas
 
 **Foutcode** | **Bericht** | **Details**
 --- | --- | ---
-**0x800700EA** | "Hyper-V is mislukt voor het genereren van VSS-momentopname instellen voor de virtuele machine: meer gegevens beschikbaar is. (0x800700EA). VSS-momentopname ingesteld generatie kan mislukken als de back-upbewerking uitgevoerd wordt.<br/><br/> De replicatiebewerking voor virtuele machine is mislukt: meer gegevens beschikbaar is. " | Controleer of de virtuele machine dynamische schijf is ingeschakeld heeft. Nee, dit wordt niet ondersteund.
+**0x800700EA** | "Hyper-V is mislukt voor het genereren van VSS-momentopname instellen voor de virtuele machine: Meer gegevens zijn beschikbaar. (0x800700EA). VSS-momentopname ingesteld generatie kan mislukken als de back-upbewerking uitgevoerd wordt.<br/><br/> De replicatiebewerking voor virtuele machine is mislukt: Meer gegevens zijn beschikbaar." | Controleer of de virtuele machine dynamische schijf is ingeschakeld heeft. Nee, dit wordt niet ondersteund.
 **0x80070032** | "Hyper-V Volume Shadow Copy aanvrager kan geen verbinding maken met virtuele machine <. / VMname > omdat de versie komt niet overeen met de versie die door Hyper-V wordt verwacht | Controleer of de meest recente Windows-updates zijn geïnstalleerd.<br/><br/> [Upgrade](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) naar de nieuwste versie van integratieservices.
 
 

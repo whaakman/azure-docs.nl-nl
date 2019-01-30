@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 759ea6b8e4981b3ea198077cabf9df7966d6e883
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243629"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242957"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd in Azure Stack
 
@@ -66,18 +67,18 @@ U moet bepalen hoeveel downtime en gegevensverlies die uw organisatie voor elke 
 
  - **Beoogde hersteltijd (RTO)**  
 RTO is de maximaal acceptabele tijd die een toepassing na een incident niet beschikbaar mag zijn. Een RTO 90 minuten betekent bijvoorbeeld dat u moet de toepassing naar een actieve status binnen 90 minuten vanaf het begin van een noodgeval kunt herstellen. Als u een lage RTO hebt, kunt u een tweede implementatie continu stand-by te beschermen tegen regionale uitval.
- - **Beoogde herstelpunt (RPO)**  
+ - **Recovery point objective (RPO)**  
 RPO is de maximale duur van het verlies van gegevens tijdens een noodgeval. Als u bijvoorbeeld gegevens opslaat in één database, zonder replicatie in een andere database en elk uur een back-up, kunt u maximaal een uur gegevensverlies hebben.
 
 RTO en RPO zijn bedrijfsvereisten. Een risicobeoordeling noodzakelijk voor het definiëren van de RTO en RPO van de toepassing uitvoeren.
 
 Nog een metrische waarde is **Mean Time herstellen** (MTTR), dit is de gemiddelde tijd die nodig is voor het herstellen van de toepassing na een storing. De MTTR is een empirisch waarde voor een systeem. Als de MTTR langer is dan de RTO dan treedt na een storing in het systeem een onacceptabele bedrijfsonderbreking op omdat het niet mogelijk is het systeem binnen de gedefinieerde RTO te herstellen.
 
-### <a name="backup-restore"></a>Back-up herstellen
+### <a name="backup-restore"></a>Backup-restore
 
 De meest voorkomende bescherming-schema voor toepassingen op basis van een virtuele machine is het gebruik van back-upsoftware. Back-ups van een virtuele machine normaal gesproken bevat het besturingssysteem, besturingssysteemconfiguratie, binaire waarden van toepassingen en toepassingsgegevens. De back-ups worden gemaakt door het maken van een momentopname van de volumes, schijven of de hele virtuele machine. Met Azure Stack, u hebt de flexibiliteit van de back-ups van uit binnen de context van het gastbesturingssysteem te installeren of uit de Azure Stack-opslag en compute-API's. Azure Stack biedt geen ondersteuning voor back-ups van nemen op het hypervisorniveau van de.
  
-![Back-up-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
+![Backup-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Herstellen van de toepassing, moet een of meer virtuele machines herstellen naar de cloud of naar een nieuwe cloud. U kunt een cloud doelgroep in uw datacenter of in de openbare cloud. De cloud die u kiest, is volledig binnen uw beheer en is gebaseerd op uw vereisten voor privacy en de onafhankelijkheid van gegevens.
  

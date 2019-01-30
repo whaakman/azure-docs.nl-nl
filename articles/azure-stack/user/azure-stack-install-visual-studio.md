@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 6bb3215e63e2fc672cde5746e6a9867df899ee88
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 274240aab54f27f36734516026e9feebf64ae4b5
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016695"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248109"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Visual Studio installeren en verbinding maken met Azure Stack
 
@@ -46,7 +47,7 @@ U kunt Visual Studio gebruiken om te schrijven en implementeren van Azure Resour
 
 ## <a name="connect-to-azure-stack-with-azure-ad"></a>Verbinding maken met Azure Stack met Azure AD
 
-1. Start Visual Studio.
+1. Launch Visual Studio.
 
 2. Uit de **weergave** in het menu **Cloud Explorer**.
 
@@ -58,7 +59,7 @@ Zodra u bent aangemeld, kunt u [sjablonen implementeren](azure-stack-deploy-temp
 
 ## <a name="connect-to-azure-stack-with-ad-fs"></a>Verbinding maken met Azure Stack met AD FS
 
-1. Start Visual Studio.
+1. Launch Visual Studio.
 
 2. Van **extra**, selecteer **opties**.
 

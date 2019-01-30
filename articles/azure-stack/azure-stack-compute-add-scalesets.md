@@ -10,16 +10,17 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: 3f1c84961f2ad6bd15612917d33982ec96824257
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971824"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252265"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Virtual Machine Scale Sets beschikbaar maken in Azure Stack
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
   
 Virtuele-machineschaalsets vormen een compute-resource van Azure Stack. U kunt deze gebruiken om te implementeren en beheren van een set identieke virtuele machines. Met alle virtuele machines op dezelfde manier geconfigureerd, hoeven schaalsets niet vooraf in te richten van virtuele machines. Het is eenvoudiger om grootschalige services die zijn gericht op big compute, big data en beperkte workloads te ontwikkelen.
 
@@ -33,8 +34,8 @@ In Azure Stack ondersteunen schaalsets voor virtuele machines geen automatisch s
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **De Marketplace:** registreren Azure Stack met globale Azure, de beschikbaarheid van de items in de Marketplace. Volg de instructies in [Azure Stack registreren met Azure](azure-stack-registration.md).
-- **Installatiekopie van besturingssysteem:** voordat een virtuele-machineschaalset (VMSS) kan worden gemaakt, moet u de VM-installatiekopieën voor gebruik in de VMSS van downloaden de [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). De installatiekopieën moeten al aanwezig zijn voordat een gebruiker een nieuwe VMSS kunt maken. 
+- **De Marketplace:** Azure Stack registreren met globale Azure, de beschikbaarheid van de items in de Marketplace. Volg de instructies in [Azure Stack registreren met Azure](azure-stack-registration.md).
+- **Installatiekopie van besturingssysteem:** Voordat een virtuele-machineschaalset (VMSS) kan worden gemaakt, moet u de VM-installatiekopieën voor gebruik in de VMSS van downloaden de [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). De installatiekopieën moeten al aanwezig zijn voordat een gebruiker een nieuwe VMSS kunt maken. 
 
 ## <a name="use-the-azure-stack-portal"></a>De Azure Stack-portal gebruiken 
 

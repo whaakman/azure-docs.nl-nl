@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d709acfe378583a21b72971f465e4b5d73818bcd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307725"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244688"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexeren van tabellen in SQL Data Warehouse
 Aanbevelingen en voorbeelden voor het indexeren van tabellen in Azure SQL Data Warehouse.
@@ -240,7 +240,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 Opnieuw opbouwen van een index in SQL Data Warehouse is een offline bewerking.  Voor meer informatie over het opnieuw opbouwen van indexen, Zie de sectie ALTER INDEX REBUILD in [Columnstore-indexen defragmentatie](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), en [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Stap 3: Controleren segmentkwaliteit van geclusterde columnstore is verbeterd
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Stap 3: Controleer of segmentkwaliteit van geclusterde columnstore is verbeterd
 Voer de query die geïdentificeerde tabel met slechte kwaliteit in segmenten en controleer of segmentkwaliteit is verbeterd.  Als het verbeteren van segmentkwaliteit is niet, kan het zijn dat de rijen in de tabel extra breed zijn.  Overweeg het gebruik van een hogere resourceklasse of DWU tijdens het opnieuw opbouwen van uw indexen.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Met CTAS en het wijzigen van de partitie-indexen herbouwen

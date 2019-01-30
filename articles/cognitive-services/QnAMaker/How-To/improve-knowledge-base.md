@@ -8,16 +8,16 @@ displayName: active learning, suggestion, dialog prompt, train api, feedback loo
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: da32d1e7a3cc9fc0c37418e24c1f1f270a104b09
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cf652c1b0edd469f29d14ed10d66ebe78b0fbb7c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55105655"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247830"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>Actief leren gebruiken voor het verbeteren van knowledge base
+# <a name="use-active-learning-to-improve-knowledge-base"></a>Actief leren gebruiken om uw knowledge base te verbeteren
 
 Actief leren, kunt u de kwaliteit van uw knowledge base verbeteren door het alternatieve vragen, op basis van gebruiker-inzendingen aan uw vraag en antwoord voorstellen. U bekijken deze suggesties op deze toevoegen aan bestaande vragen of weigert deze. 
 
@@ -39,6 +39,10 @@ Wanneer dezelfde query's zijn geclusterd, voorgesteld QnA Maker vragen naar de k
 Actief leren wordt geactiveerd op basis van de scores van hoogste aantal antwoorden die door de QnA Maker wordt geretourneerd voor een bepaalde query. Als de score verschillen binnen een kleine bereik liggen, wordt de query wordt beschouwd als een mogelijke _suggestie_ voor elk van de mogelijke antwoorden. 
 
 Alle suggesties samen die vergelijkbaar zijn geclusterd en bovenste suggesties voor alternatieve vragen worden weergegeven op basis van de frequentie van de bepaalde query's door eindgebruikers. Actief leren biedt de best mogelijke suggesties in gevallen waar de eindpunten zijn aan een redelijk aantal en de verschillende query's voor gebruik.
+
+## <a name="upgrade-version-to-use-active-learning"></a>Versie van de upgrade actief leren gebruiken
+
+Actief leren wordt ondersteund in runtime-versie 4.4.0 en hoger. Als uw knowledge base is gemaakt op een eerdere versie [upgrade van uw service](upgrade-qnamaker-service.md) deze functie wilt gebruiken. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
@@ -152,7 +156,9 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
+Meer informatie over het gebruik van actief leren met een [Azure Bot C# voorbeeld](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
 ## <a name="next-steps"></a>Volgende stappen
  
 > [!div class="nextstepaction"]
-> [QnAMaker-API gebruiken](./upgrade-qnamaker-service.md)
+> [Gebruik QnA Maker-API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362055"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239465"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
@@ -62,8 +63,8 @@ Er zijn andere opties voor het implementeren van de SQL-VM's, met inbegrip van s
 U kunt een gebruiker met beheerdersrechten maken met minder bevoegdheden dan een SQL sysadmin. De gebruiker moet alleen machtigingen voor de volgende bewerkingen:
 
 * Database: Maken, wijzigen, met Containment (voor Always On alleen), verwijderen, back-up maken
-* Beschikbaarheid van groep: Alter, toevoegen, toevoegen of verwijderen-Database
-* Aanmelding: Maken, selecteert u, Alter, Drop, intrekken
+* Beschikbaarheid van groep: ALTER, toevoegen, toevoegen of verwijderen-Database
+* Aanmelden: Maken, selecteert u, Alter, Drop, intrekken
 * Selecteer bewerkingen: \[master\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn), uitvoeren op sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[ sys\].\[ availability_groups\] (AlwaysOn), sys.master_files
 
 ### <a name="additional-security-information"></a>Informatie over extra beveiliging

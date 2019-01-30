@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/29/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 3017d92115a61dbf5ce647e75a01360224843f44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e08af577bec463263045a0f0355acffaad5e599
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165027"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244161"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Wat is Azure Active Directory Identity Protection?
 
@@ -48,7 +48,7 @@ Als dit moet u naar:
 
 Verdachte identiteiten detecteren, is geen eenvoudige taak. Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodieken voor het detecteren van afwijkingen en verdachte incidenten die duiden op mogelijk verdachte identiteiten. Met behulp van deze gegevens genereert Identity Protection rapporten en waarschuwingen waarmee u kunt de gedetecteerde problemen evalueren en juiste risicobeperking of herstelacties.
 
-Azure Active Directory Identity Protection is meer dan een controle- en rapportagetool. Ter bescherming van identiteiten in uw organisatie, kunt u risico's gebaseerd beleid die automatisch op gedetecteerde problemen reageren wanneer een opgegeven risiconiveau is bereikt. Deze beleidsregels, naast andere besturingselementen voor voorwaardelijke toegang is geleverd door Azure Active Directory en EMS, kunnen automatisch blokkeren of adaptieve herstelacties met inbegrip van wachtwoorden en meervoudige verificatie afdwingen initiëren.
+Azure Active Directory Identity Protection is meer dan een controle- en rapportagetool. Ter bescherming van identiteiten in uw organisatie, kunt u risico's gebaseerd beleid die automatisch op gedetecteerde problemen reageren wanneer een opgegeven risiconiveau is bereikt. Deze beleidsregels, naast andere besturingselementen voor voorwaardelijke toegang is geleverd door Azure Active Directory en [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), kunnen automatisch blokkeren of adaptieve herstelacties met inbegrip van initiëren wachtwoord opnieuw instellen van wachtwoorden en meervoudige verificatie afdwingen.
 
 
 #### <a name="identity-protection-capabilities"></a>Mogelijkheden voor identiteits-beveiliging

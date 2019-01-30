@@ -3,17 +3,17 @@ title: Overzicht van toegangsbeheer in Azure Data Lake Storage Gen2 | Microsoft 
 description: Begrijpen hoe toegangsbeheer werkt in Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 52af1a45f920139ddda1d02734de91372fe4719d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3005f19ffbc4771da442e36290a5803dddebfdbb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974911"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240167"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Toegangsbeheer in Azure Data Lake Storage Gen2
 
@@ -47,9 +47,9 @@ Toegestane machtigingen opnemen SAS-tokens als onderdeel van het token. De macht
 
 Er zijn twee soorten toegangsbeheerlijsten (ACL's): toegang tot ACL's en standaard-ACL's.
 
-* **Toegangs-ACL's**: toegang tot een object toegangs-ACL's beheren. Bestanden en mappen hebben toegang ACL's.
+* **Toegangs-ACL's**: Met toegangs-ACL's beheert u de toegang tot een object. Bestanden en mappen hebben beide Toegangs-ACL's.
 
-* **Standaard-ACL's**: een sjabloon van ACL's die zijn gekoppeld aan een map die de toegang tot een ACL's voor alle onderliggende items die zijn gemaakt onder die map. Bestanden beschikken niet over standaard-ACL's.
+* **Standaard-ACL's**: Een sjabloon van ACL's die zijn gekoppeld aan een map die de toegang tot een ACL's voor alle onderliggende items die zijn gemaakt onder die map. Bestanden hebben geen Standaard-ACL's.
 
 Beide toegangs-ACL's en standaard-ACL's hebben dezelfde structuur.
 
@@ -85,7 +85,7 @@ In het POSIX model dat wordt gebruikt door Data Lake Storage Gen2, worden machti
 
 De volgende tabel bevat enkele algemene scenario's om u te helpen u te begrijpen welke machtigingen zijn vereist om uit te voeren van bepaalde bewerkingen op een Data Lake Storage Gen2-account.
 
-|    Bewerking             |    /    | Oregon / | Portland / | Data.txt     |
+|    Bewerking             |    /    | Oregon/ | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Data.txt lezen            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Toevoegen aan Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -130,8 +130,8 @@ In de POSIX ACL's is elke gebruiker is gekoppeld aan een *hoofdgroep*. Gebruiker
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>De groep die eigenaar is van een nieuw bestand of map toewijzen
 
-* **Geval 1**: de hoofdmap '/'. Deze map wordt gemaakt wanneer een bestandssysteem voor Data Lake Storage Gen2 wordt gemaakt. In dit geval de groep die eigenaar is ingesteld op de gebruiker die het bestandssysteem gemaakt als deze is uitgevoerd met behulp van OAuth. Als het bestandssysteem wordt gemaakt met behulp van de gedeelde sleutel, een Account-SAS of een SAS-Service, wordt de eigenaar en de groep die eigenaar is, zijn ingesteld op **$superuser**.
-* **Geval 2** (alle andere gevallen): wanneer een nieuw item wordt gemaakt, de groep die eigenaar is gekopieerd uit de bovenliggende map.
+* **Geval 1**: De hoofdmap '/'. Deze map wordt gemaakt wanneer een bestandssysteem voor Data Lake Storage Gen2 wordt gemaakt. In dit geval de groep die eigenaar is ingesteld op de gebruiker die het bestandssysteem gemaakt als deze is uitgevoerd met behulp van OAuth. Als het bestandssysteem wordt gemaakt met behulp van de gedeelde sleutel, een Account-SAS of een SAS-Service, wordt de eigenaar en de groep die eigenaar is, zijn ingesteld op **$superuser**.
+* **Geval 2** (alle andere gevallen): Wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is van de bovenliggende map gekopieerd.
 
 #### <a name="changing-the-owning-group"></a>De groep die eigenaar is wijzigen
 

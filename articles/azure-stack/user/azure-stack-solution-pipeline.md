@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 11/07/2018
+ms.openlocfilehash: 63d22aaa402c77b55591a15745b258cdd6f0ef0a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263217"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244348"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren in Azure en Azure Stack
 
@@ -166,7 +167,7 @@ Als onderdeel van de configuratie van de service-eindpunt, Azure DevOps-Services
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>De service-principal-rechten voor het implementeren van resources in de Azure Stack-abonnement verlenen
 
-Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de beste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: Ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de beste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van bereik. Bijvoorbeeld een toepassing toevoegt aan de rol van lezer voor een resourcegroep betekent dit dat het de resourcegroep en alle bijbehorende resources kunt lezen.
 
@@ -261,14 +262,14 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
     ![Een lid toevoegen](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker in de lijst van gebruikers.
-6. Selecteer **wijzigingen opslaan**.
+6. Selecteer **Save changes**.
 7. In de **Azure DevOps-Services groepen** in de lijst met **eindpunt beheerders**.
 
     ![NorthwindCloud Endpoint Administrators](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. Op de **leden** tabblad **toevoegen**.
 9. In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker in de lijst van gebruikers.
-10. Selecteer **wijzigingen opslaan**.
+10. Selecteer **Save changes**.
 
 Nu informatie over het eindpunt bestaat, het Azure DevOps-Services op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van Azure DevOps-Services en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
 
@@ -280,7 +281,7 @@ U kunt de instructies in [een Azure Resource Manager-serviceverbinding met een b
 
 U kunt een serviceverbinding maken met de volgende toewijzing:
 
-| Name | Voorbeeld | Description |
+| Name | Voorbeeld | Beschrijving |
 | --- | --- | --- |
 | Verbindingsnaam | Azure Stack Azure AD | De naam van de verbinding. |
 | Omgeving | AzureStack | De naam van uw omgeving. |
@@ -305,7 +306,7 @@ De meest recente update van Azure DevOps kunt maken van een serviceverbinding me
 
 U kunt een serviceverbinding maken met de volgende toewijzing:
 
-| Name | Voorbeeld | Description |
+| Name | Voorbeeld | Beschrijving |
 | --- | --- | --- |
 | Verbindingsnaam | Azure Stack ADFS | De naam van de verbinding. |
 | Omgeving | AzureStack | De naam van uw omgeving. |

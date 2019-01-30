@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 290230237a68730a908c6fd0fb0df1d63035b93b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212546"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247337"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Het ontwerpen van tabellen in Azure SQL Data Warehouse
 
@@ -111,12 +111,12 @@ Het queryoptimalisatieprogramma maakt gebruik van statistieken op kolomniveau bi
 ## <a name="commands-for-creating-tables"></a>Opdrachten voor het maken van tabellen
 U kunt een tabel maken als een nieuwe, lege tabel. U kunt ook maken en vullen van een tabel met de resultaten van een select-instructie. Hier volgen de T-SQL-opdrachten voor het maken van een tabel.
 
-| T-SQL-instructie | Description |
+| T-SQL-instructie | Beschrijving |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Hiermee maakt u een lege tabel met het definiëren van de kolommen in de tabel en opties. |
-| [EXTERNE TABEL MAKEN](/sql/t-sql/statements/create-external-table-transact-sql) | Hiermee maakt u een externe tabel. De definitie van de tabel wordt opgeslagen in SQL Data Warehouse. Gegevens in de tabel is opgeslagen in Azure Blob storage of Azure Data Lake Store. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Hiermee maakt u een externe tabel. De definitie van de tabel wordt opgeslagen in SQL Data Warehouse. Gegevens in de tabel is opgeslagen in Azure Blob storage of Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | Hiermee wordt een nieuwe tabel met de resultaten van een instructie select gevuld. De tabel kolommen en gegevenstypen zijn gebaseerd op de resultaten van de select-instructie. Om gegevens te importeren, kunt deze instructie in een externe tabel selecteren. |
-| [EXTERNE TABLE AS SELECT MAKEN](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Hiermee maakt u een nieuwe externe tabel door de resultaten van een select-instructie te exporteren naar een externe locatie.  De locatie is Azure Blob storage of Azure Data Lake Store. |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Hiermee maakt u een nieuwe externe tabel door de resultaten van een select-instructie te exporteren naar een externe locatie.  De locatie is Azure Blob storage of Azure Data Lake Store. |
 
 ## <a name="aligning-source-data-with-the-data-warehouse"></a>Het uitlijnen van gegevens met het datawarehouse
 

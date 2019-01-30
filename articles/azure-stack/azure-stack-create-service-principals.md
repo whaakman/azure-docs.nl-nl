@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
-ms.openlocfilehash: 50ece9edbc4bee1dea2cc61f2cdd851b278aa7b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720438"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245266"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang geven tot Azure Stack
 
@@ -64,7 +65,7 @@ Wanneer u zich programmatisch aanmeldt, u de ID gebruiken voor uw toepassing, en
 
 2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) sectie verwijzen naar deze waarde als de client-ID.
 
-     ![client-id](./media/azure-stack-create-service-principal/image12.png)
+     ![Client-id](./media/azure-stack-create-service-principal/image12.png)
 3. Voor het genereren van een verificatiesleutel voor een Web-app / API, selecteer **instellingen** > **sleutels**. 
 
 4. Geef een beschrijving op van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
@@ -89,10 +90,10 @@ Taken voor het beheren van AD FS service-principals.
 | --- | --- |
 | AD FS-certificaat | [Maken](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
 | AD FS-certificaat | [Update](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| AD FS-certificaat | [verwijderen](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS-certificaat | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
 | AD FS-Client-geheim | [Maken](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | AD FS-Client-geheim | [Update](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS-Client-geheim | [verwijderen](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| AD FS-Client-geheim | [Remove](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
 
 ### <a name="create-a-service-principal-using-a-certificate"></a>Een service-principal met behulp van een certificaat maken
 
@@ -113,9 +114,9 @@ Er is een certificaat vereist.
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Description|Voorbeeld|
+|Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
-|Name|Naam van de SPN-account|Mijntoep|
+|Name|Naam van de SPN-account|MyAPP|
 |ClientCertificates|Matrix met objecten van certificaat|X509 certificaat|
 |ClientRedirectUris<br>(Optioneel)|Toepassing omleidings-URI|-|
 
@@ -125,19 +126,19 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-    $creds = Get-Credential
+    $Creds = Get-Credential
 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
-    $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+    $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
     # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
     # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
-    # $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
-    $cert = Get-Item "<yourcertificatelocation>"
+    # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+    $Cert = Get-Item "<YourCertificateLocation>"
     
-    $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
-    $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
-    $session|remove-pssession
+    $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -ClientCertificates $using:cert}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
 
     # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
@@ -159,7 +160,7 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
     -GraphAudience $GraphAudience `
     -EnableAdfsAuthentication:$true
 
-    Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" `
     -ServicePrincipal `
     -CertificateThumbprint $ServicePrincipal.Thumbprint `
     -ApplicationId $ServicePrincipal.ClientId `
@@ -173,7 +174,7 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
    > Voor validatie gebruikt een zelfondertekend certificaat kan worden gemaakt met het onderstaande voorbeeld:
 
    ```PowerShell  
-   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+   $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
 
@@ -200,9 +201,9 @@ Het script wordt uitgevoerd vanaf het eindpunt van de bevoegde op een virtuele m
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Description|Voorbeeld|
+|Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
-|Name|Naam van de SPN-account|Mijntoep|
+|Name|Naam van de SPN-account|MyAPP|
 |ApplicationIdentifier|Unieke id|S-1-5-21-1634563105-1224503876-2692824315-2119|
 |ClientCertificate|Matrix met objecten van certificaat|X509 certificaat|
 
@@ -214,14 +215,14 @@ Het voorbeeld wordt een zelfondertekend certificaat gemaakt. Wanneer u de cmdlet
 
      ```powershell
           # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
           # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
 
-          $RemoveServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $Newcert}
+          $RemoveServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $NewCert}
 
-          $session|remove-pssession
+          $Session | Remove-PSSession
      ```
 
 2. Nadat de automatisering is voltooid, wordt de bijgewerkte vingerafdrukwaarde is vereist voor verificatie van de SPN-naam weergegeven.
@@ -244,9 +245,9 @@ Deze scripts worden uitgevoerd vanaf het eindpunt van de bevoegdheden op een ERC
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-| Parameter | Description | Voorbeeld |
+| Parameter | Beschrijving | Voorbeeld |
 |----------------------|--------------------------|---------|
-| Name | Naam van de SPN-account | Mijntoep |
+| Name | Naam van de SPN-account | MyAPP |
 | GenerateClientSecret | Geheim maken |  |
 
 #### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>De PrivilegedEndpoint ERCS gebruiken voor het maken van de service-principal
@@ -255,15 +256,15 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 
      ```PowerShell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $creds = Get-Credential
+     $Creds = Get-Credential
 
      # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
      # Creating a SPN with a secre
-     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -GenerateClientSecret}
-     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
-     $session|remove-pssession
+     $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -GenerateClientSecret}
+     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+     $Session | Remove-PSSession
 
      # Output the SPN details
      $ServicePrincipal
@@ -291,7 +292,7 @@ Het script wordt uitgevoerd vanaf het eindpunt van de bevoegde op een virtuele m
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-| Parameter | Description | Voorbeeld |
+| Parameter | Beschrijving | Voorbeeld |
 |-----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------|
 | ApplicationIdentifier | De unieke id. | S-1-5-21-1634563105-1224503876-2692824315-2119 |
 | ChangeClientSecret | Hiermee wijzigt u het clientgeheim met een punt rollover van 2880 minuten waarin het oude geheim nog geldig is. |  |
@@ -299,20 +300,20 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 
 ##### <a name="example-of-updating-a-client-secret-for-ad-fs"></a>Voorbeeld van het bijwerken van een clientgeheim voor AD FS
 
-Het voorbeeld wordt de **resetclientsecret** parameter, die het clientgeheim onmiddellijk te wijzigen.
+Het voorbeeld wordt de **ResetClientSecret** parameter, die het clientgeheim onmiddellijk wordt gewijzigd.
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende cmdlets:
 
      ```PowerShell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
           # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
 
-          $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
+          $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
 
-          $session|remove-pssession
+          $Session | Remove-PSSession
      ```
 
 2. Nadat de automatisering is voltooid, wordt het zojuist gegenereerde geheim dat is vereist voor verificatie van de SPN-naam. Zorg ervoor dat u het nieuwe clientgeheim opslaan.
@@ -336,9 +337,9 @@ Het script wordt uitgevoerd vanaf het eindpunt van de bevoegde op een virtuele m
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Description|Voorbeeld|
+|Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
-| Parameter | Description | Voorbeeld |
+| Parameter | Beschrijving | Voorbeeld |
 | ApplicationIdentifier | Unieke id | S-1-5-21-1634563105-1224503876-2692824315-2119 |
 
 > [!Note]  
@@ -348,19 +349,19 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 
 ```powershell  
      Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $creds = Get-Credential
+     $Creds = Get-Credential
 
      # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock { Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+     $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
 
-     $session|remove-pssession
+     $Session | Remove-PSSession
 ```
 
 ## <a name="assign-a-role"></a>Een rol toewijzen
 
-Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: Ingebouwde rollen](../role-based-access-control/built-in-roles.md).
+Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol staat voor de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](../role-based-access-control/built-in-roles.md).
 
 U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van bereik. Bijvoorbeeld een toepassing toevoegt aan de rol van lezer voor een resourcegroep betekent dit dat het vindt de resourcegroep en alle resources die deze bevat.
 

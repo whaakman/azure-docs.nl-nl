@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e0f51306ab17e88db9d28da14faab9de0b445f74
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037903"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243178"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-verbonden implementatie planningsbeslissingen voor Azure Stack-geïntegreerde systemen
 Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u vervolgens uw beslissingen voor de Azure Stack-implementatie te voltooien.
@@ -48,7 +49,7 @@ Selecteer deze optie als u wilt uw eigen identiteit-store, zoals uw zakelijke Ac
 ## <a name="choose-a-billing-model"></a>Kies een model voor facturering
 U kunt een **betalen als u-gebruik** of de **capaciteit** factureringsmodel. Betalen als u-gebruik facturering modelimplementaties moeten kunnen rapporteren over het gebruik door een verbinding met Azure ten minste één keer voor elke 30 dagen zijn. Daarom is het facturering model voor betalen als u-gebruik is alleen beschikbaar voor implementaties van verbonden.  
 
-### <a name="pay-as-you-use"></a>Betalen als u-gebruik
+### <a name="pay-as-you-use"></a>Pay-as-you-use
 Met het factureringsmodel betalen als u-gebruik wordt verrekend met een Azure-abonnement. U betaalt alleen wanneer u de Azure Stack-services gebruiken. Als dit het model dat u kiest is, moet u een Azure-abonnement en de account-ID die is gekoppeld aan dat abonnement (bijvoorbeeld serviceadmin@contoso.onmicrosoft.com). EA, CSP en CSL abonnementen worden ondersteund. Rapportage over het gebruik wordt geconfigureerd tijdens [Azure Stack-registratie](azure-stack-registration.md).
 
 > [!NOTE]
@@ -68,7 +69,7 @@ Capaciteit facturering vereist een Enterprise Agreement (EA) Azure-abonnement vo
 
 ## <a name="learn-more"></a>Meer informatie
 - Zie voor informatie over gebruiksvoorbeelden, aanschaffen, partners en leveranciers van OEM-hardware, de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) productpagina.
-- Voor informatie over de roadmap en geo-beschikbaarheid voor Azure Stack geïntegreerde systemen, Zie het technische document: [Azure Stack: een uitbreiding van Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Geïntegreerde systemen, Zie het technische document voor informatie over de roadmap en geografische beschikbaarheid voor Azure Stack: [Azure Stack: Een uitbreiding van Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Voor meer informatie over Microsoft Azure Stack verpakking en prijzen [downloaden van de .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Volgende stappen

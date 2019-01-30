@@ -7,16 +7,16 @@ author: heatherbshapiro
 ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1187460deff0ac1ec71ddc70e503169a728c8b5c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099948"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250704"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -97,7 +97,7 @@ Gebruik de onderstaande secties voor het configureren van deze compute-doelen:
 
 1. **Maak en koppel**: Er is niet nodig om te maken of koppelen van een compute-doel voor het gebruik van uw lokale computer als de trainingsomgeving.  
 
-1. **Configureer**:  Wanneer u uw lokale computer als een compute-doel gebruikt, de training-code wordt uitgevoerd uw [ontwikkelomgeving](how-to-configure-environment.md).  Als deze omgeving al de Python-pakketten die u nodig hebt heeft, gebruikt u de gebruiker beheerde omgeving.
+1. **Configureren**:  Wanneer u uw lokale computer als een compute-doel gebruikt, de training-code wordt uitgevoerd uw [ontwikkelomgeving](how-to-configure-environment.md).  Als deze omgeving al de Python-pakketten die u nodig hebt heeft, gebruikt u de gebruiker beheerde omgeving.
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
@@ -144,7 +144,7 @@ Een permanente Azure Machine Learning-Computing kunnen worden hergebruikt binnen
     
  Of u kunt maken en koppelen van een permanente resource van Azure Machine Learning-Computing [in Azure portal](#portal-create).
 
-1. **Configureer**: Maak een uitvoeren-configuratie voor de permanente compute-doel.
+1. **Configureren**: Maak een uitvoeren-configuratie voor de permanente compute-doel.
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
@@ -191,7 +191,7 @@ Gebruik de Azure Data Science Virtual Machine (DSVM) als de Azure-VM van keuze v
 
  Of u kunt de DSVM koppelen aan uw werkruimte [met behulp van de Azure-portal](#portal-reuse).
 
-1. **Configureer**: Maak een uitvoeren-configuratie voor de DSVM compute-doel. Docker en conda worden gebruikt voor het maken en configureren van de omgeving instrueren op de DSVM.
+1. **Configureren**: Maak een uitvoeren-configuratie voor de DSVM compute-doel. Docker en conda worden gebruikt voor het maken en configureren van de omgeving instrueren op de DSVM.
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
@@ -232,7 +232,7 @@ Azure HDInsight is een populair platform voor big data-analyses. Het platform bi
 
   Of u kunt de HDInsight-cluster koppelen aan uw werkruimte [met behulp van de Azure-portal](#portal-reuse).
 
-1. **Configureer**: Maak een uitvoeren-configuratie voor het HDI-compute-doel. 
+1. **Configureren**: Maak een uitvoeren-configuratie voor het HDI-compute-doel. 
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 

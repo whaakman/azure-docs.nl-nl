@@ -1,4 +1,4 @@
-﻿---
+---
 title: Slimme Contract integratiepatronen in Azure Blockchain Workbench
 description: Overzicht van slimme contract integratiepatronen in Azure Blockchain Workbench.
 services: azure-blockchain
@@ -122,7 +122,7 @@ Sommige systemen kunnen niet worden aangepast om berichten weer te geven in de s
 Dit gebeurt met behulp van het eerder afgebeelde proces, waarbij:
 
 -   In een extern systeem vindt een gebeurtenis plaats waardoor het maken van een bericht wordt geactiveerd.
--   Een Logic App of aangepaste code wordt gebruikt om dat bericht te ontvangen en het te transformeren naar een standaard Azure Blockchain Workbench-geformatteerd bericht.
+-   Er wordt een logische app of aangepaste code gebruikt om dat bericht te ontvangen en het te transformeren naar een standaard Azure Blockchain Workbench-geformatteerd bericht.
 -   De logische app stuurt het getransformeerde bericht rechtstreeks naar de Service Bus.
 -   Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de servicebus en haalt het bericht op.
 -   Azure Blockchain Workbench initieert een aanroep naar het grootboek en verzendt gegevens van het externe systeem naar een specifieke functie in het contract.
@@ -156,7 +156,7 @@ In dit model vindt de communicatie naar het contract en de daaropvolgende status
 
 -   Voor systemen die niet direct kunnen worden aangepast om een bericht te schrijven dat voldoet aan de verwachtingen van de API, wordt het getransformeerd.
 
--   De inhoud van het bericht wordt verpakt en verzonden naar een specifieke functie in het smart contract. Deze levering gebeurt namens de gebruiker die is gekoppeld aan het externe systeem.
+-   De inhoud van het bericht wordt verpakt en verzonden naar een specifieke functie in het slimme contract. Deze levering gebeurt namens de gebruiker die is gekoppeld aan het externe systeem.
 
 -   De functie wordt uitgevoerd en wijzigt meestal de status. De statuswijziging zorgt ervoor dat de bedrijfswerkstroom die wordt weergegeven in het slimme contract verdergaat, waardoor nu indien nodig andere functies kunnen worden uitgevoerd.
 
@@ -169,11 +169,11 @@ In dit model vindt de communicatie naar het contract en de daaropvolgende status
 In dit model waarbij een bericht in een standaardindeling niet rechtstreeks kan worden verzonden, vindt de communicatie naar het contract en de daaropvolgende statuswijziging plaats na het vorige proces waarbij:
 
 1.  Nadat de voltooiing of een specifieke mijlpaal in de uitvoering van de externe code is bereikt, wordt een gebeurtenis verzonden naar de Service Bus die is verbonden met Azure Blockchain Workbench.
-2.  Een Logic App of aangepaste code wordt gebruikt om dat bericht te ontvangen en het te transformeren naar een standaard Azure Blockchain Workbench-geformatteerd bericht.
+2.  Er wordt een logische app of aangepaste code gebruikt om dat bericht te ontvangen en het te transformeren naar een standaard Azure Blockchain Workbench-geformatteerd bericht.
 3.  De logische app stuurt het getransformeerde bericht rechtstreeks naar de Service Bus.
 4.  Azure Blockchain Workbench is geabonneerd op gebeurtenissen uit de servicebus en haalt het bericht op.
 5.  Azure Blockchain Workbench initieert een aanroep naar het grootboek, waarbij gegevens van het externe systeem naar een specifiek contract worden verzonden.
-6. De inhoud van het bericht wordt verpakt en verzonden naar een specifieke functie in het smart contract. Deze levering gebeurt namens de gebruiker die is gekoppeld aan het externe systeem.
+6. De inhoud van het bericht wordt verpakt en verzonden naar een specifieke functie in het slimme contract. Deze levering gebeurt namens de gebruiker die is gekoppeld aan het externe systeem.
 7.  De functie wordt uitgevoerd en wijzigt meestal de status. De statuswijziging zorgt ervoor dat de bedrijfswerkstroom die wordt weergegeven in het slimme contract verdergaat, waardoor nu indien nodig andere functies kunnen worden uitgevoerd.
 
 ## <a name="iot-integration"></a>IoT-integratie
@@ -190,7 +190,7 @@ Op het Azure-platform wordt integratie met apparaten meestal uitgevoerd met IoT 
 
 Het proces toont een patroon:
 
--  Een apparaat communiceert rechtstreeks of via een veldgateway met IoT Hub.
+-   Een apparaat communiceert rechtstreeks of via een veldgateway met IoT Hub.
 -   IoT Hub ontvangt de berichten en evalueert de berichten bijvoorbeeld op basis van routes die de inhoud van het bericht controleren. *Geeft de sensor een temperatuur van meer dan 50 graden aan?*
 -   De IoT Hub verzendt berichten die voldoen aan de criteria voor een gedefinieerde Service Bus voor de route.
 -   Een Logic App of andere code luistert naar de Service Bus die IoT Hub voor de route heeft ingesteld.
@@ -232,8 +232,8 @@ Om het een extern systeem of apparaat mogelijk te maken met het slimme contract 
 1. In de Azure Active Directory voor het consortium wordt een account gemaakt dat het externe systeem of apparaat vertegenwoordigt.
 2. Een of meer geschikte slimme contracten voor uw Azure Blockchain Workbench-applicatie hebben functies die zijn gedefinieerd om de gebeurtenissen van uw externe systeem of apparaat te accepteren.
 3. Het configuratiebestand van de toepassing voor uw slimme contract bevat de rol die aan het systeem of het apparaat is toegewezen.
-4. Het configuratiebestand van de toepassing voor uw smart contract geeft aan in welke statussen deze functie wordt genoemd door de gedefinieerde rol.
-5. Het configuratiebestand van de toepassing en de smart contracts worden geüpload naar Azure Blockchain Workbench.
+4. Het configuratiebestand van de toepassing voor uw slimme contract aangeeft in welke statussen dat deze functie wordt aangeroepen door de gedefinieerde rol.
+5. Het configuratiebestand van de toepassing en de slimme contracten worden geüpload naar Azure Blockchain Workbench.
 
 Nadat de toepassing is geüpload, wordt het Azure Active Directory-account voor het externe systeem toegewezen aan het contract en de bijbehorende rol.
 

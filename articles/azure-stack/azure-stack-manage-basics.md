@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972385"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239669"
 ---
 # <a name="azure-stack-administration-basics"></a>Basisbeginselen voor het beheer van Azure Stack
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack-beheer. Deze handleiding biedt een overzicht van uw rol als Azure Stack-operators, en wat u moet uw gebruikers ze snel worden productief laten weten.
@@ -63,7 +64,7 @@ Deze services, wordt er aanvullende configuratie vereisen voordat u deze beschik
 
 **Service-roadmap**
 
-Azure Stack, blijft het toevoegen van ondersteuning voor Azure-services. Zie voor het verwachte schema, de [Azure Stack: een uitbreiding van Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) technisch document. U kunt ook controleren de [Azure Stack-blogberichten](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) voor nieuwe meldingen.
+Azure Stack, blijft het toevoegen van ondersteuning voor Azure-services. Zie voor het verwachte schema, de [Azure Stack: Een uitbreiding van Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) technisch document. U kunt ook controleren de [Azure Stack-blogberichten](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) voor nieuwe meldingen.
 
 ## <a name="what-account-should-i-use"></a>Welk account moet ik gebruiken?
 Er zijn enkele aandachtspunten voor gebruikersaccounts die u houden moet rekening bij het beheren van Azure Stack. Met name in implementaties met behulp van Windows Server Active Directory Federation Services (AD FS) als de id-provider in plaats van Azure Active Directory (Azure AD). De volgende aandachtspunten voor gebruikersaccounts van toepassing op zowel geïntegreerde Azure Stack-systemen en ASDK implementaties:
@@ -108,7 +109,7 @@ U moet uw gebruikers laten weten hoe u werkt met services in Azure Stack, verbin
 
 Er is informatie die uw gebruikers begrijpen moeten voordat ze gebruik van services en bouwen van apps in Azure Stack. Er zijn bijvoorbeeld specifieke vereisten voor PowerShell en API-versie. Er zijn ook enkele functie verschillen tussen een service in Azure en de equivalente service in Azure Stack. Zorg ervoor dat uw gebruikers, Raadpleeg de volgende artikelen:
 
-- [Belangrijke overwegingen: met behulp van services of het bouwen van apps voor Azure Stack](user/azure-stack-considerations.md)
+- [Belangrijke overwegingen: Met behulp van services of het bouwen van apps voor Azure Stack](user/azure-stack-considerations.md)
 - [Overwegingen voor virtuele Machines in Azure Stack](user/azure-stack-vm-considerations.md)
 - [Opslag: de verschillen en overwegingen met betrekking tot](user/azure-stack-acs-differences.md)
 

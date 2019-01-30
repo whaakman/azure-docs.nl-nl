@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339675"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252306"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Datacenter-integratie Azure Stack - DNS
 Mogelijk moet toegang hebben tot Azure Stack-eindpunten (**portal**, **adminportal**, **management**, **adminmanagement**, enz.)  van buiten Azure Stack moet u de Azure Stack-DNS-services integreren met de DNS-servers die als host van de DNS-zones die u wilt gebruiken in Azure Stack.
@@ -121,7 +122,7 @@ Als de implementatie van virtuele machine niet langer beschikbaar is of niet toe
 
 De eenvoudigste en veiligste manier om te integreren in Azure Stack uw DNS-infrastructuur is om te doen van voorwaardelijk doorsturen van de zone van de server die als host fungeert voor de bovenliggende zone. Deze benadering wordt aanbevolen als u direct controle over de DNS-servers die als host fungeren voor de bovenliggende zone voor uw Azure Stack externe DNS-naamruimte.
 
-Als u niet bekend met hoe u voorwaardelijk doorsturen met DNS doet bent, ziet u het volgende TechNet-artikel: [een voorwaardelijke doorstuurserver toewijzen voor een domeinnaam](https://technet.microsoft.com/library/cc794735), of de specifieke documentatie bij uw DNS-oplossing.
+Als u niet bekend met hoe u voorwaardelijk doorsturen met DNS doet bent, ziet u het volgende TechNet-artikel: [Een voorwaardelijke doorstuurserver toewijzen voor een domeinnaam](https://technet.microsoft.com/library/cc794735), of de specifieke documentatie bij uw DNS-oplossing.
 
 In scenario's waarin u de externe Azure Stack DNS-Zone zodat het eruitziet als een onderliggend domein van uw zakelijke domeinnaam hebt opgegeven, kan niet voorwaardelijk doorsturen worden gebruikt. DNS-delegering moet worden geconfigureerd.
 

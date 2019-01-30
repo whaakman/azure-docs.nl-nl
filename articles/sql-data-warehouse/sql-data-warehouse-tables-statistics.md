@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 699538666a3bdbea94d35844f9c5c4fb7b4fd0f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307459"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241046"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Het maken, bijwerken van statistieken op tabellen in Azure SQL Data Warehouse
 Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken van de query-optimalisatie voor tabellen in Azure SQL Data Warehouse.
@@ -38,7 +38,7 @@ Als uw datawarehouse heeft geen AUTO_CREATE_STATISTICS geconfigureerd, raden we 
 ALTER DATABASE <yourdatawarehousename> 
 SET AUTO_CREATE_STATISTICS ON
 ```
-De volgende instructies wordt automatisch maken van statistieken geactiveerd: selecteert, INSERT-selecteren, CTAS, UPDATE, DELETE en uitleg wanneer met een join of de aanwezigheid van een predicaat is gedetecteerd. 
+De volgende instructies wordt automatisch maken van statistieken geactiveerd: Selecteer, invoegen selecteren, CTAS, bijwerken, verwijderen en uitleg wanneer met een join of de aanwezigheid van een predicaat wordt gedetecteerd. 
 
 > [!NOTE]
 > Automatisch maken van statistieken worden niet gemaakt voor tijdelijke of externe tabellen.
@@ -67,7 +67,7 @@ Hier volgen de aanbevelingen statistieken bij te werken:
 
 |||
 |-|-|
-| **Frequentie van updates van statistieken**  | Conservatief: dagelijks <br></br> Na het laden van of uw gegevens te transformeren |
+| **Frequentie van updates van statistieken**  | Conservatief: Dagelijks <br></br> Na het laden van of uw gegevens te transformeren |
 | **Steekproeven** |  Minder dan 1 miljard rijen, gebruiken standaard steekproeven (20 procent) <br></br> Met meer dan 1 miljard rijen is statistieken voor een bereik 2 procent goed |
 
 Een van de eerste vragen wanneer u problemen met een query is, **"Zijn de statistieken bijgewerkt?"**
@@ -337,7 +337,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 Steekproef statistieken over alle kolommen te maken. 
 
-## <a name="examples-update-statistics"></a>Voorbeelden: Update statistics
+## <a name="examples-update-statistics"></a>Voorbeelden: Statistieken bijwerken
 Voor het bijwerken van statistieken, kunt u het volgende doen:
 
 - Een object van de statistieken worden bijgewerkt. Geef de naam van de statistieken-object dat u wilt bijwerken.
@@ -448,7 +448,7 @@ AND     st.[user_created] = 1
 ## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() voorbeelden
 DBCC SHOW_STATISTICS() bevat gegevens die zijn opgeslagen in een object statistieken. Deze gegevens zijn afkomstig uit drie delen:
 
-- Koptekst
+- Header
 - Dichtheid vector
 - Histogram
 

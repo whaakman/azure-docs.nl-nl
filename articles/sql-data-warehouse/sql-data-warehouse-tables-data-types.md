@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: eb469e6a654414b0411f8c45b73658f99a383751
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aab51c3dc66a1486e8ad7ced55425a2b49c7dea1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306580"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247507"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Gegevenstypes tabel in Azure SQL Data Warehouse
 Aanbevelingen voor het definiëren van gegevenstypes tabel in Azure SQL Data Warehouse. 
@@ -56,10 +56,10 @@ De volgende lijst bevat de gegevenstypen die in SQL Data Warehouse biedt geen on
 | [Geografie](/sql/t-sql/spatial-geography/spatial-types-geography) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [hierarchyid](/sql/t-sql/data-types/hierarchyid-data-type-method-reference) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql)(4000) |
 | [image](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
-| [Tekst](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
+| [text](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [ntext](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) |
 | [sql_variant](/sql/t-sql/data-types/sql-variant-transact-sql) |Kolom splitsen in meerdere sterk getypeerde kolommen. |
-| [Tabel](/sql/t-sql/data-types/table-transact-sql) |Converteren naar tijdelijke tabellen. |
+| [table](/sql/t-sql/data-types/table-transact-sql) |Converteren naar tijdelijke tabellen. |
 | [Tijdstempel](/sql/t-sql/data-types/date-and-time-types) |Bijwerken van de code voor het gebruik van [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) en de [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) functie. Alleen constanten worden ondersteund als standaardwaarden, daarom current_timestamp kan niet worden gedefinieerd als een default-beperking. Als u nodig hebt voor het migreren van versie rijwaarden uit een getypeerde timestamp-kolom, gebruikt u [binaire](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) of [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) rij Versiewaarden voor het niet leeg of null zijn. |
 | [xml](/sql/t-sql/xml/xml-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [de gebruiker gedefinieerd type](/sql/relational-databases/native-client/features/using-user-defined-types) |Converteren naar het oorspronkelijke gegevenstype indien mogelijk. |

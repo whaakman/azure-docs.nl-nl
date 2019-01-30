@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Meer informatie over het beveiligen van een webservice die is geïmplementeerd met de Azure Machine Learning-service. U kunt de toegang beperken tot webservices en beveiligen van de gegevens die zijn ingediend door clients met behulp van secure socket Layer (SSL) en verificatie op basis van een sleutel.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 43f4aa5cc0d8545c6148fc15991817356ff69827
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228097"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248058"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL gebruiken voor het beveiligen van webservices met Azure Machine Learning-service
 

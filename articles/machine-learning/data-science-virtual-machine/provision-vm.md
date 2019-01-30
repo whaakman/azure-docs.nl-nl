@@ -9,18 +9,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 5dacbbcba44879b28e311f08b089d10d0ad8d95b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 709161165dc69ee6d33987d2cc45666045f4dfd4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079633"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240612"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van de Windows Data Science Virtual Machine van Azure
 De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Windows Azure virtuele machine (VM). Het is vooraf geïnstalleerd en geconfigureerd met verschillende hulpprogramma's die worden gebruikt voor gegevensanalyse en machine learning. De volgende hulpprogramma's zijn opgenomen:
@@ -35,7 +35,7 @@ De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Win
 * Een zelfstandig Apache Spark-exemplaar voor lokale ontwikkeling en testen.
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html).
 * Machine learning en data analytics-hulpprogramma's:
-  * Frameworks voor deep learning. Een grote verscheidenheid aan AI-frameworks zijn opgenomen op de virtuele machine: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, en Keras.
+  * Frameworks voor deep learning. Een grote verscheidenheid aan AI-frameworks zijn opgenomen op de virtuele machine: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, and Keras.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit). Een snelle machine learning-systeem die ondersteuning biedt voor technieken zoals online hashing, allreduce, kortingen, learning2search en actieve en interactieve training.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/). Een hulpprogramma waarmee u snel en nauwkeurige boosted structuur-implementatie.
   * [Rattle](https://togaware.com/rattle/), de R analytisch hulpmiddel voor meer informatie over eenvoudig. Een hulpprogramma waarmee u aan de slag met data analytics en machine learning in R. Het bevat GUI-gebaseerde gegevens verkennen en modelleren met automatische generatie van R-code.

@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339930"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224442"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Aan de slag met Custom Speech Service
 
@@ -28,15 +28,15 @@ Er is een goed voorbeeld waarmee we u aan de slag die u kunt vinden [hier](https
 ## <a name="prerequisites"></a>Vereisten  
 
 ### <a name="subscribe-to-custom-speech-service-and-get-a-subscription-key"></a>Abonneer u op de Custom Speech Service en de abonnementssleutel van een ophalen
-Voordat u met de bovenstaande speelt in het voorbeeld moet u zich abonneren op Custom Speech Service en een abonnement, raadpleegt u [abonnementen](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) of voert u de uitleg [hier](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). Zowel de primaire en secundaire sleutel kan worden gebruikt in deze zelfstudie. Zorg ervoor dat u Volg de aanbevolen procedures voor het beveiligen van uw API-sleutel geheim en beveiligen.
+Voordat u met de bovenstaande speelt in het voorbeeld moet u zich abonneren op Custom Speech Service en een abonnement, raadpleegt u [abonnementen](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) of voert u de uitleg [hier](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). In deze zelfstudie kan zowel de primaire als de secundaire sleutel worden gebruikt. Zorg ervoor dat u de aanbevolen procedures hanteert voor het beveiligen en geheim houden van uw API-sleutel.
 
-### <a name="get-the-client-library-and-example"></a>Ophalen van de client-bibliotheek en voorbeeld
-U kunt een clientbibliotheek en voorbeeld via downloaden [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). Het gedownloade zip-bestand moet worden uitgepakt naar een map van uw keuze, veel gebruikers selecteert u de map Visual Studio 2015.
+### <a name="get-the-client-library-and-example"></a>De clientbibliotheek en het voorbeeld downloaden
+U kunt een clientbibliotheek en voorbeeld via downloaden [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). Het gedownloade ZIP-bestand moet worden uitgepakt naar een map van uw keuze. Veel gebruikers kiezen hiervoor de map Visual Studio 2015.
 
 ## <a name="creating-a-custom-acoustic-model"></a>Het maken van een aangepast akoestisch model
 Om het ​​akoestische model aan een bepaald domein aan te passen, is een verzameling spraakgegevens vereist. Deze verzameling bestaat uit een reeks audiobestanden met spraakgegevens en een tekstbestand met transcripties van elk audiobestand. De gegevens moet een vertegenwoordiger van het scenario waarin u wilt gebruiken de herkenning
 
-Bijvoorbeeld: als u wilt de gesproken tekst in een omgeving met veel ruis factory beter te herkennen, audio-bestanden van mensen in een ruis factory spreken moeten bestaan.
+Bijvoorbeeld: Als u spraak beter wilt herkennen in een lawaaierige fabrieksomgeving, moeten de audiobestanden bestaan ​​uit mensen die in een luidruchtige fabriek spreken.
 Als u geïnteresseerd bent in de prestaties optimaliseren voor een enkele spreker, zoals u wilt alle van FDR Fireside Chats transcriberen en vervolgens de audio-bestanden moeten bestaan uit veel voorbeelden van deze spreker alleen.
 
 U vindt een gedetailleerde beschrijving over het maken van een aangepast akoestisch model [hier](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md).

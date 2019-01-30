@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: ff8508db55b04d2c55158b5846325d0c13665048
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f25d87c7c557404071d777f4efcf22e53886d96d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542744"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242617"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>Verbinden van Azure Kubernetes Service en Azure Database for PostgreSQL
 
@@ -32,6 +32,14 @@ U kunt controleren of uw AKS-cluster netwerken versnelde:
 6. Ga naar de VM's **netwerken** tabblad.
 7. Controleer of **versnelde netwerken** is 'ingeschakeld.'
 
+Of via de Azure CLI met behulp van de volgende twee opdrachten:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+De uitvoer is de gegenereerde resourcegroep AKS wordt gemaakt waarin de netwerkinterface. Nemen de naam 'nodeResourceGroup' en deze gebruiken in de volgende opdracht. **EnableAcceleratedNetworking** wordt een true of false zijn:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker voor Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) kunt u Azure-services rechtstreeks via Kubernetes of Cloud Foundry inrichten. Het is een [Open Service Broker API](https://www.openservicebrokerapi.org/) implementatie voor Azure.

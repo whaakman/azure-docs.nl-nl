@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2e5ecf32782c86b236c4947d5d2793be9c3883d8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223677"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239176"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Abonnementssleutels gebruiken met uw LUIS-app
 
@@ -32,7 +32,7 @@ Gebruik voor testen en prototype alleen de gratis laag van (F0). Gebruik voor pr
 
 Deze procedure maakt u een **Language Understanding** resource. Als u een informatiebron die kan worden gebruikt voor Cognitive Services wilt, de alles-in-één-sleutel maken **[Cognitive Service](../cognitive-services-apis-create-account.md)** in plaats van de Language Understanding-resource. 
 
-Deze sleutel moet alleen worden gebruikt voor eindpunt voorspelling query's. Weet u niet zeker deze sleutel voor wijzigingen in het model of de app doen. 
+Deze sleutel moet alleen worden gebruikt voor eindpunt voorspelling query's. Gebruik deze sleutel niet voor wijzigingen in het model of de app. 
 
 1. Aanmelden bij de  **[Azure-portal](https://ms.portal.azure.com/)**. 
 1. Selecteer het groene **+** zich in het bovenste linkerdeelvenster en zoek naar de `Language Understanding` in de marketplace, schakelt u vervolgens op **Language Understanding** en volg de  **aan die conferenties** een LUIS-abonnement-account maken. 
@@ -43,7 +43,7 @@ Deze sleutel moet alleen worden gebruikt voor eindpunt voorspelling query's. Wee
 
     ![Azure API kiezen](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Als u de Language Understanding-resource maakt, kunt u de toegangssleutel die is gegenereerd in bekijken **Resourcemanagement -> sleutels**. Voer niet de sleutels. De volgende sectie wordt beschreven hoe deze nieuwe resources verbinden met een LUIS-app in de LUIS-portal. U moet de naam van de resource LUIS in stap 3.
+1. Als u de Language Understanding-resource maakt, kunt u de toegangssleutel die is gegenereerd in bekijken **Resourcemanagement -> sleutels**. De volgende sectie wordt beschreven hoe deze nieuwe resources verbinden met een LUIS-app in de LUIS-portal. U moet de naam van de resource LUIS in stap 3.
 
     ![Azure-sleutels](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ Deze sleutel moet alleen worden gebruikt voor eindpunt voorspelling query's. Wee
 
     ![Een resource toewijzen aan uw app](./media/luis-manage-keys/assign-key.png)
 
-1. Selecteer een Tenant in het dialoogvenster die zijn gekoppeld aan het e-mailadres je aanmelden met naar de website van LUIS.  
+1. Selecteer een Tenant in het dialoogvenster dat is gekoppeld aan het e-mailbericht adres uw gebruikt om aan te melden met de LUIS-website.  
 
 1. Kies de **abonnementsnaam** die zijn gekoppeld aan de Azure-resource toe te voegen.
 
@@ -122,7 +122,7 @@ De intenties en hun scores zijn ook opgenomen van de eindpunt-Logboeken. U kunt 
 ### <a name="enable-bing-spell-checker"></a>Inschakelen van de spellingcontrole van Bing 
 In de **eindpunt-url-instellingen**, wordt de **Bing spellingcontrole** schakelaar kunt u LUIS te corrigeren van verkeerd gespelde woorden voordat voorspelling. Maak een  **[sleutel Bing spellingcontrole](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
-Voeg de **spellingcontrole = true** querystring-parameter en de **bing-spellingcontrole-controle-subscription-key = {YOUR_BING_KEY_HERE}** . Vervang de `{YOUR_BING_KEY_HERE}` met de Bing spell checker sleutel.
+Voeg de **spellingcontrole = true** querystring-parameter en de **bing-spellingcontrole-controle-subscription-key = {YOUR_BING_KEY_HERE}**. Vervang de `{YOUR_BING_KEY_HERE}` met de Bing spell checker sleutel.
 
 ```JSON
 {
@@ -142,7 +142,7 @@ Meer informatie over publiceren [regio's](luis-reference-regions.md) inclusief p
 
 ## <a name="assign-resource-without-luis-portal"></a>Resource zonder LUIS portal toewijzen
 
-Voor automation-doeleinden, zoals een CI/CD-pijplijn, kunt u de toewijzing van een LUIS-resource om een LUIS-app te automatiseren. In de volgorde die moet u de volgende stappen uitvoeren:
+Voor automation-doeleinden, zoals een CI/CD-pijplijn, kunt u de toewijzing van een LUIS-resource om een LUIS-app te automatiseren. Als u wilt doen, moet u de volgende stappen uitvoeren:
 
 1. Een Azure Resource Manager-token ophalen uit deze [website](https://resources.azure.com/api/token?plaintext=true). Dit token verloopt dus direct gebruiken. De aanvraag retourneert een Azure Resource Manager-token.
 

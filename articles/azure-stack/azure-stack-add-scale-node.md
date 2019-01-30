@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232869"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247643"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Extra scale unit knooppunten toevoegen in Azure Stack
 
@@ -40,9 +41,9 @@ De bewerking voor het toevoegen van een nieuw knooppunt duurt enkele uren of dag
 > [!Note]  
 > Probeer niet een van de volgende bewerkingen tijdens een bewerking toevoegen scale unit-knooppunt al uitgevoerd wordt:
 >
->  - Azure Stack bijwerken
+>  - Update Azure Stack
 >  - Certificaten laat rouleren
->  - Azure Stack stoppen
+>  - Stop Azure Stack
 >  - Reparatie scale unit knooppunt
 
 
@@ -106,7 +107,7 @@ De status van de schaaleenheid en schaal eenheid knooppunten kan worden opgehaal
 ### <a name="status-for-the-add-node-operation"></a>Status voor de bewerking van de knooppunten toevoegen 
 **Voor een schaaleenheid:**
 
-|Status               |Description  |
+|Status               |Beschrijving  |
 |---------------------|---------|
 |In uitvoering              |Alle knooppunten zijn actief deel aan de schaaleenheid.|
 |Gestopt              |Het knooppunt van de eenheid schaal is omlaag of niet bereikbaar is.|
@@ -117,7 +118,7 @@ De status van de schaaleenheid en schaal eenheid knooppunten kan worden opgehaal
 
 **Voor een scale unit-knooppunt:**
 
-|Status                |Description  |
+|Status                |Beschrijving  |
 |----------------------|---------|
 |In uitvoering               |Het knooppunt is actief deelnemer in de schaaleenheid.|
 |Gestopt               |Het knooppunt is niet beschikbaar.|

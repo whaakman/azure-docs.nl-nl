@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: b032dea67bba6f78b8172e772ab2f8fe492f39f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389069"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250432"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes op Azure Stack met behulp van Active Directory Federated Services implementeren
 
@@ -65,7 +66,7 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
 
     - U hebt de volgende soorten informatie nodig:
 
-        | Waarde | Description |
+        | Value | Beschrijving |
         | ---   | ---         |
         | Azure Resource Manager Endpoint | De Microsoft Azure Resource Manager is een raamwerk waarmee beheerders te implementeren, beheren en bewaken van Azure-resources. Deze taken kunnen worden verwerkt in Azure Resource Manager als een groep, in plaats van afzonderlijk, in één bewerking.<br>Het eindpunt in de Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`<br>Het eindpunt in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Uw abonnements-ID | De [abonnements-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack. |
@@ -106,7 +107,7 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
 
     - U hebt de volgende soorten informatie nodig:
 
-        | Waarde | Description |
+        | Value | Beschrijving |
         | ---   | ---         |
         | Pad naar het certificaat | De FQDN-naam of het bestand pad naar het certificaat. |
         | Certificaatwachtwoord | Wachtwoord voor het certificaat. |

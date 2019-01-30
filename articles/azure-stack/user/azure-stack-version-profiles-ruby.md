@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: aafeeab50a60116ac93cbfa8acb0375224453b03
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.lastreviewed: 01/09/2019
+ms.openlocfilehash: 73c770f45666ce76b770796ac9714d007c2870cb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353988"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247184"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>API-versieprofielen gebruiken met Ruby in Azure Stack
 
@@ -84,7 +85,7 @@ gem install 'azure_sdk'
 
 Als u wilt gebruiken de Ruby-SDK van Azure met Azure Stack, moet u de volgende waarden opgeven en stel de waarden met omgevingsvariabelen. Zie de instructies onder de tabel voor uw besturingssysteem voor het instellen van de omgevingsvariabelen.
 
-| Waarde | Omgevingsvariabelen | Description |
+| Value | Omgevingsvariabelen | Description |
 | --- | --- | --- | --- |
 | Tenant-id | AZURE_TENANT_ID | De waarde van uw Azure Stack [tenant-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
 | Client-id | AZURE_CLIENT_ID | De service principal toepassings-ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.  |

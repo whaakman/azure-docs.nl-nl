@@ -4,29 +4,29 @@ titleSuffix: Azure Machine Learning service
 description: Meer informatie over de meest recente updates voor Azure Machine Learning-service en de machine learning en dataprep Python SDK's.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9556a87b8de08dadb211d73e93f3daa9033c2cc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: a615b6c59d178fcc1d47d11bf89691c7e83249f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221314"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250645"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Releaseopmerkingen Azure Machine Learning-service
 
-In dit artikel meer informatie over de versies van de Azure Machine Learning-service. 
+In dit artikel meer informatie over de versies van de Azure Machine Learning-service.  Voor een volledige beschrijving van elke SDK, gaat u naar de referentiedocumenten voor:
++ De Azure Machine Learning [ **belangrijkste SDK voor Python**](https://aka.ms/aml-sdk)
++ De Azure Machine Learning [ **Dataprep-SDK**](https://aka.ms/aml-sdk)
 
 ## <a name="2019-01-28"></a>2019-01-28
 
 ### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine Learning-SDK voor Python v1.0.10
-
-+ **SDK-referentiedocumenten**: https://aka.ms/aml-sdk
 
 + **Wijzigingen**: 
   + Azure ML-SDK heeft niet langer azure cli-pakketten als afhankelijkheid. Basisversie van azure cli en azure-cli-profiel afhankelijkheden zijn specifiek, verwijderd uit de azureml-core. Dit zijn de gebruiker die invloed hebben op wijzigingen:
@@ -37,8 +37,6 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 + **Oplossingen voor problemen**: Deze release bevat voornamelijk kleine correcties
 
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning Data Prep SDK v1.0.8
-
-+ **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
 
 + **Oplossingen voor problemen**
   + De prestaties van het ophalen van gegevens profielen aanzienlijk verbeterd.
@@ -59,13 +57,9 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 ### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine Learning-SDK voor Python v1.0.8
 
-+ **SDK-referentiedocumenten**: https://aka.ms/aml-sdk
-
 + **Oplossingen voor problemen**: Deze release bevat voornamelijk kleine correcties
 
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Prep SDK v1.0.7
-
-+ **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
 
 + **Nieuwe functies**
   + Verbeteringen voor gegevensopslag (beschreven in [gegevensopslag How-to-naar-handleiding](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
@@ -77,22 +71,15 @@ In dit artikel meer informatie over de versies van de Azure Machine Learning-ser
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning Data Prep SDK v1.0.6
 
-+ **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
-
 + **Oplossingen voor problemen**
   + Probleem opgelost met het lezen van openbare leesbare Azure Blob-containers in Spark
 
 ## <a name="2018-12-20"></a>2018-12-20 
 
 ### <a name="azure-machine-learning-sdk-for-python-v106"></a>Azure Machine Learning-SDK voor Python v1.0.6
-
-+ **SDK-referentiedocumenten**: https://aka.ms/aml-sdk
-
 + **Oplossingen voor problemen**: Deze release bevat voornamelijk kleine correcties
 
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Prep SDK v1.0.4
-
-+ **SDK-referentiedocumenten**: https://aka.ms/data-prep-sdk
 
 + **Nieuwe functies**
   + `to_bool` functie kan nu niet-overeenkomende waarden moet worden geconverteerd naar foutwaarden. Dit is het verschil van de nieuwe standaardgedrag voor `to_bool` en `set_column_types`, terwijl de vorige standaardgedrag is om te converteren van niet-overeenkomende waarden op False.

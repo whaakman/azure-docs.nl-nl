@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 3e88e0a3337eafdd25c9c0cc655912a4cdbd3b68
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.lastreviewed: 08/20/2018
+ms.openlocfilehash: a7e8b1471e056fd789cda5258dd088e623c3cebd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079528"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248500"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 3
 
-*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
+*Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 Deze releaseopmerkingen beschrijven de verbeteringen en oplossingen in Azure App Service op Azure Stack Update 3 en bekende problemen. Bekende problemen zijn onderverdeeld in problemen direct verband houden met de implementatie, het updateproces en problemen met de build (na de installatie).
 
@@ -60,7 +61,7 @@ Azure App Service onder Azure Stack Update 3 bevat de volgende verbeteringen en 
 - **Updates voor de volgende App-frameworks en hulpmiddelen**:
   - Toegevoegde ASP.Net Core 2.1.2
   - Toegevoegde NodeJS 10.0.0
-  - Zulu OpenJDK 8.30.0.1 toegevoegd
+  - Added Zulu OpenJDK 8.30.0.1
   - Toegevoegde Tomcat 8.5.31 en 9.0.8
   - Toegevoegde PHP-versies:
     - 5.6.36
@@ -184,13 +185,13 @@ Valideren
 - Werknemers kunnen geen bestandsserver bereiken wanneer App Service is geïmplementeerd in een bestaand virtueel netwerk en de bestandsserver alleen beschikbaar op het particuliere netwerk is.  Dit is ook genoemd in de Azure App Service op de documentatie over Azure Stack-implementatie.
 
 Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen de worker-subnet en de bestandsserver aan te geven. Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
- * Bron:
+ * Bron: Alle
  * Poortbereik van bron: *
  * Bestemming: IP-adressen
- * Doel-IP-adresbereik: bereik van IP-adressen voor uw bestandsserver
+ * Doel-IP-adresbereik: Bereik van IP-adressen voor uw bestandsserver
  * Poortbereik van doel: 445
  * Protocol: TCP
- * Actie: toestaan
+ * Actie: Toestaan
  * Prioriteit: 700
  * Naam: Outbound_Allow_SMB445
 

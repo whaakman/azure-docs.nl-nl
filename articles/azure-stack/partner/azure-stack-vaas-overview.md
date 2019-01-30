@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0461e33f8154d3d9004860737a844af0f9df258c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c0694a3839ae6b843abd1ddc8b67d1f3e3322e0e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245346"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246038"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Wat is gevalideerd als een Service voor Azure Stack?
 
@@ -62,7 +63,7 @@ Zie voor meer informatie [Snelstart: De validatie gebruiken als een serviceporta
 
 | Werkstroom voor groepsvalidatie | Vereiste tests |
 |----|------------|
-| [Nieuwe oplossing validatie](azure-stack-vaas-validate-solution-new.md) | Engine voor cloud-simulatie<br>COMPUTE operationele SDK-pakket<br>Test voor schijf-ID<br>Key Vault-extensie SDK operationele Suite<br>Operationele KeyVault-SDK-pakket<br>Operationele Suite van netwerk-SDK<br>Storage-Account SDK operationele Suite<br> |
+| [Nieuwe oplossing validatie](azure-stack-vaas-validate-solution-new.md) | Engine voor cloud-simulatie<br>COMPUTE operationele SDK-pakket<br>Test voor schijf-ID<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage-Account SDK operationele Suite<br> |
 | [Validatie van de OEM-pakket](azure-stack-vaas-validate-oem-package.md) | OEM-extensie pakket verificatie<br>Engine voor cloud-simulatie |
 | [Validatie van de maandelijkse update](azure-stack-vaas-validate-microsoft-updates.md) | Maandelijkse AzureStack Update-verificatie<br>Engine voor cloud-simulatie<br> |
 
