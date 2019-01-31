@@ -167,27 +167,27 @@ Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP B
 | SAP BW-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | Reeks |
-| CLNT | Reeks |
-| VAL | Decimaal |
-| CUKY | Reeks |
-| DECEMBER | Decimaal |
-| FLTP | Double-waarde |
+| CHAR | String |
+| CLNT | String |
+| CURR | Decimal |
+| CUKY | String |
+| DEC | Decimal |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | Reeks |
-| LCHR | Reeks |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Decimaal |
-| ONBEWERKTE | Byte[] |
+| QUAN | Decimal |
+| RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| TEKENREEKS | Reeks |
-| EENHEID | Reeks |
-| DATS | Reeks |
-| NUMC | Reeks |
-| TIM | Reeks |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Volgende stappen
