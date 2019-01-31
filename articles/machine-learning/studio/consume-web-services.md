@@ -1,8 +1,21 @@
 ---
-Titel: Web service titleSuffix gebruiken: Azure Machine Learning Studio description: Wanneer een machine learning-service van Azure Machine Learning Studio is geïmplementeerd, kan de RESTFul-Web-service worden gebruikt als realtime request response-service of als een batch-service kan worden uitgevoerd.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
+title: -Webservice gebruiken
+titleSuffix: Azure Machine Learning Studio
+description: Wanneer een machine learning-service van Azure Machine Learning Studio is geïmplementeerd, kan de RESTFul-Web-service worden gebruikt als realtime request response-service of als een batch-service kan worden uitgevoerd.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 06/02/2017
+ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464378"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Het gebruik van een Azure Machine Learning Studio-webservice
 

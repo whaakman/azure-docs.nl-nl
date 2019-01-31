@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437585"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462425"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Enterprise-beveiligingspakket gebruiken in HDInsight
 
@@ -55,9 +55,41 @@ Zie voor meer informatie, [configureren HDInsight-clusters met behulp van Azure 
 
 Als u een on-premises Active Directory-exemplaar of meer complexe Active Directory-instellingen voor uw domein hebt, kunt u deze identiteiten met Azure AD synchroniseren met behulp van Azure AD Connect. Vervolgens kunt u Azure AD DS op deze Active Directory-tenant. 
 
-Omdat Kerberos is afhankelijk van wachtwoord-hashes, moet u [wachtwoordhashsynchronisatie op Azure AD DS inschakelen](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Als u Federatie met Active Directory Federation Services (AD FS), kunt u eventueel instellen van synchronisatie van wachtwoordhashes als een back-up als uw AD FS-infrastructuur is mislukt. Zie voor meer informatie, [synchronisatie van wachtwoordhashes met Azure AD Connect-synchronisatie inschakelen](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Omdat Kerberos is afhankelijk van wachtwoord-hashes, moet u [wachtwoordhashsynchronisatie op Azure AD DS inschakelen](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+
+Als u gebruikmaakt van Federatie met Active Directory Federation Services (ADFS), moet u synchronisatie van wachtwoordhashes inschakelen (een aanbevolen instellen, raadpleegt u [dit](https://youtu.be/qQruArbu2Ew)) ook om te voldoen aan herstel na noodgevallen als uw AD FS-infrastructuur is mislukt en de bescherming van de referentie is gelekt. Zie voor meer informatie, [synchronisatie van wachtwoordhashes met Azure AD Connect-synchronisatie inschakelen](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 Met on-premises Active Directory of Active Directory op IaaS-VM's alleen, zonder dat u Azure AD en Azure AD DS, is geen ondersteunde configuratie voor HDInsight-clusters met ESP.
+
+Als federation wordt gebruikt en wachtwoord-hashes gesynchroniseerde correcty, maar u verificatiefouten ontvangt,. Controleer of de wachtwoord-verificatie gebruikt in de cloud service-principal van powershell is ingeschakeld, zo niet, moet u instellen een [start Realm detectie (HRD ) beleid](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) voor uw AAD-tenant. Om te controleren en stel het HRD-beleid:
+
+ 1. AzureAD powershell-module installeren
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. ```Connect-AzureAD``` met behulp van de referenties van een globale beheerder (tenantbeheerder)
+
+ 3. Controleer of er de 'Microsoft Azure Powershell' service-principal al is gemaakt
+
+```
+ $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+```
+
+ 4. Als deze niet bestaat (dat wil zeggen als ($powershellSPN - q $null)) klikt u vervolgens de service-principal maken
+
+```
+ $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. Maken en koppelen van het beleid aan deze service-principal: 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

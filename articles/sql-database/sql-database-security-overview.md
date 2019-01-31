@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: d1225cb90d0eecddb5ec7eca56437b020be50c71
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.date: 01/29/2019
+ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080821"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462015"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -45,7 +45,7 @@ IP-firewallregels verlenen toegang tot databases op basis van het oorspronkelijk
 ## <a name="access-management"></a>Toegangsbeheer
 
 > [!IMPORTANT]
-> Het beheer van databases en logische servers in Azure wordt bepaald door de roltoewijzingen voor uw Portal-gebruikersaccount. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md).
+> Beheer van databases en database-servers in Azure wordt bepaald door de roltoewijzingen van de account van uw portal-gebruiker. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Verificatie
 
@@ -53,7 +53,7 @@ Verificatie is het proces van de gebruiker aan te tonen die zij beweren te zijn.
 
 - **SQL-verificatie**:
 
-    SQL database-verificatie verwijst naar de verificatie van een gebruiker bij het verbinden met [Azure SQL Database](sql-database-technical-overview.md) met gebruikersnaam en wachtwoord. Tijdens het maken van de logische server voor de database, moet een aanmelding 'Serverbeheerder' met een gebruikersnaam en wachtwoord worden opgegeven. Met deze referenties, een 'serverbeheerder' kan worden geverifieerd bij elke database op die logische server als de database-eigenaar. Hierna kunnen aanvullende SQL-aanmeldingen en gebruikers worden gemaakt door de serverbeheerder, waarmee gebruikers verbinding kunnen maken met gebruikersnaam en wachtwoord.
+    SQL database-verificatie verwijst naar de verificatie van een gebruiker bij het verbinden met [Azure SQL Database](sql-database-technical-overview.md) met gebruikersnaam en wachtwoord. Tijdens het maken van de server database voor de database moet een aanmelding 'Serverbeheerder' met een gebruikersnaam en wachtwoord worden opgegeven. Met deze referenties, een 'serverbeheerder' kan worden geverifieerd bij elke database op die databaseserver als de database-eigenaar. Hierna kunnen aanvullende SQL-aanmeldingen en gebruikers worden gemaakt door de serverbeheerder, waarmee gebruikers verbinding kunnen maken met gebruikersnaam en wachtwoord.
 
 - **Azure Active Directory-verificatie**:
 
@@ -63,7 +63,8 @@ Verificatie is het proces van de gebruiker aan te tonen die zij beweren te zijn.
 
     Extra Azure AD-verificatie-opties die beschikbaar zijn [Universal verificatie van Active Directory voor SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) verbindingen met inbegrip van [multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) en [ Voorwaardelijke toegang](sql-database-conditional-access.md).
 
-### <a name="authorization"></a>Autorisatie
+> [!IMPORTANT]
+> Beheer van databases en servers in Azure wordt bepaald door de roltoewijzingen van de account van uw portal-gebruiker. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md). Beheren van toegang met firewallregels heeft *niet* zijn van toepassing op **Azure SQL Database Managed Instance**. Raadpleeg het volgende artikel over [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie over welke netwerkconfiguratie is vereist.
 
 Autorisatie verwijst naar de machtigingen worden toegewezen aan een gebruiker binnen een Azure SQL Database, en bepaalt wat de gebruiker mag doen. Machtigingen worden bepaald door het toevoegen van gebruikersaccounts aan [databaserollen](/sql/relational-databases/security/authentication-access/database-level-roles) waarmee u de machtigingen op databaseniveau of het verlenen van de gebruiker bepaalde [objectmachtigingen](/sql/relational-databases/security/permissions-database-engine). Zie voor meer informatie, [aanmeldingen en gebruikers](sql-database-manage-logins.md)
 
@@ -75,7 +76,7 @@ Beveiliging op rijniveau kunnen klanten voor het beheren van toegang tot rijen i
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
-### <a name="permissions"></a>Machtigingen
+  Deze verificatiemethode maakt gebruik van een gebruikersnaam en wachtwoord. 
 
 Zie voor een overzicht van machtigingen in Azure SQL Database, [aanmeldingen en gebruikers](sql-database-manage-logins.md#permissions)
 
@@ -138,7 +139,7 @@ SQL Database dynamische gegevensmaskering blootstelling van gevoelige gegevens d
 
 ### <a name="sql-vulnerability-assessment"></a>Evaluatie van SQL-beveiligingsproblemen
 
-[Evaluatie van beveiligingsproblemen SQL](sql-vulnerability-assessment.md) is een eenvoudig te configureren van de service die u kunt detecteren, volgen en te herstellen van potentiële databaseproblemen met het doel proactief algemene om databasebeveiliging te verbeteren. Beveiligingslek met betrekking tot Assessment (VA) maakt deel uit van de aanbieding SQL geavanceerde Threat Protection (ATP), dit een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL is. Evaluatie van beveiligingsproblemen kan worden geopend en worden beheerd via de centrale SQL ATP-portal.
+[Evaluatie van beveiligingsproblemen SQL](sql-vulnerability-assessment.md) is een eenvoudig te configureren van de service die u kunt detecteren, volgen en te herstellen van potentiële databaseproblemen met het doel proactief algemene om databasebeveiliging te verbeteren. Beveiligingslek met betrekking tot Assessment (VA) maakt deel uit van de aanbieding SQL geavanceerde gegevens beveiliging (AD), dit een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL is. Evaluatie van beveiligingsproblemen kan worden geopend en worden beheerd via de centrale SQL AD-portal.
 
 ### <a name="data-discovery--classification"></a>Gegevensdetectie en classificatie
 
