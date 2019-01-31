@@ -1,25 +1,25 @@
 ---
 title: 'Quickstart: Woorden opzoeken met een tweetalige woordenlijst, Ruby - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze quickstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Ruby.
+description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4574c07f3dfa98c0264d70c08a5ee4feff075bee
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 76357db32ad676cc5246e7f9edfae238d33b0696
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157079"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461148"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>Quickstart: Woorden opzoeken in een tweetalige woordenlijst met Ruby
 
-In deze quickstart zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
+In deze snelstartgids zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -224,7 +224,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze quickstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Bekijk Ruby-voorbeelden op GitHub](https://aka.ms/TranslatorGitHub?type=&language=ruby)

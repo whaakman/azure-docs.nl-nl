@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 3c27f436b726290c6a3af0956b956e1c351a729a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: queues
+ms.openlocfilehash: 715c466c149a2d5a026e58ac0b908b41a51b9a90
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956173"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455487"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Aan de slag met Azure Queue Storage met .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -51,16 +51,16 @@ using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
 
-### <a name="copy-your-credentials-from-the-azure-portal"></a>Kopieer uw referenties van de Azure-portal
+### <a name="copy-your-credentials-from-the-azure-portal"></a>Kopieer uw referenties van de Azure Portal
 
 De voorbeeldcode moet de toegang tot uw opslagaccount autoriseren. Om te autoriseren geeft u de toepassing de referenties van uw opslagaccount in de vorm van een verbindingsreeks. Om uw opslagaccountreferenties te zien, doet u het volgende:
 
-1. Navigeer naar de [Azure-portal](https://portal.azure.com).
+1. Navigeer naar [Azure Portal](https://portal.azure.com).
 2. Zoek uw opslagaccount.
 3. In de sectie **Instellingen** van het overzicht met opslagaccounts selecteert u **Toegangssleutels**. De toegangssleutels van uw account worden weergegeven, evenals de volledige verbindingsreeks voor elke sleutel.   
 4. Zoek de waarde van de **Verbindingsreeks** onder **key1** en klik op de knop **Kopiëren** om de verbindingsreeks te kopiëren. U gaat in de volgende stap de waarde voor de verbinding toevoegen aan een omgevingsvariabele.
 
-    ![Schermopname waarin een verbindingsreeks vanuit de Azure-portal wordt gekopieerd](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
+    ![Schermopname waarin een verbindingsreeks vanuit Azure Portal wordt gekopieerd](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### <a name="parse-the-connection-string"></a>De verbindingsreeks parseren
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
