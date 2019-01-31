@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 277c570079e8c3f051916452492ff62758688e03
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159163"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454858"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure bestanden schaalbaarheids- en prestatiedoelen
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol. Dit artikel worden de schaalbaarheids- en prestatiedoelen voor Azure Files en Azure File Sync.
@@ -59,7 +59,7 @@ Voor hulp bij het plannen van de implementatie voor elk van de fasen, worden hie
 |-|-|
 | Aantal objecten | 10 miljoen objecten | 
 | Grootte van de gegevensset| ~ 4 TiB |
-| Gemiddelde grootte | ~ 500 KiB (grootste bestand: 100 giB) |
+| Gemiddelde grootte | ~ 500 KiB (grootste bestand: 100 GiB) |
 | Uploaden van doorvoer | 20 objecten per seconde |
 | Namespace downloaden doorvoer * | 400 objecten per seconde |
  

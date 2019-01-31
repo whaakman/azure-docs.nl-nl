@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 8b4ae066edc1c62c25762b5c6feebce1ecfff5a2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521537"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470736"
 ---
 # <a name="design-for-querying"></a>Ontwerp voor query's
 Oplossingen voor tabel-service kunnen worden gelezen intensieve, intensieve schrijven of een combinatie van de twee. In dit artikel richt zich op de belangrijke zaken op moet letten wanneer u de Table-service voor de ondersteuning van leesbewerkingen efficiënt ontwerpt. Een ontwerp dat ondersteunt bewerkingen efficiënt lezen is meestal ook efficiënt voor schrijfbewerkingen. Er zijn echter aanvullende overwegingen op moet letten bij het ontwerpen van voor de ondersteuning van schrijfbewerkingen, in het artikel is besproken [ontwerp voor een gegevenswijziging](table-storage-design-for-modification.md).
@@ -42,7 +42,7 @@ De volgende voorbeelden wordt ervan uitgegaan dat de table-service opslaat werkn
 | **Voornaam** |Reeks |
 | **LastName** |Reeks |
 | **Leeftijd** |Geheel getal |
-| **EmailAddress** |Reeks |
+| **EmailAddress** |String |
 
 Het artikel [overzicht van Azure Table storage](table-storage-overview.md) beschrijft een aantal van de belangrijkste functies van de Azure Table-service waarvoor een directe invloed op het ontwerpen van query. Dit resulteert in de volgende algemene richtlijnen voor het ontwerpen van query's tabel-service. Merk op dat de filtersyntaxis van de gebruikt in de onderstaande voorbeelden uit de tabelservice REST-API voor meer informatie naar [entiteiten opvragen](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 88c3be12647bd73296c214390d3d2fb1fe79ccb4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138888"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468815"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenario's voor geavanceerde analyses in Azure Machine Learning
 In dit artikel bevat een overzicht van de verschillende gegevensbronnen van voorbeeld en doelscenario's mogelijk die kunnen worden verwerkt door de [Team Data Science Process (TDSP)](overview.md). De TDSP biedt een systematische benadering voor teams kunnen samenwerken op het bouwen van intelligente toepassingen. De scenario's die hier wordt gepresenteerd illustreren opties beschikbaar zijn in de werkstroom gegevensverwerking die afhankelijk van de gegevenskenmerken, bronlocaties en doel-opslagplaatsen in Azure zijn.
@@ -39,18 +39,18 @@ Elk van de volgende secties geeft een voorbeeldscenario. Voor elk scenario, een 
 > 
 > 
 
-## <a name="smalllocal"></a>Scenario \#1: kleine tot middelgrote gegevensset in tabelvorm in een lokale bestanden
+## <a name="smalllocal"></a>Scenario \#1: Kleine tot middelgrote gegevensset in tabelvorm in een lokale bestanden
 ![Kleine tot middelgrote lokale bestanden][1]
 
-#### <a name="additional-azure-resources-none"></a>Extra Azure-resources: geen
+#### <a name="additional-azure-resources-none"></a>Extra Azure-resources: Geen
 1. Aanmelden bij de [Azure Machine Learning Studio](https://studio.azureml.net/).
 1. Upload een gegevensset.
 1. Een Azure Machine Learning-experiment-stroom vanaf geüploade gegevensset (s) maken.
 
-## <a name="smalllocalprocess"></a>Scenario \#2: kleine tot middelgrote gegevensset van lokale bestanden die moeten worden verwerkt
+## <a name="smalllocalprocess"></a>Scenario \#2: Kleine tot middelgrote gegevensset van lokale bestanden die moeten worden verwerkt
 ![Kleine tot middelgrote lokale bestanden met verwerking in][2]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Extra Azure-resources: Azure virtuele Machine (IPython Notebook-server)
+#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Extra Azure-resources: Virtuele Azure-Machine (IPython Notebook-server)
 1. Maak een virtuele Machine van Azure IPython Notebook.
 1. Gegevens uploaden naar een Azure storage-container.
 1. Voorverwerken en opschonen van gegevens in IPython Notebook, toegang tot gegevens uit Azure storage-container.
@@ -60,10 +60,10 @@ Elk van de volgende secties geeft een voorbeeldscenario. Voor elk scenario, een 
 1. Leest de gegevens uit Azure-blobs met de [importgegevens] [ import-data] module.
 1. Een Azure Machine Learning-experiment-stroom vanaf opgenomen gegevensset (s) maken.
 
-## <a name="largelocal"></a>Scenario \#3: grote gegevensset van lokale bestanden, die zijn gericht op Azure-Blobs
+## <a name="largelocal"></a>Scenario \#3: Grote gegevensset van lokale bestanden, die zijn gericht op Azure-Blobs
 ![Grote lokale bestanden][3]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Extra Azure-resources: Azure virtuele Machine (IPython Notebook-server)
+#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Extra Azure-resources: Virtuele Azure-Machine (IPython Notebook-server)
 1. Maak een virtuele Machine van Azure IPython Notebook.
 1. Gegevens uploaden naar een Azure storage-container.
 1. Voorverwerken en opschonen van gegevens in IPython Notebook, toegang tot gegevens uit Azure-blobs.
@@ -75,10 +75,10 @@ Elk van de volgende secties geeft een voorbeeldscenario. Voor elk scenario, een 
 1. Leest de gegevens uit Azure-blobs met de [importgegevens] [ import-data] module.
 1. Azure Machine Learning-experiment stroom beginnen met opgenomen gegevensset (s) maken.
 
-## <a name="smalllocaltodb"></a>Scenario \#4: kleine tot middelgrote gegevensset van lokale bestanden, die gericht is op SQL Server in een Azure Virtual machines
+## <a name="smalllocaltodb"></a>Scenario \#4: Kleine tot middelgrote gegevensset van lokale bestanden, die gericht is op SQL Server in een Azure Virtual machines
 ![Kleine tot middelgrote lokale bestanden naar SQL DB in Azure][4]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Extra Azure-resources: Azure virtuele Machine (SQL Server / IPython Notebook-server)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Extra Azure-resources: Virtuele Machine van Azure (SQL Server / IPython Notebook-server)
 1. Maak een virtuele Machine van Azure SQL-Server + IPython Notebook.
 1. Gegevens uploaden naar een Azure storage-container.
 1. Voorverwerken en opschonen van gegevens in Azure storage-container met behulp van IPython Notebook.
@@ -86,14 +86,14 @@ Elk van de volgende secties geeft een voorbeeldscenario. Voor elk scenario, een 
 1. Gegevens opslaan naar VM-local-bestanden (IPython Notebook op de virtuele machine wordt uitgevoerd, lokale stations verwijzen naar de VM-schijven).
 1. Gegevens laden in SQL Server-database die wordt uitgevoerd op een Azure-VM.
    
-   Optie \#1: met behulp van SQL Server Management Studio.
+   Optie \#1: Met behulp van SQL Server Management Studio.
    
    * Meld u aan bij SQL Server-machine
    * Voer SQL Server Management Studio.
    * Database- en doel-tabellen maken.
    * Gebruik een van de bulksgewijs importeren methoden voor het laden van de gegevens uit de VM-lokale bestanden.
    
-   Optie \#2: met behulp van IPython Notebook – niet aangeraden voor middelgrote en grote gegevenssets
+   Optie \#2: Met behulp van IPython Notebook – niet aangeraden voor middelgrote en grote gegevenssets
    
    <!-- -->    
    * ODBC-verbindingsreeks gebruiken voor toegang tot SQL Server op virtuele machine.
@@ -105,10 +105,10 @@ Elk van de volgende secties geeft een voorbeeldscenario. Voor elk scenario, een 
 1. Lezen van de gegevens rechtstreeks vanuit de SQL Server met de [importgegevens] [ import-data] module. Plak de benodigde query welke velden worden uitgepakt, maakt u functies en voorbeelden van gegevens, indien nodig rechtstreeks in de [importgegevens] [ import-data] query.
 1. Azure Machine Learning-experiment stroom beginnen met opgenomen gegevensset (s) maken.
 
-## <a name="largelocaltodb"></a>Scenario \#5: grote gegevensset in een lokale bestanden, gericht op SQL Server in virtuele Azure-machine
+## <a name="largelocaltodb"></a>Scenario \#5: Grote gegevensset in een lokale bestanden, gericht op SQL Server in virtuele Azure-machine
 ![Grote lokale bestanden naar SQL DB in Azure][5]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Extra Azure-resources: Azure virtuele Machine (SQL Server / IPython Notebook-server)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Extra Azure-resources: Virtuele Machine van Azure (SQL Server / IPython Notebook-server)
 1. Maak een Azure-virtuele Machine met SQL Server en IPython Notebook-server.
 1. Gegevens uploaden naar een Azure storage-container.
 1. (Optioneel) Voorverwerken en opschonen van gegevens.
@@ -146,10 +146,10 @@ Elk van de volgende secties geeft een voorbeeldscenario. Voor elk scenario, een 
 1. Lezen van de gegevens rechtstreeks vanuit de SQL Server met de [importgegevens] [ import-data] module. Plak de benodigde query welke velden worden uitgepakt, maakt u functies en voorbeelden van gegevens, indien nodig rechtstreeks in de [importgegevens] [ import-data] query.
 1. Eenvoudige stroom met Azure Machine Learning-experiment beginnen met geüploade gegevensset
 
-## <a name="largedbtodb"></a>Scenario \#6: grote gegevensset in een SQL Server-database on-premises, die gericht is op SQL Server in een Azure Virtual machines
+## <a name="largedbtodb"></a>Scenario \#6: Grote gegevensset in een SQL Server-database on-premises, die gericht is op SQL Server in een Azure Virtual machines
 ![Grote SQL DB on-premises naar SQL DB in Azure][6]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Extra Azure-resources: Azure virtuele Machine (SQL Server / IPython Notebook-server)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Extra Azure-resources: Virtuele Machine van Azure (SQL Server / IPython Notebook-server)
 1. Maak een Azure-virtuele Machine met SQL Server en IPython Notebook-server.
 1. Gebruik een van de gegevens exporteren methoden om de gegevens exporteren uit SQL Server naar dumpbestanden.
    
@@ -185,7 +185,7 @@ Elk van de volgende secties geeft een voorbeeldscenario. Voor elk scenario, een 
 ### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>Alternatieve methode om te kopiëren van een volledige database uit een on-premises SQL Server naar Azure SQL Database
 ![Lokale DB loskoppelen en koppelen aan SQL-database in Azure][7]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Extra Azure-resources: Azure virtuele Machine (SQL Server / IPython Notebook-server)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Extra Azure-resources: Virtuele Machine van Azure (SQL Server / IPython Notebook-server)
 Als u wilt repliceren van de volledige SQL Server-database in uw SQL Server-VM, u moet een database kopiëren vanaf één locatie of de server naar een andere, uitgaande van de database kan worden gehouden die tijdelijk offline. Dit doet u in de SQL Server Management Studio-Objectverkenner of met behulp van de gelijkwaardige Transact-SQL-opdrachten.
 
 1. Ontkoppel de database op de bronlocatie. Zie voor meer informatie, [loskoppelen van een database](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
@@ -194,7 +194,7 @@ Als u wilt repliceren van de volledige SQL Server-database in uw SQL Server-VM, 
 
 [Verplaatsen van een Database met loskoppelen en koppelen (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="largedbtohive"></a>Scenario \#7: Big data in lokale bestanden doel Hive-database in Azure HDInsight Hadoop-clusters
+## <a name="largedbtohive"></a>Scenario \#7: BIG data in lokale bestanden, doel-Hive-database in Azure HDInsight Hadoop-clusters
 ![BIG data in lokale doel Hive][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Extra Azure-resources: Azure HDInsight Hadoop-Cluster en virtuele Azure-Machine (IPython Notebook-server)

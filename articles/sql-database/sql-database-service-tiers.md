@@ -11,22 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/25/2019
+ms.openlocfilehash: 719e8c605dfc91b1d9c358158aa3dca248173f90
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726028"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472011"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
 Azure SQL Database kunt u gemakkelijk volledig beheerde PaaS-database-engine die past bij de behoeften van uw prestaties en kosten kunt kopen. Afhankelijk van het implementatiemodel van Azure SQL Database, kunt u de aankopen model dat aansluit bij uw behoeften:
+
 - [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) (aanbevolen) waarmee u de exacte hoeveelheid opslagcapaciteit kiezen en compute die u nodig hebt voor uw workload.
 - [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) kunt u de berekenings- en pakketten met gelijke taakverdeling voor veelvoorkomende workloads gebundeld.
 
 Verschillende aankopen modellen zijn beschikbaar in Azure SQL Database-implementatiemodellen:
-- [Logische servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) bieden beide [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Binnen deze aankoopmodel kunt u kiezen [enkelvoudige databases](sql-database-single-databases-manage.md) of [elastische pools](sql-database-elastic-pool.md).
+
+- [Enkelvoudige databases](sql-database-single-databases-manage.md) en [elastische pools](sql-database-elastic-pool.md) in [Azure SQL Database](sql-database-technical-overview.md) bieden beide [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). 
 - [Beheerde exemplaren](sql-database-managed-instance.md) in enige aanbieding van Azure SQL Database de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -64,7 +66,7 @@ De Database Transaction Unit (DTU) vertegenwoordigt een samengestelde meting van
 
 ### <a name="database-transaction-units-dtus"></a>Database Transaction Units (dtu's)
 
-Compute voor één Azure SQL-database op een specifieke grootte binnen een [servicelaag](sql-database-single-database-scale.md), garandeert Microsoft een bepaald niveau van resources voor die database (onafhankelijk van een andere database in de Azure-cloud), bieden een voorspelbaar niveau van de prestaties. De hoeveelheid resources wordt berekend als een getal van Database Transaction Units of dtu's en is een gecombineerde meting van compute, opslag- en i/o-resources. De verhouding tussen deze resources werd oorspronkelijk bepaald door een [OLTP-benchmark werkbelasting](sql-database-benchmark-overview.md), ontworpen om u te zijn van echte OLTP-workloads. Wanneer uw workload hoger is dan de hoeveelheid van elk van deze resources, is de doorvoer van uw beperkte - wat resulteert in tragere prestaties en time-outs. De resources die worden gebruikt voor uw werkbelasting niet invloed hebben op de beschikbare resources voor andere SQL-databases in de Azure-cloud en de resources die worden gebruikt door andere werkbelastingen niet invloed hebben op de beschikbare resources voor uw SQL-database.
+Compute voor één database op een specifieke grootte binnen een [servicelaag](sql-database-single-database-scale.md), garandeert Microsoft een bepaald niveau van resources voor die database (onafhankelijk van een andere database in de Azure-cloud), bieden een voorspelbaar niveau van prestaties. De hoeveelheid resources wordt berekend als een getal van Database Transaction Units of dtu's en is een gecombineerde meting van compute, opslag- en i/o-resources. De verhouding tussen deze resources werd oorspronkelijk bepaald door een [OLTP-benchmark werkbelasting](sql-database-benchmark-overview.md), ontworpen om u te zijn van echte OLTP-workloads. Wanneer uw workload hoger is dan de hoeveelheid van elk van deze resources, is de doorvoer van uw beperkte - wat resulteert in tragere prestaties en time-outs. De resources die worden gebruikt voor uw werkbelasting niet invloed hebben op de beschikbare resources voor andere SQL-databases in de Azure-cloud en de resources die worden gebruikt door andere werkbelastingen niet invloed hebben op de beschikbare resources voor uw SQL-database.
 
 ![selectiekader](./media/sql-database-what-is-a-dtu/bounding-box.png)
 

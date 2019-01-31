@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2018
-ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166231"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476210"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Versnel de analyse van realtime big data met Spark-connector voor Azure SQL Database en SQL Server
 
@@ -161,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Vereiste installatie
 Als u de toegangsmodus voor verificatie op basis van tokens gebruikt, moet u voor het downloaden van [azure Active Directory-bibliotheek-voor-java-](https://github.com/AzureAD/azure-activedirectory-library-for-java) en de bijbehorende afhankelijkheden, en deze opnemen in de Java build path.
 
-Zie [gebruik Azure Active Directory-verificatie voor verificatie met SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) voor informatie over het toegangstoken voor uw Azure SQL database ophalen.
+Zie [gebruik Azure Active Directory-verificatie voor verificatie met SQL Database](sql-database-aad-authentication.md) voor informatie over het toegangstoken voor uw Azure SQL database ophalen.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

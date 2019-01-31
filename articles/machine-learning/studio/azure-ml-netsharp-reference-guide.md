@@ -1,8 +1,21 @@
 ---
-Titel: Maak aangepaste neurale netwerken met Net # titleSuffix: Azure Machine Learning Studio description: Syntaxis van de handleiding voor de Net # neurale netwerken specificatietaal. Informatie over het maken van aangepaste neurale netwerk modellen in Azure Machine Learning Studio.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: verwijzing
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
+title: 'Maken van aangepaste neurale netwerken met Net #'
+titleSuffix: Azure Machine Learning Studio
+description: 'Syntaxis van de handleiding voor de Net # neurale netwerken specificatietaal. Informatie over het maken van aangepaste neurale netwerk modellen in Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: reference
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/01/2018
+ms.openlocfilehash: be6c04fe31aaa8d4b9081942b054575ff548cf5a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300367"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Handleiding voor het Net # neurale-netwerkspecificatie voor Azure Machine Learning Studio
 

@@ -1,6 +1,6 @@
 ---
-Titel: ' Stap 3: Een nieuw Machine Learning Studio-experiment maken ' titleSuffix: Azure Machine Learning Studio description: ' Stap 3 van het ontwikkelen van een overzicht van de voorspellende oplossing: Een nieuw trainingsexperiment maken in Azure Machine Learning Studio.'
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: ' Stap 3: Een nieuw Machine Learning Studio-experiment maken ' titleSuffix: Azure Machine Learning Studio description: ' Stap 3 van het ontwikkelen van een overzicht van de voorspellende oplossing: Een nieuw trainingsexperiment maken in Azure Machine Learning Studio.'
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 03/23/2017
 ---

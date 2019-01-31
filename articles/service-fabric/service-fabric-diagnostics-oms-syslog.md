@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 32e67343c5d799157d67408b34753da5a38b6f8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197242"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297664"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Gebeurtenissen van de service Fabric Linux-cluster in Syslog
 
@@ -84,7 +84,7 @@ Om in te schakelen de SyslogConsumer, moet u een upgrade van uw cluster uitvoere
 Hier volgen de wijzigingen te belichten
 1. In het algemene gedeelte is een nieuwe parameter met de naam `LinuxStructuredTracesEnabled`. **Dit is vereist voor het Linux-gebeurtenissen gestructureerde en geserialiseerd als deze is verzonden naar de Syslog.**
 2. In de sectie diagnostische gegevens van een nieuwe ConsumerInstance: SyslogConsumer is toegevoegd. Hiermee wordt aangegeven het platform is er een andere gebruiker van de gebeurtenissen. 
-3. De nieuwe sectie SyslogConsumer moet `IsEnabled` als `true`. Het is geconfigureerd om gebruik van de faciliteit Local0 automatisch. U kunt dit opheffen door een andere parameter toe te voegen.
+3. De nieuwe sectie SyslogConsumer moet `IsEnabled` als `true`. Deze is geconfigureerd voor het gebruik van de faciliteit Local0 automatisch. U kunt dit opheffen door een andere parameter toe te voegen.
 
 ```json
     {

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: cf7fe050d2c0521a84bd7f108b2a6d67bfbe09da
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 47d6b336a031f4233bebb7af0b0c57dd8f643dac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241624"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452479"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Verbinding maken met Azure Stack met PowerShell als operator
 
@@ -73,7 +73,7 @@ Verbinding maken met de Azure Stack-operator-omgeving met PowerShell gebruiken m
   ```
 
 > [!Note]  
-> AD FS biedt alleen ondersteuning voor interactieve verificatie met gebruikers-id's. Als u een referentieobject is vereist, moet u een service-principal (SPN) gebruiken. Zie voor meer informatie over het instellen van een service-principal met Azure Stack en AS FS als uw identity management-service [beheren service-principal voor AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+> AD FS biedt alleen ondersteuning voor interactieve verificatie met gebruikers-id's. Als u een referentieobject is vereist, moet u een service-principal (SPN) gebruiken. Zie voor meer informatie over het instellen van een service-principal met Azure Stack en AD FS als uw identity management-service [beheren service-principal voor AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="test-the-connectivity"></a>De connectiviteit testen
 

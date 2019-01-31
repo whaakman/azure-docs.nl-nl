@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 574391fd64d0525d3d77b80bb488bea8109729af
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187327"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299119"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>De beheeroplossingen in Azure Monitor
 Beheeroplossingen gebruikmaken van services in Azure om meer inzicht in de werking van een bepaalde toepassing of service. In dit artikel geeft een kort overzicht van oplossingen in Azure en meer informatie over het gebruiken en ze te installeren.
@@ -60,7 +60,7 @@ Klik op de naam van een oplossing voor het openen van de pagina overzicht. Deze 
 ## <a name="install-a-management-solution"></a>Installeren van een oplossing voor beheer
 Management-oplossingen van Microsoft als partners beschikbaar zijn op de [Azure Marketplace](https://azuremarketplace.microsoft.com). U kunt zoeken naar beschikbare oplossingen en installeren met behulp van de volgende procedure. Wanneer u een oplossing installeert, moet u een [Log Analytics-werkruimte](../platform/manage-access.md) installatie van de oplossing en waar de gegevens worden verzameld.
 
-1. Uit de [lijst met oplossingen voor uw abonnement](#list-installed-monitoring-solutions), klikt u op **toevoegen**. 
+1. Uit de [lijst met oplossingen voor uw abonnement](#list-installed-management-solutions), klikt u op **toevoegen**. 
 1. Aan de rechterkant van **beheeroplossingen**, klikt u op **meer**. 
 1. Ga naar de beheeroplossing die u wilt gebruiken en lees de beschrijving.
 1. Klik op **maken** om het installatieproces te starten.

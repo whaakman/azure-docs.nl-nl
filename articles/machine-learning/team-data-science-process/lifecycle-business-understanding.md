@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141659"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477451"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>De zakelijke understanding fase van de levenscyclus van het Team Data Science Process
 
@@ -40,8 +40,8 @@ Hier volgt een visuele representatie van de TDSP-levenscyclus:
 ## <a name="how-to-do-it"></a>Hoe voer ik
 Er zijn twee belangrijke taken behandeld in deze fase: 
 
-   * **Doelstellingen bepalen**: werken met uw klant en andere betrokkenen om te begrijpen en de zakelijke problemen identificeren. Formuleren vragen die de zakelijke doelstellingen die zijn gericht op de data science-technieken kunnen definiëren.
-   * **De gegevensbronnen identificeren**: zoeken naar de relevante gegevens waarmee u beantwoord de vragen die de doelstellingen van het project definiëren.
+   * **Doelstellingen bepalen**: Werken met uw klant en andere betrokkenen om te begrijpen en de zakelijke problemen identificeren. Formuleren vragen die de zakelijke doelstellingen die zijn gericht op de data science-technieken kunnen definiëren.
+   * **De gegevensbronnen identificeren**: Zoek de relevante gegevens vindt u antwoorden op de vragen die de doelstellingen van het project definiëren.
 
 ### <a name="define-objectives"></a>Doelstellingen bepalen
 1. Een centrale doel van deze stap is het identificeren van de belangrijkste zakelijke variabelen die de analyse nodig heeft om te voorspellen. We verwijzen naar deze variabelen als de *model doelen*, en we de metrische gegevens die zijn gekoppeld aan deze gebruiken om te bepalen het succes van het project. Twee voorbeelden van dergelijke doelen zijn verkoopprognoses of de waarschijnlijkheid van een order fraude.
@@ -77,9 +77,9 @@ Bijvoorbeeld, wellicht dat de bestaande systemen moeten verzamelen en meld u aan
 ## <a name="artifacts"></a>Artefacten
 Dit zijn de producten in deze fase:
 
-   * [Handvest document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): een standard-sjabloon is opgegeven in de definitie van de TDSP-project-structuur. Het Handvest-document is een levend document. U kunt de sjabloon in het project bijwerken naarmate u nieuwe detecties en als zakelijke vereisten veranderen. De sleutel is het herhalen van dit document nader bekeken, als u wordt uitgevoerd via het detectieproces toe te voegen. Houd de klant en andere belanghebbenden betrokken zijn bij het maken van de wijzigingen en duidelijk de redenen voor de wijzigingen aan te brengen.  
-   * [Gegevensbronnen](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): de **onbewerkte gegevensbronnen** sectie van de **gegevensdefinities** rapport dat gevonden in de TDSP-project **rapport** map bevat de gegevens bronnen. In deze sectie wordt de oorspronkelijke en locaties voor de onbewerkte gegevens. In latere fasen, moet u aanvullende informatie zoals de scripts worden de gegevens verplaatsen naar uw analytische omgeving invullen.  
-   * [Gegevens woordenlijsten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): dit document bevat beschrijvingen van de gegevens die wordt geleverd door de client. Deze beschrijvingen bevatten informatie over het schema (de gegevenstypen en informatie over de validatieregels, indien van toepassing) en de entiteit-relation-diagrammen, indien beschikbaar.
+   * [Handvest document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): Een standaardsjabloon is opgegeven in de definitie van de TDSP-project-structuur. Het Handvest-document is een levend document. U kunt de sjabloon in het project bijwerken naarmate u nieuwe detecties en als zakelijke vereisten veranderen. De sleutel is het herhalen van dit document nader bekeken, als u wordt uitgevoerd via het detectieproces toe te voegen. Houd de klant en andere belanghebbenden betrokken zijn bij het maken van de wijzigingen en duidelijk de redenen voor de wijzigingen aan te brengen.  
+   * [Gegevensbronnen](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): De **onbewerkte gegevensbronnen** sectie van de **gegevensdefinities** rapport dat gevonden in de TDSP-project **rapport** map bevat de gegevensbronnen. In deze sectie wordt de oorspronkelijke en locaties voor de onbewerkte gegevens. In latere fasen, moet u aanvullende informatie zoals de scripts worden de gegevens verplaatsen naar uw analytische omgeving invullen.  
+   * [Gegevens woordenlijsten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Dit document bevat beschrijvingen van de gegevens die wordt geleverd door de client. Deze beschrijvingen bevatten informatie over het schema (de gegevenstypen en informatie over de validatieregels, indien van toepassing) en de entiteit-relation-diagrammen, indien beschikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 

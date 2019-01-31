@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242022"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467370"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevens overdragen met AzCopy voor Linux
 
@@ -92,7 +92,7 @@ azcopy --source <source> --destination <destination> [Options]
 
 De volgende voorbeelden tonen verschillende scenario's voor het kopiëren van gegevens naar en van Microsoft Azure-Blobs en -bestanden. Raadpleeg de `azcopy --help` menu voor een gedetailleerde uitleg van de parameters die in elk voorbeeld gebruikt.
 
-## <a name="blob-download"></a>BLOB: downloaden
+## <a name="blob-download"></a>Blob: Downloaden
 ### <a name="download-single-blob"></a>Één blob downloaden
 
 ```azcopy
@@ -211,7 +211,7 @@ azcopy \
     --exclude-older
 ```
 
-## <a name="blob-upload"></a>BLOB: uploaden
+## <a name="blob-upload"></a>Blob: Uploaden
 ### <a name="upload-single-file"></a>Eén bestand uploaden
 
 ```azcopy
@@ -346,7 +346,7 @@ azcopy \
 ### <a name="customizing-the-mime-content-type-mapping"></a>De toewijzing van MIME-type inhoud aanpassen
 AzCopy maakt gebruik van een configuratiebestand met een toewijzing van de bestandsextensie in inhoudstype. U kunt deze toewijzing aanpassen en toevoegen van nieuwe paren indien nodig. De toewijzing bevindt zich in  ```/usr/lib/azcopy/AzCopyConfig.json```
 
-## <a name="blob-copy"></a>BLOB: kopiëren
+## <a name="blob-copy"></a>Blob: Exemplaar
 ### <a name="copy-single-blob-within-storage-account"></a>Kopieert één blob in de Storage-account
 
 ```azcopy
@@ -420,7 +420,7 @@ azcopy \
 
 `--sync-copy` aanvullende uitgaand verkeer kosten in vergelijking met asynchrone kopie genereren. De aanbevolen aanpak is het gebruik van deze optie in een Azure-VM, die zich in dezelfde regio als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaand verkeer.
 
-## <a name="file-download"></a>Bestand: downloaden
+## <a name="file-download"></a>Bestand: Downloaden
 ### <a name="download-single-file"></a>Eén bestand downloaden
 
 ```azcopy
@@ -444,7 +444,7 @@ azcopy \
 
 Houd er rekening mee dat alle lege mappen niet worden gedownload.
 
-## <a name="file-upload"></a>Bestand: uploaden
+## <a name="file-upload"></a>Bestand: Uploaden
 ### <a name="upload-single-file"></a>Eén bestand uploaden
 
 ```azcopy
@@ -477,7 +477,7 @@ azcopy \
     --recursive
 ```
 
-## <a name="file-copy"></a>Bestand: kopiëren
+## <a name="file-copy"></a>Bestand: Exemplaar
 ### <a name="copy-across-file-shares"></a>Kopiëren via bestandsshares
 
 ```azcopy
@@ -715,10 +715,10 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogberichten:
 * [Aankondiging van AzCopy in Linux-Preview](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Maak kennis met de verplaatsing van Azure Storage-bibliotheek Gegevensvoorbeeld](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introductie van synchrone kopiëren en aangepaste inhoudstype](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Maak kennis met synchrone kopiëren en aangepaste inhoudstype](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Aankondiging van algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met ondersteuning voor tabel en bestand](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: Geoptimaliseerd voor scenario's voor grootschalige kopiëren](https://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: Ondersteuning voor geografisch redundante opslag met leestoegang](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Gegevens overdragen met modus voor opnieuw starten en SAS-token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Kopiëren van de Blob cross-account met behulp](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploaden/downloaden van bestanden voor Azure-Blobs](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Gegevens overdragen met de modus voor opnieuw starten en SAS-token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Met behulp van cross-account kopiëren van de Blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Bestanden uploaden/downloaden voor Azure-Blobs](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

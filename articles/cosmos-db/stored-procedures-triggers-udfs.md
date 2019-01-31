@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 14cb821152e6a380de1be4fddef76aa2edec4a8f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042254"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454212"
 ---
-# <a name="working-with-azure-cosmos-db-stored-procedures-triggers-and-user-defined-functions"></a>Werken met Azure Cosmos DB opgeslagen procedures, triggers en gebruikersgedefinieerde functies
+# <a name="stored-procedures-triggers-and-user-defined-functions"></a>Opgeslagen procedures, triggers en gebruikersgedefinieerde functies
 
 Azure Cosmos DB biedt language integrated, transactionele uitvoering van JavaScript. Wanneer u de SQL-API in Azure Cosmos DB, kunt u **opgeslagen procedures**, **triggers**, en **gebruikersgedefinieerde functies (UDF's)** in de JavaScript-taal. U kunt uw logica schrijven in JavaScript die werd uitgevoerd binnen de database-engine. U kunt maken en uitvoeren van triggers en opgeslagen procedures, UDF's met behulp van [Azure-portal](https://portal.azure.com/), wordt de [JavaScript-taal geïntegreerd query-API in Azure Cosmos DB](javascript-query-api.md) of de [Cosmos DB SQL API-client SDK's](how-to-use-stored-procedures-triggers-udfs.md).
 

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6fc3aa3810fa79e0995fd94708d03310cc5cef53
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244977"
+ms.locfileid: "55299875"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en compute Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het ideale aantal datawarehouse units (dwu's, cDWUs) om te optimaliseren prijs en prestaties en het wijzigen van het aantal eenheden. 
@@ -62,7 +62,7 @@ WITH
 Elke prestatielaag maakt gebruik van een iets andere maateenheid voor de datawarehouse-eenheden. Dit verschil wordt op de factuur weergegeven als de eenheid van de schaal direct wordt omgezet in facturering.
 
 - Gen1 datawarehouses worden gemeten in Data Warehouse Units (dwu's).
-- Gen2 gegevens warehousesr worden gemeten in compute Data Warehouse Units (cDWUs). 
+- Gen2 data warehouses worden gemeten in compute Data Warehouse Units (cDWUs). 
 
 Dwu's zowel cDWUs ondersteuning voor vergroten/verkleinen compute omhoog of omlaag en onderbreken compute wanneer u niet nodig hebt voor het gebruik van het datawarehouse. Deze bewerkingen zijn alle op aanvraag. Gen2 maakt gebruik van een lokale schijf op basis van cache op de rekenknooppunten om prestaties te verbeteren. Als u het systeem onderbreken of schalen, de cache ongeldig is gemaakt en dus een periode van het opwarmen van cache is vereist voordat de optimale prestaties wordt bereikt.  
 

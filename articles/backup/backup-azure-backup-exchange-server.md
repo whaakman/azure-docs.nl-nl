@@ -2,18 +2,18 @@
 title: Met System Center 2012 R2 DPM een back-up maken van een Exchange-server in Azure Backup
 description: Meer informatie over het back-up van een Exchange-server op Azure Backup met behulp van System Center 2012 R2-DPM
 services: backup
-author: adigan
-manager: NKolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: adigan
-ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: kasinh
+ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234445"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298310"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Met System Center 2012 R2 DPM een back-up maken van een Exchange-server in Azure Backup
 Dit artikel wordt beschreven hoe u een System Center 2012 R2 Data Protection Manager (DPM)-server voor back-up van een Microsoft Exchange-server op Azure Backup configureren.  
@@ -61,7 +61,7 @@ Voor het installeren van de DPM-beveiligingsagent op de Exchange server, de volg
 
    * Ik wil kortetermijnbeveiliging met schijf.
    * Ik kies voor online beveiliging.
-6. Klik op **Volgende**.
+6. Klik op **volgende**.
 7. Selecteer de **Eseutil uitvoeren om gegevensintegriteit te controleren** optie als u wilt controleren de integriteit van de Exchange Server-databases.
 
     Nadat u deze optie selecteert, back-up consistentiecontrole wordt uitgevoerd op de DPM-server om te voorkomen dat het i/o-verkeer dat wordt gegenereerd door het uitvoeren van de **eseutil** opdracht op de Exchange-server.
@@ -71,7 +71,7 @@ Voor het installeren van de DPM-beveiligingsagent op de Exchange server, de volg
    > ![Eseutil-fout](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Klik op **Volgende**.
+8. Klik op **volgende**.
 9. Selecteer de database voor **kopieback-up**, en klik vervolgens op **volgende**.
 
    > [!NOTE]
@@ -110,11 +110,11 @@ Voor het installeren van de DPM-beveiligingsagent op de Exchange server, de volg
 
 Er zijn vijf typen voor herstel voor online herstelpunten:
 
-* **Herstellen naar oorspronkelijke Exchange Server-locatie:** de gegevens worden hersteld naar de oorspronkelijke Exchange server.
-* **Herstellen naar een andere database op een Exchange-Server:** de gegevens worden hersteld naar een andere database op een andere Exchange-server.
-* **Herstellen naar een hersteldatabase:** de gegevens worden hersteld naar een Exchange Recovery-Database (RDB).
-* **Kopiëren naar een netwerkmap:** de gegevens worden hersteld naar een netwerkmap.
-* **Kopiëren naar tape:** hebt u een tapewisselaar of zelfstandig tapestation gekoppeld en geconfigureerd op de DPM-server, het herstelpunt dat moet worden gekopieerd naar een vrije tape.
+* **Herstellen naar oorspronkelijke Exchange Server-locatie:** De gegevens worden hersteld naar de oorspronkelijke Exchange server.
+* **Herstellen naar een andere database op een Exchange-Server:** De gegevens worden hersteld naar een andere database op een andere Exchange-server.
+* **Herstellen naar een hersteldatabase:** De gegevens worden hersteld naar een Exchange Recovery-Database (RDB).
+* **Naar een netwerkmap kopiëren:** De gegevens worden hersteld naar een netwerkmap.
+* **Naar tape kopiëren:** Als u een tapewisselaar of zelfstandig tapestation gekoppeld en geconfigureerd op de DPM-server hebt, wordt het herstelpunt worden gekopieerd naar een vrije tape.
 
     ![Kies onlinereplicatie](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

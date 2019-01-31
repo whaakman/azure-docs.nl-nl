@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259134"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459482"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
 
 In deze zelfstudie worden verschillende belangrijke scenario's die worden gebruikt in SaaS-toepassingen verkend. Met behulp van een load-generator voor het simuleren van activiteit in alle tenantdatabases, worden de ingebouwde bewaking en waarschuwingen van de functies van SQL-Database en elastische pools toegelicht.
 
-De Wingtip Tickets SaaS Database Per Tenant-app gebruikt een gegevensmodel van één tenant, waarbij elke venue (tenant) een eigen database heeft. Net als bij veel andere SaaS-toepassingen, is het verwachte tenantworkloadpatroon onvoorspelbaar en sporadisch. Met andere woorden, kaartverkoop kan op ieder moment plaatsvinden. Tenantdatabases worden geïmplementeerd in pools voor Elastic Database om te profiteren van dit typerende patroon voor databasegebruik. Elastische pools verlagen de kosten van een oplossing door resources over veel databases te verdelen. Bij dit type patroon is het belangrijk om het gebruik van database- en poolresources te controleren om ervoor te zorgen dat loads goed over pools zijn verdeeld. Ook moet u ervoor zorgen dat individuele databases voldoende resources hebben en dat pools niet hun [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)-limieten overschrijden. In deze zelfstudie worden manieren toegelicht om databases en pools te controleren en beheren. Ook wordt uitgelegd hoe u corrigerende maatregelen kunt nemen als reactie op wisselingen in de workload.
+De Wingtip Tickets SaaS Database Per Tenant-app gebruikt een gegevensmodel van één tenant, waarbij elke venue (tenant) een eigen database heeft. Net als bij veel andere SaaS-toepassingen, is het verwachte tenantworkloadpatroon onvoorspelbaar en sporadisch. Met andere woorden, kaartverkoop kan op ieder moment plaatsvinden. Als u wilt profiteren van dit typerende patroon, worden tenantdatabases geïmplementeerd in elastische pools. Elastische pools verlagen de kosten van een oplossing door resources over veel databases te verdelen. Bij dit type patroon is het belangrijk om het gebruik van database- en poolresources te controleren om ervoor te zorgen dat loads goed over pools zijn verdeeld. Ook moet u ervoor zorgen dat individuele databases voldoende resources hebben en dat pools niet hun [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)-limieten overschrijden. In deze zelfstudie worden manieren toegelicht om databases en pools te controleren en beheren. Ook wordt uitgelegd hoe u corrigerende maatregelen kunt nemen als reactie op wisselingen in de workload.
 
 In deze zelfstudie leert u het volgende:
 
@@ -42,7 +42,7 @@ U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt vold
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Kennismaking met prestatiebeheerpatronen voor SaaS
 
-Het beheren van de databaseprestaties bestaat uit het verzamelen en analyseren van prestatiegegevens en het reageren op deze gegevens door parameters aan te passen om een acceptabele reactietijd voor de toepassing te behouden. Wanneer u meerdere tenants host, zijn pools voor Elastic Database een rendabele manier om resources te bieden en te beheren voor een groep databases met onvoorspelbare workloads. Met bepaalde workloadpatronen kan het al bij twee S3-databases voordelig zijn om ze door een pool te laten beheren.
+Het beheren van de databaseprestaties bestaat uit het verzamelen en analyseren van prestatiegegevens en het reageren op deze gegevens door parameters aan te passen om een acceptabele reactietijd voor de toepassing te behouden. Bij het hosten van meerdere tenants, zijn elastische pools een kosteneffectieve manier om te leveren en beheren van resources voor een groep databases met onvoorspelbare workloads. Met bepaalde workloadpatronen kan het al bij twee S3-databases voordelig zijn om ze door een pool te laten beheren.
 
 ![Een diagram van toepassing](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -169,7 +169,7 @@ In plaats van de pool omhoog te schalen, kunt u ook een tweede pool maken en dat
 
 1. In de [Azure-portal](https://portal.azure.com), open de **tenants1-dpt -&lt;gebruiker&gt;**  server.
 1. Klik op **+ nieuwe pool** een groep maken op de huidige server.
-1. Op de **pool voor elastische database** sjabloon:
+1. Op de **elastische pool** sjabloon:
 
     1. Stel **naam** naar *Pool2*.
     1. Laat de prijscategorie op **Standaardpool** staan.
@@ -189,9 +189,9 @@ Blader naar **Pool2** (op de *tenants1-dpt -\<gebruiker\>*  server) om te openen
 
 U ziet nu dat het gebruik van *Pool1* is verwijderd en dat *Pool2* nu op dezelfde manier wordt geladen.
 
-## <a name="manage-performance-of-a-single-database"></a>Prestaties van een individuele database beheren
+## <a name="manage-performance-of-an-individual-database"></a>Prestaties van een individuele database beheren
 
-Als een individuele database in een pool langere tijd een hogere load heeft, kan het de resources in de pool overheersen en andere databases beïnvloeden, afhankelijk van de poolconfiguratie. Als de activiteit enige tijd voortduurt is, kan de database tijdelijk worden verplaatst uit de pool. Hiermee wordt de database beschikken over de extra resources nodig heeft en worden geïsoleerd van de andere databases.
+Als een afzonderlijke database in een pool optreedt in een duurzame hoge belasting, afhankelijk van de configuratie van de pool, meestal het de resources in de pool overheersen en andere databases beïnvloeden. Als de activiteit enige tijd voortduurt is, kan de database tijdelijk worden verplaatst uit de pool. Hiermee wordt de database beschikken over de extra resources nodig heeft en worden geïsoleerd van de andere databases.
 
 Deze oefening simuleert het effect van een hoge load voor Contoso Concert Hall wanneer kaartjes voor een populair concert in de verkoop gaan.
 
@@ -203,7 +203,7 @@ Deze oefening simuleert het effect van een hoge load voor Contoso Concert Hall w
 
 1. In de [Azure-portal](https://portal.azure.com), blader naar de lijst met databases op de *tenants1-dpt -\<gebruiker\>*  server. 
 1. Klik op de **contosoconcerthall** database.
-1. Klik op de groep die **contosoconcerthall** is in. Zoek de groep in de **pool voor elastische database** sectie.
+1. Klik op de groep die **contosoconcerthall** is in. Zoek de groep in de **elastische pool** sectie.
 
 1. Inspecteer de **elastische groep controleren** grafiek en zoekt u de hogere groep eDTU-gebruik. Na een paar minuten moet de hogere load actief worden en zou de pool snel een gebruik van 100% moeten weergeven.
 2. Inspecteer de **Elastic database controleren** weergeven, waarin de meest belaste databases in het afgelopen uur. De *contosoconcerthall* database moet binnenkort worden weergegeven als een van de vijf meest belaste databases.

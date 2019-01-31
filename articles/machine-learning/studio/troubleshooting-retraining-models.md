@@ -1,6 +1,6 @@
 ---
-Titel: Problemen oplossen opnieuw trainen van een Machine Learning Studio klassieke web service titleSuffix: Azure Machine Learning Studio description: Identificeren en te corrigeren van veelvoorkomende problemen wanneer u opnieuw het model voor een Azure Machine Learning Studio-webservice trainen bent.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Problemen oplossen opnieuw trainen van een Machine Learning Studio klassieke web service titleSuffix: Azure Machine Learning Studio description: Identificeren en te corrigeren van veelvoorkomende problemen wanneer u opnieuw het model voor een Azure Machine Learning Studio-webservice trainen bent.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 11/01/2017
 ---

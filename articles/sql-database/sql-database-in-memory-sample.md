@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 51cf04509608435117e0368b25952a58f7fc3557
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609640"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478284"
 ---
 # <a name="in-memory-sample"></a>In-Memory-voorbeeld
 
@@ -55,7 +55,7 @@ Voor een meer eenvoudig, maar visueel aantrekkelijker prestaties demo voor In-Me
 4. Plak de T-SQL-script in SSMS en vervolgens het script wordt uitgevoerd. De `MEMORY_OPTIMIZED = ON` component CREATE TABLE-instructies zijn essentieel. Bijvoorbeeld:
 
 
-```
+```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
     [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
     ...
@@ -69,7 +69,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 Als u fout 40536 krijgt wanneer u de T-SQL-script uitvoert, voert u de volgende T-SQL-script om te controleren of de database ondersteuning biedt voor In-Memory uit:
 
 
-```
+```sql
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
@@ -94,7 +94,7 @@ U kunt inspecteren tabellen geoptimaliseerd voor geheugen via de **Objectverkenn
 Of u kunt de catalogusweergaven, zoals een query:
 
 
-```
+```sql
 SELECT is_memory_optimized, name, type_desc, durability_desc
     FROM sys.tables
     WHERE is_memory_optimized = 1;
@@ -104,7 +104,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 **Systeemeigen, gecompileerde, opgeslagen procedure**: U kunt SalesLT.usp_InsertSalesOrder_inmem inspecteren via een query catalogus weergeven:
 
 
-```
+```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
     FROM sys.sql_modules
     WHERE uses_native_compilation = 1;
@@ -145,7 +145,7 @@ Het volgende script wordt een voorbeeld van verkooporderformulier met vijf regel
 - SalesLT.SalesOrderDetail_inmem
 
 
-```
+```sql
 DECLARE
     @i int = 0,
     @od SalesLT.SalesOrderDetailType_inmem,
@@ -244,7 +244,7 @@ Nadat u het resultaat van hebt de *_inmem* uitvoeren, voert u de volgende stappe
 
 
 1. Opnieuw instellen van de database met de volgende opdracht in SSMS om alle gegevens te verwijderen die door de vorige uitvoering is ingevoegd:
-```
+```sql
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -315,7 +315,7 @@ Een geclusterde columnstore-index is in de FactResellerSalesXL\_CCI tabel.
 Het volgende fragment van T-SQL-script af te drukken statistieken voor i/o- en -tijd voor de query van elke tabel.
 
 
-```
+```sql
 /*********************************************************************
 Step 2 -- Overview
 -- Page Compressed BTree table v/s Columnstore table performance differences

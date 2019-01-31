@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.component: performance
+ms.subservice: performance
 ms.topic: how-to
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2a0504ae0e5c3dbf70ad84526176beae52f55870
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 51c433248feed615684ab5a1273826135d3dea3d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103123"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456575"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>De cache Gen2 bewaken
 De opslagarchitectuur Gen2 wordt automatisch de meest aangevraagde columnstore-segmenten in een cache op basis van SSD's die zijn ontworpen voor datawarehouses Gen2 NVMe lagen. Betere prestaties wordt gerealiseerd wanneer uw query's halen segmenten die die zich in de cache bevinden zijn. Dit artikel wordt beschreven hoe u controleert en prestaties van trage query's op te lossen door te bepalen of uw werkbelasting is optimaal gebruik te maken van de cache Gen2.  

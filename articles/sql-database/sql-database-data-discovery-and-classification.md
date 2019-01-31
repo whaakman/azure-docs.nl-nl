@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 8dfcee6e7f0e2fd21c35ed2507b572c6e8cffc42
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217234"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466589"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasegegevens detectie en classificatie
 
@@ -123,7 +123,7 @@ Zodra de tenant-brede, door het beleid is gedefinieerd, kunt u doorgaan met de c
 
 ## <a id="subheading-3"></a>Toegang tot gevoelige gegevens controleren
 
-Een belangrijk aspect van het information protection paradigma is de mogelijkheid voor het bewaken van toegang tot gevoelige gegevens. [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) heeft uitgebreid met een nieuw veld in het auditlogboek met de naam *data_sensitivity_information*, die de classificaties gevoeligheid (labels) van de werkelijke hoeveelheid gegevens die is geretourneerd door Logboeken de query.
+Een belangrijk aspect van het information protection paradigma is de mogelijkheid voor het bewaken van toegang tot gevoelige gegevens. [Azure SQL Database Auditing](sql-database-auditing.md) heeft uitgebreid met een nieuw veld in het auditlogboek met de naam *data_sensitivity_information*, die de classificaties gevoeligheid (labels) van de werkelijke hoeveelheid gegevens die is geretourneerd door Logboeken de query.
 
 ![Auditlogboek](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -148,7 +148,7 @@ U kunt ook REST-API's gebruiken voor het programmatisch beheren van classificati
 ## <a id="subheading-5"></a>Volgende stappen
 
 - Meer informatie over [SQL Advanced gegevensbeveiliging](sql-advanced-threat-protection.md).
-- Overweeg de configuratie van [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) voor bewaking en controle van toegang tot uw geclassificeerde gevoelige gegevens.
+- Overweeg de configuratie van [Azure SQL Database Auditing](sql-database-auditing.md) voor bewaking en controle van toegang tot uw geclassificeerde gevoelige gegevens.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

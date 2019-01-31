@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 01/25/2019
+ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227483"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471195"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-patronen voor databases-tenants
 
@@ -33,8 +33,8 @@ Elke tenant krijgt toegang tot de onderdelen van uw SaaS-toepassing tegen betale
 
 De term *tenants model* verwijst naar hoe tenants opgeslagen gegevens zijn onderverdeeld:
 
-- *Single-tenants:* &nbsp; gegevens van slechts één tenant in elke database worden opgeslagen.
-- *Multitenancy:* &nbsp; elke database slaat de gegevens van meerdere afzonderlijke tenants (met mechanismen voor het beveiligen van de privacy van gegevens).
+- *Single-tenants:*&nbsp; Elke database slaat de gegevens van slechts één tenant.
+- *Multitenancy:*&nbsp; Elke database slaat de gegevens van meerdere afzonderlijke tenants (met mechanismen voor het beveiligen van de privacy van gegevens).
 - Hybride tenants modellen zijn ook beschikbaar.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. De juiste tenants-model kiezen
@@ -47,9 +47,9 @@ In het algemeen de tenants-model heeft geen invloed op de functie van een toepas
     - Opslag in geaggregeerde vorm.
     - Workload.
 
-- **Tenantisolatie:** &nbsp; gegevens te isoleren en prestaties (of workload van één tenant heeft gevolgen voor anderen).
+- **Isolatie van tenants:**&nbsp; Gegevensisolatie en prestaties (of workload van één tenant heeft gevolgen voor anderen).
 
-- **Kosten per tenant:** &nbsp; kosten van de Database.
+- **Kosten per tenant:**&nbsp; Databasekosten.
 
 - **Ontwikkeling van complexiteit:**
     - Wijzigingen in schema.
@@ -61,7 +61,7 @@ In het algemeen de tenants-model heeft geen invloed op de functie van een toepas
     - Herstellen van een tenant.
     - Herstel na noodgevallen.
 
-- **Aanpasbaarheid:** &nbsp; gebruiksgemak schema aanpassingen die zijn ondersteunende tenantspecifieke of klasse-specifieke tenant.
+- **Aanpasbaarheid:**&nbsp; Gebruiksgemak schema aanpassingen die zijn ondersteunende tenantspecifieke of klasse-specifieke tenant.
 
 De discussie tenants is gericht op de *gegevens* laag.  Maar kijk eens naar de *toepassing* laag.  Niveau van de toepassing wordt beschouwd als een monolithische entiteit.  Als u de toepassing in veel kleine onderdelen deelt, wijzigen uw eigen keuze aan tenants model.  U kunt sommige onderdelen anders dan andere behandelen met betrekking tot zowel tenants en de technologie voor gegevensopslag of platform dat wordt gebruikt.
 
@@ -95,7 +95,7 @@ Met de database-per-tenant is het eenvoudig om te realiseren aanpassen van het s
 
 #### <a name="elastic-pools"></a>Pools voor Elastic Database
 
-Wanneer databases zijn geïmplementeerd in dezelfde resourcegroep bevinden, kunnen ze worden gegroepeerd in pools voor elastische databases.  De pools bieden een kosteneffectieve manier van delen van resources voor verschillende databases.  Deze optie pool is goedkoper dan het vereisen van elke database te groot genoeg zijn om de gebruikspieken plant die er mogelijk te maken.  Hoewel de databases in pools delen de toegang tot resources kunnen ze nog steeds een hoge mate van isolatie van de prestaties te bereiken.
+Wanneer databases zijn geïmplementeerd in dezelfde resourcegroep bevinden, kunnen ze worden gegroepeerd in elastische pools.  De pools bieden een kosteneffectieve manier van delen van resources voor verschillende databases.  Deze optie pool is goedkoper dan het vereisen van elke database te groot genoeg zijn om de gebruikspieken plant die er mogelijk te maken.  Hoewel de databases in pools delen de toegang tot resources kunnen ze nog steeds een hoge mate van isolatie van de prestaties te bereiken.
 
 ![Ontwerp van multitenant-app met database-per-tenant, met behulp van de elastische pool.][image-mt-app-db-per-tenant-pool-153p]
 
@@ -126,9 +126,9 @@ Patroon voor een ander beschikbaar is voor het opslaan van veel tenants in een m
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Isolatie van tenants is gedood
 
-*Gegevens:* &nbsp; per se offert isolatie van tenants een multitenant-database.  De gegevens van meerdere tenants worden samen in één database opgeslagen.  Tijdens de ontwikkeling, moet u ervoor zorgen dat query's nooit gegevens van meer dan één tenant maken.  SQL Database ondersteunt [beveiliging op rijniveau][docu-sql-svr-db-row-level-security-947w], die kan worden afgedwongen dat gegevens die worden geretourneerd door een query worden afgestemd op één tenant.
+*Gegevens:*&nbsp; Een multitenant-database offert per se isolatie van tenants.  De gegevens van meerdere tenants worden samen in één database opgeslagen.  Tijdens de ontwikkeling, moet u ervoor zorgen dat query's nooit gegevens van meer dan één tenant maken.  SQL Database ondersteunt [beveiliging op rijniveau][docu-sql-svr-db-row-level-security-947w], die kan worden afgedwongen dat gegevens die worden geretourneerd door een query worden afgestemd op één tenant.
 
-*Verwerken:* &nbsp; een multitenant-database deelt reken- en opslagresources voor alle van de tenants.  De database als geheel kan worden gecontroleerd om te controleren of dat deze acceptabel presteert.  De Azure-systeem heeft echter geen ingebouwde manier om te controleren of het gebruik van deze resources door een afzonderlijke tenant beheren.  Daarom wordt de multitenant-database een verhoogd risico op luidruchtige buren, waarbij de workload van één overactive tenant heeft gevolgen voor de prestaties van andere tenants in dezelfde database worden aangetroffen.  Aanvullende controle op toepassingsniveau, kan op tenantniveau prestaties bewaken.
+*Verwerken:*&nbsp; Een multitenant-database deelt reken- en opslagresources voor alle van de tenants.  De database als geheel kan worden gecontroleerd om te controleren of dat deze acceptabel presteert.  De Azure-systeem heeft echter geen ingebouwde manier om te controleren of het gebruik van deze resources door een afzonderlijke tenant beheren.  Daarom wordt de multitenant-database een verhoogd risico op luidruchtige buren, waarbij de workload van één overactive tenant heeft gevolgen voor de prestaties van andere tenants in dezelfde database worden aangetroffen.  Aanvullende controle op toepassingsniveau, kan op tenantniveau prestaties bewaken.
 
 #### <a name="lower-cost"></a>Lagere kosten
 

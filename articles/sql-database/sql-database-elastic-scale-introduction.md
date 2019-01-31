@@ -11,22 +11,22 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867083"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463018"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Uitbreiden met Azure SQL Database
 U kunt gemakkelijk schalen van Azure SQL-databases met behulp van de **Elastic Database** hulpprogramma's. Deze hulpprogramma's en functies, kunt u de bronnen van **Azure SQL Database** om oplossingen voor transactionele werkbelastingen en met name Software als een Service (SaaS)-toepassingen te maken. Functies voor elastische Database worden samengesteld uit de:
 
-* [Clientbibliotheek voor elastic Database](sql-database-elastic-database-client-library.md): de clientbibliotheek is een functie waarmee u maken en onderhouden van shard-databases.  Zie [aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md).
+* [Clientbibliotheek voor elastic Database](sql-database-elastic-database-client-library.md): De clientbibliotheek is een functie waarmee u maken en onderhouden van shard-databases.  Zie [aan de slag met elastische Databasehulpprogramma's](sql-database-elastic-scale-get-started.md).
 * [Elastische Database-hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md): verplaatst gegevens tussen de shard-databases. Dit hulpprogramma is nuttig voor het verplaatsen van gegevens uit een multitenant-database naar een één tenant-database (of omgekeerd). Zie [elastisch splitsen en samenvoegen hulpprogramma databasezelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Taken voor elastic Database](sql-database-elastic-jobs-overview.md) (preview):-taken gebruiken voor het beheren van grote aantallen Azure SQL-databases. Gemakkelijk beheerwerkzaamheden uitvoeren zoals wijzigingen in het schema, beheren van referenties, bijwerken van verwijzingsgegevens, verzamelen van prestatiegegevens of verzamelen van telemetriegegevens tenants (klanten) met behulp van taken.
+* [Taken voor elastic Database](sql-database-elastic-jobs-overview.md) (preview): Taken voor het beheren van grote aantallen Azure SQL-databases gebruiken. Gemakkelijk beheerwerkzaamheden uitvoeren zoals wijzigingen in het schema, beheren van referenties, bijwerken van verwijzingsgegevens, verzamelen van prestatiegegevens of verzamelen van telemetriegegevens tenants (klanten) met behulp van taken.
 * [Query voor elastic Database](sql-database-elastic-query-overview.md) (preview): Hiermee kunt u een Transact-SQL-query die meerdere databases omvat uit te voeren. Hiermee kunt verbinding met de hulpprogramma's voor rapportage, zoals Excel, Power BI, Tableau, enzovoort.
-* [Elastische transacties](sql-database-elastic-transactions-overview.md): deze functie kunt u uitvoeren van transacties met betrekking meerdere databases in Azure SQL Database tot. Elastische transacties zijn beschikbaar voor .NET-toepassingen met behulp van ADO .NET en integreren met de vertrouwde programmering ervaring met de [System.Transaction klassen](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Elastische transacties](sql-database-elastic-transactions-overview.md): Deze functie kunt u uitvoeren van transacties met betrekking meerdere databases in Azure SQL Database tot. Elastische transacties zijn beschikbaar voor .NET-toepassingen met behulp van ADO .NET en integreren met de vertrouwde programmering ervaring met de [System.Transaction klassen](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 De volgende afbeelding toont een architectuur met de **functies voor elastische Database** ten opzichte van een verzameling van databases.
 

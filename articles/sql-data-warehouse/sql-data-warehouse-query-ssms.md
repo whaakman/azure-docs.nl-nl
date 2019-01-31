@@ -2,20 +2,20 @@
 title: Verbinding maken met Azure SQL datawarehouse - SSMS | Microsoft Docs
 description: Gebruik SQL Server Management Studio (SSMS) verbinding maken met en query uitvoeren op Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6079c3064699da38fad20468517eb97d6ab107f8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 809802bc34a6cdc45f4b018d35895939e4b8f667
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307197"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471943"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Verbinding maken met SQL datawarehouse met SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Verbinding maken met uw SQL Data Warehouse
 1. Open SQL Server Management Studio.
-2. Open Objectverkenner. Om dit te doen, selecteert u **bestand** > **verbinding maken met Objectverkenner**.
+2. Open Object Explorer. Om dit te doen, selecteert u **bestand** > **verbinding maken met Objectverkenner**.
    
     ![SQL Server-objectverkenner][1]
 3. Vul de velden in het venster Connect to Server (Verbinding maken met server) in.

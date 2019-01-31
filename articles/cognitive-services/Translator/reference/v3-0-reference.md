@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870399"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459063"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
@@ -33,7 +33,7 @@ Versie 3 van de Translator Text-API biedt een moderne JSON gebaseerde Web-API. H
 
 Microsoft Translator is geleverd vanuit meerdere datacenter-locaties. Op dit moment ze bevinden zich op 6 [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americas:** VS-West 2 en West-Centraal VS 
+* **Amerika:** VS-West 2 en West-Centraal VS 
 * **Azië en Stille Oceaan:** Zuidoost-Azië en Korea-Zuid
 * **Europa:** Noord-Europa en West-Europa
 
@@ -41,12 +41,12 @@ Aanvragen voor de Microsoft Translator Text-API zijn in de meeste gevallen door 
 
 Om af te dwingen de aanvraag moet worden verwerkt door een specifieke datacenter, wijzigt u de globaal eindpunt voor in de API-aanvraag naar de gewenste regionale eindpunt:
 
-|Beschrijving|Regio|Basis-URL|
+|Description|Regio|Basis-URL|
 |:--|:--|:--|
-|Azure|Wereldwijd|  API.cognitive.microsofttranslator.com|
-|Azure|Noord-Amerika|   API-nam.cognitive.microsofttranslator.com|
-|Azure|Europa|  API-eur.cognitive.microsofttranslator.com|
-|Azure|Azië en Stille Oceaan|    API-apc.cognitive.microsofttranslator.com|
+|Azure|Wereldwijd|  api.cognitive.microsofttranslator.com|
+|Azure|Noord-Amerika|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Azië en Stille Oceaan|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Verificatie
@@ -55,11 +55,11 @@ Abonneren op Translator Text-API of [Cognitive Services All-in-one](https://azur
 
 Er zijn drie kopteksten die u gebruiken kunt om te verifiëren van uw abonnement. Deze tabel bevat wordt beschreven hoe deze worden gebruikt:
 
-|Headers|Beschrijving|
+|Headers|Description|
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Gebruiken met Cognitive Services-abonnement als u de geheime sleutel doorgeeft*.<br/>De waarde is de Azure geheime sleutel voor uw abonnement op Translator Text-API.|
 |Autorisatie|*Met Cognitive Services-abonnement gebruiken als u een verificatietoken doorgeeft.*<br/>De waarde is het Bearer-token: `Bearer <token>`.|
-|OCP-Apim-abonnement-regio|*Met Cognitive Services All-in-one-abonnement gebruiken als u een alles-in-een geheime sleutel zijn doorgegeven.*<br/>De waarde is de regio van de alles-in-één-abonnement. Deze waarde is optioneel wanneer niet met een alles-in-één-abonnement.|
+|Ocp-Apim-Subscription-Region|*Met Cognitive Services All-in-one-abonnement gebruiken als u een alles-in-een geheime sleutel zijn doorgegeven.*<br/>De waarde is de regio van de alles-in-één-abonnement. Deze waarde is optioneel wanneer niet met een alles-in-één-abonnement.|
 
 ###  <a name="secret-key"></a>Geheime sleutel
 De eerste optie is om te verifiëren met behulp van de `Ocp-Apim-Subscription-Key` header. Voeg de `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header op uw aanvraag.
@@ -125,7 +125,7 @@ Een klant met een gratis proefabonnement zou bijvoorbeeld het volgende foutberic
 ```
 De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statuscode gevolgd door een getal 3 cijfers en verder categoriseren van de fout. Veelvoorkomende foutcodes zijn:
 
-| Code | Beschrijving |
+| Code | Description |
 |:----|:-----|
 | 400000| Een van de invoer van de aanvraag is niet geldig.|
 | 400001| De bereikparameter '' is ongeldig.|

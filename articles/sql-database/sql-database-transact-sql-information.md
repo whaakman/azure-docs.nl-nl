@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4d9618bbceacf4167aac843e3d5fd818f225d297
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997687"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467812"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Transact-SQL-verschillen oplossen tijdens de migratie naar SQL Database
 
@@ -39,43 +39,43 @@ De core (data definition language met) DDL-instructies zijn beschikbaar, maar so
 
 - MAKEN en ALTER DATABASE instructies hebben meer dan drie dozijn opties. De instructies zijn plaatsing van bestanden, FILESTREAM en service broker-opties die alleen van toepassing op SQL Server. Dit kan niet van belang als u databases maken voordat u migreert, maar als u migreert van T-SQL-code die wordt gemaakt van databases Vergelijk [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) met de syntaxis van de SQL Server op [maken DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) om ervoor te zorgen dat alle opties die u gebruiken worden ondersteund. DATABASE maken voor Azure SQL Database heeft ook servicedoelstelling en flexibele schaalmogelijkheden opties die alleen van toepassing op SQL-Database.
 - Het maken en ALTER TABLE-instructies hebt bestandstabel opties die op de SQL-Database kunnen niet worden gebruikt omdat FILESTREAM wordt niet ondersteund.
-- MAKEN en ALTER login-instructies worden ondersteund, maar SQL Database biedt niet alle opties. Als u uw database draagbaarder, raadt SQL-Database met behulp van ingesloten databasegebruikers in plaats van aanmeldingen indien mogelijk. Zie voor meer informatie, [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) en [beheren en het verlenen van toegang tot de database](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- MAKEN en ALTER login-instructies worden ondersteund, maar SQL Database biedt niet alle opties. Als u uw database draagbaarder, raadt SQL-Database met behulp van ingesloten databasegebruikers in plaats van aanmeldingen indien mogelijk. Zie voor meer informatie, [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) en [beheren en het verlenen van toegang tot de database](sql-database-manage-logins.md).
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Niet ondersteund in Azure SQL Database Transact-SQL-syntaxis
 
 Naast de Transact-SQL-instructies met betrekking tot de niet-ondersteunde functies die beschreven worden [vergelijking van Azure SQL Database](sql-database-features.md), de volgende instructies en groepen instructies worden niet ondersteund. Als zodanig, als uw database worden gemigreerd maakt gebruik van de volgende functies, opnieuw engineering toepassen op uw T-SQL om deze T-SQL-functies en instructies te elimineren.
 
 - Systeemobjecten sorteren
-- Verbindingen gerelateerd: eindpuntinstructies. SQL Database biedt geen ondersteuning voor Windows-verificatie, maar ondersteunt wel de vergelijkbare Azure Active Directory-verificatie. Voor sommige verificatietypen is de nieuwste versie van SSMS vereist. Zie [Verbinding maken met SQL Database of SQL Data Warehouse met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) voor meer informatie.
+- Verbindingen gerelateerd: Eindpuntinstructies voor het. SQL Database biedt geen ondersteuning voor Windows-verificatie, maar ondersteunt wel de vergelijkbare Azure Active Directory-verificatie. Voor sommige verificatietypen is de nieuwste versie van SSMS vereist. Zie [Verbinding maken met SQL Database of SQL Data Warehouse met behulp van Azure Active Directory-verificatie](sql-database-aad-authentication.md) voor meer informatie.
 - Databaseoverschrijdende query’s met drie of vier onderdeelnamen. (Alleen-lezen query’s die databaseoverschrijdend zijn worden ondersteund dankzij [elastische databasequery’s](sql-database-elastic-query-overview.md).)
 - Databaseoverschrijdend het eigendom koppelen, instelling `TRUSTWORTHY`
 - `EXECUTE AS LOGIN` Gebruik in plaats daarvan 'EXECUTE AS USER'.
 - Versleuteling wordt ondersteund, behalve voor Extensible Key Management
 - Eventing: Gebeurtenissen, meldingen van gebeurtenissen, querymeldingen
-- Plaatsing van bestanden: syntaxis die betrekking heeft op databasebestandsplaatsing, grootte en databasebestanden die automatisch worden beheerd door Microsoft Azure.
-- Hoge beschikbaarheid: syntaxis die betrekking hebben op hoge beschikbaarheid, die wordt beheerd via uw Microsoft Azure-account. Dit omvat syntaxis voor back-ups, herstellen, Always On, databasespiegeling, de back-upfunctie voor logboekbestanden en herstelmodi.
-- Meld u lezer: syntaxis die afhankelijk is van de logboekweergave die niet beschikbaar op de SQL-Database is: Push-replicatie, Change Data Capture. SQL Database kan abonnee zijn op een artikel over push-replicatie.
+- Plaatsing van bestanden: Syntaxis die betrekking heeft op databasebestandsplaatsing, grootte en databasebestanden die automatisch worden beheer door Microsoft Azure.
+- Hoge beschikbaarheid: Syntaxis die betrekking heeft op hoge beschikbaarheid die wordt beheerd via uw Microsoft Azure-account. Dit omvat syntaxis voor back-ups, herstellen, Always On, databasespiegeling, de back-upfunctie voor logboekbestanden en herstelmodi.
+- De logboeklezer: De syntaxis die afhankelijk is van de logboekweergave die niet beschikbaar op de SQL-Database is: Push-replicatie, Change Data Capture. SQL Database kan abonnee zijn op een artikel over push-replicatie.
 - Functies: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Hardware: Syntaxis die betrekking heeft op hardwaregerelateerde serverinstellingen:, zoals geheugen, werkthreads, CPU-affiniteit, trace worden gemarkeerd. Gebruik van service-lagen en compute-grootten in plaats daarvan.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, en vierdelige namen
-- .NET framework: CLR-integratie met SQL Server
+- .NET Framework: CLR-integratie met SQL Server
 - Semantische zoekopdrachten
-- Serverreferenties: Gebruik [referenties in het databasebereik](https://msdn.microsoft.com/library/mt270260.aspx) in plaats daarvan.
-- Items op serverniveau: serverrollen, `sys.login_token`. `GRANT`, `REVOKE`, en `DENY` van de machtigingen op serverniveau zijn niet beschikbaar, hoewel enkele hiervan worden vervangen door machtigingen op databaseniveau. Sommige handige DMV’s op serverniveau hebben vergelijkbare DMV’s op databaseniveau.
+- Serverreferenties voor: Gebruik [referenties in het databasebereik](https://msdn.microsoft.com/library/mt270260.aspx) in plaats daarvan.
+- Items op serverniveau: Serverrollen, `sys.login_token`. `GRANT`, `REVOKE`, en `DENY` van de machtigingen op serverniveau zijn niet beschikbaar, hoewel enkele hiervan worden vervangen door machtigingen op databaseniveau. Sommige handige DMV’s op serverniveau hebben vergelijkbare DMV’s op databaseniveau.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
 - `sp_configure`-opties en `RECONFIGURE`. Sommige opties zijn beschikbaar met [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
-- SQL ServerAgent: Syntaxis die afhankelijk van de SQL Server Agent of de MSDB-database is: waarschuwingen, operators, servers voor Centraal beheer. Gebruik in plaats daarvan opties voor scripts, zoals Azure PowerShell.
-- SQL Server audit: Gebruik SQL Database auditing in plaats daarvan.
+- SQL Server Agent: Syntaxis die afhankelijk is van de SQL Server Agent of de MSDB-database: waarschuwingen, operators, servers voor centraal beheer. Gebruik in plaats daarvan opties voor scripts, zoals Azure PowerShell.
+- SQL Server audit: Gebruik in plaats daarvan SQL Database-controles.
 - SQL Server-tracering
-- Traceermarkeringen: sommige traceermarkeringsitems zijn verplaatst naar compatibiliteitsmodi.
+- Traceermarkeringen: Sommige traceermarkeringsitems zijn verplaatst naar compatibiliteitsmodi.
 - Transact-SQL-foutopsporing
-- Triggers: triggers binnen het serverbereik of aanmeldingstriggers
-- `USE`-instructie: als u de databasecontext wilt wijzigen naar een andere database, moet u een nieuwe verbinding maken met de nieuwe database.
+- Triggers: Binnen het serverbereik of aanmelding triggers
+- `USE` Overzicht: Als u de databasecontext wilt een andere database, moet u een nieuwe verbinding met de nieuwe database maken.
 
 ## <a name="full-transact-sql-reference"></a>Volledige naslaginformatie voor Transact-SQL
 

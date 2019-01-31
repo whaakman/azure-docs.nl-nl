@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.component: common
-ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c45c70055817eeeed19f9c8a832a76b10beceaa6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526195"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467030"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage Client Tools
 Gebruikers van Azure Storage wilt vaak kunnen bekijken en hiermee werken met hun gegevens met behulp van een Azure Storage-clienthulpprogramma. In de onderstaande tabellen lijst we een aantal hulpprogramma's waarmee u kunt dit doen. We zetten een 'X' in elk blok als de mogelijkheid biedt tot een inventariseren en/of toegang tot de abstractie van de gegevens. De tabel ziet u ook de hulpprogramma's is gratis of niet. 'Proefversie' geeft aan dat er een gratis proefversie is, maar het volledige product niet gratis is. ' J/N' geeft aan dat een versie beschikbaar gratis, is terwijl een andere versie beschikbaar voor aankoop is.
@@ -25,9 +25,9 @@ We hebben alleen een momentopname van de beschikbare hulpprogramma's voor Azure 
 <table>
   <tr>
     <th rowspan="2">Azure Storage-clienthulpprogramma</th>
-    <th rowspan="2">Blok-Blob</th>
-    <th rowspan="2">Pagina-blobs</th>
-    <th rowspan="2">Toevoeg-Blob</th>
+    <th rowspan="2">Blok-blob</th>
+    <th rowspan="2">Pagina-blob</th>
+    <th rowspan="2">Blob toevoegen</th>
     <th rowspan="2">Tabellen</th>
     <th rowspan="2">Wachtrijen</th>
     <th rowspan="2">Bestanden</th>
@@ -91,9 +91,9 @@ We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volge
 <table>
   <tr>
     <th rowspan="2">Azure Storage-clienthulpprogramma</th>
-    <th rowspan="2">Blok-Blob</th>
-    <th rowspan="2">Pagina-blobs</th>
-    <th rowspan="2">Toevoeg-Blob</th>
+    <th rowspan="2">Blok-blob</th>
+    <th rowspan="2">Pagina-blob</th>
+    <th rowspan="2">Blob toevoegen</th>
     <th rowspan="2">Tabellen</th>
     <th rowspan="2">Wachtrijen</th>
     <th rowspan="2">Bestanden</th>

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e2cb1a76bfde5bea7707cf3cc6658e3fc82163c5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043087"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457663"
 ---
-# <a name="optimize-the-cost-required-to-run-queries-in-azure-cosmos-db"></a>De kosten die zijn vereist voor het uitvoeren van query's in Azure Cosmos DB optimaliseren
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Kosten van de query in Azure Cosmos DB optimaliseren
 
 Azure Cosmos DB biedt een uitgebreide set databasebewerkingen, waaronder relationele en hiërarchische query's die worden uitgevoerd op de items in een container. De kosten die gepaard gaan met elk van deze bewerkingen varieert op basis van de CPU, IO en geheugen die nodig is om de bewerking te voltooien. In plaats van nadenken over en beheren van hardware, kunt u een aanvraageenheid (RU) als één maateenheid voor de resources die nodig zijn om uit te voeren van de verschillende databasebewerkingen om van dienst van een aanvraag te zien. In dit artikel wordt beschreven hoe u aanvraag eenheid kosten voor een query evalueren en de query in termen van prestaties en kosten te optimaliseren. 
 

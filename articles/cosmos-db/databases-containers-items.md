@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107732"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468135"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Werken met Azure Cosmos-databases, containers en objecten
+# <a name="work-with-databases-containers-and-items"></a>Werken met databases, containers en objecten
 
 Nadat u hebt gemaakt een [Azure Cosmos DB-account](account-overview.md) onder uw Azure-abonnement, kunt u gegevens beheren in uw account met het maken van databases, containers en objecten. Elk van deze entiteiten in dit artikel wordt beschreven: databases, containers en objecten. De volgende afbeelding ziet u de hiërarchie van verschillende entiteiten in een Azure Cosmos-account:
 
@@ -113,7 +113,7 @@ Elke Azure Cosmos-item heeft de volgende eigenschappen van het systeem gedefinie
 
 |**Door het systeem gedefinieerde eigenschap** | **Gegenereerde of gebruiker worden ingesteld van het systeem**| **Doel** | **SQL-API** | **Cassandra-API** | **Van Azure Cosmos DB-API voor MongoDB** | **Gremlin-API** | **Tabel-API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|i_d | Door het systeem gegenereerde | De unieke id van het item | Ja | Nee | Nee | Nee | Nee |
+|_id | Door het systeem gegenereerde | De unieke id van het item | Ja | Nee | Nee | Nee | Nee |
 |_etag | Door het systeem gegenereerde | Entity-tag voor Optimistisch gelijktijdigheidbeheer gebruikt | Ja | Nee | Nee | Nee | Nee |
 |_ts | Door het systeem gegenereerde | De laatst bijgewerkte timestamp van het item | Ja | Nee | Nee | Nee | Nee |
 |_self | Door het systeem gegenereerde | Adresseerbare URI van het item | Ja | Nee | Nee | Nee | Nee |

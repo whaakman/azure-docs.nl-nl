@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: a8c371d9d221ac6232c9293f6ca3192f163dfacb
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 115be0ad1b7dec44f036f6d50c2ac30ceba37ba7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156286"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457085"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -69,7 +69,7 @@ De details zijn afhankelijk van het type van het project. Voor een webtoepassing
 * Deze bestanden toevoegt aan uw project:
 
   * ApplicationInsights.config.
-  * AI.js
+  * ai.js
 * Deze NuGet-pakketten installeert:
 
   * *Application Insights-API* -de core API
@@ -162,7 +162,7 @@ Dit is mogelijk als de code dergelijke gegevens verzendt. Het kan ook gebeuren a
 
 U kunt de onderstaande:
 
-* Gebruik twee verschillende iKeys (Scheid Application Insights-resources), voor client en server-gegevens. Of
+* Gebruik twee verschillende iKeys (Scheid Application Insights-resources), voor client en server-gegevens. of
 * Schrijven van een proxy die wordt uitgevoerd op uw server en de web client verzenden van gegevens via deze proxy.
 
 ## <a name="post"></a>Hoe kan ik postgegevens doorzoeken van diagnostische gegevens zien?
@@ -245,42 +245,51 @@ Aangeraden u onze SDK's gebruiken en gebruik de [SDK-API](../../azure-monitor/ap
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan ik een intranet-webserver controleren?
 
-Hier volgen twee methoden:
+Ja, maar u moet verkeer toe te staan onze services door de firewall-uitzonderingen of proxy stuurt.
+- QuickPulse `rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
-### <a name="firewall-door"></a>De deur van de firewall
 
-Toestaan dat uw webserver voor het verzenden van telemetrie naar onze eindpunten https://dc.services.visualstudio.com:443 en https://rt.services.visualstudio.com:443. 
+Bekijk onze lijst met services en IP-adressen [hier](../../azure-monitor/app/ip-addresses.md).
 
-### <a name="proxy"></a>Proxy
+### <a name="firewall-exception"></a>Firewall-uitzondering
 
-Het routeren van verkeer van uw server aan een gateway op uw intranet door deze instellingen in het voorbeeld ApplicationInsights.config overschrijven. Als deze eigenschappen 'Eindpunt' niet aanwezig in uw configuratie zijn, wordt deze klassen gebruikt de standaardwaarden die in het voorbeeld hieronder wordt weergegeven.
+Toestaan dat uw webserver voor het verzenden van telemetrie naar de eindpunten. 
 
-#### <a name="example-applicationinsightsconfig"></a>Voorbeeld ApplicationInsights.config:
+### <a name="proxy-redirect"></a>Proxy-omleiding
+
+Verkeer routeren van uw server aan een gateway op uw intranet door te overschrijven eindpunten in uw configuratie.
+Als deze eigenschappen 'Eindpunt' niet aanwezig in uw configuratie zijn, wordt deze klassen de standaardwaarden die hieronder wordt weergegeven in het voorbeeld ApplicationInsights.config gebruiken. 
+
+Uw gateway moet verkeer gerouteerd naar het basisadres van onze eindpunt. Vervang in de configuratie, de standaardwaarden met `http://<your.gateway.address>/<relative path>`.
+
+
+#### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Voorbeeld ApplicationInsights.config met Standaardeindpunten:
 ```xml
 <ApplicationInsights>
+  ...
+  <TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+      <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
+    </Add>
+  </TelemetryModules>
     ...
-    <TelemetryChannel>
-         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
-    </TelemetryChannel>
-    ...
-    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
-        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
-    </ApplicationIdProvider>
-    ...
+  <TelemetryChannel>
+     <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+  </TelemetryChannel>
+  ...
+  <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+    <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+  </ApplicationIdProvider>
+  ...
 </ApplicationInsights>
 ```
 
 _Houd er rekening mee ApplicationIdProvider is beschikbaar in v2.6.0_
 
-Uw gateway moet het verkeer routeren https://dc.services.visualstudio.com:443
 
-Vervang in de bovenstaande waarden met: `http://<your.gateway.address>/<relative path>`
  
-Voorbeeld: 
-```
-http://<your.gateway.endpoint>/v2/track 
-http://<your.gateway.endpoint>/api/profiles/{0}/apiId
-```
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan ik webtests voor beschikbaarheid uitvoeren op een intranetserver?
 

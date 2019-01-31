@@ -2,26 +2,25 @@
 title: Rapporten voor Azure Backup configureren
 description: Power BI-rapporten voor Azure Backup configureren met behulp van een Recovery Services-kluis.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 01/30/2019
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e93c51365adfc867082e180d8e4db804d02003ca
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418276"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297721"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel ziet u stappen te volgen voor het configureren van rapporten voor Azure Backup met behulp van een Recovery Services-kluis. U ziet ook hoe u toegang tot rapporten met behulp van Power BI. Nadat u deze stappen hebt voltooid, gaat u rechtstreeks naar Power BI om te bekijken, aanpassen en rapporten maken.
 
 > [!IMPORTANT]
-> Vanaf 1 November 2018, kunnen sommige klanten problemen bij het laden van de gegevens in Azure-back-up-App in Power BI, dat 'We gevonden extra tekens aan het einde van de JSON-invoer Zie. De uitzondering is opgetreden voor de IDataReader-interface."
-Dit is vanwege een wijziging in de indeling waarin gegevens worden geladen in het opslagaccount.
+> Vanaf 1 November 2018, kunnen sommige klanten problemen bij het laden van de gegevens in Azure-back-up-App in Power BI, dat 'We gevonden extra tekens aan het einde van de JSON-invoer Zie. De uitzondering is opgetreden door de IDataReader-interface.'
+Dit probleem treedt op vanwege een wijziging in de indeling waarin gegevens in de opslagaccount worden geladen.
 Download de meest recente App (versie 1.8) om dit probleem te voorkomen.
 >
 >

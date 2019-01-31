@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713966"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297579"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Beschikbaarheid van SAP HANA op Azure-regio 's
 
@@ -39,7 +39,7 @@ Azure-netwerk maakt gebruik van een ander IP-adresbereik. De IP-adressen worden 
 
 ## <a name="simple-availability-between-two-azure-regions"></a>Eenvoudige beschikbaar is tussen de twee Azure-regio 's
 
-U kunt niet alle beschikbaarheidsconfiguratie opstellen binnen één regio, maar nog steeds de vraag om de werkbelasting die wordt geleverd als zich een noodgeval voordoet. Typische gevallen voor systemen, zoals deze zijn niet-productieve systemen. Hoewel het systeem dat u voor een halve of zelfs een dag duurzame is, kunt u het systeem niet beschikbaar is voor 48 uur of langer kan niet toestaan. Als u de installatie minder dure, een ander systeem dat zelfs minder belangrijk is in de virtuele machine worden uitgevoerd. Het andere systeem fungeert als een doel. U kunt ook het formaat van de virtuele machine in de secundaire regio kleiner en ervoor kiest geen te vooraf laden van de gegevens. Omdat de failover handmatig is en veel meer stappen nodig om failover van de volledige toepassingsstack inhoudt, is de extra tijd voor de virtuele machine af en start de virtuele machine opnieuw op de grootte van acceptabel.
+U kunt niet alle beschikbaarheidsconfiguratie opstellen binnen één regio, maar nog steeds de vraag om de werkbelasting die wordt geleverd als zich een noodgeval voordoet. Typische gevallen voor dergelijke scenario's zijn niet-productieve systemen. Hoewel het systeem dat u voor een halve of zelfs een dag duurzame is, kunt u het systeem niet beschikbaar is voor 48 uur of langer kan niet toestaan. Als u de installatie minder dure, een ander systeem dat zelfs minder belangrijk is in de virtuele machine worden uitgevoerd. Het andere systeem fungeert als een doel. U kunt ook het formaat van de virtuele machine in de secundaire regio kleiner en ervoor kiest geen te vooraf laden van de gegevens. Omdat de failover handmatig is en veel meer stappen nodig om failover van de volledige toepassingsstack inhoudt, is de extra tijd voor de virtuele machine af en start de virtuele machine opnieuw op de grootte van acceptabel.
 
 Als u van het scenario gebruikmaakt voor het delen van het doel voor herstel na Noodgevallen met een QA-systeem in één virtuele machine, moet u rekening houden met deze overwegingen account:
 
@@ -64,14 +64,24 @@ Een combinatie van beschikbaarheid binnen en tussen regio's kan worden aangestuu
 - De organisatie niet bereid is of kan het algemene bewerkingen die worden beïnvloed door een grote natuurlijke ramp die van invloed op een grotere regio hebben. Was dit het geval is bij sommige orkanen die het Caribisch gebied in de afgelopen paar jaar bereikt.
 - Regels die vraag die zijn afstanden tussen primaire en secundaire sites die duidelijk zijn dan wat Azure availability zones kunnen bieden.
 
-In dergelijke gevallen kunt u de SAP-aanroepen instellen een [replicatieconfiguratie van SAP HANA-systeem met meerdere lagen](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) via HANA system replication. De architectuur zou er als volgt:
+In dergelijke gevallen kunt u de SAP-aanroepen instellen een [replicatieconfiguratie van SAP HANA-systeem met meerdere lagen](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) via HANA system replication. De architectuur zou er als volgt uitzien:
 
 ![Diagram van drie VM's via twee regio 's](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+SAP geïntroduceerd [meerdere doelsysteem replicatie](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) met HANA 2.0 SPS3. Meerdere doelsysteem replicatie heeft enkele voordelen in scenario's bijwerken. Bijvoorbeeld, de DR-site (2 regio) wordt niet negatief beïnvloed wanneer de secundaire HA-site is niet beschikbaar vanwege onderhoud of updates. U vindt meer informatie over de HANA-systeemreplicatie meerdere doel [hier](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+Mogelijke architectuur met meerdere doel replicatie zou er als volgt uitzien:
+
+![Diagram van drie VM's via twee regio's milti-doel](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+
+Als de organisatie vereisten voor gereedheid voor hoge beschikbaarheid in de second(DR) Azure-regio heeft, klikt u vervolgens eruit de architectuur als:
+
+![Diagram van drie VM's via twee regio's milti-doel](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+
 
 Voor meer informatie over het gebruik van logreplay als bewerkingsmodus deze configuratie biedt een RPO = 0, met een lage RTO, binnen de primaire regio. De configuratie biedt ook goede RPO als er een verplaatsing naar de tweede regio is betrokken. De RTO tijden in de tweede regio zijn afhankelijk van of gegevens vooraf geladen. Veel klanten maken gebruik van de virtuele machine in de secundaire regio om uit te voeren een testsysteem. Gebruik in dat geval, de gegevens kan niet worden geladen.
 
 > [!IMPORTANT]
-> De bewerkingsmodi tussen de verschillende lagen moeten homogene. U **kan geen** logreply gebruiken zoals Werkingsmodus tussen laag 1- en laag 2 en delta_datashipping om op te geven voor laag 3. U kunt alleen de een of andere Werkingsmodus die moet worden consistent zijn voor alle lagen. Omdat delta_datashipping is niet geschikt om u te bieden een RPO = 0, de bewerkingsmodus alleen redelijke voor dergelijke een multi-laag-configuratie logreplay blijft. Voor meer informatie over de bewerkingsmodi en er zijn enkele beperkingen, Zie het artikel SAP [bewerkingsmodi voor SAP HANA-systeemreplicatie](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
+> De bewerkingsmodi tussen de verschillende lagen moeten homogene. U **kan geen** logreply gebruiken zoals Werkingsmodus tussen laag 1- en laag 2 en delta_datashipping om op te geven voor laag 3. U kunt alleen de een of andere Werkingsmodus die moet worden consistent zijn voor alle lagen. Omdat delta_datashipping is niet geschikt om u te bieden een RPO = 0, de bewerkingsmodus alleen redelijke voor dergelijke een configuratie met meerdere lagen logreplay blijft. Voor meer informatie over de bewerkingsmodi en er zijn enkele beperkingen, Zie het artikel SAP [bewerkingsmodi voor SAP HANA-systeemreplicatie](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

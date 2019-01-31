@@ -3,7 +3,7 @@ title: Azure Active Directory gebruiken voor verificatie van Azure Batch-service
 description: Batch biedt ondersteuning voor Azure AD voor verificatie van de Batch-service.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
-ms.author: danlep
-ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.author: lahugh
+ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722052"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477591"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen van Batch-service met Active Directory
 
@@ -171,7 +171,7 @@ De codevoorbeelden in deze sectie laten zien hoe om te verifiëren met Azure AD 
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Codevoorbeeld: met behulp van Azure AD geïntegreerde verificatie met Batch .NET
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Codevoorbeeld: Verificatie met behulp van Azure AD worden geïntegreerd met Batch .NET
 
 Als u wilt verifiëren met geïntegreerde verificatie van de Batch .NET, verwijzen naar de [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) pakket en de [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) pakket.
 
@@ -244,7 +244,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Codevoorbeeld: met behulp van een service-principal voor Azure AD met Batch .NET
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Codevoorbeeld: Met behulp van een service-principal voor Azure AD met Batch .NET
 
 Als u wilt verifiëren met een service-principal van Batch .NET, verwijzen naar de [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) pakket en de [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) pakket.
 
@@ -311,7 +311,7 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Codevoorbeeld: met behulp van een service-principal voor Azure AD met Batch Python
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Codevoorbeeld: Met behulp van een service-principal voor Azure AD met Batch Python
 
 Als u wilt verifiëren met een service-principal van Batch Python, installeren en verwijzen naar de [azure batch](https://pypi.org/project/azure-batch/) en [azure gemeenschappelijke](https://pypi.org/project/azure-common/) modules.
 

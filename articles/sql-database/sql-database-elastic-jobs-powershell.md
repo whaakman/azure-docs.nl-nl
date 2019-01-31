@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278454"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472641"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>SQL Database elastische taken met behulp van PowerShell (preview) maken en beheren
 
@@ -79,7 +79,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **taken voor Elastic 
     </td>
   </tr>
   <tr>
-    <td>Doel van de database</td>
+    <td>Database Target</td>
     <td>Naam van database en server die verwijst naar een Azure SQL Database.
     </td>
     <td>
@@ -189,7 +189,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **taken voor Elastic 
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>Ondersteunde taken voor Elastic Database groep typen
-De taak wordt uitgevoerd van Transact-SQL (T-SQL)-scripts of de toepassing van DACPACs voor een groep databases. Wanneer een job wordt verzonden om te worden uitgevoerd voor een groep databases, de taak 'uitgebreid"de in onderliggende taken waarbij elk het aangevraagde uitvoeren op basis van een individuele database in de groep uitvoert. 
+De taak wordt uitgevoerd van Transact-SQL (T-SQL)-scripts of de toepassing van DACPACs voor een groep databases. Wanneer een job wordt verzonden om te worden uitgevoerd voor een groep databases, de taak 'uitgebreid"de in onderliggende taken waarbij elk het aangevraagde uitvoeren op een afzonderlijke database in de groep uitvoert. 
 
 Er zijn twee typen groepen die u kunt maken: 
 
@@ -428,7 +428,7 @@ Het standaard-uitvoeringsbeleid maakt gebruik van de volgende waarden:
 * Interval voor eerste opnieuw proberen:  100 milliseconden
 * Interval voor maximale aantal nieuwe pogingen: 30 minuten
 * De coëfficiënt Interval voor opnieuw proberen: 2
-* Maximum aantal pogingen: 2.147.483.647
+* Maximum aantal pogingen: 2,147,483,647
 
 Maak de gewenste uitvoeringsbeleid:
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma,carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: d8ff07d43d1efbadf1ddd397b6690c93c54c4f27
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 5100ef307bc125b21e1c42c87856492a4a496065
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455629"
 ---
 # <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Langetermijnretentie met behulp van Azure Recovery Services-kluis configureren
 
@@ -71,7 +71,7 @@ Configureren van een Azure Recovery Services-kluis [automatische back-ups](sql-d
    ![kluis maken](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
-   > De kluis moet zich bevinden in dezelfde regio als de logische Azure SQL-server en moet dezelfde resourcegroep gebruiken als de logische server.
+   > De kluis moet zich bevinden in dezelfde regio als de SQL Database-server en dezelfde resourcegroep bevinden als de SQL-Database-server moet gebruiken.
 
 10. Nadat de nieuwe kluis is gemaakt, uitvoeren van de benodigde stappen om terug te keren naar de **Recovery services-kluis** pagina.
 
@@ -154,7 +154,7 @@ De volgende secties laten zien hoe u PowerShell gebruiken voor het configureren 
 Gebruik de [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) naar een recovery services-kluis maken.
 
 > [!IMPORTANT]
-> De kluis moet zich bevinden in dezelfde regio als de logische Azure SQL-server en moet dezelfde resourcegroep gebruiken als de logische server.
+> De kluis moet zich bevinden in dezelfde regio als de SQL Database-server en dezelfde resourcegroep bevinden als de SQL-Database-server moet gebruiken.
 
 ```PowerShell
 # Create a recovery services vault

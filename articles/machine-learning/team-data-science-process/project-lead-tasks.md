@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135161"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454127"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Taken voor het project leiden in Team Data Science Process
 
@@ -35,10 +35,10 @@ Dit onderwerp bevat momenteel taken 1,2 en 6 van deze werkstroom voor project le
 
 In deze zelfstudie wordt de afgekorte naam voor opslagplaatsen en mappen. Deze namen maken het gemakkelijker zijn te volgen de bewerkingen tussen de opslagplaatsen en mappen. Deze notatie (R voor Git-opslagplaatsen) en D voor lokale mappen op uw DSVM wordt gebruikt in de volgende secties:
 
-- **R3**: het team **ProjectTemplate** -opslagplaats in Git uw teamleider heeft ingesteld.
-- **R5**: de projectopslagplaats van Git u voor uw project instellen.
-- **D3**: de lokale map gekloond vanuit R3.
-- **D5**: de lokale map gekloond vanuit R5.
+- **R3**: Het team **ProjectTemplate** -opslagplaats in Git uw teamleider heeft ingesteld.
+- **R5**: De projectopslagplaats in Git u instellen voor uw project.
+- **D3**: De lokale map gekloond vanuit R3.
+- **D5**: De lokale map gekloond vanuit R5.
 
 
 ## <a name="0-prerequisites"></a>0. Vereisten
@@ -84,15 +84,15 @@ Om samen te vatten hier, moeten de volgende vereisten voldoen voordat u begint m
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. De projectopslagplaats DSProject1 seed
 
-De taak hier seed is de **DSProject1** projectopslagplaats (R5) uit de opslagplaats voor uw project-sjabloon (R3). De seeding procedure gebruikt de mappen D3 en D5 op uw lokale DSVM als tussenliggende staging-sites. Kortom, het seeden pad is: R3 -> D3 D5 -> R5 ->.
+De taak hier seed is de **DSProject1** projectopslagplaats (R5) uit de opslagplaats voor uw project-sjabloon (R3). De seeding procedure gebruikt de mappen D3 en D5 op uw lokale DSVM als tussenliggende staging-sites. Kortom is het seeden pad: R3 -> D3 -> D5 -> R5.
 
 Als u nodig hebt om aan te passen uw **DSProject1** projectopslagplaats om te voldoen aan bepaalde specifieke project nodig heeft, u dit doen in de voorlaatste stap van de volgende procedure. Hier volgt een samenvatting van de stappen voor het seeden van de inhoud van de **DSProject1** projectopslagplaats. De afzonderlijke stappen komen overeen met de subsecties in de seeding procedure:
 
 - Kloon project sjabloonopslagplaats naar lokale map: R3 - gekloond voor lokale D3 ->-team.
 - Kloon DSProject1 opslagplaats naar een lokale map: R5 - gekloond voor lokale D5 ->-team.
-- Gekloonde project sjablooninhoud kopiëren naar de lokale kloon van de opslagplaats DSProject1: D3 - inhoud wordt gekopieerd om D5 ->.
+- Gekloonde project sjablooninhoud kopiëren naar de lokale kloon van DSProject1 opslagplaats:  D3 - contents copied to -> D5.
 - (Optioneel) Lokale D5 aanpassing.
-- Lokale DSProject1 inhoud pushen naar team opslagplaatsen: D5 - inhoud toevoegen aan team R5 ->.
+- Lokale DSProject1 inhoud naar team opslagplaatsen pushen: D5 - inhoud toevoegen aan team R5 ->.
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Uw project sjabloonopslagplaats (R3) naar een map (D3) op uw lokale computer klonen.

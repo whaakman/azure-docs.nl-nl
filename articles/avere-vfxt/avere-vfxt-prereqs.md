@@ -4,14 +4,14 @@ description: Vereisten voor Avere vFXT voor Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: d32c664049b7e7c1231e78c552e7c61d016fbe84
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286755"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299201"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Voorbereiden op het maken van de Avere vFXT
 
@@ -33,22 +33,20 @@ Een nieuw Azure-abonnement maken in Azure portal:
 Een gebruiker met de van eigenaarsmachtigingen voor het abonnement moet het cluster vFXT maken. Abonnement eigenaarsmachtigingen zijn nodig voor deze acties, onder andere:
 
 * Voorwaarden voor de Avere vFXT-software accepteren
-* De functie cluster knooppunt toegang maken
-* Toestaan dat het clusterknooppunt van de domeincontroller voor het beheren van resourcegroepen en virtuele netwerken 
-* De netwerkcontroller cluster maken en wijzigen van de clusterknooppunten toestaan 
+* De functie cluster knooppunt toegang maken 
 
 Er zijn twee oplossingen als u niet wilt dat deze eigenaar toegang geven tot de gebruikers die de vFXT maken:
 
 * De eigenaar van een resource-groep kan een cluster maken als deze voorwaarden wordt voldaan:
 
-  * De eigenaar van een abonnement moet [accepteren voor Avere vFXT software](#accept-software-terms-in-advance) en [maken van de functie cluster knooppunt toegang](avere-vfxt-deploy.md#create-the-cluster-node-access-role).
+  * De eigenaar van een abonnement moet [accepteren voor Avere vFXT software](#accept-software-terms) en [maken van de functie cluster knooppunt toegang](#create-the-cluster-node-access-role). 
   * Alle Avere vFXT resources moeten worden geïmplementeerd in de resourcegroep, met inbegrip van:
     * Clustercontroller
     * Clusterknooppunten
     * Blob Storage
     * Netwerkelementen
  
-* Een gebruiker die geen eigenaar-machtigingen kunt vFXT clusters maken als een extra toegang-rol is gemaakt en aan de gebruiker vooraf toegewezen. Deze rol biedt echter aanzienlijke machtigingen aan deze gebruikers. [In dit artikel](avere-vfxt-non-owner.md) wordt uitgelegd hoe u aan niet-eigenaren om clusters te maken.
+* Een gebruiker die geen eigenaar-machtigingen kunt vFXT clusters maken met behulp van op rollen gebaseerd toegangsbeheer (RBAC vooraf) machtigingen toewijzen aan de gebruiker. Deze methode biedt aanzienlijke machtigingen aan deze gebruikers. [In dit artikel](avere-vfxt-non-owner.md) wordt uitgelegd hoe u om een toegangsrol voor het autoriseren van niet-eigenaren van het maken van clusters te maken.
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Het quotum voor het cluster vFXT
 
@@ -64,12 +62,12 @@ U moet voldoende quotum voor de volgende Azure-onderdelen hebben. Indien nodig, 
 |Opslagaccount (optioneel) |v2|
 |Back-endopslag van gegevens (optioneel) |Een nieuwe LRS Blob-container |
 
-## <a name="accept-software-terms-in-advance"></a>Software vooraf voorwaarden accepteren
+## <a name="accept-software-terms"></a>Software-voorwaarden accepteren
 
 > [!NOTE] 
 > Deze stap is niet vereist als de eigenaar van een abonnement het Avere vFXT-cluster maakt.
 
-Voordat u een cluster maken kunt, moet u de voorwaarden van de service voor de Avere vFXT-software accepteren. Als u geen eigenaar van een abonnement bent, hebt u de eigenaar van een abonnement accepteren tevoren. Deze stap moet slechts één keer per abonnement worden uitgevoerd.
+Tijdens het maken, moet u de voorwaarden van de service voor de Avere vFXT-software accepteren. Als u geen eigenaar van een abonnement bent, hebt u de eigenaar van een abonnement accepteren tevoren. Deze stap moet slechts één keer per abonnement worden uitgevoerd.
 
 De software om voorwaarden te accepteren van tevoren: 
 
@@ -86,6 +84,74 @@ De software om voorwaarden te accepteren van tevoren:
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
 
-## <a name="next-step-create-the-vfxt-cluster"></a>Volgende stap: maken van het cluster vFXT
+## <a name="create-access-roles"></a>Toegang tot rollen maken 
+
+[Op rollen gebaseerd toegangsbeheer](../role-based-access-control/index.yml) (RBAC) biedt de vFXT cluster netwerkcontroller knooppunten en clusterknooppunten autorisatie noodzakelijke taken uit te voeren.
+
+* De netwerkcontroller cluster heeft toestemming nodig voor maken en wijzigen van virtuele machines om te kunnen maken van het cluster. 
+
+* Afzonderlijke vFXT knooppunten nodig hebt voor handelingen zoals lezen van de Azure-resource-eigenschappen, opslag te beheren en de andere knooppunten netwerkinterface-instellingen beheren als onderdeel van de bewerking van het normale cluster.
+
+Voordat u uw Avere vFXT cluster maken kunt, moet u een aangepaste rol voor gebruik met de clusterknooppunten opgeven. 
+
+U kunt de standaardrol van de sjabloon te accepteren voor de netwerkcontroller cluster. Standaard geeft het cluster netwerkcontroller resource group-eigenaarsbevoegdheden. Als u liever een aangepaste rol voor de controller maken, Zie [aangepaste toegang controllerrol](avere-vfxt-controller-role.md).
+
+> [!NOTE] 
+> Alleen de eigenaar van een abonnement of een gebruiker met de rol eigenaar of beheerder van gebruikerstoegang, kunt rollen maken. De rollen kunnen vooraf worden gemaakt.  
+
+### <a name="create-the-cluster-node-access-role"></a>De functie cluster knooppunt toegang maken
+
+<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
+
+Voordat u de vFXT Avere voor Azure-cluster kunt maken, moet u de rol van de cluster-knooppunt maken.
+
+> [!TIP] 
+> Interne gebruikers van Microsoft moeten de bestaande rol met de naam 'Cluster-Runtime Avere Operator' in plaats van er wordt geprobeerd gebruiken om er een maken. 
+
+1. Kopieer dit bestand. Uw abonnements-ID in de regel AssignableScopes toevoegen.
+
+   (De huidige versie van dit bestand is opgeslagen in de opslagplaats github.com/Azure/Avere als [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt).)  
+
+   ```json
+   {
+      "AssignableScopes": [
+          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
+      ],
+      "Name": "Avere Operator",
+      "IsCustom": "true",
+      "Description": "Used by the Avere vFXT cluster to manage the cluster",
+      "NotActions": [],
+      "Actions": [
+          "Microsoft.Compute/virtualMachines/read",
+          "Microsoft.Network/networkInterfaces/read",
+          "Microsoft.Network/networkInterfaces/write",
+          "Microsoft.Network/virtualNetworks/subnets/read",
+          "Microsoft.Network/virtualNetworks/subnets/join/action",
+          "Microsoft.Network/networkSecurityGroups/join/action",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+      ],
+      "DataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+      ]
+   }
+   ```
+
+1. Sla het bestand op als ``avere-operator.json`` of een vergelijkbare gemakkelijk te onthouden naam. 
+
+
+1. Open een Azure Cloud shell en meld u aan met uw abonnements-ID (beschreven [eerder in dit document](#accept-software-terms)). Gebruik deze opdracht om de rol te maken:
+
+   ```bash
+   az role definition create --role-definition /avere-operator.json
+   ```
+
+Naam van de rol wordt gebruikt bij het maken van het cluster. In dit voorbeeld wordt de naam is ``avere-operator``.
+
+## <a name="next-step-create-the-vfxt-cluster"></a>Volgende stap: Maken van het cluster vFXT
 
 Na het voltooien van deze vereisten, kunt u gaan in het cluster zelf te maken. Lezen [implementeren van het cluster vFXT](avere-vfxt-deploy.md) voor instructies.

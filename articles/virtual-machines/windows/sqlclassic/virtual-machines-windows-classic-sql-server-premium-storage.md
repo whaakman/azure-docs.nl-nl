@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac5b3bec9915574dd33d40ae2dcbc5aa3c91280a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332163"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300265"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
 ## <a name="overview"></a>Overzicht
@@ -545,7 +545,7 @@ Dit document biedt een compleet voorbeeld van de end-to-end niet demonstreren ec
 * Update-Listener door:
   * Het offline halen van de altijd op groep en het bijwerken van de Always On-Listener met de nieuwe ILB / ELB-IP-adres.
   * Of het toevoegen van de IP-adresresource van nieuwe Cloud Service ILB-/ ELB via PowerShell in Windows-clustering. Vervolgens de mogelijke eigenaars van de bron-IP-adres ingesteld op het gemigreerde knooppunt SQL2, en stel deze optie in als de OR-afhankelijkheid in naam van het netwerk. Zie de sectie 'Toe te voegen Resource IP-adres op hetzelfde Subnet' van de [bijlage](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-* Controleer de DNS-configuratie/doorgiftetaak aan de clients.
+* Controleer de DNS-configuratie/doorgeven aan de clients.
 * SQL1 virtuele machine migreren en stappen 2-4 doorlopen.
 * Als stappen 5ii, voeg deze SQL1 als een mogelijke eigenaar voor de Resource van het toegevoegde IP-adres
 * Testfailovers.

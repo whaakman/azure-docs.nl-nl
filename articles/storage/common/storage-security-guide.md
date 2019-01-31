@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243791"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454484"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -89,7 +89,7 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
 * [Toegangsbeheer op basis van rollen in Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   In dit artikel wordt het toegangsbeheer op basis van rollen in Azure Active Directory uitgelegd.
-* [RBAC: ingebouwde rollen](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Ingebouwde rollen](../../role-based-access-control/built-in-roles.md)
 
   Dit artikel worden alle van de beschikbare ingebouwde rollen in RBAC.
 * [Resource Manager-implementatie en klassieke implementatie begrijpen](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -98,7 +98,7 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
 * [Toegangsbeheer op basis van rollen beheren met de REST-API](../../role-based-access-control/role-assignments-rest.md)
 
   Dit artikel beschrijft hoe u de REST-API gebruikt om RBAC te beheren.
-* [Azure Storage Resource Provider REST API-verwijzing](https://msdn.microsoft.com/library/azure/mt163683.aspx)
+* [Naslaginformatie over de REST-API voor de Azure Storage-resourceprovider](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Deze API-verwijzing beschrijving van de API's kunt u uw storage-account op programmatische wijze beheren.
 * [Gebruik Resource Manager verificatie-API voor toegang tot abonnementen](../../azure-resource-manager/resource-manager-api-authentication.md)
@@ -148,7 +148,7 @@ Een ander voordeel van het gebruik van Azure Key Vault is dat u kunt ook toegang
 #### <a name="resources"></a>Resources
 
 * [Instellingen van opslagaccount in Azure portal beheren](storage-account-manage.md)
-* [Azure Storage Resource Provider REST API-verwijzing](https://msdn.microsoft.com/library/mt163683.aspx)
+* [Naslaginformatie over de REST-API voor de Azure Storage-resourceprovider](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## <a name="data-plane-security"></a>Beveiliging van gegevens vlak
 Beveiliging van gegevens vlak verwijst naar de methoden voor het beveiligen van de gegevensobjecten die zijn opgeslagen in Azure Storage: blobs, wachtrijen, tabellen en bestanden. We hebben gezien methoden voor het versleutelen van de gegevens en de beveiliging tijdens de overdracht van de gegevens, maar hoe u doen over het beheren van toegang tot de objecten?
@@ -232,7 +232,7 @@ Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het geb
 
 * Dit zijn de referentie-artikelen.
 
-  * [Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx)
+  * [Service SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
     In dit artikel bevat voorbeelden van het gebruik van een SAS serviceniveau met blobs, berichten in de wachtrij, tabel-bereiken en bestanden.
   * [Maken van een service-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
@@ -307,7 +307,7 @@ Azure Disk Encryption is een nieuwe functie. Deze functie kunt u voor het versle
 De oplossing ondersteunt de volgende scenario's voor IaaS-VM's als ze zijn ingeschakeld in Microsoft Azure:
 
 * Integratie met Azure Key Vault
-* Standard-laag virtuele machines: [A, D, DS, G, GS en enzovoort reeks IaaS-VM's](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Standard-laag virtuele machines: [A, D, DS, G, GS en enzovoort reeks IaaS-VM 's](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Inschakelen van versleuteling op Windows en Linux IaaS-VM 's
 * Uitschakelen van versleuteling op besturingssysteem en schijven voor Windows IaaS-VM 's
 * Codering op gegevensstations voor Linux IaaS-VM's uitschakelen
@@ -405,13 +405,13 @@ We hebben drie gevallen waarin we geïnteresseerd zijn.
 
 1. De blob openbaar is en deze is toegankelijk via een URL zonder een handtekening voor gedeelde toegang. In dit geval de status van de aanvraag is 'AnonymousSuccess' en de autorisatie-type is 'anoniem'.
 
-   1.0; 2015-11-17T02:01:29.0488963Z; GetBlob; **AnonymousSuccess**; 200; 124; 37; **anonieme**; mijnopslag...
+   1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
 2. De blob is privé; werd gebruikt met een handtekening voor gedeelde toegang. In dit geval de status van de aanvraag is 'SASSuccess' en de autorisatie-type is 'sas'.
 
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 3. De blob persoonlijk is en de opslagsleutel is gebruikt om deze te openen. In dit geval de status van de aanvraag is '**succes**'en het autorisatie-type is'**geverifieerde**'.
 
-   1.0; 2015-11-16T18:32:24.3174537Z; GetBlob; **Succes**; 206; 59; 22; **geverifieerde**; mijnopslag...
+   1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
 U kunt de Microsoft Message Analyzer gebruiken om te bekijken en analyseren van deze logboeken. Dit omvat mogelijkheden voor zoeken en filteren. Bijvoorbeeld, kunt u om te zoeken naar exemplaren van GetBlob om te zien als het gebruik wat u verwacht, dat wil zeggen, om te controleren of iemand anders is niet verkrijgen van toegang tot uw storage-account ongepast.
 
@@ -504,6 +504,6 @@ Bekijk deze bronnen voor meer informatie over CORS en het inschakelen ervan.
 * [FIPS 140 validatie](https://technet.microsoft.com/library/cc750357.aspx)
 
   In dit artikel bevat informatie over hoe Microsoft-producten en cryptografische modules aan de FIPS-standaard voor de Verenigde Staten voldoet Federale overheid.
-* ["Systeemcryptografie: gebruik FIPS-compatibele algoritmen voor versleuteling, hashing en ondertekening" beveiligingsrisico van instellingen in Windows XP en nieuwere versies van Windows](https://support.microsoft.com/kb/811833)
+* ["Systeemcryptografie: Gebruik FIPS-algoritmen voor versleuteling, hashing en ondertekening' instellingen beveiligingsrisico in Windows XP en nieuwere versies van Windows](https://support.microsoft.com/kb/811833)
 
   In dit artikel vertelt over het gebruik van FIPS-modus in oudere Windows-computers.

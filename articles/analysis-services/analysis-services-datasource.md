@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188399"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299041"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Ondersteunde gegevensbronnen in Azure Analysis Services
 
@@ -23,17 +23,20 @@ Gegevensbronnen en connectors die wordt weergegeven in gegevens ophalen of in de
 
 |Gegevensbron  |In het geheugen  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database     |   Ja      |    Ja      |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Ja      |    Ja      |
 |Azure SQL Data Warehouse     |   Ja      |   Ja       |
-|Azure Blob Storage *     |   Ja       |    Nee      |
-|Azure Table Storage *    |   Ja       |    Nee      |
-|Azure Cosmos DB*     |  Ja        |  Nee        |
-|Azure Data Lake Store *     |   Ja       |    Nee      |
-|Azure HDInsight HDFS*     |     Ja     |   Nee       |
-|Azure HDInsight Spark *     |   Ja       |   Nee       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   Ja       |    Nee      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   Ja       |    Nee      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Ja        |  Nee        |
+|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   Ja       |    Nee      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Ja     |   Nee       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Ja       |   Nee       |
 ||||
 
-\* Tabellaire modellen met compatibiliteitsniveau 1400 alleen.
+<a name="tab1400a">1</a> tabular 1400 en alleen hogere modellen.   
+<a name="azsqlmanaged">2</a> azure SQL Database Managed Instance wordt ondersteund. Een beheerd exemplaar wordt uitgevoerd in Azure VNet met een privé IP-adres, is een On-premises gegevensgateway vereist.   
+<a name="databricks">3</a> azure Databricks met behulp van de Spark-connector wordt momenteel niet ondersteund.
+
 
 **Provider**   
 In-memory en DirectQuery-modellen verbinding te maken met Azure-gegevensbronnen gebruikt .NET Framework Data Provider voor SQL Server.
@@ -57,31 +60,31 @@ Verbinding maken met on-premises gegevensbronnen van en Azure-AS-server moet een
 |Gegevensbron  |  
 |---------|---------|
 |Access-Database     |  
-|Active Directory *     |  
+|Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
-|Dynamics CRM *     |  
+|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel-werkmap     |  
-|Exchange *     |  
-|Map *     |
-|IBM Informix * (bèta) |
-|JSON-document *     |  
-|Regels van binaire *     | 
+|Exchange<sup>[1](#tab1400b)</sup>     |  
+|Map<sup>[1](#tab1400b)</sup>     |
+|IBM Informix<sup>[1](#tab1400b) </sup> (bèta) |
+|JSON-document<sup>[1](#tab1400b)</sup>     |  
+|Regels van binair<sup>[1](#tab1400b)</sup>     | 
 |MySQL-database     | 
-|OData-Feed *     |  
-|ODBC-query     | 
+|OData-Feed<sup>[1](#tab1400b)</sup>     |  
+|ODBC query     | 
 |OLE DB     |   
-|Postgre SQL-Database *    | 
-|SalesForce-objecten * |  
-|SalesForce-rapporten * |
-|SAP HANA *    |  
-|SAP Business Warehouse *    |  
-|SharePoint*     |   
+|Postgre SQL-Database<sup>[1](#tab1400b)</sup>    | 
+|SalesForce-objecten<sup>[1](#tab1400b)</sup> |  
+|SalesForce-rapporten<sup>[1](#tab1400b)</sup> |
+|SAP HANA<sup>[1](#tab1400b)</sup>    |  
+|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
+|SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase-database     |  
-|XML-tabel *    |  
+|XML-tabel<sup>[1](#tab1400b)</sup>    |  
 |||
  
-\* Tabellaire modellen met compatibiliteitsniveau 1400 alleen.
+<a name="tab1400b">1</a> tabular 1400 en alleen hogere modellen.
 
 ## <a name="specifying-a-different-provider"></a>Een andere provider op te geven
 

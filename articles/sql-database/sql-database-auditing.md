@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 598d2b86e7aeeac9525f37b1ab9422d854e75392
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034026"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297681"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 
@@ -154,7 +154,7 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
 
     4. Het samengevoegde bestand wordt geopend in SSMS, waar u kunt weergeven en analyseren, evenals het exporteren naar een xel-bestand of een CSV-bestand, of naar een tabel.
 
-- Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Zie voor meer informatie en voor toegang tot een sjabloon downloaden [Analyzie audit log-gegevens in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Power BI gebruiken. U kunt bekijken en analyseren van logboekgegevens audit in Power BI. Zie voor meer informatie en voor toegang tot een sjabloon downloaden [analyseren audit log-gegevens in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 - Downloaden van de logboekbestanden van uw Azure Storage blob-container via de portal of met behulp van een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/).
   - Nadat u een logboekbestand lokaal hebt gedownload, dubbelklikt u op het bestand te openen, weergeven en analyseren van de logboeken in SSMS.
   - U kunt ook meerdere bestanden tegelijkertijd via Azure Storage Explorer downloaden. Om dit te doen met de rechtermuisknop op een specifieke submap en selecteer **opslaan als** om op te slaan in een lokale map.
@@ -176,7 +176,7 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
 Met geo-replicatie databases, wanneer u de controle op de primaire database inschakelen heeft de secundaire database een identieke controlebeleid. Het is ook mogelijk om in te stellen de controle op de secundaire database door het inschakelen van controle op de **secundaire server**, onafhankelijk van de primaire database.
 
 - Op serverniveau (**aanbevolen**): Schakel controle op zowel de **primaire server** , evenals de **secundaire server** -de primaire en secundaire databases wordt elk gecontroleerd afzonderlijk op basis van hun respectieve op serverniveau-beleid.
-- Op databaseniveau: Controle op databaseniveau voor secundaire databases kan alleen worden geconfigureerd in de primaire database controle-instellingen.
+- Database-level: Controle op databaseniveau voor secundaire databases kan alleen worden geconfigureerd in de primaire database controle-instellingen.
   - Controle moet zijn ingeschakeld op de *primaire database zelf*, niet op de server.
   - Nadat de controle is ingeschakeld op de primaire database, wordt deze ook worden ingeschakeld op de secundaire database.
 
@@ -227,7 +227,7 @@ In de productieomgeving bent u waarschijnlijk uw opslagsleutels periodiek te ver
 - [Maken of bijwerken van de Database Blob controlebeleid (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Maken of bijwerken van de Server Blob controlebeleid (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
 - [Database controlebeleid ophalen (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Server Blob controlebeleid ophalen (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Get Server Blob Auditing Policy (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Zie voor een voorbeeldscript [controle en detectie van bedreigingen met behulp van PowerShell configureren](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

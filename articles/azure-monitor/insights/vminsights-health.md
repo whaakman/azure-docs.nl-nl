@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 737e05f3d936481e06acfc0604ff739b9f01d5db
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 58da86140b97c5292d390b6f91502b7f0622986a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191646"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476839"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines (preview)
 Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u verschillende voorwaarden met behulp van Log Analytics of Azure Monitor controleren kan, zijn ze niet ontworpen om te modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
@@ -28,6 +28,23 @@ De algehele status van de Azure-VM weergave en het onderliggende besturingssyste
 In dit artikel helpt u begrijpen hoe u snel beoordelen, onderzoeken en oplossen van statusproblemen gedetecteerd.
 
 Zie voor meer informatie over het configureren van Azure Monitor voor virtuele machines [Azure Monitor inschakelen voor virtuele machines](vminsights-onboard.md).
+
+>[!NOTE]
+>Vanaf 15 februari 2019 zullen wij u migreert vanaf het huidige statusmodel in Azure Monitor voor de functie de gezondheid van virtuele machines, dat weergegeven wordt wanneer u zich in de ervaring van de gezondheid van diagnostische gegevens van vandaag, naar een nieuwe versie van het statusmodel. Deze update verbetert de prestaties van de status rollup-verwerking en bevat een verfijnde statusmodel die zijn gepresenteerd in de statusweergave van de diagnostische gegevens. 
+>
+>Met het nieuwe statusmodel zijn rollup van onderliggende health criteria bovenliggende entiteit/niveau health criteria sneller en als gevolg hiervan de status van de bovenliggende updates naar de status van het gewenste of de doelserver met minder latentie. U kunt nog steeds de criteria voor beveiligingsstatus onder filteren de **prestaties** en **beschikbaarheid** categorieën in tegenstelling tot de vorige methode tabblad op basis van een categorie selecteren in de weergave.
+>
+>Raadpleeg de diagnostische gegevens over de status voor meer informatie over de nieuwe ervaring voor de diagnostische gegevens van de gezondheid van [sectie](#health-diagnostics) in dit artikel. 
+>
+>Deze update wordt verbeterd het volgende: 
+>
+>- Statustotalisatie verwerking met lagere latentie  
+>- Sneller waarschuwen voor statuswijzigingen 
+>- Sneller van de status in de weergave samengevoegde virtuele machine voor alle virtuele machines bijwerken 
+>
+>Er is geen regressie van alle functionaliteit die vandaag nog met de Health-functie van Azure Monitor worden geleverd voor VM's.
+
+>Als gevolg van deze wijziging zullen er enkele wordt onderbroken voor een korte periode met de service en de statusgeschiedenis. De twee ervaringen in de gezondheid van diagnostische gegevens zijn getroffen - geschiedenis van de wijziging wordt opnieuw ingesteld en statuswijzigingen in de vorige voor criteria voor beveiligingsstatus niet meer beschikbaar voor controle in de kolom Status wijzigen van de Health-pagina voor diagnostische gegevens. Als u geïnteresseerd in de historische gegevens van een bent essentiële kritieke VM vervolgens u een schermafbeelding van de statusgegevens van de criteria en de bijbehorende statuswijzigingen ter referentie neemt. 
 
 ## <a name="monitoring-configuration-details"></a>Informatie over de configuratie controleren
 In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd voor het bewaken van Azure Windows en Linux-machines. Alle health criteria zijn vooraf geconfigureerd voor een waarschuwing wanneer het niet in orde voorwaarde wordt voldaan. 
@@ -68,7 +85,7 @@ In deze sectie geeft een overzicht van de standaard status criteria gedefinieerd
 - Gemiddelde van de schijf Schijf sec/lezen 
 - Gemiddelde van de schijf Schijf sec/schrijven 
 - Status van de schijf
-- Beschikbare ruimte logische schijf
+- Logical Disk Free Space
 - Logische Schijf\percentage vrije ruimte
 - Logische schijf % vrije Inodes
 - Status van de netwerkadapter
@@ -155,7 +172,7 @@ Selecteren **weergeven van alle criteria voor beveiligingsstatus** opent een pag
 U kunt inzoomen verder naar beneden om te zien welke instanties zijn niet in orde door te klikken op een waarde onder de **niet in orde onderdeel** kolom.  Klik op de pagina bevat een tabel de onderdelen, die zich in een kritieke status heeft.    
 
 ## <a name="health-diagnostics"></a>Status diagnostische gegevens
-**Diagnostische gegevens over gezondheid** op de pagina kunt u weergeven van alle onderdelen van de virtuele machine, criteria van de bijbehorende status, statuswijzigingen, en andere belangrijke problemen die door de bewaking van objecten aangetroffen met betrekking tot de virtuele machine. 
+Thge **diagnostische gegevens over gezondheid** op de pagina kunt u voor het visualiseren van het statusmodel van een virtuele machine, lijst van alle onderdelen van de virtuele machine, criteria voor beveiligingsstatus, statuswijzigingen, die zijn gekoppeld en andere belangrijke problemen geïdentificeerd door bewaakte onderdelen die betrekking hebben aan de virtuele machine.
 
 ![Voorbeeld van diagnostische gegevens van Health-pagina voor een virtuele machine](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -172,18 +189,18 @@ Diagnostische gegevens over gezondheid ordent statusgegevens in de volgende cate
 * Beschikbaarheid
 * Prestaties
  
-Alle health criteria gedefinieerd voor een geselecteerde doel wordt weergegeven in de relevante categorie. 
+Alle health criteria gedefinieerd voor een specifiek onderdeel, zoals logische schijf, CPU, enzovoort. Bovendien de categorie van de monitor kan worden gezien ernaast in het **Criteria voor beveiligingsstatus** kolom.  
 
-Status van de criteria voor servicestatus wordt gedefinieerd door een van de drie statussen: *kritieke*, *waarschuwing*, en *orde*. Er is een andere status *onbekende*, die niet is gekoppeld aan health state, maar Hiermee geeft u de bekende controlestatus door de functie.  
+Status van een health-criteria wordt gedefinieerd door een van de vier statussen – *kritieke*, *waarschuwing*, *orde*, en *onbekende*. De eerste drie kunnen worden geconfigureerd, wat betekent dat u kunt de drempelwaarden van de monitors met behulp van de [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Onbekende* is niet kunnen worden geconfigureerd en is gereserveerd voor specifieke scenario's, zoals beschreven in de onderstaande tabel.  
 
 De volgende tabel bevat details over de status van de status weergegeven in de gezondheid van diagnostische gegevens.
 
 |Pictogram |Status |Betekenis |
 |-----|-------------|------------|
-| |In orde |De status is in orde als het is binnen de gedefinieerde statusaanduidingen. Hiermee wordt de health-up en het is de beste of slechtste status van de onderliggende inclusief in het geval van een updatepakket bovenliggende monitor.|
-| |Kritiek |De status is essentieel als deze niet binnen de gedefinieerde health-voorwaarde. Hiermee wordt de health-up en het is de beste of slechtste status van de onderliggende inclusief in het geval van een updatepakket bovenliggende monitor.|
-| |Waarschuwing |De status van de waarschuwing als tussen de twee drempelwaarden voor de voorwaarde gedefinieerde status is, waarbij een geeft aan dat een *waarschuwing* status en de andere geeft aan dat een *kritieke* staat. In het geval van een updatepakket bovenliggende monitor, als er een of meer van de onderliggende objecten wordt een waarschuwingsstatus en vervolgens de bovenliggende weer *waarschuwing* staat. Als er een onderliggend object dat zich in een *kritieke* en een andere onderliggende in een *waarschuwing* status, de bovenliggende updatepakket wordt weergegeven een status van *kritieke*.|
-| |Onbekend |De status is in een *onbekende* status wanneer de status kan niet worden berekend om verschillende redenen, zoals niet kunnen verzamelen van gegevens, niet-geïnitialiseerde enzovoort-service.| 
+| |In orde |Status is in orde als het binnen de gedefinieerde statusaanduidingen, waarmee wordt aangegeven geen problemen vastgesteld voor de virtuele machine zo dat deze zoals vereist werkt. Hiermee wordt de health-up en het is de beste of slechtste status van de onderliggende inclusief in het geval van een updatepakket bovenliggende monitor.|
+| |Kritiek |De status is essentieel als deze niet binnen de gedefinieerde gezondheidstoestand, waarmee wordt aangegeven dat een of meer kritieke problemen zijn gedetecteerd, die moeten worden opgelost als u wilt herstellen van de normale functionaliteit. Hiermee wordt de health-up en het is de beste of slechtste status van de onderliggende inclusief in het geval van een updatepakket bovenliggende monitor.|
+| |Waarschuwing |Status is een waarschuwing als tussen de twee drempelwaarden voor de voorwaarde gedefinieerde status is, waarbij een geeft aan dat een *waarschuwing* status en de andere geeft aan dat een *kritieke* status (drie statussen van de gebruiker beheerde zijn mogelijke), of wanneer een niet-kritieke probleem wordt aangetroffen die kritieke problemen veroorzaken kunnen als niet is opgelost. In het geval van een updatepakket bovenliggende monitor, als er een of meer van de onderliggende objecten wordt een waarschuwingsstatus en vervolgens de bovenliggende weer *waarschuwing* staat. Als er een onderliggend object dat zich in een *kritieke* en een andere onderliggende in een *waarschuwing* status, de bovenliggende updatepakket wordt weergegeven een status van *kritieke*.|
+| |Onbekend |Status is in een *onbekende* status wanneer de status kan niet worden berekend om verschillende redenen, zoals niet kunnen verzamelen van gegevens, niet-geïnitialiseerde enzovoort-service. Dit is niet de status van een gebruiker beheerd.| 
 
 Diagnostische gegevens statuspagina heeft drie belangrijkste secties:
 
@@ -194,58 +211,52 @@ Diagnostische gegevens statuspagina heeft drie belangrijkste secties:
 ![Secties van diagnostische gegevens van Health-pagina](./media/vminsights-health/health-diagnostics-page-02.png)
 
 ### <a name="component-model"></a>Onderdeelmodel
-De meest linkse kolom in een Health-pagina voor diagnostische gegevens is het Onderdeelmodel. Alle onderdelen en de gedetecteerde exemplaren die gekoppeld aan de virtuele machine zijn, worden weergegeven in deze kolom. 
+De meest linkse kolom in de pagina Status diagnostische gegevens is het Onderdeelmodel. Alle onderdelen, die gekoppeld aan de virtuele machine zijn, worden weergegeven in deze kolom, samen met hun huidige status. 
 
-In het volgende voorbeeld worden de gedetecteerde onderdelen schijf, logische schijf, processor, geheugen en besturingssysteem. Meerdere exemplaren van deze onderdelen worden gedetecteerd en weergegeven in deze kolom, met twee exemplaren van logische schijf **/**, **/opstarten**, en   **/mnt/resource**, één exemplaar van de netwerkadapter **eth0**, twee exemplaren van de schijf **sda** en **sdb**, twee exemplaren van de processor **0 en 1**, en een **Red Hat Enterprise Linux Server versie 7.4 (Maipo) (besturingssysteem)**. 
+In het volgende voorbeeld worden de gedetecteerde onderdelen schijf, logische schijf, processor, geheugen en besturingssysteem. Meerdere exemplaren van deze onderdelen worden gedetecteerd en weergegeven in deze kolom. De onderstaande afbeelding ziet u bijvoorbeeld dat de virtuele machine heeft twee exemplaren van logische schijven - C: en D:, die zich in een foutloze toestand bevindt.  
 
 ![Onderdeel voorbeeldmodel weergegeven in de gezondheid van diagnostische gegevens](./media/vminsights-health/health-diagnostics-page-component.png)
 
 ### <a name="health-criteria"></a>Criteria voor servicestatus
-De middelste kolom in de Health-pagina voor diagnostische gegevens is de **Criteria voor beveiligingsstatus** kolom. Het statusmodel gedefinieerd voor de virtuele machine wordt weergegeven in een hiërarchische structuur. Het statusmodel van een virtuele machine bestaat uit de eenheid, afhankelijkheid en health geaggregeerde criteria.  
+De middelste kolom in de diagnostische gegevens van Health-pagina wordt de **Criteria voor beveiligingsstatus** kolom. Het statusmodel gedefinieerd voor de virtuele machine wordt weergegeven in een hiërarchische structuur. Het statusmodel van een virtuele machine bestaat uit eenheid en de van statistische gezondheidscriteria.  
 
 ![Voorbeeld van de status criteria die zijn gepresenteerd in de gezondheid van diagnostische gegevens](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
 
-Een criterium status meet de status van het bewaakte-exemplaar met bepaalde criteria, wat erop kan een waarde voor drempel of de status van een entiteit, enzovoort. Een criterium health heeft twee of drie statussen, zoals beschreven in de bovenstaande sectie. Het criterium health kan op elk gewenst moment worden in slechts één potentiële status. 
+Een criterium status meet de status van het bewaakte-exemplaar met bepaalde criteria, wat erop kan een drempelwaarde, de status van een entiteit, enzovoort. Een criterium health heeft twee of drie configureerbare health state drempelwaarden, zoals eerder beschreven. Het criterium health kan op elk gewenst moment worden in slechts één potentiële status. 
 
-De algemene status van een doel wordt bepaald door de status van elk van de health-criteria gedefinieerd in het status-model. Dit is een combinatie van health criteria gericht rechtstreeks op het doel, status-criteria die zijn gericht op onderdelen getotaliseerd in het doel via een afhankelijkheid health criterium. Deze hiërarchie wordt weergegeven in de **Criteria voor beveiligingsstatus** sectie van de diagnostische gegevens van Health-pagina. Het beleid voor statustotalisatie maakt deel uit van de configuratie van de gezondheid van aggregaat- en afhankelijkheidsmonitors criteria. U vindt een lijst van de standaardset van criteria voor beveiligingsstatus uitgevoerd als onderdeel van deze functie onder de sectie [bewaking configuratiedetails](#monitoring-configuration-details).  
+De algemene status van een doel wordt bepaald door de status van elk van de health-criteria gedefinieerd in het status-model. Dit is een combinatie van criteria voor beveiligingsstatus gericht rechtstreeks op het doel, status-criteria die zijn gericht op onderdelen getotaliseerd in het doel via een criterium cumulatieve status. Deze hiërarchie wordt weergegeven in de **Criteria voor beveiligingsstatus** sectie van de diagnostische gegevens van Health-pagina. Het beleid voor statustotalisatie maakt deel uit van de configuratie van de cumulatieve status criteria (standaard is ingesteld op *slechtste van*). U vindt een lijst van de standaardset van criteria voor beveiligingsstatus uitgevoerd als onderdeel van deze functie onder de sectie [bewaking configuratiedetails](#monitoring-configuration-details).  
 
-In het volgende voorbeeld wordt het criterium voor het cumulatieve status **Core Windows Services updatepakket** beoordeelt de status van de meest kritieke Windows-Services op basis van afzonderlijke criteria voor servicestatus voor een VM op basis van Windows. De status van elke service, zoals DNS, DHCP enz., worden geëvalueerd en de status wordt getotaliseerd naar de bijbehorende updatepakket health criterium (zoals hieronder wordt weergegeven).  
+**Eenheid** Health criteriumtype kan hebben hun configuratie is gewijzigd door te klikken op de ellips koppeling naar de uiterst rechts en vervolgens **Details weergeven** om de configuratie van deelvenster te openen. 
 
-![Voorbeeld van de gezondheid van updatepakket](./media/vminsights-health/health-diagnostics-windows-svc-rollup.png)
+![Een voorbeeld van een health criteria configureren](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-De status van de **Core Windows Services updatepakket** wordt getotaliseerd in de status van **besturingssysteem beschikbaarheid**, die uiteindelijk wordt getotaliseerd naar de **beschikbaarheid** van de virtuele machine. 
-
-Criteria voor beveiligingsstatus **eenheid** typen kunnen hun configuratie is gewijzigd door te klikken op de ellips koppeling naar de uiterst rechts en vervolgens hebben **Details weergeven** om de configuratie van deelvenster te openen. 
-
-![Een voorbeeld van een health criteria configureren](./media/vminsights-health/health-diagnostics-linuxvm-example-03.png)
-
-In het deelvenster configuratie voor de status van de geselecteerde criteria, in dit voorbeeld de **logische schijf % vrije ruimte** kan worden geconfigureerd met een andere numerieke waarde voor de drempelwaarde, omdat deze een monitor voor twee statussen, wat betekent dat deze wordt alleen gewijzigd van status in kritiek.  Andere health-criterium mogelijk drie staat, waarin u een waarde voor de statusdrempel waarschuwingen en kritieke status kunt configureren.  
+Met behulp van het voorbeeld in het deelvenster configuratie voor de geselecteerde status criteria **gemiddelde seconden Per schrijven**, de drempelwaarde kan worden geconfigureerd met een andere numerieke waarde. Het is een monitor voor twee statussen, wat betekent dat deze alleen de wijzigingen van goed in waarschuwing. Andere health-criterium mogelijk drie staat, waarin u de waarde voor de statusdrempel waarschuwingen en kritieke status kunt configureren.  
 
 >[!NOTE]
->Status criteria configuratiewijziging toepassen op één exemplaar wordt toegepast op alle gecontroleerde exemplaren.  Als u bijvoorbeeld **/mnt/resource** en wijzig de **logische schijf % vrije ruimte** drempelwaarde geldt niet voor alleen dat exemplaar, maar alle andere exemplaren van logische schijf gedetecteerd en bewaakt de VIRTUELE MACHINE.
+>Configuratiewijzigingen voor de gezondheid van criteria toepassen op één exemplaar wordt toegepast op alle gecontroleerde exemplaren.  Als u bijvoorbeeld **fysieke schijf -1 D:** en wijzig de **gemiddelde seconden Per schrijven** drempelwaarde, geldt niet voor alleen dat exemplaar, maar alle instanties van andere schijf gedetecteerd en bewaakt de virtuele machine.
 >
 
-![Configureren van een health-criteria van het voorbeeld van een unit-monitor](./media/vminsights-health/health-diagnostics-linuxvm-example-04.png)
+![Configureren van een health-criteria van het voorbeeld van een unit-monitor](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
 
-Als u wilt meer informatie over de integriteitsindicator Knowledge Base-artikelen zijn opgenomen die u helpt bij het identificeren van problemen, oorzaken en oplossingen.  Klik op de **informatie weergeven** koppeling op de pagina en er wordt een nieuw tabblad geopend in uw browser waarin het specifieke kennisartikel.  Op elk gewenst moment kunt u bekijken alle van de status criterium Knowledge Base-artikelen opgenomen met Azure Monitor voor virtuele machines Health functie [hier](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+Als u meer informatie over de status indicator wilt, Knowledge Base-artikelen worden te identificeren van problemen, oorzaken en oplossingen. Klik op de **informatie weergeven** koppeling op de pagina en er wordt een nieuw tabblad geopend in uw browser waarin het specifieke kennisartikel. Op elk gewenst moment kunt u bekijken alle van de status criterium Knowledge Base-artikelen opgenomen met Azure Monitor voor virtuele machines Health functie [hier](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
   
 ### <a name="state-changes"></a>Statuswijzigingen
-De meest rechtse kolom in de Health-pagina voor diagnostische gegevens is **statuswijzigingen**. Geeft een lijst van alle wijzigingen die zijn gekoppeld aan de criteria voor beveiligingsstatus dat is geselecteerd in de **Criteria voor beveiligingsstatus** sectie of de wijziging in de status van de virtuele machine als een virtuele machine is geselecteerd in de **Onderdeelmodel** of **Criteria voor beveiligingsstatus** kolom van de tabel. 
+De meest rechtse kolom in de diagnostische gegevens van Health-pagina **statuswijzigingen**. Geeft een lijst van alle wijzigingen die zijn gekoppeld aan de criteria voor beveiligingsstatus dat is geselecteerd in de **Criteria voor beveiligingsstatus** sectie of de wijziging in de status van de virtuele machine als een virtuele machine is geselecteerd in de **Onderdeelmodel** of **Criteria voor beveiligingsstatus** kolom van de tabel. 
 
 ![Voorbeeld van de wijzigingen die zijn gepresenteerd in de gezondheid van diagnostische gegevens](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
 In deze sectie bestaat uit de status van de criteria en de bijbehorende tijd gesorteerd op basis van de meest recente status bovenaan.   
 
 ### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>Koppeling van Onderdeelmodel, Criteria voor servicestatus en status van kolommen wijzigen 
-De drie kolommen zijn onderling met elkaar verbonden. Wanneer een gebruiker een gedetecteerde exemplaar in de Component-Model selecteert, de **Criteria voor beveiligingsstatus** sectie naar de onderdeelweergave van dit wordt gefilterd en dienovereenkomstig de **statuswijziging** is bijgewerkt op basis van de geselecteerde criteria voor servicestatus. 
+De drie kolommen zijn onderling met elkaar verbonden. Wanneer u de instantie van een gedetecteerde in selecteert de **Onderdeelmodel** sectie de **Criteria voor beveiligingsstatus** sectie naar de onderdeelweergave van dit wordt gefilterd en dienovereenkomstig de **statuswijziging**sectie wordt bijgewerkt op basis van de status van de geselecteerde criteria. 
 
-![Voorbeeld van het bewaakte exemplaar en de resultaten selecteren](./media/vminsights-health/health-diagnostics-linuxvm-example-02.png)
+![Voorbeeld van het bewaakte exemplaar en de resultaten selecteren](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-In het bovenstaande voorbeeld, wanneer een selecteert **mnt (logische schijf)**, de structuur van de Criteria voor servicestatus wordt gefilterd op **mnt (logische schijf)**. De **beschikbaarheid** en **prestaties** tabbladen worden dienovereenkomstig gefilterd te. De **van Statuswijzigingsgebeurtenissen voor** kolom ziet u de wijziging in de status op basis van de beschikbaarheid van **mnt (logische schijf)**. 
+In het bovenstaande voorbeeld, wanneer u selecteert **fysieke schijf - 1 D:**, de structuur van de Criteria voor servicestatus wordt gefilterd op **fysieke schijf - 1 D:**. De **van Statuswijzigingsgebeurtenissen voor** kolom ziet u de wijziging in de status op basis van de beschikbaarheid van **fysieke schijf - 1 D:**. 
 
-Als u wilt zien bijgewerkte status, kunt u de Health-pagina voor diagnostische gegevens vernieuwen door te klikken op de **vernieuwen** koppeling.  Als er een update aan de status van de health-criterium op basis van het vooraf gedefinieerde polling-interval, wordt deze taak kunt u om te voorkomen dat de wachtrij en geeft de status van de meest recente.  De **Criteria status** een filter is zodat u kunt het bereik van de resultaten op basis van de geselecteerde status - in orde is, waarschuwing, kritiek, onbekend en alle.  De **laatst bijgewerkt** tijd in de rechterbovenhoek vertegenwoordigt de laatste tijd wanneer de Health-pagina voor diagnostische gegevens is vernieuwd.  
+Als u wilt een bijgewerkte status zien, kunt u de diagnostische gegevens van Health-pagina vernieuwen door te klikken op de **vernieuwen** koppeling.  Als er een update aan de status van de health-criterium op basis van het vooraf gedefinieerde polling-interval, wordt deze taak kunt u om te voorkomen dat de wachtrij en geeft de status van de meest recente.  De **Criteria status** een filter is zodat u kunt het bereik van de resultaten op basis van de geselecteerde status - *orde*, *waarschuwing*, *kritieke*, *Onbekende*, en *alle*.  De **laatst bijgewerkt** tijd in de rechterbovenhoek vertegenwoordigt de laatste tijd wanneer de diagnostische gegevens van Health-pagina is vernieuwd.  
 
-## <a name="alerting-and-alert-management"></a>Meldingen en waarschuwingen beheren 
+## <a name="alerts"></a>Waarschuwingen
 Azure Monitor voor de functie van de status van de virtuele machines worden geïntegreerd met [Azure-waarschuwingen](../../azure-monitor/platform/alerts-overview.md) en genereert een waarschuwing wanneer de status van de vooraf gedefinieerde criteria van goed in in een slechte status wijzigt als de voorwaarde wordt gedetecteerd. Waarschuwingen worden gecategoriseerd op basis van ernst - Sev 0 t/m 4, met Sev 0 staat voor het hoogste ernstniveau.  
 
 Totale aantal VM-status waarschuwingen op basis van ernst worden gecategoriseerd is beschikbaar op de **Health** dashboard onder de sectie **waarschuwingen**. Wanneer u het totale aantal waarschuwingen ofwel het nummer overeenkomt met een ernstniveau selecteert de **waarschuwingen** pagina wordt geopend en geeft een lijst van alle waarschuwingen die overeenkomen met uw selectie.  Bijvoorbeeld, als u hebt geselecteerd de rij die overeenkomt met **ernst niveau 1**, ziet u de volgende weergave:
@@ -273,7 +284,7 @@ U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aa
 De **waarschuwen details** pagina wordt weergegeven wanneer u een waarschuwing geven details van de waarschuwing en zodat u kunt de status te veranderen. Zie voor meer informatie over het beheren van waarschuwingen, [maken, weergeven en beheren van waarschuwingen via Azure Monitor](../../azure-monitor/platform/alerts-metric.md).  
 
 >[!NOTE]
->Op dit moment wordt niet ondersteund voor het maken van nieuwe waarschuwingen op basis van criteria voor beveiligingsstatus of wijzigen van bestaande health waarschuwingsregels in Azure Monitor van de portal.  
+>Op deze tijd, het maken van nieuwe waarschuwingen op basis van criteria voor beveiligingsstatus of wijzigen van de gezondheid van de bestaande regels voor waarschuwingen in Azure Monitor vanuit de portal wordt niet ondersteund.  
 >
 
 ![Deelvenster met Waarschuwingsdetails voor een geselecteerde waarschuwing](./media/vminsights-health/alert-details-pane-01.png)

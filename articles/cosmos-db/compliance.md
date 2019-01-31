@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f623411c3e8b13aeacc08a6c47053931742a2e82
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f1be314db7bfc4cbdfcc809eb3b1d985583739a4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034179"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470141"
 ---
-# <a name="azure-cosmos-db-compliance"></a>Azure Cosmos DB-naleving
+# <a name="compliance-in-azure-cosmos-db"></a>Naleving in Azure Cosmos DB 
 
 Azure Cosmos DB is beschikbaar in alle Azure-regio's. Microsoft maakt vijf verschillende Azure-cloud-omgevingen beschikbaar voor klanten:
 
@@ -36,7 +36,7 @@ Azure Cosmos DB is de certificaatdekking voortdurend uitgebreid. Azure Cosmos DB
 
 | **Globaal van toepassing** | **Amerikaanse overheid** | **Specifieke branche** | **Regio of land/regio specifieke** |
 | --- | --- | --- | --- | --- |
-| CSA STAR-certificering<br/><br/>CSA STAR-Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO-22301:2012<br/><br/>ISO 27001: 2013<br/><br/>ISO-27017:2015<br/><br/>ISO-27018:2014<br/><br/>SOC 1, 2, 3| Amerikaanse ministerie van defensie SRG Level 2<br/><br/>FedRAMP Gemiddeld<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australië IRAP voor niet-geclassificeerde<br/><br/>Duitsland-C5<br/><br/>Niveau van de MTCS voor Singapore 3<br/><br/>Spanje ENS hoog|
+| CSA STAR-certificering<br/><br/>CSA STAR-Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| Amerikaanse ministerie van defensie SRG Level 2<br/><br/>FedRAMP Gemiddeld<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australië IRAP voor niet-geclassificeerde<br/><br/>Duitsland-C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spanje ENS hoog|
 
 Zie voor meer informatie over elk van deze compliance-aanbiedingen en hoe ze u profiteren van [overzicht van Microsoft Azure-naleving](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) pagina.
 
@@ -44,7 +44,7 @@ De volgende tabel bevat de certificeringen die wordt ondersteund door Azure Cosm
 
 | **Globaal van toepassing** | **Amerikaanse overheid** | **Specifieke branche** | **Regio of land/regio specifieke** |
 | --- | --- | --- | --- |
-| CSA STAR-certificering<br/><br/>CSA STAR-Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO-9001:2015<br/><br/>ISO 27001: 2013<br/><br/>ISO-27017:2015<br/><br/>ISO-27018:2014<br/><br/>SOC 1, 2, 3 | Amerikaanse ministerie van defensie SRG Level 2<br/><br/>Amerikaanse ministerie van defensie SRG niveau 5<br/><br/>CJIS<br/><br/>FedRAMP Hoog<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australië IRAP voor niet-geclassificeerde<br/><br/>Duitsland-C5<br/><br/>Niveau van de MTCS voor Singapore 3<br/><br/>Spanje ENS hoog|
+| CSA STAR-certificering<br/><br/>CSA STAR-Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | Amerikaanse ministerie van defensie SRG Level 2<br/><br/>DoD SRG Level 5<br/><br/>CJIS<br/><br/>FedRAMP Hoog<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australië IRAP voor niet-geclassificeerde<br/><br/>Duitsland-C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spanje ENS hoog|
 
 ## <a name="next-steps"></a>Volgende stappen
 

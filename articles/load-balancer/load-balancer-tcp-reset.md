@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257285"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296916"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer met TCP-opnieuw instellen op niet-actieve (openbare Preview)
 
-U kunt [Standard Load Balancer](load-balancer-standard-overview.md) te maken van een beter voorspelbare gedrag van toepassingen voor uw scenario's met in twee richtingen TCP wordt opnieuw ingesteld (TCP RST pakket) voor elke configureerbare time-out voor inactiviteit.  Het standaardgedrag van de Load Balancer is stromen op de achtergrond te verwijderen wanneer de time-out voor inactiviteit van een stroom is bereikt.
+U kunt [Standard Load Balancer](load-balancer-standard-overview.md) TCP opnieuw ingesteld op niet-actief inschakelen voor een bepaalde regel maakt een beter voorspelbare gedrag van toepassingen voor uw scenario's. Het standaardgedrag van de Load Balancer is stromen op de achtergrond te verwijderen wanneer de time-out voor inactiviteit van een stroom is bereikt.  Inschakelen van deze functie zorgt ervoor dat Load Balancer voor het verzenden van bidirectionele TCP wordt opnieuw ingesteld (TCP RST pakket) op de time-out voor inactiviteit.  Dit zal de toepassingseindpunten van uw te informeren dat de verbinding een time-out is en niet meer bruikbaar is.  Eindpunten kunnen onmiddellijk een nieuwe verbinding maken indien nodig.
 
 ![Load Balancer TCP opnieuw instellen](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ Met API-versie 2018-07-01, kunt u inschakelen verzenden van bidirectionele TCP w
 
 ## <a name="regions"></a> Beschikbaarheid in regio 's
 
-Deze parameter werkt momenteel in de volgende regio's.  In de regio's hier niet wordt vermeld, heeft de parameter geen effect.
-
-| Regio |
-|---|
-| Azië - zuidoost |
-| Brazilië - zuid |
-| Canada - midden |
-| Europa - west |
-| India - centraal |
-| India - west |
-| Japan - west |
-| Korea - centraal |
-| Korea - zuid |
-| VK, noord |
-| VK, zuid 2 |
-| US - oost |
-| US - oost 2 |
-| Verenigde Staten-Noord |
-| US - west |
-
-Deze tabel wordt bijgewerkt als de Preview-versie is uitgebreid naar andere regio's.  
+Beschikbaar in alle regio's.
 
 ## <a name="limitations"></a>Beperkingen
 
-- Beperkte [beschikbaarheid in regio](#regions).
 - Portal kan niet worden gebruikt om te configureren of weergeven van de TCP-opnieuw instellen.  Gebruik in plaats daarvan sjablonen, REST-API, Az CLI 2.0 of PowerShell.
 
 ## <a name="next-steps"></a>Volgende stappen

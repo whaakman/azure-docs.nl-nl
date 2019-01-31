@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/28/2019
+ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790829"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299858"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Clusters in HDInsight met Apache Hadoop, Apache Spark en Apache Kafka instellen
 
@@ -27,7 +27,6 @@ Een Hadoop-cluster bestaat uit meerdere virtuele machines (knooppunten) die word
 
 > [!IMPORTANT]  
 > De facturering voor het gebruik van HDInsight-clusters begint zodra er een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. Meer informatie over het [een cluster verwijderen.](hdinsight-delete-cluster.md)
->
 
 ## <a name="cluster-setup-methods"></a>Cluster setup-methoden
 De volgende tabel ziet u de verschillende methoden die u gebruiken kunt voor het instellen van een HDInsight-cluster.
@@ -67,8 +66,6 @@ Azure HDInsight biedt momenteel de volgende clustertypen, elk met een set met on
 
 > [!IMPORTANT]  
 > HDInsight-clusters zijn beschikbaar in verschillende typen, elk voor een enkele workload of technologie. Er is geen ondersteunde methode om een cluster die meerdere typen, zoals Storm en HBase op één cluster combineert te maken. Als uw oplossing vereist technologieën die worden verdeeld over meerdere HDInsight-clustertypen, een [virtueel Azure-netwerk](https://docs.microsoft.com/azure/virtual-network) verbinding kunnen maken van de vereiste clustertypen. 
->
->
 
 | Clustertype | Functionaliteit |
 | --- | --- |
@@ -76,7 +73,7 @@ Azure HDInsight biedt momenteel de volgende clustertypen, elk met een set met on
 | [HBase](hbase/apache-hbase-overview.md) |Verwerking van grote hoeveelheden schemaloos, NoSQL-gegevens |
 | [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |Caching in het geheugen voor interactieve en snellere Hive-query 's |
 | [Kafka](kafka/apache-kafka-introduction.md) | Een gedistribueerd streamingplatform dat kan worden gebruikt voor het bouwen van realtime streaming gegevens-pipelines en toepassingen |
-| [ML-Services](r-server/r-server-overview.md) |Verschillende big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
+| [ML Services](r-server/r-server-overview.md) |Verschillende big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
 | [Spark](spark/apache-spark-overview.md) |In-memory verwerking, interactieve query's, verwerking van microbatches |
 | [Storm](storm/apache-storm-overview.md) |Gebeurtenissen in realtime verwerken |
 
@@ -84,20 +81,12 @@ Azure HDInsight biedt momenteel de volgende clustertypen, elk met een set met on
 ### <a name="hdinsight-version"></a>HDInsight-versie
 Kies de versie van HDInsight voor dit cluster. Zie voor meer informatie, [ondersteund HDInsight-versies](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### <a name="enterprise-security-package"></a>Enterprise-beveiligingspakket
 
-Voor clustertypen Hadoop, Spark en interactieve Query, kunt u kiezen om in te schakelen de **Enterprise-beveiligingspakket**. Dit pakket biedt een optie om de installatie van een beter te beveiligen met behulp van Apache Ranger en integreren met Azure Active Directory. Zie voor meer informatie, [Enterprise-beveiligingspakket in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
-
-![hdinsight maken opties kiezen enterprise-beveiligingspakket](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
-
-Voor meer informatie over het maken van aan domein gekoppelde HDInsight-cluster, raadpleegt u [maken aan domein gekoppelde HDInsight sandbox-omgeving](./domain-joined/apache-domain-joined-configure.md).
-
-
-## <a name="cluster-login-and-ssh-user-name"></a>Aanmelding bij cluster en SSH-gebruikersnaam
+## <a name="cluster-login-and-ssh-username"></a>Aanmelding bij cluster en SSH-gebruikersnaam
 Met HDInsight-clusters, kunt u twee gebruikersaccounts configureren tijdens het maken van een cluster:
 
-* HTTP-gebruiker: De standaardnaam van de gebruiker is *admin*. Hierbij wordt de basisconfiguratie in Azure portal. Soms wordt genoemd "Cluster gebruiker."
-* SSH-gebruiker (Linux-clusters): Gebruikt voor verbinding met het cluster via SSH. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+* HTTP-gebruiker: De standaardgebruikersnaam *admin*. Hierbij wordt de basisconfiguratie in Azure portal. Soms wordt genoemd "Cluster gebruiker."
+* SSH-gebruiker: Gebruikt voor verbinding met het cluster via SSH. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 De Enterprise-beveiligingspakket kunt u HDInsight integreren met Active Directory en Apache Ranger. Meerdere gebruikers kunnen worden gemaakt met behulp van de Enterprise-beveiligingspakket.
 
@@ -143,10 +132,19 @@ Voor betere prestaties bij het gebruik van Oozie, gebruikt u een aangepaste meta
 
 ## <a name="custom-cluster-setup"></a>Aangepaste installatie
 Aangepaste cluster setup bouwt voort op de snelle instellingen maken en voegt de volgende opties:
+- [Enterprise-beveiligingspakket](#enterprise-security-package)
 - [HDInsight-toepassingen](#install-hdinsight-applications-on-clusters)
 - [Grootte van cluster](#configure-cluster-size)
 - [Scriptacties](#advanced-settings-script-actions)
 - [Virtueel netwerk](#advanced-settings-extend-clusters-with-a-virtual-network)
+ 
+## <a name="enterprise-security-package"></a>Enterprise-beveiligingspakket
+
+Voor clustertypen Hadoop, Spark, HBase, Kafka en interactieve Query, kunt u kiezen om in te schakelen de **Enterprise-beveiligingspakket**. Dit pakket biedt een optie om de installatie van een beter te beveiligen met behulp van Apache Ranger en integreren met Azure Active Directory. Zie voor meer informatie, [Enterprise-beveiligingspakket in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+
+![hdinsight maken opties kiezen enterprise-beveiligingspakket](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+
+Voor meer informatie over het maken van aan domein gekoppelde HDInsight-cluster, raadpleegt u [maken aan domein gekoppelde HDInsight sandbox-omgeving](./domain-joined/apache-domain-joined-configure.md). 
 
 ## <a name="install-hdinsight-applications-on-clusters"></a>HDInsight-toepassingen installeren op clusters
 
@@ -221,7 +219,7 @@ Sommige systeemeigen Java-onderdelen, zoals Apache Mahout en trapsgewijze, kunne
 Soms wilt u de volgende configuratiebestanden tijdens het maakproces configureren:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml
@@ -245,9 +243,6 @@ Zie voor meer informatie over het gebruik van een Azure-netwerk met HDInsight [H
 
 Zie voor een voorbeeld van het gebruik van twee clustertypen binnen een virtueel Azure-netwerk, [met Apache Spark Structured Streaming met Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Zie voor meer informatie over het gebruik van HDInsight met een virtueel netwerk, met inbegrip van specifieke configuratievereisten voor het virtuele netwerk, [mogelijkheden voor HDInsight uitbreiden met behulp van Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
-## <a name="troubleshoot-access-control-issues"></a>Problemen met toegang beheren
-
-Zie [Vereisten voor toegangsbeheer](hdinsight-hadoop-create-linux-clusters-portal.md) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
 

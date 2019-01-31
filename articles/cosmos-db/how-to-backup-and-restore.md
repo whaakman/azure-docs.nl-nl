@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e21a3ae23ca6a856c9524e52e80f33362f53cae1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040843"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455929"
 ---
-# <a name="how-to-restore-azure-cosmos-db-data-from-a-backup"></a>Azure Cosmos DB-gegevens herstellen vanaf een back-up
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Gegevens terugzetten vanaf een back-up in Azure Cosmos DB 
 
 Als u per ongeluk de database of een container verwijdert, kunt u [een ondersteuningsticket]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) of [contact opnemen met ondersteuning voor Azure]( https://azure.microsoft.com/support/options/) om terug te zetten van de gegevens van automatische online back-ups. Azure-ondersteuning is alleen beschikbaar voor geselecteerde abonnementen zoals **Standard**, ** Developer en hoger is dan deze abonnementen. Azure-ondersteuning is niet beschikbaar bij **Basic** plan. Zie voor meer informatie over de verschillende ondersteuningsplannen, de [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/support/plans/) pagina. 
 

@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.component: disks
-ms.openlocfilehash: 6cccf31842825c3e4d50aa67165d19f8ac471695
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 61f4237756d7a808bcc8a5983508d72fa49f4cbd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478158"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459165"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Het maken van een Linux virtuele machine (VM) is heel gemakkelijk vanaf de opdrachtregel of vanuit de portal. Deze zelfstudie leert u hoe u om te controleren of u dit hebt ingesteld om de prestaties van de Microsoft Azure-platform te optimaliseren. In dit onderwerp wordt gebruikgemaakt van een Ubuntu-Server-VM, maar u kunt ook maken gebruik van Linux virtuele machine [uw eigen installatiekopieën als sjablonen](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  

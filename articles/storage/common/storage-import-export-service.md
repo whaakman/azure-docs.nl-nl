@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528553"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453379"
 ---
 # <a name="what-is-azure-importexport-service"></a>Wat is Azure Import/Export-service?
 
@@ -27,18 +27,18 @@ Als u overdragen van gegevens met behulp van schijven die door Microsoft worden 
 
 Overweeg het gebruik van Azure Import/Export-service bij het uploaden en downloaden van gegevens via het netwerk te langzaam is, of aan meer netwerkbandbreedte is te duur. Deze service gebruikt in de volgende scenario's:
 
-* **Migratie van gegevens naar de cloud**: voor het verplaatsen van grote hoeveelheden gegevens naar Azure is het snel en kosteneffectief.
-* **Inhoudsdistributie**: verzend snel gegevens naar uw klantlocaties.
-* **Back-up**: back-ups maken van uw on-premises gegevens op te slaan in Azure Storage.
-* **Gegevensherstel**: grote hoeveelheid gegevens die zijn opgeslagen in opslag herstellen en deze af te leveren aan uw on-premises locatie.
+* **Migratie van gegevens naar de cloud**: Voor het verplaatsen van grote hoeveelheden gegevens naar Azure is het snel en kosteneffectief.
+* **Inhoudsdistributie**: Verzend snel gegevens naar uw klantlocaties.
+* **Back-up**: Duren back-ups van uw on-premises gegevens op te slaan in Azure Storage.
+* **Gegevensherstel**: Herstellen van de grote hoeveelheid gegevens die zijn opgeslagen in opslag en deze af te leveren aan uw on-premises locatie.
 
 ## <a name="importexport-components"></a>Import/Export-onderdelen
 
 Import/Export-service maakt gebruik van de volgende onderdelen:
 
-- **Import/Export service**: deze service is beschikbaar in Azure portal kunt u de gebruiker maken en gegevens bijhouden (uploaden) importeren en exporteren van taken (download).  
+- **Import/Export service**: Deze service beschikbaar in Azure portal kan de gebruiker maken en importeren van gegevens (uploaden) bijhouden en taken (download) exporteren.  
 
-- **WAImportExport hulpprogramma**: dit is een opdrachtregelprogramma dat het volgende doet: 
+- **WAImportExport hulpprogramma**: Dit is een opdrachtregelprogramma dat het volgende doet: 
     - Uw schijven die worden verzonden voorbereid voor het importeren van.
     - Vereenvoudigt het uitvoeren van uw gegevens kopiëren naar het station.
     - Versleutelt de gegevens op het station met BitLocker.
@@ -52,7 +52,7 @@ Import/Export-service maakt gebruik van de volgende onderdelen:
 >
 > Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssysteem. Voor specifieke versies van het besturingssysteem wordt ondersteund, gaat u naar [Azure Import/Export-vereisten](storage-import-export-requirements.md#supported-operating-systems).
 
-- **Schijfstations**: U SSD-schijven (SSD's) kan worden verzonden of harde schijven (HDD's) naar de Azure-datacenter. Bij het maken van een import-taak, kunt u schijven met uw gegevens verzenden. Bij het maken van een exporttaak bekijken, verzendt u lege stations in de Azure-datacenter. Voor specifieke schijftypen, gaat u naar [schijftypen ondersteund](storage-import-export-requirements.md#supported-hardware).
+- **Schijfstations**: U kunt verzenden SSD-schijven (SSD's) of harde schijven (HDD's) naar het Azure-datacenter. Bij het maken van een import-taak, kunt u schijven met uw gegevens verzenden. Bij het maken van een exporttaak bekijken, verzendt u lege stations in de Azure-datacenter. Voor specifieke schijftypen, gaat u naar [schijftypen ondersteund](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Hoe werkt de Import-/ Exportservice?
 
@@ -119,7 +119,7 @@ De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van al
 ### <a name="supported-shipping-locations"></a>Ondersteunde locaties voor verzending
 
 
-|Land  |Land  |Land  |Land  |
+|Land/regio  |Land/regio  |Land/regio  |Land/regio  |
 |---------|---------|---------|---------|
 |US - oost    | Europa - noord        | India - centraal        |US Gov - Iowa         |
 |US - west     |Europa -west         | India - zuid        | US DoD - oost        |

@@ -3,7 +3,7 @@ title: Automatisch schalen rekenknooppunten in een Azure Batch-pool | Microsoft 
 description: Schakel automatisch schalen op een cloud-toepassingen op het aantal rekenknooppunten in de pool dynamisch aanpassen.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330887"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459839"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Een formule voor automatisch vergroten/verkleinen voor het schalen van rekenknooppunten in een Batch-pool maken
 
@@ -85,7 +85,7 @@ De volgende tabellen ziet lezen / schrijven en alleen-lezen-variabelen die zijn 
 
 U kunt ophalen en instellen van de waarden van deze variabelen gedefinieerd met een service voor het beheren van het aantal rekenknooppunten in een pool:
 
-| Variabelen voor de service gedefinieerde lezen / schrijven | Beschrijving |
+| Variabelen voor de service gedefinieerde lezen / schrijven | Description |
 | --- | --- |
 | $TargetDedicatedNodes |Het doelaantal toegewezen rekenknooppunten voor de pool. Het aantal toegewezen knooppunten is opgegeven als doel, omdat het gewenste aantal knooppunten niet altijd door een groep bereiken mogelijk. Bijvoorbeeld, als het doelaantal toegewezen knooppunten wordt gewijzigd door een evaluatie voor automatisch schalen voordat de groep van het eerste doel is bereikt, klikt u vervolgens de pool bereikt mogelijk niet het doel. <br /><br /> Een pool in die zijn gemaakt met de configuratie van de Batch-Service kan het doel niet bereiken als het doel een Batch-account knooppunt of core-quotum overschrijdt. Een pool in die zijn gemaakt met de accountconfiguratie gebruikersabonnement kan het doel niet bereiken als het doel is groter dan het gedeelde kernquotum voor het abonnement.|
 | $TargetLowPriorityNodes |Het doelaantal met lage prioriteit rekenknooppunten voor de pool. Het aantal knooppunten met lage prioriteit is opgegeven als doel, omdat het gewenste aantal knooppunten niet altijd door een groep bereiken mogelijk. Bijvoorbeeld, als het doelaantal knooppunten met lage prioriteit wordt gewijzigd door een evaluatie voor automatisch schalen voordat de groep van het eerste doel is bereikt, klikt u vervolgens de pool bereikt mogelijk niet het doel. Een pool kan ook niet het doel bereiken als het doel een Batch-account knooppunt of core-quotum overschrijdt. <br /><br /> Zie voor meer informatie over rekenknooppunten met lage prioriteit [VM's met lage prioriteit gebruiken met Batch (Preview)](batch-low-pri-vms.md). |
@@ -93,7 +93,7 @@ U kunt ophalen en instellen van de waarden van deze variabelen gedefinieerd met 
 
 U kunt de waarde van deze service gedefinieerde variabelen aan te passen op basis van metrische gegevens van de Batch-service krijgen:
 
-| Alleen-lezen service gedefinieerde variabelen | Beschrijving |
+| Alleen-lezen service gedefinieerde variabelen | Description |
 | --- | --- |
 | $CPUPercent |Het gemiddelde percentage van CPU-gebruik. |
 | $WallClockSeconds |Het aantal seconden verbruikt. |
@@ -126,7 +126,7 @@ Deze typen worden ondersteund in een formule:
 * double
 * doubleVec
 * doubleVecList
-* tekenreeks
+* string
 * tijdstempel--tijdstempel is een samengestelde structuur met de volgende leden:
 
   * jaar
@@ -136,7 +136,7 @@ Deze typen worden ondersteund in een formule:
   * uur (in 24-uurs notatie, bijvoorbeeld: 13 betekent dat 1 uur)
   * minuten (00: 59)
   * tweede (00: 59)
-* TimeInterval
+* timeinterval
 
   * TimeInterval_Zero
   * TimeInterval_100ns
@@ -155,16 +155,16 @@ Deze bewerkingen zijn toegestaan voor de typen die worden vermeld in de vorige s
 | Bewerking | Ondersteunde operators | Resultaattype |
 | --- | --- | --- |
 | dubbele *operator* dubbele |+, -, *, / |double |
-| dubbele *operator* timeinterval |* |TimeInterval |
+| dubbele *operator* timeinterval |* |timeinterval |
 | doubleVec *operator* dubbele |+, -, *, / |doubleVec |
 | doubleVec *operator* doubleVec |+, -, *, / |doubleVec |
-| TimeInterval *operator* dubbele |*, / |TimeInterval |
-| TimeInterval *operator* timeinterval |+, - |TimeInterval |
+| TimeInterval *operator* dubbele |*, / |timeinterval |
+| TimeInterval *operator* timeinterval |+, - |timeinterval |
 | TimeInterval *operator* timestamp |+ |tijdstempel |
 | tijdstempel *operator* timeinterval |+ |tijdstempel |
-| tijdstempel *operator* timestamp |- |TimeInterval |
-| *operator*dubbele |-, ! |double |
-| *operator*timeinterval |- |TimeInterval |
+| tijdstempel *operator* timestamp |- |timeinterval |
+| *operator*double |-, ! |double |
+| *operator*timeinterval |- |timeinterval |
 | dubbele *operator* dubbele |<, <=, ==, >=, >, != |double |
 | tekenreeks *operator* tekenreeks |<, <=, ==, >=, >, != |double |
 | tijdstempel *operator* timestamp |<, <=, ==, >=, >, != |double |
@@ -176,10 +176,10 @@ Bij het testen van een Double-waarde met een ternaire operator (`double ? statem
 ## <a name="functions"></a>Functions
 Deze vooraf gedefinieerde **functies** zijn beschikbaar voor gebruik bij het definiëren van een formule voor automatisch vergroten/verkleinen.
 
-| Functie | Retourtype | Beschrijving |
+| Function | Retourtype | Description |
 | --- | --- | --- |
 | avg(doubleVecList) |double |Retourneert de gemiddelde waarde voor alle waarden in de doubleVecList. |
-| Len(doubleVecList) |double |Retourneert de lengte van de vector die is gemaakt op basis van de doubleVecList. |
+| len(doubleVecList) |double |Retourneert de lengte van de vector die is gemaakt op basis van de doubleVecList. |
 | LG(Double) |double |Retourneert het logboek grondtal 2 van de dubbele waarde. |
 | lg(doubleVecList) |doubleVec |Retourneert het component-wise logboek grondtal 2 van de doubleVecList. Een vec(double) moeten expliciet worden doorgegeven voor de parameter. Anders wordt wordt de versie van de dubbele lg(double) verondersteld. |
 | ln(Double) |double |Retourneert het natuurlijke logboek van de dubbele waarde. |
@@ -192,10 +192,10 @@ Deze vooraf gedefinieerde **functies** zijn beschikbaar voor gebruik bij het def
 | percentiel (v doubleVec, dubbele p) |double |Het element percentiel van de vector v geretourneerd. |
 | ASELECT() |double |Retourneert een willekeurige waarde tussen 0,0 en 1,0 liggen. |
 | range(doubleVecList) |double |Retourneert het verschil tussen de minimale en maximale waarden in de doubleVecList. |
-| Std(doubleVecList) |double |Retourneert de standaardafwijking van voorbeeld van de waarden in de doubleVecList. |
-| Stop() | |Stopt de evaluatie van de expressie voor automatisch schalen. |
+| std(doubleVecList) |double |Retourneert de standaardafwijking van voorbeeld van de waarden in de doubleVecList. |
+| stop() | |Stopt de evaluatie van de expressie voor automatisch schalen. |
 | SUM(doubleVecList) |double |Retourneert de som van alle onderdelen van de doubleVecList. |
-| tijd (string, dateTime = "") |tijdstempel |De tijdstempel van de huidige tijd als er geen parameters worden doorgegeven of het tijdstempel van de datum/tijd-tekenreeks geretourneerd als deze wordt doorgegeven. Ondersteunde datum-/ tijdindelingen zijn W3C-DTF- en RFC 1123. |
+| time(string dateTime="") |tijdstempel |De tijdstempel van de huidige tijd als er geen parameters worden doorgegeven of het tijdstempel van de datum/tijd-tekenreeks geretourneerd als deze wordt doorgegeven. Ondersteunde datum-/ tijdindelingen zijn W3C-DTF- en RFC 1123. |
 | Val (v doubleVec, dubbele i) |double |Retourneert de waarde van het element dat op locatie i in vector v, met een startIndex gelijk is aan nul. |
 
 Enkele van de functies die worden beschreven in de vorige tabel kunt een lijst accepteren als argument. De lijst met door komma's gescheiden is een combinatie van *dubbele* en *doubleVec*. Bijvoorbeeld:
@@ -211,7 +211,7 @@ Automatisch schalen formules reageren op metrische gegevens (voorbeelden) die wo
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Methode | Beschrijving |
+| Methode | Description |
 | --- | --- |
 | GetSample() |De `GetSample()` methode retourneert een vector van voorbeelden van gegevens.<br/><br/>Een voorbeeld is 30 seconden metrische gegevens. Voorbeelden zijn met andere woorden, elke 30 seconden verkregen. Maar, zoals hieronder vermeld, is er een vertraging tussen wanneer een voorbeeld dat wordt verzameld en wanneer deze is beschikbaar op een formule. Daarom mogelijk niet alle voorbeelden voor een bepaalde periode zijn beschikbaar voor de evaluatie van een formule.<ul><li>`doubleVec GetSample(double count)`<br/>Hiermee geeft u het aantal voorbeelden voor het verkrijgen van de meest recente voorbeelden die zijn verzameld.<br/><br/>`GetSample(1)` retourneert de laatste steekproef beschikbaar. Metrische gegevens zoals `$CPUPercent`, maar deze moet niet worden gebruikt omdat het is niet mogelijk om te weten *wanneer* het voorbeeld is verzameld. Kan het zijn recente of, vanwege problemen met het systeem, is het mogelijk veel ouder. Is het beter in dergelijke gevallen voor het gebruik van een bepaalde periode, zoals hieronder weergegeven.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van voorbeeldgegevens. (Optioneel) geeft het ook het percentage van de voorbeelden die beschikbaar in het aangevraagde tijdsbestek zijn moeten.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Voorbeelden van 20 zou worden geretourneerd als alle voorbeelden voor de afgelopen 10 minuten aanwezig zijn in de geschiedenis CPUPercent. Als de laatste minuut van de geschiedenis niet beschikbaar is, echter zou alleen 18 voorbeelden worden geretourneerd. In dit geval:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` mislukken omdat alleen 90 procent van de voorbeelden beschikbaar zijn.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` zou slagen.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Hiermee geeft u een tijdsbestek voor het verzamelen van gegevens, met zowel een begintijd en eindtijd.<br/><br/>Zoals eerder vermeld, is er een vertraging tussen wanneer een voorbeeld dat wordt verzameld en wanneer deze is beschikbaar op een formule. Houd rekening met deze vertraging op wanneer u de `GetSample` methode. Zie `GetSamplePercent` hieronder. |
 | GetSamplePeriod() |Retourneert de periode van voorbeelden die zijn uitgevoerd in een verzameling historische voorbeeldgegevens. |
@@ -269,7 +269,7 @@ U kunt metrische gegevens over zowel de bron en de taak gebruiken tijdens het de
 <table>
   <tr>
     <th>Gegevens</th>
-    <th>Beschrijving</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><b>Resource</b></td>
@@ -386,8 +386,8 @@ Naast Batch .NET, kunt u een van de andere [Batch-SDK's](batch-apis-tools.md#azu
 ### <a name="automatic-scaling-interval"></a>Interval voor automatisch vergroten/verkleinen
 Standaard past de Batch-service een poolgrootte op basis van een formule voor automatisch schalen om de 15 minuten. Dit interval kan worden geconfigureerd met behulp van de volgende eigenschappen van de groep van toepassingen:
 
-* [CloudPool.AutoScaleEvaluationInterval] [ net_cloudpool_autoscaleevalinterval] (Batch .NET)
-* [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST-API)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [autoScaleEvaluationInterval][rest_autoscaleinterval] (REST API)
 
 Het minimale interval is vijf minuten en de maximumwaarde is 168 uur. Als een interval buiten dit bereik is opgegeven, retourneert de Batch-service een fout met ongeldige aanvraag (400).
 
@@ -400,7 +400,7 @@ Het minimale interval is vijf minuten en de maximumwaarde is 168 uur. Als een in
 
 Elke Batch-SDK biedt een manier om in te schakelen van automatisch schalen. Bijvoorbeeld:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync] [ net_enableautoscaleasync] (Batch .NET)
+* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Inschakelen van automatisch schalen in een pool] [ rest_enableautoscale] (REST-API)
 
 Wanneer u automatisch schalen op een bestaande pool inschakelt, houd rekening met de volgende punten:
@@ -592,7 +592,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>Voorbeeld 2: Op basis van een taak aanpassing
+### <a name="example-2-task-based-adjustment"></a>Voorbeeld 2: Taakgebaseerde aanpassing
 In dit voorbeeld wordt de grootte van de groep aangepast op basis van het aantal taken in de wachtrij. Alle opmerkingen en regeleinden zijn acceptabel in formule tekenreeksen.
 
 ```csharp
@@ -611,7 +611,7 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Voorbeeld 3: Accounting voor parallelle taken
+### <a name="example-3-accounting-for-parallel-tasks"></a>Voorbeeld 3: De administratieve verwerking van parallelle taken
 Dit voorbeeld wordt de grootte van de groep op basis van het aantal taken. Deze formule ook rekening met de [MaxTasksPerComputeNode] [ net_maxtasks] waarde die is ingesteld voor de pool. Deze methode is nuttig in situaties waar [parallelle uitvoering van de taak](batch-parallel-node-tasks.md) is ingeschakeld in de pool.
 
 ```csharp

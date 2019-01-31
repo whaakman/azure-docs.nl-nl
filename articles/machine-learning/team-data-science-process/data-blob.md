@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c7d8414fdc1070204ef02cf6d88b238575d0817a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140526"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472419"
 ---
 # <a name="heading"></a>Azure blob-gegevens verwerken met geavanceerde analyses
 In dit document bevat informatie over gegevens verkennen en genereren functies van de gegevens die zijn opgeslagen in Azure Blob-opslag. 
@@ -130,7 +130,7 @@ Voor het genereren van binned functies, gaan we als volgt:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Schrijven van gegevens terug naar Azure-blob en gebruiken in Azure Machine Learning
-Nadat u de gegevens hebt verkend en de benodigde onderdelen hebt gemaakt, kunt u de gegevens uploaden (voorbeelden worden gemaakt of boommodel) naar een Azure blob- en deze gebruiken in Azure Machine Learning met behulp van de volgende stappen uit: Houd er rekening mee dat extra functies kunnen worden gemaakt in de Azure-Machine Ook Learning Studio. 
+Nadat u de gegevens hebt verkend en de benodigde onderdelen hebt gemaakt, kunt u de gegevens uploaden (voorbeelden worden gemaakt of boommodel) naar een Azure blob- en deze gebruiken in Azure Machine Learning met behulp van de volgende stappen uit: Houd er rekening mee dat extra functies kunnen worden gemaakt in de Azure Machine Learning Studio ook. 
 
 1. Het gegevensframe schrijven naar een lokaal bestand
    

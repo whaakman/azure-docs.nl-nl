@@ -1,21 +1,21 @@
 ---
-title: 'Zelfstudie: Beheren Computing met Azure Functions in Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Zelfstudie: Beheren van Computing met Azure Functions in Azure SQL Data Warehouse | Microsoft Docs'
 description: Azure Functions gebruiken om de rekenniveaus van uw datawarehouse te beheren.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f366718a11f715b0c91a556eb3b0f216424b82c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470192"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Gebruik Azure Functions voor het beheren van rekenresources in Azure SQL Data Warehouse
 
@@ -144,7 +144,7 @@ In deze sectie kort zien wat nodig is om op te halen meer complexe planning onde
 
 Elke dag om 8:00 uur omhoog schalen naar DW600 en om 20:00 uur omlaag schalen naar DW200.
 
-| Functie  | Planning     | Bewerking                                |
+| Function  | Planning     | Bewerking                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Functie1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Functie2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -153,7 +153,7 @@ Elke dag om 8:00 uur omhoog schalen naar DW600 en om 20:00 uur omlaag schalen na
 
 Dag omhoog schalen om 8 uur naar DW1000, omlaag schalen naar DW600: 00 uur en omlaag schalen naar DW200 exemplaar om 22 uur.
 
-| Functie  | Planning     | Bewerking                                |
+| Function  | Planning     | Bewerking                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Functie1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW1000"}` |
 | Functie2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -163,7 +163,7 @@ Dag omhoog schalen om 8 uur naar DW1000, omlaag schalen naar DW600: 00 uur en om
 
 Op weekdagen om 8:00 uur omhoog schalen naar DW1000 en om 16:00 uur omlaag schalen naar DW600. Onderbreken op vrijdag om 23:00 uur, hervatten op maandag om 7:00 uur.
 
-| Functie  | Planning       | Bewerking                                |
+| Function  | Planning       | Bewerking                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Functie1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Functie2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |

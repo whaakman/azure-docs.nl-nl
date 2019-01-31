@@ -11,24 +11,28 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
-ms.date: 08/27/2018
-ms.openlocfilehash: b3bdcc81776067f279c1f95458a0a79a8824f51c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603046"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462967"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Aan de slag met elastische Databasehulpprogramma 's
+
 Dit document bevat een inleiding tot de ervaring voor ontwikkelaars voor het [clientbibliotheek voor elastic database](sql-database-elastic-database-client-library.md) doordat u een voorbeeld-app uitvoeren. De voorbeeld-app een eenvoudige sharded toepassing maakt en gaat in op de belangrijkste mogelijkheden van de functie Elastic Database-hulpprogramma's van Azure SQL Database. Dit artikel gaat over gebruiksvoorbeelden voor [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md), [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md), en [meerdere shards uitvoeren van query's](sql-database-elastic-scale-multishard-querying.md). De clientbibliotheek is beschikbaar voor zowel .NET als Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Hulpprogramma's voor elastische databases voor Java
+
 ### <a name="prerequisites"></a>Vereisten
+
 * Een Java Developer Kit (JDK), versie 1.8 of hoger
 * [Maven](http://maven.apache.org/download.cgi)
-* Een logische server in Azure of een lokale SQL Server-exemplaar
+* Een SQL Database-server in Azure of een lokale SQL Server-exemplaar
 
 ### <a name="download-and-run-the-sample-app"></a>De voorbeeldapp downloaden en uitvoeren
+
 Voor het bouwen van de JAR-bestanden en aan de slag met het voorbeeldproject, het volgende doen: 
 1. Kloon de [GitHub-opslagplaats](https://github.com/Microsoft/elastic-db-tools-for-java) met de clientbibliotheek, samen met de voorbeeld-app. 
 
@@ -65,12 +69,15 @@ De clientbibliotheek toevoegen aan uw eigen Maven-project, toevoegen de volgende
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>Hulpprogramma's voor elastische databases voor .NET 
+## <a name="elastic-database-tools-for-net"></a>Hulpprogramma's voor elastische databases voor .NET
+
 ### <a name="prerequisites"></a>Vereisten
+
 * Visual Studio 2012 of hoger met C#. Download een gratis versie op [Visual Studio-Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 of later. Als u de nieuwste versie, raadpleegt u [NuGet installeren](http://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>De voorbeeldapp downloaden en uitvoeren
+
 Voor het installeren van de bibliotheek, gaat u naar [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). De bibliotheek is geïnstalleerd met de voorbeeld-app die wordt beschreven in de volgende sectie.
 
 Als u wilt downloaden en uitvoeren van het voorbeeld, de volgende stappen uit: 
@@ -91,10 +98,9 @@ Gefeliciteerd! U hebt gemaakt en u hebt uw eerste shard-toepassing uitvoeren met
 
 > [!IMPORTANT]
 > Raden wij aan dat u altijd de meest recente versie van Management Studio zodat u gesynchroniseerd met updates voor Azure en SQL-Database blijven. [SQL Server Management Studio bijwerken](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Belangrijke onderdelen van het codevoorbeeld van
+
 * **Beheer van shards en shard-kaarten**: De code laat zien hoe u werkt met shards, bereiken en -toewijzingen in de *ShardManagementUtils.cs* bestand. Zie voor meer informatie, [Scale-out databases met de shard-Toewijzingsbeheer](https://go.microsoft.com/?linkid=9862595).  
 
 * **Gegevensafhankelijke routering**: Routering van transacties naar de juiste shard wordt weergegeven in de *DataDependentRoutingSample.cs* bestand. Zie voor meer informatie, [gegevensafhankelijke routering](https://go.microsoft.com/?linkid=9862596). 
@@ -104,11 +110,13 @@ Gefeliciteerd! U hebt gemaakt en u hebt uw eerste shard-toepassing uitvoeren met
 * **Lege shards toe te voegen**: Het toevoegen van nieuwe lege shards iteratieve wordt uitgevoerd door de code in de *CreateShardSample.cs* bestand. Zie voor meer informatie, [Scale-out databases met de shard-Toewijzingsbeheer](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Andere bewerkingen elastisch schalen
+
 * **Het splitsen van een bestaande shard**: De mogelijkheid om op te splitsen shards wordt geleverd door het hulpprogramma voor splitsen en samenvoegen. Zie voor meer informatie, [om gegevens te verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md).
 
 * **Samenvoegen van bestaande shards**: Shard-samenvoegingen worden ook uitgevoerd met behulp van het hulpprogramma voor splitsen en samenvoegen. Zie voor meer informatie, [om gegevens te verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Kosten
+
 De hulpprogramma's voor elastische Database-bibliotheek is gratis. Wanneer u Elastic Database-hulpprogramma's gebruikt, worden er geen extra kosten berekend boven de kosten van uw gebruik van Azure. 
 
 De voorbeeldtoepassing maakt bijvoorbeeld nieuwe databases. De kosten van deze mogelijkheid is afhankelijk van de versie van de SQL-Database die u kiest en het gebruik van Azure van uw toepassing.
@@ -116,6 +124,7 @@ De voorbeeldtoepassing maakt bijvoorbeeld nieuwe databases. De kosten van deze m
 Zie voor informatie over de prijzen [SQL-Database prijsinformatie](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie de volgende artikelen voor meer informatie over hulpprogramma's voor elastische databases:
 
 * Codevoorbeelden: 

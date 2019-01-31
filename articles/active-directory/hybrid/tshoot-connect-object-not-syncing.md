@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: d10b8760409d5deb0828d15e8c0daf50853a9624
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158261"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296593"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Een object dat niet kan worden gesynchroniseerd naar Azure AD oplossen
 
@@ -28,6 +28,34 @@ Als een object is niet gesynchroniseerd zoals verwacht aan Azure AD, kan het zij
 
 >[!IMPORTANT]
 >Voor Azure Active Directory (AAD) verbinding maken met implementatie met versie 1.1.749.0 of hoger, gebruikt u de [probleemoplossing taak](tshoot-connect-objectsync.md) in de wizard voor het oplossen van problemen met synchronisatie van object. 
+
+## <a name="synchronization-process"></a>Synchronisatieproces
+
+Voor het onderzoeken van problemen met de synchronisatie, moeten we eerst begrijpen de **Azure AD Connect** synchronisatieproces:
+
+  ![Azure AD Connect-synchronisatie](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### <a name="terminology"></a>**Terminologie**
+
+* **CS:** Connectorgebied, een tabel in de database.
+* **MV:** Metaverse, een tabel in de database.
+* **AD:** Active Directory
+* **AAD:** Azure Active Directory
+
+### <a name="synchronization-steps"></a>**Stappen voor synchronisatie**
+Het proces van synchronisatie omvat stappen te volgen:
+
+1. **Importeren uit Active Directory:** **Active Directory** objecten worden binnengebracht **AD CS**.
+
+2. **Importeren uit AAD:** **Azure Active Directory** objecten worden binnengebracht **AAD CS**.
+
+3. **Synchronisatie:** **Synchronisatie van regels voor binnenkomende verbindingen** en **uitgaande synchronisatieregels** vanaf worden uitgevoerd in volgorde van prioriteit nummer lager op hoger. Als u wilt de synchronisatieregels weergeven, gaat u naar **Synchronization Rules Editor** vanuit de bureaublad-toepassingen. De **regels voor binnenkomende synchronisatie** worden in de gegevens uit de CS te MV. De **uitgaande synchronisatieregels** gegevens verplaatst van MV naar CS.
+
+4. **Exporteren naar AD:** Nadat synchronisatie is uitgevoerd, objecten zijn geëxporteerd uit AD CS **Active Directory**.
+
+5. **Exporteren naar AAD:** Nadat synchronisatie is uitgevoerd, objecten zijn geëxporteerd uit AAD CS **Azure Active Directory**.
+
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u de fouten zoekt, gaat u om te kijken naar een aantal verschillende plaatsen in de volgende volgorde:
 
@@ -123,7 +151,28 @@ In **Synchronization Service Manager**, klikt u op **Metaverse zoeken**. Maak ee
 
 In de **zoekresultaten** venster, klikt u op het object.
 
-Als u het object niet heeft gevonden, is klikt u vervolgens het niet nog bereikt de metaverse. Doorgaan met zoeken naar het object in Active Directory [connectorgebied](#connector-space-object-properties). Kan er een fout van synchronisatie dat wordt geblokkeerd door het object uit naar de metaverse binnenkort of er mogelijk een toegepast filter.
+Als u het object niet heeft gevonden, is klikt u vervolgens het niet nog bereikt de metaverse. Doorgaan met zoeken naar het object in de **Active Directory** [connectorgebied](#connector-space-object-properties). Als u het object in de **Active Directory** connectorgebied controleert, kan er een fout van synchronisatie dat wordt geblokkeerd door het object uit naar de metaverse binnenkort of er mogelijk een synchronisatieregel bereikfilter toegepast.
+
+### <a name="object-not-found-in-the-mv"></a>Object is niet gevonden in de MV
+Als het object verkeert in de **Active Directory** CS, maar niet aanwezig in de MV vervolgens bereikfilter wordt toegepast. 
+
+* Om te kijken naar de bereikfilter gaat u naar het menu bureaubladtoepassing en klik op **Synchronization Rules Editor**. Filter de regels van toepassing het object door het onderstaande filter aan te passen.
+
+  ![Inkomende synchronisatie regels zoeken](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* Elke regel bekijken in de lijst hierboven en controleer de **Scoping filter**. In de onderstaande bereikfilter, als de **isCriticalSystemObject** waarde is null of onwaar of leeg zijn en het is binnen het bereik.
+
+  ![Inkomende synchronisatie regels zoeken](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* Ga naar de [CS importeren](#cs-import) lijst en controleer welke filter wordt geblokkeerd door het verplaatsen naar de MV-object van het kenmerk. Die elkaar de **Connectorgebied** kenmerk lijst met alleen niet-null en niet-lege kenmerken wordt weergegeven. Bijvoorbeeld, als **isCriticalSystemObject** wordt niet weergegeven in de lijst en vervolgens dit betekent dat de waarde van dit kenmerk null of leeg zijn is.
+
+### <a name="object-not-found-in-the-aad-cs"></a>Object is niet gevonden in de AAD-CS
+Als het object is niet aanwezig in de **Connectorgebied** van **Azure Active Directory**. Echter aanwezig in de MV, zoek vervolgens naar het filter Scoping van de **uitgaand** regels van de bijbehorende **Connectorgebied** en controleren als het object is uitgefilterd, vanwege de [MV kenmerken](#mv-attributes) niet voldoen aan de criteria.
+
+* Als u wilt de uitgaand bereikfilter bekijkt, selecteert u de geldende voorschriften voor het object door het onderstaande filter aan te passen. Elke regel weergeven en kijken naar de bijbehorende [MV-kenmerk](#mv-attributes) waarde.
+
+  ![Uitgaande Synchroniztion regels zoeken](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### <a name="mv-attributes"></a>MV-kenmerken
 Op het tabblad kenmerken, ziet u de waarden en welke Connector dit bijgedragen.  

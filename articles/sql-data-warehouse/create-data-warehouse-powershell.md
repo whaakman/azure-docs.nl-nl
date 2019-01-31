@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Maken van een Azure SQL datawarehouse - Azure Powershell | Microsoft Docs'
+title: 'Snelstart: Maken van een Azure SQL datawarehouse - Azure Powershell | Microsoft Docs'
 description: Maak snel een logische SQL Database-server, firewallregel op serverniveau en datawarehouse met Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3358c415e620165bf07e2810bc8f1873d1dea0d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433608"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466384"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Quickstart: Maken en het opvragen van een Azure SQL datawarehouse met Azure PowerShell
 

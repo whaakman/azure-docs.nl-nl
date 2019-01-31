@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841409"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302356"
 ---
 Het is belangrijk om uw virtuele machine (VM) te beveiligen voor de toepassingen die u uitvoert. Beveiligen van uw virtuele machines, kunt u een of meer Azure-services en functies die betrekking hebben op beveiligde toegang tot uw VM's en beveiligde opslag van uw gegevens opnemen. In dit artikel bevat informatie waarmee u uw virtuele machine en toepassingen om veilig te houden.
 
@@ -20,6 +20,8 @@ De moderne bedreigingen voor cloudomgevingen is dynamisch, vergroten de druk voo
 ## <a name="azure-security-center"></a>Azure Security Center
 
 [Azure Security Center](../articles/security-center/security-center-intro.md) helpt voorkomen, detecteren en reageren op bedreigingen voor uw virtuele machines. Security Center biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen die anders onopgemerkt, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen te detecteren.
+
+Just-in-time-toegang van Security Center kan worden toegepast op uw VM-implementatie naar binnenkomend verkeer naar uw Azure VM's, blootstelling aan aanvallen te verminderen terwijl eenvoudige toegang tot het verbinding maken met virtuele machines wanneer dat nodig is. Wanneer just-in-time is ingeschakeld en een gebruiker vraagt om toegang tot een virtuele machine, controleert Security Center welke machtigingen de gebruiker voor de virtuele machine heeft. Als ze de juiste machtigingen hebben, de aanvraag is goedgekeurd en Security Center configureert automatisch de Netwerkbeveiligingsgroepen (nsg's) waarmee inkomend verkeer op de geselecteerde poorten voor een beperkte hoeveelheid tijd wordt opgelost. Nadat de respijtperiode is verlopen, worden de nsg's door Security Center de eerdere status hersteld. 
 
 ## <a name="encryption"></a>Versleuteling
 
@@ -33,7 +35,7 @@ Geheimen en certificaten kunnen worden gemodelleerd als resources en geleverd do
 
 Toegangsbeleid van Key vault toekennen machtigingen voor sleutels, geheimen en certificaten afzonderlijk. U kunt bijvoorbeeld een gebruiker toegang geven tot sleutels, maar geen machtigingen voor geheimen geven. Machtigingen voor toegang tot sleutels, geheimen of certificaten bevinden zich echter op het niveau van de Key Vault. Met andere woorden, [key vault-toegangsbeleid](../articles/key-vault/key-vault-secure-your-key-vault.md) biedt geen ondersteuning voor machtigingen op objectniveau.
 
-Als u verbinding met virtuele machines, moet u cryptografie met openbare sleutels voor een veiligere manier om te melden bij deze. Dit proces omvat een openbare en persoonlijke sleutel exchange met behulp van de opdracht SSH (secure shell) om te verifiëren zelf in plaats van een gebruikersnaam en wachtwoord. Wachtwoorden zijn vatbaar voor brute-force-aanvallen, met name op Internet gerichte VM's, zoals webservers. Met de combinatie van een secure shell (SSH), kunt u een [Linux-VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md) die gebruikmaakt van SSH-sleutels voor verificatie, hoeft u het wachtwoord aan te melden. U kunt ook SSH-sleutels gebruiken verbinding maken vanaf een [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) met een Linux VM.
+Als u verbinding met virtuele machines, moet u cryptografie met openbare sleutels voor een veiligere manier om te melden bij deze. Dit proces omvat een openbare en persoonlijke sleutel exchange met behulp van de opdracht SSH (secure shell) om te verifiëren zelf in plaats van een gebruikersnaam en wachtwoord. Wachtwoorden zijn vatbaar voor brute-force-aanvallen, met name op Internet gerichte VM's, zoals webservers. Met de combinatie van een secure shell (SSH), kunt u een [Linux-VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md) die gebruikmaakt van SSH-sleutels voor verificatie, hoeft u de wachtwoorden om aan te melden. U kunt ook SSH-sleutels gebruiken verbinding maken vanaf een [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) met een Linux VM.
 
 ## <a name="managed-identities-for-azure-resources"></a>Beheerde identiteiten voor Azure-resources
 

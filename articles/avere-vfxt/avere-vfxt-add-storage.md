@@ -4,29 +4,23 @@ description: Het opslagsysteem van een back-end toevoegen aan uw vFXT Avere voor
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190818"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299449"
 ---
 # <a name="configure-storage"></a>Opslag configureren
 
-Deze stap stelt u het opslagsysteem back-end voor uw cluster vFXT.
+Deze stap stelt u een back-end-opslagsysteem voor uw cluster vFXT.
 
 > [!TIP]
-> Als u gebruikt de `create-cloudbacked-cluster` prototype-script voor het maken van een nieuwe blobcontainer samen met het Avere vFXT cluster, dat de container is al ingesteld voor gebruik en u geen hoeft opslag toevoegen.
->
-> Echter, als de nieuwe Blob-container is versleuteld met een standaard-sleutel voor versleuteling, moet u de sleutelherstel-bestand downloaden van het cluster of de standaard-sleutel vervangen door een nieuwe sleutel voor het opslaan van gegevens. De standaard-sleutel wordt opgeslagen in het cluster en kan niet worden opgehaald als het cluster verloren gegaan is of niet beschikbaar is.
->
-> Nadat u verbinding met het Avere van het Configuratiescherm, klik op de **instellingen** tabblad, en kies vervolgens **Core Filer** > **Cloud versleutelingsinstellingen**. In de **lokale sleutel Store** sectie, kies een van de volgende opties: 
-> * Gebruik de **herdownloaden Recovery bestand** knop waarmee de herstelbestand voor de bestaande sleutel. De herstelbestand is versleuteld met het beheerderswachtwoord van het cluster. Zorg ervoor dat u het bestand opslaan in een betrouwbare plaats. 
-> * Volg de instructies in de **genereren van een nieuwe hoofdsleutel** sectie van de pagina voor het maken van een nieuwe versleutelingssleutel die u beheert. Deze optie kunt u een unieke wachtwoordzin opgeven en het vereist dat u om te uploaden en downloaden van het herstelbestand voor het valideren van het paar wachtwoordzin-bestand opnieuw.
+> Als u een nieuwe Azure Blob-container, samen met het Avere vFXT cluster hebt gemaakt, die container is al ingesteld voor gebruik en u hoeft geen opslag toevoegen.
 
-Volg deze instructies als u gebruikt de `create-minimal-cluster` prototype-script voor het cluster, of als u wilt toevoegen van een extra hardware of een systeem voor cloud-gebaseerde opslag.
+Volg deze instructies als u een nieuwe Blob-container niet met uw cluster hebt gemaakt, of als u wilt toevoegen van een extra hardware of een systeem voor cloud-gebaseerde opslag.
 
 Er zijn twee belangrijke taken:
 
@@ -43,12 +37,11 @@ Deze stappen gebruiken het Avere van het Configuratiescherm. Lezen [toegang tot 
 Als u wilt toevoegen een filer core, kies een van de twee belangrijkste querytypen core filter:
 
   * [NAS-core, filer](#nas-core-filer) -wordt beschreven hoe u een NAS core filer toevoegen 
-  * [Azure Storage-account cloud core filer](#azure-storage-account-cloud-core-filer) -wordt beschreven hoe u een Azure Storage-account toevoegen als een cloud core filer
+  * [Azure Storage cloud core filer](#azure-storage-cloud-core-filer) -wordt beschreven hoe u een Azure Storage-account toevoegen als een cloud core filer
 
 ### <a name="nas-core-filer"></a>NAS core filer
 
-Een NAS core filer mag een on-premises NetApp of Isilon, of een NAS-eindpunt in de cloud.  
-Het opslagsysteem moet een betrouwbare snelle verbinding met het Avere vFXT cluster - bijvoorbeeld een 1 Gbps ExpressRoute-verbinding (niet een VPN) - en deze moet de toegang tot de hoofdmap van het cluster geven tot de NAS-uitvoer die wordt gebruikt.
+Een NAS core filer mag een on-premises NetApp of Isilon, of een NAS-eindpunt in de cloud. Het opslagsysteem moet een betrouwbare snelle verbinding met het Avere vFXT cluster - bijvoorbeeld een 1 Gbps ExpressRoute-verbinding (niet een VPN) - en deze moet de toegang tot de hoofdmap van het cluster geven tot de NAS-uitvoer die wordt gebruikt.
 
 De volgende stappen uit toevoegen een NAS core filer:
 
@@ -79,7 +72,7 @@ Vervolgens gaat u verder met [maken van een verbinding](#create-a-junction).
 Voor het gebruik van Azure Blob-opslag als opslagruimte voor back-end van uw cluster vFXT, moet u een lege container om toe te voegen als een filer core.
 
 > [!TIP] 
-> De ``create-cloudbacked-cluster`` voorbeeldscript maakt u een opslagcontainer, gedefinieerd als een filer core en wordt de verbinding van de naamruimte gemaakt als onderdeel van het maken van een cluster vFXT. De ``create-minimal-cluster`` voorbeeldscript maakt een Azure storage-container niet. Om te voorkomen dat u hoeft te maken en configureren van een Azure Storage core filer nadat het cluster is gemaakt, gebruikt u de ``create-cloudbacked-cluster`` script om uw vFXT-cluster te implementeren.
+> Als u ervoor kiest om te maken van een blob-container op hetzelfde moment als die u het Avere vFXT-cluster maakt, de sjabloon voor de implementatie of het script maakt u een opslagcontainer, gedefinieerd als een filer core en wordt de verbinding van de naamruimte als onderdeel van het maken van een cluster vFXT gemaakt. 
 
 Blob-opslag toevoegen aan uw cluster, moet u deze taken:
 
@@ -125,7 +118,7 @@ Blob-opslag toevoegen nadat het cluster is gemaakt, volg deze stappen.
 
 1. Vul in de volgende informatie om te maken van een referentie voor de cloud core filer: 
 
-   | Veld | Waarde |
+   | Veld | Value |
    | --- | --- |
    | Referentienaam | een beschrijvende naam |
    | Servicetype | (Selecteer Azure-toegangssleutel voor opslag) |

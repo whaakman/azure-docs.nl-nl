@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f658afa1a08a6b8779c2f1e18944eec40abdc465
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586254"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299993"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Openbare gegevenssets voor het testen en ontwikkelen van prototypen
 
@@ -44,7 +44,7 @@ Deze lijst van openbare gegevenssets voor gegevens die u om prototype en test op
 | [Microsoft Research-gegevenssets - "Data Science voor onderzoek"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Meerdere gegevenssets die betrekking hebben op tussenkomst van de mensen en computers, audio/video, gegevensanalyse/informatie ophalen van gegevens, Georuimtelijke /-locatie, verwerking van natuurlijke taal en robotiek/computer vision. | Gegevenssets zijn in verschillende indelingen, zip downloaden. |
 | [Openbare genoom-gegevens](http://www.completegenomics.com/public-data/) | "Een diverse gegevensset van hele menselijke genomen zijn vrijelijk beschikbaar zijn voor openbaar gebruik voor het verbeteren van eventuele genetische studie..." De provider, volledige Genomics is een persoonlijke for-profit corporation. | Data-sets, zijn na extractie, in de indeling van de UNIX-tekst. Analyseprogramma's zijn ook beschikbaar. |
 | [Open data-Science gegevens Cloud](https://www.opensciencedatacloud.org/) | "Open wetenschappelijke gegevens biedt de Cloud de wetenschappelijke community met resources voor het opslaan, delen en terabyte en petabyte-schaal wetenschappelijke gegevenssets analyseren."| Gegevenssets zijn in verschillende indelingen. |
-| [Gegevens van de globale klimaat - WorldcLIM](http://worldclim.org/) | "WorldClim is een set algemene klimaat-lagen (gridded klimaat gegevens) met een ruimtelijke resolutie van ongeveer 1 km2. Deze gegevens kunnen worden gebruikt voor toewijzing en ruimtelijke modellen." | Deze bestanden bevatten georuimtelijke gegevens. Zie voor meer informatie, [gegevensindeling](http://worldclim.org/formats1). |
+| [Gegevens van de globale klimaat - WorldClim](http://worldclim.org/) | "WorldClim is een set algemene klimaat-lagen (gridded klimaat gegevens) met een ruimtelijke resolutie van ongeveer 1 km2. Deze gegevens kunnen worden gebruikt voor toewijzing en ruimtelijke modellen." | Deze bestanden bevatten georuimtelijke gegevens. Zie voor meer informatie, [gegevensindeling](http://worldclim.org/formats1). |
 | [Gegevens over menselijke society - de GDELT Project](http://www.gdeltproject.org/data.html) | "Het Project GDELT is het grootst, is het meest uitgebreide, en de hoogste resolutie open database van menselijke samenleving ooit gemaakt." | De bestanden van de onbewerkte gegevens zijn in CSV-indeling. |
 | [Reclame voorspellingsgegevens voor machine learning van Criteo klikt u op](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "Het grootste ooit openbaar vrijgegeven ML gegevensset." Zie voor meer informatie, [Criteo van 1 TB klikt u op voorspelling gegevensset](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [ClueWeb09 tekst gegevensanalyse-gegevensset uit de Lemur Project](http://www.lemurproject.org/clueweb09.php/) | "De ClueWeb09 gegevensset is gemaakt ter ondersteuning van onderzoek over ophalen van gegevens en verwante menselijke taal technologieën. Deze bestaat uit ongeveer 1 miljard webpagina's in 10 talen die zijn verzameld in januari-februari 2009." | Zie [Gegevenssetinformatie](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
@@ -53,6 +53,6 @@ Deze lijst van openbare gegevenssets voor gegevens die u om prototype en test op
 
 | Gegevensbron | Over de gegevens | Over de bestanden |
 |---|---|---|
-| [GitHub-archief](https://www.githubarchive.org/) | "GitHub-archief is een project voor het vastleggen van de openbare GitHub-tijdlijn [van gebeurtenissen], archiveren en maken het gemakkelijk toegankelijk zijn voor verdere analyse." | JSON-encloded gebeurtenis archieven .gz (Gzip)-indeling van een webclient downloaden. |
-| [GitHub-activiteitsgegevens uit de GHTorrent project](http://ghtorrent.org/) | "Het project GHTorrent [is]-een inspanningen voor het maken van een schaalbare, Apparaatmetagegevens en offline mirror van gegevens die worden aangeboden via de GitHub-REST-API. GHTorrent bewaakt de tijdlijn van de GitHub-openbare gebeurtenis. Voor elke gebeurtenis wordt ophalen het van de inhoud ervan en de bijbehorende afhankelijkheden, uitgebreid." | MySQL-database dumpbestanden voor foutopsporing zijn in CSV-indeling. |
+| [GitHub-archief](https://www.githubarchive.org/) | "GitHub-archief is een project voor het vastleggen van de openbare GitHub-tijdlijn [van gebeurtenissen], archiveren en maken het gemakkelijk toegankelijk zijn voor verdere analyse." | Download archieven met JSON gecodeerde gebeurtenis .gz (Gzip)-indeling van een webclient. |
+| [GitHub-activiteitsgegevens uit de GHTorrent project](http://ghtorrent.org/) | "Het project GHTorrent [is]-een inspanningen voor het maken van een schaalbare, waarin u kunt zoeken en offline mirror van gegevens die worden aangeboden via de GitHub-REST-API. GHTorrent bewaakt de tijdlijn van de GitHub-openbare gebeurtenis. Voor elke gebeurtenis wordt ophalen het van de inhoud ervan en de bijbehorende afhankelijkheden, uitgebreid." | MySQL-database dumpbestanden voor foutopsporing zijn in CSV-indeling. |
 | [Stack Overflow gegevensdump](https://archive.org/details/stackexchange) | "Dit is een anonieme dump van alle gebruikers die zijn aangeleverd inhoud op de Stack Exchange netwerk [inclusief Stack Overflow]." | "Elke site [zoals Stack Overflow] zijn opgemaakt als een afzonderlijk archief die bestaat uit een XML-bestanden via ingepakte 7-zip-compressie bzip2 gebruiken. Het archief van elke site bevat berichten, gebruikers, stemmen, opmerkingen, PostHistory en PostLinks." |

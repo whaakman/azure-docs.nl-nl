@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
-ms.component: files
-ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.subservice: files
+ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623648"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470447"
 ---
 # <a name="cloud-tiering-overview"></a>Warmtemeting overzicht van cloud
 Cloud tiering is een optionele functie van Azure File Sync waarin vaak gebruikte bestanden in de cache lokaal op de server opgeslagen terwijl alle andere bestanden naar Azure Files op basis van beleidsinstellingen worden geschakeld. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File Sync (StorageSync.sys) het bestand lokaal door een wijzer, of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure Files. Een gelaagd bestand is zowel het kenmerk 'offline' als het FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS-kenmerk in NTFS zo instellen dat toepassingen van derden kunnen gelaagde bestanden veilig kan identificeren.
@@ -105,7 +105,7 @@ U kunt ook PowerShell gebruiken om af te dwingen een bestand dat moet worden ing
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Waarom niet de *ruimte op de schijf* eigenschap voor een bestand overeen met de *grootte* eigenschap na het gebruik van Azure File Sync? 
-Windows Verkenner beschrijft de twee eigenschappen voor de grootte van een bestand: **grootte** en **ruimte op de schijf**. Deze eigenschappen verschillen enigszins in betekenis. **Grootte** vertegenwoordigt de volledige grootte van het bestand. **Ruimte op de schijf** Hiermee geeft u de grootte van de stream van het bestand dat opgeslagen op de schijf. De waarden voor deze eigenschappen kunnen verschillen voor verschillende redenen, zoals compressie, het gebruik van Gegevensontdubbeling of cloud-opslaglagen met Azure File Sync. Als een bestand naar een Azure-bestandsshare is gelaagd, is de grootte van de schijf nul, omdat de bestandsstroom is opgeslagen in uw Azure-bestandsshare en niet op de schijf. Het is ook mogelijk dat een bestand te zijn, gedeeltelijk gelaagde (of gedeeltelijk ingetrokken). In een gedeeltelijk gelaagd bestand is onderdeel van het bestand op schijf. Dit kan gebeuren wanneer bestanden gedeeltelijk door andere toepassingen, zoals multimedia spelers gelezen worden of zip-hulpprogramma's. 
+Windows Verkenner beschrijft de twee eigenschappen voor de grootte van een bestand: **Grootte** en **ruimte op de schijf**. Deze eigenschappen verschillen enigszins in betekenis. **Grootte** vertegenwoordigt de volledige grootte van het bestand. **Ruimte op de schijf** Hiermee geeft u de grootte van de stream van het bestand dat opgeslagen op de schijf. De waarden voor deze eigenschappen kunnen verschillen voor verschillende redenen, zoals compressie, het gebruik van Gegevensontdubbeling of cloud-opslaglagen met Azure File Sync. Als een bestand naar een Azure-bestandsshare is gelaagd, is de grootte van de schijf nul, omdat de bestandsstroom is opgeslagen in uw Azure-bestandsshare en niet op de schijf. Het is ook mogelijk dat een bestand te zijn, gedeeltelijk gelaagde (of gedeeltelijk ingetrokken). In een gedeeltelijk gelaagd bestand is onderdeel van het bestand op schijf. Dit kan gebeuren wanneer bestanden gedeeltelijk door andere toepassingen, zoals multimedia spelers gelezen worden of zip-hulpprogramma's. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Hoe Dwing ik een bestand of map in tiers worden verdeeld?

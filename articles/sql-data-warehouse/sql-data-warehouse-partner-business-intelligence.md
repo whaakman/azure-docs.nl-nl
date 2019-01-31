@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: e293c27faa69fe5c79b776a98bcae0f72e85c3ee
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 17a55e84dcbec00eced290ec76c3201784075201
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811151"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462576"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partners
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw end-to-end datawarehouse-oplossing.  In dit artikel ziet u Microsoft partnerbedrijven met business intelligence (BI)-oplossingen is ondersteuning van Azure SQL Data Warehouse.
@@ -26,7 +26,7 @@ Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw
 | ![Birst][1] |**Birst**<br>Birst is een wereldwijde leider in Cloud-BI en analyses. Ondernemingen kunnen maken van een vertrouwde bron van gegevens binnen de context van de belangrijkste zakelijke gebruikers. Zakelijke gebruikers binnen de gehele organisatie kunnen vervolgens rapporteren en analyseren van gegevens met hoogwaardige BI-hulpprogramma's. |[Marketplace][birst_marketplace]<br>[Website][birst_website]<br>[Twitter][birst_twitter]<br>[YouTube][birst_youtube] | |
 | ![ClearStory gegevens][2] |**ClearStory gegevens**<br>Fast-cyclus analysis biedt clearStory gegevens voor verschillende gegevens die zijn opgeslagen in SQL Data Warehouse. ClearStory van geïntegreerde Spark gebaseerd platform en analyses snelheid van toegang tot toepassingsgegevens en onderlinge aanpassing van verschillende gegevenssets. Ze inschakelen van verkenning van fast, samenwerkende waarmee zakelijke gebruikers om te worden gewortelde autonome om inzicht te krijgen. |[Website][clearstory_website]<br>[Gegevensblad][clearstory_datasheet]<br>[Twitter][clearstory_twitter]<br>[YouTube][clearstory_youtube] | |
 | ![Dell Statistica][3] |**Dell Statistica**<br>Dell Statistica is een geavanceerd analyseplatform waarmee organisaties voorspellingen over de toekomst, processen te optimaliseren, kosten te verlagen en de opbrengst te verhogen.  Dell Statistica maakt analyse van big data eenvoudiger, stroomlijnt implementatie & implementatie, extraheert praktische informatie uit tekst en biedt uitgebreide mogelijkheden met uw bedrijf. |[Website][dell_statistica_website]<br>[Gegevensblad][dell_statistica_datasheet]<br>[Twitter][dell_statistica_twitter] |[![Statistica video](./media/sql-data-warehouse-partner-business-intelligence/dell_statistica_video.jpg)](https://www.youtube.com/watch?v=0b8sPW2UHrU) |
-| ![Dundas][4] |**Dundas-BI**<br>Gegevensvisualisatie Dundas is een toonaangevende, wereldwijde leverancier van de software Business Intelligence en visualisatie van gegevens.  Dundas-dashboards, rapporten en visuele gegevensanalyse bieden naadloze integratie met business-toepassingen en zorgt voor betere beslissingen kunt nemen en sneller inzichten worden verkregen. |[Marketplace][dundas_bi_marketplace]<br>[Website][dundas_bi_website]<br>[Gegevensblad][dundas_bi_datasheet]<br>[Twitter][dundas_bi_twitter]<br>[YouTube][dundas_bi_youtube] |[![dundas-video](./media/sql-data-warehouse-partner-business-intelligence/dundas_bi_video.jpg)](https://www.youtube.com/watch?v=TEbc3_e7o60) |
+| ![Dundas][4] |**Dundas BI**<br>Gegevensvisualisatie Dundas is een toonaangevende, wereldwijde leverancier van de software Business Intelligence en visualisatie van gegevens.  Dundas-dashboards, rapporten en visuele gegevensanalyse bieden naadloze integratie met business-toepassingen en zorgt voor betere beslissingen kunt nemen en sneller inzichten worden verkregen. |[Marketplace][dundas_bi_marketplace]<br>[Website][dundas_bi_website]<br>[Gegevensblad][dundas_bi_datasheet]<br>[Twitter][dundas_bi_twitter]<br>[YouTube][dundas_bi_youtube] |[![dundas-video](./media/sql-data-warehouse-partner-business-intelligence/dundas_bi_video.jpg)](https://www.youtube.com/watch?v=TEbc3_e7o60) |
 | ![Jinfonet][5] |**JReport**<br>JReport is een ingesloten BI-oplossing voor de onderneming. De oplossing biedt gebruikers maken van rapporten, dashboards en analyse van gegevens op de cloud, big data en transactionele gegevensbronnen worden verlaagd. Door gegevens te visualiseren, kunt u uw eigen rapportage- en detectie uitvoeren voor flexibele, op het begeven besluitvorming. |[Website][jinfonet_website]<br>[Gegevensblad][jinfonet_datasheet]<br>[Twitter][jinfonet_twitter]<br>[YouTube][jinfonet_youtube] |[![jreport video](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_video.jpg)](https://www.youtube.com/watch?v=KYqh8TuMpds) |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>Kan uw organisatie verzamelen, analyseren en direct reageren op de grootste en meest diverse gegevenssets in de hele wereld samen Logi Analytics en Azure SQL Data Warehouse. |[Website][logianalytics_website]<br>[Gegevensblad][logianalytics_datasheet]<br>[Twitter][logianalytics_twitter]<br>[YouTube][logianalytics_youtube] |[![logianalytics video](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_video.jpg)](https://www.youtube.com/watch?v=7U0Sfi3Ndpk) |
 | ![Looker][7] |**Looker BI**<br>Looker biedt iedereen in uw bedrijf de mogelijkheid om te verkennen en begrijpen van de gegevens waar uw bedrijf. Looker biedt ook de gegevensanalist een flexibele en herbruikbare laag om te beheren en cureren die gegevens.  Bedrijven hebben hun cultuur Looker gebruiken als de katalysator fundamenteel omgezet. |[Marketplace][looker_marketplace]<br>[Website][looker_website]<br>[Gegevensblad][looker_datasheet]<br>[Twitter][looker_twitter]<br>[YouTube][looker_youtube] |[![looker video](./media/sql-data-warehouse-partner-business-intelligence/looker_video.jpg)](https://www.youtube.com/watch?v=WwO4ADK8ZfA) |

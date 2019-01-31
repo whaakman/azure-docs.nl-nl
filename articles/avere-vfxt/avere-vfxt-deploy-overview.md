@@ -4,26 +4,26 @@ description: Overzicht van de implementatie van Avere vFXT voor Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: aa5737d67ea2c9cb8cc7c7098764ae67fc91137d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633961"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298531"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT voor Azure - implementatie-overzicht
 
 In dit artikel biedt een overzicht van de stappen die nodig zijn om op te halen van een vFXT Avere voor Azure-cluster omhoog en die wordt uitgevoerd.
 
-De eerste keer dat u een Avere vFXT systeem implementeert, zult u merken dat deze bestaat uit meer stappen dan het implementeren van de meeste andere Azure-hulpprogramma's. Met een helder beeld van het proces van begin tot eind, krijgt u het bereik van de hoeveelheid werk die nodig zijn. Nadat het systeem actief en werkend is, maakt de kracht om te versnellen, op basis van cloud computing-taken het zeker de moeite waard.
+Verschillende taken die nodig zijn voor en na het maken van het cluster vFXT vanuit Azure Marketplace. Met een helder beeld van het proces van begin tot eind, krijgt u het bereik van de hoeveelheid werk die nodig zijn. 
 
 ## <a name="deployment-steps"></a>Implementatiestappen
 
 Na [plannen van uw systeem](avere-vfxt-deploy-plan.md), kunt u beginnen met het maken van uw Avere vFXT-cluster. 
 
-Beginnen met het maken van een cluster domeincontroller-VM, die wordt gebruikt om de vFXT-cluster te maken.
+Een Azure Resource Manager-sjabloon in de Azure Marketplace de benodigde gegevens verzamelt en wordt het hele cluster automatisch geïmplementeerd. 
 
 Nadat het cluster vFXT actief en werkend is, u wilt weten hoe u kunt clients verbinden en, indien nodig, het verplaatsen van uw gegevens naar de nieuwe Blob storage-container.  
 
@@ -33,25 +33,30 @@ Hier volgt een overzicht van alle de stappen.
 
    Voordat u een virtuele machine maakt, moet u een nieuw abonnement voor het Avere vFXT-project maken, abonnement eigendom configureren, quota controleren en een verhoging als nodig hebt en voorwaarden voor het gebruik van de Avere vFXT-software accepteren. Lezen [voorbereidingen voor het maken van de vFXT Avere](avere-vfxt-prereqs.md) voor gedetailleerde instructies.
 
-1. De netwerkcontroller cluster maken
+1. Een toegangsrol voor de clusterknooppunten maken
 
-   De *clustercontroller* is een eenvoudige virtuele machine die zich in hetzelfde virtuele netwerk bevinden als het Avere vFXT cluster bevinden. De controller maakt de formulieren en vFXT knooppunten aan het cluster en het bevat ook een opdrachtregelinterface voor het beheren van het cluster tijdens de levensduur.
+   Azure maakt gebruik van [op rollen gebaseerd toegangsbeheer](../role-based-access-control/index.yml) (RBAC) voor het toestaan van het clusterknooppunt VM's bepaalde taken uit te voeren. Bijvoorbeeld, moeten de clusterknooppunten kunnen toe te wijzen of opnieuw toewijzen van IP-adressen aan andere knooppunten van het cluster. Voordat u het cluster maakt, moet u een rol met voldoende machtigingen definiëren.
 
-   Als u de controller is geconfigureerd met een openbaar IP-adres, kan deze ook dienen als een host landingspagina voor de verbinding met het cluster op basis van buiten het vnet.
+   Lezen [maken van de functie cluster knooppunt toegang](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) voor instructies.
 
-   Alle software die nodig zijn voor het cluster vFXT maken en beheren van de knooppunten ervan is vooraf geïnstalleerd op de clustercontroller.
-
-   Lezen [maken van de clustercontroller VM](avere-vfxt-deploy.md#create-the-cluster-controller-vm) voor meer informatie.
-
-1. Maak een runtimerol voor de clusterknooppunten 
-
-   Azure maakt gebruik van [op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) voor het toestaan van het clusterknooppunt VM's bepaalde taken uit te voeren. Bijvoorbeeld, moeten de clusterknooppunten kunnen toe te wijzen of opnieuw toewijzen van IP-adressen aan andere knooppunten van het cluster. Voordat u het cluster maakt, moet u een rol met voldoende machtigingen definiëren.
-
-   De clustercontroller vooraf geïnstalleerde software omvat een prototype-rol voor u om aan te passen. Lezen [maken van de functie cluster knooppunt toegang](avere-vfxt-deploy.md#create-the-cluster-node-access-role) voor instructies.
+   De clustercontroller gebruikt ook een toegangsrol, maar u kunt de standaard-rol, de eigenaar, in plaats van het maken van uw eigen accepteren. Als u een aangepaste rol voor de netwerkcontroller cluster maken wilt, lezen [aangepaste toegang controllerrol](avere-vfxt-controller-role.md). 
 
 1. De Avere vFXT-cluster maken 
 
-   Op de controller het juiste cluster maken van het script bewerken en uitvoeren om het cluster te maken. [Bewerk het script voor implementatie](avere-vfxt-deploy.md#edit-the-deployment-script) bevat gedetailleerde instructies. 
+   Gebruik de Azure Marketplace te maken van de vFXT Avere voor Azure-cluster. Een sjabloon voor de vereiste gegevens verzamelt en scripts voor het maken van het uiteindelijke product wordt uitgevoerd.
+
+   Maken van een cluster bestaat uit stappen die worden uitgevoerd door de marketplace-sjabloon: 
+
+   * Het maken van nieuwe netwerk-infrastructuur en resource-groepen, indien nodig
+   * Het maken van een *clustercontroller*  
+
+     De clustercontroller is een eenvoudige virtuele machine die zich in hetzelfde virtuele netwerk bevinden als het Avere vFXT cluster bevinden en de aangepaste software nodig is om te maken en beheren van het cluster. De controller maakt de formulieren en vFXT knooppunten aan het cluster en het bevat ook een opdrachtregelinterface voor het beheren van het cluster tijdens de levensduur.
+
+     Als u de controller is geconfigureerd met een openbaar IP-adres, kan deze ook dienen als een host landingspagina voor de verbinding met het cluster op basis van buiten het vnet.
+
+   * Het maken van het cluster knooppunt VM 's
+   * Het clusterknooppunt VM's configureren als het cluster
+   * (Optioneel) een nieuwe Blob-container maken en deze configureren als back-end-opslag voor het cluster
 
 1. Het cluster configureren 
 

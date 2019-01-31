@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1f7921093bc97aa6dc776213be4dbdf9537b7fe2
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075700"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472572"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Een groep met afhankelijkheidstoewijzing groep verfijnen
 
@@ -73,6 +73,10 @@ De agent installeren op een Linux-machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-system-center-operations-manager"></a>Installeer de agent op een computer die wordt bewaakt door System Center Operations Manager
+
+Voor machines die worden bewaakt door Operations Manager 2012 R2 of hoger, is er niet nodig voor het installeren van de MMA-agent. Serviceoverzicht is een geïntegreerd met Operations Manager die gebruikmaakt van de MMA Operations Manager om de vereiste afhankelijkheid-gegevens te verzamelen. U kunt de integratie met behulp van de richtlijnen inschakelen [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Merk echter op dat de agent voor afhankelijkheden moet op deze computers geïnstalleerd.
+
 ### <a name="install-the-dependency-agent"></a>De afhankelijkheidsagent installeren
 1. Voor het installeren van de agent voor afhankelijkheden op een Windows-machine, dubbelklik op het setup-bestand en volg de wizard.
 2. Voor het installeren van de agent voor afhankelijkheden op een Linux-machine, installeert u toegangspunt met de volgende opdracht:
@@ -115,7 +119,7 @@ Als u wilt controleren van de afhankelijkheden van een specifieke computer die w
 
 ## <a name="query-dependency-data-from-log-analytics"></a>Query uitvoeren op afhankelijkheidsgegevens van Log Analytics
 
-Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in Log Analytics. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) over de Serviceoverzicht-gegevenstabellen opvragen in Log Analytics. 
+Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in de Log Analytics-workspare die zijn gekoppeld aan uw Azure Migrate-project. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) over de Serviceoverzicht-gegevenstabellen opvragen in Log Analytics. 
 
 De Log Analytics-query's uitvoeren:
 

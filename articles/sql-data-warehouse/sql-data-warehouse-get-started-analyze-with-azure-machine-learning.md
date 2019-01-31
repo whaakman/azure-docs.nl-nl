@@ -2,20 +2,20 @@
 title: Gegevens analyseren met Azure Machine Learning | Microsoft Docs
 description: Gebruik Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247523"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477655"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Gegevens analyseren met Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ De gegevens bevinden zich in de weergave dbo.vTargetMail in de AdventureWorksDW-
 
 1. Meld u aan bij [Azure Machine Learning Studio][Azure Machine Learning studio] en klik op My experiments (Mijn experimenten).
 2. Klik op **+NEW** (Nieuw) en selecteer **Blank Experiment** (Leeg experiment).
-3. Voer een naam in voor uw experiment: Targeted Marketing.
+3. Voer een naam in voor uw experiment: Doelgerichte Marketing.
 4. Sleep de module **Reader** van het deelvenster met modules naar het canvas.
 5. Geef de details van uw SQL Data Warehouse-database op in het deelvenster Properties.
 6. Geef de database**query** op om de gewenste gegevens te lezen.
@@ -80,11 +80,11 @@ Als u de gegevens wilt opschonen, verwijdert u enkele kolommen die niet relevant
 1. Sleep de module **Project Columns** (Projectkolommen) naar het canvas.
 2. Klik in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten) om de kolommen op te geven die u wilt verwijderen.
    ![Projectkolommen][4]
-3. Sluit twee kolommen uit: CustomerAlternateKey en GeographyKey.
+3. Sluit twee kolommen: CustomerAlternateKey en GeographyKey.
    ![Overbodige kolommen verwijderen][5]
 
 ## <a name="3-build-the-model"></a>3. Het model maken
-U gaat de gegevens 80-20 splitsen: 80% om een Machine Learning-model te trainen en 20% om het model te testen. Voor dit binair klassificatieprobleem gaat u de algoritme Two-Class gebruiken.
+We zullen de gegevens 80-20 splitsen: 80% naar een machine learning-model te trainen en 20% voor het testen van het model. Voor dit binair klassificatieprobleem gaat u de algoritme Two-Class gebruiken.
 
 1. Sleep de module **Split** (Splitsen) naar het canvas.
 2. Typ 0,8 in Fraction of rows in the first output dataset (Fractie van rijen in de eerste gegevensset) in het deelvenster Properties (Eigenschappen).
@@ -92,7 +92,7 @@ U gaat de gegevens 80-20 splitsen: 80% om een Machine Learning-model te trainen 
 3. Sleep de module **Two-Class Boosted Decision Tree** (Beslissingsstructuur op basis van twee klassen) naar het canvas.
 4. Sleep de module **Train Model** (Model trainen) naar het canvas en geef de invoer op. Klik vervolgens in het deelvenster Properties (Eigenschappen) op **Launch column selector** (Kolomselectie starten).
    * Eerste invoer: ML-algoritme.
-   * Tweede invoer: de gegevens waarmee u het algoritme wilt trainen.
+   * Tweede invoer: De gegevens het algoritme wilt trainen op.
      ![Verbinding maken met de module Train Model (Model trainen)][7]
 5. Selecteer de kolom **BikeBuyer** als de kolom die u wilt voorspellen.
    ![Te voorspellen kolom selecteren][8]
@@ -101,7 +101,7 @@ U gaat de gegevens 80-20 splitsen: 80% om een Machine Learning-model te trainen 
 Nu gaat u testen hoe het model functioneert met testgegevens. U gaat het gekozen algoritme vergelijken met een ander algoritme om te zien welk algoritme de beste prestaties levert.
 
 1. Sleep de module **Score Model** (Model beoordelen) naar het canvas.
-    Eerste invoer: getraind model Tweede invoer: testgegevens ![Het model beoordelen][9]
+    Eerste invoer: Getraind model tweede invoer: Testgegevens ![het model beoordelen][9]
 2. Sleep de **Two-Class Bayes Point Machine** naar het experimentencanvas. U gaat dit algoritme vergelijken met de Two-Class Boosted Decision Tree (Beslissingsstructuur met twee klassen).
 3. Kopieer en plak de modules Train Model en Score Model naar het canvas.
 4. Sleep het model **Evaluate Model** (Model evalueren) naar het canvas om de twee algoritmen te vergelijken.

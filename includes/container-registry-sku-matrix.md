@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: 286159aee00b018d0cacae3858f92cdf0e79cfbc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572060"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55427691"
 ---
-| SKU | Beschrijving |
+| SKU | Description |
 |---|---|
 | Basic | Een rendabel toegangspunt voor ontwikkelaars die meer willen leren over Azure Container Registry. Basic-registers hebben dezelfde programmatische mogelijkheden als Standard en Premium (integratie van Azure Active Directory-verificatie, verwijdering van installatiekopieën en webhooks), maar hebben beperkingen wat de grootte en het gebruik betreft. |
 | Standard | Het Standard-register biedt dezelfde mogelijkheden als Basic, maar met hogere opslaglimieten en doorvoer van installatiekopieën. Standard-registers moeten voldoen aan de behoeften van de meeste productiescenario's. |

@@ -6,16 +6,16 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 3599875f96c6bd79ecace1d59c3580027fab3168
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 28c945223d225d7e91df1041bcbe02ee87b93c6a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040350"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475054"
 ---
-# <a name="global-data-distribution-with-azure-cosmos-db"></a>Globale gegevensdistributie met Azure Cosmos DB
+# <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Globale gegevensdistributie met Azure Cosmos DB - overzicht
 
-Voor hedendaagse toepassingen hoeven te worden zeer responsieve en altijd online. Als u wilt bereiken met lage latentie en hoge beschikbaarheid, moeten de exemplaren van deze toepassingen worden geïmplementeerd in datacenters die zich dicht bij hun gebruikers. Deze toepassingen worden doorgaans geïmplementeerd in meerdere datacenters en wereldwijd gedistribueerde worden genoemd. Wereldwijd gedistribueerde toepassingen moeten een globaal gedistribueerde database die de gegevens overal ter wereld om in te schakelen van de toepassingen die moeten worden uitgevoerd op een kopie van de gegevens die zich dicht bij de gebruikers daarvan transparant kunt repliceren. 
+Van toepassingen wordt tegenwoordig vereist dat ze zeer responsief en altijd online zijn. Voor het bereiken van lage latentie en hoge beschikbaarheid moeten de instanties van deze toepassingen worden geïmplementeerd in datacenters die zich dicht bij de gebruikers ervan bevinden. Deze toepassingen worden doorgaans geïmplementeerd in meerdere datacenters en wereldwijd gedistribueerde worden genoemd. Wereldwijd gedistribueerde toepassingen moeten een globaal gedistribueerde database die de gegevens overal ter wereld om in te schakelen van de toepassingen die moeten worden uitgevoerd op een kopie van de gegevens die zich dicht bij de gebruikers daarvan transparant kunt repliceren. 
 
 Azure Cosmos DB is een wereldwijd gedistribueerde databaseservice die is ontwikkeld voor lage latentie, elastische schaalbaarheid van doorvoer, goed gedefinieerde semantiek voor de consistentie van gegevens en hoge beschikbaarheid. Kort gezegd, als uw toepassing nodig gegarandeerde snelle reactietijd overal ter wereld, heeft als dit is vereist om altijd online en het moet onbeperkte en flexibele schaalbaarheid van de doorvoer en opslag, houd rekening met het bouwen van toepassingen met behulp van Azure Cosmos DB.
 

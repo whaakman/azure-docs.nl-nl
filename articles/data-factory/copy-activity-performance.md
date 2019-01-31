@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a8a229beab03dd8cb26d9cfb9c3b945059d6f70
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164942"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301268"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiëren en afstemmingshandleiding van activiteit
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -243,11 +243,15 @@ Het is raadzaam dat u deze stappen voor het afstemmen van de prestaties van uw D
 
 2. **Diagnose en prestaties te optimaliseren**. Als de prestaties die u ziet dat niet voldoet aan uw verwachtingen, moet u prestatieknelpunten. Vervolgens prestaties als u wilt verwijderen of het effect van knelpunten te optimaliseren. 
 
-    Voor sommige scenario's, ziet u ook een '**tips afstemmen van prestaties**"sectie boven de [activiteitsbewaking pagina kopiëren](copy-activity-overview.md#monitor-visually), die staat het knelpunt geïdentificeerd en helpt u over het verhogen van de kopie de doorvoer voor een dergelijk geval kopiëren.
+    In sommige gevallen, als u een kopieeractiviteit in ADF uitvoert, rechtstreeks ziet u '**tips afstemmen van prestaties**"boven de [kopieeractiviteit bewaking pagina](copy-activity-overview.md#monitor-visually) zoals wordt weergegeven in het volgende voorbeeld. Het niet alleen leest u het knelpunt geïdentificeerd voor de uitvoering van het opgegeven exemplaar, maar ook helpt u op wat u wilt wijzigen zodat deze kopie doorvoer te verhogen. De prestaties van tips voor het afstemmen momenteel suggesties wilt bieden het kopiëren van gegevens in Azure SQL Data Warehouse PolyBase gebruiken om te vergroten Azure Cosmos DB RU of Azure SQL DB DTU wanneer de resource op gegevens opslaan aan clientzijde is het knelpunt, de overbodige gefaseerd verwijderen kopiëren, enzovoort. De afstemming van regels wordt geleidelijk ook uitgebreid zijn.
 
-    **Voorbeeld: met tips afstemmen van de prestaties in Azure SQL DB kopiëren** ![kopiëren met tips afstemmen van de prestaties controleren](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+    **Voorbeeld: kopiëren naar Azure SQL-database met tips afstemmen van prestaties**
 
-    Een volledige beschrijving van de prestatiediagnose van valt buiten het bereik van dit artikel, maar hier volgen enkele algemene overwegingen:
+    In dit voorbeeld tijdens het kopiëren van uitvoert, ADF kennisgeving die de sink-Azure SQL DB bereikt hoog DTU-gebruik die de bewerkingen voor schrijven vertraagt, dus het voorstel is om te verhogen van de Azure SQL DB-laag met meer DTU. 
+
+    ![Kopiëren met tips afstemmen van de prestaties controleren](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    Hier volgen bovendien enkele algemene overwegingen. Er is een volledige beschrijving van de prestatiediagnose van buiten het bereik van dit artikel.
 
    * Prestatiefuncties:
      * [Parallelle kopiëren](#parallel-copy)

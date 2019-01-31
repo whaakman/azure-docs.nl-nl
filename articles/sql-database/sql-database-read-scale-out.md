@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 9d7131c6ed1808725f59e53488bedb5ef81a77c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389402"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461641"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
 
@@ -76,7 +76,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>In- en uitschakelen van Read Scale-Out
 
-Read Scale-Out is standaard ingeschakeld in [Managed Instance](sql-database-managed-instance.md) laag bedrijfskritiek. Het expliciet moet worden ingeschakeld [database op logische server geplaatst](sql-database-logical-servers.md) lagen Premium en bedrijfskritiek. De methoden voor het inschakelen en uitschakelen van Read Scale-Out wordt hier beschreven.
+Read Scale-Out is standaard ingeschakeld in [Managed Instance](sql-database-managed-instance.md) laag bedrijfskritiek. Het expliciet moet worden ingeschakeld [database op SQL Database-server geplaatst](sql-database-servers.md) lagen Premium en bedrijfskritiek. De methoden voor het inschakelen en uitschakelen van Read Scale-Out wordt hier beschreven.
 
 ### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: In- en uitschakelen van Read Scale-Out
 

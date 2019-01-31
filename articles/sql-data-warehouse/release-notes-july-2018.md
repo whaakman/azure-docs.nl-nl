@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e63dd0a6feaedf95bb4845a3c5eded89e6585e36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318837"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463494"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juli 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in juli 2018.
@@ -24,11 +24,11 @@ Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschri
 [Azure SQL Data Warehouse](https://aka.ms/sqldw) Hiermee stelt u nieuwe referentiepunten voor prestaties met de introductie van directe toegang tot gegevens waarmee de bewerkingen in willekeurige volgorde worden verbeterd. Directe toegang tot gegevens vermindert de overhead voor bewerkingen voor gegevensverplaatsing met behulp van directe SQL-Server tot bewerkingen voor systeemeigen SQL Server. De integratie met de SQL Server-engine rechtstreeks voor verplaatsing van gegevens betekent dat SQL Data Warehouse nu is **67% sneller dan de Amazon Redshift** met behulp van een werkbelasting afgeleid van de erkende industriestandaard [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
 
 ![Azure SQL Data Warehouse is sneller en goedkoper dan Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
-<sub>bron: [Onderzoeksanalist analist onderzoeksrapport: Data Warehouse in de Cloud-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+<sub>bron: [Onderzoeksanalist onderzoek Analistenrapport: Datawarehouse in de Cloud-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
 Naast de prestaties van de runtime, de [Onderzoeksanalist onderzoek](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) rapport gemeten ook de prijs-prestatieverhouding verhouding om te kwantificeren de USD kosten van specifieke werkbelastingen. SQL Data Warehouse is **ten minste 23 procent goedkoper zijn** dan Redshift voor workloads 30 TB. Met SQL Data Warehouse de mogelijkheid om Computing elastisch schalen, evenals onderbreken en hervatten van werkbelastingen, klanten betalen alleen wanneer de service wordt gebruikt, hun kosten verder te verlagen.
 ![Azure SQL Data Warehouse is sneller en goedkoper dan Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
-<sub>bron: [Onderzoeksanalist analist onderzoeksrapport: Data Warehouse in de Cloud-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+<sub>bron: [Onderzoeksanalist onderzoek Analistenrapport: Datawarehouse in de Cloud-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
 ### <a name="query-concurrency"></a>Query gelijktijdigheid
 SQL Data Warehouse zorgt er ook voor dat de gegevens toegankelijk voor uw organisatie is. Microsoft heeft uitgebreid, de service ter ondersteuning van 128 gelijktijdige query's zodat meer gebruikers in de dezelfde database zoeken kunnen en niet door andere aanvragen worden geblokkeerd. Ter vergelijking beperkt Amazon Redshift maximum aantal gelijktijdige query's tot 50, beperken van toegang tot de gegevens binnen de organisatie.

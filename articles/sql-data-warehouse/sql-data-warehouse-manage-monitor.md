@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe989a1693d73dbbea7ed0e3e91ed7aaf6fc37c4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fdb51bf249990a10b8476a55be1103cb05c5821b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301079"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466979"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
 Dit artikel wordt beschreven hoe u uw workload controleren met dynamische beheerweergaven (DMV's). Dit omvat het onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
@@ -45,7 +45,7 @@ Alle query's uitgevoerd op SQL Data Warehouse worden geregistreerd in [sys.dm_pd
 
 Hier volgen de stappen te volgen voor het onderzoeken van query-uitvoering plannen en tijden voor een bepaalde query.
 
-### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>STAP 1: De query die u wilt onderzoeken identificeren
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>STAP 1: Identificeren van de query die u wilt onderzoeken
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -119,7 +119,7 @@ Wanneer de querystap van de wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBC
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STAP 3b: verplaatsing van gegevens voor de gedistribueerde databases onderzoeken
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STAP 3b: Gegevensverplaatsing voor de gedistribueerde databases onderzoeken
 Gebruik van de aanvraag-ID en de Index van de stap voor het ophalen van informatie over een data movement stap die wordt uitgevoerd op elke distributie van [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql

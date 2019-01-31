@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: a345b410dcf256e8cd07e7708906f5582b5f1828
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077384"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456014"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -73,6 +73,11 @@ De agent installeren op een Linux-machine:
 
 [Meer informatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) over de lijst met ondersteuning voor Linux-besturingssystemen door MMA.
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-scom"></a>Installeer de agent op een computer die wordt bewaakt door SCOM
+
+Voor machines die worden bewaakt door System Center Operations Manager 2012 R2 of hoger, is er niet nodig voor het installeren van de MMA-agent. Serviceoverzicht is een geïntegreerd met SCOM die gebruikmaakt van de MMA SCOM om de vereiste afhankelijkheid-gegevens te verzamelen. U kunt de integratie met behulp van de richtlijnen inschakelen [hier](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Merk echter op dat de agent voor afhankelijkheden moet op deze computers geïnstalleerd.
+
+
 ### <a name="install-the-dependency-agent"></a>De afhankelijkheidsagent installeren
 1. Voor het installeren van de agent voor afhankelijkheden op een Windows-machine, dubbelklik op het setup-bestand en volg de wizard.
 2. Voor het installeren van de agent voor afhankelijkheden op een Linux-machine, installeert u toegangspunt met de volgende opdracht:
@@ -82,6 +87,7 @@ De agent installeren op een Linux-machine:
 Meer informatie over de ondersteuning van de agent afhankelijkheid voor de [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) en [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) besturingssystemen.
 
 [Meer informatie](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) over hoe u scripts gebruiken kunt voor het installeren van de agent voor afhankelijkheden.
+
 
 ## <a name="create-a-group"></a>Een groep maken
 
@@ -115,7 +121,7 @@ Nadat de groep is gemaakt, is het aanbevolen om agents te installeren op alle co
 
 ## <a name="query-dependency-data-from-log-analytics"></a>Query uitvoeren op afhankelijkheidsgegevens van Log Analytics
 
-Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in Log Analytics. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) over de Serviceoverzicht-gegevenstabellen opvragen in Log Analytics. 
+Afhankelijkheidsgegevens die zijn vastgelegd door Serviceoverzicht is beschikbaar voor het uitvoeren van query's in Log Analytics-werkruimte die is gekoppeld aan uw Azure Migrate-project. [Meer informatie](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) over de Serviceoverzicht-gegevenstabellen opvragen in Log Analytics. 
 
 De Log Analytics-query's uitvoeren:
 

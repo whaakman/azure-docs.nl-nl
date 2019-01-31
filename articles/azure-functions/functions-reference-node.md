@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 17e0cf170197b99037e2892d1b74a699a3a9eef5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a91778f1646807a092a3c8cda66bd3bd104ff8b5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275326"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301880"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -326,7 +326,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Het traceerniveau voor console-aanmelding configureren
 
-Functions kunt u bij het definiëren van het traceerniveau drempelwaarde voor het schrijven van de console, Hierdoor is het eenvoudig om te bepalen de traceringen manier worden geschreven naar de console van uw functie. Als u wilt dat de drempelwaarde voor alle traceringen geschreven naar de console, gebruikt u de `tracing.consoleLevel` eigenschap in het bestand host.json. Deze instelling geldt voor alle functies in uw functie-app. Het volgende voorbeeld wordt de tracering drempelwaarde uitgebreide logboekregistratie inschakelen:
+Functies 1.x kunt definiëren van het traceerniveau drempelwaarde voor het schrijven naar de console, waardoor het eenvoudig om te bepalen hoe traceringen worden geschreven naar de console van uw functie. Als u wilt dat de drempelwaarde voor alle traceringen geschreven naar de console, gebruikt u de `tracing.consoleLevel` eigenschap in het bestand host.json. Deze instelling geldt voor alle functies in uw functie-app. Het volgende voorbeeld wordt de tracering drempelwaarde uitgebreide logboekregistratie inschakelen:
 
 ```json
 {
@@ -336,7 +336,7 @@ Functions kunt u bij het definiëren van het traceerniveau drempelwaarde voor he
 }  
 ```
 
-Waarden van **consoleLevel** komen overeen met de namen van de `context.log` methoden. Als u wilt uitschakelen op alle traceerlogboekregistratie naar de console, stelt **consoleLevel** naar _uit_. Zie voor meer informatie, [naslaginformatie over host.json](functions-host-json.md).
+Waarden van **consoleLevel** komen overeen met de namen van de `context.log` methoden. Als u wilt uitschakelen op alle traceerlogboekregistratie naar de console, stelt **consoleLevel** naar _uit_. Zie voor meer informatie, [naslaginformatie over host.json](functions-host-json-v1.md).
 
 ## <a name="http-triggers-and-bindings"></a>HTTP-triggers en bindingen
 
@@ -348,12 +348,12 @@ De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 
 | Eigenschap      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _De hoofdtekst_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
-| _Headers_     | Een object dat de aanvraagheaders bevat.                   |
+| _body_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
+| _headers_     | Een object dat de aanvraagheaders bevat.                   |
 | _Methode_      | De HTTP-methode van de aanvraag.                                |
 | _originalUrl_ | De URL van de aanvraag.                                        |
 | _params_      | Een object dat de routering parameters van de aanvraag bevat. |
-| _Query_       | Een object met de queryparameters.                  |
+| _query_       | Een object met de queryparameters.                  |
 | _rawBody_     | De hoofdtekst van het bericht als een tekenreeks.                           |
 
 
@@ -363,8 +363,8 @@ De `context.res` (antwoord)-object heeft de volgende eigenschappen:
 
 | Eigenschap  | Description                                               |
 | --------- | --------------------------------------------------------- |
-| _De hoofdtekst_    | Een object dat de hoofdtekst van het antwoord bevat.         |
-| _Headers_ | Een object met de antwoordheaders.             |
+| _body_    | Een object dat de hoofdtekst van het antwoord bevat.         |
+| _headers_ | Een object met de antwoordheaders.             |
 | _isRaw_   | Geeft aan dat de opmaak is overgeslagen voor het antwoord.    |
 | _status_  | De HTTP-statuscode van het antwoord.                     |
 

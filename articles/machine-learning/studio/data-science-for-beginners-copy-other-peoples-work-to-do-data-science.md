@@ -1,6 +1,6 @@
 ---
-Titel: Kopieer anderen data science voorbeelden titleSuffix: Azure Machine Learning Studio description: ' Handelsgeheim van wetenschappelijke gegevens: Get-andere gebruikers voor uw werk voor u. Machine learning-voorbeelden uit de Azure AI Gallery ophalen.'
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Kopieer anderen data science voorbeelden titleSuffix: Azure Machine Learning Studio description: ' Handelsgeheim van wetenschappelijke gegevens: Get-andere gebruikers voor uw werk voor u. Machine learning-voorbeelden uit de Azure AI Gallery ophalen.'
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/05/2018
 ---

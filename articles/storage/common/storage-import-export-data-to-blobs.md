@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309583"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462831"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -68,9 +68,9 @@ Voer de volgende stappen voor het voorbereiden van de schijven.
     |---------|---------|
     |/j:     |De naam van het logboekbestand met de extensie jrn. Er wordt een logboekbestand gegenereerd per station. U wordt aangeraden dat u het serienummer van de schijf als de naam van het logboek gebruiken.         |
     |/ID:     |De sessie-ID. Gebruik een unieke sessie voor elk exemplaar van de opdracht.      |
-    |/SK:     |De sleutel van de Azure Storage-account.         |
-    |/ t:     |De stationsletter van de schijf om te worden verzonden. Bijvoorbeeld station `D`.         |
-    |/BK:     |De BitLocker-sleutel voor het station. Het wachtwoord van de numerieke uit de uitvoer van ` manage-bde -protectors -get D: `      |
+    |/sk:     |De sleutel van de Azure Storage-account.         |
+    |/t:     |De stationsletter van de schijf om te worden verzonden. Bijvoorbeeld station `D`.         |
+    |/bk:     |De BitLocker-sleutel voor het station. Het wachtwoord van de numerieke uit de uitvoer van ` manage-bde -protectors -get D: `      |
     |/srcdir:     |De stationsletter van de schijf om te worden verzonden, gevolgd door `:\`. Bijvoorbeeld `D:\`.         |
     |/dstdir:     |De naam van de doelcontainer in Azure Storage.         |
     |/skipwrite:     |De optie die aangeeft dat er geen nieuwe gegevens die nodig zijn om te worden gekopieerd en de bestaande gegevens op de schijf moet worden voorbereid.          |

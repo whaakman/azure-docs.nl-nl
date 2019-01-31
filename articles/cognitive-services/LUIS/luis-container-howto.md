@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e6f13994d404d58082b953fc98ac6028eea2e43e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216191"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296898"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installeren en uitvoeren van LUIS docker-containers
  
@@ -40,11 +40,7 @@ Om uit te voeren de LUIS-container, moet u het volgende hebt:
 
 ### <a name="the-host-computer"></a>De hostcomputer
 
-De **host** is de computer met de docker-container. Het kan zijn dat een computer op uw locatie of een docker die als host fungeert de service in Azure, waaronder:
-
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](../../azure-stack/index.yml). Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
 
@@ -52,9 +48,11 @@ Deze container biedt ondersteuning voor minimale en aanbevolen waarden voor de i
 
 |Instelling| Minimum | Aanbevolen |
 |-----------|---------|-------------|
-|Kerngeheugens<BR>`--cpus`|1 kern<BR>ten minste 2,6 GHz (gigahertz) of sneller|1 kern|
+|Kerngeheugens<BR>`--cpus`|1 kern|1 kern|
 |Geheugen<BR>`--memory`|2 GB|4 GB|
 |Transacties per seconde<BR>(TPS)|20 TPS|40 TPS|
+
+Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
 
 De `--cpus` en `--memory` instellingen worden gebruikt als onderdeel van de `docker run` opdracht.
 
@@ -66,17 +64,12 @@ Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandlin
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
+Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een containerinstallatiekopie te downloaden.
+
 Voor een volledige beschrijving van de beschikbare labels, zoals `latest` in de voorgaande opdracht gebruikt, Zie [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) op Docker Hub.
 
-> [!TIP]
-> U kunt de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht om een lijst van uw gedownloade containerinstallatiekopieën. De volgende opdracht worden bijvoorbeeld de ID, de opslagplaats en het label van elke gedownloade containerinstallatiekopie, opgemaakt als een tabel:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
->  ``` 
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
 
 ## <a name="how-to-use-the-container"></a>Het gebruik van de container
 
@@ -325,14 +318,7 @@ Als u de container wordt uitgevoerd met een uitvoer [koppelen](luis-container-co
 
 ## <a name="containers-api-documentation"></a>API-documentatie van de container
 
-De container biedt een volledige set met documentatie voor de eindpunten, evenals een `Try it now` functie. Deze functie kunt u uw instellingen invoeren in een web gebaseerde HTML-formulier en de query zonder code te schrijven. Nadat de query retourneert, een voorbeeld van de CURL-opdracht om te laten zien hoe de HTTP-headers en hoofdtekst van de vereiste indeling is opgegeven. 
-
-> [!TIP]
-> Lees de [OpenAPI-specificatie](https://swagger.io/docs/specification/about/), met een beschrijving van de API-bewerkingen ondersteund door de container van de `/swagger` relatieve URI. Bijvoorbeeld:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Billing
 
@@ -342,7 +328,7 @@ Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbind
 
 De `docker run` maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
 
-| Optie | Beschrijving |
+| Optie | Description |
 |--------|-------------|
 | `ApiKey` | De API-sleutel van de _Language Understanding_ resource gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte Azure LUIS resource die is opgegeven `Billing`. |
 | `Billing` | Het eindpunt van de _Language Understanding_ resource gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte LUIS Azure-resource van het eindpunt.|
@@ -371,7 +357,7 @@ Niet-ondersteunde app-configuraties|Details|
 
 In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, installeren en uitvoeren van containers met Language Understanding (LUIS). Samenvatting:
 
-* Language Understanding (LUIS) biedt een Linux-containers voor Docker die eindpunt query voorspellingen van uitingen.
+* Language Understanding (LUIS) biedt een Linux-container voor Docker die eindpunt query voorspellingen van uitingen.
 * Containerinstallatiekopieën worden gedownload uit het Microsoft Container Registry (MCR).
 * Containerinstallatiekopieën uitvoeren in Docker.
 * U kunt de REST-API gebruiken om op te vragen van de containereindpunten door de host-URI van de container op te geven.

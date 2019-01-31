@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 8407fcdabecbb4f6ed9c0028a4a74916913591ba
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: be3843dc8dfbb45ebb981123bf3df4bb741c82d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199184"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466079"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Het ontwerpen van een strategie laden voor Azure SQL Data Warehouse PolyBase-gegevens
 
@@ -74,7 +74,7 @@ Voordat u gegevens laden kunt, moet u voor het definiëren van externe tabellen 
 Omvat het definiëren van externe tabellen op te geven van de gegevensbron, de indeling van de tekstbestanden en tabeldefinities van de. Dit zijn de T-SQL-syntaxis van de onderwerpen die u nodig hebt:
 - [EXTERNE GEGEVENSBRON MAKEN](/sql/t-sql/statements/create-external-data-source-transact-sql)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
-- [EXTERNE TABEL MAKEN](/sql/t-sql/statements/create-external-table-transact-sql)
+- [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 Zie voor een voorbeeld van het maken van externe objecten, de [externe tabellen maken](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) stap in de zelfstudie laden.
 
@@ -106,7 +106,7 @@ Voor het laden van gegevens met PolyBase kunt u een van deze opties voor het lad
 Als uw gegevens niet compatibel met PolyBase is, kunt u [bcp](/sql/tools/bcp-utility) of de [SqlBulkCopy uitvoert API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP wordt rechtstreeks naar SQL Data Warehouse wordt geladen zonder tussenkomst van Azure Blob-opslag, en is alleen bedoeld voor kleine geladen. Opmerking: de prestaties van de belasting van deze opties is aanzienlijk langzamer dan PolyBase. 
 
 
-## <a name="5-transform-the-data"></a>5. De gegevens te transformeren
+## <a name="5-transform-the-data"></a>5. De gegevens transformeren
 
 Terwijl de gegevens zich in de faseringstabel, uitvoeren van transformaties die uw workload. Verplaats de gegevens in een productietabel.
 

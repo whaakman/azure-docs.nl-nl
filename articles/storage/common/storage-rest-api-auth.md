@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530759"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476193"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>De Azure Storage REST API gebruiken
 
@@ -62,9 +62,9 @@ Als u naar kijkt de [REST API voor Blob Service](/rest/api/storageservices/Blob-
 
 Laten we kijken naar de pagina in de REST-API-naslaginformatie voor de [ListContainers](/rest/api/storageservices/List-Containers2) bewerking, zodat u waar sommige velden afkomstig zijn weet uit in de aanvraag en respons in de volgende sectie met de code.
 
-**Verzoekmethode**: ophalen. Deze bewerking wordt de HTTP-methode die u als een eigenschap van het request-object opgeeft. Andere waarden voor deze bewerking zijn HEAD, PUT en DELETE, afhankelijk van de API die u aanroept.
+**Verzoekmethode**: TOEVOEGEN. Deze bewerking wordt de HTTP-methode die u als een eigenschap van het request-object opgeeft. Andere waarden voor deze bewerking zijn HEAD, PUT en DELETE, afhankelijk van de API die u aanroept.
 
-**Aanvraag-URI**: https://myaccount.blob.core.windows.net/?comp=list deze is gemaakt op basis van het eindpunt van blob storage-account `http://myaccount.blob.core.windows.net` en de brontekenreeks `/?comp=list`.
+**Aanvraag-URI**: https://myaccount.blob.core.windows.net/?comp=list  Dit is gemaakt op basis van het eindpunt van blob storage-account `http://myaccount.blob.core.windows.net` en de brontekenreeks `/?comp=list`.
 
 [URI-parameters](/rest/api/storageservices/List-Containers2#uri-parameters): Er zijn aanvullende queryparameters die u gebruiken kunt bij het aanroepen van ListContainers. Enkele van deze parameters zijn *time-out* voor de aanroep (in seconden) en *voorvoegsel*, die wordt gebruikt voor het filteren.
 
@@ -76,15 +76,15 @@ Voor het gebruik van aanvullende parameters aan de resourcetekenreeks met de waa
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Aanvraagheaders](/rest/api/storageservices/List-Containers2#request-headers)**:** deze sectie vindt u de vereiste en optionele aanvraagheaders. Drie van de headers zijn vereist: een *autorisatie* kop *x-ms-datum* (bevat de UTC-tijd voor de aanvraag), en *x-ms-version* (geeft de versie van de REST API voor het gebruik). Inclusief *x-ms-client-request-id* in de headers is optioneel: u kunt de waarde voor dit veld instellen op Alles; ze worden geschreven naar de logboeken van storage analytics als logboekregistratie is ingeschakeld.
+[Aanvraagheaders](/rest/api/storageservices/List-Containers2#request-headers)**:** Deze sectie vindt u de vereiste en optionele aanvraagheaders. Drie van de headers zijn vereist: een *autorisatie* kop *x-ms-datum* (bevat de UTC-tijd voor de aanvraag), en *x-ms-version* (geeft de versie van de REST API voor het gebruik). Inclusief *x-ms-client-request-id* in de headers is optioneel: u kunt de waarde voor dit veld instellen op Alles; ze worden geschreven naar de logboeken van storage analytics als logboekregistratie is ingeschakeld.
 
-[Aanvraagtekst](/rest/api/storageservices/List-Containers2#request-body)**:** er is geen aanvraagtekst voor ListContainers. Hoofdtekst van de aanvraag wordt gebruikt op al de PUT-bewerkingen tijdens het uploaden van blobs, evenals SetContainerAccessPolicy, zodat u kunt verzenden in een XML-lijst met opgeslagen toegangsbeleid om toe te passen. Opgeslagen toegangsbeleid worden besproken in het artikel [met behulp van Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+[Aanvraagtekst](/rest/api/storageservices/List-Containers2#request-body)**:** Er is geen aanvraagtekst voor ListContainers. Hoofdtekst van de aanvraag wordt gebruikt op al de PUT-bewerkingen tijdens het uploaden van blobs, evenals SetContainerAccessPolicy, zodat u kunt verzenden in een XML-lijst met opgeslagen toegangsbeleid om toe te passen. Opgeslagen toegangsbeleid worden besproken in het artikel [met behulp van Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Antwoordstatuscode](/rest/api/storageservices/List-Containers2#status-code)**:** Tells van eventuele statuscodes die u wilt weten. In dit voorbeeld wordt een HTTP-statuscode 200 ok. Bekijk voor een volledige lijst van HTTP-statuscodes [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Foutcodes die specifiek zijn voor de Storage REST-API's Zie [algemene REST-API-foutcodes](/rest/api/storageservices/common-rest-api-error-codes)
+[Antwoordstatuscode](/rest/api/storageservices/List-Containers2#status-code)**:** Geeft aan van alle statuscodes die u wilt weten. In dit voorbeeld wordt een HTTP-statuscode 200 ok. Bekijk voor een volledige lijst van HTTP-statuscodes [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Foutcodes die specifiek zijn voor de Storage REST-API's Zie [algemene REST-API-foutcodes](/rest/api/storageservices/common-rest-api-error-codes)
 
-[Antwoordheaders](/rest/api/storageservices/List-Containers2#response-headers)**:** hierbij *inhoudstype*; *x-ms-request-id* (aanvraag-id u doorgegeven in, indien van toepassing); *x-ms-version* (geeft de versie van de Blob-service die wordt gebruikt), en de *datum* (UTC, vertelt hoe de tijd die de aanvraag is gedaan).
+[Antwoordheaders](/rest/api/storageservices/List-Containers2#response-headers)**:** Het gaat hierbij *inhoudstype*; *x-ms-request-id* (aanvraag-id u doorgegeven in, indien van toepassing); *x-ms-version* (geeft de versie van de Blob-service die wordt gebruikt), en de *datum* (UTC, vertelt hoe de tijd die de aanvraag is gedaan).
 
-[Antwoordtekst](/rest/api/storageservices/List-Containers2#response-body): dit veld is een XML-structuur waarmee de aangevraagde gegevens geleverd. In dit voorbeeld wordt is het antwoord een lijst met containers en de bijbehorende eigenschappen.
+[Antwoordtekst](/rest/api/storageservices/List-Containers2#response-body): Dit veld is een XML-structuur waarmee de aangevraagde gegevens geleverd. In dit voorbeeld wordt is het antwoord een lijst met containers en de bijbehorende eigenschappen.
 
 ## <a name="creating-the-rest-request"></a>Het maken van de REST-aanvraag
 
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**De hoofdtekst van antwoord (XML):** voor ListContainers geeft de lijst met containers en de bijbehorende eigenschappen.
+**Hoofdtekst van antwoord (XML):** Voor ListContainers bevat deze een lijst van containers en de bijbehorende eigenschappen.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -283,24 +283,24 @@ Dit codefragment laat zien dat de indeling van de gedeelde sleutel handtekening-
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 De meeste van deze velden worden zelden gebruikt. Voor Blob-opslag geeft u de bewerking, md5, lengte van de inhoud, Gecanoniseerd Headers en Gecanoniseerd Resource. U kunt de andere leeg laten (maar plaats in de `\n` zodat deze ze zijn leeg).
 
-Wat zijn CanonicalizedHeaders en CanonicalizedResource? Goede vraag. Wat doet gecanoniseerd in feite gemiddelde? Microsoft Word niet, zelfs herkend als een woord. Hier volgt een uitleg [Wikipedia vertelt over standaardisatie](http://en.wikipedia.org/wiki/Canonicalization): *In computerwetenschappen, standaardisatie (soms standardization of normalisering) is een proces voor het converteren van gegevens met meer dan één mogelijk weergave in een 'standaard', 'normale' of canonieke vorm.* In normale spreken, dit betekent dat de lijst met items (zoals kopteksten in het geval van Headers Gecanoniseerd) en deze naar een vereiste indeling te standaardiseren. In principe Microsoft besloten een indeling en u wilt vergelijken.
+Wat zijn CanonicalizedHeaders en CanonicalizedResource? Goede vraag. Wat doet gecanoniseerd in feite gemiddelde? Microsoft Word niet, zelfs herkend als een woord. Hier volgt een uitleg [Wikipedia vertelt over standaardisatie](http://en.wikipedia.org/wiki/Canonicalization): *Standaardisatie (soms standardization of normalisering) is in computerwetenschappen, een proces voor het converteren van gegevens met meer dan een mogelijke weergave in een 'standaard', 'normale' of canonieke vorm.* In normale spreken, dit betekent dat de lijst met items (zoals kopteksten in het geval van Headers Gecanoniseerd) en deze naar een vereiste indeling te standaardiseren. In principe Microsoft besloten een indeling en u wilt vergelijken.
 
 Laten we beginnen met deze twee canonieke velden, omdat ze zijn vereist voor het maken van de autorisatie-header.
 
@@ -512,7 +512,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**De hoofdtekst van antwoord (XML):** dit XML-antwoord bevat een lijst van blobs en de bijbehorende eigenschappen. 
+**Hoofdtekst van antwoord (XML):** Deze XML-antwoord bevat de lijst met blobs en de bijbehorende eigenschappen. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -565,6 +565,6 @@ In dit artikel hebt u geleerd hoe u een aanvraag in de REST-API voor het ophalen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [REST-API voor BLOB-Service](/rest/api/storageservices/blob-service-rest-api)
+* [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
 * [Bestandsservice REST-API](/rest/api/storageservices/file-service-rest-api)
 * [REST-API voor Queue-Service](/rest/api/storageservices/queue-service-rest-api)

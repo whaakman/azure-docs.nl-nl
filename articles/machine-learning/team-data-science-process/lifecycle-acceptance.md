@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 91d645e6120040870c7c1696c7bfd8f68509cb35
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132615"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451900"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Klant acceptatie van de fase van de levenscyclus van het Team Data Science Process
 
@@ -34,13 +34,13 @@ Hier volgt een visuele representatie van de TDSP-levenscyclus:
 
 
 ## <a name="goal"></a>Doel
-**Voltooien van de projectproducten**: bevestigen dat de pijplijn, het model en de implementatie in een productieomgeving voldoen aan de doelstellingen van de klant.
+**Voltooien van de projectproducten**: Bevestig dat de pijplijn, het model en de implementatie in een productieomgeving voldoen aan de doelstellingen van de klant.
 
 ## <a name="how-to-do-it"></a>Hoe voer ik
 Er zijn twee belangrijke taken behandeld in deze fase:
 
-   * **Systeemvalidatie**: Controleer of de geïmplementeerd model en de pijplijn voldoen aan de behoeften van de klant.
-   * **Project aflevering**: het project aanlevert naar de entiteit die u wilt uitvoeren van het systeem in productie.
+   * **Systeemvalidatie**: Bevestig dat de geïmplementeerd model en de pijplijn voldoen aan de behoeften van de klant.
+   * **Project aflevering**: Aan de hand van het project uit naar de entiteit die u wilt uitvoeren van het systeem in productie.
 
 De klant moet controleren of het systeem voldoet aan de zakelijke behoeften en dat deze de vragen worden beantwoord met een acceptabele nauwkeurigheid het systeem in productie wilt implementeren voor gebruik door toepassing van de client. Alle documentatie is voltooid en gecontroleerd. Het project is doorgegeven uit naar de entiteit die verantwoordelijk is voor bewerkingen. Deze entiteit kan bijvoorbeeld zijn een IT- of klant gegevenswetenschap team of een agent van de klant is verantwoordelijk voor het uitvoeren van het systeem in productie. 
 

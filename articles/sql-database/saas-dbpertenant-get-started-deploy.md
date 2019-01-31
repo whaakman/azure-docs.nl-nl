@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232899"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453668"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementeren en een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database verkennen
 
@@ -65,9 +65,9 @@ Kies de namen van de nu en schrijf ze op.
 
     - **Resourcegroep**: Selecteer **nieuw**, en geef de unieke naam die u hebt gekozen eerder voor de resourcegroep.
     - **Locatie**: Selecteer een locatie in de vervolgkeuzelijst.
-    - **Gebruiker**: Gebruik de gebruiker de naam van waarde die u eerder hebt gekozen.
+    - **Gebruiker**: Gebruik de gebruiker de naam-waarde die u eerder hebt gekozen.
 
-1. Implementeer de toepassing.
+1. De toepassing implementeren.
 
     a. Selecteer om de voorwaarden en bepalingen te accepteren.
 
@@ -123,14 +123,14 @@ Een centraal **Events Hub** pagina bevat een lijst met koppelingen naar de tenan
 
 Maakt gebruik van de toepassing Wingtip [*Azure Traffic Manager* ](../traffic-manager/traffic-manager-overview.md) om de verdeling van inkomende aanvragen te beheren. De URL voor toegang tot de pagina gebeurtenissen voor een specifieke tenant maakt gebruik van de volgende indeling:
 
-- http://events.wingtip-dpt.&lt; gebruiker&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
     De onderdelen van de voorgaande indeling worden in de volgende tabel beschreven.
 
-    | URL-onderdeel        | Beschrijving       |
+    | URL-onderdeel        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | De onderdelen van de gebeurtenissen van de Wingtip-app.<br /><br /> *-dpt* onderscheidt de *database-per-tenant* uitvoering van de Wingtip Tickets van andere implementaties. Voorbeelden zijn de *zelfstandige* app-per-tenant (*-sa*) of *multitenant-database* (*- mt*) implementaties. |
-    | .  *&lt;gebruiker&gt;* | *af1* in het voorbeeld. |
+    | http://events.wingtip-dpt | De onderdelen van de gebeurtenissen van de Wingtip-app.<br /><br /> *-dpt* onderscheidt de *database-per-tenant* uitvoering van de Wingtip Tickets van andere implementaties. Voorbeelden zijn de *één* app-per-tenant (*-sa*) of *multitenant-database* (*- mt*) implementaties. |
+    | .*&lt;user&gt;* | *af1* in het voorbeeld. |
     | .trafficmanager.net/ | Traffic Manager, basis-URL. |
     | fabrikamjazzclub | Hiermee geeft u de tenant met de naam Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -248,7 +248,7 @@ Blader naar de server **tenants1-dpt -&lt;gebruiker&gt;**, en selecteer **Pool1
 - De eerste grafiek met het label **Resourcegebruik**, toont pool-eDTU-gebruik.
 - Het tweede diagram toont de eDTU-gebruik van de vijf meest actieve databases in de groep.
 
-De twee grafieken ziet u dat elastische pools en SQL-Database goed geschikt voor werkbelastingen van onvoorspelbare SaaS-toepassingen zijn. De grafieken weergegeven dat vier databases worden elke bursting tot maar liefst 40 edtu's en nog comfortabel alle databases worden ondersteund door een pool van 50 eDTU. De 50 eDTU-groep kan zelfs zwaardere werkbelastingen te ondersteunen. Als de databases worden ingericht als individuele databases, moet elk criterium een S2 (50 DTU) voor de ondersteuning van de pieken. De kosten van vier zelfstandige S2-databases zijn bijna drie keer de prijs van de groep. In praktijksituaties Voer SQL-Database-klanten maximaal 500 databases in pools van 200 eDTU. Zie voor meer informatie de [zelfstudie over prestatiebewaking](saas-dbpertenant-performance-monitoring.md).
+De twee grafieken ziet u dat elastische pools en SQL-Database goed geschikt voor werkbelastingen van onvoorspelbare SaaS-toepassingen zijn. De grafieken weergegeven dat vier databases worden elke bursting tot maar liefst 40 edtu's en nog comfortabel alle databases worden ondersteund door een pool van 50 eDTU. De 50 eDTU-groep kan zelfs zwaardere werkbelastingen te ondersteunen. Als de databases worden ingericht als individuele databases, moet elk criterium een S2 (50 DTU) voor de ondersteuning van de pieken. De kosten van vier afzonderlijke S2-databases zijn bijna drie keer de prijs van de groep. In praktijksituaties Voer SQL-Database-klanten maximaal 500 databases in pools van 200 eDTU. Zie voor meer informatie de [zelfstudie over prestatiebewaking](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

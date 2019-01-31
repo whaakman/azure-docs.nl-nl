@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
-ms.openlocfilehash: eb788c07ed9424ae6d5beed5be11c71a11c62265
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/25/2018
+ms.openlocfilehash: 03ea4a7db27e32b370be89adf308ded9a22f9e37
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304275"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478420"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Zelfstudie: SQL Data Sync tussen Azure SQL Database en SQL Server instellen met on-premises
 
@@ -71,17 +71,17 @@ In de **Hubdatabase** sectie, bestaande referenties invoeren voor de SQL-Databas
 
 ### <a name="to-add-an-azure-sql-database"></a>Toevoegen van een Azure SQL Database
 
-In de **Liddatabase** sectie, optioneel een Azure SQL Database toevoegen aan de groep voor synchronisatie hiervoor **toevoegen van een Azure-Database**. De **Azure-Database configureren** pagina wordt geopend.
+In de **Liddatabase** sectie, optioneel een Azure SQL Database toevoegen aan de groep voor synchronisatie hiervoor **toevoegen van een Azure SQL Database**. De **Azure SQL-Database configureren** pagina wordt geopend.
 
   ![Stap 2: de database configureren](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  Op de **Azure-Database configureren** pagina, wijzigt u de volgende instellingen:
+  Op de **Azure SQL-Database configureren** pagina, wijzigt u de volgende instellingen:
 
   | Instelling                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **Naam van synchronisatielid** | Geef een naam voor het nieuwe synchronisatielid. Deze naam is hetzelfde als de naam van de database zelf. |
   | **Abonnement** | Selecteer de bijbehorende Azure-abonnement voor factureringsdoeleinden. |
-  | **Azure SQL Server** | Selecteer de bestaande SQL database-server. |
+  | **Azure SQL Server** | Selecteer de bestaande SQL Database-server. |
   | **Azure SQL Database** | Selecteer de bestaande SQL-database. |
   | **Synchronisatierichtingen** | Selecteer **bidirectionele synchronisatie**, **naar de Hub**, of **van de Hub**. |
   | **Gebruikersnaam** en **wachtwoord** | Voer de bestaande referenties voor de SQL-Database-server waarop de liddatabase zich bevindt. Voer niet *nieuwe* referenties in deze sectie. |

@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599430"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473422"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -46,7 +46,7 @@ Vervolgens kunt u meer informatie over de aanvullende methoden die u gebruiken k
 
 - [Tijdelijke tabellen](sql-database-temporal-tables.md) u mogelijk te herstellen van rij-versies van elk gewenst moment in-time.
 - [Ingebouwde geautomatiseerde back-ups](sql-database-automated-backups.md) en [verwijzen in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) kunt u de volledige database herstellen naar een bepaald moment in de tijd binnen de afgelopen 35 dagen.
-- U kunt [een verwijderde database herstellen](sql-database-recovery-using-backups.md#deleted-database-restore) op het punt waarop deze is verwijderd als de **logische server is niet verwijderd**.
+- U kunt [een verwijderde database herstellen](sql-database-recovery-using-backups.md#deleted-database-restore) op het punt waarop deze is verwijderd als de **SQL Database-server is niet verwijderd**.
 - [Langetermijnretentie van back-up](sql-database-long-term-retention.md) kunt u de back-ups op 10 jaar houden.
 - [Actieve geo-replicatie](sql-database-active-geo-replication.md) kunt u maken leesbare replica's en handmatig failover naar een replica in het geval van een upgrade data center stroomstoring of toepassing.
 - [Automatische-failovergroep](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) kan de toepassing automatisch herstel in het geval van een storing in het datacenter.
@@ -63,7 +63,7 @@ De volgende tabel worden de ERT en RPO vergeleken voor elke servicelaag voor de 
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Een database aan de bestaande server herstellen
 
-SQL-Database voert automatisch een combinatie van volledige databaseback-ups wekelijks, differentiële back-ups in het algemeen genomen elke 12 uur en transactie logboekback-ups elke 5-10 minuten voor uw bedrijf beschermen tegen gegevensverlies. De back-ups worden opgeslagen in de RA-GRS-opslag gedurende 35 dagen voor alle service-lagen, behalve de Servicelagen Basic DTU waarin de back-ups voor zeven dagen worden opgeslagen. Zie voor meer informatie, [automatische databaseback-ups](sql-database-automated-backups.md). U kunt een bestaande databaseformulier de geautomatiseerde back-ups naar een eerder tijdstip in herstellen tijd als een nieuwe database op dezelfde logische server met behulp van de Azure-portal, PowerShell of de REST-API. Zie voor meer informatie, [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL-Database voert automatisch een combinatie van volledige databaseback-ups wekelijks, differentiële back-ups in het algemeen genomen elke 12 uur en transactie logboekback-ups elke 5-10 minuten voor uw bedrijf beschermen tegen gegevensverlies. De back-ups worden opgeslagen in de RA-GRS-opslag gedurende 35 dagen voor alle service-lagen, behalve de Servicelagen Basic DTU waarin de back-ups voor zeven dagen worden opgeslagen. Zie voor meer informatie, [automatische databaseback-ups](sql-database-automated-backups.md). U kunt een bestaande databaseformulier de geautomatiseerde back-ups naar een eerder tijdstip in herstellen tijd als een nieuwe database op dezelfde SQL-Database-server met behulp van de Azure-portal, PowerShell of de REST-API. Zie voor meer informatie, [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Als de maximale ondersteunde point-in-time restore (PITR) bewaarperiode is niet voldoende voor uw toepassing, kunt u deze uitbreiden door het configureren van een op de lange termijn (LTR) bewaarbeleid voor de database (s). Zie voor meer informatie, [langetermijnretentie](sql-database-long-term-retention.md).
 

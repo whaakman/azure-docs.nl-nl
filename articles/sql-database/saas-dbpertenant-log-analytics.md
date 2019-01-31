@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.date: 01/25/2019
+ms.openlocfilehash: 7a5245a9c97748e7b46132eaaa91f6bbc8311266
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890208"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475139"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Instellen en Log Analytics gebruiken met een SQL Database SaaS-app voor meerdere tenants
 
@@ -104,7 +104,7 @@ In deze oefening opent u Log Analytics in Azure portal om te kijken naar de tele
 
     ![Tijdfilter](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Selecteer één database verkennen van het querygebruik en de metrische gegevens voor die database.
+1. Selecteer een afzonderlijke database verkennen van het querygebruik en de metrische gegevens voor die database.
 
     ![Database-analyse](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 

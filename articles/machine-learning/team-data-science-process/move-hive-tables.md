@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be257b49e5ad5acc47a6daeec203e8513995e52e
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390945"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477848"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive-tabellen maken en gegevens laden uit Azure Blob Storage
 
@@ -25,12 +25,12 @@ In dit artikel geeft algemene Hive-query's die Hive-tabellen maken en gegevens l
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u hebt:
 
-* Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md).
-* Een aangepaste Hadoop-cluster met de HDInsight-service wordt ingericht.  Als u instructies nodig hebt, raadpleegt u [aanpassen Azure HDInsight Hadoop-clusters voor geavanceerde analyses](customize-hadoop-cluster.md).
-* Ingeschakelde externe toegang tot het cluster, aangemeld en de Hadoop-opdrachtregelconsole geopend. Als u instructies nodig hebt, raadpleegt u [toegang tot de hoofd-knooppunt van Hadoop Cluster](customize-hadoop-cluster.md).
+* Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [over Azure storage-accounts](../../storage/common/storage-introduction.md).
+* Een aangepaste Hadoop-cluster met de HDInsight-service wordt ingericht.  Als u instructies nodig hebt, raadpleegt u [Setup-Clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+* Ingeschakelde externe toegang tot het cluster, aangemeld en de Hadoop-opdrachtregelconsole geopend. Als u instructies nodig hebt, raadpleegt u [beheren Apache Hadoop-clusters](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Gegevens uploaden naar Azure blob-opslag
-Als u een virtuele Azure-machine hebt gemaakt door de instructies in [instellen van een virtuele machine van Azure voor geavanceerde analyses](../data-science-virtual-machine/setup-virtual-machine.md), dit scriptbestand moet worden gedownload naar de *C:\\gebruikers \\ \<gebruikersnaam\>\\documenten\\Data Science Scripts* map op de virtuele machine. Deze Hive-query's is alleen vereist dat u in uw eigen gegevensschema en configuratie van de Azure blob-opslag in de juiste velden gereed is voor het indienen van aansluit.
+Als u een virtuele Azure-machine hebt gemaakt door de instructies in [instellen van een virtuele machine van Azure voor geavanceerde analyses](../../machine-learning/data-science-virtual-machine/overview.md), dit scriptbestand moet worden gedownload naar de *C:\\gebruikers \\ \<gebruikersnaam\>\\documenten\\Data Science Scripts* map op de virtuele machine. Deze Hive-query's is alleen vereist dat u in uw eigen gegevensschema en configuratie van de Azure blob-opslag in de juiste velden gereed is voor het indienen van aansluit.
 
 We gaan ervan uit dat de gegevens voor Hive-tabellen een **niet-gecomprimeerde** tabelvorm, en dat de gegevens zijn geüpload naar de standaardwaarde (of een extra) container van het opslagaccount dat wordt gebruikt door de Hadoop-cluster.
 
@@ -38,7 +38,7 @@ Als u wilt om te oefenen op de **NYC Taxi reisgegevens**, moet u:
 
 * **Download** de 24 [NYC Taxi reisgegevens](http://www.andresmh.com/nyctaxitrips) bestanden (12 reis-bestanden en 12 Fare-bestanden)
 * **Pak deze uit** alle bestanden in CSV-bestanden, en vervolgens
-* **uploaden** deze naar de standaard (of de juiste container) van de Azure storage-account dat is gemaakt door de procedure die wordt beschreven de [aanpassen Azure HDInsight Hadoop-clusters voor Advanced Analytics Process and Technology](customize-hadoop-cluster.md)onderwerp. Het proces voor het uploaden van de CSV-bestanden naar de standaard-container in de storage-account kan worden gevonden op deze [pagina](hive-walkthrough.md#upload).
+* **uploaden** ze naar de standaard (of de juiste container) van de Azure storage-account; opties voor dergelijk account worden weergegeven aan [gebruikt Azure storage met Azure HDInsight-clusters](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) onderwerp. Het proces voor het uploaden van de CSV-bestanden naar de standaard-container in de storage-account kan worden gevonden op deze [pagina](hive-walkthrough.md#upload).
 
 ## <a name="submit"></a>Het indienen van Hive-query 's
 Hive-query's kunnen worden verzonden met behulp van:

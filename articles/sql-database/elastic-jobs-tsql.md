@@ -11,13 +11,13 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449398"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458088"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -75,9 +75,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-a-single-database"></a>Uitsluiten van een individuele database
+## <a name="exclude-an-individual-database"></a>Uitsluiten van een individuele database
 
-Het volgende voorbeeld laat zien hoe het uitvoeren van een taak voor alle databases in een server, met uitzondering van de database met de naam *MappingDB*.  
+Het volgende voorbeeld laat zien hoe het uitvoeren van een taak voor alle databases in een SQL Database-server, met uitzondering van de database met de naam *MappingDB*.  
 Verbinding maken met de [ *taak database* ](sql-database-job-automation-overview.md#job-database) en voer de volgende opdracht uit:
 
 ```sql
@@ -103,7 +103,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1032,10 +1032,10 @@ Hiermee geeft u aan als lid van de doel-worden opgenomen of uitgesloten. target_
 Het type van de doeldatabase of -verzameling, inclusief alle databases in een server, alle databases in een elastische pool, alle databases in een shard-toewijzing of een afzonderlijke database. target_type is nvarchar(128) met geen standaardwaarde. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’. 
 
 [  **@refresh_credential_name =** ] 'refresh_credential_name'  
-De naam van de logische server. refresh_credential_name is nvarchar(128) met geen standaardwaarde.
+De naam van de SQL Database-server. refresh_credential_name is nvarchar(128) met geen standaardwaarde.
 
 [ **@server_name =** ] 'server_name'  
-De naam van de logische server die moet worden toegevoegd aan de opgegeven doelgroep. servernaam moet worden opgegeven wanneer target_type 'SqlServer'. servernaam is nvarchar(128) met geen standaardwaarde.
+De naam van de SQL-Database-server die moet worden toegevoegd aan de opgegeven doelgroep. servernaam moet worden opgegeven wanneer target_type 'SqlServer'. servernaam is nvarchar(128) met geen standaardwaarde.
 
 [  **@database_name =** ] 'database_name'  
 De naam van de database die moet worden toegevoegd aan de opgegeven doelgroep. Database_Name moet worden opgegeven wanneer target_type "SqlDatabase". databasenaam is nvarchar(128) met geen standaardwaarde.
@@ -1051,7 +1051,7 @@ De doel-id-nummer toegewezen aan het lid van de doel-als gemaakt toegevoegd aan 
 Geretourneerde waarden (geslaagd) 0 of 1 (fout)
 
 #### <a name="remarks"></a>Opmerkingen
-Een taak wordt uitgevoerd op alle databases binnen een server of elastische pool op het moment van uitvoering, wanneer een logische server of een elastische pool is opgenomen in de doelgroep.
+Een taak wordt uitgevoerd op alle individuele databases in een SQL Database-server of in een elastische pool op het moment van uitvoering, wanneer er een server met SQL-Database of elastische pool is opgenomen in de doelgroep.
 
 #### <a name="permissions"></a>Machtigingen
 Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
@@ -1229,7 +1229,7 @@ Geeft de taakgeschiedenis worden uitgevoerd.
 |**target_type**|   nvarchar(128)   |Het type van de doeldatabase of -verzameling van databases, met inbegrip van alle databases in een server, alle databases in een elastische pool of een database. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’ or ‘SqlDatabase’. NULL geeft aan dat dit is het uitvoeren van de bovenliggende taak.
 |**target_id**  |uniqueidentifier|  Unieke ID van het lid van de doel.  NULL geeft aan dat dit is het uitvoeren van de bovenliggende taak.
 |**target_group_name**  |nvarchar(128)  |De naam van de doelgroep. NULL geeft aan dat dit is het uitvoeren van de bovenliggende taak.
-|**target_server_name**|    nvarchar(256)|  De naam van de logische server die is opgenomen in de doelgroep. Alleen opgegeven als target_type 'SqlServer' is. NULL geeft aan dat dit is het uitvoeren van de bovenliggende taak.
+|**target_server_name**|    nvarchar(256)|  Naam van de SQL-Database-server die is opgenomen in de doelgroep. Alleen opgegeven als target_type 'SqlServer' is. NULL geeft aan dat dit is het uitvoeren van de bovenliggende taak.
 |**target_database_name**   |nvarchar(128)| Naam van de database die is opgenomen in de doelgroep. Opgegeven alleen als target_type "SqlDatabase" is. NULL geeft aan dat dit is het uitvoeren van de bovenliggende taak.
 
 
@@ -1253,7 +1253,7 @@ Geeft alle taken.
 
 ### <a name="jobversions-view"></a>job_versions weergeven
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 Bevat alle versies van de taak.
 
@@ -1332,7 +1332,7 @@ Ziet u alle leden van alle doelgroepen.
 |**refresh_credential_name**    |nvarchar(128)  |Naam van de database-scoped referentie gebruikt voor verbinding met het lid van de doel.|
 |**subscription_id**    |uniqueidentifier|  De unieke ID van het abonnement.|
 |**resource_group_name**    |nvarchar(128)| De naam van de resourcegroep waarin het lid van de doel-zich bevindt.|
-|**server_name**    |nvarchar(128)  |De naam van de logische server die is opgenomen in de doelgroep. Alleen opgegeven als target_type 'SqlServer' is. |
+|**server_name**    |nvarchar(128)  |Naam van de SQL-Database-server die is opgenomen in de doelgroep. Alleen opgegeven als target_type 'SqlServer' is. |
 |**database_name**  |nvarchar(128)  |Naam van de database die is opgenomen in de doelgroep. Opgegeven alleen als target_type "SqlDatabase" is.|
 |**elastic_pool_name**  |nvarchar(128)| De naam van de elastische groep die is opgenomen in de doelgroep. Opgegeven alleen als target_type 'SqlElasticPool' is.|
 |**shard_map_name** |nvarchar(128)| De naam van de shard-toewijzing die is opgenomen in de doelgroep. Specified only when target_type is ‘SqlShardMap’.|

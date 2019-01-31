@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: daf75987a49d2ce90a436fdfcff1a85d2fc0ca21
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853813"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300401"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: On-premises workloads evalueren voor migratie naar Azure
 
@@ -121,7 +121,7 @@ Contoso en andere gebruikers moeten voldoen aan de volgende vereisten voor de ev
 - Een on-premises vCenter Server-exemplaar waarop versie 6.5, 6.0 of 5.5 wordt uitgevoerd.
 - Een alleen-lezen-account in vCenter-Server of machtigingen voor het maken van een.
 - Machtigingen voor het maken van een virtuele machine op de vCenter-Server-exemplaar met behulp van een ova-sjabloon.
-- Ten minste één ESXi-host waarop versie 5.0 of hoger.
+- Ten minste één ESXi-host waarop versie 5.5 of later.
 - Ten minste twee on-premises virtuele VMware-machines, en op één daarvan moet een SQL Server-database worden uitgevoerd.
 - Machtigingen voor het Azure Migrate-agents installeren op elke virtuele machine.
 - De virtuele machines moeten directe verbinding met internet hebben.  
@@ -287,13 +287,7 @@ Voordat u de virtuele machine implementeert, controleert Contoso dat het OVA-bes
     **Voorbeeld**
 
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. De gegenereerde hash moet overeenkomen met deze instellingen (versie 1.0.9.15):
-
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
-    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
-    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+3. De gegenereerde hash moet overeenkomen met de hash-waarden die worden vermeld [hier](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#continuous-discovery).
 
 ### <a name="create-the-collector-appliance"></a>Het collector-apparaat maken
 

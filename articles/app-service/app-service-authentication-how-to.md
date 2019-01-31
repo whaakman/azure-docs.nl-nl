@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722648"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301574"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Geavanceerd gebruik van verificatie en autorisatie in Azure App Service
 
@@ -151,7 +151,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 App Service doorgegeven gebruikersclaims aan uw toepassing met behulp van speciale headers. Externe aanvragen zijn niet toegestaan om in te stellen deze headers, zodat ze aanwezig zijn alleen als ingesteld door App Service. Enkele voorbeeld-headers zijn onder andere:
 
-* X-MS-CLIENT-PRINCIPAL-NAAM
+* X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 
 Code die is geschreven in elke taal of framework kunt krijgen van de informatie die nodig is van deze headers. Voor ASP.NET 4.6 apps, de **ClaimsPrincipal** is automatisch ingesteld met de juiste waarden.
@@ -176,13 +176,13 @@ Verzenden van uw clientcode (zoals een mobiele app of in de browser JavaScript),
 > [!NOTE]
 > Toegangstokens zijn voor toegang tot resources van de provider, zodat ze alleen aanwezig als u uw provider configureren met een clientgeheim in. Zie voor meer informatie over vernieuwingstokens ophalen, [toegang vernieuwingstokens](#refresh-access-tokens).
 
-## <a name="refresh-access-tokens"></a>Toegangstokens vernieuwen
+## <a name="refresh-identity-provider-tokens"></a>Id-provider vernieuwingstokens
 
-Wanneer het toegangstoken van de provider is verlopen, moet u de gebruiker verifiëren. U kunt verlopen van het token voorkomen door het maken van een `GET` aanroep naar de `/.auth/refresh` eindpunt van uw toepassing. Indien aangeroepen, wordt de toegangstokens te geven in het tokenarchief voor de geverifieerde gebruiker in App Service automatisch vernieuwd. De volgende aanvragen voor tokens door code van de app verkrijgen de vernieuwd tokens. Maar het tokenarchief voor tokenvernieuwing om te werken, moet bevatten [vernieuwingstokens](https://auth0.com/learn/refresh-tokens/) voor uw provider. De manier om vernieuwingstokens door elke provider worden beschreven, maar de volgende lijst bevat een korte samenvatting:
+Wanneer het toegangstoken van de provider (niet de [sessietoken](#extend-session-token-expiration-grace-period)) is verlopen, moet u de gebruiker verifiëren voordat u dit token opnieuw gebruiken. U kunt verlopen van het token voorkomen door het maken van een `GET` aanroep naar de `/.auth/refresh` eindpunt van uw toepassing. Indien aangeroepen, wordt de toegangstokens te geven in het tokenarchief voor de geverifieerde gebruiker in App Service automatisch vernieuwd. De volgende aanvragen voor tokens door code van de app verkrijgen de vernieuwd tokens. Maar het tokenarchief voor tokenvernieuwing om te werken, moet bevatten [vernieuwingstokens](https://auth0.com/learn/refresh-tokens/) voor uw provider. De manier om vernieuwingstokens door elke provider worden beschreven, maar de volgende lijst bevat een korte samenvatting:
 
 - **Google**: Toevoeg-een `access_type=offline` query-tekenreeksparameter aan uw `/.auth/login/google` API-aanroep. Als u met behulp van de Mobile Apps SDK, kunt u de parameter toevoegen aan een van de `LogicAsync` overloads (Zie [Google vernieuwen Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Biedt geen vernieuwingstokens. Lange levensduur hebben tokens verlopen binnen 60 dagen (Zie [Facebook vervaldatum en -extensie van toegangstokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter-**: Toegangstokens niet verlopen (Zie [Twitter OAuth Veelgestelde vragen over het](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Twitter**: Toegangstokens niet verlopen (Zie [Twitter OAuth Veelgestelde vragen over het](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
 - **Microsoft-Account**: Wanneer [verificatie-instellingen voor Microsoft-Account configureren](configure-authentication-provider-microsoft.md), selecteer de `wl.offline_access` bereik.
 - **Azure Active Directory**: In [ https://resources.azure.com ](https://resources.azure.com), de volgende stappen uit:
     1. Aan de bovenkant van de pagina, selecteer **lezen/schrijven**.
@@ -213,9 +213,9 @@ function refreshTokens() {
 
 Als een gebruiker de machtigingen verleend aan uw app, de aanroep van ingetrokken `/.auth/me` kan mislukken met een `403 Forbidden` antwoord. Voor het opsporen van fouten, Controleer uw toepassingslogboeken voor meer informatie.
 
-## <a name="extend-session-expiration-grace-period"></a>Sessie verlopen respijtperiode uitbreiden
+## <a name="extend-session-token-expiration-grace-period"></a>Sessie verlopen van het token respijtperiode uitbreiden
 
-Nadat een geverifieerde sessie is verlopen, moet u er een respijtperiode 72-uur is standaard. U mag de sessiecookie of sessietoken met App Service vernieuwen zonder herverifiëren van de gebruiker binnen deze periode. U kunt alleen aanroepen `/.auth/refresh` wanneer uw sessiecookie of de sessietoken is ongeldig, en hoeft u voor het bijhouden van verlopen van het token. Nadat de respijtperiode 72-uur afgebroken is, moet de gebruiker zich aanmelden opnieuw om een geldige sessiecookie of sessietoken te krijgen.
+De geverifieerde sessie verloopt na 8 uur. Nadat een geverifieerde sessie is verlopen, moet u er een respijtperiode 72-uur is standaard. U mag de sessie met App Service zonder herverifiëren van de gebruiker vernieuwingstoken binnen deze periode. U kunt alleen aanroepen `/.auth/refresh` wanneer uw sessietoken is ongeldig, en hoeft u voor het bijhouden van verlopen van het token. Nadat de respijtperiode 72-uur afgebroken is, moet de gebruiker zich aanmelden weer naar een geldige sessie-token ophalen.
 
 Als 72 uur niet voldoende tijd voor u is, kunt u dit venster verlopen kunt uitbreiden. Uitbreiding van de vervaldatum gedurende een lange periode kan aanzienlijke security gevolgen hebben (zoals wanneer een verificatietoken is vermist of gestolen). U moet dus 72 uur laat de standaardwaarde of de extensie is ingesteld op de kleinste waarde.
 

@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: 9e79aa2315118bcd9ce4328e74d51d7a22ea6247
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/25/2019
+ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744548"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478216"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Quickstart: Een BACPAC-bestand importeren naar een nieuwe Azure SQL Database
 
@@ -33,7 +33,7 @@ Deze sectie wordt beschreven hoe in de [Azure-portal](https://portal.azure.com)o
 > [!NOTE]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) biedt ondersteuning voor importeren vanuit een BACPAC-bestand met behulp van de andere methoden in dit artikel, maar ondersteunt momenteel geen migreren in Azure portal.
 
-Voor het importeren van een database in Azure portal, open de pagina voor de logische server die zal hosten van de invoer en selecteer op de werkbalk **database importeren**.  
+Voor het importeren van een database in Azure portal, open de pagina voor de SQL-Database-server die wordt host voor het importeren en selecteer op de werkbalk **database importeren**.  
 
    ![database importeren](./media/sql-database-import/import.png)
 
@@ -41,7 +41,7 @@ Selecteer de storage-account, container en Bacpac-bestand dat u wilt importeren.
 
 ### <a name="monitor-imports-progress"></a>Voortgang van importeren
 
-Voortgang van een import, pagina van de geïmporteerde database logische server openen en klik vervolgens onder **instellingen**, selecteer **geschiedenis van importeren/exporteren**. Als dat lukt, wordt de invoer heeft een **voltooid** status.
+Aan de voortgang van importeren, opent u de geïmporteerde database-serverpagina, en klikt u onder **instellingen**, selecteer **geschiedenis van importeren/exporteren**. Als dat lukt, wordt de invoer heeft een **voltooid** status.
 
 Als u wilt controleren of de database op de server is, selecteert u **SQL-databases** en controleer of de nieuwe database **Online**.
 
@@ -51,14 +51,14 @@ Voor het importeren van een SQL-database met de [SqlPackage](https://docs.micros
 
 Voor de schaal en prestaties, het beste met behulp van SqlPackage in de meeste productieomgevingen. Raadpleeg dit blogartikel van het SQL Server-klantadviesteam over migratie met behulp van BACPAC-bestanden: [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migreren van SQL Server naar Azure SQL Database met BACPAC-bestanden).
 
-De volgende SqlPackage opdracht importeert de **AdventureWorks2008R2** database uit de lokale opslag met een logische Azure SQL Database-server met de naam **mynewserver20170403**. Deze maakt u een nieuwe database met de naam **myMigratedDatabase** met een **Premium** servicelaag en een **P6** Servicedoelstelling. Deze waarden als geschikt is voor uw omgeving te wijzigen.
+De volgende SqlPackage opdracht importeert de **AdventureWorks2008R2** database uit de lokale opslag met een Azure SQL Database-server met de naam **mynewserver20170403**. Deze maakt u een nieuwe database met de naam **myMigratedDatabase** met een **Premium** servicelaag en een **P6** Servicedoelstelling. Deze waarden als geschikt is voor uw omgeving te wijzigen.
 
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> Een logische Azure SQL Database-server luistert naar poort 1433. Voor verbinding met een logische server achter een firewall van het bedrijf, moet de firewall voor deze poort geopend.
+> Een SQL Database-server luistert op poort 1433. Voor verbinding met een SQL Database-server achter een firewall van het bedrijf, moet de firewall voor deze poort geopend.
 >
 
 In dit voorbeeld laat zien hoe een database met behulp van SqlPackage met Universal verificatie van Active Directory importeren.
@@ -87,7 +87,7 @@ Gebruik de [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azu
 
  ```
 
- U kunt de [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet om het importeren van de voortgang te controleren. De cmdlet uitvoert voor de retourneert onmiddellijk na de aanvraag meestal **Status: InProgress**. Het importeren is voltooid wanneer er **Status: Geslaagd**.
+ U kunt de [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet om het importeren van de voortgang te controleren. De cmdlet uitvoert voor de retourneert onmiddellijk na de aanvraag meestal **Status: InProgress**. Het importeren is voltooid wanneer er **Status: Succeeded**.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -107,7 +107,7 @@ Zie voor een ander scriptvoorbeeld [een database uit een BACPAC-bestand importer
 
 ## <a name="limitations"></a>Beperkingen
 
-Importeren naar een database in een elastische pool wordt niet ondersteund. U kunt gegevens importeren in een individuele database en vervolgens de database te verplaatsen naar een pool.
+Importeren naar een database in een elastische pool wordt niet ondersteund. U kunt gegevens importeren in een individuele database en vervolgens de database te verplaatsen naar een elastische pool.
 
 ## <a name="import-using-wizards"></a>Importeren met behulp van de wizards
 

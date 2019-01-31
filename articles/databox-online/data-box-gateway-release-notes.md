@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450487"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302118"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Releaseopmerkingen voor Azure Data Box-Gateway-Preview
 
@@ -50,7 +50,9 @@ De volgende tabel bevat een overzicht van de bekende problemen voor de Data Box-
 | **5.** |Bestandstypen | De volgende typen van de Linux-bestanden worden niet ondersteund: teken bestanden, bestanden blokkeren, sockets, pipes, symbolische koppelingen.  |Deze bestanden zijn gekopieerd resultaten in 0 heeft een lengte van bestanden die worden gemaakt op de NFS delen. Deze bestanden blijven in een foutstatus en er wordt ook gerapporteerd *error.xml*. |
 | **6.** |Verwijderen | Vanwege een fout in deze release, als een NFS-share is verwijderd, kan klikt u vervolgens de share niet worden verwijderd. De status van de share wordt weergegeven *verwijderen*.  |Dit gebeurt alleen als de share met behulp van de naam van een niet-ondersteund bestandstype. |
 | **7.** |Vernieuwen | Machtigingen en toegangsbeheerlijsten (ACL's) blijven niet behouden via een vernieuwingsbewerking.  | |
-| **8.** |Online-help |De Help-koppelingen in de Azure-portal kan niet koppelen aan documentatie.|De Help-koppelingen werken in de algemeen beschikbare versie. |
+| **8.** |Exemplaar | Het kopiëren van gegevens is mislukt met fout:  De aangevraagde bewerking kan niet worden voltooid vanwege een beperking van bestand system.  |Deze fout treedt op wanneer de alternatieve gegevens Stream (AD) die zijn gekoppeld aan het bestand groter is dan 128 KB (maximale limiet voor ReFS).  |
+| **9.** |Symbolische koppelingen |Symbolische koppelingen worden niet ondersteund.  |Symbolische koppelingen naar de directory's leiden tot mappen ophalen nooit offline gemarkeerd. U mag de grijze cross als gevolg hiervan niet weergegeven in de mappen die aangeeft dat de mappen zijn offline en alle gekoppelde inhoud is volledig geüpload naar Azure. |
+| **10.** |Online-help |De Help-koppelingen in de Azure-portal kan niet koppelen aan documentatie.|De Help-koppelingen werken in de algemeen beschikbare versie. |
 
 
 

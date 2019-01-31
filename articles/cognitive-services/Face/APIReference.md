@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: dd36147688f4c53383d31db8b4aa860b5bbf39a7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6c5bfb052fc887bb189edb06247642419b14ecf7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214157"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296967"
 ---
 # <a name="api-reference"></a>API-naslaginformatie
 
@@ -28,5 +28,6 @@ De Face-API van Azure is een cloud-gebaseerde API met algoritmen voor gezichtsde
 - [API's voor LargeFaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): Gebruikt voor het beheren van een LargeFaceList voor [Zoek vergelijkbare](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
 - [PersonGroup persoon beheer-API's](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): Gebruikt voor het beheren van PersonGroup Gezichtsfoto's voor [identificatie](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 - [PersonGroup Management-API's](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): Gebruikt voor het beheren van een gegevensset PersonGroup voor [identificatie](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [Momentopname maken van beheer-API's](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot): Gebruikt voor het beheren van een momentopname van de gegevensmigratie voor abonnementen.
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

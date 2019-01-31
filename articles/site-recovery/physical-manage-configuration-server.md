@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: ee5cc1f185640c9ea22ceb80b1fabb20df245fe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 824c7c70cf3e79df3aa04bbe86674ed9486b79f2
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823077"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300435"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor herstel na noodgevallen van fysieke beheren
 
@@ -20,7 +20,7 @@ Instellen van een on-premises configuratieserver wanneer u de [Azure Site Recove
 
 ## <a name="prerequisites"></a>Vereisten
 
-De tabel bevat een overzicht van aan de vereisten voor het implementeren van de on-premises configuratie van server-computer.
+De tabel bevat een overzicht van de vereisten voor het implementeren van de on-premises configuratie van server-computer.
 
 | **Onderdeel** | **Vereiste** |
 | --- |---|
@@ -128,7 +128,7 @@ Voer het bestand voor installatie als volgt uit:
 ### <a name="create-file-input-for-mysqlcredsfilepath"></a>Bestandsinvoer voor MYSQLCredsFilePath maken
 
 De parameter MySQLCredsFilePath wordt een bestand gebruikt als invoer. Maak het bestand met de volgende notatie en geven deze als invoerparameter MySQLCredsFilePath.
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
@@ -136,7 +136,7 @@ MySQLUserPassword = "Password"
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Bestandsinvoer voor ProxySettingsFilePath maken
 ProxySettingsFilePath parameter wordt een bestand gebruikt als invoer. Maak het bestand met de volgende notatie en geven deze als invoerparameter ProxySettingsFilePath.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -157,7 +157,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 5. Geef de nieuwe proxy-informatie op en klik op de **registreren** knop.
 6. Open een opdrachtvenster Admin PowerShell.
 7. Voer de volgende opdracht uit:
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
@@ -177,7 +177,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
   6. Open een opdrachtvenster Admin PowerShell.
   7. De volgende opdracht uitvoeren
 
-      ```
+      ```powershell
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
@@ -205,7 +205,7 @@ Proxy-instellingen voor de configuratie van server-machine kunt u als volgt wijz
 6. Geef de details van de proxyserver en klikt u op de **registreren** knop.  
 7. Open een opdrachtvenster Admin PowerShell.
 8. De volgende opdracht uitvoeren
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
@@ -273,7 +273,7 @@ De server als volgt bijwerken:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Nu de context van uw kluis instellen
     
-    ```
+    ```powershell
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```

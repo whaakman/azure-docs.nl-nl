@@ -2,18 +2,18 @@
 title: Workloads van Azure Backup for SQL Server met DPM
 description: Een inleiding tot de back-ups van SQL Server-databases via de Azure Backup-service
 services: backup
-author: adigan
-manager: Nkolli
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945651"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300690"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Back-up van SQL Server naar Azure als een DPM-workload
 In dit artikel leidt u door de configuratiestappen voor back-up van SQL Server-databases met Azure Backup.
@@ -34,11 +34,11 @@ Voordat u begint, zorg ervoor dat alle de [vereisten](backup-azure-dpm-introduct
 2. Klik op het lint **nieuw** om een nieuwe beveiligingsgroep te maken.
 
     ![Beveiligingsgroep maken](./media/backup-azure-backup-sql/protection-group.png)
-3. DPM toont het startscherm met de richtlijnen over het maken van een **beveiligingsgroep**. Klik op **Volgende**.
+3. DPM toont het startscherm met de richtlijnen over het maken van een **beveiligingsgroep**. Klik op **volgende**.
 4. Selecteer **Servers**.
 
     ![Type beveiligingsgroep - 'Servers' selecteren](./media/backup-azure-backup-sql/pg-servers.png)
-5. Vouwt u de SQL Server-computer waar de databases naar een back-up aanwezig zijn. DPM bevat verschillende gegevensbronnen die een back-kunnen worden gemaakt van die server. Vouw de **alle SQL-Shares** en selecteer de databases (in dit geval we geselecteerde ReportServer$ MSDPM2012 en ReportServer$ MSDPM2012TempDB) naar het back-up worden gemaakt. Klik op **Volgende**.
+5. Vouwt u de SQL Server-computer waar de databases naar een back-up aanwezig zijn. DPM bevat verschillende gegevensbronnen die een back-kunnen worden gemaakt van die server. Vouw de **alle SQL-Shares** en selecteer de databases (in dit geval we geselecteerde ReportServer$ MSDPM2012 en ReportServer$ MSDPM2012TempDB) naar het back-up worden gemaakt. Klik op **volgende**.
 
     ![SQL-database selecteren](./media/backup-azure-backup-sql/pg-databases.png)
 6. Geef een naam op voor de beveiligingsgroep en selecteer de **ik Kies voor online beveiliging** selectievakje.
@@ -64,11 +64,11 @@ Voordat u begint, zorg ervoor dat alle de [vereisten](backup-azure-dpm-introduct
     DPM maakt standaard één volume per gegevensbron (SQL Server-database) dat wordt gebruikt voor de eerste back-up. Met deze aanpak beperkt de Logical Disk Manager (LDM) DPM-beveiliging met 300 gegevensbronnen (SQL Server-databases). U kunt deze beperking omzeilen, selecteer de **dezelfde gegevens in de DPM-opslaggroep plaatsen**, optie. Als u deze optie gebruikt, DPM maakt gebruik van een enkel volume voor meerdere gegevensbronnen, zodat DPM maximaal 2000 SQL-databases worden beveiligd.
 
     Als **volumes automatisch vergroten** optie is geselecteerd, DPM kan rekening voor de verbeterde back-upvolume wanneer de productiegegevens groeit. Als **volumes automatisch vergroten** optie niet is ingeschakeld, DPM Hiermee beperkt u de back-upopslag gebruikt met de gegevensbronnen in de beveiligingsgroep.
-9. Beheerders, krijgen de keuze van het overdragen van deze eerste back-up handmatig (uit netwerk) om te voorkomen opstoppingen in het bandbreedte of via het netwerk. Ze kunnen ook de tijd waarop de initiële overdracht kan gebeuren configureren. Klik op **Volgende**.
+9. Beheerders, krijgen de keuze van het overdragen van deze eerste back-up handmatig (uit netwerk) om te voorkomen opstoppingen in het bandbreedte of via het netwerk. Ze kunnen ook de tijd waarop de initiële overdracht kan gebeuren configureren. Klik op **volgende**.
 
-    ![Methode voor eerste replicatie](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Methode van initiële replicatie](./media/backup-azure-backup-sql/pg-manual.png)
 
-    De eerste back-up is vereist voor overdracht van de gehele gegevensbron (SQL Server-database) van productieserver (SQL Server-machine) naar de DPM-server. Deze gegevens zijn mogelijk grote, en bandbreedte als de gegevens worden overgebracht via het netwerk kunt overschrijden. Om deze reden, beheerders kunnen kiezen om over te dragen van de eerste back-up: **handmatig** (met behulp van verwijderbare media) om te voorkomen opstoppingen in het bandbreedte, of **automatisch via het netwerk** (op een bepaald tijdstip).
+    De eerste back-up is vereist voor overdracht van de gehele gegevensbron (SQL Server-database) van productieserver (SQL Server-machine) naar de DPM-server. Deze gegevens zijn mogelijk grote, en bandbreedte als de gegevens worden overgebracht via het netwerk kunt overschrijden. Beheerders kunnen kiezen om deze reden om over te dragen van de eerste back-up: **Handmatig** (met behulp van verwijderbare media) om te voorkomen opstoppingen in het bandbreedte, of **automatisch via het netwerk** (op een bepaald tijdstip).
 
     Nadat de eerste back-up is voltooid, zijn de rest van de back-ups incrementele back-ups op de eerste back-up. Incrementele back-ups zijn meestal klein en eenvoudig worden overgedragen via het netwerk.
 10. Kies wanneer u de consistentiecontrole uitvoeren en klikt u op **volgende**.
@@ -137,12 +137,12 @@ De volgende stappen zijn vereist voor het herstellen van een beveiligde entiteit
 2. Met de rechtermuisknop op de naam van de database en klik op **herstellen**.
 
     ![Herstellen van Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM geeft de details van het herstelpunt. Klik op **Volgende**. Als u wilt overschrijven van de database, selecteert u het hersteltype **herstellen naar oorspronkelijk exemplaar van SQL Server**. Klik op **Volgende**.
+3. DPM geeft de details van het herstelpunt. Klik op **volgende**. Als u wilt overschrijven van de database, selecteert u het hersteltype **herstellen naar oorspronkelijk exemplaar van SQL Server**. Klik op **volgende**.
 
     ![Herstellen naar oorspronkelijke locatie](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     In dit voorbeeld kan DPM herstel van de database naar een ander exemplaar van SQL Server of naar een netwerkmap zelfstandige.
-4. In de **herstelopties opgeven** scherm, kunt u de herstelopties zoals beperking van de netwerkbandbreedte te beperken van de bandbreedte die wordt gebruikt door herstel. Klik op **Volgende**.
+4. In de **herstelopties opgeven** scherm, kunt u de herstelopties zoals beperking van de netwerkbandbreedte te beperken van de bandbreedte die wordt gebruikt door herstel. Klik op **volgende**.
 5. In de **samenvatting** scherm ziet u alle van de recovery-configuraties geleverd tot nu toe. Klik op **herstellen**.
 
     De herstelstatus ziet u de database wordt hersteld. U kunt klikken op **sluiten** aan de wizard te sluiten en de voortgang in de **bewaking** werkruimte.

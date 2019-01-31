@@ -1,6 +1,6 @@
 ---
-Titel: Vraag dat een vraaggegevens titleSuffix kunt beantwoorden: Azure Machine Learning Studio description: Leer hoe u een vraag sharp data science in Gegevenswetenschap voor Beginners video 3 formuleren. Bevat een vergelijking van classificatie- en regressiemodellen vragen.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Vraag dat een vraaggegevens titleSuffix kunt beantwoorden: Azure Machine Learning Studio description: Leer hoe u een vraag sharp data science in Gegevenswetenschap voor Beginners video 3 formuleren. Bevat een vergelijking van classificatie- en regressiemodellen vragen.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 01/03/2018
 ---

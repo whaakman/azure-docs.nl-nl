@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: fa497979349346016e1c176ace98407d98eebdca
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4cec5dd38d41f354f4d1430240a23f0b328cbb7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307738"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452427"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-instructies ondersteund in Azure SQL Data Warehouse
 Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
@@ -31,7 +31,7 @@ Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL
 * [MAKEN VAN DATABASE-SCOPED REFERENTIE](https://msdn.microsoft.com/library/mt270260.aspx)
 * [EXTERNE GEGEVENSBRON MAKEN](https://msdn.microsoft.com/library/dn935022.aspx)
 * [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
-* [EXTERNE TABEL MAKEN](https://msdn.microsoft.com/library/dn935021.aspx)
+* [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 * [FUNCTIE MAKEN](https://msdn.microsoft.com/library/mt203952.aspx)
 * [INDEX MAKEN](https://msdn.microsoft.com/library/ms188783.aspx)
 * [PROCEDURE MAKEN](https://msdn.microsoft.com/library/ms187926.aspx)
@@ -45,7 +45,7 @@ Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL
 * [EXTERNE TABEL VERWIJDEREN](https://msdn.microsoft.com/library/mt130698.aspx)
 * [INDEX VERWIJDEREN](https://msdn.microsoft.com/library/ms176118.aspx)
 * [PROCEDURE VERWIJDEREN](https://msdn.microsoft.com/library/ms174969.aspx)
-* [STATISTIEKEN VERWIJDEREN](https://msdn.microsoft.com/library/ms175075.aspx)
+* [DROP STATISTICS](https://msdn.microsoft.com/library/ms175075.aspx)
 * [TABEL VERWIJDEREN](https://msdn.microsoft.com/library/ms173790.aspx)
 * [SCHEMA VERWIJDEREN](https://msdn.microsoft.com/library/ms186751.aspx)
 * [WEERGAVE VERWIJDEREN](https://msdn.microsoft.com/library/ms173492.aspx)
@@ -68,25 +68,25 @@ Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## <a name="query-statements"></a>Queryinstructies
-* [SELECTEER](https://msdn.microsoft.com/library/ms189499.aspx)
-* [MET common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
+* [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)
+* [WITH common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [Met uitzondering van en SNIJDEN](https://msdn.microsoft.com/library/ms188055.aspx)
 * [EXPLAIN](https://msdn.microsoft.com/library/mt631615.aspx)
-* [VAN](https://msdn.microsoft.com/library/ms177634.aspx)
+* [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
 * [Met behulp van DRAAITABELLEN en UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 * [GROEPEREN OP](https://msdn.microsoft.com/library/ms177673.aspx)
-* [HEBBEN](https://msdn.microsoft.com/library/ms180199.aspx)
-* [SORTEREN OP](https://msdn.microsoft.com/library/ms188385.aspx)
+* [HAVING](https://msdn.microsoft.com/library/ms180199.aspx)
+* [ORDER BY](https://msdn.microsoft.com/library/ms188385.aspx)
 * [OPTION](https://msdn.microsoft.com/library/ms190322.aspx)
 * [UNION](https://msdn.microsoft.com/library/ms180026.aspx)
-* [WAAR](https://msdn.microsoft.com/library/ms188047.aspx)
+* [WHERE](https://msdn.microsoft.com/library/ms188047.aspx)
 * [TOP](https://msdn.microsoft.com/library/ms189463.aspx)
 * [Aliasing](https://msdn.microsoft.com/library/mt631614.aspx)
 * [Zoekvoorwaarde](https://msdn.microsoft.com/library/ms173545.aspx)
 * [Subquery 's](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Instructies voor beveiliging
-* Machtigingen: [verlenen](https://msdn.microsoft.com/library/ms187965.aspx), [weigeren](https://msdn.microsoft.com/library/ms188338.aspx), [INTREKKEN](https://msdn.microsoft.com/library/ms187728.aspx)
+* Machtigingen: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTER AUTORISATIE](https://msdn.microsoft.com/library/ms187359.aspx)
 * [CERTIFICAAT WIJZIGEN](https://msdn.microsoft.com/library/ms189511.aspx)
 * [ALTER DATABASE ENCRYPTION KEY](https://msdn.microsoft.com/library/bb630389.aspx)

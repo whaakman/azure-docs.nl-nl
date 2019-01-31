@@ -1,6 +1,6 @@
 ---
-Titel: Excel-invoegtoepassing voor web services titleSuffix: Azure Machine Learning Studio description: Het gebruik van Azure Machine Learning-webservices rechtstreeks in Excel zonder een code te schrijven.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Excel-invoegtoepassing voor web services titleSuffix: Azure Machine Learning Studio description: Het gebruik van Azure Machine Learning-webservices rechtstreeks in Excel zonder een code te schrijven.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
 ---

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.component: common
-ms.openlocfilehash: 25de4f28d7516f5c7830b24e4c999ceb855a7759
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: b9524f7aff7ae9de37835985787b5d4d9c3cf9b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242973"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478233"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gelijktijdigheid beheren in Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -45,7 +45,7 @@ De omtrek van dit proces is als volgt:
 4. Als de huidige ETag-waarde van de blob is een andere versie dan de ETag in de **If-Match** voorwaardelijke-header in de aanvraag, de service retourneert een 412 fout naar de client. Hiermee geeft u aan de client of een ander proces de blob is bijgewerkt, omdat deze wordt opgehaald door de client.
 5. Als de huidige ETag-waarde van de blob is dezelfde versie als de ETag in de **If-Match** voorwaardelijke koptekst in de aanvraag, de service de aangevraagde bewerking wordt uitgevoerd en werkt de huidige ETag-waarde van de blob om weer te geven dat deze is gemaakt een nieuwe versie.  
 
-De volgende C#-fragment (met behulp van de Storage-clientbibliotheek 4.2.0) toont een eenvoudig voorbeeld van hoe u een **If-Match AccessCondition** op basis van de ETag-waarde die toegankelijk is vanuit de eigenschappen van een blob die eerder is opgehaald of worden geplaatst. Vervolgens wordt de **AccessCondition** tijdens het bijwerken van de blob-object: de **AccessCondition** object wordt toegevoegd de **If-Match** header aan de aanvraag. Als een ander proces wordt de blob is bijgewerkt, retourneert de blob-service een statusbericht HTTP 412 (voorwaarde niet voldaan). U kunt het volledige voorbeeld hier downloaden: [gelijktijdigheid van beheren met behulp van Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+De volgende C#-fragment (met behulp van de Storage-clientbibliotheek 4.2.0) toont een eenvoudig voorbeeld van hoe u een **If-Match AccessCondition** op basis van de ETag-waarde die toegankelijk is vanuit de eigenschappen van een blob die eerder is opgehaald of worden geplaatst. Vervolgens wordt de **AccessCondition** tijdens het bijwerken van de blob-object: de **AccessCondition** object wordt toegevoegd de **If-Match** header aan de aanvraag. Als een ander proces wordt de blob is bijgewerkt, retourneert de blob-service een statusbericht HTTP 412 (voorwaarde niet voldaan). U kunt het volledige voorbeeld hier downloaden: [Gelijktijdigheid met behulp van Azure Storage beheren](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -126,7 +126,7 @@ Als u wilt vergrendelen van een blob voor exclusief gebruik, kunt u verkrijgen e
 
 Leases schakelen strategieën voor verschillende synchronisatie worden ondersteund, met inbegrip van exclusieve schrijven / gedeelde lezen, exclusieve schrijven / exclusieve lezen en schrijven gedeeld / exclusieve lezen. Wanneer een lease bestaat exclusieve schrijfbewerkingen (put, instellen en verwijderbewerkingen) wordt afgedwongen door de storage-service echter het ervoor te zorgen dat de exclusiviteit voor leesbewerkingen is vereist voor de ontwikkelaar om ervoor te zorgen dat alle clienttoepassingen een lease-ID gebruiken en die slechts één client tegelijk heeft een geldige lease-ID. Leesbewerkingen die een lease-ID resultaat niet in gedeelde leesbewerkingen opnemen.  
 
-De volgende C#-codefragment toont een voorbeeld van een exclusieve lease verkrijgen gedurende 30 seconden voor een blob, het bijwerken van de inhoud van de blob en vervolgens het vrijgeven van de lease. Als er al een geldige lease op de blob wanneer u probeert een nieuwe lease te verkrijgen, retourneert de blob-service een resultaat van de status 'HTTP (409) Conflict'. Het volgende fragment wordt een **AccessCondition** object om in te kapselen van de lease-informatie wanneer deze een aanvraag voor het bijwerken van de blob in de storage-service maakt.  U kunt het volledige voorbeeld hier downloaden: [gelijktijdigheid van beheren met behulp van Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+De volgende C#-codefragment toont een voorbeeld van een exclusieve lease verkrijgen gedurende 30 seconden voor een blob, het bijwerken van de inhoud van de blob en vervolgens het vrijgeven van de lease. Als er al een geldige lease op de blob wanneer u probeert een nieuwe lease te verkrijgen, retourneert de blob-service een resultaat van de status 'HTTP (409) Conflict'. Het volgende fragment wordt een **AccessCondition** object om in te kapselen van de lease-informatie wanneer deze een aanvraag voor het bijwerken van de blob in de storage-service maakt.  U kunt het volledige voorbeeld hier downloaden: [Gelijktijdigheid met behulp van Azure Storage beheren](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -193,7 +193,7 @@ Zie voor meer informatie:
 
 * [Voorwaardelijke Headers op te geven voor bewerkingen van Blob Service](https://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Lease-Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease-Blob ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Lease Blob ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Gelijktijdigheid beheren in de Table-Service
 De tabelservice gebruikt optimistische gelijktijdigheid controleert als standaardgedrag wanneer u werkt met entiteiten, in tegenstelling tot de blob-service waar u expliciet kiezen moet optimistische gelijktijdigheid controles uit te voeren. De andere verschil tussen de tabel- en blob-services is dat u alleen de gelijktijdigheid-gedrag van entiteiten beheren kunt terwijl met de blob-service kunt u de waarde voor concurrency van containers en blobs beheren.  
@@ -208,7 +208,7 @@ Optimistische gelijktijdigheid gebruiken en om te controleren als een ander proc
 
 Houd er rekening mee dat in tegenstelling tot de blob-service, de table-service vereist dat de client om op te nemen een **If-Match** -header in verzoeken om te werken. Het is echter mogelijk om af te dwingen een onvoorwaardelijk update (laatste schrijver WINS-strategie) en gelijktijdigheid controles overslaan als de client stelt de **If-Match** header aan het jokerteken (*) in de aanvraag.  
 
-De volgende C#-fragment toont een klantentiteit die u eerder hebt gemaakt of opgehaald met hun e-mailadres dat is bijgewerkt. De eerste plaats of bewerking winkels de ETag-waarde in de klant-object ophalen omdat in het voorbeeld dezelfde objectinstantie wordt bij het uitvoeren van de vervangingsbewerking, verzonden en wordt automatisch de ETag-waarde terug naar de tabelservice, de service inschakelen Controleer of schendingen van gelijktijdigheid. Wanneer een ander proces is bijgewerkt naar de entiteit in de tabelopslag, retourneert de service een statusbericht HTTP 412 (voorwaarde niet voldaan).  U kunt het volledige voorbeeld hier downloaden: [gelijktijdigheid van beheren met behulp van Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+De volgende C#-fragment toont een klantentiteit die u eerder hebt gemaakt of opgehaald met hun e-mailadres dat is bijgewerkt. De eerste plaats of bewerking winkels de ETag-waarde in de klant-object ophalen omdat in het voorbeeld dezelfde objectinstantie wordt bij het uitvoeren van de vervangingsbewerking, verzonden en wordt automatisch de ETag-waarde terug naar de tabelservice, de service inschakelen Controleer of schendingen van gelijktijdigheid. Wanneer een ander proces is bijgewerkt naar de entiteit in de tabelopslag, retourneert de service een statusbericht HTTP 412 (voorwaarde niet voldaan).  U kunt het volledige voorbeeld hier downloaden: [Gelijktijdigheid met behulp van Azure Storage beheren](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -284,5 +284,5 @@ Voor meer informatie over Azure Storage-Zie:
 * [Startpagina van Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Kennismaking met Azure Storage](storage-introduction.md)
 * Aan de slag voor opslag [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [tabel](../../cosmos-db/table-storage-how-to-use-dotnet.md), [wachtrijen](../storage-dotnet-how-to-use-queues.md), en [bestanden](../storage-dotnet-how-to-use-files.md)
-* Opslagarchitectuur – [Azure Storage: een maximaal beschikbare Cloudopslagservice met sterke consistentie](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Opslagarchitectuur – [Azure Storage: Een maximaal beschikbare Cloudopslagservice met sterke consistentie](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

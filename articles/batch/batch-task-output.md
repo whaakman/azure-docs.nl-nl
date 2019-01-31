@@ -2,7 +2,7 @@
 title: Behouden van de resultaten of de logboeken van voltooide taken en taken aan een gegevensopslag - Azure Batch | Microsoft Docs
 description: Meer informatie over verschillende opties voor permanente uitvoergegevens van de Batch-taken en taken. U kunt gegevens naar Azure Storage, of naar een ander gegevensarchief bewaard.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705710"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474340"
 ---
 # <a name="persist-job-and-task-output"></a>Taken persistent maken
 
@@ -77,13 +77,13 @@ U kunt ook uw eigen volledig bestand gegevensverplaatsing-oplossing implementere
 
 Bij het ontwerpen van uw Batch-oplossing, houd rekening met de volgende factoren met betrekking tot de taak en uitvoer.
 
-- **Levensduur van COMPUTE**: Compute-knooppunten zijn vaak tijdelijk is, met name in groepen automatisch schalen is ingeschakeld. Uitvoer van een taak die wordt uitgevoerd op een knooppunt is alleen beschikbaar als het knooppunt bestaat, en alleen binnen de bewaarperiode van het bestand die u hebt ingesteld voor de taak. Als een taak geeft een resultaat die u moet uitvoeren mogelijk nadat de taak voltooid is, kunnen de taak moet de uitvoerbestanden uploaden naar een duurzame store, zoals Azure Storage.
+- **Levensduur van COMPUTE**: COMPUTE-knooppunten zijn vaak tijdelijk is, met name in groepen automatisch schalen is ingeschakeld. Uitvoer van een taak die wordt uitgevoerd op een knooppunt is alleen beschikbaar als het knooppunt bestaat, en alleen binnen de bewaarperiode van het bestand die u hebt ingesteld voor de taak. Als een taak geeft een resultaat die u moet uitvoeren mogelijk nadat de taak voltooid is, kunnen de taak moet de uitvoerbestanden uploaden naar een duurzame store, zoals Azure Storage.
 
-- **Storage-uitvoer**: Azure Storage wordt aanbevolen als een gegevensarchief voor uitvoer van de taak, maar u kunt een duurzame opslag gebruiken. Uitvoer van de taak schrijven naar Azure Storage is geïntegreerd in de Batch-service-API. Als u een andere vorm van duurzame opslag gebruikt, moet u de toepassingslogica om persistent taak uitvoer zelf te schrijven.
+- **Storage-uitvoer**: Azure-opslag als gegevensopslag voor uitvoer van de taak wordt aanbevolen, maar u kunt een duurzame opslag gebruiken. Uitvoer van de taak schrijven naar Azure Storage is geïntegreerd in de Batch-service-API. Als u een andere vorm van duurzame opslag gebruikt, moet u de toepassingslogica om persistent taak uitvoer zelf te schrijven.
 
 - **Het ophalen van de uitvoer**: U kunt uitvoer van de taak ophalen rechtstreeks vanuit de rekenknooppunten in uw pool, of vanuit Azure Storage of een ander gegevensarchief als u de uitvoer van de taak hebt opgeslagen. Als u wilt ophalen van de taak uitvoer rechtstreeks vanuit een compute-knooppunt, moet u de bestandsnaam en de uitvoerlocatie op het knooppunt. Als u de uitvoer van de taak naar Azure Storage zich blijven voordoen, moet u het volledige pad naar het bestand in Azure Storage voor het downloaden van de uitvoerbestanden met de Azure Storage SDK.
 
-- **Uitvoer weergeven**: wanneer u gaat u naar een batchtaak in Azure portal en selecteer **bestanden op knooppunt**, krijgt u alle bestanden die zijn gekoppeld aan de taak, niet alleen de uitvoerbestanden u geïnteresseerd bent. Bestanden op de rekenknooppunten zijn weer beschikbaar terwijl het knooppunt bestaat en alleen in de bewaartijd voor bestanden die u hebt ingesteld voor de taak. Als u de uitvoer van de taak die u naar Azure Storage hebt opgeslagen, kunt u de Azure-portal of een Azure Storage client-toepassing, zoals de [Azure Storage Explorer][storage_explorer]. Als u wilt weergeven uitvoergegevens in Azure Storage met de portal of een ander hulpprogramma, moet u weet dat de locatie van het bestand en gaat u rechtstreeks naar deze.
+- **Uitvoer weergeven**: Wanneer u gaat u naar een batchtaak in Azure portal en selecteer **bestanden op knooppunt**, krijgt u alle bestanden die zijn gekoppeld aan de taak, niet alleen de uitvoerbestanden u geïnteresseerd bent. Bestanden op de rekenknooppunten zijn weer beschikbaar terwijl het knooppunt bestaat en alleen in de bewaartijd voor bestanden die u hebt ingesteld voor de taak. Als u de uitvoer van de taak die u naar Azure Storage hebt opgeslagen, kunt u de Azure-portal of een Azure Storage client-toepassing, zoals de [Azure Storage Explorer][storage_explorer]. Als u wilt weergeven uitvoergegevens in Azure Storage met de portal of een ander hulpprogramma, moet u weet dat de locatie van het bestand en gaat u rechtstreeks naar deze.
 
 ## <a name="next-steps"></a>Volgende stappen
 

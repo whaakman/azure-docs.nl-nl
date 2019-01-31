@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601573"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471664"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamisch schalen database-resources met minimale downtime
 
@@ -54,9 +54,9 @@ U kunt wijzigen [DTU-Servicelagen](sql-database-service-tiers-dtu.md) of [vCore 
 
 Alle drie versies van Azure SQL Database bieden een mogelijkheid voor het dynamisch schalen van uw databases:
 
-- In [één Azure SQL-Database](sql-database-single-database-scale.md), gebruikt u een [DTU](sql-database-dtu-resource-limits-single-databases.md) of [vCore](sql-database-vcore-resource-limits-single-databases.md) modellen voor het definiëren van de maximale hoeveelheid resources die worden toegewezen aan elke database.
-- [Azure SQL Managed Instance](sql-database-managed-instance.md) maakt gebruik van [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) modus en kunt u maximaal CPU-kernen en het maximumaantal opslag toegewezen aan uw exemplaar definiëren. Alle databases in de instantie delen de resources die zijn toegewezen aan het exemplaar.
-- [Elastische Pools van Azure SQL](sql-database-elastic-pool-scale.md) kunt u voor het definiëren van de maximale limiet is per groep databases in de groep.
+- Met een [individuele database](sql-database-single-database-scale.md), gebruikt u een [DTU](sql-database-dtu-resource-limits-single-databases.md) of [vCore](sql-database-vcore-resource-limits-single-databases.md) modellen voor het definiëren van de maximale hoeveelheid resources die worden toegewezen aan elke database.
+- Een [Managed Instance](sql-database-managed-instance.md) maakt gebruik van [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) modus en kunt u maximaal CPU-kernen en het maximumaantal opslag toegewezen aan uw exemplaar definiëren. Alle databases in de instantie delen de resources die zijn toegewezen aan het exemplaar.
+- [Elastische pools](sql-database-elastic-pool-scale.md) kunt u voor het definiëren van de maximale limiet is per groep databases in de groep.
 
 ## <a name="alternative-scale-methods"></a>Schaal van alternatieve methoden
 

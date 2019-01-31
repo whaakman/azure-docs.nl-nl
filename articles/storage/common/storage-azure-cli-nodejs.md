@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258711"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464837"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Met behulp van de klassieke Azure CLI met Azure Storage
 
@@ -35,7 +35,7 @@ Deze handleiding wordt ervan uitgegaan dat u inzicht in de basisbeginselen van A
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Aan de slag met Azure Storage en de klassieke Azure CLI in vijf minuten
 Deze handleiding Ubuntu gebruikt voor voorbeelden, maar andere OS-platformen op dezelfde manier moeten uitvoeren.
 
-**Nieuw bij Azure:** ophalen van een Microsoft Azure-abonnement en een Microsoft-account dat aan het abonnement is gekoppeld. Zie voor meer informatie over Azure-Aankoopopties [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/), [kopen opties](https://azure.microsoft.com/pricing/purchase-options/), en [aanbiedingen voor leden](https://azure.microsoft.com/pricing/member-offers/) (voor leden van MSDN, Microsoft Partner Network en BizSpark, en andere Microsoft-programma's).
+**Nieuw bij Azure:** Een Microsoft Azure-abonnement en een Microsoft-account dat is gekoppeld aan dat abonnement ophalen. Zie voor meer informatie over Azure-Aankoopopties [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/), [kopen opties](https://azure.microsoft.com/pricing/purchase-options/), en [aanbiedingen voor leden](https://azure.microsoft.com/pricing/member-offers/) (voor leden van MSDN, Microsoft Partner Network en BizSpark, en andere Microsoft-programma's).
 
 Zie [beheerdersrollen toewijzen in Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) voor meer informatie over Azure-abonnementen.
 
@@ -78,7 +78,7 @@ Zie [beheerdersrollen toewijzen in Azure Active Directory (Azure AD)](https://do
 5. Open uw favoriete teksteditor (vim bijvoorbeeld) in uw lokale computer. Typ het bovenstaande script in de teksteditor.
 6. Nu moet u de scriptvariabelen op basis van uw configuratie-instellingen bijwerken.
 
-   * **< Naam_opslagaccount >** gebruik van de opgegeven naam in het script of voer een nieuwe naam voor uw storage-account. **Belangrijk:** de naam van het opslagaccount moet uniek zijn in Azure. Er moet een kleine letter, te!
+   * **< Naam_opslagaccount >** gebruik van de opgegeven naam in het script of voer een nieuwe naam voor uw storage-account. **Belangrijk:** De naam van het opslagaccount moet uniek zijn in Azure. Er moet een kleine letter, te!
    * **< Storage_account_key >** de toegangssleutel van uw storage-account.
    * **< Container_name >** gebruik van de opgegeven naam in het script of voer een nieuwe naam voor de container.
    * **< Image_to_upload >** Voer een pad naar een afbeelding op uw lokale computer, zoals: ' ~ / images/HelloWorld.png '.
@@ -132,7 +132,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Er zijn drie niveaus van anonieme leestoegang: **uit**, **Blob**, en **Container**. Om te voorkomen dat anonieme toegang tot blobs, stelt u de parameter machtiging in op **uit**. Standaard worden de nieuwe container privé en kan alleen worden geopend door de eigenaar van het. Anonieme toegang toestaan openbare leestoegang tot blob-resources, maar niet aan de containermetagegevens van de of aan de lijst met blobs in de container, stelt u de parameter machtiging op **Blob**. Als u wilt toestaan dat volledige openbare leestoegang tot de blob-resources, de containermetagegevens van de en de lijst met blobs in de container, kunt u de machtiging-parameter instellen op **Container**. Zie [Anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md) voor meer informatie.
+> Er zijn drie niveaus van anonieme toegang voor lezen: **Uit**, **Blob**, en **Container**. Om te voorkomen dat anonieme toegang tot blobs, stelt u de parameter machtiging in op **uit**. Standaard worden de nieuwe container privé en kan alleen worden geopend door de eigenaar van het. Anonieme toegang toestaan openbare leestoegang tot blob-resources, maar niet aan de containermetagegevens van de of aan de lijst met blobs in de container, stelt u de parameter machtiging op **Blob**. Als u wilt toestaan dat volledige openbare leestoegang tot de blob-resources, de containermetagegevens van de en de lijst met blobs in de container, kunt u de machtiging-parameter instellen op **Container**. Zie [Anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md) voor meer informatie.
 >
 >
 

@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 38da370e8e3cd81e209d0fd592d6b2afa8c82e44
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: queues
+ms.openlocfilehash: 295ca353530fb438d0bd77a9144813543102b997
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138500"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472708"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Queue Storage gebruiken met Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -116,7 +116,7 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedure: Het volgende bericht bekijken
+## <a name="how-to-peek-at-the-next-message"></a>Procedure: Het volgende bericht
 U kunt het bericht vooraan in een wachtrij bekijken zonder deze te verwijderen uit de wachtrij door het aanroepen van de **peekMessages** methode. Standaard **peekMessages** geeft een enkel bericht weer.
 
 ```javascript
@@ -134,7 +134,7 @@ De `result` het bericht bevat.
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit de wachtrij verwijderen
+## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit wachtrij verwijderen
 Verwerken van een bericht is een proces in twee fasen:
 
 1. Het bericht uit de wachtrij verwijderen.
@@ -181,7 +181,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Het: Aanvullende opties voor eruit worden verwijderd voor berichten
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procedure: Aanvullende opties voor berichten eruit worden verwijderd
 Er zijn twee manieren u bericht dat wordt opgehaald uit een wachtrij kunt aanpassen:
 
 * `options.numOfMessages` -Ophalen van een berichtenbatch (maximaal 32.)
@@ -243,7 +243,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 Schakel alle berichten uit een wachtrij zonder deze te verwijderen, gebruikt u **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Hoe: werken met handtekeningen voor gedeelde toegang
+## <a name="how-to-work-with-shared-access-signatures"></a>Procedure: Werken met handtekeningen voor gedeelde toegang
 Shared Access Signatures (SAS) vormen een veilige manier voor gedetailleerde toegang tot wachtrijen zonder op te geven uw storage-accountnaam of sleutels. Beveiligingskoppelingen worden vaak gebruikt voor beperkte toegang tot uw wachtrijen, zoals het toestaan van een mobiele app om berichten te versturen.
 
 Een betrouwbare toepassing, zoals een cloud-gebaseerde service genereert een SAS met de **generateSharedAccessSignature** van de **QueueService**, en biedt dit aan een niet-vertrouwde of semi vertrouwde-toepassing. Bijvoorbeeld: een mobiele app. De SAS wordt gegenereerd op basis van beleid, waarin de begin- en einddatum wordt vermeld voor de geldigheid van de SAS, evenals het toegangsniveau verleend aan de SAS-houder.

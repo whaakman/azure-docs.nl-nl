@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: c5120cdb743e031c081f727c947752419db3a9d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081106"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211427"
 ---
 # <a name="r-developers-guide-to-azure"></a>R developer's guide voor Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -33,7 +33,7 @@ We gaan de verschillende opties en de meest waardevolle scenario's voor elk crit
 ## <a name="azure-services-with-r-language-support"></a>Azure-services met ondersteuning voor R-taal
 In dit artikel bevat informatie over de volgende Azure-services die ondersteuning bieden voor de R-taal:
 
-|Service                                                          |Description                                                                       |
+|Service                                                          |Beschrijving                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
 |[Virtuele Machine voor Datatechnologie](#data-science-virtual-machine)    |een aangepaste virtuele machine gebruiken als een data science-werkstation of als een aangepaste compute-doel|
 |[ML-Services op HDInsight](#ml-services-on-hdinsight)            |cluster-systeem voor het uitvoeren van R-analyses op grote gegevenssets over veel knooppunten   |
@@ -114,7 +114,7 @@ Een derde optie is het gebruik de [Azure Distributed Data Engineering Toolkit](h
 
 [Azure-notitieblokken](https://notebooks.azure.com) is een goedkope, lage-eenvoudige methode voor R-ontwikkelaars die liever werken met notitieblokken op hun code naar Azure meenemen.  Het is een gratis service voor iedereen ontwikkelen en uitvoeren van code in hun browser met [Jupyter](https://jupyter.org/), dit is een open source-project waarmee markdown prose zoekfunctionaliteit door te combineren, uitvoerbare code en afbeeldingen op bestaat uit één canvas.
 
-De laag gratis service van Azure-notitieblokken is een beschikbare optie voor projecten met een kleinschalige wanneer het proces van elke laptop van 4GB aan geheugen en 1GB gegevenssets limieten. Als u power reken- en gegevens buiten deze beperkingen, maar kunt u uitvoeren notitieblokken in een Data Science Virtual Machine-instantie. Zie voor meer informatie, [beheren en configureren van Azure-notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+De laag gratis service van Azure-notitieblokken is een beschikbare optie voor projecten met een kleinschalige wanneer het proces van elke laptop van 4GB aan geheugen en 1GB gegevenssets limieten. Als u power reken- en gegevens buiten deze beperkingen, maar kunt u uitvoeren notitieblokken in een Data Science Virtual Machine-instantie. Zie voor meer informatie, [beheren en configureren van Azure-notitieblokken projecten - Compute-laag](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is van Microsoft intelligente, volledig beheerde relationele clouddatabaseservice.  Hiermee kunt u de volledige kracht van SQL Server zonder alle moeite van het instellen van de infrastructuur gebruiken.  Dit omvat [Machine Learning-Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), dit is een van de meest recente toevoegingen aan SQL-Service.

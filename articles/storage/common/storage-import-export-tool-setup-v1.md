@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: d7f0a40710d0cd7f017d9caa0da8e1644cdf56d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526509"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467608"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>De Azure Import/Export-hulpprogramma instellen
 Het Microsoft Azure Import/Export-hulpprogramma is het station voorbereiding hulpprogramma en herstel die u met de Microsoft Azure Import/Export-service gebruiken kunt. U kunt het hulpprogramma gebruiken voor de volgende functies:  
@@ -70,7 +70,7 @@ Als u probeert te herstellen van een importeren dat is gedeeltelijk mislukt, moe
   
 -   Microsoft.WindowsAzure.Storage.dll  
   
--   hddid.dll  
+-   Hddid.dll  
   
  Deze bestanden kopiëren naar een werkmap, bijvoorbeeld `c:\WAImportExport`. Vervolgens een opdrachtregelvenster openen in de beheerdersmodus en instellen van de bovenstaande map als de huidige map.  
   

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: dd17b08a16dedf474b2a1eca8fa8034672610c1f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064488"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454433"
 ---
-# <a name="scaling-throughput-in-azure-cosmos-db"></a>Schaal doorvoer in Azure Cosmos DB
+# <a name="globally-scale-provisioned-throughput"></a>Ingerichte doorvoer wereldwijd schalen 
 
 In Azure Cosmos DB, ingerichte doorvoer wordt weergegeven als aanvraag eenheden per seconde (RU/s, plural: RU's). RU's meten van de kosten voor zowel uit lees- en schrijfbewerkingen op basis van de container van Cosmos zoals wordt weergegeven in de volgende afbeelding:
 

@@ -1,8 +1,21 @@
 ---
-Titel: Algoritme voorbeelden titleSuffix: Azure Machine Learning Studio description: Een overzicht eenvoudig te begrijpen van de basisprincipes van machine learning bevat algoritmevoorbeelden. De downloadbare infographic dekt de meeste machine learning-vragen.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: garyericson ms.author: garye ms.custom: seodc18 ms.date: 12/18/2017
+title: Algoritmevoorbeelden
+titleSuffix: Azure Machine Learning Studio
+description: Een overzicht eenvoudig te begrijpen van de basisprincipes van machine learning bevat algoritmevoorbeelden. De downloadbare infographic dekt de meeste machine learning-vragen.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
+ms.date: 12/18/2017
+ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295573"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Downloadbare Infographic: Machine learning-basisbeginselen met algoritmevoorbeelden
 Download dit overzicht infographic eenvoudig te begrijpen van de basisprincipes van machine learning voor meer informatie over populaire algoritmen gebruikt om veelvoorkomende machine learning vragen te beantwoorden. Algoritmevoorbeelden laten zien hoe de machine learning voor beginners te begrijpen welke algoritmen moet worden gebruikt en waarvoor ze gebruikt.

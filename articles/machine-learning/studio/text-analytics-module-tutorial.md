@@ -1,5 +1,5 @@
 ---
-Titel: Maak een sentiment-analyse model titleSuffix: Azure Machine Learning Studio description: Tekstanalysemodellen maken in Azure Machine Learning Studio en gebruik van modules voor tekst voorverwerking van de N-grammen of functie van hash-services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Maak een sentiment-analyse model titleSuffix: Azure Machine Learning Studio description: Tekstanalysemodellen maken in Azure Machine Learning Studio en gebruik van modules voor tekst voorverwerking van de N-grammen of functie van hash-services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2018
 ---

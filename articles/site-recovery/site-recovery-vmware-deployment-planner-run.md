@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 8e46f47f1d3a95e4635609f24dc413141304d3c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228165"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301497"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>De Azure Site Recovery Deployment Planner voor noodherstel van VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -65,7 +65,7 @@ Als u de lijst met te profileren virtuele machines hebt opgesteld, kunt u het hu
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Parameternaam | Beschrijving |
+| Parameternaam | Description |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | De FQDN-naam of het IP-adres van de vCenter-server of vSphere ESXi-host waarvan de virtuele machines moeten worden geprofileerd.|
@@ -145,7 +145,7 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Parameternaam | Beschrijving |
+|Parameternaam | Description |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  De FQDN-naam of het IP-adres van de vCenter- of vSphere-server (gebruik dezelfde naam of hetzelfde IP-adres als op het moment van profilering) waar de geprofileerde virtuele machines zich bevinden waarvan een rapport wordt gegenereerd. Let op: als u ten tijde van de profilering een vCenter-server hebt gebruikt, kunt u geen vSphere-server gebruiken voor het genereren van rapporten en omgekeerd.|
@@ -168,8 +168,8 @@ Nadat de profilering is voltooid, kunt u het hulpprogramma uitvoeren in de modus
 |-OfferId|(Optioneel) De aanbieding is gekoppeld aan het vermelde abonnement. De standaardwaarde is MS-AZR-0003P (betalen naar gebruik).|
 |-Currency|(Optioneel) De valuta waarin de kosten in het gegenereerde rapport worden weergegeven. Standaard is Amerikaanse Dollar ($) of de laatst gebruikte valuta.<br>Raadpleeg de lijst met [ondersteunde valuta's](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Het hulpprogramma is standaard geconfigureerd om te profileren en rapport maximaal 1000 VM's. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
-```
+Het hulpprogramma is standaard geconfigureerd als u wilt profileren en rapport maximaal 1000 VM's. U kunt de limiet wijzigen door de sleutelwaarde MaxVMsSupported in het bestand *ASRDeploymentPlanner.exe.config* te wijzigen.
+```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
@@ -192,7 +192,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Voorbeeld 4: Een rapport genereren met een groeifactor van 5% in plaats van de standaardwaarde van 30%
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Voorbeeld 5: Een rapport genereren met een subset geprofileerde gegevens
@@ -219,7 +219,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 Het hulpprogramma wordt standaard ingesteld op de 95e-percentielwaarde van de IOPS voor lezen/schrijven, de IOPS voor schrijven en de gegevensverloop die tijdens het profileren van de virtuele machines zijn verzameld. Deze waarde zorgt ervoor dat een piek (100e-percentielwaarde) die vanwege tijdelijke gebeurtenissen kan ontstaan op virtuele machines, niet wordt gebruikt om de vereisten te bepalen van het doel-opslagaccount en de bron-bandbreedte. Voorbeelden van tijdelijke gebeurtenissen zijn het één keer per dag uitvoeren van een back-up, het periodiek indexeren van een database, het genereren van analyserapporten en andere vergelijkbare activiteiten die op een bepaald moment actief zijn.
 
 Het gebruik van de 95e-percentielwaarde biedt een waarheidsgetrouw beeld van de werkelijke workloadkenmerken en verzekert u van optimale prestaties wanneer deze workloads in Azure worden uitgevoerd. We verwachten niet dat u deze waarde hoeft te wijzigen. Als de waarde toch wilt wijzigen (bijvoorbeeld op het 90e percentiel), kunt u het configuratiebestand *ASRDeploymentPlanner.exe.config* in de standaardmap bijwerken en opslaan om een nieuw rapport te genereren op basis van de bestaande geprofileerde gegevens.
-```
+```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />
@@ -257,7 +257,7 @@ Open een opdrachtregelconsole en ga naar de map met het hulpprogramma voor de Si
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Parameternaam | Beschrijving |
+|Parameternaam | Description |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Geef het type virtualisatie op (VMware of Hyper-V).|

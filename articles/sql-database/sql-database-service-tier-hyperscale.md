@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 2d5fdde14c1a33ace81e8999dbb365dac9de3e6e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227893"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476176"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Zeer grootschalige servicelaag (preview) voor maximaal 100 TB
 
 Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
+
 - Algemeen doel/Standard 
 - Business Critical/Premium
 - Hyperscale
@@ -148,9 +149,9 @@ Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar 
 
 ## <a name="known-limitations"></a>Bekende beperkingen
 
-| Probleem | Beschrijving |
+| Probleem | Description |
 | :---- | :--------- |
-| Het deelvenster back-ups beheren voor een logische server wordt niet weergegeven voor het zeer grootschalige databases worden gefilterd vanuit SQL server ->  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
+| Het deelvenster back-ups beheren voor een SQL Database server wordt niet weergegeven voor het zeer grootschalige databases worden gefilterd vanuit SQL server ->  | Zeer grootschalige heeft een afzonderlijke methode voor het beheren van back-ups en zo de lange termijn wordt bewaard en punt in tijd back-retentie-instellingen zijn niet van toepassing / ongeldig worden gemaakt. Zeer grootschalige databases verschijnen dus niet in het deelvenster back-up beheren. |
 | Terugzetten naar eerder tijdstip | Zodra een database wordt gemigreerd naar de servicelaag van grootschalige, wordt herstel naar een punt-in-tIme vóór de migratie wordt niet ondersteund.|
 | Als een databasebestand tijdens de migratie vanwege een actieve werkbelasting toeneemt en de 1 TB per bestand grens snijdt, mislukt de migratie | Oplossingen: <br> -Migreren van de database indien mogelijk, als er geen update-workload uitgevoerd.<br> -Probeer opnieuw de migratie, het slaagt, zolang de grens van 1 TB niet tijdens de migratie is overschreden.|
 | Managed Instance is momenteel niet ondersteund. | Momenteel niet ondersteund |
@@ -162,6 +163,6 @@ Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar 
 
 - Zie voor veelgestelde vragen op grote schaal, [Veelgestelde vragen over zeer grootschalige](sql-database-service-tier-hyperscale-faq.md).
 - Zie voor meer informatie over Servicelagen [Servicelagen](sql-database-service-tiers.md)
-- Zie [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
+- Zie [overzicht van de resource op een SQL-databaseserver beperkt](sql-database-resource-limits-database-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor het aanschaffen van model-limieten voor één database [Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen](sql-database-vcore-resource-limits-single-databases.md).
 - Voor een functies en van de vergelijkingslijst, Zie [algemene SQL-functies](sql-database-features.md).

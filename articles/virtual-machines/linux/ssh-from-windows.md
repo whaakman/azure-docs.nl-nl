@@ -3,7 +3,7 @@ title: SSH-sleutels gebruiken met Windows voor virtuele Linux-machines | Microso
 description: Informatie over het genereren en het gebruik van SSH-sleutels op een Windows-computer verbinding maken met een virtuele Linux-machine in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: danlep
-ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407413"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298650"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>SSH-sleutels gebruiken met Windows op Azure
 
@@ -72,7 +72,7 @@ Een SSH-RSA-sleutelpaar maken met PuTTYgen:
 
 4. Beweeg de muis in de lege ruimte voor aanvraaggrootte voor de sleutel.
 
-5. (Optioneel) Voer nadat de openbare sleutel is gegenereerd, en een wachtwoordzin bevestigen. U wordt gevraagd naar de wachtwoordzin wanneer u met de virtuele machine met uw persoonlijke SSH-sleutel verifieert. Zonder een wachtwoordzin als iemand anders uw privésleutel verkrijgt kunnen ze aanmelden bij een virtuele machine of service die gebruikmaakt van deze sleutel. U wordt aangeraden dat u een wachtwoordzin maken. Als u de wachtwoordzin vergeet, is er echter geen manier om deze te herstellen.
+5. (Optioneel) Voer nadat de openbare sleutel is gegenereerd, en een wachtwoordzin bevestigen. U wordt gevraagd naar de wachtwoordzin wanneer u met de virtuele machine met uw persoonlijke SSH-sleutel verifieert. Zonder een wachtwoordzin als iemand anders uw privésleutel, verkrijgt deze zich kan aanmelden bij een virtuele machine of service die gebruikmaakt van deze sleutel. U wordt aangeraden dat u een wachtwoordzin maken. Als u de wachtwoordzin vergeet, is er echter geen manier om deze te herstellen.
 
 6. De openbare sleutel wordt aan de bovenkant van het venster weergegeven. U kunt kopiëren van deze volledige openbare sleutel en plak deze in Azure portal of een Azure Resource Manager-sjabloon bij het maken van een Linux-VM. U kunt ook selecteren **openbare sleutel opslaan** een kopie wilt opslaan op uw computer:
 
@@ -93,7 +93,7 @@ Het volgende voorbeeld laat zien hoe u wilt kopiëren en plakken van deze openba
    ![Openbare sleutel wordt gebruikt bij het maken van een VM in Azure portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
 
 
-## <a name="connect-to-your-vm"></a>Verbinding maken met uw virtuele machine
+## <a name="connect-to-your-vm"></a>Verbinding maken met uw VM
 
 Eén manier om u te maken van een SSH-verbinding met uw Linux-VM van Windows is het gebruik van een SSH-client. Dit is de aanbevolen methode hebt u een SSH-client geïnstalleerd op uw Windows-systeem, of als u de SSH-hulpprogramma's in Bash in Azure Cloud Shell. Als u liever een GUI-hulpprogramma, kunt u verbinding maken met PuTTY.  
 
@@ -104,7 +104,9 @@ Met de openbare sleutel die is geïmplementeerd op uw Azure-VM en de persoonlijk
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Als u tijdens het maken van uw sleutelpaar een wachtwoordzin hebt geconfigureerd, moet u de wachtwoordzin tijdens het aanmeldingsproces desgevraagd invoeren.
+Als u tijdens het maken van uw sleutelpaar een wachtwoordzin hebt geconfigureerd, voert u de wachtwoordzin wanneer hierom wordt gevraagd tijdens het aanmelden.
+
+Als de virtuele machine wordt met behulp van het beleid voor just-in-time-toegang, moet u om toegang te vragen voordat u verbinding met de virtuele machine maken kunt. Zie voor meer informatie over het beleid voor just-in-time [beheer van de virtuele machine toegang met just in time-beleid](../../security-center/security-center-just-in-time.md).
 
 ### <a name="connect-with-putty"></a>Verbinding maken met PuTTY
 

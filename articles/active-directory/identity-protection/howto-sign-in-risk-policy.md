@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 81796e30ea9f1277f9265e86a712fbefea5adee3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff346f9c842672b426a75eadaa278ca91de5d9c6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160388"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297486"
 ---
-# <a name="how-to-configure-the-sign-in-risk-policy"></a>Procedures: Het beleid voor aanmeldingsrisico’s configureren
+# <a name="how-to-configure-the-sign-in-risk-policy"></a>Procedure: Het beleid voor aanmeldingsrisico’s configureren
 
 Azure Active Directory detecteert [risicogebeurtenistypen](../reports-monitoring/concept-risk-events.md#risk-event-types) in realtime en offline. Elke risicogebeurtenis die is gedetecteerd voor een aanmelding van een gebruiker draagt bij aan een logisch concept is met de naam riskante aanmelding. Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk niet uitgevoerd door de rechtmatige eigenaar van een gebruikersaccount.
 
@@ -77,7 +77,7 @@ Echter, uit veiligheidsoverwegingen, deze instelling werkt alleen voor gebruiker
 
 Als u wilt om MFA te vereisen voor riskante aanmeldingen, moet u:
 
-1. Schakel de [registratiebeleid voor meervoudige verificatie](#multi-factor-authentication-registration-policy) voor de betreffende gebruikers.
+1. Schakel de [registratiebeleid voor meervoudige verificatie](howto-mfa-policy.md) voor de betreffende gebruikers.
 
 2. Vereisen dat de betrokken gebruikers aanmelden bij een niet-riskante-sessie uit te voeren een MFA-registratie.
 

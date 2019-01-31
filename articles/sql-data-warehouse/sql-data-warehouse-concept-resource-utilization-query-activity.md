@@ -6,19 +6,19 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b53a3f99f601f540723a9a383e3bf7bd2908de23
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499575"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460417"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Controleren van de resource-gebruik en query-activiteit in Azure SQL Data Warehouse
-Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare inhoudingen perioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-services, zoals Operations Management Suite (OMS) controleren / Log Analytics en Azure Monitor om te bieden een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure Analytics-platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 
+Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare bewaarperioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-services, zoals Operations Management Suite (OMS) controleren / Log Analytics en Azure Monitor om te bieden een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure Analytics-platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Resourcegebruik 
 De volgende metrische gegevens zijn beschikbaar in de Azure-portal voor SQL Data Warehouse. Deze metrische gegevens zijn opgehaald via de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
@@ -26,7 +26,7 @@ De volgende metrische gegevens zijn beschikbaar in de Azure-portal voor SQL Data
 > [!NOTE]
 > Vanaf November 2018 is het technische team is een probleem veroorzaakt door CPU-percentage en gegevens-IO-percentage en underreport-adressering. Dit zorgt ervoor dat de gebruikte DWU en het percentage aan underreport ook. 
 
-| Naam van meetwaarde                           | Beschrijving     | Aggregatietype |
+| Naam van meetwaarde                           | Description     | Aggregatietype |
 | --------------------------------------- | ---------------- | --------------------------------------- |
 | CPU-percentage                          | CPU-gebruik voor alle knooppunten voor het datawarehouse | Maximum      |
 | Gegevens-I/O-percentage                      | I/o-gebruik voor alle knooppunten voor het datawarehouse | Maximum   |

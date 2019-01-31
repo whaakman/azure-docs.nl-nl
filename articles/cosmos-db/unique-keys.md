@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 20e5c96110f07d8eaec218ed167c87a48fd65782
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037375"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475870"
 ---
-# <a name="unique-keys-in-azure-cosmos-db"></a>Unieke sleutels in Azure Cosmos DB
+# <a name="unique-key-constraints-in-azure-cosmos-db"></a>Beperkingen voor unieke sleutels in Azure Cosmos DB
 
 Unieke sleutels bieden u de mogelijkheid om een laag van de integriteit van gegevens toevoegen aan een Cosmos-container. Bij het maken van een Cosmos-container maakt u een unieke sleutel beleid. Met unieke sleutels u ervoor zorgen dat een of meer waarden in een logische partitie (u kunt garanderen uniekheid per [partitiesleutel](partition-data.md)). Als u een container met een unieke sleutel beleid hebt gemaakt, wordt voorkomen dat het maken van een nieuwe (of bijgewerkte) dubbele items in een logische partitie, zoals opgegeven door de unieke key-beperking. De partitiesleutel gecombineerd met de unieke sleutel garanties Uniekheid van een item binnen het bereik van de container.
 

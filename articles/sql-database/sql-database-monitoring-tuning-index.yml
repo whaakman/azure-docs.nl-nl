@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e0028b73aaff6c77e8f9f892abf024da9f491bfe
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 843bc3c070435b6d49480ea269090641e0ebd007
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118146"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456473"
 documentType: LandingData
 title: 'Azure SQL Database: Bewaking en afstemming'
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 12/12/2018
+  ms.date: 01/25/2019
   ms.author: jovanpop
 sections:
 - items:
@@ -31,14 +31,14 @@ sections:
     items:
     - title: Query prestatie-inzichten
       href: /azure/sql-database/sql-database-query-performance
-      html: <p>Eenvoudig gebruik van bronnen in uw Azure SQL-database (individuele database) met behulp van ingebouwde mogelijkheden voor bewaking in Azure portal.</p>
+      html: <p>Eenvoudig gebruik van bronnen in uw Azure SQL-database (zelfstandige of gegroepeerde database) met behulp van ingebouwde mogelijkheden voor bewaking in Azure portal.</p>
     - title: Azure SQL-analyse
       href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
       html: <p>Azure SQL Analytics-bewaking, kunt u eenvoudig een grote vloot van databases, elastische pools en -exemplaren in één deelvenster bedrijfsanalyses.</p>
     - title: Automatisch instellen
       href: /azure/sql-database/sql-database-automatic-tuning
       html: <p>Automatisch afstemmen automatisch wordt aanbevolen en lost problemen met het plan van de query, en maakt en verwijdert indexen om prestaties te verbeteren.</p>
-    - title: Intelligente Performance Insight
+    - title: Intelligent Performance Insight
       href: /azure/sql-database/sql-database-intelligent-insights
       html: <p>Ingebouwde intelligentie in Azure SQL Database detecteert verstorende gebeurtenissen die leiden slechte prestaties in uw databases tot en bevat aanbevelingen voor beperking indien mogelijk.</p>
     - title: Aanbevelingen voor prestaties

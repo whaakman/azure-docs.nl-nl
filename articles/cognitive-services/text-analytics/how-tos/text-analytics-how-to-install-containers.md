@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: c874bdd36813438edbb4546d3ee11705535d5d51
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 07fbf51f584d691b08d94f68fefa8c3f9348227f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207119"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294825"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installeren en uitvoeren van de Text Analytics-containers
 
@@ -40,12 +40,7 @@ U moet voldoen aan de volgende vereisten voordat u met behulp van Text Analytics
 
 ### <a name="the-host-computer"></a>De hostcomputer
 
-De **host** is de computer met de docker-container. Het kan zijn dat een computer op uw locatie of een docker die als host fungeert de service in Azure, waaronder:
-
-* [Azure Kubernetes Service](../../../aks/index.yml)
-* [Azure Container Instances](../../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](../../../azure-stack/index.yml). Zie voor meer informatie, [Kubernetes met Azure Stack implementeren](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
-
+[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
 
@@ -77,6 +72,8 @@ Zie voor een volledige beschrijving van de beschikbare labels voor de Text Analy
 * [Taaldetectie](https://go.microsoft.com/fwlink/?linkid=2018759)
 * [Sentimentanalyse](https://go.microsoft.com/fwlink/?linkid=2018654)
 
+Gebruik de [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) opdracht om een containerinstallatiekopie te downloaden.
+
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull voor de sleutel woordgroep extractie-container
 
@@ -96,13 +93,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
-### <a name="listing-the-containers"></a>De containers weergeven
-
-U kunt de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht om een lijst van uw gedownloade containerinstallatiekopieën. De volgende opdracht worden bijvoorbeeld de ID, de opslagplaats en het label van elke gedownloade containerinstallatiekopie, opgemaakt als een tabel:
-
-```Docker
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
+[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
 ## <a name="how-to-use-the-container"></a>Het gebruik van de container
@@ -159,14 +150,7 @@ Als u de container wordt uitgevoerd met een uitvoer [koppelen](../text-analytics
 
 ## <a name="containers-api-documentation"></a>API-documentatie van de container
 
-De container biedt een volledige set met documentatie voor de eindpunten, evenals een `Try it now` functie. Deze functie kunt u uw instellingen invoeren in een web gebaseerde HTML-formulier en de query zonder code te schrijven. Nadat de query retourneert, een voorbeeld van de CURL-opdracht om te laten zien hoe de HTTP-headers en hoofdtekst van de vereiste indeling is opgegeven. 
-
-> [!TIP]
-> Lees de [OpenAPI-specificatie](https://swagger.io/docs/specification/about/), met een beschrijving van de API-bewerkingen ondersteund door de container van de `/swagger` relatieve URI. Bijvoorbeeld:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Billing
 
@@ -176,7 +160,7 @@ Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbind
 
 De `docker run` opdracht maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
 
-| Optie | Beschrijving |
+| Optie | Description |
 |--------|-------------|
 | `ApiKey` | De API-sleutel van de _Tekstanalyse_ resource gebruikt voor het bijhouden van informatie over facturering. |
 | `Billing` | Het eindpunt van de _Tekstanalyse_ resource gebruikt voor het bijhouden van informatie over facturering.|

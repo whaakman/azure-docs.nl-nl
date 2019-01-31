@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351643"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300605"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET-change Feed Processor SDK: Download en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -40,6 +40,12 @@ ms.locfileid: "54351643"
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="v2-builds"></a>v2-builds
+
+### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+* Verbeterde verwerking van de waarnemer uitzonderingen.
+* Meer informatie over de waarnemer fouten:
+ * Wanneer een waarnemer is gesloten vanwege een uitzondering is gegenereerd door de waarnemer ProcessChangesAsync, is de CloseAsync ontvangt nu de reden parameter ingesteld op ChangeFeedObserverCloseReason.ObserverError.
+ * Toegevoegde traceringen fouten binnen gebruikerscode in een waarnemer kunt identificeren.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Er is ondersteuning toegevoegd voor het verwerken van splitsen in verzamelingen die gebruikmaken van gedeelde database doorvoer.
@@ -157,6 +163,7 @@ Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK w
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |29 januari 2019 |--- |
 | [2.2.5](#2.2.5) |13 december 2018 |--- |
 | [2.2.4](#2.2.4) |29 november 2018 |--- |
 | [2.2.3](#2.2.3) |19 november 2018 |--- |

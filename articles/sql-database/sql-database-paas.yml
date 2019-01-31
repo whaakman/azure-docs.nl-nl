@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 89aad876eb087817c8514b4268a18fa20925f810
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d52d2aa5e218007aed4510f537fb061ef8d1fbe
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166986"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301557"
 documentType: LandingData
 title: Azure SQL Database - Platform as a Service
 metadata:
@@ -54,7 +54,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/sql-database/sql-database-security-index">Geavanceerde beveiliging</a> bedreigingen en vunerabilities gedetecteerd in uw databases en kunt u uw gegevens te beveiligen.
+    - html: <a href="/azure/sql-database/sql-database-security-index">Geavanceerde beveiliging</a> detecteert bedreigingen en zwakke plekken in uw databases en kunt u uw gegevens te beveiligen.
     - html: <a href="/azure/sql-database/sql-database-automatic-tuning">Automatisch afstemmen</a> analyseert uw werkbelasting en biedt u de aanbevelingen die prestaties van uw toepassingen optimaliseren kunnen door indexen toe te voegen, te verwijderen van ongebruikte indexen en automatisch plan problemen oplossen de query.
     - html: <a href="/azure/log-analytics/log-analytics-azure-sql">Ingebouwde controlemogelijkheden</a> kunt u profiteren van het inzicht in prestaties van uw databases en de werkbelasting en de prestatieproblemen oplossen.
     - html: <a href="/azure/sql-database/sql-database-intelligent-insights">Ingebouwde intelligentie</a> automatisch identificeert de potentiële problemen in uw werkbelasting en biedt u de aanbevelingen die kunnen u de problemen op te lossen.

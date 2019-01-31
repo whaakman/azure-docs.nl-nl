@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0ade4ac054f345084cf0bc0a6dc7885329eb8b9c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141880"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458020"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Functies maken voor gegevens in een Hadoop-cluster met behulp van Hive-query 's
 Dit document wordt beschreven hoe u functies maken voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's. Deze Hive-query's gebruikt ingesloten Hive User-Defined-functies (UDF's), de scripts die worden geleverd.
@@ -136,26 +136,26 @@ De vergelijkingen die het berekenen van de afstand tussen de twee GPS-coördinat
 
 Een volledige lijst met Hive ingesloten UDF's kunnen u vinden in de **ingebouwde functies** sectie op de <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive-wiki</a>).  
 
-## <a name="tuning"></a> Geavanceerde onderwerpen: afstemmen Hive-parameters voor het verbeteren van de snelheid van query
+## <a name="tuning"></a> Geavanceerde onderwerpen: Hive-parameters voor het verbeteren van de snelheid van query afstemmen
 De standaardinstellingen voor de parameter van Hive-cluster is mogelijk niet geschikt is voor de Hive-query's en de gegevens die de query's worden verwerkt. Deze sectie wordt besproken enkele parameters die gebruikers afstemmen kunnen om de prestaties van Hive-query's te verbeteren. Gebruikers moeten de parameter afstemmen van query's voordat de query's van de verwerking van gegevens toevoegen.
 
-1. **Java-heap ruimte**: voor query's met betrekking tot het toevoegen van grote gegevenssets of verwerken van lange records **is bijna vol. heap** is een van de veelvoorkomende fouten. Deze fout kan worden vermeden door in te stellen parameters *mapreduce.map.java.opts* en *mapreduce.task.io.sort.mb* naar de gewenste waarden. Hier volgt een voorbeeld:
+1. **Java-heap ruimte**: Voor query's met betrekking tot het toevoegen van grote gegevenssets of verwerken van lange records **is bijna vol. heap** is een van de veelvoorkomende fouten. Deze fout kan worden vermeden door in te stellen parameters *mapreduce.map.java.opts* en *mapreduce.task.io.sort.mb* naar de gewenste waarden. Hier volgt een voorbeeld:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Deze parameter 4GB geheugen voor Java-heap ruimte toegewezen en maakt ook sorteren efficiënter door het toewijzen van meer geheugen voor deze. Er is een goed idee om af te spelen met deze toewijzingen als er een taak mislukt fouten met betrekking tot heap-ruimte.
 
-1. **DFS-blokgrootte**: met deze parameter stelt de kleinste gegevenseenheid die het bestandssysteem opslaat. Een voorbeeld: als de DFS-blokgrootte 128 MB, klikt u vervolgens alle gegevens van de grootte kleiner zijn dan en maximaal is 128 MB opgeslagen in één blok. Gegevens die groter is dan 128 MB extra blokken wordt toegewezen. 
+1. **DFS-blokgrootte**: Deze parameter stelt de kleinste gegevenseenheid die het bestandssysteem opslaat. Een voorbeeld: als de DFS-blokgrootte 128 MB, klikt u vervolgens alle gegevens van de grootte kleiner zijn dan en maximaal is 128 MB opgeslagen in één blok. Gegevens die groter is dan 128 MB extra blokken wordt toegewezen. 
 2. Het kiezen van een kleine blokgrootte zorgt ervoor dat grote overhead in Hadoop omdat het knooppunt met de naam voor het verwerken van veel meer aanvragen naar de desbetreffende blok met betrekking tot het bestand vinden. Een aanbevolen instelling wanneer betrekking tot gigabytes (of hoger) gegevens zijn:
 
         set dfs.block.size=128m;
 
-2. **Join-bewerking in Hive optimaliseren**: terwijl join-bewerkingen in het kader voor toewijzen/verminderen doorgaans in de verminderen fase soms plaatsvinden enorme winsten kunnen worden bereikt door het plannen van joins in de fase van de kaart (ook wel 'mapjoins' genoemd). Om de Hive om dit te doen waar mogelijk, instellen:
+2. **Join-bewerking in Hive optimaliseren**: Terwijl de join-bewerkingen in het kader voor toewijzen/verminderen doorgaans plaatsvinden in de verminderen fase soms kunnen enorme voordelen worden bereikt door het plannen van joins in de fase van de kaart (ook wel 'mapjoins' genoemd). Om de Hive om dit te doen waar mogelijk, instellen:
    
        set hive.auto.convert.join=true;
 
-3. **Het aantal mappers naar Hive**: terwijl Hadoop kan de gebruiker om het aantal reducers tegelijkertijd te stellen, het aantal mappers is doorgaans niet worden ingesteld door de gebruiker. Een kunst waarmee een zekere mate van controle voor dit nummer is de Hadoop-variabelen *mapred.min.split.size* en *mapred.max.split.size* als de grootte van elke kaart taak wordt bepaald door:
+3. **Het aantal mappers naar Hive**: Hoewel Hadoop zorgt dat de gebruiker om het aantal reducers tegelijkertijd te stellen, het aantal mappers is doorgaans niet worden ingesteld door de gebruiker. Een kunst waarmee een zekere mate van controle voor dit nummer is de Hadoop-variabelen *mapred.min.split.size* en *mapred.max.split.size* als de grootte van elke kaart taak wordt bepaald door:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

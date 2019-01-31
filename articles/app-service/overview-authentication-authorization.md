@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7fbf86a24ca6b2ba55ca33b20e67dea6a6e0c994
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66b293e5d6e422c994e2b7cef13fd4100144cbf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731160"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297001"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
@@ -64,7 +64,7 @@ App Service biedt een ingebouwde tokenopslag, dit is een opslagplaats van tokens
 - op de geverifieerde gebruiker Facebook-tijdlijn plaatsen
 - lezen van de gebruiker bedrijfsgegevens vanuit de Azure Active Directory Graph API of zelfs Microsoft Graph
 
-Normaal gesproken moet u code voor het verzamelen, opslaan en vernieuwen van deze tokens in uw toepassing schrijven. Met de token store die u zojuist hebt [ophalen van de tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) wanneer u ze nodig hebt en [zien van App Service, zodat ze vernieuwen](app-service-authentication-how-to.md#refresh-access-tokens) wanneer ze ongeldig geworden. 
+Normaal gesproken moet u code voor het verzamelen, opslaan en vernieuwen van deze tokens in uw toepassing schrijven. Met de token store die u zojuist hebt [ophalen van de tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) wanneer u ze nodig hebt en [zien van App Service, zodat ze vernieuwen](app-service-authentication-how-to.md#refresh-identity-provider-tokens) wanneer ze ongeldig geworden. 
 
 De id-tokens, toegangstokens en vernieuwen van tokens in de cache opgeslagen voor de geverifieerde sessie en ze zijn alleen toegankelijk is voor de gebruiker is gekoppeld.  
 
@@ -151,7 +151,7 @@ Provider-specifieke-handleidingen:
 * [Uw app voor het gebruik van Google-aanmelding configureren][Google]
 * [Uw app voor het gebruik van Microsoft-Account-aanmelding configureren][MSA]
 * [Het configureren van uw app aanmelding met Twitter][Twitter]
-* [Procedures: Aangepaste verificatie voor uw toepassing gebruiken][custom-auth]
+* [Procedure: Aangepaste verificatie voor uw toepassing gebruiken][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.subservice: common
+ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019297"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461766"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevens overdragen met het AzCopy voor Windows
 AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure Blob-, bestands- en Table-opslag met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
@@ -710,7 +710,7 @@ Hiermee geeft u op of de bestemmings-blob een blok-blob, een pagina-blob of een 
 
 **Van toepassing op:** Blobs
 
-### <a name="checkmd5"></a>/ CheckMD5
+### <a name="checkmd5"></a>/CheckMD5
 
 Een MD5-hash voor gedownloade gegevens berekend en controleert of de MD5-hash die zijn opgeslagen in de blob of inhoud-MD5-eigenschap van het bestand komt overeen met de berekende hash. Als de waarden niet overeenkomen, mislukt AzCopy om de gegevens te downloaden. De MD5-controle is standaard uitgeschakeld, zodat u deze optie om uit te voeren van de MD5-controle bij het downloaden van gegevens moet opgeven.
 
@@ -738,7 +738,7 @@ Het logboekbestand heet standaard AzCopyVerbose.log in `%LocalAppData%\Microsoft
 
 **Van toepassing op:** BLOBs, bestanden, tabellen
 
-### <a name="zjournal-file-folder"></a>/ Z: [logboek-bestanden en mappen]
+### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
 Hiermee geeft u een logboekmap-bestand voor het hervatten van een bewerking.
 
@@ -809,7 +809,7 @@ Alleen bestanden die het kenmerk Archief hebt geüpload.
 
 **Van toepassing op:** BLOBs, bestanden
 
-### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
+### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
 Alleen bestanden die een van de opgegeven kenmerken set hebt geüpload.
 
@@ -828,7 +828,7 @@ Beschikbare kenmerken zijn onder andere:
 
 **Van toepassing op:** BLOBs, bestanden
 
-### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
+### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
 Sluit bestanden waarvoor een van de opgegeven kenmerken instellen.
 
@@ -847,7 +847,7 @@ Beschikbare kenmerken zijn onder andere:
 
 **Van toepassing op:** BLOBs, bestanden
 
-### <a name="delimiterdelimiter"></a>/ Scheidingsteken: "scheidingsteken"
+### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
 Geeft aan dat het scheidingsteken dat wordt gebruikt voor het scheiden van de virtuele mappen in een blobnaam.
 
@@ -945,7 +945,7 @@ Als u deze optie geen waarde opgeeft, stelt AzCopy elke blob of inhoudstype op b
 
 **Van toepassing op:** BLOBs, bestanden
 
-### <a name="payloadformatjson--csv"></a>/ PayloadFormat: 'JSON' | "CSV"
+### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 
 Hiermee geeft u de indeling van het geëxporteerde tabelbestand.
 

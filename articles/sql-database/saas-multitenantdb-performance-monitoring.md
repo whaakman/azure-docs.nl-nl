@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830002"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458122"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Prestaties van shard Azure SQL-database met meerdere tenants in een multitenant SaaS-app controleren en beheren
 
@@ -161,7 +161,7 @@ Als u een nieuwe tenant in een eigen database al hebt ingericht, gaat u de volge
 
 Het script wordt deze tenant in een afzonderlijke database in te richten, de database en de tenant te registreren bij de catalogus en open vervolgens de pagina gebeurtenissen van de tenant in de browser. Vernieuw de Events Hub-pagina en ziet u 'Salix Salsa' als een locatie die is toegevoegd.
 
-## <a name="manage-performance-of-a-single-database"></a>Prestaties van een individuele database beheren
+## <a name="manage-performance-of-an-individual-database"></a>Prestaties van een individuele database beheren
 
 Als één tenant in een multitenant-database optreedt in een duurzame hoge belasting, kan het vaak een groot gedeelte uit de database-resources en invloed hebben op andere tenants in dezelfde database. Als de activiteit enige tijd voortduurt is, kan de tenant tijdelijk worden verplaatst uit de database en in een eigen één tenant-database. Hiermee wordt de tenant beschikken over de extra resources nodig heeft en volledig geïsoleerd van de andere tenants.
 
@@ -194,7 +194,7 @@ In deze zelfstudie leert u het volgende:
 > * Schalen van de database in reactie op de verhoogde databaseload
 > * Een tenant in te richten in een database met één tenant
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 <!--* [Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Azure Automation](../automation/automation-intro.md)

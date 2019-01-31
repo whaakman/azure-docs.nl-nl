@@ -2,19 +2,18 @@
 title: Voorbereiden van de DPM-server back-up workloads naar Azure
 description: Een inleiding tot de back-ups van DPM-gegevens naar een Azure Recovery Services-kluis.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, data protection manager, dpm back-up
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024474"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301064"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Voorbereiden op back-up van workloads naar Azure met System Center DPM
 
@@ -50,8 +49,8 @@ DPM op een fysieke server | System Center 2012 SP1 of hoger. System Center 2012 
 DPM op een Hyper-V-VM | System Center 2012 SP1 of hoger. System Center 2012 R2. 
 DPM op een VMware-VM | System Center 2012 R2 met Update Rollup 5 of hoger.
 Onderdelen | De DPM-server moet Windows PowerShell en .net Framework 4.5 geïnstalleerd.
-Ondersteunde apps | [Informatie over](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) wat DPM een back-up.
-Ondersteunde bestandstypen | Deze bestandstypen kunnen back worden gemaakt met Azure Backup: versleuteld (volledige back-ups alleen); Gecomprimeerd (incrementele back-ups ondersteund). Sparse (incrementele back-ups ondersteund); Gecomprimeerd en sparse (behandeld als sparse).
+Ondersteunde apps | [Ontdek](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) waar DPM een back-up van kan maken.
+Ondersteunde bestandstypen | Deze bestandstypen kunnen een back-worden gemaakt met Azure Backup: Versleuteld (volledige back-ups alleen); Gecomprimeerd (incrementele back-ups ondersteund). Sparse (incrementele back-ups ondersteund); Gecomprimeerd en sparse (behandeld als sparse).
 Niet-ondersteunde bestandstypen | Servers op hoofdlettergevoelige bestandssystemen; vaste koppelingen (overgeslagen); reparsepunten (overgeslagen); versleuteld en gecomprimeerd (overgeslagen); versleuteld en sparse (overgeslagen); Gecomprimeerde stream; stream parseren.
 Lokale opslag | Elke machine die u back wilt-up moet lokale vrije opslagruimte die ten minste 5% van de grootte van de gegevens die back-up hebben.  Bijvoorbeeld, vereist back-ups van 100 GB aan gegevens een minimum van 5 GB aan vrije ruimte in de nieuwe locatie.
 Kluis-opslag | Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up naar een Azure Backup-kluis, maar de grootte van een gegevensbron (bijvoorbeeld een virtuele machine of een database) mag niet groter zijn dan 54400 GB.

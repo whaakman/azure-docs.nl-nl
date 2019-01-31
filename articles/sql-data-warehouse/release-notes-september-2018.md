@@ -6,22 +6,22 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577957"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460723"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in September 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Nieuwe lagere toegangspunt voor SQL Data Warehouse Gen2
-In April 2018, [Microsoft annouced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 met 5 x de prestaties, 5 x de schaal van compute, 4 x de gelijktijdigheid van taken en onbeperkte opslag. Zoals vermeld in de [datawarehouse in de cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) door Onderzoeksanalist, SQL Data Warehouse Gen2 **behaalt u betere resultaten dan Amazon Redshift 42%**.
+In April 2018, [presenteerde Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 met 5 x de prestaties, 5 x de schaal van compute, 4 x de gelijktijdigheid van taken en onbeperkte opslag. Zoals vermeld in de [datawarehouse in de cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) door Onderzoeksanalist, SQL Data Warehouse Gen2 **behaalt u betere resultaten dan Amazon Redshift 42%**.
 
 Gen2 is nu algemeen beschikbaar op een lagere vermelding punt van DWU500c zodat u kunt een kleinere grootte data warehouse of dev/test-omgevingen met alle van de meest recente verbeteringen van de service worden uitgevoerd. Het nieuwe toegangspunt behoudt alle Gen2 functies waaronder [adaptieve cache-opslag](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [belichting snel gegevens volgorde wijzigen](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), en ondersteuning voor [realtime datawarehouse](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 
@@ -96,7 +96,7 @@ Ten slotte vermindert het verbeteren de algehele uitvoering van de instructies d
 
 ## <a name="bug-fixes"></a>Opgeloste fouten
 
-| Titel | Beschrijving |
+| Titel | Description |
 |:---|:---|
 | **Bij het maken van statistieken op distributies voor unieke beperkingen oplossen** | Deze oplossing wordt een fout die gebruikers ondervinden bij het actieve UPDATE STATISTICS met alleen de tabel wordt opgegeven, als de tabel had een unique-beperking gedefinieerd. |
 | **Probleem bij het compileren van query's over externe tabellen** | Deze oplossing wordt een defect die beïnvloed compilatietijd voor query's met betrekking tot externe tabellen.|

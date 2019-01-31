@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 0c46ba3d2fcd59f43df2383c3e0471fa36217536
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551404"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300248"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Multi-modeldatabase mogelijkheden van Azure SQL Database
 
@@ -50,7 +50,7 @@ De graph-relaties en mogelijkheden van graph-query's zijn geïntegreerd in de Tr
 
 Er is niets die een grafiekdatabase bereiken kunt, die niet kan worden bereikt met behulp van een relationele database. Echter, een grafiekdatabase kunt maken het gemakkelijker om bepaalde query's. Uw beslissing kiezen of het andere kan worden gebaseerd op de volgende factoren:
 
-- Model hiërarchische gegevens waar een van de knooppunten meerdere bovenliggende items, hebben zodat HieararchyId kan niet worden gebruikt
+- Model hiërarchische gegevens waar een van de knooppunten meerdere bovenliggende items, hebben zodat HierarchyId kan niet worden gebruikt
 - Heeft uw toepassing heeft veel-op-veel-relaties, complexe; Als de toepassing zich verder ontwikkelt, worden nieuwe relaties toegevoegd.
 - U hoeft te analyseren met elkaar verbonden gegevens en relaties.
 
@@ -96,7 +96,7 @@ Azure SQL Database biedt ook gespecialiseerd [ruimtelijke indexen](https://docs.
 SQL Server biedt een krachtig platform voor het ontwikkelen van uitgebreide toepassingen voor het beheer van semi-gestructureerde gegevens. Ondersteuning voor XML is geïntegreerd in alle componenten in SQL Server en omvat het volgende:
 
 - Het gegevenstype xml. XML-waarden kunnen systeemeigen worden opgeslagen in een XML-kolom met gegevenstype die kan worden getypt op basis van een verzameling van XML-schema's of links getypeerde. U kunt de kolom XML-index.
-- De mogelijkheid om op te geven van een XQuery-query op XML-gegevens die zijn opgeslagen in de kolommen en variabelen van het type xml. XQUery-functionaliteit kunnen worden gebruikt in een Transact-SQL-query die toegang hebben tot een gegevensmodel dat u in de database gebruiken.
+- De mogelijkheid om op te geven van een XQuery-query op XML-gegevens die zijn opgeslagen in de kolommen en variabelen van het type xml. XQuery-functionaliteit kunnen worden gebruikt in een Transact-SQL-query die toegang hebben tot een gegevensmodel dat u in de database gebruiken.
 - Automatisch indexeren alle elementen in XML-documenten met behulp van [primaire XML-index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) of geef de exacte paden die moeten worden geïndexeerd met behulp van [secundaire XML-index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - OPENROWSET waarmee bulksgewijs laden van XML-gegevens.
 - Relationele gegevens transformeren naar XML-indeling.

@@ -1,6 +1,6 @@
 ---
 title: Verbinding maken met een virtuele Windows Server-machine | Microsoft Docs
-description: Leer hoe u verbinding maakt en u aanmeldt bij een virtuele Windows-machine via de Azure-portal en het Resource Manager-implementatiemodel.
+description: Leer hoe u verbinding maken met en meld u aan met een Windows-VM met behulp van de Azure-portal en het Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867066"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296882"
 ---
-# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Verbinding maken met en aanmelden bij een virtuele machine in Azure waarop Windows wordt uitgevoerd
-U gebruikt de knop **Verbinden** in Azure Portal om een Extern bureaublad-sessie (RDP) te starten vanaf een Windows-computer. Eerst maakt u verbinding met de virtuele machine en meld u aan.
+# <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Hoe u verbinding maken met en meld u aan met een Azure-machine waarop Windows wordt uitgevoerd
+U gebruikt de knop **Verbinden** in Azure Portal om een Extern bureaublad-sessie (RDP) te starten vanaf een Windows-computer. Eerst maakt u verbinding met de virtuele machine en meld u op.
 
 Als u wilt verbinding maken met een Windows-VM vanaf een Mac, moet u een RDP-client voor Mac installeren zoals [Microsoft Extern bureaublad](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
 
@@ -32,18 +32,18 @@ Als u wilt verbinding maken met een Windows-VM vanaf een Mac, moet u een RDP-cli
 2. Selecteer in het menu links **virtuele Machines**.
 3. Selecteer de virtuele machine in de lijst.
 4. Selecteer boven aan de pagina voor de virtuele machine, **Connect**.
-2. Op de **verbinding maken met virtuele machine** pagina, selecteer de gewenste opties en selecteer **downloaden RDP-bestand**.
-2. Open het gedownloade RDP-bestand en selecteer **Connect** wanneer hierom wordt gevraagd. 
-2. U ontvangt een waarschuwing dat het RDP-bestand van een onbekende uitgever is. Dit is normaal gedrag. In de **verbinding met extern bureaublad** venster **Connect** om door te gaan.
+2. Op de **verbinding maken met virtuele machine** pagina, selecteert u de juiste IP-adres en poort. In de meeste gevallen moeten het standaard IP-adres en de poort worden gebruikt. Selecteer **downloaden RDP-bestand**downloaden RDP-bestand **. Als de virtuele machine een just-in-time-beleid is ingesteld heeft, moet u eerst selecteert u de **toegang aanvragen** knop om toegang te vragen voordat u het RDP-bestand kunt downloaden. Zie voor meer informatie over het beleid voor just-in-time [beheer van de virtuele machine toegang met just in time-beleid](../../security-center/security-center-just-in-time.md).
+2. Open het gedownloade RDP-bestand en selecteer **Verbinden** wanneer dit wordt gevraagd. 
+2. U ontvangt een waarschuwing dat de `.rdp` bestand afkomstig is van een onbekende uitgever. Dit is normaal gedrag. In de **verbinding met extern bureaublad** venster **Connect** om door te gaan.
    
     ![Schermafbeelding met waarschuwing over een onbekende uitgever](./media/connect-logon/rdp-warn.png)
 3. Selecteer in het venster **Windows-beveiliging** **Meer opties** en vervolgens **Een ander account gebruiken**. Voer de referenties voor een account op de virtuele machine en selecteer vervolgens **OK**.
    
-     **Lokaal account**: dit is meestal de lokale gebruikersnaam en het wachtwoord die u hebt opgegeven tijdens het maken van de virtuele machine. In dit geval is het domein de naam van de virtuele machine en het is ingevoerd als *vmname*&#92;*gebruikersnaam*.  
+     **Lokaal account**: Dit is meestal de lokale gebruikersnaam en het wachtwoord die u hebt opgegeven tijdens het maken van de virtuele machine. In dit geval is het domein de naam van de virtuele machine en het is ingevoerd als *vmname*&#92;*gebruikersnaam*.  
    
-    **Virtuele machine van een domein**: als de virtuele machine deel uitmaakt van een domein, voert u de naam van de gebruiker in de indeling *domein*&#92;*gebruikersnaam*. Het account moet bovendien in de groep Administrators staan of er moet een machtiging voor externe toegang zijn verleend aan de VM.
+    **Virtuele machine van een domein**: Als de virtuele machine deel uitmaakt van een domein, voert u de naam van de gebruiker in de indeling *domein*&#92;*gebruikersnaam*. Het account moet bovendien in de groep Administrators staan of er moet een machtiging voor externe toegang zijn verleend aan de VM.
    
-    **Domeincontroller**: als de virtuele machine een domeincontroller is, voert u de gebruikersnaam en het wachtwoord van een domein administrator-account voor dat domein.
+    **Domeincontroller**: Als de virtuele machine een domeincontroller is, voert u de gebruikersnaam en het wachtwoord van een domein administrator-account voor het domein.
 4. Selecteer **Ja** om te controleren of de identiteit van de virtuele machine en aanmelden te voltooien.
    
    ![Schermafbeelding met een bericht over het verifiëren van de identiteit van de virtuele machine](./media/connect-logon/cert-warning.png)

@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: 6698aa7e16b351190f9a5cdde62766cf5d7e1809
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095988"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300231"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Naslaginformatie over roaminginstellingen voor Windows 10
 Hier volgt een volledige lijst van alle instellingen die worden verplaatste of een back-up in Windows 10. 
@@ -50,15 +50,15 @@ De volgende voor Instellingengroepen zijn beschikbaar voor eindgebruikers in-of 
 * Andere instellingen voor Windows: Zie de details van Windows-instellingen
 * Instellingen voor Microsoft Edge-browser: Microsoft Edge-Favorieten, leeslijst en andere instellingen
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![Uw instellingen synchroniseren](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Synchroniseren van de instelling van de browser Microsoft Edge-groep (Favorieten, leeslijst) kan worden ingeschakeld of uitgeschakeld door eindgebruikers via Microsoft Edge-browser optie instellingen.
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+![Account](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 Voor Windows 10 versie 1803 of hoger, Internet Explorer instellingsgroep (Favorieten, opgegeven URL's) synchroniseren kan worden ingeschakeld of uitgeschakeld door eindgebruikers tot en met de menuoptie instellingen voor Internet Explorer. 
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
+![Instellingen](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Details van Windows-instellingen
 In de volgende tabel, andere vermeldingen in de kolom instellingengroep verwijst in de instellingen die kunnen worden uitgeschakeld via instellingen > Accounts > uw instellingen synchroniseren > andere Windows-instellingen. 

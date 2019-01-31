@@ -1,6 +1,6 @@
 ---
-Titel: On-premises SQL Server titleSuffix: Azure Machine Learning Studio description: Gegevens uit een on-premises SQL Server-database gebruiken om geavanceerde analyses met Azure Machine Learning Studio uitvoeren.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: On-premises SQL Server titleSuffix: Azure Machine Learning Studio description: Gegevens uit een on-premises SQL Server-database gebruiken om geavanceerde analyses met Azure Machine Learning Studio uitvoeren.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/13/2017
 ---

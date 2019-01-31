@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301368"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472300"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Uw SQL-code migreren naar SQL Data Warehouse
 In dit artikel wordt uitgelegd codewijzigingen u waarschijnlijk moet bij het migreren van uw code van een andere database met SQL Data Warehouse. Sommige functies van SQL Data Warehouse kunnen de prestaties aanzienlijk verbeteren als ze zijn ontworpen om te werken in een gedistribueerde manier. Echter, als u wilt behouden prestaties en schaalbaarheid, sommige functies zijn ook niet beschikbaar.
@@ -27,8 +27,8 @@ De volgende lijst bevat een overzicht van de meest voorkomende functies die geen
 * [ANSI-join op verwijderen][ANSI joins on deletes]
 * [instructie Merge][merge statement]
 * verbindingen tussen meerdere databases
-* [Cursors][cursors]
-* [INSERT... EXEC][INSERT..EXEC]
+* [cursors][cursors]
+* [INSERT..EXEC][INSERT..EXEC]
 * OUTPUT-component
 * inline gebruiker gedefinieerde functies
 * meerdere instructies functies

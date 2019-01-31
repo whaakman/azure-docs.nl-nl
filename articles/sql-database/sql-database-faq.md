@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: a7ebf246300fdafe69f45aca0237964c8e669d5c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541610"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463953"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) SQL-Database
 
@@ -35,7 +35,7 @@ Nee. De gevolgen van het toepassen van patches is doorgaans niet merkbare als u 
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Wat is de nieuwe vCore gebaseerde aankoopmodel voor Azure SQL Database
 
-Het nieuwe aanschafmodel is een aanvulling op het bestaande DTU-model. Het vCore-model is ontworpen om klanten flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Ook kunnen klanten hun reken- en rsources op basis van hun werkbelasting schalen. Individuele databases en elastische pool-opties met behulp van het vCore-model zijn ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Zie [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) voor meer informatie.
+Het nieuwe aanschafmodel is een aanvulling op het bestaande DTU-model. Het vCore-model is ontworpen om klanten flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Ook kunnen klanten hun reken- en opslagresources die op basis van hun werkbelasting schalen. Individuele databases en elastische pool-opties met behulp van het vCore-model zijn ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Zie [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) voor meer informatie.
 
 ## <a name="what-is-a-vcore"></a>Wat is een vCore
 
@@ -43,7 +43,7 @@ Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen vers
 
 ## <a name="is-moving-to-the-vcore-based-model-required"></a>Wordt verplaatst naar het vCore-model vereist
 
-Nee, inclusief de introductie van het vCore-model voor de elastische Pool en implementatieopties voor één Database onze toewijding aan keuze en flexibiliteit. Als klanten willen hebben om door te gaan met behulp van het dtu model, niet hoeven te doen met deze aankondiging en hun ervaring en facturering blijven ongewijzigd.
+Nee, inclusief de introductie van het vCore-model voor de elastische pool en implementatieopties voor één database onze toewijding aan keuze en flexibiliteit. Als klanten willen hebben om door te gaan met behulp van het dtu model, niet hoeven te doen met deze aankondiging en hun ervaring en facturering blijven ongewijzigd.
 
 In veel gevallen kunnen toepassingen profiteren van de eenvoud van een vooraf geconfigureerde bundel met resources. Daarom gaan we bieden en ondersteuning van deze opties op basis van DTU voor onze klanten. Als u deze gebruikt en deze voldoet aan uw zakelijke vereisten, moet u dit niet doet, blijven.
 
@@ -75,7 +75,7 @@ SQL Database-klanten hebben de volgende rechten voor in verband met Azure Hybrid
 
 |Licentie-Footprint|Wat doet Azure Hybrid Benefit voor SQL Server ophalen?|
 |---|---|
-|SQL Server Enterprise Edition core klanten met Software Assurance|<li>Kan Base-tarief voor algemeen gebruik of bedrijfskritieke SKU betalen</li><br><li>1 core on-premises = 4 kernen in SKU voor algemeen gebruik</li><br><li>1 core on-premises = 1 kern in bedrijfskritieke SKU</li>|
+|SQL Server Enterprise Edition core customers with SA|<li>Kan Base-tarief voor algemeen gebruik of bedrijfskritieke SKU betalen</li><br><li>1 core on-premises = 4 kernen in SKU voor algemeen gebruik</li><br><li>1 core on-premises = 1 kern in bedrijfskritieke SKU</li>|
 |SQL Server Standard Edition core klanten met Software Assurance|<li>Kan Base tarief voor betalen op SKU voor algemeen gebruik alleen</li><br><li>1 core on-premises = 1 kern in SKU voor algemeen gebruik</li>|
 |||
 
@@ -141,9 +141,9 @@ Zo vaak als u wilt. Zie [elastische pools beheren](sql-database-elastic-pool.md)
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Hoe lang duurt het wijzigen van de servicelaag of compute van de grootte van een individuele database of een database verplaatsen naar en uit een elastische pool
 
-Wijzigen van de servicelaag van een database en verplaatsen naar en uit een pool, moet de database worden gekopieerd op het platform als een achtergrondbewerking. Wijzigen van de servicelaag kan enkele minuten duren tot enkele uren, afhankelijk van de grootte van de databases. In beide gevallen worden in de databases online en beschikbaar blijven tijdens de verplaatsing. Zie voor meer informatie over het wijzigen van individuele databases [wijzigen van de servicelaag van een database](sql-database-service-tiers-dtu.md).
+Wijzigen van de servicelaag van een database en verplaatsen naar en uit een pool, moet de database worden gekopieerd op het platform als een achtergrondbewerking. Wijzigen van de servicelaag kan enkele minuten duren tot enkele uren, afhankelijk van de grootte van de databases. In beide gevallen worden in de databases online en beschikbaar blijven tijdens de verplaatsing. Zie voor meer informatie over het wijzigen van individuele databases [wijzigen van de servicelaag van een database](sql-database-single-database-scale.md).
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Wanneer moet ik een individuele database en elastische databases gebruiken
+## <a name="when-should-i-use-a-single-database-vs-elastic-pools"></a>Wanneer moet ik een individuele database en elastische pools gebruiken
 
 In het algemeen elastische pools zijn ontworpen voor een typische [software-as-a-service (SaaS)-toepassingspatroon](sql-database-design-patterns-multi-tenancy-saas-applications.md), waarbij er één database per klant of de tenant. Kopen van afzonderlijke databases en capaciteit om te voldoen aan de variabele vraag en de piekvraag voor elke database in te richten is vaak niet kostenefficiënt. Met pools, u de collectieve prestaties van de pool beheren en de databases omhoog en omlaag schalen automatisch. Intelligente engine van Azure beveelt aan een pool voor databases wanneer een gebruikspatroon gerechtvaardigd. Zie voor meer informatie, [elastische pool richtlijnen](sql-database-elastic-pool.md).
 

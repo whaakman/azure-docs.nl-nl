@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388343"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469107"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architectuur van Azure SQL-connectiviteit
 
@@ -34,7 +34,7 @@ In dit artikel wordt de Azure SQL Database en SQL Data Warehouse connectiviteits
 >
 > De invloed van service-eindpuntgebruikers in de volgende scenario's mogelijk nog steeds:
 > - Toepassing verbinding maakt met een bestaande server niet regelmatig worden, zodat onze telemetrie is niet de informatie over deze toepassingen vastleggen
-> - Logica voor automatische implementatie maakt een logische server, ervan uitgaande dat het standaardgedrag voor verbindingen met de service-eindpunt `Proxy`
+> - Logica voor automatische implementatie maakt u een SQL-databaseserver ervan uitgaande dat het standaardgedrag voor verbindingen met de service-eindpunt `Proxy`
 >
 > Als verbindingen met de service-eindpunt kunnen niet worden gemaakt met Azure SQL-server, en u een vermoeden bestaat dat u worden beïnvloed door deze wijziging, Controleer of dat de verbindingstype expliciet is ingesteld op `Redirect`. Als dit het geval is, hebt u het openen van VM-firewallregels en Netwerkbeveiligingsgroep groepen (NSG) voor alle Azure-IP-adressen in de regio die deel uitmaken van Sql [servicetag](../virtual-network/security-overview.md#service-tags) voor poorten 11000 12000. Als dit niet een optie voor u is, schakelt u over server expliciet aan `Proxy`.
 > [!NOTE]

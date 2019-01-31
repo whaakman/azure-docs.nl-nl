@@ -11,21 +11,21 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 889f8f597b0b744ea5fe6ef2f5c82f2d09629607
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605208"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474782"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Herstellen van een Azure SQL Database of een failover naar een secundaire
 
 Azure SQL Database biedt de volgende mogelijkheden voor het herstellen van een storing:
 
 - [Actieve Geo-replicatie](sql-database-active-geo-replication.md)
-- [Automatische failover-groepen](sql-database-auto-failover-group.md)
-- [Geo-herstel](sql-database-recovery-using-backups.md#point-in-time-restore)
+- [Groepen voor automatische failover](sql-database-auto-failover-group.md)
+- [Geo-restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 - [Zone-redundante databases](sql-database-high-availability.md)
 
 Zie voor meer informatie over scenario's voor zakelijke continuïteit en de onderdelen van deze scenario's ondersteunen, [bedrijfscontinuïteit](sql-database-business-continuity.md).
@@ -37,7 +37,7 @@ Zie voor meer informatie over scenario's voor zakelijke continuïteit en de onde
 
 Voor succesvol gebruik van herstel naar een andere gegevensregio met behulp van failover-groepen of geografisch redundante back-ups, moet u een server voorbereiden in een ander datacenter storing om te worden van de nieuwe primaire server moet de noodzaak zich voordoen, evenals goed gedefinieerde beschreven stappen hebt en getest om te controleren of een soepel herstel. Deze stappen voor gegevensvoorbereiding zijn onder andere:
 
-- Identificeer de logische server in een andere regio om te worden van de nieuwe primaire server. Voor geo-restore, dit is doorgaans een server in de [gekoppelde regio](../best-practices-availability-paired-regions.md) voor de regio waarin uw database zich bevindt. Dit elimineert de kosten voor extra verkeer tijdens de bewerkingen voor geo-herstellen.
+- Identificeer de SQL Database-server in een andere regio om te worden van de nieuwe primaire server. Voor geo-restore, dit is doorgaans een server in de [gekoppelde regio](../best-practices-availability-paired-regions.md) voor de regio waarin uw database zich bevindt. Dit elimineert de kosten voor extra verkeer tijdens de bewerkingen voor geo-herstellen.
 - Identificeer en (optioneel), de firewall op serverniveau regels definiëren die nodig zijn voor gebruikers toegang hebben tot de nieuwe primaire database.
 - Bepalen hoe u gaat om gebruikers te leiden naar de nieuwe primaire server, zoals door het veranderen van tekenreeksen voor databaseverbindingen of door het veranderen van DNS-vermeldingen.
 - Identificeer en (optioneel) maakt, de aanmeldingen die moeten worden gebruikt in de database master op de nieuwe primaire server en zorg ervoor dat deze aanmeldingen geschikte machtigingen hebben in de hoofddatabase, indien van toepassing. Zie voor meer informatie, [SQL Database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md)

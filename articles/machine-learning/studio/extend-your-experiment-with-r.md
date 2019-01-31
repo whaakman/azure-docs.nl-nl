@@ -1,6 +1,6 @@
 ---
-Titel: Uw experiment uitbreiden met R titleSuffix: Azure Machine Learning Studio description: Klik hier voor meer informatie over het uitbreiden van de functionaliteit van Azure Machine Learning Studio via de R-taal met behulp van de module R-Script uitvoeren.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Uw experiment uitbreiden met R titleSuffix: Azure Machine Learning Studio description: Klik hier voor meer informatie over het uitbreiden van de functionaliteit van Azure Machine Learning Studio via de R-taal met behulp van de module R-Script uitvoeren.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

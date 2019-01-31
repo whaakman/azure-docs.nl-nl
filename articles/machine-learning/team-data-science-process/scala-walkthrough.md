@@ -6,23 +6,23 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135144"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470311"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Gegevenswetenschap met Scala en Spark op Azure
 In dit artikel wordt beschreven hoe u met Scala voor beheerde machine learning-taken met de Spark schaalbare MLlib en Spark ML-pakketten op een Azure HDInsight Spark-cluster. Dit helpt u bij de taken die deel uitmaken van de [Data Science process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): gegevensopname en verkennen, visualisatie, feature-engineering, modellen en model verbruik. De modellen in het artikel zijn onder andere logistieke en lineaire regressie, willekeurige forests en verloop boosted structuren (GBTs), naast de twee algemene beheerde machine learning-taken:
 
-* Regressieprobleem: voorspelling van de tip-bedrag ($) voor een reis over taxi's
-* Binaire classificatie: voorspelling van tip of geen tip (1/0) voor een reis over taxi's
+* Regressieprobleem: Voorspelling van de tip-bedrag ($) voor een reis over taxi 's
+* Binaire classificatie: Voorspelling van tip of geen tip (1/0) voor een reis over taxi 's
 
 Het modelleringsproces is vereist voor training en evaluatie van een test-gegevensset en de nauwkeurigheid van de relevante metrische gegevens. In dit artikel leert u hoe deze modellen worden opgeslagen in Azure Blob-opslag en hoe u kunt beoordelen en evalueren van de voorspellende prestaties. Dit artikel behandelt ook de meer geavanceerde onderwerpen over het optimaliseren van modellen met behulp van kruisvalidatie en hyper-parameter sweeping. De gegevens die worden gebruikt, is een voorbeeld van de 2013 NYC taxi reis- en fare gegevensset beschikbaar op GitHub.
 
@@ -41,7 +41,7 @@ De installatiestappen uit en de code in dit artikel zijn voor Azure HDInsight 3.
 
 ## <a name="prerequisites"></a>Vereisten
 * U hebt een abonnement op Azure nodig. Als u nog geen hebt, [ophalen van een gratis proefversie van Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* U moet een Azure HDInsight 3.4 Spark 1.6-cluster om de volgende procedures te voltooien. Voor het maken van een cluster, raadpleegt u de instructies in [aan de slag: Apache Spark maken in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Instellen van de cluster van het type en de versie op de **clustertype selecteren** menu.
+* U moet een Azure HDInsight 3.4 Spark 1.6-cluster om de volgende procedures te voltooien. Voor het maken van een cluster, raadpleegt u de instructies in [aan de slag: Apache Spark op Azure HDInsight maakt](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Instellen van de cluster van het type en de versie op de **clustertype selecteren** menu.
 
 ![Configuratie van het HDInsight-cluster](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -66,7 +66,7 @@ U kunt de notebook rechtstreeks vanuit GitHub met de Jupyter-Notebook-server op 
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Instellen: Voorinstelling voor Spark en Hive-contexten, magics Spark en Spark-bibliotheken
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Instellen: Vooraf ingestelde Spark en Hive-contexten, magics Spark en Spark-bibliotheken
 ### <a name="preset-spark-and-hive-contexts"></a>Vooraf ingestelde Spark en Hive-contexten
     # SET THE START TIME
     import java.util.Calendar
@@ -532,7 +532,7 @@ Dit is de code voor deze twee taken.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Binaire classificeringsmodel: voorspellen of een tip moet worden betaald
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Binaire classificeringsmodel: Te voorspellen of een tip moet worden betaald
 In deze sectie maakt maken u drie soorten binaire classificatie modellen om te voorspellen of een tip moet worden betaald:
 
 * Een **model voor logistieke regressie** met behulp van de Spark ML `LogisticRegression()` functie
@@ -725,7 +725,7 @@ Maak vervolgens een classificeringsmodel GBT met behulp van MLlib `GradientBoost
 
 Gebied onder de ROC-curve: 0.9846895479241554
 
-## <a name="regression-model-predict-tip-amount"></a>Regressiemodel: tip bedrag voorspellen
+## <a name="regression-model-predict-tip-amount"></a>Regressiemodel: Tip bedrag voorspellen
 In deze sectie maakt maken u twee typen regressiemodellen om te voorspellen van de hoeveelheid tip:
 
 * Een **overgegaan lineair regressiemodel** met behulp van de Spark ML `LinearRegression()` functie. U slaat u het model en het model op testgegevens evalueren.
@@ -848,7 +848,7 @@ Grafieken maken met behulp van Python matplotlib.
 
 **De uitvoer:**
 
-![Bedrag Tip: werkelijke omzet versus voorspelde](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Tip bedrag: Werkelijke omzet versus voorspelde](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Een regressiemodel GBT maken
 Een regressiemodel GBT maken met behulp van de Spark ML `GBTRegressor()` functioneren en vervolgens het model op testgegevens evalueren.

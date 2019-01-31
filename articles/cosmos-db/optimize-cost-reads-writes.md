@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: c89374919087dc3bca435b8ce4af2dedd26ccb23
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b6c5722d5e096300f76f60dfaf8bab1e07d0c61c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041319"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455661"
 ---
-# <a name="optimize-the-cost-required-to-read-and-write-data-from-azure-cosmos-db"></a>De kosten die nodig zijn om te lezen en schrijven van gegevens uit Azure Cosmos DB optimaliseren
+# <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Lees- en schrijfbewerkingen in Azure Cosmos DB kosten optimaliseren
 
 Dit artikel wordt beschreven hoe de kosten die nodig zijn om te lezen en schrijven van gegevens uit Azure Cosmos DB wordt berekend. Lees-bewerkingen zijn get-bewerkingen op items en schrijfbewerkingen zijn insert, replace, verwijderen en upsert van items.  
 

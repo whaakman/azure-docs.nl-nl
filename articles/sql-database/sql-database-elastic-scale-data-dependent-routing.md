@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/25/2019
+ms.openlocfilehash: fe9098592fcfde2d5e23b78a3e33f2b4ebb9e2dc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201105"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468645"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Gegevensafhankelijke routering om te routeren van een query naar de juiste database gebruiken
 
-**Gegevensafhankelijke routering** is de mogelijkheid om de gegevens in een query gebruiken voor het routeren van de aanvraag met een juiste database. Gegevens-afhankelijke routering is een fundamenteel patroon bij het werken met shard-databases. De context van de aanvraag kan ook worden gebruikt voor het routeren van de aanvraag, met name als de sharding-sleutel geen deel uit van de query maakt. Elke specifieke query of een transactie in een toepassing met behulp van gegevensafhankelijke routering is beperkt tot het openen van een individuele database per aanvraag. Voor de Azure SQL Database Elastic-hulpprogramma's, deze routering wordt uitgevoerd met de **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) klasse.
+**Gegevensafhankelijke routering** is de mogelijkheid om de gegevens in een query gebruiken voor het routeren van de aanvraag met een juiste database. Gegevens-afhankelijke routering is een fundamenteel patroon bij het werken met shard-databases. De context van de aanvraag kan ook worden gebruikt voor het routeren van de aanvraag, met name als de sharding-sleutel geen deel uit van de query maakt. Elke specifieke query of een transactie in een toepassing met behulp van gegevensafhankelijke routering is beperkt tot één database per aanvraag te openen. Voor de Azure SQL Database Elastic-hulpprogramma's, deze routering wordt uitgevoerd met de **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) klasse.
 
 De toepassing hoeft niet te volgen verschillende tekenreeksen voor databaseverbindingen of DB-locaties die zijn gekoppeld aan verschillende delen van gegevens in de shard-omgeving. In plaats daarvan de [Shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md) verbindingen naar de juiste databases wanneer dat nodig is, wordt geopend op basis van de gegevens in de shard-toewijzing en de waarde van de sharding-sleutel die het doel van de aanvraag van de toepassing. De sleutel is doorgaans de *customer_id*, *tenant_id*, *date_key*, of enige andere specifieke id die is een fundamenteel parameter van de aanvraag van de database.
 

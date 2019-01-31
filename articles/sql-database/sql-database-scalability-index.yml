@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d1ed4fe7c4b2ffd287ce95e7a4a09e08305feb30
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1aac294eef90649bb05f1af9856760b2f7e03f2e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285310"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465007"
 documentType: LandingData
 title: Azure SQL Database - schaalbaarheid
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
+  ms.date: 01/25/2019
   ms.author: jovanpop-msft
 sections:
 - items:
@@ -37,7 +37,7 @@ sections:
       html: <p>Kritieke bedrijfslaag biedt u een replica van-kosten van de database waar u rapporten, analyses en andere alleen-lezen query's op een kopie van gegevens uitvoeren kunt.</p>
     - title: Database-sharding
       href: /azure/sql-database/sql-database-elastic-scale-introduction
-      html: <p>U kunt meerdere databases shards scale-out uw database dan de maximale reken- en opslaglimieten voor één database-eenheden.</p>
+      html: <p>U kunt meerdere databases shards scale-out van uw database dan de maximale reken- en opslaglimieten voor individuele databases.</p>
     - title: Elastische query’s
       href: /azure/sql-database/sql-database-elastic-query-overview
       html: <p>Elastische query's kunnen u uitvoert standard Transact-SQL-query's in een set van wereldwijd gedistribueerde database shards.</p>

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.subservice: common
+ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584669"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467744"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>De status van de Azure Import/Export-taken weergeven
 
@@ -28,7 +28,7 @@ U kunt de status van de importbewerking volgen of taken exporteren vanuit Azure 
 
 U ziet een van de volgende status van een taak, afhankelijk van waar de schijf zich in het proces bevindt.
 
-| Taakstatus | Beschrijving |
+| Taakstatus | Description |
 |:--- |:--- |
 | Maken | Nadat een taak is gemaakt, de status is ingesteld op **maken**. Terwijl de taak wordt de **maken** staat, wordt de Import/Export-service wordt ervan uitgegaan dat de schijven niet zijn verzonden naar het datacenter. Een taak kan in deze status blijven tot twee weken, waarna deze worden automatisch verwijderd door de service. |
 | Verzenden | Nadat u het pakket te verzenden, moet u de controle-informatie in de Azure-portal bijwerken.  Hiermee schakelt u de taak in **verzending** staat. De taak blijft in de **verzending** staat voor maximaal twee weken. 
@@ -44,7 +44,7 @@ De volgende tabel beschrijft de levenscyclus van een afzonderlijke station als h
 
 De volgende tabel beschrijft elke status die elke schijf in een taak kan passeren.
 
-| Status van station | Beschrijving |
+| Status van station | Description |
 |:--- |:--- |
 | Opgegeven | Voor een importtaak wanneer de taak wordt gemaakt in Azure portal, wordt de initiële status voor een station is **opgegeven**. Voor een exporttaak bekijken, omdat er geen station is opgegeven wanneer de taak is gemaakt, wordt de status van de eerste schijf is **ontvangen**. |
 | Ontvangen | Het station verandert in de **ontvangen** status wanneer de Import/Export-service de stations die zijn ontvangen van het transportbedrijf voor een importtaak heeft verwerkt. Voor een exporttaak bekijken, de status van de eerste schijf is de **ontvangen** staat. |

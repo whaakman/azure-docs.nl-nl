@@ -1,6 +1,6 @@
 ---
-Titel: Modelresultaten in Machine Learning Studio titleSuffix interpreteren: Azure Machine Learning Studio description: Klik hier voor meer informatie over het kiezen van de optimale parameter is ingesteld voor een algoritme gebruikt en score model uitvoer visualiseren.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Modelresultaten in Machine Learning Studio titleSuffix interpreteren: Azure Machine Learning Studio description: Klik hier voor meer informatie over het kiezen van de optimale parameter is ingesteld voor een algoritme gebruikt en score model uitvoer visualiseren.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---

@@ -9,18 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 12/06/2018
+ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59af9bef586393726222e8d4d306ea806e31efe3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a9c26a2a0eaf9c2669a71cdca729a6e64fe5cd5c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252078"
+ms.locfileid: "55301302"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning-service
 
-U kunt een model implementeren als een webservice op [programmable gate arrays (FPGA's) veld](concept-accelerate-with-fpgas.md).  Met behulp van FPGA's biedt zeer lage latentie inferentietaken, zelfs met een enkele batchgrootte.   
+U kunt een model implementeren als een webservice op [programmable gate arrays (FPGA's) veld](concept-accelerate-with-fpgas.md).  Met behulp van FPGA's biedt zeer lage latentie inferentietaken, zelfs met een enkele batchgrootte.  Deze modellen zijn momenteel beschikbaar:
+  - ResNet 50
+  - ResNet 152
+  - DenseNet-121
+  - VGG-16   
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,10 +38,20 @@ U kunt een model implementeren als een webservice op [programmable gate arrays (
 
     ```shell
     pip install --upgrade azureml-sdk[contrib]
-    ```  
+    ```
+
+  - Op dit moment alleen tensorflow versie < = 1.10 wordt ondersteund, dus installeren nadat alle andere installaties zijn voltooid:
+
+    ```shell
+    pip install "tensorflow==1.10"
+    ```
+
+### <a name="get-the-notebook"></a>De notebook ophalen
+
+Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een Jupyter-notebook. Ga als volgt de code hier of Voer de [Quick Start-notebook](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Uw model maakt en implementeert
-Een pijplijn maken voor de invoer parametriseer-installatiekopie met behulp van ResNet 50 op een FPGA voorverwerken, en voer vervolgens de functies via een classifer getraind op de ImageNet-gegevensset.
+Een pijplijn maken voor de invoer parametriseer-installatiekopie met behulp van ResNet 50 op een FPGA voorverwerken, en voer vervolgens de functies via een classificatie van de ImageNet-gegevensset wordt getraind.
 
 Volg de instructies voor:
 
@@ -69,7 +83,7 @@ print(image_tensors.shape)
 Initialiseren van het model en een TensorFlow-controlepunt van de quantized versie van ResNet50 moet worden gebruikt als een featurizer downloaden.
 
 ```python
-from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+from azureml.contrib.brainwave.models import QuantizedResnet50
 model_path = os.path.expanduser('~/models')
 model = QuantizedResnet50(model_path, is_frozen = True)
 feature_tensor = model.import_graph_def(image_tensors)
@@ -82,11 +96,11 @@ print(feature_tensor.shape)
 Deze classificatie is getraind op de ImageNet-gegevensset.
 
 ```python
-classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+classifier_output = model.get_default_classifier(feature_tensor)
 ```
 
 ### <a name="create-service-definition"></a>De servicedefinitie van de maken
-Nu dat u gedefinieerd, hebt de voorverwerking van de installatiekopie, featurizer en classificatie die wordt uitgevoerd op de service, kunt u de servicedefinitie van een kunt maken. De servicedefinitie van de is een set bestanden die zijn gegenereerd op basis van het model dat is geïmplementeerd naar de FPGA-service. Definitie van de service bestaat uit een pijplijn. De pijplijn is een reeks fasen die in volgorde worden uitgevoerd.  TensorFlow-fasen, Keras-fasen en BrainWave fasen worden ondersteund.  De fasen worden uitgevoerd in volgorde van de service, met de uitvoer van de invoer van elke fase in de volgende fase.
+Nu dat u hebt de voorverwerking van de installatiekopie, featurizer en classificatie die wordt uitgevoerd op de service gedefinieerd, kunt u de servicedefinitie van een kunt maken. De servicedefinitie van de is een set bestanden die zijn gegenereerd op basis van het model dat is geïmplementeerd naar de FPGA-service. Definitie van de service bestaat uit een pijplijn. De pijplijn is een reeks fasen die in volgorde worden uitgevoerd.  TensorFlow-fasen, Keras-fasen en BrainWave fasen worden ondersteund.  De fasen worden uitgevoerd in volgorde van de service, met de uitvoer van elke fase worden de invoer in de volgende fase.
 
 Maken van een fase TensorFlow, een sessie met de grafiek (in dit geval standaard grafiek wordt gebruikt) en de invoer en uitvoer tensors naar deze fase.  Deze informatie wordt gebruikt om op te slaan van de grafiek, zodat deze kan worden uitgevoerd op de service.
 
@@ -94,13 +108,13 @@ Maken van een fase TensorFlow, een sessie met de grafiek (in dit geval standaard
 from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
 
 save_path = os.path.expanduser('~/models/save')
-model_def_path = os.path.join(save_path, 'service_def.zip')
+model_def_path = os.path.join(save_path, 'model_def.zip')
 
 model_def = ModelDefinition()
 with tf.Session() as sess:
     model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
     model_def.pipeline.append(BrainWaveStage(sess, model))
-    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.pipeline.append(TensorflowStage(sess, feature_tensor, classifier_output))
     model_def.save(model_def_path)
     print(model_def_path)
 ```
@@ -129,7 +143,7 @@ except WebserviceException:
     image_config = BrainwaveImage.image_configuration()
     deployment_config = BrainwaveWebservice.deploy_configuration()
     service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
-    service.wait_for_deployment(true)
+    service.wait_for_deployment(True)
 ```
 
 ### <a name="test-the-service"></a>Test de service

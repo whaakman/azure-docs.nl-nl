@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238893"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469189"
 ---
 # <a name="table-design-patterns"></a>Tabelontwerppatronen
 Dit artikel beschrijft enkele patronen die geschikt is voor gebruik met oplossingen voor tabel-service. Ook ziet u hoe u enkele van de problemen en wisselwerking besproken in de andere artikelen van tabel storage ontwerp nagenoeg kunt oplossen. Het volgende diagram geeft een overzicht van de relaties tussen de verschillende patronen:  
@@ -197,11 +197,11 @@ Om in te schakelen lookup gesorteerd op achternaam met de entiteitsstructuur die
 * Index entiteiten maken in dezelfde partitie als de werknemer-entiteiten.  
 * Index entiteiten maken in een afzonderlijke partitie of een tabel.  
 
-<u>Optie #1: Gebruik blob storage</u>  
+<u>Optie #1: Blob storage gebruiken</u>  
 
 Voor de eerste optie, u een blob maken voor elke unieke achternaam en in elke blob-archief een lijst van de **PartitionKey** (afdeling) en **RowKey** (werknemer-ID) waarden voor werknemers die die laatste naam. Wanneer u toevoegen of verwijderen van een werknemer moet u ervoor zorgen dat de inhoud van de relevante blob uiteindelijk consistent met de werknemer-entiteiten is.  
 
-<u>Optie #2:</u> index entiteiten maken in dezelfde partitie  
+<u>Optie #2:</u> Index entiteiten maken in dezelfde partitie  
 
 Gebruik voor de tweede optie, index-entiteiten die opslaan van de volgende gegevens:  
 
@@ -223,7 +223,7 @@ De volgende stappen wordt beschreven hoe die u volgen moet wanneer u nodig hebt 
 2. De lijst van werknemer-id's in het veld EmployeeIDs parseren.  
 3. Als u aanvullende informatie over elk van deze werknemers (zoals hun e-mailadressen), ophalen van elk van de werknemer entiteiten met behulp van **PartitionKey** 'Verkoop'-waarde en **RowKey** waarden van de lijst met werknemers die u hebt verkregen in stap 2.  
 
-<u>Optie #3:</u> index entiteiten maken in een afzonderlijke partitie of tabel  
+<u>Optie #3:</u> Index entiteiten maken in een afzonderlijke partitie of tabel  
 
 Gebruik voor de derde optie, index-entiteiten die opslaan van de volgende gegevens:  
 
@@ -916,7 +916,7 @@ De rest van deze sectie beschrijft een aantal van de functies in de Storage-clie
 ### <a name="retrieving-heterogeneous-entity-types"></a>Bij het ophalen van heterogene Entiteitstypen
 Als u van de Storage-clientbibliotheek gebruikmaakt, hebt u drie opties voor het werken met meerdere Entiteitstypen.  
 
-Als u welk type van de entiteit die zijn opgeslagen met een specifieke weet **RowKey** en **PartitionKey** waarden, en vervolgens u het entiteitstype opgeven kunt wanneer u de entiteit ophalen, zoals wordt weergegeven in de vorige twee voorbeelden die entiteiten van het type ophalen **EmployeeEntity**: [die een point-query uitvoert met behulp van de Storage-clientbibliotheek](#executing-a-point-query-using-the-storage-client-library) en [bij het ophalen van meerdere entiteiten met behulp van LINQ](#retrieving-multiple-entities-using-linq).  
+Als u welk type van de entiteit die zijn opgeslagen met een specifieke weet **RowKey** en **PartitionKey** waarden, en vervolgens u het entiteitstype opgeven kunt wanneer u de entiteit ophalen, zoals wordt weergegeven in de vorige twee voorbeelden die entiteiten van het type ophalen **EmployeeEntity**: [Uitvoeren van een point-query met de Storage-clientbibliotheek](#executing-a-point-query-using-the-storage-client-library) en [bij het ophalen van meerdere entiteiten met behulp van LINQ](#retrieving-multiple-entities-using-linq).  
 
 De tweede optie is om het gebruik van de **DynamicTableEntity** type (een eigenschappenverzameling) in plaats van een concreet POCO entiteitstype (deze optie kan ook de prestaties verbeteren omdat niet hoeft te serialiseren en deserialiseren van de entiteit naar .NET-typen). De volgende C#-code mogelijk meerdere entiteiten van verschillende typen opgehaald uit de tabel, maar retourneert alle entiteiten als **DynamicTableEntity** exemplaren. Vervolgens wordt de **EntityType** eigenschap om te bepalen van het type van elke entiteit:  
 

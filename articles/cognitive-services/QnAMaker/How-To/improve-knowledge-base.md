@@ -6,16 +6,16 @@ author: diberry
 manager: cgronlun
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: cf652c1b0edd469f29d14ed10d66ebe78b0fbb7c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247830"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463732"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Actief leren gebruiken om uw knowledge base te verbeteren
 
@@ -42,7 +42,7 @@ Alle suggesties samen die vergelijkbaar zijn geclusterd en bovenste suggesties v
 
 ## <a name="upgrade-version-to-use-active-learning"></a>Versie van de upgrade actief leren gebruiken
 
-Actief leren wordt ondersteund in runtime-versie 4.4.0 en hoger. Als uw knowledge base is gemaakt op een eerdere versie [upgrade van uw service](upgrade-qnamaker-service.md) deze functie wilt gebruiken. 
+Actief leren wordt ondersteund in runtime-versie 4.4.0 en hoger. Als uw knowledge base is gemaakt op een eerdere versie [uw runtime upgraden](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) deze functie wilt gebruiken. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 

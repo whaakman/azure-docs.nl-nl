@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471817"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467438"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -108,7 +108,7 @@ Focus verplaatsen naar de meest gangbare standaardlagen, **S1-S3** voortgang met
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| Partitiegrootte|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| Partitiegrootte|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | limieten voor index en indexeerfunctie| 50 | 200 | 200 |  |  |  |  |
 
 **S1** is een algemene keuze wanneer toegewezen resources en meerdere partities noodzakelijk worden. Met partities van 25 GB voor maximaal 12 partities, de per-service beperken op **S1** is 300 GB totaal als u partities via de replica's maximaliseren (Zie [partities en replica's toewijzen](search-capacity-planning.md#chart) voor meer met gelijke taakverdeling samenstelling.)

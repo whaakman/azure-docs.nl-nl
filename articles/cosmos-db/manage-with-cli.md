@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: d45f5b5c5945796e30c86b2e3ef48d6b8e693b99
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c3028fd18bd9afefaa18f7f515a43a852ddef78a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038973"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464395"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-cli"></a>Azure Cosmos DB-resources met behulp van Azure CLI beheren
+# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Beheer van Azure Cosmos-resources met behulp van Azure CLI
 
 De volgende handleiding wordt beschreven voor het automatiseren van beheer van uw Azure Cosmos DB-accounts, -databases en containers met behulp van Azure CLI-opdrachten. Dit omvat ook opdrachten voor het schalen van containerdoorvoer. Referentiepagina's voor alle Azure Cosmos DB CLI-opdrachten zijn beschikbaar in de [naslaginformatie voor Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). U vindt ook meer voorbeelden van [Azure CLI-voorbeelden voor Azure Cosmos DB](cli-samples.md), waaronder het maken en beheren van Cosmos DB-accounts, -databases en -containers voor MongoDB, Gremlin, Cassandra en Table-API.
 

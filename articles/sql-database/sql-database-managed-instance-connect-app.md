@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ac0513e2298877c63bb25c26de32834c07a55474
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514958"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294145"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database
 
@@ -92,7 +92,7 @@ In dit scenario is geïllustreerd in het volgende diagram:
 
 Voor het oplossen van problemen met de netwerkverbinding, controleert u het volgende:
 - Als u geen verbinding maken met beheerd exemplaar van een virtuele machine van Azure binnen het hetzelfde VNet maar een ander subnet, moet u controleren of er een Netwerkbeveiligingsgroep die is ingesteld op VM-subnet dat toegang blokkeert. Daarnaast merk op dat u uitgaande verbindingen op de SQL-poort 1433, evenals poorten openen in bereik van 11000 12000 moet omdat die nodig zijn om verbinding te maken via een omleiding binnen de grenzen van Azure. 
-- Zorg ervoor dat BGP doorgiftetaak is ingesteld op **ingeschakeld** voor de routetabel die zijn gekoppeld aan het VNet.
+- Zorg ervoor dat de doorgifte van BGP is ingesteld op **ingeschakeld** voor de routetabel die zijn gekoppeld aan het VNet.
 - Als u P2S VPN, controleert u de configuratie in de Azure portal om te controleren of **Inkomend/uitgaand verkeer** getallen. Niet-nulwaarde getallen geven aan dat Azure routeren van verkeer naar/vanuit on-premises.
 
    ![Inkomend/uitgaand verkeer cijfers](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)

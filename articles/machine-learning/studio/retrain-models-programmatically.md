@@ -1,6 +1,6 @@
 ---
-Titel: Retrain Machine Learning Studio-modellen programmatisch titleSuffix: Azure Machine Learning Studio description: Meer informatie over het programmatisch opnieuw trainen een model met C# en de service Machine Learning Batch Execution.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Retrain Machine Learning Studio-modellen programmatisch titleSuffix: Azure Machine Learning Studio description: Meer informatie over het programmatisch opnieuw trainen een model met C# en de service Machine Learning Batch Execution.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---
