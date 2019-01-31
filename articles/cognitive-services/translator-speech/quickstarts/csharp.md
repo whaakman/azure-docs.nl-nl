@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Translator Speech-API C#'
+title: 'Quickstart: Translator Speech-API C#'
 titlesuffix: Azure Cognitive Services
 description: Ontdek informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Translator Speech-API.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b873dbd3132e549c529280400d5a9644174232f9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d650be954770fae4924c8e65a8d8f4e17acbafa1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259019"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459618"
 ---
-# <a name="quickstart-translator-speech-api-with-c"></a>Snelstart: Translator Speech-API met C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Quickstart: Translator Speech-API met C# 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
