@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c99b22a5dad1e64525b2b2ebcd214c3dc5bfb28f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259645"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473592"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Beheren van Azure Cosmos DB-resources met behulp van Azure Storage Explorer
+# <a name="work-with-data-using-azure-storage-explorer"></a>Werken met gegevens met behulp van Azure Storage Explorer
 
 Het gebruik van Azure Cosmos DB in Azure Storage Explorer stelt gebruikers in staat om Azure Cosmos DB entiteiten te beheren, gegevens te manipuleren, en opgeslagen procedures en triggers bij te werken samen met andere Azure entiteiten zoals opslagblobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken om uw verschillende Azure entiteiten op één plek te beheren. Op dit moment ondersteunt Azure Storage Explorer Cosmos-accounts die zijn geconfigureerd voor SQL, MongoDB, grafiek en tabel-API's.
 

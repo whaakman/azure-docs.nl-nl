@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: d8c3bafaa42e68eb7f6b5212c055793a1f2b1137
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134536"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478029"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data science code testen op Azure met het Team Data Science Process en Azure DevOps-Services
 Dit artikel bevat voorlopige richtlijnen voor het testen van code in een werkstroom voor datatechnologie. Dergelijke test biedt gegevenswetenschappers een systematische en efficiënte manier om te controleren of de kwaliteit en de verwachte resultaten van hun code. We gebruiken een Team Data Science Process (TDSP) [project die gebruikmaakt van de gegevensset UCI volwassenen inkomsten](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) die we eerder gepubliceerd om weer te geven hoe het testen van code kan worden gedaan. 

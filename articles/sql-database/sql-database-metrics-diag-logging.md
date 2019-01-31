@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: e44ac8dca3b27a21e1a7564bbee31c156f80e929
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102186"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462797"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
 Azure SQL Database, elastische pools Managed Instance en databases in Managed Instance kunnen stream metrische gegevens en diagnostische logboeken voor prestatiebewaking van eenvoudiger. U kunt een database om te verzenden, Resourcegebruik, werkrollen en sessies en connectiviteit met een van de volgende Azure-resources configureren:
 
-- **Azure SQL Analytics**: aan de intelligente bewaking van uw Azure-databases met rapporten, waarschuwingen en risicobeperking aanbevelingen.
+- **Azure SQL Analytics**: aan de intelligente bewaking van uw Azure SQL-databases met rapporten, waarschuwingen en risicobeperking aanbevelingen.
 - **Azure Event Hubs**: SQL Database-telemetrie integreren met uw aangepaste bewakingsoplossingen of actieve pijplijnen.
 - **Azure Storage**: voor het archiveren van grote hoeveelheden telemetriegegevens voor een fractie van de prijs.
 
@@ -409,7 +409,7 @@ Raadpleeg de volgende tabel voor meer informatie over de logboeken voor beheerd 
 
 ### <a name="resource-usage-statistics"></a>Statistieken voor het gebruik van resource
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure|
@@ -438,7 +438,7 @@ Raadpleeg de volgende tabellen voor meer informatie over de logboeken voor Azure
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -489,7 +489,7 @@ Meer informatie over [gegevens voor Query Store runtime-statistieken](https://do
 
 ### <a name="query-store-wait-statistics"></a>Query Store wacht statistieken
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -527,7 +527,7 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 
 ### <a name="errors-dataset"></a>Gegevensset voor fouten
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -556,7 +556,7 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/libra
 
 ### <a name="database-wait-statistics-dataset"></a>Database wacht statistieken gegevensset
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -585,7 +585,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 
 ### <a name="time-outs-dataset"></a>Time-outs gegevensset
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -608,7 +608,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 
 ### <a name="blockings-dataset"></a>Blockings gegevensset
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -632,7 +632,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 
 ### <a name="deadlocks-dataset"></a>Impassen gegevensset
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |
@@ -653,7 +653,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 
 ### <a name="automatic-tuning-dataset"></a>Automatische afstemming gegevensset
 
-|Eigenschap|Beschrijving|
+|Eigenschap|Description|
 |---|---|
 |TenantId|Uw tenant-ID |
 |SourceSystem|Altijd: Azure |

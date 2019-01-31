@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 3e6a11a8c225afb220f290cee2db39c36750b401
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: 8fc85f82e5b6290a0f7401581e57b77473a495ae
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632141"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454008"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Metrische gegevens van Azure Storage inschakelen en weergeven van metrische gegevens
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -136,10 +136,10 @@ Volledige details van de schema's vindt u voor deze tabellen aan [tabelschema va
 
 | PartitionKey | RowKey | Tijdstempel | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Beschikbaarheid | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 | --- |:---:| ---:| --- | --- | --- | --- | --- | --- | --- | --- |
-| 20140522T1100 |gebruiker. Alle |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
-| 20140522T1100 |gebruiker. QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143.8 |7.8 |100 |
-| 20140522T1100 |gebruiker. QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
-| 20140522T1100 |gebruiker. UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
+| 20140522T1100 |user;All |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
+| 20140522T1100 |user;QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143.8 |7.8 |100 |
+| 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
+| 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
 In dit voorbeeld minuut metrische gegevens gebruikt de partitiesleutel het tijd resolutie van één minuut. De rijsleutel identificeert het type informatie die is opgeslagen in de rij. De rijsleutel bestaat uit twee soorten informatie, het toegangstype en het aanvraagtype:
 

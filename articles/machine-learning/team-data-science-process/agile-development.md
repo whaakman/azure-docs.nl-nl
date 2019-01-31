@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: adf713fc3f875168f99b302b0a9affef88e8414f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134400"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457680"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Flexibele ontwikkeling van wetenschappelijke gegevensprojecten
 
@@ -38,20 +38,20 @@ De volgende afbeelding toont een typische sprint plannen, coderen en bronbeheer 
 
 ##  1. <a name='Terminology-1'></a>Terminologie 
 
-In de TDSP sprint planning framework, zijn er vier veelgebruikte typen **werkitems**: **functie**, **gebruiker verhaal**, **taak**, en **Bug**. Elk project heeft één achterstallige voor alle werkitems. Er is geen achterstand op het niveau van de Git-opslagplaats onder een project. Hier vindt u de definities:
+In de TDSP sprint planning framework, zijn er vier veelgebruikte typen **werkitems**: **Functie**, **gebruiker verhaal**, **taak**, en **Bug**. Elk project heeft één achterstallige voor alle werkitems. Er is geen achterstand op het niveau van de Git-opslagplaats onder een project. Hier vindt u de definities:
 
-- **Functie**: een functie komt overeen met de betrokkenheid van een project. Verschillende engagements met een client worden beschouwd als verschillende functies. Op deze manier is het beste rekening houden met verschillende fasen van een project met een client als andere functies. Als u ervoor een schema zoals kiest ***ClientName EngagementName*** als naam van uw functies vervolgens u gemakkelijk kunt herkennen de context van het project/engagement uit de namen van zichzelf.
-- **Verhaal**: verhalen van andere werkitems die nodig zijn om uit te voeren van een functie (project) end-to-end zijn. Voorbeelden van artikelen zijn:
+- **Functie**: Een functie komt overeen met de betrokkenheid van een project. Verschillende engagements met een client worden beschouwd als verschillende functies. Op deze manier is het beste rekening houden met verschillende fasen van een project met een client als andere functies. Als u ervoor een schema zoals kiest ***ClientName EngagementName*** als naam van uw functies vervolgens u gemakkelijk kunt herkennen de context van het project/engagement uit de namen van zichzelf.
+- **Verhaal**: Verhalen van zijn andere werkitems die nodig zijn om uit te voeren van een functie (project) end-to-end. Voorbeelden van artikelen zijn:
     - Ophalen van gegevens 
     - Gegevens verkennen 
     - Functies genereren
     - Modellen ontwikkelen
     - Tot het operationaliseren van modellen 
     - Opnieuw trainen van modellen
-- **Taak**: taken zijn toewijsbare code of het document werkitems of andere activiteiten die worden uitgevoerd moeten voor het voltooien van een bepaald verhaal. Bijvoorbeeld, taken in het artikel *gegevens ophalen* kan zijn:
+- **Taak**: Taken zijn toewijsbare code of document werkitems of andere activiteiten die worden uitgevoerd moeten voor het voltooien van een bepaald verhaal. Bijvoorbeeld, taken in het artikel *gegevens ophalen* kan zijn:
     -  Ophalen van referenties van SQL Server 
     -  Uploaden van gegevens naar SQL datawarehouse. 
-- **Bug**: Bugs meestal verwijzen naar oplossingen die nodig zijn voor een bestaande code of het document die worden uitgevoerd wanneer een taak is voltooid. Als de fout wordt veroorzaakt door ontbrekende respectievelijk de fasen of taken, kan het escaleren naar een artikel of een taak wordt. 
+- **Bug**: Fouten worden meestal verwijzen naar oplossingen die nodig zijn voor een bestaande code of het document die worden uitgevoerd wanneer een taak is voltooid. Als de fout wordt veroorzaakt door ontbrekende respectievelijk de fasen of taken, kan het escaleren naar een artikel of een taak wordt. 
 
 > [!NOTE]
 > Concepten worden van functies, verhalen, taken en fouten van beheer van software-code (SCM) moet worden gebruikt in de data science geleend. Ze kunnen enigszins afwijken van de conventionele SCM-definities.

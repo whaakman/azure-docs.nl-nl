@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: c2b2ba0e238887531297f6ac2a486d42d885794d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079083"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475174"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Het werkt als volgt: Azure AD-selfservice wachtwoord opnieuw instellen
 
@@ -50,7 +50,7 @@ Lezen via de volgende stappen uit voor meer informatie over de logica achter het
        * Als u de verificatiemethoden die niet zijn geconfigureerd, wordt de gebruiker aanbevolen contact opnemen met de beheerder om hun wachtwoord opnieuw instellen.
      * Als het beleid twee methoden vereist, klikt u vervolgens het zorgt ervoor dat de gebruiker de juiste gegevens voor ten minste twee van de verificatiemethoden ingeschakeld door het beheerdersbeleid voor de gedefinieerd heeft.
        * Als u de verificatiemethoden die niet zijn geconfigureerd, wordt de gebruiker aanbevolen contact opnemen met de beheerder om hun wachtwoord opnieuw instellen.
-     * Als een Azure-beheerdersrol is toegewezen aan de gebruiker wordt vervolgens het wachtwoord van de twee-gate-beleid afgedwongen. Meer informatie over dit beleid kan worden gevonden in de sectie [beheerder opnieuw instellen van beleid verschillen](concept-sspr-policy.md#administrator-reset-policy-differences).
+     * Als een Azure-beheerdersrol is toegewezen aan de gebruiker, wordt klikt u vervolgens het wachtwoord twee-gate-beleid afgedwongen. Meer informatie over dit beleid kan worden gevonden in de sectie [beheerder opnieuw instellen van beleid verschillen](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Controles om te controleren of het wachtwoord van de gebruiker wordt beheerd on-premises (federatieve, Pass through-verificatie of wachtwoord-hash gesynchroniseerd).
      * Als u Write-back is geïmplementeerd en het wachtwoord van gebruikers is on-premises worden beheerd, is de gebruiker toegestaan om door te gaan om te verifiëren en hun wachtwoord opnieuw instellen.
      * Als u Write-back is niet geïmplementeerd en het wachtwoord van gebruikers is on-premises worden beheerd, en vervolgens de gebruiker gevraagd contact op met de beheerder om hun wachtwoord opnieuw instellen.
@@ -84,7 +84,7 @@ Als een gebruiker beschikt niet over de minimale vereiste methoden die zijn gere
 
 #### <a name="mobile-app-and-sspr-preview"></a>Mobiele app en SSPR (Preview)
 
-Wanneer u een mobiele app, zoals de Microsoft Authenticator-app als een methode voor het wachtwoord opnieuw instellen, moet u rekening houden met het volgende:
+Wanneer u een mobiele app, zoals de Microsoft Authenticator-app als een methode voor het wachtwoord opnieuw instellen, moet u rekening houden met het volgende voorbehoud:
 
 * Wanneer beheerders vereisen een methode dat worden gebruikt om een wachtwoord opnieuw instellen, de verificatiecode is de enige beschikbare optie.
 * Wanneer beheerders vereisen twee methoden dat worden gebruikt om een wachtwoord opnieuw instellen, gebruikers mogen gebruiken **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
@@ -119,7 +119,7 @@ Voorbeeld:
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Vereisen dat gebruikers te registreren wanneer ze zich aanmelden
 
-Als u deze optie inschakelt, moet de gebruiker het wachtwoord opnieuw instellen om inschrijving te voltooien als ze zich aanmelden bij toepassingen die gebruikmaken van Azure AD. Dit omvat de volgende toepassingen:
+Als u deze optie inschakelt, moet de gebruiker het wachtwoord opnieuw instellen om inschrijving te voltooien als ze zich aanmelden bij toepassingen die gebruikmaken van Azure AD. Deze werkstroom bevat de volgende toepassingen:
 
 * Office 365
 * Azure Portal
@@ -132,7 +132,7 @@ Wanneer registratie vereisen is uitgeschakeld, worden gebruikers kunnen handmati
 > [!NOTE]
 > Gebruikers de registratieportal voor wachtwoordherstel kunnen sluiten door te selecteren **annuleren** of door het venster te sluiten. Maar ze wordt gevraagd om u te registreren telkens wanneer ze zich aanmelden totdat ze hun inschrijving.
 >
-> Dit verbroken niet van de gebruiker verbinding als ze al zijn aangemeld.
+> Deze interrupt verbroken niet van de gebruiker verbinding als ze al zijn aangemeld.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Stel het aantal dagen waarna gebruikers wordt gevraagd naar de verificatiegegevens
 
@@ -169,7 +169,7 @@ Deze pagina vindt u een snel de status van de on-premises Write-backclient, een 
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Wachtwoorden terugschrijven naar uw on-premises directory
 
-Dit besturingselement bepaalt of het terugschrijven van wachtwoorden is ingeschakeld voor deze map. Als u terugschrijven van wachtwoorden is ingeschakeld, betekent dit de status van de on-premises Write-back-service. Dit is handig als u het terugschrijven van wachtwoorden tijdelijk uitschakelen wilt zonder Azure AD Connect opnieuw configureren.
+Dit besturingselement bepaalt of het terugschrijven van wachtwoorden is ingeschakeld voor deze map. Als u terugschrijven van wachtwoorden is ingeschakeld, betekent dit de status van de on-premises Write-back-service. Dit besturingselement is handig als u het terugschrijven van wachtwoorden tijdelijk uitschakelen wilt zonder Azure AD Connect opnieuw configureren.
 
 * Als de switch is ingesteld op **Ja**, klikt u vervolgens het terugschrijven van wachtwoorden is ingeschakeld en federatieve, Pass through-verificatie of de wachtwoord-hash gesynchroniseerd gebruikers kunnen hun wachtwoord opnieuw instellen.
 * Als de switch is ingesteld op **Nee**, klikt u vervolgens Write-back is uitgeschakeld en federatieve, Pass through-verificatie of de wachtwoord-hash gesynchroniseerd gebruikers zijn niet in staat hun wachtwoord opnieuw instellen.
@@ -180,6 +180,10 @@ Dit besturingselement Hiermee wordt aangegeven of gebruikers die gaat u naar de 
 
 * Indien ingesteld op **Ja**, en vervolgens gebruikers de mogelijkheid hun wachtwoord opnieuw instellen en het account ontgrendelen of hun account ontgrendelen krijgen zonder dat het wachtwoord opnieuw instellen.
 * Indien ingesteld op **Nee**, klikt u vervolgens gebruikers zijn alleen kunnen worden gecombineerd voor wachtwoordherstel en bewerking ontgrendelen van het account.
+
+### <a name="on-premises-active-directory-password-filters"></a>On-premises Active Directory-wachtwoordfilters
+
+Azure AD-selfservice wachtwoord opnieuw instellen, voert het equivalent van een wachtwoord door de beheerder opnieuw instellen in Active Directory. Als u een derde partij wachtwoordfilter gebruikt voor het afdwingen van regels voor aangepaste wachtwoorden, en u wilt dat dit wachtwoordfilter is ingeschakeld tijdens de Azure AD selfservice voor wachtwoordherstel, zorg ervoor dat de oplossing van derden wachtwoord-filter is geconfigureerd om toe te passen de beheerderswachtwoord opnieuw instellen van scenario. [Azure AD-wachtwoordbeveiliging voor Windows Server Active Directory](concept-password-ban-bad-on-premises.md) wordt standaard ondersteund.
 
 ## <a name="password-reset-for-b2b-users"></a>Wachtwoord opnieuw instellen voor B2B-gebruikers
 

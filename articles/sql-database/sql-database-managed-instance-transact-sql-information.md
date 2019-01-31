@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463742"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472777"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server
 
@@ -228,7 +228,7 @@ Niet-gedocumenteerde DBCC-instructies die zijn ingeschakeld in SQL Server worden
 
 ### <a name="distributed-transactions"></a>Gedistribueerde transacties
 
-Geen van beide MSDTC noch [elastische transacties](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) worden momenteel ondersteund in het beheerde exemplaar.
+Geen van beide MSDTC noch [elastische transacties](sql-database-elastic-transactions-overview.md) worden momenteel ondersteund in het beheerde exemplaar.
 
 ### <a name="extended-events"></a>Uitgebreide gebeurtenissen
 
@@ -279,8 +279,8 @@ Bewerkingen
 - SQL-aanmeldingen die zijn gemaakt `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, en `FROM SID` worden ondersteund. Zie [maken aanmelding](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (AAD)-aanmeldingen die zijn gemaakt met [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntaxis of de [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntaxis worden ondersteund (**preview-versie**).
 - Windows-aanmeldingen die zijn gemaakt met `CREATE LOGIN ... FROM WINDOWS` syntaxis worden niet ondersteund. Gebruik Azure Active Directory-aanmeldingen en gebruikers.
-- Azure Active Directory (Azure AD)-gebruiker die heeft gemaakt van het exemplaar heeft [onbeperkte beheerdersbevoegdheden](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
-- Niet-Azure Active Directory (Azure AD) op databaseniveau beheerders kunnen worden gemaakt met `CREATE USER ... FROM EXTERNAL PROVIDER` syntaxis. Zie [gebruiker maken... VAN DE EXTERNE PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- Azure Active Directory (Azure AD)-gebruiker die heeft gemaakt van het exemplaar heeft [onbeperkte beheerdersbevoegdheden](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Niet-Azure Active Directory (Azure AD) op databaseniveau beheerders kunnen worden gemaakt met `CREATE USER ... FROM EXTERNAL PROVIDER` syntaxis. Zie [gebruiker maken... VAN DE EXTERNE PROVIDER](sql-database-manage-logins.md#non-administrator-users)
 
 ### <a name="polybase"></a>PolyBase
 
@@ -366,22 +366,22 @@ Cross-exemplaar van service broker wordt niet ondersteund:
 - Taken
   - T-SQL-taakstappen worden ondersteund.
   - De volgende replicatietaken worden ondersteund:
-    - Transactie-log reader.  
-    - Een momentopname.
+    - Transactielogboeklezer.  
+    - Momentopname.
     - Distributor
   - SSIS-taakstappen worden ondersteund
-  - Andere typen taakstappen worden momenteel niet ondersteund, met inbegrip van:
-    - Samenvoegen van stap in logboektaak replicatie wordt niet ondersteund.  
-    - Lezer van de wachtrij wordt niet ondersteund.  
+  - Andere typen taakstappen worden momenteel niet ondersteund, waaronder:
+    - Het samenvoegen van replicatietaakstappen wordt niet ondersteund.  
+    - De wachtrijlezer wordt niet ondersteund.  
     - Opdrachtshell is nog niet ondersteund.
   - Beheerd exemplaar heeft geen toegang tot externe bronnen (bijvoorbeeld netwerkshares via robocopy).  
   - PowerShell is nog niet ondersteund.
-  - Analyseservices worden niet ondersteund.
+  - Analysis Services worden niet ondersteund
 - Meldingen worden gedeeltelijk ondersteund
 - E-mailmelding wordt ondersteund, is vereist voor het configureren van een Database-e-mailprofiel. Er mag slechts één database-e-mailprofiel en moet worden aangeroepen `AzureManagedInstance_dbmail_profile` in openbare preview-versie (tijdelijke beperking).  
   - Pager wordt niet ondersteund.  
-  - Net Send wordt niet ondersteund.
-  - Waarschuwingen worden nog niet niet ondersteund.
+  - NetSend wordt niet ondersteund.
+  - Waarschuwingen worden nog niet ondersteund.
   - Proxy's worden niet ondersteund.  
 - Gebeurtenislogboek wordt niet ondersteund.
 
@@ -392,7 +392,7 @@ De volgende functies worden momenteel niet ondersteund, maar in de toekomst word
 - Agent in-/ uitschakelen
 - Waarschuwingen
 
-Zie voor meer informatie over SQL Server Agent [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+Zie [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) voor meer informatie over SQL Server Agent.
 
 ### <a name="tables"></a>Tabellen
 

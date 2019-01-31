@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: fe712648cf3e76f4161f9f3a7b97b7990bc692a1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214463"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471399"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -852,6 +852,9 @@ Antivirus-, back-up- en andere toepassingen die grote aantallen bestanden lezen 
 Vraag uw softwareleverancier hoe de oplossing kan worden geconfigureerd zodat offlinebestanden niet meer worden gelezen.
 
 Onbedoelde terugroepingen kunnen ook optreden in andere scenario's, zoals wanneer u, bestanden in Verkenner bladert worden. Als u in Verkenner op de server een map opent met bestanden in cloudlagen, kan dat resulteren in onbedoeld terughalen. Dit is nog waarschijnlijker als er een antivirusoplossing is ingeschakeld op de server.
+
+> [!NOTE]
+>Gebeurtenis-ID 9059 in het gebeurtenislogboek telemetrie gebruiken om te bepalen welke toepassingen wordt veroorzaakt door terughalen. Deze gebeurtenis biedt distributie van de toepassing intrekken voor het servereindpunt van een en eenmaal per uur wordt geregistreerd.
 
 ## <a name="general-troubleshooting"></a>Algemene probleemoplossing
 Als u problemen met Azure File Sync op een server, kunt u beginnen met de volgende stappen:

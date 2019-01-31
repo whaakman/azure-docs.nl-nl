@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2018
+ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242956"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456048"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opties voor het migreren van gegevens uit StorSimple 5000-7000 serie 
 
@@ -44,6 +44,8 @@ De StorSimple 5000-7000-serie met klanten hebben de volgende opties:
 - **Opties van derden**:
 
     - **Migreren naar Panzura vrijheid NAS** -StorSimple 5000-7000-klanten kiezen kunnen om te migreren naar Panzura vrijheid NAS ze de gegevens bewaren in Azure. Panzura vrijheid om de oplossing biedt een NAS-oplossing die datacenters, kantoren, openbare en privéclouds omvat. De oplossing maakt een lokale, hybride en cloudgegevens in werkstromen voor NFS, SMB- en mobiele clients. Deze migratie wordt ondersteund door Panzura en klanten kunnen aan de slag door het aanvragen van Migratieondersteuning voor van de [Panzura website](https://panzura.com/storsimple-migration/).
+
+    - **Migreren naar Cohesity** -Cohesity kunt u gegevens van uw huidige StorSimple 5000-7000 migreren naar de Cohesity Data Platform op Azure. Het gegevensplatform Cohesity is een door software gedefinieerde webschaal-oplossing die bestanden, back-ups, objecten en VM's naar één cloud-eigen oplossing consolideert. Na de migratie naar de Data-Platform, kunt u beheren, beveiligen en gegevens en apps van cloud naar core via een enkel glazen inrichten. Beginnen met Cohesity, met slechts drie knooppunten. Meer informatie over [migratie naar de Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 ## <a name="migration---frequently-asked-questions"></a>Migratie - Veelgestelde vragen
 

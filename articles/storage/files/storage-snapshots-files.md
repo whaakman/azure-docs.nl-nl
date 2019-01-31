@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: 7f03af0fc338299da9b989d46e7bbfb83f3babeb
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: b39b6cf5936820d6e26ad5a17638a00c86fbf68a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945702"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457136"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van share-momentopnamen voor Azure Files 
 Azure Files biedt de mogelijkheid voor share-momentopnamen van bestandsshares. Momentopnamen vastleggen van de status van de share op dat punt in tijd delen. In dit artikel wordt beschreven welke mogelijkheden bieden voor momentopnamen van shares en hoe u kunt profiteren van deze in uw aangepaste situatie.

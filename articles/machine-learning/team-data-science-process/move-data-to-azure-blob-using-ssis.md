@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cd7fc5b69fd3ef124a96f00466a0d9a8c4e2240
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134349"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468509"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Gegevens verplaatsen naar of van Azure Blob Storage met behulp van SSIS-connectors
 De [SQL Server Integration Services Feature Pack voor Azure](https://msdn.microsoft.com/library/mt146770.aspx) onderdelen verbinding maken met Azure, gegevens overdragen tussen Azure en on-premises gegevensbronnen en gegevens verwerken die zijn opgeslagen in Azure biedt.
@@ -42,8 +42,8 @@ Als u de taken die in dit artikel wordt beschreven, hebt u een Azure-abonnement 
 
 Gebruik de **SSIS-connectors**, moet u het downloaden:
 
-* **SQL Server 2014 of 2016 Standard (of hoger)**: installatie van SQL Server Integration Services bevat.
-* **Microsoft SQL Server 2014 of 2016 Integration Services Feature Pack voor Azure**: deze kunnen worden gedownload, respectievelijk uit de [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) en [integratie met SQL Server 2016 Services](https://www.microsoft.com/download/details.aspx?id=49492) pagina's.
+* **SQL Server 2014 of 2016 Standard (of hoger)**: Deze installatie bevat de SQL Server Integration Services.
+* **Microsoft SQL Server 2014 of 2016 Integration Services Feature Pack voor Azure**: Deze kunnen worden gedownload, respectievelijk uit de [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) en [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) pagina's.
 
 > [!NOTE]
 > SSIS met SQL Server is geïnstalleerd, maar is niet opgenomen in de Express-versie. Zie voor informatie over welke toepassingen zijn opgenomen in de verschillende edities van SQL Server, [edities van SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -52,7 +52,7 @@ Gebruik de **SSIS-connectors**, moet u het downloaden:
 
 Zie voor het trainingsmateriaal van SSIS, [handen op Training voor SSIS](https://www.microsoft.com/sql-server/training-certification)
 
-Voor meer informatie over het ophalen van de boven-en-die wordt uitgevoerd met behulp van SISS aan het bouwen van eenvoudige extractie, transformatie en laden (ETL)-pakketten, Zie [SSIS-zelfstudie: het maken van een eenvoudige ETL-pakket](https://msdn.microsoft.com/library/ms169917.aspx).
+Voor meer informatie over het ophalen van de boven-en-die wordt uitgevoerd met behulp van SISS aan het bouwen van eenvoudige extractie, transformatie en laden (ETL)-pakketten, Zie [SSIS-zelfstudie: Het maken van een eenvoudige ETL-pakket](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Gegevensset NYC over taxi's downloaden
 Het voorbeeld beschreven hier een openbaar beschikbare gegevensset--gebruiken de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De gegevensset bestaat uit over 173 miljoen taxi ritjes in NYC in het jaar 2013. Er zijn twee soorten gegevens: reis details gegevens en fare gegevens. Als er een bestand voor elke maand is, hebben we 24 bestanden in alle, die elk ongeveer 2GB niet gecomprimeerd is.

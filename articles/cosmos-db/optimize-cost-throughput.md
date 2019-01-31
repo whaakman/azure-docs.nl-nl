@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 476e39d0ced465d75e44098b9508472b87b0e7b8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 443bf5694515720b1b865c310e70ca9c45add262
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230166"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465585"
 ---
-# <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Optimaliseren van doorvoer kosten bij Azure Cosmos DB
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Kosten van de ingerichte doorvoer in Azure Cosmos DB optimaliseren
 
 Model van de ingerichte doorvoer biedt en biedt Azure Cosmos DB voorspelbare prestaties op elke schaal. Elimineert het 'noisy neighbor-effect' op de prestaties van uw reservering of doorvoer vooraf inrichten. U geeft de exacte hoeveelheid doorvoer die u nodig en Azure Cosmos DB garandeert voor de geconfigureerde doorvoer, ondersteund door een SLA.
 

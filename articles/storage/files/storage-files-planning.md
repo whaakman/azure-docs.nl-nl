@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.subservice: files
+ms.openlocfilehash: a9c37258d7c9631c6e5fe13007b78c4205a1c249
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831378"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473881"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol. Omdat Azure Files wordt volledig beheerd, is het veel eenvoudiger dan implementeren en beheren van een bestandsserver of een NAS-apparaat dat u deze in productie scenario's is geïmplementeerd. In dit artikel komen de onderwerpen om u te overwegen bij het implementeren van een Azure-bestandsshare voor gebruik in productieomgevingen binnen uw organisatie.
@@ -23,15 +23,15 @@ ms.locfileid: "48831378"
 
 ![Bestandsstructuur](./media/storage-files-introduction/files-concepts.png)
 
-* **Opslagaccount**: alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
+* **Storage-Account**: Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
 
-* **Share**: een File Storage-share is een SMB-bestandsshare in Azure. Alle mappen en bestanden moeten worden gemaakt in een bovenliggende share. Een account kan een onbeperkt aantal shares bevatten en een share kan een onbeperkt aantal bestanden, tot de 5 TiB totale capaciteit van de bestandsshare.
+* **Share**: Een File Storage-share is een SMB-bestandsshare in Azure. Alle mappen en bestanden moeten worden gemaakt in een bovenliggende share. Een account kan een onbeperkt aantal shares bevatten en een share kan een onbeperkt aantal bestanden, tot de 5 TiB totale capaciteit van de bestandsshare.
 
-* **Map**: een optionele hiërarchie van mappen.
+* **Directory**: Een optionele hiërarchie van mappen.
 
-* **Bestand**: een bestand in de share. Een bestand mag maximaal 1 TiB in grootte.
+* **Bestand**: Een bestand in de share. Een bestand mag maximaal 1 TiB in grootte.
 
-* **URL-indeling**: voor aanvragen voor een Azure-bestandsshare gemaakt met de File REST-protocol, bestanden kunnen worden opgevraagd met behulp van de volgende URL-indeling:
+* **URL-indeling**: Voor aanvragen voor een Azure-bestandsshare gemaakt met de File REST-protocol, bestanden kunnen worden opgevraagd met behulp van de volgende URL-indeling:
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory>/directories>/<file>
@@ -40,8 +40,8 @@ ms.locfileid: "48831378"
 ## <a name="data-access-method"></a>Data access-methode
 Azure Files beschikt twee ingebouwde, handige data access-methoden die u afzonderlijk of in combinatie met elkaar worden verbonden, gebruiken kunt voor toegang tot uw gegevens:
 
-1. **Direct cloudtoegang**: een Azure-bestandsshare kan worden gekoppeld door [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), en/of [Linux](storage-how-to-use-files-linux.md) met de branche standaard Server Message Block (SMB) protocol of via de File REST-API. Lees- en schrijfbewerkingen op bestanden op de share met SMB, zijn er rechtstreeks op de bestandsshare in Azure. Voor het koppelen van een virtuele machine in Azure, de SMB-client in het besturingssysteem moet ondersteuning van ten minste SMB 2.1. Koppeling maken met on-premises, zoals op een Gebruikerswerkstation de SMB-client wordt ondersteund door het werkstation moet ondersteuning van ten minste SMB 3.0 (met versleuteling). Naast SMB, nieuwe toepassingen of services kunnen rechtstreeks toegang tot de bestandsshare via de REST-bestand, waarmee u een eenvoudige en schaalbare application programming interface voor het ontwikkelen van software.
-2. **Azure File Sync**: met Azure File Sync, bestandsshares kunnen worden gerepliceerd naar Windows-Servers on-premises of in Azure. Uw gebruikers zou zoals toegang tot de bestandsshare via de Windows-Server, dat via een SMB- of NFS-share. Dit is handig voor scenario's waarin gegevens worden geopend en gewijzigd ver weg van een Azure-datacenter, zoals in een scenario voor het filiaal. Gegevens kunnen worden gerepliceerd tussen meerdere eindpunten voor Windows Server, zoals tussen meerdere filialen. Ten slotte kan worden gelaagde gegevens in Azure Files, zodat alle gegevens zijn nog steeds toegankelijk via de Server, maar de Server heeft geen een volledige kopie van de gegevens. In plaats daarvan gegevens naadloos ingetrokken wanneer door de gebruiker wordt geopend.
+1. **Direct cloudtoegang**: Een Azure-bestandsshare kan worden gekoppeld door [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), en/of [Linux](storage-how-to-use-files-linux.md) met de Server Message Block (SMB) standaardprotocol of via de File REST-API. Lees- en schrijfbewerkingen op bestanden op de share met SMB, zijn er rechtstreeks op de bestandsshare in Azure. Voor het koppelen van een virtuele machine in Azure, de SMB-client in het besturingssysteem moet ondersteuning van ten minste SMB 2.1. Koppeling maken met on-premises, zoals op een Gebruikerswerkstation de SMB-client wordt ondersteund door het werkstation moet ondersteuning van ten minste SMB 3.0 (met versleuteling). Naast SMB, nieuwe toepassingen of services kunnen rechtstreeks toegang tot de bestandsshare via de REST-bestand, waarmee u een eenvoudige en schaalbare application programming interface voor het ontwikkelen van software.
+2. **Azure File Sync**: Met Azure File Sync kunnen bestandsshares worden gerepliceerd naar Windows-Servers on-premises of in Azure. Uw gebruikers zou zoals toegang tot de bestandsshare via de Windows-Server, dat via een SMB- of NFS-share. Dit is handig voor scenario's waarin gegevens worden geopend en gewijzigd ver weg van een Azure-datacenter, zoals in een scenario voor het filiaal. Gegevens kunnen worden gerepliceerd tussen meerdere eindpunten voor Windows Server, zoals tussen meerdere filialen. Ten slotte kan worden gelaagde gegevens in Azure Files, zodat alle gegevens zijn nog steeds toegankelijk via de Server, maar de Server heeft geen een volledige kopie van de gegevens. In plaats daarvan gegevens naadloos ingetrokken wanneer door de gebruiker wordt geopend.
 
 De volgende tabel ziet u hoe uw gebruikers en toepassingen toegang uw Azure-bestandsshare tot hebben:
 
@@ -54,11 +54,11 @@ De volgende tabel ziet u hoe uw gebruikers en toepassingen toegang uw Azure-best
 ## <a name="data-security"></a>Gegevensbeveiliging
 Azure Files biedt verschillende ingebouwde opties voor het garanderen van de beveiliging van gegevens:
 
-* Ondersteuning voor codering in beide protocollen over-the-wire: SMB 3.0-versleuteling en de REST-bestand via HTTPS. Standaard: 
+* Ondersteuning voor codering in beide over-the-wire-protocollen: SMB 3.0-versleuteling en de REST-bestand via HTTPS. Standaard: 
     * Clients die ondersteuning bieden voor SMB 3.0-codering verzenden en ontvangen van gegevens via een versleuteld kanaal.
     * Clients die bieden geen ondersteuning voor SMB 3.0 met-codering kunnen intra-datacenter communiceren via het SMB 2.1 of SMB 3.0 zonder versleuteling. SMB-clients zijn niet toegestaan om te communiceren tussen datacenter via SMB 2.1 of SMB 3.0 zonder versleuteling.
     * Clients kunnen communiceren via de REST-bestand met HTTP of HTTPS.
-* Versleuteling in rust ([Azure Storage-Serviceversleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) is ingeschakeld voor alle opslagaccounts. Gegevens in rust worden versleuteld met een volledig beheerde sleutels. Versleuteling in rust niet verhogen van de kosten voor opslag of de prestaties negatief beïnvloeden. 
+* Versleuteling at-rest ([Azure Storage-Serviceversleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) is ingeschakeld voor alle opslagaccounts. Gegevens in rust worden versleuteld met een volledig beheerde sleutels. Versleuteling in rust niet verhogen van de kosten voor opslag of de prestaties negatief beïnvloeden. 
 * Optionele vereiste van versleutelde gegevens die worden verzonden: als u selecteert, Azure Files toegang tot de gegevens via niet-versleutelde kanalen geweigerd. Specifiek, zijn alleen HTTPS en SMB 3.0 met versleuteling verbindingen toegestaan. 
 
     > [!Important]  
@@ -81,7 +81,7 @@ Alle shares kunnen beste vermogen burst maximaal drie IOP's per GiB van ingerich
 
 | Ingerichte capaciteit | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
 |----------------------|---------|---------|-------|-------|
-| Basislijn IOPS | 100 | 500 | 1,024 | 5.120 | 
+| Basislijn IOPS | 100 | 500 | 1,024 | 5,120 | 
 | Burst-limiet | 300 | 1,500 | 3072 | 15,360 | 
 | Doorvoer | 110 MiB/sec | 150 MiB/sec | 202 MiB/sec | 612 MiB/sec |
 
@@ -105,8 +105,8 @@ Het is mogelijk om te synchroniseren die meerdere Azure-bestandsshares op een en
 ## <a name="data-transfer-method"></a>Methode voor gegevensoverdracht
 Er zijn veel eenvoudige opties voor het bulksgewijs overdracht van gegevens uit een bestaand bestand, zoals een bestandsshare on-premises naar Azure Files delen. Enkele populaire services zijn onder andere (niet-uitputtende lijst):
 
-* **Azure File Sync**: als onderdeel van een eerste synchronisatie tussen een Azure-bestandsshare (een "Cloudeindpunt") en een Windows-directory-naamruimte (een "eindpunt voor de Server'), Azure File Sync van de bestaande bestandsshare alle gegevens worden gerepliceerd naar Azure Files.
-* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: de Azure Import/Export-service kunt u veilig grote hoeveelheden gegevens overdragen naar een Azure-bestandsshare met de verzending van harde schijven naar een Azure-datacenter. 
+* **Azure File Sync**: Als onderdeel van een eerste synchronisatie tussen een Azure-bestandsshare (een "Cloudeindpunt") en een Windows-directory-naamruimte (een "eindpunt voor de Server'), wordt Azure File Sync alle gegevens van de bestaande bestandsshare repliceren naar Azure Files.
+* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: De Azure Import/Export-service kunt u veilig grote hoeveelheden gegevens overdragen naar een Azure-bestandsshare met de verzending van harde schijven naar een Azure-datacenter. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy is een bekende kopie-hulpprogramma dat wordt geleverd met Windows en Windows Server. Robocopy kan worden gebruikt om gegevens over naar Azure Files te koppelen van de bestandsshare lokaal en klik vervolgens met behulp van de gekoppelde locatie als het doel in de Robocopy-opdracht.
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar en van Azure Files, evenals Azure Blob-opslag met behulp van eenvoudige opdrachten met optimale prestaties. AzCopy is beschikbaar voor Windows en Linux.
 

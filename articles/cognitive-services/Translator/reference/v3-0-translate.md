@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956975"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470872"
 ---
-# <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: vertalen
+# <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: Translate
 
 Vertaalt tekst.
 
@@ -35,7 +35,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>API-versie</td>
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
@@ -49,7 +49,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](./v3-0-languages.md) opgenomen in de `translation` bereik. Gebruik bijvoorbeeld `to=de` te vertalen in Duitsland.<br/>Het is mogelijk te vertalen in meerdere talen tegelijkertijd door te herhalen van de parameter in de query-tekenreeks. Gebruik bijvoorbeeld `to=de&to=it` te vertalen in het Duits en Italiaans.</td>
   </tr>
   <tr>
-    <td>Teksttype</td>
+    <td>textType</td>
     <td>*Optionele parameter*.<br/>Hiermee wordt aangegeven of de tekst wordt vertaald tekst zonder opmaak of HTML-tekst. HTML-code moet een juist opgemaakte en volledige-element. Mogelijke waarden zijn: `plain` (standaard) of `html`.</td>
   </tr>
   <tr>
@@ -61,7 +61,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td>*Optionele parameter*.<br/>Hiermee geeft u op hoe profanities moeten worden behandeld in vertalingen. Mogelijke waarden zijn: `NoAction` (standaard), `Marked` of `Deleted`. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, [grof taalgebruik verwerking](#handle-profanity).</td>
   </tr>
   <tr>
-    <td>ProfanityMarker</td>
+    <td>profanityMarker</td>
     <td>*Optionele parameter*.<br/>Hiermee geeft u op hoe profanities moet worden gemarkeerd met de vertaling. Mogelijke waarden zijn: `Asterisk` (standaard) of `Tag`. Zie voor meer informatie over manieren om te behandelen grof taalgebruik, [grof taalgebruik verwerking](#handle-profanity).</td>
   </tr>
   <tr>
@@ -85,7 +85,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td>*Optionele parameter*.<br/>Hiermee geeft u het script van de vertaalde tekst.</td>
   </tr>
   <tr>
-    <td>AllowFallback</td>
+    <td>allowFallback</td>
     <td>*Optionele parameter*.<br/>Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat. Mogelijke waarden zijn: `true` (standaard) of `false`.<br/><br/>`allowFallback=false` Hiermee geeft u de vertaling moet alleen gebruiken voor systemen die zijn getraind voor de `category` opgegeven door de aanvraag. Als een vertaling voor de taal die X Y vereist via een taal pivot E, klikt u vervolgens alle systemen in de keten-koppeling (X -> E- en E -> Y) moet worden aangepast en hebben dezelfde categorie. Als er geen systeem met een specifieke categorie wordt gevonden, wordt de aanvraag een 400-statuscode geretourneerd. `allowFallback=true` Hiermee geeft u op dat de service mag terugvallen op een algemene systeem wanneer een aangepast systeem niet bestaat.
 </td>
   </tr>
@@ -95,13 +95,13 @@ Aanvraagheaders zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_Koptekst_</td>
+    <td>_Een autorisatie_<br/>_header_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Inhoudstype</td>
+    <td>Content-Type</td>
     <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
@@ -161,7 +161,7 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
 
       * `srcSentLen`: Een matrix met gehele getallen vertegenwoordigt de lengte van de zinnen in de invoertekst. De lengte van de matrix is het aantal zinnen en de waarden worden de lengte van elke zin.
 
-      * `transSentLen`: Een matrix met gehele getallen vertegenwoordigt de lengte van de zinnen in de vertaalde tekst. De lengte van de matrix is het aantal zinnen en de waarden worden de lengte van elke zin.
+      * `transSentLen`:  Een matrix met gehele getallen vertegenwoordigt de lengte van de zinnen in de vertaalde tekst. De lengte van de matrix is het aantal zinnen en de waarden worden de lengte van elke zin.
 
     Zin grenzen zijn alleen opgenomen wanneer de aanvraagparameter `includeSentenceLength` is `true`.
 
@@ -173,7 +173,7 @@ Voorbeeld van JSON-antwoorden vindt u in de [voorbeelden](#examples) sectie.
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
     <tr>
     <td>X-RequestId</td>
     <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
@@ -190,7 +190,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 <table width="100%">
   <th width="20%">Statuscode</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Geslaagd.</td>
@@ -231,7 +231,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 In dit voorbeeld laat zien hoe een enkele zin in het Engels naar vereenvoudigd Chinees vertalen.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -257,7 +257,7 @@ De `translations` matrix bevat een element, dat zorgt voor de omzetting van de l
 
 In dit voorbeeld laat zien hoe een enkele zin in het Engels naar vereenvoudigd Chinees vertalen. De aanvraag heeft niet de invoer taal opgeven. Automatische detectie van de source-taal wordt in plaats daarvan gebruikt.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -283,7 +283,7 @@ Het antwoord is vergelijkbaar met het antwoord uit het vorige voorbeeld. Omdat a
 
 Laten we het vorige voorbeeld uitbreiden door vele toe te voegen. De volgende aanvraag gevraagd of u een Chinees vertaling die in Latijns schrift zijn geschreven.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -314,7 +314,7 @@ Het resultaat van de vertaling bevat nu een `transliteration` getoond, hetgeen r
 
 Vertalen van meerdere tekenreeksen in één keer is gewoon een kwestie van het opgeven van een matrix met tekenreeksen in de aanvraagtekst.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -343,7 +343,7 @@ Hoofdtekst van het antwoord is:
 
 In dit voorbeeld laat zien hoe de dezelfde invoer voor verschillende talen in één verzoek vertalen.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -377,14 +377,14 @@ Als u wilt vermijden grof taalgebruik in de vertaling, ongeacht de aanwezigheid 
     <td>`NoAction`</td>
     <td>Dit is de standaardinstelling. Grof taalgebruik geeft van bron naar doel.<br/><br/>
     **Voorbeeld van de bron (Japans)**: 彼はジャッカスです。<br/>
-    **Voorbeeld van de vertaling (Engels)**: hij een jackass is.
+    **Voorbeeld van de vertaling (Engels)**: Hij is een jackass.
     </td>
   </tr>
   <tr>
     <td>`Deleted`</td>
     <td>Grof woorden worden verwijderd uit de uitvoer zonder vervanging.<br/><br/>
     **Voorbeeld van de bron (Japans)**: 彼はジャッカスです。<br/>
-    **Voorbeeld van de vertaling (Engels)**: hij een.
+    **Voorbeeld van de vertaling (Engels)**: Hij is een.
     </td>
   </tr>
   <tr>
@@ -392,16 +392,16 @@ Als u wilt vermijden grof taalgebruik in de vertaling, ongeacht de aanwezigheid 
     <td>Grof woorden vervangen door een markering in de uitvoer. De markering is afhankelijk van de `ProfanityMarker` parameter.<br/><br/>
 Voor `ProfanityMarker=Asterisk`, grof woorden vervangen door `***`:<br/>
     **Voorbeeld van de bron (Japans)**: 彼はジャッカスです。<br/>
-    **Voorbeeld van de vertaling (Engels)**: hij een \* \* \*.<br/><br/>
+    **Voorbeeld van de vertaling (Engels)**: Hij is een \* \* \*.<br/><br/>
 Voor `ProfanityMarker=Tag`, grof woorden worden omringd door de XML-tags &lt;grof taalgebruik&gt; en &lt;/profanity&gt;:<br/>
     **Voorbeeld van de bron (Japans)**: 彼はジャッカスです。<br/>
-    **Voorbeeld van de vertaling (Engels)**: hij een &lt;grof taalgebruik&gt;jackass&lt;/profanity&gt;.
+    **Voorbeeld van de vertaling (Engels)**: Hij is een &lt;grof taalgebruik&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 
 Bijvoorbeeld:
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -423,7 +423,7 @@ Dit geeft als resultaat:
 
 Vergelijken met:
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -454,7 +454,7 @@ Het is gebruikelijk om te vertalen, waaronder markup zoals uit een HTML-pagina-i
 
 Hier volgt een voorbeeld van een aanvraag om te illustreren.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -478,7 +478,7 @@ Het antwoord is:
 
 Voor het ontvangen van uitlijningsgegevens, geef `includeAlignment=true` op de query-tekenreeks.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -516,7 +516,7 @@ Houd rekening met de volgende beperkingen:
 
 Geef voor het ontvangen van informatie over de zinlengte van de in de brontekst en de vertaalde tekst, `includeSentenceLength=true` op de query-tekenreeks.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

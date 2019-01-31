@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316577"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454841"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Logboekbestandindeling van Azure Import/Export-service
 Wanneer de Microsoft Azure Import/Export-service een actie op een station dat als onderdeel van een import-taak of een exporttaak bekijken uitvoert, worden de logboeken geschreven naar het blok-blobs in de storage-account dat is gekoppeld aan die taak.  
@@ -105,15 +105,15 @@ De volgende tabel beschrijft de elementen van het logboekbestand.
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML-Element|Hiermee geeft u een logboek station.|  
 |`Version`|Tekenreeks-kenmerk|De versie van de indeling voor logboekbestanden.|  
-|`DriveId`|Reeks|Serienummer van het station hardware.|  
-|`Status`|Reeks|De status van de verwerking van het station. Zie de `Drive Status Codes` tabel hieronder voor meer informatie.|  
+|`DriveId`|String|Serienummer van het station hardware.|  
+|`Status`|String|De status van de verwerking van het station. Zie de `Drive Status Codes` tabel hieronder voor meer informatie.|  
 |`Blob`|Geneste XML-element|Hiermee geeft u een blob.|  
-|`Blob/BlobPath`|Reeks|De URI van de blob.|  
-|`Blob/FilePath`|Reeks|Het relatieve pad naar het bestand op het station.|  
+|`Blob/BlobPath`|String|De URI van de blob.|  
+|`Blob/FilePath`|String|Het relatieve pad naar het bestand op het station.|  
 |`Blob/Snapshot`|DateTime|De versie van de momentopname van de blob, voor een exporttaak bekijken.|  
 |`Blob/Length`|Geheel getal|De totale lengte van de blob in bytes.|  
 |`Blob/LastModified`|DateTime|De datum/tijd die de blob het laatst is gewijzigd, voor een exporttaak bekijken.|  
-|`Blob/ImportDisposition`|Reeks|De toestand van de invoer van de blob, voor een importtaak alleen.|  
+|`Blob/ImportDisposition`|String|De toestand van de invoer van de blob, voor een importtaak alleen.|  
 |`Blob/ImportDisposition/@Status`|Tekenreeks-kenmerk|De status van de toestand importeren.|  
 |`PageRangeList`|Geneste XML-element|Hiermee geeft u een lijst met paginabereiken voor pagina-blob.|  
 |`PageRange`|XML-element|Hiermee geeft u een bereik.|  
@@ -130,17 +130,17 @@ De volgende tabel beschrijft de elementen van het logboekbestand.
 |`Block/@Status`|Tekenreeks-kenmerk|De status van de verwerking van het blok.|  
 |`Metadata`|Geneste XML-element|Hiermee geeft u de metagegevens van de blob.|  
 |`Metadata/@Status`|Tekenreeks-kenmerk|De status van de verwerking van de blobmetagegevens.|  
-|`Metadata/GlobalPath`|Reeks|Relatief pad naar het bestand met globale metagegevens.|  
+|`Metadata/GlobalPath`|String|Relatief pad naar het bestand met globale metagegevens.|  
 |`Metadata/GlobalPath/@Hash`|Tekenreeks-kenmerk|Base16 gecodeerde MD5-hash van het globale metagegevensbestand.|  
-|`Metadata/Path`|Reeks|Relatief pad naar het bestand met metagegevens.|  
+|`Metadata/Path`|String|Relatief pad naar het bestand met metagegevens.|  
 |`Metadata/Path/@Hash`|Tekenreeks-kenmerk|Base16 gecodeerde MD5-hash van het bestand met metagegevens.|  
 |`Properties`|Geneste XML-element|Hiermee geeft u de blob-eigenschappen.|  
 |`Properties/@Status`|Tekenreeks-kenmerk|Status van de verwerking van de blob-eigenschappen, bijvoorbeeld bestand niet wordt gevonden, is voltooid.|  
-|`Properties/GlobalPath`|Reeks|Relatief pad naar het bestand algemene eigenschappen.|  
+|`Properties/GlobalPath`|String|Relatief pad naar het bestand algemene eigenschappen.|  
 |`Properties/GlobalPath/@Hash`|Tekenreeks-kenmerk|Base16 gecodeerde MD5-hash van het bestand algemene eigenschappen.|  
-|`Properties/Path`|Reeks|Relatief pad naar het eigenschappenbestand.|  
+|`Properties/Path`|String|Relatief pad naar het eigenschappenbestand.|  
 |`Properties/Path/@Hash`|Tekenreeks-kenmerk|Base16 gecodeerde MD5-hash van het eigenschappenbestand.|  
-|`Blob/Status`|Reeks|De status van de verwerking van de blob.|  
+|`Blob/Status`|String|De status van de verwerking van de blob.|  
   
 ## <a name="drive-status-codes"></a>Statuscodes van station  
 De volgende tabel bevat de statuscodes voor het verwerken van een station.  

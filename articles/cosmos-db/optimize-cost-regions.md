@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032598"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457646"
 ---
-# <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>De kosten voor implementaties in meerdere regio's in Azure Cosmos DB optimaliseren
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Kosten voor meerdere regio's in Azure Cosmos DB optimaliseren
 
 U kunt toevoegen en verwijderen van regio's aan uw Azure Cosmos-account op elk gewenst moment. De doorvoer die u voor verschillende Azure-Cosmos-databases en containers configureert is in elke regio die is gekoppeld aan uw account gereserveerd. Als de doorvoer per uur hebt ingericht, dat is de som van RU/s is geconfigureerd voor alle databases en containers voor uw Azure Cosmos-account is `T` en het aantal Azure-regio's die zijn gekoppeld aan uw databaseaccount is `N`, klikt u vervolgens het totaal ingerichte doorvoer voor uw Cosmos-account, voor een bepaald uur is gelijk aan:
 

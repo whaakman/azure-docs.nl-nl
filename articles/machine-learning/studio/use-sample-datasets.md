@@ -1,6 +1,6 @@
 ---
-Titel: Gebruik het voorbeeld gegevenssets titleSuffix: Azure Machine Learning Studio description: Beschrijvingen van de gegevenssets die worden gebruikt in de voorbeeld-modellen die zijn opgenomen in Machine Learning Studio. U kunt deze voorbeeldgegevenssets gebruiken voor de experimenten nodig hebben.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Gebruik het voorbeeld gegevenssets titleSuffix: Azure Machine Learning Studio description: Beschrijvingen van de gegevenssets die worden gebruikt in de voorbeeld-modellen die zijn opgenomen in Machine Learning Studio. U kunt deze voorbeeldgegevenssets gebruiken voor de experimenten nodig hebben.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/19/2018
 ---

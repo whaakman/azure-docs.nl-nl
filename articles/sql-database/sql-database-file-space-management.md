@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605955"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468628"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
@@ -27,6 +27,7 @@ Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database
 In Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit probleem kan optreden als er meer ruimte wordt gebruikt en er tegelijkertijd gegevens worden verwijderd. De reden is dat bestandsruimte die is toegewezen niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
 
 Mogelijk moet u in de volgende scenario's het gebruik van bestandsruimte bewaken en gegevensbestanden verkleinen:
+
 - Sta groei van gegevens in een elastische pool toe als de toegewezen bestandsruimte voor de databases de maximale grootte van de pool bereikt.
 - Sta toe dat de maximale grootte van één database of elastische pool wordt verkleind.
 - Sta toe dat databases en elastische pools afzonderlijk naar een andere servicelaag of prestatielaag kunnen worden omgezet met een kleinere maximale grootte.
@@ -118,6 +119,7 @@ Inzicht krijgen in de volgende storage space aantallen zijn belangrijk voor het 
 De volgende query's kunnen worden gebruikt om te bepalen storage space hoeveelheden voor een elastische pool.  
 
 ### <a name="elastic-pool-data-space-used"></a>Gegevensruimte op de elastische pool gebruikt
+
 De volgende query uit om de hoeveelheid gegevensruimte op de elastische pool gebruikt te wijzigen.  Eenheden van het queryresultaat zijn in MB.
 
 ```sql
@@ -234,9 +236,9 @@ Nadat de databasebestanden van de gegevens worden gecomprimeerd, worden de index
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor informatie over de maximale grootte van database:
-  - [Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [Azure SQL Database vCore gebaseerde model limieten voor elastische pools aanschaffen](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [Limieten voor elastische pools met behulp van het op DTU gebaseerde aankoopmodel resources](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen](sql-database-vcore-resource-limits-single-databases.md)
+  - [Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel](sql-database-dtu-resource-limits-single-databases.md)
+  - [Azure SQL Database vCore gebaseerde model limieten voor elastische pools aanschaffen](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limieten voor elastische pools met behulp van het op DTU gebaseerde aankoopmodel resources](sql-database-dtu-resource-limits-elastic-pools.md)
 - Voor meer informatie over de `SHRINKDATABASE` opdracht, Zie [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Zie voor meer informatie over fragmentatie en opnieuw opbouwen van indexen [Reorganize en indexen opnieuw samenstellen](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

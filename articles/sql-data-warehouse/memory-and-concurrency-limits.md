@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: fdc45f6f1fbbb4580b71a46740fa51278b869ec0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889307"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473439"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limieten voor geheugen en gelijktijdigheid voor Azure SQL Data Warehouse
 Bekijk de limieten voor geheugen en gelijktijdigheid toegewezen aan de verschillende prestatieniveaus en resourceklassen in Azure SQL Data Warehouse. Zie voor meer informatie en om toe te passen van deze mogelijkheden voor uw abonnement van de management workload [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). 

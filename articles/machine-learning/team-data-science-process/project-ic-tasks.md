@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136758"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475555"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Taken voor een individuele Inzender in Team Data Science Process
 
@@ -37,15 +37,15 @@ Zie voor instructies over het uitvoeren van een data science-project onder TDSP 
 
 In deze zelfstudie wordt de afgekorte naam voor opslagplaatsen en mappen. Deze namen maken het gemakkelijker zijn te volgen de bewerkingen tussen de opslagplaatsen en mappen. Deze notatie (**R** voor Git-opslagplaatsen en **D** voor lokale mappen op uw DSVM) wordt gebruikt in de volgende secties:
 
-- **R2**: de GroupUtilities-opslagplaats in Git die uw groepsbeheerder heeft ingesteld op de server van uw Azure DevOps-groep.
-- **R4**: de TeamUtilities-opslagplaats in Git die uw teamleider heeft ingesteld.
-- **R5**: de Project-opslagplaats in Git die is ingesteld door uw projectleider.
-- **D2**: de lokale map gekloond van R2.
-- **D4**: de lokale map gekloond vanuit R4.
-- **D5**: de lokale map gekloond vanuit R5.
+- **R2**: De opslagplaats GroupUtilities op Git die uw groepsbeheerder heeft ingesteld op de server van uw Azure DevOps-groep.
+- **R4**: De opslagplaats TeamUtilities op Git die ertoe leiden dat uw team heeft ingesteld.
+- **R5**: De Project-opslagplaats op Git die is ingesteld door uw projectleider.
+- **D2**: De lokale map gekloond van R2.
+- **D4**: De lokale map gekloond vanuit R4.
+- **D5**: De lokale map gekloond vanuit R5.
 
 
-## <a name="step-0-prerequisites"></a>Stap-0: vereisten
+## <a name="step-0-prerequisites"></a>Stap-0: Vereisten
 
 De vereisten wordt voldaan door het uitvoeren van de taken die zijn toegewezen aan uw groepmanager die worden beschreven in [groepsbeheerder taken voor een team van gegevenswetenschappers](group-manager-tasks.md). Om samen te vatten hier, moeten de volgende vereisten worden voldaan voordat u begint met het team lead taken: 
 - De manager van uw groep heeft ingesteld dat de **GroupUtilities** opslagplaats (indien aanwezig). 
@@ -60,7 +60,7 @@ De tweede **TeamUtilities** opslagplaats, vereiste is optioneel, afhankelijk van
 - Als u **Linux-DSVM**, het maken van een openbare SSH-sleutel op uw DSVM en toe te voegen aan uw groep Azure DevOps-Services. Zie voor meer informatie over SSH, de **openbare maken van SSH-sleutel** sectie de [platformen en hulpprogramma's voor bijlage](platforms-and-tools.md#appendix). 
 - Als uw team en/of projectgroep lead bepaalde Azure-bestandsopslag die u wilt koppelen aan de DSVM gemaakt heeft, krijgt u de Azure informatie over de opslag van deze. 
 
-## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Stap 1-3: groep, teams en opslagplaatsen project naar de lokale computer klonen
+## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Stap 1-3: Kloon-groep, teams en opslagplaatsen project naar de lokale computer
 
 Deze sectie vindt u instructies voor het voltooien van de eerste drie taken van de afzonderlijke inzenders project: 
 

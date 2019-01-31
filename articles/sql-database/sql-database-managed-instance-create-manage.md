@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 8d108df187e7d1fe549f284cffe3c5cbe4d56f7c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 26445017553435454e929d9852dfd9fc173c3b2e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389943"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460094"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Beheerde API-naslaginformatie voor Azure SQL Database beheerde instanties
 
@@ -27,9 +27,9 @@ U kunt maken en beheren van Azure SQL Database Managed Instances met behulp van 
 
 Zie voor een snelstart u voor het maken van een Azure SQL Database Managed Instance, [Quick Start: Maken van een beheerd exemplaar voor Azure SQL Database](sql-database-managed-instance-get-started.md).
 
-## <a name="powershell-create-and-manage-a-managed-instance"></a>PowerShell: Maken en beheren van een beheerd exemplaar
+## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Maken en beheren van beheerde exemplaren
 
-Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
+Als u wilt maken en beheren van beheerde exemplaren met Azure PowerShell, gebruikt u de volgende PowerShell-cmdlets. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell-module installeren](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Zie voor PowerShell-voorbeeldscripts, [Quick start-script: Maken van Azure SQL Managed Instance met behulp van PowerShell-bibliotheek](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
@@ -45,9 +45,9 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls met Azu
 |[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Hiermee verwijdert u een exemplaar van beheerde Database van Azure SQL-database|
 |[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Hiermee herstelt u een beheerd Database exemplaar van Azure SQL-database|
 
-## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI: Logische servers en databases beheren
+## <a name="azure-cli-create-and-manage-managed-instances"></a>Azure CLI: Maken en beheren van beheerde exemplaren
 
-Maken en beheren van Azure SQL-server, databases en firewalls met [Azure CLI](/cli/azure), gebruikt u de volgende [Azure CLI SQL Managed Instance](/cli/azure/sql/mi) opdrachten. Gebruik de [Cloud Shell](/azure/cloud-shell/overview) om de CLI in uw browser uit te voeren of [installeer](/cli/azure/install-azure-cli) de CLI op macOS, Linux of Windows.
+Maken en beheren van beheerde exemplaren met [Azure CLI](/cli/azure), gebruikt u de volgende [Azure CLI SQL Managed Instance](/cli/azure/sql/mi) opdrachten. Gebruik de [Cloud Shell](/azure/cloud-shell/overview) om de CLI in uw browser uit te voeren of [installeer](/cli/azure/install-azure-cli) de CLI op macOS, Linux of Windows.
 
 > [!TIP]
 > Zie voor een Azure CLI-Quick Start [werkt met SQL beheerd exemplaar met behulp van Azure CLI met](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
@@ -64,9 +64,9 @@ Maken en beheren van Azure SQL-server, databases en firewalls met [Azure CLI](/c
 |[AZ sql DEELB herstellen](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Een beheerde database herstellen|
 |[AZ sql DEELB verwijderen](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Hiermee verwijdert u een beheerde database|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Logische servers en databases beheren
+## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL: Exemplaar-databases maken en beheren
 
-Als u wilt maken en beheren van Azure SQL Database Managed Instance database nadat het beheerde exemplaar is gemaakt, moet u de volgende T-SQL-opdrachten gebruiken. U kunt deze opdrachten met de Azure-portal, de opdracht [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), of andere programma's die kan verbinding maken met een Azure SQL Database-server en Transact-SQL-opdrachten doorgeven.
+Als u wilt maken en beheren van exemplaar in de database nadat het beheerde exemplaar is gemaakt, moet u de volgende T-SQL-opdrachten gebruiken. U kunt deze opdrachten met de Azure-portal, de opdracht [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), of andere programma's die kan verbinding maken met een Azure SQL Database-server en Transact-SQL-opdrachten doorgeven.
 
 > [!TIP]
 > Voor Zie snelstartgidsen waarin u moet configureren en verbinding maken met een beheerd exemplaar van SQL Server Management Studio op Microsoft Windows, [Quick Start: Configureren van virtuele Azure-machine verbinding maken met een Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) en [Quick Start: Configureren van een punt-naar-site-verbinding naar een Azure SQL Database Managed Instance van on-premises](sql-database-managed-instance-configure-p2s.md).
@@ -78,9 +78,9 @@ Als u wilt maken en beheren van Azure SQL Database Managed Instance database nad
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Hiermee maakt u een nieuwe database in de Managed Instance. U moet zijn verbonden met de hoofddatabase om een nieuwe database te maken.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Hiermee wijzigt u een beheerd exemplaar voor Azure SQL-database.|
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>REST-API: Logische servers en databases beheren
+## <a name="rest-api-create-and-manage-managed-instances"></a>REST-API: Maken en beheren van beheerde exemplaren
 
-Als u wilt maken en beheren van Azure SQL Database Managed Instance, gebruikt u deze REST-API-aanvragen.
+Als u wilt maken en beheren van beheerde instanties, gebruikt u deze REST-API-aanvragen.
 
 | Opdracht | Description |
 | --- | --- |

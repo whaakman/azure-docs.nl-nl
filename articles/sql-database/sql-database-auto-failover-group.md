@@ -1,6 +1,6 @@
 ---
 title: Failover-groepen - Azure SQL Database | Microsoft Docs
-description: Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en automatische / gecoördineerde failover van een groep van alle databases of databases op een logische server in het beheerde exemplaar.
+description: Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en automatische / gecoördineerde failover van een groep databases op een SQL-Database-server of alle databases in het beheerde exemplaar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,28 +11,28 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033805"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468696"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Automatische failover-groepen gebruiken voor het inschakelen van transparante en gecoördineerd failover van meerdere databases
 
-Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en failover van een groep databases op een logische server of alle databases in een beheerd exemplaar naar een andere regio (momenteel in openbare preview voor beheerd exemplaar). Hierbij de dezelfde onderliggende technologie als [actieve geo-replicatie](sql-database-active-geo-replication.md). U kunt failover handmatig starten of kunt u het delegeren aan de service SQL Database op basis van een door de gebruiker gedefinieerd beleid. De laatste optie kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
+Automatische failover-groepen is een SQL-Database-functie waarmee u voor het beheren van replicatie en failover van een groep databases op een SQL-Database-server of alle databases in een beheerd exemplaar naar een andere regio (momenteel in openbare preview voor beheerd exemplaar). Hierbij de dezelfde onderliggende technologie als [actieve geo-replicatie](sql-database-active-geo-replication.md). U kunt failover handmatig starten of kunt u het delegeren aan de service SQL Database op basis van een door de gebruiker gedefinieerd beleid. De laatste optie kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
 
 > [!NOTE]
-> Bij het werken met één of gegroepeerde databases op een logische server en u wilt dat meerdere secundaire replica's in de dezelfde of verschillende regio's, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md).
+> Wanneer u werkt met zelfstandige of gepoolde databases op een SQL-Database-server en u wilt dat meerdere secundaire replica's in de dezelfde of verschillende regio's, gebruikt u [actieve geo-replicatie](sql-database-active-geo-replication.md).
 
 Wanneer u gebruikmaakt van automatische failovergroepen met automatische failover-beleid, een storing voordoet die gevolgen heeft voor een of meer van de databases in de Groepsresultaten van de in automatische failover. Bovendien, automatische failover-groepen bieden de lezen / schrijven en alleen-lezen-listener-eindpunten die blijven ongewijzigd tijdens failovers. Of u nu handmatige of automatische failover-activering, verandert failover alle secundaire databases in de groep in de primaire. Nadat de databasefailover is voltooid, wordt de DNS-record wordt automatisch bijgewerkt om te leiden van de eindpunten naar de nieuwe regio. Zie voor de specifieke RPO en RTO gegevens [overzicht van bedrijfscontinuïteit](sql-database-business-continuity.md).
 
-Wanneer u gebruikmaakt van automatische failovergroepen met automatische failover-beleid, een storing voordoet die gevolgen heeft voor databases in de logische server beheerd exemplaar resultaten in automatische failover. U kunt beheren via automatische failover:
+Wanneer u gebruikmaakt van automatische failovergroepen met automatische failover-beleid, een storing voordoet die gevolgen heeft voor databases in de SQL Database-server of beheerd exemplaar resultaten in automatische failover. U kunt beheren via automatische failover:
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: Failover-groep](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
-- [REST-API: Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups).
+- [REST API: Failovergroep](https://docs.microsoft.com/rest/api/sql/failovergroups).
 
 Controleer of dat de verificatievereisten voor uw server en database zijn geconfigureerd op de nieuwe primaire na een failover. Zie voor meer informatie, [SQL Database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md).
 
@@ -42,27 +42,27 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Failover-groep**
 
-  Een failovergroep is een groep databases die worden beheerd door één logische server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio.
+  Een failovergroep is een groep databases die worden beheerd door één SQL Database-server of in een beheerd exemplaar van één die fungeren als kan failover als één eenheid naar een andere regio in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio.
 
-  - **Logische servers**
+  - **SQL Database-servers**
 
-     Met logische servers, kunnen sommige of alle van de databases op één server worden geplaatst in een failovergroep. Een logische server ondersteunt ook meerdere failovergroepen op één server.
+     Met SQL Database-servers, kunnen sommige of alle van de databases op één SQL Database-server in een failovergroep worden geplaatst. Een SQL Database-server ondersteunt ook meerdere failovergroepen op een enkele SQL-Database-server.
 
   - **Beheerde exemplaren**
   
-     Een failovergroep bevat alle gebruikersdatabases in het beheerde exemplaar en daarom een beheerd exemplaar biedt alleen ondersteuning voor één failovergroep met Managed Instance.
+     Een failovergroep bevat alle gebruikersdatabases in het beheerde exemplaar met beheerd exemplaar, en daarom een beheerd exemplaar biedt alleen ondersteuning voor één failovergroep.
 
-- **Primaire**
+- **Primary**
 
-  De logische server of een beheerd exemplaar dat als host fungeert voor de primaire databases in de failovergroep.
+  De SQL Database-server of een beheerd exemplaar dat als host fungeert voor de primaire databases in de failovergroep.
 
-- **Secundaire**
+- **Secondary**
 
-  De logische server of een beheerd exemplaar dat als host fungeert voor de secundaire databases in de failovergroep. De secundaire server kan niet in dezelfde regio als de primaire.
+  De SQL Database-server of een beheerd exemplaar dat als host fungeert voor de secundaire databases in de failovergroep. De secundaire server kan niet in dezelfde regio als de primaire.
 
-- **Databases toevoegen aan de failovergroep op een logische server**
+- **Databases toevoegen aan de failovergroep op een SQL-Database-server**
 
-  U kunt verschillende individuele databases of databases in een elastische pool op dezelfde logische server in plaatsen de failover-groep met dezelfde. Als u een individuele database aan de failovergroep toevoegt, wordt automatisch een secundaire database met behulp van dezelfde grootte edition en de rekenkracht gemaakt. Als de primaire database zich in een elastische pool, wordt de secundaire server wordt automatisch gemaakt in de elastische pool met dezelfde naam. Als u een database die al een secundaire database in de secundaire server toevoegt, wordt deze geo-replicatie wordt overgenomen door de groep. Wanneer u een database die al een secundaire database in een server die geen deel uitmaakt van de failovergroep toevoegt, wordt een nieuwe secundaire gemaakt in de secundaire server.
+  U kunt verschillende individuele databases of databases in een elastische pool op dezelfde SQL-Database-server in plaatsen de failover-groep met dezelfde. Als u een individuele database aan de failovergroep toevoegt, wordt automatisch een secundaire database met behulp van dezelfde grootte edition en de rekenkracht gemaakt. Als de primaire database zich in een elastische pool, wordt de secundaire server wordt automatisch gemaakt in de elastische pool met dezelfde naam. Als u een database die al een secundaire database in de secundaire server toevoegt, wordt deze geo-replicatie wordt overgenomen door de groep. Wanneer u een database die al een secundaire database in een server die geen deel uitmaakt van de failovergroep toevoegt, wordt een nieuwe secundaire gemaakt in de secundaire server.
   
 > [!IMPORTANT]
   > In een beheerd exemplaar, worden alle gebruikersdatabases worden gerepliceerd. Een subset van gebruikersdatabases voor de replicatie kan niet worden opgenomen in de failovergroep.
@@ -71,9 +71,9 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   Een DNS CNAME-record gemaakt die naar de huidige primaire URL verwijst. Hierdoor kan de SQL-toepassingen voor lezen / schrijven transparant opnieuw verbinding maken met de primaire database als de primaire gewijzigd na een failover.
 
-  - **Logische server DNS CNAME-record voor lezen / schrijven-listener**
+  - **SQL Database-server DNS CNAME-record voor lezen / schrijven-listener**
 
-     Op een logische server, de DNS-CNAME-record voor de failovergroep die naar de huidige primaire URL verwijst heeft een onjuiste indeling als `failover-group-name.database.windows.net`.
+     Op een SQL-Database-server, de DNS-CNAME-record voor de failovergroep die naar de huidige primaire URL verwijst heeft een onjuiste indeling als `failover-group-name.database.windows.net`.
 
   - **Beheerd exemplaar DNS CNAME-record voor lezen / schrijven-listener**
 
@@ -83,9 +83,9 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
   Een DNS CNAME-record gemaakt die verwijst naar de alleen-lezen-listener die naar de URL van de secundaire server verwijst. Hierdoor kan de alleen-lezen SQL-toepassingen op transparante wijze verbinding maken met de secundaire server met behulp van de opgegeven regels voor taakverdeling.
 
-  - **Logische server DNS CNAME-record voor alleen-lezen-listener**
+  - **SQL Database-server DNS CNAME-record voor alleen-lezen-listener**
 
-     Op een logische server, de DNS-CNAME-record voor de alleen-lezen-listener die naar de URL van de secundaire verwijst is opgemaakt als `failover-group-name.secondary.database.windows.net`.
+     Op een SQL-Database-server, de DNS-CNAME-record voor de alleen-lezen-listener die naar de URL van de secundaire verwijst is opgemaakt als `failover-group-name.secondary.database.windows.net`.
 
   - **Beheerd exemplaar DNS CNAME-record voor alleen-lezen-listener**
 
@@ -128,7 +128,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Aanbevolen procedures van het gebruik van failover-groepen met individuele databases en elastische pools
 
-De automatische failover-groep moet worden geconfigureerd op de primaire logische server en verbindt dit met de secundaire logische server in een andere Azure-regio.  De groepen kunnen u alle of enkele databases opnemen in deze servers. Het volgende diagram illustreert een typische configuratie van een geografisch redundante cloudtoepassing met meerdere databases en automatische-failovergroep.
+De automatische failover-groep moet worden geconfigureerd op de primaire SQL-Database-server en de App verbinden met de secundaire SQL-Database-server in een andere Azure-regio.  De groepen kunnen u alle of enkele databases opnemen in deze servers. Het volgende diagram illustreert een typische configuratie van een geografisch redundante cloudtoepassing met meerdere databases en automatische-failovergroep.
 
 ![automatische failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -295,7 +295,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 | [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Hiermee haalt de configuratie van de failover |
 | [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Hiermee wijzigt u de configuratie van de failovergroep |
 | [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Triggers failover van de failovergroep naar de secundaire server |
-| [Voeg AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Een of meer databases toegevoegd aan een Azure SQL Database-failovergroep|
+| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Een of meer databases toegevoegd aan een Azure SQL Database-failovergroep|
 |  | |
 
 > [!IMPORTANT]
@@ -325,13 +325,13 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 | API | Description |
 | --- | --- |
-| Nieuwe AzureRmSqlDatabaseInstanceFailoverGroup |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Met deze opdracht wordt een failovergroep gemaakt en geregistreerd op de primaire en secundaire servers|
 | Set-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee wijzigt u de configuratie van de failovergroep|
 | Get-AzureRmSqlDatabaseInstanceFailoverGroup |Hiermee haalt de configuratie van de failover|
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover van de failovergroep naar de secundaire server|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Hiermee verwijdert u een failovergroep|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST-API: SQL database failover-groepen met één en gepoolde databases beheren
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>REST-API: SQL database-failovergroepen bij de zelfstandige en gepoolde databases beheren
 
 | API | Description |
 | --- | --- |

@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.openlocfilehash: 05793afc5de8b6c8285c1f700929e4f110bdfc8d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.date: 01/28/2019
+ms.openlocfilehash: a48e9a21c97ecb881798b0f944e91cfcf81f0a72
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912552"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295760"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure-opslag gebruiken met Azure HDInsight-clusters
 
@@ -35,7 +35,7 @@ Azure Storage is een robuuste, algemene opslagoplossing die naadloos kan worden 
 | Algemeen gebruik V1   | Blob               | Standard                    | N/A                    |
 | Blob Storage         | Blob               | Standard                    | Hot, Cool archief *    |
 
-Het wordt afgeraden om de standaard- blobcontainer te gebruiken voor het opslaan van bedrijfsgegevens. Het is een goede gewoonte om de standaard-blobcontainer na ieder gebruik te verwijderen om de opslagkosten te verlagen. De standaardcontainer bevat toepassings- en systeemlogboeken. Breng de logboeken over naar een andere locatie voordat u de container verwijdert.
+Het wordt afgeraden om de standaard- blobcontainer te gebruiken voor het opslaan van bedrijfsgegevens. Het is een goede gewoonte om de standaard-blobcontainer na ieder gebruik te verwijderen om de opslagkosten te verlagen. De standaardcontainer bevat toepassings- en Logboeken. Breng de logboeken over naar een andere locatie voordat u de container verwijdert.
 
 Het delen van een blobcontainer als het standaardbestandssysteem voor meerdere clusters wordt niet ondersteund.
  
@@ -63,8 +63,7 @@ Hier volgen enkele overwegingen bij het gebruik van een Azure Storage-account me
   
   > [!NOTE]  
   > Met openbare containers kunt u een lijst met alle beschikbare blobs in de desbetreffende container en containermetagegevens ophalen. Openbare blobs zijn alleen toegankelijk als u de exacte URL weet. Zie voor meer informatie, <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">toegang tot containers en blobs beheren</a>.
-  > 
-  > 
+
 * **Persoonlijke containers in opslagaccounts die niet zijn verbonden met een cluster:** U kunt de blobs in de containers geen toegang tot, tenzij u het opslagaccount definieert wanneer u de WebHCat-taken verzendt. Dit wordt verderop in dit artikel uitgelegd.
 
 De opslagaccounts die worden gedefinieerd tijdens het creatieproces en de bijbehorende sleutels worden opgeslagen in %HADOOP_HOME%/conf/core-site.xml op de clusterknooppunten. HDInsight gebruikt standaard de opslagaccounts die zijn gedefinieerd in het bestand core-site.xml. U kunt deze instelling wijzigen met behulp van [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
@@ -102,7 +101,7 @@ In de standaard-blobcontainer worden clusterspecifieke gegevens opgeslagen, zoal
 ### <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 Wanneer u een HDInsight-cluster maakt vanuit de portal, kunt u (zoals hieronder wordt getoond) de details van het opslagaccount opgeven. U kunt ook opgeven of u wilt dat een extra opslagaccount dat is gekoppeld aan het cluster, en als dit het geval is, kiest u in Data Lake-opslag of een andere Azure Storage blob als de extra opslagruimte.
 
-![Gegevensbron voor het maken van HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![Gegevensbron voor het maken van HDInsight Hadoop](./media/hdinsight-hadoop-use-blob-storage/storage.png)
 
 > [!WARNING]  
 > Het gebruik van een extra opslagaccount op een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
@@ -184,7 +183,7 @@ wasb:///example/jars/hadoop-mapreduce-examples.jar
 > [!NOTE]  
 > De bestandsnaam is <i>hadoop examples.jar</i> in HDInsight versie 2.1- en 1.6-clusters.
 
-Het &lt;pad&gt; is de HDFS-padnaam van het bestand of de map. Aangezien containers in Azure Storage gewoon sleutel-waardearchieven zijn, is er geen echt hiërarchisch bestandssysteem. Een slash (/) in een blob-sleutel wordt geïnterpreteerd als een teken voor mapscheiding. De blob-naam voor bijvoorbeeld *hadoop-mapreduce-examples.jar* is:
+Het &lt;pad&gt; is de HDFS-padnaam van het bestand of de map. Aangezien containers in Azure storage sleutel-waardearchieven zijn, is er geen echt hiërarchisch bestandssysteem. Een slash (/) in een blob-sleutel wordt geïnterpreteerd als een teken voor mapscheiding. De blob-naam voor bijvoorbeeld *hadoop-mapreduce-examples.jar* is:
 
 ```bash
 example/jars/hadoop-mapreduce-examples.jar
@@ -348,7 +347,7 @@ Zie voor meer informatie:
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

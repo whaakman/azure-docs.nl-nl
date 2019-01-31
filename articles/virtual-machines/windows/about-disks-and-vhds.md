@@ -8,13 +8,13 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
-ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 968c8aa74a35bf753d92e7c417aaec2a1361f425
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234711"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467965"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Over schijfopslag voor Azure Windows VM 's
 
@@ -55,7 +55,7 @@ U kunt gegevensschijven toevoegen aan een virtuele machine op elk gewenst moment
 
 Voor de preview-grootten, Zie onze [Veelgestelde vragen over](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) voor meer informatie over welke regio's ze zijn beschikbaar in.
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Een laatste aanbeveling: gebruik TRIM met niet-beheerde standaardschijven
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Een laatste aanbeveling: TRIM gebruiken met niet-beheerde standaardschijven
 
 Als u niet-beheerde standaardschijven (HDD), moet u TRIM inschakelen. TRIM verwijdert niet-gebruikte blokken op de schijf, zodat u alleen worden in rekening gebracht voor opslag die u daadwerkelijk gebruikt. Deze kunt kosten besparen als u grote bestanden maakt en ze vervolgens te verwijderen.
 
@@ -72,7 +72,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Opmerking: Ondersteuning begint met Windows Server 2012 / Windows 8 en hoger, Zie [nieuwe API kunt u apps voor het verzenden van "TRIM en toewijzing" hints op opslagmedium](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Opmerking: Ondersteuning wordt gestart met Windows Server 2012 / Windows 8 en hoger, Zie [nieuwe API kunt u apps voor het verzenden van "TRIM en toewijzing" hints op opslagmedium](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->

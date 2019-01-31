@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 58ba44488e8ef211e7c318fc9ba6497a5b1b69bb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 9a4e47143515c7f9c21d701809c35d61853d91ec
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523271"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471909"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Problemen met het hulpprogramma Azure Import/Export oplossen
 Het Microsoft Azure Import/Export-hulpprogramma geeft als resultaat foutberichten worden weergegeven als deze problemen wordt uitgevoerd. In dit onderwerp worden enkele veelvoorkomende problemen die gebruikers kunnen uitvoeren in.  
@@ -24,7 +24,7 @@ Het Microsoft Azure Import/Export-hulpprogramma geeft als resultaat foutberichte
  Als de fout herstelbare, bijvoorbeeld als de netwerkshare voor een korte periode offline is en is nu weer online is, kunt u de kopieersessie hervatten. Als de fout niet herstelbare, bijvoorbeeld als u de map van het verkeerde bron in de opdrachtregelparameters opgegeven is, moet u de sessie kopiëren wordt afgebroken. Zie [harde schijven voorbereiden voor een importtaak](../storage-import-export-tool-preparing-hard-drives-import-v1.md) voor meer informatie over het hervatten van de en wordt afgebroken sessies kopiëren.  
   
 ## <a name="i-cant-resume-or-abort-a-copy-session"></a>Ik kan geen hervatten of een kopieersessie afgebroken.  
- Als de sessie kopiëren de eerste kopieersessie voor een station wordt, wordt het foutbericht moet status: "de eerste kopieersessie kan niet worden hervat of afgebroken." In dit geval kunt u de oude logboekbestand verwijderen en voer de opdracht opnieuw uit.  
+ Als de sessie kopiëren de eerste kopieersessie voor een station is, moet het foutbericht status: "De eerste kopieersessie kan niet worden hervat of afgebroken." In dit geval kunt u de oude logboekbestand verwijderen en voer de opdracht opnieuw uit.  
   
  Als de sessie van een exemplaar niet het eerste item voor een station is, kan die altijd worden hervat of afgebroken.  
   

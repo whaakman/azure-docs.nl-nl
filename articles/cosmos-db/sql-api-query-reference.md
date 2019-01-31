@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: b099848f2d0392a25a0906a96dba53885962c79b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102342"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475183"
 ---
-# <a name="azure-cosmos-db-sql-language-reference"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
+# <a name="sql-language-reference-for-azure-cosmos-db"></a>Naslaginformatie voor Azure Cosmos DB SQL-taal 
 
 Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit artikel bevat documentatie voor de SQL-query language-syntaxis, die compatibel met SQL API-accounts is. Zie voor een overzicht van voorbeeld van de SQL-query's, [SQL-query's in Cosmos DB](how-to-sql-query.md).  
   

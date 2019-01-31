@@ -3,7 +3,7 @@ title: Taak en uitvoer behouden met Azure Storage met File Conventions-bibliothe
 description: Informatie over het gebruik van Azure Batch File Conventions-bibliotheek voor .NET voor Batch-taak en de taak uitvoer naar Azure Storage behouden en de persistente uitvoer weergeven in Azure portal.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706599"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472980"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Behoud van de taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET
 

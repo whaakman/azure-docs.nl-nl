@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: ac50078dcc60e925f1e2e27a1296b2644939baef
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153722"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296541"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>De Kopieeractiviteit in Azure Data Factory
 
@@ -155,7 +155,10 @@ Klik om te zien van de lijst met activiteiten in deze pijplijn-run. In de **acti
 
 ![Uitvoering van activiteiten controleren](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Klik op de '**Details**' koppeling onder **acties** om te zien van de kopieeractiviteit uitvoeringsdetails en prestatiekenmerken. Hier ziet u informatie, inclusief volume/rijen/bestanden van de gegevens opgehaald uit de bron om op te vangen, doorvoer, stappen gaat door met de bijbehorende tijdsduur en gebruikt als deze configuraties voor uw scenario kopiëren. Voor sommige scenario's, ziet u ook een '**tips afstemmen van prestaties**"sectie bovenaan ziet u het knelpunt geïdentificeerd en helpt u over het verhogen van de kopie doorvoer voor een dergelijk geval kopiëren, Zie het voorbeeld [hier](#performance-and-tuning).
+Klik op de '**Details**' koppeling onder **acties** om te zien van de kopieeractiviteit uitvoeringsdetails en prestatiekenmerken. Hier ziet u informatie, inclusief volume/rijen/bestanden van de gegevens opgehaald uit de bron om op te vangen, doorvoer, stappen gaat door met de bijbehorende tijdsduur en gebruikt als deze configuraties voor uw scenario kopiëren. 
+
+>[!TIP]
+>Voor sommige scenario's, ziet u ook '**tips afstemmen van prestaties**"boven op het kopiëren van bewaking van de pagina die leest u het knelpunt geïdentificeerd en helpt u op wat u wilt wijzigen zodat deze kopie doorvoer te verhogen, Zie het voorbeeld met details [hier](#performance-and-tuning).
 
 **Voorbeeld: kopiëren van Amazon S3 naar Azure Data Lake Store**
 ![details uitvoering van activiteiten controleren](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -233,10 +236,13 @@ Standaard kopieeractiviteit kopiëren van gegevens gestopt en fout retourneert w
 
 Zie de [Kopieeractiviteit prestatie- en afstemmingshandleiding](copy-activity-performance.md), waarin belangrijke factoren die invloed hebben op de prestaties van de verplaatsing van gegevens (Kopieeractiviteit) in Azure Data Factory wordt beschreven. Ook geeft een lijst van de waargenomen prestaties tijdens interne tests van en worden verschillende manieren om te optimaliseren de prestaties van Kopieeractiviteit besproken.
 
-Voor sommige scenario's wanneer u een kopieeractiviteit in ADF uitvoert, ziet u ook een '**tips afstemmen van prestaties**"sectie boven de [activiteitsbewaking pagina kopiëren](#monitor-visually), waarin staat u het knelpunt geïdentificeerd en helpt u op hoe om kopie doorvoer voor een dergelijk geval kopie te verbeteren.
+In sommige gevallen, als u een kopieeractiviteit in ADF uitvoert, rechtstreeks ziet u '**tips afstemmen van prestaties**"boven de [kopieeractiviteit bewaking pagina](#monitor-visually) zoals wordt weergegeven in het volgende voorbeeld. Het niet alleen leest u het knelpunt geïdentificeerd voor de uitvoering van het opgegeven exemplaar, maar ook helpt u op wat u wilt wijzigen zodat deze kopie doorvoer te verhogen. De prestaties van tips voor het afstemmen momenteel suggesties wilt bieden het kopiëren van gegevens in Azure SQL Data Warehouse PolyBase gebruiken om te vergroten Azure Cosmos DB RU of Azure SQL DB DTU wanneer de resource op gegevens opslaan aan clientzijde is het knelpunt, de overbodige gefaseerd verwijderen kopiëren, enzovoort. De afstemming van regels wordt geleidelijk ook uitgebreid zijn.
 
-**Voorbeeld: met tips afstemmen van de prestaties in Azure SQL DB kopiëren**
-![kopiëren met tips afstemmen van de prestaties controleren](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+**Voorbeeld: kopiëren naar Azure SQL-database met tips afstemmen van prestaties**
+
+In dit voorbeeld tijdens het kopiëren van uitvoert, ADF kennisgeving die de sink-Azure SQL DB bereikt hoog DTU-gebruik die de bewerkingen voor schrijven vertraagt, dus het voorstel is om te verhogen van de Azure SQL DB-laag met meer DTU. 
+
+![Kopiëren met tips afstemmen van de prestaties controleren](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Incrementele kopie 
 Data Factory biedt ondersteuning voor scenario's voor het incrementeel kopiëren van delta-gegevens van een brongegevensarchief naar een doelgegevensarchief. Zie [zelfstudie: gegevens stapsgewijs kopiëren](tutorial-incremental-copy-overview.md). 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ea409a4295cb07800e3f48ab408135071d0faea6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646470"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464811"
 ---
 # <a name="how-to-return-n-best-translations"></a>Hoe N-beste vertalingen worden geretourneerd
 
@@ -35,7 +35,7 @@ De handtekening is:
 
 **Parameters**
 
-| Parameter | Beschrijving |
+| Parameter | Description |
 |:---|:---|
 | appId | **Vereiste** als de autorisatie-header wordt gebruikt, laat het veld appid leeg anders geeft u een tekenreeks met "Bearer" + "" + toegangstoken.|
 | tekst | **Vereiste** een tekenreeks voor de tekst te vertalen. De grootte van de tekst mag niet groter zijn dan 10000 tekens.|
@@ -45,12 +45,12 @@ De handtekening is:
 | opties | **Optionele** A TranslateOptions-object met de onderstaande waarden. Ze zijn optioneel en standaard naar de meest voorkomende instellingen.
 
 * Categorie: De enige ondersteunde, en de standaard, optie 'Algemeen'.
-* De enige ondersteunde ContentType: En de standaard-optie ' text/plain' is.
-* Status: Status van de gebruiker om te vergelijken aanvraag en antwoord. Dezelfde inhoud in het antwoord geretourneerd.
+* ContentType: De enige ondersteunde, en de standaard, optie ' text/plain'.
+* Status: De status van de gebruiker om te vergelijken aanvraag en antwoord. Dezelfde inhoud in het antwoord geretourneerd.
 * IncludeMultipleMTAlternatives: de vlag om te bepalen of retourneren van meer dan één alternatieven op de MT-engine. Standaard is ingesteld op false en slechts 1 alternatief bevat.
 
 ## <a name="ratings"></a>Beoordelingen
-De classificaties zijn als volgt toegepast: het beste voor automatische vertaling heeft een classificatie van 5.
+De classificaties zijn als volgt toegepast: De beste automatische vertaling heeft een classificatie van 5.
 De automatisch gegenereerde (N-beste) vertaling alternatieven hebben een classificatie van 0 en de mate van een overeenkomst van 100.
 
 ## <a name="number-of-alternatives"></a>Aantal alternatieven

@@ -2,20 +2,20 @@
 title: Azure Stream Analytics gebruiken met SQL datawarehouse | Microsoft Docs
 description: Tips voor het gebruik van Azure Stream Analytics met Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3aca356b9caadc3a4ffee98ca7dc330eb1c520d8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7c940b10e88e50988b574dbc1fa365dc9d8fd7d5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962942"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452393"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Azure Stream Analytics gebruiken met SQL datawarehouse
 Azure Stream Analytics is een volledig beheerde service met lage latentie, maximaal beschikbare, schaalbare complexe verwerking van gebeurtenissen die via het streamen van gegevens in de cloud. U leert de beginselen door te lezen [Inleiding tot Azure Stream Analytics][Introduction to Azure Stream Analytics]. U kunt vervolgens informatie over het maken van een end-to-end-oplossing met Stream Analytics door de volgende de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.
@@ -32,7 +32,7 @@ Voer eerst via de volgende stappen uit in de [aan de slag met Azure Stream Analy
 
 Vervolgens maakt u een Azure SQL Data Warehouse-database
 
-## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Geef taakuitvoer: Azure SQL Data Warehouse-database
+## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Geef de uitvoer: Azure SQL Data Warehouse database
 ### <a name="step-1"></a>Stap 1
 Klik in de Stream Analytics-taak op **uitvoer** vanaf de bovenkant van de pagina en klik vervolgens op **uitvoer toevoegen**.
 
@@ -44,7 +44,7 @@ Selecteer SQL-Database en klik op volgende.
 ### <a name="step-3"></a>Stap 3
 Voer de volgende waarden op de volgende pagina:
 
-* *Uitvoer van de Alias*: Geef een beschrijvende naam voor de taakuitvoer van deze.
+* *Uitvoer van de Alias*: Voer een beschrijvende naam voor de taakuitvoer van deze.
 * *Abonnement*:
   * Als uw SQL Data Warehouse-database zich in hetzelfde abonnement als de Stream Analytics-taak, selecteert u met SQL Database van het huidige abonnement.
   * Als uw database in een ander abonnement, selecteert u SQL-Database gebruiken vanuit een ander abonnement.
@@ -53,9 +53,9 @@ Voer de volgende waarden op de volgende pagina:
 
 ![][server-name]
 
-* *Gebruikersnaam*: Geef de gebruikersnaam van een account met schrijfmachtigingen voor de database.
-* *Wachtwoord*: Geef het wachtwoord op voor het opgegeven gebruikersaccount.
-* *Tabel*: Geef de naam van de doeltabel in de database.
+* *Gebruikersnaam*: Geef de gebruikersnaam van een account met schrijfmachtigingen heeft voor de database.
+* *Wachtwoord*: Geef het wachtwoord voor het opgegeven gebruikersaccount.
+* *tabel*: Geef de naam van de doeltabel in de database.
 
 ![][add-database]
 

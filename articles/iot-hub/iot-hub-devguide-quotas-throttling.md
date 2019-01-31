@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827377"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466809"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
 
@@ -85,7 +85,7 @@ IoT Hub dwingt andere operationele beperkingen:
 <sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md).
 
 > [!NOTE]
-> Op dit moment is het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt 500.000. Als u wilt om deze limiet te verhogen, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Op dit moment is het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt 1.000.000. Als u wilt om deze limiet te verhogen, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## <a name="latency"></a>Latentie
 IoT Hub streeft ernaar voor lage latentie voor alle bewerkingen. Echter, vanwege netwerkomstandigheden en andere onvoorspelbare factoren is er geen garantie een maximale latentie. Bij het ontwerpen van uw oplossing, moet u:

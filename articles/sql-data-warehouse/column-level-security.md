@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 323879fff90fa478797f85415faae9ae02ea5bcd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301052"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461505"
 ---
 # <a name="column-level-security"></a>Beveiliging op kolomniveau 
 Beveiliging op kolomniveau (CLS) kunnen klanten voor het beheren van toegang tot database tabelkolommen op basis van de uitvoeringscontext van de gebruiker of hun groepslidmaatschap.  
@@ -76,7 +76,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'. 
 ``` 
 
-## <a name="use-cases"></a>Use Cases
+## <a name="use-cases"></a>Gebruiksvoorbeelden
 Enkele voorbeelden van hoe CLS vandaag nog wordt gebruikt: 
 - Een bedrijf voor financiële dienstverlening kunt enige account managers toegang hebben tot de klant BSN-nummers (SSN), telefoonnummers en andere persoonlijk identificeerbare informatie (PII).
 - Een provider van de gezondheidszorg kan alleen artsen en verpleegkundigen hebben toegang tot gevoelige medische records bij leden van de facturering afdeling is niet toegestaan om deze gegevens weer te geven.

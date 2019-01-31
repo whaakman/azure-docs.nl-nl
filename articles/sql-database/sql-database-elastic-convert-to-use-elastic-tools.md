@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251590"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455589"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Bestaande databases migreren voor uitschalen
 Uw bestaande uitgeschaalde shard databases met behulp van Azure SQL Database-hulpprogramma's voor databases eenvoudig te beheren (zoals de [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md)). Converteert u eerst een bestaande set met databases te gebruiken de [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md). 
@@ -69,11 +69,11 @@ Voor een model met één tenant, maakt u een **lijst toewijzing** shard-toewijzi
 
 ![Toewijzing van de lijst][1]
 
-Het model met meerdere tenants verschillende tenants toegewezen aan een individuele database (en u kunt groepen van tenants verdelen over meerdere databases). Dit model gebruiken wanneer u verwacht elke tenant dat hebben kleine Gegevensbehoeften. In dit model kunt u een bereik van tenants toewijzen voor het gebruik van een database **bereik toewijzing**. 
+Het model met meerdere tenants verschillende tenants toegewezen aan een afzonderlijke database (en u kunt groepen van tenants verdelen over meerdere databases). Dit model gebruiken wanneer u verwacht elke tenant dat hebben kleine Gegevensbehoeften. In dit model kunt u een bereik van tenants toewijzen voor het gebruik van een database **bereik toewijzing**. 
 
 ![Toewijzing van bereik][2]
 
-Of u kunt implementeren met een multitenant-database-model met een *lijst toewijzing* meerdere tenants toewijzen aan een individuele database. Bijvoorbeeld, DB1 wordt gebruikt voor het opslaan van informatie over de tenant-ID 1 en 5 en DB2 slaat gegevens voor de tenant 7- en 10. 
+Of u kunt implementeren met een multitenant-database-model met een *lijst toewijzing* meerdere tenants toewijzen aan een afzonderlijke database. Bijvoorbeeld, DB1 wordt gebruikt voor het opslaan van informatie over de tenant-ID 1 en 5 en DB2 slaat gegevens voor de tenant 7- en 10. 
 
 ![Meerdere tenants in één DB][3] 
 
@@ -98,10 +98,10 @@ Gebruikmaken van dit patroon toewijzing, tenant-id-waarden moet continue bereike
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Optie 3: Lijst met toewijzingen voor een individuele database
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Optie 3: Lijst met toewijzingen op een afzonderlijke database
 Instellen van dit patroon is het maken van een kaart lijst ook vereist zoals wordt weergegeven in stap 2, optie 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Stap 3: Voorbereiden afzonderlijke shards
+## <a name="step-3-prepare-individual-shards"></a>Stap 3: Voorbereiden van afzonderlijke shards
 Elke shard (database) toevoegen aan de shard-toewijzing. De afzonderlijke databases nu voorbereid voor het opslaan van informatie over de Identiteitstoewijzing. Deze methode niet uitvoeren op elke shard.
 
     Add-Shard 
@@ -138,7 +138,7 @@ Voeg de bereik-toewijzingen voor de tenant-ID bereik met alle - database-koppeli
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Stap 4-optie 3: de gegevens voor meerdere tenants in een individuele database toewijzen
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Stap 4-optie 3: de gegevens voor meerdere tenants in een afzonderlijke database toewijzen
 Voor elke tenant, uitvoeren van de Add-ListMapping (optie 1). 
 
 ## <a name="checking-the-mappings"></a>De toewijzingen controleren
@@ -154,7 +154,7 @@ Nadat u de installatie hebt voltooid, kunt u beginnen met het gebruik van de cli
 ## <a name="next-steps"></a>Volgende stappen
 Ophalen van de PowerShell-scripts uit [Azure SQL DB Elastic Database extra scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-De hulpprogramma's zijn ook op GitHub: [Azure/elastische-db-hulpprogramma's](https://github.com/Azure/elastic-db-tools).
+De hulpprogramma's zijn ook op GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
 Gebruik het hulpprogramma voor splitsen en samenvoegen om gegevens te verplaatsen naar of van een multi-tenant model naar een model met één tenant. Zie [hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-get-started.md).
 

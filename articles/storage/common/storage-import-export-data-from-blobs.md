@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: 0480a8d4079a39c8e365dde893a9a1af2d7341aa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315176"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453107"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>De Azure Import/Export-service gebruiken voor het exporteren van gegevens uit Azure Blob storage
 In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Import/Export-service veilig grote hoeveelheden gegevens exporteren uit Azure Blob-opslag. De service vereist dat u voor het verzenden van lege stations in de Azure-datacenter. De service exporteert gegevens van uw opslagaccount naar de stations en wordt vervolgens geleverd de schijven terug.
@@ -141,9 +141,9 @@ Dit *optionele* stap helpt u het aantal stations die vereist zijn voor de taak v
     
     |Opdrachtregelparameter|Description|  
     |--------------------------|-----------------|  
-    |**schakeloptie/LOGDIR op:**|Optioneel. De logboekmap. Uitgebreid logboek van de bestanden worden naar deze map geschreven. Als niet is opgegeven, wordt de huidige map gebruikt als de logboekmap.|  
+    |**/logdir:**|Optioneel. De logboekmap. Uitgebreid logboek van de bestanden worden naar deze map geschreven. Als niet is opgegeven, wordt de huidige map gebruikt als de logboekmap.|  
     |**/sn:**|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
-    |**/SK:**|Alleen vereist als een container SAS niet is opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
+    |**/sk:**|Alleen vereist als een container SAS niet is opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
     |**/csas:**|Alleen vereist als een sleutel van het opslagaccount niet is opgegeven. De container SAS voor het weergeven van de blobs in de taak voor het exporteren worden geëxporteerd.|  
     |**/ ExportBlobListFile:**|Vereist. Pad naar het XML-bestand opslaan met lijst met blob-paden of blob-voorvoegsels voor pad voor de blobs worden geëxporteerd. De bestandsindeling die wordt gebruikt de `BlobListBlobPath` -element in de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) werking van de Import/Export-service REST-API.|  
     |**/ DriveSize:**|Vereist. De grootte van schijven te gebruiken voor een exporttaak *bijvoorbeeld*, 500 GB, 1,5 TB.|  
@@ -200,8 +200,8 @@ De volgende tabel ziet u voorbeelden van geldige blob paden:
    | Begint met |/Book |Hiermee exporteert u alle blobs in een container die met het voorvoegsel begint **boek** |
    | Begint met |/Music/ |Hiermee exporteert u alle blobs in de container **muziek** |
    | Begint met |/ muziek/love |Hiermee exporteert u alle blobs in de container **muziek** die beginnen met het voorvoegsel **uw favoriete** |
-   | Gelijk aan |$root/logo.bmp |Uitvoer-blob **logo.bmp** in de hoofdmap-container |
-   | Gelijk aan |videos/Story.mp4 |Uitvoer-blob **story.mp4** in container **video's** |
+   | Equal To |$root/logo.bmp |Uitvoer-blob **logo.bmp** in de hoofdmap-container |
+   | Equal To |videos/story.mp4 |Uitvoer-blob **story.mp4** in container **video's** |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320358"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463562"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Augustus 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in augustus 2018.
@@ -32,7 +32,7 @@ U kunt inzoomen op elke categorie om te zien van de aanbevelingen voor de specif
 
 | Titel | Description |
 |:---|:---|
-| **Mogelijke Query mislukt wanneer het aantal split overschrijdt de maximale limiet** |Wanneer de bovengrens van 1 miljoen bestand-split-limiet wordt overschreden is een onverwerkte uitzondering veroorzaakt de SQL-Engine dump en alle query's is mislukt. Deze oplossing addresse het probleem met de uitzondering correct verwerken en een fout geretourneerd zonder dat de query's mislukken. |
+| **Mogelijke Query mislukt wanneer het aantal split overschrijdt de maximale limiet** |Wanneer de bovengrens van 1 miljoen bestand-split-limiet wordt overschreden is een onverwerkte uitzondering veroorzaakt de SQL-Engine dump en alle query's is mislukt. Deze oplossing hebben oog voor het probleem met de uitzondering correct verwerken en een fout geretourneerd zonder dat de query's mislukken. |
 | **Verbeterde ExternalMoveReadersPerNode standaardwaarde laden prestaties te verbeteren** |Dit probleem is veroorzaakt door de instelling van de eigenschap ExternalMoveReadersPerNode wordt niet gesynchroniseerd met de service fabric instellen. Deze regressie veroorzaakt een verslechterde Gen2 laadprestaties. De oplossing voorziet in Gen2 laadprestaties binnen geoptimaliseerde ontwerpparameters gebruikt.|
 
 

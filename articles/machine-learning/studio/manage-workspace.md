@@ -1,5 +1,5 @@
 ---
-Titel: Een Machine Learning Studio-werkruimte titleSuffix beheren: Azure Machine Learning Studio description: Toegang tot Azure Machine Learning-werkruimten, beheren en implementeren en beheren van ML API web services-services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Een Machine Learning Studio-werkruimte titleSuffix beheren: Azure Machine Learning Studio description: Toegang tot Azure Machine Learning-werkruimten, beheren en implementeren en beheren van ML API web services-services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 02/27/2017
 ---

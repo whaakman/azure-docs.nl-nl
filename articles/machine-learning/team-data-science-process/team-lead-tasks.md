@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139636"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465262"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Taken voor het team leiden in Team Data Science Process Team
 
@@ -45,12 +45,12 @@ Na enkele vereisten taken die zijn opgegeven in de volgende sectie wordt voldaan
 
 In dit onderwerp maakt gebruik van verkorte namen voor opslagplaatsen en mappen. Deze namen maken het gemakkelijker zijn te volgen de bewerkingen tussen de opslagplaatsen en mappen. Deze notatie (**R** voor Git-opslagplaatsen en **D** voor lokale mappen op uw DSVM) wordt gebruikt in de volgende secties:
 
-- **R1**: de **GroupProjectTemplate** -opslagplaats in Git die de manager van de groep die is ingesteld op de server van uw Azure DevOps-groep.
-- **R3**: het team **ProjectTemplate** -opslagplaats in Git die u instelt.
-- **R4**: de **TeamUtilities** -opslagplaats in Git die u instelt.
-- **D1**: de lokale map gekloond vanuit R1 en gekopieerd naar D3.
-- **D3**: de lokale map gekloond vanuit R3, aanpassen en worden gekopieerd naar R3.
-- **D4**: de lokale map gekloond vanuit R4, aanpassen en naar R4 gekopieerd.
+- **R1**: De **GroupProjectTemplate** -opslagplaats in Git die de manager van de groep die is ingesteld op de server van uw Azure DevOps-groep.
+- **R3**: Het team **ProjectTemplate** -opslagplaats in Git die u instelt.
+- **R4**: De **TeamUtilities** -opslagplaats in Git die u instelt.
+- **D1**: De lokale map gekloond vanuit R1 en gekopieerd naar D3.
+- **D3**: De lokale map gekloond vanuit R3, aanpassen en gekopieerd naar R3.
+- **D4**: De lokale map gekloond vanuit R4, aanpassen en naar R4 gekopieerd.
 
 De namen opgegeven voor de opslagplaatsen en mappen in deze zelfstudie is te vinden op de veronderstelling dat het doel is het opzetten van een ander project voor uw eigen team binnen een grotere data science-groep. Maar er zijn andere opties voor u als teamleider openen:
 
@@ -140,7 +140,7 @@ De seeding procedure gebruikt de mappen op uw lokale DSVM als tussenliggende sta
 
 - Groep kloonopslagplaats naar lokale map: R1 - gekloond voor lokale D1 ->-team
 - Uw team opslagplaatsen klonen naar lokale mappen: team R3 & R4 - gekloond voor lokale D3 & D4 ->
-- De inhoud van de groep project sjabloon kopiëren naar de map lokale team: D1 - inhoud wordt gekopieerd om D3 ->
+- Kopieer de inhoud van de groep project-sjabloon naar de map lokale team:  D1 - inhoud wordt gekopieerd om D3 ->
 - (Optioneel) aanpassing van de lokale D3 & D4
 - Inhoud van de lokale directory naar team opslagplaatsen pushen: D3 & D4 - inhoud toevoegen -> team R3 & R4
 
@@ -355,7 +355,7 @@ Bevestig dat een nieuw F-station is op uw computer is gekoppeld.
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**Hoe u de Azure file storage-gegevens handmatig invoeren:** als u uw Azure file storage-gegevens niet in een tekstbestand hebt, kunt u de instructies volgen op het volgende scherm te typen in de vereiste abonnement, de storage-account en Azure informatie over de opslag van bestand:
+**Hoe u de Azure file storage-gegevens handmatig invoeren:** Als u uw Azure file storage-gegevens niet in een tekstbestand hebt, kunt u de instructies volgen op het volgende scherm te typen in de vereiste abonnement, de storage-account en de informatie over de opslag van Azure bestand:
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ Bevestig dat een nieuw F-station is op uw computer is gekoppeld.
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**Hoe u de Azure file storage-gegevens handmatig invoeren:** als u uw Azure file storage-gegevens niet in een tekstbestand hebt, kunt u de instructies volgen op het volgende scherm te typen in de vereiste abonnement, de storage-account en Azure informatie over de opslag van bestand:
+**Hoe u de Azure file storage-gegevens handmatig invoeren:** Als u uw Azure file storage-gegevens niet in een tekstbestand hebt, kunt u de instructies volgen op het volgende scherm te typen in de vereiste abonnement, de storage-account en de informatie over de opslag van Azure bestand:
 
 - Invoer **n**.
 - Selecteer de index van de naam van het abonnement waarin de Azure file storage is gemaakt in de vorige stap:

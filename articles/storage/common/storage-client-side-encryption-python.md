@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528119"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453396"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Client-Side-versleuteling voor Microsoft Azure Storage met Python
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -125,12 +125,12 @@ Nadat een opslagobject van service (dat wil zeggen blockblobservice) is gemaakt,
 
 De KEK-sleutel moet de volgende methoden voor het versleutelen van gegevens met succes implementeren:
 
-* wrap_key(cek): loopt van de opgegeven CEK (bytes) die gebruikmaakt van een algoritme van de keuze van de gebruiker. Retourneert de ingepakte sleutel.
-* get_key_wrap_algorithm(): retourneert het algoritme voor het verpakken van sleutels.
-* get_kid(): retourneert de tekenreeks met sleutel-id voor deze KEK-sleutel.
+* wrap_key(cek): De opgegeven CEK (bytes) die gebruikmaakt van een algoritme van de keuze van de gebruiker loopt. Retourneert de ingepakte sleutel.
+* get_key_wrap_algorithm(): Retourneert het algoritme voor het verpakken van sleutels.
+* get_kid(): Retourneert de tekenreeks met sleutel-id voor deze KEK-sleutel.
   De KEK-sleutel moet de volgende methoden voor het ontsleutelen van gegevens met succes implementeren:
-* unwrap_key (cek, algoritme): Hiermee wordt het niet-ingepakte formulier van de opgegeven CEK met behulp van de tekenreeks opgegeven algoritme.
-* get_kid(): retourneert een tekenreeks met sleutel-id voor deze KEK-sleutel.
+* unwrap_key (cek, algoritme): Retourneert de niet-ingepakte vorm van de opgegeven CEK met behulp van de algoritme tekenreeks opgegeven.
+* get_kid(): Retourneert een tekenreeks met sleutel-id voor deze KEK-sleutel.
 
 De belangrijkste resolver moet ten minste een methode die gegeven van een sleutel-id, retourneert de bijbehorende KEK implementatie van de bovenstaande interface implementeren. Alleen deze methode is om te worden toegewezen aan de eigenschap key_resolver_function op de serviceobject.
 

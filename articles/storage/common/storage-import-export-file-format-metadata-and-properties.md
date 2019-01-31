@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526229"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457000"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export-service eigenschappen en metagegevens bestandsindeling
 U kunt de eigenschappen voor een of meer blobs en metagegevens opgeven als onderdeel van een import-taak of een exporttaak bekijken. Om in te stellen metagegevens of eigenschappen voor blobs als onderdeel van een import-taak wordt gemaakt, bieden u een bestand met metagegevens of eigenschappen op de harde schijf met de gegevens die kunnen worden geïmporteerd. Voor een exporttaak bekijken, worden eigenschappen en metagegevens geschreven naar een bestand metagegevens of eigenschappen die is opgenomen op de harde schijf die aan u worden geretourneerd.  
@@ -30,10 +30,10 @@ De indeling van een bestand met metagegevens is als volgt:
 </Metadata>  
 ```
   
-|XML-Element|Type|Beschrijving|  
+|XML-Element|Type|Description|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Root-element|Het hoofdelement van het bestand met metagegevens.|  
-|`metadata-name`|Reeks|Optioneel. Het XML-element Hiermee geeft u de naam van de metagegevens voor de blob en de waarde bevat de waarde van de instelling van de metagegevens.|  
+|`metadata-name`|String|Optioneel. Het XML-element Hiermee geeft u de naam van de metagegevens voor de blob en de waarde bevat de waarde van de instelling van de metagegevens.|  
   
 ## <a name="properties-file-format"></a>Bestandsindeling van eigenschappen  
 De indeling van een eigenschappenbestand is als volgt:  
@@ -52,17 +52,17 @@ De indeling van een eigenschappenbestand is als volgt:
 </Properties>  
 ```
   
-|XML-Element|Type|Beschrijving|  
+|XML-Element|Type|Description|  
 |-----------------|----------|-----------------|  
 |`Properties`|Root-element|Het hoofdelement van het eigenschappenbestand.|  
-|`Last-Modified`|Reeks|Optioneel. Het tijdstip laatst gewijzigd voor de blob. Voor alleen voor export-taken.|  
-|`Etag`|Reeks|Optioneel. De ETag-waarde van de blob. Voor alleen voor export-taken.|  
-|`Content-Length`|Reeks|Optioneel. De grootte van de blob in bytes. Voor alleen voor export-taken.|  
-|`Content-Type`|Reeks|Optioneel. Het inhoudstype van de blob.|  
-|`Content-MD5`|Reeks|Optioneel. MD5-hash van de blob.|  
-|`Content-Encoding`|Reeks|Optioneel. De inhoud van de blob-codering.|  
-|`Content-Language`|Reeks|Optioneel. Inhoud van de blob-taal.|  
-|`Cache-Control`|Reeks|Optioneel. De cache-control-tekenreeks voor de blob.|  
+|`Last-Modified`|String|Optioneel. Het tijdstip laatst gewijzigd voor de blob. Voor alleen voor export-taken.|  
+|`Etag`|String|Optioneel. De ETag-waarde van de blob. Voor alleen voor export-taken.|  
+|`Content-Length`|String|Optioneel. De grootte van de blob in bytes. Voor alleen voor export-taken.|  
+|`Content-Type`|String|Optioneel. Het inhoudstype van de blob.|  
+|`Content-MD5`|String|Optioneel. MD5-hash van de blob.|  
+|`Content-Encoding`|String|Optioneel. De inhoud van de blob-codering.|  
+|`Content-Language`|String|Optioneel. Inhoud van de blob-taal.|  
+|`Cache-Control`|String|Optioneel. De cache-control-tekenreeks voor de blob.|  
 
 ## <a name="next-steps"></a>Volgende stappen
 

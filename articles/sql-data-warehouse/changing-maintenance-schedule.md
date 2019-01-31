@@ -6,16 +6,16 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: c1029d5efe0c8e87cd9bc84887826ddf837d32c5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713262"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456252"
 ---
 # <a name="change-a-maintenance-schedule"></a>Een onderhoudsplanning wijzigen 
 
@@ -40,9 +40,9 @@ Als u wilt de onderhoudsplanning voor uw datawarehouse wijzigen, voert u de volg
    ![De blade instellingen onderhoud](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
 5. Kies uw favoriete primaire en secundaire onderhoudsvensters met behulp van de vakken vervolgkeuzelijst:
-   - **Dag**: voorkeur dag om onderhoud uit te voeren tijdens de geselecteerde periode.
-   - **Begintijd**: voorkeur begintijd voor het onderhoudsvenster.
-   - **Tijdvenster**: voorkeur duur van het tijdvenster.
+   - **Dag**: Voorkeur dag om onderhoud uit te voeren tijdens de geselecteerde periode.
+   - **Begintijd**: Voorkeur begintijd voor het onderhoudsvenster.
+   - **Tijdvenster**: Gewenste duur van het tijdvenster.
 
    De **Planningsoverzicht** gebied aan de onderkant van de blade wordt bijgewerkt op basis van de waarden die u hebt geselecteerd. 
   

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 52f08511d16e216ced7e3d1de11eae960cdbaeb8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f56b1b06e8be46c1a111e920cfb98bc58d4f6636
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041863"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466860"
 ---
-# <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Beschikbaarheid en prestaties van optimalisatie voor verschillende consistentieniveaus in Azure Cosmos DB
+# <a name="consistency-availability-and-performance-tradeoffs"></a>Zorgen voor consistentie, beschikbaarheid en prestaties van een balans 
 
 Gedistribueerde databases die afhankelijk van de replicatie voor hoge beschikbaarheid, lage latentie, of beide zijn moeten ontwikkelt. De nadelen zijn tussen lezen van consistentie en beschikbaarheid, latentie en doorvoer. 
 
@@ -50,4 +50,4 @@ Meer informatie over globale distributie- en nadelen van de algemene consistenti
 
 * [Optimalisatie van de consistentie in het ontwerp van moderne, gedistribueerde database-systemen](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Hoge beschikbaarheid](high-availability.md)
-* [SLA van Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

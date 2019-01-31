@@ -1,6 +1,6 @@
 ---
-Titel: Evalueer model prestaties titleSuffix: Azure Machine Learning Studio description: In dit artikel ziet u hoe u de prestaties van een model in Azure Machine Learning Studio evalueren en bevat een korte uitleg van de beschikbare metrische gegevens voor deze taak.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Evalueer model prestaties titleSuffix: Azure Machine Learning Studio description: In dit artikel ziet u hoe u de prestaties van een model in Azure Machine Learning Studio evalueren en bevat een korte uitleg van de beschikbare metrische gegevens voor deze taak.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 03/20/2017
 ---

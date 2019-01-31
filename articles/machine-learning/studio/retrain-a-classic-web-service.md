@@ -1,6 +1,6 @@
 ---
-Titel: Opnieuw trainen een klassieke web service titleSuffix: Azure Machine Learning Studio description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Opnieuw trainen een klassieke web service titleSuffix: Azure Machine Learning Studio description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 04/19/2017
 ---

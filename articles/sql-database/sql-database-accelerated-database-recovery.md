@@ -1,6 +1,6 @@
 ---
 title: Versneld databaseherstel - Azure SQL Database | Microsoft Docs
-description: De Azure SQL Database heeft een nieuwe functie waarmee snel en consistent databaseherstel, onmiddellijk transactie wordt teruggedraaid en agressief logboekafkapping voor individuele databases, elastische pools en Azure SQL Data Warehouse.
+description: De Azure SQL Database biedt een nieuwe functie waarmee snel en consistent databaseherstel, onmiddellijk transactie wordt teruggedraaid en agressief logboekafkapping voor individuele databases en databases in pools in Azure SQL Database en -databases in Azure SQL-gegevens Het magazijn.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: ''
@@ -10,17 +10,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: deaf5c9180841f8c5b2d21a820f2ab2362dc2453
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600709"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475445"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Versneld databaseherstel (preview)
 
-**Versnelde Database Recovery (ADR)** wordt een nieuwe SQL database-engine-functie maken die aanzienlijk verbetert de beschikbaarheid van de database, met name bij langlopende transacties, uitgevoerd door het herstelproces van SQL database-engine opnieuw. ADR is momenteel beschikbaar voor individuele databases, elastische pools en Azure SQL Data Warehouse. De belangrijkste voordelen van ADR zijn:
+**Versnelde Database Recovery (ADR)** wordt een nieuwe SQL database-engine-functie maken die aanzienlijk verbetert de beschikbaarheid van de database, met name bij langlopende transacties, uitgevoerd door het herstelproces van SQL database-engine opnieuw. ADR is momenteel beschikbaar voor individuele databases en databases in pools in Azure SQL Database en -databases in Azure SQL Data Warehouse. De belangrijkste voordelen van ADR zijn:
 
 - **Snelle en consistente databaseherstel**
 
@@ -113,7 +113,7 @@ Er zijn vier belangrijke onderdelen van de ADR:
   - Versnelt opnieuw en ongedaan maken door het verwerken van alleen de niet-samengestelde bewerkingen  
   - Schakelt de logboekafkapping agressief transactie door alleen de vereiste logboekrecords te behouden
 
-- **Schoner**
+- **Cleaner**
 
   De reiniging is het asynchroon proces dat periodiek ontwaakt en opschonen van paginaversies die niet nodig zijn.
 
@@ -127,4 +127,4 @@ De volgende typen klanten moeten rekening houden met ADR inschakelen:
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Om in te schakelen ADR tijdens deze preview-periode
 
-Tijdens de preview-periode voor deze functie, stuur een e-mail naar [ adr@microsoft.com ](mailto:adr@microsoft.com) voor meer informatie en probeer het uit versnelde Database Recovery (ADR). In het e-mailbericht, moet u de naam van de logische server (voor individuele databases, elastische pools en Azure Data Warehouse) bevatten. Omdat dit een preview-functie, moet uw testserver een niet-productie-server.
+Tijdens de preview-periode voor deze functie, stuur een e-mail naar [ adr@microsoft.com ](mailto:adr@microsoft.com) voor meer informatie en probeer het uit versnelde Database Recovery (ADR). In het e-mailbericht, moet u de naam van uw SQL Database-server (voor individuele databases en gepoolde databases in SQL-Database en -databases in Azure Data Warehouse) bevatten. Omdat dit een preview-functie, moet uw testserver een niet-productie-server.

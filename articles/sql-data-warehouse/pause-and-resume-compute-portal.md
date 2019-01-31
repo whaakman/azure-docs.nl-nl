@@ -1,23 +1,23 @@
 ---
-title: 'Snelstartgids: Onderbreken en hervatten compute in Azure SQL Data Warehouse - Azure portal | Microsoft Docs'
+title: 'Quickstart: Onderbreken en hervatten compute in Azure SQL Data Warehouse - Azure portal | Microsoft Docs'
 description: Gebruik de Azure portal om te onderbreken compute in Azure SQL Data Warehouse om kosten te besparen. Compute hervat wanneer u klaar bent voor het gebruik van het datawarehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a82d3cfcbc4481c970f5a31ad2de711fb1562657
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b21c982a7f390855ccb7b9212ea92db8c26d303c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246584"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460281"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snelstartgids: Onderbreken en hervatten berekenen voor een Azure SQL Data Warehouse in Azure portal
+# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Quickstart: Berekening voor een Azure SQL Data Warehouse in Azure portal onderbreken en hervatten
 Gebruik de Azure portal om te onderbreken compute in Azure SQL Data Warehouse om kosten te besparen. [Compute hervatten](sql-data-warehouse-manage-compute-overview.md) wanneer u bent klaar voor gebruik van het datawarehouse.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.

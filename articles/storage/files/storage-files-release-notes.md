@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 1/14/2019
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 245314f0b7460cce270c97307e0719beebee472a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: files
+ms.openlocfilehash: 8f6eff1c2bd1490471256873339665ef1be92c6c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478634"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475035"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Opmerkingen bij de release voor de Azure File Sync-agent
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.

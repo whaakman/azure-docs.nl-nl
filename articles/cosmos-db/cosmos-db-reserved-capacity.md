@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b4f36abb2136223be8d4eec67935317041a41b93
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b37aa2eb24fe79d322839b4fb5c3c3a8b1296033
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044277"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454094"
 ---
-# <a name="optimize-cost-of-azure-cosmos-db-resources-with-reserved-capacity"></a>Kosten van Azure Cosmos DB-resources optimaliseren met gereserveerde capaciteit
+# <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Kosten optimaliseren met gereserveerde capaciteit in Azure Cosmos DB
 
 Azure Cosmos DB gereserveerde capaciteit kunt die u geld besparen door vooraf betalen voor Azure Cosmos DB-resources voor één jaar of drie jaar. Met Azure Cosmos DB gereserveerde capaciteit krijgt u een korting op de ingerichte doorvoer voor Cosmos DB-resources. Voorbeelden van resources zijn databases en containers (tabellen, verzamelingen en grafieken).
 

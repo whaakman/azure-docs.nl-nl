@@ -1,5 +1,5 @@
 ---
-title: Azure DB Cosmos globale distributie - achter de schermen
+title: Wereldwijde distributie met Azure Cosmos DB - achter de schermen
 description: In dit artikel vindt u technische gegevens met betrekking tot wereldwijde distributie van Azure Cosmos DB
 author: dharmas-cosmos
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 86e4441174fa89fc688fa4e411ead0a7b3ebc8ee
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038939"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475377"
 ---
-# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure DB Cosmos globale distributie - achter de schermen
+# <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globale gegevensdistributie met Azure Cosmos DB - achter de schermen
 
 Azure Cosmos DB is een fundamentele service van Azure, zodat deze alle Azure-regio's over de hele wereld, waaronder het publiek, onafhankelijke, ministerie van defensie (DoD) en clouds voor de overheid geïmplementeerd. Binnen een datacenter, we implementeren en beheren van de Azure Cosmos DB op zeer grote stempels van machines, elk met lokale opslag toegewezen. Binnen een datacenter, is Azure Cosmos DB geïmplementeerd op veel clusters is elk mogelijk meerdere verschillende hardwaregeneraties. Machines binnen een cluster worden doorgaans verdeeld over foutdomeinen van 10 tot 20. De volgende afbeelding toont de topologie van Cosmos DB globale distributie system:
 

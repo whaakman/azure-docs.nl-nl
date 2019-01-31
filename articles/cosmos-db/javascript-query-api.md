@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191136"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463936"
 ---
-# <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Werken met JavaScript language integrated query-API met Azure Cosmos DB
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>JavaScript API-query in Azure Cosmos DB
 
 Naast het uitgeven van query's met behulp van de SQL-API in Azure Cosmos DB, de [Cosmos DB-server-side SDK](https://azure.github.io/azure-cosmosdb-js-server/) kunt u geoptimaliseerde query's uitvoeren met een JavaScript-interface. U hebt geen rekening met de SQL-taal gebruiken deze JavaScript-interface. De JavaScript-query-API u query's via een programma kunt maken kunt met het doorgeven van predikaat functies in volgorde van de functie aanroept, met een syntaxis die bekend is bij de matrix dient te worden en populaire JavaScript-bibliotheken zoals Lodash van ECMAScript5. Query's worden geparseerd door de JavaScript-runtime en efficiënt uitgevoerd met behulp van Azure Cosmos DB-indexen.
 
@@ -55,9 +55,9 @@ De volgende tabel bevat verschillende SQL-query's en de bijbehorende JavaScript-
 |---|---|---|
 |SELECTEER *<br>VAN docs| __.map(Function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc-bestand;<br>});|Resultaten in alle documenten (gepagineerde met vervolgtoken) als is.|
 |SELECT <br>&nbsp;&nbsp;&nbsp;Docs.id,<br>&nbsp;&nbsp;&nbsp;Docs.Message als msg,<br>&nbsp;&nbsp;&nbsp;Docs.Actions <br>VAN docs|__.map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;{retourneren<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions:doc.Actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|De-id, een bericht (alias voor msg) en een actie uit alle documenten projecten.|
-|SELECTEER *<br>VAN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;Docs.ID="X998_Y998"|__.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc.id === 'X998_Y998';<br>});|Query's voor documenten met het predicaat: id = 'X998_Y998'.|
+|SELECTEER *<br>VAN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc.id === 'X998_Y998';<br>});|Query's voor documenten met het predicaat: id = 'X998_Y998'.|
 |SELECTEER *<br>VAN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS (docs. -Tags, 123)|__.filter(Function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;retourneren van x.Tags & & x.Tags.indexOf(123) > -1;<br>});|Query's voor documenten die een eigenschap Tags en labels hebben, is een matrix met de waarde 123.|
-|SELECT<br>&nbsp;&nbsp;&nbsp;Docs.id,<br>&nbsp;&nbsp;&nbsp;Docs.Message als msg<br>VAN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;Docs.ID="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc.id === 'X998_Y998';<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{retourneren<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|Query's voor documenten met een predicaat, id = 'X998_Y998', en vervolgens de id en het bericht (alias voor msg)-projecten.|
+|SELECT<br>&nbsp;&nbsp;&nbsp;Docs.id,<br>&nbsp;&nbsp;&nbsp;Docs.Message als msg<br>VAN docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc.id === 'X998_Y998';<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{retourneren<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|Query's voor documenten met een predicaat, id = 'X998_Y998', en vervolgens de id en het bericht (alias voor msg)-projecten.|
 |SELECT VALUE-tag<br>VAN docs<br>Neem deel aan een tag IN docs. Tags<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(Function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document retourneren. Labels & & Array.isArray (doc-bestand. -Tags);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retourneren van doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|Filters voor documenten met een matrixeigenschap, labels, en sorteert de resulterende documenten door de eigenschap _ts timestamp-systeem en projecten + de matrix Tags worden samengevoegd.|
 
 ## <a name="next-steps"></a>Volgende stappen

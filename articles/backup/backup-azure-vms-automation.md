@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fa53a7e598b42e93e86eb059c36ff89f38bb7093
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424509"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300588"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>PowerShell gebruiken voor back-up en herstellen van virtuele machines
 
@@ -355,11 +355,17 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Beheerde schijven terugzetten
 
 > [!NOTE]
-> Als de back-ups virtuele machine schijven beheerde er en u wilt deze als beheerde schijven terugzetten, hebben we de mogelijkheid van Azure PowerShell v 6.7.0 geïntroduceerd. en hoger
+> Als de back-ups virtuele machine schijven beheerde er en u wilt deze als beheerde schijven terugzetten, hebben we de mogelijkheid van Azure PowerShell-RM-module v 6.7.0 geïntroduceerd. en hoger
 >
 >
 
-Geef een extra parameter **TargetResourceGroupName** om op te geven van de RG waarmee beheerde schijven wordt hersteld.
+Geef een extra parameter **TargetResourceGroupName** om op te geven van de RG waarmee beheerde schijven wordt hersteld. 
+
+> [!NOTE]
+> Het wordt sterk aanbevolen gebruik van de **TargetResourceGroupName** parameter voor het herstellen van beheerde schijven omdat deze aanzienlijke prestatieverbeteringen leidt. Ook met Az van Azure Powershell-module 1.0 en hoger is deze parameter verplicht in het geval van een herstelpunt met beheerde schijven
+>
+>
+
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"

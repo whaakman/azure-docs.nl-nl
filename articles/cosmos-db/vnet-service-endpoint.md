@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 199e1dda3e4629c0298d4aae1cb5d09e20e4b3b8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358725"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452037"
 ---
-# <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Toegang tot Azure Cosmos DB-resources van virtuele netwerken
+# <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Toegang tot Azure Cosmos DB van virtuele netwerken (VNet)
 
-U kunt de Azure Cosmos-account om toe te staan alleen toegankelijk is vanaf een specifiek subnet van het virtuele netwerk (VNET) configureren. Door in te schakelen [Service-eindpunt](../virtual-network/virtual-network-service-endpoints-overview.md) voor toegang tot Azure Cosmos DB op het subnet binnen een virtueel netwerk, het verkeer op dat subnet wordt verzonden met Azure Cosmos DB met de identiteit van het subnet en het Virtueelnetwerk. Zodra het Azure Cosmos DB-service-eindpunt is ingeschakeld, kunt u toegang tot het subnet beperken door toe te voegen aan uw Azure Cosmos-account.
+U kunt de Azure Cosmos-account om toe te staan alleen toegankelijk is vanaf een specifiek subnet van het virtuele netwerk (VNet) configureren. Door in te schakelen [Service-eindpunt](../virtual-network/virtual-network-service-endpoints-overview.md) voor toegang tot Azure Cosmos DB op het subnet binnen een virtueel netwerk, het verkeer op dat subnet wordt verzonden met Azure Cosmos DB met de identiteit van het subnet en het Virtueelnetwerk. Zodra het Azure Cosmos DB-service-eindpunt is ingeschakeld, kunt u toegang tot het subnet beperken door toe te voegen aan uw Azure Cosmos-account.
 
-Een Azure Cosmos-account is standaard toegankelijk is vanaf elke willekeurige bron als de aanvraag wordt vergezeld gaan van een geldige Autorisatietoken. Wanneer u een of meer subnetten binnen VNETs toevoegt, krijgt alleen aanvragen die afkomstig zijn van deze subnetten een geldige reactie. Aanvragen die afkomstig zijn uit andere bronnen zullen een 403 (verboden)-reactie ontvangen. 
+Een Azure Cosmos-account is standaard toegankelijk is vanaf elke willekeurige bron als de aanvraag wordt vergezeld gaan van een geldige Autorisatietoken. Wanneer u een of meer subnetten binnen VNets toevoegt, krijgt alleen aanvragen die afkomstig zijn van deze subnetten een geldige reactie. Aanvragen die afkomstig zijn uit andere bronnen zullen een 403 (verboden)-reactie ontvangen. 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -41,7 +41,7 @@ Als IP-firewall of een virtueel netwerk toegang hebben tot worden regels toegevo
 Zodra de service-eindpunt voor Azure Cosmos DB is ingeschakeld op een subnet, verandert de bron van het bereiken van het account verkeer vanaf openbare IP-adres op virtueel netwerk en subnet. Als uw Azure Cosmos-account op basis van IP-firewall heeft alleen verkeer van het subnet van de service is ingeschakeld zou niet meer overeen met de IP-firewall-regels en daarom worden geweigerd. Ga via de stappen voor het naadloos migreren van IP-gebaseerde firewall naar virtuele netwerk gebaseerd toegangsbeheer.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>De gekoppelde virtuele netwerken ook toegang hebben tot Azure Cosmos-account? 
-Alleen virtuele netwerken en hun subnetten die zijn toegevoegd aan Azure Cosmos-account hebben toegang. De gekoppelde VNETs heeft geen toegang tot het account totdat de subnetten in gekoppelde virtuele netwerken worden toegevoegd aan het account.
+Alleen virtuele netwerken en hun subnetten die zijn toegevoegd aan Azure Cosmos-account hebben toegang. De gekoppelde VNets heeft geen toegang tot het account totdat de subnetten in gekoppelde virtuele netwerken worden toegevoegd aan het account.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Wat is het maximum aantal subnetten toegestaan voor toegang tot een enkel Cosmos-account? 
 U kunt op dit moment maximaal 64 subnetten toegestaan voor een Azure Cosmos-account hebben.

@@ -3,7 +3,7 @@ title: Voer Linux op virtuele machine-rekenknooppunten - Azure Batch | Microsoft
 description: Leer hoe u uw parallelle compute-workloads in pools van virtuele Linux-machines in Azure Batch worden verwerkt.
 services: batch
 documentationcenter: python
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 06/01/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 713583a6a184a583145c610b4e014f56941efa4c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a841fae791648d179975c2a5330bb41d48d388dd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113508"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453549"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Linux-rekenknooppunten in Batch-pools inrichten
 
@@ -58,7 +58,7 @@ Wanneer u een verwijzing naar de installatiekopie van de virtuele machine config
 ### <a name="node-agent-sku"></a>Knooppuntagent-SKU
 De Batch-knooppuntagent is een programma dat wordt uitgevoerd op elk knooppunt in de groep van toepassingen en biedt de opdracht en controle-interface tussen het knooppunt en de Batch-service. Er zijn verschillende implementaties van de knooppuntagent, SKU's, ook wel voor verschillende besturingssystemen. In feite, als u de configuratie van een virtuele Machine maakt, u eerst de verwijzing naar de installatiekopie van de virtuele machine opgeven, en vervolgens geeft u het knooppuntagent te installeren op de afbeelding. Normaal gesproken elke knooppuntagent SKU is compatibel met meerdere installatiekopieën van virtuele machines. Hier volgen enkele voorbeelden van knooppuntagent-SKU's:
 
-* batch.node.Ubuntu 14.04
+* batch.node.ubuntu 14.04
 * batch.node.centos 7
 * batch.node.Windows amd64
 
@@ -219,15 +219,15 @@ De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machine
 | batch | rendering-centos73 | rendering | meest recente | batch.node.centos 7 |
 | batch | rendering-windows2016 | rendering | meest recente | batch.node.Windows amd64 |
 | Canonical | UbuntuServer | 16.04-LTS | meest recente | batch.node.ubuntu 16.04 |
-| Canonical | UbuntuServer | 14.04.5-LTS | meest recente | batch.node.Ubuntu 14.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | meest recente | batch.node.ubuntu 14.04 |
 | credativ | Debian | 9 | meest recente | batch.node.debian 9 |
 | credativ | Debian | 8 | meest recente | batch.node.debian 8 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | meest recente | batch.node.centos 7 |
 | microsoft-ads | Standard-data-science-vm | Standard-data-science-vm | meest recente | batch.node.Windows amd64 |
-| Microsoft azure batch | centos-container | 7-4 | meest recente | batch.node.centos 7 |
-| Microsoft azure batch | centos-container-rdma | 7-4 | meest recente | batch.node.centos 7 |
-| Microsoft azure batch | Ubuntu-server-container | 16-04-lts | meest recente | batch.node.ubuntu 16.04 |
-| Microsoft azure batch | Ubuntu-server-container-rdma | 16-04-lts | meest recente | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | centos-container | 7-4 | meest recente | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | meest recente | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | meest recente | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | meest recente | batch.node.ubuntu 16.04 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | meest recente | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | meest recente | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016 Datacenter met Containers | meest recente | batch.node.Windows amd64 |
@@ -236,13 +236,13 @@ De volgende tabel bevat de Marketplace-installatiekopieën voor virtuele machine
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | meest recente | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | meest recente | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | meest recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008 R2-SP1 smalldisk | meest recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | meest recente | batch.node.Windows amd64 |
 | OpenLogic | CentOS | 7.4 | meest recente | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.4 | meest recente | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.3 | meest recente | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.1 | meest recente | batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.4 | meest recente | batch.node.centos 7 |
-| SUSE | SLES HPC | 12 SP2 | meest recente | batch.node.opensuse 42,1 |
+| Oracle | Oracle-Linux | 7.4 | meest recente | batch.node.centos 7 |
+| SUSE | SLES HPC | 12 SP2 | meest recente | batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Verbinding maken met Linux-knooppunten via SSH
 Tijdens de ontwikkeling of bij het oplossen van problemen vindt u het kan nodig zijn om aan te melden bij de knooppunten in uw pool. In tegenstelling tot Windows-rekenknooppunten, kunt u Remote Desktop Protocol (RDP) niet gebruiken voor het verbinding maken met Linux-knooppunten. De Batch-service kan in plaats daarvan SSH-toegang voor externe verbinding op elk knooppunt.
@@ -350,6 +350,6 @@ De [codevoorbeelden voor Python] [ github_samples_py] in de [azure-batch-samples
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: https://docs.microsoft.com/python/api/azure.batch.models.computenodeuser
 [py_imagereference]: https://docs.microsoft.com/python/api/azure.mgmt.batch.models.imagereference
-[py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
+[py_list_skus]: https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.AccountOperations?view=azure-python#list-node-agent-skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

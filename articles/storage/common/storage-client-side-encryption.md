@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 857ab3ad9870407b91b0fdc9c552a89fd1f4ccd4
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: common
+ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140516"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478318"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -60,7 +60,7 @@ Tijdens het versleutelen, wordt de clientbibliotheek genereren van een willekeur
 > 
 > 
 
-Bij het ophalen van de inhoud van het gebruik van de gehele blob downloaden van een versleutelde blob omvat de **DownloadTo** / **BlobReadStream**\* methoden voor gebruiksgemak. De verpakte CEK is uitgepakt en gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde om gegevens te retourneren aan de gebruikers.
+Bij het ophalen van de inhoud van het gebruik van de gehele blob downloaden van een versleutelde blob omvat de **DownloadTo *** /** BlobReadStream ** methoden voor gebruiksgemak. De verpakte CEK is uitgepakt en gebruikt in combinatie met de IV (opgeslagen als blobmetagegevens in dit geval) de ontsleutelde om gegevens te retourneren aan de gebruikers.
 
 Downloaden van een willekeurige adresbereik (**DownloadRange*** methoden) in de versleutelde blob omvat het aanpassen van het bereik dat is opgegeven door gebruikers om op te halen van een kleine hoeveelheid aanvullende gegevens die kunnen worden gebruikt voor het ontsleutelen van is de aangevraagde het bereik.
 
@@ -241,7 +241,7 @@ Zoals hierboven vermeld als de entiteit TableEntity implementeert, klikt u vervo
 Houd er rekening mee dat uw opslag, resulteert in extra prestatieoverhead versleutelt. De inhoudssleutel en IV moet worden gegenereerd, de inhoud zelf moet worden versleuteld en aanvullende metagegevens moeten worden geformatteerd en geüpload. Deze overhead varieert, afhankelijk van de hoeveelheid gegevens wordt versleuteld. Het is raadzaam dat klanten altijd hun toepassingen voor de prestaties tijdens de ontwikkeling testen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zelfstudie: Blobs versleutelen en ontsleutelen in Microsoft Azure Storage met behulp van Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+* [Zelfstudie: Blobs in Microsoft Azure Storage met behulp van Azure Key Vault versleutelen en ontsleutelen](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Download de [Azure Storage-clientbibliotheek voor .NET NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Download de Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), en [extensies](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) pakketten  
 * Ga naar de [documentatie voor Azure Key Vault](../../key-vault/key-vault-whatis.md)

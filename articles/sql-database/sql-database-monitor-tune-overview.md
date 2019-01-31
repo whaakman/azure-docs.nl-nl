@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 2638617679e1aaadfdb18f1d8580f3aef28ab127
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884348"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468321"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Prestaties bewaken en afstemmen
 
@@ -34,14 +34,14 @@ U hebt de volgende opties voor controle en probleemoplossing van de prestaties v
 - Gebruik [SQL Database Advisor](sql-database-advisor-portal.md) om aanbevelingen voor het maken en verwijderen van indexen, parametriseren query's en schema-problemen oplossen weer te geven.
 - Gebruik [Intelligent Insights van Azure SQL](sql-database-intelligent-insights.md) voor de automatische bewaking van de databaseprestaties van uw. Zodra een prestatieprobleem wordt gedetecteerd, wordt een diagnostisch logboek gegenereerd met de details en Root oorzaak Analysis (RCA) van het probleem. Prestaties verbetering aanbeveling wordt geleverd, indien mogelijk.
 - [Automatisch instellen inschakelen](sql-database-automatic-tuning-enable.md) en laat Azure SQL database automatisch correctie geïdentificeerd prestatieproblemen kunnen voordoen.
-- Gebruik [dynamische beheerweergave (DMV's)](sql-database-monitoring-with-dmvs.md), [uitgebreid gebeurtenissen](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr), en de [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voor meer het oplossen van prestatieproblemen.
+- Gebruik [dynamische beheerweergave (DMV's)](sql-database-monitoring-with-dmvs.md), [uitgebreid gebeurtenissen](sql-database-xevent-db-diff-from-svr.md), en de [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) voor meer het oplossen van prestatieproblemen.
 
 > [!TIP]
 > Zie [prestatierichtlijnen](sql-database-performance-guidance.md) technieken die u gebruiken kunt voor het verbeteren van de prestaties van Azure SQL Database na het identificeren van het prestatieprobleem met behulp van een of meer van de bovenstaande manieren vinden.
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Databases bewaken via de Azure-portal
 
-In de [Azure-portal](https://portal.azure.com/), u kunt een individuele database s-gebruik controleren door te klikken en selecteer uw database de **bewaking** grafiek. Nu wordt een venster **Metrische gegevens** geopend, dat u kunt wijzigen door op de knop **Grafiek bewerken** te klikken. Voeg de volgende metrische gegevens toe:
+In de [Azure-portal](https://portal.azure.com/), kunt u een afzonderlijke Databasegebruik s controleren door te klikken en selecteer uw database de **bewaking** grafiek. Nu wordt een venster **Metrische gegevens** geopend, dat u kunt wijzigen door op de knop **Grafiek bewerken** te klikken. Voeg de volgende metrische gegevens toe:
 
 - CPU-percentage
 - DTU-percentage
@@ -204,7 +204,7 @@ Zoals u in het vorige diagram, zijn de meest voorkomende wacht:
 
 Ten slotte, als er geen bruikbare items die de prestaties van uw database kunnen verbeteren, kunt u de hoeveelheid beschikbare resources in Azure SQL Database. U kunt meer resources toewijzen door het veranderen van de [DTU-servicelaag](sql-database-service-tiers-dtu.md) van een individuele database of een toename van het aantal edtu's van een elastische pool op elk gewenst moment. U kunt ook als u de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md), kunt u de servicelaag wijzigen of de resources die zijn toegewezen aan uw database te verhogen.
 
-1. Voor individuele databases, kunt u [Servicelagen](sql-database-service-tiers-dtu.md) of [rekenresources](sql-database-service-tiers-vcore.md) on-demand om betere databaseprestaties.
+1. Voor individuele databases, kunt u [Servicelagen](sql-database-single-database-scale.md) of [rekenresources](sql-database-single-database-scale.md) on-demand om betere databaseprestaties.
 2. Overweeg het gebruik van meerdere databases, [elastische pools](sql-database-elastic-pool-guidance.md) bronnen automatisch schalen.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Afstemmen en herstructureren toepassing of databasecode

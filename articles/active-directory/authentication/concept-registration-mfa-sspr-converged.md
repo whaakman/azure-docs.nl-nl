@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: fd56d8e0500b80bcce743a8865b6ca90ca8658a6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472674"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Geconvergeerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication (openbare preview)
 
@@ -74,8 +74,6 @@ Gebruikers zien op deze pagina eerder geregistreerde verificatiemethoden en onde
 Auditlogboeken voor deze nieuwe ervaring bestaan onder de categorie verificatiemethoden van het auditlogboek.  
 
 ## <a name="known-issues"></a>Bekende problemen
-
-We hebben een bug geïdentificeerd met geconvergeerd registratie waar B2B-gastgebruikers die zijn ingeschakeld voor geconvergeerde registratie kan niet worden geregistreerd voor MFA. Wanneer ze worden doorgestuurd naar de registratiepagina, de paginafouten af. Onze ontwikkelaars zich bewust bent van dit probleem en werken als u wilt bieden een oplossing. Nu is de aanbeveling voor het maken van een groep en alle B2B-gebruikers uitsluiten van die groep.
 
 **Standaardmethode voor MFA is ingesteld op telefonische oproep wanneer een gebruiker een telefoon registreert met behulp van de SMS-bericht**
 

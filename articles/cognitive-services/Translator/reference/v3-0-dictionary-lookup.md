@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b6178c4e9c197539359058347b2409210d976569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957739"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458921"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text-API 3.0: Woordenlijst opzoeken
+# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text-API 3.0: Opzoeken in woordenlijst
 
 Biedt alternatieve vertalingen voor een woord en een klein aantal idiomatisch zinnen. Elke vertaling heeft een part-of-speech en een lijst met back-vertalingen. De back-vertalingen inschakelen om te begrijpen van de vertaling in de context van een gebruiker. De [woordenlijst voorbeeld](./v3-0-dictionary-examples.md) bewerking kunt verder inzoomen op Zie dit voorbeeld wordt van elk paar vertaling.
 
@@ -35,7 +35,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>API-versie</td>
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
@@ -54,13 +54,13 @@ Aanvraagheaders zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_Koptekst_</td>
+    <td>_Een autorisatie_<br/>_header_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Inhoudstype</td>
+    <td>Content-Type</td>
     <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
@@ -94,7 +94,7 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
 
   * `normalizedSource`: Een tekenreeks waarin de gestandaardiseerde vorm van de bronterm. Bijvoorbeeld, als de aanvraag 'JOHN', is de gestandaardiseerde vorm 'john'. De inhoud van dit veld wordt de invoer naar [lookup voorbeelden](./v3-0-dictionary-examples.md).
     
-  * `displaySource`: Een tekenreeks die de bronterm best in een formulier geven geschikt om eindgebruikers weer te geven. Bijvoorbeeld, als de invoer is 'JOHN', de weergaveformulier weer de gebruikelijke spelling van de naam: "John". 
+  * `displaySource`: Een tekenreeks die de bronterm best in een formulier geven geschikt om eindgebruikers weer te geven. Als de invoer is 'JOHN', wordt de weergaveformulier bijvoorbeeld de gebruikelijke spelling van de naam weer: "John". 
 
   * `translations`: Een lijst van vertalingen voor de bronterm. Elk element van de lijst is een object met de volgende eigenschappen:
 
@@ -104,16 +104,16 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
 
     * `posTag`: Een tekenreeks die deze term koppelen aan een tag part-of-speech.
 
-        | Naam van de tag | Beschrijving  |
+        | Naam van de tag | Description  |
         |----------|--------------|
         | CORRECTIE      | Bijvoeglijke naamwoorden   |
         | ADV      | Bewerkingsparameters      |
         | CONJ     | Voegwoorden |
         | DET      | Determiners  |
-        | MODAAL    | Termen        |
+        | MODAL    | Termen        |
         | ZELFSTANDIG NAAMWOORD     | Zelfstandige naamwoorden        |
         | PREP     | Voorzetsels |
-        | PRON     | Voornaamwoorden     |
+        | PRON     | Pronouns     |
         | TERM     | Termen        |
         | ANDERE    | Overige        |
 
@@ -140,7 +140,7 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
 
 In dit voorbeeld laat zien hoe voor het opzoeken van alternatieve vertalingen in het Spaans van de Engelse term `fly` .
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -191,7 +191,7 @@ De hoofdtekst van antwoord (afgekort voor de duidelijkheid) is:
 
 Dit voorbeeld laat zien wat er gebeurt wanneer de term wordt opgezocht niet voor het paar geldig woordenlijst bestaat.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

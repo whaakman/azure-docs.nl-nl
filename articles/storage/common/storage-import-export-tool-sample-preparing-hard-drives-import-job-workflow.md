@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: de2cfbf2b4119daf965c95d8973b8528799c9502
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524617"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454622"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
 
@@ -23,7 +23,7 @@ In dit artikel begeleidt u bij het complete proces van schijven voorbereiden voo
 
 In dit voorbeeld de volgende gegevens worden geïmporteerd in Azure storage-account met de naam `mystorageaccount`:
 
-|Locatie|Beschrijving|Gegevensgrootte|
+|Locatie|Description|Gegevensgrootte|
 |--------------|-----------------|-----|
 |H:\Video\ |Een verzameling van video 's|12 TB|
 |H:\Photo\ |Een verzameling van foto 's|30 GB|
@@ -88,7 +88,7 @@ Om in te stellen metagegevens voor de geïmporteerde bestanden, maak een tekstbe
 U kunt ook instellen sommige eigenschappen van de `FavoriteMovie.ISO` blob:
 
 * **Content-Type:** application/octet-stream
-* **Inhoud-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
+* **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ==
 * **Cache-Control:** no-cache
 
 Deze eigenschappen instelt, maak een tekstbestand `c:\WAImportExport\SampleProperties.txt`:
