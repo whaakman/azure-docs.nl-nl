@@ -1,6 +1,6 @@
 ---
-Titel: ' Stap 1: Een werkruimte maken ' titleSuffix: Azure Machine Learning Studio description: ' Stap 1 van het ontwikkelen van een overzicht van de voorspellende oplossing: Meer informatie over het instellen van een nieuwe Azure Machine Learning Studio-werkruimte. "
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: ' Stap 1: Een werkruimte maken ' titleSuffix: Azure Machine Learning Studio description: ' Stap 1 van het ontwikkelen van een overzicht van de voorspellende oplossing: Meer informatie over het instellen van een nieuwe Azure Machine Learning Studio-werkruimte. "
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/23/2017
 ---

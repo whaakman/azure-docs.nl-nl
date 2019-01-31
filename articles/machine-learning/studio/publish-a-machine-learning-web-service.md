@@ -1,6 +1,6 @@
 ---
-Titel: Een Machine Learning Studio web service titleSuffix implementeren: Azure Machine Learning Studio description: Hoe u een opleidingsexperiment converteren naar een Voorspellend experiment, voorbereiding op deze implementatie vervolgens als een Azure Machine Learning Studio-webservice implementeren.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Een Machine Learning Studio web service titleSuffix implementeren: Azure Machine Learning Studio description: Hoe u een opleidingsexperiment converteren naar een Voorspellend experiment, voorbereiding op deze implementatie vervolgens als een Azure Machine Learning Studio-webservice implementeren.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 01/06/2017
 ---

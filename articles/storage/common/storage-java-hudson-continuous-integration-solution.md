@@ -8,13 +8,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: a62af881efd4f6f3422db19850a0ce9987c6ae7b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245117"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467829"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Azure Storage gebruiken met een Hudson CI-oplossing
 ## <a name="overview"></a>Overzicht
@@ -144,10 +144,10 @@ Nadat u een build uitvoert, kunt u het console-uitvoer van de build-geschiedenis
 ## <a name="components-used-by-the-blob-service"></a>Onderdelen die worden gebruikt door de Blob-service
 Het volgende biedt een overzicht van de onderdelen van de Blob-service.
 
-* **Storage-account**: alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit is het hoogste niveau van de naamruimte voor toegang tot blobs. Een account kan een onbeperkt aantal containers bevatten, zolang de totale grootte onder 100 TB is.
-* **Container**: een container is een groepering van een reeks blobs. Alle blobs moeten zich in een container bevinden. Een account kan een onbeperkt aantal containers bevatten. Een container kan een onbeperkt aantal blobs bevatten.
-* **BLOB**: een bestand van willekeurig type en grootte. Er zijn twee typen die kunnen worden opgeslagen in Azure Storage-blobs: blok- en pagina-blobs. De meeste bestanden zijn blok-blobs. Eén blok-blob kan maximaal 200 GB groot zijn. In deze zelfstudie maakt gebruik van blok-blobs. Pagina-blobs, een ander blobtype, kunnen tot 1 TB in grootte, en zijn efficiënter zijn bij het bereiken van de bytes in een bestand regelmatig worden gewijzigd. Zie voor meer informatie over blobs [blok-Blobs, toevoeg-Blobs en pagina-Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **URL-indeling**: Blobs kunnen worden opgevraagd met de volgende URL-indeling:
+* **Storage-account**: Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit is het hoogste niveau van de naamruimte voor toegang tot blobs. Een account kan een onbeperkt aantal containers bevatten, zolang de totale grootte onder 100 TB is.
+* **Container**: Een container is een groepering van een reeks blobs. Alle blobs moeten zich in een container bevinden. Een account kan een onbeperkt aantal containers bevatten. Een container kan een onbeperkt aantal blobs bevatten.
+* **BLOB**: Een bestand van willekeurig type en grootte. Er zijn twee typen die kunnen worden opgeslagen in Azure Storage-blobs: blok- en pagina-blobs. De meeste bestanden zijn blok-blobs. Eén blok-blob kan maximaal 200 GB groot zijn. In deze zelfstudie maakt gebruik van blok-blobs. Pagina-blobs, een ander blobtype, kunnen tot 1 TB in grootte, en zijn efficiënter zijn bij het bereiken van de bytes in een bestand regelmatig worden gewijzigd. Zie voor meer informatie over blobs [blok-Blobs, toevoeg-Blobs en pagina-Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **URL-indeling**: BLOBs kunnen worden opgevraagd met de volgende URL-indeling:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   

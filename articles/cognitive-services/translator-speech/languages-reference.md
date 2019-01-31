@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: ac8de247f09ba3b4e38cabb565fe332eba909ccc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f377e073f42e96264fe4c7edb31ea58c68c46494
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118129"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474969"
 ---
-# <a name="translator-speech-api-languages"></a>Translator Speech-API: Talen
+# <a name="translator-speech-api-languages"></a>Translator Speech-API: Languages
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -142,7 +142,7 @@ X-RequestId|Waarde die worden gegenereerd door de server voor het identificeren 
 |API-versie    |De versie van de API die is aangevraagd door de client. Toegestane waarden zijn: `1.0`.|query|string|
 |scope  |Sets met ondersteunde talen of stemmen om terug te keren naar de client. Deze parameter is opgegeven als een door komma's gescheiden lijst met trefwoorden. De volgende trefwoorden zijn beschikbaar:<ul><li>`speech`: Biedt de talen die worden ondersteund voor spraak transcriberen.</li><li>`tts`: Biedt de stemmen voor tekst-speech conversie wordt ondersteund.</li><li>`text`: Biedt de talen die worden ondersteund voor het omzetten van tekst.</li></ul>Als een waarde niet opgegeven is, de waarde van `scope` standaard ingesteld op `text`.|query|string|
 |X-ClientTraceId    |Een client gegenereerde GUID gebruikt voor het traceren van een aanvraag. Om te kunnen oplossen van problemen met, moeten clients voorzien van elke aanvraag een nieuwe waarde en aangemeld.|koptekst|string|
-|Accepteer taal    |Enkele van de velden in het antwoord zijn namen van talen of regio's. Gebruik deze parameter voor het definiëren van de taal waarin de namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Selecteer een label in de lijst van taal-id's die zijn geretourneerd met de `text` bereik. Voor niet-ondersteunde talen vindt u de namen in het Engels.<br/>Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.|koptekst|string|
+|Accept-Language    |Enkele van de velden in het antwoord zijn namen van talen of regio's. Gebruik deze parameter voor het definiëren van de taal waarin de namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Selecteer een label in de lijst van taal-id's die zijn geretourneerd met de `text` bereik. Voor niet-ondersteunde talen vindt u de namen in het Engels.<br/>Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.|koptekst|string|
     
 ### <a name="response-messages"></a>Berichten met reacties
 

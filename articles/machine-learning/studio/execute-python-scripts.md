@@ -1,6 +1,6 @@
 ---
-Titel: Execute Python machine learning-scripts titleSuffix: Azure Machine Learning Studio description: Overzichten ontwerpprincipes onderliggende ondersteuning voor Python-scripts in Azure Machine Learning Studio en basisgebruik scenario's, mogelijkheden en beperkingen.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Execute Python machine learning-scripts titleSuffix: Azure Machine Learning Studio description: Overzichten ontwerpprincipes onderliggende ondersteuning voor Python-scripts in Azure Machine Learning Studio en basisgebruik scenario's, mogelijkheden en beperkingen.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---

@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Managed Instance-overzicht | Microsoft Docs
-description: Dit onderwerp wordt een Azure SQL Database Managed Instance beschreven en wordt uitgelegd hoe het werkt en wat is het verschil met een individuele database in Azure SQL Database.
+description: Dit onderwerp wordt een Azure SQL Database Managed Instance beschreven en wordt uitgelegd hoe het werkt en wat is het verschil met een enkele of gegroepeerde database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994756"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465704"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL Database Managed Instance met virtuele netwerken en in de buurt van 100% compatibiliteit gebruiken
 
@@ -34,7 +34,7 @@ Azure SQL Database Managed Instance is ontworpen voor klanten die willen migrere
 
 Door de algemene beschikbaarheid, Managed Instance is erop gericht om te leveren dicht bij surface area van 100% compatibiliteit met de nieuwste versie van on-premises SQL Server via een gefaseerde release-plan.
 
-Om te bepalen tussen Azure SQL Database Single Database, Azure SQL Database Managed Instance en SQL Server IaaS gehost in virtuele Machine Zie [u bij het kiezen van de juiste versie van SQL Server in Azure-cloud](sql-database-paas-vs-sql-server-iaas.md).
+Om te beslissen tussen Azure SQL Database single database, gepoolde database, beheerd exemplaar en SQL Server die wordt gehost in virtuele Machine, Zie [u bij het kiezen van de juiste versie van SQL Server in Azure-cloud](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Belangrijke functies en mogelijkheden
 
@@ -46,7 +46,7 @@ Azure SQL Database Managed Instance combineert het beste functies die beschikbaa
 | **Voordelen van PaaS** | **Bedrijfscontinuïteit** |
 | --- | --- |
 |Er is geen aanschaffen van hardware en het beheer <br>Er is geen management overhead voor het beheren van de onderliggende infrastructuur <br>Snel inrichten en schalen van service <br>Automatische patching en versie-upgrade <br>Integratie met andere PaaS-services voor gegevens |uptime van 99,99% SLA  <br>Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md) <br>Gegevens die worden beveiligd met [geautomatiseerde back-ups](sql-database-automated-backups.md) <br>Klanten kunnen worden geconfigureerd back-up bewaarperiode <br>De gebruiker geïnitieerde [back-ups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Punt in tijd database terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore) mogelijkheid |
-|**Beveiliging en naleving** | **Management**|
+|**Beveiliging en naleving** | **Beheer**|
 |Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-connectivity-architecture.md), één service, speciale berekenings- en tenant) <br>[Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-aanmeldingen</a> (**preview-versie**) <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice
 
 De belangrijkste functies van Managed Instance worden in de volgende tabel weergegeven:
@@ -185,7 +185,7 @@ De migratie maakt gebruik van SQL-back-ups naar Azure blob-opslag. Back-ups die 
 - Zie voor meer informatie over het herstellen van URL [systeemeigen terugzetten vanuit URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Back-ups van een beheerd exemplaar kunnen alleen worden hersteld naar een andere Managed Instance. Ze kunnen niet worden hersteld naar een on-premises SQL Server of naar een enkele of gegroepeerde-database voor de logische server voor Azure SQL Database.
+> Back-ups van een beheerd exemplaar kunnen alleen worden hersteld naar een andere Managed Instance. Ze kunnen niet worden hersteld naar een on-premises SQL-Server of naar een enkele database/elastische pool.
 
 ### <a name="data-migration-service"></a>Data migratieservice
 
@@ -210,7 +210,7 @@ Beheerd exemplaar voordelen wordt altijd-up-to-date in de cloud, betekent dat so
 - Beheerd exemplaar is niet toegestaan voor het volledige fysieke paden op te geven, zodat alle bijbehorende scenario's moeten anders worden ondersteund: DB herstellen biedt geen ondersteuning voor het verplaatsen met, DB maken kunnen geen fysieke paden, BULK INSERT werkt met Azure-Blobs alleen, enzovoort.
 - Beheerd exemplaar ondersteunt [Azure AD-verificatie](sql-database-aad-authentication.md) als cloud-alternatief voor het Windows-verificatie.
 - Beheerd exemplaar beheert automatisch de XTP-bestandsgroep en bestanden voor databases met In-Memory OLTP-objecten
-- Beheerd exemplaar biedt ondersteuning voor SQL Server Integration Services (SSIS) en host SSIS-catalogus (SSISDB) waarin de SSIS-pakketten kunt, maar ze worden uitgevoerd op een beheerde Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), Zie [maken Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Als u wilt vergelijken van de SSIS-functies in SQL-Database en de Managed Instance, Zie [logische server met SQL-Database vergelijken en Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
+- Beheerd exemplaar biedt ondersteuning voor SQL Server Integration Services (SSIS) en host SSIS-catalogus (SSISDB) waarin de SSIS-pakketten kunt, maar ze worden uitgevoerd op een beheerde Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), Zie [maken Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Als u wilt vergelijken van de SSIS-functies in SQL-Database en de Managed Instance, Zie [vergelijken Azure SQL Database single databases/elastische pools en Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Beheerfuncties voor beheerd exemplaar
 
@@ -223,7 +223,7 @@ Beheerd exemplaar inschakelen systeembeheerder om zich te richten op wat belangr
 
 De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL, dat u kunt gebruiken voor het detecteren van uw toepassing werkt met Managed Instance en belangrijke eigenschappen ophalen.
 
-|Eigenschap|Waarde|Opmerking|
+|Eigenschap|Value|Opmerking|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Deze waarde is gelijk aan die in SQL-Database.|

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: common
+ms.openlocfilehash: c9d949b32fb298c22142a35b939860bae240c803
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323265"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454807"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Wat te doen in het geval van een Azure Storage-storing
 Bij Microsoft werken we er hard om ervoor te zorgen dat onze services altijd beschikbaar zijn. Soms zorgt ervoor dat meer dan onze invloed ons op een manier die niet-geplande storingen in een of meer regio's veroorzaken. Voor hulp bij het verwerken van deze zelden, bieden we de informatie te volgen op hoog niveau voor Azure Storage-services.

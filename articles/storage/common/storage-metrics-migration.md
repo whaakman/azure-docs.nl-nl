@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 3f2ebb82f5affa3c41f237edcc039eb6214c7a4c
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.subservice: common
+ms.openlocfilehash: f8a73bb6e86a187a504c2d36098001cfd90015f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649292"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454921"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage-metrische gegevens over migratie
 
@@ -76,17 +76,17 @@ De volgende metrische gegevens zijn nieuwe aanbiedingen, bieden geen ondersteuni
 | **AuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** |
 | **Beschikbaarheid** | **Beschikbaarheid** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
-| **Averageserverlatency aan** | **SuccessServerLatency** |
+| **AverageServerLatency** | **SuccessServerLatency** |
 | **ClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** |
 | **ClientTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientTimeoutError** |
 | **NetworkError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** |
 | **PercentAuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** |
 | **PercentClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** |
-| **Percentnetworkerror aan** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** |
+| **PercentNetworkError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **NetworkError** |
 | **PercentServerOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerOtherError** |
 | **PercentSuccess** | Transacties met de dimensie **ResponseType** gelijk zijn aan **geslaagd** |
-| **Percentthrottlingerror aan** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** |
-| **Percenttimeouterror aan** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** of **ResponseType** gelijk zijn aan **ClientTimeoutError** |
+| **PercentThrottlingError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientThrottlingError** of **ServerBusyError** |
+| **PercentTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ServerTimeoutError** of **ResponseType** gelijk zijn aan **ClientTimeoutError** |
 | **SASAuthorizationError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **AuthorizationError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
 | **SASClientOtherError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientOtherError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |
 | **SASClientTimeoutError** | Transacties met de dimensie **ResponseType** gelijk zijn aan **ClientTimeoutError** - en dimensietabellen **verificatie** gelijk zijn aan **SAS** |

@@ -4,16 +4,16 @@ description: Wordt uitgelegd wilt doen voordat u implementeert Avere vFXT voor A
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f0e5523565dc561ed457dbc340835ad1889cb876
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50633966"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298922"
 ---
-# <a name="plan-your-avere-vfxt-system"></a>Plan uw Avere vFXT-systeem
+# <a name="plan-your-avere-vfxt-system"></a>Uw Avere vFXT-systeem plannen
 
 In dit artikel wordt uitgelegd hoe u van plan bent een nieuwe Avere vFXT voor Azure-cluster om te controleren of het cluster die u maakt is geplaatst en juiste grootte krijgen voor uw behoeften. 
 
@@ -29,11 +29,14 @@ Houd rekening met waar de elementen van uw vFXT Avere voor Azure-implementatie k
 
 Volg deze richtlijnen bij het plannen van de netwerkinfrastructuur van uw Avere vFXT systeem:
 
-* Alle elementen moeten worden beheerd met een nieuw abonnement voor de implementatie van de vFXT Avere gemaakt. Deze strategie vereenvoudigt het bijhouden van kosten en opschonen, en helpt ook bij resourcequota partitie. Omdat de vFXT Avere wordt gebruikt met een groot aantal clients, voorkomt het isoleren van de clients en het cluster in één abonnement dat andere kritieke werkbelastingen mogelijk Resourcebeperking tijdens het inrichten van client.
+* Alle elementen moeten worden beheerd met een nieuw abonnement voor de implementatie van de vFXT Avere gemaakt. Voordelen zijn: 
+  * Eenvoudiger kosten bijhouden: weergeven en controle alle kosten van resources, infrastructuur en compute-cycli worden in één abonnement.
+  * Eenvoudiger opruimen - u kunt het hele abonnement wanneer u klaar bent met het project te verwijderen.
+  * Handige partitioneren van resource quota - voorkomen dat andere kritieke werkbelastingen mogelijk Resourcebeperking bij het plaatsen van het grote aantal clients gebruikt voor de high performance computing-werkstroom door te isoleren van de Avere vFXT-clients en -cluster in een één abonnement.
 
 * Ga naar uw compute-clientsystemen dicht bij het cluster vFXT. Back-end-opslag kan meer externe zijn.  
 
-* Zoek het cluster vFXT en het cluster netwerkcontroller-VM in hetzelfde virtuele netwerk (vnet) en in dezelfde resourcegroep voor het gemak. Ze moeten ook hetzelfde opslagaccount gebruiken. 
+* Zoek het cluster vFXT en het cluster netwerkcontroller-VM in hetzelfde virtuele netwerk (vnet) en in dezelfde resourcegroep voor het gemak. Ze moeten ook hetzelfde opslagaccount gebruiken. (De clustercontroller maakt het cluster, en kan ook worden gebruikt voor het Clusterbeheer van de opdrachtregel-.)  
 
 * Het cluster moet zich in een eigen subnet om te voorkomen van IP-adres conflicteert met clients of bronnen berekenen. 
 
@@ -80,17 +83,47 @@ Zorg ervoor dat uw abonnement heeft de capaciteit om uit te voeren van het clust
 
 ## <a name="back-end-data-storage"></a>Back-end-gegevensopslag
 
-Wanneer deze zich niet in de cache, worden de werkset opgeslagen in een nieuwe Blob-container of in een bestaande cloud of de hardware-opslagsysteem?
+Waar moet de Avere vFXT cluster opslaan van uw gegevens wanneer deze zich niet in de cache? Bepalen of uw werkset worden opgeslagen op de lange termijn in een nieuwe Blob-container of in een bestaande cloud of de hardware-opslagsysteem. 
 
-Als u gebruiken van Azure Blob-opslag voor de back-end wilt, maakt u een nieuwe container als onderdeel van het cluster vFXT te maken. Gebruik de ``create-cloud-backed-container`` script voor implementatie- en toeleveringsgegevens de storage-account voor de nieuwe Blob-container. Deze optie maakt en configureert de nieuwe container zodat deze klaar voor gebruik als het cluster gereed is. Lezen [knooppunten maken en configureren van het cluster](avere-vfxt-deploy.md#create-nodes-and-configure-the-cluster) voor meer informatie.
+Als u gebruiken van Azure Blob-opslag voor de back-end wilt, maakt u een nieuwe container als onderdeel van het cluster vFXT te maken. Deze optie maakt en configureert de nieuwe container zodat deze klaar voor gebruik als het cluster gereed is. 
+
+Lezen [de vFXT Avere maken voor Azure](avere-vfxt-deploy.md#create-the-avere-vfxt-for-azure) voor meer informatie.
 
 > [!NOTE]
 > Alleen lege Blob storage-containers kunnen worden gebruikt als core filter voor het Avere vFXT-systeem. De vFXT moet mogelijk zijn voor het beheren van de opslag zonder om bestaande gegevens te behouden. 
 >
 > Lezen [om gegevens te verplaatsen naar het cluster vFXT](avere-vfxt-data-ingest.md) voor meer informatie over het kopiëren van gegevens naar de nieuwe container van het cluster efficiënt met behulp van clientcomputers en de Avere vFXT-cache.
 
-Als u een bestaande on-premises opslag-systeem gebruiken wilt, moet u deze toevoegen aan het cluster vFXT nadat deze is gemaakt. De ``create-minimal-cluster`` implementatiescript maakt u een cluster vFXT met er is geen back-end-opslag. Lezen [opslag configureren](avere-vfxt-add-storage.md) voor gedetailleerde instructies over het toevoegen van een bestaand opslagsysteem aan het Avere vFXT-cluster. 
+Als u een bestaande on-premises opslag-systeem gebruiken wilt, moet u deze toevoegen aan het cluster vFXT nadat deze is gemaakt. Lezen [opslag configureren](avere-vfxt-add-storage.md) voor gedetailleerde instructies over het toevoegen van een bestaand opslagsysteem aan het Avere vFXT-cluster.
 
-## <a name="next-step-understand-the-deployment-process"></a>Volgende stap: inzicht in het implementatieproces
+## <a name="cluster-access"></a>Toegang tot het cluster 
+
+De vFXT Avere voor Azure-cluster bevindt zich in een privé-subnet en het cluster heeft geen openbaar IP-adres. U moet een methode van de toegang tot de privé-subnet voor Clusterbeheer en clientverbindingen hebben. 
+
+Access-opties zijn onder andere:
+
+* Host Jump - openbaar IP-adres toewijzen aan een afzonderlijke virtuele machine binnen het particuliere netwerk en maken van een SSL-tunnel naar de clusterknooppunten. 
+
+  > [!TIP]
+  > Als u een openbaar IP-adres ingesteld op de clustercontroller, kunt u deze als de jump-host. Lezen [Cluster netwerkcontroller als host gaat](#cluster-controller-as-jump-host) voor meer informatie.
+
+* Virtueel particulier netwerk (VPN): Configureer een punt-naar-site of site-naar-site VPN-verbinding met uw particuliere netwerk.
+
+* Met Azure ExpressRoute - configureren van een particuliere verbinding via en ExpressRoute-partner. 
+
+Lees voor meer informatie over deze opties de [Azure Virtual Network-documentatie over internetcommunicatie](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
+
+### <a name="cluster-controller-as-jump-host"></a>Cluster-netwerkcontroller als host gaat
+
+Als u een openbaar IP-adres ingesteld op de clustercontroller, kunt u deze als host voor een korte inleiding contact opnemen met de Avere vFXT-cluster op basis van buiten het privé-subnet. Echter, omdat de controller toegangsrechten heeft voor het wijzigen van de clusterknooppunten, Hiermee maakt u een kleine beveiligingsrisico.  
+
+Gebruik een netwerkbeveiligingsgroep waarmee binnenkomende toegang alleen via poort 22 voor verbeterde beveiliging met een openbaar IP-adres.
+
+Bij het maken van het cluster, kunt u al dan niet te maken van een openbaar IP-adres op de clustercontroller. 
+
+* Als u een nieuw vnet of een nieuw subnet maken, wordt de clustercontroller een openbaar IP-adres worden toegewezen.
+* Als u een bestaand vnet en subnet selecteert, wordt de clustercontroller alleen privé IP-adressen hebben. 
+
+## <a name="next-step-understand-the-deployment-process"></a>Volgende stap: Informatie over het implementatieproces
 
 [Implementatie-overzicht](avere-vfxt-deploy-overview.md) biedt het totaalbeeld van alle de stappen die nodig zijn om te maken van een vFXT Avere voor Azure-systeem en bereid gegevens leveren.  

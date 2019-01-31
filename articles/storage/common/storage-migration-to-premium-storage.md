@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.component: common
-ms.openlocfilehash: c9e9dd0eab127fcb0deb3085915bd51eeb309089
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: d42183e1db49850afc115fcb5645baf7290cf3c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632837"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477592"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migreren naar Azure Premium Storage (niet-beheerde schijven)
 
@@ -180,7 +180,7 @@ Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan ti
     Hier volgen beschrijvingen van de parameters in de AzCopy-opdracht:
 
    * **/ Bron:  *&lt;bron&gt;:*** Locatie van de map of de URL van de opslag-container met de VHD.
-   * **/ SourceKey:  *&lt;bron accountsleutel&gt;:*** Opslagaccountsleutel van de bron-storage-account.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** Opslagaccountsleutel van de bron-storage-account.
    * **/ Dest:  *&lt;bestemming&gt;:*** Opslag container-URL te kopiëren van de VHD op.
    * **/ DestKey:  *&lt;dest accountsleutel&gt;:*** Opslagaccountsleutel van het doelopslagaccount.
    * **/ Patroon:  *&lt;-bestandsnaam&gt;:*** Geef de bestandsnaam op van de VHD te kopiëren.
@@ -277,7 +277,7 @@ Met behulp van AzCopy, u kunt eenvoudig de VHD uploaden via Internet. Dit kan ti
     Hier volgen beschrijvingen van de parameters in de AzCopy-opdracht:
 
    * **/ Bron:  *&lt;bron&gt;:*** Locatie van de map of de URL van de opslag-container met de VHD.
-   * **/ SourceKey:  *&lt;bron accountsleutel&gt;:*** Opslagaccountsleutel van de bron-storage-account.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** Opslagaccountsleutel van de bron-storage-account.
    * **/ Dest:  *&lt;bestemming&gt;:*** Opslag container-URL te kopiëren van de VHD op.
    * **/ DestKey:  *&lt;dest accountsleutel&gt;:*** Opslagaccountsleutel van het doelopslagaccount.
    * **/ BlobType: pagina:** Geeft aan dat de bestemming een pagina-blob.
@@ -765,7 +765,7 @@ Zie ook de volgende bronnen voor meer informatie over Azure Storage en Azure Vir
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium-opslag: Opslag met hoge prestaties voor werkbelastingen van de virtuele Machine van Azure](../../virtual-machines/windows/premium-storage.md)
+* [Premium Storage: Opslag met hoge prestaties voor workload in Azure Virtual Machine](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

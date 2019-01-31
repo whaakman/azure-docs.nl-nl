@@ -1,6 +1,6 @@
 ---
-Titel: Machine Learning Studio-webservices met API Management titleSuffix beheren: Azure Machine Learning Studio description: Een handleiding waarin wordt getoond hoe voor het beheren van AzureML-webservices met API Management. De REST API-eindpunten beheren met het definiëren van gebruikerstoegang, beperking en dashboard bewaking.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Machine Learning Studio-webservices met API Management titleSuffix beheren: Azure Machine Learning Studio description: Een handleiding waarin wordt getoond hoe voor het beheren van AzureML-webservices met API Management. De REST API-eindpunten beheren met het definiëren van gebruikerstoegang, beperking en dashboard bewaking.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/03/2017
 ---

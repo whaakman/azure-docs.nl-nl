@@ -2,19 +2,18 @@
 title: Gegevensmodel voor Azure Backup
 description: In dit artikel wordt besproken details van een Power BI-gegevens-model, voor Azure Backup-rapporten.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877130"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299415"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Gegevensmodel voor Azure Backup-rapporten
 Dit artikel beschrijft het gegevensmodel van Power BI gebruikt voor het maken van Azure Backup-rapporten. Met dit gegevensmodel, kunt u filteren op bestaande rapporten op basis van relevante velden en informatie bovendien uw eigen rapporten maken met behulp van tabellen en velden in het model. 
@@ -28,11 +27,11 @@ Rapporten maken en aanpassen van bestaande rapporten kunt u de volgende velden g
 ### <a name="alert"></a>Waarschuwing
 Deze tabel bevat algemene velden en aggregaties die via verschillende gerelateerde waarschuwingsvelden.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Geheel getal |Aantal waarschuwingen die zijn gemaakt in een geselecteerde tijdsperiode |
-| % ActiveAlertsCreatedInPeriod |Percentage |Percentage van actieve waarschuwingen in de geselecteerde periode |
-| % CriticalAlertsCreatedInPeriod |Percentage |Percentage van de kritieke waarschuwingen in de geselecteerde periode |
+| %ActiveAlertsCreatedInPeriod |Percentage |Percentage van actieve waarschuwingen in de geselecteerde periode |
+| %CriticalAlertsCreatedInPeriod |Percentage |Percentage van de kritieke waarschuwingen in de geselecteerde periode |
 | AlertOccurrenceDate |Date |Datum waarop de waarschuwing is gemaakt |
 | AlertSeverity |Tekst |Ernst van de waarschuwing bijvoorbeeld: kritiek |
 | AlertStatus |Tekst |Status van de waarschuwing bijvoorbeeld actief |
@@ -45,7 +44,7 @@ Deze tabel bevat algemene velden en aggregaties die via verschillende gerelateer
 ### <a name="backup-item"></a>Back-upitem
 Deze tabel bevat de algemene velden en aggregaties die via verschillende back-item-gerelateerde velden.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #BackupItems |Geheel getal |Aantal back-upitems |
 | #UnprotectedBackupItems |Geheel getal |Aantal back-upitems voor beveiliging is gestopt of geconfigureerd voor back-ups, maar back-ups niet gestart|
@@ -63,7 +62,7 @@ Deze tabel bevat de algemene velden en aggregaties die via verschillende back-it
 ### <a name="calendar"></a>Agenda
 Deze tabel bevat details over velden met betrekking tot de agenda.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | Date |Date |Datum geselecteerd voor het filteren van gegevens |
 | DateKey |Tekst |Unieke sleutel voor elk item datum |
@@ -80,10 +79,10 @@ Deze tabel bevat details over velden met betrekking tot de agenda.
 ### <a name="job"></a>Taak
 Deze tabel bevat de algemene velden en aggregaties die via verschillende velden met betrekking tot de taak.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Geheel getal |Het aantal taken die zijn gemaakt in de geselecteerde periode |
-| % FailuresForJobsCreatedInPeriod |Percentage |Percentage algemene taak fouten in de geselecteerde periode |
+| %FailuresForJobsCreatedInPeriod |Percentage |Percentage algemene taak fouten in de geselecteerde periode |
 | 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Decimaal getal |80e percentielwaarde van de gegevens worden overgebracht in MB voor **back-up** taken die zijn gemaakt in de geselecteerde periode |
 | AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
 | AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimaal getal |Gemiddelde tijd in minuten voor **voltooide back-up** taken die zijn gemaakt in een geselecteerde tijdsperiode |
@@ -100,7 +99,7 @@ Deze tabel bevat de algemene velden en aggregaties die via verschillende velden 
 ### <a name="policy"></a>Beleid
 Deze tabel bevat algemene velden en aggregaties die via verschillende beleid gerelateerde velden.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #Policies |Geheel getal |Aantal back-upbeleid die aanwezig zijn in het systeem |
 | #PoliciesInUse |Geheel getal |Aantal beleidsregels die momenteel wordt gebruikt voor het configureren van back-ups |
@@ -134,7 +133,7 @@ Deze tabel bevat algemene velden en aggregaties die via verschillende beleid ger
 ### <a name="protected-server"></a>Beveiligde Server
 Deze tabel bevat de algemene velden en aggregaties die via verschillende beveiligde server-gerelateerde velden.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #ProtectedServers |Geheel getal |Aantal beveiligde servers |
 | AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
@@ -153,7 +152,7 @@ Deze tabel bevat de algemene velden en aggregaties die via verschillende beveili
 ### <a name="storage"></a>Storage
 Deze tabel bevat de algemene velden en aggregaties die via verschillende velden met betrekking tot opslag.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | #ProtectedInstances |Decimaal getal |Aantal beveiligde exemplaren die worden gebruikt voor het berekenen van de frontend-opslag in facturering, berekend op basis van de laatste waarde in de geselecteerde tijd |
 | AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
@@ -164,7 +163,7 @@ Deze tabel bevat de algemene velden en aggregaties die via verschillende velden 
 ### <a name="time"></a>Time
 Deze tabel bevat details over velden met betrekking tot de tijd.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
 | Uur |Time |Uur van de dag bijvoorbeeld 13:00:00 uur |
 | HourNumber |Decimaal getal |Het aantal uren op een dag bijvoorbeeld 13,00 |
@@ -176,9 +175,9 @@ Deze tabel bevat details over velden met betrekking tot de tijd.
 ### <a name="vault"></a>Kluis
 Deze tabel bevat de algemene velden en aggregaties die via verschillende velden met betrekking tot de kluis.
 
-| Veld | Gegevenstype | Beschrijving |
+| Veld | Gegevenstype | Description |
 | --- | --- | --- |
-| #Vaults |Geheel getal |Het aantal kluizen |
+| #Vaults |Geheel getal |Aantal kluizen |
 | AsOnDateTime |Datum/tijd |Vernieuwingstijd van laatste voor de geselecteerde rij |
 | AzureDataCenter |Tekst |Datacenter waarin kluis zich bevindt |
 | EntityState |Tekst |Huidige status van het object kluis bijvoorbeeld actief, verwijderd |

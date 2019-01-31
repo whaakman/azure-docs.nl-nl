@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7c4c1a5991445448f015dc0912383baf53f4e38c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbc11e2fc54ecffbea22a66354f334f3562e3339
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034927"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459204"
 ---
-# <a name="working-with-azure-cosmos-account"></a>Werken met een Azure Cosmos-account
+# <a name="work-with-azure-cosmos-account"></a>Werken met Azure Cosmos-account
 
 Azure Cosmos DB is een volledig beheerde platform-as-a-service (PaaS). Om te beginnen met Azure Cosmos DB, moet u eerst een Azure Cosmos-account maken in uw Azure-abonnement. Uw Azure Cosmos-account bevat een unieke DNS-naam en u kunt een account kunt beheren met behulp van Azure portal, Azure CLI of met behulp van verschillende taalspecifieke SDK's. Zie voor meer informatie, [over het beheren van uw Azure Cosmos-account](how-to-manage-database-account.md).
 
@@ -42,4 +42,4 @@ U kunt nu doorgaan naar meer informatie over het beheren van uw Azure Cosmos-acc
 * [VNET-service-eindpunt voor uw Azure Cosmos-account](vnet-service-endpoint.md)
 * [IP-firewall voor uw Azure Cosmos-account](firewall-support.md)
 * [Instructies voor het toevoegen en verwijderen van Azure-regio's aan uw Azure Cosmos-account](how-to-manage-database-account.md)
-* [Azure Cosmos DB-Sla 's](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

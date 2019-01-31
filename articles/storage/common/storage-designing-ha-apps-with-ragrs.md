@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231360"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454940"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met RA-GRS ontwerpen
 
@@ -24,12 +24,12 @@ Een algemene functie van de cloud gebaseerde infrastructuur, zoals Azure Storage
 
 In dit artikel is gericht op GRS en RA-GRS. Met GRS worden drie kopieën van uw gegevens worden bewaard in de primaire regio die u hebt geselecteerd bij het instellen van het storage-account. Drie extra kopieën worden asynchroon bijgehouden in een secundaire regio die is opgegeven door Azure. RA-GRS biedt geografisch redundante opslag met leestoegang tot de secundaire kopie.
 
-Voor informatie over welke primaire regio's zijn gekoppeld aan welke secundaire regio's, Zie [zakelijke continuïteit en herstel na noodgevallen (BCDR): gekoppelde Azure-regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Voor informatie over welke primaire regio's zijn gekoppeld aan welke secundaire regio's, Zie [zakelijke continuïteit en herstel na noodgevallen (BCDR): Gekoppelde Azure-regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Er zijn codefragmenten die zijn opgenomen in dit artikel en een koppeling naar een compleet voorbeeld aan het einde die u kunt downloaden en uitvoeren.
 
 > [!NOTE]
-> Azure Storage biedt nu ondersteuning voor zone-redundante opslag (ZRS) voor het bouwen van toepassingen met hoge beschikbaarheid. ZRS biedt een eenvoudige oplossing voor de behoeften van de redundantie van de vele toepassingen. ZRS biedt bescherming tegen hardwarestoringen of catastrofale rampen in één datacenter. Zie voor meer informatie, [Zone-redundante opslag (ZRS): toepassingen met hoge beschikbaarheid Azure Storage](storage-redundancy-zrs.md).
+> Azure Storage biedt nu ondersteuning voor zone-redundante opslag (ZRS) voor het bouwen van toepassingen met hoge beschikbaarheid. ZRS biedt een eenvoudige oplossing voor de behoeften van de redundantie van de vele toepassingen. ZRS biedt bescherming tegen hardwarestoringen of catastrofale rampen in één datacenter. Zie voor meer informatie, [Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Belangrijke functies van RA-GRS
 

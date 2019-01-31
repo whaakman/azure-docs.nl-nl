@@ -2,20 +2,20 @@
 title: Geïntegreerde oplossingen bouwen met SQL Data Warehouse | Microsoft Docs
 description: "Hulpprogramma's en partners met oplossingen die kunnen worden geïntegreerd met SQL Data Warehouse. "
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d9d10214f8bc61a914de3f72ddae13679f2811e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 08e144022c79182a63fd99dbce48a5e505aba3f2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358504"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477995"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Andere services integreren met SQL Data Warehouse
 Naast de kernfunctionaliteit kunnen SQL Data Warehouse gebruikers om te integreren met veel van de andere services in Azure. Enkele van deze services zijn onder andere:
@@ -31,7 +31,7 @@ SQL Data Warehouse blijft om te integreren met meer services in Azure, en meer [
 Power BI-integratie kunt u de compute-kracht van SQL Data Warehouse combineren met de dynamische rapportage en visualisatie van Power BI. Power BI-integratie is momenteel inclusief:
 
 * **Directe verbinding**: Een meer geavanceerde verbinding met logisch pushdown op basis van SQL Data Warehouse. Pushdown biedt snellere analyses op grotere schaal.
-* **Openen in Power BI**: De knop 'Openen in Power BI' geeft informatie over het exemplaar aan Power BI voor een simplifed manier om verbinding te maken.
+* **Openen in Power BI**: De knop 'Openen in Power BI' geeft informatie over het exemplaar aan Power BI voor een vereenvoudigde manier om verbinding te maken.
 
 Zie voor meer informatie, [integreren met Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), of de [Power BI-documentatie](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 

@@ -1,6 +1,6 @@
 ---
-Titel: ' Problemen oplossen: Maken, verbinding maken met een Machine Learning Studio-werkruimte ' titleSuffix: Azure Machine Learning Studio description: Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning Studio-werkruimten.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: ' Problemen oplossen: Maken, verbinding maken met een Machine Learning Studio-werkruimte ' titleSuffix: Azure Machine Learning Studio description: Deze handleiding bevat oplossingen voor enkele uitdagingen vaak aangetroffen bij het instellen van Azure Machine Learning Studio-werkruimten.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

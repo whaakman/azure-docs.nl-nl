@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427913"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456031"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Aan de slag met Azure SQL Database Managed Instance Auditing
 
@@ -207,7 +207,7 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
 - U kunt de logboeken voor controle verkennen met behulp van een hulpprogramma zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Azure storage worden controleren logboeken opgeslagen als een verzameling van blob-bestanden in een container die is gedefinieerd voor het opslaan van de auditlogboeken. Zie voor meer informatie over de hiërarchie van de map storage naamgevingsregels en logboekindeling, de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Voor een volledige lijst van audit log verbruikmethoden, raadpleegt u de [aan de slag met SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Voor een volledige lijst van audit log verbruikmethoden, raadpleegt u de [aan de slag met SQL database auditing](sql-database-auditing.md).
 
   > [!IMPORTANT]
   > Voor het weergeven van controlerecords in Azure portal (in het deelvenster 'Controlerecords') is momenteel niet beschikbaar voor Managed Instance.
@@ -242,7 +242,7 @@ De sleutel verschillen de `CREATE AUDIT` syntaxis voor controle naar Azure blob-
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voor een volledige lijst van audit log verbruikmethoden, raadpleegt u de [aan de slag met SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Voor een volledige lijst van audit log verbruikmethoden, raadpleegt u de [aan de slag met SQL database auditing](sql-database-auditing.md).
 - Zie voor meer informatie over Azure-programma's die ondersteuning voor standaarden naleving, de [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->

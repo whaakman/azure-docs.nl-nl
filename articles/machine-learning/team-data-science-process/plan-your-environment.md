@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0cf9ffddffe7f97008e69c9c4fb7945faeb779da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138038"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469597"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Scenario's en plannen identificeren voor geavanceerde analytische gegevensverwerking
 Welke resources moet u van plan bent om op te nemen bij het instellen van een omgeving voor het geavanceerde analyseren verwerking van een gegevensset? Dit artikel bevat een reeks vragen die de taken en resources relevante uw scenario identificeren. De volgorde van stappen op hoog niveau voor voorspellende analyses die worden beschreven in [wat is Team Data Science Process (TDSP)?](overview.md). Elk van deze stappen vereist specifieke resources voor de taken die relevant zijn voor uw specifieke scenario. De belangrijkste vragen om te bepalen van uw scenario heeft betrekking op gegevenslogistiek, kenmerken, de kwaliteit van de gegevenssets en de hulpprogramma's en talen die u liever de analyse.
@@ -65,14 +65,14 @@ Deze vragen zijn essentieel voor plannen van uw opslag en verwerking van omgevin
    * SQL Server-tabellen
 3. **Hoe groot zijn uw gegevens?**
    
-   * Kleine: minder dan 2 GB
-   * Gemiddeld: Groter is dan 2 GB en kleiner dan 10 GB
-   * Grote: Groter is dan 10 GB
+   * Kleine: Minder dan 2 GB
+   * Normaal: Groter dan 2 GB en kleiner dan 10 GB
+   * Grote: Groter dan 10 GB
 
 Neem bijvoorbeeld de Azure Machine Learning Studio-omgeving:
 
 * Zie voor een lijst van de opmaak van gegevens en die worden ondersteund door Azure Machine Learning Studio, [opmaak van gegevens en gegevens die worden ondersteund](../studio/import-data.md#data-formats-and-data-types-supported) sectie.
-* Zie voor informatie over de beperkingen van de gegevens voor Azure Machine Learning Studio, de **hoe groot mag de gegevensset zijn voor mijn modules?** sectie van [importeren en exporteren van gegevens voor Machine Learning](../studio/faq.md#machine-learning-studio-questions)
+
 
 Zie voor informatie over de beperkingen van andere Azure-services die worden gebruikt in de analytics-proces, [Azure-abonnement en Servicelimieten, Quotums en beperkingen](../../azure-subscription-service-limits.md).
 

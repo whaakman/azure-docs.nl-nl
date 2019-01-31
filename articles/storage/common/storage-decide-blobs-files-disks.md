@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 9819b2bf3c5e5a07d788dc7f51b674a07e6c41ef
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: common
+ms.openlocfilehash: 2c8f27c9b5b9c13cd6cb722bafb23dd19b944d27
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972334"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474680"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Bepalen wanneer u Azure-Blobs, Azure Files of Azure-schijven gebruiken
 
@@ -23,11 +23,11 @@ Microsoft Azure biedt verschillende functies in Azure Storage voor het opslaan e
 
 De volgende tabel vergelijkt de bestanden, Blobs en schijven en ziet u geschikt is voor elk scenario's met voorbeelden.
 
-| Functie | Beschrijving | Wanneer gebruikt u dit? |
+| Functie | Description | Wanneer gebruikt u dit? |
 |--------------|-------------|-------------|
 | **Azure Files** | Voorziet in een SMB-interface, clientbibliotheken, en een [REST-interface](/rest/api/storageservices/file-service-rest-api) waarmee toegang vanaf elke locatie opgeslagen bestanden. | U wilt 'lift and shift' een toepassing in de cloud die al gebruikmaken van de systeemeigen bestandssysteem-API's voor het delen van gegevens tussen deze en andere toepassingen die worden uitgevoerd in Azure.<br/><br/>U wilt opslaan van de ontwikkeling en foutopsporing van hulpprogramma's die moeten worden geopend via een groot aantal virtuele machines. |
-| **Azure-Blobs** | Beschikt over clientbibliotheken en een [REST-interface](/rest/api/storageservices/blob-service-rest-api) waarmee ongestructureerde gegevens worden opgeslagen en geopend op een zeer grote schaal in blok-blobs.<br/><br/>Biedt ook ondersteuning voor [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) voor enterprise big data analytics-oplossingen. | Wilt u uw toepassing voor de ondersteuning van streaming en scenario's voor willekeurige toegang.<br/><br/>U wilt toegang krijgen tot toepassingsgegevens vanaf elke locatie.<br/><br/>U wilt een enterprise data lake bouwen op Azure en big data-analyses uitvoeren. |
-| **Azure-schijven** | Beschikt over clientbibliotheken en een [REST-interface](/rest/api/compute/manageddisks/disks/disks-rest-api) waarmee gegevens worden permanent opgeslagen en geopend via een gekoppelde virtuele harde schijf. | Wilt u lift- and -shift-toepassingen die gebruikmaken van systeemeigen bestandssysteem-API's om te lezen en schrijven van gegevens naar permanente schijven.<br/><br/>U wilt opslaan van gegevens die is niet vereist voor toegang vanuit buiten de virtuele machine waarop de schijf is aangesloten. |
+| **Azure Blobs** | Beschikt over clientbibliotheken en een [REST-interface](/rest/api/storageservices/blob-service-rest-api) waarmee ongestructureerde gegevens worden opgeslagen en geopend op een zeer grote schaal in blok-blobs.<br/><br/>Biedt ook ondersteuning voor [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) voor enterprise big data analytics-oplossingen. | Wilt u uw toepassing voor de ondersteuning van streaming en scenario's voor willekeurige toegang.<br/><br/>U wilt toegang krijgen tot toepassingsgegevens vanaf elke locatie.<br/><br/>U wilt een enterprise data lake bouwen op Azure en big data-analyses uitvoeren. |
+| **Azure Disks** | Beschikt over clientbibliotheken en een [REST-interface](/rest/api/compute/manageddisks/disks/disks-rest-api) waarmee gegevens worden permanent opgeslagen en geopend via een gekoppelde virtuele harde schijf. | Wilt u lift- and -shift-toepassingen die gebruikmaken van systeemeigen bestandssysteem-API's om te lezen en schrijven van gegevens naar permanente schijven.<br/><br/>U wilt opslaan van gegevens die is niet vereist voor toegang vanuit buiten de virtuele machine waarop de schijf is aangesloten. |
 
 ## <a name="comparison-files-and-blobs"></a>Vergelijking: Bestanden en Blobs
 
@@ -35,7 +35,7 @@ De volgende tabel vergelijkt de bestanden van Azure met Azure-Blobs.
   
 ||||  
 |-|-|-|  
-|**Kenmerk**|**Azure-Blobs**|**Azure Files**|  
+|**Kenmerk**|**Azure Blobs**|**Azure Files**|  
 |Opties voor duurzaamheid|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Toegankelijkheid|REST-API’s|REST-API’s<br /><br /> SMB 2.1 als SMB 3.0 (standard bestandssysteem-API's)|  
 |Connectiviteit|REST-API's over de hele wereld|REST-API's - wereldwijd<br /><br /> SMB 2.1--binnen regio<br /><br /> SMB 3.0--over de hele wereld|  
@@ -56,7 +56,7 @@ De volgende tabel vergelijkt Azure Files met Azure-schijven.
  
 ||||  
 |-|-|-|  
-|**Kenmerk**|**Azure-schijven**|**Azure Files**|  
+|**Kenmerk**|**Azure Disks**|**Azure Files**|  
 |Bereik|Exclusief voor een enkele virtuele machine|Gedeelde toegang over meerdere virtuele machines|  
 |Momentopnamen en kopiëren|Ja|Ja|  
 |Configuratie|Bij het opstarten van de virtuele machine verbonden|Verbonden nadat de virtuele machine is gestart|  

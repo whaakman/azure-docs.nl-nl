@@ -1,6 +1,6 @@
 ---
-Titel: Opnieuw trainen met PowerShell titleSuffix een nieuwe Machine Learning Studio-webservice: Azure Machine Learning Studio description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning met behulp van de Machine Learning Management PowerShell-cmdlets.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Opnieuw trainen met PowerShell titleSuffix een nieuwe Machine Learning Studio-webservice: Azure Machine Learning Studio description: Leer hoe u programmatisch opnieuw trainen van een model en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning met behulp van de Machine Learning Management PowerShell-cmdlets.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/28/2017
 ---

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99c9a86d130989e8c62a948e440b35c928b42299
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a77ad3ec954e77895cfab76a2f5fe2d822e08fb1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473167"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Gegevens verplaatsen naar en van Azure Blob Storage met behulp van Azure Storage Explorer
 Azure Storage Explorer is een gratis hulpprogramma van Microsoft waarmee u werkt met Azure Storage-gegevens op Windows, macOS en Linux. In dit onderwerp wordt beschreven hoe u kunt gebruiken om te uploaden en downloaden van gegevens uit Azure blob-opslag. Het hulpprogramma kan worden gedownload vanaf [Microsoft Azure Storage Explorer](http://storageexplorer.com/).

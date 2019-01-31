@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3c2ea1e28ebbc6859db135b743d579d3c632133
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901136"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301438"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -62,7 +62,7 @@ Als u wilt bijhouden van wijzigingen, moet u de oplossing wijzigingen bijhouden 
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Wijzigingen bijhouden en inventaris configureren
 
-Voor meer informatie over hoe onboarding computers op de oplossing gaat u naar: [Onboarding-Automation-oplossingen](automation-onboard-solutions-from-automation-account.md). Zodra u de onboarding van een machine met de oplossing wijzigingen bijhouden en inventaris hebt, kunt u de items die u wilt bijhouden kunt configureren. Wanneer u een nieuw bestand of een registersleutel voor het bijhouden van inschakelt, is deze ingeschakeld voor wijzigingen bijhouden en inventaris.
+Voor meer informatie over hoe onboarding computers op de oplossing gaat u naar: [Onboarding-Automation-oplossingen](automation-onboard-solutions-from-automation-account.md). Zodra u de onboarding van een machine met de oplossing wijzigingen bijhouden en inventaris hebt, kunt u de items die u wilt bijhouden. Wanneer u een nieuw bestand of een registersleutel voor het bijhouden van inschakelt, is deze ingeschakeld voor wijzigingen bijhouden en inventaris.
 
 Voor het bijhouden van wijzigingen in bestanden op zowel Windows als Linux, worden MD5-hashes van de bestanden gebruikt. Deze hashes worden vervolgens gebruikt om te detecteren of er een wijziging is aangebracht sinds de laatste inventarisatie.
 
@@ -83,7 +83,7 @@ Gebruik de volgende stappen voor het configureren van bestand bijhouden op Linux
 |Padtype     | Type item voor het bijhouden van wijzigingen, mogelijke waarden zijn bestand en map.        |
 |Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
 |Sudo gebruiken     | Deze instelling bepaalt of sudo wordt gebruikt bij het controleren op het item.         |
-|Koppelingen     | Deze instelling bepaalt hoe symbolische koppelingen worden afgehandeld bij het doorlopen van mappen.<br> **Negeren** - symbolische koppelingen worden genegeerd en maakt geen deel uit van de bestanden/mappen waarnaar wordt verwezen.<br>**Ga als volgt** - symbolische koppelingen worden gevolgd tijdens recursie en bevat ook de bestanden/mappen waarnaar wordt verwezen.<br>**Beheren** - symbolische koppelingen worden en kunnen wijzigen van de geretourneerde inhoud.     |
+|Koppelingen     | Deze instelling bepaalt hoe symbolische koppelingen worden afgehandeld bij het doorlopen van mappen.<br> **Negeren** - symbolische koppelingen worden genegeerd en de bestanden/mappen waarnaar wordt verwezen niet bevat.<br>**Ga als volgt** - symbolische koppelingen worden gevolgd tijdens recursie en bevat ook de bestanden/mappen waarnaar wordt verwezen.<br>**Beheren** - symbolische koppelingen worden en kunnen wijzigen van de geretourneerde inhoud.     |
 |Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **Waar** of **Onwaar**.|
 
 > [!NOTE]
@@ -108,7 +108,7 @@ Gebruik de volgende stappen uit om te configureren op Windows-computers bijhoude
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Jokertekens recursie en omgeving instellingen
 
-Recursie kunt u opgeven van jokertekens voor het vereenvoudigen van alle mappen en omgevingsvariabelen waarmee u kunt bestanden bijhouden in omgevingen met meerdere bij te houden of een dynamische schijf namen. Hier volgt een lijst met algemene informatie over het bij het configureren van recursie:
+Recursie kunt u opgeven van jokertekens voor het vereenvoudigen van alle mappen en omgevingsvariabelen waarmee u kunt bestanden bijhouden in omgevingen met meerdere bij te houden of een dynamische schijf namen. De volgende lijst bevat algemene informatie over het bij het configureren van recursie:
 
 * Jokertekens zijn vereist voor het bijhouden van meerdere bestanden
 * Als u jokertekens gebruikt, kunnen ze alleen worden gebruikt in het laatste segment van een pad. (zoals C:\folder\\**bestand** of /etc/*.conf)
@@ -138,7 +138,7 @@ Gebruik de volgende stappen voor het configureren van sleutel-register traceren 
 
 ## <a name="limitations"></a>Beperkingen
 
-De oplossing wijzigingen bijhouden biedt momenteel geen ondersteuning voor de volgende items:
+De oplossing wijzigingen bijhouden niet wordt momenteel ondersteund in de volgende items:
 
 * Recursie voor Windows-register bijhouden
 * Netwerk-bestandssystemen
@@ -154,7 +154,7 @@ Andere beperkingen:
 
 De oplossing wijzigingen bijhouden is momenteel de volgende problemen:
 
-* Hotfix-updates worden niet verzameld voor Windows 10 Creators Update en Windows Server 2016 Core RS3 machines.
+* Hotfix-updates worden niet verzameld op Windows Server 2016 Core RS3 virtuele machines.
 
 ## <a name="change-tracking-data-collection-details"></a>Traceergegevens gegevens verzameling wijzigen
 
@@ -176,18 +176,18 @@ De volgende tabel bevat de limieten bijgehouden item per machine voor het bijhou
 |---|---|---|
 |File|500||
 |Register|250||
-|Windows-software|250|Bevat geen software-updates|
+|Windows-software|250|Software-updates bevat geen|
 |Linux-pakketten|1250||
 |Services|250||
 |Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Windows-service bijhouden
 
-De standaardfrequentie van de verzameling voor Windows-services is 30 minuten. Het configureren van de frequentie gaat u naar **bijhouden**. Onder **instellingen bewerken** op de **Windows Services** tabblad, wordt er een schuifregelaar waarmee u de verzamelingsfrequentie voor Windows-services van zo snel tien seconden wijzigen voor zolang als de 30 minuten. De schuifregelaar verplaatsen naar de gewenste frequentie en wordt het automatisch opgeslagen.
+De standaardfrequentie van de verzameling voor Windows-services is 30 minuten. Voor het configureren van de frequentie, gaat u naar **bijhouden**. Onder **instellingen bewerken** op de **Windows Services** tabblad, wordt er een schuifregelaar waarmee u de verzamelingsfrequentie voor Windows-services van zo snel tien seconden wijzigen voor zolang als de 30 minuten. De schuifregelaar verplaatsen naar de gewenste frequentie en wordt het automatisch opgeslagen.
 
 ![Schuifregelaar voor Windows-services](./media/automation-change-tracking/windowservices.png)
 
-De agent alleen wijzigingen worden bijgehouden, dit optimaliseert de prestaties van de agent. Door in te stellen, te hoge drempel worden wijzigingen overgeslagen als de service is hersteld naar de oorspronkelijke staat. De frequentie instellen op een kleinere waarde, kunt u om af te vangen van wijzigingen die anders mogelijk worden gemist.
+De agent alleen wijzigingen worden bijgehouden, dit optimaliseert de prestaties van de agent. Een hoge drempel mogelijk wijzigingen gemist als de service is hersteld naar de oorspronkelijke staat. De frequentie instellen op een kleinere waarde, kunt u om af te vangen van wijzigingen die anders mogelijk worden gemist.
 
 > [!NOTE]
 > Terwijl de agent kunt wijzigingen bijhouden op een 10 tweede interval, de gegevens nog steeds duurt een paar minuten moet worden weergegeven in de portal. Wijzigingen gedurende de tijd om weer te geven in de portal worden nog steeds worden bijgehouden en geregistreerd.
@@ -269,6 +269,41 @@ De volgende tabel bevat voorbeelden van zoekopdrachten voor records die zijn ver
 |---------|---------|
 |ConfigurationData<br>&#124;waar ConfigDataType == "WindowsServices" en SvcStartupType == "Automatisch"<br>&#124;waar SvcState == 'Stopped'<br>&#124;samenvatten arg_max(TimeGenerated, *) door SoftwareName, Computer         | Weergegeven met de meest recente inventarisrecords voor Windows-Services die zijn ingesteld op automatisch, maar zijn gerapporteerd als wordt gestopt<br>Resultaten zijn beperkt tot de meest recente record voor die softwarenaam en op Computer      |
 |ConfigurationChange<br>&#124;waar ConfigChangeType == 'Software' en ChangeCategory == 'Verwijderd'<br>&#124;order by-TimeGenerated desc|Ziet u de wijzigingsrecords voor de verwijderde software|
+
+## <a name="alert-on-changes"></a>Waarschuwing bij wijzigingen
+
+Een belangrijke functie van wijzigingen bijhouden en inventaris is de mogelijkheid om te waarschuwen wanneer de status van de configuratie en eventuele wijzigingen in de status van de configuratie van uw hybride omgeving.  
+
+In het volgende voorbeeld wordt de schermafbeelding ziet u dat het bestand `C:\windows\system32\drivers\etc\hosts` op een virtuele machine is gewijzigd. Dit bestand is belangrijk omdat het Hosts-bestand wordt gebruikt door Windows voor het omzetten van hostnamen naar IP-adressen en voorrang boven zelfs DNS, hetgeen in problemen met de netwerkverbinding of het omleiden van verkeer naar schadelijke of anderszins schadelijke websites resulteren kan.
+
+![Een grafiek met de hosts bestand wijzigen](./media/automation-change-tracking/changes.png)
+
+Voor het analyseren van deze wijziging verder, gaat u naar zoeken in Logboeken van het klikken op **Log Analytics**. Eenmaal in zoeken in Logboeken, zoeken naar inhoud die is gewijzigd in het Hosts-bestand met de query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Deze query zoekt naar wijzigingen die een wijziging van de bestandsinhoud voor bestanden waarvan het volledig gekwalificeerde pad het woord "hosts bevat" opgenomen. U kunt ook vragen voor een bepaald bestand door het wijzigen van het padgedeelte in de volledig gekwalificeerde vorm (zoals `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+
+Nadat de query de gewenste resultaten retourneert, klikt u op de **nieuwe waarschuwingsregel** knop in het logboek zoekervaring wordt geboden voor het openen van de pagina voor het maken van waarschuwingen. U ook naar deze ervaring via kan navigeren **Azure Monitor** in Azure portal. In de ervaring van het maken van waarschuwingen, onze query opnieuw controleren en wijzigen van de waarschuwing logica. In dit geval wilt u de waarschuwing wordt geactiveerd als er een wijziging gedetecteerd voor alle machines in de omgeving.
+
+![Een installatiekopie van de query wijzigen voor bijhouden in het hosts-bestand wijzigingen](./media/automation-change-tracking/change-query.png)
+
+Nadat de voorwaardelijke logica is ingesteld, toewijzen actiegroepen acties uit te voeren in reactie op de waarschuwing wordt geactiveerd. In dit geval ingestelde ik e-mailberichten worden verzonden en een ITSM-ticket moet worden gemaakt.  Veel andere handige acties kunnen ook worden uitgevoerd, zoals de activering van een Azure-functie, een Automation-runbook, Webhook of logische App.
+
+![Een installatiekopie van een actiegroep op waarschuwing configureren op de wijziging](./media/automation-change-tracking/action-groups.png)
+
+Nadat alle parameters en logica zijn ingesteld, kunnen we de waarschuwing toepassen op de omgeving.
+
+### <a name="alert-suggestions"></a>Waarschuwing suggesties
+
+Waarschuwingen over wijzigingen in het Hosts-bestand is een goede toepassing van waarschuwingen voor wijzigingen bijhouden en inventaris gegevens, maar er zijn veel meer scenario's voor waarschuwingen, met inbegrip van de gevallen gedefinieerd samen met hun voorbeelden van query's in de onderstaande sectie.
+
+|Query’s uitvoeren  |Description  |
+|---------|---------|
+|ConfigurationChange <br>&#124;waar ConfigChangeType == 'Files' en FileSystemPath bevat "c:\\windows\\system32\\stuurprogramma's\\"|Handig voor het bijhouden van wijzigingen in essentiële systeembestanden|
+|ConfigurationChange <br>&#124;waar FieldsChanged bevat "FileContentChecksum" en FileSystemPath == "c:\\windows\\system32\\stuurprogramma's\\enzovoort\\hosts"|Handig voor het bijhouden van wijzigingen in belangrijke configuratiebestanden|
+|ConfigurationChange <br>&#124;waar ConfigChangeType == "WindowsServices" en SvcName bevat "w3svc" en SvcState == "Stopped"|Handig voor het bijhouden van wijzigingen in kritieke systeemservices|
+|ConfigurationChange <br>&#124;waar ConfigChangeType == "Daemons" en SvcName bevat 'ssh' en SvcState! = "Uitvoeren"|Handig voor het bijhouden van wijzigingen in kritieke systeemservices|
+|ConfigurationChange <br>&#124;waar ConfigChangeType == 'Software' en ChangeCategory == "Toevoegen"|Handig voor omgevingen die moeten worden beveiligd softwareconfiguraties|
+|ConfigurationData <br>&#124;waar SoftwareName bevat 'Monitoring Agent' en CurrentVersion! = "8.0.11081.0"|Nuttig als u wilt zien welke computers een verouderde of niet-compatibele softwareversie geïnstalleerd hebt. De laatste status van de gerapporteerde configuratie, niet de wijzigingen worden gerapporteerd.|
+|ConfigurationChange <br>&#124;waar RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Handig voor het bijhouden van wijzigingen in belangrijke antivirusprogramma's sleutels|
+|ConfigurationChange <br>&#124;waar RegistryKey bevat "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Handig voor het bijhouden van wijzigingen in de firewall-instellingen|
 
 ## <a name="next-steps"></a>Volgende stappen
 

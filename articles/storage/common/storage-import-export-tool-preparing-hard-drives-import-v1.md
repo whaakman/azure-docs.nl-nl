@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526943"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454671"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volgende stappen uit:
@@ -102,47 +102,47 @@ Als u wilt een of meer harde schijven voorbereiden voor een importtaak, de volge
 
  De opdracht die wordt gebruikt voor de eerste kopieersessie voor elk station vereist verschillende parameters dan de opdrachten voor latere kopie-sessies. De volgende tabel bevat de extra parameters die beschikbaar voor de eerste kopieersessie zijn:
 
-|Opdrachtregelparameter|Beschrijving|
+|Opdrachtregelparameter|Description|
 |-----------------------------|-----------------|
-|**/SK:**< StorageAccountKey\>|`Optional.` De opslagaccountsleutel voor het opslagaccount waarnaar de gegevens worden geïmporteerd. U moet een bevatten **/sk:**< StorageAccountKey\> of **/csas:**< ContainerSas\> in de opdracht.|
-|**/csas:**< ContainerSas\>|`Optional`. De container SAS gebruiken om gegevens te importeren naar het opslagaccount. U moet een bevatten **/sk:**< StorageAccountKey\> of **/csas:**< ContainerSas\> in de opdracht.<br /><br /> De waarde voor deze parameter moet beginnen met de containernaam van de, gevolgd door een vraagteken (?) en de SAS-token. Bijvoorbeeld:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> De machtigingen of opgegeven op de URL of in een opgeslagen toegangsbeleid, lezen, moet bevatten schrijven en verwijderen voor de taken van gegevensimport, en lezen, schrijven en lijst voor export-taken.<br /><br /> Als deze parameter is opgegeven, worden alle blobs moeten worden geïmporteerd of geëxporteerd moeten zich binnen de container die in de shared access signature is opgegeven.|
-|**/ t:**< TargetDriveLetter\>|`Required.` De stationsletter van de harde schijf van het doel voor de huidige sessie kopiëren zonder de afsluitende dubbele punt.|
+|**/sk:**<StorageAccountKey\>|`Optional.` De opslagaccountsleutel voor het opslagaccount waarnaar de gegevens worden geïmporteerd. U moet een bevatten **/sk:**< StorageAccountKey\> of **/csas:**< ContainerSas\> in de opdracht.|
+|**/csas:**<ContainerSas\>|`Optional`. De container SAS gebruiken om gegevens te importeren naar het opslagaccount. U moet een bevatten **/sk:**< StorageAccountKey\> of **/csas:**< ContainerSas\> in de opdracht.<br /><br /> De waarde voor deze parameter moet beginnen met de containernaam van de, gevolgd door een vraagteken (?) en de SAS-token. Bijvoorbeeld:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> De machtigingen of opgegeven op de URL of in een opgeslagen toegangsbeleid, lezen, moet bevatten schrijven en verwijderen voor de taken van gegevensimport, en lezen, schrijven en lijst voor export-taken.<br /><br /> Als deze parameter is opgegeven, worden alle blobs moeten worden geïmporteerd of geëxporteerd moeten zich binnen de container die in de shared access signature is opgegeven.|
+|**/t:**<TargetDriveLetter\>|`Required.` De stationsletter van de harde schijf van het doel voor de huidige sessie kopiëren zonder de afsluitende dubbele punt.|
 |**/ Format**|`Optional.` Deze parameter opgeeft als het station worden geformatteerd moet. anders achterwege. Voordat u het hulpprogramma voor het station is geformatteerd, wordt u gevraagd om een bevestiging van de console. Als u wilt de bevestiging onderdrukken, moet u voor de parameter /silentmode opgeven.|
 |**/silentmode**|`Optional.` Geef deze parameter als u wilt de bevestiging voor het opmaken van het station targert onderdrukken.|
 |**/ versleutelen**|`Optional.` Deze parameter opgegeven wanneer het station nog niet is versleuteld met BitLocker en moet worden versleuteld door het hulpprogramma. Als het station al is versleuteld met BitLocker, klikt u vervolgens deze parameter niet opgeeft en geeft u de `/bk` parameter, die de bestaande BitLocker-sleutel.<br /><br /> Als u opgeeft de `/format` parameter, dan hebt u moet ook opgeven de `/encrypt` parameter.|
-|**/BK:**< BitLockerKey\>|`Optional.` Als `/encrypt` is opgegeven, wordt deze parameter niet opgeeft. Als `/encrypt` wordt weggelaten, moet u beschikken over hebt versleuteld al het station met BitLocker. Gebruik deze parameter om op te geven van de BitLocker-sleutel. BitLocker-versleuteling is vereist voor alle harde schijven voor de taken van gegevensimport.|
-|**schakeloptie/LOGDIR op:**< LogDirectory\>|`Optional.` De logboekmap Hiermee geeft u een map moet worden gebruikt voor het opslaan van uitgebreide Logboeken, evenals tijdelijke manifestbestanden. Als niet is opgegeven, wordt de huidige map worden gebruikt als de logboekmap.|
+|**/bk:**<BitLockerKey\>|`Optional.` Als `/encrypt` is opgegeven, wordt deze parameter niet opgeeft. Als `/encrypt` wordt weggelaten, moet u beschikken over hebt versleuteld al het station met BitLocker. Gebruik deze parameter om op te geven van de BitLocker-sleutel. BitLocker-versleuteling is vereist voor alle harde schijven voor de taken van gegevensimport.|
+|**/logdir:**<LogDirectory\>|`Optional.` De logboekmap Hiermee geeft u een map moet worden gebruikt voor het opslaan van uitgebreide Logboeken, evenals tijdelijke manifestbestanden. Als niet is opgegeven, wordt de huidige map worden gebruikt als de logboekmap.|
 
 ### <a name="parameters-required-for-all-copy-sessions"></a>Vereiste parameters voor alle sessies van exemplaar
  Het logboekbestand bevat de status voor alle kopie-sessies voor een harde schijf. Het bevat ook de informatie die nodig zijn voor het maken van de import-taak. U moet altijd een logboekbestand opgeven bij het uitvoeren van het hulpprogramma Azure Import/Export, evenals een sessie-ID kopiëren:
 
 |||
 |-|-|
-|Opdrachtregelparameter|Beschrijving|
+|Opdrachtregelparameter|Description|
 |**/j:**< JournalFile\>|`Required.` Het pad naar het logboekbestand. Elk station moet exact één logboekbestand hebben. Houd er rekening mee dat het logboekbestand niet op de doel-schijf moet zich bevinden. De bestandsextensie van het logboek is `.jrn`.|
-|**/ID:**< sessie-id\>|`Required.` De sessie-ID identificeert een kopieersessie. Het wordt gebruikt om ervoor te zorgen nauwkeurige herstel van een sessie onderbroken kopiëren. Bestanden die zijn gekopieerd in een sessie kopiëren worden opgeslagen in een map met de naam van de sessie-ID op de doel-station.|
+|**/id:**<SessionId\>|`Required.` De sessie-ID identificeert een kopieersessie. Het wordt gebruikt om ervoor te zorgen nauwkeurige herstel van een sessie onderbroken kopiëren. Bestanden die zijn gekopieerd in een sessie kopiëren worden opgeslagen in een map met de naam van de sessie-ID op de doel-station.|
 
 ### <a name="parameters-for-copying-a-single-directory"></a>Parameters voor het kopiëren van één map
  Als één map worden gekopieerd, zijn de volgende vereiste en optionele parameters van toepassing:
 
-|Opdrachtregelparameter|Beschrijving|
+|Opdrachtregelparameter|Description|
 |----------------------------|-----------------|
-|**/srcdir:**< SourceDirectory\>|`Required.` De bronmap met bestanden die moeten worden gekopieerd naar de doel-station. Het mappad moet een absoluut pad (niet een relatief pad).|
-|**/dstdir:**< DestinationBlobVirtualDirectory\>|`Required.` Het pad naar de virtuele map van de bestemming in uw Windows Azure storage-account. De virtuele map kan of mogelijk niet al bestaat.<br /><br /> U kunt een container opgeven of een blob-voorvoegsel, zoals `music/70s/`. De doelmap moet beginnen met de containernaam van de, gevolgd door een slash '/', en kan desgewenst een virtuele blob-map die eindigt op '/'.<br /><br /> Wanneer de doelcontainer het root-container is, moet u expliciet de root-container, met inbegrip van de gewone slash, als opgeven `$root/`. Sinds de blobs onder de container hoofdmap niet opnemen '/' in hun namen, worden eventuele submappen in de bronmap niet gekopieerd als de doelmap is een container voor hoofdmap.<br /><br /> Zorg ervoor dat geldige containernamen gebruiken bij het opgeven van doel-virtuele mappen of -blobs. Houd er rekening mee dat containernamen kleine letters moeten. Zie voor naamgevingsregels voor containers, [Naming en verwijzen naar Containers, Blobs en metagegevens](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).|
-|**/ Toestand:**< naam&#124;niet overschrijven&#124;overschrijven >|`Optional.` Hiermee geeft u het gedrag wanneer een blob met het opgegeven adres al bestaat. Geldige waarden voor deze parameter zijn: `rename`, `no-overwrite` en `overwrite`. Houd er rekening mee dat deze waarden hoofdlettergevoelig zijn. Als er geen waarde is opgegeven, is de standaardinstelling `rename`.<br /><br /> De opgegeven waarde voor deze parameter is van invloed op alle bestanden in de map die is opgegeven door de `/srcdir` parameter.|
-|**/ BlobType:**< BlockBlob&#124;PageBlob >|`Optional.` Hiermee geeft u het blobtype voor de doel-blobs. Geldige waarden zijn: `BlockBlob` en `PageBlob`. Houd er rekening mee dat deze waarden hoofdlettergevoelig zijn. Als er geen waarde is opgegeven, is de standaardinstelling `BlockBlob`.<br /><br /> In de meeste gevallen `BlockBlob` wordt aanbevolen. Als u opgeeft `PageBlob`, de lengte van elk bestand in de map moet een meervoud van 512 bytes, de grootte van een pagina voor pagina-blobs.|
+|**/srcdir:**<SourceDirectory\>|`Required.` De bronmap met bestanden die moeten worden gekopieerd naar de doel-station. Het mappad moet een absoluut pad (niet een relatief pad).|
+|**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.` Het pad naar de virtuele map van de bestemming in uw Windows Azure storage-account. De virtuele map kan of mogelijk niet al bestaat.<br /><br /> U kunt een container opgeven of een blob-voorvoegsel, zoals `music/70s/`. De doelmap moet beginnen met de containernaam van de, gevolgd door een slash '/', en kan desgewenst een virtuele blob-map die eindigt op '/'.<br /><br /> Wanneer de doelcontainer het root-container is, moet u expliciet de root-container, met inbegrip van de gewone slash, als opgeven `$root/`. Sinds de blobs onder de container hoofdmap niet opnemen '/' in hun namen, worden eventuele submappen in de bronmap niet gekopieerd als de doelmap is een container voor hoofdmap.<br /><br /> Zorg ervoor dat geldige containernamen gebruiken bij het opgeven van doel-virtuele mappen of -blobs. Houd er rekening mee dat containernamen kleine letters moeten. Zie voor naamgevingsregels voor containers, [Naming en verwijzen naar Containers, Blobs en metagegevens](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).|
+|**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Hiermee geeft u het gedrag wanneer een blob met het opgegeven adres al bestaat. Geldige waarden voor deze parameter zijn: `rename`, `no-overwrite` en `overwrite`. Houd er rekening mee dat deze waarden hoofdlettergevoelig zijn. Als er geen waarde is opgegeven, is de standaardinstelling `rename`.<br /><br /> De opgegeven waarde voor deze parameter is van invloed op alle bestanden in de map die is opgegeven door de `/srcdir` parameter.|
+|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Hiermee geeft u het blobtype voor de doel-blobs. Geldige waarden zijn: `BlockBlob` en `PageBlob`. Houd er rekening mee dat deze waarden hoofdlettergevoelig zijn. Als er geen waarde is opgegeven, is de standaardinstelling `BlockBlob`.<br /><br /> In de meeste gevallen `BlockBlob` wordt aanbevolen. Als u opgeeft `PageBlob`, de lengte van elk bestand in de map moet een meervoud van 512 bytes, de grootte van een pagina voor pagina-blobs.|
 |**/ PropertyFile:**< PropertyFile\>|`Optional.` Pad naar het eigenschappenbestand voor de doel-blobs. Zie [Import/Export-service-metagegevens en eigenschappen bestandsindeling](../storage-import-export-file-format-metadata-and-properties.md) voor meer informatie.|
 |**/ MetadataFile:**< MetadataFile\>|`Optional.` Pad naar het bestand met metagegevens voor de doel-blobs. Zie [Import/Export-service-metagegevens en eigenschappen bestandsindeling](../storage-import-export-file-format-metadata-and-properties.md) voor meer informatie.|
 
 ### <a name="parameters-for-copying-a-single-file"></a>Parameters voor het kopiëren van een enkel bestand
  Bij het kopiëren van een enkel bestand, zijn de volgende vereiste en optionele parameters van toepassing:
 
-|Opdrachtregelparameter|Beschrijving|
+|Opdrachtregelparameter|Description|
 |----------------------------|-----------------|
 |**/srcfile:**< bronbestand\>|`Required.` Het volledige pad naar het bestand moet worden gekopieerd. Het mappad moet een absoluut pad (niet een relatief pad).|
-|**/dstblob:**< DestinationBlobPath\>|`Required.` Het pad naar het bestemmings-blob in uw Windows Azure storage-account. De blob kan of mogelijk niet al bestaat.<br /><br /> Geef de blob naam die begint met de containernaam. De blob-naam mag niet beginnen met '/' of de naam van het opslagaccount. Zie voor blob-naamgevingsregels, [Naming en verwijzen naar Containers, Blobs en metagegevens](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Wanneer de doelcontainer het root-container is, moet u expliciet opgeven `$root` als de container, zoals `$root/sample.txt`. Merk op dat onder het root-container-blobs niet opnemen '/' in hun namen.|
-|**/ Toestand:**< naam&#124;niet overschrijven&#124;overschrijven >|`Optional.` Hiermee geeft u het gedrag wanneer een blob met het opgegeven adres al bestaat. Geldige waarden voor deze parameter zijn: `rename`, `no-overwrite` en `overwrite`. Houd er rekening mee dat deze waarden hoofdlettergevoelig zijn. Als er geen waarde is opgegeven, is de standaardinstelling `rename`.|
-|**/ BlobType:**< BlockBlob&#124;PageBlob >|`Optional.` Hiermee geeft u het blobtype voor de doel-blobs. Geldige waarden zijn: `BlockBlob` en `PageBlob`. Houd er rekening mee dat deze waarden hoofdlettergevoelig zijn. Als er geen waarde is opgegeven, is de standaardinstelling `BlockBlob`.<br /><br /> In de meeste gevallen `BlockBlob` wordt aanbevolen. Als u opgeeft `PageBlob`, de lengte van elk bestand in de map moet een meervoud van 512 bytes, de grootte van een pagina voor pagina-blobs.|
+|**/dstblob:**<DestinationBlobPath\>|`Required.` Het pad naar het bestemmings-blob in uw Windows Azure storage-account. De blob kan of mogelijk niet al bestaat.<br /><br /> Geef de blob naam die begint met de containernaam. De blob-naam mag niet beginnen met '/' of de naam van het opslagaccount. Zie voor blob-naamgevingsregels, [Naming en verwijzen naar Containers, Blobs en metagegevens](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Wanneer de doelcontainer het root-container is, moet u expliciet opgeven `$root` als de container, zoals `$root/sample.txt`. Merk op dat onder het root-container-blobs niet opnemen '/' in hun namen.|
+|**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Hiermee geeft u het gedrag wanneer een blob met het opgegeven adres al bestaat. Geldige waarden voor deze parameter zijn: `rename`, `no-overwrite` en `overwrite`. Houd er rekening mee dat deze waarden hoofdlettergevoelig zijn. Als er geen waarde is opgegeven, is de standaardinstelling `rename`.|
+|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Hiermee geeft u het blobtype voor de doel-blobs. Geldige waarden zijn: `BlockBlob` en `PageBlob`. Houd er rekening mee dat deze waarden hoofdlettergevoelig zijn. Als er geen waarde is opgegeven, is de standaardinstelling `BlockBlob`.<br /><br /> In de meeste gevallen `BlockBlob` wordt aanbevolen. Als u opgeeft `PageBlob`, de lengte van elk bestand in de map moet een meervoud van 512 bytes, de grootte van een pagina voor pagina-blobs.|
 |**/ PropertyFile:**< PropertyFile\>|`Optional.` Pad naar het eigenschappenbestand voor de doel-blobs. Zie [Import/Export-service-metagegevens en eigenschappen bestandsindeling](../storage-import-export-file-format-metadata-and-properties.md) voor meer informatie.|
 |**/ MetadataFile:**< MetadataFile\>|`Optional.` Pad naar het bestand met metagegevens voor de doel-blobs. Zie [Import/Export-service-metagegevens en eigenschappen bestandsindeling](../storage-import-export-file-format-metadata-and-properties.md) voor meer informatie.|
 
@@ -172,7 +172,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Het hulpprogramma Azure Import/Export instellen](storage-import-export-tool-setup-v1.md)
 * [Eigenschappen en metagegevens instellen tijdens het importproces](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
-* [Naslaggids voor veelgebruikte opdrachten](storage-import-export-tool-quick-reference-v1.md) 
+* [Naslaggids voor veelgebruikte opdrachten](storage-import-export-tool-quick-reference-v1.md) 
 * [De taakstatus controleren met kopielogboekbestanden](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Een exporttaak herstellen](storage-import-export-tool-repairing-an-export-job-v1.md)

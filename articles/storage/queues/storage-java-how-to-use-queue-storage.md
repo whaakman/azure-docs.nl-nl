@@ -9,13 +9,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: queues
-ms.openlocfilehash: 594407ac5f5dc012ab542cedc6393b702fa31804
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: bec1632199e59994831efe4af583617b01374c53
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525396"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473796"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Queue Storage gebruiken met Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "39525396"
 ## <a name="overview"></a>Overzicht
 Deze handleiding wordt beschreven hoe algemene scenario's met behulp van de Azure Queue storage-service uitvoert. De voorbeelden zijn geschreven in Java en maken gebruik van de [Azure Storage SDK voor Java][Azure Storage SDK for Java]. De behandelde scenario's zijn **invoegen**, **inspecteren**, **aan**, en **verwijderen** berichten in de wachtrij, evenals  **het maken van** en **verwijderen** wachtrijen. Zie voor meer informatie over wachtrijen de [Vervolgstappen](#Next-Steps) sectie.
 
-Opmerking: Een SDK is beschikbaar voor ontwikkelaars dat van Azure Storage op Android-apparaten gebruikmaakt. Raadpleeg de [Azure Storage SDK voor Android][Azure Storage SDK for Android] voor meer informatie.
+Opmerking: Er is een SDK beschikbaar voor ontwikkelaars die Azure Storage op Android-apparaten gebruiken. Raadpleeg de [Azure Storage SDK voor Android][Azure Storage SDK for Android] voor meer informatie.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -46,7 +46,7 @@ import com.microsoft.azure.storage.queue.*;
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Een Azure storage-verbindingsreeks instellen
-Een Azure-opslagclient gebruikt een opslagverbindingstekenreeks voor het opslaan van eindpunten en referenties voor toegang tot gegevensbeheerservices. Wanneer in een clienttoepassing wordt uitgevoerd, moet u de verbindingsreeks voor opslag in de volgende indeling hebben: met de naam van uw opslagaccount en de primaire toegangssleutel voor het opslagaccount die worden vermeld in de [Azure Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. In dit voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks:
+Een Azure-opslagclient gebruikt een opslagverbindingstekenreeks om eindpunten en referenties voor toegang tot gegevensbeheerservices op te slaan. Wanneer in een clienttoepassing wordt uitgevoerd, moet u de verbindingsreeks voor opslag in de volgende indeling hebben: met de naam van uw opslagaccount en de primaire toegangssleutel voor het opslagaccount die worden vermeld in de [Azure Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. In dit voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks:
 
 ```java
 // Define the connection-string with your values.
@@ -66,7 +66,7 @@ String storageConnectionString =
 
 In de volgende voorbeelden wordt ervan uitgegaan dat u een van deze twee methoden hebt gebruikt om de opslagverbindingstekenreeks op te halen.
 
-## <a name="how-to-create-a-queue"></a>Hoe: een wachtrij maken
+## <a name="how-to-create-a-queue"></a>Procedure: Een wachtrij maken
 Een **CloudQueueClient** object kunt u de referentie-objecten ophalen voor wachtrijen. De volgende code maakt een **CloudQueueClient** object. (Opmerking: Er zijn aanvullende manieren om te maken **CloudStorageAccount** objecten; voor meer informatie, Zie **CloudStorageAccount** in de [Azure Storage Client SDK-referentie].)
 
 Gebruik de **CloudQueueClient** object verwijst naar de wachtrij die u wilt gebruiken. U kunt de wachtrij maken als deze nog niet bestaat.
@@ -94,7 +94,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-a-message-to-a-queue"></a>Hoe: een bericht toevoegen aan een wachtrij
+## <a name="how-to-add-a-message-to-a-queue"></a>Procedure: Een bericht toevoegen aan een wachtrij
 Voor het invoegen van een bericht in een bestaande wachtrij maakt u eerst een nieuwe **CloudQueueMessage**. Daarna roept de **addMessage** methode. Een **CloudQueueMessage** kan worden gemaakt op basis van een tekenreeks (in UTF-8-indeling) of een bytematrix. Deze code wordt gemaakt van een wachtrij (als deze nog niet bestaat) en voegt u het bericht "Hallo, wereld".
 
 ```java
@@ -124,7 +124,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Hoe: het volgende bericht
+## <a name="how-to-peek-at-the-next-message"></a>Procedure: Bekijken van het volgende bericht
 U kunt het bericht vooraan in een wachtrij bekijken zonder deze te verwijderen uit de wachtrij door het aanroepen van **peekMessage**.
 
 ```java
@@ -156,7 +156,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Hoe: de inhoud van een bericht in de wachtrij wijzigen
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedure: De inhoud van een bericht in de wachtrij wijzigen
 U kunt de inhoud van een bericht in de wachtrij wijzigen. Als het bericht een werktaak vertegenwoordigt, kunt u deze functie gebruiken om de status van de werktaak bij te werken. Met de volgende code wordt het bericht in de wachtrij bijgewerkt met nieuwe inhoud en wordt de time-out voor de zichtbaarheid met 60 seconden verlengd. Hiermee wordt de status van de werkitems die aan het bericht zijn gekoppeld, opgeslagen en krijgt de client een extra minuut om aan het bericht te blijven werken. U kunt deze techniek gebruiken om uit meerdere stappen bestaande werkstromen in berichten in de wachtrij te volgen zonder dat u helemaal opnieuw hoeft te beginnen als een verwerkingsstap vanwege een hardware- of softwarefout is mislukt. Doorgaans houdt u ook het aantal nieuwe pogingen bij en als het bericht meer dan *n* keer opnieuw is geprobeerd, verwijdert u het. Dit biedt bescherming tegen berichten die een toepassingsfout activeren telkens wanneer ze worden verwerkt.
 
 De volgende code voorbeeld gezocht in de wachtrij met berichten, zoekt u het eerste bericht dat overeenkomt met "Hallo, wereld" voor de inhoud, en vervolgens wijzigt het bericht dat inhoud op en sluit.
@@ -239,7 +239,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Hoe: lengte van de wachtrij ophalen
+## <a name="how-to-get-the-queue-length"></a>Procedure: Lengte van de wachtrij ophalen
 U kunt een schatting ophalen van het aantal berichten in de wachtrij. De **downloadAttributes** methode vraagt de Queue-service voor verschillende huidige waarden, met inbegrip van een telling van het aantal berichten in een wachtrij zijn. Het aantal is alleen bij benadering omdat berichten kunnen worden toegevoegd of verwijderd nadat de Queue-service op uw aanvraag reageert. De **getApproximateMessageCount** methode retourneert de laatste waarde die is opgehaald door de aanroep naar **downloadAttributes**, zonder het aanroepen van de Queue-service.
 
 ```java
@@ -271,7 +271,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Hoe: het volgende bericht uit wachtrij verwijderen
+## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit wachtrij verwijderen
 Uw code dequeues een bericht van een wachtrij in twee stappen. Als u aanroept **retrieveMessage**, krijgt u het volgende bericht in een wachtrij. Een bericht dat wordt geretourneerd van **retrieveMessage** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Standaard blijft het bericht onzichtbaar gedurende 30 seconden. Voor het voltooien van het bericht uit de wachtrij verwijderen, moet u ook aanroepen **deleteMessage**. Dit proces in twee stappen voor het verwijderen van een bericht zorgt ervoor dat als de code er niet in slaagt een bericht te verwerken vanwege hardware- of softwareproblemen, een ander exemplaar van uw code hetzelfde bericht kan ophalen en het opnieuw kan proberen. Uw code roept **deleteMessage** direct nadat het bericht is verwerkt.
 
 ```java
@@ -335,7 +335,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-queues"></a>Hoe: overzicht van de wachtrijen
+## <a name="how-to-list-the-queues"></a>Procedure: De wachtrijen lijst
 Aanroepen voor een lijst van de huidige wachtrijen, de **CloudQueueClient.listQueues()** methode een verzameling van retourneert **CloudQueue** objecten.
 
 ```java
@@ -363,7 +363,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-queue"></a>Hoe: een wachtrij verwijderen
+## <a name="how-to-delete-a-queue"></a>Procedure: Een wachtrij verwijderen
 Als wilt verwijderen van een wachtrij en alle berichten die erin zijn opgenomen, roept de **deleteIfExists** methode voor het **CloudQueue** object.
 
 ```java
@@ -394,7 +394,7 @@ Nu dat u de basisprincipes van queue storage hebt geleerd, volgt u deze koppelin
 
 * [Azure Storage SDK voor Java][Azure Storage SDK for Java]
 * [Azure Storage Client SDK-referentie][Azure Storage Client SDK-referentie]
-* [REST-API voor Azure Storage-Services][Azure Storage Services REST API]
+* [Azure Storage Services REST API][Azure Storage Services REST API]
 * [Blog van het Azure Storage-team][Azure Storage Team Blog]
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671

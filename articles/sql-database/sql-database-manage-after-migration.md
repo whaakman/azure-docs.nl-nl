@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052714"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478471"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -83,9 +83,9 @@ Er zijn [twee verificatiemethoden](sql-database-control-access.md#authentication
 - [Azure Active Directory-verificatie](sql-database-aad-authentication.md)
 - SQL-verificatie
 
-De traditionele windows-verificatie wordt niet ondersteund. Azure Active Directory (AD) is een gecentraliseerde service voor identiteits- en toegangsbeheer. Met dit kunt u heel eenvoudig een eenmalige aanmelding toegang (SSO) bieden tot alle personeel in uw organisatie. Dit betekent dat de referenties worden verdeeld over alle Azure-services voor eenvoudigere verificatie. Biedt ondersteuning voor AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) en met een [enkele muisklikken](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan worden geïntegreerd met Windows Server Active Directory. SQL-verificatie werkt precies zoals u hebt gebruikt deze in het verleden. U een gebruikersnaam en wachtwoord opgeven en u kunt verificatie van gebruikers voor elke database op een bepaalde logische server. Zo kan SQL-Database en SQL Data Warehouse te bieden van multi-factor authentication en Gast gebruikersaccounts in een Azure AD-domein. Als u een Active Directory on-premises al hebt, kunt u de map met Azure Active Directory voor uw directory uitbreiden naar Azure federeren.
+De traditionele windows-verificatie wordt niet ondersteund. Azure Active Directory (AD) is een gecentraliseerde service voor identiteits- en toegangsbeheer. Met dit kunt u heel eenvoudig een eenmalige aanmelding toegang (SSO) bieden tot alle personeel in uw organisatie. Dit betekent dat de referenties worden verdeeld over alle Azure-services voor eenvoudigere verificatie. Biedt ondersteuning voor AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) en met een [enkele muisklikken](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan worden geïntegreerd met Windows Server Active Directory. SQL-verificatie werkt precies zoals u hebt gebruikt deze in het verleden. U een gebruikersnaam en wachtwoord opgeven en u kunt verificatie van gebruikers voor elke database op een bepaalde SQL Database-server. Zo kan SQL-Database en SQL Data Warehouse te bieden van multi-factor authentication en Gast gebruikersaccounts in een Azure AD-domein. Als u een Active Directory on-premises al hebt, kunt u de map met Azure Active Directory voor uw directory uitbreiden naar Azure federeren.
 
-|**Als u...**|**SQL-Database / SQL Data Warehouse**|
+|**Als u...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
 |De voorkeur geeft niet aan Azure Active Directory (AD) in Azure|Gebruik [SQL-verificatie](sql-database-security-overview.md)|
 |Gebruikte AD op SQL Server on-premises|[AD met Azure AD federeren](../active-directory/hybrid/whatis-hybrid-identity.md), en Azure AD-verificatie gebruiken. Hiermee kunt u eenmalige aanmelding.|
@@ -106,7 +106,7 @@ Er zijn meerdere technieken beschikken die u gebruiken kunt voor het bereiken va
 
 #### <a name="firewall"></a>Firewall
 
-Een firewall voorkomt dat toegang tot uw server een externe entiteit door toe te staan alleen specifieke entiteiten toegang tot uw logische server. Standaard alle verbindingen en databases op de logische server zijn niet toegestaan, behalve de verbindingen die afkomstig is van andere Azure-Services in. U kunt de toegang met uw server alleen op entiteiten (bijvoorbeeld een developer-machine) die u goedkeuren, doordat het IP-adres van die computer via de firewall openen met een firewall-regel. U kunt er ook om op te geven van een bereik van IP-adressen die u wilt toegang krijgt tot de logische server. Bijvoorbeeld, kunnen ontwikkelaars machine IP-adressen in uw organisatie in één keer worden toegevoegd door een adresbereik in de pagina van de Firewall-instellingen op te geven.
+Een firewall voorkomt dat toegang tot uw server een externe entiteit door toe te staan alleen specifieke entiteiten toegang tot uw SQL-Database-server. Standaard alle verbindingen en databases op de SQL-Database-server zijn niet toegestaan, behalve de verbindingen die afkomstig is van andere Azure-Services in. U kunt de toegang met uw server alleen op entiteiten (bijvoorbeeld een developer-machine) die u goedkeuren, doordat het IP-adres van die computer via de firewall openen met een firewall-regel. Ook kunt u een bereik van IP-adressen die u wilt toegang krijgt tot de SQL-Database-server opgeven. Bijvoorbeeld, kunnen ontwikkelaars machine IP-adressen in uw organisatie in één keer worden toegevoegd door een adresbereik in de pagina van de Firewall-instellingen op te geven.
 
 U kunt firewallregels op serverniveau of op het databaseniveau van de maken. Server-level firewall-regels kunnen ofwel worden gemaakt met behulp van Azure portal of met SSMS. Voor meer informatie over het instellen van een server en database-level firewall-regel, Zie: [Firewall-regels maken in SQL-Database](sql-database-security-tutorial.md#create-firewall-rules).
 
@@ -146,7 +146,7 @@ Versleuteling biedt een krachtig mechanisme om te beschermen en uw gevoelige geg
 In SQL-Database, standaard, worden uw gegevens in rust in de gegevens en logboekbestanden bestanden op het opslagsubsysteem volledig en altijd versleuteld [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Uw back-ups zijn eveneens versleuteld. Met TDE er zijn geen wijzigingen aan de kant van de toepassing die toegang heeft tot deze gegevens vereist. De versleuteling en ontsleuteling gebeuren transparant; daarom de naam.
 Voor het beveiligen van uw gevoelige gegevens die onderweg zijn en at-rest, SQL Database biedt een functie, genaamd [altijd versleuteld (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE is een vorm van clientversleuteling waarmee gevoelige kolommen in uw database worden gecodeerd (zodat ze zich in de gecodeerde tekst voor databasebeheerders en niet-geautoriseerde gebruikers). De server ontvangt begint met de versleutelde gegevens. De sleutel voor Always Encrypted worden ook opgeslagen op de client, zodat alleen geautoriseerde clients kunnen de gevoelige kolommen ontsleutelen. De server en de gegevensbeheerders zien niet de gevoelige gegevens omdat de versleutelingssleutels worden opgeslagen op de client. AE versleutelt gevoelige kolommen in de tabel end-to-end van niet-geautoriseerde clients naar de fysieke schijf. AE ondersteunt gelijkheid vergelijkingen vandaag, zodat de DBA kunnen blijven opvragen versleutelde kolommen als onderdeel van de SQL-opdrachten. Altijd versleutelde kan worden gebruikt met een verscheidenheid aan sleutelarchief opties, zoals [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows-certificaatarchief en lokale hardware security modules.
 
-|**Kenmerken**|**Altijd versleuteld**|**Transparent Data Encryption**|
+|**Kenmerken**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Versleuteling span**|End-to-end|Inactieve gegevens|
 |**Database-server kunt krijgen tot gevoelige gegevens**|Nee|Ja, omdat versleuteling voor de data-at-rest|
@@ -240,7 +240,7 @@ U kunt gebruikmaken van de intelligente inzichten van het platform voor het bewa
 
 #### <a name="azure-portal"></a>Azure Portal
 
-De Azure-portal ziet u een individuele database gebruik door de database te selecteren en te klikken op de grafiek in het overzichtsvenster van. U kunt de grafiek om weer te geven meerdere metrische gegevens, met inbegrip van CPU-percentage, DTU-percentage, gegevens-IO-percentage, percentage van de sessies en databaseomvangpercentage wijzigen.
+Verbruik van een database van bevat de Azure-portal door de database te selecteren en te klikken op de grafiek in het overzichtsvenster van. U kunt de grafiek om weer te geven meerdere metrische gegevens, met inbegrip van CPU-percentage, DTU-percentage, gegevens-IO-percentage, percentage van de sessies en databaseomvangpercentage wijzigen.
 
 ![Controle grafiek](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -287,7 +287,7 @@ SQL Database biedt verschillende Servicelagen Basic, Standard en Premium. Elke s
 
 Om te controleren of dat u bent op de juiste compute-grootte, kunt u het gebruik van de resources query's en -database via een van de bovengenoemde manieren 'Hoe controleer ik het gebruik van de prestaties en resource in SQL-Database' controleren. U vindt dat uw query's / databases consistent worden uitgevoerd op CPU/geheugen enz. u kunt omhoog schalen naar een hogere compute-grootte ' hot '. Op dezelfde manier als u Houd er rekening mee dat, zelfs tijdens de piekuren die hebt u gebruikt u de resources zo veel mogelijk; Houd rekening met van de huidige grootte van de compute omlaag te schalen.
 
-Als u een patroon van SaaS-app of een database consolidatie scenario hebt, kunt u overwegen een elastische pool om kosten te optimaliseren. Elastische pool is een uitstekende manier om de consolidatie van de database en kosten optimaliseren te realiseren. Meer informatie over het beheren van meerdere databases met behulp van de elastische Pool, Zie: [Pools en databases beheren](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
+Als u een patroon van SaaS-app of een database consolidatie scenario hebt, kunt u overwegen een elastische pool om kosten te optimaliseren. Elastische pool is een uitstekende manier om de consolidatie van de database en kosten optimaliseren te realiseren. Meer informatie over het beheren van meerdere databases met behulp van de elastische pool, Zie: [Pools en databases beheren](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Hoe vaak moet ik database integriteitscontroles voor mijn database uitvoeren
 

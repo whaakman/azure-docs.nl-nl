@@ -2,19 +2,19 @@
 title: Verifiëren met een Azure container registry
 description: Verificatie-opties voor een Azure container registry, met inbegrip van aanmelden met een Azure Active Directory-identiteit, met behulp van service-principals en het gebruik van optionele beheerdersreferenties.
 services: container-registry
-author: stevelas
+author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/21/2018
-ms.author: stevelas
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851722"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301047"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verifiëren met een persoonlijk Docker-containerregister
 
@@ -32,9 +32,11 @@ Als u werkt met het register rechtstreeks, zoals installatiekopieën binnenhaalt
 az acr login --name <acrName>
 ```
 
-Wanneer u zich aan met `az acr login`, de CLI gebruikt het token gemaakt wanneer u uitgevoerd [az login](/cli/azure/reference-index#az-login) naadloos de sessie met het register te verifiëren. Nadat u bent aangemeld op deze manier, uw referenties zijn in de cache, en de daaropvolgende `docker` opdrachten vereisen geen gebruikersnaam of wachtwoord. Als uw token is verlopen, kunt u het vernieuwen met behulp van de `az acr login` opdracht nogmaals om te verifiëren. Met behulp van `az acr login` met Azure-id's biedt [op basis van de rol](../role-based-access-control/role-assignments-portal.md).
+Wanneer u zich aan met `az acr login`, de CLI gebruikt het token gemaakt wanneer u uitgevoerd [az login](/cli/azure/reference-index#az-login) naadloos de sessie met het register te verifiëren. Nadat u bent aangemeld op deze manier, uw referenties zijn in de cache, en de daaropvolgende `docker` opdrachten in uw sessie vereisen geen gebruikersnaam of wachtwoord. 
 
-Voor sommige scenario's kunt u zich aanmeldt bij een register met uw eigen individuele identiteit in Azure AD. Voor verschillende scenario's of voor het afhandelen van de behoeften van een werkgroep niet waar u afzonderlijke toegang beheren, u kunt zich ook aanmelden met een [beheerde identiteit voor de Azure-resources](container-registry-authentication-managed-identity.md).
+Voor toegang tot het register, het token wordt gebruikt door `az acr login` is geldig voor 1 uur, raden wij aan dat u altijd bij het register voordat u aanmelden een `docker` opdracht. Als uw token is verlopen, kunt u het vernieuwen met behulp van de `az acr login` opdracht nogmaals om te verifiëren. 
+
+Met behulp van `az acr login` met Azure-id's biedt [op basis van de rol](../role-based-access-control/role-assignments-portal.md). Voor sommige scenario's kunt u zich aanmeldt bij een register met uw eigen individuele identiteit in Azure AD. Voor verschillende scenario's of voor het afhandelen van de behoeften van een werkgroep niet waar u afzonderlijke toegang beheren, u kunt zich ook aanmelden met een [beheerde identiteit voor de Azure-resources](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Service-principal
 
@@ -58,15 +60,13 @@ Service-principals inschakelen ' headless ' verbinding met een register in zowel
 
   * *Push-*: Installatiekopieën compileren en push ze naar een register met behulp van continue integratie en implementatie-oplossingen zoals Azure pijplijnen of Jenkins.
 
-U kunt zich ook aanmelden rechtstreeks met een service-principal. De app-ID en het wachtwoord van de service-principal te bieden de `docker login` opdracht:
+U kunt zich ook aanmelden rechtstreeks met een service-principal. Wanneer u de volgende opdracht uitvoert, geeft u interactief de service-principal appID (gebruikersnaam) en het wachtwoord wanneer hierom wordt gevraagd. Zie voor aanbevolen procedures voor het beheren van referenties voor clusteraanmelding de [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/) opdrachten:
 
-```
-docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
+```Docker
+docker login myregistry.azurecr.io
 ```
 
 Wanneer u bent aangemeld, caches Docker de referenties, zodat u niet hoeft te onthouden van de app-ID.
-
-Afhankelijk van de versie van Docker die u hebt geïnstalleerd, ziet u een beveiligingswaarschuwing geadviseerd het gebruik van de `--password-stdin` parameter. Hoewel buiten het bestek van dit artikel, wordt u deze best practice aangeraden. Zie voor meer informatie de [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/) opdrachten.
 
 > [!TIP]
 > U kunt het wachtwoord van een service-principal opnieuw genereren door het uitvoeren van de [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) opdracht.
@@ -74,19 +74,18 @@ Afhankelijk van de versie van Docker die u hebt geïnstalleerd, ziet u een bevei
 
 ## <a name="admin-account"></a>Beheeraccount
 
-Elke container registry bevat een beheeraccount is standaard uitgeschakeld. U kunt de gebruiker met beheerdersrechten inschakelen en beheren van de referenties in de [Azure-portal](container-registry-get-started-portal.md#create-a-container-registry), of met behulp van de Azure CLI of andere Azure-hulpprogramma's.
+Elke container registry bevat een beheeraccount is standaard uitgeschakeld. U kunt de gebruiker met beheerdersrechten inschakelen en beheren van de referenties in de Azure portal of met behulp van de Azure CLI of andere Azure-hulpprogramma's.
 
 > [!IMPORTANT]
 > Het beheerdersaccount dat is ontworpen voor één gebruiker toegang tot het register, hoofdzakelijk voor testdoeleinden. We raden niet de referenties van het Administrator-account met meerdere gebruikers delen. Alle gebruikers worden geverifieerd met het beheerdersaccount dat wordt weergegeven als één gebruiker met push- en pull-toegang tot het register. Hiermee schakelt u toegang tot het register voor alle gebruikers die gebruikmaken van de referenties wijzigen of dit account uitschakelen. Individuele identiteit wordt aanbevolen voor gebruikers en service-principals voor ' headless '-scenario's.
 >
 
-Het beheerdersaccount dat wordt geleverd met twee wachtwoorden, die beide kunnen worden hersteld. Twee wachtwoorden kunnen u verbinding met het register beheren met behulp van een wachtwoord, terwijl u de andere opnieuw genereren. Als het beheerdersaccount dat is ingeschakeld, kunt u de gebruikersnaam en een wachtwoord voor het doorgeven de `docker login` opdracht voor basisverificatie wordt gebruikt in het register. Bijvoorbeeld:
+Het beheerdersaccount dat wordt geleverd met twee wachtwoorden, die beide kunnen worden hersteld. Twee wachtwoorden kunnen u verbinding met het register beheren met behulp van een wachtwoord, terwijl u de andere opnieuw genereren. Als het beheerdersaccount dat is ingeschakeld, kunt u de gebruikersnaam en een wachtwoord voor het doorgeven de `docker login` opdracht wanneer u hierom wordt gevraagd voor basisverificatie in het register. Bijvoorbeeld:
 
-```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword1
+```Docker
+docker login myregistry.azurecr.io 
 ```
 
-Nogmaals, Docker wordt aanbevolen dat u de `--password-stdin` parameter in plaats van de levering op de opdrachtregel voor een betere beveiliging. U kunt ook alleen uw gebruikersnaam zonder opgeven `-p`, en voer uw wachtwoord in wanneer hierom wordt gevraagd.
 
 Als u wilt de gebruiker met beheerdersrechten voor een bestaand register inschakelt, kunt u de `--admin-enabled` parameter van de [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) opdracht in de Azure CLI:
 

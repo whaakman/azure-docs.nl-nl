@@ -1,19 +1,19 @@
 ---
-title: Doorvoer inrichten voor Azure Cosmos DB
+title: Doorvoer inrichten op Azure Cosmos-containers en databases
 description: Informatie over het instellen van ingerichte doorvoer voor uw Azure Cosmos DB-containers en -databases.
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 3e992dd8ab24e4e60b81c6565ea4ec3971a9336b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbcfaab7dc1b716b3978f1b19870d945e0eabf89
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036413"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459072"
 ---
-# <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Doorvoer inrichten op Azure Cosmos-containers en databases
+# <a name="provision-throughput-on-containers-and-databases"></a>Doorvoer voor containers en databases inrichten
 
 Een Azure Cosmos-database is een eenheid van het beheer voor een set met containers. Een database bestaat uit een verzameling van schema-agnostische containers. Een Azure Cosmos-container is de schaalbaarheid voor doorvoer en opslag. Een container is horizontaal gepartitioneerd in een set van machines binnen een Azure-regio en is verdeeld over alle Azure-regio's die zijn gekoppeld aan uw Azure Cosmos-account.
 

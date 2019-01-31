@@ -10,23 +10,20 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 04/06/2018
+ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a05c6b4fac031482d77827a817ef56920a0c314
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958814"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464548"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>ActiveDirectoryInteractive modus gebruiken om te verbinden met Azure SQL Database
 
 In dit artikel biedt een uitvoerbaar C#-codevoorbeeld dat is verbonden met uw Microsoft Azure SQL-Database. De C#-programma maakt gebruik van de interactieve modus van verificatie, die ondersteuning biedt voor Azure AD multi-factor authentication (MFA). Een poging om verbinding te kan bijvoorbeeld een verificatiecode naar uw mobiele telefoon worden verzonden bevatten.
 
 Zie voor meer informatie over MFA-ondersteuning voor SQL-hulpprogramma's, [ondersteuning van Azure Active Directory in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
-
-
-
 
 ## <a name="sqlauthenticationmethod-activedirectoryinteractive-enum-value"></a>SqlAuthenticationMethod. ActiveDirectoryInteractive enum-waarde
 
@@ -54,11 +51,9 @@ Zie voor schermafbeeldingen van deze dialoogvensters [meervoudige verificatie co
 >
 > [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
 
-
 ## <a name="preparations-for-c-by-using-the-azure-portal"></a>Voorbereidingen voor C#, met behulp van Azure portal
 
 Gaan we ervan uit dat er al een [Azure SQL Database-server gemaakt](sql-database-get-started-portal.md) en beschikbaar is.
-
 
 ### <a name="a-create-an-app-registration"></a>A. Maken van een app-registratie
 
@@ -87,7 +82,7 @@ Voor het gebruik van Azure AD-verificatie, dient uw C#-clientprogramma een GUID 
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Instellen van Azure AD-beheerder voor uw SQL Database-server
 
-Elke Azure SQL Database-server heeft een eigen logische SQL-server van Azure AD. Voor onze C# scenario, moet u een Azure AD-beheerder voor uw Azure SQL-server instellen.
+Elke individuele Azure SQL-database en elastische pool heeft een eigen SQL Database-server van Azure AD. Voor onze C# scenario, moet u een Azure AD-beheerder voor uw Azure SQL-server instellen.
 
 1. **SQL Server** &gt; **Active Directory-beheerder** &gt; **beheerder instellen**
 
@@ -124,13 +119,13 @@ De C#-programma is afhankelijk van de naamruimte **Microsoft.IdentityModel.Clien
 
 Een naamruimten die afhankelijk van het C#-voorbeeld is **System.Data.SqlClient**. Is van belang zijn speciale de enum **SqlAuthenticationMethod**. Deze opsomming heeft de volgende waarden:
 
-- **SqlAuthenticationMethod.ActiveDirectory * interactief ***:&nbsp; Gebruik dit met de naam van een Azure AD-gebruiker om multi-factor authentication, MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * interactieve ***:&nbsp;  Gebruik dit met de naam van een Azure AD-gebruiker om multi-factor authentication, MFA.
     - Deze waarde is de focus van dit artikel. Het genereert een interactieve ervaring door het weergeven van dialoogvensters voor het wachtwoord van de gebruiker, en vervolgens voor MFA-validatie als MFA is ingesteld op deze gebruiker.
     - Deze waarde is beschikbaar vanaf .NET Framework versie 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory * geïntegreerde ***:&nbsp; Gebruik deze optie voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze methode biedt geen ondersteuning voor MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * geïntegreerde ***:&nbsp;  Gebruik deze optie voor een *federatieve* account. Voor een federatieve-account is de naam van de gebruiker bekend aan het Windows-domein. Deze methode biedt geen ondersteuning voor MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory * wachtwoord ***:&nbsp; dit gebruiken voor verificatie met een Azure AD-gebruiker en wachtwoord van de gebruiker vereist. De authenticatie wordt uitgevoerd in Azure SQL-Database. Deze methode biedt geen ondersteuning voor MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * wachtwoord ***:&nbsp;  Gebruik deze voor verificatie met een Azure AD-gebruiker en wachtwoord van de gebruiker vereist. De authenticatie wordt uitgevoerd in Azure SQL-Database. Deze methode biedt geen ondersteuning voor MFA.
 
 
 
@@ -142,11 +137,11 @@ Voor een geslaagde uitvoering van de C#-programma, moet u de juiste waarden toew
 
 | Statische veldnaam | Stel de waarde | Waar in Azure portal |
 | :---------------- | :------------ | :-------------------- |
-| Az_SQLDB_svrName | "Mijn-favoriet-sqldb-svr.database.windows.net" | **SQL-servers** &gt; **filteren op naam** |
+| Az_SQLDB_svrName | "my-favorite-sqldb-svr.database.windows.net" | **SQL-servers** &gt; **filteren op naam** |
 | AzureAD_UserID | "user9@abc.onmicrosoft.com" | **Azure Active Directory** &gt; **gebruiker** &gt; **nieuwe gastgebruiker** |
 | Initial_DatabaseName | 'master' | **SQL-servers** &gt; **SQL-databases** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** &gt; **App-registraties**<br /> &nbsp; &nbsp; &gt; **Zoeken op naam** &gt; **toepassings-ID** |
-| RedirectUri | nieuwe Uri ("https://bing.com/") | **Azure Active Directory** &gt; **App-registraties**<br /> &nbsp; &nbsp; &gt; **Zoeken op naam** &gt; *[Your-App-Gereg]* &gt;<br /> &nbsp; &nbsp; **Instellingen voor** &gt; **RedirectURIs**<br /><br />In dit artikel is geldige waarde prima voor RedirectUri. De waarde is niet echt in ons geval gebruikt. |
+| RedirectUri | new Uri( "https://bing.com/") | **Azure Active Directory** &gt; **App-registraties**<br /> &nbsp; &nbsp; &gt; **Zoeken op naam** &gt; *[Your-App-Gereg]* &gt;<br /> &nbsp; &nbsp; **Instellingen voor** &gt; **RedirectURIs**<br /><br />In dit artikel is geldige waarde prima voor RedirectUri. De waarde is niet echt in ons geval gebruikt. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 
@@ -187,7 +182,7 @@ In dit voorbeeld met C# compileren, moet u een verwijzing naar het DLL-assembly 
 
 - **Microsoft.IdentityModel.Clients.ActiveDirectory** naamruimte:
     - Zoeken:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory)
-    - Direct:&nbsp; [Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
+    - Direct:&nbsp; Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
 
 
 #### <a name="c-source-code-in-two-parts"></a>C#-broncode, uit twee delen

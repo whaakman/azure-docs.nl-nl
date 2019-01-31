@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 9160a5f4e3a452682787ff500199e43e7fad0c77
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 81096eeb1edcd6681bdc887d267ee477d78a8578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213686"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472079"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Oktober 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in oktober 2018.

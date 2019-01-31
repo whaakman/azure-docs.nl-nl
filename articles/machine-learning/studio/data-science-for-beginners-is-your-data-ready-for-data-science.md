@@ -1,6 +1,6 @@
 ---
-Titel: Gegevens evaluatie titleSuffix: Azure Machine Learning Studio description: Vier criteria uw gegevens moet voldoen om te worden gereed voor gegevenswetenschap. Deze video heeft concrete voorbeelden om te helpen bij de evaluatie van de algemene gegevens.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Gegevens evaluatie titleSuffix: Azure Machine Learning Studio description: Vier criteria uw gegevens moet voldoen om te worden gereed voor gegevenswetenschap. Deze video heeft concrete voorbeelden om te helpen bij de evaluatie van de algemene gegevens.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

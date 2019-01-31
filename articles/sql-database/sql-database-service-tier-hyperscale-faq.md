@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: c5f5b43a96d5fad5d5f7737ef82585593cd05a7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 01/25/2019
+ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240655"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478335"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Veelgestelde vragen over zeer grootschalige Azure-SQL-databases
 
@@ -75,9 +75,9 @@ De servicelaag van grootschalige is voornamelijk bedoeld voor klanten die hebben
 
 Zeer grootschalige is momenteel beschikbaar voor individuele databases in de volgende regio's:  West US1, West vs2, US1 VS-Oost, VS-midden, West-Europa, Noord-Europa, UK-West, Zuidoost-Azië, Japan-Oost, Korea-centraal, Australië-Zuidoost en Australië-Oost.
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Ik kan meerdere grootschalige databases per logische server maken
+### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Ik kan meerdere grootschalige databases per SQL-databaseserver maken
 
-Ja. Zie voor meer informatie en beperkingen met betrekking tot het aantal databases per logische server grootschalige [SQL Database-resourcebeperkingen voor één en gepoolde databases op een logische server](sql-database-resource-limits-logical-server.md).
+Ja. Zie voor meer informatie en beperkingen met betrekking tot het aantal databases per SQL-databaseserver grootschalige [SQL Database-resourcebeperkingen voor één en gepoolde databases op een SQL-databaseserver](sql-database-resource-limits-database-server.md).
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Wat zijn de prestatiekenmerk van een grootschalige-database
 
@@ -98,7 +98,7 @@ SQL Database grootschalige biedt snelle schaalbaarheid op basis van de vraag van
 
 ## <a name="deep-dive-questions"></a>Duik de diepte vragen
 
-### <a name="can-i-mix-hyperscale-and-single-databases-on-my-logical-server"></a>Ik kan grootschalig en individuele databases combineren op mijn logische server
+### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>Kan ik grootschalig en individuele databases combineren een mijn SQL Database-server
 
 Ja, dat is mogelijk.
 
@@ -235,7 +235,7 @@ Nog niet bekend (nog steeds in de Preview-versie)
 
 U kunt gegevens lezen uit Azure Storage en laden van gegevens te laden in een grootschalige-database (net zoals u met een reguliere individuele database doen kunt). Polybase is momenteel niet ondersteund op Azure SQL Database. U kunt doen met behulp van Polybase [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) of het uitvoeren van een Spark-taak in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) met de [Spark-connector voor SQL](sql-database-spark-connector.md). De Spark-connector naar SQL biedt ondersteuning voor bulksgewijs invoegen.
 
-Eenvoudig herstel of bulksgewijs logboekregistratie model wordt niet ondersteund in grootschalige. Model voor volledig herstel is vereist voor een hoge beschikbaarheid. Zeer grootschalige biedt echter een betere gegevensopname tarief ten opzichte van een individuele Azure SQL-database vanwege de nieuwe log-architectuur.
+Eenvoudig herstel of bulksgewijs logboekregistratie model wordt niet ondersteund in grootschalige. Model voor volledig herstel is vereist voor een hoge beschikbaarheid. Zeer grootschalige biedt echter een betere gegevensopname tarief ten opzichte van een individuele database vanwege de nieuwe log-architectuur.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>SQL Database grootschalige staat inrichting van meerdere knooppunten voor het opnemen van grote hoeveelheden gegevens
 

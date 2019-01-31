@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: d20ba372a23d2d4865bd9d6c5c004f955c896201
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199084"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299534"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse via Open-Hub met behulp van Azure Data Factory
 
@@ -37,14 +37,14 @@ U kunt gegevens van SAP Business Warehouse via Open Hub kopiëren naar een onder
 
 Deze connector SAP Business Warehouse Open Hub ondersteunt name:
 
-- SAP Business Warehouse **versie 7.30 of hoger met SAPK 73013INPIBASIS ondersteuningspakket geïnstalleerd**.
+- SAP Business Warehouse **versie 7.30 of hoger (in een recente SAP ondersteuning voor pakket-Stack die na het jaar 2015 zijn uitgebracht)**.
 - Kopiëren van gegevens via Open Hub lokale doeltabel die onder DSO, InfoCube, MultiProvider, DataSource, enzovoort.
 - Kopiëren van gegevens met behulp van basisverificatie.
 - Verbinding maken met toepassingsserver.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van deze connector SAP Business Warehouse, moet u naar:
+Voor het gebruik van deze connector SAP Business Warehouse Open Hub, moet u naar:
 
 - Instellen van een zelfgehoste Integration Runtime met versie 3.13 of hoger. Zie [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
 
@@ -57,17 +57,17 @@ Voor het gebruik van deze connector SAP Business Warehouse, moet u naar:
     - Autorisatie voor RFC en SAP BW. 
     - Machtigingen voor de activiteit "Uitvoeren" van autorisatie-Object 'S_SDSAUTH'.
 
-- Type van de bestemming van de Craete SAP Open-Hub als **databasetabel** met 'Technische Key'-optie is ingeschakeld.  Het is ook raadzaam de gegevens verwijderen verlaten van de tabel als dit selectievakje is uitgeschakeld, maar dit niet vereist is. Uitvoeren van de DTP aan gegevens overbrengen van bronobject (zoals kubus) die u hebt gekozen voor de doeltabel open hub.
+- Maken van SAP Open Hub doeltype als **databasetabel** met 'Technische Key'-optie is ingeschakeld.  Het is ook raadzaam de gegevens verwijderen verlaten van de tabel als dit selectievakje is uitgeschakeld, maar dit niet vereist is. Maak gebruik van de DTP (rechtstreeks uitvoeren of integreren met bestaande procesketen) op grond van gegevens uit het bronobject (zoals kubus) die u hebt gekozen voor de doeltabel open hub.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met SAP Business Warehouse-connector.
+De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Open Hub van SAP Business Warehouse-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor SAP Business Warehouse (BW) gekoppelde service:
+De volgende eigenschappen worden ondersteund voor SAP Business Warehouse Open Hub gekoppelde service:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
@@ -75,6 +75,7 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse (BW) ge
 | server | Naam van de server waarop de SAP BW-instantie zich bevindt. | Ja |
 | systemNumber | Het systeemnummer van de SAP BW-systeem.<br/>Toegestane waarde: decimaal getal van twee cijfers weergegeven als een tekenreeks. | Ja |
 | ClientId | Client-ID van de client in het W SAP-systeem.<br/>Toegestane waarde: decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja |
+| language | De taal die gebruikmaakt van de SAP-systeem. | Nee (standaardwaarde is **EN**)|
 | Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
 | wachtwoord | Het wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
@@ -128,7 +129,7 @@ Als u wilt kopiëren van gegevens van en naar SAP BW Open Hub, stel de eigenscha
     "properties": {
         "type": "SapOpenHubTable",
         "linkedServiceName": {
-            "referenceName": "<SAP BW linked service name>",
+            "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -140,7 +141,7 @@ Als u wilt kopiëren van gegevens van en naar SAP BW Open Hub, stel de eigenscha
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP BW-bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP BW Open Hub bron.
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub als bron
 
@@ -179,18 +180,18 @@ Om gegevens te kopiëren van SAP BW Open Hub, stelt u het brontype in de kopieer
 
 ## <a name="data-type-mapping-for-sap-bw-open-hub"></a>De gegevenstypetoewijzing voor SAP BW Open Hub
 
-Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP BW-gegevenstypen gebruikt om Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
+Het kopiëren van gegevens van SAP BW Open Hub, worden de volgende toewijzingen van SAP BW-gegevenstypen gebruikt om Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
 
 | SAP ABAP-Type | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| C (String) | Reeks |
+| C (String) | String |
 | I (integer) | Int32 |
-| F (drijvende komma) | Double-waarde |
-| D (Date) | Reeks |
-| T (Time) | Reeks |
-| P (BCD verpakt, valuta, decimaal, hoeveelheid) | Decimaal |
-| N (Numc) | Reeks |
-| X (binaire en onbewerkte) | Reeks |
+| F (drijvende komma) | Double |
+| D (Date) | String |
+| T (Time) | String |
+| P (BCD verpakt, valuta, decimaal, hoeveelheid) | Decimal |
+| N (Numc) | String |
+| X (binaire en onbewerkte) | String |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -3,7 +3,7 @@ title: Toepassingspakketten installeren op rekenknooppunten - Azure Batch | Micr
 description: Gebruik de functie voor toepassingspakketten van Azure Batch om gemakkelijk te beheren meerdere toepassingen en versies voor installatie op Batch-rekenknooppunten.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/15/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094132"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454604"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Toepassingen implementeren op rekenknooppunten met Batch-toepassingspakketten
 
@@ -46,7 +46,7 @@ In Azure Batch, een *toepassing* verwijst naar een set versioned binaire bestand
 
 ![Diagram op hoog niveau van toepassingen en toepassingspakketten][1]
 
-### <a name="applications"></a>Toepassingen
+### <a name="applications"></a>Applicaties
 Een toepassing in Batch bevat een of meer toepassingen, pakketten en Hiermee geeft u configuratie-opties voor de toepassing. Een toepassing kunt bijvoorbeeld opgeven dat de standaardversie voor het pakket van toepassing te installeren op de rekenknooppunten en of de pakketten kunnen worden bijgewerkt of verwijderd.
 
 ### <a name="application-packages"></a>Toepassingspakketten
@@ -113,9 +113,9 @@ Hiermee opent u deze optie selecteren de **toepassingen** venster:
 
 In dit venster geeft de ID van elke toepassing in uw account en de volgende eigenschappen:
 
-* **Pakketten**: het nummer van de versies die zijn gekoppeld aan deze toepassing.
-* **Standaardversie**: de versie van de toepassing geïnstalleerd indien u niet een versie aan wanneer u de toepassing voor een groep opgeeft. Deze instelling is optioneel.
-* **Updates toestaan**: de waarde die aangeeft of pakket met updates, verwijderingen en toevoegingen zijn toegestaan. Als deze optie is ingesteld op **Nee**, pakketupdates en verwijderingen, zijn uitgeschakeld voor de toepassing. Alleen nieuwe toepassingspakketversies kunnen worden toegevoegd. De standaardinstelling is **Ja**.
+* **Pakketten**: Het nummer van de versies die zijn gekoppeld aan deze toepassing.
+* **Standaardversie**: De versie van de toepassing geïnstalleerd indien u niet een versie aan wanneer u de toepassing voor een groep opgeeft. Deze instelling is optioneel.
+* **Updates toestaan**: De waarde die aangeeft of pakket met updates, verwijderingen en toevoegingen zijn toegestaan. Als deze optie is ingesteld op **Nee**, pakketupdates en verwijderingen, zijn uitgeschakeld voor de toepassing. Alleen nieuwe toepassingspakketversies kunnen worden toegevoegd. De standaardinstelling is **Ja**.
 
 ### <a name="view-application-details"></a>Details van de toepassing weergeven
 Als u wilt zien van de details voor een toepassing, selecteert u de toepassing in de **toepassingen** venster.
@@ -125,7 +125,7 @@ Als u wilt zien van de details voor een toepassing, selecteert u de toepassing i
 In de toepassing, kunt u de volgende instellingen configureren voor uw toepassing.
 
 * **Updates toestaan**: Geef op of de toepassingspakketten kunnen worden bijgewerkt of verwijderd. Zie 'Bijwerken of verwijderen van een toepassingspakket' verderop in dit artikel.
-* **Standaardversie**: Geef een standaard-toepassingspakket te implementeren naar rekenknooppunten die zich.
+* **Standaardversie**: Geef een standaard-toepassingspakket te implementeren naar rekenknooppunten die zich op.
 * **Weergavenaam**: Geef een beschrijvende naam die uw Batch-oplossing gebruiken kunt wanneer deze geeft informatie weer over de toepassing, bijvoorbeeld in de gebruikersinterface van een service die u voor uw klanten via de Batch opgeeft.
 
 ### <a name="add-a-new-application"></a>Een nieuwe toepassing toevoegen

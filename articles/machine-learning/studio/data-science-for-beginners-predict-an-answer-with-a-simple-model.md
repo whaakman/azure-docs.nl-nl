@@ -1,6 +1,6 @@
 ---
-Titel: Voorspellen antwoorden met regressie modellen titleSuffix: Azure Machine Learning Studio description: Het maken van een eenvoudige regressiemodel om te voorspellen van een prijs in Gegevenswetenschap voor Beginners video 4. Bevat een lineaire regressie met doelgegevens.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Voorspellen antwoorden met regressie modellen titleSuffix: Azure Machine Learning Studio description: Het maken van een eenvoudige regressiemodel om te voorspellen van een prijs in Gegevenswetenschap voor Beginners video 4. Bevat een lineaire regressie met doelgegevens.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

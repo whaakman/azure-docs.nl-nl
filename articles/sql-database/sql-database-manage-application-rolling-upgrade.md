@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: 1aa3960e3a974703cfecec2bd28fc41f74f7df96
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 50f6f114a4d90f48218f751e1649e8694e664491
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238404"
+ms.locfileid: "55295743"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Rolling upgrades van cloud-toepassingen met behulp van SQL-Database van actieve geo-replicatie beheren
 
@@ -54,7 +54,7 @@ Zodra de voorbereidende stappen zijn voltooid, wordt de toepassing is gereed voo
 Als de upgrade is voltooid, bent u nu gereed voor de eindgebruikers overschakelen naar het bijgewerkte exemplaar van de toepassing. Het wordt nu een productiesite geworden.  Het overschakelen, omvat enkele extra stappen zoals wordt geïllustreerd in het volgende diagram.
 
 1. Activeer een wisselbewerking tussen productie en fasering slots van de web-App (6). Het wordt de URL's van de twee sleuven overschakelen. Nu `contoso.azurewebsites.net` verwijst naar een V2-versie van de website en de database (productie-omgeving).  
-2. Als u niet meer nodig hebt van de V1-versie, die werd een tijdelijke kopie nadat de wisseling, kunt u de staging envoronment (7).
+2. Als u niet meer nodig hebt van de V1-versie, die werd een tijdelijke kopie nadat de wisseling, kunt u de faseringsomgeving (7).
 
 ![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
@@ -111,7 +111,7 @@ Zodra de voorbereidende stappen zijn voltooid, is de staging-omgeving gereed is 
 Als de upgrade is voltooid, bent u nu klaar om over te schakelen van de eindgebruikers naar de V2-versie van de toepassing. Het volgende diagram illustreert de stappen die betrokken zijn.
 
 1. Activeer een wisselbewerking tussen productie en fasering slots van de web-App in de primaire regio (13) en in de back-regio (14). Versie 2 van de toepassing nu wordt een productiesite met behulp van een redundante kopie in de back-regio.
-2. Kunt u de de faseringsomgeving als u de V1-toepassing (15 en 16) niet meer nodig hebt.  
+2. U kunt de faseringsomgeving buiten gebruik stellen als u de V1-toepassing (15 en 16) niet meer nodig hebt.  
 
 ![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
 

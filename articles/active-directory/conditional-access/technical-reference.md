@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: dbb8417975d051b4a13d6f94fca76fd3bf321a35
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074240"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302101"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -244,7 +244,7 @@ Deze instelling geldt voor de volgende client-apps:
 
 - De **goedgekeurde client-app vereisen** vereiste:
 
-    - Biedt alleen ondersteuning voor iOS en Android for [apparaat platform voorwaarde](#device-platforms-condition).
+    - Biedt alleen ondersteuning voor iOS en Android for [apparaat platform voorwaarde](#device-platform-condition).
 
 
 ## <a name="next-steps"></a>Volgende stappen

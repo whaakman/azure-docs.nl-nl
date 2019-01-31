@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584148"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455743"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit
 
@@ -34,9 +34,9 @@ Zie de informatie over hoe betalen per gebruik en enterprise-klanten worden kost
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Bepaal de juiste SQL-grootte voor aankoop
 
-De grootte van de reservering moet worden gebaseerd op de totale hoeveelheid rekenkracht die wordt gebruikt door de bestaande of snel-naar--geïmplementeerd SQL enkele databases en/of elastische groepen binnen een bepaalde regio en het gebruik van dezelfde prestaties laag en hardware generatie. 
+De grootte van de reservering moet worden gebaseerd op de totale hoeveelheid rekenkracht die wordt gebruikt door de bestaande of snel-naar--geïmplementeerd enkele databases en/of elastische groepen binnen een bepaalde regio en het gebruik van dezelfde prestaties laag en hardware generatie. 
 
-Bijvoorbeeld: Stel dat u een algemene, Gen5 – 16 vCore elastische pool en twee bedrijfskritiek, Gen5 – 4 vCore individuele databases uitvoert. Bovendien mag gaan we dat u van plan bent om te implementeren in de volgende maand een extra algemene, Gen5 – 16 vCore elastische pool, en één business kritiek, Gen5 – 32 vCore elastische pool. Ook Stel dat u weet dat u deze resources voor ten minste 1 jaar moet. In dit geval moet u een 32 kopen (2 x 16) vCores, 1 jaar reservering voor SQL Database Single/elastische Pool voor algemeen gebruik - Compute Gen5 en een 40 (32 x 4 + 2) 1 jaar-reservering voor SQL Database Single/elastische Pool bedrijfskritiek - Compute Gen5 vCore.
+Bijvoorbeeld: Stel dat u een algemene, Gen5 – 16 vCore elastische pool en twee bedrijfskritiek, Gen5 – 4 vCore individuele databases uitvoert. Bovendien mag gaan we dat u van plan bent om te implementeren in de volgende maand een extra algemene, Gen5 – 16 vCore elastische pool, en één business kritiek, Gen5 – 32 vCore elastische pool. Ook Stel dat u weet dat u deze resources voor ten minste 1 jaar moet. In dit geval moet u een 32 kopen (2 x 16) vCores, 1 jaar reservering voor SQL-Database zelfstandige/elastische pool algemeen gebruik - Compute Gen5 en een 40 (2 x 4 + 32) vCore 1 jaar reservering voor zelfstandige SQL-Database/elastische-groep bedrijfskritiek - Compute Gen5.
 
 ## <a name="buy-sql-database-reserved-capacity"></a>SQL-Database gereserveerde capaciteit kopen
 
@@ -47,10 +47,10 @@ Bijvoorbeeld: Stel dat u een algemene, Gen5 – 16 vCore elastische pool en twee
 
    ![Schermafbeelding voor het indienen van de SQL-Database gereserveerde capaciteit kopen](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-    | Veld      | Beschrijving|
+    | Veld      | Description|
     |:------------|:--------------|
-    |Naam        |De naam van deze reservering.| 
-    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor de reservering van SQL-Database gereserveerde capaciteit. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering van SQL-Database gereserveerde capaciteit. Het abonnement moet een Enterprise-overeenkomst (aanbieding: MS-AZR-0017P) of een Betalen-per-gebruik-abonnement (aanbieding: MS-AZR-0003P) zijn. Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|    
+    |Name        |De naam van deze reservering.| 
+    |Abonnement|Het abonnement dat wordt gebruikt om te betalen voor de reservering van SQL-Database gereserveerde capaciteit. De betalingswijze voor het abonnement wordt in rekening gebracht de kosten vooraf voor de reservering van SQL-Database gereserveerde capaciteit. Het abonnementstype moet een enterprise agreement (nummer van aanbieding: MS-AZR-0017P) of betalen per gebruik (nummer van aanbieding: MS-AZR-0003P). Voor een Enterprise-abonnement worden de kosten in mindering gebracht op het toezeggingsbedrag of ze worden in rekening gebracht als overschrijding. Voor een Betalen per gebruik-abonnement worden de kosten in rekening gebracht op de creditcard of de factuurbetalingswijze van het abonnement.|    
     |Bereik       |Bereik van de vCore-reservering kan betrekking hebben op één abonnement of meerdere abonnementen (gedeeld bereik). Als u selecteert: <ul><li>Eén abonnement - de reserveringskorting vCore wordt toegepast op SQL Database-exemplaren in dit abonnement. </li><li>Gedeeld - wordt de reserveringskorting vCore toegepast op SQL Database-exemplaren die worden uitgevoerd in alle abonnementen binnen de context van de facturering. Voor zakelijke klanten, gedeeld bereik is van de inschrijving en bevat alle abonnementen (met uitzondering van dev/test-abonnementen) binnen de inschrijving. Voor klanten van betalen per gebruik is het gedeelde bereik alle betalen per gebruik-abonnementen die zijn gemaakt door de accountbeheerder.</li></ul>|
     |Regio      |De Azure-regio die wordt gedekt door de SQL-Database gereserveerde capaciteit.|    
     |Implementatietype|Het type van de SQL-resource die u wilt kopen, de reservering voor.|

@@ -1,6 +1,6 @@
 ---
-Titel: Azure AI Gallery titleSuffix: Azure Machine Learning Studio description: Delen en ontdekken analytics-resources en meer in de Azure AI Gallery. Leer van anderen en uw eigen bijdragen aan de community.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Azure AI Gallery titleSuffix: Azure Machine Learning Studio description: Delen en ontdekken analytics-resources en meer in de Azure AI Gallery. Leer van anderen en uw eigen bijdragen aan de community.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/11/2019
 ---

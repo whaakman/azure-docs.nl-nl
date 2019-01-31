@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7489c4298abe91755a2bf9edd8335061ed42d6d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129638"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470923"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text-API 3.0: talen
+# <a name="translator-text-api-30-languages"></a>Translator Text-API 3.0: Languages
 
 Hiermee haalt u de reeks talen die momenteel worden ondersteund door andere bewerkingen van de Translator Text-API. 
 
@@ -34,7 +34,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>API-versie</td>
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
@@ -49,10 +49,10 @@ Aanvraagheaders zijn:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
-    <td>Accepteer taal</td>
-    <td>*Optionele aanvraagheader*.<br/>De taal die moet worden gebruikt voor tekenreeksen voor interface. Sommige van de velden in het antwoord zijn namen van talen of namen van de regio's. Gebruik deze parameter voor het definiëren van de taal waarin deze namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.<br/>Namen zijn opgegeven in de Engelse taal als een doeltaal is niet opgegeven of als de lokalisatie is niet beschikbaar.
+    <td>Accept-Language</td>
+    <td>*Optionele aanvraagheader*.<br/>De taal die moet worden gebruikt voor gebruikersinterfacetekenreeksen. Sommige van de velden in het antwoord zijn namen van talen of namen van de regio's. Gebruik deze parameter voor het definiëren van de taal waarin deze namen worden geretourneerd. De taal die is opgegeven door op te geven van een opgemaakte BCP-47-taalcode. Gebruik bijvoorbeeld de waarde `fr` aan te vragen van namen in het Frans of gebruikt u de waarde `zh-Hant` naar namen van de aanvraag in een traditioneel Chinees.<br/>Namen zijn opgegeven in de Engelse taal als een doeltaal is niet opgegeven of als de lokalisatie is niet beschikbaar.
     </td>
   </tr>
   <tr>
@@ -97,9 +97,9 @@ De waarde voor elke eigenschap is als volgt.
 
   De waarde van de `translation` eigenschap is een woordenlijst met (sleutel, waarde) paren. Elke sleutel is een BCP-47-taalcode. Een sleutel identificeert een taal waarvoor tekst kan worden omgezet naar of van vertaald. De waarde die is gekoppeld aan de sleutel is een JSON-object met eigenschappen die de taal die wordt beschreven:
 
-  * `name`: De weergavenaam van de taal in de landinstellingen aangevraagd `Accept-Language` header.
+  * `name`: Weergavenaam van de taal in de landinstellingen aangevraagd `Accept-Language` header.
 
-  * `nativeName`: Weergave de naam van de taal in de oorspronkelijke landinstellingen voor deze taal.
+  * `nativeName`: De weergavenaam van de taal in de oorspronkelijke landinstellingen voor deze taal.
 
   * `dir`: Richting, namelijk `rtl` voor talen van rechts naar links of `ltr` voor talen van links naar rechts.
 
@@ -123,17 +123,17 @@ De waarde voor elke eigenschap is als volgt.
 
   De waarde van de `transliteration` eigenschap is een woordenlijst met (sleutel, waarde) paren. Elke sleutel is een BCP-47-taalcode. Een sleutel identificeert een taal waarvoor tekst kan worden geconverteerd van een script naar een ander script. De waarde die is gekoppeld aan de sleutel is een JSON-object met eigenschappen die de taal en de bijbehorende ondersteunde scripts beschrijven:
 
-  * `name`: De weergavenaam van de taal in de landinstellingen aangevraagd `Accept-Language` header.
+  * `name`: Weergavenaam van de taal in de landinstellingen aangevraagd `Accept-Language` header.
 
-  * `nativeName`: Weergave de naam van de taal in de oorspronkelijke landinstellingen voor deze taal.
+  * `nativeName`: De weergavenaam van de taal in de oorspronkelijke landinstellingen voor deze taal.
 
   * `scripts`: Lijst met scripts te converteren. Elk element van de `scripts` lijst heeft eigenschappen:
 
     * `code`: Code identificeren van het script.
 
-    * `name`: De weergavenaam van het script in de landinstellingen aangevraagd `Accept-Language` header.
+    * `name`: Weergavenaam van het script in de landinstellingen aangevraagd `Accept-Language` header.
 
-    * `nativeName`: Weergave de naam van de taal in de oorspronkelijke landinstellingen voor de taal.
+    * `nativeName`: Weergavenaam van de taal in de landinstellingen systeemeigen voor de taal.
 
     * `dir`: Richting, namelijk `rtl` voor talen van rechts naar links of `ltr` voor talen van links naar rechts.
 
@@ -188,17 +188,17 @@ De waarde voor elke eigenschap is als volgt.
 
   De waarde van de `dictionary` eigenschap is een woordenlijst met (sleutel, waarde) paren. Elke sleutel is een BCP-47-taalcode. De sleutel identificeert een taal waarvoor alternatieve vertalingen en back-vertalingen beschikbaar zijn. De waarde is een JSON-object waarin de source-taal en de doel-talen met de beschikbare vertalingen worden beschreven:
 
-  * `name`: De weergavenaam van de source-taal in de landinstellingen aangevraagd `Accept-Language` header.
+  * `name`: Weergavenaam van de source-taal in de landinstellingen aangevraagd `Accept-Language` header.
 
-  * `nativeName`: Weergave de naam van de taal in de oorspronkelijke landinstellingen voor deze taal.
+  * `nativeName`: De weergavenaam van de taal in de oorspronkelijke landinstellingen voor deze taal.
 
   * `dir`: Richting, namelijk `rtl` voor talen van rechts naar links of `ltr` voor talen van links naar rechts.
 
   * `translations`: Lijst met talen met alternatief vertalingen en voorbeelden voor de query, uitgedrukt in de source-taal. Elk element van de `translations` lijst heeft eigenschappen:
 
-    * `name`: De weergavenaam van de doel-taal in de landinstellingen aangevraagd `Accept-Language` header.
+    * `name`: Weergavenaam van de doel-taal in de landinstellingen aangevraagd `Accept-Language` header.
 
-    * `nativeName`: Weergavenaam van de doel-taal in de oorspronkelijke landinstellingen voor de doel-taal.
+    * `nativeName`: Weergavenaam van de doel-taal in de native modus voor de doeltaal landinstellingen.
 
     * `dir`: Richting, namelijk `rtl` voor talen van rechts naar links of `ltr` voor talen van links naar rechts.
     
@@ -230,7 +230,7 @@ De lijst van ondersteunde talen verandert niet vaak. Sla de netwerkbandbreedte e
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>ETag</td>
     <td>Huidige waarde van de entity-tag voor de aangevraagde groepen van ondersteunde talen. Als u de volgende aanvragen efficiënter, verzendt de client kan de `ETag` waarde in een `If-None-Match` header-veld.
@@ -248,7 +248,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 <table width="100%">
   <th width="20%">Statuscode</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Geslaagd.</td>
@@ -279,7 +279,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 Het volgende voorbeeld ziet hoe u talen die worden ondersteund voor tekstvertaling ophaalt.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

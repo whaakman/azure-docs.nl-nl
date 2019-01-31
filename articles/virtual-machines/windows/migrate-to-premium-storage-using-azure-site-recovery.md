@@ -9,13 +9,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.component: disks
-ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.subservice: disks
+ms.openlocfilehash: 6db263dcfc3195c9b2ab3afe7587845a4632fd1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404134"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456524"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium Storage met behulp van Azure Site Recovery
 
@@ -85,7 +85,7 @@ U kunt Site Recovery gebruiken voor het migreren van Azure IaaS VM's tussen regi
 ### <a name="step-2-choose-your-protection-goals"></a>Stap 2: Uw beveiligingsdoelstellingen kiezen 
 
 1. Open op de virtuele machine waarop u wilt installeren van de configuratieserver, de [Azure-portal](https://portal.azure.com).
-2. Ga naar **Recovery Services-kluizen** > **instellingen** > **siteherstel** > **stap 1: voorbereiden Infrastructuur** > **beveiligingsdoel**.
+2. Ga naar **Recovery Services-kluizen** > **instellingen** > **siteherstel** > **stap 1: infrastructuur voorbereiden** > **Beveiligingsdoel.**
 
    ![Bladeren naar het deelvenster beveiliging doel][2]
 
@@ -93,7 +93,7 @@ U kunt Site Recovery gebruiken voor het migreren van Azure IaaS VM's tussen regi
 
    ![Doel-deelvenster beveiliging met ingevuld vakken][3]
 
-### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Stap 3: De bronomgeving (configuratieserver) instellen
+### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Stap 3: Instellen van de bronomgeving (configuratieserver)
 
 1. Download **geïntegreerde Setup van Azure Site Recovery** en de kluisregistratiesleutel door te gaan naar de **infrastructuur voorbereiden** > **bron voorbereiden**  >  **-Server toevoegen** deelvensters. 
  
@@ -141,7 +141,7 @@ Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -
 
 Om te bevestigen dat uw configuratieserver is gekoppeld aan het replicatiebeleid dat u hebt gemaakt, gaat u als volgt [replicatie-instellingen instellen](../../site-recovery/vmware-walkthrough-overview.md).
 
-### <a name="step-6-plan-capacity"></a>Stap 6: Plan capaciteit
+### <a name="step-6-plan-capacity"></a>Stap 6: Capaciteit plannen
 
 1. Gebruik de [Capaciteitsplanner](../../site-recovery/site-recovery-capacity-planner.md) nauwkeurig te schatten netwerkbandbreedte, opslag en andere vereisten voor uw behoeften. 
 2. Wanneer u klaar bent, selecteert u **Ja, heb ik gedaan** in **hebt u plannen van capaciteit?**.
@@ -162,7 +162,7 @@ Om te bevestigen dat uw configuratieserver is gekoppeld aan het replicatiebeleid
    3. Geef in stap 2, het implementatiemodel na failover, een premium storage-account om naar te migreren, een standaardopslagaccount voor het opslaan van Logboeken en een virtueel netwerk niet kunnen worden.
    4. In stap 3 toevoegen beveiligde virtuele machines door IP-adres. (Mogelijk moet u een interne IP-adres te zoeken.)
    5. In stap 4, door de eigenschappen te configureren door het selecteren van de accounts die u eerder hebt ingesteld op de processerver.
-   6. In stap 5, kies het replicatiebeleid dat u eerder hebt gemaakt in ' stap 5: replicatie-instellingen instellen. "
+   6. In stap 5, kies het replicatiebeleid dat u eerder hebt gemaakt in ' stap 5: Instellen van replicatie-instellingen."
    7. Selecteer **OK**.
 
    > [!NOTE]
@@ -198,8 +198,8 @@ Site Recovery maakt u een VM-exemplaar waarvan het type hetzelfde als of vergeli
 ## <a name="post-migration-steps"></a>Stappen na de migratie
 
 1. **Gerepliceerde VM's aan de beschikbaarheidsset indien van toepassing configureren**. Site Recovery biedt geen ondersteuning voor migratie van VM's, samen met de beschikbaarheidsset. Afhankelijk van de implementatie van uw gerepliceerde virtuele machine, moet u een van de volgende handelingen:
-   * Voor een virtuele machine die zijn gemaakt via het klassieke implementatiemodel: de virtuele machine toevoegen aan de beschikbaarheidsset in de Azure-portal. Ga voor gedetailleerde stappen naar [een bestaande virtuele machine toevoegen aan een beschikbaarheidsset](../linux/classic/configure-availability-classic.md).
-   * Voor een virtuele machine via het Resource Manager-implementatiemodel gemaakt: de configuratie van de virtuele machine op te slaan en vervolgens verwijderen en opnieuw maken van de virtuele machines in de beschikbaarheidsset. Om dit te doen, gebruikt u het script op [ingesteld Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Voordat u dit script uitvoert, controleert u de beperkingen en plan uw downtime.
+   * Voor een virtuele machine die zijn gemaakt via het klassieke implementatiemodel: De virtuele machine toevoegen aan de beschikbaarheidsset in de Azure-portal. Ga voor gedetailleerde stappen naar [een bestaande virtuele machine toevoegen aan een beschikbaarheidsset](../linux/classic/configure-availability-classic.md).
+   * Voor een virtuele machine die via het Resource Manager-implementatiemodel zijn gemaakt: De configuratie van de virtuele machine op te slaan en vervolgens verwijderen en opnieuw maken van de virtuele machines in de beschikbaarheidsset. Om dit te doen, gebruikt u het script op [ingesteld Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Voordat u dit script uitvoert, controleert u de beperkingen en plan uw downtime.
 
 2. **Verwijderen van oude VM's en schijven**. Zorg ervoor dat de Premium-schijven consistent met bronschijven zijn en dat de nieuwe VM's uit te dezelfde functie als de bron-VM's voeren. Verwijderen van de virtuele machine en verwijder de schijven van de bron-storage-accounts in Azure portal. Als er een probleem is in dat de schijf is niet verwijderd, zelfs als u de virtuele machine verwijderd, raadpleegt u [oplossen van fouten bij het verwijderen van het storage-resource](storage-resource-deletion-errors.md).
 
@@ -222,7 +222,7 @@ Zie ook de volgende bronnen voor meer informatie over Azure Storage en Azure Vir
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: opslag met hoge prestaties voor de workloads van virtuele Azure-machines](premium-storage.md)
+* [Premium Storage: Opslag met hoge prestaties voor werkbelastingen van de virtuele machine van Azure](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

@@ -1,5 +1,5 @@
 ---
-Titel: Application lifecycle management titleSuffix: Azure Machine Learning Studio description: Toepassing van aanbevolen procedures voor Application Lifecycle Management in Azure Machine Learning Studio-services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Application lifecycle management titleSuffix: Azure Machine Learning Studio description: Toepassing van aanbevolen procedures voor Application Lifecycle Management in Azure Machine Learning Studio-services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 10/27/2016
 ---

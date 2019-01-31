@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.component: common
-ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531105"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473762"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services
 Vanaf versie 15-08-2013, ondersteuning de Azure storage-services Cross-Origin Resource Sharing (CORS) voor de services Blob, Table, Queue en bestand. CORS is een HTTP-functie waarmee een webtoepassing die wordt uitgevoerd in een bepaald domein te krijgen tot bronnen in een ander domein. Webbrowsers een beveiligingsbeperking wel geïmplementeerd [beleid voor zelfde oorsprong](http://www.w3.org/Security/wiki/Same_Origin_Policy) die voorkomt dat een webpagina van aanroepen van API's in een ander domein; CORS biedt een veilige manier om toe te staan van een domein (het domein van oorsprong) API's aanroepen in een ander domein. Zie de [CORS-specificatie](http://www.w3.org/TR/cors/) voor meer informatie over CORS.
@@ -67,11 +67,11 @@ Hier volgt een voorbeeld van een enkele CORS-regel worden opgegeven via een bewe
 
 Elk element dat is opgenomen in de CORS-regel wordt hieronder beschreven:
 
-* **AllowedOrigins**: de oorspronkelijk domeinen die te maken van een aanvraag indient voor de storage-service via CORS worden toegestaan. Het oorspronkelijke domein is het domein waaruit de aanvraag afkomstig is. Houd er rekening mee dat de oorsprong moet exact hoofdlettergevoelig overeenkomt met de oorsprong die de leeftijd van de gebruiker worden verzonden naar de service. U kunt ook het jokerteken ' *' om toe te staan alle brondomeinen via CORS-aanvragen. In het bovenstaande voorbeeld wordt de domeinen [ http://www.contoso.com ](http://www.contoso.com) en [ http://www.fabrikam.com ](http://www.fabrikam.com) aanvragen aan de service met behulp van CORS kunt maken.
-* **AllowedMethods**: de methoden (HTTP-aanvraagbewerkingen) die het oorspronkelijke domein voor een CORS-aanvraag gebruiken mogen. In het bovenstaande voorbeeld zijn alleen PUT en GET-aanvragen toegestaan.
-* **AllowedHeaders**: de aanvraagheaders die het oorspronkelijke domein voor de CORS-aanvraag specificeert mogelijk. In het bovenstaande voorbeeld worden alle headers van Werkstroommetagegevens beginnen met x-ms-meta-data, x-ms-meta-doel en de x-ms-meta-abc zijn toegestaan. Houd er rekening mee dat het jokerteken ' *' geeft aan dat header die begint met het opgegeven voorvoegsel is toegestaan.
-* **ExposedHeaders**: de reactieheaders die kunnen worden in het antwoord op de CORS-aanvraag verzonden en wordt weergegeven door de browser voor de aanvraagverlener. In het bovenstaande voorbeeld wordt de browser geïnstrueerd om beschikbaar te stellen van een koptekst die begint met x-ms-metagegevens.
-* **MaxAgeInSeconds**: de maximale hoeveelheid tijd dat in een browser de voorbereidende opties moet cache aanvragen.
+* **AllowedOrigins**: De oorspronkelijk domeinen die te maken van een aanvraag indient voor de storage-service via CORS worden toegestaan. Het oorspronkelijke domein is het domein waaruit de aanvraag afkomstig is. Houd er rekening mee dat de oorsprong moet exact hoofdlettergevoelig overeenkomt met de oorsprong die de leeftijd van de gebruiker worden verzonden naar de service. U kunt ook het jokerteken ' *' om toe te staan alle brondomeinen via CORS-aanvragen. In het bovenstaande voorbeeld wordt de domeinen [ http://www.contoso.com ](http://www.contoso.com) en [ http://www.fabrikam.com ](http://www.fabrikam.com) aanvragen aan de service met behulp van CORS kunt maken.
+* **AllowedMethods**: De methoden (HTTP-aanvraagbewerkingen) die het oorspronkelijke domein voor een CORS-aanvraag gebruiken mogen. In het bovenstaande voorbeeld zijn alleen PUT en GET-aanvragen toegestaan.
+* **AllowedHeaders**: De aanvraagheaders die het oorspronkelijke domein voor de CORS-aanvraag specificeert mogelijk. In het bovenstaande voorbeeld worden alle headers van Werkstroommetagegevens beginnen met x-ms-meta-data, x-ms-meta-doel en de x-ms-meta-abc zijn toegestaan. Houd er rekening mee dat het jokerteken ' *' geeft aan dat header die begint met het opgegeven voorvoegsel is toegestaan.
+* **ExposedHeaders**: De reactieheaders die kunnen worden in het antwoord op de CORS-aanvraag verzonden en wordt weergegeven door de browser voor de aanvraagverlener. In het bovenstaande voorbeeld wordt de browser geïnstrueerd om beschikbaar te stellen van een koptekst die begint met x-ms-metagegevens.
+* **MaxAgeInSeconds**: De maximale hoeveelheid tijd dat in een browser de voorbereidende aanvraag OPTIONS moet de cache.
 
 De Azure storage-services opgeven voorvoegselheaders ondersteuning voor zowel de **AllowedHeaders** en **ExposedHeaders** elementen. Als u wilt toestaan dat een categorie van headers, kunt u een algemene voorvoegsel op in die categorie. Bijvoorbeeld, op te geven *x-ms-meta** als een vooraf ingestelde header maakt een regel die voldoet aan alle koppen die met x-ms-metagegevens beginnen.
 

@@ -1,21 +1,21 @@
 ---
-title: 'Zelfstudie: Laden uit Azure Data Lake Storage Gen1 naar Azure SQL datawarehouse | Microsoft Docs'
+title: 'Zelfstudie: Laden uit Azure Data Lake Storage Gen1 met Azure SQL datawarehouse | Microsoft Docs'
 description: Externe tabellen PolyBase gebruiken om gegevens te laden uit Azure Data Lake Storage Gen1 in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c3902061264b75ba177ba150176d784ad5384a9f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297193"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472221"
 ---
 # <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Gegevens uit Azure Data Lake Storage Gen1 laden in SQL Data Warehouse
 Externe tabellen PolyBase gebruiken om gegevens te laden uit Azure Data Lake Storage Gen1 in Azure SQL Data Warehouse. Hoewel u ad-hoc-query's op gegevens die zijn opgeslagen in Data Lake Storage Gen1 uitvoeren kunt, wordt u aangeraden de gegevens worden geïmporteerd in de SQL Data Warehouse voor de beste prestaties.
@@ -38,7 +38,7 @@ Als u wilt uitvoeren in deze zelfstudie, hebt u het volgende nodig:
 > U moet de client-ID, de sleutel en de OAuth 2.0 Token Endpoint-waarde van uw Active Directory-toepassing verbinding maken met uw Gen1 van Data Lake Storage-account van SQL Data Warehouse. Details voor informatie over het ophalen van deze waarden zijn in de bovenstaande koppeling. Voor registratie in Azure Active Directory-App kunt u de toepassings-ID gebruiken als de Client-ID.
 > 
 
-* Een Azure SQL datawarehouse. Zie [maken en query's en Azure SQL Data Warehouse](create-data-warehouse-portal.md).
+* An Azure SQL Data Warehouse. Zie [maken en query's en Azure SQL Data Warehouse](create-data-warehouse-portal.md).
 
 * Een Data Lake Storage Gen1-account. Zie [aan de slag met Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md). 
 

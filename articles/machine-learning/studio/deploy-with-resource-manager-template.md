@@ -1,5 +1,5 @@
 ---
-Titel: Studio-werkruimte met Azure Resource Manager titleSuffix implementeren: Azure Machine Learning Studio description: Over het implementeren van een werkruimte voor Azure Machine Learning met behulp van Azure Resource Manager-sjabloon-services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Studio-werkruimte met Azure Resource Manager titleSuffix implementeren: Azure Machine Learning Studio description: Over het implementeren van een werkruimte voor Azure Machine Learning met behulp van Azure Resource Manager-sjabloon-services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---

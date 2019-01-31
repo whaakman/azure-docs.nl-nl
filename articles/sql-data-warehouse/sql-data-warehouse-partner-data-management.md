@@ -6,28 +6,28 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3669f93538670e9b2c5fcd5080480a54ef1299f5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 6e58fa83bfdce5e5363ef61d1e3deaa61397301a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669456"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461930"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse data management-partners
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw datawarehouse-oplossing. In dit artikel ziet u Microsoft-partnerbedrijven met een gegevens-beheerhulpprogramma's en ondersteuning van Azure SQL Data Warehouse-oplossingen.
 
 ## <a name="data-management-partners"></a>Gegevensbeheerpartners
-| Partner | Beschrijving | Koppelingen | Video's |
+| Partner | Description | Koppelingen | Video's |
 | --- | --- | --- | --- |
 | ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing biedt Nexus Chameleon, een hulpprogramma met tien jaar van ontwerp toegewezen aan het uitvoeren van query's systemen. Nexus is beschikbaar als een hulpprogramma voor SQL Data Warehouse. Gebruik Nexus query uitvoeren op intern en computers en join-gegevens in de cloud voor meerdere platformen. Punt-klikken-rapport. |[Website][coffing_website]<br>[Persberichten][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![coffing video](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
 | ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD biedt de hulpprogramma's die u wilt maken van een nauwkeurige gegevensmodel, gegevensredundantie verminderen, de productiviteit te verbeteren en standaarden observeren. Een samenstellen kunt werken in DB-modellen met behulp van de gebruikersinterface, die is ontwikkeld op basis van uitgebreide gebruikerservaringen, eenvoudig en gemakkelijk. U kunt continu profiteren van nieuwe en verbeterde functies van MicroERD via vragen functionele verbeteringen en updates. |[Website][inbrein_website]<br>[Gegevensblad][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![inbrein video](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |
 | ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian catalogiseren, worden opgeslagen en beheren van metagegevens om u te helpen bij het oplossen van belangrijke knelpunten van gegevensbeheer. Bovendien biedt Infolibrarian metagegevens, gegevensbeheer, en oplossingen voor software asset voor het beheren en publiceren van metagegevens uit een groot aantal hulpprogramma's en technologieën. |[Marketplace][infolibrarian_marketplace]<br>[Website][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] |[![infolibrarian video](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
-| ![Globale Redpoint][4] |**RedPoint interactie**<br>RedPoint interactie kunt u samenwerken met klanten in een dialoogvenster voor continue voor elke communicatiekanaal en touch punt. De volledige levenscyclus van omnichannel marketing van een single point of operationele controle eenvoudig te beheren |[Marketplace][redpoint_it_marketplace]<br>[Website][redpoint_it_website]<br>[Persberichten][redpoint_press]<br>[Gegevensblad][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm-video](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
-| ![Globale Redpoint][4] |**RedPoint gegevensbeheer**<br>Gegevensbeheer RedPoint inschakelen s marketeers om toe te passen van hun gegevens om cross-kanaal klantbetrokkenheid tijdens het uitvoeren van gestructureerde en ongestructureerde gegevens management. U kunt de waarde van uw gestructureerde en ongestructureerde gegevens op het leveren van de hyper-gepersonaliseerde, contextuele interacties nodig contact opnemen met de hedendaagse omni-kanaal klant maximaliseren door te profiteren van Azure SQL Data Warehouse en RedPoint. Slepen-en-neerzetten-interface kunt u het ontwerpen en uitvoeren van gegevensprocessen eenvoudig. |[Marketplace][redpoint_dm_marketplace]<br>[Website][redpoint_dm_website]<br>[Persberichten][redpoint_press]<br>[Gegevensblad][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm-video](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
+| ![Redpoint Global][4] |**RedPoint interactie**<br>RedPoint interactie kunt u samenwerken met klanten in een dialoogvenster voor continue voor elke communicatiekanaal en touch punt. De volledige levenscyclus van omnichannel marketing van een single point of operationele controle eenvoudig te beheren |[Marketplace][redpoint_it_marketplace]<br>[Website][redpoint_it_website]<br>[Persberichten][redpoint_press]<br>[Gegevensblad][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm-video](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
+| ![Redpoint Global][4] |**RedPoint Data Management**<br>Gegevensbeheer RedPoint inschakelen s marketeers om toe te passen van hun gegevens om cross-kanaal klantbetrokkenheid tijdens het uitvoeren van gestructureerde en ongestructureerde gegevens management. U kunt de waarde van uw gestructureerde en ongestructureerde gegevens op het leveren van de hyper-gepersonaliseerde, contextuele interacties nodig contact opnemen met de hedendaagse omni-kanaal klant maximaliseren door te profiteren van Azure SQL Data Warehouse en RedPoint. Slepen-en-neerzetten-interface kunt u het ontwerpen en uitvoeren van gegevensprocessen eenvoudig. |[Marketplace][redpoint_dm_marketplace]<br>[Website][redpoint_dm_website]<br>[Persberichten][redpoint_press]<br>[Gegevensblad][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![redpoint dm-video](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
 | ![Sentry één][5] |**DW Sentry**<br>Met de intelligente data movement dashboard en de gebeurtenis agenda weet u altijd precies wat uw workload beïnvloedt. Is ontworpen om u te bieden inzicht in uw query's en taken die worden uitgevoerd als u wilt laden, back-up of herstellen van uw gegevens en zorgen u nooit over het maken van het meeste uit uw Azure-resources. |[Marketplace][sql_sentry_marketplace]<br>[Website][sql_sentry_website]<br>[Persberichten][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
 ## <a name="next-steps"></a>Volgende stappen

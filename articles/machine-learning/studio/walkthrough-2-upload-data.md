@@ -1,6 +1,6 @@
 ---
-Titel: ' Stap 2: Gegevens uploaden naar een Machine Learning Studio-experiment' titleSuffix: Azure Machine Learning Studio description: ' Stap 2 van het ontwikkelen van een overzicht van de voorspellende oplossing: Uploaden van openbare gegevens opgeslagen in Azure Machine Learning Studio.'
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: ' Stap 2: Gegevens uploaden naar een Machine Learning Studio-experiment' titleSuffix: Azure Machine Learning Studio description: ' Stap 2 van het ontwikkelen van een overzicht van de voorspellende oplossing: Uploaden van openbare gegevens opgeslagen in Azure Machine Learning Studio.'
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 03/23/2017
 ---

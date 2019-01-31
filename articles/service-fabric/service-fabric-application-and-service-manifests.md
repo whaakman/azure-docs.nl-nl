@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: fa3c94854f8f67da9caa2955f5c62581843e39c8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156102"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465620"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-toepassing- en servicemanifesten
 Dit artikel wordt beschreven hoe Service Fabric-toepassingen en services worden gedefinieerd en is samengesteld met behulp van de bestanden ApplicationManifest.xml en ServiceManifest.xml.  Zie voor meer voorbeelden van gedetailleerde [toepassing en service manifest van de voorbeelden](service-fabric-manifest-examples.md).  Het XML-schema voor deze manifestbestanden wordt gedocumenteerd in [ServiceFabricServiceModel.xsd schemadocumentatie](service-fabric-service-model-schema.md).
@@ -96,7 +96,7 @@ Zie voor meer informatie over het configureren van de SetupEntryPoint [het belei
 </Settings>
 ```
 
-**Resources**, zoals eindpunten die worden gebruikt door de service worden gedeclareerd/gewijzigd zonder de gecompileerde code te wijzigen.  Toegang tot de resources die zijn opgegeven in het servicemanifest kan worden beheerd via de **Toewijzingsmodule** in het toepassingsmanifest.  Wanneer een **eindpunt** resource is gedefinieerd in het servicemanifest, Service Fabric poorten van het gereserveerde bereik toegewezen wanneer een poort niet expliciet is opgegeven.  Meer informatie over [op te geven of het vervangen van eindpunt resources](service-fabric-service-manifest-resources.md).
+Een Service Fabric-Service **eindpunt** volgt een voorbeeld van een Service Fabric-Resource; Een Service Fabric-Resource kan worden opgegeven/gewijzigd zonder de gecompileerde code te wijzigen. Toegang tot de Service Fabric-Resources die zijn opgegeven in het servicemanifest kan worden beheerd via de **Toewijzingsmodule** in het toepassingsmanifest. Als een Resource-eindpunt is gedefinieerd in het servicemanifest, wijst Service Fabric poorten van het gereserveerde bereik toe wanneer een poort niet expliciet is opgegeven. Meer informatie over [op te geven of het vervangen van eindpunt resources](service-fabric-service-manifest-resources.md).
 
 
 <!--

@@ -8,13 +8,13 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
-ms.openlocfilehash: eec7b64836819f840702bb715f4fcc0573a94b00
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 07d26590799f169e8e252557287b5c7e0003ea87
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251846"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469410"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Over de opslag van schijven voor virtuele Azure Linux-machines
 Net als elke andere computer gebruik virtuele machines in Azure schijven als een plaats voor het opslaan van een besturingssysteem, toepassingen en gegevens. Alle virtuele machines van Azure hebt ten minste twee schijven: de schijf van een Linux-besturingssysteem en een tijdelijke schijf. De besturingssysteemschijf is gemaakt op basis van een afbeelding, en zowel de besturingssysteemschijf en de installatiekopie van het virtuele harde schijven (VHD's) die zijn opgeslagen in Azure storage-account zijn. Virtuele machines hebben ook een of meer gegevensschijven die ook als virtuele harde schijven zijn opgeslagen.

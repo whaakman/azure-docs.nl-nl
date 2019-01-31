@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 8a7b61705f6efc5a76212fdd1345a022f58e0686
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: f56946702011968a0fcb31f6fbecbaacdc89ea42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526463"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470413"
 ---
 # <a name="encrypt-table-data"></a>Versleutelen van gegevens in een tabel
 De clientbibliotheek voor .NET Azure Storage ondersteunt versleuteling van de entiteitseigenschappen tekenreeks voor invoegen en vervangbewerkingen. De gecodeerde tekenreeksen worden opgeslagen op de service als binaire eigenschappen en ze worden geconverteerd naar tekenreeksen na ontsleuteling.    

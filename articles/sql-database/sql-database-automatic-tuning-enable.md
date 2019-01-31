@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/25/2019
+ms.openlocfilehash: 5b3a77a28945b597fe4fdd57aadfc3e05196a353
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382789"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478250"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Automatisch instellen voor het bewaken van query's en verbeteren de prestaties van de werkbelastingen inschakelen
 
@@ -26,9 +26,11 @@ Azure SQL Database is een automatisch beheerde service waarmee voortdurend uw qu
 Automatisch afstemmen kan worden ingeschakeld op de server of het databaseniveau van de via de [Azure-portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST-API](sql-database-automatic-tuning-enable.md#rest-api) aanroepen en [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) opdrachten.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Automatisch instellen op server inschakelen
+
 U kunt kiezen om over te nemen van de configuratie voor automatisch afstemmen van de 'Azure standaard' of niet over te nemen van de configuratie op niveau van de server. Standaardinstellingen van Azure zijn FORCE_LAST_GOOD_PLAN is ingeschakeld, CREATE_INDEX is ingeschakeld en DROP_INDEX is uitgeschakeld.
 
 ### <a name="azure-portal"></a>Azure Portal
+
 Om in te schakelen automatisch afstemmen op logische Azure SQL-Database **server**, navigeer naar de server in Azure portal en selecteer vervolgens **automatisch afstemmen** in het menu.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
@@ -44,7 +46,6 @@ Opties voor automatisch afstemmen op een server worden toegepast op alle databas
 ### <a name="rest-api"></a>REST-API
 
 Meer informatie over het gebruik van REST-API voor het inschakelen van automatisch afstemmen op een server, Zie [Server automatisch afstemmen van SQL-UPDATE als GET HTTP-methoden](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
-
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Automatisch instellen op een afzonderlijke database inschakelen
 
@@ -74,27 +75,28 @@ Meer informatie over het gebruik van REST-API om in te schakelen automatisch afs
 
 Zo kunnen de functie automatisch afstemmen voor een individuele database via T-SQL, verbinding maken met de database en voer de volgende query uit:
 
-   ```T-SQL
-   ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
-   ```
-   
+```SQL
+ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
+```
+
 Instellen van automatisch afstemmen op AUTO is van toepassing standaard van Azure. Instellen op OVERNEMEN, configuratie voor automatisch afstemmen overgenomen van de bovenliggende server. AANGEPASTE kiezen, moet u het handmatig configureren van automatisch afstemmen.
 
 Verbinding maken met de database voor het configureren van afzonderlijke opties voor automatisch afstemmen via T-SQL, en voer de query uit zoals deze:
 
-   ```T-SQL
-   ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
-   ```
-   
+```SQL
+ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
+```
+
 De afzonderlijke afstemmingsoptie instellen op ON, overschrijven de instellingen die van de database overgenomen en de afstemmingsoptie inschakelen. Instellen op uitgeschakeld, worden ook alle instellingen die van de database overgenomen onderdrukken en de afstemmingsoptie uitschakelen. Optie voor automatisch afstemmen, waarvoor de STANDAARDWAARDE is opgegeven, wordt de configuratie van het databaseniveau van de automatisch afstemmen van de instelling overnemen.  
 
 > [!IMPORTANT]
 > In geval van [actieve geo-replicatie](sql-database-auto-failover-group.md), automatische afstemming moet worden geconfigureerd op alleen de primaire database. Toegepast automatisch afstemmen van acties, zijn zoals voor het voorbeeld van de index maken of verwijderen moet automatisch worden gerepliceerd naar de secundaire alleen-lezen. Er wordt geprobeerd om in te schakelen automatisch afstemmen via T-SQL op de secundaire alleen-lezen, een fout leidt als met een andere configuratie afstemmen op de secundaire alleen-lezen niet ondersteund wordt.
 >
 
-Zoeken naar onze meer maar T-SQL-opties voor het configureren van automatisch afstemmen, Zie [ALTER DATABASE SET Options (Transact-SQL) voor de logische SQL Database-server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Zoeken naar onze meer maar T-SQL-opties voor het configureren van automatisch afstemmen, Zie [ALTER DATABASE SET Options (Transact-SQL) voor SQL Database-server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## <a name="disabled-by-the-system"></a>Uitgeschakeld door het systeem
+
 Alle acties die het duurt voor de database automatisch afstemmen wordt bewaakt en in sommige gevallen kan bepalen dat automatisch afstemmen correct op de database kan niet werken. In dit geval worden, afstemmingsoptie uitgeschakeld door het systeem. In de meeste gevallen is dit gebeurt omdat Query Store is niet ingeschakeld of deze heeft de status alleen-lezen op een specifieke database.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Automatische afstemming e-mailmeldingen configureren
@@ -102,6 +104,7 @@ Alle acties die het duurt voor de database automatisch afstemmen wordt bewaakt e
 Zie [automatische afstemming van e-mailmeldingen](sql-database-automatic-tuning-email-notifications.md) handleiding.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Lees de [automatisch afstemmen artikel](sql-database-automatic-tuning.md) voor meer informatie over automatisch afstemmen en hoe u kunnen helpen de prestaties verbeteren.
 * Zie [aanbevelingen voor prestaties](sql-database-advisor.md) voor een overzicht van Azure SQL Database-aanbevelingen voor prestaties.
 * Zie [Query prestatie-inzichten](sql-database-query-performance.md) voor meer informatie over het weergeven van de invloed op de prestaties van uw belangrijkste query's.

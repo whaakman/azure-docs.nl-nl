@@ -1,6 +1,6 @@
 ---
-Titel: Schaal van een Machine Learning Studio web service titleSuffix: Azure Machine Learning Studio description: Leer hoe u gelijktijdigheid van een Azure Machine Learning Studio-webservice verbeteren door het toevoegen van extra eindpunten.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Schaal van een Machine Learning Studio web service titleSuffix: Azure Machine Learning Studio description: Leer hoe u gelijktijdigheid van een Azure Machine Learning Studio-webservice verbeteren door het toevoegen van extra eindpunten.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 01/23/2017
 ---

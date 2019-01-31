@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248090"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476754"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analyseren van uw workload in Azure SQL Data Warehouse
 Technieken voor het analyseren van de prioriteit van de query voor uw workload in Azure SQL Data Warehouse.
@@ -144,10 +144,10 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 
 SQL Data Warehouse heeft de volgende typen wacht:
 
-* **LocalQueriesConcurrencyResourceType**: query's die zich buiten het kader van gelijktijdigheid van taken sleuf. DMV-query's en systeem functies, zoals `SELECT @@VERSION` zijn voorbeelden van lokale query's.
-* **UserConcurrencyResourceType**: query's die zich in het kader van gelijktijdigheid van taken sleuf bevinden. Query's op tabellen van de eindgebruiker vertegenwoordigen voorbeelden die dit brontype zou gebruiken.
-* **DmsConcurrencyResourceType**: wacht die voortvloeien uit bewerkingen voor gegevensverplaatsing.
-* **BackupConcurrencyResourceType**: deze wacht geeft aan dat een database back-up. De maximale waarde voor dit resourcetype is 1. Als meerdere back-ups hebt aangevraagd op hetzelfde moment, de andere wachtrij.
+* **LocalQueriesConcurrencyResourceType**: Query's die zich buiten het kader van gelijktijdigheid van taken sleuf. DMV-query's en systeem functies, zoals `SELECT @@VERSION` zijn voorbeelden van lokale query's.
+* **UserConcurrencyResourceType**: Query's die zich in het kader van gelijktijdigheid van taken sleuf bevinden. Query's op tabellen van de eindgebruiker vertegenwoordigen voorbeelden die dit brontype zou gebruiken.
+* **DmsConcurrencyResourceType**: Wachten op het resultaat zijn van bewerkingen voor gegevensverplaatsing.
+* **BackupConcurrencyResourceType**: Deze wacht geeft aan dat een database back-up. De maximale waarde voor dit resourcetype is 1. Als meerdere back-ups hebt aangevraagd op hetzelfde moment, de andere wachtrij.
 
 De `sys.dm_pdw_waits` DMV kan worden gebruikt om te zien welke bronnen op een aanvraag wacht.
 

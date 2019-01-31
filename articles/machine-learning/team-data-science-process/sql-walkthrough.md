@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2e71cf90c6e894946a2f3a1c8bfce2179f214a29
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141404"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453648"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Het Team Data Science Process in actie: met behulp van SQL Server
 In deze zelfstudie hebt u stapsgewijs door het proces van het bouwen en implementeren van een machine learning-model met behulp van SQL Server en een openbaar beschikbare gegevensset testlab voor de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard gegevenswetenschapwerkstroom: opnemen en Verken de gegevens, functies, dingen en vervolgens bouwen en implementeren van een model bouwen.
@@ -46,15 +46,15 @@ De unieke sleutel voor deelname aan reis\_gegevens en reis\_fare bestaat uit de 
 ## <a name="mltasks"></a>Voorbeelden van taken voor voorspelling
 We zullen formuleren drie voorspelling problemen op basis van de *tip\_bedrag*, namelijk:
 
-1. Binaire classificatie: voorspellen of een tip betaald is voor een reis, dat wil zeggen een *tip\_bedrag* die groter is dan $0 een voorbeeld van een positieve is, terwijl een *tip\_bedrag* van $0 is een negatieve voorbeeld.
-2. Multiklassen classificatie: om te voorspellen van het bereik van de tip betaald voor de reis. We delen de *tip\_bedrag* in vijf opslaglocaties of klassen:
+1. Binaire classificatie: Te voorspellen of een tip betaald is voor een reis, dat wil zeggen een *tip\_bedrag* die groter is dan $0 een voorbeeld van een positieve is, terwijl een *tip\_bedrag* van $0 is een voorbeeld van een negatief zijn.
+2. Multiklassen classificatie: Om te voorspellen van het bereik van de tip betaald voor de reis. We delen de *tip\_bedrag* in vijf opslaglocaties of klassen:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Regressie taak: om te voorspellen van de hoeveelheid tip voor een reis betaald.  
+3. Regressie taak: Om te voorspellen van de hoeveelheid tip betaald voor een reis.  
 
 ## <a name="setup"></a>Instelling van de Azure data science-omgeving voor geavanceerde analyses
 Zoals u ziet in de [van plan bent uw omgeving](plan-your-environment.md) guide, er zijn verschillende opties om te werken met de gegevensset NYC Taxi Trips in Azure:
@@ -79,7 +79,7 @@ Uw Azure Data Science-omgeving instellen:
    > 
    > 
 
-Op basis van grootte van de gegevensset, de locatie van gegevens en de geselecteerde Azure doelomgeving, in dit scenario is vergelijkbaar met [Scenario \#5: grote gegevensset in een lokale bestanden, gericht op SQL Server in virtuele Azure-machine](plan-sample-scenarios.md#largelocaltodb).
+Op basis van grootte van de gegevensset, de locatie van gegevens en de geselecteerde Azure doelomgeving, in dit scenario is vergelijkbaar met [Scenario \#5: Grote gegevensset in een lokale bestanden, gericht op SQL Server in virtuele Azure-machine](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>De gegevens ophalen uit openbare gegevensbron
 Aan de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset van de openbare locatie, u kunt een van de methoden die worden beschreven in [verplaatst gegevens van en naar Azure Blob Storage](move-azure-blob.md) om te kopiëren van de gegevens naar uw nieuwe virtuele machine.
@@ -87,7 +87,7 @@ Aan de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset van d
 Om te kopiëren van gegevens met AzCopy:
 
 1. Meld u aan bij uw virtuele machine (VM)
-2. Maak een nieuwe map in van de VM-gegevensschijf (Opmerking: gebruik niet de tijdelijke schijf wordt geleverd met de virtuele machine als gegevensschijf).
+2. Maak een nieuwe map in van de VM-gegevensschijf (Opmerking: Gebruik niet de tijdelijke schijf wordt geleverd met de virtuele machine als gegevensschijf).
 3. Voer de volgende Azcopy-opdrachtregel, < path_to_data_folder > vervangen door de gegevensmap van uw in (2) gemaakt in een opdrachtpromptvenster:
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -137,7 +137,7 @@ De prestaties van het laden/overdracht van grote hoeveelheden gegevens op een SQ
 12. De NYC Taxi Trips-gegevens zijn geladen uit twee verschillende tabellen. Ter verbetering van join-bewerkingen, is het raadzaam om te indexeren van de tabellen. Het voorbeeldscript **maken\_gepartitioneerde\_index.sql** maakt gepartitioneerde indexen voor de samengestelde join-sleutel **straten hack\_licentie, en ophalen van\_ datum/tijd**.
 
 ## <a name="dbexplore"></a>Gegevens verkennen en Feature-Engineering in SQL Server
-In deze sectie wordt we gegevens verkennen en functie genereren uitvoeren door het uitvoeren van SQL-query's rechtstreeks in de **SQL Server Management Studio** eerder met behulp van de SQL Server-database hebt gemaakt. Een voorbeeld van een script met de naam **voorbeeld\_queries.sql** vindt u in de **voorbeeldscripts** map. Wijzigen van het script voor het wijzigen van de naam van de database als deze van de standaard verschilt: **TaxiNYC**.
+In deze sectie wordt we gegevens verkennen en functie genereren uitvoeren door het uitvoeren van SQL-query's rechtstreeks in de **SQL Server Management Studio** eerder met behulp van de SQL Server-database hebt gemaakt. Een voorbeeld van een script met de naam **voorbeeld\_queries.sql** vindt u in de **voorbeeldscripts** map. Wijzig het script voor het wijzigen van de naam van de database als deze van de standaard verschilt: **TaxiNYC**.
 
 In deze oefening we het volgende doen:
 
@@ -163,7 +163,7 @@ Voor een snelle controle van het aantal rijen en kolommen in de tabellen die eer
     -- Report number of columns in table nyctaxi_trip
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
-#### <a name="exploration-trip-distribution-by-medallion"></a>Verkennen: Verdeling reis straten
+#### <a name="exploration-trip-distribution-by-medallion"></a>Verkennen: Verdeling naar reis straten
 In dit voorbeeld wordt de straten (taxi getallen) geïdentificeerd met meer dan 100 trips binnen een bepaalde periode. De query veel voordeel hebben van de toegang tot de gepartitioneerde tabel nadat deze zijn afhankelijk van het partitieschema van **ophalen\_datum-/**. Uitvoeren van query's de volledige gegevensset maakt ook gebruik van de gepartitioneerde tabel en/of index-scan.
 
     SELECT medallion, COUNT(*)
@@ -172,14 +172,14 @@ In dit voorbeeld wordt de straten (taxi getallen) geïdentificeerd met meer dan 
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Verkennen: Reis distributie per straten en hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Verkennen: Verdeling naar reis straten en hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Gegevens van kwaliteit-beoordeling: Controleer of records met onjuiste lengtegraad en/of breedtegraad
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Gegevens van kwaliteit-beoordeling: Controleer de records met onjuiste lengtegraad en/of breedtegraad
 In dit voorbeeld onderzoekt het probleem als een van de velden breedtegraad en/of breedtegraad een ongeldige waarde bevatten (radiaal graden moet tussen-90 en 90), of (0, 0) coördinaten.
 
     SELECT COUNT(*) FROM nyctaxi_trip
@@ -191,7 +191,7 @@ In dit voorbeeld onderzoekt het probleem als een van de velden breedtegraad en/o
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Verkennen: Gekantelde vergeleken Geen punt Trips distributie
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Verkennen: Gekantelde vs. Geen punt Trips distributie
 In dit voorbeeld wordt gezocht naar het nummer van de gegevens die zijn punt versus geen punt in een bepaald moment periode (of in de volledige gegevensset als die betrekking hebben op het gehele jaar). Deze verdeling weerspiegelt de binaire labeldistributie moet later worden gebruikt voor binaire classificatie-modellen.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -200,7 +200,7 @@ In dit voorbeeld wordt gezocht naar het nummer van de gegevens die zijn punt ver
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-#### <a name="exploration-tip-classrange-distribution"></a>Verkennen: Tip-klasse/bereik distributie
+#### <a name="exploration-tip-classrange-distribution"></a>Verkennen: Tip van de distributie van de klasse/bereik
 In dit voorbeeld berekent de verdeling van de tip bereiken in een bepaalde periode (of in de volledige gegevensset als die betrekking hebben op het gehele jaar). Dit is de distributie van de label-klassen die later worden gebruikt voor multiklassen classificatie modelleren.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ In dit voorbeeld berekent de verdeling van de tip bereiken in een bepaalde perio
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Verkennen: Compute en reis afstand vergelijken
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Verkennen: Reken- en vergelijken reis afstand
 In dit voorbeeld zet de ophalen en dropoff lengtegraad en breedtegraad in SQL-geo verwijst, de reis afstand met behulp van SQL Geografie punten verschil berekent en retourneert een steekproef van de resultaten voor vergelijking. Het voorbeeld de resultaten beperkt tot geldig coördinaten alleen met behulp van de kwaliteit evaluatie van de query die eerder besproken.
 
     SELECT
@@ -328,14 +328,14 @@ U bent er nu klaar om de sample gegevens te verkennen. We beginnen met kijken be
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualisatie: Voorbeeld van Plot
+#### <a name="visualization-box-plot-example"></a>Visualisatie: Voorbeeld van diagram
 Nu we eens kijken naar de BoxPlot voor de reis-afstand tot de quantiles visualiseren
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Tekenen van #1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualisatie: Voorbeeld van de distributie tekengebied
+#### <a name="visualization-distribution-plot-example"></a>Visualisatie: Voorbeeld van de distributie-diagram
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ Nu we eens kijken naar de BoxPlot voor de reis-afstand tot de quantiles visualis
 
 ![Tekenen van #2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualisatie: De balk en de regel grafieken
+#### <a name="visualization-bar-and-line-plots"></a>Visualisatie: Staaf- en regel grafieken
 In dit voorbeeld we de afstand reis naar vijf opslaglocaties bin en het binning resultaten te visualiseren.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -407,7 +407,7 @@ In deze sectie wordt de tabellen samenvoegen **nyctaxi\_reis** en **nyctaxi\_far
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Gegevens verkennen met behulp van SQL-query's in IPython Notebook
 In deze sectie wordt toegelicht gegevens-distributies die gebruikmaken van de gegevens van 1% steekproef die worden opgeslagen in de nieuwe tabel die eerder is gemaakt. Houd er rekening mee dat vergelijkbare explorations kunnen worden uitgevoerd met behulp van de oorspronkelijke tabellen, eventueel met behulp van **TABLESAMPLE** om te beperken de exploratie voorbeeld of door het beperken van de resultaten naar een bepaald moment periode met de **ophalen\_datum-/** partities, zoals wordt geïllustreerd in de [gegevens verkennen en functie-Engineering in SQL Server](#dbexplore) sectie.
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Verkennen: Dagelijkse distributie van trips
+#### <a name="exploration-daily-distribution-of-trips"></a>Verkennen: Dagelijkse distributie van gegevens
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM nyctaxi_one_percent
@@ -416,7 +416,7 @@ In deze sectie wordt toegelicht gegevens-distributies die gebruikmaken van de ge
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Verkennen: Reis-distributie per straten
+#### <a name="exploration-trip-distribution-per-medallion"></a>Verkennen: Distributie per straten reis
     query = '''
         SELECT medallion,count(*) AS c
         FROM nyctaxi_one_percent
@@ -428,7 +428,7 @@ In deze sectie wordt toegelicht gegevens-distributies die gebruikmaken van de ge
 ### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>Functie te genereren met behulp van SQL-query's in IPython Notebook
 In deze sectie er nieuwe labels worden gegenereerd en functies die rechtstreeks met behulp van SQL-query's, op de tabel % 1 wordt gemaakt in de vorige sectie.
 
-#### <a name="label-generation-generate-class-labels"></a>Label-generatie: Labels van de klasse te genereren
+#### <a name="label-generation-generate-class-labels"></a>Label genereren: Labels van de klasse te genereren
 In het volgende voorbeeld wordt er twee sets met labels moet worden gebruikt voor het maken van modellering gegenereerd:
 
 1. Binaire klasse Labels **punt** (voorspellen als een tip krijgt)
@@ -486,7 +486,7 @@ In dit voorbeeld transformeert een categorische veld naar een numeriek veld door
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Feature-Engineering: Bin functies voor numerieke kolommen
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Feature-Engineering: Functies van de opslaglocatie voor numerieke kolommen
 In dit voorbeeld transformeert een continue numeriek veld naar vooraf ingestelde categorie bereiken, numeriek veld dat wil zeggen, transformatie in een categorische veld.
 
     nyctaxi_one_percent_insert_col = '''
@@ -546,9 +546,9 @@ In dit voorbeeld een uitsplitsing van de decimale weergave van een veld breedteg
 
 We zijn nu klaar om door te gaan naar modellen bouwen en implementeren van modellen in [Azure Machine Learning](https://studio.azureml.net). De gegevens zijn gereed voor de voorspelling problemen geïdentificeerd lager, namelijk:
 
-1. Binaire classificatie: om te voorspellen of een tip is betaald voor een reis.
-2. Multiklassen classificatie: om te voorspellen van het bereik van de tip betaald, op basis van de eerder gedefinieerde klassen.
-3. Regressie taak: om te voorspellen van de hoeveelheid tip voor een reis betaald.  
+1. Binaire classificatie: Om te voorspellen of een tip is betaald voor een reis.
+2. Multiklassen classificatie: Om te voorspellen van het bereik van de tip wordt betaald, op basis van de eerder gedefinieerde klassen.
+3. Regressie taak: Om te voorspellen van de hoeveelheid tip betaald voor een reis.  
 
 ## <a name="mlmodel"></a>Het bouwen van modellen in Azure Machine Learning
 Als u wilt de oefening modellen, moet u zich aanmelden bij uw Azure Machine Learning-werkruimte. Als u nog geen een machine learning-werkruimte hebt gemaakt, raadpleegt u [maken van een Azure Machine Learning-werkruimte](../studio/create-workspace.md).

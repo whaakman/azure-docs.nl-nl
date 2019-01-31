@@ -1,5 +1,5 @@
 ---
-Titel: Definieer aangepaste R-modules titleSuffix: Azure Machine Learning Studio description: In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
+Titel: Definieer aangepaste R-modules titleSuffix: Azure Machine Learning Studio description: In dit onderwerp wordt beschreven hoe u voor het ontwerpen en implementeren van een aangepaste R-module in Azure Machine Learning. Hierin wordt uitgelegd wat aangepaste R-modules zijn en welke bestanden worden gebruikt om deze te bepalen. Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---

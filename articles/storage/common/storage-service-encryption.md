@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: common
+ms.openlocfilehash: 059091315c378ab6e2bb857e580c02df968b5092
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384119"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457170"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-Serviceversleuteling voor data-at-rest
 Azure Storage-Serviceversleuteling voor data-at-rest kunt u uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen beveiligen. Met deze functie door het platform van Azure storage automatisch uw gegevens worden versleuteld voordat Azure Managed Disks, Azure Blob, wachtrij of tabel storage of Azure-bestanden opgeslagen en ontsleutelt de gegevens voor het ophalen van. De verwerking van versleuteling en versleuteling-at-rest, ontsleuteling en sleutelbeheer in Storage Service-versleuteling is transparant voor gebruikers. Alle gegevens die zijn geschreven naar het Azure storage-platform worden versleuteld met 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.component: common
-ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: common
+ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121725"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474000"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -471,12 +471,12 @@ Als u de clienttoepassing HTTP 403 (verboden) fouten genereren wordt, is een waa
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-… |Bewerking met de primaire locatie per locatiemodus PrimaryOnly starten. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;si = mypolicy&amp;sig OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % = 3D&amp;api-versie 2014-02-14 =. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Wachten op antwoord. |
-| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens het wachten op reactie: De externe server heeft een fout geretourneerd: (403)-verboden. |
+| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens het wachten op reactie: De externe server heeft een fout geretourneerd: (403) Verboden. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Antwoord ontvangen. Statuscode 403, aanvraag-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, inhoud MD5 = =, ETag =. |
 | Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens de bewerking: De externe server heeft een fout geretourneerd: (403)-verboden... |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Controleren als de bewerking opnieuw moet worden uitgevoerd. Aantal nieuwe pogingen = 0, HTTP-statuscode 403, uitzondering = = van de externe server heeft een fout geretourneerd: (403)-verboden... |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |De volgende locatie is ingesteld op de primaire, op basis van de locatiemodus. |
-| Microsoft.WindowsAzure.Storage |Fout |1 |85d077ab -… |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server heeft een fout geretourneerd: (403)-verboden. |
+| Microsoft.WindowsAzure.Storage |Fout |1 |85d077ab -… |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server heeft een fout geretourneerd: (403) Verboden. |
 
 In dit scenario, moet u onderzoeken waarom het SAS-token is verlopen voordat de client het token naar de server stuurt:
 
@@ -522,14 +522,14 @@ Logboekvermeldingen:
 | 07b26a5d-... |Het downloaden van de hoofdtekst van antwoord. |
 | 07b26a5d-... |De bewerking is voltooid. |
 | 07b26a5d-... |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| 07b26a5d-... |StringToSign = DELETE...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 juni 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Wachten op antwoord. |
 | 07b26a5d-... |Antwoord ontvangen. Statuscode 202, aanvraag-ID = = 6ab2a4cf..., inhoud MD5 =, ETag =. |
 | 07b26a5d-... |Antwoordheaders zijn voltooid, verwerkt u doorgaat met de rest van de bewerking. |
 | 07b26a5d-... |Het downloaden van de hoofdtekst van antwoord. |
 | 07b26a5d-... |De bewerking is voltooid. |
 | e2d06d78-... |Asynchrone aanvraag om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
-| e2d06d78-... |StringToSign = HEAD...x-ms-client-request-id:e2d06d78-...x-ms-date:Tue, 03 juni 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Wachten op antwoord. |
 | de8b1c3c-... |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT... 64.qCmF+TQLPhq/YYK50mP9ZQ==...x-MS-BLOB-type:BlockBlob.x-MS-Client-Request-id:de8b1c3c-...x-MS-Date:TUE, 03 juni 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
@@ -540,7 +540,7 @@ Logboekvermeldingen:
 | e2d06d78-... |Het downloaden van de hoofdtekst van antwoord. |
 | e2d06d78-... |De bewerking is voltooid. |
 | e2d06d78-... |Asynchrone aanvraag om te beginnen https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| e2d06d78-... |StringToSign = PUT... 0...x-MS-Client-Request-id:e2d06d78-...x-MS-Date:TUE, 03 juni 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Wachten op antwoord. |
 | de8b1c3c-... |Gegevens van aanvragen van schrijven. |
 | de8b1c3c-... |Wachten op antwoord. |
@@ -560,7 +560,7 @@ Als de clienttoepassing probeert te gebruiken van een SAS-sleutel die de benodig
 
 De volgende tabel ziet u een voorbeeld serverzijde log-bericht van het logboekbestand logboekregistratie van opslag:
 
-| Name | Waarde |
+| Name | Value |
 | --- | --- |
 | Begintijd van de aanvraag | 2014-05-30T06:17:48.4473697Z |
 | Bewerkingstype     | GetBlobProperties            |
@@ -627,8 +627,8 @@ De volgende tabel ziet u een extraheren uit het logboek serverzijde voor twee cl
 
 | Tijdstempel | Bewerking | Resultaat | Containernaam | Clientaanvraag-id |
 | --- | --- | --- | --- | --- |
-| 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
-| 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |
+| 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
+| 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-… |
 | 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-… |
 
@@ -737,7 +737,7 @@ De volgende procedure beschrijft hoe u om vast te leggen gedetailleerde pakketge
 4. Een filter toe te voegen de **vastleggen Filter** tekstvak. Bijvoorbeeld, **hosten contosoemaildist.table.core.windows.net** configureert Wireshark om vast te leggen alleen pakketten die zijn verzonden naar of van de service-eindpunt van de tabel in de **contosoemaildist** storage-account. Bekijk de [volledige lijst met Filters vastleggen](http://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
-5. Klik op **Starten**. Wireshark nu vastlegt alle de pakketten verzenden naar of van het eindpunt van table service tijdens het gebruik van uw clienttoepassing op uw lokale computer.
+5. Klik op **Start**. Wireshark nu vastlegt alle de pakketten verzenden naar of van het eindpunt van table service tijdens het gebruik van uw clienttoepassing op uw lokale computer.
 6. Wanneer u klaar bent, op de Klik in het hoofdmenu **vastleggen** en vervolgens **stoppen**.
 7. Als u wilt de vastgelegde gegevens opslaat in een bestand voor het vastleggen van Wireshark, klik in het hoofdmenu op **bestand** en vervolgens **opslaan**.
 

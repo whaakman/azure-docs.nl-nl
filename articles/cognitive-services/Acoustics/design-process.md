@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7c0a48c22e6fe1d1904771915aef401ffa58d588
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152534"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470482"
 ---
 # <a name="design-process-overview"></a>Overzicht van het ontwerp
 U kunt de bedoeling van uw ontwerp in alle drie fasen van de werkstroom Project akoestische express: vooraf verdient scène setup, gezonde bron plaatsing en na bake ontwerp. Het proces vereist minder markeringen die zijn gekoppeld aan volumes weerklank behoudt designer bepalen hoe een scène geluiden plaatsen.
@@ -61,24 +61,30 @@ De audio DSP geleverd door de **Microsoft Acoustics** ruimtelijk-invoegtoepassin
 
 ![Afstand afname](media/distanceattenuation.png)
 
-Akoestische uitvoeren berekening in een "regio simulatie" gecentreerd rond de player-locatie. Als een goede bron ver van de speler is, buiten deze regio simulatie beïnvloedt alleen geometrie in het vak de geluid doorgifte (zoals waardoor bedekking) die redelijk goed werkt wanneer occluders zijn in de buurt van de speler. Echter, in gevallen wanneer de speler in de open ruimte is, maar de occluders in de buurt van de verafgelegen geluid bron zijn, het geluid kunt worden onrealistisch disoccluded. Onze voorgestelde tijdelijke oplossing is om in dergelijke gevallen ervoor te zorgen dat het geluid afname uit op 0 bij ongeveer 45m, de standaard horizontale afstand van de speler aan de rand van het vak valt.
+Akoestische uitvoeren berekening in een "regio simulatie" gecentreerd rond de player-locatie. Als een goede bron ver van de speler is, buiten deze regio simulatie beïnvloedt alleen geometrie in het vak de geluid doorgifte (zoals waardoor bedekking) die redelijk goed werkt wanneer occluders zijn in de buurt van de speler. Echter, in gevallen wanneer de speler in de open ruimte is, maar de occluders in de buurt van de verafgelegen geluid bron zijn, het geluid kunt worden onrealistisch disoccluded. Onze voorgestelde tijdelijke oplossing is om in dergelijke gevallen ervoor te zorgen dat het geluid afname uit op 0 bij ongeveer 45 m, de standaard horizontale afstand van de speler aan de rand van het vak valt.
 
 ### <a name="tuning-scene-parameters"></a>Scène-parameters afstemmen
-Als u wilt aanpassen parameters voor alle bronnen, klikt u op de strook kanaal in van Unity **Audio Mixer**, en pas de parameters op de **akoestische Mixer** effect.
+Als u wilt aanpassen parameters voor alle bronnen, klikt u op de strook kanaal in van Unity **Audio Mixer**, en pas de parameters op de **Project akoestische Mixer** effect.
 
 ![Aanpassing van Mixer](media/MixerParameters.png)
+
+* **Wetness aanpassen** -de kracht weerklank in dB worden aangepast voor alle bronnen in de scène op basis van de bron-listener afstand. Positieve waarden moeten een geluid meer reverberant, terwijl u negatieve waarden van een geluid meer droge.
+* **Schaal RT60** - Multiplicatieve scalaire weerklank tijd.
+* **Schuif gebruiken** -besturingselementen of audio wordt uitgevoerd als binaural (0) of meerdere kanalen pannen (1). Een willekeurige waarde behalve 1 geeft aan binaural. Binaural uitvoer is spatialized met HRTFs voor gebruik met hoofdtelefoon en meerdere kanalen uitvoer is spatialized met VBAP voor gebruik met meerdere kanalen omgeef spreker systemen. Als u met behulp van de Multikanaal panner ervoor dat u selecteert de luidsprekermodus die overeenkomt met uw instellingen voor apparaten, te vinden onder **projectinstellingen** > **Audio**.
+
+![SpeakerMode](media/SpeakerMode.png)
 
 ### <a name="tuning-source-parameters"></a>Bron parameters afstemmen
 Bezig met koppelen van de **AcousticsAdjust** script naar een gegevensbron kunt afstemmen parameters voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische aanpassen**. Het script heeft zes besturingselementen:
 
 ![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Inschakelen van akoestische** -bepaalt of akoestische is toegepast op deze gegevensbron. Wanneer dit selectievakje uitschakelt, wordt de bron spatialized met HRTFs, maar zonder akoestische, wat betekent dat zonder obstakel bedekking en dynamische weerklank parameters zoals niveau en decay tijd. Weerklank wordt nog steeds toegepast met een vaste niveau en de vervaltijd.
+* **Inschakelen van akoestische** -bepaalt of akoestische is toegepast op deze gegevensbron. Wanneer dit selectievakje uitschakelt, wordt de bron worden spatialized met HRTFs of pannen, maar er is geen akoestische. Dit betekent dat er geen obstakel, bedekking en dynamische weerklank parameters zoals niveau en decay tijd. Weerklank wordt nog steeds toegepast met een vaste niveau en de vervaltijd.
 * **Bedekking** -een vermenigvuldiger van toepassing op het niveau van de bedekking dB berekend door het systeem akoestische. Als deze vermenigvuldiger groter dan 1 is, bedekking wordt exaggerated, terwijl waarden minder dan 1 maken het effect van bedekking subtielere en een waarde van 0 schakelt bedekking.
 * **Overdracht (dB)** -de afname (in de database) veroorzaakt door een overdracht via geometrie instellen. Deze schuifregelaar ingesteld op het laagste niveau om uit te schakelen verzending. Akoestische spatializes de initiële droge audio als binnenkomen rond scène geometrie (portaling). Verzending biedt een extra droge aankomst die in de richting van de regel van zicht is spatialized. Houd er rekening mee dat de curve afstand afname van de bron ook wordt toegepast.
-* **Wetness (dB)** -de kracht weerklank in dB worden aangepast op basis van de afstand tussen de bron. Positieve waarden moeten een geluid meer reverberant, terwijl u negatieve waarden van een geluid meer droge. Klik op het besturingselement met de curve (groene lijn) om de curve-editor. Wijzigen van de curve door te klikken met de linkermuisknop om toe te voegen punten en sleept deze punten om de functie die u wilt. De x-as is afstand van de bron en de y-as is weerklank aanpassing in dB. Raadpleeg deze [Unity handmatig](https://docs.unity3d.com/Manual/EditingCurves.html) voor meer informatie over het bewerken van curven. Als u wilt opnieuw met het instellen van de curve naar de standaard, klik met de rechtermuisknop op **Wetness** en selecteer **opnieuw**.
+* **Wetness (dB)** -de kracht weerklank in dB worden aangepast op basis van de afstand tussen de bron. Positieve waarden moeten een geluid meer reverberant, terwijl u negatieve waarden van een geluid meer droge. Klik op het besturingselement met de curve (groene lijn) om de curve-editor. Wijzigen van de curve door te klikken met de linkermuisknop om toe te voegen punten en sleept deze punten om de functie die u wilt. De x-as is afstand van de bron en de y-as is weerklank aanpassing in dB. Zie voor meer informatie over het bewerken van curven [Unity handmatig](https://docs.unity3d.com/Manual/EditingCurves.html). Als u wilt opnieuw met het instellen van de curve naar de standaard, klik met de rechtermuisknop op **Wetness** en selecteer **opnieuw**.
 * **Verval schaal** -Hiermee past u een vermenigvuldiger voor de vervaltijd. Bijvoorbeeld, als het resultaat bake Hiermee geeft u een Vervaltijd van 750 milliseconden, maar deze waarde is ingesteld op 1.5, is de vervaltijd toegepast op de bron 1,125 milliseconden.
-* **Outdoorness** -een-additieve aanpassing op van het systeem akoestische schatting van hoe "buitenshuis' de weerklank op een bron moet geluid. Deze instelling dan op 1 een bron altijd goed volledig buitenshuis, tijdens het instellen op-1 wordt hierdoor een bron geluid binnenshuis.
+* **Outdoorness** -een-additieve aanpassing op van het systeem akoestische schatting van hoe "buitenshuis' de weerklank op een bron moet geluid. Deze waarde instelt op 1 maakt een bron altijd goed volledig buitenmilieu, terwijl deze wordt ingesteld op -1 wordt een bron geluid binnen.
 
 Verschillende bronnen mogelijk verschillende instellingen voor een bepaalde effecten fraaie uiterlijk of spelen. Dialoogvenster is een mogelijke voorbeeld. Het menselijke oor is meer attuned naar weerklank in spraak, terwijl dialoogvenster moet vaak worden begrijpelijke voor spelen. U kunt voor dit account zonder dat het dialoogvenster niet-diegetic door over te stappen de **Wetness** naar beneden, passen de **perceptuele afstand verdraaien** parameter hieronder wordt beschreven, toe te voegen sommige  **Verzending** voor sommige droge audio boost doorgegeven door de muren en/of vermindering van de **bedekking** van 1 tot en met meer geluid binnenkomen via portals hebben.
 
@@ -86,5 +92,5 @@ Bezig met koppelen van de **AcousticsAdjustExperimental** script naar een bron z
 
 ![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
-* **Perceptuele afstand verdraaien** -toepassing een exponentiële kromtrekken aan de afstand wordt gebruikt voor het berekenen van de testmodus NAT-verhouding. Het systeem akoestische berekent NAT niveaus in de ruimte die variëren probleemloos met afstand en perceptuele afstand aanwijzingen geven. Kromtrekken waarden die groter zijn dan 1 dit effect exaggerate door te verhogen met betrekking tot afstand weerklank niveaus, zodat de geluid "afstand", terwijl minder dan 1 Controleer de weerklank op basis van een afstand van meer subtiele, waardoor het geluid meer wijziging kromtrekken waarden 'presenteren'.
+* **Perceptuele afstand verdraaien** -toepassing een exponentiële kromtrekken aan de afstand wordt gebruikt voor het berekenen van de testmodus NAT-verhouding. Het systeem akoestische berekent NAT niveaus in de ruimte die variëren probleemloos met afstand en perceptuele afstand aanwijzingen geven. Dit effect exaggerate afbeeldingsvervormingen waarden groter dan 1 door te verhogen met betrekking tot afstand weerklank niveaus, waardoor het geluid "afstand". Kromtrekken waarden minder dan 1 maken de weerklank op basis van afstand meer subtiele, en het geluid meer "aanwezig' wijzigen.
 

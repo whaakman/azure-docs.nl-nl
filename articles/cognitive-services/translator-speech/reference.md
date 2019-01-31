@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e1796b2cb3efee6ff610f9dade7a10b2c2637bba
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259423"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466180"
 ---
 # <a name="translator-speech-api"></a>Translator Speech-API
 
@@ -69,12 +69,12 @@ Zodra de verbinding tot stand is gebracht, begint de client streamen van audio n
 
 Audio-invoer is in de Wave Audio-indeling (WAVE, of meer bekend als WAV vanwege de bestandsnaamextensie). De clienttoepassing moet één kanaal, 16-bits ondertekende steekproef op 16 kHz PCM-audio streamen. De eerste set met bytes die worden gestreamd door de client wordt de WAV-header bevatten. De header van een 44 bytes is voor één kanaal ondertekend 16 bits PCM stream steekproef op 16 kHz:
 
-|Offset|Waarde|
+|Offset|Value|
 |:---|:---|
 |0 - 3|"RIFF"|
 |4 - 7|0|
 |8 - 11|"WAVE"|
-|12: 15|"fmt"|
+|12 - 15|"fmt"|
 |16 - 19|16|
 |20 - 21|1|
 |22 - 23|1|
@@ -82,7 +82,7 @@ Audio-invoer is in de Wave Audio-indeling (WAVE, of meer bekend als WAV vanwege 
 |28 - 31|32000|
 |32 - 33|2|
 |34 - 35|16|
-|36 - 39|"gegevens"|
+|36 - 39|"data"|
 |40 - 43|0|
 
 U ziet dat de totale bestandsgrootte (byte 4-7) en de grootte van de "gegevens" (40-43 bytes) zijn ingesteld op nul. Dit is geen probleem voor het streaming-scenario waarin de totale grootte is niet noodzakelijkerwijs bekend kosten vooraf.
@@ -165,7 +165,7 @@ Wanneer een clienttoepassing is voltooid met het streamen van audio en het laats
 
 ### <a name="parameters"></a>Parameters
 
-|Parameter|Waarde|Description|Parametertype|Gegevenstype|
+|Parameter|Value|Description|Parametertype|Gegevenstype|
 |:---|:---|:---|:---|:---|
 |API-versie|1.0|De versie van de API die is aangevraagd door de client. Toegestane waarden zijn: `1.0`.|query   |string|
 |uit|(leeg)   |Hiermee geeft u de taal van de binnenkomende spraak. De waarde is een van de taal-id's van de `speech` bereik in het antwoord van de API talen.|query|string|
@@ -181,7 +181,7 @@ Wanneer een clienttoepassing is voltooid met het streamen van audio en het laats
 |abonnement-sleutel|(leeg)   |Alternatieve manier om door te geven abonnementssleutel. Sommige bibliotheken websocket toegestaan clientcode om in te stellen headers niet. In dit geval is, kan de client gebruiken de `subscription-key` queryparameter om door te geven van een sleutel geldig abonnement. Bij het gebruik van de abonnementssleutel van een om te verifiëren, als `Ocp-Apim-Subscription-Key` header is niet ingesteld, wordt abonnement-sleutel moet worden ingesteld. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd. Clients moeten een methode alleen gebruiken om door te geven de `subscription key`.|query|string|
 |X-ClientTraceId    |(leeg)    |Een client gegenereerde GUID gebruikt voor het traceren van een aanvraag. Voor het juiste oplossen van problemen, moeten clients voorzien van elke aanvraag een nieuwe waarde en aangemeld.<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-ClientTraceId`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
 |X-CorrelationId|(leeg)    |Een client gegenereerde id gebruikt voor het correleren van meerdere kanalen in een gesprek. Meerdere spraak vertaling sessies kunnen worden gemaakt om in te schakelen gesprekken tussen gebruikers. In dergelijke scenario gebruik alle spraak vertaling sessies dezelfde correlatie-ID aan de kanalen met elkaar verbinden. Dit vereenvoudigt het tracering en diagnostische gegevens. De id moet voldoen: `^[a-zA-Z0-9-_.]{1,64}$`<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-CorrelationId`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
-|X-ClientVersion|(leeg)    |Hiermee geeft u de versie van de clienttoepassing. Voorbeeld: '2.1.0.123'.<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-ClientVersion`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
+|X-ClientVersion|(leeg)    |Hiermee geeft u de versie van de clienttoepassing. Voorbeeld: "2.1.0.123".<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-ClientVersion`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
 |X-OsPlatform|(leeg)   |Hiermee geeft u de naam en versie van het besturingssysteem dat op de clienttoepassing wordt uitgevoerd. Voorbeelden: "Android 5.0", 'iOs 8.1.3', ' Windows 8.1 ".<br/>In plaats van een koptekst, deze waarde kan worden doorgegeven met queryparameter `X-OsPlatform`. Als de kop- en queryparameter zijn ingesteld, wordt de queryparameter genegeerd.|koptekst|string|
 
 ### <a name="response-messages"></a>Berichten met reacties

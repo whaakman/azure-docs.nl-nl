@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.date: 01/25/2019
+ms.openlocfilehash: 59a3b4a4e1b08a9a9985836a9f9be44d1eff9c71
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158666"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472062"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Detectie van bedreigingen (Preview) in beheerd exemplaar voor Azure SQL Database configureren
 
@@ -25,7 +25,7 @@ Azure SQL [detectie van bedreigingen](sql-database-threat-detection-overview.md)
 
 U kunt meldingen ontvangen over de gedetecteerde bedreigingen via [e-mailmeldingen](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) of [Azure-portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
-[Detectie van bedreigingen](sql-database-threat-detection-overview.md) maakt deel uit van de [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP)-aanbieding, dit een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL is. Detectie van bedreigingen kan worden geopend en worden beheerd via de centrale SQL ATP-portal. Threat detection-service wordt in rekening gebracht 15$ / maand per Managed Instance met de eerste 30 dagen gratis.
+[Detectie van bedreigingen](sql-database-threat-detection-overview.md) maakt deel uit van de [SQL geavanceerde gegevensbeveiliging](sql-advanced-threat-protection.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. Detectie van bedreigingen kan worden geopend en worden beheerd via de centrale SQL AD-portal. Threat detection-service wordt in rekening gebracht 15$ / maand per Managed Instance met de eerste 30 dagen gratis.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Detectie van bedreigingen instellen voor uw beheerde exemplaar in de Azure-portal
 
@@ -43,6 +43,6 @@ U kunt meldingen ontvangen over de gedetecteerde bedreigingen via [e-mailmelding
 
 - Meer informatie over [detectie van bedreigingen](sql-database-threat-detection-overview.md).
 - Meer informatie over Managed Instance, Zie [wat is een beheerd exemplaar](sql-database-managed-instance.md).
-- Meer informatie over [detectie van bedreigingen voor één Database](sql-database-threat-detection.md).
-- Meer informatie over [beheerd exemplaar controle](https://go.microsoft.com/fwlink/?linkid=869430).
+- Meer informatie over [bedreigingen voor één database](sql-database-threat-detection.md).
+- Meer informatie over [Managed Instance controle](https://go.microsoft.com/fwlink/?linkid=869430).
 - Meer informatie over [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).

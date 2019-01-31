@@ -1,6 +1,6 @@
 ---
-Titel: Gebruik de Azure Machine Learning Studio-webservices portal titleSuffix: Azure Machine Learning Studio description: U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Gebruik de Azure Machine Learning Studio-webservices portal titleSuffix: Azure Machine Learning Studio description: U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 02/28/2017
 ---

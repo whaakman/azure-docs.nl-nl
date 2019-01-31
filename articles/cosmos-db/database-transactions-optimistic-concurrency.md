@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 044fe3de265d298ecd366a50b9db77eeea32bbb7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389107"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457935"
 ---
-# <a name="database-transactions-and-optimistic-concurrency-control"></a>Databasetransacties en functionaliteit voor optimistische gelijktijdigheid beheren
+# <a name="transactions-and-optimistic-concurrency-control"></a>Transacties en functionaliteit voor optimistische gelijktijdigheid beheren
 
 Databasetransacties bieden een veilige en voorspelbare programmeermodel gelijktijdige wijzigingen in de gegevens zijn getroffen. Traditionele relationele databases, zoals SQL Server kunt u het schrijven van de bedrijfslogica met behulp van opgeslagen procedures en/of triggers, verzenden naar de server voor de uitvoering van rechtstreeks in de database-engine. Met traditionele relationele databases, bent u vereist voor het omgaan met twee verschillende programming talen - de (niet-transactionele) toepassing programmeertaal, zoals JavaScript, Python, C#, Java, enz. en de transactionele programmeertaal (T-SQL) die wordt standaard uitgevoerd door de database.
 

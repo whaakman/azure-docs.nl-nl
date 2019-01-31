@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/30/2018
-ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 61a413fc0b27db66091c8e4a401de654455ebe7c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871706"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470991"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-Servicelagen
 
@@ -57,8 +57,8 @@ Voor het controleren van de huidige totale grootte van het MDF en LDF gebruikt [
 
 Opslag voor back-ups ter ondersteuning van het punt in tijd herstellen (PITR) is toegewezen en [lange termijn Retention (LTR)](sql-database-long-term-retention.md) mogelijkheden van SQL Database. Deze opslag is toegewezen afzonderlijk voor elke database en wordt gefactureerd als twee afzonderlijke database kosten in rekening gebracht.
 
-- **PITR**: afzonderlijke databaseback-ups worden gekopieerd naar [RA-GRS-opslag](../storage/common/storage-designing-ha-apps-with-ragrs.md) worden automatisch. De grootte van de dynamisch wordt verhoogd wanneer de nieuwe back-ups worden gemaakt.  De opslag wordt gebruikt voor wekelijkse volledige back-ups, dagelijkse differentiële back-ups en back-ups van transactielogboeken die om de vijf minuten worden gekopieerd. Het opslagverbruik, is afhankelijk van de wijzigingssnelheid van de database en de bewaarperiode. U kunt een afzonderlijke bewaarperiode voor elke database tussen 7 en 35 dagen configureren. Een opslagruimte ter gelijk zijn aan 1 x de grootte is opgegeven zonder extra kosten. Voor de meeste databases is dit bedrag voldoende voor het opslaan van zeven dagen aan back-ups.
-- **LTR**: SQL Database biedt de mogelijkheid om langetermijnretentie voor volledige back-ups configureren voor maximaal 10 jaar. Als LTR-beleid is ingeschakeld, wordt deze back-ups worden opgeslagen in de RA-GRS-opslag automatisch, maar u kunt bepalen hoe vaak de back-ups worden gekopieerd. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Deze configuratie wordt gedefinieerd hoeveel opslagruimte wordt gebruikt voor het LTR-back-ups. Om in te schatten van de kosten voor LTR-opslag kunt u de LTR-prijscalculator. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
+- **PITR**: Afzonderlijke databaseback-ups worden gekopieerd naar [RA-GRS-opslag](../storage/common/storage-designing-ha-apps-with-ragrs.md) worden automatisch. De grootte van de dynamisch wordt verhoogd wanneer de nieuwe back-ups worden gemaakt.  De opslag wordt gebruikt voor wekelijkse volledige back-ups, dagelijkse differentiële back-ups en back-ups van transactielogboeken die om de vijf minuten worden gekopieerd. Het opslagverbruik, is afhankelijk van de wijzigingssnelheid van de database en de bewaarperiode. U kunt een afzonderlijke bewaarperiode voor elke database tussen 7 en 35 dagen configureren. Een opslagruimte ter gelijk zijn aan 1 x de grootte is opgegeven zonder extra kosten. Voor de meeste databases is dit bedrag voldoende voor het opslaan van zeven dagen aan back-ups.
+- **LTR**: SQL Database biedt de mogelijkheid langetermijnretentie van volledige back-ups configureren voor maximaal 10 jaar. Als LTR-beleid is ingeschakeld, wordt deze back-ups worden opgeslagen in de RA-GRS-opslag automatisch, maar u kunt bepalen hoe vaak de back-ups worden gekopieerd. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Deze configuratie wordt gedefinieerd hoeveel opslagruimte wordt gebruikt voor het LTR-back-ups. Om in te schatten van de kosten voor LTR-opslag kunt u de LTR-prijscalculator. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

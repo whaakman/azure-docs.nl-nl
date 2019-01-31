@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: b1ef03b97f9fe95286d427effc40e69ae07b6b3c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 3d6010df64c4e3c75bd05e2eb9828c07cf3fb342
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601488"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471382"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database-back-ups voor maximaal 10 jaar Store
 
 Veel toepassingen hebben regelgeving, naleving, of andere zakelijke doeleinden waarvoor u databaseback-ups langer dan de 7-35 dagen geleverd door Azure SQL Database behouden [automatische back-ups](sql-database-automated-backups.md). Met behulp van de functie voor lange bewaarperiode (LTR), kunt u opslaan opgegeven SQL-database volledige back-ups in [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob-opslag voor maximaal 10 jaar. Vervolgens kunt u een back-up herstellen als een nieuwe database.
 
 > [!NOTE]
-> LTR kan worden ingeschakeld op de databases die worden gehost in Azure SQL Database-logische Servers. Het is nog niet beschikbaar voor databases die worden gehost in beheerde instanties. U kunt SQL Agent-taken gebruiken om te plannen [kopie-alleen back-ups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) als alternatief voor LTR langer dan 35 dagen.
+> LTR kan worden ingeschakeld voor zelfstandige en gegroepeerde databases. Het is nog niet beschikbaar voor databases in beheerde instanties. U kunt SQL Agent-taken gebruiken om te plannen [kopie-alleen back-ups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) als alternatief voor LTR langer dan 35 dagen.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>De werking van de SQL-Database met een langetermijnbewaarperiode
@@ -34,7 +34,7 @@ U kunt een LTR-beleid voor elke SQL-database configureren en opgeven hoe vaak u 
 
 Voorbeelden:
 
--  W = 0, M = 0, Y = 5, WeekOfYear = 3
+-  W=0, M=0, Y=5, WeekOfYear=3
 
    De 3e volledige back-up van elk jaar worden voor 5 jaar behouden.
 - W=0, M=3, Y=0
@@ -45,7 +45,7 @@ Voorbeelden:
 
    Elke wekelijkse volledige back-up worden voor 12 weken behouden.
 
-- W = 6, M = 12, Y = 10 WeekOfYear = 16
+- W=6, M=12, Y=10, WeekOfYear=16
 
    Elke wekelijkse volledige back-up worden voor 6 weken behouden. Behalve de eerste volledige back-up van elke maand, wordt die worden bewaard gedurende 12 maanden. Met uitzondering van de volledige back-up die wordt gemaakt op 16 week van jaar, wordt die worden bewaard gedurende tien jaar. 
 

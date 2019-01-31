@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: bace951141ea1d437d102b11ac4f548beaf5c75e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d99149f8112c19a07208523a1ee26ba1c36e5362
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329409"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474221"
 ---
 # <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Het maken van de pijplijn voor continue integratie in Azure met behulp van Docker, Kubernetes en Python Flask-toepassing
 Er zijn vaak twee stromen werkzaamheden, Data Scientists, het bouwen van machine learning-modellen en App-ontwikkelaars het bouwen van de toepassing en beschikbaar te maken voor eindgebruikers te gebruiken voor een toepassing AI. In dit artikel laten we zien hoe u voor het implementeren van een continue integratie (CI) / pijplijn voor continue levering (CD) voor een AI-toepassing. AI-toepassing is een combinatie van een model dat machine learning (ML) zijn ingebed toepassingscode. In dit artikel we bij het ophalen van een pretrained model vanuit een persoonlijke Azure-blob storage-account, wordt een AWS S3-account. Voor het artikel gebruiken we een eenvoudige python flask-toepassing.

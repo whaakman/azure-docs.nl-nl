@@ -1,8 +1,8 @@
 ---
-title: Azure Batch-pool verwijderen gebeurtenis | Microsoft Docs
-description: Naslaginformatie voor Batch-pool gebeurtenis verwijderen.
+title: Azure Batch-pool verwijderen voltooid gebeurtenis | Microsoft Docs
+description: Naslaginformatie voor Batch-pool verwijderen voltooid gebeurtenis.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,19 +11,19 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: bfcbcf40efc64ab1c79ee1a86e02502c68ad6d47
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30310311"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474545"
 ---
 # <a name="pool-delete-complete-event"></a>Gebeurtenis pool verwijderen voltooid
 
- Deze gebeurtenis wordt verzonden wanneer een groep delete-bewerking is voltooid.
+ Deze gebeurtenis wordt verzonden wanneer een pool delete-bewerking is voltooid.
 
- Het volgende voorbeeld ziet de hoofdtekst van een groep verwijderingsgebeurtenis.
+ Het volgende voorbeeld ziet de hoofdtekst van een gebeurtenis pool verwijderen voltooid.
 
 ```
 {
@@ -35,9 +35,9 @@ ms.locfileid: "30310311"
 
 |Element|Type|Opmerkingen|
 |-------------|----------|-----------|
-|id|Tekenreeks|De id van de groep.|
-|startTime|DateTime|De tijd dat de groep verwijderen is gestart.|
-|endTime|DateTime|De tijd de groep verwijderen is voltooid.|
+|id|String|De id van de groep.|
+|startTime|DateTime|De tijd die de groep verwijderen is gestart.|
+|endTime|DateTime|Het tijdstip waarop de pool verwijderen voltooid.|
 
 ## <a name="remarks"></a>Opmerkingen
-Zie voor meer informatie over statussen en foutcodes voor de bewerking formaat wijzigen van toepassingen [een adresgroep verwijderen van een account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+Zie voor meer informatie over de Staten en in de foutcodes voor groep-/ verkleinbewerking [verwijderen van een groep van een account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

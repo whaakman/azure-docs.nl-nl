@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c26dfc6f3fd8be28e56c18f0af379130c31aa859
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302163"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463613"
 ---
 # <a name="data-warehouse-workload"></a>Datawarehouse-workload
 De workload van een datawarehouse wordt gevormd door alle bewerkingen die op het desbetreffende datawarehouse worden uitgevoerd. De datawarehouse-workload omvat het hele proces van het laden van gegevens in het warehouse tot het uitvoeren van analyses en rapporten met betrekking tot het datawarehouse, het beheren van de gegevens in het datawarehouse en het exporteren van gegevens uit het datawarehouse. De omvang en complexiteit van dergelijke bewerkingen zijn vaak evenredig met de uitgebreidheid van het datawarehouse.

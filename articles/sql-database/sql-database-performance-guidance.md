@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: b2312534cdd63f5672f6b2294e3aef6b50be229a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600043"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461590"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Handmatig de queryprestaties in Azure SQL Database
 
@@ -235,18 +235,18 @@ Als een werkbelasting een set heeft van herhaalde query's, verstandig vaak het o
 
 ### <a name="cross-database-sharding"></a>Cross-database sharding
 
-Omdat Azure SQL Database wordt uitgevoerd op basishardware, zijn de capaciteitslimieten voor een individuele database lager is dan voor de installatie van een traditionele on-premises SQL Server. Sommige klanten gebruik sharding technieken databasebewerkingen verspreiden over meerdere databases wanneer de bewerkingen niet binnen de grenzen van een individuele database in Azure SQL Database passen. De meeste klanten die gebruikmaken van sharding-technieken in Azure SQL Database splitsen hun gegevens op één dimensie met meerdere databases. Voor deze benadering moet u begrijpen dat OLTP-toepassingen vaak transacties die van toepassing naar slechts één rij of rijen in het schema een kleine groep zijn uitvoeren.
+Omdat Azure SQL Database wordt uitgevoerd op basishardware, zijn de capaciteitslimieten voor een individuele database lager is dan voor de installatie van een traditionele on-premises SQL Server. Sommige klanten gebruik sharding technieken databasebewerkingen verspreiden over meerdere databases wanneer de bewerkingen niet binnen de grenzen van een individuele database maken in Azure SQL Database passen. De meeste klanten die gebruikmaken van sharding-technieken in Azure SQL Database splitsen hun gegevens op één dimensie met meerdere databases. Voor deze benadering moet u begrijpen dat OLTP-toepassingen vaak transacties die van toepassing naar slechts één rij of rijen in het schema een kleine groep zijn uitvoeren.
 
 > [!NOTE]
 > SQL Database biedt nu een bibliotheek met sharding. Zie voor meer informatie, [overzicht client-bibliotheek elastische Database](sql-database-elastic-database-client-library.md).
 
-Bijvoorbeeld als een database heeft de naam van de klant, volgorde en de details van de order (zoals de traditionele voorbeeld Northwind-database die wordt geleverd met SQL Server), u kunt deze gegevens splitsen in meerdere databases door te groeperen van een klant met de gerelateerde volgorde en de details van de volgorde informatie. U kunt garanderen dat de gegevens van de klant in een individuele database blijft. De toepassing zou verschillende klanten verdeeld over databases, effectief de belasting te spreiden over meerdere databases. Met sharding van klanten niet alleen de maximale limiet databasegrootte kunnen voorkomen, maar Azure SQL Database ook werkbelastingen die aanzienlijk groter dan de grenzen van de andere compute-grootten zijn, zolang elke afzonderlijke database de DTU past kan verwerken.
+Bijvoorbeeld als een database heeft de naam van de klant, volgorde en de details van de order (zoals de traditionele voorbeeld Northwind-database die wordt geleverd met SQL Server), u kunt deze gegevens splitsen in meerdere databases door te groeperen van een klant met de gerelateerde volgorde en de details van de volgorde informatie. U kunt garanderen dat de gegevens van de klant in een afzonderlijke database blijft. De toepassing zou verschillende klanten verdeeld over databases, effectief de belasting te spreiden over meerdere databases. Met sharding van klanten niet alleen de maximale limiet databasegrootte kunnen voorkomen, maar Azure SQL Database ook werkbelastingen die aanzienlijk groter dan de grenzen van de andere compute-grootten zijn, zolang elke afzonderlijke database de DTU past kan verwerken.
 
 Database sharding niet de cumulatieve resourcecapaciteit voor een oplossing beperken, is het zeer effectief zijn bij het ondersteunen van zeer grote oplossingen die zijn verdeeld over meerdere databases. Elke database kunt uitvoeren op een andere compute-grootte voor de ondersteuning van zeer grote "effectieve" databases met hoge benodigde middelen.
 
 ### <a name="functional-partitioning"></a>Functionele partitionering
 
-SQL Server-gebruikers combineren vaak veel functies in een individuele database. Bijvoorbeeld, als een toepassing logica heeft voor het beheren van de inventaris voor een store, mogelijk dat de database logica die is gekoppeld aan de inventaris, bijhouden van inkooporders en opgeslagen procedures en geïndexeerde of gerealiseerde weergaven die het einde van maand rapportage beheren. Deze techniek wordt het gemakkelijker te beheren van de database voor bewerkingen zoals back-up, maar ook moet u om de grootte van de hardware voor het afhandelen van de piekbelasting over alle functies van een toepassing.
+SQL Server-gebruikers combineren vaak veel functies in een afzonderlijke database. Bijvoorbeeld, als een toepassing logica heeft voor het beheren van de inventaris voor een store, mogelijk dat de database logica die is gekoppeld aan de inventaris, bijhouden van inkooporders en opgeslagen procedures en geïndexeerde of gerealiseerde weergaven die het einde van maand rapportage beheren. Deze techniek wordt het gemakkelijker te beheren van de database voor bewerkingen zoals back-up, maar ook moet u om de grootte van de hardware voor het afhandelen van de piekbelasting over alle functies van een toepassing.
 
 Als u een uitbreidbare architectuur in Azure SQL Database gebruikt, is het een goed idee om op te splitsen verschillende functies van een toepassing in verschillende databases. Met deze techniek kunnen schaalt elke toepassing onafhankelijk van elkaar. Als een toepassing drukker wordt (en de belasting van de database wordt verhoogd), kan de beheerder onafhankelijk compute-grootten voor elke functie kiezen in de toepassing. Op de limiet, met deze architectuur kan een toepassing worden groter is dan een machine één product kan worden verwerkt omdat de belasting is verdeeld over meerdere virtuele machines.
 

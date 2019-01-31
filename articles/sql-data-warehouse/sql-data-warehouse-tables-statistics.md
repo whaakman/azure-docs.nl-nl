@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 699538666a3bdbea94d35844f9c5c4fb7b4fd0f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c11cdd6d1cc24d639d837993e94f3b304228634a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241046"
+ms.locfileid: "55299551"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Het maken, bijwerken van statistieken op tabellen in Azure SQL Data Warehouse
 Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken van de query-optimalisatie voor tabellen in Azure SQL Data Warehouse.
@@ -388,7 +388,7 @@ Er zijn verschillende systeemweergaven en functies die u gebruiken kunt om infor
 ### <a name="catalog-views-for-statistics"></a>Weergaven voor statistieken van catalogus
 Deze systeemweergaven bevatten informatie over statistieken:
 
-| Catalogusweergave | Beschrijving |
+| Catalogusweergave | Description |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Een rij voor elke kolom. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Een rij voor elk object in de database. |
@@ -401,7 +401,7 @@ Deze systeemweergaven bevatten informatie over statistieken:
 ### <a name="system-functions-for-statistics"></a>Systeemfuncties voor statistieken
 Deze systeemfuncties zijn nuttig voor het werken met statistieken:
 
-| Systeemfunctie | Beschrijving |
+| Systeemfunctie | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |De datum is die het object statistieken voor het laatst is bijgewerkt. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Samenvatting niveau en gedetailleerde informatie over de distributie van waarden zoals begrepen door het object statistieken. |
@@ -416,7 +416,7 @@ SELECT
         sm.[name]                           AS [schema_name]
 ,       tb.[name]                           AS [table_name]
 ,       st.[name]                           AS [stats_name]
-,       st.[filter_definition]              AS [stats_filter_defiinition]
+,       st.[filter_definition]              AS [stats_filter_definition]
 ,       st.[has_filter]                     AS [stats_is_filtered]
 ,       STATS_DATE(st.[object_id],st.[stats_id])
                                             AS [stats_last_updated_date]

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138953"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478046"
 ---
 # <a name="feature-engineering-in-data-science"></a>Functie-engineering in datatechnologie
 Dit artikel worden de doeleinden van feature-engineering en bevat voorbeelden van de rol in de uitbreiding van de synchronisatiegegevens van machine learning. De voorbeelden die wordt gebruikt ter illustratie van dit proces worden getekend van Azure Machine Learning Studio. 
@@ -25,8 +25,8 @@ Deze taak is een stap in de [Team Data Science Process (TDSP)](https://docs.micr
 
 Functie engineering pogingen te verhogen van de voorspellende kracht van de learning-algoritmen met het maken van de functies van onbewerkte gegevens die helpen bij het leerproces te vergemakkelijken. Het technische team en de selectie van functies maakt deel uit van de TDSP die worden beschreven in de [wat is de levenscyclus van het Team Data Science Process?](overview.md) Feature-engineering en selectie maken deel uit van de **functies ontwikkelen** stap van de TDSP. 
 
-* **functie-engineering**: dit proces probeert te maken van aanvullende desbetreffende functies van de bestaande onbewerkte functies in de gegevens, en de voorspellende kracht van het learning-algoritme te vergroten.
-* **functies selecteren**: dit proces selecteert u de belangrijke subset van functies van de oorspronkelijke gegevens in een poging om te beperken de dimensionaliteit van het probleem training.
+* **functie-engineering**: Dit proces probeert te maken van aanvullende desbetreffende functies van de bestaande onbewerkte functies in de gegevens, en de voorspellende kracht van het learning-algoritme te vergroten.
+* **functies selecteren**: Dit proces worden de belangrijke subset van functies van de oorspronkelijke gegevens in een poging om te beperken de dimensionaliteit van het probleem training geselecteerd.
 
 Normaal gesproken **functie-engineering** eerst wordt toegepast voor het genereren van extra functies, en vervolgens de **functies selecteren** stap wordt uitgevoerd om te voorkomen, niet van belang, redundante of zeer gecorreleerde functies.
 

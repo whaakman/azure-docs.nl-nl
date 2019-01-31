@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 3a567bd3656ad31157d51bedcd866290b232af2c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884619"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468271"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Leesbare secundaire databases met behulp van actieve geo-replicatie maken
 
-Actieve geo-replicatie is Azure SQL Database-functie waarmee u leesbare secundaire databases van afzonderlijke databases maken op een logische server in het hetzelfde of een ander datacenter (regio).
+Actieve geo-replicatie is Azure SQL Database-functie waarmee u leesbare secundaire databases van afzonderlijke databases maken in een SQL Database-server in het hetzelfde of een ander datacenter (regio).
 
 > [!NOTE]
-> Actieve geo-replicatie wordt niet ondersteund door de Managed Instance. Gebruik voor geografische failover van beheerde instanties [automatische failovergroepen](sql-database-auto-failover-group.md).
+> Actieve geo-replicatie wordt niet ondersteund door beheerde exemplaar. Gebruik voor geografische failover van beheerde exemplaren [automatische failovergroepen](sql-database-auto-failover-group.md).
 
 Actieve geo-replicatie is bedoeld als een zakelijke continuïteit-oplossing waarmee de toepassing snel noodherstel van afzonderlijke databases in het geval van een regionale rampenscenario of een grootschalige storing uitvoeren. Als geo-replicatie is ingeschakeld, kan de toepassing failover naar een secundaire database in een andere Azure-regio kunt starten. Maximaal vier secundaire databases worden ondersteund in de dezelfde of verschillende regio's en de secundaire replica's kunnen ook worden gebruikt voor toegang voor alleen-lezen query's. De failover moet handmatig worden gestart door de toepassing of de gebruiker. Na een failover is de nieuwe primaire het eindpunt van een andere verbinding. Het volgende diagram illustreert een typische configuratie van een geografisch redundante cloudtoepassing met behulp van actieve geo-replicatie.
 
@@ -90,7 +90,7 @@ Voor het bereiken van echte zakelijke continuïteit, toe te voegen databaseredun
 
 - **Geo-replicatie van databases in een elastische pool**
 
-  Elke secundaire database kan afzonderlijk deel uitmaken van een elastische pool of worden niet in een elastische pool helemaal. De keuze van toepassingen voor elke secundaire database is gescheiden en niet afhankelijk is van de configuratie van een andere secundaire database (of primaire of secundaire). Elke elastische groep is opgenomen in één regio, daarom meerdere secundaire databases in dezelfde topologie nooit een elastische Pool kunnen delen.
+  Elke secundaire database kan afzonderlijk deel uitmaken van een elastische pool of worden niet in een elastische pool helemaal. De keuze van toepassingen voor elke secundaire database is gescheiden en niet afhankelijk is van de configuratie van een andere secundaire database (of primaire of secundaire). Elke elastische groep is opgenomen in één regio, daarom meerdere secundaire databases in dezelfde topologie nooit een elastische pool kunnen delen.
 
 - **Configureerbare compute-grootte van de secundaire database**
 
@@ -122,7 +122,7 @@ Doorlopend kopiëren gebruikt vanwege de hoge latentie voor wide area network, e
 
 Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een programma met behulp van Azure PowerShell en de REST-API. De volgende tabellen beschrijven de reeks opdrachten die beschikbaar zijn. Actieve geo-replicatie bevat een set met Azure Resource Manager-API's voor beheer, met inbegrip van de [REST-API van Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) en [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Deze API's vereisen het gebruik van resourcegroepen en ondersteuning voor beveiliging op basis van rollen (RBAC). Zie voor meer informatie over het implementeren van toegang tot rollen [toegangsbeheer](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Failover van één en gepoolde databases beheren
+### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Failover van de zelfstandige en gepoolde databases beheren
 
 > [!IMPORTANT]
 > Deze Transact-SQL-opdrachten zijn alleen van toepassing op actieve geo-replicatie en niet van toepassing op failover-groepen. Als zodanig ze ook niet van toepassing op beheerde instanties, omdat ze alleen ondersteuning voor failover-groepen.
@@ -132,13 +132,13 @@ Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een pr
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |SECUNDAIRE ON SERVER toevoegen argument gebruiken om te maken van een secundaire database voor een bestaande database en replicatie van gegevens wordt gestart |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |FAILOVER of FORCE_FAILOVER_ALLOW_DATA_LOSS gebruiken om over te schakelen van een secundaire database als primaire failover initiëren |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Gebruik secundaire ON-SERVER verwijderen een replicatie van gegevens tussen een SQL-Database en de opgegeven secundaire database is beëindigd. |
-| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Retourneert informatie over alle bestaande koppelingen voor databasereplicatie voor elke database op de logische Azure SQL Database-server. |
+| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Retourneert informatie over alle bestaande koppelingen voor databasereplicatie voor elke database op de Azure SQL Database-server. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hiermee haalt de laatste keer dat replicatie, laatste vertraging van replicatie en andere informatie over de replicatiekoppeling voor een bepaalde SQL-database. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Geeft de status voor alle databasebewerkingen, waaronder de status van de koppelingen voor databasereplicatie. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |zorgt ervoor dat de toepassing moet worden gewacht tot alle doorgevoerde transacties worden gerepliceerd en bevestigd door de actieve secundaire database. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Failover van één en gepoolde databases beheren
+### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Failover van de zelfstandige en gepoolde databases beheren
 
 | Cmdlet | Description |
 | --- | --- |
@@ -152,7 +152,7 @@ Zoals eerder besproken, kan actieve geo-replicatie ook worden beheerd via een pr
 > [!IMPORTANT]
 > Zie voor voorbeelden van scripts, [en failover een individuele database met behulp van actieve geo-replicatie configureren](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) en [en failover een gegroepeerde-database met behulp van actieve geo-replicatie configureren](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST-API: Failover van één en gepoolde databases beheren
+### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST-API: Failover van de zelfstandige en gepoolde databases beheren
 
 | API | Description |
 | --- | --- |

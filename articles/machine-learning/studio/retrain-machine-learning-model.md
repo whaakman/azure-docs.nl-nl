@@ -1,6 +1,6 @@
 ---
-Titel: Opnieuw trainen een Machine Learning Studio-model titleSuffix: Azure Machine Learning Studio description: Informatie over het opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Opnieuw trainen een Machine Learning Studio-model titleSuffix: Azure Machine Learning Studio description: Informatie over het opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

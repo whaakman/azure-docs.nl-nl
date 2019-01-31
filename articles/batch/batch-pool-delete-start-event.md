@@ -1,8 +1,8 @@
 ---
-title: Azure Batch pool verwijderen start-gebeurtenis | Microsoft Docs
-description: Verwijzing voor Batch-pool verwijderen start-gebeurtenis.
+title: Azure Batch gebeurtenis pool verwijderen starten | Microsoft Docs
+description: Referentie voor gebeurtenis voor Batch pool verwijderen starten.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,19 +11,19 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 8737b9ff6452730ff5a55fa7324e37f0fe715433
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: 2352971af3844b56f93c16ebaf6cb23bd5fd8a5a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30312056"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474289"
 ---
 # <a name="pool-delete-start-event"></a>Gebeurtenis pool verwijderen starten
 
- Deze gebeurtenis wordt verzonden wanneer een groep delete-bewerking is gestart. Aangezien het verwijderen van toepassingen een asynchrone gebeurtenis is, kunt u verwachten groep complete verwijderingsgebeurtenis om te worden verzonden nadat de delete-bewerking is voltooid.
+ Deze gebeurtenis wordt verzonden wanneer een pool delete-bewerking is gestart. Aangezien het verwijderen van toepassingen een asynchrone is, kunt u verwachten dat een gebeurtenis pool verwijderen voltooid om te worden verzonden nadat de delete-bewerking is voltooid.
 
- Het volgende voorbeeld ziet de hoofdtekst van een groep verwijderen start-gebeurtenis.
+ Het volgende voorbeeld ziet de hoofdtekst van een gebeurtenis pool verwijderen starten.
 
 ```
 {
@@ -33,4 +33,4 @@ ms.locfileid: "30312056"
 
 |Element|Type|Opmerkingen|
 |-------------|----------|-----------|
-|id|Tekenreeks|De id van de groep.|
+|id|String|De id van de groep.|

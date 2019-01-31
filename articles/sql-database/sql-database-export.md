@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 804202149234a55de4f7f99b18dc40b8136463a3
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651042"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463749"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Een Azure SQL-database naar een BACPAC-bestand exporteren
 
@@ -47,7 +47,7 @@ Voor het exporteren van een database met de [Azure-portal](https://portal.azure.
 
 ![database exporteren](./media/sql-database-export/database-export.png)
 
-Voor het controleren van de voortgang van de exportbewerking, open de pagina voor de logische server met de database die wordt geëxporteerd. Schuif omlaag naar **Operations** en klik vervolgens op **Import/Export** geschiedenis.
+Voor het controleren van de voortgang van de exportbewerking, open de pagina voor de SQL Database-server met de database die wordt geëxporteerd. Schuif omlaag naar **Operations** en klik vervolgens op **Import/Export** geschiedenis.
 
 ![Geschiedenis exporteren](./media/sql-database-export/export-history.png)
 ![geschiedenis status exporteren](./media/sql-database-export/export-history2.png)
@@ -97,7 +97,7 @@ $exportStatus
 
 - Zie voor meer informatie over langetermijnretentie van back-up van een Azure SQL database-back-up als een alternatief voor een database voor archief doeleinden geëxporteerd, [langetermijnretentie](sql-database-long-term-retention.md).
 - Raadpleeg dit blogartikel van het SQL Server-klantadviesteam over migratie met behulp van BACPAC-bestanden: [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migreren van SQL Server naar Azure SQL Database met BACPAC-bestanden).
-- Zie voor meer informatie over het importeren van een BACPAC naar een SQL Server-database, [een BACPCAC importeren naar een SQL Server-database](https://msdn.microsoft.com/library/hh710052.aspx).
+- Zie voor meer informatie over het importeren van een BACPAC naar een SQL Server-database, [een BACPAC naar een SQL Server-database importeren](https://msdn.microsoft.com/library/hh710052.aspx).
 - Zie voor meer informatie over het exporteren van een BACPAC van een SQL Server-database, [exporteren van een Data-tier-toepassing](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Zie voor meer informatie over het gebruik van de Data Migration Service voor het migreren van een database, [SQL-Server migreren naar Azure SQL Database offline met behulp van DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 - Als u van SQL Server als een voorproefje op voor de migratie naar Azure SQL Database exporteert, Zie [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).

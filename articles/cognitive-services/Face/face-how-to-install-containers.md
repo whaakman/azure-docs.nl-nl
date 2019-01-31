@@ -7,166 +7,154 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: face-api
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2d9d4c3012691965d4396cb3927634111a7dd937
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0ed7a007f4d39b36ecc9669d97379323b91a3a09
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225275"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477434"
 ---
 # <a name="install-and-run-containers"></a>Containers installeren en uitvoeren
-
-Containerstrategie is een benadering voor softwaredistributie waarin een toepassing of service wordt geleverd als een containerinstallatiekopie. De configuratie en afhankelijkheden voor de toepassing of service zijn opgenomen in de containerinstallatiekopie. De container-installatiekopie kan vervolgens worden geïmplementeerd op een containerhost met weinig of geen wijziging. Containers zijn geïsoleerd van elkaar worden verbonden en het onderliggende besturingssysteem, met een kleinere footprint dan een virtuele machine. Containers kunnen worden geïnstantieerd van containerinstallatiekopieën voor taken op korte termijn en verwijderd wanneer het niet meer nodig hebt.
 
 Face biedt een gestandaardiseerde Linux-container voor Docker, met de naam gezicht, detecteert menselijke gezichten in afbeeldingen en-kenmerken, zoals gezichtsoriëntatiepunten (zoals hartstukken en ogen), geslacht, leeftijd en andere machine voorspeld gezichtskenmerken identificeert. Naast detectie controleren Face of twee gezichten in dezelfde afbeelding of andere installatiekopieën zijn hetzelfde met behulp van een betrouwbaarheidsscore of gezichten op een database om te zien als een gelijkende vergelijken of identieke face al bestaat. Deze kunt soortgelijke gezichten ook organiseren in groepen, met behulp van gedeelde visuele kenmerken.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="preparation"></a>Voorbereiding
+## <a name="prerequisites"></a>Vereisten
 
-U moet voldoen aan de volgende vereisten voordat u met de Face-container:
+U moet voldoen aan de volgende vereisten voordat u met behulp van containers voor Face-API:
 
-**Docker-Engine**: U moet Docker Engine lokaal zijn geïnstalleerd hebben. Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), en [Windows](https://docs.docker.com/docker-for-windows/). Op Windows, moet Docker worden geconfigureerd ter ondersteuning van Linux-containers. Docker-containers kunnen ook rechtstreeks naar worden geïmplementeerd [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), of naar een [Kubernetes](https://kubernetes.io/) cluster geïmplementeerd op [Azure Stack](../../azure-stack/index.yml). Zie voor meer informatie over het implementeren van Kubernetes op Azure Stack [Kubernetes met Azure Stack implementeren](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+|Vereist|Doel|
+|--|--|
+|Docker-Engine| U moet de Docker-Engine zijn geïnstalleerd op een [hostcomputer](#the-host-computer). Docker biedt pakketten die de Docker-omgeving configureren op [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), en [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).<br><br> Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure. <br><br> **Op Windows**, Docker moet ook worden geconfigureerd ter ondersteuning van Linux-containers.<br><br>|
+|Vertrouwd zijn met Docker | U hebt een basiskennis hebt van Docker-kernconcepten zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.| 
+|Face-API-resource |Als u wilt gebruiken in de container, moet u het volgende hebben:<br><br>Een _Face-API_ Azure-resource om de bijbehorende facturering sleutel en facturering URI van het eindpunt te verkrijgen. Beide waarden beschikbaar zijn op de Face-API-overzicht en sleutels van de Azure portal-pagina's en zijn vereist om te starten van de container.<br><br>**{BILLING_KEY}** : bronsleutel<br><br>**{BILLING_ENDPOINT_URI}** : voorbeeld van de eindpunt-URI is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
-Docker moet worden geconfigureerd, zodat de containers om te verbinden met en facturering gegevens verzenden naar Azure.
-
-**Vertrouwd zijn met Microsoft-Container Registry en Docker**: U moet een basiskennis hebben van zowel Microsoft Container Registry en Docker-concepten, zoals registers, -opslagplaatsen, containers, en containerinstallatiekopieën, evenals kennis van basic `docker` opdrachten.  
-
-Zie voor een uitleg van de basisprincipes van Docker en containers, de [dockeroverzicht](https://docs.docker.com/engine/docker-overview/).
-
-### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
-
-De Face-container vereist een minimum van 1 CPU-kern, ten minste 2,6 GHz (gigahertz) of sneller en 4 GB (Gigabyte) geheugen toegewezen, maar we raden ten minste 2 CPU-kernen en 6 GB aan toegewezen geheugen.
 
 ## <a name="request-access-to-the-private-container-registry"></a>Aanvraag voor toegang tot de privécontainerregister
 
-U moet eerst invullen en verzenden de [Cognitive Services beeld Containers aanvraagformulier](https://aka.ms/VisionContainersPreview) toegang vragen tot de Face-container. Het formulier vraagt om informatie over u, uw bedrijf en het scenario voor gebruikers waarvoor u de container gebruikt. Wanneer verzonden, controleert het team van Azure Cognitive Services het formulier om ervoor te zorgen dat u voldoet aan de criteria voor toegang tot de persoonlijke container registry.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-> [!IMPORTANT]
-> U moet een e-mailadres dat is gekoppeld aan een Microsoft-Account (MSA) of Azure Active Directory (Azure AD)-account in het formulier.
+### <a name="the-host-computer"></a>De hostcomputer
 
-Als uw aanvraag is goedgekeurd, ontvangt u vervolgens een e-mailbericht met instructies voor het verkrijgen van uw referenties en toegang tot het privé-container-register.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
-## <a name="create-a-face-resource-on-azure"></a>De resource van een gezicht in Azure maken
 
-Als u wilt de Face-container gebruiken, moet u een resource Face maken op Azure. Nadat u de resource gemaakt, u vervolgens de URL van abonnement sleutel en het eindpunt van de resource gebruiken voor het instantiëren van de container. Zie voor meer informatie over het instantiëren van een container, [exemplaar maken van een container van een gedownloade containerinstallatiekopie](#instantiate-a-container-from-a-downloaded-container-image).
+### <a name="container-requirements-and-recommendations"></a>Containervereisten en aanbevelingen
 
-Voer de volgende stappen uit om te maken en gegevens ophalen uit een resource Face:
+De volgende tabel beschrijft de minimale en aanbevolen CPU-kernen en geheugen toewijzen voor elke container Face-API.
 
-1. Een resource Face maken in Azure portal.  
-   Als u de Face-container gebruiken wilt, moet u eerst een bijbehorende Face-resource maken in Azure portal. Zie voor meer informatie [Snelstart: Een Cognitive Services-account maken in Azure portal](../cognitive-services-apis-create-account.md).
+| Container | Minimum | Aanbevolen |
+|-----------|---------|-------------|
+|Face | 1 core, 2 GB geheugen | 1 core, 4 GB geheugen |
 
-1. De eindpunt-URL en abonnement-sleutel voor de Azure-resource ophalen.  
-   Nadat de Azure-resource is gemaakt, moet u de eindpunt-URL en abonnement sleutel van die resource voor het starten van de bijbehorende Face-container. U kunt de eindpunt-URL en abonnement sleutel kopiëren uit respectievelijk de Quick Start- en sleutels's van de Face-resource in Azure portal.
+Elke core moet ten minste 2,6 GHz (gigahertz) of sneller.
 
-## <a name="log-in-to-the-private-container-registry"></a>Meld u aan bij de privé containerregister
+Kernen en geheugen komen overeen met de `--cpus` en `--memory` instellingen die worden gebruikt als onderdeel van de `docker run` opdracht.
 
-Er zijn verschillende manieren om te verifiëren met de privécontainerregister voor Cognitive Services-Containers, maar wordt aanbevolen om vanaf de opdrachtregel met behulp van de [Docker-Opdrachtregelinterface](https://docs.docker.com/engine/reference/commandline/cli/).
+## <a name="get-the-container-image-with-docker-pull"></a>Met de installatiekopie van de container ophalen `docker pull`
 
-Gebruik de [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/) opdracht, zoals wordt weergegeven in het volgende voorbeeld wordt aan te melden bij `containerpreview.azurecr.io`, de privécontainerregister voor Cognitive Services-Containers. Vervang *\<gebruikersnaam\>* met de naam van de gebruiker en *\<wachtwoord\>* met het wachtwoord dat is opgegeven in de referenties die u hebt ontvangen van de Azure Cognitive Services-team.
+Containerinstallatiekopieën voor Face-API zijn beschikbaar. 
 
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
+| Container | Opslagplaats |
+|-----------|------------|
+| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
-Als u uw referenties in een tekstbestand hebt beveiligd, kunt u de inhoud van deze tekst samenvoegen-bestand, met behulp van de `cat` opdracht naar de `docker login` opdracht zoals wordt weergegeven in het volgende voorbeeld. Vervang *\<passwordFile\>* met het pad en de naam van het tekstbestand met het wachtwoord en *\<gebruikersnaam\>* met de naam van de gebruiker opgegeven in uw referenties.
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
-
-## <a name="download-container-images-from-the-private-container-registry"></a>Containerinstallatiekopieën van de privécontainerregister downloaden
-
-De installatiekopie van de container voor de Face-container is beschikbaar via een persoonlijk Docker-containerregister, met de naam `containerpreview.azurecr.io`, in Azure Container Registry. De installatiekopie van de container voor de Face-container moet worden gedownload vanuit de opslagplaats naar de container lokaal uitvoeren.
-
-Gebruik de [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) opdracht voor het downloaden van een containerinstallatiekopie uit de opslagplaats. Bijvoorbeeld, voor het downloaden van de meest recente Face container-installatiekopie uit de opslagplaats, gebruik de volgende opdracht:
+### <a name="docker-pull-for-the-face-container"></a>Docker pull voor de Face-container
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
 ```
 
-Zie voor een volledige beschrijving van de beschikbare labels voor de Face-container, [tekst herkennen](https://go.microsoft.com/fwlink/?linkid=2018655) op Docker Hub.
+## <a name="how-to-use-the-container"></a>Het gebruik van de container
 
-> [!TIP]
-> U kunt de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht om een lijst van uw gedownloade containerinstallatiekopieën. De volgende opdracht worden bijvoorbeeld de ID, de opslagplaats en het label van elke gedownloade containerinstallatiekopie, opgemaakt als een tabel:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
+Als de container op de [hostcomputer](#the-host-computer), de volgende procedure gebruiken om te werken met de container.
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Een container van een gedownloade containerinstallatiekopie maken
+1. [Uitvoeren van de container](#run-the-container-with-docker-run), facturering met de vereiste instellingen. Meer [voorbeelden](./face-resource-container-config.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
+1. [Query van de container voorspelling eindpunt](#query-the-containers-prediction-endpoint). 
 
-Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht voor het starten van een container van een gedownloade containerinstallatiekopie. Bijvoorbeeld, de volgende opdracht:
+## <a name="run-the-container-with-docker-run"></a>De container met uitvoeren `docker run`
 
-* Start een container van de installatiekopie van de Face-container
-* Twee CPU-kernen en 6 GB (Gigabyte) aan geheugen worden toegewezen
+Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht uit te voeren op een van de drie containers. De opdracht maakt gebruik van de volgende parameters:
+
+| Tijdelijke aanduiding | Value |
+|-------------|-------|
+|{BILLING_KEY} | Deze sleutel wordt gebruikt voor het starten van de container en is beschikbaar op de pagina van de Azure portal-Face-API-sleutels.  |
+|{BILLING_ENDPOINT_URI} | Het eindpunt van de facturering URI-waarde is beschikbaar op de pagina van de Face-API overzicht van de Azure portal.|
+
+Deze parameters vervangen door uw eigen waarden in het volgende voorbeeld `docker run` opdracht.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+containerpreview.azurecr.io/microsoft/ognitive-services-face \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+```
+
+Met deze opdracht:
+
+* Een container face kan worden uitgevoerd van de container-installatiekopie
+* Één CPU-kern en 4 GB (Gigabyte) aan geheugen worden toegewezen
 * Gebruikt TCP-poort 5000 en wijst er een pseudo-TTY voor de container
-* De container verwijderd automatisch nadat deze is afgesloten
+* De container worden automatisch verwijderd nadat deze is afgesloten. De containerinstallatiekopie is nog steeds beschikbaar op de hostcomputer. 
 
-```Docker
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
-```
+Meer [voorbeelden](./face-resource-container-config.md#example-docker-run-commands) van de `docker run` opdrachten zijn beschikbaar. 
 
 > [!IMPORTANT]
-> De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor de instantie van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
+> De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](#billing).
 
-Eenmaal gemaakt, kunt u bewerkingen aanroepen van de container met behulp van de container host URI. De volgende host URI vertegenwoordigt bijvoorbeeld de Face-container die is gemaakt in het vorige voorbeeld:
+## <a name="query-the-containers-prediction-endpoint"></a>Query uitvoeren op het eindpunt voorspelling van de container
 
-```http
-http://localhost:5000/
-```
+De container biedt eindpunt van de voorspelling query op basis van REST API's. 
 
-> [!TIP]
-> U hebt toegang tot de [OpenAPI-specificatie](https://swagger.io/docs/specification/about/) (voorheen de Swagger-specificatie), met een beschrijving van de bewerkingen die worden ondersteund door een geïnstantieerde container van de `/swagger` relatieve URI voor deze container. De volgende URI geeft bijvoorbeeld de toegang tot de OpenAPI-specificatie voor de Face-container die is gemaakt in het vorige voorbeeld:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+Gebruikmaken van de host https://localhost:5000, voor de container met API's.
 
-Kunt u ofwel [aanroepen van de REST-API-bewerkingen](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage) beschikbaar is via uw container of gebruik de [clientbibliotheek van Azure Cognitive Services Face](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/) -clientbibliotheek om aan te roepen van deze bewerkingen.  
-> [!IMPORTANT]
-> Als u wilt de clientbibliotheek met uw container gebruiken, moet u Azure Cognitive Services Face-clientbibliotheek versie 2.0 of hoger hebben.
+## <a name="stop-the-container"></a>De container stoppen
 
-Het enige verschil tussen een bepaalde bewerking aanroepen vanuit uw container en dat dezelfde bewerking van een bijbehorende services op Azure is die u de URI van de container-host, in plaats van de URI van een Azure-regio van de host gebruiken wilt voor het aanroepen van de bewerking aan te roepen. Als u een Face-exemplaar wordt uitgevoerd in de regio West ons Azure gebruiken voor het detecteren van gezichten wilt, zou u bijvoorbeeld de volgende REST-API-bewerking aanroepen:
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-```http
-POST https://westus.api.cognitive.microsoft.com/face/v1.0/detect
-```
+## <a name="troubleshooting"></a>Problemen oplossen
 
-Als u een Face-container die wordt uitgevoerd op uw lokale computer onder de standaardconfiguratie gebruiken voor het detecteren van gezichten wilt, zou u de volgende REST-API-bewerking aanroepen:
+Als u de container wordt uitgevoerd met een uitvoer [koppelen](./face-resource-container-config.md#mount-settings) en logboekregistratie is ingeschakeld, wordt de container genereert logboekbestanden die tot het oplossen van problemen die optreden tijdens het starten of uitvoeren van de container. 
 
-```http
-POST http://localhost:5000/face/v1.0/detect
-```
+## <a name="containers-api-documentation"></a>API-documentatie van de container
 
-### <a name="billing"></a>Billing
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-De Face-container verzendt factureringsgegevens naar Azure, met een bijbehorende Face-resource in uw Azure-account. De volgende opdrachtregelopties worden gebruikt door de Face-container voor factureringsdoeleinden bepalen:
+## <a name="billing"></a>Billing
+
+De Face-API containers verzenden factuurgegevens naar Azure, met behulp van een _Face-API_ resource voor uw Azure-account. 
+
+Cognitive Services-containers zijn geen licentie om uit te voeren zonder verbinding met Azure voor het meten. Klanten moeten de containers om te communiceren factureringsgegevens met de softwarelicentiecontrole-service te allen tijde inschakelen. Cognitive Services-containers verzenden klantgegevens niet naar Microsoft. 
+
+De `docker run` opdracht maakt gebruik van de volgende argumenten voor factureringsdoeleinden bepalen:
 
 | Optie | Description |
 |--------|-------------|
-| `ApiKey` | De API-sleutel van de Face-resource die is gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op een API-sleutel voor de ingerichte Face Azure resource die is opgegeven `Billing`. |
-| `Billing` | Het eindpunt van de Face-resource die is gebruikt voor het bijhouden van informatie over facturering.<br/>De waarde van deze optie moet worden ingesteld op de URI van een ingerichte Face Azure-resource van het eindpunt.|
+| `ApiKey` | De API-sleutel van de _Face-API_ resource gebruikt voor het bijhouden van informatie over facturering. |
+| `Billing` | Het eindpunt van de _Face-API_ resource gebruikt voor het bijhouden van informatie over facturering.|
 | `Eula` | Geeft aan dat u de licentie voor de container hebt geaccepteerd.<br/>De waarde van deze optie moet worden ingesteld op `accept`. |
 
 > [!IMPORTANT]
 > Alle drie de opties met geldige waarden moeten worden opgegeven of de container start niet.
 
-Zie voor meer informatie over deze opties [containers configureren](face-resource-container-config.md).
+Zie voor meer informatie over deze opties [containers configureren](./face-resource-container-config.md).
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, installeren en Face containers uitvoeren. Samenvatting:
+In dit artikel hebt u geleerd concepten en werkstroom voor het downloaden, installeren en uitvoeren van containers voor Face-API. Samenvatting:
 
-* Face biedt een Linux-container voor Docker, gezicht, gezichten detecteren of identificeren met behulp van een database mensen gezichten met de naam.
-* Containerinstallatiekopieën worden gedownload van een privécontainerregister in Azure.
+* Face-API biedt drie Linux-containers voor Docker, encapsulating sleuteltermextractie, taaldetectie en sentimentanalyse.
+* Containerinstallatiekopieën worden gedownload uit het Microsoft Container Registry (MCR) in Azure.
 * Containerinstallatiekopieën uitvoeren in Docker.
-* U kunt de REST-API of de SDK gebruiken om aan te roepen van bewerkingen in Face containers door de host-URI van de container op te geven.
+* U kunt de REST-API of de SDK gebruiken om aan te roepen van bewerkingen in containers Face-API door de host-URI van de container op te geven.
 * Bij het instantiëren van een container, moet u informatie over facturering opgeven.
 
 > [!IMPORTANT]

@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.custom: seo-update-jan
-ms.openlocfilehash: 49756f516a2e8132d4c3829b07a30f631380cad1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 3d2c15d3658ed93348c5ec23198d2cc97a94e0aa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182184"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297868"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Productnamen- en service-plan-id's voor licentieverlening
 
@@ -27,7 +27,7 @@ Bij het beheren van licenties in [de Azure-portal](https://portal.azure.com/#bla
 
 - **Naam van het product**: In management portals worden gebruikt
 - **De tekenreeks-ID**: Door PowerShell v1.0-cmdlets worden gebruikt bij het uitvoeren van bewerkingen op licenties
-- **GUID-ID**: GUID die wordt gebruikt door Azure AD Graph en Microsoft Graph
+- **GUID**: GUID die wordt gebruikt door Azure AD Graph en Microsoft Graph
 - **Service-abonnementen die zijn opgenomen**: Een lijst met service-abonnementen in het product die met de tekenreeks-ID en de GUID overeenkomen
 
 >[!NOTE]

@@ -4,24 +4,24 @@ description: Avere cluster beheren - toevoegen of verwijderen van knooppunten, s
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189606"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300180"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Het Avere vFXT-cluster beheren
 
 Nadat het cluster is gemaakt, moet u mogelijk clusterknooppunten toevoegen of stoppen of opnieuw opstarten van het cluster. En wanneer uw project is voltooid. u moet weten stoppen en het cluster permanent verwijderen. 
 
-Afhankelijk van de beheertaak cluster moet u mogelijk het Avere van het Configuratiescherm, het script voor het maken van vfxt.py cluster of de Azure-portal gebruiken om dit te doen. 
+Afhankelijk van de beheertaak cluster moet u mogelijk gebruikmaken van het Configuratiescherm Avere, de vfxt.py vanaf de opdrachtregel-script voor het maken van cluster of de Azure-portal om dit te doen. 
 
 Deze tabel geeft een overzicht van deze hulpprogramma's voor elke taak kunnen worden gebruikt. 
 
-| Bewerking | Avere Configuratiescherm | vfxt.PY  | Azure Portal |
+| Bewerking | Avere Configuratiescherm | vfxt.py  | Azure Portal |
 | --- | --- | --- | --- |
 | Clusterknooppunten toevoegen | nee | ja | nee |
 | Clusterknooppunten verwijderen | ja | nee | nee |
@@ -71,7 +71,11 @@ De **systeemonderhoud** instellingenpagina bevat opdrachten voor het clusterserv
 
 Wanneer een cluster wordt afgesloten, het boeken van statusberichten naar de **Dashboard** tabblad in eerste instantie. Na enkele ogenblikken wordt reageert de sessie Avere Configuratiescherm, wat betekent dat het cluster is afgesloten.
 
-## <a name="manage-the-cluster-with-vfxtpy"></a>Het cluster met vfxt.py beheren 
+## <a name="manage-the-cluster-with-vfxtpy"></a>Het cluster met vfxt.py beheren
+
+vfxt.PY is een opdrachtregelprogramma voor het cluster maken en beheren. 
+
+vfxt.PY is vooraf geïnstalleerd in het cluster netwerkcontroller-VM. Als u installeren op een ander systeem wilt, Raadpleeg de documentatie bij <https://github.com/Azure/AvereSDK>.
 
 Het script vfxt.py kan worden gebruikt voor deze beheertaken cluster:
 
@@ -80,8 +84,6 @@ Het script vfxt.py kan worden gebruikt voor deze beheertaken cluster:
 * Een cluster vernietigen
 
 Zoals Avere het Configuratiescherm probeer vfxt.py bewerkingen om te controleren of de gewijzigde gegevens permanent worden opgeslagen op opslag voor back-end voordat u afsluit of vernietigen van het cluster of het knooppunt. Dit maakt het een veiliger optie dan de Avere-portal.
-
-vfxt.PY is vooraf geïnstalleerd in het cluster netwerkcontroller-VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 Een volledige vfxt.py (Engelstalig) is beschikbaar op GitHub: [Cloud-Clusterbeheer met vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 

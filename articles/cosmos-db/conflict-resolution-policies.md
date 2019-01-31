@@ -1,5 +1,5 @@
 ---
-title: Conflict resolutie typen en resolutie beleidsregels in Azure Cosmos DB
+title: Conflict resolutie typen en resolutie beleidsregels met meerdere schrijven regio's in Azure Cosmos DB
 description: In dit artikel beschrijft de categorieën van conflicten en het conflict resolutie beleidsregels in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4af3f4c60f186c34d0f5522461ba70c68b59d1ab
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31e6fa596bb053ee8cd19f641349f02ee169b6eb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033890"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472334"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Conflicttypen en oplossingsbeleid
 
@@ -39,7 +39,7 @@ Azure Cosmos DB biedt een flexibel beleid-gebaseerd mechanisme om op te lossen B
 
   Zie voor meer informatie, [voorbeelden die gebruikmaken van LWW resolutie beleidsregels conflicteren](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
-- **Aangepaste**: Dit beleid van de oplossing is ontworpen voor toepassingsspecifieke semantiek voor afstemming van conflicten. Als u dit beleid voor uw Azure Cosmos DB-container instelt, moet u ook een samenvoegen opgeslagen procedure registreren. Deze procedure wordt automatisch geactiveerd wanneer er conflicten zijn gedetecteerd in een databasetransactie op de server. Het systeem biedt exact één keer voor het uitvoeren van een procedure samenvoegen als onderdeel van het protocol toezegging garanderen.  
+- **Aangepast**: Dit beleid van de oplossing is ontworpen voor toepassingsspecifieke semantiek voor afstemming van conflicten. Als u dit beleid voor uw Azure Cosmos DB-container instelt, moet u ook een samenvoegen opgeslagen procedure registreren. Deze procedure wordt automatisch geactiveerd wanneer er conflicten zijn gedetecteerd in een databasetransactie op de server. Het systeem biedt exact één keer voor het uitvoeren van een procedure samenvoegen als onderdeel van het protocol toezegging garanderen.  
 
   Er zijn twee punten om te weten als u de container met de aangepaste resolutie-optie configureren. Als u een failover naar het registreren van een merge-procedure voor de container of de samenvoegen-procedure een uitzondering tijdens runtime genereert, worden de conflicten worden geschreven naar de feed conflicten. Uw toepassing wordt vervolgens moet de conflicten in de feed conflicten handmatig oplossen. Zie voor meer informatie, [voorbeelden van hoe u het beleid van de oplossing op maat en het gebruik van de feed conflicten](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 

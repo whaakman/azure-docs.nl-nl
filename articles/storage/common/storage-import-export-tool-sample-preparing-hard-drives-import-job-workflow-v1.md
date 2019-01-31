@@ -7,20 +7,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527284"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459042"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
 In dit onderwerp begeleidt u bij het complete proces van schijven voorbereiden voor een importtaak.  
   
 In dit voorbeeld de volgende gegevens worden geïmporteerd in een Windows Azure storage-account met de naam `mystorageaccount`:  
   
-|Locatie|Beschrijving|  
+|Locatie|Description|  
 |--------------|-----------------|  
 |H:\Video|Een verzameling van video's, 5 TB in totaal.|  
 |H:\Photo|Een verzameling van foto's, 30 GB in totaal.|  
@@ -59,9 +59,9 @@ In dit voorbeeld moet twee 3 TB harde schijven voldoende. Echter, omdat de bronm
 ||||  
 |-|-|-|  
 |Harde schijf|Bron-mappen|Totale grootte|  
-|Eerste station|H:\Video1|2,5 TB + 30 GB|  
+|Eerste station|H:\Video1|2.5 TB + 30 GB|  
 ||H:\Photo||  
-|Tweede station|H:\Video2|2,5 TB + 35 GB|  
+|Tweede station|H:\Video2|2.5 TB + 35 GB|  
 ||K:\Temp\BlueRay.ISO||  
 ||\\\bigshare\john\music||  
   
@@ -88,7 +88,7 @@ U kunt ook instellen sommige eigenschappen van de `FavoriteMovie.ISO` blob:
   
 -   **Content-Type:** application/octet-stream  
   
--   **Inhoud-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==  
+-   **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ==  
   
 -   **Cache-Control:** no-cache  
   
@@ -169,4 +169,4 @@ Nadat de kopie-sessies hebt voltooid, kunt u verbreken van de twee schijven van 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Harde schijven voorbereiden voor een importtaak](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Naslaggids voor veelgebruikte opdrachten](../storage-import-export-tool-quick-reference-v1.md) 
+* [Naslaggids voor veelgebruikte opdrachten](../storage-import-export-tool-quick-reference-v1.md) 

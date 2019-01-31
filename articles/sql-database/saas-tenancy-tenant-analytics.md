@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f63a42afd9dc629bd87dfb23e07e14737ea42a2f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393261"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299840"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Cross-tenant-analytics met behulp van data - app met één tenant opgehaald
  
-In deze zelfstudie doorloopt u een volledige analytics-scenario voor een implementatoin één tenant. Het scenario laat zien hoe analytics bedrijven om slimme beslissingen kan inschakelen. Gegevens opgehaald uit elke tenantdatabase gebruikt, u analytics gebruiken voor inzicht in de tenant-gedrag, met inbegrip van hun gebruik van de Wingtip Tickets SaaS-voorbeeldtoepassing. In dit scenario bestaat uit drie stappen: 
+In deze zelfstudie doorloopt u een volledige analytics-scenario voor een implementatie met één tenant. Het scenario laat zien hoe analytics bedrijven om slimme beslissingen kan inschakelen. Gegevens opgehaald uit elke tenantdatabase gebruikt, u analytics gebruiken voor inzicht in de tenant-gedrag, met inbegrip van hun gebruik van de Wingtip Tickets SaaS-voorbeeldtoepassing. In dit scenario bestaat uit drie stappen: 
 
 1.  **Pak** gegevens uit elke tenantdatabase en **Load** in een archief van de analyse.
 2.  **De opgehaalde gegevens te transformeren** voor analyseverwerking.

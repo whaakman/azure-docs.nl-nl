@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0324a6f71a0a30fc9f3005a041b4c5413e6af8da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d61176030285556545e5619669d07c62d908a4e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317299"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471450"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Aanbevolen procedures voor Azure SQL Data Warehouse
 In dit artikel is een verzameling van aanbevolen procedures bij het bereiken van optimale prestaties van uw Azure SQL Data Warehouse.  Sommige onderwerpen in dit artikel zijn eenvoudig uit te leggen, andere zijn geavanceerder, waardoor we alleen de basis hiervan kunnen behandelen.  Het doel van dit artikel is om u een aantal richtlijnen te geven en u te wijzen op belangrijke onderdelen bij het maken van een datawarehouse.  In elk gedeelte maakt u kennis met een onderwerp en wordt u gewezen op gedetailleerdere artikelen die dieper op het onderwerp ingaan.

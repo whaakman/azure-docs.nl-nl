@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124980"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458523"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text-API 3.0: BreakSentence
 
@@ -35,13 +35,13 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>API-versie</td>
     <td>*Vereiste queryparameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
   </tr>
   <tr>
-    <td>Taal</td>
+    <td>language</td>
     <td>*Optionele queryparameter*.<br/>De taalcode voor het identificeren van de taal van de invoertekst. Als een code niet opgegeven is, wordt automatische taaldetectie worden toegepast.</td>
   </tr>
   <tr>
@@ -54,13 +54,13 @@ Aanvraagheaders zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_Koptekst_</td>
+    <td>_Een autorisatie_<br/>_header_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Inhoudstype</td>
+    <td>Content-Type</td>
     <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
@@ -73,7 +73,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`. Zin grenzen worden berekend voor de waarde van de `Text` eigenschap. De hoofdtekst van een voorbeeld-aanvraag met een stuk tekst ziet er zo uit:
 
@@ -122,7 +122,7 @@ Een voorbeeld-JSON-antwoord is:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
@@ -135,7 +135,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 <table width="100%">
   <th width="20%">Statuscode</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Geslaagd.</td>
@@ -170,7 +170,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 Het volgende voorbeeld ziet hoe u verkrijgt zin grenzen voor een enkele zin. De taal van de zin wordt automatisch gedetecteerd door de service.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

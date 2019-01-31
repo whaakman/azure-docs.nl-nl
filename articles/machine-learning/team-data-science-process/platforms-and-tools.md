@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139166"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471008"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformen en hulpprogramma's voor data science-projecten
 
@@ -73,7 +73,7 @@ Zie voor meer informatie over Azure SQL Data Warehouse de [SQL Data Warehouse](h
 
 Azure data lake is als een bedrijfsbrede opslagruimte voor elk soort gegevens die zijn verzameld op één locatie, voordat u een formele vereisten of schema wordt opgelegd. Deze flexibiliteit kunt elk soort gegevens worden bewaard in een data lake, ongeacht het formaat of de structuur of hoe snel worden opgenomen. Organisaties kunnen vervolgens gebruiken voor Hadoop of geavanceerde analyses om te zoeken, patronen in deze data lakes. Datalakes kunnen ook dienen als een opslagplaats voor goedkopere gegevens voor te bereiden voordat de inrichting van de gegevens en u deze verplaatst naar een datawarehouse.
 
-Zie voor meer informatie over Azure Data Lake [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Zie voor meer informatie over het bouwen van een schaalbare end-to-end data science-oplossing met Azure Data Lake, [schaalbare Gegevenswetenschap in Azure Data Lake: een end-to-end-overzicht](data-lake-walkthrough.md)
+Zie voor meer informatie over Azure Data Lake [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Zie voor meer informatie over het bouwen van een schaalbare end-to-end data science-oplossing met Azure Data Lake, [schaalbare Gegevenswetenschap in Azure Data Lake: Een end-to-end-overzicht](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Hive met Azure HDInsight (Hadoop)-clusters

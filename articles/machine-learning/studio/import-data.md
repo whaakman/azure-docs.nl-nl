@@ -1,6 +1,6 @@
 ---
-Titel: Gegevens importeren in Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Hoe u uw gegevens importeren in Azure Machine Learning Studio van verschillende gegevensbronnen. Meer informatie over welke gegevenstypen en opmaak van gegevens worden ondersteund.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Gegevens importeren in Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Hoe u uw gegevens importeren in Azure Machine Learning Studio van verschillende gegevensbronnen. Meer informatie over welke gegevenstypen en opmaak van gegevens worden ondersteund.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---
@@ -53,9 +53,9 @@ U kunt expliciet opgeven of wijzigen van de koppen en gegevenstypen voor kolomme
 
 De volgende **gegevenstypen** worden herkend door Machine Learning Studio:
 
-* Reeks
+* String
 * Geheel getal
-* Double-waarde
+* Double
 * Booleaans
 * DateTime
 * TimeSpan

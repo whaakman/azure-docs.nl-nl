@@ -1,6 +1,6 @@
 ---
-Titel: Fouten opsporen in uw model titleSuffix: Azure Machine Learning Studio description: Klik hier voor meer informatie over het opsporen van fouten die worden geproduceerd door de modules Train Model en Score Model in Azure Machine Learning Studio.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Fouten opsporen in uw model titleSuffix: Azure Machine Learning Studio description: Klik hier voor meer informatie over het opsporen van fouten die worden geproduceerd door de modules Train Model en Score Model in Azure Machine Learning Studio.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
 ---

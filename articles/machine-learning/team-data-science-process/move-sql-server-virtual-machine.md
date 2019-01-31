@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136185"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478488"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Gegevens verplaatsen naar SQL Server op een virtuele Azure-machine
 
@@ -64,20 +64,23 @@ BCP is een opdrachtregelprogramma moet zijn geïnstalleerd met SQL Server en is 
 
 1. Zorg ervoor dat de database en de tabellen worden gemaakt op de doel-SQL Server-database. Hier volgt een voorbeeld van hoe u doet dat door de `Create Database` en `Create Table` opdrachten:
 
-        CREATE DATABASE <database_name>
+```sql
+CREATE DATABASE <database_name>
 
-        CREATE TABLE <tablename>
-        (
-            <columnname1> <datatype> <constraint>,
-            <columnname2> <datatype> <constraint>,
-            <columnname3> <datatype> <constraint>
-        )
+CREATE TABLE <tablename>
+(
+    <columnname1> <datatype> <constraint>,
+    <columnname2> <datatype> <constraint>,
+    <columnname3> <datatype> <constraint>
+)
+```
+
 2. Genereer het indelingsbestand waarin wordt beschreven van het schema voor de tabel door de volgende opdracht vanaf de opdrachtregel van de machine waarop bcp is geïnstalleerd.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 3. De gegevens invoegen in de database met behulp van de bcp-opdracht als volgt. Dit moet werken vanaf de opdrachtregel ervan uitgaande dat de SQL Server op dezelfde computer is geïnstalleerd:
 
-    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
+    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
 > **Optimaliseren van BCP voegt** Raadpleeg het volgende artikel ['Richtlijnen voor het optimaliseren van bulkimport'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) dergelijke voegt optimaliseren.
 >
@@ -87,46 +90,47 @@ BCP is een opdrachtregelprogramma moet zijn geïnstalleerd met SQL Server en is 
 Als de gegevens die u verplaatst groot is, kunt u dingen van versnellen door tegelijkertijd meerdere BCP opdrachten parallel in een PowerShell-Script wordt uitgevoerd.
 
 > [!NOTE]
-> **BIG data opname** partitioneren om te optimaliseren voor grote en zeer grote gegevenssets het laden van gegevens, de tabellen in uw logische en fysieke database met behulp van meerdere tabellen voor bestandsgroepen en partitie. Zie voor meer informatie over het maken en het laden van gegevens naar partitietabellen [Parallel laden in SQL-partitietabellen](parallel-load-sql-partitioned-tables.md).
+> **BIG data opname** om te optimaliseren voor grote en zeer grote gegevenssets het laden van gegevens, in de tabellen in uw logische en fysieke database met behulp van meerdere bestandsgroepen partities en tabellen partitioneren. Zie voor meer informatie over het maken en het laden van gegevens naar partitietabellen [Parallel laden in SQL-partitietabellen](parallel-load-sql-partitioned-tables.md).
 >
 >
 
-Het onderstaande voorbeeld PowerShell script demonstreren parallelle ingevoegd met behulp van bcp:
+De volgende PowerShell-voorbeeldscript laat zien parallelle ingevoegd met behulp van bcp:
 
-    $NO_OF_PARALLEL_JOBS=2
+```powershell
+$NO_OF_PARALLEL_JOBS=2
 
-     Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
-     # Define what each job does
-       $ScriptBlock = {
-           param($partitionnumber)
+Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
+# Define what each job does
+$ScriptBlock = {
+    param($partitionnumber)
 
-           #Explictly using SQL username password
-           bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
+    #Explicitly using SQL username password
+    bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
 
-            #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
-            #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
-      }
-
-
-    # Background processing of all partitions
-    for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
-    {
-      Write-Debug "Submit loading partition # $i"
-      Start-Job $ScriptBlock -Arg $i      
-    }
+    #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
+    #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
+}
 
 
-    # Wait for it all to complete
-    While (Get-Job -State "Running")
-    {
-      Start-Sleep 10
-      Get-Job
-    }
+# Background processing of all partitions
+for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
+{
+    Write-Debug "Submit loading partition # $i"
+    Start-Job $ScriptBlock -Arg $i      
+}
 
-    # Getting the information back from the jobs
-    Get-Job | Receive-Job
-    Set-ExecutionPolicy Restricted #reset the execution policy
 
+# Wait for it all to complete
+While (Get-Job -State "Running")
+{
+    Start-Sleep 10
+    Get-Job
+}
+
+# Getting the information back from the jobs
+Get-Job | Receive-Job
+Set-ExecutionPolicy Restricted #reset the execution policy
+```
 
 ### <a name="insert-tables-bulkquery"></a>Bulksgewijs invoegen SQL-Query
 [Bulksgewijs invoegen van de SQL-Query](https://msdn.microsoft.com/library/ms188365) kan worden gebruikt voor het importeren van gegevens in de database van de rij/kolom op basis van bestanden (de ondersteunde typen worden behandeld in de[bereid gegevens voor bulksgewijs te exporteren of importeren (SQL Server)](https://msdn.microsoft.com/library/ms188609)) onderwerp.
@@ -135,18 +139,22 @@ Hier volgen enkele Voorbeeldopdrachten voor Bulk Insert zijn zoals hieronder:
 
 1. Analyseer uw gegevens en eventuele aangepaste opties instellen voor het importeren om ervoor te zorgen dat de SQL Server-database wordt ervan uitgegaan de dezelfde indeling voor speciale velden, zoals datums dat. Hier volgt een voorbeeld van het instellen van de notatie voor datum als jaar-maand-dag (als uw gegevens de datum in de indeling van de maand-jaar-dagen bevat):
 
-        SET DATEFORMAT ymd;    
+```sql
+SET DATEFORMAT ymd;
+```
 2. Gegevens importeren met bulksgewijs importinstructie toe:
 
-        BULK INSERT <tablename>
-        FROM    
-        '<datafilename>'
-        WITH
-        (
-        FirstRow=2,
-        FIELDTERMINATOR =',', --this should be column separator in your data
-        ROWTERMINATOR ='\n'   --this should be the row separator in your data
-        )
+```sql
+BULK INSERT <tablename>
+FROM
+'<datafilename>'
+WITH
+(
+    FirstRow = 2,
+    FIELDTERMINATOR = ',', --this should be column separator in your data
+    ROWTERMINATOR = '\n'   --this should be the row separator in your data
+)
+```
 
 ### <a name="sql-builtin-utilities"></a>Ingebouwde hulpprogramma's in SQL Server
 U kunt SQL Server integraties Services (SSIS) gebruiken om gegevens te importeren in SQL Server-VM op Azure uit een plat bestand.

@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2c21c08e71592e417d8ee3850af61ca2c1486a76
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252496"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464720"
 ---
-# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Overzicht: Ontwikkelen van voorspellende oplossing voor kredietrisicobeoordeling in Azure Machine Learning Studio
+# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Walkthrough: Ontwikkelen van voorspellende oplossing voor kredietrisicobeoordeling in Azure Machine Learning Studio
 
 In deze rondleiding gaan we uitgebreid in op het ontwikkelingsproces van een predictive analytics-oplossing in Machine Learning Studio. We zetten een eenvoudig model op in Machine Learning Studio en implementeren dit vervolgens als Azure Machine Learning-webservice, zodat het model voorspellingen kan doen met nieuwe gegevens. 
 

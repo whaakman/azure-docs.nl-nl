@@ -1,5 +1,5 @@
 ---
-Titel: Het maken van Web service-eindpunten titleSuffix: Azure Machine Learning Studio description: Het maken van Web service-eindpunten in Azure Machine Learning. Elk eindpunt in de webservice is onafhankelijk van elkaar geadresseerd, beperkt en beheerd.
+Titel: Het maken van Web service-eindpunten titleSuffix: Azure Machine Learning Studio description: Het maken van Web service-eindpunten in Azure Machine Learning. Elk eindpunt in de webservice is onafhankelijk van elkaar geadresseerd, beperkt en beheerd.
 Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 10/04/2016

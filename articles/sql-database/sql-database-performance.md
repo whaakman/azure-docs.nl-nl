@@ -10,15 +10,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 3629215dc1f6dfcb28194c487358adb058af3e8e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602916"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453005"
 ---
 # <a name="monitor-and-improve-performance"></a>Prestaties bewaken en verbeteren
+
 Azure SQL Database geeft mogelijke problemen in uw database en wordt aanbevolen acties die prestaties van uw workload verbeteren kunnen door intelligente acties en aanbevelingen te geven.
 
 Als u wilt controleren van de databaseprestaties van uw, gebruikt u de **prestaties** tegel op de pagina overzicht en navigeer naar "Ondersteuning en probleemoplossing" sectie:
@@ -34,6 +35,7 @@ In de "Ondersteuning en probleemoplossing" sectie, kunt u de volgende pagina's:
 4. [Automatisch afstemmen](#automatic-tuning) zodat Azure SQL Database de database automatisch te optimaliseren.
 
 ## <a name="performance-overview"></a>Prestatieoverzicht
+
 In deze weergave bevat een samenvatting van de databaseprestaties van uw, en helpt u bij het afstemmen van prestaties en oplossen van problemen. 
 
 ![Prestaties](./media/sql-database-performance/performance.png)
@@ -44,6 +46,7 @@ In deze weergave bevat een samenvatting van de databaseprestaties van uw, en hel
 * De **databasequery's** tegel staat een overzicht van de prestaties van query's voor uw database (totale DTU-gebruik en boven die veel resources verbruiken query's). Op deze tegel klikt, gaat u naar  **[Query Performance Insight](#query-performance-insight)**.
 
 ## <a name="performance-recommendations"></a>Aanbevelingen voor prestaties
+
 Deze pagina vindt u intelligente [aanbevelingen voor het afstemmen](sql-database-advisor.md) die prestaties van uw database kunt verbeteren. De volgende typen aanbevelingen worden weergegeven op deze pagina:
 
 * Aanbevelingen over welke indexen te maken of te verwijderen.
@@ -57,9 +60,11 @@ U vindt hier ook volledige geschiedenis van het afstemmen van de acties die zijn
 Meer informatie over het vinden van een item voor toepassen aanbevelingen voor prestaties in [zoeken en toepassen van aanbevelingen voor prestaties](sql-database-advisor-portal.md) artikel.
 
 ## <a name="automatic-tuning"></a>Automatisch instellen
+
 Azure SQL-databases kunnen automatisch afstemmen van prestaties van de database door toe te passen [aanbevelingen voor prestaties](sql-database-advisor.md). Voor meer informatie lezen [automatisch afstemmen artikel](sql-database-automatic-tuning.md). Als u wilt inschakelen, lezen [het inschakelen van automatisch afstemmen](sql-database-automatic-tuning-enable.md).
 
 ## <a name="query-performance-insight"></a>Inzicht in queryprestaties
+
 [Query Performance Insight](sql-database-query-performance.md) kunt u minder tijd door het oplossen van prestaties van de database door te geven:
 
 * Beter inzicht in het gebruik van de resources (DTU) databases. 
@@ -71,6 +76,7 @@ Azure SQL-databases kunnen automatisch afstemmen van prestaties van de database 
 Meer informatie over deze pagina vinden in het artikel  **[Query Performance Insight gebruiken](sql-database-query-performance.md)**.
 
 ## <a name="additional-resources"></a>Aanvullende resources
+
 * [Richtlijnen voor prestaties van Azure SQL-Database voor individuele databases](sql-database-performance-guidance.md)
 * [Wanneer moet een elastische pool worden gebruikt?](sql-database-elastic-pool-guidance.md)
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 76b2f73442261da4c791aaae8532d7a0dbbb6d95
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e51803a8baffc904c8d68a8cf22d1ff584e065d1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520603"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456201"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Bij het ophalen van informatie over de status voor een taak voor importeren/exporteren
 U kunt aanroepen de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking voor het ophalen van informatie over beide importeren en exporteren van taken. De geretourneerde informatie bevat:
@@ -35,7 +35,7 @@ In de tabel en de status van onderstaande diagram wordt beschreven welke status 
 
 De volgende tabel beschrijft elke status die een taak kan passeren.
 
-|Taakstatus|Beschrijving|
+|Taakstatus|Description|
 |---------------|-----------------|
 |`Creating`|Nadat u de taak Put-bewerking aanroept, een taak gemaakt wordt en de status is ingesteld op `Creating`. Terwijl de taak wordt de `Creating` staat, wordt de Import/Export-service wordt ervan uitgegaan dat de schijven niet zijn verzonden naar het datacenter. Een taak kan blijven de `Creating` staat voor maximaal twee weken, waarna deze worden automatisch verwijderd door de service.<br /><br /> Als u de eigenschappen van de taak-bewerking aanroept terwijl de taak wordt de `Creating` staat, de taak blijft in de `Creating` status en de time-outinterval tot twee weken opnieuw wordt ingesteld.|
 |`Shipping`|Nadat u het pakket te verzenden, moet u aanroepen de update van de bewerking taakeigenschappen bijwerken van de status van de taak is `Shipping`. De status van de verzending kan alleen worden ingesteld als de `DeliveryPackage` (postcode carrier en Traceringsnummer) en de `ReturnAddress` eigenschappen zijn ingesteld voor de taak.<br /><br /> De taak blijft in de status van de verzending voor maximaal twee weken. Als twee weken hebt doorgegeven en de schijven niet zijn ontvangen, wordt de Import/Export-service-operators hoogte gebracht.|
@@ -64,7 +64,7 @@ In de tabel en in het onderstaande diagram beschrijven de levenscyclus van een a
 
 De volgende tabel beschrijft elke status die een station kan passeren.
 
-|Status van station|Beschrijving|
+|Status van station|Description|
 |-----------------|-----------------|
 |`Specified`|Voor een importtaak wanneer de taak is gemaakt met de bewerking taak plaatst, wordt de initiële status voor een station is de `Specified` staat. Voor een exporttaak bekijken, omdat er geen station is opgegeven wanneer de taak is gemaakt, wordt de status van de eerste schijf is de `Received` staat.|
 |`Received`|Het station verandert in de `Received` status wanneer de Import/Export-service-operator de stations die zijn ontvangen van het transportbedrijf voor een importtaak heeft verwerkt. Voor een exporttaak bekijken, de status van de eerste schijf is de `Received` staat.|

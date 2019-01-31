@@ -6,171 +6,142 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3dfe47bc9a1d91e103d09794bfd50a270c99c3e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f29bb4ec8154c1d17eef18310037c42426d1522f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165265"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458649"
 ---
-# <a name="configure-recognize-text-containers"></a>Tekst herkennen containers configureren
+# <a name="configure-recognize-text-docker-containers"></a>Configureren van herkennen tekst Docker-containers
 
-Computer Vision biedt de container herkennen tekst met een gemeenschappelijk framework van de configuratie, zodat u eenvoudig kunt configureren en beheren van instellingen voor opslag, logboekregistratie en Telemetrie en beveiliging voor uw containers.
+De **tekst herkennen** container runtime-omgeving is geconfigureerd met behulp van de `docker run` opdracht argumenten. Deze container heeft meerdere vereiste instellingen, samen met een aantal optionele instellingen. Verschillende [voorbeelden](#example-docker-run-commands) van de opdracht beschikbaar zijn. De container-specifieke instellingen zijn de instellingen voor facturering. 
+
+Container-instellingen zijn [hiërarchische](#hierarchical-settings) en kan worden ingesteld met [omgevingsvariabelen](#environment-variable-settings) of docker [opdrachtregelargumenten](#command-line-argument-settings).
 
 ## <a name="configuration-settings"></a>Configuratie-instellingen
 
-Configuratie-instellingen van Computer Vision-containers zijn hiërarchische en alle containers gebruiken een gedeelde hiërarchie, op basis van de volgende structuur op het hoogste niveau:
+[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
-* [ApiKey](#apikey-configuration-setting)
-* [ApplicationInsights](#applicationinsights-configuration-settings)
-* [Verificatie](#authentication-configuration-settings)
-* [Facturering](#billing-configuration-setting)
-* [Gebruiksrechtovereenkomst](#eula-configuration-setting)
-* [Fluentd](#fluentd-configuration-settings)
-* [Referentie-instellingen voor HTTP-proxy](#http-proxy-credentials-settings)
-* [Logging](#logging-configuration-settings)
-* [Hiermee wordt gekoppeld](#mounts-configuration-settings)
-
-U kunt een gebruiken [omgevingsvariabelen](#configuration-settings-as-environment-variables) of [opdrachtregelargumenten](#configuration-settings-as-command-line-arguments) om op te geven van configuratie-instellingen bij het instantiëren van een container van Computer Vision-containers.
-
-Waarden van omgevingsvariabelen overschrijven opdrachtregelargument waarden, die op zijn beurt de standaardwaarden voor de containerinstallatiekopie te overschrijven. Met andere woorden, als u verschillende waarden in een omgevingsvariabele en een opdrachtregelargument voor de dezelfde configuratie-instelling, zoals `Logging:Disk:LogLevel`exemplaar maken van een container, de waarde in de omgevingsvariabele wordt gebruikt door de geïnstantieerde de container.
-
-### <a name="configuration-settings-as-environment-variables"></a>Configuratie-instellingen als omgevingsvariabelen
-
-U kunt de [ASP.NET Core-omgeving variabele syntaxis](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) om op te geven van configuratie-instellingen.
-
-De container leest omgevingsvariabelen van de gebruiker wanneer de container wordt geïnstantieerd. Als een omgevingsvariabele bestaat, overschrijft de waarde van de omgevingsvariabele de standaardwaarde voor de opgegeven configuratie-instelling. Het voordeel van het gebruik van omgevingsvariabelen is dat meerdere configuratie-instellingen kunnen worden ingesteld voordat het instantiëren van containers en meerdere containers kunnen u dezelfde set configuratie-instellingen automatisch gebruikmaken.
-
-Bijvoorbeeld de volgende opdrachten een omgevingsvariabele configureren van de console logboekregistratieniveau te gebruiken [LogLevel.Information](https://msdn.microsoft.com), waarmee vervolgens wordt een container van de containerinstallatiekopie tekst herkennen. De waarde van de omgevingsvariabele overschrijft de standaard configuratie-instelling.
-
-  ```Docker
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789
-  ```
-
-### <a name="configuration-settings-as-command-line-arguments"></a>Configuratie-instellingen als opdrachtregelargumenten
-
-U kunt de [ASP.NET Core opdrachtregelargument syntaxis](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) om op te geven van configuratie-instellingen.
-
-U kunt configuratie-instellingen opgeven in de optionele `ARGS` parameter van de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht die wordt gebruikt voor het starten van een container van een gedownloade containerinstallatiekopie. Het voordeel van het gebruik van opdrachtregelargumenten is dat elke container kan worden gebruikt voor het gebruik van een andere, aangepaste set met configuratie-instellingen.
-
-Bijvoorbeeld de volgende opdracht wordt een container van de containerinstallatiekopie tekst herkennen en configureert u de console het niveau van logboekregistratie in LogLevel.Information, voorrang op de standaard-configuratie-instelling.
-
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Console:LogLevel=Information
-  ```
+> [!IMPORTANT]
+> De [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), en [ `Eula` ](#eula-setting) instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie deze, anders uw container start niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](computer-vision-how-to-install-containers.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>ApiKey configuratie-instelling
 
-De `ApiKey` configuratie-instelling geeft de configuratiesleutel van de Computer Vision-resource op Azure gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige configuratie-sleutel voor de Computer Vision-resource die is opgegeven voor de [ `Billing` ](#billing-configuration-setting) configuratie-instelling.
+De `ApiKey` instelling geeft u aan de Azure-resource-sleutel die wordt gebruikt voor het bijhouden van informatie over facturering voor de container. U moet een waarde opgeven voor de ApiKey en de waarde moet een geldige sleutel voor de _Computer Vision_ resource die is opgegeven voor de [ `Billing` ](#billing-setting) configuratie-instelling.
 
-> [!IMPORTANT]
-> De [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), en [ `Eula` ](#eula-configuration-setting) configuratie-instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie Deze; anders start uw container niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](computer-vision-how-to-install-containers.md#billing).
+Deze instelling kan worden gevonden in de volgende plaats:
 
-## <a name="applicationinsights-configuration-settings"></a>Application Insights-configuratie-instellingen
+* Azure Portal: **Computer-Vision** resourcebeheer onder **sleutels**
 
-De configuratie-instellingen in de `ApplicationInsights` sectie kunt u om toe te voegen [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ondersteuning voor telemetrie naar de container. Application Insights biedt uitgebreide bewaking van de container op het codeniveau. U kunt de container voor beschikbaarheid, prestaties en gebruik eenvoudig bewaken. U kunt ook snel identificeren en opsporen van fouten in de container zonder te wachten op een gebruiker ze heeft gerapporteerd.
+## <a name="applicationinsights-setting"></a>Application Insights-instelling
 
-De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `ApplicationInsights` sectie.
-
-| Name | Gegevenstype | Description |
-|------|-----------|-------------|
-| `InstrumentationKey` | Reeks | De instrumentatiesleutel van de Application Insights-exemplaar aan welke telemetrie gegevens voor de container is verzonden. Zie voor meer informatie, [Application Insights voor ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
-
-## <a name="authentication-configuration-settings"></a>Verificatie-configuratie-instellingen
-
-De `Authentication` configuratie-instellingen bieden opties voor Azure-beveiliging voor de container. Hoewel de configuratie-instellingen in deze sectie beschikbaar zijn, wordt de tekst herkennen-container in deze sectie niet gebruikt.
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## <a name="billing-configuration-setting"></a>Facturering van configuratie-instelling
 
-De `Billing` configuratie-instelling geeft aan welk eindpunt-URI van de Computer Vision-resource in Azure wordt gebruikt om te meten factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een Computer Vision-resource in Azure.
+De `Billing` instelling geeft u aan de URI van het eindpunt van de _Computer Vision_ resource in Azure gebruikt voor het meten van factureringsgegevens voor de container. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet een geldige URI van het eindpunt voor een _Computer Vision_ resource in Azure.
 
-> [!IMPORTANT]
-> De [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), en [ `Eula` ](#eula-configuration-setting) configuratie-instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie Deze; anders start uw container niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](computer-vision-how-to-install-containers.md#billing).
+Deze instelling kan worden gevonden in de volgende plaats:
 
-## <a name="eula-configuration-setting"></a>Voor de gebruiksrechtovereenkomst voor configuratie-instelling
+* Azure Portal: **Computer-Vision** overzicht, met het label `Endpoint`
 
-De `Eula` configuratie-instelling geeft aan dat u de licentie voor de container hebt geaccepteerd. U moet een waarde voor deze configuratie-instelling opgeven en de waarde moet worden ingesteld op `accept`.
+|Vereist| Name | Gegevenstype | Description |
+|--|------|-----------|-------------|
+|Ja| `Billing` | Reeks | URI van de facturering-eindpunt<br><br>Voorbeeld:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
-> [!IMPORTANT]
-> De [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), en [ `Eula` ](#eula-configuration-setting) configuratie-instellingen samen worden gebruikt en u moet geldige waarden opgeven voor alle drie Deze; anders start uw container niet. Zie voor meer informatie over het gebruik van deze configuratie-instellingen voor het starten van een container [facturering](computer-vision-how-to-install-containers.md#billing).
+## <a name="eula-setting"></a>Overeenkomst instelling
 
-Cognitive Services-containers zijn in licentie gegeven onder [uw overeenkomst](https://go.microsoft.com/fwlink/?linkid=2018657) voor uw gebruik van Azure. Als u een bestaande overeenkomst voor uw gebruik van Azure hebt, gaat u ermee akkoord dat uw overeenkomst voor gebruik van Azure is de [Microsoft Online Subscription overeenkomst](https://go.microsoft.com/fwlink/?linkid=2018755), waarin de [voorwaarden voor onlineservices ](https://go.microsoft.com/fwlink/?linkid=2018760). Voor Preview-versies, gaat u ook akkoord met de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://go.microsoft.com/fwlink/?linkid=2018815). Met behulp van de container gaat u akkoord met deze voorwaarden.
+[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-configuration-settings"></a>Fluentd configuratie-instellingen
+## <a name="fluentd-settings"></a>Fluentd-instellingen
 
-De `Fluentd` sectie beheert configuratie-instellingen voor [Fluentd](https://www.fluentd.org), een open-source-gegevensverzamelaar voor centrale logboekregistratie. Computer Vision-containers bevat een Fluentd-provider voor logboekregistratie waarmee uw container naar het logboek schrijven en, optioneel, metrische gegevens naar een Fluentd-server.
-
-De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `Fluentd` sectie.
-
-| Name | Gegevenstype | Description |
-|------|-----------|-------------|
-| `Host` | Reeks | De IP-adres of de DNS-hostnaam van de Fluentd-server. |
-| `Port` | Geheel getal | De poort van de Fluentd-server.<br/> De standaardwaarde is 24224. |
-| `HeartbeatMs` | Geheel getal | De heartbeat-interval in milliseconden. Als er geen verkeer van de gebeurtenis is verzonden voordat dit interval is verstreken, wordt er een heartbeat naar de Fluentd-server verzonden. De standaardwaarde is 60000 milliseconden (1 minuut). |
-| `SendBufferSize` | Geheel getal | De bufferruimte netwerk verzendt in bytes, dat wordt toegewezen voor bewerkingen. De standaardwaarde is 32768 bytes (32 kB). |
-| `TlsConnectionEstablishmentTimeoutMs` | Geheel getal | De time-out in milliseconden, een SSL/TLS-verbinding met de Fluentd-server tot stand brengen. De standaardwaarde is 10000 milliseconden (10 seconden).<br/> Als `UseTLS` is ingesteld op false, deze waarde wordt genegeerd. |
-| `UseTLS` | Booleaans | Geeft aan of SSL/TLS in de container moet worden gebruikt voor communicatie met de Fluentd-server. De standaardwaarde is false. |
-
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## <a name="http-proxy-credentials-settings"></a>HTTP-proxy-instellingen voor referenties
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-configuration-settings"></a>Configuratie-instellingen voor logboekregistratie
+## <a name="logging-settings"></a>Instellingen voor logboekregistratie
+ 
+[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-De `Logging` configuratie-instellingen beheren van ASP.NET Core logboekregistratie ondersteuning voor de container. U kunt de dezelfde configuratie-instellingen en waarden voor de container die u voor een ASP.NET Core-toepassing kunt gebruiken. De volgende logboekregistratie-providers worden ondersteund door de Computer Vision-containers:
+## <a name="mount-settings"></a>Instellingen voor koppelen
 
-* [Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)  
-  De ASP.NET Core `Console` provider voor logboekregistratie. Alle configuratie-instellingen voor ASP.NET Core en standaardwaarden voor deze provider voor logboekregistratie worden ondersteund.
-* [Foutopsporing](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)  
-  De ASP.NET Core `Debug` provider voor logboekregistratie. Alle configuratie-instellingen voor ASP.NET Core en standaardwaarden voor deze provider voor logboekregistratie worden ondersteund.
-* Schijf  
-  De provider van de JSON-logboekregistratie. Deze provider voor logboekregistratie schrijft logboekgegevens naar het koppelpunt van de uitvoer.  
-  De `Disk` logboekregistratie-provider ondersteunt de volgende configuratie-instellingen:  
+Gebruik bind koppelt om te lezen en schrijven van gegevens naar en van de container. U kunt opgeven van een koppelpunt invoer of uitvoer koppelen door op te geven de `--mount` optie in de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht.
 
-  | Name | Gegevenstype | Description |
-  |------|-----------|-------------|
-  | `Format` | Reeks | De indeling van de uitvoer voor de logboekbestanden.<br/> **Opmerking:** Deze waarde moet worden ingesteld op `json` om in te schakelen van de provider voor logboekregistratie. Als deze waarde is opgegeven zonder ook een koppelpunt uitvoer op te geven bij het instantiëren van een container, wordt er een fout optreedt. |
-  | `MaxFileSize` | Geheel getal | De maximale grootte in megabytes (MB) van een logboekbestand. Wanneer de grootte van het huidige logboekbestand voldoet aan of deze waarde overschrijdt, wordt een nieuw logboekbestand wordt gestart door de provider voor logboekregistratie. Als -1 is opgegeven, wordt de grootte van het logboekbestand alleen beperkt door de maximale bestandsgrootte, indien aanwezig, voor het koppelen van de uitvoer. De standaardwaarde is 1. |
+De Computer Vision-containers gebruik geen invoer of uitvoer koppelt training of service-gegevens op te slaan. 
 
-Zie voor meer informatie over het configureren van ondersteuning voor ASP.NET Core-logboekregistratie [logboekregistratie in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
+De exacte syntaxis van de locatie van de host koppelen, is afhankelijk van het hostbesturingssysteem. Bovendien de [hostcomputer](computer-vision-how-to-install-containers.md#the-host-computer)van koppelpunten locatie is mogelijk niet toegankelijk is vanwege een conflict tussen de machtigingen die wordt gebruikt door de Docker-service-account en de host koppelen locatie machtigingen. 
 
-## <a name="mounts-configuration-settings"></a>Hiermee koppelt u configuratie-instellingen
+|Optioneel| Name | Gegevenstype | Description |
+|-------|------|-----------|-------------|
+|Niet toegestaan| `Input` | String | Computer Vision-containers gebruik dit niet.|
+|Optioneel| `Output` | String | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. Dit is de locatie van de logboeken. Dit omvat de logboeken voor containers. <br><br>Voorbeeld:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-De Docker-containers die is geleverd door de Computer Vision zijn ontworpen om te worden van staatloze en onveranderbaar. Met andere woorden, worden bestanden die zijn gemaakt binnen een container opgeslagen in een beschrijfbare container-laag, die zich blijft voordoen alleen vast als de container wordt uitgevoerd en gemakkelijk kan niet worden geopend. Als deze container wordt gestopt of verwijderd, worden de bestanden die zijn gemaakt in die container ermee vernietigd.
+## <a name="hierarchical-settings"></a>Hiërarchische instellingen
 
-Echter, omdat ze Docker-containers, u kunt gebruiken opslagopties voor Docker, zoals volumes en binden koppelingen te lezen en schrijven van persistente gegevens buiten de container als de container wordt ondersteund. Zie voor meer informatie over hoe u kunt opgeven en beheren van Docker-opslagopties [beheren van gegevens in Docker](https://docs.docker.com/storage/).
+[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
 
-> [!NOTE]
-> Normaal gesproken hoeft u de waarden voor deze configuratie-instellingen wijzigen. In plaats daarvan gebruikt u de waarden die zijn opgegeven in deze configuratie-instellingen als doel bij het opgeven van de invoer- en koppelingen voor de container. Zie voor meer informatie over het opgeven van de invoer- en koppelingen [invoer en uitvoer van de koppeling](#input-and-output-mounts).
+## <a name="example-docker-run-commands"></a>Voorbeeld van de docker-opdrachten uitvoeren 
 
-De volgende tabel beschrijft de configuratieinstellingen die worden ondersteund onder de `Mounts` sectie.
+De volgende voorbeelden gebruiken de configuratie-instellingen om te laten zien hoe u om te schrijven en gebruik `docker run` opdrachten.  Zodra actief is, de container blijft actief totdat u [stoppen](computer-vision-how-to-install-containers.md#stop-the-container) deze.
 
-| Name | Gegevenstype | Description |
-|------|-----------|-------------|
-| `Input` | Reeks | Het doel van de invoer koppelen. De standaardwaarde is `/input`. |
-| `Output` | Reeks | Het doel van de uitvoer-koppelpunt. De standaardwaarde is `/output`. |
+* **Voortzetting van regel tekens**: De Docker-opdrachten in de volgende secties gebruiken de backslash `\`, als een voortzetting van regel tekens. Vervang of verwijder deze op basis van het hostbesturingssysteem vereisten. 
+* **Argument order**: Wijzig de volgorde van de argumenten niet, tenzij u bekend bent met Docker-containers.
 
-### <a name="input-and-output-mounts"></a>Invoer- en koppelingen
+Vervang {_argument_name_} door uw eigen waarden:
 
-Standaard elke container kan ondersteunen een *invoer koppelpunt*, die de container kan worden gelezen gegevens, en een *uitvoer koppelpunt*, die de container kan om gegevens te schrijven. Containers zijn niet vereist voor de ondersteuning van invoer of uitvoer van de koppeling, echter en elke container zowel invoer- en koppelingen voor container-specifieke toepassing naast de opties voor logboekregistratie wordt ondersteund door de Computer Vision-containers kunt gebruiken.
+| Tijdelijke aanduiding | Waarde | Indeling of voorbeeld |
+|-------------|-------|---|
+|{BILLING_KEY} | De eindpuntsleutel van de Computer Vision-resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | De facturering eindpuntwaarde inclusief regio.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
-Invoer koppelingen biedt geen ondersteuning voor de container tekst herkennen en (optioneel) de koppelingen voor het uitvoeren van ondersteunt.
+> [!IMPORTANT]
+> De `Eula`, `Billing`, en `ApiKey` opties moeten worden opgegeven voor het uitvoeren van de container; anders wordt de container niet start.  Zie voor meer informatie, [facturering](computer-vision-how-to-install-containers.md#billing).
+> De waarde ApiKey is de **sleutel** van de pagina sleutels in Azure Computer Vision-Resource. 
 
-U kunt opgeven van een koppelpunt invoer of uitvoer koppelen door op te geven de `--mount` optie in de [docker uitvoeren](https://docs.docker.com/engine/reference/commandline/run/) opdracht die wordt gebruikt voor het starten van een container van een gedownloade containerinstallatiekopie. Standaard de gebruikt voor het koppelen van de invoer `/input` als de bestemming en de uitvoer gebruikt koppelt `/output` als bestemming. Een Docker-opslagoptie die beschikbaar zijn voor de Docker-containerhost kan worden opgegeven in de `--mount` optie.
+## <a name="recognize-text-container-docker-examples"></a>Herkennen tekst container Docker-voorbeelden
 
-De volgende opdracht wordt bijvoorbeeld gedefinieerd voor een koppelpunt van de Docker-binding aan de `D:\Output` map op de hostcomputer als het koppelpunt uitvoer wordt vervolgens een container van de containerinstallatiekopie tekst herkennen, het opslaan van logboekbestanden in JSON-indeling voor het koppelen van de uitvoer.
+De volgende Docker-voorbeelden zijn voor de container van de tekst herkennen. 
+
+### <a name="basic-example"></a>Eenvoudige voorbeeld 
 
   ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY} 
+  ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Voorbeeld van de logboekregistratie met opdrachtregelargumenten
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY} \
+  Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Voorbeeld van de logboekregistratie met omgevingsvariabele
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  Eula=accept \
+  Billing={BILLING_ENDPOINT_URI} \
+  ApiKey={BILLING_KEY}
   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer [Cognitive Services-Containers](../cognitive-services-container-support.md)
+* Beoordeling [over het installeren en uitvoeren van containers](computer-vision-how-to-install-containers.md)

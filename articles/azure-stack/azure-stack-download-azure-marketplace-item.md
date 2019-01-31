@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/10/2018
+ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 465f9d51f724bf1c8713259cd1d0b6ebabc230fe
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8c699f8b3241694f36b73ae75b25754e551c91f6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470702"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -168,7 +168,13 @@ Er zijn twee onderdelen voor dit scenario:
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
    ```
+
+   De `-origin` parameter geeft u de map op het hoogste niveau met de gedownloade producten; bijvoorbeeld `"D:\downloadfolder"`.
+
    De `-AzsCredential` parameter is optioneel. Het wordt gebruikt voor het vernieuwen van het toegangstoken als deze is verlopen. Als de `-AzsCredential` parameter niet wordt opgegeven en het token is verlopen, wordt u gevraagd de referenties van de operator in te voeren.
+
+    > [!Note]  
+    > AD FS biedt alleen ondersteuning voor interactieve verificatie met gebruikers-id's. Als u een referentieobject is vereist, moet u een service-principal (SPN) gebruiken. Zie voor meer informatie over het instellen van een service-principal met Azure Stack en AD FS als uw identity management-service [beheren service-principal voor AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 4. Nadat het script is voltooid, het item moet zijn beschikbaar in de Azure Stack Marketplace.
 

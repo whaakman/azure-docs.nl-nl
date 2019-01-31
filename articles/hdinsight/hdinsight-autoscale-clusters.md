@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: fd2d9bd325d79a1fd8aa0da74da64f6ba98decda
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bd1ffcfd915fe9ece683ec88d27f54b3a9214621
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101053"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475671"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatisch schalen van Azure HDInsight-clusters (Preview)
 
@@ -27,17 +27,17 @@ Azure HDInsight-cluster voor automatisch schalen functie het aantal worker-knoop
 > [!Note]
 > Automatisch schalen is momenteel alleen ondersteund voor Azure HDInsight Hive, MapReduce en Spark-clusters versie 3.6.
 
-HDInsight-cluster maken stappen met behulp van de Azure-Portal kunnen u vinden op [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).  Automatisch schalen inschakelen tijdens het maken, is een paar afwijkingen van de gebruikelijke installatiestappen vereist.  
+Om in te schakelen van de functie voor automatisch schalen, doet u het volgende als onderdeel van het proces voor het maken van normale cluster:
 
 1. Selecteer **aangepast (grootte, instellingen en apps)** in plaats van **snelle invoer**.
-2. Stap 5 van aangepaste **clustergrootte**, Controleer de **Worker-knooppunt voor automatisch schalen** selectievakje.
+2. Op **aangepaste** stap 5 (**clustergrootte**) Controleer de **Worker-knooppunt voor automatisch schalen** selectievakje.
 3. Voer de gewenste waarden in voor:  
-  &#8226;Eerste **nummer van de Worker-knooppunten**.  
-  &#8226;**Minimum** aantal worker-knooppunten.  
-  &#8226;**Maximale** aantal worker-knooppunten.  
+
+    * Eerste **nummer van de Worker-knooppunten**.  
+    * **Minimale** aantal worker-knooppunten.  
+    * **Maximale** aantal worker-knooppunten.  
 
 ![Optie voor worker-knooppunt voor automatisch schalen inschakelen](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
-
 
 Het oorspronkelijke aantal worker-knooppunten moet liggen tussen het minimum en maximum, inclusief. Deze waarde bepaalt de aanvankelijke grootte van het cluster wanneer deze wordt gemaakt. Het minimum aantal worker-knooppunten moet groter zijn dan nul zijn.
 
@@ -48,9 +48,11 @@ Uw abonnement heeft een quotum van de capaciteit voor elke regio. Het totale aan
 > [!Note]  
 > Als u het totaal aantal core limiet overschrijdt, ontvangt u een foutmelding dat "het maximale aantal knooppunt overschrijdt de beschikbare kerngeheugens gebruikt in deze regio Kies een andere regio of neem contact op met de ondersteuning om het quotum te verhogen."
 
+Zie voor meer informatie over het maken van het HDInsight-cluster met behulp van de Azure portal, [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md).  
+
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Een cluster maken met Resource Manager-sjabloon
 
-HDInsight-cluster maken stappen met behulp van Resource Manager-sjablonen kunnen u vinden op [Apache Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  Wanneer u een HDInsight-cluster met een Azure Resource Manager-sjabloon maakt, moet u de volgende instellingen in de sectie "computeProfile"-"workernode" toevoegen en dienovereenkomstig te bewerken:
+Toevoegen voor het maken van een HDInsight-cluster met een Azure Resource Manager-sjabloon, een `autoscale` knooppunt naar de `computeProfile`  >  `workernode` sectie met de eigenschappen `minInstanceCount` en `maxInstanceCount` zoals wordt weergegeven in het json-codefragment hieronder.
 
 ```json
 {                            
@@ -73,6 +75,8 @@ HDInsight-cluster maken stappen met behulp van Resource Manager-sjablonen kunnen
     "scriptActions": []
 }
 ```
+
+Zie voor meer informatie over het maken van clusters met Resource Manager-sjablonen, [Apache Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>In- of uitschakelen voor automatisch schalen voor een actieve cluster
 
@@ -106,7 +110,7 @@ Wanneer de volgende voorwaarden worden gedetecteerd, verleent voor automatisch s
 * Totaal aantal in afwachting van CPU is groter dan de totale vrije CPU voor meer dan 1 minuut.
 * Totaal aantal in afwachting van geheugen is groter dan de totale beschikbare geheugen voor meer dan 1 minuut.
 
-Er wordt berekend dat de nieuwe werkrolknooppunten N nodig zijn om te voldoen aan de huidige vereisten van de CPU en geheugen en uitgeven van een schaal van de aanvraag vervolgens door aan te vragen van de nieuwe werkrolknooppunten N.
+Er wordt berekend dat een bepaald aantal nieuwe worker-knooppunten nodig zijn om te voldoen aan de huidige CPU en geheugen vereisten en vervolgens geven een schaal van de aanvraag die wordt toegevoegd dat aantal nieuwe worker-knooppunten.
 
 ### <a name="cluster-scale-down"></a>Cluster omlaag schalen
 
@@ -115,7 +119,7 @@ Wanneer de volgende voorwaarden worden gedetecteerd, wordt een neerschalen aanvr
 * Totaal aantal in afwachting van CPU is kleiner dan de totale vrije CPU gedurende meer dan 10 minuten.
 * Totaal aantal in afwachting van geheugen is kleiner dan de totale beschikbare geheugen voor meer dan 10 minuten.
 
-Op basis van het aantal uur containers per knooppunt, evenals de huidige vereisten voor CPU en geheugen, verleent automatisch schalen een aanvraag voor het verwijderen van de N-knooppunten, op te geven welke knooppunten zijn mogelijke kandidaten voor verwijdering. Standaard wordt twee knooppunten verwijderd in een cyclus.
+Op basis van het aantal uur containers per knooppunt, evenals de huidige vereisten voor CPU en geheugen, verleent automatisch schalen een aanvraag voor het verwijderen van een bepaald aantal knooppunten, op te geven welke knooppunten zijn mogelijke kandidaten voor verwijdering. Standaard wordt twee knooppunten verwijderd in een cyclus.
 
 ## <a name="next-steps"></a>Volgende stappen
 

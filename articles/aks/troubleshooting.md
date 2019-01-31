@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654067"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468832"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 
@@ -66,28 +66,3 @@ Zorg ervoor dat de standaard-netwerkbeveiligingsgroep (NSG) wordt niet gewijzigd
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Ik heb geprobeerd om te upgraden of schalen en krijg een "bericht: Fout bij voor het wijzigen van de eigenschap 'imageReference' is niet toegestaan'.  Hoe kan ik dit probleem oplossen?
 
 Mogelijk worden aan te bieden u deze fout omdat u de tags in de agentknooppunten binnen het AKS-cluster hebt gewijzigd. Wijzigen en verwijderen van tags en andere eigenschappen van bronnen in de resourcegroep MC_ * kunnen leiden tot onverwachte resultaten. Wijzigen van de resources in de groep MC_ * in de AKS-cluster verbreekt de service level objective (SLO).
-
-## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Hoe verleng ik de service-principal-geheim op mijn AKS-cluster?
-
-AKS-clusters worden standaard gemaakt met een service-principal met een verlooptijd van één jaar. U kunt de referenties voor het uitbreiden van de service-principal voor een aanvullende periode opnieuw als u in de buurt van de vervaldatum.
-
-Het volgende voorbeeld voert deze stappen uit:
-
-1. Haalt de service-principal-ID van het cluster met behulp van de [az aks show](/cli/azure/aks#az-aks-show) opdracht.
-1. Geeft een lijst van de service principalclientgeheim met behulp van de [az ad sp referentie lijst](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
-1. De service-principal is een uitbreiding voor een andere één jaar met behulp van de [az ad sp referentie naar de fabrieksinstellingen](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) opdracht. De service principalclientgeheim moet blijven hetzelfde voor de AKS-cluster correct uit te voeren.
-
-```azurecli
-# Get the service principal ID of your AKS cluster.
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
-    --query servicePrincipalProfile.clientId -o tsv)
-
-# Get the existing service principal client secret.
-key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
-
-# Reset the credentials for your AKS service principal and extend for one year.
-az ad sp credential reset \
-    --name $sp_id \
-    --password $key_secret \
-    --years 1
-```

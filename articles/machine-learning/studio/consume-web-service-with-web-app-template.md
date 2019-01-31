@@ -1,8 +1,21 @@
 ---
-Titel: Studio-webservice met web-app-sjabloon titleSuffix gebruiken: Azure Machine Learning Studio description: Een web-appsjabloon gebruiken in Azure Marketplace een voorspellende webservice in Azure Machine Learning gebruiken.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
+title: Studio-webservice met web-appsjabloon gebruiken
+titleSuffix: Azure Machine Learning Studio
+description: Een web-appsjabloon gebruiken in Azure Marketplace een voorspellende webservice in Azure Machine Learning gebruiken.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 164aae7c6a4df18b8a28e1ff152e9c61c60f06b9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299058"
 ---
 # <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Een Azure Machine Learning Studio-webservice met behulp van een web-appsjabloon gebruiken
 

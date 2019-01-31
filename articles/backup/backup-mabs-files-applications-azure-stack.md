@@ -2,18 +2,18 @@
 title: Back-up van bestanden in Azure Stack-VM's
 description: Gebruik Azure Backup een back-up en herstellen van Azure Stack-bestanden en toepassingen naar uw Azure Stack-omgeving.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579181"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301472"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Back-up van bestanden in Azure Stack
 U kunt Azure Backup gebruiken om te beveiligen (of een back-up) bestanden en toepassingen in Azure Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup Server te installeren als een virtuele machine die wordt uitgevoerd op Azure Stack. U kunt de bestanden op een willekeurige Azure Stack-server in hetzelfde virtuele netwerk beveiligen. Nadat u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven om te verhogen van de lokale opslag beschikbaar voor gegevensback-up op korte termijn. Azure Backup-Server maakt gebruik van Azure storage voor langdurige bewaarperioden.
@@ -51,13 +51,13 @@ Open de Azure Backup Server-console voor het configureren van Azure Backup Serve
 
     Microsoft raadt aan om alle gegevens die een beveiligingsbeleid in een beveiligingsgroep delen. Voor volledige informatie over het plannen en implementeren van beveiligingsgroepen, Zie het artikel System Center DPM [beveiligingsgroepen implementeren](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
-4. In de **methode voor gegevensbeveiliging selecteren** scherm, typt u een naam voor de beveiligingsgroep. Schakel het selectievakje voor **ik wil kortetermijnbeveiliging met:** en **ik Kies voor online beveiliging**. Klik op **Volgende**.
+4. In de **methode voor gegevensbeveiliging selecteren** scherm, typt u een naam voor de beveiligingsgroep. Schakel het selectievakje voor **ik wil kortetermijnbeveiliging met:** en **ik Kies voor online beveiliging**. Klik op **volgende**.
 
     ![Wizard nieuwe beveiligingsgroep wordt geopend](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Selecteer **ik Kies voor online beveiliging**, moet u eerst selecteren **ik wil kortetermijnbeveiliging met:** schijf. Azure Backup Server biedt geen bescherming op tape, zodat de schijf is de enige optie voor beveiliging op korte termijn.
+    Selecteer **ik Kies voor online beveiliging**, moet u eerst selecteren **ik wil kortetermijnbeveiliging met:** Schijf. Azure Backup Server biedt geen bescherming op tape, zodat de schijf is de enige optie voor beveiliging op korte termijn.
 
-5. In de **Kortetermijndoelen opgeven** scherm, kiest u hoe lang de herstelpunten die zijn opgeslagen op schijf, en bij het opslaan van incrementele back-ups behouden. Klik op **Volgende**.
+5. In de **Kortetermijndoelen opgeven** scherm, kiest u hoe lang de herstelpunten die zijn opgeslagen op schijf, en bij het opslaan van incrementele back-ups behouden. Klik op **volgende**.
 
     > [!IMPORTANT]
     > U moet **niet** operationele herstelgegevens (back-up) op Azure Backup-Server-gekoppelde schijven meer dan vijf dagen bewaren.

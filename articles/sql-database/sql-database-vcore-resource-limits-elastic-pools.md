@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 818dbf84f7b706d6f4a89354291775f091bb1afc
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/30/2019
+ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215470"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461063"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore gebaseerde model limieten voor elastische pools aanschaffen
 
@@ -53,9 +53,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) * |210|420|630|840|1050|1260|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|200|300|500|500|500|
-|Min./Max. elastische pool vCore-opties per database|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
+|Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Aantal replica's|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -79,9 +79,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|1470|1680|1890|2100|3360|5040|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|200|500|500|500|500|500|
-|Min./Max. elastische pool vCore-opties per database|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
+|Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Aantal replica's|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -93,7 +93,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Geheugen (GB)|10.2|20.4|30,6 mil|40,8|51|61.2|71.4|
+|Geheugen (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Maximumgrootte van gegevens (GB)|512|756|756|1536|1536|1536|
@@ -105,9 +105,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|210|420|630|840|1050|1260|1470|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|200|500|500|500|500|500|500|
-|Min./Max. elastische pool vCore-opties per database|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
+|Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Aantal replica's|1|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -130,9 +130,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Doel-IOPS (van 64 KB)|4000|4500|5000|6000|7000|7000|7000|
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|1680|1890|2100|2520|33600|4200|8400|
 |Maximaal aantal databases per pool|500|500|500|500|500|500|500|
-|Min./Max. elastische pool vCore-opties per database|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 16, 24 uur per dag, 32, 40|0, 0,25, 0,5, 1... 16, 24 uur per dag, 32, 40, 80|
+|Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Aantal replica's|1|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -146,7 +146,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
-|Geheugen (GB)|10.2|20.4|30,6 mil|40,8|51|61.2|71.4|
+|Geheugen (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Ondersteuning voor Columnstore|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP-opslag (GB)|1|2|3|4|5|6|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
@@ -158,9 +158,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|210|420|630|840|1050|1260|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|Slechts één DB's worden ondersteund voor deze compute-grootte|50|100|100|100|100|
-|Min./Max. elastische pool vCore-opties per database|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
+|Min./Max. elastische pool vCore-opties per database|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Aantal replica's|4|4|4|4|4|4|
-|Multi-z|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -184,9 +184,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|1470|1680|1890|2100|3360|5040|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|100|100|100|100|100|
-|Min./Max. elastische pool vCore-opties per database|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
+|Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Aantal replica's|4|4|4|4|4|4|
-|Multi-z|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -200,7 +200,7 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |vCores|2|4|6|8|10|12|14|
 |Geheugen (GB)|11|22|33|44|55|66|77|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|In-memory OLTP-opslag (GB)|1.571|3,142|4.713|6.284|8.655|11.026|13.397|
+|In-memory OLTP-opslag (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Maximumgrootte van gegevens (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Maximale logboekgrootte (GB)|307|307|307|461|461|461|461|
 |TempDB-grootte (GB)|64|128|192|256|320|384|384|
@@ -210,9 +210,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|210|420|630|840|1050|1260|1470|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|Slechts één DB's worden ondersteund voor deze compute-grootte|50|100|100|100|100|100|
-|Min./Max. elastische pool vCore-opties per database|N/A|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
+|Min./Max. elastische pool vCore-opties per database|N/A|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Aantal replica's|4|4|4|4|4|4|4|
-|Multi-z|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -236,9 +236,9 @@ U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen
 |Maximaal aantal gelijktijdige werknemers per pool (aanvragen) *|1680|1890|2100|2520|3360|4200|8400|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|100|100|100|100|100|100|
-|Min./Max. elastische pool vCore-opties per database|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 20, 24 uur per dag, 32, 40|0, 0,25, 0,5, 1... 20, 24 uur per dag, 32, 40, 80|
+|Min./Max. elastische pool vCore-opties per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Aantal replica's|4|4|4|4|4|4|4|
-|Multi-z|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -260,5 +260,5 @@ De volgende tabel beschrijft de eigenschappen voor databases in pools.
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden op veelgestelde vragen.
-- Zie [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
+- Zie [overzicht van de resource op een SQL-databaseserver beperkt](sql-database-resource-limits-database-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor meer informatie over algemene Azure-limieten [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).

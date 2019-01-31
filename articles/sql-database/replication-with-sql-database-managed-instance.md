@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360085"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467660"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Replicatie in Azure SQL Database Managed Instance configureren
 
-Transactionele replicatie kunt u gegevens van de SQL Server of Azure SQL Database Managed Instance-databases repliceren naar het beheerd exemplaar of push wijzigingen in uw databases in het beheerde exemplaar aan andere SQL Server, één Azure-Database of andere Beheerd exemplaar. Replicatie is in de openbare preview op [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Een beheerd exemplaar kan uitgever, distributor en subscriber-databases hosten. Zie [transactionele replicatie configuraties](sql-database-managed-instance-transactional-replication.md#common-configurations) voor beschikbare configuraties.
+Transactionele replicatie kunt u voor het repliceren van gegevens uit de SQL Server of Azure SQL Database Managed Instance-databases naar het beheerd exemplaar of wijzigingen aangebracht in uw databases in het beheerde exemplaar van andere SQL-Server, SQL Database single database of elastische pool, of andere Managed Instance. Replicatie is in de openbare preview op [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Een beheerd exemplaar kan uitgever, distributor en subscriber-databases hosten. Zie [transactionele replicatie configuraties](sql-database-managed-instance-transactional-replication.md#common-configurations) voor beschikbare configuraties.
 
 ## <a name="requirements"></a>Vereisten
 
@@ -46,7 +46,7 @@ Ondersteunt:
 
 - De combinatie van de transactionele en momentopname replicatie van on-premises en Azure SQL Database Managed Instance-exemplaren.
 
-- Abonnees kunnen worden on-premises, individuele databases in Azure SQL Database of gepoolde databases in Azure SQL Database elastische pools.
+- Abonnees kunnen worden on-premises, individuele database in Azure SQL Database of gepoolde databases in Azure SQL Database elastische pools.
 
 - Eenzijdige of replicatie in twee richtingen.
 
@@ -71,7 +71,7 @@ De volgende functies worden niet ondersteund:
 
    In het van de voorbeeldscripts hieronder, gebruikt u `<SQL_USER>` en `<PASSWORD>` met dit Account voor SQL Server-database, gebruiker en wachtwoord.
 
-5. [Verbinding maken met het beheerde exemplaar van SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Verbinding maken met het beheerde exemplaar van SQL Database](sql-database-connect-query-ssms.md).
 
 6. Voer de volgende query uit om toe te voegen van de distributor en de distributiedatabase.
 
@@ -172,4 +172,4 @@ De volgende functies worden niet ondersteund:
 ## <a name="see-also"></a>Zie ook
 
 - [Transactionele replicatie](sql-database-managed-instance-transactional-replication.md)
-- [Wat is een beheerd exemplaar?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Wat is een beheerd exemplaar?](sql-database-managed-instance.md)

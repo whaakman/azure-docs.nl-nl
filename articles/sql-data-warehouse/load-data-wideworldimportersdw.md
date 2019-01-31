@@ -1,23 +1,23 @@
 ---
-title: 'Zelfstudie: gegevens laden in Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Zelfstudie: Gegevens laden in Azure SQL Data Warehouse | Microsoft Docs'
 description: In deze zelfstudie wordt gebruikgemaakt van Azure Portal en SQL Server Management Studio om het WideWorldImportersDW-datawarehouse vanuit een openbare Azure-blob naar Azure SQL Data Warehouse te laden.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 57803d6b83b71e65064c4ec701ed5b7e7607321f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286930"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454331"
 ---
-# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Zelfstudie: gegevens laden in Azure SQL Data Warehouse
+# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Gegevens laden in Azure SQL Data Warehouse
 
 In deze zelfstudie wordt gebruikgemaakt van PolyBase om het WideWorldImportersDW-datawarehouse vanuit Azure Blob Storage naar Azure SQL Data Warehouse te laden. De zelfstudie gebruikt [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) voor het volgende: 
 

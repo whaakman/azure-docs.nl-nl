@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: c25dd911b5648cdf4b64053ef26a7b70c9156074
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599753"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468900"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Actieve geo-replicatie configureren voor Azure SQL Database in Azure portal en failover initiëren
 
-Dit artikel leest u hoe u [actieve geo-replicatie voor één en gepoolde databases] configureert op een logische server(sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in SQL-Database met behulp van de [Azure-portal](http://portal.azure.com) en het starten van failover.
+Dit artikel leest u hoe het configureren van [actieve geo-replicatie voor één en gepoolde databases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL Database met behulp van de [Azure-portal](http://portal.azure.com) en het starten van failover.
 
 Zie voor meer informatie over automatische failover-groepen met één en gepoolde databases [aanbevolen procedures van het gebruik van failover-groepen met één en gepoolde databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Zie voor meer informatie over automatische failover-groepen met beheerde instanties (preview) [aanbevolen procedures van het gebruik van failover-groepen met één en gepoolde databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -40,7 +40,7 @@ De volgende stappen maakt u een nieuwe secundaire database in een partnerschap g
 
 Als u wilt toevoegen van een secundaire database, moet u de abonnement-eigenaar of mede-eigenaar zijn.
 
-De secundaire database heeft dezelfde naam als de primaire database en dezelfde service-laag en grootte compute is standaard. De secundaire database kan zijn een individuele database of een database in een elastische pool. Zie voor meer informatie, [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
+De secundaire database heeft dezelfde naam als de primaire database en dezelfde service-laag en grootte compute is standaard. De secundaire database is een individuele database of een gegroepeerde-database. Zie voor meer informatie, [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 Nadat de secundaire server is gemaakt en seeding, begint de gegevens die van de primaire database worden gerepliceerd naar de nieuwe secundaire database.
 
 > [!NOTE]

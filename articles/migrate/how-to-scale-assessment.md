@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262214"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297137"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -19,7 +19,7 @@ Azure Migrate heeft een limiet van 1500 machines per project, in dit artikel wor
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **VMware**: De virtuele machines die u wilt migreren, moeten worden beheerd door vCenter-Server versie 5.5, 6.0, 6.5 of 6.7. Daarnaast moet u één ESXi-host met versie 5.0 of hoger voor het implementeren van de collector-VM.
+- **VMware**: De virtuele machines die u wilt migreren, moeten worden beheerd door vCenter-Server versie 5.5, 6.0, 6.5 of 6.7. Daarnaast moet u één ESXi-host met versie 5.5 of later om de collector virtuele machine te implementeren.
 - **vCenter-account**: U moet een alleen-lezen-account voor toegang tot de vCenter-Server. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
 - **Machtigingen**: In de vCenter-Server moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in OVA-indeling.
 - **Instellingen voor statistieken**: Deze vereiste is alleen van toepassing op de [eenmalige detectie model](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) die nu is afgeschaft. Voor detectie van eenmalige-model, moeten de instellingen voor statistieken voor de vCenter-Server worden ingesteld op niveau 3 voordat u begint met implementatie. Het statistiekniveau van de is ingesteld op 3 voor elk van de dag, week en maand verzameling intervallen. Als het niveau lager dan 3 voor elk van de drie verzameling intervallen is, werkt de beoordeling wel, maar de prestatiegegevens voor appopslag en netwerken worden niet verzameld. De aanbevelingen voor de grootte wordt vervolgens worden gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230230"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295354"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Aan de slag met de Oracle-Database-connector
 
@@ -95,27 +95,27 @@ Dit artikel leest u hoe het gebruik van de Oracle-Database-connector in een logi
 
 ## <a name="common-errors"></a>Algemene fouten
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Fout**: kan de Gateway niet bereiken
+#### <a name="error-cannot-reach-the-gateway"></a>**Fout**: Kan de Gateway niet bereiken
 
-**Oorzaak**: de on-premises gegevensgateway kan geen verbinding maken met de cloud. 
+**Oorzaak**: De on-premises gegevensgateway is niet alleen verbinding maken met de cloud. 
 
 **Risicobeperking**: Zorg ervoor dat uw gateway wordt uitgevoerd op de on-premises computer waar u deze hebt geïnstalleerd, en dat deze verbinding kan maken met internet.  Het is raadzaam om de gateway niet installeren op een computer die kan worden uitgeschakeld of de slaapstand. U kunt ook de on-premises gegevensgatewayservice (PBIEgwService) opnieuw.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fout**: de gebruikte provider is verouderd: ' System.Data.OracleClient is Oracle-clientsoftwareversie 8.1.7 of hoger.'. Zie [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) om de officiële provider te installeren.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fout**: De gebruikte provider is verouderd: ' System.Data.OracleClient is Oracle-clientsoftwareversie 8.1.7 of hoger.'. Zie [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) om de officiële provider te installeren.
 
-**Oorzaak**: de Oracle-client-SDK niet is geïnstalleerd op de computer waarop de on-premises gegevensgateway is uitgevoerd.  
+**Oorzaak**: De SDK van de Oracle-client is niet geïnstalleerd op de computer waarop de on-premises gegevensgateway is uitgevoerd.  
 
-**Resolutie**: Download en installeer de Oracle-client-SDK op dezelfde computer als de on-premises gegevensgateway.
+**Oplossing**: Download en installeer de Oracle-client-SDK op dezelfde computer als de on-premises gegevensgateway.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Fout**: tabel [tabelnaam] geen sleutelkolommen gedefinieerd
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Fout**: Voor tabel [tabelnaam] geen sleutelkolommen gedefinieerd
 
-**Oorzaak**: de tabel heeft geen primaire sleutel.  
+**Oorzaak**: De tabel heeft geen primaire sleutel.  
 
-**Resolutie**: de Oracle-Database-connector vereist dat een tabel met een primaire-sleutelkolom worden gebruikt.
+**Oplossing**: Het Oracle Database-connector vereist dat een tabel met een primaire-sleutelkolom worden gebruikt.
 
 #### <a name="currently-not-supported"></a>Momenteel ondersteund niet
 
-* Weergaven en opgeslagen procedures 
+* Weergaven 
 * Een tabel met samengestelde sleutels
 * Geneste objecttypen in tabellen
  

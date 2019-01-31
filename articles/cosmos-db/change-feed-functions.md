@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 41cbb657a4fc83b498c5cc9a6a16397a619aa075
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034043"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469478"
 ---
-# <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Het gebruik van Azure Cosmos DB-wijzigingenfeed met Azure Functions
+# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Azure Functions in Azure Cosmos DB activeren
 
 Als u Azure Functions, de eenvoudigste manier om verbinding maken met de wijzigingenfeed is om toe te voegen een [Azure Cosmos DB-trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) aan uw Azure Functions-app. Wanneer u een Cosmos DB-trigger in een Azure Functions-app maakt, u verbinding maken met de Cosmos-container selecteren en de functie wordt geactiveerd wanneer u iets in de container worden gewijzigd.
 

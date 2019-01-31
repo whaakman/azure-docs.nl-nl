@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390398"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453924"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL
 
@@ -162,7 +162,7 @@ Op dit moment zijn er twee manieren om te controleren voor uw SQL-Database insch
 
 ### <a name="impact-on-data-sync"></a>Gevolgen voor gegevenssynchronisatie
 
-Azure SQL-Database heeft de gegevenssynchronisatie-functie die verbinding maakt met uw databases met behulp van Azure-IP-adressen. Wanneer u service-eindpunten gebruikt, is het waarschijnlijk dat u wordt uitgeschakeld **kunnen Azure-services tot server** toegang tot uw logische server. Hierdoor wordt de functie Data Sync.
+Azure SQL-Database heeft de gegevenssynchronisatie-functie die verbinding maakt met uw databases met behulp van Azure-IP-adressen. Wanneer u service-eindpunten gebruikt, is het waarschijnlijk dat u wordt uitgeschakeld **kunnen Azure-services tot server** toegang tot uw SQL-Database-server. Hierdoor wordt de functie Data Sync.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage
 
@@ -173,17 +173,18 @@ Azure Storage is de dezelfde functie waarmee u verbinding met uw Azure Storage-a
 PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse vanuit Azure Storage-accounts. Als de Azure Storage-account dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Voor het inschakelen van beide PolyBase importeren en exporteren van scenario's met Azure SQL Data Warehouse verbinding met Azure Storage die wordt beveiligd met VNet, volgt u de stappen die hieronder worden beschreven:
 
 #### <a name="prerequisites"></a>Vereisten
+
 1.  Installeer Azure PowerShell volgens dit [handleiding](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u eerst upgraden naar algemeen gebruik v2 met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  U moet hebben **vertrouwde Microsoft-services voor toegang tot dit storage-account toestaan** onder Azure Storage-account ingeschakeld **Firewalls en virtuele netwerken** instellingenmenu. Verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) voor meer informatie.
  
 #### <a name="steps"></a>Stappen
-1.  In PowerShell **de logische SQL-Server registreren** met Azure Active Directory (AAD):
+1.  In PowerShell **registreren van uw SQL Database-server** met Azure Active Directory (AAD):
 
     ```powershell
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Maak een **voor algemeen gebruik v2-Opslagaccount** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -192,7 +193,7 @@ PolyBase wordt meestal gebruikt om gegevens te laden in Azure SQL Data Warehouse
     > - Als u een voor algemeen gebruik v1- of blob storage-account hebt, moet u **eerst upgraden naar v2** met behulp van dit [handleiding](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     > - Voor bekende problemen met Azure Data Lake Storage Gen2 Raadpleeg dit [handleiding](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Onder uw storage-account, gaat u naar **Access Control (IAM)**, en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob (Preview)** RBAC-rol met de logische SQL-Server.
+1.  Onder uw storage-account, gaat u naar **Access Control (IAM)**, en klikt u op **roltoewijzing toevoegen**. Toewijzen **Gegevensbijdrager voor Blob (Preview)** RBAC-rol met uw SQL Database-server.
 
     > [!NOTE] 
     > Alleen leden met de eigenaar van bevoegdheden kunnen deze stap uitvoeren. Voor de verschillende ingebouwde rollen voor Azure-resources, verwijzen naar dit [handleiding](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

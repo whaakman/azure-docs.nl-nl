@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264747"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470588"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Geo-herstel met een multitenant SaaS-toepassing herstellen vanuit back-ups
 
-Deze zelfstudie worden een volledige noodherstelscenario voor een multitenant SaaS-toepassing geïmplementeerd met de database per tenant-model. U gebruikt [geo-herstel](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) om te herstellen van de catalogus en tenant-databases van automatisch onderhouden geografisch redundante back-ups in een andere regio. Nadat de onderbreking opgelost is, gebruikt u [geo-replicatie](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) te repatriëren gewijzigde databases naar hun oorspronkelijke regio.
+Deze zelfstudie worden een volledige noodherstelscenario voor een multitenant SaaS-toepassing geïmplementeerd met de database per tenant-model. U gebruikt [geo-herstel](sql-database-recovery-using-backups.md) om te herstellen van de catalogus en tenant-databases van automatisch onderhouden geografisch redundante back-ups in een andere regio. Nadat de onderbreking opgelost is, gebruikt u [geo-replicatie](sql-database-geo-replication-overview.md) te repatriëren gewijzigde databases naar hun oorspronkelijke regio.
 
 ![Geo-restore-architecture](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ Herstel na noodgeval (DR) is een belangrijk aandachtspunt voor veel toepassingen
 In deze zelfstudie maakt gebruik van functies van Azure SQL Database en het Azure-platform om deze uitdagingen:
 
 * [Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), zo snel mogelijk alle benodigde capaciteit reserveren. Azure Resource Manager-sjablonen worden gebruikt voor het inrichten van een mirror-installatiekopie van de oorspronkelijke servers en elastische pools in de herstelregio voor. Een afzonderlijke server en de pool worden ook gemaakt voor het inrichten van nieuwe tenants.
-* [Clientbibliotheek voor elastic Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL) maken en onderhouden van een tenantcatalogus voor de database. De uitgebreide catalog bevat regelmatig vernieuwd pool- en configuratie-informatie.
-* [Functies van shard management gegevensherstel](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) van de EDCL, databasevermeldingen die locatie in de catalogus tijdens het herstel en repatriëring onderhouden.  
-* [Geo-herstel](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery), om te herstellen van de catalogus en tenant-databases van automatisch onderhouden geografisch redundante back-ups. 
+* [Clientbibliotheek voor elastic Database](sql-database-elastic-database-client-library.md) (EDCL) maken en onderhouden van een tenantcatalogus voor de database. De uitgebreide catalog bevat regelmatig vernieuwd pool- en configuratie-informatie.
+* [Functies van shard management gegevensherstel](sql-database-elastic-database-recovery-manager.md) van de EDCL, databasevermeldingen die locatie in de catalogus tijdens het herstel en repatriëring onderhouden.  
+* [Geo-herstel](sql-database-disaster-recovery.md), om te herstellen van de catalogus en tenant-databases van automatisch onderhouden geografisch redundante back-ups. 
 * [Asynchrone herstelbewerkingen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), in volgorde van prioriteit tenant verzonden, worden door het systeem voor elke groep in de wachtrij en verwerkt in batches, zodat de groep niet wordt overbelast. Deze bewerkingen kunnen worden geannuleerd vóór of tijdens het uitvoeren van indien nodig.   
-* [Geo-replicatie](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), te repatriëren databases naar de oorspronkelijke regio na de storing. Er is geen verlies van gegevens en minimale gevolgen voor de tenant wanneer u geo-replicatie gebruikt.
-* [SQL server-DNS-aliassen](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), waarmee het synchronisatieproces catalogus verbinding maken met de actieve catalogus, ongeacht de locatie.  
+* [Geo-replicatie](sql-database-geo-replication-overview.md), te repatriëren databases naar de oorspronkelijke regio na de storing. Er is geen verlies van gegevens en minimale gevolgen voor de tenant wanneer u geo-replicatie gebruikt.
+* [SQL server-DNS-aliassen](dns-alias-overview.md), waarmee het synchronisatieproces catalogus verbinding maken met de actieve catalogus, ongeacht de locatie.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Scripts voor herstel van het noodgeval ophalen
 
@@ -378,4 +378,4 @@ Probeer de [herstel na noodgevallen voor een multitenant SaaS-toepassing met beh
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-[Aanvullende zelfstudies voort op de Wingtip SaaS-toepassing bouwen](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[Aanvullende zelfstudies voort op de Wingtip SaaS-toepassing bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 892a029c3a51aa3574d92b838a51359438a6bdb6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126119"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464990"
 ---
-# <a name="translator-text-api-30-detect"></a>Translator Text-API 3.0: detecteren
+# <a name="translator-text-api-30-detect"></a>Translator Text-API 3.0: Detect
 
 Hiermee geeft u de taal van een stuk tekst.
 
@@ -35,7 +35,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>API-versie</td>
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
@@ -46,13 +46,13 @@ Aanvraagheaders zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
-    <td>_Een autorisatie_<br/>_Koptekst_</td>
+    <td>_Een autorisatie_<br/>_header_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Inhoudstype</td>
+    <td>Content-Type</td>
     <td>*Vereiste aanvraagheader*.<br/>Hiermee geeft u het type inhoud van de nettolading. Mogelijke waarden zijn: `application/json`.</td>
   </tr>
   <tr>
@@ -65,7 +65,7 @@ Aanvraagheaders zijn onder andere:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Aanvraagtekst
+## <a name="request-body"></a>Aanvraagbody
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`. Taaldetectie wordt toegepast op de waarde van de `Text` eigenschap. Aanvraagtekst voorbeeld ziet er zo uit:
 
@@ -126,7 +126,7 @@ Een voorbeeld-JSON-antwoord is:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
@@ -139,7 +139,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 <table width="100%">
   <th width="20%">Statuscode</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Geslaagd.</td>
@@ -174,7 +174,7 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
 
 Het volgende voorbeeld ziet hoe u talen die worden ondersteund voor tekstvertaling ophaalt.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

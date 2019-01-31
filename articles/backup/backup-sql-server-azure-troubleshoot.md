@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339515"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296118"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Maak een Back-up van SQL Server op Azure oplossen
 
 Dit artikel bevat informatie over probleemoplossing voor het beveiligen van SQL Server-VM's op Azure (Preview).
 
-## <a name="public-preview-limitations"></a>Beperkingen voor openbare Preview
+## <a name="public-preview-limitations"></a>Beperkingen van openbare preview
 
 U wilt weergeven van de openbare Preview-beperkingen, Zie het artikel [maakt u een Back-up van SQL Server-database in Azure](backup-azure-sql-database.md#public-preview-limitations).
 
@@ -37,6 +37,15 @@ Beveiliging voor een SQL Server-database configureren op een virtuele machine, d
 ## <a name="troubleshooting-errors"></a>Het oplossen van problemen
 
 Gebruik de informatie in de volgende tabellen om het oplossen van problemen en fouten opgetreden bij het beveiligen van SQL Server naar Azure.
+
+## <a name="alerts"></a>Waarschuwingen
+
+### <a name="backup-type-unsupported"></a>Type back-up wordt niet ondersteund
+
+| Severity | Description | Mogelijke oorzaken | Aanbevolen actie |
+|---|---|---|---|
+| Waarschuwing | Huidige instellingen voor deze database bieden geen ondersteuning voor bepaalde soorten back-uptypen aanwezig zijn in het bijbehorende beleid. | <li>**DB-master**: Alleen een volledige database back-upbewerking kan worden uitgevoerd op de database master. geen van beide **differentiële** back-ups of transactie **logboeken** back-up mogelijk zijn. </li> <li>Elke database in **eenvoudige herstelmodel** is niet toegestaan voor de transactie **logboeken** back-up moeten worden uitgevoerd.</li> | De database-instellingen wijzigen zodat de back-typen in het beleid worden ondersteund. U kunt ook het huidige beleid zodanig dat alleen de ondersteunde back-uptypen wijzigen. Anders wordt de niet-ondersteunde back-uptypen overgeslagen tijdens de geplande back-up of de back-uptaak mislukt voor ad-hoc back-up.
+
 
 ## <a name="backup-failures"></a>Mislukte back-ups
 

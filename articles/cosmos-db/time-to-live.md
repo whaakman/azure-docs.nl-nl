@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbbaefc62adedc2374c47fd0736368d3dec3e6a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043427"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461165"
 ---
-# <a name="time-to-live-for-azure-cosmos-db-data"></a>Time to Live voor Azure Cosmos DB-gegevens
+# <a name="time-to-live-in-azure-cosmos-db"></a>Time to live in Azure Cosmos DB van 
 
 Met 'Time to Live' of een TTL-waarde biedt Azure Cosmos DB de mogelijkheid items om automatisch te verwijderen uit een container na een bepaalde periode. Standaard kunt u tijd te bevinden zich op het niveau van de container en de waarde op basis van de per-item overschrijven instellen. Nadat de TTL-waarde is ingesteld op een container of op het itemniveau van een, worden Azure Cosmos DB automatisch deze items verwijderd na de tijd sinds de tijd dat ze het laatst zijn gewijzigd. Waarde time to live is geconfigureerd in een paar seconden. Wanneer u TTL configureert, worden de verlopen items op basis van de TTL-waarde, in tegenstelling tot een verwijderbewerking dat expliciet is uitgegeven door de clienttoepassing automatisch verwijderd door het systeem.
 

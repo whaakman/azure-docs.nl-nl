@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.subservice: common
+ms.openlocfilehash: 7cc051697f3928e360ec0b3c6647a3a718315c18
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984261"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477255"
 ---
 # <a name="azure-storage-samples-using-java"></a>Azure Storage-voorbeelden met behulp van Java
 
@@ -25,7 +25,7 @@ De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en d
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Eindpunt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Voorbeeldcode</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Toevoeg-Blob</td> 
+<td>Blob toevoegen</td> 
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Aan de slag met Azure Blob-Service in Java</a></td> 
 </tr> 
 <tr> 
@@ -210,5 +210,5 @@ Bekijk de volgende handleidingen in als u op zoek bent voor instructies over het
 
 Voor informatie over voorbeelden voor andere talen:
 
-* .NET: [voorbeelden van azure Storage met .NET](storage-samples-dotnet.md)
+* .NET: [Azure Storage-voorbeelden met behulp van .NET](storage-samples-dotnet.md)
 * Alle andere talen: [Azure Storage-voorbeelden](storage-samples.md)

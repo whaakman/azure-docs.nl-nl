@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868443"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455096"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Resources voor elastische pool schalen in Azure SQL Database
 
 In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikbaar zijn voor elastische pools en gepoolde databases schalen in Azure SQL Database.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>op vCore gebaseerde aankoopmodel: opslaggrootte van de elastische pool wijzigen
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>op vCore gebaseerde aankoopmodel: Elastische pool opslaggrootte wijzigen
 
 - Opslag kan worden ingericht tot de maximale grootte is bereikt:
 
@@ -35,7 +35,7 @@ In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikba
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>op vCore gebaseerde aankoopmodel: rekenresources (vCores) voor de elastische pool wijzigen
+## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>op vCore gebaseerde aankoopmodel: Elastische pool wijzigen rekenresources (vCores)
 
 U kunt vergroten of verkleinen van de compute-grootte aan een elastische pool op basis van de resource moet met behulp van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
@@ -44,7 +44,7 @@ U kunt vergroten of verkleinen van de compute-grootte aan een elastische pool op
 - In het algemeen is de duur voor het wijzigen van de min-vCores per database of het maximum aantal vCores per database is vijf minuten of minder.
 - Wanneer verkleinen alvorens te pool vCores, is de groep gebruikt ruimte moet kleiner zijn dan de maximaal toegestane grootte van de doel-service-laag en groep vCores.
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU gebaseerde aankoopmodel: opslaggrootte van de elastische pool wijzigen
+## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU gebaseerde aankoopmodel: Elastische pool opslaggrootte wijzigen
 
 - De prijs eDTU voor een elastische pool is inclusief een bepaalde hoeveelheid opslagruimte zonder extra kosten. Extra opslagruimte bovenop de inbegrepen hoeveelheid worden ingezet er gelden aanvullende kosten tot de maximale grootte is bereikt in stappen van 250 GB tot 1 TB, en klik vervolgens in stappen van 256 GB dan 1 TB. Zie voor de hoeveelheid inbegrepen opslag en limieten voor de maximale berichtgrootte [elastische pool: opslaggrootte en compute-grootten](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
 - Extra opslag voor een elastische pool kan worden ingericht met de toename van het gebruik van de maximale grootte van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [REST-API ](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
@@ -53,7 +53,7 @@ U kunt vergroten of verkleinen van de compute-grootte aan een elastische pool op
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU gebaseerde aankoopmodel: rekenresources (edtu's) voor de elastische pool wijzigen
+## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU gebaseerde aankoopmodel: Rekenresources (edtu's) voor de elastische pool wijzigen
 
 U kunt vergroten of verkleinen van de beschikbare resources voor een elastische pool op basis van de resource moet met behulp van de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), wordt de [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), of de [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 

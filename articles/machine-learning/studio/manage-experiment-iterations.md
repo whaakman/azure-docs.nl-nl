@@ -1,6 +1,6 @@
 ---
-Titel: Experimentherhalingen in Machine Learning Studio titleSuffix beheren: Azure Machine Learning Studio description: Over het beheren van experimentherhalingen in Azure Machine Learning Studio. U kunt eerdere uitvoeringen van uw experimenten bekijken op elk gewenst moment om te kunnen verstrekken, bezoekt, en uiteindelijk bevestigen of vorige veronderstellingen verfijnen.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Experimentherhalingen in Machine Learning Studio titleSuffix beheren: Azure Machine Learning Studio description: Over het beheren van experimentherhalingen in Azure Machine Learning Studio. U kunt eerdere uitvoeringen van uw experimenten bekijken op elk gewenst moment om te kunnen verstrekken, bezoekt, en uiteindelijk bevestigen of vorige veronderstellingen verfijnen.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

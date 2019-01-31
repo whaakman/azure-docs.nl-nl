@@ -3,7 +3,7 @@ title: Azure SQL Database vCore gebaseerde resourcelimieten - database met | Mic
 description: Deze pagina Beschrijving van enkele veelvoorkomende vCore gebaseerde resourcelimieten voor een individuele database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,24 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 894922a80ab874e5304ef441571e03ef559a34b0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/25/2019
+ms.openlocfilehash: e38f90acf1ffb0b63379727287f7451f99b6dd0d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215419"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460162"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
 In dit artikel bevat de gedetailleerde resourcelimieten voor individuele databases van Azure SQL Database met behulp van het op vCore gebaseerde aankoopmodel.
 
-Zie voor DTU gebaseerde aankopen model limieten voor individuele databases op een logische server, [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md).
+Zie voor DTU gebaseerde aankopen model limieten voor individuele databases op een SQL-databaseserver, [overzicht van de resource op een SQL-databaseserver beperkt](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebruik van een individuele database instellen de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), wordt de [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), of de [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebruik van een individuele database instellen de [Azure-portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), wordt de [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases), of de [REST-API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Categorie voor algemeen gebruik-service: Opslaggrootte en compute-grootten
 
@@ -50,7 +50,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|000
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|000
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -72,7 +72,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1400|1600|1800|2000|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -82,7 +82,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Geheugen (GB)|10.2|20.4|30,6 mil|40,8|51|61.2|71.4|
+|Geheugen (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Maximumgrootte van gegevens (GB)|1024|1024|1024|1536|1536|1536|1536|
@@ -94,7 +94,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|1|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -116,7 +116,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1600|1800|2000|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|1|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -140,7 +140,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|4|4|4|4|4|4|
-|Multi-z|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -162,7 +162,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1400|1600|1800|2000|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|4|4|4|4|4|4|
-|Multi-z|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -174,7 +174,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |vCores|2|4|6|8|10|12|14|
 |Geheugen (GB)|11|22|33|44|55|66|77|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|In-memory OLTP-opslag (GB)|1.571|3,142|4.713|6.284|8.655|11.026|13.397|
+|In-memory OLTP-opslag (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Maximumgrootte van gegevens (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Maximale logboekgrootte (GB)|307|307|307|461|461|461|461|
 |TempDB-grootte (GB)|64|128|192|256|320|384|384|
@@ -184,7 +184,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|600|800|1000|1200|1400|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|4|4|4|4|4|4|4|
-|Multi-z|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -206,7 +206,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|1600|1800|2000|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|4|4|4|4|4|4|
-|Multi-z|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 
@@ -230,7 +230,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|2|2|2|2|2|2|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|7|7|7|7|7|7|
 |||
@@ -241,7 +241,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
-|Geheugen (GB)|10.2|20.4|40,8|81.6|122.4|163.2|204|408|
+|Geheugen (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Maximumgrootte van gegevens (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
@@ -253,7 +253,7 @@ U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebr
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|2|2|2|2|2|2|2|2|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Opgenomen back-upopslag (limiet voor Preview-versie)|7|7|7|7|7|7|7|7|
 |||

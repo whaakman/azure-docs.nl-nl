@@ -6,16 +6,16 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a45d00559a84c178ab760acf8616f97ce7bb57c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718279"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466282"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het gebruik van elastische query's in Azure SQL Database voor toegang tot gegevens in Azure SQL Data Warehouse
 Informatie over aanbevolen procedures voor het gebruik van elastische query's voor toegang tot gegevens in Azure SQL Data Warehouse vanuit Azure SQL-Database. 
@@ -61,7 +61,7 @@ Deze aanbevolen werkwijzen gebruikt om efficiënt gebruik van elastische query's
 ### <a name="general"></a>Algemeen
 
 - Wanneer u externe query's worden uitgevoerd, zorg ervoor dat u alleen bent door die nodig zijn kolommen te selecteren en de juiste filters zijn toegepast. Niet alleen komt deze toename van de rekenkracht die nodig zijn, maar het verhoogt ook de grootte van de resultatenset en daarom de hoeveelheid gegevens die moeten worden verplaatst tussen de twee exemplaren.
-- Gegevens van geclusterde columnstore voor analytiIcal prestaties voor analysedoeleinden in SQL Data Warehouse en SQL-Database behouden.
+- Gegevens bewaren voor analysedoeleinden in SQL Data Warehouse en SQL-Database in een geclusterde columnstore voor analytische prestaties.
 - Zorg ervoor dat de brontabellen worden gepartitioneerd voor query's en -verplaatsing.
 - Zorg ervoor dat SQL database-exemplaren die worden gebruikt als een cache worden gepartitioneerd om in te schakelen gedetailleerdere updates en eenvoudiger beheer. 
 - Premium RS-databases in het ideale geval gebruik omdat ze voorzien in de analytische voordelen van de geclusterde columnstore indexeren met nadruk op i/o-intensieve workloads met een korting van Premium-databases.
@@ -125,29 +125,29 @@ Gebruik van Azure SQL Database als:
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-V: kan ik databases gebruiken in een elastische pool met elastische Query?
+VRAAG: Kan ik databases gebruiken in een elastische pool met elastische Query?
 
 A: Ja. SQL-Databases in een elastische pool kan elastische query's kunt gebruiken. 
 
-V: is er een limiet voor het aantal databases dat ik voor een elastische Query gebruiken kan?
+VRAAG: Is er een limiet voor het aantal databases dat ik voor een elastische Query gebruiken kan?
 
-Antwoord: Er is geen vaste limiet voor hoeveel databases kunnen worden gebruikt voor een elastische Query. Elke elastische query's (query's die SQL Data Warehouse bereikt) wordt echter tellen mee voor normale gelijktijdigheidsbeperkingen.
+A: Er is geen vaste limiet voor het aantal databases kunnen worden gebruikt voor een elastische Query. Elke elastische query's (query's die SQL Data Warehouse bereikt) wordt echter tellen mee voor normale gelijktijdigheidsbeperkingen.
 
-V: zijn er DTU-limieten die betrokken zijn bij een elastische Query?
+VRAAG: Zijn er DTU-limieten die betrokken zijn bij een elastische Query?
 
 A: DTU-limieten zijn niet ingesteld op een andere manier met elastische query's. Het standaardbeleid is dat logische servers DTU-limieten hebben om te voorkomen dat klanten per ongeluk budgetoverschrijding. Als u verschillende databases voor elastische query's samen met een exemplaar van SQL Data Warehouse inschakelen wilt, kunt u de limiet onverwacht bereikt. Als dit het geval is, moet u een aanvraag om de limiet DTU op uw logische server te verhogen indienen. U kunt uw quotum door verhogen [het maken van een ondersteuningsticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) en selecteren *quotum* als het aanvraagtype
 
-V: kan ik gebruiken rij level security/Dynamic Data Masking met elastische Query?
+VRAAG: Kan ik gebruiken rij level security/Dynamic Data Masking met elastische Query?
 
-A:-klanten die willen meer geavanceerde beveiligingsfuncties gebruiken met SQL Database kunnen doen door de eerste verplaatsen en opslaan van gegevens in de SQL-Database. U kunt geen beveiliging op rijniveau of DDM momenteel toepassen op gegevens die zijn opgevraagd via externe tabellen. 
+A: Klanten die willen meer geavanceerde beveiligingsfuncties gebruiken met SQL Database kunnen doen door de eerste verplaatsen en opslaan van gegevens in de SQL-Database. U kunt geen beveiliging op rijniveau of DDM momenteel toepassen op gegevens die zijn opgevraagd via externe tabellen. 
 
-V: kan ik schrijven van mijn SQL database-exemplaar naar de datawarehouse-exemplaar?
+VRAAG: Kan ik schrijven van mijn SQL database-exemplaar naar datawarehouse-exemplaar?
 
-A: momenteel wordt deze functie niet ondersteund. Ga naar onze [feedbackpagina] [ Feedback page] te maken/stem voor deze functionaliteit als dit is een functie die u graag zou willen zien in de toekomst. 
+A: Deze functie wordt momenteel niet ondersteund. Ga naar onze [feedbackpagina] [ Feedback page] te maken/stem voor deze functionaliteit als dit is een functie die u graag zou willen zien in de toekomst. 
 
-V: kan ik ruimtelijke typen zoals geometrie/Geografie gebruiken?
+VRAAG: Kan ik ruimtelijke typen zoals geometrie/Geografie gebruiken?
 
-A: u kunt ruimtelijke gegevenstypen opslaan in SQL Data Warehouse als varbinary(max) waarden. Wanneer u deze kolommen met elastische query's in query, kunt u ze kunt converteren naar de juiste typen tijdens runtime.
+A: U kunt ruimtelijke gegevenstypen opslaan in SQL Data Warehouse als varbinary(max) waarden. Wanneer u deze kolommen met elastische query's in query, kunt u ze kunt converteren naar de juiste typen tijdens runtime.
 
 ![ruimtelijke typen](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 

@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: fa76762fc9a2eb178e2edce2de254894bde1934c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651415"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461336"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Een transactioneel consistente kopie van een Azure SQL database kopiëren
 
@@ -32,11 +32,11 @@ Een databasekopie is een momentopname van de brondatabase vanaf het moment van d
 
 ## <a name="logins-in-the-database-copy"></a>Aanmeldingen in de database-exemplaar
 
-Wanneer u een database naar dezelfde logische server kopiëren, kunnen de dezelfde aanmeldingen op beide databases worden gebruikt. De beveiligings-principal dat u gebruiken om te kopiëren van de database wordt de eigenaar van de database op de nieuwe database. Alle databasegebruikers, de machtigingen en de beveiligings-id's (SID's) worden gekopieerd naar het database-exemplaar.  
+Wanneer u een database naar de dezelfde SQL-Database-server kopiëren, kunnen de dezelfde aanmeldingen op beide databases worden gebruikt. De beveiligings-principal dat u gebruiken om te kopiëren van de database wordt de eigenaar van de database op de nieuwe database. Alle databasegebruikers, de machtigingen en de beveiligings-id's (SID's) worden gekopieerd naar het database-exemplaar.  
 
-Wanneer u een database naar een andere logische server kopiëren, wordt de beveiligings-principal op de nieuwe server de eigenaar van de database op de nieuwe database. Als u [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevenstoegang, zorg ervoor dat de primaire en secundaire databases altijd de referenties van de dezelfde gebruiker, zodat nadat de kopie voltooid is u onmiddellijk toegang hebben, met dezelfde referenties . 
+Wanneer u een database naar een andere SQL-Database-server kopiëren, wordt de beveiligings-principal op de nieuwe server de eigenaar van de database op de nieuwe database. Als u [ingesloten databasegebruikers](sql-database-manage-logins.md) voor gegevenstoegang, zorg ervoor dat de primaire en secundaire databases altijd de referenties van de dezelfde gebruiker, zodat nadat de kopie voltooid is u onmiddellijk toegang hebben, met dezelfde referenties . 
 
-Als u [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), u kunt volledig elimineert de noodzaak voor het beheren van referenties in de kopie. Echter, wanneer u de database naar een nieuwe server kopieert, de toegang op basis van aanmelding werkt mogelijk niet, omdat de aanmeldingen bestaan niet op de nieuwe server. Zie voor meer informatie over het beheren van aanmeldingen wanneer u een database naar een andere logische server kopiëren, [over het beheren van Azure SQL database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md). 
+Als u [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), u kunt volledig elimineert de noodzaak voor het beheren van referenties in de kopie. Echter, wanneer u de database naar een nieuwe server kopieert, de toegang op basis van aanmelding werkt mogelijk niet, omdat de aanmeldingen bestaan niet op de nieuwe server. Zie voor meer informatie over het beheren van aanmeldingen wanneer u een database naar een andere SQL-Database-server kopiëren, [over het beheren van Azure SQL database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md). 
 
 Nadat het kopiëren is voltooid en voordat andere gebruikers zijn toegewezen, kunnen alleen de aanmelding die geïnitieerd het kopiëren, de eigenaar van de database zich kunt aanmelden bij de nieuwe database. Om op te lossen aanmeldingen nadat de bewerking kopiëren voltooid is, Zie [oplossen aanmeldingen](#resolve-logins).
 
@@ -78,7 +78,7 @@ Met deze opdracht worden Database1 gekopieerd naar een nieuwe database met de na
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>Een SQL-database kopiëren naar een andere server
 
-Meld u aan bij de hoofddatabase van de doelserver, de SQL database-server waar de nieuwe database wordt gemaakt. Gebruik een aanmelding met dezelfde naam en hetzelfde wachtwoord als de database-eigenaar van de brondatabase op de bronserver van de SQL-database. De aanmelding op de doelserver moet ook lid zijn van de rol dbmanager of worden de principal-aanmelding op serverniveau.
+Meld u aan bij de hoofddatabase van de doelserver, de SQL Database-server waar de nieuwe database wordt gemaakt. Gebruik een aanmelding met dezelfde naam en hetzelfde wachtwoord als de database-eigenaar van de brondatabase op de bronserver voor de SQL-Database. De aanmelding op de doelserver moet ook lid zijn van de rol dbmanager of worden de principal-aanmelding op serverniveau.
 
 Met deze opdracht kopieert Database1 op server1 naar een nieuwe database met de naam Database2 op server2. De bewerking kopiëren kan enige tijd duren, afhankelijk van de grootte van uw database.
 
@@ -104,7 +104,7 @@ Nadat de nieuwe database op de doelserver online is, gebruikt u de [ALTER USER](
 
 Alle gebruikers in de nieuwe database behouden de machtigingen die ze in de brondatabase hebben. De gebruiker die het database-exemplaar wordt gestart, wordt de eigenaar van de database van de nieuwe database en een nieuwe beveiligings-id (SID) is toegewezen. Nadat het kopiëren is voltooid en voordat andere gebruikers zijn toegewezen, kunnen alleen de aanmelding die geïnitieerd het kopiëren, de eigenaar van de database zich kunt aanmelden bij de nieuwe database.
 
-Zie voor meer informatie over het beheren van gebruikers en aanmeldgegevens wanneer u een database naar een andere logische server kopiëren, [over het beheren van Azure SQL database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md).
+Zie voor meer informatie over het beheren van gebruikers en aanmeldgegevens wanneer u een database naar een andere SQL-Database-server kopiëren, [over het beheren van Azure SQL database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

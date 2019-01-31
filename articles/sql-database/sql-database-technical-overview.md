@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270005"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469546"
 ---
 # <a name="the-azure-sql-database-service"></a>De service Azure SQL Database
 
@@ -26,8 +26,8 @@ SQL Database is een algemene, beheerde relationele databaseservice in Microsoft 
 
 Azure SQL Database biedt de volgende implementatieopties voor een Azure SQL-database:
 
-- Als een individuele database met een eigen set resources die wordt beheerd via een logische server
-- Als een gegroepeerde database in een [elastische pool](sql-database-elastic-pool.md) met een gedeelde set resources die wordt beheerd via een logische server
+- Als een individuele database met een eigen set bronnen die worden beheerd via een SQL Database-server
+- Als een gegroepeerde database in een [elastische pool](sql-database-elastic-pool.md) beheerd met een gemeenschappelijke set resources via een SQL Database-server
 - Als onderdeel van een verzameling van databases, ook wel een [beheerd exemplaar](sql-database-managed-instance.md) dat systeem en gebruikersdatabases en delen van een set met resources bevat
 
 In de volgende afbeelding worden deze implementatieopties weergegeven:
@@ -68,7 +68,7 @@ U kunt uw eerste app ontwikkelen op een kleine, één database tegen lage kosten
 > [!IMPORTANT]
 > De [grootschalige servicelaag](sql-database-service-tier-hyperscale.md) is momenteel in openbare preview. Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden, wordt aangeraden een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
 
-Dynamische schaalbaarheid is iets anders dan automatisch schalen. Automatisch schalen vindt plaats wanneer een service automatisch wordt geschaald op basis van criteria, terwijl u met dynamische schaalbaarheid handmatig kunt schalen zonder uitvaltijd. Eén Azure SQL Database ondersteunt handmatige dynamische schaalbaarheid, maar niet automatisch schalen. Voor een meer *automatische* ervaring zou u elastische pools kunnen gebruiken. Hiermee kunnen databases resources in een pool delen op basis van afzonderlijke databasebehoeften. Er zijn echter scripts die kunnen worden geautomatiseerd schaalbaarheid voor één Azure SQL Database. Zie [PowerShell gebruiken voor het controleren en schalen van één Azure SQL-database](scripts/sql-database-monitor-and-scale-database-powershell.md) voor een voorbeeld.
+Dynamische schaalbaarheid is iets anders dan automatisch schalen. Automatisch schalen vindt plaats wanneer een service automatisch wordt geschaald op basis van criteria, terwijl u met dynamische schaalbaarheid handmatig kunt schalen zonder uitvaltijd. Een individuele database biedt ondersteuning voor handmatige dynamische schaalbaarheid, maar niet voor automatisch schalen. Voor een meer *automatische* ervaring zou u elastische pools kunnen gebruiken. Hiermee kunnen databases resources in een pool delen op basis van afzonderlijke databasebehoeften. Er zijn echter scripts die kunnen worden geautomatiseerd schaalbaarheid voor één database. Zie voor een voorbeeld [PowerShell gebruiken om te controleren en schalen van één database](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastische pools voor optimaal resourcegebruik
 
@@ -148,7 +148,7 @@ SQL Database biedt een reeks [ingebouwde functies voor beveiliging en naleving](
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
-SQL Advanced Threat Protection is een uniform pakket voor geavanceerde mogelijkheden voor SQL-beveiliging. Het bevat functionaliteit voor het detecteren en classificeren van gevoelige gegevens, het beheren van beveiligingsproblemen in uw database, en het detecteren van afwijkende activiteiten die kunnen duiden op een bedreiging van de database. Het is tevens een centraal punt voor het inschakelen en beheren van deze mogelijkheden.
+Geavanceerde gegevensbeveiliging SQL is een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Het bevat functionaliteit voor het detecteren en classificeren van gevoelige gegevens, het beheren van beveiligingsproblemen in uw database, en het detecteren van afwijkende activiteiten die kunnen duiden op een bedreiging van de database. Het is tevens een centraal punt voor het inschakelen en beheren van deze mogelijkheden.
 
 - [Gegevensdetectie en classificatie](sql-database-data-discovery-and-classification.md):
 

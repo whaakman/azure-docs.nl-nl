@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: d2182942b8d1ce78fd4a72ff387c7a6a1cfead5a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: common
+ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975086"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473779"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake Storage Gen2-beveiligingshandleiding
 
@@ -79,7 +79,7 @@ Hier volgen de belangrijkste punten die u weten wilt over het gebruik van RBAC v
 * [Toegangsbeheer op basis van rollen in Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   In dit artikel wordt het toegangsbeheer op basis van rollen in Azure Active Directory uitgelegd.
-* [RBAC: ingebouwde rollen](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Ingebouwde rollen](../../role-based-access-control/built-in-roles.md)
 
   Dit artikel worden alle van de beschikbare ingebouwde rollen in RBAC.
 * [Resource Manager-implementatie en klassieke implementatie begrijpen](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -217,7 +217,7 @@ Raadpleeg de volgende artikelen voor meer gedetailleerde informatie over het geb
 
 * Dit zijn de referentie-artikelen.
 
-  * [Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx)
+  * [Service SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
     In dit artikel bevat voorbeelden van het gebruik van een SAS serviceniveau met blobs, berichten in de wachtrij, tabel-bereiken en bestanden.
   * [Maken van een service-SAS](https://msdn.microsoft.com/library/dn140255.aspx)

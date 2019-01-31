@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e8a849fdc6674a0c6ab801bd8f26a01f89fb8857
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969580"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458054"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Een service voor het verplaatsen van gegevens tussen de shard-databases voor splitsen en samenvoegen implementeren
 
@@ -120,7 +120,7 @@ Voor de Webrol:
 . Houd er rekening mee dat de implementaties voor productie certificaten scheiden moet worden gebruikt voor de CA voor versleuteling, het servercertificaat en clientcertificaten. Zie voor gedetailleerde instructies op deze [Beveiligingsconfiguratie](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## <a name="deploy-your-service"></a>De service implementeert
-1. Ga naar [Azure Portal](https://portal.azure.com)
+1. Ga naar de [Azure-portal](https://portal.azure.com)
 2. Selecteer de cloudservice die u eerder hebt gemaakt.
 3. Klik op **Overzicht**.
 4. Kies de faseringsomgeving en klik vervolgens op **uploaden**.
@@ -143,7 +143,7 @@ Als de werkrol niet online is gekomen, maar uw Webrol is geslaagd, is het zeer w
    ```
 
 * Zorg ervoor dat de servernaam begint niet met **https://**.
-* Zorg ervoor dat uw Azure SQL-database-server kan Azure-Services tot stand te brengen. Om dit te doen, opent u uw database in de portal en zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op **op**\*\*.
+* Zorg ervoor dat uw Azure SQL-database-server kan Azure-Services tot stand te brengen. Om dit te doen, opent u uw database in de portal en zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op ** op ***.
 
 ## <a name="test-the-service-deployment"></a>De service-implementatie testen
 ### <a name="connect-with-a-web-browser"></a>Verbinding maken met een webbrowser
@@ -204,7 +204,7 @@ De scriptbestanden zijn:
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>PowerShell gebruiken om te controleren of uw implementatie
 1. Open een nieuwe PowerShell-venster en navigeer naar de map waar u de splitsen en samenvoegen-pakket hebt gedownload en navigeer vervolgens naar de map 'powershell'.
-2. Een Azure SQL database-server (of kies een bestaande server) waar de shard-Toewijzingsbeheer en de shards worden gemaakt.
+2. Een Azure SQL Database-server (of kies een bestaande server) waar de shard-Toewijzingsbeheer en de shards worden gemaakt.
    
    > [!NOTE]
    > Het script SetupSampleSplitMergeEnvironment.ps1 maakt alle deze databases op dezelfde server standaard aan het script eenvoudig te houden. Dit is geen beperking van de splitsen en samenvoegen-Service zelf.

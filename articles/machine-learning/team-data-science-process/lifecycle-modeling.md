@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139945"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474017"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modellering van fase van de levenscyclus van het Team Data Science Process
 
@@ -41,8 +41,8 @@ Hier volgt een visuele representatie van de TDSP-levenscyclus:
 ## <a name="how-to-do-it"></a>Hoe voer ik
 Er zijn drie belangrijkste taken in deze fase behandeld:
 
-  * **Functie-engineering**: gegevensfuncties van de onbewerkte gegevens om modeltraining mogelijk te maken.
-  * **Training model**: het model dat de meest nauwkeurige antwoord op de vraag door het vergelijken van hun maatstaven voor succes vinden.
+  * **functie-engineering**: Functies van de onbewerkte gegevens te vergemakkelijken modeltraining maken.
+  * **Training model**: Zoek het model dat de meest nauwkeurige antwoord op de vraag door het vergelijken van hun maatstaven voor succes.
   * Vaststellen of uw model **geschikt is voor productie.**
 
 ### <a name="feature-engineering"></a>Functie-engineering
@@ -63,7 +63,7 @@ Het proces voor het trainen van het model bevat de volgende stappen uit:
    * **Bepalen welke oplossing voor de 'aanbevolen'** aan de vraag worden beantwoord door het vergelijken van de maatstaven voor succes tussen alternatieve methoden.
 
 > [!NOTE]
-> **Te voorkomen dat lekken**: kunt u gegevenslekken veroorzaken als u gegevens die zich buiten de set trainingsgegevens waarmee een model of de machine-learning-algoritme om onrealistisch goede voorspellingen te doen. Lekken van gegevens is een veelvoorkomende reden waarom data scientists zenuwstelsel ontvangen wanneer ze voorspellende resultaten die ontvangt lijken te mooi om waar te zijn. Deze afhankelijkheden zijn moeilijk te detecteren. Om u te vaak te voorkomen dat lekken vereist digitaler tussen het bouwen van een gegevensset voor analyse, het maken van een model en de nauwkeurigheid van de resultaten evalueren. 
+> **Te voorkomen dat lekken**: Als u gegevens die zich buiten de set trainingsgegevens waarmee een model of de machine-learning-algoritme om onrealistisch goede voorspellingen te doen, kunt u gegevenslekken veroorzaken. Lekken van gegevens is een veelvoorkomende reden waarom data scientists zenuwstelsel ontvangen wanneer ze voorspellende resultaten die ontvangt lijken te mooi om waar te zijn. Deze afhankelijkheden zijn moeilijk te detecteren. Om u te vaak te voorkomen dat lekken vereist digitaler tussen het bouwen van een gegevensset voor analyse, het maken van een model en de nauwkeurigheid van de resultaten evalueren. 
 > 
 > 
 
@@ -72,9 +72,9 @@ We bieden een [geautomatiseerde modelleren en rapportagetool](https://github.com
 ## <a name="artifacts"></a>Artefacten
 De artefacten die in deze fase worden geproduceerd, zijn onder andere:
 
-   * [Functie sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): de functies die zijn ontwikkeld voor het maken van modellering worden beschreven in de **functie sets** sectie van de **gegevensdefinitie** rapport. Het bevat verwijzingen naar de code voor het genereren van de functies en een beschrijving van hoe de functie is gegenereerd.
-   * [Rapport model](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): voor elk model dat wordt geprobeerd een standaard, op basis van sjabloon rapport vindt u informatie over elke experiment wordt geproduceerd.
-   * **Controlepunt besluit**: evalueren of het model goed genoeg functioneert om deze te implementeren naar een productiesysteem. Er zijn een aantal belangrijke vragen stellen:
+   * [Functie sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): De functies die zijn ontwikkeld voor het maken van modellering worden beschreven in de **functie sets** sectie van de **gegevensdefinitie** rapport. Het bevat verwijzingen naar de code voor het genereren van de functies en een beschrijving van hoe de functie is gegenereerd.
+   * [Rapport model](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): Voor elk model dat wordt geprobeerd een standaard, wordt op basis van sjabloon rapport vindt u informatie over elke experiment geproduceerd.
+   * **Controlepunt besluit**: Evalueer of het model goed genoeg functioneert om deze te implementeren naar een productiesysteem. Er zijn een aantal belangrijke vragen stellen:
      * Het model de vraag worden beantwoord met voldoende vertrouwen gegeven van de testgegevens? 
      * Moet u een alternatieve methoden proberen? Moet u aanvullende gegevens verzamelen, doen meer feature-engineering of experimenteren met andere algoritmen?
 

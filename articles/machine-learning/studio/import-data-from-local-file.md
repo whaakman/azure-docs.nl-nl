@@ -1,6 +1,6 @@
 ---
-Titel: Gegevens importeren uit bestand titleSuffix: Azure Machine Learning Studio description: Informatie over het uploaden van een gegevensbestand training van de harde schijf voor Azure Machine Learning Studio. Hiermee maakt u een gegevensset-module in de werkruimte.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Gegevens importeren uit bestand titleSuffix: Azure Machine Learning Studio description: Informatie over het uploaden van een gegevensbestand training van de harde schijf voor Azure Machine Learning Studio. Hiermee maakt u een gegevensset-module in de werkruimte.
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

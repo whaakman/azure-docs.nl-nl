@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306737"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462542"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse Veelgestelde vragen over
 
@@ -27,7 +27,7 @@ A. SQL DW biedt verschillende oplossingen voor het beveiligen van gegevens, zoal
 
 V. Waar vind ik welke standaarden juridische of zakelijke SQL DW is naleven?
 
-A. Ga naar de [Microsoft-naleving] -pagina voor verschillende compliance-aanbiedingen per product, zoals SOC en ISO. Eerst op naleving titel kiezen uit en vouw vervolgens Azure in Microsoft binnen de regeling vallen cloud services sectie aan de rechterkant van de pagina om te zien welke services zijn Azure-services compatibel zijn.
+A. Ga naar de [Microsoft Compliance] -pagina voor verschillende compliance-aanbiedingen per product, zoals SOC en ISO. Eerst op naleving titel kiezen uit en vouw vervolgens Azure in Microsoft binnen de regeling vallen cloud services sectie aan de rechterkant van de pagina om te zien welke services zijn Azure-services compatibel zijn.
 
 V. Kan ik Power BI verbinding maken?
 
@@ -82,19 +82,19 @@ V. Welke-clientstuurprogramma's ondersteund?
 
 A. Ondersteuning voor stuurprogramma's voor DW is te vinden in de [verbindingsreeksen] pagina
 
-V: voor welke indelingen worden ondersteund door PolyBase met SQL Data Warehouse?
+VRAAG: Welke bestandsformaten worden ondersteund door PolyBase met SQL Data Warehouse?
 
-A: Orc, RC, Parquet en platte tekst met scheidingstekens
+A: ORC, RC, Parquet en platte tekst met scheidingstekens
 
-V: wat kan ik verbinding maken met van SQL DW met PolyBase? 
+VRAAG: Wat kan ik verbinding maken met van SQL DW met PolyBase? 
 
-A: [Azure Data Lake Store] en [Azure Storage-Blobs]
+A: [Azure Data Lake Store] en [Azure Storage Blobs]
 
-V: is berekening pushdown mogelijk bij het verbinden met Azure Storage-Blobs of ADLS? 
+VRAAG: Is berekening pushdown mogelijk bij het verbinden met Azure Storage-Blobs of ADLS? 
 
 A: SQL DW PolyBase communiceert Nee, alleen de opslagonderdelen. 
 
-V: kan ik verbinding maken met HDI?
+VRAAG: Kan ik verbinding maken met HDI?
 
 A: HDI kunt ADLS of WASB gebruiken als de HDFS-laag. Als u een als uw HDFS-laag, kunt u die gegevens laden in SQL DW. U kunt echter pushdown berekening met het HDI-exemplaar niet genereren. 
 
@@ -108,12 +108,12 @@ Zie voor meer informatie over SQL Data Warehouse als geheel, onze [overzicht] pa
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Ondersteuningstickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Beveiliging]: ./sql-data-warehouse-overview-manage-security.md
-[Microsoft-naleving]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
+[Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [Capaciteitslimieten]: ./sql-data-warehouse-service-capacity-limits.md
 [gegevenstypen]: ./sql-data-warehouse-tables-data-types.md
 [Niet-ondersteunde tabelfuncties]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
-[Azure Storage-Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Verzoek om de functie van de database-projecten]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [Overzicht]: ./sql-data-warehouse-overview-faq.md

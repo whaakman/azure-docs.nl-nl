@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240967"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455504"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -39,7 +39,7 @@ De volgende tabel geeft een kort overzicht van het bereik van duurzaamheid en be
 | Een storing in de gehele regio                                                                                     | Nee                              | Nee                               | Ja                                  | Ja                                  |
 | Leestoegang tot uw gegevens (in de regio van een externe, geo-replicatie) in het geval van de gehele regio niet beschikbaar zijn | Nee                              | Nee                               | Nee                                   | Ja                                  |
 | Die zijn bedoeld voor \_ \_ duurzaamheid van objecten in een bepaald jaar                                          | ten minste 99,999999999% (11 9's) | ten minste 99,9999999999% (12 9's) | ten minste 99,99999999999999% (16 9's) | ten minste 99,99999999999999% (16 9's) |
-| Typen ondersteunde opslagaccounts weergegeven                                                                   | GPv1-en gpv2-Opslagaccounts Blob                | GPv2                             | GPv1-en gpv2-Opslagaccounts Blob                     | GPv1-en gpv2-Opslagaccounts Blob                     |
+| Typen ondersteunde opslagaccounts weergegeven                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | SLA voor beschikbaarheid voor lezen aanvragen | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,99% (99,9% voor de koude Toegangslaag) |
 | Beschikbaarheids-SLA voor schrijfaanvragen voor | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) |
 
@@ -48,7 +48,7 @@ Zie voor informatie over prijzen voor elke optie voor redundantie, [prijzen voor
 Zie voor meer informatie over Azure Storage garanties voor duurzaamheid en beschikbaarheid, de [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Premium Storage ondersteunt alleen lokaal redundante opslag (LRS). Zie voor meer informatie over Premium Storage [Premium Storage: hoogwaardige opslag voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md).
+> Premium Storage ondersteunt alleen lokaal redundante opslag (LRS). Zie voor meer informatie over Premium Storage [Premium Storage: Opslag met hoge prestaties voor workloads van virtuele Azure-machines](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Replicatiestrategie wijzigen
 We laten u replicatiestrategie uw storage-account wijzigen met behulp van de [Azure-portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), of een van de vele [ Azure-clientbibliotheken](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Wijzigen van het replicatietype van uw opslagaccount leidt niet tot uitvaltijd.
@@ -63,10 +63,10 @@ Als u van GRS naar LRS wijzigt, er is geen extra kosten, maar uw gerepliceerde g
 
 ## <a name="see-also"></a>Zie ook
 
-- [Lokaal redundante opslag (LRS): de gegevensredundantie lage kosten voor Azure Storage](storage-redundancy-lrs.md)
-- [Zone-redundante opslag (ZRS): toepassingen met hoge beschikbaarheid Azure Storage](storage-redundancy-zrs.md)
-- [Geografisch redundante opslag (GRS): regio-overschrijdend-replicatie voor Azure Storage](storage-redundancy-grs.md)
-- [Azure Storage-schaalbaarheids- en prestatiedoelen](storage-scalability-targets.md)
+- [Lokaal redundante opslag (LRS): Gegevensredundantie lage kosten voor Azure Storage](storage-redundancy-lrs.md)
+- [Zone-redundante opslag (ZRS): Maximaal beschikbare toepassingen voor Azure Storage](storage-redundancy-zrs.md)
+- [Geografisch redundante opslag (GRS): Regio-overschrijdend-replicatie voor Azure Storage](storage-redundancy-grs.md)
+- [Schaalbaarheids- en prestatiedoelen voor Azure Storage](storage-scalability-targets.md)
 - [Het ontwerpen van maximaal beschikbare toepassingen met RA-GRS-opslag](../storage-designing-ha-apps-with-ragrs.md)
 - [Microsoft Azure Storage redundantie opties en leestoegang geografisch redundante opslag ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP-document - Azure Storage: Een maximaal beschikbare cloudopslagservice met sterke consistentie](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [SOSP-document - Azure-opslag: Een maximaal beschikbare cloudopslagservice met sterke consistentie](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

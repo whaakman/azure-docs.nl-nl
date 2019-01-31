@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: abdeeacc22d2709a3107c9e9e05bd982705d7dea
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 00921fd82463a75e81e1279d436a576461e02f78
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079066"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301642"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Instellen van on-premises voorwaardelijke toegang met behulp van Azure Active Directory device Registration service
 
@@ -109,9 +109,9 @@ De implementatie is voltooid en u enkele scenario's kunt uitproberen. Gebruik de
 
 | Taak | Referentie |
 | --- | --- |
-| Sommige apparaten toevoegen aan uw werkplek door met Azure Active Directory device registratieservice. U kunt deelnemen aan iOS-, Windows- en Android-apparaten. |[Apparaten toevoegen aan uw werkplek met Azure Active Directory device registratieservice](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
+| Sommige apparaten toevoegen aan uw werkplek door met Azure Active Directory device registratieservice. U kunt deelnemen aan iOS-, Windows- en Android-apparaten. |[Apparaten toevoegen aan uw werkplek met Azure Active Directory device registratieservice](#join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service) |
 | Weergeven en in- of uitschakelen van geregistreerde apparaten met behulp van de beheerdersportal. In deze taak kunt u sommige geregistreerde apparaten weergeven met behulp van de beheerdersportal. |[Active Directory device registration service overzicht van Azure](active-directory-device-registration-get-started.md) |
-| Controleer of dat apparaatobjecten uit Azure Active Directory naar Windows Server Active Directory teruggeschreven. |[Controleer of de geregistreerde apparaten worden teruggeschreven naar Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
+| Controleer of dat apparaatobjecten uit Azure Active Directory naar Windows Server Active Directory teruggeschreven. |[Controleer of de geregistreerde apparaten worden teruggeschreven naar Active Directory](#verify-that-registered-devices-are-written-back-to-active-directory) |
 | Nu dat gebruikers hun apparaten registreren kunnen, kunt u de toepassing maken toegangsbeleid in AD FS waarmee alleen geregistreerde apparaten. In deze taak maakt u een toegangsregel van toepassing en een aangepast toegang geweigerd-bericht. |[Maak een beleid voor toepassingstoegang en een aangepast bericht voor geweigerde toegang](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Azure Active Directory integreren met on-premises Active Directory

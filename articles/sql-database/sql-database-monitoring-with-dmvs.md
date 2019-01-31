@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: a87f3861a74bbc7a482423d5f2a2f1b859f83a10
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1f3aaf34283f4e7c81f97b8e2ec4987749f3935c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604426"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465279"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Prestaties van Azure SQL Database controleren met dynamic management views
 
@@ -549,7 +549,7 @@ Andere soorten toepassingen mogelijk dezelfde grafiek anders worden geïnterpret
 Azure SQL Database beschikbaar stelt verbruikt resource-informatie voor elke actieve database in de **sys.resource_stats** weergave van de **master** database op elke server. De gegevens in de tabel wordt samengevoegd voor 5 minuten durende intervallen. De Servicelagen Basic, Standard en Premium, kan de gegevens worden weergegeven in de tabel, zodat deze gegevens nog meer nuttige voor historische analyse in plaats van in de buurt van de realtime-analyse is meer dan vijf minuten maken. Query de **sys.resource_stats** weergeven om te zien van de recente geschiedenis van een database en om te valideren of de reservering die u kiest de prestaties die u wilt dat wanneer dat nodig is geleverd.
 
 > [!NOTE]
-> U moet zijn verbonden met de **master** database van de logische SQL database-server op query **sys.resource_stats** in de volgende voorbeelden.
+> U moet zijn verbonden met de **master** database van uw SQL-Database-server aan de query **sys.resource_stats** in de volgende voorbeelden.
 
 Dit voorbeeld ziet u hoe de gegevens in deze weergave wordt weergegeven:
 

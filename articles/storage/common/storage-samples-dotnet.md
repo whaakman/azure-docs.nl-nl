@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526106"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456133"
 ---
 # <a name="azure-storage-samples-using-net"></a>Voorbeelden van Azure Storage met .NET
 
@@ -25,11 +25,11 @@ De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en d
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Eindpunt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Voorbeeldcode</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Toevoeg-Blob</td> 
+<td>Blob toevoegen</td> 
 <td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Voorbeeld van de methode CloudBlobContainer.GetAppendBlobReference</a></td> 
 </tr> 
 <tr> 
-<td>Blok-Blob</td>
+<td>Blok-blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web-App</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ De volgende tabel bevat een overzicht van onze opslagplaats met voorbeelden en d
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Aan de slag met Blobs</a></td>
 </tr> 
 <tr> 
-<td>Pagina-blobs</td>
+<td>Pagina-blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Aan de slag met Blobs</a></td>
 </tr>
 <tr> 
@@ -210,5 +210,5 @@ Bekijk de volgende handleidingen in als u op zoek bent voor instructies over het
 
 Voor informatie over voorbeelden voor andere talen:
 
-* Java: [voorbeelden van Azure Storage met behulp van Java](storage-samples-java.md)
+* Java: [Azure Storage-voorbeelden met behulp van Java](storage-samples-java.md)
 * Alle andere talen: [Azure Storage-voorbeelden](../storage-samples.md)

@@ -11,31 +11,36 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 50c5071ce672e3a2aba130817628ad0d26f656e5
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: f51b31903953f9a1d4959f78d570d3de92478f50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653481"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455300"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Gegevens vanuit een CSV-bestand laden in een Azure SQL-database (platte bestanden)
+
 U kunt het opdrachtregelhulpprogramma bcp gebruiken om gegevens uit een csv-bestand te importeren in Azure SQL Database.
 
 ## <a name="before-you-begin"></a>Voordat u begint
+
 ### <a name="prerequisites"></a>Vereisten
+
 Als u wilt de stappen in dit artikel hebt voltooid, hebt u het volgende nodig:
 
-* Een logische Azure SQL-databaseserver en -database
+* Een Azure SQL Database-server en -database
 * Het opdrachtregelprogramma BCP (moet zijn geïnstalleerd)
 * Het opdrachtregelprogramma SQLCMD (moet zijn geïnstalleerd)
 
 U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][Microsoft Download Center].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Gegevens in ASCII- of UTF-16-indeling
+
 Als u deze zelfstudie wilt uitvoeren met uw eigen gegevens, moeten deze zijn gecodeerd in de ASCII- of UTF-16-indeling, omdat de indeling UTF-8 niet wordt ondersteund in BCP. 
 
 ## <a name="1-create-a-destination-table"></a>1. Een doeltabel maken
+
 Definieer een tabel in SQL Database als de doeltabel. De kolommen in de tabel moeten overeenkomen met de gegevens in elke rij van het gegevensbestand.
 
 Open een opdrachtprompt en voer de volgende opdracht uit met sqlcmd.exe om een tabel te maken:
@@ -54,6 +59,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## <a name="2-create-a-source-data-file"></a>2. Een brongegevensbestand maken
+
 Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbestand en sla dit bestand op in de lokale tijdelijke map C:\Temp\DimDate2.txt. Dit zijn gegevens in ASCII-indeling.
 
 ```
@@ -78,6 +84,7 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 ```
 
 ## <a name="3-load-the-data"></a>3. De gegevens laden
+
 Open een opdrachtprompt en voer de volgende opdracht uit om de gegevens te laden. Vervang de waarden voor ServerName, DatabaseName, Username en Password door uw eigen waarden.
 
 ```bcp
@@ -108,6 +115,7 @@ De resultaten horen er als volgt uit te zien:
 | 20151201 |4 |2 |
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie [SQL Server-database migreren](sql-database-cloud-migrate.md) om een SQL-serverdatabase te migreren.
 
 <!--MSDN references-->

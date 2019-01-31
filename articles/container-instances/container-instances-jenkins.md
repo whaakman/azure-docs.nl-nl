@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354186"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478184"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Gebruik Azure Container Instances als een Jenkins build-agent
 
@@ -28,9 +28,9 @@ Zie voor meer informatie over Azure Container Instances [over Azure Container In
 
    - **Naam**: Voer een naam voor de Jenkins-implementatie.
    - **Gebruikersnaam**: Voer een naam voor de gebruiker met beheerdersrechten van de Jenkins-virtuele machine.
-   - **Verificatietype**: We raden aan een openbare SSH-sleutel voor verificatie. Als u deze optie selecteert, plak een openbare SSH-sleutel moet worden gebruikt voor het aanmelden bij de Jenkins-virtuele machine.
-   - **Subscription**: selecteer een Azure-abonnement.
-   - **Resourcegroep**: maak een nieuwe resourcegroep of selecteer een bestaande.
+   - **Verificatietype**: U wordt aangeraden een openbare SSH-sleutel voor verificatie. Als u deze optie selecteert, plak een openbare SSH-sleutel moet worden gebruikt voor het aanmelden bij de Jenkins-virtuele machine.
+   - **Abonnement**: Selecteer een Azure-abonnement.
+   - **Resourcegroep**: Maak een resourcegroep of selecteer een bestaande resourcegroep.
    - **Locatie**: Selecteer een locatie voor de Jenkins-server.
 
    ![Basisinstellingen voor de implementatie van de Jenkins-portal](./media/container-instances-jenkins/jenkins-portal-01.png)
@@ -38,16 +38,16 @@ Zie voor meer informatie over Azure Container Instances [over Azure Container In
 3. Op de **extra instellingen** vormen, voert u de volgende items:
 
    - **Grootte**: Selecteer de optie geschikte grootte voor uw Jenkins-virtuele machine.
-   - **VM-schijftype**: Geef een **HDD** (harde schijf) of **SSD** (solid-state drive) voor de Jenkins-server.
+   - **Type VM-schijf**: Geef óf een **HDD** (harde schijf) of **SSD** (solid-state drive) voor de Jenkins-server.
    - **Virtueel netwerk**: Selecteer de pijl als u wilt de standaardinstellingen wijzigen.
    - **Subnetten**: Selecteer de pijl, controleert u de gegevens en selecteer **OK**.
-   - **Openbare IP-adres**: Selecteer de pijl-Geef een aangepaste naam op voor het openbare IP-adres, het configureren van de SKU en het instellen van de methode voor het toewijzen.
-   - **Domeinnaamlabel**: Geef een waarde op voor het maken van een volledig gekwalificeerde URL naar de virtuele Jenkins-machine.
+   - **Openbaar IP-adres**: Selecteer de pijl Geef een aangepaste naam op voor het openbare IP-adres, het configureren van de SKU en het instellen van de methode voor het toewijzen.
+   - **Domeinnaamlabel**: Geef een waarde voor het maken van een volledig gekwalificeerde URL naar de virtuele Jenkins-machine.
    - **Jenkins-releasetype**: Selecteer het type van de gewenste versie in de opties: **LTS**, **wekelijks bouwen**, of **Azure gecontroleerd**.
 
    ![Aanvullende instellingen voor de implementatie van de Jenkins-portal](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Selecteer voor service-principal integratie, **Auto(MSI)** identiteiten voor een Azure-resources hebben [beheerd] [beheerd-id's-azure-resources] automatisch een verificatie-identiteit voor het Jenkins-exemplaar maken. Selecteer **handmatig** voor uw eigen referenties van de service-principal.
+4. Voor service-principal integratie, selecteert u **Auto(MSI)** hebben [beheerde identiteiten voor een Azure-resources] [ managed-identities-azure-resources] automatisch maken van een verificatie-identiteit voor de Jenkins-exemplaar. Selecteer **handmatig** voor uw eigen referenties van de service-principal.
 
 5. Cloud-agents configureren een cloudplatform voor Jenkins build-taken. Selecteer voor dit artikel **ACI**. Met de ACI-agent, elke Jenkins build-taak wordt uitgevoerd in een containerexemplaar in de cloud.
 
@@ -138,4 +138,4 @@ Zie voor meer informatie over Jenkins op Azure, [Azure en Jenkins][jenkins-azure
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

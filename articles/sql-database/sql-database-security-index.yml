@@ -1,0 +1,99 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455215"
+documentType: LandingData
+title: Azure SQL Database - geavanceerde beveiliging
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database - geavanceerde beveiliging
+  meta.description: Learn about the Advanced security capabilities of Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 01/25/2019
+  ms.author: jovanpop-msft
+sections:
+- items:
+  - type: paragraph
+    text: Azure SQL-Database bevat ingebouwde beveiligingsfuncties die helpen bij het beveiligen van uw databases geavanceerde.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: Overzicht
+      href: /azure/sql-database/sql-database-security-overview
+      html: <p>Azure SQL Database biedt een set geavanceerde beveiligingsfuncties waarmee u uw gegevens te beveiligen.</p>
+    - title: Detectie van bedreigingen
+      href: /azure/sql-database/sql-database-threat-detection
+      html: <p>Detecteer afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven.</p>
+    - title: Evaluatie van beveiligingsproblemen
+      href: /azure/sql-database/sql-vulnerability-assessment
+      html: <p>Evaluatie van beveiligingsproblemen kunt u detecteren, volgen en herstellen van potentiële databaseproblemen.</p>
+    - title: Versleuteling als rest
+      href: /azure/sql-database/transparent-data-encryption-azure-sql
+      html: <p>Transparante gegevensversleuteling (TDE) zorgt ervoor dat de gegevens in uw databases transparant zijn versleuteld.</p>
+    - title: Gegevensdetectie en -classificatie
+      href: /azure/sql-database/sql-database-data-discovery-and-classification
+      html: <p>Gegevensdetectie en classificatie kunt u detecteren, classificeren, labelen en beveiligen van de gevoelige gegevens in uw databases.</p>
+    - title: Azure Active Directory
+      href: /azure/sql-database/sql-database-aad-authentication
+      html: <p>Azure SQL Database kunt u verbinding maakt met uw database met behulp van identiteiten in Azure Active Directory (Azure AD).</p>
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Instellen en beheren van beveiligingsfuncties in Azure SQL Database met behulp van de Azure portal, Azure CLI of PowerShell:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/portal.svg
+      title: Azure Portal
+    - image:
+        src: media/index/cli.svg
+      title: Azure-CLI
+    - image:
+        src: media/index/logo_powershell.svg
+      title: PowerShell
+    rows:
+    - title: Detectie van bedreigingen op één database instellen
+      values:
+      - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
+    - title: Detectie van bedreigingen op het beheerde exemplaar instellen
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
+      - href: 
+      - href: 
+    - title: Database-server firewall-regels voor één database instellen
+      values:
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-powershell
+    - title: Beoordeling van beveiligingslek regels beheren
+      values:
+      - href: 
+      - href: 
+      - href: /azure/sql-database/sql-vulnerability-assessment#manage-vulnerability-assessments-using-azure-powershell
+- title: Meer bronnen
+  items:
+  - type: paragraph
+    text: Azure SQL Database biedt een reeks ingebouwde functies voor extra dat u de beveiliging van uw databases kunt verbeteren.
+  - type: list
+    style: ordered
+    items:
+    - html: Bedreigingsbeveiliging in <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">beheerde instanties</a> en <a href="/azure/sql-database/sql-database-threat-detection">databases</a> detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven.
+    - html: Controle-instellingen voor <a href="/azure/sql-database/sql-database-managed-instance-auditing">beheerde instanties</a> en <a href="/azure/sql-database/sql-database-auditing">databases</a> databasegebeurtenissen bijgehouden en geschreven naar een auditlogboek in uw Azure storage-account, OMS-werkruimte of Eventhubs.
+    - html: <a href="/azure/sql-database/sql-database-firewall-configure">Firewallregels voor server-database</a> in inschakelen voor individuele databases kunt u bepalen welke IP-adressen toegang tot de database.
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet-integratie</a> Hiermee kunt u de databases in uw eigen privé-adresruimte in het beheerde exemplaar.
+    - html: <a href="/azure/sql-database/sql-database-always-encrypted">Altijd versleuteld</a> beveiligt u gevoelige gegevens in rust op de server tijdens het verkeer tussen client en server, en terwijl de gegevens gebruikt wordt, ervoor te zorgen dat gevoelige gegevens nooit wordt weergegeven als tekst zonder opmaak in de database-systeem.
+    - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">Dynamische gegevensmaskering</a> helpt voorkomen dat onbevoegde toegang tot gevoelige gegevens doordat klanten kunnen aangeven hoeveel van de gevoelige gegevens worden vrijgegeven, met minimale impact op de toepassingslaag.

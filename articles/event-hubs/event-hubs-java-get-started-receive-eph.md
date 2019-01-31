@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e29cf43f490bf5e8bac5e5c36b16476f93d80bfa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0fc9b8b6a8bcd62aafda7c04697ab8b9c096b17e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081956"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296576"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Java
 
@@ -55,18 +55,18 @@ Voor het gebruik van EventProcessorHost, hebt u een [Azure Storage-account][Azur
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Maak een Java-project met behulp van EventProcessorHost
 
-De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven Central Repository][Maven Package], en kan worden verwezen met behulp van de volgende afhankelijkheidsverklaring binnen uw Maven Project-bestand. De huidige versie van het artefact azure-eventhubs-eph 2.0.1 is en de huidige versie voor de azure-eventhubs artefact 1.0.2 is:    
+De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven Central Repository][Maven Package], en kan worden verwezen met behulp van de volgende afhankelijkheidsverklaring binnen uw Maven projectbestand: 
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.2</version>
+    <version>2.2.0</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
-    <version>2.0.1</version>
+    <version>2.4.0</version>
 </dependency>
 ```
 

@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: c4663c71bb3aee3547174345cfe9fb1d06c4015e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e68fe624a92d0a2d5a8accd3f34b1c5c10f2868
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256201"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472164"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Systeemweergaven ondersteund in Azure SQL Data Warehouse
 Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
@@ -74,7 +74,7 @@ De volgende DMV's zijn van toepassing op SQL Data Warehouse, maar moet worden ui
 * [sys.Assemblies](https://msdn.microsoft.com/library/ms189790.aspx)
 * [sys.assembly_modules](https://msdn.microsoft.com/library/ms180052.aspx)
 * [sys.assembly_types](https://msdn.microsoft.com/library/ms178020.aspx)
-* [sys.Certificates](https://msdn.microsoft.com/library/ms189774.aspx)
+* [sys.certificates](https://msdn.microsoft.com/library/ms189774.aspx)
 * [sys.check_constraints](https://msdn.microsoft.com/library/ms187388.aspx)
 * [sys.columns](https://msdn.microsoft.com/library/ms176106.aspx)
 * [sys.computed_columns](https://msdn.microsoft.com/library/ms188744.aspx)
@@ -95,7 +95,7 @@ De volgende DMV's zijn van toepassing op SQL Data Warehouse, maar moet worden ui
 * [sys.foreign_keys](https://msdn.microsoft.com/library/ms189807.aspx)
 * [sys.identity_columns](https://msdn.microsoft.com/library/ms187334.aspx)
 * [sys.index_columns](https://msdn.microsoft.com/library/ms175105.aspx)
-* [sys.Indexes](https://msdn.microsoft.com/library/ms173760.aspx)
+* [sys.indexes](https://msdn.microsoft.com/library/ms173760.aspx)
 * [sys.key_constraints](https://msdn.microsoft.com/library/ms174321.aspx)
 * [sys.numbered_procedures](https://msdn.microsoft.com/library/ms179865.aspx)
 * [sys.objects](https://msdn.microsoft.com/library/ms190324.aspx)
@@ -104,7 +104,7 @@ De volgende DMV's zijn van toepassing op SQL Data Warehouse, maar moet worden ui
 * [sys.partition_parameters](https://msdn.microsoft.com/library/ms175054.aspx)
 * [sys.partition_range_values](https://msdn.microsoft.com/library/ms187780.aspx)
 * [sys.partition_schemes](https://msdn.microsoft.com/library/ms189752.aspx)
-* [sys.Partitions](https://msdn.microsoft.com/library/ms175012.aspx)
+* [sys.partitions](https://msdn.microsoft.com/library/ms175012.aspx)
 * [sys.procedures](https://msdn.microsoft.com/library/ms188737.aspx)
 * [sys.schemas](https://msdn.microsoft.com/library/ms176011.aspx)
 * [sys.securable_classes](https://msdn.microsoft.com/library/ms408301.aspx)
@@ -221,11 +221,11 @@ De volgende DMV's zijn van toepassing op SQL Data Warehouse, maar moet worden ui
 
 ## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA weergaven
 * [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
-* [KOLOMMEN](https://msdn.microsoft.com/library/ms188348.aspx)
+* [COLUMNS](https://msdn.microsoft.com/library/ms188348.aspx)
 * [PARAMETERS](https://msdn.microsoft.com/library/ms173796.aspx)
 * [ROUTINES](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMA 'S](https://msdn.microsoft.com/library/ms182642.aspx)
-* [TABELLEN](https://msdn.microsoft.com/library/ms186224.aspx)
+* [TABLES](https://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)

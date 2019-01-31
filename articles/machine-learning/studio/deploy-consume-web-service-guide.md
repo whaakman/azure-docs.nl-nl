@@ -1,5 +1,5 @@
 ---
-Titel: Implementatie en verbruik titleSuffix: Azure Machine Learning Studio description: U kunt Azure Machine Learning kunt gebruiken om machine learning-werkstromen en modellen als webservices te implementeren. Deze webservices kunnen vervolgens worden gebruikt voor het aanroepen van de machine learning-modellen van toepassingen via internet wilt voorspellingen in realtime of in de batchmodus. Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Titel: Implementatie en verbruik titleSuffix: Azure Machine Learning Studio description: U kunt Azure Machine Learning kunt gebruiken om machine learning-werkstromen en modellen als webservices te implementeren. Deze webservices kunnen vervolgens worden gebruikt voor het aanroepen van de machine learning-modellen van toepassingen via internet wilt voorspellingen in realtime of in de batchmodus. Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ef5a5f81c5eb3994f62469139c6e835bd802eaa9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522720"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454756"
 ---
 # <a name="repairing-an-export-job"></a>Een exporttaak herstellen
 Nadat een taak voor het exporteren is voltooid, kunt u de Microsoft Azure Import/Export-hulpprogramma on-premises naar kunt uitvoeren:  
@@ -30,17 +30,17 @@ De opdracht voor een importtaak herstellen **RepairExport**.
 
 Kunnen de volgende parameters worden opgegeven met **RepairExport**:  
   
-|Parameter|Beschrijving|  
+|Parameter|Description|  
 |---------------|-----------------|  
 |**r: < RepairFile\>**|Vereist. Pad naar het bestand herstellen, die de voortgang van het herstel, en kunt u doorgaan met de reparatie van een onderbroken. Elk station moet slechts één herstel-bestand hebben. Wanneer u een herstel voor een bepaald station start, wordt u in het pad doorgeven naar een bestand herstellen die nog niet bestaat. Als u wilt de reparatie van een onderbroken hervatten, moet u de naam van een bestaand herstel-bestand doorgeven. De herstel-bestand dat overeenkomt met de doel-station moet altijd worden opgegeven.|  
 |**schakeloptie/LOGDIR op: < LogDirectory\>**|Optioneel. De logboekmap. Uitgebreide logboeken worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map worden gebruikt als de logboekmap.|  
 |**/ d: < TargetDirectory\>**|Vereist. De map om te valideren en te herstellen. Dit is meestal de hoofdmap van het station exporteren, maar kan ook worden een netwerkbestandsshare die een kopie van de geëxporteerde bestanden.|  
-|**/BK: < BitLockerKey\>**|Optioneel. Als u wilt dat het hulpprogramma voor het ontgrendelen van een versleutelde waar de geëxporteerde bestanden worden opgeslagen, moet u de BitLocker-sleutel opgeven.|  
-|**/sn: < StorageAccountName\>**|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
-|**/SK: < StorageAccountKey\>**|**Vereiste** als en alleen als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
-|**/csas: < ContainerSas\>**|**Vereiste** alleen als de toegangssleutel van het opslagaccount is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak voor het exporteren.|  
+|**/bk:<BitLockerKey\>**|Optioneel. Als u wilt dat het hulpprogramma voor het ontgrendelen van een versleutelde waar de geëxporteerde bestanden worden opgeslagen, moet u de BitLocker-sleutel opgeven.|  
+|**/sn:<StorageAccountName\>**|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
+|**/sk:<StorageAccountKey\>**|**Vereiste** als en alleen als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
+|**/csas:<ContainerSas\>**|**Vereiste** alleen als de toegangssleutel van het opslagaccount is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak voor het exporteren.|  
 |**/ CopyLogFile: < DriveCopyLogFile\>**|Vereist. Het pad naar het logboekbestand van de schijf kopiëren. Het bestand is gegenereerd door de Windows Azure Import/Export-service en kan worden gedownload van de blob-opslag die is gekoppeld aan de taak. De kopie-logboekbestand bevat informatie over mislukte blobs of bestanden die moeten worden hersteld.|  
-|**/ ManifestFile: < DriveManifestFile\>**|Optioneel. Het pad naar het manifestbestand van het station van de export. Dit bestand is gegenereerd door de Windows Azure Import/Export-service en die zijn opgeslagen op de schijf exporteren en eventueel in een blob in het opslagaccount dat is gekoppeld aan de taak.<br /><br /> De inhoud van de bestanden op de schijf van de uitvoer zal worden gecontroleerd met de MD5-hashes die deel uitmaken van dit bestand. Alle bestanden die worden bepaald beschadigd te zijn worden gedownload en herschreven aan de doel-mappen.|  
+|**/ManifestFile:<DriveManifestFile\>**|Optioneel. Het pad naar het manifestbestand van het station van de export. Dit bestand is gegenereerd door de Windows Azure Import/Export-service en die zijn opgeslagen op de schijf exporteren en eventueel in een blob in het opslagaccount dat is gekoppeld aan de taak.<br /><br /> De inhoud van de bestanden op de schijf van de uitvoer zal worden gecontroleerd met de MD5-hashes die deel uitmaken van dit bestand. Alle bestanden die worden bepaald beschadigd te zijn worden gedownload en herschreven aan de doel-mappen.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Met behulp van RepairExport modus om op te lossen mislukte uitvoer  
 U kunt het hulpprogramma Azure Import/Export gebruiken voor het downloaden van bestanden die het exporteren is mislukt. Het logboekbestand kopiëren bevat een lijst met bestanden die het exporteren is mislukt.  

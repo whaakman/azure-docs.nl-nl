@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: genli
-ms.openlocfilehash: e018cbf0c71a9acf76e60f38aff1aa1ba8a81516
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f0539e7c2f7e5ae8847b35b47d3708c6c5d6a09
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229313"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296035"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Wat is een IP-adres 168.63.129.16?
 
@@ -35,8 +35,7 @@ IP-adres 168.63.129.16 is een virtuele openbare IP-adres dat wordt gebruikt om e
 
 Virtuele openbare IP-adres 168.63.129.16 wordt gebruikt in alle regio's en alle nationale clouds. Deze speciale openbare IP-adres verandert niet. Het is toegestaan door de regel voor standaard de netwerkbeveiligingsgroep. Het is raadzaam dat u dit IP-adres in een lokale firewall-beleid toestaan. De communicatie tussen deze speciale IP-adres en de resources is veilig, omdat alleen het interne Azure-platform kan een bericht van dit IP-adres van bron. Als dit adres wordt geblokkeerd, kan onverwacht gedrag optreden in een verscheidenheid aan scenario's.
 
-Bovendien verkeer van virtuele openbare IP-adres 168.63.129.16 naar het eindpunt dat geconfigureerd voor een [Load Balancer-statustest](../load-balancer/load-balancer-custom-probe-overview.md) moet niet worden beschouwd als verkeer van de aanval. In een netwerkscenario voor niet-virtuele, de statustest afkomstig is uit een privé IP-adres.
-
+Bovendien kunt u verwachten dat verkeer naar het stromen van de virtuele openbare IP-adres 168.63.129.16 naar het eindpunt dat is geconfigureerd voor een [Load Balancer-statustest](../load-balancer/load-balancer-custom-probe-overview.md). In een netwerkscenario voor niet-virtuele, de statustest afkomstig is uit een privé IP-adres. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

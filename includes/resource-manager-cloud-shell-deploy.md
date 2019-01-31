@@ -2,18 +2,18 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440092"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302339"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Sjabloon implementeren vanuit Cloud Shell
 
-U kunt [Cloud Shell](../articles/cloud-shell/overview.md) gebruiken om uw sjabloon te implementeren. U moet echter eerst de sjabloon voor het laden naar het opslagaccount voor Cloud Shell. Als u Cloud Shell niet hebt gebruikt, raadpleegt u [Overzicht van Azure Cloud Shell](../articles/cloud-shell/overview.md) voor informatie over het instellen.
+U kunt [Cloud Shell](../articles/cloud-shell/overview.md) gebruiken om uw sjabloon te implementeren. Voor het implementeren van een externe-sjabloon, geeft u de URI van de sjabloon, precies zoals u zou voor elke externe implementatie doen. Voor het implementeren van een lokale sjabloon, moet u eerst uw sjabloon laden in het opslagaccount voor Cloud Shell. In deze sectie wordt beschreven hoe u de sjabloon om uw cloud shell-account te laden en implementeren als een lokaal bestand. Als u dit nog niet hebt Cloud Shell gebruikt, Zie [overzicht van Azure Cloud Shell](../articles/cloud-shell/overview.md) voor informatie over het instellen.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 

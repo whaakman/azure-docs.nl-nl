@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: 7fbbcefde583d7e464633d9011e591b4c9bf6f65
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628131"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460315"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure PowerShell gebruiken met Azure Storage
 
@@ -181,7 +181,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 Alle opslagaccounts zijn standaard toegankelijk is via een netwerk dat toegang tot internet heeft. U kunt echter netwerkregels zodat alleen de toepassingen van specifieke virtuele netwerken voor toegang tot een opslagaccount. Zie voor meer informatie, [configureren van Azure Storage-Firewalls en virtuele netwerken](storage-network-security.md). 
 
 Het artikel wordt beschreven hoe u kunt deze instellingen met de volgende PowerShell-cmdlets beheren:
-* [Voeg AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
 * [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
@@ -222,9 +222,9 @@ Azure Cosmos DB Table-API biedt premium-functies voor tabelopslag, zoals kant en
 
 De meeste mensen gebruiken openbare Azure-Cloud voor de globale Azure-implementatie. Er zijn ook enkele onafhankelijke implementaties van Microsoft Azure omwille van de onafhankelijkheid enzovoort. Onafhankelijke implementaties worden aangeduid als 'omgeving'. Dit zijn de beschikbare omgevingen:
 
-* [Azure Government-Cloud](https://azure.microsoft.com/features/gov/)
+* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Azure China-Cloud uitgevoerd door 21Vianet in China](http://www.windowsazure.cn/)
-* [Azure-Duitse Cloud](../../germany/germany-welcome.md)
+* [Azure German Cloud](../../germany/germany-welcome.md)
 
 Zie voor informatie over hoe u toegang tot deze clouds en hun opslag met PowerShell, [opslag beheren in de Azure-onafhankelijke clouds met behulp van PowerShell](storage-powershell-independent-clouds.md).
 

@@ -1,8 +1,21 @@
 ---
-Titel: Machine Learning Studio-experimenten maken van voorbeelden titleSuffix: Azure Machine Learning Studio description: Leer hoe u voorbeeldexperimenten voor machine learning gebruikt nieuwe experimenten te maken met Azure AI Gallery en Azure Machine Learning Studio gebruiken.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: conceptueel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 01/05/2018
+title: Machine Learning Studio-experimenten maken van voorbeelden
+titleSuffix: Azure Machine Learning Studio
+description: Leer hoe u voorbeeldexperimenten voor machine learning gebruikt nieuwe experimenten te maken met Azure AI Gallery en Azure Machine Learning Studio gebruiken.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/05/2018
+ms.openlocfilehash: 653b9aa0d6083436a394cf886f8c7d8d1ed2e2ab
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465517"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure Machine Learning Studio-experimenten maken van werkende voorbeelden in Azure AI Gallery
 

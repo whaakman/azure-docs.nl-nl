@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231785"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460825"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage
 ## <a name="overview"></a>Overzicht
@@ -147,12 +147,12 @@ Een browser wordt normaal gesproken niet JavaScript toestaan in een pagina die w
 Beide van deze technologieën kunt u onnodige belasting (en knelpunten) voorkomen in uw webtoepassing.  
 
 #### <a name="useful-resources"></a>Nuttige informatie
-Zie voor meer informatie over SAS [handtekeningen voor gedeelde toegang, deel 1: inzicht in het SAS-Model](../storage-dotnet-shared-access-signature-part-1.md).  
+Zie voor meer informatie over SAS [handtekeningen voor gedeelde toegang, deel 1: Inzicht in het SAS-Model](../storage-dotnet-shared-access-signature-part-1.md).  
 
 Zie voor meer informatie over CORS [Cross-Origin Resource Sharing (CORS) ondersteuning voor de Azure Storage-Services](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Caching
-#### <a name="subheading7"></a>Ophalen van gegevens
+#### <a name="subheading7"></a>Getting Data
 In het algemeen is het beter dan twee keer aan voor het ophalen van gegevens uit een service is het één keer. Bekijk het voorbeeld van een MVC-webtoepassing die wordt uitgevoerd in een Webrol die al een blob 50MB van de storage-service om te fungeren als inhoud aan een gebruiker opgehaald. De toepassing kan vervolgens die dezelfde blob ophalen telkens wanneer een gebruiker om vraagt, of deze kan opslaan in cache deze lokaal naar schijf en de versie van de cache voor latere gebruikersaanvragen hergebruiken. Bovendien telkens wanneer een gebruiker vraagt de gegevens, de toepassing kan probleem ophalen met een voorwaardelijke header voor tijd van wijziging, die te voorkomen de hele blob dat zou als deze nog niet is gewijzigd. U kunt deze hetzelfde patroon toepassen op het werken met tabelentiteiten.  
 
 In sommige gevallen kunt u bepalen dat uw toepassing wordt ervan uitgegaan dat de blob is geldig gedurende een korte periode na het ophalen van het, en dat gedurende deze periode de toepassing hoeft niet te controleren als de blob is gewijzigd.
@@ -178,7 +178,7 @@ U moet de limiet voor verbindingen voor het openen van alle verbindingen instell
 
 Zie de die taal documentatie om te bepalen hoe de verbindingslimiet instellen voor andere programmeertalen.  
 
-Zie voor meer informatie het blogbericht [Web Services: gelijktijdige verbindingen](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Zie voor meer informatie het blogbericht [Web Services: Gelijktijdige verbindingen](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>ThreadPool Min Threads te verhogen als synchrone code met asynchrone taken
 Deze code wordt de thread pool min-threads te verhogen:  
@@ -255,8 +255,8 @@ Als u wilt snel blobs uploaden, de eerste vraag te beantwoorden is: u uploadt ee
 #### <a name="subheading21"></a>Snel uploaden een grote blob
 Als u wilt één grote blob snel uploaden, moet u de clienttoepassing de blokken of pagina's parallel (wordt gelet op de schaalbaarheidsdoelen voor afzonderlijke blobs en de storage-account als geheel) uploaden.  Houd er rekening mee dat de officiële Microsoft geleverde RTM Storage-clientbibliotheken (.NET, Java) hebben de mogelijkheid om dit te doen.  Voor elk van de bibliotheken, gebruikt u de hieronder opgegeven object/eigenschap om in te stellen de mate van gelijktijdigheid:  
 
-* .NET: Set ParallelOperationThreadCount op een BlobRequestOptions-object moet worden gebruikt.
-* Java/Android: BlobRequestOptions.setConcurrentRequestCount() gebruiken
+* .NET: ParallelOperationThreadCount instellen voor een BlobRequestOptions-object moet worden gebruikt.
+* Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
 * Node.js: Gebruik parallelOperationThreadCount op een van beide Aanvraagopties voor de of op de blob-service.
 * C++: Gebruik de methode blob_request_options::set_parallelism_factor.
 
@@ -286,7 +286,7 @@ Deze sectie vindt u enkele snelle configuratie-instellingen die u gebruiken kunt
 #### <a name="subheading25"></a>JSON gebruiken
 Vanaf versie van de service storage 2013-08-15, ondersteunt de table-service het gebruik van JSON in plaats van de AtomPub op basis van een XML-indeling voor het overbrengen van gegevens in een tabel. Dit nettoladingen met minder dan 75% kan verlagen en kan de prestaties van uw toepassing aanzienlijk verbeteren.
 
-Zie voor meer informatie het bericht [Microsoft Azure Tables: Inleiding tot JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) en [indeling nettolading voor servicebewerkingen tabel](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Zie voor meer informatie het bericht [Microsoft Azure-tabellen: Inleiding tot JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) en [indeling nettolading voor servicebewerkingen tabel](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle uitschakelen
 Van Nagle algoritme wordt breed geïmplementeerd via TCP/IP-netwerken als ter verbetering van netwerkprestaties. Het is echter niet optimaal zijn in alle gevallen (zoals zeer interactieve omgevingen). Van Nagle-algoritme heeft een nadelige invloed op de prestaties van aanvragen voor de tabel en wachtrij-services voor Azure Storage, en moet u dit indien mogelijk uitschakelen.  
@@ -304,7 +304,7 @@ Is de grootste één factor die van invloed is op de prestaties van de table-ser
 Tabellen zijn onderverdeeld in partities. Elke entiteit die zijn opgeslagen in een partitie deelt dezelfde partitiesleutel en een unieke rij-sleutel bij het identificeren ervan in de betreffende partitie heeft. Partities voordelen bieden, maar ook limieten voor schaalbaarheid introduceren.  
 
 * Voordelen: U kunt entiteiten in dezelfde partitie in een enkele, atomisch, batchtransactie met maximaal 100 afzonderlijke-bewerkingen (maximaal 4MB totale grootte) bijwerken. Ervan uitgaande dat hetzelfde aantal entiteiten worden opgehaald, u kunt ook een query gegevens binnen een enkele partitie efficiënter dan gegevens meerdere partities (Hoewel lezen op voor verdere aanbevelingen over het opvragen van tabelgegevens).
-* Schaalbaarheidslimiet: toegang tot entiteiten die zijn opgeslagen in één partitie kan niet worden met load balancing omdat partities atomische batchtransacties ondersteunt. Daarom is het schaalbaarheidsdoel voor de partitie van een afzonderlijke tabel lager is dan voor de table-service als geheel.  
+* Schaalbaarheidslimiet voor: Toegang tot entiteiten die zijn opgeslagen in één partitie kan niet worden met load balancing omdat partities atomische batchtransacties ondersteunt. Daarom is het schaalbaarheidsdoel voor de partitie van een afzonderlijke tabel lager is dan voor de table-service als geheel.  
 
 Vanwege deze kenmerken van tabellen en partities, moet u de volgende ontwerpprincipes nemen:  
 
@@ -341,7 +341,7 @@ Een query uitvoeren op tabel is een query waarmee een set standaardentiteiten di
 Een andere belangrijke factor in de efficiëntie van de query is het aantal entiteiten in vergelijking met het aantal gescand om de resulterende set entiteiten geretourneerd. Als uw toepassing een query uitvoeren op tabel met een filter voor een eigenschapswaarde voert dat slechts 1% van de gegevensshares, de query worden gescand 100 entiteiten voor elke één entiteit die wordt geretourneerd. De tabel schaalbaarheidsdoelen besproken eerder alle hebben betrekking op het aantal entiteiten die zijn gescand, en niet het aantal entiteiten geretourneerd: een dichtheid lage query kan eenvoudig ertoe leiden dat de table-service om te beperken van uw toepassing, omdat deze moet zo veel entiteiten om te scannen de entiteit die u zoekt ophalen.  Zie de sectie hieronder op [denormalisatie](#subheading34) voor meer informatie over hoe u dit probleem te voorkomen.  
 
 ##### <a name="limiting-the-amount-of-data-returned"></a>De hoeveelheid geretourneerde gegevens beperken
-###### <a name="subheading32"></a>Filteren
+###### <a name="subheading32"></a>Filtering
 Wanneer u weet dat een query entiteiten die u hoeft niet in de clienttoepassing wordt geretourneerd, kunt u overwegen een filter om de grootte van de resulterende set te beperken. Terwijl de entiteiten die niet zijn geretourneerd naar de client wordt nog steeds mee voor de limieten voor schaalbaarheid tellen, verbetert de toepassingsprestaties van uw vanwege de grootte van de nettolading verminderde netwerk en de verminderde aantal entiteiten waarmee de clienttoepassing moet worden verwerkt.  Houd er rekening mee hierboven op [Query dichtheid](#subheading31), maar – de schaalbaarheidsdoelen betrekking hebben op het aantal entiteiten die zijn gescand, zodat een query die veel entiteiten filtert nog steeds tot beperking, leiden kan zelfs als paar entiteiten worden geretourneerd.  
 
 ###### <a name="subheading33"></a>Projection
@@ -353,13 +353,13 @@ In tegenstelling tot het werken met relationele databases, wordt de bewezen proc
 #### <a name="insertupdatedelete"></a>Invoegen, bijwerken en verwijderen
 Deze sectie beschrijft bewezen procedures voor het bewerken van entiteiten die zijn opgeslagen in de table-service.  
 
-##### <a name="subheading35"></a>Batchverwerking
+##### <a name="subheading35"></a>Batching
 Batchtransacties bekend als entiteit groep transacties (ETG) in Azure Storage; alle bewerkingen binnen een ETG moeten zich op een enkele partitie in een enkele tabel. Waar mogelijk, gebruikt u ETGs om uit te voeren invoegen, bijwerken en verwijderen in batches. Dit vermindert het aantal retouren van uw clienttoepassing op de server, vermindert het aantal gefactureerde transacties (een ETG telt als één transactie voor factureringsdoeleinden en mag maximaal 100 opslagbewerkingen) en schakelt atomic updates (alle bewerkingen slagen of mislukken binnen een ETG). Omgevingen met hoge latentie, zoals mobiele apparaten wordt veel voordeel hebben van ETGs.  
 
 ##### <a name="subheading36"></a>Upsert
 Gebruik tabel **Upsert** bewerkingen mogelijk. Er zijn twee soorten **Upsert**, die beide kunnen efficiënter zijn dan een traditioneel **invoegen** en **Update** bewerkingen:  
 
-* **InsertOrMerge**: Gebruik deze instelling als u wilt uploaden een subset met eigenschappen van de entiteit, maar niet zeker weet of de entiteit bestaat al. Als de entiteit bestaat, deze aanroep werkt de eigenschappen die zijn opgenomen in de **Upsert** bewerking, en blijven alle bestaande eigenschappen zoals ze zijn, als de entiteit niet bestaat, wordt de nieuwe entiteit ingevoegd. Dit is vergelijkbaar met het gebruik van projectie in een query in dat u alleen hoeft het uploaden van de eigenschappen die zijn gewijzigd.
+* **InsertOrMerge**: Gebruik deze instelling als u wilt uploaden een subset met eigenschappen van de entiteit, maar u niet zeker weet of de entiteit bestaat al. Als de entiteit bestaat, deze aanroep werkt de eigenschappen die zijn opgenomen in de **Upsert** bewerking, en blijven alle bestaande eigenschappen zoals ze zijn, als de entiteit niet bestaat, wordt de nieuwe entiteit ingevoegd. Dit is vergelijkbaar met het gebruik van projectie in een query in dat u alleen hoeft het uploaden van de eigenschappen die zijn gewijzigd.
 * **InsertOrReplace**: Gebruik deze instelling als u wilt uploaden, een volledig nieuwe entiteit, maar u niet zeker weet of deze al bestaat. U moet dit alleen gebruiken als u weet dat de zojuist geüploade entiteit helemaal juist is, omdat de oude entiteit volledig overschrijft. Bijvoorbeeld, wilt u bijwerken van de entiteit waarin de huidige locatie van een gebruiker, ongeacht de toepassing wel of niet eerder locatiegegevens voor de gebruiker opgeslagen heeft. de nieuwe locatie-entiteit is voltooid en u hoeft niet gegevens uit een vorige entiteit.
 
 ##### <a name="subheading37"></a>Gegevensreeks opslaan in een enkele entiteit
@@ -395,7 +395,7 @@ Zie voor meer kosteninformatie recente, [prijzen voor Azure Storage](https://azu
 ### <a name="subheading44"></a>UpdateMessage
 U kunt **UpdateMessage** te verhogen van de time-out voor onzichtbaarheid of bijwerken van informatie over de status van een bericht. Dit is een krachtige, houd er rekening mee dat elke **UpdateMessage** bewerking wordt geteld tegen het schaalbaarheidsdoel. Dit kan echter zijn dat een benadering veel efficiënter dan een werkstroom waarmee een taak uit een wachtrij worden doorgegeven aan de volgende, om elke stap van de taak is voltooid. Met behulp van de **UpdateMessage** bewerking kan uw toepassing voor het opslaan van de taakstatus van de op het bericht en vervolgens doorgaan met werken, in plaats van het bericht voor de volgende stap van de taak opnieuw queuing telkens wanneer een stap is voltooid.  
 
-Zie voor meer informatie het artikel [hoe: Wijzig de inhoud van een bericht in de wachtrij](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+Zie voor meer informatie het artikel [het: Wijzig de inhoud van een bericht in de wachtrij](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Toepassingsarchitectuur
 U moet wachtrijen gebruiken om de toepassingsarchitectuur van uw schaalbaar maken. Hieronder vindt u enkele manieren waarop u kunt wachtrijen gebruiken om uw toepassingen beter schaalbaar:  

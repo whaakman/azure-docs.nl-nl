@@ -1,6 +1,6 @@
 ---
-title: Het configureren van Azure SQL Database - Singleton | Microsoft Docs
-description: Informatie over het configureren en beheren van Azure SQL Database - één Database.
+title: Het configureren van Azure SQL Database - zelfstandige | Microsoft Docs
+description: Meer informatie over het configureren en beheren van Azure SQL Database - zelfstandige Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440651"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477791"
 ---
-# <a name="how-to-use-single-database"></a>Het gebruik van één Database
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Over het gebruik van een individuele database in Azure SQL Database
 
-In deze sectie vindt u diverse handleidingen, scripts en uitleg waarmee u kunt beheren en configureren uw Azure SQL Database - één Database.
+In deze sectie vindt u diverse handleidingen, scripts en uitleg waarmee u kunt beheren en configureren uw individuele database in Azure SQL Database
 
 ## <a name="migrate"></a>Migreren
 
-- [Migreren naar SQL Database](sql-database-cloud-migrate.md) : meer informatie over de aanbevolen migratieproces en hulpprogramma's voor migratie naar Managed Instance.
+- [Migreren naar SQL Database](sql-database-cloud-migrate.md) : meer informatie over de aanbevolen migratieproces en hulpprogramma's voor migratie naar een beheerd exemplaar.
 - Meer informatie over het [SQL-database na migratie beheren](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Functies configureren
@@ -66,7 +66,7 @@ In deze sectie vindt u diverse handleidingen, scripts en uitleg waarmee u kunt b
 - Voer [multi-shard query's](sql-database-elastic-scale-multishard-querying.md).
 - [Shard-gegevens verplaatsen](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Beveiliging configureren](sql-database-elastic-scale-split-merge-security-configuration.md) in database-shards.
-- [Een shard toevoegen](sql-database-elastic-scale-add-a-shard.md) instellen naar de huidige od database shards.
+- [Een shard toevoegen](sql-database-elastic-scale-add-a-shard.md) in de huidige set met shards van de database.
 - [Problemen van shardtoewijzingen](sql-database-elastic-database-recovery-manager.md).
 - [Shard-database migreren](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Tellers maken](sql-database-elastic-database-perf-counters.md).
@@ -74,4 +74,4 @@ In deze sectie vindt u diverse handleidingen, scripts en uitleg waarmee u kunt b
 - [Gebruik Dapper framework](sql-database-elastic-scale-working-with-dapper.md) shard om gegevens te doorzoeken.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [instructies leidt in het beheerde exemplaar](sql-database-howto-managed-instance.md)
+- Meer informatie over [instructies gidsen voor het beheerde exemplaar](sql-database-howto-managed-instance.md)

@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b474c0fdabbe5c2a2bb9731fbeb24c1715f7c859
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6276231f8d63840dcf46f7456d584880315533bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080714"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299908"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snelstart: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory 
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Quickstart: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory 
 
 Ter vereenvoudiging van de aanmeldingservaring van uw gebruikers, is het raadzaam om toe te staan dat ze zich aanmelden bij uw cloud-apps met behulp van een gebruikersnaam en wachtwoord. Veel omgevingen hebben echter ten minste een aantal apps waarvoor u wordt aangeraden een sterkere vorm van verificatie-account, zoals multi-factor authentication (MFA) vereist. Dit kan zijn, voor de voorbeeld-waar, voor toegang tot e-mailsysteem van uw organisatie of uw HR-apps. In Azure Active Directory (Azure AD), kunt u dit doel met beleid voor voorwaardelijke toegang uitvoeren.    
 
@@ -43,6 +43,9 @@ Als u wilt het scenario in deze snelstartgids hebt voltooid, hebt u het volgende
 - **Toegang tot een Azure AD Premium-editie** -voorwaardelijke toegang van Azure AD is een Azure AD Premium-capaciteit. 
 
 - **Een testaccount met de naam Isabella Simonsen** : als u niet hoe ik een testaccount maakt weet, Zie [cloudgebruikers toevoegen](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+
+
+Het scenario in deze quickstart vereist dat per gebruiker MFA niet is ingeschakeld voor uw testaccount. Zie voor meer informatie, [hoe u verificatie in twee stappen vereist voor een gebruiker](../authentication/howto-mfa-userstates.md).
 
 
 ## <a name="test-your-sign-in"></a>Test de aanmelding
@@ -65,7 +68,7 @@ Deze sectie wordt beschreven hoe u de vereiste voorwaardelijk toegangsbeleid mak
 
 Stel in het beleid:
 
-|Instelling |Waarde|
+|Instelling |Value|
 |---     | --- |
 |Gebruikers en groepen | Isabella Simonsen |
 |Cloud-apps | Microsoft Azure Management |

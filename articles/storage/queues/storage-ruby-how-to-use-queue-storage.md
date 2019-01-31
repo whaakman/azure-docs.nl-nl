@@ -9,13 +9,13 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: queues
+ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231563"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456269"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Queue Storage gebruiken met Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -87,7 +87,7 @@ Voor het invoegen van een bericht in een wachtrij wordt geplaatst, gebruikt u de
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedure: Het volgende bericht bekijken
+## <a name="how-to-peek-at-the-next-message"></a>Procedure: Het volgende bericht
 U kunt het bericht vooraan in een wachtrij bekijken zonder deze te verwijderen uit de wachtrij door het aanroepen van de **peek\_messages()** methode. Standaard **peek\_messages()** peeks op één bericht. U kunt ook opgeven hoeveel berichten die u wilt bekijken.
 
 ```ruby
@@ -95,7 +95,7 @@ result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit de wachtrij verwijderen
+## <a name="how-to-dequeue-the-next-message"></a>Procedure: Het volgende bericht uit wachtrij verwijderen
 U kunt een bericht verwijderen uit een wachtrij in twee stappen.
 
 1. Als u aanroept **lijst\_messages()**, krijgt u het volgende bericht in een wachtrij standaard. U kunt ook opgeven hoeveel berichten die u wilt ophalen. De berichten geretourneerd door **lijst\_messages()** wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. U doorgeven de time-out voor zichtbaarheid in een paar seconden als een parameter.
@@ -119,7 +119,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Het: Aanvullende opties voor eruit worden verwijderd voor berichten
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Procedure: Aanvullende opties voor berichten eruit worden verwijderd
 Er zijn twee manieren waarop u het ophalen van berichten uit een wachtrij kunt aanpassen.
 
 1. U kunt een batch van bericht ophalen.

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634504"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473201"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -353,9 +353,9 @@ Nu dat u bekend bent met Message Analyzer gebruiken om uw logboekgegevens te ana
 | 404 (alle) |* StatusCode 404 == |Alle |
 | Shared Access Signature (SAS) autorisatie probleem |AzureStorageLog.RequestStatus == "SASAuthorizationError" |Netwerk |
 | HTTP 409 (Conflict) berichten |HTTP. Response.StatusCode 409 == |Netwerk |
-| 409 (alle) |* StatusCode 409 == |Alle |
+| 409 (alle) |*StatusCode   == 409 |Alle |
 | Lage PercentSuccess of analytics logboekvermeldingen hebben bewerkingen met de status van ClientOtherErrors |AzureStorageLog.RequestStatus == "ClientOtherError" |Server |
-| Nagle waarschuwing |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) en (AzureStorageLog.RequestPacketSize < 1460) en (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Server |
+| Nagle   Warning |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) en (AzureStorageLog.RequestPacketSize < 1460) en (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Server |
 | Bereik van de tijd in de logboeken-Server en het netwerk |#Timestamp > = 2014-10-20T16:36:38 en #Timestamp < = 2014-10-20T16:36:39 |Netwerk-server |
 | Bereik van de tijd in Server-logboeken |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 en AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Server |
 

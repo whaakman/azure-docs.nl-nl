@@ -1,6 +1,6 @@
 ---
 Titel: Gegevenswetenschap voor Beginners titleSuffix: Azure Machine Learning Studio description: Gegevenswetenschap leert voor Beginners is basisconcepten in 5 korte video's, beginnend met de 5 vragen Gegevenswetenschap antwoord geeft. Vanuit Azure Machine Learning.
-Services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Auteur: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

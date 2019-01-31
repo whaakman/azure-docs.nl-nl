@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214739"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301251"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -49,9 +49,9 @@ A: Aangepaste velden extractie worden momenteel ondersteund in de klassieke erva
 
 A: Lijstweergave is niet beschikbaar in de nieuwe logboeken. Er is een pijl naar links van elke record in de tabel met resultaten. Klik op deze pijl om de details voor een bepaalde record openen. 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>V. Nadat een query uit te voeren, een lijst met voorgestelde filters weergegeven wordt, maar niet alle filters bevat. Hoe kan ik de rest zien? 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>V. Na het uitvoeren van een query, een lijst met voorgestelde filters beschikbaar zijn. Hoe kan ik filters bekijken? 
 
-A: Wat u momenteel ziet, is een Preview-versie van de nieuwe Filters-implementatie. Dit is nu gebaseerd op uw volledige resultatenset in plaats van wordt beperkt door de recordlimiet van 10.000 van de gebruikersinterface. Dit is momenteel een lijst van de meest populaire filters en de 10 meest voorkomende waarden voor elk filter. 
+A: Klik op 'Filters' op de links pannen om te zien van een Preview-versie van de nieuwe Filters-implementatie. Dit is nu gebaseerd op uw volledige resultatenset in plaats van wordt beperkt door de recordlimiet van 10.000 van de gebruikersinterface. Dit is momenteel een lijst van de meest populaire filters en de 10 meest voorkomende waarden voor elk filter. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>V. Waarom krijg ik de fout: "De resourceprovider registreren 'Microsoft.Insights' voor dit abonnement om in te schakelen van deze query' in Logboeken na analyseren in VM? 
 
@@ -183,7 +183,7 @@ A:  Bijwerken naar de meest recente updatepakket installeren en importeren van m
 
 ### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>VRAAG: Hoe kan ik controleren of een agent kan communiceren met Log Analytics is?
 
-A: Om ervoor te zorgen dat de agent met OMS communiceren kan, gaat u naar: Deelvenster, beveiliging en -instellingen beheren **Microsoft Monitoring Agent**.
+A: Om ervoor te zorgen dat de agent met OMS communiceren kan, gaat u naar: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
 
 Onder de **Azure Log Analytics (OMS)** tabblad, gaat u naar een groen vinkje. Een groen vinkje wordt bevestigd dat de agent kan communiceren met de Azure-service is.
 
@@ -191,7 +191,7 @@ Een geel waarschuwingspictogram betekent dat de agent heeft problemen communicat
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>VRAAG: Hoe stop ik een agent niet communiceren met Log Analytics?
 
-A: In System Center Operations Manager, de computer te verwijderen uit de lijst met OMS beheerde computers. Operations Manager werkt u de configuratie van de agent niet langer een rapport naar Log Analytics. Voor agents die rechtstreeks verbonden met Log Analytics, kunt u ze stopt vanaf communiceren via: Deelvenster, beveiliging en -instellingen beheren **Microsoft Monitoring Agent**.
+A: In System Center Operations Manager, de computer te verwijderen uit de lijst met OMS beheerde computers. Operations Manager werkt u de configuratie van de agent niet langer een rapport naar Log Analytics. Voor agents die rechtstreeks verbonden met Log Analytics, kunt u ze stopt vanaf communiceren via: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
 Onder **Azure Log Analytics (OMS)**, verwijder alle werkruimten die worden vermeld.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>VRAAG: Waarom krijg ik een foutbericht wanneer ik wil mijn werkruimte van één Azure-abonnement verplaatsen naar een andere?

@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/25/2019
+ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330157"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467693"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicatie naar SQL Database single en gepoolde databases
 
-SQL Server-replicatie kan worden geconfigureerd met één en gepoolde databases op een [logische server](sql-database-logical-servers.md) in Azure SQL Database.  
+SQL Server-replicatie kan worden geconfigureerd met één en gepoolde databases op een [SQL Database-server](sql-database-servers.md) in Azure SQL Database.  
 
 ## <a name="supported-configurations"></a>**Ondersteunde configuraties:**
   
@@ -65,7 +65,7 @@ SQL Server-replicatie kan worden geconfigureerd met één en gepoolde databases 
 
 1. De publicatie van een transactionele replicatie op een on-premises SQL Server-database maken.  
 2. Op de on-premises SQL Server gebruikt de **Wizard nieuwe abonnement** of Transact-SQL-instructies voor het maken van een abonnement op Azure SQL Database-push.  
-3. Met één en gepoolde databases in Azure SQL Database is de initiële gegevensset een momentopname die is gemaakt door de Snapshot Agent en gedistribueerd en toegepast door de Agent voor softwaredistributie. Met Azure SQL Database Managed Instance, kunt u ook een databaseback-up seeding van de database op de abonnee te gebruiken.
+3. Met één en gepoolde databases in Azure SQL Database is de initiële gegevensset een momentopname die is gemaakt door de Snapshot Agent en gedistribueerd en toegepast door de Agent voor softwaredistributie. Met de database van een beheerd exemplaar, kunt u ook een databaseback-up seeding van de database op de abonnee te gebruiken.
 
 ### <a name="data-migration-scenario"></a>Scenario voor migratie van gegevens  
 
@@ -107,7 +107,7 @@ De volgende opties worden niet ondersteund voor Azure SQL Database-abonnementen:
 Maak een publicatie en een push-abonnement. Zie voor meer informatie:
   
 - [Maken van een publicatie](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Maken van een Push-abonnement](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) met behulp van de Azure SQL-databasenaam logische server als de abonnee (bijvoorbeeld **N'azuresqldbdns.database.windows.net'**) en de naam van de Azure SQL-database als de database van de bestemming ( bijvoorbeeld **AdventureWorks**).  
+- [Maken van een Push-abonnement](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) met behulp van de naam van de Azure SQL Database-server als de abonnee (bijvoorbeeld **N'azuresqldbdns.database.windows.net'**) en de naam van de Azure SQL-database als de doeldatabase (voor voorbeeld **AdventureWorks**).  
 
 ## <a name="see-also"></a>Zie ook  
 

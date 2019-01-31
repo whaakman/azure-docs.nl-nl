@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 1bc93b083b0f6f0d813f209c9371ce38e8a9daa6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228807"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470345"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Shared access signatures (SAS) gebruiken
 
@@ -40,11 +40,11 @@ Een veelvoorkomend scenario waarin een SAS handig is, is een service waarbij geb
 
 1. Clients uploaden en downloaden van gegevens via een front-end-proxy-service, waarmee authenticatie wordt uitgevoerd. Deze front-proxyservice heeft het voordeel van het toestaan van validatie van bedrijfsregels kan, maar voor grote hoeveelheden gegevens of transacties, hoog volume, het maken van een service die kan worden geschaald zodat deze overeenkomt met de aanvraag duur en moeilijk.
 
-  ![Scenario-diagram: front-proxy-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+  ![Scenario-diagram: Front-end-proxy-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Een lichtgewicht service verifieert de client naar behoefte en genereert vervolgens een SAS. Nadat de client de SAS ontvangt, kunnen ze toegang tot resources voor storage-account rechtstreeks met de machtigingen die zijn gedefinieerd door de SAS en voor het interval dat is toegestaan door de SAS. De SAS vermindert de noodzaak voor de routering van alle gegevens via de front-end-proxy-service.
 
-  ![Scenario-diagram: SAS provider-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+  ![Scenario-diagram: SAS-provider-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Veel real-world services kunnen een hybride versie van deze twee methoden gebruiken. Sommige gegevens kunnen bijvoorbeeld worden verwerkt en gevalideerd via het front-proxy, terwijl andere gegevens is opgeslagen en/of rechtstreeks met behulp van SAS lezen.
 
@@ -57,7 +57,7 @@ Daarnaast moet u het gebruik van een SAS toegang verlenen aan het bronobject een
 ## <a name="types-of-shared-access-signatures"></a>Typen van handtekeningen voor gedeelde toegang
 U kunt twee soorten handtekeningen voor gedeelde toegang maken:
 
-* **Service-SAS.** De service-SAS biedt toegang tot een resource in slechts een van de opslagservices: de Blob-, Queue-, Tabel- of File-service. Zie [maken van een Service-SAS](https://msdn.microsoft.com/library/dn140255.aspx) en [voorbeelden van Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx) voor gedetailleerde informatie over het maken van de service-SAS-token.
+* **Service SAS.** De service-SAS biedt toegang tot een resource in slechts een van de opslagservices: de Blob-, Queue-, Tabel- of File-service. Zie [maken van een Service-SAS](https://msdn.microsoft.com/library/dn140255.aspx) en [voorbeelden van Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx) voor gedetailleerde informatie over het maken van de service-SAS-token.
 * **Account-SAS.** De account SAS delegeert toegang tot bronnen in een of meer van de storage-services. Alle van de bewerkingen die beschikbaar zijn via een service-SAS zijn ook beschikbaar via een account-SAS. Met de account-SAS, kunt u bovendien toegang tot de bewerkingen die betrekking hebben op een bepaalde service, zoals delegeren **Get/Set-Service-eigenschappen** en **Zoekstatistieken ophalen**. U kunt ook toegang tot het lezen, schrijven en verwijderen van bewerkingen delegeren voor blobcontainers, tabellen, wachtrijen en bestandsshares die niet zijn toegestaan bij een service-SAS. Zie [maken van een Account-SAS](https://msdn.microsoft.com/library/mt584140.aspx) voor gedetailleerde informatie over het maken van de account-SAS-token.
 
 ## <a name="how-a-shared-access-signature-works"></a>De werking van een shared access signature
@@ -108,7 +108,7 @@ Hier volgt een voorbeeld van een SAS-URI waarmee machtigingen lezen en schrijven
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Naam | SAS-gedeelte | Beschrijving |
+| Name | SAS-gedeelte | Description |
 | --- | --- | --- |
 | BLOB-URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Het adres van de blob. Houd er rekening mee dat met behulp van HTTPS wordt sterk aanbevolen. |
 | De versie van de Storage-services |`sv=2015-04-05` |Voor storage services versie 2012-02-12 en hoger, deze parameter geeft aan dat de versie moet worden gebruikt. |
@@ -128,7 +128,7 @@ Hier volgt een voorbeeld van een account-SAS die gebruikmaakt van dezelfde algem
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Naam | SAS-gedeelte | Beschrijving |
+| Name | SAS-gedeelte | Description |
 | --- | --- | --- |
 | Resource-URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Het eindpunt van Blob service, en de parameters voor service-eigenschappen (wanneer aangeroepen met GET) ophalen of instellen van service-eigenschappen (wanneer met de naam is ingesteld). |
 | Services |`ss=bf` |De SAS is van toepassing op de services Blob en bestand |
@@ -140,8 +140,8 @@ Gezien het feit dat machtigingen beperkt tot het serviceniveau zijn, toegankelij
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Een SAS met een opgeslagen toegangsbeleid beheren
 Een shared access signature kan duren voordat een van twee vormen:
 
-* **Ad-hoc SAS:** wanneer u een ad-hoc SAS, de begintijd, verlooptijd, maken en machtigingen voor de SAS zijn alle opgegeven in de SAS-URI (of impliciet, in het geval waarin de begintijd wordt weggelaten). Dit type SAS kan worden gemaakt als een account-SAS of een service-SAS.
-* **SAS met opgeslagen toegangsbeleid:** een opgeslagen toegangsbeleid is gedefinieerd in een resourcecontainer, een blob-container, tabel, wachtrij, of bestandsshare-- en kan worden gebruikt voor het beheren van beperkingen voor een of meer handtekeningen voor gedeelde toegang. Wanneer u een SAS aan een opgeslagen toegangsbeleid koppelen, neemt de SA's over de beperkingen--de begintijd, verlooptijd en machtigingen--gedefinieerd voor de opgeslagen toegangsbeleid.
+* **Ad-hoc SAS:** Wanneer u een ad-hoc SAS maakt, worden de begintijd, verlooptijd en machtigingen voor de SA's alle opgegeven in de SAS-URI (of impliciet, in het geval waarin de begintijd wordt weggelaten). Dit type SAS kan worden gemaakt als een account-SAS of een service-SAS.
+* **De SAS met opgeslagen toegangsbeleid:** Een opgeslagen toegangsbeleid is gedefinieerd in een resourcecontainer, een blob-container, tabel, wachtrij, of bestandsshare-- en kan worden gebruikt voor het beheren van beperkingen voor een of meer gedeelde handtekeningen voor toegang. Wanneer u een SAS aan een opgeslagen toegangsbeleid koppelen, neemt de SA's over de beperkingen--de begintijd, verlooptijd en machtigingen--gedefinieerd voor de opgeslagen toegangsbeleid.
 
 > [!NOTE]
 > Een account-SAS moet op dit moment een ad-hoc SAS. Opgeslagen-beleidsregels worden nog niet ondersteund voor account-SAS.
@@ -235,7 +235,7 @@ Als u wilt deze C#-voorbeelden uitvoeren, moet u verwijzen naar de volgende NuGe
 
 Zie voor meer voorbeelden die laten hoe u zien kunt maken en testen van een SAS [codevoorbeelden van Azure voor opslag](https://azure.microsoft.com/documentation/samples/?service=storage).
 
-### <a name="example-create-and-use-an-account-sas"></a>Voorbeeld: Maak en gebruik een account-SAS
+### <a name="example-create-and-use-an-account-sas"></a>Voorbeeld: Maken en gebruiken van een account-SAS
 Het volgende codevoorbeeld maakt u een account-SAS die geldig is voor de services Blob en bestand en geeft de client machtigingen voor lezen, schrijven en lijst met machtigingen voor toegang tot serviceniveau API's. De account-SAS beperkt het protocol HTTPS, dus de aanvraag moet worden gemaakt met HTTPS.
 
 ```csharp

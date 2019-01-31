@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d162f8caef0a14d86547539681f1da9b1b07ea1d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fcde97c76e11c6ecbdb22befcb1a8d1ce0437942
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190493"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299024"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Zelfstudie: De Video Indexer-API gebruiken
 
@@ -82,7 +82,7 @@ De waarden die worden beschreven in de volgende tabel zijn van toepassing. De **
 
 |**Naam**|**Parameterwaarde**|**Beschrijving**|
 |---|---|---|
-|Proefversie|trial|Wordt gebruikt voor proefaccounts.|
+|Proefversie|audittrail|Wordt gebruikt voor proefaccounts.|
 |US - west|westus2|Wordt gebruikt voor de Azure-regio US - west 2.|
 |Europa - noord |northeurope|Wordt gebruikt voor de Azure-regio Europa - noord.|
 |Azië - oost|eastasia|Wordt gebruikt voor de Azure-regio Azië - oost.|

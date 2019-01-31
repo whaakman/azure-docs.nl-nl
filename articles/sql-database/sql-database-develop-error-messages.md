@@ -12,22 +12,24 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/31/2018
-ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 01/25/2019
+ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317454"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464727"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
 
 In dit artikel geeft een lijst van de SQL-foutcodes voor SQL Database-clienttoepassingen, met inbegrip van database-verbindingsfouten optreden, tijdelijke fouten (ook wel tijdelijke fouten), resource governance fouten, problemen met de database kopiëren, elastische pool en andere fouten. De meeste categorieën zijn afgestemd op Azure SQL Database en niet van toepassing op Microsoft SQL Server. Zie ook [system foutberichten](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Database-verbindingsfouten en tijdelijke fouten andere tijdelijke fouten
+
 De volgende tabel bevat informatie over de SQL-foutcodes voor verlies-verbindingsfouten en andere tijdelijke fouten die mogelijk optreden wanneer uw toepassing probeert te krijgen tot SQL-Database. Zie voor het aan de slag-zelfstudies over hoe u verbinding maakt met Azure SQL Database, [verbinden met Azure SQL Database](sql-database-libraries.md).
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Meest voorkomende database-verbindingsfouten en tijdelijke fouten fouten
+
 De Azure-infrastructuur heeft de mogelijkheid om servers dynamisch opnieuw te configureren wanneer zware werklasten in de service SQL Database optreden.  Dit dynamische gedrag kan ertoe leiden dat uw clientprogramma verliest de verbinding met SQL-Database. Dit type fout heet een *tijdelijke fouten*.
 
 Het is raadzaam dat uw clientprogramma logica voor opnieuw proberen heeft, zodat deze kan opnieuw verbinding te maken na waardoor de tijd van de tijdelijke fouten te corrigeren zelf.  Het is raadzaam dat u gedurende vijf seconden voordat u uw eerste opnieuw proberen uitstellen. Opnieuw proberen na een vertraging van minder dan 5 seconden risico's overbelasting van de cloudservice. Voor elke volgende opnieuw proberen de vertraging exponentieel toeneemt, moet vergroten tot maximaal 60 seconden.
@@ -35,7 +37,7 @@ Het is raadzaam dat uw clientprogramma logica voor opnieuw proberen heeft, zodat
 Fouten van tijdelijke fouten manifest doorgaans als een van de volgende foutberichten van uw client-programma's:
 
 * Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;type session_id&gt;
-* Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;type session_id&gt;. (Microsoft SQL Server, fout: 40613)
+* Database &lt;db_name&gt; op server &lt;Azure_instance&gt; is momenteel niet beschikbaar. Probeer opnieuw verbinding later opnieuw. Als het probleem zich blijft voordoen, neem contact op met klantenondersteuning en geeft u de sessietracerings-ID van &lt;type session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * Een bestaande verbinding is geforceerd gesloten door de externe host.
 * System.Data.Entity.Core.EntityCommandExecutionException: Er is een fout opgetreden tijdens het uitvoeren van de opdrachtdefinitie. Zie de binnenste uitzondering voor meer informatie. ---> System.Data.SqlClient.SqlException: Er is een op transportniveau-fout opgetreden bij het ontvangen van de resultaten van de server. (provider: Sessieprovider, fout: 19 - fysieke verbinding kan niet worden gebruikt)
 * Een verbindingspoging naar een secundaire database is mislukt omdat de database momenteel herconfiguratie wordt en is bezet toepassen van de nieuwe pagina's, terwijl in het midden van een actieve transactie op de primaire database. 
@@ -48,6 +50,7 @@ Zie voor voorbeelden van de programmacode van logica voor opnieuw proberen:
 Een bespreking van de *blokkerende periode* voor clients die gebruikmaken van ADO.NET is beschikbaar in [SQL Server-verbinding groeperen (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### <a name="transient-fault-error-codes"></a>Foutcodes voor tijdelijke fouten
+
 De volgende fouten tijdelijk zijn en opnieuw moeten worden uitgevoerd in de logica van toepassingen: 
 
 | Foutcode | Severity | Description |
@@ -62,6 +65,7 @@ De volgende fouten tijdelijk zijn en opnieuw moeten worden uitgevoerd in de logi
 | 4221 |16 |Meld u aan bij het lezen en secundaire is mislukt vanwege een lange wachttijd op 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. De replica is niet beschikbaar voor aanmelding, omdat de versies van de rij ontbreken voor transacties die die onderweg zijn zijn als de replica gerecycled is. Het probleem kan worden opgelost door terug te draaien of vastleggen van de actieve transacties op de primaire replica. Instanties van dit probleem kunnen worden geminimaliseerd door te vermijden om lange schrijftransacties op de primaire. |
 
 ## <a name="database-copy-errors"></a>Fouten in de database kopiëren
+
 De volgende fouten kunnen worden aangetroffen tijdens het kopiëren van een database in Azure SQL Database. Zie [Een Azure SQL Database kopiëren](sql-database-copy.md) voor meer informatie.
 
 | Foutcode | Severity | Description |
@@ -81,6 +85,7 @@ De volgende fouten kunnen worden aangetroffen tijdens het kopiëren van een data
 | 40571 |16 |Kopiëren is mislukt vanwege een interne fout van de database. Verwijder de doeldatabase en probeer het later opnieuw. |
 
 ## <a name="resource-governance-errors"></a>Resource governance fouten
+
 De volgende fouten zijn veroorzaakt door overmatig gebruik van bronnen tijdens het werken met Azure SQL Database. Bijvoorbeeld:
 
 * Een transactie is te lang geopend.
@@ -94,8 +99,8 @@ Verwante onderwerpen:
 
 | Foutcode | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database is %d en is bereikt. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor één en gepoolde databases](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resource-ID: %d. De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor één en gepoolde databases](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). Anders probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resource-ID: %d. De limiet voor %s voor de database is %d en is bereikt. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor zelfstandige en gepoolde databases](sql-database-resource-limits-database-server.md).<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resource-ID: %d. De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie voor meer informatie, [SQL Database-resourcebeperkingen voor zelfstandige en gepoolde databases](sql-database-resource-limits-database-server.md). Anders probeer het later opnieuw.<br/><br/>De Resource-ID geeft aan dat de resource die de limiet is bereikt. Voor werkthreads, de Resource-ID = 1. Voor de Resource-ID-sessies = 2.<br/><br/>Zie voor meer informatie over deze fout en hoe u deze kunt oplossen:<br/>• [Azure SQL Database-resourcebeperkingen](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |De database heeft het groottequotum bereikt. Partitioneer of verwijder gegevens, verwijder indexen of Raadpleeg de documentatie voor mogelijke oplossingen. |
 | 40549 |16 |Sessie is beëindigd omdat er een langlopende transactie. Probeer uw transactie te verkorten. |
 | 40550 |16 |De sessie is beëindigd omdat er te veel vergrendelingen heeft verkregen. Probeer het lezen of minder rijen in één transactie te wijzigen. |
@@ -104,15 +109,16 @@ Verwante onderwerpen:
 | 40553 |16 |De sessie is beëindigd vanwege overmatige geheugengebruik. Probeer de query voor het verwerken van minder rijen te wijzigen.<br/><br/>Het aantal te verminderen `ORDER BY` en `GROUP BY` bewerkingen in de Transact-SQL-code vermindert de geheugenvereisten van de query. |
 
 ## <a name="elastic-pool-errors"></a>Elastische pool-fouten
+
 De volgende fouten zijn met betrekking tot het maken en gebruiken van elastische pools:
 
 | Foutcode | Severity | Description | Corrigerende maatregelen |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |De opslag van de elastische pool is bereikt. Het opslaggebruik voor de elastische groep kan niet groter zijn dan (%d) MB/s. Er wordt geprobeerd gegevens te schrijven naar een database wanneer de limiet voor opslag van de elastische pool is bereikt. |Houd rekening met het aantal dtu's van toenemende en/of toe te voegen opslag aan de elastische pool indien mogelijk om te verhogen van de limiet voor opslag verminderen de opslag die wordt gebruikt door afzonderlijke databases binnen de elastische pool of databases verwijderen uit de elastische groep. |
-| 10929 | 16 |De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie [SQL Database-resourcebeperkingen voor één en gepoolde databases](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) voor hulp. Anders probeer het later opnieuw. DTU / vCore-minimum per database. DTU / vCore maximum per database. Het totale aantal gelijktijdige werknemers (aanvragen) voor alle databases in de elastische groep probeert te overschrijden de limiet voor groep van toepassingen. |Vergroot het aantal dtu's of vCores van de elastische pool indien mogelijk om de limiet van de werknemer verhogen of databases uit de elastische pool te verwijderen. |
+| 10929 | 16 |De minimumgarantie voor %s is %d, maximumlimiet is %d, en het huidige gebruik voor de database is %d. De server is momenteel echter te druk bezet ter ondersteuning van aanvragen die groter zijn dan %d voor deze database. Zie [SQL Database-resourcebeperkingen voor één en gepoolde databases](sql-database-resource-limits-database-server.md) voor hulp. Anders probeer het later opnieuw. DTU / vCore-minimum per database. DTU / vCore maximum per database. Het totale aantal gelijktijdige werknemers (aanvragen) voor alle databases in de elastische groep probeert te overschrijden de limiet voor groep van toepassingen. |Vergroot het aantal dtu's of vCores van de elastische pool indien mogelijk om de limiet van de werknemer verhogen of databases uit de elastische pool te verwijderen. |
 | 40844 | 16 |Database '%ls' op Server '%ls' is een '%ls' edition-database in een elastische pool en een relatie doorlopend kopiëren kan hebben.  |N/A |
 | 40857 | 16 |Elastische pool niet vinden voor de server: '%ls', naam elastische groep: '%ls'. Opgegeven elastische pool bestaat niet in de opgegeven server. | Geef een geldige elastische pool-naam. |
-| 40858 | 16 |Elastische pool '%ls' bestaat al in de server: '%ls'. Opgegeven elastische pool bestaat al in de opgegeven logische server. | Geef de naam van een nieuwe elastische pool. |
+| 40858 | 16 |Elastische pool '%ls' bestaat al in de server: '%ls'. Opgegeven elastische pool bestaat al in de opgegeven SQL-Database-server. | Geef de naam van een nieuwe elastische pool. |
 | 40859 | 16 |Elastische groep biedt geen ondersteuning voor servicelaag '%ls'. Laag van de opgegeven service wordt niet ondersteund voor het inrichten van de elastische pool. |Geef de juiste editie of laat de servicelaag veld leeg als u de standaard-servicelaag. |
 | 40860 | 16 |Combinatie van elastische groep '%ls' en service doelstelling '%ls' is ongeldig. Elastische pool- en service-laag kan samen worden opgegeven als resourcetype is opgegeven als 'ElasticPool'. |Juiste combinatie van elastische pool en servicelaag opgeven. |
 | 40861 | 16 |De database-editie is %. *ls kunnen niet anders dan de elastische groepservicelaag is ' %.* ls'. De database-editie is anders dan de elastische pool-servicelaag. |Geef een database-editie die verschilt van de elastische pool-servicelaag.  Houd er rekening mee dat de database-editie niet hoeft te worden opgegeven. |
@@ -137,6 +143,7 @@ Verwante onderwerpen:
 * [Controleren en beheren van een elastische pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>Algemene fouten
+
 De volgende fouten vallen niet in de vorige categorieën.
 
 | Foutcode | Severity | Description |
@@ -204,10 +211,11 @@ De volgende fouten vallen niet in de vorige categorieën.
 | 40671 |17 |Communicatiefout tussen de gateway en de management-service. Probeer het later opnieuw. |
 | 40852 |16 |Kan de database openen ' %. \*ls op server "%. \*ls' aangevraagd door de aanmelding. Toegang tot de database is alleen toegestaan met behulp van een beveiligde verbindingsreeks. Voor toegang tot deze database, wijzigt u uw verbindingsreeksen bevat veilig op de server FQDN - naam van server.database.windows .net moet worden gewijzigd in 'servernaam'.database. `secure`. windows.net. |
 | 40914 | 16 | Server kan niet worden geopend '*[servernaam]* is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.<br /><br />U kunt toevoegen om op te lossen, een [regel voor virtuele netwerken](sql-database-vnet-service-endpoint-rule-overview.md). |
-| 45168 |16 |De SQL Azure-systeem wordt belast, en een bovengrens op gelijktijdige DB CRUD-bewerkingen voor één server is geplaatst (bijvoorbeeld database maken). De server die is opgegeven in het foutbericht heeft het maximum aantal gelijktijdige verbindingen overschreden. Probeer het later opnieuw. |
+| 45168 |16 |De SQL Azure-systeem wordt belast, en een bovengrens op gelijktijdige DB CRUD-bewerkingen voor een enkele SQL-Database-server is geplaatst (bijvoorbeeld database maken). De server die is opgegeven in het foutbericht heeft het maximum aantal gelijktijdige verbindingen overschreden. Probeer het later opnieuw. |
 | 45169 |16 |De azure SQL-systeem wordt belast en een bovengrens wordt geplaatst op het aantal gelijktijdige server CRUD-bewerkingen voor één abonnement (bijvoorbeeld server maken). Het abonnement dat is opgegeven in het foutbericht overschrijdt het maximum aantal gelijktijdige verbindingen en de aanvraag is geweigerd. Probeer het later opnieuw. |
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Meer informatie over [Azure SQL Database-functies](sql-database-features.md).
 * Meer informatie over [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md).
 * Meer informatie over [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
