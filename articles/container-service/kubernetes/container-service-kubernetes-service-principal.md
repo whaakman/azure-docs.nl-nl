@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: da4fda3d0cfa6cb33d2dd8bb3bb844f18654c30a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b2a9c6c31771be1316038d794d1c15ff9fa45916
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851892"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166727"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(AFGESCHAFT) Een service-principal voor Azure Active Directory voor een Kubernetes-cluster in Container Service instellen
 
@@ -26,7 +26,7 @@ ms.locfileid: "54851892"
 In Azure Container Service is voor een Kubernetes-cluster een [service-principal voor Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) vereist voor gebruik met Azure-API's. De service-principal is nodig om resources zoals door [gebruikers gedefinieerde routes](../../virtual-network/virtual-networks-udr-overview.md) en de [Azure Load Balancer uit laag vier](../../load-balancer/load-balancer-overview.md) dynamisch te beheren.
 
 
-In dit artikel worden verschillende opties getoond om een service-principal in te stellen voor uw Kubernetes-cluster. Bijvoorbeeld: als u de [Azure CLI](/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld, kunt u de opdracht [`az acs create`](/cli/azure/acs#az_acs_create) uitvoeren om tegelijkertijd het Kubernetes-cluster en de service-principal te maken.
+In dit artikel worden verschillende opties getoond om een service-principal in te stellen voor uw Kubernetes-cluster. Bijvoorbeeld: als u de [Azure CLI](/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld, kunt u de opdracht [`az acs create`](/cli/azure/acs) uitvoeren om tegelijkertijd het Kubernetes-cluster en de service-principal te maken.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Vereisten voor de service-principal

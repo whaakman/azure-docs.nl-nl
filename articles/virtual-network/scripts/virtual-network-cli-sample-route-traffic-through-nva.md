@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 0f4b5e5605ed88aac2ffb979e2c009e0f0b99a98
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 667d32c825f61751970bbcaa47045929ad708490
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411421"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160266"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>Voorbeeldscript voor verkeer routeren via een virtueel netwerkapparaat
 
@@ -56,7 +56,7 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Hiermee maakt u een virtuele netwerkinterface en schakelt u doorsturen via IP in voor deze interface. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Hiermee maakt u een netwerkbeveiligingsgroep (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Hiermee maakt u NSG-regels waarmee inkomend verkeer via HTTP- en HTTPS-poorten naar de VM worden toegestaan. |
-| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Hiermee koppelt u de NSG's en routetabellen aan subnetten. |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Hiermee koppelt u de NSG's en routetabellen aan subnetten. |
 | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Hiermee maakt u een routetabel voor alle routes. |
 | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Hiermee maakt u routes om verkeer tussen subnetten en internet via de VM te routeren. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Hiermee maakt u een virtuele machine en koppelt u de NIC hieraan. Met deze opdracht geeft u ook de installatiekopie van de virtuele machine op die moet worden gebruikt, evenals de beheerdersreferenties. |

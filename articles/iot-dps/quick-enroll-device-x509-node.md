@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 852e250d60d112ca7a8e8a98d93121762e2fde4d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3459814108450e3c8faead6ab373ce62b951885e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187004"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095790"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Snelstartgids: X.509-apparaten registreren bij Device Provisioning Service met behulp van Node.js
 
@@ -107,7 +107,7 @@ Voer de volgende stappen uit om deze testhulpmiddelen te gebruiken om certificat
         });
       }
     });
-    ````
+    ```
 
 ## <a name="run-the-enrollment-group-sample"></a>Het voorbeeld van de registratiegroep uitvoeren
  

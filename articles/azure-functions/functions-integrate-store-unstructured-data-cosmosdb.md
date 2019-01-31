@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 172ac44855274682953f0fcd59a685eb5a994ba4
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cdae0a04d09b7985935bee0ae636d7f88fbff541
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752585"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903652"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Ongestructureerde gegevens opslaan met behulp van Azure Functions en Azure Cosmos DB
 
@@ -169,6 +169,6 @@ U hebt een binding toegevoegd aan de HTTP-trigger waarmee niet-gestructureerde g
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
-
 Zie [Azure Functions Cosmos DB bindings](functions-bindings-cosmosdb.md) (Bindingen tussen Azure Functions en Cosmos DB) voor meer informatie over de binding met een Cosmos DB database.
+
+[!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps-2.md)]

@@ -3,20 +3,20 @@ title: 'Quickstart: Azure Storage Explorer gebruiken voor het beheren van gegeve
 description: In deze snelstart leert u hoe u Azure Storage Explorer kunt gebruiken om een bestandssysteem in een Azure Data Lake Storage Gen2-account te maken, evenals een directory en een bestand. Hierna leert u hoe u het bestand naar uw lokale computer kunt downloaden en hoe u het gehele bestand in een directory kunt bekijken.
 services: storage
 author: tamram
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6f3aa81f0fa2497db02d069e93e007b43c37beb9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423593"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250449"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Quickstart: Azure Storage Explorer gebruiken voor het beheren van gegevens in een Azure Data Lake Storage Gen2-account
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Snelstart: Azure Storage Explorer gebruiken voor het beheren van gegevens in een Azure Data Lake Storage Gen2-account
 
 In deze snelstart leert u hoe u met behulp van [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) een directory en een blob maakt. Hierna leert u hoe u de blob naar uw lokale computer downloadt en hoe u alle blobs in een directory bekijkt. U leert ook hoe u een momentopname van een blob maakt, hoe u toegangsbeleid voor directory’s beheert en hoe u een handtekening voor gedeelde toegang maakt.
 

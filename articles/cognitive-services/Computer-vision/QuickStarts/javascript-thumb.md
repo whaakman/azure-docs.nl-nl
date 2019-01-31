@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: een miniatuur maken - REST, JavaScript'
+title: 'Snelstart: een miniatuur maken - REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision-API en JavaScript.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9d3d712afedf20c155b3d010f865a238d00ed90a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: a5792d56441e83aee65640fe48d106542fdfd2f4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579138"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222414"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Snelstartgids: Een miniatuur maken met de REST API en JavaScript in Computer Vision
 

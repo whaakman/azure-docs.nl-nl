@@ -1,28 +1,28 @@
 ---
-title: 'Quickstart: Domeinspecifieke afbeeldingsinhoud - REST, Python'
+title: 'Snelstart: Domeinspecifieke afbeeldingsinhoud - REST, Python'
 titleSuffix: Azure Cognitive Services
-description: In deze quickstart gebruikt u domeinmodellen om beroemdheden en oriëntatiepunten in een afbeelding te identificeren met behulp van de Computer Vision-API met Python.
+description: In deze snelstart gebruikt u domeinmodellen om beroemdheden en oriëntatiepunten in een afbeelding te identificeren met behulp van de Computer Vision-API met Python.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9a511cb26f5bc4ba44e4d999cb7b3c3ba98bca4c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d0f7512fc7ed5b261a23e5f07d96016c0477e47b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582222"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211047"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Quickstart: Een externe domeinmodel gebruiken met de REST-API en Python in Computer Vision
 
-In deze quickstart gebruikt u een domeinmodel om oriëntatiepunten, of eventueel beroemdheden, in een extern opgeslagen afbeelding te identificeren met behulp van de REST API van Computer Vision. Met de methode [Domeinspecifieke inhoud herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) past u een domeinspecifiek model toe om inhoud in een afbeelding te herkennen.
+In deze snelstart gebruikt u een domeinmodel om oriëntatiepunten, of eventueel beroemdheden, in een extern opgeslagen afbeelding te identificeren met behulp van de REST API van Computer Vision. Met de methode [Domeinspecifieke inhoud herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) past u een domeinspecifiek model toe om inhoud in een afbeelding te herkennen.
 
-U kunt deze quickstart stapsgewijs uitvoeren met behulp van een Jupyter Notebook op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
+U kunt deze snelstart stapsgewijs uitvoeren met behulp van een Jupyter Notebook op [MyBinder](https://mybinder.org). Selecteer de volgende knop om Binder te starten:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 

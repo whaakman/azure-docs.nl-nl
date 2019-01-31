@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Afbeeldingsinzichten krijgen met behulp van de Bing Visual Search SDK voor Node.js'
+title: 'Snelstart: Afbeeldingsinzichten krijgen met behulp van de Bing Visual Search SDK voor Node.js'
 titleSuffix: Azure Cognitive Services
 description: Upload een afbeelding met behulp van de Bing Visual Search SDK en krijg inzicht in de afbeelding.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 1dba0f3aacd0e51a9e4d8017a93f18928fd6b2ea
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: fc38cc6aaffbe9353ab55dcee2b0ba73abb4ebd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744290"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171980"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Quickstart: Afbeeldingsinzichten krijgen met behulp van de Bing Visual Search SDK voor Node.js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Snelstart: Afbeeldingsinzichten krijgen met behulp van de Bing Visual Search SDK voor Node.js
 
 In deze snelstart leert u hoe u met de Node.js-SDK afbeeldingsinzichten krijgt uit de Bing Visual Search-service. Hoewel Bing Visual Search een REST API heeft die compatibel is met de meeste programmeertalen, biedt de SDK een eenvoudige manier om de service in uw toepassingen te integreren. De broncode voor dit voorbeeld is te vinden op [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
@@ -110,4 +110,4 @@ In deze snelstart leert u hoe u met de Node.js-SDK afbeeldingsinzichten krijgt u
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Maak een web-app van één pagina](tutorial-bing-visual-search-single-page-app.md)
+> [Een web-app van één pagina maken](tutorial-bing-visual-search-single-page-app.md).

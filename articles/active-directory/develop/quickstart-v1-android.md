@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: d5d284e8f7756e3e9bff5b08d28a8ed911a60572
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 179d0d9cf8b75d9776914f2647e062ffbc6a91ac
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158870"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101556"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Quickstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snelstartgids: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -32,7 +32,7 @@ Als u een Android-toepassing ontwikkelt, maakt Microsoft het voor u eenvoudig om
 
 De Azure AD Authentication Library (ADAL) Android biblioheek geeft uw app de mogelijkheid om de [Microsoft Azure Cloud](https://cloud.microsoft.com) en [Microsoft Graph API](https://developer.microsoft.com/graph) te gebruiken door [Microsoft Azure Active Directory-accounts](https://azure.microsoft.com/services/active-directory/) te ondersteunen die de industriestandaard OAuth 2.0 en OpenID Connect gebruiken.
 
-In deze quickstart leert u het volgende:
+In deze snelstart leert u het volgende:
 
 * Een token krijgen voor de Microsoft Graph
 * Een token verversen

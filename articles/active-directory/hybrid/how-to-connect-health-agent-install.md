@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bf86a1d50b8c63b90a05d0b05bc6a1a037d300d5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7a15b04e9e0fbd2cedf07c2833df30e4f0ca3db7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468706"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167934"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>De Azure AD Connect Health-agent installeren
 In dit document wordt beschreven hoe u de Azure AD Connect Health-agents installeert en configureert. U kunt de agents [hier](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) downloaden.
@@ -171,10 +171,6 @@ Het basiscontroleniveau is standaard ingeschakeld. Meer informatie over de [AD F
 
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>De Azure AD Connect Health for Sync-agent installeren
-> [!NOTE]
-> De synchronisatieserver moet verschillen van de AD FS-server. Installeer de synchronisatieagent niet op uw AD FS-server.
->
-
 De Azure AD Connect Health for Sync-agent wordt automatisch geïnstalleerd via de laatste build van Azure AD Connect. Als u Azure AD Connect Health for Sync wilt gebruiken, moet u de nieuwste verzie van Azure AD Connect downloaden en installeren. U kunt de nieuwste versie [hier](https://www.microsoft.com/download/details.aspx?id=47594) downloaden.
 
 Als u wilt controleren of de agent is geïnstalleerd, zoekt u de volgende services op de server. Als de configuratie is voltooid, moeten deze services worden uitgevoerd. Ze worden pas gestart wanneer de configuratie is voltooid.

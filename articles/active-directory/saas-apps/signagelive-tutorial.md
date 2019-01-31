@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818503"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Zelfstudie: Azure Active Directory-integratie met Signagelive
 
@@ -104,7 +104,7 @@ Voer de volgende taken uit om Azure AD-eenmalige aanmelding te configureren met 
 
     ![Informatie over eenmalige aanmelding bij Signagelive-domeinen en -URL's](common/sp-signonurl.png)
 
-    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met het [Signagelive Client-ondersteuningsteam](mailto:support@signagelive.com) om de waarde op te halen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.

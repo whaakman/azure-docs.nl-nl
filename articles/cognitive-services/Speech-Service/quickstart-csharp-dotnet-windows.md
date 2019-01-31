@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Spraak herkennen, .NET Framework (Windows) - Speech Services'
+title: 'Snelstartgids: Spraak herkennen, .NET Framework (Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze handleiding om een spraakconsoletoepassing voor -naar-tekst te maken met .NET Framework voor Windows en de Speech-SDK. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: f5b33f0710070ff71ab52a1798773fe97965ef34
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9d01a6658a62abdc84a18c3e5dbec7cb88aabc98
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719061"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208156"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Quickstart: Spraak herkennen met de spraak-SDK voor .NET Framework (Windows)
 

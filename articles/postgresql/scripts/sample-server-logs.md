@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: cd4346c738e1c1c52ee181f764f827b1b1060650
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: eb6f1624a3fefbad829600d2280d4eaeedd188bc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547198"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179970"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Langzame-serverquerylogboeken van een Azure Database voor PostgreSQL-server activeren en downloaden met behulp van Azure CLI
 Met dit CLI-voorbeeldscript worden de langzame-querylogboeken van één Azure Database for PostgreSQL server geactiveerd en gedownload.
@@ -37,7 +37,7 @@ Dit script maakt gebruik van de opdrachten die in de volgende tabel worden weerg
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
 | [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | Hiermee wordt een PostgreSQL-server gemaakt waar de SQL-database wordt gehost. |
-| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | Hiermee maakt u een lijst van de configuratiewaarden voor een server. |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration) | Hiermee maakt u een lijst van de configuratiewaarden voor een server. |
 | [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Hiermee werkt u de configuratie van een server bij. |
 | [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | Hiermee maakt u een lijst met de logboekbestanden van een server. |
 | [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Hiermee kunt u logboekgegevens downloaden. |

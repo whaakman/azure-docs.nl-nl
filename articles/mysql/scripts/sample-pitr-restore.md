@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 74f187cff5abd54780d064e9e74c33901aa9fb82
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 6ad90c2d13ebeaa077dc6264f84a4ebd8a340a8c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410741"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159077"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Een Azure Database for MySQL-server herstellen met behulp van Azure CLI
 Met dit CLI-voorbeeldscript wordt één Azure Database for MySQL-server hersteld naar een eerder tijdstip.
@@ -35,8 +35,8 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | **Opdracht** | **Opmerkingen** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az mysql server create](/cli/azure/mysql/server#create) | Hiermee wordt een MySQL-server gemaakt waar de databases worden gehost. |
+| [az group create](/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az mysql server create](/cli/azure/mysql/server) | Hiermee wordt een MySQL-server gemaakt waar de databases worden gehost. |
 | [az mysql server restore](/cli/azure/mysql/server#restore) | Een server herstellen uit een back-up. |
 | [az group delete](/cli/azure/group) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 

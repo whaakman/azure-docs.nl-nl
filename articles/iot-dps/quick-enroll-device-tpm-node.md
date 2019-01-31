@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: b396c0e485d4eb6c4ee541074f86357634c264c1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 202b308c3add7facdbb28dc634f70e5090dd2a9c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184437"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092067"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>TPM-apparaat inschrijven bij IoT Hub Device Provisioning Service met behulp van de Node.js service-SDK
 
@@ -66,7 +66,7 @@ In deze stappen ziet u hoe u programmatisch een afzonderlijke inschrijving voor 
         console.log("enrollment record returned: " + JSON.stringify(enrollmentResponse, null, 2));
       }
     });
-    ````
+    ```
 
 ## <a name="run-the-individual-enrollment-sample"></a>Het voorbeeld van de afzonderlijke inschrijving uitvoeren
   

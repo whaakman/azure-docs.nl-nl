@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745071"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150747"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snelstartgids: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren op een Azure SQL database
 
@@ -29,8 +29,6 @@ In deze snelstart gaat u [SQL Server Management Studio][ssms-install-latest-84g]
 Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-* Een geconfigureerde serverfirewallregel. Zie [Een serverfirewallregel maken](sql-database-get-started-portal-firewall.md) voor meer informatie.
 
 #### <a name="install-the-latest-ssms"></a>De nieuwste SSMS installeren
 

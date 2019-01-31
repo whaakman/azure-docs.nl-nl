@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Tekstinhoud analyseren in Python - Content Moderator'
+title: 'Snelstart: Tekstinhoud analyseren in Python - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Tekstinhoud analyseren op diverse soorten ongewenst materiaal met behulp van de Content Moderator SDK voor Python
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7952ea9a83e6a2a7689bfdf34e39c7862a6daf73
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264085"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217914"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Quickstart: Tekstinhoud op ongewenst materiaal analyseren in Python
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Snelstart: Tekstinhoud op ongewenst materiaal analyseren in Python
 
 In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de Content Moderator SDK voor Python. U leert hoe u kunt filteren op termen en tekstinhoud classificeren met het doel toezicht te houden op mogelijk ongewenst materiaal.
 
@@ -61,7 +61,7 @@ Omwille van de eenvoud analyseert u tekst rechtstreeks vanuit het script. Defini
 
 ## <a name="query-the-moderator-service"></a>Query uitvoeren op de service Moderator
 
-Maak een **ContentModeratorClient**-instantie met behulp van uw abonnementssleutel en de eindpunt-URL. Vervolgens gebruikt u het deelexemplaar **TextModerationOperations** ervan voor het aanroepen van de beheer-API. Zie de naslagdocumentatie **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** voor meer informatie over het aanroepen.
+Maak een **ContentModeratorClient**-instantie met behulp van uw abonnementssleutel en de eindpunt-URL. Vervolgens gebruikt u het deelexemplaar **TextModerationOperations** ervan voor het aanroepen van de beheer-API. Zie de naslagdocumentatie **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** voor meer informatie over het aanroepen.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 
@@ -72,7 +72,7 @@ Controleer ten slotte of de aanroep is voltooid en een instantie **Scherm** heef
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
 
 
-De voorbeeldtekst die wordt gebruikt in deze quickstart resulteert in de volgende uitvoer:
+De voorbeeldtekst die wordt gebruikt in deze snelstart resulteert in de volgende uitvoer:
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '
@@ -108,7 +108,7 @@ De voorbeeldtekst die wordt gebruikt in deze quickstart resulteert in de volgend
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u een eenvoudig Python-script ontwikkeld dat de Content Moderator-service gebruikt om relevante informatie over een bepaald tekstvoorbeeld te retourneren. Nu leert u meer over wat de verschillende vlaggen en classificaties betekenen, zodat u kunt beslissen welke gegevens u nodig hebt en hoe uw app ermee om moet gaan.
+In deze snelstart hebt u een eenvoudig Python-script ontwikkeld dat de Content Moderator-service gebruikt om relevante informatie over een bepaald tekstvoorbeeld te retourneren. Nu leert u meer over wat de verschillende vlaggen en classificaties betekenen, zodat u kunt beslissen welke gegevens u nodig hebt en hoe uw app ermee om moet gaan.
 
 > [!div class="nextstepaction"]
 > [Teksttoezichthandleiding](text-moderation-api.md)

@@ -6,18 +6,18 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 65dc4f837a7b5d5cb3f41eacf9833ebd5a601bab
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f0f6981d899248877ca1cd1d580a004933815b96
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970947"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171827"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Quickstart: Uw Bing Aangepaste zoekopdrachten-eindpunt aanroepen met Java
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Snelstart: Uw Bing Aangepaste zoekopdrachten-eindpunt aanroepen met Java
 
 Gebruik deze quickstart om te beginnen met het opvragen van zoekresultaten van uw Bing Aangepaste zoekopdrachten-exemplaar. Hoewel deze toepassing is geschreven in Java, is de Bing Aangepaste zoekopdrachten-API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal. De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 

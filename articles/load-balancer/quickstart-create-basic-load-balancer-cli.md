@@ -11,17 +11,17 @@ Customer intent: I want to create a Basic Load balancer so that I can load balan
 ms.custom: mvc
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: 18c5b8f31b2a912eade360ebc2c5845782667250
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 884d64c2d7286dde7a62ac5e9a6fd3054b683fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230217"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245942"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snelstart: Een load balancer maken om taken van VM's te verdelen met behulp van Azure CLI
 
@@ -33,7 +33,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep maken met [az group create](https://docs.microsoft.com/cli/azure/group#create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Maak een resourcegroep maken met [az group create](https://docs.microsoft.com/cli/azure/group). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupLB* gemaakt op de locatie *VS Oost*:
 
@@ -45,7 +45,7 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupLB
 
 ## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
 
-Om toegang te krijgen tot uw web-app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Gebruik [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) om in *myResourceGroupLB* een openbaar IP-adres te maken met de naam *myPublicIP*.
+Om toegang te krijgen tot uw web-app op internet, hebt u een openbaar IP-adres nodig voor de load balancer. Gebruik [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) om in *myResourceGroupLB* een openbaar IP-adres te maken met de naam *myPublicIP*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
@@ -61,7 +61,7 @@ In deze sectie wordt beschreven hoe u de volgende onderdelen van de load balance
 
 ### <a name="create-the-load-balancer"></a>Load balancer maken
 
-Maak met [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) een openbare Azure-load balancer met de naam **myLoadBalancer** die een front-endgroep bevat met de naam **myFrontEndPool** en een back-endgroep met de naam **myBackEndPool** die wordt gekoppeld aan het openbare IP-adres **myPublicIP** dat u in de vorige stap hebt gemaakt.
+Maak met [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) een openbare Azure-load balancer met de naam **myLoadBalancer** die een front-endgroep bevat met de naam **myFrontEndPool** en een back-endgroep met de naam **myBackEndPool** die wordt gekoppeld aan het openbare IP-adres **myPublicIP** dat u in de vorige stap hebt gemaakt.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ Maak met [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?
 
 ### <a name="create-the-health-probe"></a>Statustest maken
 
-Een statuscontrole controleert alle exemplaren van de virtuele machines om ervoor te zorgen dat deze netwerkverkeer kunnen verzenden. Het exemplaar van een virtuele machine met mislukte testcontroles wordt uit de load balancer verwijderd totdat deze weer online komt en een testcontrole bepaalt of deze in orde is. Maak met [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) een statustest om de status van de virtuele machines te bewaken. 
+Een statuscontrole controleert alle exemplaren van de virtuele machines om ervoor te zorgen dat deze netwerkverkeer kunnen verzenden. Het exemplaar van een virtuele machine met mislukte testcontroles wordt uit de load balancer verwijderd totdat deze weer online komt en een testcontrole bepaalt of deze in orde is. Maak met [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) een statustest om de status van de virtuele machines te bewaken. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ Een statuscontrole controleert alle exemplaren van de virtuele machines om ervoo
 
 ### <a name="create-the-load-balancer-rule"></a>Load balancer-regel maken
 
-Een load balancer-regel definieert de front-end-IP-configuratie voor het binnenkomende verkeer en de back-end-IP-pool om het verkeer te ontvangen, samen met de gewenste bron- en doelpoort. Maak met [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) de regel *myLoadBalancerRuleWeb* voor het luisteren naar poort 80 in de front-endpool *myFrontEndPool* en het verzenden van netwerkverkeer met evenredige taakverdeling naar de back-endadresgroep *myBackEndPool* waarbij ook van poort 80 gebruik wordt gemaakt. 
+Een load balancer-regel definieert de front-end-IP-configuratie voor het binnenkomende verkeer en de back-end-IP-pool om het verkeer te ontvangen, samen met de gewenste bron- en doelpoort. Maak met [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) de regel *myLoadBalancerRuleWeb* voor het luisteren naar poort 80 in de front-endpool *myFrontEndPool* en het verzenden van netwerkverkeer met evenredige taakverdeling naar de back-endadresgroep *myBackEndPool* waarbij ook van poort 80 gebruik wordt gemaakt. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -108,7 +108,7 @@ Voordat u enkele VM's implementeert en uw load balancer test, maakt u de onderst
 
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Maak met [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) in *myResourceGroup* een virtueel netwerk met de naam *myVnet* met een subnet met de naam *mySubnet*.
+Maak met [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) in *myResourceGroup* een virtueel netwerk met de naam *myVnet* met een subnet met de naam *mySubnet*.
 
 ```azurecli-interactive
   az network vnet create \

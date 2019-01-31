@@ -11,14 +11,14 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/20/2018
-ms.openlocfilehash: 5c12bd54c0ea96ac915fedab94f03cf044330dcf
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6b748ebdbdc443c5fa44c82323774cd12c82ba38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723292"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197497"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snelstart: Java gebruiken om een query uit te voeren voor een Azure SQL-database
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Quickstart: Java gebruiken om een query uit te voeren voor een Azure SQL-database
 
 In dit artikel ziet u hoe u [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) gebruikt om verbinding te maken met een Azure SQL-database. Vervolgens kunt u T-SQL-instructies gebruiken om een query uit te voeren voor de gegevens.
 
@@ -27,8 +27,6 @@ In dit artikel ziet u hoe u [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-s
 Zorg dat u aan de volgende vereisten voldoet als u dit voorbeeld wilt uitvoeren:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) voor het openbare IP-adres van de computer die u gebruikt
 
 - U moet aan Java verwante software hebben geïnstalleerd voor het besturingssysteem:
 
@@ -139,7 +137,7 @@ Zorg dat u aan de volgende vereisten voldoet als u dit voorbeeld wilt uitvoeren:
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-1. Voer de app uit bij de opdrachtprompt.
+1. Voer de app uit vanaf de opdrachtprompt.
 
     ```bash
     mvn package -DskipTests

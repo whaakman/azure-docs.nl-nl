@@ -3,19 +3,19 @@ title: 'Snelstart: Azure AD-selfservice voor wachtwoordherstel'
 description: In deze snelstart gaat u de Azure AD-selfservice voor wachtwoordherstel snel configureren, zodat gebruikers hun eigen wachtwoorden opnieuw kunnen instellen
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f91178b1db3d35ae99e694f626e04bb54b9e10de
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 84d781bc0a42d75090f7c48480b4025269b9242e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426366"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079882"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Snelstart: Self-service voor wachtwoord opnieuw instellen
 

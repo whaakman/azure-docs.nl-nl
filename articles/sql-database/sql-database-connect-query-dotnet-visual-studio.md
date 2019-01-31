@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/11/2018
-ms.openlocfilehash: 04a0abd0fba7ec53aebeb481ac80d36653d118b6
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 93249b7d274ce9d7928dfa46eb339da68c92b785
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384935"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163293"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Snelstartgids: Gebruik .NET (C#) en C# in Visual Studio om verbinding te maken met, en query's uit te voeren op, een Azure SQL-database
 
@@ -28,8 +28,6 @@ In deze snelstartgids ziet u hoe u het [.NET Framework](https://www.microsoft.co
 U hebt het volgende nodig om deze quickstart te voltooien:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) voor het openbare IP-adres van de computer die u gebruikt.
   
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community-, Professional- of Enterprise-editie.
 

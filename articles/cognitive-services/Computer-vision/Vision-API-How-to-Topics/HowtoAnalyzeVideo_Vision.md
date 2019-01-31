@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: cb8964bdbdfe575630f6e65a79d53aac76a76d45
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b27db1edc60a4eede297ac1ecd8afda671912685
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232104"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222397"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Handleiding voor realtime video-analyse
 In deze handleiding wordt uitgelegd hoe u bijna in realtime een analyse kunt uitvoeren van frames die afkomstig zijn uit een live-videostream. Dit zijn de basisstappen van een dergelijk systeem:

@@ -12,14 +12,14 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e6b24e89297b875d0c4547ffe3200b1d5e2e58c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744697"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161526"
 ---
-# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Quickstart: Golang gebruiken om een query uit te voeren op een Azure SQL-database
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Snelstart: Golang gebruiken om een query uit te voeren op een Azure SQL-database
 
 In deze snelstart gebruikt u de programmeertaal [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) om verbinding te maken met een Azure SQL database. Voer vervolgens Transact-SQL-instructies uit om query's uit te voeren voor gegevens en om gegevens te bewerken. [Golang](https://golang.org/) is een open-sourceprogrammeertaal waarmee u op een simpele manier eenvoudige, betrouwbare en efficiënte software kunt maken.  
 
@@ -28,8 +28,6 @@ In deze snelstart gebruikt u de programmeertaal [Golang](https://godoc.org/githu
 Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) geconfigureerd voor het openbare IP-adres van uw computer.
 
 - Golang en verwante software geïnstalleerd voor uw besturingssysteem:
 

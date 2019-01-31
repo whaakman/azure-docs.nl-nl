@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Spraak herkennen, Python - Speech Services'
+title: 'Snelstart: Spraak herkennen, Python - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Gebruik deze handleiding om een consoletoepassing voor spraak-naar-tekst te maken met de Speech-SDK voor Python. Als u klaar bent, kunt u de microfoon van de computer gebruiken om in realtime spraak naar tekst te transcriberen.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 40869457ce933368e17a2054dfca50fc4505fa22
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 1c7287b919c46ead4f961aff769da5c8bf68cc6f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381572"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226567"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Quickstart: Spraak herkennen met de Speech-SDK voor Python
 

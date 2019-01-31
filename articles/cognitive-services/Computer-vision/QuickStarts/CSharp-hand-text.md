@@ -6,19 +6,19 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 892f66d13544d9bc53d62673143c5a3af3ee8af1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 7f9531542f6c2bab139ca4fe500afd69d5fec1c8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53578866"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226992"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Quickstart: Handgeschreven tekst extraheren met behulp van de REST API en C# in Computer Vision
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Snelstart: Handgeschreven tekst extraheren met behulp van de REST API en C# in Computer Vision
 
 In deze snelstart extraheert u handgeschreven tekst uit een afbeelding met behulp van de Computer Vision-REST API. Met de methoden [Tekst herkennen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) en [Resultaat van tekstherkenningsbewerking ophalen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) kunt u handgeschreven tekst in een afbeelding detecteren en herkende tekens extraheren naar een machinaal leesbare tekenstroom.
 

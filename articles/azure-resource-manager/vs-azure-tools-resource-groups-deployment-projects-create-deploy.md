@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 48d23f9d6d79e89e24c808a59b73854952c93240
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6ff49b3a08977b28ae6fa0971e5c7d72af158a46
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425438"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081208"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
 Met Visual Studio kunt u een project maken waarmee uw infrastructuur en code in Azure worden geïmplementeerd. U kunt bijvoorbeeld de webhost, website en database voor uw app opgeven en die infrastructuur samen met de code implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's. In dit artikel gaat u een web-app en SQL Database implementeren.  
@@ -144,7 +144,7 @@ U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroe
 5. Klik op **Implementeren** om het project in Azure te implementeren. Een PowerShell-console wordt geopend buiten het Visual Studio-exemplaar. Voer het beheerderswachtwoord voor de SQL Server in de PowerShell-console in wanneer om het wachtwoord wordt gevraagd. **De PowerShell-console kan zijn verborgen achter andere items of geminimaliseerd op de taakbalk.** Zoek en selecteer deze console om het wachtwoord op te geven.
    
    > [!NOTE]
-   > Visual Studio vraagt u mogelijk om de Azure PowerShell-cmdlets te installeren. U hebt de Azure PowerShell-cmdlets nodig om resourcegroepen te kunnen implementeren. Installeer ze als dit gevraagd wordt. Zie [Azure PowerShell installeren en configureren](/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie.
+   > Visual Studio vraagt u mogelijk om de Azure PowerShell-cmdlets te installeren. U hebt de Azure PowerShell-cmdlets nodig om resourcegroepen te kunnen implementeren. Installeer ze als dit gevraagd wordt. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-az-ps) voor meer informatie.
    > 
    > 
 6. De implementatie kan enkele minuten in beslag nemen. U kunt de voortgang van de implementatie bekijken in het venster **Uitvoer**. Wanneer de implementatie is voltooid, ziet u een laatste bericht dat de implementatie is geslaagd en dat er ongeveer als volgt uitziet:

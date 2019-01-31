@@ -3,7 +3,7 @@ title: Zelfstudie - Taakverdelingen maken voor virtuele Linux-machines in Azure 
 description: In deze zelfstudie leert u hoe u Azure CLI kunt gebruiken om een load balancer te maken voor een maximaal beschikbare en veilige toepassing op drie virtuele Linux-machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 66c6a565fff81e1c0e39075502a6a7d3d8ffa7a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856414"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162290"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Zelfstudie: Taakverdelingen maken voor virtuele Linux-machines in Azure om een maximaal beschikbare toepassing te maken met Azure CLI
 
@@ -148,7 +148,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Virtuele NIC's zijn gemaakt met [az network nic create](/cli/azure/network/nic#az_network_nic_create). In het volgende voorbeeld worden drie virtuele NIC's gemaakt. (Eén virtuele NIC voor elke VM die u in de volgende stappen voor uw app maakt). U kunt op elk gewenst moment extra virtuele NIC's en VM's maken en toevoegen aan de load balancer:
+Virtuele NIC's zijn gemaakt met [az network nic create](/cli/azure/network/nic). In het volgende voorbeeld worden drie virtuele NIC's gemaakt. (Eén virtuele NIC voor elke VM die u in de volgende stappen voor uw app maakt). U kunt op elk gewenst moment extra virtuele NIC's en VM's maken en toevoegen aan de load balancer:
 
 ```bash
 for i in `seq 1 3`; do

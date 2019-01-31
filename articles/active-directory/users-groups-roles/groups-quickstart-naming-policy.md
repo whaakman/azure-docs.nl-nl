@@ -14,12 +14,12 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4c607558c721b38bd63a8094f433bfe9499013af
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273116"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102206"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snelstartgids: Naamgevingsbeleid voor groepen in Azure Active Directory
 
@@ -38,14 +38,14 @@ Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Mod
 1. Open de Windows PowerShell-app als beheerder.
 2. Verwijder eventuele oudere versies van AzureADPreview.
   
-  ````
+  ```
   Uninstall-Module AzureADPreview
-  ````
+  ```
 3. Installeer de nieuwste versie van AzureADPreview.
   
-  ````
+  ```
   Install-Module AzureADPreview
-  ````
+  ```
 Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. Het kan enkele minuten duren voordat de nieuwe module is geïnstalleerd.
 
 ## <a name="set-up-naming-policy"></a>Naambeleid instellen
@@ -56,10 +56,10 @@ Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. H
 
 2. Voer de volgende opdrachten uit als voorbereiding op het uitvoeren van de cmdlets.
   
-  ````
+  ```
   Import-Module AzureADPreview
   Connect-AzureAD
-  ````
+  ```
   In het scherm **Sign in to your Account** dat verschijnt, voert u uw beheerdersaccount en wachtwoord in om verbinding te maken met uw service. Selecteer vervolgens **Aanmelden**.
 
 3. Volg de stappen in [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md) om groepsinstellingen voor deze tenant te maken.
@@ -68,35 +68,35 @@ Als u wordt gevraagd een niet-vertrouwde opslagplaats te openen, typt u **Y**. H
 
 1. Bekijk de instellingen voor het huidige naambeleid.
   
-  ````
+  ```
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ````
+  ```
   
 2. Geef de instellingen voor de huidige groep weer.
   
-  ````
+  ```
   $Setting.Values
-  ````
+  ```
   
 ### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Stap 3: Naamgevingsbeleid en eventuele aangepaste, geblokkeerde woorden instellen
 
 1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell. [GroupName] moet in de instelling worden opgenomen om de functie goed te laten werken.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ````
+  ```
   
 2. Stel de aangepaste, geblokkeerde woorden in die u wilt verbieden. In het volgende voorbeeld wordt getoond hoe u uw eigen aangepaste woorden kunt toevoegen.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ````
+  ```
   
 3. Sla de instellingen voor het nieuwe beleid op zodat het van kracht wordt, zoals in het volgende voorbeeld.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
   
 Dat is alles. U hebt het naambeleid ingesteld en uw aangepaste, geblokkeerde woorden toegevoegd.
 
@@ -104,21 +104,21 @@ Dat is alles. U hebt het naambeleid ingesteld en uw aangepaste, geblokkeerde woo
 
 1. Wis de voor- en achtervoegsels van de groepsnaam in Azure AD PowerShell.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =""
-  ````
+  ```
   
 2. Maak de aangepaste lijst met geblokkeerde woorden leeg.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=""
-  ````
+  ```
   
 3. Sla de instellingen op.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
 
 ## <a name="next-steps"></a>Volgende stappen
 

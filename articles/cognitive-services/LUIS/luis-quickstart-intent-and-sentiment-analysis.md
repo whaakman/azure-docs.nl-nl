@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: ee50907d7965a66d09dc57113e87edecb1932083
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b9465e7965c5f1c62134cf309ef0efe914e14f8d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754285"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215823"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Zelfstudie:  Het gevoel achter een uiting ophalen
 
@@ -36,9 +36,9 @@ In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en n
 
 ## <a name="sentiment-analysis-is-a-publish-setting"></a>Sentimentanalyse is een publicatie-instelling
 
-De volgende uitingen zijn voorbeelden van gevoelens:
+De volgende utterances zijn voorbeelden van gevoelens:
 
-|Sentiment|Score|Uiting|
+|Sentiment|Score|Utterance|
 |:--|:--|:--|
 |positief|0,91 |John W. Smith heeft een geweldige presentatie gegeven in Parijs.|
 |positief|0,84 |De engineers in Seattle hebben fantastisch werk gedaan om Parker als klant binnen te halen.|
@@ -77,9 +77,9 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
     ![Een nieuw dialoogvenster maken met de naam EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
-4. Voeg een aantal uitingen toe die aanduiden op welk terrein een werknemer het goed doet of waar er ruimte is voor verbetering:
+4. Voeg een aantal utterances toe die aanduiden op welk terrein een werknemer het goed doet of waar er ruimte is voor verbetering:
 
-    |Uitingen|
+    |Utterances|
     |--|
     |John Smith heeft het goed gedaan toen hij een collega welkom heette die terugkwam van zwangerschapsverlof|
     |Jill Jones heeft het geweldig gedaan toen ze een collega tijdens een emotioneel moeilijke tijd troost bood.|
@@ -90,7 +90,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
     |Mark Mathews deed het fantastisch tijdens zijn verkooppraatje voor Harvard|
     |Walter Williams heeft een geweldige presentatie gegeven voor Stanford|
 
-    [ ![Schermopname van de LUIS-app met voorbeelden van uitingen in de intentie EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [ ![Schermopname van de LUIS-app met voorbeelden van utterances in de intentie EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Voorbeelduitingen toevoegen aan de intentie None 
 
@@ -116,7 +116,7 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Ga naar het einde van de URL in het adres en voer `Jill Jones work with the media team on the public portal was amazing` in. De laatste parameter van de queryreeks is `q`, de uitings**query**. Deze uiting is niet hetzelfde als een van de gelabelde uitingen, en dit is dus een goede test die de intentie `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
+1. Ga naar het einde van de URL in het adres en voer `Jill Jones work with the media team on the public portal was amazing` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
     
     ```json
     {

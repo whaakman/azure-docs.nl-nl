@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b3fe6e0249143b27cb763401a8d328922ed1fe99
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958539"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173918"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snelstartgids: PHP gebruiken om een query uit te voeren voor een Azure SQL-database
 
@@ -27,8 +27,6 @@ In dit artikel ziet u hoe u [PHP](http://php.net/manual/en/intro-whatis.php) geb
 Zorg dat u aan de volgende vereisten voldoet als u dit voorbeeld wilt uitvoeren:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) voor het openbare IP-adres van de computer die u gebruikt
 
 - U moet aan PHP verwante software hebben geïnstalleerd voor het besturingssysteem:
 

@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 918f711002530735b9b4e09273fac3021a97a091
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826153"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189133"
 ---
 # <a name="security-info-preview-overview"></a>Overzicht van beveiligingsgegevens (preview)
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+Stel verificatie in twee stappen en de mogelijkheid voor het opnieuw instellen van wachtwoorden in bij **Beveiligingsgegevens**. Nadat u uw beveiligingsgegevens eenmaal hebt ingesteld, hoeft u dit niet nog een keer te doen. U kunt echter op elk gewenst moment uw gegevens bewerken en de standaardmethode wijzigen.
+
 >[!Important]
 >Deze inhoud is bedoeld voor gebruikers. Als u een beheerder bent, kunt u meer informatie vinden over hoe u uw Azure Active Directory-omgeving (Azure AD) instelt en beheert in de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Stel verificatie in twee stappen en de mogelijkheid voor het opnieuw instellen van wachtwoorden in bij **Beveiligingsgegevens**. Nadat u uw beveiligingsgegevens eenmaal hebt ingesteld, hoeft u dit niet nog een keer te doen. U kunt echter op elk gewenst moment uw gegevens bewerken en de standaardmethode wijzigen.
 
 U kunt een van de volgende methoden toevoegen, zoals:
 

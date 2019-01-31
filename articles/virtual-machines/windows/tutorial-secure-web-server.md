@@ -3,7 +3,7 @@ title: Zelfstudie - Een Windows-webserver beveiligen met SSL-certificaten in Azu
 description: In deze zelfstudie leert u hoe u Azure PowerShell gebruikt om een virtuele Windows-machine waarop de IIS-webserver wordt uitgevoerd, te beveiligen met SSL-certificaten die zijn opgeslagen in Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe802567473ad84add4457ea64208d894893f15e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e21352baa45cb5d19df26760bdab2e8fafff8bce
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433047"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886387"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Zelfstudie: Een webserver op een virtuele Windows-machine in Azure beveiligen met SSL-certificaten die zijn opgeslagen in Key Vault
 
