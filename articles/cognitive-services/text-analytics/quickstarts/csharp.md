@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: C# gebruiken om de Text Analytics-API aan te roepen'
+title: 'Quickstart: C# gebruiken om de Text Analytics-API aan te roepen'
 titleSuffix: Azure Cognitive Services
 description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Text Analytics-API.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 8cfc826e76e937df416e88528e1ae2339d4d079d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 5b6ae20445b74aa1713f9af5765684a9c01e2953
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390705"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224306"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Quickstart: C# gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>

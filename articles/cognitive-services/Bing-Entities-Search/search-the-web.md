@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 98d624b51835f88d34ec7ffd9658e40985482498
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813597"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181823"
 ---
 # <a name="what-is-bing-entity-search"></a>Wat is Bing Entiteiten zoeken?
 
@@ -48,7 +48,7 @@ Het antwoord bevat het object [SearchResponse](https://docs.microsoft.com/rest/a
 > [!NOTE]
 > Entiteitantwoorden bieden ondersteuning voor meerdere markten, maar plaatsantwoorden bieden alleen ondersteuning voor Amerikaanse bedrijfslocaties. 
 
-Het veld `entities` is een [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer)-object dat een lijst met [entiteit](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity)objecten bevat (zie het veld `value`). De lijst bevat mogelijk één dominante entiteit, meerdere entiteiten met vergelijkbare opties of beide. 
+Het veld `entities` is een [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)-object dat een lijst met [entiteit](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity)objecten bevat (zie het veld `value`). De lijst bevat mogelijk één dominante entiteit, meerdere entiteiten met vergelijkbare opties of beide. 
 
 Een dominante entiteit is een entiteit waarvan Bing vindt dat deze als enige aan de aanvraag voldoet (er is geen twijfel over mogelijk). Als meerdere entiteiten het antwoord zouden kunnen bieden op de aanvraag, bevat de lijst meer dan één entiteit. Als in de aanvraag bijvoorbeeld de algemene naam van een reeks films bevat, bevat de lijst waarschijnlijk meerdere vergelijkbare entiteiten. Als de aanvraag echter een specifieke franchisenaam bevat, bevat de lijst waarschijnlijk één dominante entiteit.
 

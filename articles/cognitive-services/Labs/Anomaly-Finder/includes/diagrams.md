@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-finder
+ms.subservice: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: 506270b1828e98f14e3fe7a84b7f780e209e2669
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 79ae38db73d55021572d04f693e5cb809e9bd056
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166368"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228964"
 ---
 De gegevens die worden geretourneerd met de verwachte waarde en de standaard boven- en ondermarges. In de praktijk kunt u een parameter [sensitivity] definiëren en vervolgens (ExpectedValue + sensitivity * UpperMargin) gebruiken als de bovengrens en (ExpectedValue - sensitivity * LowerMargin) gebruiken als de ondergrens om het anomaliepunt zelf af te stemmen. De waarde van de [sensitivity] moet groter zijn dan 1. Hieronder vindt u enkele diagrammen voor het afstemmen.
 

@@ -6,18 +6,18 @@ author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.topic: overview
 ms.service: active-directory
 ms.workload: identity
 services: active-directory
-ms.custom: it-pro
-ms.openlocfilehash: 2689ec400b7d29c9f086481056e5f554d7fde95a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 2e8fc0cd0321fb59a641e5527b1609c85802dc63
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321956"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295182"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Gebruikers, groepen, licentieverlening en rollen voor grote organisaties
 
@@ -58,7 +58,7 @@ Er worden meer nieuwe Azure AD-beheerdersrollen toegevoegd. Controleer de Azure 
 
 ## <a name="assign-app-access"></a>App-toegang toewijzen
 
-U kunt Azure AD gebruiken voor het toewijzen van groepstoegang tot de [bedrijfsapps die zijn geïmplementeerd in uw Azure AD-tenant](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-a-group-directly-to-an-application-as-an-administrator?context=azure/active-directory/users-groups-roles/context/ugr-context). Als u dynamische groepen combineert met groepstoewijzing voor apps, kunt u de gebruikerstoegang tot apps automatiseren wanneer uw organisatie groeit. U hebt een Azure Active Directory Premium P1- of Premium P2-licentie nodig om toegang tot bedrijfsapps toe te wijzen.
+U kunt Azure AD gebruiken voor het toewijzen van groepstoegang tot de [bedrijfsapps die zijn geïmplementeerd in uw Azure AD-tenant](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context). Als u dynamische groepen combineert met groepstoewijzing voor apps, kunt u de gebruikerstoegang tot apps automatiseren wanneer uw organisatie groeit. U hebt een Azure Active Directory Premium P1- of Premium P2-licentie nodig om toegang tot bedrijfsapps toe te wijzen.
 
 Azure AD geeft u nauwkeurigere controle over de gegevens die tussen de app en de groepen stromen waartoe u toegang verleent. Open in [Bedrijfstoepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) een app en selecteer **Inrichten** om het volgende te doen:
 
@@ -72,4 +72,4 @@ Azure AD geeft u nauwkeurigere controle over de gegevens die tussen de app en de
 
 Als u een beginnende Azure AD-beheerder bent, vindt u de basisbeginselen in de [Basisprincipes van Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
 
-Of u kunt beginnen met [het maken van groepen](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [toewijzen van licenties](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [het toewijzen van app-toegang](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-a-group-directly-to-an-application-as-an-administrator?context=azure/active-directory/users-groups-roles/context/ugr-context) of [het toewijzen van beheerdersrollen](directory-assign-admin-roles.md).
+Of u kunt beginnen met [het maken van groepen](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [toewijzen van licenties](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [het toewijzen van app-toegang](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context) of [het toewijzen van beheerdersrollen](directory-assign-admin-roles.md).

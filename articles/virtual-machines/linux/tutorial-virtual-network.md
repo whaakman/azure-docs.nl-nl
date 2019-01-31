@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8548fe53288b2f9c486c9ccdc42afa08f40b4ae1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463759"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181588"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Linux-machines maken en beheren met de Azure CLI
 
@@ -169,7 +169,7 @@ Een netwerkbeveiligingsgroep kan op hetzelfde moment als een virtuele machine wo
 
 In sommige gevallen kan het handig zijn vooraf een netwerkbeveiligingsgroep te maken, bijvoorbeeld wanneer er geen SSH-standaardregels kunnen worden gemaakt of wanneer de netwerkbeveiligingsgroep moet worden gekoppeld aan een subnet. 
 
-Gebruik de opdracht [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) om een netwerkbeveiligingsgroep te maken.
+Gebruik de opdracht [az network nsg create](/cli/azure/network/nsg) om een netwerkbeveiligingsgroep te maken.
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG

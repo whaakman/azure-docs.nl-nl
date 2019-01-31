@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: domeinspecifieke afbeeldingsinhoud - REST, PHP'
+title: 'Snelstart: domeinspecifieke afbeeldingsinhoud - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart gebruikt u een domeinmodel om oriëntatiepunten in een afbeelding te identificeren met behulp van de Computer Vision-API en PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 19aa1874a93c4a52f6fc5ff75848c1ca6815db1e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 86b2d7ae385fb7ad9342cf2067283ff8dc69762f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581331"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210962"
 ---
 # <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Quickstart: domeinspecifieke inhoud herkennen met behulp van de REST API en PHP met Computer Vision
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: afa92c40bd3cebea1024cf783a746450d3430a8d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e589f613eb3afc8efe409773f37a9855f8fc5432
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821813"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180328"
 ---
-# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Quickstart: Een auditrapport downloaden met behulp van de Azure-portal
+# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Snelstart: Een auditrapport downloaden met behulp van de Azure-portal
 
 In deze snelstartgids leert u hoe u de auditlogboeken downloadt voor uw tenant voor de afgelopen 24 uur. U kunt maximaal 5000 records downloaden vanuit de Azure-portal. De records worden gesorteerd op meest recent zodat u standaard de meest recente 5000 records krijgt. 
 
@@ -34,7 +34,7 @@ U hebt de volgende zaken nodig:
 * Een Azure Active Directory-tenant. 
 * Een gebruiker met de rol van **Beveiligingsadministrator**, **Beveiligingslezer** of **Globale administrator** voor de tenant. Bovendien kan elke gebruiker in de tenant toegang krijgen tot hun eigen auditlogboeken.
 
-## <a name="quickstart-download-an-audit-report"></a>Quickstart: Een controlerapport downloaden
+## <a name="quickstart-download-an-audit-report"></a>Snelstart: Een controlerapport downloaden
 
 1. Navigeer naar [Azure Portal](https://portal.azure.com).
 2. Selecteer **Azure Active Directory** in het linker navigatiedeelvenster en gebruik de knop **Schakelen tussen mappen** om uw actieve map te selecteren.

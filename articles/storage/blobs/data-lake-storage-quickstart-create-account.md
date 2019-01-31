@@ -3,17 +3,17 @@ title: Een Azure Data Lake Storage Gen2-opslagaccount maken | Microsoft Docs
 description: Leer snel hoe u een nieuw opslagaccount met toegang tot Data Lake Storage Gen2 maakt met Azure Portal, Azure PowerShell of Azure CLI
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: c32e79098cb50600e10d353392e8ceb13d5014b2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 906f1a85000a2be175a204e9e6e561a75cecfde3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475030"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248432"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2-opslagaccount maken
 
@@ -222,7 +222,7 @@ az storage account create `
 
 ### <a name="clean-up-resources"></a>Resources opschonen
 
-Gebruik de opdracht [az group delete](/cli/azure/group#az_group_delete) om de resourcegroep en alle bijbehorende resources te verwijderen, inclusief het nieuwe opslagaccount.
+Gebruik de opdracht [az group delete](/cli/azure/group) om de resourcegroep en alle bijbehorende resources te verwijderen, inclusief het nieuwe opslagaccount.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 91fddb6da12817428fef009e8720a37534a64f24
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 372b7719fd77d1fe52f020a419a756bc769a676d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743609"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187842"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Quickstart: Afbeeldingsinzichten krijgen met behulp van de Bing Visual Search SDK voor Python
 
@@ -110,4 +110,4 @@ In deze snelstart leert u hoe u met de Python-SDK afbeeldingsinzichten krijgt ui
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Maak een web-app van één pagina](tutorial-bing-visual-search-single-page-app.md)
+> [Een web-app van één pagina maken](tutorial-bing-visual-search-single-page-app.md).

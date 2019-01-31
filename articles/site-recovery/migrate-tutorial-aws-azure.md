@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042050"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226380"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -169,7 +169,7 @@ Wanneer u alle vijf de secties onder **Infrastructuur voorbereiden** hebt voltoo
 
 Schakel replicatie in voor elke VM die u wilt migreren. Wanneer replicatie is ingeschakeld, wordt de Mobility-service automatisch geïnstalleerd met Site Recovery.
 
-1. Ga naar de [Azure Portal](htts://portal.azure.com).
+1. Ga naar de [Azure Portal](https://portal.azure.com).
 1. Selecteer op de pagina voor uw kluis, onder **Aan de slag**, de optie **Site Recovery**.
 2. Selecteer onder **Voor on-premises machines en Azure-VM's** de optie **Stap 1: Toepassing repliceren**. Voltooi de pagina’s van de wizard met de volgende informatie. Selecteer **OK** op elke pagina wanneer u gereed bent:
     - 1: Bron configureren

@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 66819cbd65f6f044d0dac68326eb5890476964b6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 8fa161f82cf73e61127ab67aba6ca3408c8e7c10
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993906"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197820"
 ---
-# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Quickstart: Ruby gebruiken om een query uit te voeren voor een Azure SQL-database
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Snelstart: Ruby gebruiken om een query uit te voeren voor een Azure SQL-database
 
 In deze snelstart wordt gedemonstreerd hoe u [Ruby](https://www.ruby-lang.org) gebruikt om verbinding te maken met een Azure SQL Database en hoe u met Transact-SQL-instructies een query uitvoert voor de gegevens.
 
@@ -28,8 +28,6 @@ In deze snelstart wordt gedemonstreerd hoe u [Ruby](https://www.ruby-lang.org) g
 Voor het voltooien van deze snelstart moet aan de volgende vereisten worden voldaan:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- Een [firewallregel op serverniveau](sql-database-get-started-portal-firewall.md) voor het openbare IP-adres van de computer die u gebruikt voor deze snelstart.
   
 - Ruby en verwante software voor uw besturingssysteem:
   

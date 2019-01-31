@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: een externe afbeelding analyseren - REST, Go'
+title: 'Snelstart: een externe afbeelding analyseren - REST, Go'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart analyseert u een afbeelding met behulp van de Computer Vision-API met Go.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: acd00955631395efb12acccb3ad25a52b28b27de
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9ee550a7dccf12e76d06f5a225394cdafb2ec839
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580719"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211386"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>Quickstart: een externe afbeelding analyseren met behulp van de REST-API en Go in Computer Vision
 
