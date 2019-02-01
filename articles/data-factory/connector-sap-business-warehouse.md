@@ -20,7 +20,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54022278"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Huidige versie](connector-sap-business-warehouse.md)
 
@@ -171,7 +171,7 @@ Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP B
 | CLNT | String |
 | CURR | Decimal |
 | CUKY | String |
-| DEC | Decimal |
+| DECEMBER | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
@@ -183,11 +183,11 @@ Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP B
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | String |
-| UNIT | String |
+| TEKENREEKS | String |
+| EENHEID | String |
 | DATS | String |
 | NUMC | String |
-| TIMS | String |
+| TIM | String |
 
 
 ## <a name="next-steps"></a>Volgende stappen

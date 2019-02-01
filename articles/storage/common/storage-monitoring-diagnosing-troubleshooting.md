@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474000"
+ms.locfileid: "55490244"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -637,7 +637,7 @@ De code in de clienttoepassing wordt verwijderd en onmiddellijk opnieuw gemaakt 
 De clienttoepassing moet unieke containernamen gebruiken wanneer er nieuwe containers wordt gemaakt als het patroon verwijderen/opnieuw gebruikelijk is.
 
 ### <a name="metrics-show-low-percent-success"></a>Prestatiegegevens geven lage PercentSuccess of vermeldingen in het analytics-bewerkingen met de status van ClientOtherErrors hebben
-De **PercentSuccess** metriek bevat het percentage van bewerkingen die met succes zijn uitgevoerd op basis van de HTTP-statuscode. Bewerkingen met statuscodes van 2XX tellen als geslaagd, terwijl de bewerkingen met statuscodes in 3XX, 4XX en 5XX bereiken worden geteld als mislukt en lager de **PercentSucess** metrische waarde. In de logboekbestanden van de server-side-opslag, deze bewerkingen worden geregistreerd met de transactiestatus van de **ClientOtherErrors**.
+De **PercentSuccess** metriek bevat het percentage van bewerkingen die met succes zijn uitgevoerd op basis van de HTTP-statuscode. Bewerkingen met statuscodes van 2XX tellen als geslaagd, terwijl de bewerkingen met statuscodes in 3XX, 4XX en 5XX bereiken worden geteld als mislukt en lager de **PercentSuccess** metrische waarde. In de logboekbestanden van de server-side-opslag, deze bewerkingen worden geregistreerd met de transactiestatus van de **ClientOtherErrors**.
 
 Het is belangrijk te weten dat deze bewerkingen zijn voltooid en daarom niet van invloed op andere metrische gegevens zoals beschikbaarheid. Enkele voorbeelden van bewerkingen die is uitgevoerd, maar dat kan leiden tot mislukte HTTP-statuscodes zijn:
 

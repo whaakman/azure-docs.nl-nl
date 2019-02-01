@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5df11eb4e1b759d66200c09cabc8752532d0873c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042152"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470685"
 ---
-# <a name="understanding-your-azure-cosmos-db-bill"></a>Informatie over uw factuur voor Azure Cosmos DB
+# <a name="understand-your-azure-cosmos-db-bill"></a>Meer informatie over uw factuur voor Azure Cosmos DB
 
 Als een volledig beheerde cloud-native-databaseservice, Azure Cosmos DB vereenvoudigt de facturering in rekening gebracht alleen voor ingerichte doorvoer en opslag verbruikt. Er zijn geen extra licentiekosten, hardware, hulpprogramma kosten, of faciliteit kosten in vergelijking met on-premises of alternatieven IaaS gehost. Wanneer u rekening houden met de meerdere regio mogelijkheden van Azure Cosmos DB, biedt de database-service een aanzienlijke vermindering van de kosten in vergelijking met bestaande on-premises of IaaS-oplossingen.
 
@@ -99,7 +99,7 @@ Stel, dat u hebt een Azure Cosmos-container in West-Amerika. De container wordt 
 |Doorvoerfactuur voor container in US - west      | 10 K RU/sec. * 24 * 30    |$0.008 per 100 RU/sec. per uur   |$576|
 |Doorvoerfactuur voor drie extra regio's: US - oost, Europa - noord en Azië - oost       | 3 * 10K RU/sec. * 24 * 30    |$0.008 per 100 RU/sec. per uur  |$1,728|
 |Opslagfactuur voor container in US - west      | 250 GB    |$ 0,25/GB  |$62.50|
-|Opslagfactuur voor drie extra regio's: US - oost, Europa - noord en Azië - oost      | 3 * 250 GB    |$ 0,25/GB  |$187,50|
+|Opslagfactuur voor drie extra regio's: US - oost, Europa - noord en Azië - oost      | 3 * 250 GB    |$ 0,25/GB  |$187.50|
 |**Totaal**     |     |  |**$2,554**|
 
 *We gaan ook wordt ervan uitgegaan dat u bijvoorbeeld 100 GB aan gegevens elke maand van de container in West-Amerika om gegevens te repliceren in VS-Oost, Noord-Europa en Oost-Azië. U wordt gefactureerd voor uitgaand verkeer volgens de standaardtarieven voor gegevensoverdracht.*
@@ -113,7 +113,7 @@ Stel dat u een Azure Cosmos-container maken in VS-West. De container wordt gemaa
 |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)       | 10 K RU/sec. * 24 * 30    |$0,016 per 100 RU/sec. per uur    |$1,152 |
 |Doorvoerfactuur voor 3 extra regio's: VS-Oost, Noord-Europa en Oost-Azië (alle regio's worden geschreven)        | (3 + 1) * 10 K RU/sec. * 24 * 30    |$0,016 per 100 RU/sec. per uur   |$4,608 |
 |Opslagfactuur voor container in US - west      | 250 GB    |$ 0,25/GB  |$62.50|
-|Opslagfactuur voor drie extra regio's: US - oost, Europa - noord en Azië - oost      | 3 * 250 GB    |$ 0,25/GB  |$187,50|
+|Opslagfactuur voor drie extra regio's: US - oost, Europa - noord en Azië - oost      | 3 * 250 GB    |$ 0,25/GB  |$187.50|
 |**Totaal**     |     |  |**$6,010**|
 
 *We gaan ook wordt ervan uitgegaan dat u bijvoorbeeld 100 GB aan gegevens elke maand van de container in West-Amerika om gegevens te repliceren in VS-Oost, Noord-Europa en Oost-Azië. U wordt gefactureerd voor uitgaand verkeer volgens de standaardtarieven voor gegevensoverdracht.*
@@ -182,17 +182,17 @@ De totale maandelijkse factuur wordt worden (uitgaande van 30 dagen/720 uur per 
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10K <br/>D2:30K <br/>C1:20K |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
-|[101-200] |D1:50K <br/>D2:70K <br/>C1:-- |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
+|[101-200] |D1:50K <br/>D2:70K <br/>C1: -- |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
 | | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$5,760  |
-|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>"C1: 20 K RU/sec/100 * $0,016 * 100 uur = $320 |$2,240 '  |
+|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 * $0,016 * 100 uur = $320 |$2,240`  |
 | | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$6,720 |
-|[301-400] |D1:10K <br/>D2:80K <br/>C1:-- |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1.440   |
+|[301-400] |D1:10K <br/>D2:80K <br/>C1: -- |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1,440   |
 | | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
 |[401-500] |D1:10K <br>D2:10K <br>C1:20K |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$640  |
-| | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$1.280  |
-|[501-700] |D1:20K <br>D2:100K <br>C1:-- |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3,840  |
-| | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7.680  |
-|[701-720] |D1:20K <br/>D2:50K <br/>C1:-- |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
+| | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$1,280  |
+|[501-700] |D1:20K <br>D2:100K <br>C1: -- |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3,840  |
+| | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7,680  |
+|[701-720] |D1:20K <br/>D2:50K <br/>C1: -- |Doorvoerfactuur voor container in West-Amerika (alle regio's worden geschreven)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
 | | |Doorvoerfactuur voor 2 regio's: VS-Oost, Noord-Europa (alle regio's worden geschreven)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Totale maandelijkse kosten**  | |**$38,688**   |
 
@@ -203,16 +203,16 @@ Laten we eens een ander voorbeeld, waarin u wilt proactief schatting van uw fact
 |**Kosten voor gegevensopslag** | |
 |----|----|
 |Gem. Record grootte (KB) |1 |
-|Aantal Records  |100.000.000  |
+|Aantal Records  |100,000,000  |
 |Totale opslag (GB)  |100 |
-|Maandelijkse kosten per GB  |$0,25  |
-|Verwachte maandelijkse kosten voor opslag   |$25,00  |
+|Maandelijkse kosten per GB  |$0.25  |
+|Verwachte maandelijkse kosten voor opslag   |$25.00  |
 
 <br>
 
 |**Doorvoer kosten** | | | |
 |----|----|----|----|
-|Type bewerking| Aanvragen/sec| Gem. RU/aangeboden aanvragen| RU's die nodig zijn|
+|Type bewerking| Aanvragen/sec| Gem. RU/request| RU's die nodig zijn|
 |Schrijven| 100 | 5 | 500|
 |Lezen| 400| 1| 400|
 
@@ -254,7 +254,7 @@ Wat u daadwerkelijk hebt aangeschaft, is een tegoed van $8 per uur voor 100 K RU
 |Japan - oost|$0.009 |50 K| $4.50 |$3,240 |
 |||Betalen naar gebruik|$8.50|$6120|
 |Aangeschafte gereserveerde capaciteit|$0.0064 (20% korting) |100 RU/sec. of vooraf aangeschafte $8-capaciteit |-$8|-$5,760 |
-|Nettofactuur|||$0,50 |$360 |
+|Nettofactuur|||$0.50 |$360 |
 
 ## <a name="next-steps"></a>Volgende stappen
 

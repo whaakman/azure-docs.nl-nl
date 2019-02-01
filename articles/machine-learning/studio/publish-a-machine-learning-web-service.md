@@ -1,8 +1,21 @@
 ---
-Titel: Een Machine Learning Studio web service titleSuffix implementeren: Azure Machine Learning Studio description: Hoe u een opleidingsexperiment converteren naar een Voorspellend experiment, voorbereiding op deze implementatie vervolgens als een Azure Machine Learning Studio-webservice implementeren.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 01/06/2017
+title: Een Machine Learning Studio-webservice implementeren
+titleSuffix: Azure Machine Learning Studio
+description: Hoe u een opleidingsexperiment converteren naar een Voorspellend experiment, voorbereiding op deze implementatie vervolgens als een Azure Machine Learning Studio-webservice implementeren.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 01/06/2017
+ms.openlocfilehash: 89a54d99aa47af273e5955c2103ec696a985737e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493742"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Een Azure Machine Learning Studio-webservice implementeren
 Azure Machine Learning kunt u bouwen, testen en implementeren van voorspellende analytische oplossingen.
