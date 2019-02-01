@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8b591cacd1c468f46dcdb5809cdc6ff0adf09ccb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247677"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471681"
 documentType: LandingData
 title: Documentatie over Azure Machine Learning-service
 metadata:
-  title: Documentatie - Azure Machine Learning-service - zelfstudies, API-verwijzing | Microsoft Docs
-  description: Uitleg over het integreren van intelligente algoritmen in apps en websites. Gebruik scikit-learn, TensorFlow, PyTorch of een ander op Python gebaseerd framework om uw Machine Learning-model te bouwen en het lokaal of in de cloud te trainen. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
+  title: Documentatie voor de Azure Machine Learning-service - zelfstudies, API-verwijzing | Microsoft Docs
+  description: Azure Machine Learning-service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te ontwikkelen, trainen, testen, implementeren, beheren en volgen. De Azure Machine Learning-service biedt volledige ondersteuning voor opensourcetechnologieën zoals Scikit-learn, Tensorflow, Pytorch en andere op Python gebaseerde frameworks. Leer aan de hand van onze quickstarts en zelfstudies hoe u de Azure Machine Learning-service gebruikt voor uw machine learning-werkstromen.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -17,22 +17,17 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 12/04/2018
+  ms.date: 1/30/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Uitleg over het integreren van intelligente algoritmen in apps en websites. Gebruik scikit-learn, TensorFlow, PyTorch of een ander op Python gebaseerd framework om uw Machine Learning-model te bouwen en het lokaal of in de cloud te trainen. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
+  description: Azure Machine Learning-service biedt een omgeving in de cloud die u kunt gebruiken om machine learning-modellen te ontwikkelen, trainen, testen, implementeren, beheren en volgen. Deze service biedt volledige ondersteuning voor opensourcetechnologieën zoals Scikit-learn, Tensorflow, Pytorch en andere op Python gebaseerde frameworks. Leer aan de hand van onze quickstarts en zelfstudies hoe u deze service gebruikt voor uw machine learning-werkstromen.
 sections:
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: 'Leer aan de hand van een quickstart hoe u de werkruimte en bronnen voor een Azure Machine Learning-service kunt instellen:'
-  - type: list
-    style: unordered
-    items:
-    - html: Aan de slag met behulp van de <a href="quickstart-get-started">Azure-portal</a>.
-    - html: Aan de slag met behulp van <a href="quickstart-create-workspace-with-python">Python</a>.
+    text: Begin door een servicewerkruimte en resources te maken <a href="quickstart-get-started">in de Azure-portal</a> of <a href="quickstart-create-workspace-with-python">in Python</a>.
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
@@ -40,18 +35,20 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Modellen voor de classificatie van afbeeldingen trainen en implementeren</a> (<b>tweedelige reeks</b>).
-    - html: <a href="tutorial-data-prep">Gegevens voorbereiden en automatische leerprocessen gebruiken</a> om regressiemodellen te trainen en af te stemmen (<b>tweedelige reeks</b>).<br>&nbsp;
+    - html: Modellen voor de classificatie van afbeeldingen <a href="tutorial-train-models-with-aml">trainen</a> en <a href="tutorial-deploy-models-with-aml">implementeren</a> (<b>tweedelige reeks</b>).<br>&nbsp;
+    - html: <a href="tutorial-data-prep">Gegevens voorbereiden</a> en <a href="tutorial-auto-train-models">automatische leerprocessen gebruiken</a> om regressiemodellen te trainen en af te stemmen (<b>tweedelige reeks</b>).
+- title: Voorbeelden
+  items:
   - type: paragraph
-    text: '<b>Voorbeelden</b>: Leer de service kennen met deze <a href="https://aka.ms/aml-notebooks">Jupyter-notebooks</a> op GitHub.'
+    text: Zoek <a href="samples-notebooks">Jupyter-notebooks</a> om de service op GitHub te ontdekken.
 - title: Naslaginformatie
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/data-prep-sdk">Azure Machine Learning Data Prep SDK</a>
-    - html: <a href="https://aka.ms/aml-sdk">Azure Machine Learning-SDK voor Python (belangrijkste SDK)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning Monitoring-SDK</a>
+    - html: <a href="https://aka.ms/aml-sdk">Hoofd-SDK (Python)</a>
+    - html: <a href="https://aka.ms/data-prep-sdk">Gegevensvoorbereidings-SDK (Python)</a>
+    - html: <a href="https://aka.ms/aml-monitoring-sdk">Bewakings-SDK (Python)</a>
 - title: Andere Azure Machine Learning-technologieën
   items:
   - type: list

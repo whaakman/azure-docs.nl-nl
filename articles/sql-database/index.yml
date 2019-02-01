@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0049468330a9fcb26f023de2a8adb5dfd1544321
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0f5c60b25ad305b9e76eebcc72639a596b407801
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436803"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457544"
 documentType: LandingData
 title: Documentatie voor Azure SQL Database
 metadata:
@@ -15,10 +15,11 @@ metadata:
   author: CarlRabeler
   manager: craigg
   ms.service: sql-database
+  ms.subservice: service
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 07/07/2018
+  ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
   description: Azure SQL Database is een relationele database als een service (DBaaS) op basis van de nieuwste stabiele versie van Microsoft SQL Server Database Engine. SQL Database is een krachtige, betrouwbare en veilige database die u kunt gebruiken om gegevensgestuurde toepassingen en websites te bouwen in de programmeertaal van uw keuze, zonder dat u hiervoor infrastructuur hoeft te beheren. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u SQL Database gebruikt.
@@ -54,10 +55,10 @@ sections:
         src: media/index/i_scale.svg
       title: Schaalbaarheid
     - href: /azure/sql-database/sql-database-single-index
-      html: <p>Gebruik de afzonderlijke database die wordt gehost in logische servers voor uw SaaS-toepassingen en microservices waarvoor een afzonderlijke database met de voorspelbare prestaties nodig is.</p>
+      html: <p>Gebruik een individuele database die wordt beheerd door een SQL Database-server voor uw SaaS-toepassingen en microservices waarvoor een individuele database met voorspelbare prestaties nodig is.</p>
       image:
         src: media/index/i_db.svg
-      title: Afzonderlijke database
+      title: Individuele database
     - href: /azure/sql-database/sql-database-elastic-pool
       html: <p>Elastische pools in SQL Database zijn eenvoudige, kosteneffectieve oplossingen voor het beheren en schalen van meerdere databases die een verschillend en onvoorspelbaar verbruik hebben.</p>
       image:
@@ -103,36 +104,36 @@ sections:
         src: media/index/logo_arm.svg
       title: Azure Resource Manager-sjabloon
     rows:
-    - title: Eén SQL-database maken
+    - title: Individuele database maken
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: 
-    - title: Door SQL beheerd exemplaar maken
+    - title: Beheerd exemplaar maken
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
       - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
-    - title: Elastische SQL-pool maken
+    - title: Elastische pool maken
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: De schaal van één SQL-database aanpassen
+    - title: Schaal van een individuele database aanpassen
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
       - href: 
-    - title: De schaal van een elastische SQL-pool aanpassen
+    - title: Schaal van een elastische pool aanpassen
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: De schaal van een beheerd exemplaar aanpassen
+    - title: Schaal van een beheerd exemplaar aanpassen
       values:
       - href: 
       - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
@@ -147,11 +148,11 @@ sections:
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: Meer informatie over het maken, beheren en migreren van databases met SQL DB
+    text: Meer informatie over het maken, beheren en migreren van databases met SQL Database
   - type: list
     style: ordered
     items:
-    - html: Het schema voor een nieuwe SQL-database maken en ontwerpen met behulp van <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> of <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
+    - html: Het schema voor een nieuwe individuele database maken en ontwerpen met behulp van <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> of <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Een bestaande database migreren naar Azure met behulp van <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database terugzetten</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> of <a href="/azure/sql-database/sql-database-import">BACPAC importeren</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Uw SQL-database beveiligen</a>
     - html: Uw gegevens wereldwijd distribueren met behulp van <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geografisch gedistribueerde database</a>

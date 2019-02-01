@@ -13,7 +13,7 @@ items:
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Overzicht van op een portal gebaseerde import-, index- en queryfunctionaliteit
+    - name: Een index laden en er query's op uitvoeren
       href: search-get-started-portal.md
     - name: Verrijken met AI (cognitief zoeken)
       href: cognitive-search-quickstart-blob.md
@@ -216,14 +216,14 @@ items:
         href: search-filters-facets.md
       - name: Filterexpressiesyntaxis
         href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-    - name: Prestaties en optimalisatie
-      href: search-performance-optimization.md
   - name: Beheer en analyse
     items:
     - name: Beheer (portal)
       href: search-manage.md
     - name: PowerShell (Azure Search)
       href: search-manage-powershell.md
+    - name: Prestaties en optimalisatie
+      href: search-performance-optimization.md
     - name: Activiteit en logboekregistratie bewaken
       href: search-monitor-usage.md
     - name: Analyse zoekverkeer
@@ -297,9 +297,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: e65adf41bc6555e8e2bcd74be07e6a1b2b96514d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 133f3e44b7efc81f13aba5db68269678ddac9554
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203824"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464225"

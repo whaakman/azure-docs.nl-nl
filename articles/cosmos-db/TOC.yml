@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: Het juiste consistentieniveau kiezen
       href: consistency-levels-choosing.md
-    - name: Consistentieniveaus van Cosmos DB-API's
+    - name: Consistentieniveaus en Azure Cosmos DB-API's
       href: consistency-levels-across-apis.md
     - name: Compromissen tussen consistentie, beschikbaarheid en prestaties
       href: consistency-levels-tradeoffs.md
@@ -98,7 +98,7 @@ items:
     items:
     - name: Overzicht
       href: partitioning-overview.md
-    - name: Logische partities
+    - name: Partitionering en horizontaal schalen
       href: partition-data.md
     - name: Een synthetische partitiesleutel maken
       href: synthetic-partition-keys.md
@@ -122,7 +122,7 @@ items:
       items:
       - name: Overzicht
         href: index-overview.md
-      - name: Indexeringsbeleid
+      - name: Indexbeleid
         href: index-policy.md
       - name: Indextypen
         href: index-types.md
@@ -136,13 +136,13 @@ items:
         href: read-change-feed.md
       - name: Verwerker van wijzigingenfeed
         href: change-feed-processor.md
-      - name: Wijzigingenfeed met Azure Functions
+      - name: Azure Functions activeren
         href: change-feed-functions.md
     - name: Time To Live
       href: time-to-live.md
     - name: Beperkingen van unieke sleutels
       href: unique-keys.md
-    - name: Transacties en optimistische gelijktijdige uitvoering
+    - name: Transacties en optimistisch beheer van gelijktijdigheid
       href: database-transactions-optimistic-concurrency.md
   - name: Programmeren op de server
     items:
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: Kosten voor meerdere regio's optimaliseren
       href: optimize-cost-regions.md
-    - name: Uw werkbelastingen voor ontwikkelen/testen optimaliseren
+    - name: Kosten voor ontwikkeling/testen optimaliseren
       href: optimize-dev-test.md
-    - name: Besparen met gereserveerde capaciteit
+    - name: Kosten optimaliseren met gereserveerde capaciteit
       href: cosmos-db-reserved-capacity.md
   - name: Beveiliging
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: Gereedheid voor bedrijven
     items:
-    - name: Online back-ups maken en herstellen
+    - name: Online back-ups maken en on-demand herstellen
       href: online-backup-and-restore.md
     - name: Naleving
       href: compliance.md
@@ -254,14 +254,6 @@ items:
       items:
       - name: Queryprestaties afstemmen
         href: sql-api-query-metrics.md
-      - name: Programmeren op de server
-        items:
-        - name: Opgeslagen procedures, triggers en UDF's schrijven
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: Opgeslagen procedures en triggers schrijven met de JavaScript-query-API
-          href: how-to-write-javascript-query-api.md
-        - name: Opgeslagen procedures, triggers en UDF's gebruiken
-          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Gegevenstypen
         items:
         - name: DateTime
@@ -337,7 +329,7 @@ items:
         - name: Node.js en React-app
           href: tutorial-develop-mongodb-react.md
       - name: 2 - Gegevens migreren
-        href: mongodb-migrate.md
+        href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - Query's uitvoeren op gegevens
         href: tutorial-query-mongodb.md
       - name: 4 - Gegevens wereldwijd distribueren
@@ -467,19 +459,19 @@ items:
   expanded: true
 - name: Handleidingen
   items:
-  - name: Databaseaccount beheren
+  - name: Een Azure Cosmos-account beheren
     href: how-to-manage-database-account.md
   - name: Wereldwijde distributie
     items:
-    - name: Consistentie beheren
+    - name: Consistentieniveaus beheren
       href: how-to-manage-consistency.md
-    - name: Conflicten beheren
+    - name: Conflictoplossingsbeleid configureren
       href: how-to-manage-conflicts.md
   - name: Ingerichte doorvoer
     items:
-    - name: Doorvoer voor containers inrichten
+    - name: Doorvoer inrichten voor een container
       href: how-to-provision-container-throughput.md
-    - name: Doorvoer voor databases inrichten
+    - name: Doorvoer inrichten voor een database
       href: how-to-provision-database-throughput.md
   - name: Werken met containers en items
     items:
@@ -489,10 +481,22 @@ items:
       href: how-to-query-container.md
     - name: Time to Live configureren
       href: how-to-time-to-live.md
+    - name: Werken met gegevens in Azure Storage Explorer
+      href: storage-explorer.md
+    - name: Werken met gegevens in Azure Cosmos Explorer
+      href: data-explorer.md
     - name: Indexeren
       items:
-      - name: Indexering configureren
+      - name: Indexeren beheren
         href: how-to-manage-indexing-policy.md
+  - name: Programmeren op de server
+    items:
+    - name: Opgeslagen procedures, triggers en UDF's schrijven
+      href: how-to-write-stored-procedures-triggers-udfs.md
+    - name: Opgeslagen procedures en triggers schrijven met de JavaScript-query-API
+      href: how-to-write-javascript-query-api.md
+    - name: Opgeslagen procedures, triggers en UDF's gebruiken
+      href: how-to-use-stored-procedures-triggers-udfs.md
   - name: Beveiliging
     items:
     - name: IP-firewall configureren
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Cross Origin Resource Sharing (CORS) configureren
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Beveiligen met Key Vault
+    - name: Azure Cosmos-sleutels met Key Vault beveiligen
       href: access-secrets-from-keyvault.md
   - name: Gereedheid voor bedrijven
     items:
     - name: Gegevens herstellen vanaf back-up
       href: how-to-backup-and-restore.md
-  - name: Beheren
+  - name: Azure Cosmos DB-resources beheren
     items:
     - name: Beheren met PowerShell
       href: manage-account-with-powershell.md
     - name: Beheren met behulp van Azure CLI
       href: manage-with-cli.md
-    - name: Het gebruik van Storage Explorer beheren
-      href: storage-explorer.md
-    - name: Beheren met Data Explorer
-      href: data-explorer.md
   - name: Logboekregistratie
     items:
     - name: Diagnostische logboeken
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Socialemedia-apps
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094475"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511918"
