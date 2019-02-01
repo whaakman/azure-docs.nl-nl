@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 78d5f767f137b8b1e925b95efb60136353401ce9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298616"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507423"
 documentType: LandingData
 title: Azure Management - Governance
 metadata:
@@ -52,10 +52,10 @@ sections:
         src: ./media/policy-illustration.svg
       title: Beleid
     - href: ./blueprints/
-      html: <p>Maak een systeemeigen Azure-pakket van <i>artefacten</i> (resourcegroepen, beleid, roltoewijzingen, Resoure Manager-sjablonen en meer) dat dynamisch kan worden geïmplementeerd in abonnementen om consistente en herhaalbare omgevingen te maken.</p>
+      html: <p>Maak een systeemeigen Azure-pakket van <i>artefacten</i> (resourcegroepen, beleid, roltoewijzingen, Resource Manager-sjablonen en meer) dat dynamisch kan worden geïmplementeerd in abonnementen om consistente en herhaalbare omgevingen te maken.</p>
       image:
         src: ./media/blueprints-illustration.svg
-      title: Blauwdrukken
+      title: Blueprints
 - title: Implementaties
 - items:
   - type: list

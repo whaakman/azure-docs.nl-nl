@@ -15,8 +15,6 @@ items:
   - name: Veelgestelde vragen
     displayName: FAQ
     href: faq.md
-  - name: Wat is nieuw?
-    href: whats-new.md
   expanded: true
 - name: Zelfstudies
   items:
@@ -41,8 +39,6 @@ items:
     - name: 6 - Webservice openen
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: Aan de slag met R
-    href: r-quickstart.md
 - name: Voorbeelden
   items:
   - name: Beschikbare gegevenssets
@@ -120,6 +116,8 @@ items:
         href: debug-models.md
     - name: R en Python gebruiken
       items:
+      - name: Aan de slag met R
+        href: r-quickstart.md
       - name: R-scripts uitvoeren
         href: extend-your-experiment-with-r.md
       - name: Aangepaste R-modules schrijven
@@ -208,21 +206,25 @@ items:
     href: /rest/api/machinelearning
 - name: Resources
   items:
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
+  - name: Ondersteuning krijgen
+    href: support-aml-studio.md
   - name: Azure-roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
   - name: Prijzen
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Gids voor R-ontwikkelaars
     href: ../r-developers-guide.md
-  - name: Aangepaste neurale netwerken met Net#
+  - name: Aangepaste neurale netwerken (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Ondersteuning krijgen
-    href: support-aml-studio.md
   - name: Onze ML-producten vergelijken
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 12fa71315c1cb43570505d2428804f4a5348a266
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 27cd57a52b80006482f50f96120e8eaf8a8cb00e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156085"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512190"

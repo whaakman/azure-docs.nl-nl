@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: f4f35156f9b2b356e3e47695725351562af9796f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55501159"
+documentType: LandingData
+title: Documentatie voor Azure Advisor
+metadata:
+  title: Documentatie voor Azure Advisor | Microsoft Docs
+  description: 
+  services: advisor
+  author: rboucher
+  layout: LandingPage
+  ms.service: advisor
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 02/01/2019
+  ms.author: robb
+abstract:
+  description: Azure Advisor is een persoonlijke cloudconsultant die u helpt aanbevolen procedures voor het optimaliseren van uw Azure-implementaties te volgen. Advisor analyseert de configuratie van uw resources en de gebruiksgerelateerde telemetrie. Vervolgens raadt het programma oplossingen aan om de prestaties, beveiliging en beschikbaarheid van uw resources te verbeteren, en zoekt het tegelijkertijd naar manieren om uw totale Azure-uitgaven te verlagen.
+sections:
+- title: 
+  items:
+  - type: paragraph
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/advisor.svg
+      text: Meer informatie over Azure Advisor
+      href: /azure/advisor/advisor-overview
+    - image:
+        src: media/index/get-started.svg
+      text: Aan de slag met Azure Advisor
+      href: /azure/advisor/advisor-get-started
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/advisor/">Naslaginformatie over REST-API</a></p>
+    - title: Opdrachtregel
+      html: <p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">Common Language Interface (CLI)</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0">Azure PowerShell</a></p>

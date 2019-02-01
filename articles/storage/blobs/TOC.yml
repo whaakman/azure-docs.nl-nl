@@ -130,7 +130,7 @@ items:
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Geografisch redundante opslag
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Richtlijnen voor herstel na noodgevallen
+      - name: Herstel na noodgevallen en failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: HA-apps ontwerpen met RA-GRS
         href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -350,14 +350,16 @@ items:
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gebeurtenissen routeren naar een aangepast eindpunt
       href: storage-blob-event-quickstart.md
+    - name: Failover van account initiëren
+      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Verwijderde blobs herstellen
       href: storage-blob-soft-delete.md
+    - name: Een statische website hosten
+      href: storage-blob-static-website.md
     - name: Een aangepast domein configureren
       href: storage-custom-domain-name.md
     - name: Blob-opslag doorzoeken met Azure Search
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Een statische website hosten
-      href: storage-blob-static-website.md
     - name: Gegevens overdragen
       items:
       - name: AzCopy (v10)
@@ -600,9 +602,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Video's
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 5cf8e6056acc41e445ccaf726c6493fd8343dd0b
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 014cd0d23584d76564d2ebf42ecfe2323b8085de
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913209"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508416"

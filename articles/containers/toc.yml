@@ -1,82 +1,87 @@
+items:
 - name: Azure voor containers
   href: index.yml
   items:
-    - name: Kubernetes Service (AKS)
-      href: 'https://docs.microsoft.com/azure/aks/'
-      expanded: true
+  - name: Kubernetes Service (AKS)
+    href: https://docs.microsoft.com/azure/aks/
+    items:
+    - name: Kennismaking met AKS
+      href: ../aks/intro-kubernetes.md
+    - name: Quickstart - Een AKS-cluster implementeren
+      href: ../aks/kubernetes-walkthrough.md
+    expanded: true
+  - name: Container Instances (ACI)
+    href: https://docs.microsoft.com/azure/container-instances/
+    items:
+    - name: Snelstartgids - Een containerinstantie maken
+      href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
+    - name: Zelfstudie - Een container bouwen en implementeren
       items:
-        - name: Kennismaking met AKS
-          href: ../aks/intro-kubernetes.md
-        - name: Een AKS-cluster implementeren
-          href: ../aks/kubernetes-walkthrough.md
-    - name: Container Instances (ACI)
-      href: 'https://docs.microsoft.com/azure/container-instances/'
+      - name: 1 - Een containerinstallatiekopie maken
+        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app
+      - name: 2 - Een containerregister maken
+        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr
+      - name: 3 - De app implementeren
+        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app
+  - name: Container Registry (ACR)
+    href: https://docs.microsoft.com/azure/container-registry/
+    items:
+    - name: Quickstart - Een register maken
+      href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
+    - name: Zelfstudie - Containerinstallatiekopieën bouwen
       items:
-        - name: Snelstartgids - Een containerinstantie maken
-          href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
-        - name: Zelfstudie - Een container bouwen en implementeren
-          items:
-            - name: 1 - Een containerinstallatiekopie maken
-              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app'
-            - name: 2 - Een containerregister maken
-              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr'
-            - name: 3 - De app implementeren
-              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app'
-    - name: Container Registry (ACR)
-      href: 'https://docs.microsoft.com/azure/container-registry/'
+      - name: 1 - Installatiekopieën in Azure compileren
+        href: ../container-registry/container-registry-tutorial-quick-task.md
+      - name: 2 - Compileren van installatiekopieën automatiseren
+        href: ../container-registry/container-registry-tutorial-build-task.md
+      - name: 3 - Updates van basisinstallatiekopieën compileren
+        href: ../container-registry/container-registry-tutorial-base-image-update.md
+  - name: Web App for Containers
+    href: https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro
+    items:
+    - name: Een aangepaste Docker-installatiekopie gebruiken voor Azure Web Apps for Containers
+      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image
+    - name: Zelfstudie - Een app met meerdere containers
+      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app
+  - name: Service Fabric
+    href: https://docs.microsoft.com/azure/service-fabric/
+    items:
+    - name: Overzicht - Service Fabric en containers
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview
+    - name: Procedures
       items:
-        - name: Een register maken - CLI
-          href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
-        - name: Procedures
-          items:
-            - name: Een installatiekopie pushen en ophalen
-              href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli'
-            - name: Opslagplaatsen weergeven
-              href: 'https://docs.microsoft.com/azure/container-registry/container-registry-repositories'
-            - name: Een service-principal maken
-              href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal?toc=%2fazure%2fcontainer-registry%2ftoc.json'
-            - name: Verifiëren met een register
-              href: 'https://docs.microsoft.com/azure/container-registry/container-registry-authentication'
-            - name: ACR-webhooks gebruiken
-              href: 'https://docs.microsoft.com/azure/container-registry/container-registry-webhook'
-    - name: Web App for Containers
-      href: 'https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro'
-      items:
-        - name: Een aangepaste Docker-installatiekopie gebruiken voor Azure Web Apps for Containers
-          href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image'
-    - name: Service Fabric
-      href: 'https://docs.microsoft.com/azure/service-fabric/'
-      items:
-        - name: Overzicht - Service Fabric en containers
-          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
-        - name: Procedures
-          items:
-            - name: Een containertoepassing maken in Windows
-              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
-            - name: Een containertoepassing maken in Linux
-              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
-            - name: Een bestaande .NET-toepassing in een container plaatsen
-              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
-    - name: Windows-containers
-      href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
-      items:
-        - name: Snelstartgids - Windows-containers in Windows Server
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
-        - name: Over Windows-containers
-          href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
-    - name: Naslaginformatie
-      items:
-        - name: Azure Container Instances (az container)
-          href: 'https://docs.microsoft.com/cli/azure/container'
-        - name: Azure Container Service (az acs)
-          href: 'https://docs.microsoft.com/cli/azure/acs'
-        - name: Azure Container Registry (az acr)
-          href: 'https://docs.microsoft.com/cli/azure/acr'
-        - name: Web Apps for Containers (az appservice)
-          href: 'https://docs.microsoft.com/cli/azure/appservice'
-        - name: Azure App Service Web App (az webapp)
-          href: 'https://docs.microsoft.com/cli/azure/webapp'
-        - name: Azure Service Fabric (az sf)
-          href: 'https://docs.microsoft.com/cli/azure/sf'
-        - name: Azure Virtual Machines (az vm)
-          href: 'https://docs.microsoft.com/cli/azure/vm'
+      - name: Een containertoepassing maken in Windows
+        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers
+      - name: Een containertoepassing maken in Linux
+        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux
+      - name: Een bestaande .NET-toepassing in een container plaatsen
+        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container
+  - name: Windows-containers
+    href: https://docs.microsoft.com/azure/virtual-machines/windows/overview
+    items:
+    - name: Snelstartgids - Windows-containers in Windows Server
+      href: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server
+    - name: Over Windows-containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/about/index
+  - name: Naslaginformatie
+    items:
+    - name: Azure Container Instances (az container)
+      href: https://docs.microsoft.com/cli/azure/container
+    - name: Azure Container Service (az acs)
+      href: https://docs.microsoft.com/cli/azure/acs
+    - name: Azure Container Registry (az acr)
+      href: https://docs.microsoft.com/cli/azure/acr
+    - name: Web Apps for Containers (az appservice)
+      href: https://docs.microsoft.com/cli/azure/appservice
+    - name: Azure App Service Web App (az webapp)
+      href: https://docs.microsoft.com/cli/azure/webapp
+    - name: Azure Service Fabric (az sf)
+      href: https://docs.microsoft.com/cli/azure/sf
+    - name: Azure Virtual Machines (az vm)
+      href: https://docs.microsoft.com/cli/azure/vm
+ms.openlocfilehash: 9ee48a00784c0ca9fa00507e2956e34e7e6792d5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486228"
