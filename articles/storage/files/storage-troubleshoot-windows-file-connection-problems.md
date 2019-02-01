@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 384a277f3465ac97285fbb08fa299a5bed8c87c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8d34ecb46721a8dd8dc1b1ad9f73c9f2ca2b3a2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477689"
+ms.locfileid: "55507396"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -61,7 +61,7 @@ Fout 53 of Systeemfout 67 kan zich voordoen als poort 445 uitgaande communicatie
 
 Gebruik om te controleren als poort 445 wordt geblokkeerd door uw firewall of Internet-provider, de [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) hulpprogramma of `Test-NetConnection` cmdlet. 
 
-Gebruik de `Test-NetConnection` cmdlet, de AzureRM PowerShell-module moet worden geïnstalleerd, Zie [Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resoure-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
+Gebruik de `Test-NetConnection` cmdlet, de AzureRM PowerShell-module moet worden geïnstalleerd, Zie [Azure PowerShell-module installeren](/powershell/azure/azurerm/install-azurerm-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resource-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
 
    
     $resourceGroupName = "<your-resource-group-name>"

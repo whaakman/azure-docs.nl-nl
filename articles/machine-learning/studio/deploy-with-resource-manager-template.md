@@ -1,9 +1,22 @@
 ---
-Titel: Studio-werkruimte met Azure Resource Manager titleSuffix implementeren: Azure Machine Learning Studio description: Over het implementeren van een werkruimte voor Azure Machine Learning met behulp van Azure Resource Manager-sjabloon-services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
+title: Studio-werkruimte met Azure Resource Manager implementeren
+titleSuffix: Azure Machine Learning Studio
+description: Over het implementeren van een werkruimte voor Azure Machine Learning met behulp van Azure Resource Manager-sjabloon
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/05/2018
+ms.openlocfilehash: c7f75b2553ada469f4963531fc33f6e5105084b1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487793"
 ---
-
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio-werkruimte met behulp van Azure Resource Manager implementeren
 
 Met behulp van een Azure Resource Manager-sjabloon voor de implementatie u tijd bespaart doordat u een schaalbare manier om te implementeren met elkaar verbonden onderdelen met een validatie en mechanisme voor opnieuw proberen. Als u Azure Machine Learning-werkruimtes instelt, bijvoorbeeld, moet u een Azure storage-account voor het eerst configureert en implementeert u uw werkruimte. Stel dit handmatig doen voor honderden werkruimten. Eenvoudiger alternatief is het gebruik van een Azure Resource Manager-sjabloon om een Azure Machine Learning-werkruimte en alle afhankelijkheden ervan te implementeren. In dit artikel gaat u door dit stapsgewijze proces. Zie voor een goed overzicht van Azure Resource Manager [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).

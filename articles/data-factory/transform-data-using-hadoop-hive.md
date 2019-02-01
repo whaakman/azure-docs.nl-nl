@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e77b8c89954064fb143f04f0f901d1512d4fc50d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321327"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491005"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Gegevens transformeren met behulp van Hadoop Hive-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Fa
         "defines": {
             "param1": "param1Value"
         }
-    }   
+    }
 }
 ```
 ## <a name="syntax-details"></a>Syntaxis van de details
@@ -67,7 +67,7 @@ Als u niet bekend bent met Azure Data Factory, Lees [Inleiding tot Azure Data Fa
 | getDebugInfo        | Geeft aan wanneer de logboekbestanden worden gekopieerd naar de Azure-opslag die wordt gebruikt door HDInsight-cluster (of) opgegeven door scriptLinkedService. Toegestane waarden: Geen altijd of fout. Standaardwaarde: Geen. | Nee       |
 | argumenten           | Hiermee geeft u een matrix van de argumenten voor een Hadoop-taak. De argumenten worden doorgegeven als opdrachtregelargumenten aan elke taak. | Nee       |
 | Hiermee worden gedefinieerd             | Geef parameters op als sleutel/waarde-paren voor verwijzende binnen het Hive-script. | Nee       |
-| queryTimeout        | Query uitvoeren op time-outwaarde (in minuten).  Heeft de van toepassing als het HDInsight-cluster met Enterprise-beveiligingspakket is ingeschakeld is. | Nee       |
+| queryTimeout        | Query uitvoeren op time-outwaarde (in minuten). Heeft de van toepassing als het HDInsight-cluster met Enterprise-beveiligingspakket is ingeschakeld is. | Nee       |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen waarin wordt uitgelegd hoe het transformeren van gegevens op andere manieren: 
@@ -80,4 +80,3 @@ Zie de volgende artikelen waarin wordt uitgelegd hoe het transformeren van gegev
 * [.NET aangepaste activiteit](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch Execution-activiteit](transform-data-using-machine-learning.md)
 * [Opgeslagen procedureactiviteit](transform-data-using-stored-procedure.md)
-

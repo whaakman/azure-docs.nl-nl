@@ -1,8 +1,21 @@
 ---
-Titel: Studio-webservice implementeert in meerdere regio's titleSuffix: Azure Machine Learning Studio description: Stappen voor het implementeren (kopie) een nieuwe webservice in andere regio's. Eenvoudig een webservice implementeert in meerdere regio's zonder meerdere abonnementen of werkruimten.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
+title: Studio-webservice implementeren in meerdere regio 's
+titleSuffix: Azure Machine Learning Studio
+description: Stappen voor het implementeren (kopie) een nieuwe webservice in andere regio's. Eenvoudig een webservice implementeert in meerdere regio's zonder meerdere abonnementen of werkruimten.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 536a4ae0b740eae7f6072cbd23d96e199e1598e7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487063"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service-to-multiple-regions"></a>Een Azure Machine Learning Studio-webservice implementeren in meerdere regio 's
 

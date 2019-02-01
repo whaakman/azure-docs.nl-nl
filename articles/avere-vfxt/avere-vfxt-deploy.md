@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f6d847e9042341f47a06fde0f9aa4a70f2549a07
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296372"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512149"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Het vFXT-cluster implementeren
 
@@ -39,11 +39,11 @@ Lees voor meer informatie over de stappen voor de implementatie van cluster en h
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>De vFXT Avere voor Azure maken
 
-Toegang tot de sjabloon maken in Azure portal door te zoeken naar Avere en 'Avere vFXT voor Azure-implementatie' selecteren. <!-- xxx update if that name changes xxx --> 
+Toegang tot de sjabloon maken in Azure portal door te zoeken naar Avere en selecteren ' Avere vFXT ARM implementatie ". 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![Stukjes browservenster met de Azure-portal met brood 'Nieuw > Marketplace > Alles'. In de alles pagina, het zoekveld heeft de term 'avere' en het tweede resultaat ' Avere vFXT ARM implementatie ' wordt beschreven in red om deze te markeren.](media/avere-vfxt-template-choose.png)
 
-Klik op **maken** om te beginnen. 
+Na het lezen van gegevens op de pagina Avere vFXT ARM-implementatie, klikt u op **maken** om te beginnen. 
 
 ![Azure marketplace met de eerste pagina van de implementatie van sjabloon weergeven](media/avere-vfxt-deploy-first.png)
 
@@ -123,9 +123,11 @@ De tweede pagina van de sjabloon voor de implementatie kunt u de clustergrootte,
 
 * **Subnet** : Kies een subnet van uw bestaande virtuele netwerk of een nieuwe maken. 
 
-* **Blob storage gebruiken** -kiezen of u een nieuwe Azure Blob-container maken en configureren als back-end-opslag voor het nieuwe Avere vFXT cluster. Als u ervoor kiest om een nieuwe container te maken, moet u het opslagaccount voor die container opgeven. Als u ervoor kiest geen te maken van een nieuwe blob-container, moet u opslag koppelen nadat het cluster is gemaakt (lezen [opslag configureren](avere-vfxt-add-storage.md) voor instructies). Stel dit veld in **false** als u niet wilt dat een nieuwe container maken.
+* **Blob storage gebruiken** -Kies **waar** naar een nieuwe Azure Blob-container maken en configureren als back-end-opslag voor het nieuwe Avere vFXT cluster. Deze optie maakt ook een nieuw opslagaccount in dezelfde resourcegroep bevinden als het cluster. 
 
-* **Storage-account** : als het maken van een nieuwe Azure Blob-container, Geef naam van het opslagaccount. Het opslagaccount moet een standaard voor algemeen gebruik V2-account geconfigureerd met lokaal redundante opslag en de hot Storage-toegangslaag. De [opslag configureren](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) artikel vindt u meer informatie over de vereisten voor een opslagaccount.
+  Stel dit veld in **false** als u niet wilt dat een nieuwe container maken. In dit geval moet u koppelt en opslag configureren nadat het cluster is gemaakt. Lezen [opslag configureren](avere-vfxt-add-storage.md) voor instructies. 
+
+* **Storage-account** : als het maken van een nieuwe Azure Blob-container, voer een naam voor het nieuwe opslagaccount. 
 
 ## <a name="validation-and-purchase"></a>Validatie en -aanschaf
 
@@ -161,7 +163,7 @@ Als u wilt deze informatie vinden, volgt u deze procedure:
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Maak een opslageindpunt (als u Azure Blob)
 
-Als u van Azure Blob-opslag voor uw back-end-gegevensopslag gebruikmaakt, moet u een service-eindpunt voor opslag in uw virtuele netwerk maken. Dit [service-eindpunt](../virtual-network/virtual-network-service-endpoints-overview.md) houdt Azure Blob-verkeer lokale in plaats van deze routering via het internet.
+Als u van Azure Blob-opslag voor uw back-end-gegevensopslag gebruikmaakt, moet u een service-eindpunt voor opslag in uw virtuele netwerk maken. Dit [service-eindpunt](../virtual-network/virtual-network-service-endpoints-overview.md) houdt Azure Blob-verkeer lokale in plaats van deze routering buiten het virtuele netwerk.
 
 1. Klik in de portal op **virtuele netwerken** aan de linkerkant.
 1. Selecteer het vnet voor de controller. 

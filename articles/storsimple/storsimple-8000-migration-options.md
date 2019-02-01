@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456048"
+ms.locfileid: "55511935"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opties voor het migreren van gegevens uit StorSimple 5000-7000 serie 
 
@@ -29,23 +29,31 @@ StorSimple 5000-7000 serie bereikt [einde van ondersteuning](https://support.mic
 
 ## <a name="migration-options"></a>Opties voor de migratie
 
-De StorSimple 5000-7000-serie met klanten hebben de volgende opties:
+Klanten met behulp van de StorSimple hebben 5000-7000-serie Azure of van derden.
 
-- **Opties voor Azure**:
+### <a name="azure-options"></a>Opties voor Azure
 
-    - **Een upgrade uitvoeren naar de StorSimple 8000-serie** : upgrade uitvoeren naar de StorSimple 8000-serie en blijven op het StorSimple-platform.  Dit upgradepad moet klanten hun apparaten uit de 5000-7000 serie vervangen door een 8000-serie. De gegevens is van het apparaat uit de 5000-7000 serie gemigreerd met behulp van het hulpprogramma voor migratie. Zodra de migratie is voltooid is, blijven de apparaten van de StorSimple 8000-serie laag gegevens naar Azure Blob Storage. 
+#### <a name="upgrade-to-storsimple-8000-series"></a>Een upgrade uitvoeren naar de StorSimple 8000-serie
 
-    Voor meer informatie over het migreren van gegevens met behulp van een StorSimple 8000-serie, gaat u naar [migreren van gegevens uit de StorSimple 5000-7000 serie 8000-serie apparaat](storsimple-8000-migrate-from-5000-7000.md).
+Een upgrade uitvoert naar de StorSimple 8000-serie en blijven op het StorSimple-platform.  Dit upgradepad moet klanten hun apparaten uit de 5000-7000 serie vervangen door een 8000-serie. De gegevens is van het apparaat uit de 5000-7000 serie gemigreerd met behulp van het hulpprogramma voor migratie. Zodra de migratie is voltooid is, blijven de apparaten van de StorSimple 8000-serie laag gegevens naar Azure Blob Storage. 
 
-    - **Migreren naar Azure File Sync** – dit nieuwe migratieoptie kan klanten voor het opslaan van bestandsshares van hun organisatie in de Azure-bestanden. Deze bestandsshares worden vervolgens centraal voor on-premises toegang met behulp van Azure File Sync (AFS). AFS kan worden geïmplementeerd op een Windows Server-host. De migratie van de werkelijke gegevens wordt vervolgens uitgevoerd als een host worden uitgevoerd of met behulp van het hulpprogramma voor migratie.
+Voor meer informatie over het migreren van gegevens met behulp van een StorSimple 8000-serie, gaat u naar [migreren van gegevens uit de StorSimple 5000-7000 serie 8000-serie apparaat](storsimple-8000-migrate-from-5000-7000.md).
 
-    Voor meer informatie over het migreren van gegevens naar Azure File Sync, gaat u naar [gegevens migreren van StorSimple 5000-7000 serie naar Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
+#### <a name="migrate-to-azure-file-sync"></a>Migreren naar Azure File Sync
 
-- **Opties van derden**:
+Deze nieuwe migratieoptie kan klanten voor het opslaan van bestandsshares van hun organisatie in de Azure-bestanden. Deze bestandsshares worden vervolgens centraal voor on-premises toegang met behulp van Azure File Sync (AFS). AFS kan worden geïmplementeerd op een Windows Server-host. De migratie van de werkelijke gegevens wordt vervolgens uitgevoerd als een host worden uitgevoerd of met behulp van het hulpprogramma voor migratie.
 
-    - **Migreren naar Panzura vrijheid NAS** -StorSimple 5000-7000-klanten kiezen kunnen om te migreren naar Panzura vrijheid NAS ze de gegevens bewaren in Azure. Panzura vrijheid om de oplossing biedt een NAS-oplossing die datacenters, kantoren, openbare en privéclouds omvat. De oplossing maakt een lokale, hybride en cloudgegevens in werkstromen voor NFS, SMB- en mobiele clients. Deze migratie wordt ondersteund door Panzura en klanten kunnen aan de slag door het aanvragen van Migratieondersteuning voor van de [Panzura website](https://panzura.com/storsimple-migration/).
+Voor meer informatie over het migreren van gegevens naar Azure File Sync, gaat u naar [gegevens migreren van StorSimple 5000-7000 serie naar Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
 
-    - **Migreren naar Cohesity** -Cohesity kunt u gegevens van uw huidige StorSimple 5000-7000 migreren naar de Cohesity Data Platform op Azure. Het gegevensplatform Cohesity is een door software gedefinieerde webschaal-oplossing die bestanden, back-ups, objecten en VM's naar één cloud-eigen oplossing consolideert. Na de migratie naar de Data-Platform, kunt u beheren, beveiligen en gegevens en apps van cloud naar core via een enkel glazen inrichten. Beginnen met Cohesity, met slechts drie knooppunten. Meer informatie over [migratie naar de Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+### <a name="third-party-options"></a>Opties van derden
+
+#### <a name="migrate-to-panzura-freedom-nas"></a>Migreren naar Panzura vrijheid NAS
+
+StorSimple 5000-7000-klanten kunnen kiezen om te migreren naar Panzura vrijheid NAS ze de gegevens bewaren in Azure. Panzura vrijheid om de oplossing biedt een NAS-oplossing die datacenters, kantoren, openbare en privéclouds omvat. De oplossing maakt een lokale, hybride en cloudgegevens in werkstromen voor NFS, SMB- en mobiele clients. Deze migratie wordt ondersteund door Panzura en klanten kunnen aan de slag door het aanvragen van Migratieondersteuning voor van de [Panzura website](https://panzura.com/storsimple-migration/).
+
+#### <a name="migrate-to-cohesity"></a>Migreren naar Cohesity
+
+Cohesity kunt u gegevens van uw huidige StorSimple 5000-7000 migreren naar de Cohesity Data Platform op Azure. Het gegevensplatform Cohesity is een door software gedefinieerde webschaal-oplossing die bestanden, back-ups, objecten en VM's naar één cloud-eigen oplossing consolideert. Na de migratie naar de Data-Platform, kunt u beheren, beveiligen en gegevens en apps van cloud naar core via een enkel glazen inrichten. Beginnen met Cohesity, met slechts drie knooppunten. Meer informatie over [migratie naar de Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 ## <a name="migration---frequently-asked-questions"></a>Migratie - Veelgestelde vragen
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022339"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491464"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Van implementatiefuncties voor Azure Resource Manager-sjablonen 
 
@@ -30,6 +30,8 @@ Resource Manager biedt de volgende functies voor het ophalen van waarden uit de 
 Zie voor waarden van resources, resourcegroepen of abonnementen, [resourcefuncties](resource-group-template-functions-resource.md).
 
 <a id="deployment" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment"></a>implementatie
 `deployment()`
@@ -149,10 +151,10 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
-Zie voor een abonnement sjabloon die gebruikmaakt van de implementatie-functie, [abonnement implementatie functie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Deze geïmplementeerd in beide gevallen `az deployment create` of `New-AzureRmDeployment` opdrachten.
+Zie voor een abonnement sjabloon die gebruikmaakt van de implementatie-functie, [abonnement implementatie functie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Deze geïmplementeerd in beide gevallen `az deployment create` of `New-AzDeployment` opdrachten.
 
 <a id="parameters" />
 
@@ -250,13 +252,13 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Waarde |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | Reeks | Optie 1 |
+| stringOutput | String | Optie 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"een": "a", "2": "b"} |
 | arrayOutput | Matrix | [1, 2, 3] |
-| crossOutput | Reeks | Optie 1 |
+| crossOutput | String | Optie 1 |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -267,7 +269,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
 ```
 
 <a id="variables" />
@@ -281,7 +283,7 @@ Retourneert de waarde van variabele. De naam van de opgegeven variabele moet wor
 
 | Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| variableName |Ja |Reeks |De naam van de variabele om terug te keren. |
+| variableName |Ja |String |De naam van de variabele om terug te keren. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -353,12 +355,12 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Name | Type | Waarde |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| exampleOutput1 | Reeks | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | Matrix | [1, 2, 3, 4] |
-| exampleOutput3 | Reeks | myVariable |
-| exampleOutput4 |  Object | {"Eigenschap1": "value1", "eigenschap 2": "value2"} |
+| exampleOutput3 | String | myVariable |
+| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -369,7 +371,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

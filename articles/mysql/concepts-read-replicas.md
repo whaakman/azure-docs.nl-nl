@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/23/2019
-ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 1/30/2019
+ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493045"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Lezen-replica's in Azure Database for MySQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "54903754"
 
 De functie lezen replica kunt u voor het repliceren van gegevens uit een Azure Database for MySQL-server (master) op maximaal vijf alleen-lezen-servers (replica's) binnen dezelfde Azure-regio. Alleen-lezen replica's worden asynchroon bijgewerkt met de MySQL-engine systeemeigen binair logboek (binlog)-bestand op basis van positie-Replicatietechnologie. Zie voor meer informatie over binlog replicatie, de [MySQL binlog replicatie-overzicht](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Replica's die zijn gemaakt in de Azure Database for MySQL-service zijn nieuwe servers die op dezelfde manier als normale/zelfstandige MySQL-servers kunnen worden beheerd. U wordt gefactureerd voor elke lezen replica voor de ingerichte Computing in vCores en ingerichte opslag in GB/maand. 
+Replica's die zijn gemaakt in de Azure Database for MySQL-service zijn nieuwe servers die op dezelfde manier als normale/zelfstandige MySQL-servers kunnen worden beheerd. Voor elke leesreplica worden kosten in rekening gebracht voor de ingerichte compute in vCores en ingerichte opslag in GB/maand. 
 
 
 Raadpleeg voor meer informatie over functies voor MySQL-replicatie en problemen met de [MySQL replicatie documentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
@@ -86,6 +86,7 @@ Gebruikers op de hoofd-server worden gerepliceerd naar de lezen-replica's. U kun
 - Het maken van een replica van een replica wordt niet ondersteund.
 - Tabellen in het geheugen kunnen ertoe leiden dat de replica's worden niet gesynchroniseerd. Dit is een beperking van de MySQL-Replicatietechnologie. Meer informatie in de [MySQL-referentiedocumentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) voor meer informatie.
 - Afstemmen van de [ `innodb_file_per_table` ](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parameter op een hoofdserver na het maken van een replica-server ertoe leiden de replica dat kan wordt gesynchroniseerd. De replica-server is niet op de hoogte van de verschillende tabelruimten.
+- Zorg ervoor dat de hoofd-server-tabellen primaire sleutels hebben. Gebrek aan primaire sleutels kan leiden tot replicatielatentie tussen de hoofd- en replica's.
 - Bekijk de volledige lijst met MySQL replicatiebeperkingen in de [MySQL-documentatie](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 

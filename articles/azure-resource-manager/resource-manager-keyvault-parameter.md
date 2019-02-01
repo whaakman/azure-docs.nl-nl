@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6e9ad6f74970b6c72b96ae142f02bee6b07fb558
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd45384bfd548cb73c10306dfee942cbcf7c8ca1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455470"
+ms.locfileid: "55491906"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault gebruiken voor veilige parameterwaarde doorgeven tijdens implementatie
 
 In plaats van hiervoor een beveiligde waarde (zoals een wachtwoord) rechtstreeks in uw parameterbestand, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md) tijdens een implementatie. Haalt u de waarde door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde is nooit beschikbaar gemaakt, omdat u alleen verwijzen naar de sleutelkluis-ID. De key vault kan bestaan in een ander abonnement dan de resourcegroep die u implementeert.
 
-Zie voor een zelfstudie doorloopt, [zelfstudie: Azure Key Vault integreren in de Resource Manager-sjabloonimplementatie](./resource-manager-tutorial-use-key-vault.md#prepare-a-key-vault) voor meer informatie.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deploy-key-vaults-and-secrets"></a>Sleutelkluizen en-geheimen
+## <a name="deploy-key-vaults-and-secrets"></a>Sleutelkluizen en geheimen implementeren
 
 Het maken van Sleutelkluizen en geheimen toevoegen, Zie:
 

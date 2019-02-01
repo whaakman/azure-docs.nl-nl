@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099897"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507813"
 ---
 # <a name="time-series-model"></a>Time Series-model
 
@@ -152,9 +152,11 @@ In het voorgaande voorbeeld ID1 en ID4 weergegeven als onderdeel van een hiërar
 
 -Exemplaren zijn de tijdreeksen zelf. In de meeste gevallen de *deviceId* of *assetId* is de unieke id van de activa in de omgeving. -Exemplaren beschikken over beschrijvende informatie die is gekoppeld aan deze instantie-eigenschappen aangeroepen. Ten minste bevatten exemplaareigenschappen informatie van de hiërarchie. Ze kunnen ook nuttige, beschrijvende gegevens, zoals de fabrikant, operator of de laatste servicedatum bevatten.
 
-Exemplaren worden gedefinieerd door *timeSeriesId*, *typeId*, *hierarchyId*, en *instanceFields*. Elke instantie wordt toegewezen aan slechts één *type*, en een of meer hiërarchieën. Exemplaren nemen alle eigenschappen van hiërarchieën, en aanvullende *instanceFields* kan worden toegevoegd voor verdere definitie van exemplaar-eigenschap.
+Exemplaren worden gedefinieerd door *typeId*, *timeSeriesId*, *naam*, *beschrijving*, *hierarchyIds* , en *instanceFields*. Elke instantie wordt toegewezen aan slechts één *type*, en een of meer hiërarchieën. Exemplaren nemen alle eigenschappen van hiërarchieën, en aanvullende *instanceFields* kan worden toegevoegd voor verdere definitie van exemplaar-eigenschap.
 
 *instanceFields* zijn eigenschappen van een exemplaar en alle statische gegevens waarmee een exemplaar. Deze definiëren waarden van eigenschappen of niet-hiërarchie terwijl het tevens ondersteunt indexeren om uit te voeren van zoekbewerkingen.
+
+De *naam* eigenschap is optioneel en is hoofdlettergevoelig. Als *naam* is niet beschikbaar is, wordt standaard de Time Series-ID. Als een *naam* is opgegeven, wordt de Time Series-ID wordt nog steeds beschikbaar zijn in de bron (het raster onder de grafieken in de Verkenner). 
 
 ## <a name="time-series-model-instance-json-example"></a>Voorbeeld van Time Series-Model exemplaar JSON
 
@@ -164,6 +166,7 @@ Voorbeeld:
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

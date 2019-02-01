@@ -1,6 +1,6 @@
 ---
 title: Query op de Azure IoT Hub-berichtroutering | Microsoft Docs
-description: Handleiding voor ontwikkelaars - Query synxtax voor Azure IoT hub-berichtroutering.
+description: Handleiding voor ontwikkelaars - Query-syntaxis voor het routeren van berichten op Azure IoT Hub.
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: da95bd3832ee647c371c7beabb55b974dcb97740
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018533"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496564"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-berichtroutering query-syntaxis
 
@@ -25,7 +25,7 @@ Berichtroutering, kunt u een query uitvoeren op de eigenschappen van berichten e
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Bericht routering query op basis van eigenschappen van berichten 
 
-De IoT-Hub definieert een [algemene indeling](iot-hub-devguide-messages-construct.md) voor alle apparaat-naar-cloud-berichten voor interoperatbility alle protocollen. IoT Hub-bericht wordt ervan uitgegaan dat de volgende JSON-weergave van het bericht. Eigenschappen voor alle gebruikers worden toegevoegd en inhoud van het bericht te identificeren. Gebruikers kunnen eigenschappen van toepassingen selectief toevoegen aan het bericht. Het is raadzaam om met behulp van de namen van de unieke eigenschappen zoals IoT Hub apparaat-naar-cloud-berichten niet hoofdlettergevoelig is. Bijvoorbeeld, als u meerdere eigenschappen met dezelfde naam hebben, verzendt IoT-Hub alleen een van de eigenschappen.  
+De IoT-Hub definieert een [algemene indeling](iot-hub-devguide-messages-construct.md) voor alle apparaat-naar-cloud-berichten de interoperabiliteit voor alle protocollen. IoT Hub-bericht wordt ervan uitgegaan dat de volgende JSON-weergave van het bericht. Eigenschappen voor alle gebruikers worden toegevoegd en inhoud van het bericht te identificeren. Gebruikers kunnen eigenschappen van toepassingen selectief toevoegen aan het bericht. Het is raadzaam om met behulp van de namen van de unieke eigenschappen zoals IoT Hub apparaat-naar-cloud-berichten niet hoofdlettergevoelig is. Bijvoorbeeld, als u meerdere eigenschappen met dezelfde naam hebben, verzendt IoT-Hub alleen een van de eigenschappen.  
 
 ```json
 { 
@@ -51,12 +51,12 @@ De IoT-Hub definieert een [algemene indeling](iot-hub-devguide-messages-construc
 
 Systeemeigenschappen te identificeren van de inhoud en de bron van de berichten. 
 
-| Eigenschap | Type | Beschrijving |
+| Eigenschap | Type | Description |
 | -------- | ---- | ----------- |
-| contentType | tekenreeks | De gebruiker geeft het type inhoud van het bericht. Als u wilt toestaan dat query op de berichttekst, moet deze waarde application/JSON worden ingesteld. |
-| contentEncoding | tekenreeks | De gebruiker Hiermee geeft u het coderingstype van het bericht. Toegestane waarden zijn UTF-8, UTF-16, UTF-32 als de contentType is ingesteld op application/JSON. |
-| ConnectionDeviceId | tekenreeks | Deze waarde is ingesteld door de IoT Hub en geeft de bron van de berichten. Dit wordt mogelijk telemetrieberichten van apparaten, device twin wijzigingsmeldingen of levenscyclusgebeurtenissen voor het apparaat. Dit kan niet worden opgevraagd. |
-| iothub-enqueuedtime | tekenreeks | Deze waarde is ingesteld door de IoT Hub en de werkelijke tijd van het bericht in UTC enqueuing vertegenwoordigt. Gebruiken om te vragen, `enqueuedTime`. |
+| contentType | string | De gebruiker geeft het type inhoud van het bericht. Als u wilt toestaan dat query op de berichttekst, moet deze waarde application/JSON worden ingesteld. |
+| contentEncoding | string | De gebruiker Hiermee geeft u het coderingstype van het bericht. Toegestane waarden zijn UTF-8, UTF-16, UTF-32 als de contentType is ingesteld op application/JSON. |
+| connectionDeviceId | string | Deze waarde is ingesteld door de IoT Hub en geeft de bron van de berichten. Dit wordt mogelijk telemetrieberichten van apparaten, device twin wijzigingsmeldingen of levenscyclusgebeurtenissen voor het apparaat. Dit kan niet worden opgevraagd. |
+| iothub-enqueuedtime | string | Deze waarde is ingesteld door de IoT Hub en de werkelijke tijd van het bericht in UTC enqueuing vertegenwoordigt. Gebruiken om te vragen, `enqueuedTime`. |
 
 Zoals beschreven in de [IoT Hub-berichten](iot-hub-devguide-messages-construct.md), er zijn aanvullende eigenschappen in een bericht. Naast **contentType**, **contentEncoding**, en **enqueuedTime**, wordt de **connectionDeviceId** en  **connectionModuleId** kunnen ook worden opgevraagd.
 

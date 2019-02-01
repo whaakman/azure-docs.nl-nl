@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094101"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508705"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Ontwikkelen van een C# IoT Edge-module voor het verplaatsen van bestanden op gegevens in Edge (Preview)
 
@@ -266,6 +266,13 @@ In de vorige sectie hebt u een oplossing die het IoT Edge en code toegevoegd aan
     ![Bouw en push IoT Edge-oplossing](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Wanneer u Visual Studio-Code voor het maken van uw oplossing zien, twee opdrachten worden uitgevoerd in de geïntegreerde terminal: docker-build- en docker push. Met deze twee opdrachten wordt uw code gebouwd, wordt de CSharpModule.dll in een container opgeslagen en wordt de code vervolgens naar het containerregister gepusht dat u hebt opgegeven toen u de oplossing initialiseerde.
+
+    U wordt gevraagd om te kiezen het module-platform. Selecteer *amd64* overeenkomt met Linux.
+
+    ![Platform selecteren](./media/data-box-edge-create-iot-edge-module/select-platform.png)
+
+    > [!IMPORTANT] 
+    > Alleen de Linux-modules worden ondersteund.
 
     U ziet mogelijk de volgende waarschuwing die u kunt negeren:
 

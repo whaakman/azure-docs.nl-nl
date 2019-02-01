@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cd8bb2bf83d71fb874b3912e98bf3790acc9d915
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812587"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493657"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -61,7 +61,7 @@ Krijg antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure
 
 **V:** Kan ik een uitvoeringsvolgorde toepassen wanneer ik meerdere extensies in een schaalset gebruik?
 
-**A:** Niet direct, maar bij de customScript-extensie kunt u uw script laten wachten op de voltooiing van een andere extensie. Meer informatie over de uitvoeringsvolgorde van extensies vindt u in het blogbericht: [Extensievolgorde bij virtuele-machineschaalsets in Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**A:** Ja, u kunt gebruiken met schaalset [extensievolgorde](virtual-machine-scale-sets-extension-sequencing.md).
 
 **V:** Maken schaalsets gebruik van beschikbaarheidssets van Azure?
 
@@ -230,6 +230,7 @@ Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opma
             }
         ]
     }
+}
 ```
 
 de naam van de linuxConfiguration-element | Vereist | Type | Description
@@ -392,13 +393,13 @@ Er zijn twee manieren voor het wijzigen van het wachtwoord voor virtuele machine
 - Het wachtwoord met behulp van de VM-extensies voor toegang opnieuw instellen.
 
     Gebruik het volgende PowerShell-voorbeeld:
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -630,7 +631,9 @@ Hebt u enige flexibiliteit in hoe u waarschuwingen voor de opgegeven drempelwaar
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 In dit voorbeeld wordt een waarschuwing wordt gerouteerd naar Pagerduty.com wanneer een drempelwaarde is bereikt.

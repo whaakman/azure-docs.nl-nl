@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ea3f0bccfe18f026926f6fabe37d6976ba6269a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b95fa5b5336db62bdf64ebd0dc254160d1a9282d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490597"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Upgrade van Windows Azure Active Directory Sync en Azure Active Directory Sync
 Azure AD Connect is de beste manier om verbinding te maken met uw on-premises directory met Azure AD en Office 365. Dit is een goed moment om te upgraden naar Azure AD Connect van Windows Azure Active Directory Sync (DirSync) of Azure AD Sync omdat deze hulpprogramma's zijn afgeschaft en vanaf 13 April 2017 niet langer worden ondersteund.

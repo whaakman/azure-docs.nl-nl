@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: dde618de12bf23e754d2516f3b8ef27b3df5bc4e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381653"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495680"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -387,7 +387,7 @@ Als uw agent-installatie van afhankelijkheid is voltooid, maar u kunt uw server 
 
 * Is uw server verzenden logboek- en prestatiegegevens naar Log Analytics? Ga naar zoeken in Logboeken en voer de volgende query uit voor uw computer: 
 
-    Gebruik | waarbij Computer == "admdemo-appsvr" | sum(Quantity), any(QuantityUnit) door DataType samenvatten
+    Gebruik | waarbij Computer == "computernaam" | sum(Quantity), any(QuantityUnit) door DataType samenvatten
 
 Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt uw Log Analytics-Agent naar behoren werkt en communiceren met Log Analytics. Als dat niet het geval is, controleert u de agent op uw server: [Log Analytics-agent voor het oplossen van Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) of [Log Analytics-agent voor het oplossen van Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 

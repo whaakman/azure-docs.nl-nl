@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7951044f850d93659ca458d3bcc46376e7e6b34a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2720d239c31a0cbfab215c7e297627c9f0d8c781
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077352"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510235"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -171,6 +171,8 @@ Eenmaal juist opgemaakt als een CSV-bestand, een beheerder kan vervolgens aanmel
 Afhankelijk van de grootte van het CSV-bestand duurt het enkele minuten om te verwerken. Klik op de **vernieuwen** knop om op te halen van de huidige status. Als er fouten in het bestand zijn, hebt u de optie voor het downloaden van een CSV-bestand met alle fouten voor u om op te lossen.
 
 Wanneer er fouten zijn opgelost, de beheerder vervolgens kan activeren elke sleutel door te klikken op **activeren** voor het token wordt geactiveerd en de invoeren door de OTP op het token wordt weergegeven.
+
+Gebruikers hebben mogelijk een combinatie van maximaal 5 OATH-tokens voor hardware- of verificator-toepassingen, zoals de Microsoft Authenticator-app is geconfigureerd voor gebruik op elk gewenst moment.
 
 ## <a name="mobile-phone"></a>Mobiele telefoon
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200901"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510116"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van RADIUS-verificatie configureren: PowerShell
 
@@ -74,7 +74,7 @@ U kunt de volgende voorbeeldwaarden gebruiken om een testomgeving te maken of ze
 * **Adresruimte: 192.168.0.0/16** en **10.254.0.0/16**<br>Voor dit voorbeeld gebruiken we meer dan één adresruimte om te verduidelijken dat deze configuratie met meerdere adresruimten werkt. Meerdere adresruimten zijn echter niet vereist voor deze configuratie.
 * **Subnetnaam: FrontEnd**
   * **Subnetadresbereik: 192.168.1.0/24**
-* **Subnetnaam: Back-end**
+* **Subnetnaam: BackEnd**
   * **Subnetadresbereik: 10.254.1.0/24**
 * **Subnetnaam: GatewaySubnet**<br>De naam van het subnet *GatewaySubnet* is verplicht voor een goede werking van de VPN-gateway.
   * **Adresbereik GatewaySubnet: 192.168.200.0/24** 
@@ -85,7 +85,7 @@ U kunt de volgende voorbeeldwaarden gebruiken om een testomgeving te maken of ze
 * **DNS-Server: IP-adres** van de DNS-server die u wilt gebruiken voor naamomzetting voor uw VNet. (optioneel)
 * **Naam van GW: Vnet1GW**
 * **Openbare IP-naam: VNet1GWPIP**
-* **VpnType: Op route gebaseerd** 
+* **VpnType: RouteBased** 
 
 ## 1. <a name="vnet"></a>Maken van de resourcegroep, VNet en openbare IP-adres
 

@@ -1,29 +1,29 @@
 ---
-title: Replicatie van gegevens in Azure Storage | Microsoft Docs
-description: Gegevens in uw Microsoft Azure Storage-account wordt gerepliceerd voor duurzaamheid en hoge beschikbaarheid. Replicatieopties zijn onder andere lokaal redundante opslag (LRS), zone-redundante opslag (ZRS), geografisch redundante opslag (GRS) en geo-redundante opslag met leestoegang (RA-GRS).
+title: Redundantie van de gegevens in Azure Storage | Microsoft Docs
+description: Gegevens in uw Microsoft Azure Storage-account wordt gerepliceerd voor duurzaamheid en hoge beschikbaarheid. Opties voor gegevensredundantie zijn lokaal redundante opslag (LRS), zone-redundante opslag (ZRS), geografisch redundante opslag (GRS) en geo-redundante opslag met leestoegang (RA-GRS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455504"
+ms.locfileid: "55506784"
 ---
-# <a name="azure-storage-replication"></a>Azure Storage-replicatie
+# <a name="azure-storage-redundancy"></a>Azure Storage-redundantie
 
-De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en hoge beschikbaarheid te garanderen. Azure Storage-replicatie kopieert uw gegevens zodat deze wordt beschermd tegen geplande en ongeplande gebeurtenissen, variërend van tijdelijke hardwarefouten, netwerk of stroomstoringen en enorme natuurrampen. U kunt uw gegevens binnen hetzelfde datacenter te repliceren tussen zonegebonden datacenters binnen dezelfde regio, en zelfs regio's.
+De gegevens in uw Microsoft Azure Storage-account worden altijd gerepliceerd om duurzaamheid en hoge beschikbaarheid te garanderen. Azure Storage worden gekopieerd van uw gegevens zodat deze wordt beschermd tegen geplande en ongeplande gebeurtenissen, met inbegrip van tijdelijke hardwarefouten, het netwerk of stroomstoringen en enorme natuurrampen. U kunt uw gegevens binnen hetzelfde Datacenter repliceren in zonegebonden datacenters binnen dezelfde regio bevinden of geografisch gescheiden regio's.
 
 Replicatie zorgt ervoor dat uw opslagaccount voldoet aan de [Service-Level Agreement (SLA) voor opslag](https://azure.microsoft.com/support/legal/sla/storage/), zelfs wanneer er fouten optreden. Raadpleeg de SLA voor informatie over de garanties van Azure Storage voor duurzaamheid en beschikbaarheid.
 
-## <a name="choosing-a-replication-option"></a>Een optie voor opslagreplicatie kiezen
+## <a name="choosing-a-redundancy-option"></a>Een optie voor redundantie te kiezen
 
-Wanneer u een opslagaccount maakt, kunt u een van de volgende replicatieopties selecteren:
+Wanneer u een opslagaccount maakt, kunt u een van de volgende opties voor redundantie selecteren:
 
 * [Lokaal redundante opslag (LRS)](storage-redundancy-lrs.md)
 * [Zone-redundante opslag (ZRS)](storage-redundancy-zrs.md)

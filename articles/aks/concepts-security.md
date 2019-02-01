@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7f031bf6fed57857f38d989fb72f99dd93f04de5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380974"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489220"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Beveiligingsconcepten voor toepassingen en -clusters in Azure Kubernetes Service (AKS)
 
@@ -24,11 +24,11 @@ In dit artikel worden de belangrijkste concepten die beveiligen van uw toepassin
 - [Beveiliging van knooppunt](#node-security)
 - [Upgraden van clusters](#cluster-upgrades)
 - [Netwerkbeveiliging](#network-security)
-- [Kubernetes-geheimen](#secrets)
+- [Kubernetes Secrets](#secrets)
 
 ## <a name="master-security"></a>Beveiliging van master
 
-In AKS uitmaken de Kubernetes-hoofdcomponenten deel van de beheerde mijn Microsoft-service. Elk AKS-cluster is hun eigen Kubernetes één tenants, speciaal model voor de API-Server, Scheduler, enzovoort. Dit model wordt beheerd en onderhouden door Microsoft
+In AKS uitmaken de Kubernetes-hoofdcomponenten deel van de beheerde service die is geleverd door Microsoft. Elk AKS-cluster is hun eigen Kubernetes één tenants, speciaal model voor de API-Server, Scheduler, enzovoort. Dit model wordt beheerd en onderhouden door Microsoft
 
 Standaard is de Kubernetes API-server maakt gebruik van een openbaar IP-adres, en met FQDN-naam (Fully Qualified Domain Name). U kunt toegang tot de API-server met behulp van Kubernetes op rollen gebaseerd toegangsbeheer en Azure Active Directory beheren. Zie voor meer informatie, [Azure AD-integratie met AKS][aks-aad].
 
@@ -41,6 +41,8 @@ OS-beveiligingspatches het Azure-platform automatisch toegepast op de knooppunte
 Knooppunten worden geïmplementeerd in een subnet privé virtueel netwerk met geen openbare IP-adressen die zijn toegewezen. SSH is standaard ingeschakeld voor probleemoplossing en management-toepassing. Deze SSH-toegang is alleen beschikbaar via het interne IP-adres. Regels voor netwerkbeveiligingsgroepen Azure-netwerk kunnen worden gebruikt voor het verder beperken van toegang tot het bereik van IP-aan de AKS-knooppunten. De standaard SSH netwerkbeveiligingsgroepregel verwijderen en uitschakelen van de SSH-service op de knooppunten wordt voorkomen dat het Azure-platform van het uitvoeren van onderhoudstaken.
 
 De knooppunten gebruiken voor opslag, Azure Managed Disks. Dit zijn Premium-schijven ondersteund door hoogwaardige SSD's voor de meeste VM-grootten in knooppunt. De gegevens die zijn opgeslagen op beheerde schijven worden automatisch versleuteld in rust in het Azure-platform. Voor een betere redundantie, worden deze schijven ook veilig gerepliceerd binnen de Azure-datacenter.
+
+Kubernetes-omgevingen in AKS of ergens anders, die momenteel zijn niet volledig veilig voor onveilig multitenant gebruik. Aanvullende beveiligingsfuncties zoals *Pod beveiligingsbeleid* of meer fijnmazig op rollen gebaseerd toegangsbeheer (RBAC) voor knooppunten moeilijker aanvallen. Voor de waarde true beveiliging bij het uitvoeren van workloads voor onveilig multitenant, is een hypervisor echter de enige niveau van beveiliging die u moet vertrouwen. Het beveiligingsdomein voor Kubernetes wordt het hele cluster, niet een afzonderlijke knooppunten. Voor deze typen werkbelastingen voor onveilig multitenant, moet u fysiek geïsoleerd clusters. Zie voor meer informatie over manieren om workloads te isoleren [aanbevolen procedures voor het isoleren van de cluster in AKS][cluster-isolation],
 
 ## <a name="cluster-upgrades"></a>Upgraden van clusters
 
@@ -65,7 +67,7 @@ Voor de connectiviteit en beveiliging met on-premises netwerken, kunt u uw AKS-c
 
 Als u wilt de stroom van verkeer in virtuele netwerken filteren, gebruikt Azure de regels voor netwerkbeveiligingsgroepen. Deze regels definiëren de bron en doel-IP-adresbereiken, poorten en protocollen die worden toegestaan of geweigerd toegang tot bronnen. Standaardregels worden voor TLS-verkeer naar de Kubernetes API-server en waarbij voor SSH-toegang tot de knooppunten gemaakt. Als u services met load balancers, poorttoewijzingen of routes voor inkomend verkeer maken, Hiermee wijzigt u AKS automatisch de netwerkbeveiligingsgroep voor verkeer voor flow op de juiste wijze.
 
-## <a name="kubernetes-secrets"></a>Kubernetes-geheimen
+## <a name="kubernetes-secrets"></a>Kubernetes Secrets
 
 Een Kubernetes *geheim* wordt gebruikt voor het invoeren van gevoelige gegevens in schillen, zoals toegang tot referenties of sleutels. U maakt eerst een geheim met behulp van de Kubernetes-API. Wanneer u uw schil of de implementatie definieert, kan een specifiek geheim worden aangevraagd. Geheimen zijn alleen bedoeld als knooppunten met een geplande schil dat vereist is en het geheim is opgeslagen in *tmpfs*niet geschreven naar schijf. Wanneer de laatste schil op een knooppunt dat is vereist een geheim is verwijderd, wordt het geheim uit van het knooppunt tmpfs verwijderd. Geheimen worden opgeslagen in een bepaalde naamruimte en kunnen alleen worden geopend door schillen in de dezelfde naamruimte.
 
@@ -96,3 +98,4 @@ Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

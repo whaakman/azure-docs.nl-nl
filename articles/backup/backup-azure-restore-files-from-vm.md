@@ -8,13 +8,13 @@ keywords: herstel op itemniveau; herstel van bestanden uit back-up van virtuele 
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
-ms.author: pullabhk
-ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: pvrk
+ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638304"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488489"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -214,10 +214,10 @@ Als u problemen hebt bij het herstellen van bestanden van de virtuele machines, 
 
 | Foutbericht / Scenario | Mogelijke oorzaak | Aanbevolen actie |
 | ------------------------ | -------------- | ------------------ |
-| Exe-uitvoer: *uitzondering verbinding te maken met het doel* |Script is geen toegang krijgen tot het herstelpunt    | Controleer of de computer voldoet aan de vorige toegangsvereisten. |  
-| Exe-uitvoer: *het doel al is geregistreerd in via een iSCSI-sessie.* | Het script is al uitgevoerd op dezelfde computer en de stations zijn gekoppeld | De volumes van het herstelpunt dat zijn al gekoppeld. Ze kunnen niet worden gekoppeld met de dezelfde stationsletters van de oorspronkelijke virtuele machine. Blader door de beschikbare volumes in de Verkenner voor het bestand |
-| Exe-uitvoer: *met dit script is ongeldig omdat de schijven zijn ontkoppeld via de limiet voor de 12 uur per portal/overschreden. Een nieuw script downloaden via de portal.* |    De schijven zijn ontkoppeld van de portal of de 12 uur overschreden | Deze specifieke exe is nu ongeldig en kan niet worden uitgevoerd. Als u wilt toegang tot de bestanden van die recovery point-in-time, gaat u naar de portal voor een nieuwe exe-bestand|
-| Op de machine waarop het exe-bestand wordt uitgevoerd: de nieuwe volumes zijn niet ontkoppeld nadat de dismount-knop wordt geklikt | De iSCSI-initiator op de machine is niet reageert/vernieuwen van de verbinding met het doel en onderhouden van de cache. |  Nadat u hebt geklikt **ontkoppelen**, wacht een paar minuten. Als de nieuwe volumes zijn niet ontkoppeld, blader door alle volumes. Bladeren door alle volumes zorgt ervoor dat de initiator te vernieuwen van de verbinding en het volume met een foutbericht weergegeven dat de schijf is niet beschikbaar is ontkoppeld.|
+| Exe-uitvoer: *Verbinding maken met de doel-uitzondering* |Script is geen toegang krijgen tot het herstelpunt    | Controleer of de computer voldoet aan de vorige toegangsvereisten. |  
+| Exe-uitvoer: *Het doel is al geregistreerd in via een iSCSI-sessie.* | Het script is al uitgevoerd op dezelfde computer en de stations zijn gekoppeld | De volumes van het herstelpunt dat zijn al gekoppeld. Ze kunnen niet worden gekoppeld met de dezelfde stationsletters van de oorspronkelijke virtuele machine. Blader door de beschikbare volumes in de Verkenner voor het bestand |
+| Exe-uitvoer: *Met dit script is ongeldig omdat de schijven zijn ontkoppeld via de limiet voor de 12 uur per portal/overschreden. Een nieuw script downloaden via de portal.* |    De schijven zijn ontkoppeld van de portal of de 12 uur overschreden | Deze specifieke exe is nu ongeldig en kan niet worden uitgevoerd. Als u wilt toegang tot de bestanden van die recovery point-in-time, gaat u naar de portal voor een nieuwe exe-bestand|
+| Op de machine waarop het exe-bestand wordt uitgevoerd: De nieuwe volumes zijn niet ontkoppeld nadat de dismount-knop wordt geklikt | De iSCSI-initiator op de machine is niet reageert/vernieuwen van de verbinding met het doel en onderhouden van de cache. |  Nadat u hebt geklikt **ontkoppelen**, wacht een paar minuten. Als de nieuwe volumes zijn niet ontkoppeld, blader door alle volumes. Bladeren door alle volumes zorgt ervoor dat de initiator te vernieuwen van de verbinding en het volume met een foutbericht weergegeven dat de schijf is niet beschikbaar is ontkoppeld.|
 | Exe-uitvoer: Script met succes is uitgevoerd, maar 'Nieuwe volumes die zijn gekoppeld' wordt niet weergegeven op de uitvoer van het script |    Dit is een tijdelijke fout    | De volumes zou zijn al gekoppeld. Open Verkenner om te bladeren. Als u dezelfde computer gebruikt voor het uitvoeren van scripts telkens, houd rekening met de machine opnieuw opstarten en de lijst moet worden weergegeven in de volgende exe wordt uitgevoerd. |
-| Linux-specifieke: kan niet de gewenste volumes bekijken | Het onderliggende bestandssysteem van de beveiligde virtuele machine mogelijk niet herkend door het besturingssysteem van de machine waarop het script wordt uitgevoerd | Controleer of het herstelpunt dat crash-consistente of bestandsconsistente is. Als het bestand consistent is, het script uitvoert op een andere computer met OS herkend bestandssysteem van de beveiligde virtuele machine |
-| Windows-specifieke: kan niet de gewenste volumes bekijken | De schijven zijn gekoppeld, maar de volumes zijn niet geconfigureerd | Identificeer de extra schijven met betrekking tot het herstelpunt dat van het scherm voor het beheren van schijf. Als een van deze schijven offline status kunt u deze online maken met de rechtermuisknop op de schijf en klikt u op 'Online'|
+| Linux-specifieke: Kan niet de gewenste volumes bekijken | Het onderliggende bestandssysteem van de beveiligde virtuele machine mogelijk niet herkend door het besturingssysteem van de machine waarop het script wordt uitgevoerd | Controleer of het herstelpunt dat crash-consistente of bestandsconsistente is. Als het bestand consistent is, het script uitvoert op een andere computer met OS herkend bestandssysteem van de beveiligde virtuele machine |
+| Specifieke Windows: Kan niet de gewenste volumes bekijken | De schijven zijn gekoppeld, maar de volumes zijn niet geconfigureerd | Identificeer de extra schijven met betrekking tot het herstelpunt dat van het scherm voor het beheren van schijf. Als een van deze schijven offline status kunt u deze online maken met de rechtermuisknop op de schijf en klikt u op 'Online'|

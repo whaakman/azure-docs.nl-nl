@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 37ee9fec8940231a01b0014b020ca3f0dffb53bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5be6f99067f1209fcd131dfc33c46995b2a537f8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467098"
+ms.locfileid: "55498298"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -23,7 +23,7 @@ Deze handleiding bevat informatie over veelvoorkomende problemen die mogelijk he
 
 ## <a name="enabling-detailed-logging"></a>Gedetailleerde logboekregistratie inschakelen
 
-Om te kunnen oplossen van problemen effectiever, mogelijk kunt u meer gedetailleerde logboeken voor controle maken.
+Voor het oplossen van problemen effectiever, mogelijk kunt u meer gedetailleerde logboeken voor controle maken.
 
 Voor de extensie voor Visual Studio, stelt u de `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` omgevingsvariabele op 1. Zorg ervoor dat opnieuw opstarten van Visual Studio voor de omgeving in te voeren. Eenmaal is ingeschakeld, gedetailleerde logboeken worden geschreven naar uw `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
@@ -31,11 +31,11 @@ In de CLI, kunt u meer informatie tijdens de uitvoering van de opdracht uitvoere
 
 ## <a name="debugging-services-with-multiple-instances"></a>Foutopsporing van services met meerdere exemplaren
 
-Op dit moment werkt Azure Dev spaties het beste bij het opsporen van fouten in een enkele instantie (schil). Het bestand azds.yaml bevat een replicaCount, die aangeeft van het aantal schillen die wordt uitgevoerd voor uw service-instelling. Als u de replicaCount voor het configureren van uw app voor het uitvoeren van meerdere schillen zijn voor een bepaalde service wijzigt, wordt het foutopsporingsprogramma koppelen aan de eerste schil (wanneer alfabetisch). Als deze pod wordt gerecycled voor een bepaalde reden, het foutopsporingsprogramma zal worden gekoppeld aan een andere schil, wat mogelijk resulteert in onverwacht gedrag.
+Op dit moment werkt Azure Dev spaties aanbevolen bij het opsporen van fouten in één exemplaar of schil. Het bestand azds.yaml bevat een instelling *replicaCount*, die aangeeft dat het aantal schillen die Kubernetes voor uw service wordt uitgevoerd. Als u de replicaCount voor het configureren van uw app voor het uitvoeren van meerdere schillen zijn voor een bepaalde service wijzigt, wordt het foutopsporingsprogramma gekoppeld aan de eerste schil wanneer op alfabetische volgorde weergegeven. Het foutopsporingsprogramma koppelt aan een andere schil wanneer de oorspronkelijke schil wordt gerecycled, wat mogelijk resulteert in onverwacht gedrag.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Fout 'Failed to Azure Dev spaties controller maken'
 
-U kunt deze fout tegenkomen wanneer er iets met het maken van de controller misgaat. Als het een tijdelijke fout, wordt verwijderen en opnieuw maken van de controller eraan.
+U kunt deze fout tegenkomen wanneer er iets met het maken van de controller misgaat. Als het een tijdelijke fout, verwijderen en opnieuw maken van de controller om dit te corrigeren.
 
 ### <a name="try"></a>Probeer:
 
@@ -76,10 +76,10 @@ In Visual Studio:
     ![Schermafbeelding van de opties in menu Extra](media/common/VerbositySetting.PNG)
     
 ### <a name="multi-stage-dockerfiles"></a>Meerdere fasen docker-bestanden:
-Mogelijk ziet u deze fout bij het gebruik van een docker-bestand meerdere fasen. De uitgebreide uitvoer ziet er als volgt:
+U ontvangt een *Service kan niet worden gestart* fout bij het gebruik van een docker-bestand meerdere fasen. In dit geval bevat de uitgebreide uitvoer de volgende tekst:
 
 ```cmd
-$ azds up
+$ azds up -v
 Using dev space 'default' with target 'AksClusterName'
 Synchronizing files...6s
 Installing Helm chart...2s
@@ -91,10 +91,10 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-Dit komt doordat bouwt AKS-knooppunten een oudere versie van Docker die geen ondersteuning biedt voor meerdere fasen worden uitgevoerd. U moet uw docker-bestand om te voorkomen dat meerdere fasen builds herschrijven.
+Deze fout treedt op omdat het uitvoeren van een oudere versie van Docker die geen ondersteuning biedt voor meerdere fasen AKS-knooppunten is gebaseerd. Om te voorkomen dat meerdere fasen builds, herschrijven uw docker-bestand.
 
-### <a name="re-running-a-service-after-controller-re-creation"></a>Opnieuw uitvoeren van een service na het opnieuw maken van een domeincontroller
-Mogelijk ziet u deze fout bij het opnieuw uitvoeren van een service nadat u hebt verwijderd en vervolgens opnieuw gemaakt op de Azure Dev spaties-controller die zijn gekoppeld aan dit cluster. De uitgebreide uitvoer ziet er als volgt:
+### <a name="rerunning-a-service-after-controller-re-creation"></a>Opnieuw uitvoeren van een service na het opnieuw maken van een domeincontroller
+U ontvangt een *Service kan niet worden gestart* fout wanneer u probeert een-service opnieuw nadat u hebt verwijderd en vervolgens opnieuw gemaakt op de Azure Dev spaties-controller die zijn gekoppeld aan dit cluster uit te voeren. In dit geval bevat de uitgebreide uitvoer de volgende tekst:
 
 ```cmd
 Installing Helm chart...
@@ -104,13 +104,13 @@ Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" do
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
 ```
 
-Dit komt doordat de controller Dev spaties worden niet verwijderd services die eerder zijn geïnstalleerd door de controller. De controller opnieuw te maken en vervolgens probeert om uit te voeren van de services met behulp van de nieuwe domeincontroller is mislukt omdat de oude services nog steeds voldaan is.
+Deze fout treedt op omdat de controller Dev spaties worden niet verwijderd services die eerder zijn geïnstalleerd door de controller. De controller opnieuw te maken en vervolgens probeert om uit te voeren van de services met behulp van de nieuwe domeincontroller is mislukt omdat de oude services nog steeds voldaan is.
 
-Om dit op te lossen, gebruikt u de `kubectl delete` opdracht voor het handmatig verwijderen van de oude services van het cluster opnieuw en voer vervolgens Dev opslagruimten voor het installeren van de nieuwe services.
+Om dit probleem op te lossen, gebruikt u de `kubectl delete` opdracht voor het handmatig verwijderen van de oude services van het cluster en vervolgens Dev opslagruimten voor het installeren van de nieuwe services opnieuw uitvoeren.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-naamomzetting voor een openbare URL die is gekoppeld aan een Dev-Spaces-service is mislukt
 
-Wanneer DNS-naamomzetting is mislukt, ziet u mogelijk een 'Pagina kan niet worden weergegeven' of "deze site kan niet worden bereikt" fout in uw webbrowser wanneer er wordt geprobeerd verbinding maken met de openbare URL die is gekoppeld aan een service Dev spaties.
+U kunt een openbare URL-eindpunt configureren voor uw service door op te geven de `--public` overschakelen naar de `azds prep` opdracht of selecteren door de `Publicly Accessible` selectievakje in Visual Studio. De openbare DNS-naam wordt automatisch geregistreerd wanneer u uw service in Dev spaties uitvoeren. Als deze DNS-naam niet is geregistreerd, ziet u een *pagina kan niet worden weergegeven* of *Site kan niet worden bereikt* fout in uw webbrowser bij het verbinden met de openbare URL.
 
 ### <a name="try"></a>Probeer:
 
@@ -122,7 +122,7 @@ azds list-uris
 
 Als een URL in de *in behandeling* staat, betekent dit dat Dev spaties nog voor DNS-registratie te voltooien. Soms duurt een paar minuten voor de registratie te voltooien. Dev opslagruimten wordt ook geopend wanneer u een tunnel ' localhost ' voor elke service, die u gebruiken kunt tijdens het wachten op DNS-registratie.
 
-Als een URL in blijft de *in behandeling* status voor meer dan 5 minuten, kan dit wijzen op een probleem met de externe DNS-schil die het openbare eindpunt worden gemaakt en/of de schil nginx ingress-controller die krijgt van het openbare eindpunt. U kunt de volgende opdrachten gebruiken om te verwijderen van deze schillen. Ze zullen automatisch worden gemaakt.
+Als een URL blijft de *in behandeling* status voor meer dan 5 minuten, kan dit wijzen op een probleem met de externe DNS-schil die het openbare eindpunt worden gemaakt of de schil nginx ingress-controller die krijgt van het openbare eindpunt. U kunt de volgende opdrachten gebruiken om te verwijderen van deze schillen. AKS stelt automatisch de verwijderde schillen.
 
 ```cmd
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -166,10 +166,10 @@ U ziet deze fout als azds.exe is niet geïnstalleerd of niet juist geconfigureer
 ## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Waarschuwing 'docker-bestand kan niet worden gegenereerd vanwege een niet-ondersteunde taal '
 Azure Dev opslagruimten biedt systeemeigen ondersteuning voor C# en Node.js. Bij het uitvoeren van *azds prep* in een map met code die is geschreven in een van deze talen, Azure Dev opslagruimten maakt automatisch een docker-bestand dat de juiste voor u.
 
-U kunt nog steeds gebruik van Azure Dev spaties met code die in andere talen zijn geschreven, maar moet u de docker-bestand zelf maken vóór actief *azds van* voor de eerste keer.
+U kunt nog steeds gebruik van Azure Dev spaties met code die in andere talen zijn geschreven, maar moet u handmatig maken voordat u de docker-bestand *azds van* voor de eerste keer.
 
 ### <a name="try"></a>Probeer:
-Als uw toepassing is geschreven in een taal dat Azure Dev spaties geen systeemeigen ondersteuning biedt, moet u voor een juiste docker-bestand voor het bouwen van een containerinstallatiekopie uitvoeren van uw code. Docker biedt een [lijst met aanbevolen procedures voor het schrijven van docker-bestanden](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) , evenals een [Dockerfile-referentiemateriaal](https://docs.docker.com/engine/reference/builder/) die kunnen helpen bij het schrijven van een docker-bestand dat aansluit op uw behoeften.
+Als uw toepassing is geschreven in een taal dat Azure Dev spaties geen systeemeigen ondersteuning biedt, moet u voor een juiste docker-bestand voor het bouwen van een containerinstallatiekopie uitvoeren van uw code. Docker biedt een [lijst met aanbevolen procedures voor het schrijven van docker-bestanden](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) en een [Dockerfile-referentiemateriaal](https://docs.docker.com/engine/reference/builder/) die kunnen helpen bij het schrijven van een docker-bestand dat aansluit op uw behoeften.
 
 Wanneer u een juiste Dockerfile geïmplementeerd hebt, kunt u doorgaan met uitvoeren *azds van* voor het uitvoeren van uw toepassing in Azure Dev spaties.
 
@@ -183,7 +183,7 @@ De poort van de container is niet beschikbaar. Dit probleem kan optreden omdat:
 
 ### <a name="try"></a>Probeer:
 1. Als de container gebouwd wordt/geïmplementeerd, kunt u wacht 2-3 seconden en probeer het opnieuw openen van de service. 
-1. Controleer de poortconfiguratie. De opgegeven poortnummers moet **identieke** in de volgende elementen:
+1. Controleer de poortconfiguratie. De opgegeven poortnummers moet **identieke** in alle van de volgende elementen:
     * **Docker-bestand:** Opgegeven door de `EXPOSE` instructie.
     * **[Helm-diagram](https://docs.helm.sh):** Opgegeven door de `externalPort` en `internalPort` waarden voor een service (vaak zich in een `values.yml` bestand),
     * Eventuele poorten die worden geopend in de toepassingscode, bijvoorbeeld in Node.js: `var server = app.listen(80, function () {...}`
@@ -236,7 +236,7 @@ Update de `launch.json` bestand onder de `.vscode` submap van de projectmap. Wij
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Het type of de naam 'MijnBibliotheek' kan niet worden gevonden.
 
 ### <a name="reason"></a>Reden 
-De build-context is op het niveau van het project/service standaard, wordt niet dus een bibliotheek-project dat u gevonden.
+Worden dat de build-context op het niveau van het project/service standaard is daarom een bibliotheek-project dat u gebruikt kan niet gevonden.
 
 ### <a name="try"></a>Probeer:
 Wat er moet gebeuren:
@@ -247,7 +247,7 @@ Wat er moet gebeuren:
 U vindt een voorbeeld op https://github.com/sgreenmsft/buildcontextsample
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' Autorisatiefout
-U kunt de volgende fout tegenkomen wanneer u een Dev-adresruimte van Azure beheert en u werkt in een Azure-abonnement waarvoor u geen hebt eigenaar of bijdrager toegang.
+U moet *eigenaar* of *Inzender* toegang in uw Azure-abonnement voor het beheren van Azure Dev spaties. Mogelijk ziet u deze fout als u probeert te ontwikkelen spaties beheren en u geen hebt *eigenaar* of *Inzender* toegang tot het gekoppelde Azure-abonnement.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>Reden
@@ -260,6 +260,28 @@ Iemand met de eigenaar of bijdrager toegang tot het Azure-abonnement kan worden 
 az provider register --namespace Microsoft.DevSpaces
 ```
 
+## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Ontwikkel opslagruimten een time-out optreedt bij *wacht op build van container-installatiekopie...*  stap met virtuele AKS-knooppunten
+
+### <a name="reason"></a>Reden
+Dit treedt op wanneer u probeert te ontwikkelen opslagruimten gebruiken om uit te voeren van een service die is geconfigureerd om te worden uitgevoerd op een [AKS virtueel knooppunt](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Ontwikkel opslagruimten biedt momenteel geen ondersteuning het bouwen of het opsporen van fouten in services op virtuele-knooppunten.
+
+Als u `azds up` met de `--verbose` switch of uitgebreide logboekregistratie van inschakelen in Visual Studio ziet u aanvullende details:
+
+```cmd
+Installed chart in 2s
+Waiting for container image build...
+pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
+Streaming build container logs for service 'mywebapi' failed with: Timed out after 601.3037572 seconds trying to start build logs streaming operation. 10m 1s
+Container image build failed
+```
+
+U ziet dat de schil van de service is toegewezen aan *virtuele-knooppunt-aci-linux*, dit is een virtueel knooppunt.
+
+### <a name="try"></a>Probeer:
+Bijwerken van de Helm-diagram voor de service verwijdert *nodeSelector* en/of *tolerations* waarden waarmee de service uit te voeren op een virtuele-knooppunt. Deze waarden worden gewoonlijk gedefinieerd in de grafiek `values.yaml` bestand.
+
+U kunt nog steeds een AKS-cluster waarop de functie virtuele knooppunten is ingeschakeld, als de service die build/debug wilt via Dev opslagruimten wordt uitgevoerd op een VM-knooppunt. Dit is de standaardconfiguratie.
+
 ## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>' Fout: kan een schil gereed tiller niet vinden "bij het starten van Dev-opslagruimten
 
 ### <a name="reason"></a>Reden
@@ -271,20 +293,18 @@ Dit probleem wordt opgelost als de agentknooppunten in het cluster meestal opnie
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev spaties proxy kan leiden tot problemen met andere schillen uitgevoerd in een dev-ruimte
 
 ### <a name="reason"></a>Reden
-Wanneer u Dev spaties voor een naamruimte in uw AKS-cluster inschakelt, er een extra container met de naam _mindaro-proxy_ in elk van de pods die worden uitgevoerd binnen deze naamruimte is geïnstalleerd. Deze container onderschept aanroepen naar de services in de schil die integraal is voor Dev spaties team development mogelijkheden.
-
-Helaas kan dit leiden tot problemen met bepaalde services die in deze schillen uitgevoerd. Met name verstoort het schillen uitgevoerd van Azure Cache voor Redis, waardoor-verbindingsfouten en fouten in de master/detail-communicatie.
+Wanneer u Dev spaties voor een naamruimte in uw AKS-cluster inschakelt, er een extra container met de naam _mindaro-proxy_ in elk van de pods die worden uitgevoerd binnen deze naamruimte is geïnstalleerd. Deze container onderschept aanroepen naar de services in de schil die integraal is voor de Dev spaties team ontwikkelfunctionaliteit; echter kan dit leiden tot problemen met bepaalde services die in deze schillen uitgevoerd. Het is bekend dat leiden tot problemen met schillen uitgevoerd van Azure Cache voor Redis, waardoor-verbindingsfouten en fouten in de master/slave-communicatie.
 
 ### <a name="try"></a>Probeer:
-U kunt de betrokken pod(s) verplaatsen naar een naamruimte in het cluster dat wordt _niet_ Dev spaties bevatten die zijn ingeschakeld, terwijl u verdergaat met het uitvoeren van de rest van uw toepassing binnen een naamruimte Dev spaties ingeschakeld. Dev opslagruimten wordt niet geïnstalleerd. de _mindaro-proxy_ container binnen Dev spaties ingeschakelde naamruimten.
+U kunt de betrokken schillen verplaatsen naar een naamruimte in het cluster dat wordt _niet_ Dev spaties bevatten die zijn ingeschakeld. De rest van uw toepassing kunt blijven uitvoeren binnen een naamruimte Dev spaties ingeschakeld. Dev opslagruimten wordt niet geïnstalleerd. de _mindaro-proxy_ container binnen Dev spaties ingeschakelde naamruimten.
 
-## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev spaties lijkt niet te gebruiken van mijn bestaande docker-bestand voor het bouwen van een container 
+## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev spaties lijkt niet te gebruiken van mijn bestaande docker-bestand voor het bouwen van een container
 
 ### <a name="reason"></a>Reden
-Azure Dev opslagruimten kunnen worden geconfigureerd om te verwijzen naar een specifieke _Dockerfile_ in uw project. Als deze wordt weergegeven met het Azure Dev opslagruimten wordt niet met behulp van de _Dockerfile_ u verwacht te maken van uw containers, moet u mogelijk u vertelt Azure Dev ruimten waar ze zich expliciet. 
+Azure Dev opslagruimten kunnen worden geconfigureerd om te verwijzen naar een specifieke _Dockerfile_ in uw project. Als deze wordt weergegeven met het Azure Dev opslagruimten wordt niet met behulp van de _Dockerfile_ u verwacht te maken van uw containers, moet u mogelijk expliciet Azure Dev spaties zien welke docker-bestand te gebruiken. 
 
 ### <a name="try"></a>Probeer:
-Open de _azds.yaml_ -bestand dat is gegenereerd door Azure Dev spaties in uw project. Gebruik de `configurations->develop->build->dockerfile` richtlijn om te verwijzen naar de Dockerfile die u wilt gebruiken:
+Open de _azds.yaml_ bestand die Azure Dev spaties gegenereerd in uw project. Gebruik de *configuraties -> ontwikkelen build -> docker-bestand ->* richtlijn om te verwijzen naar de Dockerfile die u wilt gebruiken:
 
 ```
 ...

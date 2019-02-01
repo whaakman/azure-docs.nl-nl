@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820679"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512207"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -51,13 +51,13 @@ Controleer de [informatie voor het plannen van uw netwerk](#network-planning) vo
 U kunt een of meer Hybrid Runbook Workers verwijderen uit een groep of u kunt de groep verwijderen, afhankelijk van uw vereisten. Als u wilt een Hybrid Runbook Worker verwijderen uit een on-premises computer, gebruikt u de volgende stappen uit:
 
 1. In de Azure-portal, gaat u naar uw Automation-account.
-2. Onder **instellingen**, selecteer **sleutels** en noteer de waarden voor **URL** en **primaire toegangssleutel**. U hebt deze informatie nodig voor de volgende stap.
+2. Onder **Accountinstellingen**, selecteer **sleutels** en noteer de waarden voor **URL** en **primaire toegangssleutel**. U hebt deze informatie nodig voor de volgende stap.
 
 ### <a name="windows"></a>Windows
 
 Open een PowerShell-sessie in de beheerdersmodus en voer de volgende opdracht uit. Gebruik de **-uitgebreide** overschakelen voor een gedetailleerd logboek van de procedure voor het verwijderen.
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -68,6 +68,8 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 ```
 
 ### <a name="linux"></a>Linux
+
+U kunt de opdracht `ls /var/opt/microsoft/omsagent` op Hybrid Runbook Worker om op te halen van de werkruimte-id. Er is een map in de map waarin de naam van de map de werkruimte-id is.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -81,11 +83,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 Als u wilt een groep verwijderen, moet u eerst de Hybrid Runbook Worker verwijderen vanaf elke computer die deel uitmaakt van de groep met behulp van de procedure eerder weergegeven. Gebruik vervolgens de volgende stappen uit de groep te verwijderen:
 
 1. Open het Automation-account in Azure portal.
-1. Onder **procesautomatisering**, selecteer **Hybrid worker-groepen**. Selecteer de groep die u wilt verwijderen. De eigenschappenpagina voor de groep die wordt weergegeven.
+2. Onder **procesautomatisering**, selecteer **Hybrid worker-groepen**. Selecteer de groep die u wilt verwijderen. De eigenschappenpagina voor de groep die wordt weergegeven.
 
    ![De pagina Eigenschappen](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. Selecteer op de eigenschappenpagina voor de geselecteerde groep **verwijderen**. Een bericht gevraagd deze actie te bevestigen. Selecteer **Ja** als u zeker dat u wilt doorgaan.
+3. Selecteer op de eigenschappenpagina voor de geselecteerde groep **verwijderen**. Een bericht gevraagd deze actie te bevestigen. Selecteer **Ja** als u zeker dat u wilt doorgaan.
 
    ![Bevestigingsbericht](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 

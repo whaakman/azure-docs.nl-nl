@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d74a78d60959dc404165d0ac8c4483b8bd36a29
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 74ec404b1e116c3d52469f154309b41fd37dbc38
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464082"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493028"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](how-to-connect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](how-to-connect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -105,7 +105,7 @@ Deze grafiek bevat de volgende informatie:
 
 Dit rapport bevat de volgende informatie:
 
-| Rapportitem | Beschrijving |
+| Rapportitem | Description |
 | --- | --- |
 | Gebruikers-ID |De gebruikers-ID die is gebruikt. Deze waarde is wat de gebruiker heeft getypt, wat in sommige gevallen de verkeerder gebruikers-id is. |
 | Mislukte pogingen |Geeft het totale aantal mislukte pogingen voor die specifieke gebruikers-ID weer. De tabel is gesorteerd in aflopende volgorde, met het hoogste aantal mislukte pogingen bovenaan. |
@@ -134,7 +134,7 @@ Daarnaast is het mogelijk dat vanaf één IP-adres meerdere aanmeldpogingen voor
 ### <a name="what-is-in-the-report"></a>Inhoud van het rapport
 Elk item in het rapport Riskant IP-adres toont verzamelde informatie over mislukte AD FS-aanmeldactiviteiten die de aangewezen drempelwaarde overschrijden. Het rapport bevat de volgende informatie: ![Portal voor Azure Active Directory Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
-| Rapportitem | Beschrijving |
+| Rapportitem | Description |
 | ------- | ----------- |
 | Tijdstempel | Geeft het tijdstempel weer op basis van de lokale tijd in Azure Portal wanneer de detectieperiode start.<br /> Alle gebeurtenissen per dag worden gegenereerd om 24:00 uur UTC-tijd. <br />Bij gebeurtenissen per uur is het tijdstempel afgerond naar het begin van het uur. U vindt de begintijd van de eerste activiteit vanaf firstAuditTimestamp in het geëxporteerde bestand. |
 | Triggertype | Geeft het type tijdvenster voor detectie weer. De triggertypen voor aggregatie zijn per uur of per dag. Dit is handig voor het detecteren van een beveiligingsaanval met hoge frequentie en een trage beveiligingsaanval waarbij het aantal pogingen over de dag is verdeeld. |
@@ -161,7 +161,7 @@ Load balancer verzamelt mislukte aanmeldactiviteiten en bereikt de drempelwaarde
 ### <a name="download-risky-ip-report"></a>Rapport Riskant IP-adres downloaden 
 Met behulp van de functie **Downloaden** kan de volledige lijst met riskante IP-adressen van de afgelopen 30 dagen worden geëxporteerd vanuit de Connect Health-portal. De export bevat alle mislukte AD FS-aanmeldactiviteiten in elke detectieperiode, zodat u de filters na het exporteren kunt aanpassen. De export geeft naast de gemarkeerde aggregaties in de portal ook meer informatie over mislukte aanmeldactiviteiten per IP-adres weer:
 
-|  Rapportitem  |  Beschrijving  | 
+|  Rapportitem  |  Description  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | Geeft de eerste tijdstempel weer voor de start van de mislukte activiteiten tijdens de detectieperiode.  | 
 | lastAuditTimestamp | Geeft de laatste tijdstempel weer voor het einde van de mislukte activiteiten tijdens de detectieperiode.  | 
@@ -176,7 +176,7 @@ De drempelwaarde voor waarschuwingen kan via de drempelwaarde-instellingen worde
 
 ![Portal voor Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
-| Drempelwaarde-item | Beschrijving |
+| Drempelwaarde-item | Description |
 | --- | --- |
 | (Slechte U/P + vergrendeling van het extranet) / dag  | Ingestelde drempelwaarde per **dag** voor het rapporteren van de activiteit en het activeren van een melding wanneer het aantal onjuiste wachtwoordpogingen plus het aantal extranetvergrendelingen is overschreden. |
 | (Slechte U/P + vergrendeling van het extranet) / uur | Ingestelde drempelwaarde per **uur** voor het rapporteren van de activiteit en het activeren van een melding wanneer het aantal onjuiste wachtwoordpogingen plus het aantal extranetvergrendelingen is overschreden. |

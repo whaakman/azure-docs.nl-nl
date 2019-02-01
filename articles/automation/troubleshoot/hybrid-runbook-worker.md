@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5a88e1fc5395a1b935371ae9d1eb24528a87b853
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434455"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512331"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Workers oplossen
 
@@ -87,8 +87,17 @@ De Hybrid Runbook Worker in Linux is afhankelijk van de OMS-Agent voor Linux om 
 
 ### <a name="oms-agent-not-running"></a>Scenario: De OMS-Agent voor Linux wordt niet uitgevoerd
 
+#### <a name="issue"></a>Probleem
 
-Als de OMS-Agent voor Linux niet wordt uitgevoerd, kunnen de Hybrid Runbook Worker in Linux niet communiceren met Azure Automation. Controleer of de agent wordt uitgevoerd met de volgende opdracht: `ps -ef | grep python`. U ziet de uitvoer is vergelijkbaar met het volgende, het python-processen met **nxautomation** gebruikersaccount. Als de Update Management of Azure Automation-oplossingen zijn niet ingeschakeld, wordt geen van de volgende processen worden uitgevoerd.
+De OMS-Agent voor Linux wordt niet uitgevoerd
+
+#### <a name="cause"></a>Oorzaak
+
+Als de OMS-Agent voor Linux niet wordt uitgevoerd, kunnen de Hybrid Runbook Worker in Linux niet communiceren met Azure Automation. De agent kan niet worden uitgevoerd om verschillende redenen.
+
+#### <a name="resolution"></a>Oplossing
+
+ Controleer of de agent wordt uitgevoerd met de volgende opdracht: `ps -ef | grep python`. U ziet de uitvoer is vergelijkbaar met het volgende, het python-processen met **nxautomation** gebruikersaccount. Als de Update Management of Azure Automation-oplossingen zijn niet ingeschakeld, wordt geen van de volgende processen worden uitgevoerd.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

@@ -1,8 +1,21 @@
 ---
-Titel: Retrain Machine Learning Studio-modellen programmatisch titleSuffix: Azure Machine Learning Studio description: Meer informatie over het programmatisch opnieuw trainen een model met C# en de service Machine Learning Batch Execution.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
+title: Machine Learning Studio-modellen programmatisch opnieuw trainen
+titleSuffix: Azure Machine Learning Studio
+description: Meer informatie over het programmatisch opnieuw trainen een model met C# en de service Machine Learning Batch Execution.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: fe7825922d9333d058d9a33d5643850c368d3457
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511391"
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Azure Machine Learning Studio-modellen programmatisch opnieuw trainen
 In dit scenario leert u hoe u programmatisch opnieuw trainen een Azure Machine Learning Studio web service via C# en de service Machine Learning Batch Execution.

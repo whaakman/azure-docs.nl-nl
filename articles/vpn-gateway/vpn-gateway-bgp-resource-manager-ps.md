@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632582"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508399"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Het configureren van BGP op Azure VPN-Gateways met behulp van PowerShell
 In dit artikel leidt u door de stappen u BGP wilt inschakelen op een cross-premises Site-naar-Site (S2S) VPN-verbinding en een VNet-naar-VNet-verbinding met het Resource Manager-implementatiemodel en PowerShell.
@@ -47,7 +47,7 @@ U kunt combineren onderdelen samen om te maken van een meer complexe, Multihop, 
 ## <a name ="enablebgp"></a>Deel 1: BGP configureren op de Azure VPN-Gateway
 De configuratiestappen uit om de BGP-parameters van de Azure VPN-gateway te stellen zoals wordt weergegeven in het volgende diagram:
 
-![BGP-Gateway](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
+![BGP Gateway](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
 ### <a name="before-you-begin"></a>Voordat u begint
 * Controleer of u een Azure-abonnement hebt. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
@@ -174,7 +174,7 @@ Controleer voordat u verdergaat of u nog bent verbonden met Abonnement 1.
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2. De lokale netwerkgateway maken voor Site5
 
-Zorg ervoor dat de resourcegroep te maken als deze niet gemaakt is voordat u de lokale netwerkgateway maken. U ziet de twee extra parameters voor de lokale netwerkgateway: Asn en BgpPeerAddress.
+Zorg ervoor dat de resourcegroep te maken als deze niet gemaakt is voordat u de lokale netwerkgateway maken. U ziet de twee extra parameters voor de lokale netwerkgateway: ASN en BgpPeerAddress.
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG5 -Location $Location5

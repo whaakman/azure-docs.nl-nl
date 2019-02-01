@@ -2,18 +2,18 @@
 title: PowerShell gebruiken voor het back-up van Windows Server naar Azure
 description: Meer informatie over het implementeren en beheren van Azure Backup met behulp van PowerShell
 services: backup
-author: saurabhsensharma
+author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
-ms.author: saurse
-ms.openlocfilehash: 154d4fbb265a6abb57bc25b4e364983ffe7e399b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: pvrk
+ms.openlocfilehash: d430f6252157c5d34aa236ef88f8490b4ad6a184
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497941"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor een Windows-server/Windows-client
 Dit artikel leest u hoe u PowerShell gebruikt voor het instellen van Azure Backup in Windows Server of een Windows-client en het beheren van back-up en herstel.
@@ -116,15 +116,15 @@ De beschikbare opties zijn onder andere:
 | Optie | Details | Standaard |
 | --- | --- | --- |
 | /q |Stille installatie |- |
-| / p: "locatie" |Pad naar de installatiemap voor de Azure backup-agent. |C:\Program Files\Microsoft Azure Recovery Services-Agent |
+| / p: "locatie" |Pad naar de installatiemap voor de Azure backup-agent. |C:\Program Files\Microsoft Azure Recovery Services Agent |
 | / s: "locatie" |Pad naar de cachemap voor de Azure backup-agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Aanmelden voor Microsoft Update |- |
 | /nu |Niet controleren op updates nadat de installatie is voltooid |- |
 | /d |Hiermee verwijdert u Microsoft Azure Recovery Services-Agent |- |
 | /pH |Proxyadres van Host |- |
-| /PO |Proxy-poortnummer voor Host |- |
-| /Pu |Gebruikersnaam voor proxy-Host |- |
-| /PW |Wachtwoord voor proxy |- |
+| /po |Proxy-poortnummer voor Host |- |
+| /pu |Gebruikersnaam voor proxy-Host |- |
+| /pw |Wachtwoord voor proxy |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registreren van Windows Server of Windows client-computer naar een Recovery Services-kluis
 Nadat u de Recovery Services-kluis gemaakt, de meest recente agent en de kluisreferenties downloaden en opslaan in een handige locatie zoals C:\Downloads.

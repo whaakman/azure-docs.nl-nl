@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33f96c67e7179104d1895cf62f834d3b592bee04
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138222"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487622"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell-scripts uitvoeren in uw Windows-VM met de opdracht uitvoeren
 
@@ -65,14 +65,14 @@ Deze tabel bevat de lijst met opdrachten die beschikbaar zijn voor Windows-VM's.
 |**RunPowerShellScript**|Een PowerShell-script wordt uitgevoerd|
 |**EnableRemotePS**|Hiermee configureert u de machine voor het inschakelen van externe PowerShell.|
 |**EnableAdminAccount**|Controleert of als het lokale Administrator-account is uitgeschakeld, en als dit het geval is ingeschakeld.|
-|**IP-configuratie**| Geeft gedetailleerde informatie voor de IP-adres, subnet en de standaard-gateway voor elke adapter die is gekoppeld aan TCP/IP.|
+|**IPConfig**| Geeft gedetailleerde informatie voor de IP-adres, subnet en de standaard-gateway voor elke adapter die is gekoppeld aan TCP/IP.|
 |**RDPSettings**|Controleert of registerinstellingen en domeininstellingen voor Groepsbeleid. Voorgesteld beleidsacties als machine deel van een domein uitmaakt of wijzigt u de instellingen op standaardwaarden.|
 |**ResetRDPCert**|Hiermee verwijdert u het SSL-certificaat dat is gekoppeld aan de RDP-listener en de beveiliging van RDP listerner standaard hersteld. Gebruik dit script als u problemen ondervindt met het certificaat wordt weergegeven.|
 |**SetRDPPort**|Stelt de standaard of de gebruiker opgegeven poortnummer voor extern bureaublad-verbindingen. Hiermee kunt firewall-regel voor binnenkomende toegang tot de poort.|
 
 ## <a name="powershell"></a>PowerShell
 
-Hier volgt een voorbeeld met behulp van de [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet om een PowerShell-script uitvoeren op een Azure-VM.
+Hier volgt een voorbeeld met behulp van de [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet uit te voeren van een PowerShell-script in een Azure-VM. De cmdlet wordt verwacht dat het script waarnaar wordt verwezen in de `ScriptPath` variabele worden lokaal op waar de cmdlet wordt uitgevoerd.
 
 ```azurepowershell-interactive
 Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}

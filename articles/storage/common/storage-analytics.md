@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Analytics gebruiken om gegevens in Logboeken en metrische gegevens te verzamelen | Microsoft Docs
+title: Azure Storage analytics gebruiken om gegevens in Logboeken en metrische gegevens te verzamelen | Microsoft Docs
 description: Storage Analytics kunt u voor het bijhouden van metrische gegevens voor alle storage-services en het verzamelen van Logboeken voor Blob, Queue en Table storage.
 services: storage
 author: roygara
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9cd4845bcf107941f969255eb223567d4341ea41
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239771"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508501"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -28,7 +28,7 @@ Storage Analytics heeft een limiet van 20 TB voor de hoeveelheid opgeslagen gege
 
 Zie voor een uitgebreide handleiding over het gebruik van Storage Analytics en andere hulpprogramma's om te identificeren, onderzoeken en oplossen van problemen met betrekking tot Azure Storage, [bewaken, problemen vaststellen en oplossen van Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="about-storage-analytics-logging"></a>Over Opslaganalyse-Logboeken
+## <a name="about-storage-analytics-logging"></a>Over Storage analytics logboekregistratie
 Storage Analytics wordt gedetailleerde informatie over geslaagde en mislukte aanvragen in een storage-service geregistreerd. Deze informatie kan worden gebruikt voor het bewaken van afzonderlijke aanvragen en om problemen met een opslagservice te diagnosticeren. Aanvragen worden geregistreerd op basis van best-effort.
 
 Logboekvermeldingen worden alleen gemaakt als er storage service-activiteit wordt. Bijvoorbeeld, als een storage-account heeft een activiteit in de Blob-service, maar niet in de tabel of wachtrij-services, wordt alleen logboeken met betrekking tot de Blob-service gemaakt.
@@ -43,7 +43,7 @@ De volgende typen geverifieerde aanvragen worden geregistreerd:
 * Aanvragen met behulp van een Shared Access Signature (SAS), met inbegrip van mislukte en geslaagde aanvragen.
 * Aanvragen voor het analytics-gegevens.
 
-Aanvragen van Storage Analytics zelf, zoals logboekbestanden worden gemaakt of verwijderd, worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](https://msdn.microsoft.com/library/hh343260.aspx) en [Storage Analytics logboekindeling](https://msdn.microsoft.com/library/hh343259.aspx) onderwerpen.
+Aanvragen van Storage Analytics zelf, zoals logboekbestanden worden gemaakt of verwijderd, worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) en [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format.md) onderwerpen.
 
 ### <a name="logging-anonymous-requests"></a>Logboekregistratie van anonieme aanvragen
 De volgende typen anonieme aanvragen worden geregistreerd:
@@ -53,7 +53,7 @@ De volgende typen anonieme aanvragen worden geregistreerd:
 * Time-outfouten optreden voor zowel client als server.
 * Mislukte aanvragen ophalen met foutcode 304 (niet gewijzigd).
 
-Alle andere mislukte anonieme aanvragen worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](https://msdn.microsoft.com/library/hh343260.aspx) en [Storage Analytics logboekindeling](https://msdn.microsoft.com/library/hh343259.aspx) onderwerpen.
+Alle andere mislukte anonieme aanvragen worden niet geregistreerd. Een volledige lijst van de gegevens in het logboek wordt beschreven in de [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) en [Storage Analytics logboekindeling](/rest/api/storageservices/storage-analytics-log-format.md) onderwerpen.
 
 ### <a name="how-logs-are-stored"></a>Hoe de logboeken worden opgeslagen
 Alle logboeken worden opgeslagen in blok-blobs in een container met de naam $logs, die automatisch wordt gemaakt wanneer Opslaganalyse is ingeschakeld voor een opslagaccount. De container met $logs bevindt zich in de blob-naamruimte van de storage-account, bijvoorbeeld: `http://<accountname>.blob.core.windows.net/$logs`. Deze container kan niet worden verwijderd zodra Opslaganalyse is ingeschakeld, maar de inhoud ervan kunnen worden verwijderd.
@@ -61,8 +61,8 @@ Alle logboeken worden opgeslagen in blok-blobs in een container met de naam $log
 > [!NOTE]
 > De container met $logs wordt niet weergegeven als een container met de bewerking wordt uitgevoerd, zoals de [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) methode. Deze moet rechtstreeks worden geopend. Bijvoorbeeld, kunt u de [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) methode voor toegang tot de blobs in de `$logs` container.
 > Als aanvragen worden vastgelegd, wordt Storage Analytics tussenliggende resultaten als blokken uploaden. Storage Analytics wordt periodiek, deze blokken doorvoeren en beschikbaar stellen als een blob.
-> 
-> 
+>
+>
 
 Dubbele records kunnen bestaan voor logboeken die zijn gemaakt in hetzelfde uur. U kunt bepalen of een record een duplicaat door het controleren van is de **RequestId** en **bewerking** getal.
 
@@ -73,7 +73,7 @@ Elk logboek wordt in de volgende indeling worden geschreven.
 
 De volgende tabel beschrijft elke kenmerk in de naam van het logboek.
 
-| Kenmerk | Beschrijving |
+| Kenmerk | Description |
 | --- | --- |
 | <service-name> |De naam van de storage-service. Bijvoorbeeld: blob, tabel en wachtrij. |
 | JJJJ |Het jaar in vier cijfers voor het logboek. Bijvoorbeeld: 2011. |
@@ -96,7 +96,7 @@ Wanneer een aanvraag voor opslag wordt geregistreerd, wordt de naam van het resu
 ### <a name="log-metadata"></a>Metagegevens van het synchronisatielogboek
 Alle logboekbestanden blobs worden opgeslagen met metagegevens die kan worden gebruikt om te identificeren welke logboekgegevens bevat van de blob. De volgende tabel beschrijft elke metagegevenskenmerk.
 
-| Kenmerk | Beschrijving |
+| Kenmerk | Description |
 | --- | --- |
 | LogType |Hierin wordt beschreven of het logboek informatie over als u wilt lezen bevat, schrijven of verwijderen van bewerkingen. Deze waarde kan een type of een combinatie van alle drie, gescheiden door komma's bevatten. Voorbeeld 1: schrijven. Voorbeeld 2: lezen, schrijven; Voorbeeld 3: lezen, schrijven, verwijderen. |
 | StartTime |De vroegste tijd van een vermelding in het logboek, in de vorm van jjjj-MM-ddTHH. Bijvoorbeeld: 2011-07-31T18:21:46Z. |
@@ -129,9 +129,9 @@ Metrische gegevens die transactie worden geregistreerd voor zowel de aanvragen v
 
 ### <a name="capacity-metrics"></a>Capaciteit metrische gegevens
 > [!NOTE]
-> Metrische gegevens over capaciteit zijn momenteel alleen beschikbaar voor de Blob-service. Capaciteit metrische gegevens voor de Table-service en de Queue-service zijn beschikbaar in toekomstige versies van Storage Analytics.
-> 
-> 
+> Metrische gegevens over capaciteit zijn momenteel alleen beschikbaar voor de Blob-service.
+>
+>
 
 Capaciteit gegevens per dag worden geregistreerd voor de Blob-service van het opslagaccount en twee tabelitems worden geschreven. Een entiteit voorziet in statistieken voor gebruikersgegevens en de andere voorziet in statistieken over de `$logs` blobcontainer die wordt gebruikt door Storage Analytics. De `$MetricsCapacityBlob` tabel bevat de volgende statistische gegevens:
 
@@ -139,7 +139,7 @@ Capaciteit gegevens per dag worden geregistreerd voor de Blob-service van het op
 * **ContainerCount**: Het aantal blob-containers in het opslagaccount-Blob-service.
 * **ObjectCount**: Het aantal vastgelegde en niet-doorgevoerde blok of pagina-blobs in Blob-service van het storage-account.
 
-Zie voor meer informatie over de metrische gegevens over de capaciteit, [tabelschema van metrische gegevens van Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
+Zie voor meer informatie over de metrische gegevens over de capaciteit, [tabelschema van metrische gegevens van Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).
 
 ### <a name="how-metrics-are-stored"></a>Hoe metrische gegevens worden opgeslagen
 Alle metrische gegevens voor elk van de storage-services worden opgeslagen in drie tabellen die zijn gereserveerd voor de service: één tabel voor transactie-informatie, een tabel voor één minuut transactie-informatie en een andere tabel voor informatie over capaciteit. Transactie en de minuut transactie-informatie bestaat uit gegevens van aanvragen en reacties en capaciteitsgegevens van gebruiksgegevens van de opslag bestaat. Metrische gegevens uur, minuut metrische gegevens en capaciteit voor een opslagaccount-Blob-service kunnen worden benaderd in tabellen die zijn met de naam zoals beschreven in de volgende tabel.
@@ -163,7 +163,7 @@ Alle metrische gegevens is geschreven door de services van een storage-account. 
 
 De volgende acties uitgevoerd door Storage Analytics zijn factureerbaar:
 
-* Aanvragen voor het maken van blobs voor logboekregistratie. 
+* Aanvragen voor het maken van blobs voor logboekregistratie.
 * Aanvragen voor de tabelentiteiten voor metrische gegevens maken.
 
 Als u een beleid voor Gegevensretentie hebt geconfigureerd, u betaalt geen voor verwijdertransacties wanneer Storage Analytics oude gegevens voor logboekregistratie en metrische gegevens worden verwijderd. Verwijdertransacties van een client zijn echter factureerbaar. Zie voor meer informatie over het bewaarbeleid [instellen van een bewaarbeleid voor gegevens van Storage Analytics](https://msdn.microsoft.com/library/azure/hh343263.aspx).
@@ -171,20 +171,9 @@ Als u een beleid voor Gegevensretentie hebt geconfigureerd, u betaalt geen voor 
 ### <a name="understanding-billable-requests"></a>Understanding factureerbare aanvragen
 Elk verzoek aan de opslag van een serviceaccount is factureerbare of niet-factureerbaar. Opslaganalyse-logboeken elke afzonderlijke aanvraag aan een service, inclusief een statusbericht dat geeft aan hoe de aanvraag is verwerkt. Op deze manier in Storage Analytics metrische gegevens voor zowel een service en de API-bewerkingen van die service, inclusief de percentages en de telling van bepaalde statusberichten worden opgeslagen. Samen vormen kunt deze functies u analyseren van uw factureerbare aanvragen, breng verbeteringen aan op uw toepassing en onderzoeken van problemen met aanvragen voor uw services. Zie voor meer informatie over facturering [inzicht in Azure Storage Billing - bandbreedte, transacties en capaciteit](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-Wanneer Storage Analytics-gegevens bekijkt, kunt u de tabellen in de [Storage Analytics geregistreerde bewerkingen en statusberichten](https://msdn.microsoft.com/library/azure/hh343260.aspx) onderwerp om te bepalen welke aanvragen zijn factureerbaar. U kunt vervolgens uw logboeken en metrische gegevens om de statusberichten om te zien als u in de rekening zijn gebracht voor een bepaalde aanvraag te vergelijken. U kunt ook de tabellen in het vorige onderwerp gebruiken voor het onderzoeken van de beschikbaarheid van een storage-service of een afzonderlijke API-bewerking.
+Wanneer Storage Analytics-gegevens bekijkt, kunt u de tabellen in de [Storage Analytics geregistreerde bewerkingen en statusberichten](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) onderwerp om te bepalen welke aanvragen zijn factureerbaar. U kunt vervolgens uw logboeken en metrische gegevens om de statusberichten om te zien als u in de rekening zijn gebracht voor een bepaalde aanvraag te vergelijken. U kunt ook de tabellen in het vorige onderwerp gebruiken voor het onderzoeken van de beschikbaarheid van een storage-service of een afzonderlijke API-bewerking.
 
 ## <a name="next-steps"></a>Volgende stappen
-### <a name="setting-up-storage-analytics"></a>Instellen van Storage Analytics
 * [Een opslagaccount in de Azure Portal controleren](storage-monitor-storage-account.md)
-* [Inschakelen en configureren van Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx)
-
-### <a name="storage-analytics-logging"></a>Logboekregistratie van opslag Analytics
-* [Over Storage Analytics logboekregistratie](https://msdn.microsoft.com/library/hh343262.aspx)
-* [Storage Analytics logboekindeling](https://msdn.microsoft.com/library/hh343259.aspx)
-* [Storage Analytics vastgelegd Operations en statusberichten](https://msdn.microsoft.com/library/hh343260.aspx)
-
-### <a name="storage-analytics-metrics"></a>Metrische gegevens in Storage Analytics
-* [Over Storage Analytics Metrics](https://msdn.microsoft.com/library/hh343258.aspx)
-* [Tabelschema van metrische gegevens van Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
-* [Storage Analytics vastgelegd Operations en statusberichten](https://msdn.microsoft.com/library/hh343260.aspx)  
-
+* [Logboekregistratie van opslag Analytics](https://msdn.microsoft.com/library/hh343262.aspx)
+* [Storage Analytics Metrics](https://msdn.microsoft.com/library/hh343258.aspx)

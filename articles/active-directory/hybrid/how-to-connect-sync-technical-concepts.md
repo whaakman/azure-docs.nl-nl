@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: e56d5b7a38a5cc467ee0752e1af40255856f860b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b5af004cda60111259e95e833d6661e1d9d67ff1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198126"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487248"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synchronisatie: Technische concepten
 Dit artikel is een overzicht van het onderwerp [Understanding architectuur](how-to-connect-sync-technical-concepts.md).
@@ -86,7 +86,7 @@ Op deze manier inherent een koppeling maakt en kenmerkstroom richtingen kunt doo
 Wanneer een regel bepaalt dat een nieuwe connector space-object moet worden gemaakt, wordt het inrichten van genoemd. Echter omdat deze bewerking alleen plaats in het connectorgebied overgebracht vindt, wordt deze niet meegenomen in de gekoppelde gegevensbron totdat een export wordt uitgevoerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
-* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->

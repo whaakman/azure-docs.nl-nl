@@ -1,8 +1,21 @@
 ---
-Titel: Evalueer model prestaties titleSuffix: Azure Machine Learning Studio description: In dit artikel ziet u hoe u de prestaties van een model in Azure Machine Learning Studio evalueren en bevat een korte uitleg van de beschikbare metrische gegevens voor deze taak.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 03/20/2017
+title: Modelprestatie evalueren
+titleSuffix: Azure Machine Learning Studio
+description: In dit artikel ziet u hoe u de prestaties van een model in Azure Machine Learning Studio evalueren en bevat een korte uitleg van de beschikbare metrische gegevens voor deze taak.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
+ms.openlocfilehash: b663177a07446b888bc7bf9e919bf180458d36bc
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487005"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Hoe modelprestaties evalueren in Azure Machine Learning Studio
 

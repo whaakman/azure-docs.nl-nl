@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f03fc201c1bce3187fdbd25c1de3567170478d30
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167084"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488428"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: Gewenste gegevenslocatie voor Office 365-resources configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het kenmerk voor de gewenste gegevenslocatie configureren in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand maakt gebruik van meerdere geografische gebieden mogelijkheden in Office 365, gebruikt u dit kenmerk om de geo-locatie van Office 365-gegevens van de gebruiker toe te wijzen. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -126,7 +126,7 @@ De synchronisatieregel voor binnenkomende gegevens kan de waarde van het kenmerk
     | Kenmerk | Value | Details |
     | --- | --- | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, "In uit Active Directory-gebruiker preferredDataLocation" |
-    | Beschrijving | *Geef een aangepaste beschrijving* |  |
+    | Description | *Geef een aangepaste beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises Active Directory-Connector* |  |
     | Verbonden systeem objecttype | **User** |  |
     | Metaverse-objecttype | **Person** |  |
@@ -155,7 +155,7 @@ De regel voor uitgaande synchronisatie kan de waarde van het kenmerk op die moet
     | Kenmerk | Value | Details |
     | ----- | ------ | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, 'Out naar Azure AD-gebruiker preferredDataLocation" |
-    | Beschrijving | *Geef een beschrijving* ||
+    | Description | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de Azure AD-Connector* ||
     | Verbonden systeem objecttype | **User** ||
     | Metaverse-objecttype | **Person** ||

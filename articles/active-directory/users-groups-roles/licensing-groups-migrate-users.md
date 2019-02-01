@@ -1,5 +1,5 @@
 ---
-title: Gebruiker licenties voor gebruikers migreren naar op basis van een groep in Azure Active Directory-licentieverlening | Microsoft Docs
+title: Gebruikers migreren naar een groepslicentie - Azure Active Directory | Microsoft Docs
 description: Overstappen van afzonderlijke gebruikerslicenties aan op basis van een groep met behulp van Azure Active Directory-licentieverlening
 services: active-directory
 keywords: Azure AD-licenties
@@ -11,15 +11,16 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.custom: seohack1
-ms.openlocfilehash: b735d994b0a1937bd7bb3571aa1c642bca77817d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.custom: seohack1;it-pro
+ms.openlocfilehash: ecbb0dba42787cd320ef3f6dc4d4a0b44f9eea1e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182979"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55505985"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Gelicentieerde gebruikers toevoegen aan een groep voor licentieverlening in Azure Active Directory
 

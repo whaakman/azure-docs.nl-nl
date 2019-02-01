@@ -1,8 +1,21 @@
 ---
-Titel: Gegevens importeren in Machine Learning Studio van een ander experiment titleSuffix: Azure Machine Learning Studio description: Het trainen van gegevens opslaan in Azure Machine Learning Studio en worden gebruikt in een ander experiment.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=deguhath, vorige auteur = deguhath ms.date: 03/20/2017
+title: Importeren van gegevens vanuit een ander experiment in Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Het trainen van gegevens opslaan in Azure Machine Learning Studio en worden gebruikt in een ander experiment.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=deguhath, previous-author=deguhath
+ms.date: 03/20/2017
+ms.openlocfilehash: ed8b7c06307cbaf7542439245a53e094250f737a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488084"
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Uw gegevens vanuit een ander experiment importeren in Azure Machine Learning Studio
 

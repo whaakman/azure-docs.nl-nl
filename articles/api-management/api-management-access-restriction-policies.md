@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 39f23cd0b0b6081d8e54524a0eedc9cce1fd4571
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095716"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493419"
 ---
 # <a name="api-management-access-restriction-policies"></a>Beleid voor toegangsbeperking API Management
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -56,14 +56,14 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Name|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |Check-header|Root-element.|Ja|  
 |waarde|Toegestane HTTP-header-waarde. Als meerdere elementen van de waarde worden opgegeven, de controle wordt beschouwd als geslaagd als een van de waarden overeenkomen.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Name|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |kan de niet-controle-foutbericht|Foutbericht op dat in de hoofdtekst van het HTTP-antwoord retourneren als de header bestaat niet of een ongeldige waarde heeft. Dit bericht moet hebben geen speciale tekens escape.|Ja|N/A|  
 |failed-check-httpcode|HTTP-statuscode: om terug te keren als de header bestaat niet of een ongeldige waarde heeft.|Ja|N/A|  
@@ -111,7 +111,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Name|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |set-limiet|Root-element.|Ja|  
 |api|Voeg een of meer van deze elementen in te stellen een limiet van het gesprek op API's binnen het product. Product- en API aanroepfrequentielimiet-limieten onafhankelijk van elkaar worden toegepast. API kan worden verwezen via de `name` of `id`. Als beide kenmerken zijn opgegeven, `id` wordt gebruikt en `name` worden genegeerd.|Nee|  
@@ -119,7 +119,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Name|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |naam|De naam van de API voor de frequentielimiet wordt toegepast.|Ja|N/A|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Ja|N/A|  
@@ -171,13 +171,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Name|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |set-limiet|Root-element.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Name|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Ja|N/A|  
 |tegenpartij sleutel|De sleutel te gebruiken voor het beleid voor frequentielimiet.|Ja|N/A|  
@@ -214,7 +214,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Name|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |IP-filter|Root-element.|Ja|  
 |address|Hiermee geeft u één IP-adres waarop u wilt filteren.|Ten minste één `address` of `address-range` element is vereist.|  
@@ -222,7 +222,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Name|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Een bereik van IP-adressen wilt toestaan of weigeren van toegang voor.|Vereist wanneer de `address-range` element wordt gebruikt.|N/A|  
 |IP-adresfilter actie = "toestaan &#124; verbieden"|Geeft aan of aanroepen moeten worden toegestaan of niet voor de opgegeven IP-adressen en -bereiken.|Ja|N/A|  
@@ -267,7 +267,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Name|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |quota|Root-element.|Ja|  
 |api|Voeg een of meer van deze elementen te leggen van de aanroep van quota op API's binnen het product. Product- en API-aanroep quota worden afzonderlijk toegepast. API kan worden verwezen via de `name` of `id`. Als beide kenmerken zijn opgegeven, `id` wordt gebruikt en `name` worden genegeerd.|Nee|  
@@ -275,7 +275,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Name|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |naam|De naam van de API of bewerking waarvoor het quotum van toepassing.|Ja|N/A|  
 |Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
@@ -329,13 +329,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Name|Beschrijving|Vereist|  
+|Name|Description|Vereist|  
 |----------|-----------------|--------------|  
 |quota|Root-element.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Name|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
@@ -491,7 +491,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="elements"></a>Elementen  
   
-|Element|Beschrijving|Vereist|  
+|Element|Description|Vereist|  
 |-------------|-----------------|--------------|  
 |validate-jwt|Root-element.|Ja|  
 |doelgroepen|Bevat een lijst met geaccepteerde doelgroep claims die gebruikt op het token worden kunnen. Als meerdere doelgroepwaarden aanwezig zijn, wordt elke waarde wordt geprobeerd totdat de alle zijn uitgeput (in dat geval validatie mislukt) of totdat het lukt. Ten minste één doelgroep moet worden opgegeven.|Nee|  
@@ -504,7 +504,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 ### <a name="attributes"></a>Kenmerken  
   
-|Name|Beschrijving|Vereist|Standaard|  
+|Name|Description|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |clock-skew|Timespan. Gebruiken om op te geven van de verwachte tijd voor de maximale verschil tussen de systeemklok van de uitgever van het token en het exemplaar van API Management.|Nee|0 seconden|  
 |failed-validation-error-message|Foutbericht op dat in de hoofdtekst van het HTTP-antwoord retourneren als de JWT niet kan gevalideerd worden. Dit bericht moet hebben geen speciale tekens escape.|Nee|Standaard foutbericht weergegeven is afhankelijk van validatieprobleem, bijvoorbeeld 'JWT niet aanwezig is."|  
@@ -512,7 +512,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |header-naam|De naam van de HTTP-header die het token.|De `header-name` of `query-parameter-name` moet worden opgegeven, maar niet beide.|N/A|  
 |id|De `id` kenmerk in de `key` element kunt u opgeven de tekenreeks die wordt vergeleken met de `kid` claim in het token (indien aanwezig) om de juiste sleutel te gebruiken voor handtekeningvalidatie erachter te komen.|Nee|N/A|  
 |overeenkomst|De `match` kenmerk in de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet te voltooien. Mogelijke waarden zijn:<br /><br /> -                          `all` -de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie te voltooien.<br /><br /> -                          `any` -ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie te voltooien.|Nee|all|  
-|query-paremeter-name|De naam van de queryparameter houden van het token.|De `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N/A|  
+|query-parameter-name|De naam van de queryparameter houden van het token.|De `header-name` of `query-parameter-name` moet worden opgegeven, maar niet beide.|N/A|  
 |require-expiration-time|Booleaanse waarde. Hiermee geeft u op of een expiration-claim is vereist in het token.|Nee|true|
 |vereisen dat schema|De naam van het token-schema, bijvoorbeeld "Bearer". Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.|Nee|N/A|
 |vereisen dat-ondertekend-tokens|Booleaanse waarde. Hiermee geeft u op of een token is vereist om te worden ondertekend.|Nee|true|  

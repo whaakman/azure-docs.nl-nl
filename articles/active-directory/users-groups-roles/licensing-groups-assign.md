@@ -1,25 +1,25 @@
 ---
-title: Licenties toewijzen aan een groep in Azure Active Directory | Microsoft Docs
+title: 'Licenties toewijzen aan een groep: Azure Active Directory | Microsoft Docs'
 description: Over het toewijzen van licenties aan gebruikers met behulp van Azure Active Directory-groep licentieverlening
 services: active-directory
 keywords: Azure AD-licenties
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.custom: it-pro
+ms.openlocfilehash: ea243fd0dea2fe0c6afe325be2756330af47dba9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155065"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510303"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Licenties toewijzen aan gebruikers door groepslidmaatschappen in Azure Active Directory
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3b41f975b484083dab79f16984e84018b2e830a1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301591"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497295"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -186,7 +186,7 @@ Gegevensschijf - standard storage-account | Ondersteund |
 Gegevensschijf - premium storage-account | Ondersteund | Als een virtuele machine schijven die zijn verdeeld over premium en standard storage-accounts bevat, kunt u een ander doel-opslagaccount voor elke schijf, zodat u de dezelfde opslagconfiguratie hebt in de doelregio.
 Beheerde schijf - standaard | Ondersteund in Azure-regio's waar Azure Site Recovery wordt ondersteund. |
 Beheerde schijf - premium | Ondersteund in Azure-regio's waar Azure Site Recovery wordt ondersteund. |
-Standard - SSD | Niet ondersteund |
+Standard - SSD | Ondersteund |
 Redundantie | LRS en GRS worden ondersteund.<br/><br/> ZRS wordt niet ondersteund.
 Opslag van koude en warme | Niet ondersteund | VM-schijven worden niet ondersteund op de opslag van koude en warme
 Opslagruimten | Ondersteund |
@@ -195,8 +195,8 @@ Azure Disk Encryption (ADE) voor Windows-besturingssysteem | VM's zijn ingeschak
 Azure Disk Encryption (ADE) voor Linux-besturingssysteem | Niet ondersteund |
 Hot toevoegen of verwijderen-schijf | Niet ondersteund | Als u toevoegen of verwijderen van de gegevensschijf op de virtuele machine, moet u replicatie uitschakelen en inschakelen van replicatie opnieuw voor de virtuele machine.
 Schijf uitsluiten | Niet ondersteund|   Tijdelijke schijf is uitgesloten standaard.
-Storage Spaces Direct  | Niet ondersteund|
-Scale-out bestandsserver  | Niet ondersteund|
+Storage Spaces Direct  | Ondersteund voor crash-consistente herstelpunten. Toepassing consistente herstelpunten worden niet ondersteund. |
+Scale-out bestandsserver  | Ondersteund voor crash-consistente herstelpunten. Toepassing consistente herstelpunten worden niet ondersteund. |
 LRS | Ondersteund |
 GRS | Ondersteund |
 RA-GRS | Ondersteund |

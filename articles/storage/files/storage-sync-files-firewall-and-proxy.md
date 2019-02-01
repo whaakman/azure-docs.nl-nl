@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 6c8a0a0db419546a49670b1f34e58ead7cebeaa1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c0a1d2bf1d7a103ad473cadb1528bd9b9a4c90de
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459499"
+ms.locfileid: "55488013"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Proxy- en firewallinstellingen van Azure File Sync
 Azure File Sync verbindt uw on-premises servers naar Azure Files, synchronisatie van meerdere locaties en cloud-opslaglagen functies inschakelen. Als zodanig moet een on-premises server worden verbonden met internet. IT-beheerder nodig heeft om te bepalen van het beste pad voor de server te bereiken in Azure cloudservices.
@@ -111,7 +111,7 @@ Voor zakelijke continuïteit en noodherstel (BCDR) recovery redenen kan u hebt o
 
 | Regio | Primair eindpunt-URL | Gekoppelde regio | Detectie-URL |
 |--------|---------------------------------------|--------|---------------------------------------|
-| Australië - oost | https://kailani-aue.one.microsoft.com | Australië Souteast | https://kailani-aue.one.microsoft.com |
+| Australië - oost | https://kailani-aue.one.microsoft.com | Australië - zuidoost | https://kailani-aue.one.microsoft.com |
 | Australië - zuidoost | https://kailani-aus.one.microsoft.com | Australië - oost | https://tm-kailani-aus.one.microsoft.com |
 | Canada - midden | https://kailani-cac.one.microsoft.com | Canada - oost | https://tm-kailani-cac.one.microsoft.com |
 | Canada - oost | https://kailani-cae.one.microsoft.com | Canada - midden | https://tm-kailani.cae.one.microsoft.com |

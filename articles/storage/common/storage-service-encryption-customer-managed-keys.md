@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: c749a9dedef3970002c4f0672ffcc67aeaea422a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2718c5f06bb64ccd99844e402ac69237f30c310a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457425"
+ms.locfileid: "55497788"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault
 
@@ -40,7 +40,7 @@ Maak eerst een storage-account als u er nog geen hebt. Zie [Een opslagaccount ma
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Stap 2: Serverversleuteling inschakelen voor de Blob-en bestand
 
-Als u wilt met behulp van de klant beheerde sleutels SSE inschakelt, moeten twee belangrijke functies voor gegevensbeveiliging, voorlopig verwijderen en niet verwijderen, ook worden ingeschakeld in Azure Key Vault. Deze instellingen ervoor dat de sleutels kunnen niet per ongeluk of opzettelijk verwijderde. De maximale bewaarperiode van de sleutels is ingesteld op 90 dagen, beveiligt gebruikers tegen kwaadwillende actoren of ransomware-aanvallen.
+Als u wilt met behulp van de klant beheerde sleutels SSE inschakelt, moeten twee belangrijke functies voor gegevensbeveiliging, voorlopig verwijderen en niet verwijderen, ook worden ingeschakeld in Azure Key Vault. Deze instellingen ervoor dat de sleutels niet per ongeluk of opzettelijk verwijderen. De maximale bewaarperiode van de sleutels is ingesteld op 90 dagen, beveiligt gebruikers tegen kwaadwillende actoren of ransomware-aanvallen.
 
 Als u inschakelen via een programma door de klant beheerde sleutels voor SSE wilt, kunt u de [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), wordt de [Storage Resource Provider-clientbibliotheek voor .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), of de [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
@@ -174,7 +174,7 @@ SSE is ingeschakeld voor alle opslagaccounts en Azure Blob-opslag, Azure Files A
 Is het een storage-account van Azure Resource Manager? Klassieke opslagaccounts worden niet ondersteund met de klant beheerde sleutels. SSE met de klant beheerde sleutels kan alleen worden ingeschakeld voor Resource Manager-opslagaccounts.
 
 **Wat is voorlopig verwijderen en niet kan wissen? Moet ik deze instelling SSE gebruiken met de klant beheerde sleutels wilt inschakelen?**  
-Voorlopig verwijderen en kan niet opschonen moet zijn ingeschakeld voor gebruik van SSE met door de klant beheerde sleutels. Deze instellingen zorgen ervoor dat de sleutel niet per ongeluk of opzettelijk verwijderde. De maximale bewaarperiode van de sleutels is ingesteld op 90 dagen, beveiligt gebruikers tegen kwaadwillende actoren en ransomware-aanvallen. Deze instelling kan niet worden uitgeschakeld.
+Voorlopig verwijderen en kan niet opschonen moet zijn ingeschakeld voor gebruik van SSE met door de klant beheerde sleutels. Deze instellingen ervoor dat de sleutel is niet per ongeluk of opzettelijk verwijderd. De maximale bewaarperiode van de sleutels is ingesteld op 90 dagen, beveiligt gebruikers tegen kwaadwillende actoren en ransomware-aanvallen. Deze instelling kan niet worden uitgeschakeld.
 
 **Is SSE met de klant beheerde sleutels alleen toegestaan in specifieke regio's?**  
 SSE met de klant beheerde sleutels is beschikbaar in alle regio's voor Azure-blobopslag en Azure Files.

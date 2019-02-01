@@ -4,20 +4,18 @@ description: Azure Advisor gebruiken om te optimaliseren van uw Azure-implementa
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015973"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494542"
 ---
 # <a name="introduction-to-azure-advisor"></a>Inleiding tot Azure Advisor
 
@@ -35,10 +33,10 @@ U kunt toegang tot Advisor via de [Azure-portal](https://aka.ms/azureadvisordash
 
 De Advisor-dashboard toont de persoonlijke aanbevelingen voor al uw abonnementen.  U kunt toepassen van filters om aanbevelingen voor specifieke abonnementen en -resourcetypen weer te geven.  De aanbevelingen zijn onderverdeeld in vier categorieën: 
 
-* **Hoge beschikbaarheid**: om te controleren en de continuïteit van uw essentiële toepassingen verbeteren. Zie voor meer informatie, [aanbevelingen voor hoge beschikbaarheid van Advisor](advisor-high-availability-recommendations.md).
-* **Beveiliging**: voor het detecteren van bedreigingen en zwakke plekken die tot schendingen van de beveiliging leiden mogelijk. Zie voor meer informatie, [Advisor beveiligingsaanbevelingen](advisor-security-recommendations.md).
-* **Prestaties**: voor het verbeteren van de snelheid van uw toepassingen. Zie voor meer informatie, [Advisor prestatieaanbevelingen](advisor-performance-recommendations.md).
-* **Kosten**: om optimaliseren en uw algemene Azure-uitgaven te verminderen. Zie voor meer informatie, [kosten van de Advisor-aanbevelingen](advisor-cost-recommendations.md).
+* **Hoge beschikbaarheid**: Om te controleren en de continuïteit van uw essentiële toepassingen verbeteren. Zie voor meer informatie, [aanbevelingen voor hoge beschikbaarheid van Advisor](advisor-high-availability-recommendations.md).
+* **Beveiliging**: Voor het detecteren van bedreigingen en zwakke plekken die tot schendingen van de beveiliging leiden mogelijk. Zie voor meer informatie, [Advisor beveiligingsaanbevelingen](advisor-security-recommendations.md).
+* **Prestaties**: Voor het verbeteren van de snelheid van uw toepassingen. Zie voor meer informatie, [Advisor prestatieaanbevelingen](advisor-performance-recommendations.md).
+* **Kosten**: Om te optimaliseren en reduceren uw algemene Azure-uitgaven. Zie voor meer informatie, [kosten van de Advisor-aanbevelingen](advisor-cost-recommendations.md).
 
   ![Typen van Advisor-aanbevelingen](./media/advisor-overview/advisor-dashboard.png)
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: yushwang
 ms.openlocfilehash: 4996fa23e28b4ba840cc8c97e167484be08a0573
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199457"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509283"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Verbinding maken met Azure VPN-gateways naar meerdere on-premises op beleid gebaseerde VPN-apparaten met behulp van PowerShell
 
@@ -37,7 +37,7 @@ De volgende diagrammen markeert u de twee modellen:
 ### <a name="azure-support-for-policy-based-vpn"></a>Azure-ondersteuning voor op beleid gebaseerde VPN-verbinding
 Op dit moment biedt Azure ondersteuning voor beide modi van VPN-gateways: op route gebaseerde VPN-gateways en VPN-gateways op basis van beleid. Ze zijn gebaseerd op verschillende interne platforms, wat leiden tot verschillende specificaties:
 
-|                          | **PolicyBased VPN Gateway** | **Op route gebaseerd VPN-Gateway**               |
+|                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**               |
 | ---                      | ---                         | ---                                      |
 | **Azure Gateway-SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **IKE-versie**          | IKEv1                       | IKEv2                                    |
@@ -148,7 +148,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 Het volgende voorbeeld wordt een IPsec/IKE-beleid met deze algoritmen en parameters:
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS24, SA-levensduur 3600 seconden & 2048KB
+* IPsec: AES256, SHA256, PFS24, SA Lifetime 3600 seconds & 2048KB
 
 ```azurepowershell-interactive
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
@@ -190,7 +190,7 @@ Als de regel retourneert '**waar**", klikt u vervolgens op beleid gebaseerde ver
 ### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. De op beleid gebaseerde verkeerkiezers voor een verbinding inschakelen/uitschakelen
 Als u beschikt over de verbindingsresource, kunt u inschakelen of uitschakelen van de optie.
 
-#### <a name="to-enable-usepolicybasedtrafficselectors"></a>UsePolicyBasedTrafficSelectors inschakelen
+#### <a name="to-enable-usepolicybasedtrafficselectors"></a>To Enable UsePolicyBasedTrafficSelectors
 Het volgende voorbeeld wordt het verkeer op basis van beleid Selector-optie ingeschakeld, maar het IPsec/IKE-beleid ongewijzigd blijft:
 
 ```azurepowershell-interactive
@@ -201,7 +201,7 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True
 ```
 
-#### <a name="to-disable-usepolicybasedtrafficselectors"></a>UsePolicyBasedTrafficSelectors uitschakelen
+#### <a name="to-disable-usepolicybasedtrafficselectors"></a>To Disable UsePolicyBasedTrafficSelectors
 In het volgende voorbeeld wordt het verkeer op basis van beleid Selector optie uitgeschakeld, maar het IPsec/IKE-beleid ongewijzigd blijft:
 
 ```azurepowershell-interactive

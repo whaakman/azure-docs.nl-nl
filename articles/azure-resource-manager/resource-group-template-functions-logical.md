@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8850ef68c665efcf9e66315af20b7d1e8492fc5f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164784"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493759"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logische functies voor Azure Resource Manager-sjablonen
 
@@ -31,6 +31,8 @@ Resource Manager biedt verschillende functies voor het maken van vergelijkingen 
 * [niet](#not)
 * [or](#or)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="and"></a>en
 `and(arg1, arg2)`
 
@@ -38,10 +40,10 @@ Controleert of de waarden van beide parameters waar zijn.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
-| Arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |
+| arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
+| arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -75,11 +77,11 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld is:
 
-| Naam | Type | Waarde |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | BOOL | False |
-| orExampleOutput | BOOL | True |
-| notExampleOutput | BOOL | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -90,19 +92,19 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-## <a name="bool"></a>BOOL
+## <a name="bool"></a>bool
 `bool(arg1)`
 
 De parameter converteert naar een Booleaanse waarde.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |tekenreeks of int |De waarde te converteren naar een Booleaanse waarde. |
+| arg1 |Ja |tekenreeks of int |De waarde te converteren naar een Booleaanse waarde. |
 
 ### <a name="return-value"></a>Retourwaarde
 Een Booleaanse waarde van de geconverteerde waarde.
@@ -139,12 +141,12 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
-| Naam | Type | Waarde |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| trueString | BOOL | True |
-| falseString | BOOL | False |
-| trueInt | BOOL | True |
-| falseInt | BOOL | False |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -155,7 +157,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
 ## <a name="if"></a>if
@@ -165,7 +167,7 @@ Retourneert een waarde op basis van of u een voorwaarde is true of false.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
 | voorwaarde |Ja |booleaans |De waarde om te controleren of dit het geval is. |
 | trueValue |Ja | String, int, object of matrix |De waarde moet worden geretourneerd wanneer de voorwaarde waar is. |
@@ -250,11 +252,11 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld is:
 
-| Naam | Type | Waarde |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| yesOutput | Reeks | ja |
-| noOutput | Reeks | nee |
-| objectOutput | Object | {'test': "value1"} |
+| yesOutput | String | ja |
+| noOutput | String | nee |
+| objectOutput | Object | { "test": "value1" } |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -265,7 +267,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
 ## <a name="not"></a>niet
@@ -275,9 +277,9 @@ Booleaanse waarde omgezet in de tegengestelde waarde.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |booleaans |De waarde te converteren. |
+| arg1 |Ja |booleaans |De waarde te converteren. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -311,11 +313,11 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld is:
 
-| Naam | Type | Waarde |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | BOOL | False |
-| orExampleOutput | BOOL | True |
-| notExampleOutput | BOOL | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -326,7 +328,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) maakt gebruik van **niet** met [gelijk is aan](resource-group-template-functions-comparison.md#equals).
@@ -347,9 +349,9 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld is:
 
-| Naam | Type | Waarde |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| checkNotEquals | BOOL | True |
+| checkNotEquals | Bool | True |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -360,7 +362,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 ## <a name="or"></a>of
@@ -370,10 +372,10 @@ Controleert of de waarde voor de parameter ' True '.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Vereist | Type | Beschrijving |
+| Parameter | Vereist | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
-| Arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |
+| arg1 |Ja |booleaans |De eerste waarde om te controleren of de waarde true is. |
+| arg2 |Ja |booleaans |De tweede waarde om te controleren of de waarde true is. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -407,11 +409,11 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 
 De uitvoer uit het vorige voorbeeld is:
 
-| Naam | Type | Waarde |
+| Name | Type | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | BOOL | False |
-| orExampleOutput | BOOL | True |
-| notExampleOutput | BOOL | False |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -422,7 +424,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -11,18 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 064cef04ac609b0e6db5f55d9973e3974af8e0cc
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471773"
+ms.locfileid: "55494881"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Maken van resourcegroepen en resources op het abonnementsniveau
 
 Normaal gesproken implementeren u Azure-resources in een resourcegroep in uw Azure-abonnement. Echter, u kunt ook Azure-resourcegroepen maken en Azure-resources maken op het abonnementsniveau. Voor het implementeren van sjablonen op abonnementsniveau, gebruikt u Azure CLI en Azure PowerShell. De Azure-portal biedt geen ondersteuning voor implementatie op het abonnementsniveau.
 
 Voor het maken van een resourcegroep in een Azure Resource Manager-sjabloon, definieert een [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions.md) resource met een naam en locatie voor de resourcegroep. U kunt een resourcegroep maken en implementeren van resources in die resourcegroep in dezelfde sjabloon. De resources die u op het abonnementsniveau van het implementeren kunt zijn onder andere: [Beleid](../azure-policy/azure-policy-introduction.md), en [Role-based access control van](../role-based-access-control/overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 

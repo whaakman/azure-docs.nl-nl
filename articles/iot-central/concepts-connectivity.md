@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ae57fc5366e1ed99febcd9a9d08e7f95f3bbf196
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247670"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487350"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectiviteit van apparaten in Azure IoT Central
 
@@ -56,7 +56,7 @@ Een enkel apparaat verbinding maakt met IoT Central met behulp van SAS is eenvou
 
     *   **De taal C:** Als u met behulp van C, voert u de [deze client voor C voorbeeld apparaten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) om een voorbeeld-apparaat te verbinden. Gebruik de volgende instellingen in het voorbeeld.   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -118,7 +118,7 @@ Als u de **MxChip** apparaat verbinding maakt volgen [de stapsgewijze instructie
 Hieronder vindt u de referenties voor andere talen die u wilt gebruiken.
 
    *   **De taal C:** Als u van C volgen gebruikmaakt [deze client voor C voorbeeld apparaten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) om een voorbeeld-apparaat te verbinden. Gebruik de volgende instellingen in het voorbeeld.   
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -163,7 +163,7 @@ Apparaten kunt verbinden met IoT Central X509 met certificaten, er zijn drie bel
 
     Het apparaat met provisioning service informatie voor het inschakelen van het ophalen van de verbindingsgegevens en IoT Central, app-toewijzing wanneer overgeschakeld op programmeren.    
 
-    **Verdere referene** 
+    **Aanvullende referentie** 
     *   Voorbeeldimplementatie voor [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Voorbeeld van apparaatclient in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
@@ -211,12 +211,12 @@ Volg de stappen op basis van uw keuze van apparaat-verificatieschema (X509/SAS)
 
 1. **Apparaat verbinden met IoT Central:** Nadat is overgeschakeld op de apparaten verbinding maken met DPS/IoT Central voor registratie.
 
-1. **Apparaat koppelen aan een sjabloon:** Het verbonden apparaat wordt weergegeven onder **niet-gekoppelde apparaten** in **Device Explorer**. Het apparaat Inrichtingsstatus is **geregistreerde**. **Koppelen** het apparaat aan de sjabloon van het betreffende apparaat en het apparaat verbinding maakt met de IoT Central-app goed te keuren. Het apparaat haalt de details van de verbinding voor de app IoT Central, verbinding maakt en begint met het verzenden van gegevens. Apparaat provioning is nu voltooid en de *Inrichtingsstatus* verandert in **ingerichte**.
+1. **Apparaat koppelen aan een sjabloon:** Het verbonden apparaat wordt weergegeven onder **niet-gekoppelde apparaten** in **Device Explorer**. Het apparaat Inrichtingsstatus is **geregistreerde**. **Koppelen** het apparaat aan de sjabloon van het betreffende apparaat en het apparaat verbinding maakt met de IoT Central-app goed te keuren. Het apparaat haalt de details van de verbinding voor de IoT Central-app en vervolgens verbinding maakt en begint met het verzenden van gegevens. Apparaten inrichten is voltooid en de *Inrichtingsstatus* verandert in **ingerichte**.
 
 ## <a name="device-provisioning-status"></a>De status van apparaat inrichten
 Er zijn een reeks stappen die betrokken zijn bij een echt apparaat is verbonden met Azure IoT Central 
 1. **Geregistreerd**: Het apparaat is het eerste **geregistreerde**, wat betekent dat het apparaat in IoT Central wordt gemaakt en heeft de apparaat-ID voor het apparaat.
-Apparaat is Registeretd wanneer  
+Apparaat is geregistreerd bij  
     *   Een nieuwe echt apparaat wordt toegevoegd aan **Explorer**
     *   Een set van apparaat is toegevoegd met behulp van **importeren** op **Explorer**
     *   Een apparaat dat niet is geregistreerd, maar maakt verbinding met geldige referenties en is zichtbaar onder **niet gekoppeld** apparaten. 
@@ -233,7 +233,7 @@ U kunt Iot hub apparaat-verbindingsreeks voor Azure IoT Hub ophalen met behulp v
 
     ![Verbindingsdetails](media/concepts-connectivity/device-connect.PNG)
 
-1. De verbindingsreeks van het apparaat met behulp van het opdrachtregelprogramma commnd ophalen.
+1. De apparaat-verbindingsreeks met het opdrachtregelprogramma onderstaande ophalen.
     Gebruik de onderstaande instructies voor het ophalen van de verbindingsreeks van apparaat  
 
     ```cmd/sh

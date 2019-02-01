@@ -1,29 +1,26 @@
 ---
-title: Azure Advisor kosten aanbevelingen | Microsoft Docs
+title: Service verlagen met behulp van Azure Advisor | Microsoft Docs
 description: Met Azure Advisor kunt verlagen de kosten van uw Azure-implementaties.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: a4de50e3dc17d9c9543bf1ec8cabb04c5d60070b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c76c7bdb398184cc297831c9395063e7bf0f6bdc
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832884"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492535"
 ---
-# <a name="advisor-cost-recommendations"></a>Aanbevelingen van Advisor-kosten
+# <a name="reduce-service-costs-using-azure-advisor"></a>Service verlagen met behulp van Azure Advisor
 
 Advisor helpt u te optimaliseren en uw totale Azure verminderen besteden door niet-actieve en onderbenutte resources te identificeren. U kunt u kosten aanbevelingen van de **kosten** tabblad op de Advisor-dashboard.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimaliseer virtuele machine uitgaven per vergroten of verkleinen of weinig gebruikte exemplaren afsluiten 
+
 Hoewel bepaalde toepassingsscenario's in laag gebruik standaard resulteren kunnen, kunt u vaak geld besparen door het beheer van de grootte en het nummer van uw virtuele machines. Advisor bewaakt uw gebruik van virtuele machines gedurende 14 dagen en vervolgens laag gebruik virtuele machines identificeert. Virtuele machines waarvan CPU-gebruik 5 is % of minder en netwerkgebruik is 7 MB of minder voor vier of meer dagen worden beschouwd als laag gebruik virtuele machines.
 
 Advisor geeft u de geschatte kosten van u verdergaat met het uitvoeren van uw virtuele machine, zodat u kunt deze wordt afgesloten of wijzig de grootte ervan.
@@ -31,12 +28,15 @@ Advisor geeft u de geschatte kosten van u verdergaat met het uitvoeren van uw vi
 Als u wilt agressiever ten grondslag ligt weinig gebruikte virtuele machines moet worden, kunt u de gemiddelde CPU-gebruik regel op basis van een abonnement aanpassen.
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Kosten verlagen door het elimineren van niet-ingerichte ExpressRoute-circuits
+
 Advisor identificeert ExpressRoute-circuits die in de status van de provider van zijn *niet ingericht* voor meer dan één maand en de gebruiker wordt aanbevolen het circuit verwijderen als u niet van plan bent voor het inrichten van het circuit met de verbinding de provider.
 
 ## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Kosten verlagen door te verwijderen of opnieuw configureren van niet-actieve virtuele netwerkgateways
+
 Advisor identificeert virtuele netwerk-poorten die meer dan 90 dagen inactief zijn geweest. Omdat deze gateways worden per uur gefactureerd, moet u rekening houden met opnieuw configureren of te verwijderen als u niet wilt dat ze niet meer gebruiken. 
 
 ## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Gereserveerde virtuele machine-instanties om geld te besparen ten opzichte van betalen per gebruik kopen
+
 Advisor wordt uw gebruik van virtuele machines in de afgelopen 30 dagen bekijken en te bepalen als u geld besparen kunt door het aanschaffen van een Azure-reservering. Advisor ziet u de regio's en -grootten waar u mogelijk hebt de meeste besparingen en ziet u de geschatte besparing bij de aanschaf van reserveringen. 
 
 Met Azure reserveringen, kunt u de basiskosten voor het vooraf kunt kopen voor uw virtuele machines. Kortingen wordt automatisch toegepast op nieuwe of bestaande virtuele machines met dezelfde grootte en regio als uw reserveringen. [Meer informatie over Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)

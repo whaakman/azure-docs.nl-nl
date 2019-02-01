@@ -1,5 +1,5 @@
 ---
-title: Instellingen voor met behulp van PowerShell in Azure Active Directory configureren | Microsoft Docs
+title: Instellingen voor met behulp van PowerShell - Azure Active Directory configureren | Microsoft Docs
 description: Beheren hoe de instellingen voor groepen met behulp van Azure Active Directory-cmdlets
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 29c46c3987a6adff4ef2492a60b4e6a4b022e3e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e838af0ac8e9cfd1d42b768fa68ec7d9f46386c6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168836"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512224"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory cmdlets voor het configureren van groepsinstellingen
 In dit artikel bevat instructies voor het gebruik van Azure Active Directory (Azure AD) PowerShell-cmdlets voor groepen maken en bijwerken. Deze inhoud geldt alleen voor Office 365-groepen (ook wel gecombineerde groepen). 
@@ -95,19 +95,19 @@ Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsT
 | **Instelling** | **Beschrijving** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>Type: Booleaans<li>Standaard: True |De vlag die aangeeft of Office 365-groep maken in de map is toegestaan door niet-beheerders. Deze instelling is niet vereist voor een Azure Active Directory Premium P1-licentie.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Type: Reeks<li>Standaard: ' " |GUID van de beveiligingsgroep waarvan de leden kunnen Office 365-groepen maken, zelfs wanneer EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Type: Reeks<li>Standaard: ' " |Een koppeling naar de groepsgebruik. |
-|  <ul><li>ClassificationDescriptions<li>Type: Reeks<li>Standaard: ' " | Een door komma's gescheiden lijst met beschrijvingen van de classificatie. De waarde van ClassificationDescriptions is alleen geldig in deze indeling:
+|  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Standaard: ' " |GUID van de beveiligingsgroep waarvan de leden kunnen Office 365-groepen maken, zelfs wanneer EnableGroupCreation == false. |
+|  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Standaard: ' " |Een koppeling naar de groepsgebruik. |
+|  <ul><li>ClassificationDescriptions<li>Type: String<li>Standaard: ' " | Een door komma's gescheiden lijst met beschrijvingen van de classificatie. De waarde van ClassificationDescriptions is alleen geldig in deze indeling:
   $setting ["ClassificationDescriptions"] = 'Classificatie: beschrijving, classificatie: Description', waarbij de classificatie komt overeen met de tekenreeksen in de ClassificationList.|
-|  <ul><li>DefaultClassification<li>Type: Reeks<li>Standaard: ' " | De classificatie die moet worden gebruikt als de Standaardclassificatie voor een groep als niets is opgegeven.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Type: Reeks<li>Standaard: ' " | Tekenreeks met een maximale lengte van 64 tekens die de naamconventie die is geconfigureerd voor Office 365-groepen definieert. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Type: Reeks<li>Standaard: ' " | Door komma's gescheiden tekenreeks van zinnen die gebruikers niet mogen gebruiken in namen of aliassen. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
+|  <ul><li>DefaultClassification<li>Type: String<li>Standaard: ' " | De classificatie die moet worden gebruikt als de Standaardclassificatie voor een groep als niets is opgegeven.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Standaard: ' " | Tekenreeks met een maximale lengte van 64 tekens die de naamconventie die is geconfigureerd voor Office 365-groepen definieert. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Type: String<li>Standaard: ' " | Door komma's gescheiden tekenreeks van zinnen die gebruikers niet mogen gebruiken in namen of aliassen. Zie voor meer informatie, [afdwingen van een naamgevingsbeleid voor Office 365-groepen](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Type: Booleaans<li>Standaard: "False" | Gebruik geen
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Booleaans<li>Standaard: False | Booleaanse waarde waarmee wordt aangegeven of een gastgebruiker moet een eigenaar van de groepen kan worden. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Type: Booleaans<li>Standaard: True | Booleaanse waarde waarmee wordt aangegeven of een gastgebruiker toegang tot inhoud voor Office 365-groepen kan hebben.  Deze instelling is niet vereist voor een Azure Active Directory Premium P1-licentie.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Type: Reeks<li>Standaard: ' " | De url van een koppeling naar de richtlijnen voor het gebruik van Gast. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Standaard: ' " | De url van een koppeling naar de richtlijnen voor het gebruik van Gast. |
 |  <ul><li>AllowToAddGuests<li>Type: Booleaans<li>Standaard: True | Een Booleaanse waarde die aangeeft of gasten toevoegen aan deze map is toegestaan of niet.|
-|  <ul><li>ClassificationList<li>Type: Reeks<li>Standaard: ' " |Een door komma's gescheiden lijst van geldige classificatiewaarden die kunnen worden toegepast op Office 365-groepen. |
+|  <ul><li>ClassificationList<li>Type: String<li>Standaard: ' " |Een door komma's gescheiden lijst van geldige classificatiewaarden die kunnen worden toegepast op Office 365-groepen. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Instellingen op het niveau van de map lezen
 Deze stappen lezen instellingen op het niveau van de map die van toepassing op alle Office-groepen in de map zijn.

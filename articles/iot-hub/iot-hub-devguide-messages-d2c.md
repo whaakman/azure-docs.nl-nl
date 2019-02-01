@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 8424fa721d87467de70b4365578d196b3145b4b0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: cabfe4381f7f941f2a5e049eed73be546902f6ae
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024267"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485344"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Berichtroutering gebruik apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten
 
@@ -21,13 +21,13 @@ ms.locfileid: "50024267"
 
 Berichtroutering, kunt u het verzenden van berichten van uw apparaten naar de cloud services op een geautomatiseerde, schaalbare en betrouwbare manier. Routering van berichten kan worden gebruikt voor: 
 
-* **Verzenden van apparaat telemetrie messsages, evenals gebeurtenissen** namelijk levenscyclusgebeurtenissen voor het apparaat en apparaatdubbel gebeurtenissen met de ingebouwde-eindpunt en aangepaste eindpunten wijzigen. Meer informatie over [routering eindpunten](#routing-endpoints).
+* **Verzenden van apparaat telemetrie-berichten, evenals gebeurtenissen** namelijk levenscyclusgebeurtenissen voor het apparaat en apparaatdubbel gebeurtenissen met de ingebouwde-eindpunt en aangepaste eindpunten wijzigen. Meer informatie over [routering eindpunten](#routing-endpoints).
 
 * **Filteren van gegevens voordat deze routering naar verschillende eindpunten** door toe te passen van uitgebreide query's. Berichtroutering, kunt u een query uitvoeren op de eigenschappen van berichten en de berichttekst, evenals de device twin tags en de apparaatdubbeleigenschappen. Meer informatie over het gebruik van [query's in berichtroutering](iot-hub-devguide-routing-query-syntax.md).
 
 IoT Hub moet schrijftoegang tot deze service-eindpunten voor de routering van berichten om te werken. Als u uw eindpunten via Azure portal configureert, worden de benodigde machtigingen voor u toegevoegd. Zorg ervoor dat u uw services ter ondersteuning van de verwachte doorvoer configureren. Wanneer u uw IoT-oplossing voor het eerst configureert, moet u mogelijk uw extra eindpunten bewaken en breng de gewenste wijzigingen voor de werkelijke belasting.
 
-De IoT-Hub definieert een [algemene indeling](iot-hub-devguide-messages-construct.md) voor alle apparaat-naar-cloud-berichten voor interoperatbility alle protocollen. Als een bericht overeenkomt met meerdere routes die naar hetzelfde eindpunt verwijzen, biedt IoT Hub bericht slechts één keer naar dit eindpunt. Daarom moet u niet de Ontdubbeling configureren op uw Service Bus-wachtrij of onderwerp. In gepartitioneerde wachtrijen garandeert partitie affiniteit berichtvolgorde. Gebruik deze zelfstudie voor meer informatie over het [configureren berichtroutering](tutorial-routing.md).
+De IoT-Hub definieert een [algemene indeling](iot-hub-devguide-messages-construct.md) voor alle apparaat-naar-cloud-berichten de interoperabiliteit voor alle protocollen. Als een bericht overeenkomt met meerdere routes die naar hetzelfde eindpunt verwijzen, biedt IoT Hub bericht slechts één keer naar dit eindpunt. Daarom moet u niet de Ontdubbeling configureren op uw Service Bus-wachtrij of onderwerp. In gepartitioneerde wachtrijen garandeert partitie affiniteit berichtvolgorde. Gebruik deze zelfstudie voor meer informatie over het [configureren berichtroutering](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Routering eindpunten
 

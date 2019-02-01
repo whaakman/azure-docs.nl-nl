@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 351231fb50b60be1163c787913ef7ab944ba01b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fab27ba36e8d1fcf7931945d23e41244afcb4337
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172167"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491770"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synchronisatie: Inzicht krijgen in gebruikers, groepen en contactpersonen
 Er zijn verschillende redenen waarom zijn er meerdere Active Directory-forests en er zijn diverse verschillende implementatietopologieën. Algemene modellen omvatten de implementatie van een account-resource en GAL sync'ed forests na een fusie & overname. Maar zelfs als er pure modellen, hybride modellen ook algemene zijn. De standaardconfiguratie in Azure AD Connect-synchronisatie niet wordt ervan uitgegaan een bepaald model, maar afhankelijk van hoe overeenkomende gebruiker is geselecteerd in de installatiehandleiding, verschillend gedrag kunnen worden waargenomen.
@@ -73,6 +73,6 @@ De veronderstelling is dat als een uitgeschakelde gebruikersaccount wordt gevond
 Wanneer een object is geëxporteerd naar Azure AD en het is niet toegestaan de sourceAnchor niet meer wijzigen. Wanneer het object is geëxporteerd van het metaverse-kenmerk **cloudSourceAnchor** is ingesteld met de **sourceAnchor** waarde geaccepteerd door Azure AD. Als **sourceAnchor** wordt gewijzigd en niet overeen met **cloudSourceAnchor**, de regel **Out voor AAD-gebruiker toevoegen** de fout genereert **sourceAnchor-kenmerk heeft gewijzigd**. In dit geval wordt moeten de configuratie of de gegevens worden gecorrigeerd, zodat het dezelfde sourceAnchor aanwezig in de metaverse opnieuw is voordat het object opnieuw kan worden gesynchroniseerd.
 
 ## <a name="additional-resources"></a>Aanvullende resources
-* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)
 

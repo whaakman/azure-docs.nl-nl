@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: 01f25df117eddaaf640a8bd2ef184fe685c5bc75
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 05c4a01f4317f311e1ba78a5bf45baa969dc8351
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258990"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507856"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Actief-actief S2S VPN-verbindingen configureren met Azure VPN-Gateways
 
@@ -230,7 +230,7 @@ In het volgende voorbeeld bevat de parameters die u in de sectie van de BGP-conf
 
 De verbinding moet worden gemaakt na een paar minuten en de BGP-peeringsessie wordt gestart zodra de IPsec-verbinding tot stand is gebracht. In dit voorbeeld heeft tot nu toe geconfigureerd dat slechts één on-premises VPN-apparaat, wat resulteert in het diagram hieronder:
 
-![actief-actief-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
+![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Stap 3: twee on-premises VPN-apparaten verbinden met de actief / actief VPN-gateway
 Als u twee VPN-apparaten op de dezelfde on-premises netwerk hebt, kunt u dubbele redundantie bereiken door de Azure VPN-gateway naar het tweede apparaat met een VPN-verbinding te maken.
@@ -277,7 +277,7 @@ Op deze manier hieronder worden de parameters voert u in het tweede VPN-apparaat
 
 Wanneer de verbinding (tunnels) zijn gemaakt, hebt u twee redundante VPN-apparaten en verbinding te maken van uw on-premises netwerk en Azure-tunnels:
 
-![Dual-redundantie-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 ## <a name ="aav2v"></a>Deel 3: een actief / actief-VNet-naar-VNet-verbinding tot stand brengen
 In deze sectie maakt een actief / actief-VNet-naar-VNet-verbinding waarvoor BGP. 

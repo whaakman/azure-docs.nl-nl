@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405001"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508331"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken van verschillende implementatiemodellen met behulp van de portal
 
@@ -59,7 +59,7 @@ Resourcegroep RG1 = <br>
 Locatie VS-Oost = <br>
 Subnetnaam Subnet-1 = <br>
 Adresbereik = 192.168.1.0/24 <br>
-GatewaySubnet 192.168.0.0/26 = <br>
+GatewaySubnet = 192.168.0.0/26 <br>
 Gatewaynaam van het virtuele netwerk RMGateway = <br>
 Gatewaytype VPN = <br>
 VPN-type = op Route gebaseerd <br>
@@ -147,7 +147,7 @@ Als u een Resource Manager VNet niet hebt en deze stappen als oefening uitvoert,
 
 ### <a name="2-create-a-gateway-subnet"></a>2. Een gatewaysubnet maken
 
-**Voorbeeldwaarde:** GatewaySubnet 192.168.0.0/26 =
+**Voorbeeldwaarde:** GatewaySubnet = 192.168.0.0/26
 
 Voordat u een virtuele netwerkgateway maakt, moet u eerst het gatewaysubnet maken. Een gatewaysubnet maken met CIDR-telling van/28 of groter (/ 27, / 26 etc.). Als u dit als onderdeel van oefening maakt, kunt u de voorbeelden van waarden.
 
@@ -171,7 +171,7 @@ Voordat u een virtuele netwerkgateway maakt, moet u eerst het gatewaysubnet make
 
 ### <a name="createlng"></a>4. Een lokale netwerkgateway maken
 
-**Voorbeelden van waarden:** lokale netwerkgateway ClassicVNetLocal =
+**Voorbeelden van waarden:** Lokale netwerkgateway ClassicVNetLocal =
 
 | Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |Openbare IP-adres van gateway|
 |:--- |:--- |:--- |:--- |:--- |
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Waarden voor het configuratiebestand netwerk weergeven
 
-Wanneer u een VNet in Azure portal maakt, is de volledige naam die gebruikmaakt van Azure niet zichtbaar in de Azure portal. Een VNet dat wordt weergegeven om te worden met de naam 'ClassicVNet' in de Azure-portal kan bijvoorbeeld een veel langer naam hebben in het configuratiebestand van het netwerk. De naam ziet er ongeveer als volgt: 'Groep ClassicRG ClassicVNet'. In deze stappen die u kunt downloaden van het netwerkconfiguratiebestand en bekijk de waarden.
+Wanneer u een VNet in Azure portal maakt, is de volledige naam die gebruikmaakt van Azure niet zichtbaar in de Azure portal. Een VNet dat wordt weergegeven om te worden met de naam 'ClassicVNet' in de Azure-portal kan bijvoorbeeld een veel langer naam hebben in het configuratiebestand van het netwerk. De naam kan als volgt uitzien: 'Group ClassicRG ClassicVNet'. In deze stappen die u kunt downloaden van het netwerkconfiguratiebestand en bekijk de waarden.
 
 Maak een map op de computer en exporteer vervolgens het netwerkconfiguratiebestand naar de map. In dit voorbeeld wordt het netwerkconfiguratiebestand geëxporteerd naar C:\AzureNet.
 

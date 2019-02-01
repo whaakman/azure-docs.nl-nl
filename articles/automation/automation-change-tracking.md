@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301438"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487231"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -111,7 +111,7 @@ Gebruik de volgende stappen uit om te configureren op Windows-computers bijhoude
 Recursie kunt u opgeven van jokertekens voor het vereenvoudigen van alle mappen en omgevingsvariabelen waarmee u kunt bestanden bijhouden in omgevingen met meerdere bij te houden of een dynamische schijf namen. De volgende lijst bevat algemene informatie over het bij het configureren van recursie:
 
 * Jokertekens zijn vereist voor het bijhouden van meerdere bestanden
-* Als u jokertekens gebruikt, kunnen ze alleen worden gebruikt in het laatste segment van een pad. (zoals C:\folder\\**bestand** of /etc/*.conf)
+* Als u jokertekens gebruikt, kunnen ze alleen worden gebruikt in het laatste segment van een pad. (zoals `c:\folder\*file*` of `/etc/*.conf`)
 * Als een omgevingsvariabele heeft een ongeldig pad, de validatie slaagt maar het opgegeven pad zal mislukken wanneer inventarisatie wordt uitgevoerd.
 * Algemene paden zoals voorkomen `c:\*.*` bij het instellen van het pad, aangezien dit zou leiden tot te veel mappen wordt gebruikt.
 
@@ -132,9 +132,9 @@ Gebruik de volgende stappen voor het configureren van sleutel-register traceren 
 |Eigenschap  |Description  |
 |---------|---------|
 |Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
-|Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
-|Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
-|Windows-registersleutel   | Het pad om te controleren op het bestand. Bijvoorbeeld: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup      |
+|Itemnaam     | Beschrijvende naam van de registersleutel moet worden bijgehouden.        |
+|Groep     | De groepsnaam van een voor logisch groeperen van registersleutels.        |
+|Windows-registersleutel   | Het pad naar het controleren van de registersleutel. Bijvoorbeeld: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup      |
 
 ## <a name="limitations"></a>Beperkingen
 
@@ -278,13 +278,13 @@ In het volgende voorbeeld wordt de schermafbeelding ziet u dat het bestand `C:\w
 
 ![Een grafiek met de hosts bestand wijzigen](./media/automation-change-tracking/changes.png)
 
-Voor het analyseren van deze wijziging verder, gaat u naar zoeken in Logboeken van het klikken op **Log Analytics**. Eenmaal in zoeken in Logboeken, zoeken naar inhoud die is gewijzigd in het Hosts-bestand met de query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Deze query zoekt naar wijzigingen die een wijziging van de bestandsinhoud voor bestanden waarvan het volledig gekwalificeerde pad het woord "hosts bevat" opgenomen. U kunt ook vragen voor een bepaald bestand door het wijzigen van het padgedeelte in de volledig gekwalificeerde vorm (zoals `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+Voor het analyseren van deze wijziging verder, gaat u naar zoeken in Logboeken van het klikken op **Log Analytics**. Eenmaal in zoeken in Logboeken, zoeken naar inhoud die is gewijzigd in het Hosts-bestand met de query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Deze query zoekt naar wijzigingen die een wijziging van de bestandsinhoud voor bestanden waarvan het volledig gekwalificeerde pad het woord "hosts bevat" opgenomen. U kunt ook vragen voor een bepaald bestand door het wijzigen van het padgedeelte in de volledig gekwalificeerde vorm (zoals `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 Nadat de query de gewenste resultaten retourneert, klikt u op de **nieuwe waarschuwingsregel** knop in het logboek zoekervaring wordt geboden voor het openen van de pagina voor het maken van waarschuwingen. U ook naar deze ervaring via kan navigeren **Azure Monitor** in Azure portal. In de ervaring van het maken van waarschuwingen, onze query opnieuw controleren en wijzigen van de waarschuwing logica. In dit geval wilt u de waarschuwing wordt geactiveerd als er een wijziging gedetecteerd voor alle machines in de omgeving.
 
 ![Een installatiekopie van de query wijzigen voor bijhouden in het hosts-bestand wijzigingen](./media/automation-change-tracking/change-query.png)
 
-Nadat de voorwaardelijke logica is ingesteld, toewijzen actiegroepen acties uit te voeren in reactie op de waarschuwing wordt geactiveerd. In dit geval ingestelde ik e-mailberichten worden verzonden en een ITSM-ticket moet worden gemaakt.  Veel andere handige acties kunnen ook worden uitgevoerd, zoals de activering van een Azure-functie, een Automation-runbook, Webhook of logische App.
+Nadat de voorwaardelijke logica is ingesteld, toewijzen actiegroepen acties uit te voeren in reactie op de waarschuwing wordt geactiveerd. In dit geval ingestelde ik e-mailberichten worden verzonden en een ITSM-ticket moet worden gemaakt.  Veel andere handige acties kunnen ook worden uitgevoerd, zoals de activering van een Azure-functie, Automation-runbook, webhook of logische App.
 
 ![Een installatiekopie van een actiegroep op waarschuwing configureren op de wijziging](./media/automation-change-tracking/action-groups.png)
 

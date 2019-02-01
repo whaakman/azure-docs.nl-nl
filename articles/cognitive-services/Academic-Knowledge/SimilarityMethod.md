@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183336"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490121"
 ---
 # <a name="similarity-method"></a>Methode gelijkenis
 
@@ -28,14 +28,14 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
 ## <a name="request-parameters"></a>Aanvraagparameters
-Parameter        |Gegevenstype      |Vereist | Beschrijving
+Parameter        |Gegevenstype      |Vereist | Description
 ----------|----------|----------|------------
-**s1**        |Reeks   |Ja  |Tekenreeks * moet worden vergeleken
-**s2**        |Reeks   |Ja  |Tekenreeks * moet worden vergeleken
-<sub> * Tekenreeksen vergelijken, hebben een maximum lengte van 1MB. </sub>
+**s1**        |String   |Ja  |Tekenreeks * moet worden vergeleken
+**s2**        |String   |Ja  |Tekenreeks * moet worden vergeleken
+<sub> * Tekenreeksen vergelijken, hebben een maximale lengte van 1MB. </sub>
 <br>
 ## <a name="response"></a>Antwoord
-Name | Beschrijving
+Name | Description
 --------|---------
 **SimilarityScore**        |Een drijvende-kommawaarde vertegenwoordigt de gelijkenis cosinus van s1 en s2 met dichter bij 1.0 betekenis meer vergelijkbaar en waarden dichter naar-1.0 wat betekent dat kleiner
 <br>

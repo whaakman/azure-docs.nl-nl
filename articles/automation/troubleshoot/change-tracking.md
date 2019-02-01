@@ -6,25 +6,25 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/24/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421332"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507331"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Problemen oplossen met wijzigingen bijhouden en inventaris
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Scenario: Wijzigingsrecords Tracking worden niet weergegeven in de Azure-portal
+### <a name="records-not-showing-windows"></a>Scenario: Records voor wijzigingen bijhouden worden niet voor Windows-Machines weergegeven
 
 #### <a name="issue"></a>Probleem
 
-U kunt geen inventaris of bijhouden resultaten voor machines die toegevoegd voor het bijhouden zijn niet ziet.
+U kunt geen inventaris of bijhouden resultaten voor Windows-machines die toegevoegd voor het bijhouden zijn niet ziet.
 
 #### <a name="cause"></a>Oorzaak
 
@@ -38,12 +38,13 @@ Deze fout kan worden veroorzaakt door de volgende redenen:
 #### <a name="resolution"></a>Oplossing
 
 1. Controleer of de **Microsoft Monitoring Agent** (HealthService.exe) wordt uitgevoerd op de machine.
-2. Ga naar, [netwerkplanning](../automation-hybrid-runbook-worker.md#network-planning) voor meer informatie over welke adressen en poorten moeten worden toegestaan voor wijzigingen bijhouden om te werken.
-3. Controleer of de volgende wijzigingen bijhouden en inventaris management packs lokaal bestaan:
+1. Controleer **logboeken** op de machine en het zoeken naar alle gebeurtenissen die het woord `changetracking` erin.
+1. Ga naar, [netwerkplanning](../automation-hybrid-runbook-worker.md#network-planning) voor meer informatie over welke adressen en poorten moeten worden toegestaan voor wijzigingen bijhouden om te werken.
+1. Controleer of de volgende wijzigingen bijhouden en inventaris management packs lokaal bestaan:
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-4. Als u met behulp van een gekloonde installatiekopie, sysprep de installatiekopie van het eerste en de MMA-agent installeren na de gebeurtenis.
+1. Als u met behulp van een gekloonde installatiekopie, sysprep de installatiekopie van het eerste en de MMA-agent installeren na de gebeurtenis.
 
 Als deze oplossingen het probleem niet verhelpen, en u contact op met ondersteuning, kunt u de volgende opdrachten voor het verzamelen van de diagnose in de agent uitvoeren
 

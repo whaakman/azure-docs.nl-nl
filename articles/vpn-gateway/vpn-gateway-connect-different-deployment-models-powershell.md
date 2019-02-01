@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337529"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509318"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Virtuele netwerken van verschillende implementatiemodellen verbinden met PowerShell
 
@@ -50,7 +50,7 @@ Virtual Network-adresruimten 10.0.0.0/24 = <br>
 Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet 10.0.0.32/29 = <br>
 Naam van lokale RMVNetLocal = <br>
-GatewayType DynamicRouting =
+GatewayType = DynamicRouting
 
 **Resource Manager-VNet-instellingen**
 
@@ -58,7 +58,7 @@ VNet-naam = RMVNet <br>
 Resourcegroep RG1 = <br>
 Virtueel netwerk-IP-adresruimten = 192.168.0.0/16 <br>
 Subnet-1 = 192.168.1.0/24 <br>
-GatewaySubnet 192.168.0.0/26 = <br>
+GatewaySubnet = 192.168.0.0/26 <br>
 Locatie VS-Oost = <br>
 Gatewaynaam van openbare IP-gwpip = <br>
 Lokale netwerkgateway ClassicVNetLocal = <br>
@@ -263,7 +263,7 @@ In deze sectie maakt werken u met het klassieke VNet. U kunt de tijdelijke aandu
 ## <a name="connect"></a>Sectie 4: Maak een verbinding tussen de gateways
 Het maken van een verbinding tussen de gateways is PowerShell vereist. Mogelijk moet u uw Azure-Account voor het gebruik van de klassieke versie van de PowerShell-cmdlets toevoegen. Om dit te doen, gebruik **Add-AzureAccount**.
 
-1. Stel uw gedeelde sleutel in de PowerShell-console. Raadpleeg voordat u de cmdlets uitvoert, het netwerkconfiguratiebestand dat u hebt gedownload voor de exacte namen die Azure verwacht om te zien. Bij het opgeven van de naam van een VNet die spaties bevat, gebruikt u enkele aanhalingstekens rond de waarde.<br><br>In het volgende voorbeeld **- VNetName** is de naam van het klassieke VNet en **- LocalNetworkSiteName** is de naam die u hebt opgegeven voor de lokale netwerksite. De **- SharedKey** is een waarde die u genereert en opgeven. In het voorbeeld hebben we 'abc123' gebruikt, maar u kunt genereren en ingewikkeldere gebruiken. Het belangrijkste is dat de waarde die u hier opgeeft, dezelfde waarde die u in de volgende stap opgeeft bij het maken van de verbinding moet zijn. Moet worden weergegeven in het rendement **Status: Geslaagde**.
+1. Stel uw gedeelde sleutel in de PowerShell-console. Raadpleeg voordat u de cmdlets uitvoert, het netwerkconfiguratiebestand dat u hebt gedownload voor de exacte namen die Azure verwacht om te zien. Bij het opgeven van de naam van een VNet die spaties bevat, gebruikt u enkele aanhalingstekens rond de waarde.<br><br>In het volgende voorbeeld **- VNetName** is de naam van het klassieke VNet en **- LocalNetworkSiteName** is de naam die u hebt opgegeven voor de lokale netwerksite. De **- SharedKey** is een waarde die u genereert en opgeven. In het voorbeeld hebben we 'abc123' gebruikt, maar u kunt genereren en ingewikkeldere gebruiken. Het belangrijkste is dat de waarde die u hier opgeeft, dezelfde waarde die u in de volgende stap opgeeft bij het maken van de verbinding moet zijn. Moet worden weergegeven in het rendement **Status: Successful**.
 
   ```azurepowershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `

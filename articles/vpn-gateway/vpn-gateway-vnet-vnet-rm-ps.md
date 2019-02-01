@@ -1,5 +1,5 @@
 ---
-title: 'Een virtueel Azure-netwerk verbinden met een ander VNet met behulp van een VNet-naar-VNet-verbinding: PowerShell | Microsoft Docs'
+title: 'Een Azure-netwerk verbinden met een ander VNet met behulp van een VNet-naar-VNet-verbinding: PowerShell | Microsoft Docs'
 description: Virtuele netwerken met elkaar verbinden met behulp van een VNet-naar-VNet-verbinding en PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686956"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510552"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van PowerShell
 
@@ -68,11 +68,11 @@ Het belangrijkste verschil tussen de reeksen is dat u afzonderlijke PowerShell-s
 
 Voor deze oefening kunt u configuraties combineren of alleen de configuratie kiezen waarmee u wilt werken. Alle configuraties maken gebruik van het verbindingstype VNet-naar-VNet. Netwerkverkeer verloopt tussen de VNet's die rechtstreeks met elkaar zijn verbonden. In deze oefening wordt verkeer van TestVNet4 niet gerouteerd naar TestVNet5.
 
-* [VNet's die zich in hetzelfde abonnement bevinden:](#samesub) in de stappen voor deze configuratie wordt gebruikgemaakt van TestVNet1 en TestVNet4.
+* [VNets die hetzelfde abonnement tot](#samesub): De stappen voor deze configuratie maken gebruik van TestVNet1 en TestVNet4.
 
   ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [VNet's die zich in verschillende abonnementen bevinden:](#difsub) in de stappen voor deze configuratie wordt gebruikgemaakt van TestVNet1 en TestVNet5.
+* [VNets die verschillende abonnementen behoren tot](#difsub): De stappen voor deze configuratie maken gebruik van TestVNet1 en TestVNet5.
 
   ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -90,23 +90,23 @@ In de voorbeelden worden de volgende waarden gebruikt:
 
 **Waarden voor TestVNet1:**
 
-* VNet-naam: TestVNet1
+* VNET-naam: TestVNet1
 * Resourcegroep: TestRG1
 * Locatie: US - oost
-* TestVNet1: 10.11.0.0/16 en 10.12.0.0/16
+* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
 * Openbare IP: VNet1GWIP
-* VPNType: op route gebaseerd
+* VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
 * Connection(1to5): VNet1toVNet5 (voor VNets in verschillende abonnementen)
-* ConnectionType: VNet2VNet
+* ConnectionType: Vnet2Vnet
 
 **Waarden voor TestVNet4:**
 
-* VNet-naam: TestVNet4
+* VNET-naam: TestVNet4
 * TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 * FrontEnd: 10.41.0.0/24
 * BackEnd: 10.42.0.0/24
@@ -115,9 +115,9 @@ In de voorbeelden worden de volgende waarden gebruikt:
 * Locatie: US - west
 * GatewayName: VNet4GW
 * Openbare IP: VNet4GWIP
-* VPNType: op route gebaseerd
+* VPNType: RouteBased
 * Verbinding: VNet4toVNet1
-* ConnectionType: VNet2VNet
+* ConnectionType: Vnet2Vnet
 
 
 ### <a name="Step2"></a>Stap 2: TestVNet1 maken en configureren
@@ -303,7 +303,7 @@ Het is belangrijk dat u controleert of de IP-adresruimte van het nieuwe virtuele
 
 **Waarden voor TestVNet5:**
 
-* VNet-naam: TestVNet5
+* VNET-naam: TestVNet5
 * Resourcegroep: TestRG5
 * Locatie: Japan - oost
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
@@ -312,9 +312,9 @@ Het is belangrijk dat u controleert of de IP-adresruimte van het nieuwe virtuele
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
 * Openbare IP: VNet5GWIP
-* VPNType: op route gebaseerd
+* VPNType: RouteBased
 * Verbinding: VNet5toVNet1
-* ConnectionType: VNet2VNet
+* ConnectionType: Vnet2Vnet
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>Stap 7: TestVNet5 maken en configureren
 

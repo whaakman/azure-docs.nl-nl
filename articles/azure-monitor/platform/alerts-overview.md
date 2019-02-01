@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486297"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Overzicht van waarschuwingen in Microsoft Azure 
 
@@ -75,7 +75,7 @@ U kunt de status van een waarschuwing om op te geven waar deze zich in het proce
 
 De volgende statussen worden ondersteund.
 
-| Status | Beschrijving |
+| Status | Description |
 |:---|:---|
 | Nieuw | Het probleem alleen is gedetecteerd en nog niet zijn beoordeeld. |
 | Bevestigd | Een beheerder heeft gecontroleerd van de waarschuwing en werken op deze gestart. |
@@ -98,7 +98,7 @@ Het niet weergeven of oudere bijhouden [klassieke waarschuwingen](#classic-alert
 
 U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 |:---|:---|
 | Abonnement | Selecteer maximaal vijf Azure-abonnementen. Alleen waarschuwingen in de geselecteerde abonnementen zijn opgenomen in de weergave. |
 | Resourcegroep | Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. |
@@ -106,7 +106,7 @@ U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aa
 
 Selecteer de volgende waarden aan de bovenkant van de pagina met waarschuwingen om een andere pagina te openen.
 
-| Value | Beschrijving |
+| Value | Description |
 |:---|:---|
 | Totaal aantal waarschuwingen | Het totale aantal waarschuwingen dat voldoet aan de geselecteerde criteria. Selecteer deze waarde in de weergave alle waarschuwingen openen met geen filter. |
 | Slimme groepen | Het totale aantal slimme groepen die zijn gemaakt op basis van de waarschuwingen die overeenkomen met de geselecteerde criteria. Selecteer deze waarde aan de groepslijst met slimme openen in de weergave alle waarschuwingen.
@@ -141,7 +141,7 @@ Klik op het totaal aantal waarschuwingen om te zien van de pagina met alle waars
 
 U kunt de weergave filteren op de volgende waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
 
-| Kolom | Beschrijving |
+| Kolom | Description |
 |:---|:---|
 | Abonnement | Selecteer maximaal vijf Azure-abonnementen. Alleen waarschuwingen in de geselecteerde abonnementen zijn opgenomen in de weergave. |
 | Resourcegroep | Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. |
@@ -162,7 +162,7 @@ De detailpagina van de waarschuwing wordt weergegeven wanneer u een waarschuwing
 
 De detailpagina van de waarschuwing bevat de volgende secties.
 
-| Sectie | Beschrijving |
+| Sectie | Description |
 |:---|:---|
 | Essentials | Geeft de eigenschappen en andere belangrijke informatie over de waarschuwing. |
 | Geschiedenis | Geeft een lijst van elke actie op die door de waarschuwing en eventuele wijzigingen in de waarschuwing. Momenteel beperkt tot de status verandert. |

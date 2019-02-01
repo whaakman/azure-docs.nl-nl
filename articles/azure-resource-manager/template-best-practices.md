@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0736ed32fa6f17cc840d6b144503409365c33d84
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077933"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490376"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager sjabloon aanbevolen procedures
 
@@ -25,6 +25,8 @@ In dit artikel biedt aanbevelingen over het maken van uw Resource Manager-sjablo
 Zie voor aanbevelingen over het beheren van uw Azure-abonnementen, [Azure enterprise-platform: Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 Zie voor aanbevelingen over het bouwen van sjablonen die in alle Azure-cloud-omgevingen werken [ontwikkelen van Azure Resource Manager-sjablonen voor de consistentie van de cloud](templates-cloud-consistency.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="parameters"></a>Parameters
 De informatie in deze sectie kan nuttig zijn wanneer u met werkt [parameters](resource-manager-templates-parameters.md).

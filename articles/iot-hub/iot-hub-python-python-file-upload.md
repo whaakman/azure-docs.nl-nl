@@ -7,25 +7,25 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 193bc3a4eafcdff5d5f28d916afa4600b20c0d86
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 295f96258b2f5d6612ae7c5f86c9f360232111f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514728"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507838"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden van uw apparaat naar de cloud met IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-In deze zelfstudie volgt het gebruik van de [bestand uploaden mogelijkheden van IoT-Hub](iot-hub-devguide-file-upload.md) naar een bestand uploadt naar [Azure blob-opslag](../storage/index.yml). In deze zelfstudie leert u het volgende:
+In dit artikel ziet u hoe u de [bestand uploaden mogelijkheden van IoT-Hub](iot-hub-devguide-file-upload.md) naar een bestand uploadt naar [Azure blob-opslag](../storage/index.yml). In deze zelfstudie leert u het volgende:
 
 - Geef een opslagcontainer veilig voor het uploaden van een bestand.
 - De Python-client gebruiken voor het uploaden van een bestand via uw IoT-hub.
 
-De [aan de slag met IoT Hub](quickstart-send-telemetry-node.md) de basisfunctionaliteit apparaat-naar-cloud berichten zijn van IoT Hub wordt gedemonstreerd. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Wanneer u upland bestanden vanaf een apparaat wilt, kunt u de beveiliging en betrouwbaarheid van IoT Hub nog steeds gebruiken.
+De [telemetrie verzenden naar IoT Hub](quickstart-send-telemetry-python.md) Quick Start ziet u de basisfunctionaliteit apparaat-naar-cloud berichten zijn van IoT-Hub. Echter, in sommige scenario's kan niet eenvoudig koppelt u de gegevens die uw apparaten verzenden naar de relatief klein aantal apparaat-naar-cloud-berichten die IoT Hub worden geaccepteerd. Wanneer u upland bestanden vanaf een apparaat wilt, kunt u de beveiliging en betrouwbaarheid van IoT Hub nog steeds gebruiken.
 
 > [!NOTE]
 > Python-SDK voor IoT-Hub ondersteunt momenteel alleen tekens gebaseerde bestanden zoals uploadt **.txt** bestanden.
@@ -41,19 +41,8 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * [Python 2.x of 3.x][lnk-python-download]. Zorg ervoor dat u de 32-bits of 64-bits installatie gebruikt, zoals vereist door uw configuratie. Zorg ervoor dat u Python toevoegt aan uw platformspecifieke omgevingsvariabele als u hierom wordt gevraagd tijdens de installatie. Als u Python 2.x gebruikt, moet u mogelijk *pip* [installeren of upgraden, het Python-pakketbeheersysteem][lnk-install-pip].
 * Als u een Windows-besturingssysteem hebt, gebruikt u vervolgens het [herdistribueerbare pakket van Visual C++][lnk-visual-c-redist] om het gebruik van systeemeigen DLL's van Python mogelijk te maken.
-* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
-
-## <a name="create-an-iot-hub"></a>Een IoT Hub maken
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Voor IoT hub-verbindingsreeks ophalen
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>Een nieuw apparaat registreren in de IoT-hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+* Een actief Azure-account. Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.
+* Een IoT-hub in uw Azure-account met een apparaat-id voor het testen van de functionaliteit voor het uploaden. 
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -68,9 +57,14 @@ In deze sectie maakt u de apparaat-app voor een bestand uploaden naar IoT hub.
     pip install azure-iothub-device-client
     ```
 
+1. Met een teksteditor, maak een testbestand dat u naar blob-opslag uploaden zult. 
+
+    > [!NOTE]
+    > Python-SDK voor IoT-Hub ondersteunt momenteel alleen tekens gebaseerde bestanden zoals uploadt **.txt** bestanden.
+
 1. Maak met een teksteditor een **FileUpload.py** bestand in de werkmap.
 
-1. Voeg de volgende `import` instructies en -variabelen aan het begin van de **FileUpload.py** bestand. Vervang `deviceConnectionString` door de verbindingsreeks van uw IoT hub-apparaat:
+1. Voeg de volgende `import` instructies en -variabelen aan het begin van de **FileUpload.py** bestand. 
 
     ```python
     import time
@@ -83,8 +77,10 @@ In deze sectie maakt u de apparaat-app voor een bestand uploaden naar IoT hub.
     PROTOCOL = IoTHubTransportProvider.HTTP
 
     PATHTOFILE = "[Full path to file]"
-    FILENAME = "[File name on storage after upload]"
+    FILENAME = "[File name for storage]"
     ```
+
+1. Vervang in het bestand `[Device Connection String]` door de verbindingsreeks van uw IoT hub-apparaat. Vervang `[Full path to file]` met het pad naar de testbestand dat u hebt gemaakt, of een bestand op uw apparaat dat u wilt uploaden. Vervang `[File name for storage]` met de naam die u geven tot uw bestand wilt nadat deze is geüpload naar blob-opslag. 
 
 1. Maak een callback voor de **upload_blob** functie:
 
@@ -133,11 +129,6 @@ In deze sectie maakt u de apparaat-app voor een bestand uploaden naar IoT hub.
     ```
 
 1. Opslaan en sluiten de **UploadFile.py** bestand.
-
-1. Een voorbeeldtekstbestand kopiëren naar de werkmap en wijzig de naam `sample.txt`.
-
-    > [!NOTE]
-    > Python-SDK voor IoT-Hub ondersteunt momenteel alleen tekens gebaseerde bestanden zoals uploadt **.txt** bestanden.
 
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren

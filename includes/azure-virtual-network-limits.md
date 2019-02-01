@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597597"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513947"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -48,6 +48,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | DNS-servers per virtueel netwerk |20 |
 | Privé-IP-adressen per virtueel netwerk |65536 |
 | Privé-IP-adressen per netwerkinterface |256 |
+| Privé-IP-adressen per virtuele machine |256 |
 | Gelijktijdige TCP of UDP-stromen per NIC van een virtuele machine of rolinstantie |500.000 |
 | Netwerkinterfaces (NIC) |65536 |
 | Netwerkbeveiligingsgroepen (NSG's) |5000 |
@@ -68,7 +69,8 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | --- | --- | --- |
 | Openbare IP-adressen - dynamisch |1000 (standaard) |contact met ondersteuning |
 | Openbare IP-adressen - statisch |200 (standaard) |contact met ondersteuning |
-| Openbare IP-adressen - statisch |200 (standaard) |contact met ondersteuning |
+| Openbare IP-adressen - statisch |(Standard) 200 |contact met ondersteuning |
+| Openbare IP-voorvoegsel grootte (preview) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Load Balancer-limieten
 De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over het [uw huidige brongebruik op basis van uw abonnementen weergeven](../articles/networking/check-usage-against-limits.md)

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 93f0d31f5daa13d0598367e2a4ddab67ff3dbc66
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3f97e9696a5138d9102037103a45c86988a7506c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279697"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489272"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Health service-gegevens is niet up-to-date waarschuwing
 
@@ -40,7 +40,7 @@ ms.locfileid: "51279697"
 | Gegevenselementen | Stappen voor probleemoplossing |
 | --- | --- | 
 | PerfCounter | - [Uitgaande connectiviteit met het Azure-service-eindpunt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [SSL-controle voor uitgaand verkeer is gefilterd of uitgeschakeld](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Firewall-poorten op de server waarop de agent wordt uitgevoerd](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [De opgegeven websites toestaan als verbeterde beveiliging van Internet Explorer is ingeschakeld](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
-| AadSyncService-SynchronizationRules <br /> AadSyncService-Connectors <br /> AadSyncService-GlobalConfigurations <br /> AadSyncService-RunProfileResults <br /> AadSyncService-ServiceConfigurations <br /> AadSyncService-ServiceStatus | -De uitgaande connectiviteit op basis van IP-adressen, verwijzen naar [IP-adresbereiken voor Azure](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Uitgaande connectiviteit met het Azure-service-eindpunt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Firewall-poorten op de server waarop de agent wordt uitgevoerd](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
+| AadSyncService-SynchronizationRules <br /> AadSyncService-Connectors, <br /> AadSyncService-GlobalConfigurations, <br /> AadSyncService-RunProfileResults <br /> AadSyncService-ServiceConfigurations, <br /> AadSyncService-ServiceStatus | -De uitgaande connectiviteit op basis van IP-adressen, verwijzen naar [IP-adresbereiken voor Azure](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Uitgaande connectiviteit met het Azure-service-eindpunt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Firewall-poorten op de server waarop de agent wordt uitgevoerd](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
 
 ### <a name="connect-health-for-adfs"></a>Connect Health voor AD FS
 
@@ -49,7 +49,7 @@ Extra stappen uitvoeren om te valideren voor AD FS en volgt u de werkstroom in [
 | Gegevenselementen | Stappen voor probleemoplossing |
 | --- | --- | 
 | PerfCounter, TestResult | - [Uitgaande connectiviteit met het Azure-service-eindpunt](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [SSL-controle voor uitgaand verkeer is gefilterd of uitgeschakeld](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Firewall-poorten op de server waarop de agent wordt uitgevoerd](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [De opgegeven websites toestaan als verbeterde beveiliging van Internet Explorer is ingeschakeld](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
-|  AD FS-UsageMetrics | Uitgaande verbindingen op basis van IP-adressen, verwijzen naar [IP-adresbereiken voor Azure](https://www.microsoft.com/download/details.aspx?id=41653) | 
+|  Adfs-UsageMetrics | Uitgaande verbindingen op basis van IP-adressen, verwijzen naar [IP-adresbereiken voor Azure](https://www.microsoft.com/download/details.aspx?id=41653) | 
 
 ### <a name="connect-health-for-adds"></a>Connect Health voor ADDS
 

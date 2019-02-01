@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1bc70e5c8243c50506cea871220412a4941cbe35
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213103"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496224"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Over het gebruik van de QnA Maker REST-API met Node.js 
 <a name="HOLTop"></a>
@@ -57,7 +57,7 @@ Met de volgende code wordt een nieuwe knowledge base gemaakt met behulp van de m
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -253,7 +253,7 @@ Met de volgende code wordt een bestaande knowledge base bijgewerkt met behulp va
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -454,7 +454,7 @@ Met de volgende code wordt een bestaande knowledge base gepubliceerd met behulp 
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -566,7 +566,7 @@ Met de volgende code wordt de inhoud van de opgegeven knowledge base vervangen. 
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -699,7 +699,7 @@ Met de volgende code wordt de inhoud van de opgegeven knowledge base gedownload.
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -832,7 +832,7 @@ Met de volgende code worden antwoorden op een vraag opgehaald uit de opgegeven k
 1. Vervang de waarde `kb` door de id van de knowledge base waaruit u antwoorden wilt ophalen. Deze knowledge base moet al zijn gepubliceerd met behulp van de methode [Publish](#Publish).
 1. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -961,7 +961,7 @@ Met de volgende code wordt informatie over de opgegeven knowledge base opgehaald
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1076,7 +1076,7 @@ Met de volgende code wordt informatie over alle knowledge bases van een opgegeve
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1204,7 +1204,7 @@ Met de volgende code wordt de opgegeven knowledge base verwijderd. Hierbij wordt
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1316,7 +1316,7 @@ Met de volgende code worden de huidige eindpuntsleutels opgehaald. Hierbij wordt
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1417,7 +1417,7 @@ Met de volgende code worden de huidige eindpuntsleutels opnieuw gegenereerd. Hie
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1543,7 +1543,7 @@ Met de volgende code worden de huidige woordwijzigingen opgehaald. Hierbij wordt
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1650,7 +1650,7 @@ Met de volgende code worden de huidige woordwijzigingen vervangen. Hierbij wordt
 3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');

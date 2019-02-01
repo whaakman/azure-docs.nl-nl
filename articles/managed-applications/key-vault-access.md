@@ -3,23 +3,24 @@ title: Azure Key Vault gebruiken met beheerde toepassingen | Microsoft Docs
 description: Laat zien hoe u toegang tot geheimen in Azure Key Vault gebruiken bij het implementeren van beheerde toepassingen
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725009"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492671"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Toegang tot Key Vault-geheim bij het implementeren van Azure Managed Applications
 
-Als u een veilige waarde (zoals een wachtwoord) als een parameter doorgeven tijdens de implementatie wilt, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md). Voor toegang tot de Key Vault bij het implementeren van beheerde toepassingen, u moet toegang verlenen tot de **toestel Resource Provider** service-principal. In dit artikel wordt beschreven hoe het configureren van de Key Vault om te werken met beheerde toepassingen.
+Als u een veilige waarde (zoals een wachtwoord) als een parameter doorgeven tijdens de implementatie wilt, haalt u de waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md). Voor toegang tot de Key Vault bij het implementeren van beheerde toepassingen, u moet toegang verlenen tot de **toestel Resource Provider** service-principal. De beheerde toepassingen-service gebruikt deze identiteit voor bewerkingen uitvoeren. Als u wilt ophalen is een waarde van een Key Vault tijdens de implementatie, moet de service-principal toegang krijgen tot de Key Vault.
+
+In dit artikel wordt beschreven hoe het configureren van de Key Vault om te werken met beheerde toepassingen.
 
 ## <a name="enable-template-deployment"></a>Voor sjabloonimplementatie inschakelen
 

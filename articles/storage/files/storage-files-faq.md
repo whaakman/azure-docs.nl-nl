@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 273039ec271d5d81329ab475ffd2eda82dca7b58
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457017"
+ms.locfileid: "55511001"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -104,7 +104,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="afs-storage-redundancy"></a>
 **Geografisch redundante opslag is wordt ondersteund voor Azure File Sync?**  
-    Ja, Azure Files ondersteunt zowel lokaal redundante opslag (LRS) en geografisch redundante opslag (GRS). Als een GRS-failover tussen twee gekoppelde regio's is uitgevoerd, raden wij u aan de nieuwe regio te behandelen als een back-up van gegevens. Azure File Sync begint niet automatisch gesynchroniseerd met de nieuwe primaire regio. 
+    Ja, Azure Files ondersteunt zowel lokaal redundante opslag (LRS) en geografisch redundante opslag (GRS). Als u een failover voor het account van opslag tussen twee gekoppelde regio's van een account dat is geconfigureerd voor GRS hebt gestart, wordt aangeraden dat u de nieuwe regio als een back-up van gegevens behandelen. Azure File Sync begint niet automatisch gesynchroniseerd met de nieuwe primaire regio. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Waarom niet de *ruimte op de schijf* eigenschap voor een bestand overeen met de *grootte* eigenschap na het gebruik van Azure File Sync?**  
@@ -116,7 +116,6 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="afs-recall-file"></a>**Een bestand dat ik wil gebruiken gelaagde. Hoe kan ik het bestand op schijf om lokaal gebruiken intrekken?**  
  Zie [inzicht in Cloud-Opslaglagen](storage-sync-cloud-tiering.md#afs-recall-file).
-
 
 * <a id="afs-force-tiering"></a>
 **Hoe Dwing ik een bestand of map in tiers worden verdeeld?**  
@@ -149,7 +148,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Waarom bestaan er gelaagde bestanden buiten de server eindpunt-naamruimte?**  
-    Azure File Sync geblokkeerd voordat u Azure File Sync-agentversie 3, de verplaatsing van gelaagde bestanden buiten het servereindpunt, maar op hetzelfde volume als het servereindpunt. Kopieerbewerkingen, verplaatst van niet-gelaagde bestanden en wordt verplaatst van gelaagde in andere volumes zijn niet beïnvloed. De reden voor dit gedrag is de impliciete veronderstelling dat bestand in Bestandenverkenner en andere Windows-API's hebben die bewerkingen op hetzelfde volume zijn (bijna) instanenous Wijzig de naam van bewerkingen worden verplaatst. Dit betekent verplaatst maakt Verkenner of andere verplaatsingsmethoden (zoals vanaf de opdrachtregel of PowerShell) wordt niet meer reageert geopend terwijl Azure File Sync de gegevens vanuit de cloud roept. Beginnen met [versie van Azure File Sync-agent 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kunt u een gelaagd bestand buiten het servereindpunt verplaatsen. We te voorkomen dat de negatieve effecten die eerder is vermeld dat het gelaagde bestand bestaat als een gelaagd bestand buiten het servereindpunt en vervolgens terughalen van het bestand op de achtergrond. Dit betekent dat verplaatst op hetzelfde volume zijn instaneous en we hebben al het werk om in te trekken van het bestand op schijf na de verplaatsing is voltooid. 
+    Azure File Sync geblokkeerd voordat u Azure File Sync-agentversie 3, de verplaatsing van gelaagde bestanden buiten het servereindpunt, maar op hetzelfde volume als het servereindpunt. Kopieerbewerkingen, verplaatst van niet-gelaagde bestanden en wordt verplaatst van gelaagde in andere volumes zijn niet beïnvloed. De reden voor dit gedrag is de impliciete veronderstelling dat File Explorer en andere Windows-API's hebben dat verplaatsingsbewerkingen op hetzelfde volume (bijna) onmiddellijk zijn Wijzig de naam van bewerkingen. Dit betekent verplaatst maakt Verkenner of andere verplaatsingsmethoden (zoals vanaf de opdrachtregel of PowerShell) wordt niet meer reageert geopend terwijl Azure File Sync de gegevens vanuit de cloud roept. Beginnen met [versie van Azure File Sync-agent 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kunt u een gelaagd bestand buiten het servereindpunt verplaatsen. We te voorkomen dat de negatieve effecten die eerder is vermeld dat het gelaagde bestand bestaat als een gelaagd bestand buiten het servereindpunt en vervolgens terughalen van het bestand op de achtergrond. Dit betekent dat verplaatst op hetzelfde volume zijn onmiddellijk en we hebben al het werk om in te trekken van het bestand op schijf na de verplaatsing is voltooid. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Ik ondervind een probleem met Azure File Sync op mijn server (sync, cloud cloudlagen, enzovoort). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?**  
@@ -202,7 +201,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="ad-vm-subscription"></a>
 **Kan ik toegang krijgen tot Azure Files met Azure AD-referenties van een virtuele machine met een ander abonnement?**
 
-    Als het abonnement waarin de bestandsshare is geïmplementeerd, gekoppeld aan dezelfde Azure AD-tenant als de Azure AD Domain Services-deploymnet waarop de virtuele machine is het domein is, wordt u hebben vervolgens toegang tot Azure Files met dezelfde Azure AD-referenties. De beperking niet van het abonnement wordt opgelegd, maar op de bijbehorende Azure AD-tenant.    
+    Als het abonnement waarin de bestandsshare is geïmplementeerd, gekoppeld aan dezelfde Azure AD-tenant als de implementatie van Azure AD Domain Services waarop de virtuele machine is het domein is, wordt u hebben vervolgens toegang tot Azure Files met dezelfde Azure AD-referenties. De beperking niet van het abonnement wordt opgelegd, maar op de bijbehorende Azure AD-tenant.    
     
 * <a id="ad-support-subscription"></a>
 **Kan ik inschakelen Azure AD-verificatie via SMB voor Azure Files met een Azure AD-tenant die verschilt van de primaire tenant die aan de bestandsshare gekoppeld is?**

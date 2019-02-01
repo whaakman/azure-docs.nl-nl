@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/03/2018
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 947886a96ab31150cf81ebea0a3cdd69e0273b01
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305750"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486535"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-opslag: Verschillen en overwegingen
 
@@ -67,16 +67,8 @@ Azure Storage service-API's:
 
 1811 update of nieuwere versies:
 
- - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
- - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
-
-update 1802 1809 update:
-
+- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
@@ -85,35 +77,34 @@ update 1802 1809 update:
 
 Vorige versies:
 
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage-services beheer-API's:
 
-- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+1811 update of nieuwere versies:
+
+- [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 Vorige versies:
 
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- 
-## <a name="sdk-versions"></a>SDK-versies
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Azure Stack-storage ondersteunt de volgende clientbibliotheken:
-
-| Clientbibliotheek | Ondersteunde versie van Azure Stack | Koppeling                                                                                                                                                                                                                                                                                                                                     | Eindpunt-specificatie       |
-|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | Van 6.2.0 naar 8.7.0.          | NuGet-pakket:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | bestand App.config              |
-| Java           | Van 4.1.0 naar 6.1.0           | Maven-pakket:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Verbindingsinstellingen voor tekenreeks      |
-| Node.js        | Van 1.1.0 naar 2.7.0           | Koppeling van NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Bijvoorbeeld: Voer ' npm installeren azure-storage@2.7.0")<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | De declaratie van de service-exemplaar |
-| C++            | Van 2.4.0 naar 3.1.0           | NuGet-pakket:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Verbindingsinstellingen voor tekenreeks      |
-| PHP            | Van 0.15.0 naar 1.0.0          | Release van GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Via Composer installeren (Zie hieronder voor meer informatie)                                                                                                                                                                                                                  | Verbindingsinstellingen voor tekenreeks      |
-| Python         | Van 0.30.0 naar 1.0.0          | Release van GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | De declaratie van de service-exemplaar |
-| Ruby           | Van 0.12.1 naar 1.0.1          | Pakket van RubyGems:<br>Algemene:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Wachtrij: https://rubygems.org/gems/azure-storage-queue/<br>Tabel: https://rubygems.org/gems/azure-storage-table/<br> <br>Release van GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Verbindingsinstellingen voor tekenreeks      |
+Zie voor meer informatie over Azure Stack ondersteund storage-clientbibliotheken: [Aan de slag met hulpprogramma's voor opslagontwikkeling Azure Stack](azure-stack-storage-dev.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Aan de slag met Azure Stack hulpprogramma's voor opslagontwikkeling](azure-stack-storage-dev.md)
+* [Gebruik van hulpmiddelen voor het overbrengen van gegevens voor Azure Stack](azure-stack-storage-transfer.md)
 * [Inleiding tot Azure Stack-opslag](azure-stack-storage-overview.md)

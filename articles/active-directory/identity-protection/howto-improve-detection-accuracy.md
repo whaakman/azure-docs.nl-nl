@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/31/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 2ba6e3b8b844d72b762e9a66629f16b36193a69f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d2b477c31898884761f260e9520913c67c7c6f83
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478386"
+ms.locfileid: "55488914"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Procedure: De nauwkeurigheid van de detectie te verbeteren 
 
@@ -121,7 +121,7 @@ U kunt het gebruikersrisico van gerapporteerde sluiten:
 
 - Het kan enkele minuten voor deze actie worden uitgevoerd, daarom moet u niet opnieuw een aanvraag verzendt duren.
 
-- U kunt deze actie alleen uitvoeren als de referenties van de gebruiker worden beheerd in AD. (Werking van deze gemiddelde?)
+- U kunt deze actie alleen uitvoeren als de referenties van de gebruiker worden beheerd in AD. 
 
 
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 366a38951363d52df3d52d3a670943dc41211c8a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538582"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493997"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migreren van de PostgreSQL-database met behulp van dumpen en terugzetten
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) om op te halen van een PostgreSQL-database naar een dumpbestand en [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) de PostgreSQL-database herstellen vanuit een archiefbestand die zijn gemaakt door pg_dump.
@@ -69,7 +69,9 @@ Een manier om uw bestaande PostgreSQL-database migreren naar Azure Database for 
 
 ### <a name="for-the-restore"></a>Voor het herstellen
 - Het is raadzaam dat u de back-upbestand naar een Azure-VM in dezelfde regio als de Azure Database for PostgreSQL-server u migreert verplaatsen naar en voer de pg_restore van die VM te verminderen van de netwerklatentie. We raden u ook aan dat de virtuele machine wordt gemaakt met [versnelde netwerken](../virtual-network/create-vm-accelerated-networking-powershell.md) ingeschakeld.
+
 - Het standaard moet worden gedaan, maar het dumpbestand om te controleren dat de instructies van de index maken na het invoegen van de gegevens zijn geopend. Als dit niet het geval is, verplaatst u de instructies van de index maken nadat de gegevens worden ingevoegd.
+
 - Herstellen met de schakelopties -Fc- en -j *#* naar parallel het terugzetten. *#* is het aantal kernen op de doelserver. U kunt ook proberen met *#* ingesteld op twee keer het aantal kernen van de doelserver om te zien van de impact. Bijvoorbeeld:
 
     ```
@@ -77,6 +79,13 @@ Een manier om uw bestaande PostgreSQL-database migreren naar Azure Database for 
     ```
 
 - U kunt ook het dumpbestand bewerken door de opdracht toe te voegen *synchronous_commit instellen = uit;* aan het begin en de opdracht *synchronous_commit instellen = on;* aan het einde. Niet te schakelen op aan het einde, voordat de apps de gegevens wijzigen, kan dit leiden tot volgende verlies van gegevens.
+
+- Op de doel-Azure Database for PostgreSQL-server, Stel desgewenst het volgende voordat u de terugzetbewerking:
+    - Uitschakelen query bijhouden van prestaties, omdat deze statistische gegevens niet nodig zijn tijdens de migratie. U kunt dit doen door in te stellen pg_stat_statements.track pg_qs.query_capture_mode en pgms_wait_sampling.query_capture_mode op NONE.
+
+    - Een hoge Computing en geheugen sku, zoals 32 vCore geoptimaliseerd voor geheugen, gebruiken om de migratie te versnellen. U kunt gemakkelijk schalen omlaag naar de gewenste sku nadat het herstel voltooid is. Hoe hoger de sku, de meer paralellism u kunt bereiken met het verhogen van de bijbehorende `-j` parameter in de opdracht pg_restore. 
+
+    - Meer IOPS op de doelserver kan de herstel-prestaties verbeteren. U kunt meer IOPS inrichten door de opslaggrootte van de server. Deze instelling is niet ongedaan worden gemaakt, maar houd rekening met of een hogere IOPS voordeel uw huidige workload in de toekomst hebben veel.
 
 Houd er rekening mee te testen en valideren van deze opdrachten in een testomgeving voordat u ze in productie gebruiken.
 

@@ -6,18 +6,18 @@ documentationcenter: ''
 author: JiangChen79
 manager: felixwu
 editor: ''
-tags: top-support-issue,azure-resourece-manager,azure-service-management
+tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: d8c0afa159bb8f932c42077868d5134e6486e8c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413541"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510473"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Toewijzingsfouten bij het maken, opnieuw opstarten of grootte van virtuele machines in Azure
 
@@ -25,7 +25,7 @@ Wanneer u een virtuele machine (VM) maken, gestopt (toewijzing opgeheven) virtue
 
 **Foutcode**: AllocationFailed of ZonalAllocationFailed
 
-**Foutbericht**: "toewijzing is mislukt. We hebben niet voldoende capaciteit voor de aangevraagde VM-grootte in deze regio. Meer informatie over het verbeteren van de kans op succes bij http://aka.ms/allocation-guidance"
+**Foutbericht**: "Toewijzing is mislukt. We hebben niet voldoende capaciteit voor de aangevraagde VM-grootte in deze regio. Meer informatie over het verbeteren van de kans op succes bij http://aka.ms/allocation-guidance"
 
 Dit artikel worden de oorzaken van enkele van de algemene toewijzingsfouten en duidt op mogelijke oplossingen.
 
@@ -36,7 +36,7 @@ Pas uw gewenste VM-type beschikbaar in uw voorkeursregio is, adviseren we klante
 Zoek het scenario dat het meest geschikt is voor uw situatie en probeer de aanvraag voor geheugentoewijzing door gebruik te maken van de bijbehorende voorgestelde oplossing om de kans op succes. U kunt ook u kunt altijd probeer het later opnieuw. Dit is omdat er onvoldoende bronnen zijn vrijgegeven in de cluster, regio of zone voor uw aanvraag. 
 
 
-## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Grootte van een virtuele machine of VM's toevoegen aan een bestaande beschikbaarheidsset
+## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>De grootte van een virtuele machine wijzigen of VM's toevoegen aan een bestaande beschikbaarheidsset
 
 ### <a name="cause"></a>Oorzaak
 
@@ -47,11 +47,11 @@ Een verzoek om de grootte van een virtuele machine of het toevoegen van dat een 
 Als de virtuele machine deel van een andere beschikbaarheidsset uitmaken kan, maakt u een virtuele machine in een andere beschikbaarheidsset (in dezelfde regio). Deze nieuwe virtuele machine kan vervolgens worden toegevoegd aan hetzelfde virtuele netwerk.
 
 Stoppen (toewijzing ongedaan maken) alle virtuele machines in dezelfde beschikbaarheidsset instellen, start vervolgens elke service.
-Om te stoppen: klik op Resource groups > [uw resourcegroep] > Resources > [uw beschikbaarheidsset] > virtuele Machines > [uw virtuele machine] > stoppen.
+Om te stoppen: Klik op Resource groups > [uw resourcegroep] > Resources > [uw beschikbaarheidsset] > virtuele Machines > [uw virtuele machine] > stoppen.
 Nadat alle virtuele machines stoppen, selecteert u de eerste virtuele machine en klik vervolgens op starten.
 Deze stap zorgt ervoor dat er een nieuwe poging van de toewijzing wordt uitgevoerd en dat een nieuw cluster kan worden geselecteerd die voldoende capaciteit heeft.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Gedeeltelijk gestopt (toewijzing opgeheven) virtuele machines opnieuw opstarten
+## <a name="restart-partially-stopped-deallocated-vms"></a>Gedeeltelijk gestopte (toewijzing opgeheven) virtuele machines opnieuw opstarten
 
 ### <a name="cause"></a>Oorzaak
 
@@ -60,11 +60,11 @@ Gedeeltelijke ongedaan wordt gemaakt betekent dat u bent (toewijzing opgeheven) 
 ### <a name="workaround"></a>Tijdelijke oplossing
 
 Stoppen (toewijzing ongedaan maken) alle virtuele machines in dezelfde beschikbaarheidsset instellen, start vervolgens elke service.
-Om te stoppen: klik op Resource groups > [uw resourcegroep] > Resources > [uw beschikbaarheidsset] > virtuele Machines > [uw virtuele machine] > stoppen.
+Om te stoppen: Klik op Resource groups > [uw resourcegroep] > Resources > [uw beschikbaarheidsset] > virtuele Machines > [uw virtuele machine] > stoppen.
 Nadat alle virtuele machines stoppen, selecteert u de eerste virtuele machine en klik vervolgens op starten.
 Hiermee zorgt u ervoor dat er een nieuwe poging van de toewijzing wordt uitgevoerd en dat een nieuw cluster kan worden geselecteerd die voldoende capaciteit heeft.
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Volledig gestopt (toewijzing opgeheven) virtuele machines opnieuw opstarten
+## <a name="restart-fully-stopped-deallocated-vms"></a>Volledig gestopte (toewijzing opgeheven) virtuele machines opnieuw opstarten
 
 ### <a name="cause"></a>Oorzaak
 
@@ -81,11 +81,11 @@ Als uw aanvraag voor geheugentoewijzing groot (meer dan 500 kernen), Zie de info
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Toewijzingsfouten voor oudere VM-grootten (Av1, Dv1, zoals DSv1, D15v2, DS15v2, enz.)
 
-Als we Azure-infrastructuur uitbreiden, implementeren we nieuwere generatie hardware die is ontworpen ter ondersteuning van de nieuwste typen virtuele machines. Sommige van de oudere serie VM's niet uitgevoerd op de nieuwste generatie infrastructuur. Om deze reden kunnen klanten toewijzingsfouten af en toe optreden voor deze verouderde SKU's. Als u wilt voorkomen dat dit probleem, we adviseren klanten die werken met verouderde reeks virtuele machines om te overwegen verplaatsen naar de equivalente nieuwere VM's per de volgende aanbevelingen: deze VM's zijn geoptimaliseerd voor de nieuwste hardware en kunt u profiteren van betere prijzen en prestaties. 
+Als we Azure-infrastructuur uitbreiden, implementeren we nieuwere generatie hardware die is ontworpen ter ondersteuning van de nieuwste typen virtuele machines. Sommige van de oudere serie VM's niet uitgevoerd op de nieuwste generatie infrastructuur. Om deze reden kunnen klanten toewijzingsfouten af en toe optreden voor deze verouderde SKU's. Om te voorkomen dat dit probleem, maar we adviseren klanten die werken met verouderde reeks virtuele machines te verplaatsen naar de equivalente nieuwere VM's per de volgende aanbevelingen overwegen: Deze VM's zijn geoptimaliseerd voor de nieuwste hardware en kunnen u profiteren van betere prijzen en prestaties. 
 
 |VM-reeks of grootte van de verouderde|Aanbevolen VM-reeks of grootte van de nieuwere|Meer informatie|
 |----------------------|----------------------------|--------------------|
-|Av1-serie|[Av2-serie](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Av1-serie|[Av2-series](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Dv1 of DSv1-serie (D1 tot D5)|[Dv3 of DSv3-serie](../windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 of DSv1-serie (D11 tot D14)|[Ev3 of ESv3-serie](../windows/sizes-memory.md#ev3-series)|
 |D15v2 of DS15v2|Als u theResource Manager-implementatiemodel gebruikt om te profiteren van de grotere VM-grootten, kunt u overwegen D16v3/DS16v3 of D32v3/DS32v3 te verplaatsen. Deze zijn ontworpen om uit te voeren op de nieuwste generatie hardware. Als u van het implementatiemodel van Resource Manager gebruikmaakt om ervoor te zorgen dat uw VM-exemplaar is geïsoleerd voor hardware toegewezen aan één klant, kunt u overwegen om naar de nieuwe geïsoleerde VM-grootten, E64i_v3 of E64is_v3, die zijn ontworpen om uit te voeren op de nieuwste generatie hardware. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/

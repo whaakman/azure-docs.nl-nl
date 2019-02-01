@@ -1,8 +1,21 @@
 ---
-Titel: Azure Batch-service voor Machine Learning Studio taken titleSuffix: Azure Machine Learning Studio description: Overzicht van Azure Batch-services voor Machine Learning-taken. Batchverwerking van toepassingen kunt u maken van groepen waarop u kunt indienen batchtaken.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, vorige title = "toegewezen capaciteit voor batch execution service-taken - Azure Machine Learning Studio | Microsoft-Docs-ms.date: 04/19/2017
+title: Azure Batch-service voor Machine Learning Studio-taken
+titleSuffix: Azure Machine Learning Studio
+description: Overzicht van Azure Batch-services voor Machine Learning-taken. Batchverwerking van toepassingen kunt u maken van groepen waarop u kunt indienen batchtaken.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.date: 04/19/2017
+ms.openlocfilehash: 923ce9b5840ec8d99234b9a3b869005ff59848e3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494611"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Batch-service voor Azure Machine Learning Studio-taken
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/15/2018
+ms.date: 01/29/2019
 ms.author: stbaron
-ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d88eb0ee5e8ec4c14efeb47a144ec7080ac6eee3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163035"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508790"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resourcetypen en statuscontroles in Azure resource health
 Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource health door resourcetypen.
@@ -54,7 +54,7 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 |---|
 |<ul><li>Het account kan worden bereikt vanaf binnen het datacenter?</li><li>Is de Cognitive Services-Resourceprovider beschikbaar?</li><li>De Cognitive Service is beschikbaar in de juiste regio?</li><li>Kan lezen bewerkingen worden uitgevoerd op het storage-account met de metagegevens van de resource?</li><li>De API-aanroep quotum is bereikt?</li><li>De API-aanroep lezen-limiet is bereikt?</li></ul>|
 
-## <a name="microsoftcomputevirtualmachines"></a>Microsoft.COMPUTE/virtualmachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Uitgevoerde controles|
 |---|
 |<ul><li>Is de server die als host fungeert deze virtuele machine omhoog en uitgevoerd?</li><li>Is de host OS opstarten voltooid?</li><li>De container voor de virtuele machine is ingericht en ingeschakeld?</li><li>Er een netwerkverbinding is tussen de host en de storage-account?</li><li>Is het opstarten van het gastbesturingssysteem voltooid?</li><li>Is er lopende gepland onderhoud?</li></ul>|
@@ -86,7 +86,7 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 |---|
 |<ul><li>Aanvragen voor key vault mislukken vanwege problemen met het platform van Azure Key Vault?</li><li>Worden de aanvragen voor key vault wordt beperkt vanwege te veel aanvragen door de klant?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Uitgevoerde controles|
 |---|
 |<ul><li>Is de VPN-tunnel verbonden?</li><li>Zijn er configuratieconflicten in de verbinding?</li><li>De vooraf gedeelde sleutels correct zijn geconfigureerd?</li><li>De on-premises VPN-apparaat bereikbaar is?</li><li>Zijn er verschillen in het IPSec/IKE-beveiligingsbeleid?</li><li>De S2S VPN-verbinding is goed ingericht of in een foutstatus?</li><li>De VNET-naar-VNET-verbinding is goed ingericht of in een foutstatus?</li></ul>|
@@ -115,6 +115,11 @@ Hieronder volgt een volledige lijst van alle controles uitgevoerd via resource h
 |Uitgevoerde controles|
 |---|
 |<ul><li>Kunnen diagnostische gegevens over bewerkingen worden uitgevoerd op het cluster?</li></ul>|
+
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
+|Uitgevoerde controles|
+|---|
+|<ul><li>Zijn klanten de gebruiker gegenereerde Service Bus-fouten ondervindt?</li><li>Ervaren gebruikers een toename van tijdelijke fouten als gevolg van een upgrade van een Service Bus-naamruimte?</li></ul>|
 
 ## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
 |Uitgevoerde controles|

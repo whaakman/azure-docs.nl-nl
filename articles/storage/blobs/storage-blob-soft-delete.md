@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: e78b1f94338f177601b1e93fcc7974a228be062b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239984"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506121"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Voorlopig verwijderen voor Azure Storage-blobs
 Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig herstellen kunt wanneer deze per ongeluk wordt gewijzigd of verwijderd door een toepassing of de gebruiker van andere storage-account.
@@ -68,7 +68,7 @@ Voorlopig verwijderen niet de gegevens opslaan in geval van een container of acc
 
 De volgende tabel worden verwacht gedrag wanneer voorlopig verwijderen is ingeschakeld:
 
-| REST-API-bewerking | Resourcetype | Beschrijving | Wijziging in gedrag |
+| REST-API-bewerking | Resourcetype | Description | Wijziging in gedrag |
 |--------------------|---------------|-------------|--------------------|
 | [Verwijderen](/rest/api/storagerp/StorageAccounts/Delete) | Account | Hiermee verwijdert u het opslagaccount, met inbegrip van alle containers en blobs die deze bevat.                           | Er is geen wijziging. Containers en blobs in de verwijderde account zijn niet hersteld. |
 | [Container verwijderen](/rest/api/storageservices/delete-container) | Container | Hiermee verwijdert u de container, inclusief alle blobs die deze bevat. | Er is geen wijziging. BLOBs in de verwijderde container zijn niet hersteld. |
@@ -322,4 +322,4 @@ Het is mogelijk om te profiteren van de functie voor voorlopig verwijderen, onge
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage-replicatie](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Maximaal beschikbare toepassingen met RA-GRS ontwerpen](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Wat te doen als een Azure Storage-storing](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Disaster recovery en storage-account failover (preview) in Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

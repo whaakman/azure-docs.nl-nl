@@ -1,8 +1,21 @@
 ---
-Titel: Modelresultaten in Machine Learning Studio titleSuffix interpreteren: Azure Machine Learning Studio description: Klik hier voor meer informatie over het kiezen van de optimale parameter is ingesteld voor een algoritme gebruikt en score model uitvoer visualiseren.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
+title: Modelresultaten in Machine Learning Studio interpreteren
+titleSuffix: Azure Machine Learning Studio
+description: Klik hier voor meer informatie over het kiezen van de optimale parameter is ingesteld voor een algoritme gebruikt en score model uitvoer visualiseren.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 11/29/2017
+ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488540"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Modelresultaten in Azure Machine Learning Studio interpreteren
 In dit onderwerp wordt uitgelegd hoe te visualiseren en te interpreteren voorspellingsresultaten in Azure Machine Learning Studio. Nadat u hebt een model wordt getraind en voorspellingen daarboven ("het model beoordeeld') wordt uitgevoerd, moet u om te begrijpen en interpreteren van het resultaat voorspelling.

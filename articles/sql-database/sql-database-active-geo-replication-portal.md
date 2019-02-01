@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/30/2019
+ms.openlocfilehash: 8db944de93313915926a6fe48a554d00327b1c94
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468900"
+ms.locfileid: "55486199"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Actieve geo-replicatie configureren voor Azure SQL Database in Azure portal en failover initiëren
 
@@ -32,7 +32,7 @@ Actieve geo-replicatie configureren met behulp van Azure portal, moet u de volge
 * Een Azure SQL database: De primaire database die u wilt repliceren naar een andere geografische regio.
 
 > [!Note]
-Actieve geo-replicatie moet liggen tussen databases in hetzelfde abonnement.
+Wanneer u Azure portal gebruikt, kunt u alleen een secundaire database binnen hetzelfde abonnement als de primaire maken. Als de secundaire database is vereist om te worden in een ander abonnement, gebruikt u [Database REST-API maken](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) of [ALTER DATABASE Transact-SQL-API](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Een secundaire database toevoegen
 

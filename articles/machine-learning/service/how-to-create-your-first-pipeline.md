@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b1098622ad96ccdcd1941466c6e32255b4415820
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251653"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508000"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Maken en uitvoeren van een machine learning-pijplijn met behulp van Azure Machine Learning-SDK
 
@@ -103,6 +103,9 @@ output_data1 = PipelineData(
 ## <a name="set-up-compute-target"></a>Compute-doel instellen
 
 In Azure Machine Learning, de term __compute__ (of __compute-doel__) verwijst naar de machines of clusters die de rekenkundige stappen in uw machine learning-pijplijn uitvoeren.   Zie [compute-doelen voor modeltraining](how-to-set-up-training-targets.md) voor een volledige lijst van de compute-doelen en hoe u maakt en koppelt u ze aan uw werkruimte.  Het proces voor het maken en of het koppelen van een compute-doel is hetzelfde, ongeacht of u een model te trainen of een pijplijn stap wordt uitgevoerd. Nadat u maken en koppelen van de compute-doel, gebruikt u de `ComputeTarget` van het object in uw [pijplijn stap](#steps).
+
+> [!IMPORTANT]
+> Uitvoeren van bewerkingen voor de compute-doelen wordt niet ondersteund voor binnen externe taken. Omdat de machine learning-pijplijnen worden verzonden als een externe taak en gebruik geen bewerkingen voor de compute-doelen in de pijplijn.
 
 Hieronder volgen enkele voorbeelden van het maken en koppelen van compute-doelen voor:
 

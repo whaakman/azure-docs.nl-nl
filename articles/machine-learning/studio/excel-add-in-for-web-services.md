@@ -1,8 +1,21 @@
 ---
-Titel: Excel-invoegtoepassing voor web services titleSuffix: Azure Machine Learning Studio description: Het gebruik van Azure Machine Learning-webservices rechtstreeks in Excel zonder een code te schrijven.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
+title: Excel-invoegtoepassing voor webservices
+titleSuffix: Azure Machine Learning Studio
+description: Het gebruik van Azure Machine Learning-webservices rechtstreeks in Excel zonder een code te schrijven.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/01/2018
+ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486891"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-invoegtoepassing voor Azure Machine Learning Studio-webservices
 Excel maakt het eenvoudig om aan te roepen webservices rechtstreeks zonder code te schrijven.

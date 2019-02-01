@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cdcb7dbe726582e525b401bfa765ccc423928610
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454399"
+ms.locfileid: "55510133"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Harde schijven voorbereiden voor een importtaak
 
@@ -81,7 +81,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BasePath | **(Vereist)**<br/>De waarde van deze parameter geeft de bron waar de gegevens worden geïmporteerd. Het hulpprogramma wordt recursief kopiëren alle gegevens die zich onder dit pad.<br><br/>**Toegestane waarden**: Dit moet een geldig pad op de lokale computer of een geldig sharepad en toegankelijk is door de gebruiker moet zijn. Het mappad moet een absoluut pad (niet een relatief pad). Als het pad eindigt op "\\', een andere map staat voor een pad beëindigen zonder'\\' staat voor een bestand.<br/>Er is geen reguliere expressie is toegestaan in dit veld. Als het pad spaties bevat, plaatst u deze in ' ".<br><br/>**Voorbeeld**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **(Vereist)**<br/> Het pad naar de virtuele map van de bestemming in uw Windows Azure storage-account. De virtuele map kan of mogelijk niet al bestaat. Als deze niet bestaat, wordt een Import/Export-service maken.<br/><br/>Zorg ervoor dat geldige containernamen gebruiken bij het opgeven van doel-virtuele mappen of -blobs. Houd er rekening mee dat containernamen kleine letters moeten. Zie voor naamgevingsregels voor containers, [Naming en verwijzen naar Containers, Blobs en metagegevens](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Als er slechts hoofdmap is opgegeven, wordt de mapstructuur van de bron wordt gerepliceerd in de doel-blob-container. Als een andere directory-structuur dan de versie in de bron, meerdere rijen van de toewijzing van in CSV vereist is<br/><br/>Kunt u een container of een blob-voorvoegsel, zoals muziek/70s /. De doelmap moet beginnen met de containernaam van de, gevolgd door een slash '/', en kan desgewenst een virtuele blob-map die eindigt op '/'.<br/><br/>Wanneer de doelcontainer het root-container is, moet u expliciet de root-container, met inbegrip van de gewone slash, als $root opgeven /. Sinds de blobs onder de container hoofdmap niet opnemen '/' in hun namen, worden eventuele submappen in de bronmap niet gekopieerd als de doelmap is een container voor hoofdmap.<br/><br/>**Voorbeeld**<br/>Als het pad naar de bestemming is https://mystorageaccount.blob.core.windows.net/video, de waarde van dit veld mag video /  |
 | BlobType | **[Optioneel]**  blok &#124; pagina<br/>Import/Export-service ondersteunt momenteel 2 soorten Blobs. Pagina-blobs en BlobsBy blokkeren standaard die alle bestanden worden geïmporteerd als blok-Blobs. En \*.vhd en \*.vhdx moet worden geïmporteerd zoals Page BlobsThere een limiet voor de blok-blob en pagina-blob toegestane grootte geldt. Zie [opslag schaalbaarheidsdoelen](storage-scalability-targets.md) voor meer informatie.  |
-| Bestemming | **[Optioneel]**  naam &#124; niet overschrijven &#124; overschrijven <br/> Dit veld geeft de kopie-gedrag tijdens het importeren van Internet Explorer Wanneer gegevens worden geüpload naar het storage-account van de schijf. De beschikbare opties zijn: Wijzig de naam van&#124;matrixstijl&#124;niet overschrijven. Standaard gebruikt als 'naam' als niets opgegeven. <br/><br/>**Wijzig de naam van**: Als een object met dezelfde naam aanwezig is, maakt een kopie in doel.<br/>Overschrijven: het bestand overschreven met nieuwere-bestand. Het bestand met wins laatst gewijzigd.<br/>**Geen overschrijven**: Slaat het schrijven naar het bestand als al aanwezig zijn.|
+| Bestemming | **[Optioneel]**  naam &#124; niet overschrijven &#124; overschrijven <br/> Dit veld geeft de kopie-gedrag tijdens het importeren van Internet Explorer Wanneer gegevens worden geüpload naar het storage-account van de schijf. De beschikbare opties zijn: Wijzig de naam van&#124;overschrijven&#124;niet overschrijven. Standaard gebruikt als 'naam' als niets opgegeven. <br/><br/>**Wijzig de naam van**: Als een object met dezelfde naam aanwezig is, maakt een kopie in doel.<br/>Overschrijven: het bestand overschreven met nieuwere-bestand. Het bestand met wins laatst gewijzigd.<br/>**Geen overschrijven**: Slaat het schrijven naar het bestand als al aanwezig zijn.|
 | MetadataFile | **[Optioneel]** <br/>De waarde in dit veld is het bestand met metagegevens die kan worden opgegeven als de moet de metagegevens van de objecten behoudt of aangepaste metagegevens bevatten. Pad naar het bestand met metagegevens voor de doel-blobs. Zie [Import/Export-service-metagegevens en eigenschappen bestandsindeling](../storage-import-export-file-format-metadata-and-properties.md) voor meer informatie |
 | PropertiesFile | **[Optioneel]** <br/>Pad naar het eigenschappenbestand voor de doel-blobs. Zie [Import/Export-service-metagegevens en eigenschappen bestandsindeling](../storage-import-export-file-format-metadata-and-properties.md) voor meer informatie. |
 
@@ -319,7 +319,7 @@ Echter kan niet dezelfde kopieersessie worden gebruikt voor het importeren van g
 
 Wanneer de naam van de kopie-sessie is hetzelfde voor verschillende runs van het programma, het logboekbestand (/ logdir) en storage-accountsleutel (/ sk) ook naar verwachting hetzelfde zijn.
 
-Sessie-id kan bestaan uit letters, 0 ~ 9 understore (\_), streepjes (-) of hash (#), en de lengte moet 3 ~ 30.
+Sessie-id kan bestaan uit letters, 0 ~ 9, onderstrepingsteken (\_), streepjes (-) of hash (#), en de lengte moet 3 ~ 30.
 
 bijvoorbeeld sessie-1 of #1-sessie of sessie\_1
 
@@ -388,7 +388,7 @@ Hoewel gegevens wordt verdeeld over schijven, worden de gegevens wanneer geüplo
 
 #### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>Het aantal van de invoer schijven heeft actieve i/o parallel, wanneer het exemplaar wordt uitgevoerd?
 
-Het hulpprogramma verdeeld gegevens over de invoer schijven op basis van de grootte van de invoerbestanden. Dat gezegd, het aantal actieve schijven parallel delends volledig op de aard van de invoergegevens zijn. Afhankelijk van de grootte van afzonderlijke bestanden in de invoergegevensset, kunnen een of meer schijven gelijktijdig actieve i/o tonen. Zie de volgende vraag voor meer informatie.
+Het hulpprogramma verdeeld gegevens over de invoer schijven op basis van de grootte van de invoerbestanden. Dat gezegd, het aantal actieve schijven parallel volledig afhankelijk van de aard van de invoergegevens zijn. Afhankelijk van de grootte van afzonderlijke bestanden in de invoergegevensset, kunnen een of meer schijven gelijktijdig actieve i/o tonen. Zie de volgende vraag voor meer informatie.
 
 #### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>Hoe het hulpprogramma de bestanden verdelen over de schijven
 

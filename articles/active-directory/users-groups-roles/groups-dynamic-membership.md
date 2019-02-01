@@ -1,25 +1,24 @@
 ---
-title: Dynamische automatische regels voor groepslidmaatschap verwijzen naar in Azure Active Directory | Microsoft Docs
+title: Dynamische automatische regels voor groepslidmaatschap - Azure Active Directory | Microsoft Docs
 description: Het maken van regels voor groepslidmaatschap voor het automatisch vullen van groepen, en een verwijzing naar de regel.
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 98638c2fbd3f60ec0db009b52507eadcadd87ab4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 309e686d563798c34d2ab40af0ac1a6e6368b4e7
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172320"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509113"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -40,7 +39,7 @@ Een lidmaatschapsregel dat automatisch wordt ingevuld een groep met gebruikers o
 
 * Eigenschap
 * Operator
-* Waarde
+* Value
 
 De volgorde van de onderdelen in een expressie zijn belangrijk om te voorkomen dat syntaxisfouten.
 
@@ -61,7 +60,7 @@ Haakjes zijn optioneel voor één expressie. De totale lengte van de hoofdtekst 
 Er zijn drie typen eigenschappen die kunnen worden gebruikt om een lidmaatschapsregel samen te stellen.
 
 * Booleaans
-* Reeks
+* String
 * Tekenreeks-verzameling
 
 Hieronder vindt u de eigenschappen van de gebruiker die u gebruiken kunt om een enkele expressie te maken.

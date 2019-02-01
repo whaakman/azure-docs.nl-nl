@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e8ac6b7bef06eae16224f9db8e216f13c21f13a1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b10dc9fd96a1e4c06fbd153a2f1dc4e92e58906
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161389"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491856"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Bepaal de vereisten voor respons op incidenten voor uw oplossing voor hybride identiteit
 Grote of middelgrote organisaties waarschijnlijk heeft een [reageren op beveiligingsincidenten](https://technet.microsoft.com/library/cc700825.aspx) om u te helpen IT dienovereenkomstig te handelen op het niveau van het incident. Het beheersysteem voor identiteit is een belangrijk onderdeel van het proces voor respons op incidenten, omdat deze kan worden gebruikt om te identificeren die een specifieke actie op het doel is uitgevoerd. De oplossing voor hybride identiteit moet kunnen bieden mogelijkheden voor controle- en rapportagefuncties die kunnen worden gebruikt door IT maatregelen kunt herkennen en verminderen een mogelijke bedreiging. In een typische reactieplan hebt u de volgende fasen als onderdeel van het abonnement:

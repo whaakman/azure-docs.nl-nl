@@ -2,18 +2,18 @@
 title: Azure Backup server gebruiken voor back-up van een SharePoint-farm naar Azure
 description: Azure Backup Server gebruiken voor back-up en herstellen van uw SharePoint-gegevens. In dit artikel bevat de informatie voor het configureren van uw SharePoint-farm zodat de gewenste gegevens kunnen worden opgeslagen in Azure. U kunt beveiligde SharePoint-gegevens herstellen vanaf schijf of van Azure.
 services: backup
-author: pvrk
-manager: shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: e7407341d7b85c101531c5a005cfd8db0eac2021
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.author: kasinh
+ms.openlocfilehash: b75c9093a983ba3e4ac4050379efbb091b363ff7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423021"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491960"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Een back-up maken in Azure van een SharePoint-farm
 U back-up van een SharePoint-farm naar Microsoft Azure met behulp van Microsoft Azure Backup-Server (MABS) op ongeveer dezelfde manier dat u back-up van gegevens van andere bronnen. Azure Backup biedt flexibiliteit in de back-upschema maken het dagelijkse, wekelijkse, maandelijkse of jaarlijkse back-up verwijst en biedt u de bewaarperiode beleidsopties voor verschillende back-uppunten. Het biedt ook mogelijkheden voor het opslaan van kopieën van de lokale schijf voor snelle doelstellingen voor hersteltijd (RTO) en voor het opslaan van kopieën naar Azure voor het bewaren van voordelige, op de lange termijn.
@@ -23,7 +23,7 @@ Azure Backup voor DPM ondersteunt de volgende scenario's:
 
 | Workload | Versie | SharePoint-implementatie | Beveiliging en herstel |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint geïmplementeerd als een fysieke server of Hyper-V-/ VMware virtuele machine <br> -------------- <br> Sqlalwayson | Opties voor herstel van SharePoint-Farm beschermen: farm voor herstel, database en bestand of lijstitem van herstelpunten van de schijf.  Farm en databaseherstel uit Azure herstelpunten. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint geïmplementeerd als een fysieke server of Hyper-V-/ VMware virtuele machine <br> -------------- <br> Sqlalwayson | Opties voor herstel van SharePoint-Farm beveiligen: Farm voor herstel, een database en een bestand of lijstitem van herstelpunten van de schijf.  Farm en databaseherstel uit Azure herstelpunten. |
 
 ## <a name="before-you-start"></a>Voordat u begint
 Er zijn enkele dingen die u nodig hebt om te bevestigen voordat u back-up van een SharePoint-farm naar Azure.
@@ -83,7 +83,7 @@ Nadat u hebt MABS en de SharePoint-farm zoals hierboven is geconfigureerd, kan S
    > Met de beveiligingsagent is geïnstalleerd, ziet u de server in de wizard. MABS toont ook de structuur. Omdat u ConfigureSharePoint.exe hebt uitgevoerd, wordt MABS communiceert met de SharePoint VSS Writer-service en de bijbehorende SQL Server-databases en herkent de structuur van SharePoint-farm, de bijbehorende inhoud databases, en alle bijbehorende items.
    >
    >
-4. Op de **methode voor gegevensbeveiliging selecteren** pagina, typ de naam van de **beveiligingsgroep**, en selecteer de gewenste *beveiligingsmethodes*. Klik op **Volgende**.
+4. Op de **methode voor gegevensbeveiliging selecteren** pagina, typ de naam van de **beveiligingsgroep**, en selecteer de gewenste *beveiligingsmethodes*. Klik op **volgende**.
 
     ![Methode voor gegevensbeveiliging selecteren](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
@@ -154,7 +154,7 @@ In het volgende voorbeeld wordt de *herstellen van SharePoint-item* per ongeluk 
 5. U kunt ook door verschillende herstelpunten bladeren en selecteren van een database of het item dat u wilt herstellen. Selecteer **datum > hersteltijd**, en selecteer vervolgens de juiste **Database > SharePoint-farm > herstelpunt > Item**.
 
     ![MABS SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Met de rechtermuisknop op het item en selecteer vervolgens **herstellen** openen de **Herstelwizard**. Klik op **Volgende**.
+6. Met de rechtermuisknop op het item en selecteer vervolgens **herstellen** openen de **Herstelwizard**. Klik op **volgende**.
 
     ![Selectie voor herstel controleren](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Selecteer het type herstel dat u wilt uitvoeren, en klik vervolgens op **volgende**.
@@ -178,7 +178,7 @@ In het volgende voorbeeld wordt de *herstellen van SharePoint-item* per ongeluk 
     MABS koppelt u de inhoud van de database die als host voor de SharePoint-item naar de tijdelijke SQL Server-exemplaar fungeert. Van de inhoud van de database, het Hiermee herstelt u het item en plaatst deze in de tijdelijke bestandslocatie op MABS. Het herstelde item dat is nu op de faseringslocatie moet worden geëxporteerd naar de faseringslocatie op de SharePoint-farm.
 
     ![Fasering Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Selecteer **herstelopties opgeven**, en beveiligingsinstellingen toepassen op de SharePoint-farm of de beveiligingsinstellingen van het herstelpunt dat van toepassing. Klik op **Volgende**.
+10. Selecteer **herstelopties opgeven**, en beveiligingsinstellingen toepassen op de SharePoint-farm of de beveiligingsinstellingen van het herstelpunt dat van toepassing. Klik op **volgende**.
 
     ![Opties voor herstel](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -225,11 +225,11 @@ In het volgende voorbeeld wordt de *herstellen van SharePoint-item* per ongeluk 
 5. Op dit moment, volgt u de [recovery stappen eerder in dit artikel](#restore-a-sharepoint-item-from-disk-using-dpm) een SharePoint-inhoudsdatabase om schijf te herstellen.
 
 ## <a name="faqs"></a>Veelgestelde vragen
-V: kan ik een SharePoint-item naar de oorspronkelijke locatie herstellen als SharePoint is geconfigureerd met behulp van SQL AlwaysOn (met beveiliging op schijf)?<br>
+VRAAG: Kan ik een SharePoint-item naar de oorspronkelijke locatie herstellen als SharePoint is geconfigureerd met behulp van SQL AlwaysOn (met beveiliging op schijf)?<br>
 A: Ja, het item kan worden hersteld naar de oorspronkelijke SharePoint-site.
 
-V: kan ik een SharePoint-database naar de oorspronkelijke locatie herstellen als SharePoint met behulp van SQL AlwaysOn is geconfigureerd?<br>
-A: omdat SharePoint-databases zijn geconfigureerd in de SQL AlwaysOn, kan ze niet worden gewijzigd, tenzij de beschikbaarheidsgroep wordt verwijderd. MABS kan niet als gevolg hiervan, een database herstellen naar de oorspronkelijke locatie. U kunt een SQL Server-database naar een ander exemplaar van SQL Server herstellen.
+VRAAG: Kan ik een SharePoint-database naar de oorspronkelijke locatie herstellen als SharePoint met behulp van SQL AlwaysOn is geconfigureerd?<br>
+A: Omdat SharePoint-databases zijn geconfigureerd in de SQL AlwaysOn, kan ze niet worden gewijzigd, tenzij de beschikbaarheidsgroep wordt verwijderd. MABS kan niet als gevolg hiervan, een database herstellen naar de oorspronkelijke locatie. U kunt een SQL Server-database naar een ander exemplaar van SQL Server herstellen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

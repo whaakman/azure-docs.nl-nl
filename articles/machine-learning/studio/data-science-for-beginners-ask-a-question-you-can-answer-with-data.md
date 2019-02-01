@@ -1,8 +1,21 @@
 ---
-Titel: Vraag dat een vraaggegevens titleSuffix kunt beantwoorden: Azure Machine Learning Studio description: Leer hoe u een vraag sharp data science in Gegevenswetenschap voor Beginners video 3 formuleren. Bevat een vergelijking van classificatie- en regressiemodellen vragen.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: garyericson ms.author: garye ms.custom: vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 01/03/2018
+title: Stel een vraag die gegevens kunt beantwoorden
+titleSuffix: Azure Machine Learning Studio
+description: Leer hoe u een vraag sharp data science in Gegevenswetenschap voor Beginners video 3 formuleren. Bevat een vergelijking van classificatie- en regressiemodellen vragen.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/03/2018
+ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498145"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Stel een vraag die u met gegevens kunt beantwoorden
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Gegevenswetenschap voor Beginners-serie

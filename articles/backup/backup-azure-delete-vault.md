@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/6/2018
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873098"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492280"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
-In dit artikel wordt uitgelegd hoe u alle items uit een Recovery Services-kluis verwijderen en vervolgens te verwijderen. U kunt een Recovery Services-kluis niet verwijderen als deze is geregistreerd bij een server en gegevens back-up bevat. Als u probeert te verwijderen van een kluis, maar niet, is nog steeds de kluis geconfigureerd voor het ontvangen van back-upgegevens.
+In dit artikel wordt beschreven hoe u alle items uit een Recovery Services-kluis verwijderen en vervolgens te verwijderen. U kunt een Recovery Services-kluis niet verwijderen als deze is geregistreerd bij een server en gegevens back-up bevat. Als u probeert te verwijderen van een kluis, maar niet, is nog steeds de kluis geconfigureerd voor het ontvangen van back-upgegevens.
 
 Voor informatie over het verwijderen van een kluis, Zie de sectie [een kluis verwijderen uit Azure portal](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Zie de sectie als u niet wilt behouden van gegevens in de Recovery Services-kluis en de kluis wilt verwijderen, [verwijderen van de kluis geforceerd beëindigd](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Als u niet zeker weet wat er in de kluis en u ervoor zorgen moet dat kunt u de kluis verwijderen, Zie de sectie [verwijderen kluis afhankelijkheden en de kluis verwijderen](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
@@ -45,7 +45,7 @@ Als u de Recovery Services-kluis openen al hebt, gaat u naar de tweede stap.
 
     Als de **fout bij verwijderen van kluis** wordt weergegeven, kunt u de afhankelijkheden van de kluis verwijderen, of u kunt PowerShell gebruiken voor het verwijderen van de kluis geforceerd beëindigd. De volgende secties wordt uitgelegd hoe u deze taken.
 
-    ![Fout bij het verwijderen van kluis](./media/backup-azure-delete-vault/vault-delete-error.png)
+    ![Fout tijdens verwijderen van kluis](./media/backup-azure-delete-vault/vault-delete-error.png)
 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Verwijder de Recovery Services-kluis geforceerd beëindigd

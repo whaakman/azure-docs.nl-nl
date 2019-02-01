@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 86e457cf553c84386937c35bab1ab0fd20518bed
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3577edff19788ed9f0925876e3de737eb749b90e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369056"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490920"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Toegang verlenen tot het maken van Azure Enterprise-abonnementen (preview)
 
@@ -42,6 +42,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 Wanneer de rol van eigenaar is bij de registratie-accountbereik wordt toegewezen, wordt Azure reageert met informatie van de toewijzing van rollen:
 
 ```json
@@ -63,10 +64,10 @@ Wanneer de rol van eigenaar is bij de registratie-accountbereik wordt toegewezen
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Gebruik de [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) een andere gebruiker eigenaar toegang geven tot het inschrijvingsaccount.
+Gebruik de [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) een andere gebruiker eigenaar toegang geven tot het inschrijvingsaccount.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
@@ -85,7 +86,7 @@ Wanneer een gebruiker, een RBAC-eigenaar voor uw inschrijvingsaccount wordt, kun
 
 Voor het volgen van de abonnementen die zijn gemaakt via deze API, gebruikt u de [Tenant activiteit Log API](/rest/api/monitor/tenantactivitylogs). Het is momenteel niet mogelijk met gebruik van PowerShell, CLI of Azure-portal voor het bijhouden van het abonnement.
 
-1. Als tenantbeheerder van de Azure AD-tenant [toegangsrechten](../active-directory/role-based-access-control-tenant-admin-access.md) vervolgens een rol van lezer toewijzen aan de gebruiker controleren via het bereik `/providers/microsoft.insights/eventtypes/management`.
+1. [Verhoog het toegangsniveau](../active-directory/role-based-access-control-tenant-admin-access.md) als tenantbeheerder van de Azure AD-tenant en wijs vervolgens de rol van Lezer toe aan de controlerende gebruiker voor het bereik `/providers/microsoft.insights/eventtypes/management`.
 1. Als de controle gebruiker aanroepen de [Tenant activiteit Log-API](/rest/api/monitor/tenantactivitylogs) abonnement maken van activiteiten. Voorbeeld:
 
 ```
@@ -93,7 +94,7 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 ```
 
 > [!NOTE]
-> Om aan te roepen eenvoudig deze API vanaf de opdrachtregel, probeer [ARMClient](https://github.com/projectkudu/ARMClient).
+> Probeer [ARMClient](https://github.com/projectkudu/ARMClient) om deze API eenvoudig aan te roepen vanaf de opdrachtregel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

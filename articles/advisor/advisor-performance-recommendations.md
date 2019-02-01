@@ -1,26 +1,21 @@
 ---
-title: Azure Advisor prestatieaanbevelingen | Microsoft Docs
+title: Prestaties van Azure-toepassingen met Azure Advisor | Microsoft Docs
 description: Advisor gebruiken om de prestaties van uw Azure-implementaties te optimaliseren.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266742"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491576"
 ---
-# <a name="advisor-performance-recommendations"></a>Advisor-aanbevelingen voor prestaties
+# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Prestaties van Azure-toepassingen met Azure Advisor
 
 Azure Advisor-aanbevelingen voor prestaties te verbeteren en de reactiesnelheid van uw bedrijfskritische toepassingen. U kunt ook aanbevelingen voor prestaties van de Advisor krijgen bij de **prestaties** van de Advisor-dashboard.
 
@@ -49,7 +44,7 @@ Zie voor meer informatie over aanbevelingen voor de App Services [Best Practices
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Managed Disks gebruiken om te voorkomen dat de-i/o-schijfbeperking
 
-Advisor identificeert virtuele machines die deel uitmaken van een storage-account dat de schaalbaarheidsdoel bereikt. Dit maakt het vatbaar voor i/o-beperking. Advisor wordt aangeraden deze virtuele machines Managed Disks te gebruiken om te voorkomen dat de systeemprestaties.
+Advisor identificeert virtuele machines die deel uitmaken van een storage-account dat de schaalbaarheidsdoel bereikt. Dit probleem kunt u de virtuele machines vatbaar voor i/o-beperking. Advisor wordt aangeraden ze Managed Disks gebruiken om te voorkomen dat de systeemprestaties.
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>De prestaties en betrouwbaarheid van virtuele-machineschijven verbeteren met behulp van Premium Storage
 
@@ -63,11 +58,11 @@ Gegevensverschil kan leiden tot onnodige gegevens knelpunten in verkeer of resou
 
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Maken of bijwerken van verouderde tabelstatistieken op uw SQL datawarehouse-tabel voor betere queryprestaties
 
-Advisor identificeert de tabellen die u geen recente hebt [tabelstatistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) en de gebruiker wordt aanbevolen maken of bijwerken van statistieken tabel. Query's optimaliseren up-to-date statische waarden gebruikt om te schatten van de kardinaliteit of het aantal rijen in het queryresultaat waarmee het queryoptimalisatieprogramma om een hoge kwaliteit queryplan voor de snelste prestaties te maken voor de SQL data warehouse.
+Advisor identificeert de tabellen die u geen recente hebt [tabelstatistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) en de gebruiker wordt aanbevolen maken of bijwerken van statistieken tabel. Query's optimaliseren up-to-date statische waarden gebruikt om te schatten van de kardinaliteit of het aantal rijen in het queryresultaat waarmee het queryoptimalisatieprogramma om een goede queryplan voor de snelste prestaties te maken voor de SQL data warehouse.
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Opschalen naar het Optimaliseer het gebruik van de cache voor uw SQL Data Warehouse-tabellen voor betere queryprestaties
 
-Azure Advisor detecteert als uw SQL Data Warehouse beschikt over hoge cache percentage gebruikt en een lage percentage bereikt. Hiermee wordt aangegeven hoge cache verwijdering die kan invloed hebben op de prestaties van uw SQL Data Warehouse. Advisor kan erop wijzen dat u omhoog schalen van uw SQL Data Warehouse om ervoor te zorgen voldoende capaciteit cache voor uw werkbelasting die u toewijst.
+Azure Advisor detecteert als uw SQL Data Warehouse beschikt over hoge cache percentage gebruikt en een lage percentage bereikt. Deze voorwaarde geeft aan dat de verwijdering van hoge cache, die kan invloed hebben op de prestaties van uw SQL Data Warehouse. Advisor kan erop wijzen dat u omhoog schalen van uw SQL Data Warehouse om ervoor te zorgen voldoende capaciteit cache voor uw werkbelasting die u toewijst.
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>SQL Data Warehouse-tabellen omzetten in gerepliceerde tabellen voor betere queryprestaties
 
@@ -75,10 +70,10 @@ Advisor identificeert de tabellen die geen gerepliceerde tabellen zijn, maar vee
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Uw Storage-Account migreren naar Azure Resource Manager om de nieuwste functies van Azure
 
-Migreer uw Storage-Account-implementatiemodel naar Azure Resource Manager (ARM) om te profiteren van sjabloonimplementaties, extra beveiligingsopties en de mogelijkheid om te upgraden naar een GPv2-account voor het gebruik van de nieuwste functies van Azure Storage. Advisor identificeert een zelfstandige storage-accounts die van het klassieke implementatiemodel gebruikmaken en beveelt migreren naar het ARM-implementatiemodel.
+Migreer uw Storage-Account-implementatiemodel naar Azure Resource Manager (Resource Manager) om te profiteren van sjabloonimplementaties, extra beveiligingsopties en de mogelijkheid om te upgraden naar een GPv2-account voor het gebruik van de nieuwste functies van Azure Storage. Advisor identificeert een zelfstandige storage-accounts die van het klassieke implementatiemodel gebruikmaken en beveelt migreren naar het Resource Manager-implementatiemodel.
 
 > [!NOTE]
-> Klassieke waarschuwingen in Azure Monitor is aangekondigd buiten gebruik stellen in juni 2019, het wordt aanbevolen dat u uw klassieke storage-account upgraden naar ARM wilt behouden waarschuwingen functionaliteit met het nieuwe platform. Zie voor meer informatie, [buiten gebruik stellen met klassieke waarschuwingen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+> Klassieke waarschuwingen in Azure Monitor zijn gepland voor het buiten gebruik stellen in juni 2019. Het is raadzaam dat u uw klassieke storage-account voor het gebruik van Resource Manager te behouden waarschuwingen functionaliteit met het nieuwe platform upgraden. Zie voor meer informatie, [buiten gebruik stellen met klassieke waarschuwingen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor prestaties in Advisor
 

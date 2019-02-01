@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: b702b6de5c9f33058e9b486547530d071969bd97
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 70f6f8a7837b9e87b2720a866f14983356d23691
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855381"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487673"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Activiteitenlogboeken bekijken om te controleren van acties op resources
 
@@ -35,7 +35,10 @@ Activiteitenlogboeken worden gedurende 90 dagen bewaard. U kunt een query voor e
 
 U kunt gegevens ophalen uit de activiteitenlogboeken via de portal, PowerShell, Azure CLI, Insights REST-API of [Insights .NET-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="portal"></a>Portal
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="the-azure-portal"></a>Azure Portal
 
 1. Als u wilt weergeven in de activiteitenlogboeken via de portal, selecteert u **Monitor**.
 
@@ -71,52 +74,52 @@ U kunt gegevens ophalen uit de activiteitenlogboeken via de portal, PowerShell, 
 
 ## <a name="powershell"></a>PowerShell
 
-* Om op te halen logboekvermeldingen, voer de **Get-AzureRmLog** opdracht. U opgeven aanvullende parameters voor het filteren van de lijst met vermeldingen. Als u een begin- en -tijd niet opgeeft, worden vermeldingen voor de afgelopen zeven dagen worden geretourneerd.
+* Om op te halen logboekvermeldingen, voer de **Get-AzLog** opdracht. U opgeven aanvullende parameters voor het filteren van de lijst met vermeldingen. Als u een begin- en -tijd niet opgeeft, worden vermeldingen voor de afgelopen zeven dagen worden geretourneerd.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup
+  Get-AzLog -ResourceGroup ExampleGroup
   ```
 
     Het volgende voorbeeld ziet het gebruik van het activiteitenlogboek voor onderzoek-bewerkingen die tijdens een opgegeven periode. De begin- en einddatums zijn opgegeven in een datumnotatie.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
+  Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
   ```
 
     Of u datumfuncties kunt gebruiken om op te geven van het datumbereik, zoals de afgelopen 14 dagen.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+  Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
 * U kunt de acties die door een bepaalde gebruiker, zelfs voor een resourcegroep die niet meer bestaat opzoeken.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+  Get-AzLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
 * U kunt filteren op mislukte bewerkingen.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+  Get-AzLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
 * U kunt zich richten op één fout door te kijken naar het statusbericht voor die vermelding.
 
   ```azurepowershell-interactive
-  ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
+  ((Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
 
 * U kunt specifieke waarden om te beperken van de gegevens die wordt geretourneerd.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+  Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
   ```
 
 * Afhankelijk van de begintijd die u opgeeft, kunnen de vorige opdrachten retourneren een lange lijst bewerkingen voor de resourcegroep. U kunt de resultaten voor wat u zoekt door zoekcriteria filteren. U kunt bijvoorbeeld filteren op het type bewerking.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+  Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
   ```
 
 ## <a name="azure-cli"></a>Azure-CLI

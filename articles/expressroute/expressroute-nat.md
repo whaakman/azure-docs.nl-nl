@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 01/30/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 4aa1b170b0c0c515faa67118772ad14d34c7276b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278250"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496522"
 ---
 # <a name="expressroute-nat-requirements"></a>NAT-vereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u NAT's instellen en beheren. Sommige connecitiviteitsproviders bieden het instellen en beheren van NAT aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de vereisten die hieronder worden beschreven. 
@@ -21,7 +21,7 @@ Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-ser
 Bekijk de pagina [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuits en routeringsdomeinen) voor een overzicht van de verschillende routeringsdomeinen. Om te voldoen aan de vereisten voor openbare IP-adressen voor openbare Azure-peering en Microsoft-peering, wordt u aangeraden om NAT in te stellen tussen uw netwerk en Microsoft. In deze sectie vindt u een gedetailleerde beschrijving van de NAT-infrastructuur die u moet instellen.
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>NAT-vereisten voor Microsoft-peering
-Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-services die niet worden ondersteund via het pad voor openbare Azure-peering. De lijst met services bevat Office 365-services, zoals Exchange Online, SharePoint Online, Skype voor Bedrijven en Dynamics 365. Microsoft verwacht bidirectionele connectiviteit op de Microsoft-peering te gaan ondersteunen. Verkeer dat is bestemd voor Microsoft Cloud-services moet met SNAT worden omgezet naar geldige openbare IPv4-adressen voordat het het Microsoft-netwerk binnenkomt. Verkeer dat is bestemd voor uw netwerk en afkomstig is van Microsoft Cloud-services, moet met SNAT worden omgezet aan de kant van uw internet om [asymmetrische routering](expressroute-asymmetric-routing.md) te voorkomen. In onderstaande afbeelding ziet u een algemeen beeld van hoe de NAT moet worden ingesteld voor Microsoft-peering.
+Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-services die niet worden ondersteund via het pad voor openbare Azure-peering. De lijst met services bevat Office 365-services, zoals Exchange Online, SharePoint Online, Skype voor Bedrijven en Dynamics 365. Microsoft verwacht bidirectionele connectiviteit op de Microsoft-peering te gaan ondersteunen. Verkeer dat is bestemd voor Microsoft Cloud-services moet met SNAT worden omgezet naar geldige openbare IPv4-adressen voordat het het Microsoft-netwerk binnenkomt. Verkeer dat is bestemd voor uw netwerk en afkomstig is van Microsoft Cloud-services, moet met SNAT worden omgezet aan de kant van uw internet om [asymmetrische routering](expressroute-asymmetric-routing.md) te voorkomen. De afbeelding hieronder bevat een algemeen beeld van hoe de NAT moet worden ingesteld voor Microsoft-peering.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -41,6 +41,11 @@ Met het pad voor Microsoft-peering kunt u verbinding maken met Microsoft Cloud-s
 ![Asymmetrische routering met ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>NAT-vereisten voor openbare Azure-peering
+
+> [!NOTE]
+> Openbare Azure-peering is niet beschikbaar voor nieuwe circuits.
+> 
+
 Met het pad voor openbare Azure-peering kunt u verbinding maken met alle services die via de openbare IP-adressen worden gehost in Azure. Deze lijst bevat services die worden vermeld in de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) en alle services die door ISV's worden gehost op Microsoft Azure. 
 
 > [!IMPORTANT]

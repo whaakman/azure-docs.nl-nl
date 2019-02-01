@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718925"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498026"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Ontwikkeling van scriptacties met HDInsight
 
@@ -72,10 +72,10 @@ U kunt de versie van het besturingssysteem controleren met behulp van `lsb_relea
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ...
@@ -278,7 +278,7 @@ Scripts die worden gebruikt voor het aanpassen van een cluster moeten worden opg
 
 * Een __openbaar leesbare URI__. Bijvoorbeeld, een URL naar gegevens die zijn opgeslagen in OneDrive, Dropbox of andere bestandshostingservice.
 
-* Een __Azure Data Lake Storage-account__ dat is gekoppeld aan het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Storage met HDInsight [Quick Start: Clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Een __Azure Data Lake Storage-account__ dat is gekoppeld aan het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Storage met HDInsight [Quick Start: clusters instellen in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]  
     > De HDInsight gebruikt voor toegang tot Data Lake Storage service-principal moet leestoegang hebben tot het script.
@@ -299,10 +299,10 @@ Gebruiken om te controleren of de versie van het besturingssysteem, `lsb_release
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ```
@@ -346,7 +346,7 @@ Hier volgen de fouten die optreden kunnen bij het gebruik van scripts die u hebt
 
 Dit probleem treedt meestal wanneer het script is geschreven in een Windows-omgeving, zoals CRLF is een algemene regel beëindigen voor veel teksteditors op Windows.
 
-*Resolutie*: Als deze optie in een teksteditor, selecteert u de Unix-indeling of LF voor het einde van regel. U kunt ook de volgende opdrachten gebruiken voor een Unix-systeem de CRLF wijzigen in een LF:
+*Oplossing*: Als deze optie in een teksteditor, selecteert u de Unix-indeling of LF voor het einde van regel. U kunt ook de volgende opdrachten gebruiken voor een Unix-systeem de CRLF wijzigen in een LF:
 
 > [!NOTE]  
 > De volgende opdrachten zijn grofweg gelijk in dat ze moeten de regeleinden CRLF LF wijzigen. Selecteer een op basis van de hulpprogramma's die beschikbaar zijn op uw systeem.
@@ -362,7 +362,7 @@ Dit probleem treedt meestal wanneer het script is geschreven in een Windows-omge
 
 *Oorzaak*: Deze fout treedt op wanneer het script is opgeslagen als UTF-8 met een Byte Order Mark (BOM).
 
-*Resolutie*: Sla het bestand als ASCII-, of als UTF-8 zonder een stuklijst. U kunt ook de volgende opdracht uit op een Linux- of Unix-systeem te maken van een bestand zonder de stuklijst:
+*Oplossing*: Sla het bestand als ASCII-, of als UTF-8 zonder een stuklijst. U kunt ook de volgende opdracht uit op een Linux- of Unix-systeem te maken van een bestand zonder de stuklijst:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

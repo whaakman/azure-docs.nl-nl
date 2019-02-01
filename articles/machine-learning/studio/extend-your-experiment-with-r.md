@@ -1,8 +1,21 @@
 ---
-Titel: Uw experiment uitbreiden met R titleSuffix: Azure Machine Learning Studio description: Klik hier voor meer informatie over het uitbreiden van de functionaliteit van Azure Machine Learning Studio via de R-taal met behulp van de module R-Script uitvoeren.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
+title: Uw experiment uitbreiden met R
+titleSuffix: Azure Machine Learning Studio
+description: Klik hier voor meer informatie over het uitbreiden van de functionaliteit van Azure Machine Learning Studio via de R-taal met behulp van de module R-Script uitvoeren.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
+ms.openlocfilehash: 98f5922cc329aedc8deeffbcb042bddf90405883
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497147"
 ---
 # <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: Uw experiment uitbreiden met R 
 U kunt de functionaliteit van Azure Machine Learning Studio via de R-taal uitbreiden met behulp van de [R-Script uitvoeren] [ execute-r-script] module.

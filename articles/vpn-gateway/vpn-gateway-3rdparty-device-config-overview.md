@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 901de2ac3d80b3ee529d89a22afae7e823437b9b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685205"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506869"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Overzicht van VPN-apparaatconfiguraties partner
 Dit artikel bevat een overzicht van het configureren van on-premises VPN-apparaten voor het verbinden met Azure VPN-gateways. Een voorbeeld van een virtueel Azure-netwerk en VPN-gateway-installatie wordt gebruikt om u te laten zien u hoe u verbinding maken met verschillende on-premises VPN-apparaatconfiguraties met dezelfde parameters.
@@ -46,7 +46,7 @@ Deze sectie vindt u de parameters voor de voorbeelden die worden beschreven in d
 | On-premises VPN-apparaat IP    | On-premises VPN-apparaat IP    |
 | * Virtuele netwerk ASN van BGP                | 65010                        |
 | * Azure BGP-peer-IP           | 10.12.255.30                 |
-| * On-premises BGP-ASN         | 65050                        |
+| * On-premises BGP ASN         | 65050                        |
 | * On-premises BGP-peer-IP     | 10.52.255.254                |
 
 \* Optionele parameter voor BGP alleen.
@@ -126,7 +126,7 @@ Als uw VPN-apparaten bieden geen ondersteuning voor any-to-any verkeerkiezers, z
 
 Het voorbeeldscript maakt u een IPsec/IKE-beleid met de volgende algoritmen en parameters:
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA1, PFS24, SA-levensduur 7,200 seconden en 20,480,000 KB (20 GB)
+* IPsec: AES256, SHA1, PFS24, SA Lifetime 7,200 seconds, and 20,480,000 KB (20 GB)
 
 Het script wordt de IPsec-/ IKE-beleid toegepast en kunnen de **UsePolicyBasedTrafficSelectors** optie op de verbinding.
 

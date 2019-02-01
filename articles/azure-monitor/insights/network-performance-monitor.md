@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 0a364724c72a7bd6dd75dd9720e2e966d07ff297
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229843"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496332"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -59,7 +59,7 @@ De lijst met ondersteunde regio's voor ExpressRoute-bewaking is beschikbaar in d
 
 ### <a name="install-and-configure-agents"></a>Agents installeren en configureren 
 
-Gebruik de basic-processen voor het installeren van agents op [verbinding maken met Windows-computers met Azure Log Analytics](../../azure-monitor/platform/om-agents.md) en [Operations Manager verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md).
+Gebruik de basic-processen voor het installeren van agents op [verbinding maken met Windows-computers met Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) en [Operations Manager verbinden met Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Waar u de agents te installeren 
 
@@ -159,7 +159,7 @@ De mogelijkheden die u wilt configureren:
 
 - [Prestatiemeter](network-performance-monitor-performance-monitor.md#configuration)
 - [Service-Eindpuntbewaking](network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute-bewaking](network-performance-monitor-expressroute.md#configuration)
+- [ExpressRoute Monitor](network-performance-monitor-expressroute.md#configuration)
 
  
 

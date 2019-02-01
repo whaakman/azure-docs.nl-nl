@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025987"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491651"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>De StorSimple Device Manager-service gebruiken voor het wijzigen van de configuratie van uw StorSimple-apparaat
 
@@ -65,7 +65,7 @@ Tijd moet om te kunnen verifiëren met uw serviceprovider voor cloud-opslag sync
 
  Selecteer uw tijdzone in de vervolgkeuzelijst. U kunt maximaal twee Network Time Protocol (NTP)-servers opgeven:
 
- - **Primaire NTP-server** -de configuratie is vereist en wordt opgegeven wanneer u Windows PowerShell voor StorSimple gebruiken om uw apparaat te configureren. U kunt de standaard Windows-Server opgeven **time.windows.com** als uw NTP-server. U kunt de configuratie van de primaire NTP server via de Azure-portal weergeven, maar moet u de Windows PowerShell-interface gebruiken om deze te wijzigen. Gebruik de `Set-HcsNTPClientServerAddress` cmdlet om te wijzigen van de primaire NTP-server van uw apparaat. Voor meer informatie gaat u naar synxtax voor [Set HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+ - **Primaire NTP-server** -de configuratie is vereist en wordt opgegeven wanneer u Windows PowerShell voor StorSimple gebruiken om uw apparaat te configureren. U kunt de standaard Windows-Server opgeven **time.windows.com** als uw NTP-server. U kunt de configuratie van de primaire NTP server via de Azure-portal weergeven, maar moet u de Windows PowerShell-interface gebruiken om deze te wijzigen. Gebruik de `Set-HcsNTPClientServerAddress` cmdlet om te wijzigen van de primaire NTP-server van uw apparaat. Ga voor meer informatie naar de syntaxis voor [Set HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 - **Secundaire NTP-server** -de configuratie is optioneel. De portal kunt u een secundaire NTP-server configureren.
 
@@ -85,7 +85,7 @@ Een DNS-server wordt gebruikt wanneer uw apparaat probeert te communiceren met u
 
 Voor hoge beschikbaarheid moet u zowel de primaire en secundaire DNS-servers configureren tijdens de initiële implementatie.
 
-**Primaire DNS-server** -u de Windows PowerShell voor StorSimple gebruiken om eerst de primaire DNS-server tijdens de eerste installatie. U kunt de primaire DNS-server alleen via de Windows PowerShell-interface opnieuw configureren. Gebruik de `Set-HcsDNSClientServerAddress` cmdlet om te wijzigen van de primaire DNS-server van uw apparaat. Voor meer informatie gaat u naar synxtax voor [Set HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+**Primaire DNS-server** -u de Windows PowerShell voor StorSimple gebruiken om eerst de primaire DNS-server tijdens de eerste installatie. U kunt de primaire DNS-server alleen via de Windows PowerShell-interface opnieuw configureren. Gebruik de `Set-HcsDNSClientServerAddress` cmdlet om te wijzigen van de primaire DNS-server van uw apparaat. Ga voor meer informatie naar de syntaxis voor [Set HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 **Secundaire DNS-server** : als u wilt wijzigen van de secundaire DNS-server, gebruikt u de `Set-HcsDNSClientServerAddress` cmdlet in de Windows PowerShell-interface van het apparaat of **netwerkinstellingen** blade van uw StorSimple-apparaat in Azure portal.
 
@@ -95,7 +95,7 @@ Als u wilt wijzigen van de secundaire DNS-server in Azure portal, moet u de volg
 
 2. In de **instellingen** blade, Ga naar **apparaatinstellingen > netwerk**. Hiermee opent u de **netwerkinstellingen** blade. Klik op **DNS-instellingen** tegel. Wijzigen van de secundaire IP-adres van de DNS-server.
 
-    ![Secundaire DNS-server IP-adderss wijzigen](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
+    ![Secundaire DNS-server IP-adres wijzigen](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
 4. Klik in de opdrachtbalk op **opslaan** wanneer u hierom wordt gevraagd om bevestiging, klikt u op **OK**.
 

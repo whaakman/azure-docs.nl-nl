@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234405"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495850"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Gegevens migreren van de StorSimple 5000-7000-serie 8000-serie-apparaat
 
@@ -26,7 +26,7 @@ ms.locfileid: "51234405"
 > - Op 31 juli 2019 bereiken de StorSimple 5000/7000-serie het einde van de ondersteuningstatus (EOS). U wordt aangeraden dat de StorSimple 5000/7000-serie klanten naar een van de alternatieven zoals beschreven in het document migreren.
 > - Migratie wordt momenteel een bewerking voor assistentie. Als u van plan bent om gegevens te migreren van uw StorSimple 5000-7000-serie-apparaat op een apparaat uit de 8000-serie, moet u voor het plannen van de migratie met Microsoft Support. Microsoft Support kunnen vervolgens uw abonnement voor de migratie. Zie voor meer informatie over het [Open een ondersteuningsticket](storsimple-8000-contact-microsoft-support.md).
 > - Nadat u de serviceaanvraag-bestand, duurt het enkele weken uit te voeren van het migratieplan en de migratie daadwerkelijk wordt gestart.
-> - Voordat u contact opneemt met Microsoft Support, moet u ervoor dat u de sla en volledige de [migratie vereisten](#migration-prerequisites) aangegeven in het artikel.
+> - Voordat u contact opneemt met Microsoft Support, moet u controleren en voltooi de [migratie vereisten](#migration-prerequisites) aangegeven in het artikel.
 
 ## <a name="overview"></a>Overzicht
 
@@ -125,7 +125,7 @@ Voer de volgende stappen uit voor het installeren van hulpprogramma voor migrati
 
     Open het configuratiebestand van het hulpprogramma _StorSimple8000SeriesMigrationTool.exe.config_ in de map. Hier is het fragment van het bestand.
     
-    ```
+    ```xml
         <add key="UserName" value="username@xyz.com" />
         <add key="SubscriptionName" value="YourSubscriptionName" />
         <add key="SubscriptionId" value="YourSubscriptionId" />

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7a645669d273e0ca0017e28ef539c2143151d25
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467642"
+ms.locfileid: "55509677"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -401,6 +401,10 @@ Voor de metrische gegevens over ondersteunende dimensies moet u de dimensiewaard
 Verouderde metrische gegevens zijn beschikbaar in combinatie met Azure Monitor beheerd metrische gegevens. De ondersteuning blijft hetzelfde tot Azure Storage is beëindigd door de service op verouderde metrische gegevens.
 
 ## <a name="faq"></a>Veelgestelde vragen
+
+**Nieuwe metrische gegevens biedt ondersteuning voor klassieke opslagaccount?**
+
+Nee, nieuwe metrische gegevens in Azure Monitor alleen ondersteuning voor Azure resourcemanager-opslagaccounts. Als u wilt de metrische gegevens op Storage-accounts gebruiken, moet u voor het migreren naar Azure Resource Manager-opslagaccount. Zie [migreren naar Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **Biedt Azure Storage ondersteuning voor de metrische gegevens voor Managed Disks of niet-beheerde schijven?**
 

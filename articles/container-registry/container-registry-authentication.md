@@ -9,20 +9,18 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 2c1a03d164462da0bc9143399dbcb1e76302433b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301047"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507889"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verifiëren met een persoonlijk Docker-containerregister
 
 Er zijn verschillende manieren om te verifiëren met een Azure container registry, die elk van toepassing op een of meer register gebruiksscenario's is.
 
 U kunt aanmelden bij een register rechtstreeks via [afzonderlijke aanmelding](#individual-login-with-azure-ad), of uw toepassingen en container-orchestrators zonder toezicht of 'headless'-verificatie kunnen uitvoeren met behulp van een Azure Active Directory (Azure AD) [ service-principal](#service-principal).
-
-Azure Container Registry biedt geen ondersteuning voor niet-geverifieerde Docker-bewerkingen of anonieme toegang. Voor openbare-installatiekopieën, kunt u [Docker Hub](https://docs.docker.com/docker-hub/).
 
 ## <a name="individual-login-with-azure-ad"></a>Afzonderlijke aanmelding met Azure AD
 

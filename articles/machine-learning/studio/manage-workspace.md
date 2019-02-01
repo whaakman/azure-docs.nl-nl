@@ -1,7 +1,21 @@
 ---
-Titel: Een Machine Learning Studio-werkruimte titleSuffix beheren: Azure Machine Learning Studio description: Toegang tot Azure Machine Learning-werkruimten, beheren en implementeren en beheren van ML API web services-services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 02/27/2017
+title: Een Machine Learning Studio-werkruimte beheren
+titleSuffix: Azure Machine Learning Studio
+description: Toegang tot Azure Machine Learning-werkruimten, beheren en implementeren en beheren van ML API-webservices
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 02/27/2017
+ms.openlocfilehash: f1904552b6c43cadd611659ed544b9f4bafcb465
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487269"
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>Een Azure Machine Learning Studio-werkruimte beheren
 

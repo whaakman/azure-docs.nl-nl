@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a59a7610a067a292d9b5dd7bb1a611b4bade05e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8ac8f2fe62898cdeb386fd3a8275fec1712c1728
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193808"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491549"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synchronisatie: Inzicht in declaratieve inrichting
 In dit onderwerp wordt uitgelegd dat het configuratiemodel in Azure AD Connect. Het model wordt genoemd declaratieve inrichting en deze kunt u een configuratiewijziging met gemak. Groot aantal dingen die worden beschreven in dit onderwerp zijn geavanceerde en niet vereist voor de meeste klantscenario's.
@@ -52,7 +52,7 @@ Het bereik in deze afbeelding moet worden gelezen als (afdeling IT en land = = D
 
 De scope-module biedt ondersteuning voor de volgende bewerkingen.
 
-| Bewerking | Beschrijving |
+| Bewerking | Description |
 | --- | --- |
 | GELIJK, NOTEQUAL |Het vergelijken van een tekenreeks die wordt geëvalueerd als de waarde is gelijk aan de waarde in het kenmerk. Zie ISIN en ISNOTIN voor meerwaardige kenmerken. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |De vergelijken van een tekenreeks die wordt geëvalueerd als de waarde is dan de waarde in het kenmerk. |

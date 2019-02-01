@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978612"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498196"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Beheer van infrastructuur voor Azure DevTest Labs - integratie en toepassingen migreren
 Zodra uw ontwikkelen/testen-testomgeving is tot stand is gebracht, moet u echter nadenken over de volgende vragen:
@@ -58,13 +58,13 @@ Een extra factor te weten is echter de frequentie van wijzigingen in uw software
 Hoe kan ik een eenvoudig herhaalbaar proces instellen om mijn aangepaste installatiekopieën van de organisatie in een omgeving met DevTest Labs?
 
 ### <a name="answer"></a>Antwoord
-Zie [in deze video op Immage Factory patroon](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Dit scenario is een geavanceerd scenario en de geleverde scripts zijn alleen voorbeelden van scripts. Als wijzigingen vereist zijn, die u wilt beheren en onderhouden van de scripts in uw omgeving gebruikt.
+Zie [in deze video van afbeelding Factory patroon](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Dit scenario is een geavanceerd scenario en de geleverde scripts zijn alleen voorbeelden van scripts. Als wijzigingen vereist zijn, die u wilt beheren en onderhouden van de scripts in uw omgeving gebruikt.
 
 DevTest Labs gebruiken voor het maken van een aangepaste installatiekopie-pijplijn in Azure pijplijnen:
 
-- [Inleiding: Bereid u voor virtuele machines in enkele minuten door het instellen van een installatiekopie factory in Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
+- [Introductie: Bereid u voor virtuele machines in enkele minuten door het instellen van een installatiekopie factory in Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
 - [Afbeelding Factory – deel 2. Azure pijplijnen en Factory Lab voor het maken van virtuele machines instellen](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [De installatiekopie van Factory – deel 3: Aangepaste installatiekopieën opslaan en distribueren naar meerdere Labs](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
+- [Afbeelding Factory – deel 3: Aangepaste installatiekopieën opslaan en distribueren naar meerdere Labs](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [Video: Aangepaste installatiekopie Factory met Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Patronen voor het instellen van de netwerkconfiguratie
@@ -103,7 +103,7 @@ Wanneer moet ik een gedeelde IP-adres versus openbaar IP-adres versus privé IP-
 Als u een site-naar-site VPN of Express Route gebruikt, overweeg het gebruik van privé IP-adressen, zodat uw machines toegankelijk via het interne netwerk en toegankelijk zijn via openbare internet zijn.
 
 > [!NOTE]
-> Lab-eigenaars kunnen dit subnetbeleid om ervoor te zorgen dat niemand per ongeluk kunt openbare IP-adressen worden gemaakt voor hun VM's wijzigen. Eigenaar van het abonnement moet maken van een beleid van het abonnement zo wordt voorkomen dat openbare IP-adressen die worden gemaakt.
+> Lab-eigenaars kunnen dit subnetbeleid om ervoor te zorgen dat niemand openbare IP-adressen per ongeluk worden gemaakt voor hun VM's wijzigen. Eigenaar van het abonnement moet maken van een beleid van het abonnement zo wordt voorkomen dat openbare IP-adressen die worden gemaakt.
 
 Bij het gebruik van gedeelde openbare IP-adressen, delen de virtuele machines in een testomgeving een openbaar IP-adres. Deze methode kan nuttig zijn wanneer u nodig hebt om te voorkomen dat inbreuk op de limieten voor openbare IP-adressen voor een bepaald abonnement.
 

@@ -10,18 +10,18 @@ ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 668382479cee2f9049c09be1952e684e39077091
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: be145e89becc7c03ba705c29436c3572365ee4ff
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173680"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489033"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
 Het doel van dit document is om te beschrijven van de gebieden die moeten worden beschouwd door tijdens het implementatieontwerp van de van Azure AD Connect. Dit document is een gedetailleerde informatie over bepaalde gebieden en deze concepten worden kort beschreven in andere documenten.
@@ -119,7 +119,7 @@ Als u Azure AD Connect installeert met de aangepaste modus, biedt de Azure AD Co
 
 ![Aangepaste installatie - sourceAnchor-configuratie](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Instelling | Beschrijving |
+| Instelling | Description |
 | --- | --- |
 | Azure het bronanker voor mij laten beheren | Selecteer deze optie als u wilt dat Azure AD het kenmerk voor u selecteert. Als u deze optie selecteert, Azure AD Connect-wizard geldt dezelfde [sourceAnchor-kenmerk selectie logica wordt gebruikt tijdens de snelle installatie](#express-installation). Net als bij de Express-installatie, de wizard geeft aan welk kenmerk is geselecteerd als het kenmerk Sourceanchor nadat de aangepaste installatie is voltooid. |
 | Een specifiek kenmerk | Selecteer deze optie als u een bestaand AD-kenmerk opgeeft als het kenmerk sourceAnchor. |

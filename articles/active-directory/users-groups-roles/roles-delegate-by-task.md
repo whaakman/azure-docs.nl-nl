@@ -1,5 +1,5 @@
 ---
-title: Minste bevoorrechte rollen per taak in Azure Active Directory delegeren | Microsoft Docs
+title: Minste bevoorrechte rollen door beheerder taak - Azure Active Directory delegeren | Microsoft Docs
 description: Functies voor identiteit-taken in Azure Active Directory delegeren
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 3b6c5b08fa3f915c541837abe5f52c7ec3d9b87e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6307fe4875d9fd5f55db8078ab9440f989fb58f3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185198"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508212"
 ---
-# <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Door de taak identiteit in Azure Active Directory-beheerdersrollen
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Beheerdersrollen door admin-taak in Azure Active Directory
 
 In dit artikel vindt u de informatie die nodig zijn voor het beperken van een gebruiker beheerdersmachtigingen minste bevoorrechte rollen in Azure Active Directory (Azure AD) toe te wijzen. Vindt u beheerderstaken geordend op het functiegebied en de minste bevoorrechte rol is vereist voor het uitvoeren van elke taak, samen met aanvullende niet - globale beheerdersrollen die de taak kunt uitvoeren.
 

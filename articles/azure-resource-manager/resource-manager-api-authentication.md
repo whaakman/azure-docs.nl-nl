@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103878"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498247"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
-## <a name="introduction"></a>Inleiding
+
 Als u een software-ontwikkelaar bent en een app die wordt beheerd van een klant Azure-resources te maken, in dit artikel wordt beschreven hoe u voor verificatie met de Azure Resource Manager API's en toegang krijgen tot resources in andere abonnementen.
 
 Uw app toegang heeft tot de Resource Manager API's in verschillende manieren:
@@ -32,7 +32,10 @@ Uw app toegang heeft tot de Resource Manager API's in verschillende manieren:
 
 In dit artikel biedt stapsgewijze instructies voor het maken van een app die de veiligheidsmaatregelen voor beide vorige autorisatiemethoden. Het laat zien hoe u elke stap met REST-API of C# uitvoeren. De volledige ASP.NET MVC-toepassing is beschikbaar op [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="what-the-web-app-does"></a>Betekenis van de web-app
+
 De web-app:
 
 1. Zich aanmeldt een Azure-gebruiker.
@@ -74,7 +77,7 @@ Omdat uw app toegang heeft tot andere abonnement, moet u deze configureren als e
 Het volgende voorbeeld ziet hoe u de app te registreren met behulp van Azure PowerShell. Hebt u de nieuwste versie (augustus 2016) van Azure PowerShell voor deze opdracht te laten werken.
 
 ```azurepowershell-interactive
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 Om aan te melden als de AD-toepassing, moet u de toepassings-ID en het wachtwoord. Overzicht van de toepassings-ID die wordt geretourneerd vanaf de vorige opdracht gebruiken:
@@ -330,7 +333,7 @@ Een van de voorbeeldaanvraag RBAC-rol toewijzen aan toepassing:
 
 In de aanvraag, worden de volgende waarden gebruikt:
 
-| GUID | Description |
+| Guid | Description |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |de ID van het abonnement |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |object-ID van de service-principal van de toepassing |

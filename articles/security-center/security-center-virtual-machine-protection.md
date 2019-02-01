@@ -3,7 +3,7 @@ title: Beveiligen van uw computers en toepassingen in Azure Security Center | Mi
 description: Dit document bevat aanbevelingen in Security Center die u helpen beveiligen van uw virtuele machines en computers en uw web-apps en App Service-omgevingen.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181466"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487740"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -42,7 +42,7 @@ Onder **Compute en apps**, er zijn de volgende tabbladen:
 - **Overzicht**: bewaking en aanbevelingen door Security Center.
 - **VM’s en computers**: lijst met alle virtuele machines, computers en de bijbehorende actuele beveiligingsstatussen.
 - **Cloud Services**: lijst van al uw web- en werkrollen die worden bewaakt door Security Center.
-- **App-services (Preview)**: lijst met uw App service-omgevingen en de huidige beveiligingsstatus van elk.
+- **App-services**: lijst met uw App service-omgevingen en de huidige beveiligingsstatus van elk.
 - **Containers (Preview)**: lijst met de containers die worden gehost op IaaS Linux-machines en beoordelen van de beveiliging van de Docker-configuraties.
 - **Rekenresources (Preview)**: lijst met aanbevelingen voor uw compute-resources, zoals Service Fabric-clusters en eventhubs.
 
@@ -124,12 +124,11 @@ Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op 
 
 ![Besturingssysteemversie bijwerken](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services-preview"></a>App Services (preview)
+### <a name="app-services"></a>App-services
+U moet voor het inschakelen van App Service in uw abonnement om de App Service-informatie weergeven. Zie voor instructies over het inschakelen van deze functie [App Service beveiligen met Azure Security Center](security-center-app-services.md).
+[!NOTE]
+> Bewaking van App Service is in preview en alleen beschikbaar op de prijscategorie Standard van Security Center.
 
-> [!NOTE]
-> Bewaking van App Service is in preview en alleen beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
->
->
 
 Onder **App services**, vindt u een lijst van uw App service-omgevingen en samenvatting van de status op basis van de evaluatie van Security Center wordt uitgevoerd.
 
@@ -171,19 +170,9 @@ Er zijn drie soorten pictogrammen weergegeven in deze lijst:
 |App Service|10|Foutopsporing op afstand moet worden uitgeschakeld voor Web-App|Als u niet meer nodig hebt om deze te gebruiken voor het Web-foutopsporing uitschakelen. Externe foutopsporing moeten inkomende poorten op een functie-App moeten worden geopend.|
 |App Service|10|Foutopsporing op afstand moet worden uitgeschakeld voor Functions-toepassing|Als u niet meer nodig hebt om deze te gebruiken voor functie-App-foutopsporing uitschakelen. Externe foutopsporing moeten inkomende poorten op een functie-App moeten worden geopend.|
 |App Service|10|IP-beperkingen voor Web-App configureren|Een lijst met IP-adressen die zijn toegestaan voor toegang tot uw toepassing definiëren. Gebruik van IP-beperkingen beschermt u webtoepassingen tegen algemene aanvallen.|
-|App Service|10|IP-beperkingen voor functie-App configureren| Een lijst met IP-adressen die zijn toegestaan voor toegang tot uw toepassing definiëren. Een functie-app beschermt gebruik van IP-beperkingen tegen algemene aanvallen.|
 |App Service|10|Niet alle toestaan ('* ') resources toegang tot uw toepassing| Instellen van de parameter WEBSITE_LOAD_CERTIFICATES niet toestaan ' ". Als u de parameter naar ' betekent dat alle certificaten in de persoonlijke certificaatarchief van uw web-toepassingen zijn geladen. Dit kan leiden tot misbruik van het principe van minimale bevoegdheden als is het onwaarschijnlijk dat de site toegang hebben tot alle certificaten die tijdens runtime moet.|
-|App Service|5|Websockets moeten worden uitgeschakeld voor Web-App|Controleer het gebruik van Websockets in webtoepassingen. Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's.|
-|App Service|5|Websockets moeten worden uitgeschakeld voor functie-App|Controleer het gebruik van Websockets in functie-Apps. Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's.|
-|App Service|5|Aangepaste domeinen gebruiken voor uw Web-App|Aangepaste domeinen gebruiken voor een webtoepassing beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS.|
-|App Service|5|Aangepaste domeinen voor functie-App gebruiken|Aangepaste domeinen gebruiken voor een functie-app beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS.|
 |App Service|20|CORS kunt u voorkomen dat elke resource toegang tot uw Web-Apps|Toestaan dat alleen vereiste domeinen om te communiceren met uw webtoepassing. Cross-origin resource sharing (CORS) kunt u voorkomen dat alle domeinen toegang tot uw webtoepassing.|
 |App Service|20|CORS kunt u voorkomen dat elke resource toegang tot uw functie-App| Toestaan dat alleen vereiste domeinen om te communiceren met uw functie-toepassing. Cross-origin resource sharing (CORS) kunt u voorkomen dat alle domeinen toegang tot uw functie-toepassing.|
-|App Service|10|Gebruik de nieuwste ondersteunde .NET Framework voor webtoepassingen|Gebruik de meest recente versie van .NET Framework voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
-|App Service|10|Gebruik de nieuwste ondersteunde Java-versie voor Web-App|Gebruik de meest recente Java-versie voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
-|App Service|10|Gebruik de nieuwste ondersteunde PHP-versie voor Web-App|Gebruik de nieuwste PHP-versie voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
-|App Service|10|Gebruik de nieuwste ondersteunde Node.js versie voor Web-App|Gebruik de meest recente versie van Node.js voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
-|App Service|10|Gebruik de nieuwste ondersteunde Python-versie voor Web-App|Gebruik de meest recente versie van Python voor de nieuwste beveiligingsklassen. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken.|
 |Rekenresources (batch)|1|Waarschuwingsregels voor metrische gegevens op Batch-account configureren|Waarschuwingsregels voor metrische gegevens op Batch-account configureren en inschakelen van de metrische gegevens Pool verwijderen voltooid gebeurtenissen en Pool verwijderen starten|
 |Rekenresources (service fabric)|10|Azure Active Directory gebruiken voor clientverificatie in Service Fabric|Verificatie van de Client alleen via Azure Active Directory uitvoeren in Service Fabric.|
 |Rekenresources (automation-account)|5| Versleuteling van Automation-account inschakelen|Versleuteling van Automation-account-variabele assets inschakelen bij het opslaan van gevoelige gegevens.|

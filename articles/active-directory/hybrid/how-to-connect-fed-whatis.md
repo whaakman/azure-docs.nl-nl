@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a2e835f074ac2f5d1eede9f68e77774938da6af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28c0ddbb735de041497b6705759d03c881b7e87e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181738"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494354"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect en federatie
 Met Azure Active Directory (Azure AD) Connect kunt u bij het configureren van Federatie met on-premises Active Directory Federation Services (AD FS) en Azure AD. Met de aanmelding federation kunt u gebruikers zich aanmelden voor Azure op basis van een AD-services met hun on-premises wachtwoorden-- en, terwijl op het bedrijfsnetwerk bevinden, zonder te hoeven hun wachtwoord opnieuw invoeren. U kunt een nieuwe installatie van AD FS implementeren met de optie Federatie met AD FS, of kunt u een bestaande installatie in een farm met Windows Server 2012 R2.
@@ -30,7 +30,7 @@ In dit onderwerp is de thuisbasis voor informatie over de federation-gerelateerd
 ## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect: federation-onderwerpen
 | Onderwerp | Er wordt aangegeven en bij het lezen |
 |:--- |:--- |
-| **Azure AD Connect-aanmelden-gebruikersopties** | |
+| **Opties van Azure AD Connect voor het aanmelden van gebruikers** | |
 | [Aanmeldingsopties voor gebruiker begrijpen](plan-connect-user-signin.md) |Meer informatie over de verschillende gebruiker aanmelden opties en hoe ze invloed hebben op de gebruikerservaring voor Azure aanmelden. |
 | **AD FS installeren met behulp van Azure AD Connect** | |
 | [Vereisten](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Zie de vereisten voor een geslaagde installatie van AD FS via Azure AD Connect. |

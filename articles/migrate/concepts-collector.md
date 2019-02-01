@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 9890f68ff61d822f505c4403eb2f1f61e396fd01
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262605"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488703"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -32,7 +32,7 @@ Het collector-apparaat continu is verbonden met het Azure Migrate-project en con
 - Dit model afhankelijk niet van de instellingen voor statistieken vCenter-Server om prestatiegegevens te verzamelen.
 - U kunt stoppen continue profilering op elk gewenst moment van de Collector.
 
-**Onmiddellijk resultaat:** Met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat het verzamelen van prestatiegegevens wordt gestart wanneer u detectie activeert, en als u direct resultaat wilt, moet u het schaalcriterium in de evaluatie instellen als *as on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
+**Snelle evaluaties:** Met het continue detectie-apparaat, wanneer de detectie voltooid is (het duurt enkele uren, afhankelijk van het aantal virtuele machines), u kunt onmiddellijk een evaluatie maken. Omdat de verzameling van prestatiegegevens wordt gestart wanneer u detectie, een vliegende start als u snelle evaluaties zoekt, moet u het criterium voor het instellen in de evaluatie als *zoals on-premises*. Voor evaluaties op basis van prestaties is het raadzaam om ten minste een dag te wachten na het activeren van de detectie om betrouwbare aanbevelingen voor de schaal te krijgen.
 
 Alleen verzamelt prestatiegegevens continu het toestel, detecteert niet elke configuratiewijziging in de on-premises-omgeving (dat wil zeggen VM toevoegen, verwijderen en schijf toevoegen, enz.). Als er een configuratiewijziging in de on-premises omgeving is, kunt u het volgende doen om de wijzigingen door te voeren in de portal:
 

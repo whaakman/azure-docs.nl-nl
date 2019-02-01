@@ -1,8 +1,21 @@
 ---
-Titel: Snelstartgids voor R-taal titleSuffix: Azure Machine Learning Studio description: Gebruik deze programmeren R-zelfstudie aan de slag snel met behulp van de R-taal met Azure Machine Learning Studio om een prognose-oplossing te maken.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
+title: Snelstartgids voor R-taal
+titleSuffix: Azure Machine Learning Studio
+description: Gebruik deze programmeren R-zelfstudie aan de slag snel met behulp van de R-taal met Azure Machine Learning Studio om een prognose-oplossing te maken.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/06/2017
+ms.openlocfilehash: d56c44e299125b6b7d8aff429aa6352b8e653a16
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508654"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Beknopte zelfstudie voor de programmeertaal R voor Azure Machine Learning Studio
 

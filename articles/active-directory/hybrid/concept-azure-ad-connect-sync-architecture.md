@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 12eb678262d11ca3bcb727d03e31a50b0aee4a68
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1b2f82b4feea94c5c0ed732ff84856c96f46afc0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203841"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498070"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect-synchronisatie: Inzicht in de architectuur
 Dit onderwerp worden de basisarchitectuur voor Azure AD Connect-synchronisatie. In vele opzichten is het vergelijkbaar met de voorafgaande MIIS 2003, ILM 2007 en FIM 2010. Azure AD Connect-synchronisatie is de ontwikkeling van deze technologieën. Als u bekend met een van deze eerdere technologieën bent, worden de inhoud van dit onderwerp ook vertrouwd mee bent. Als u niet bekend bent met synchronisatie, is de in dit onderwerp voor u. Het is echter niet te weten de details van dit onderwerp om te worden voltooid bij het maken van aanpassingen van Azure AD Connect-synchronisatie (synchronisatie-engine in dit onderwerp genoemd).

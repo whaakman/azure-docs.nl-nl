@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c0304e290d18e6569e3fcc2efbab8af15727b80c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298922"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508152"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Uw Avere vFXT-systeem plannen
 
@@ -83,7 +83,7 @@ Zorg ervoor dat uw abonnement heeft de capaciteit om uit te voeren van het clust
 
 ## <a name="back-end-data-storage"></a>Back-end-gegevensopslag
 
-Waar moet de Avere vFXT cluster opslaan van uw gegevens wanneer deze zich niet in de cache? Bepalen of uw werkset worden opgeslagen op de lange termijn in een nieuwe Blob-container of in een bestaande cloud of de hardware-opslagsysteem. 
+Waar moet de Avere vFXT cluster opslaan van uw gegevens wanneer deze zich niet in de cache? Bepaal of uw werkset lange termijn opgeslagen in een nieuwe Blob-container of in een bestaande cloud of de hardware-opslagsysteem. 
 
 Als u gebruiken van Azure Blob-opslag voor de back-end wilt, maakt u een nieuwe container als onderdeel van het cluster vFXT te maken. Deze optie maakt en configureert de nieuwe container zodat deze klaar voor gebruik als het cluster gereed is. 
 
@@ -109,7 +109,7 @@ Access-opties zijn onder andere:
 
 * Virtueel particulier netwerk (VPN): Configureer een punt-naar-site of site-naar-site VPN-verbinding met uw particuliere netwerk.
 
-* Met Azure ExpressRoute - configureren van een particuliere verbinding via en ExpressRoute-partner. 
+* Met Azure ExpressRoute - configureren van een particuliere verbinding via een ExpressRoute-partner. 
 
 Lees voor meer informatie over deze opties de [Azure Virtual Network-documentatie over internetcommunicatie](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
 
@@ -117,7 +117,7 @@ Lees voor meer informatie over deze opties de [Azure Virtual Network-documentati
 
 Als u een openbaar IP-adres ingesteld op de clustercontroller, kunt u deze als host voor een korte inleiding contact opnemen met de Avere vFXT-cluster op basis van buiten het privé-subnet. Echter, omdat de controller toegangsrechten heeft voor het wijzigen van de clusterknooppunten, Hiermee maakt u een kleine beveiligingsrisico.  
 
-Gebruik een netwerkbeveiligingsgroep waarmee binnenkomende toegang alleen via poort 22 voor verbeterde beveiliging met een openbaar IP-adres.
+Gebruik een netwerkbeveiligingsgroep waarmee binnenkomende toegang alleen via poort 22 voor verbeterde beveiliging met een openbaar IP-adres. Eventueel kunt u verder beveiligen het systeem door het vergrendelen van omlaag toegang tot het bereik van IP-bronadressen - dat wil zeggen, alleen verbindingen toestaan vanaf computers die u wilt gebruiken voor toegang tot het cluster.
 
 Bij het maken van het cluster, kunt u al dan niet te maken van een openbaar IP-adres op de clustercontroller. 
 

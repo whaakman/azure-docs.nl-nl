@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.openlocfilehash: f688c0e277f807ff27731c103ca407807052c9d3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199745"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508314"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure certificaatverificatie configureren: PowerShell
 
@@ -43,7 +43,7 @@ U kunt de volgende voorbeeldwaarden gebruiken om een testomgeving te maken of ze
 * **Adresruimte: 192.168.0.0/16** en **10.254.0.0/16**<br>In dit voorbeeld wordt meer dan één adresruimte gebruikt om te laten zien dat deze configuratie met meerdere adresruimten werkt. Meerdere adresruimten zijn echter niet vereist voor deze configuratie.
 * **Subnetnaam: FrontEnd**
   * **Subnetadresbereik: 192.168.1.0/24**
-* **Subnetnaam: Back-end**
+* **Subnetnaam: BackEnd**
   * **Subnetadresbereik: 10.254.1.0/24**
 * **Subnetnaam: GatewaySubnet**<br>De naam van het subnet *GatewaySubnet* is verplicht voor een goede werking van de VPN-gateway.
   * **Adresbereik GatewaySubnet: 192.168.200.0/24** 
@@ -54,7 +54,7 @@ U kunt de volgende voorbeeldwaarden gebruiken om een testomgeving te maken of ze
 * **DNS-Server: IP-adres** van de DNS-server die u wilt gebruiken voor naamomzetting. (optioneel)
 * **Naam van GW: Vnet1GW**
 * **Openbare IP-naam: VNet1GWPIP**
-* **VpnType: Op route gebaseerd** 
+* **VpnType: RouteBased** 
 
 ## <a name="declare"></a>1. Aanmelden en variabelen instellen
 

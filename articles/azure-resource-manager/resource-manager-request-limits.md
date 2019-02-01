@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136886"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493555"
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
+
 Voor elke Azure-abonnement en de tenant staat Resource Manager maximaal 12.000 lezen aanvragen per uur en 1200 schrijven aanvragen per uur. Deze limieten zijn gericht op de principal-ID de aanvragen en de abonnements-ID of tenant-ID. Als uw aanvragen afkomstig is van meer dan één principal-ID, is de limiet voor het abonnement of de tenant is groter dan 12.000 en 1200 per uur.
 
 Aanvragen worden toegepast op uw abonnement of uw tenant. Verzoeken om abonnementen zijn services die de betrokken bij het doorgeven van uw abonnement-ID, zoals het ophalen van de resourcegroepen in uw abonnement. Tenant-aanvragen zijn niet opgenomen uw abonnements-ID, zoals het ophalen van geldige Azure-locaties.
@@ -30,6 +31,8 @@ Deze limieten gelden voor elk exemplaar van Azure Resource Manager. Er zijn meer
 Als uw toepassing of script deze limiet is bereikt, moet u uw aanvragen beperken. In dit artikel leest u hoe u bepaalt de resterende aanvragen die u hebt voordat de limiet wordt bereikt, en om te reageren wanneer u de limiet hebt bereikt.
 
 Wanneer u de limiet is bereikt, ontvangt u de HTTP-statuscode **429 te veel aanvragen**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Overige aanvragen
 U kunt het aantal resterende aanvragen bepalen door onderzoeken antwoordheaders. Elke aanvraag bevat de waarden voor het aantal resterende lees- en schrijfaanvragen. De volgende tabel beschrijft de reactieheaders die u voor deze waarden kunt bekijken:
@@ -66,7 +69,7 @@ Zie voor een compleet voorbeeld van PowerShell, [Resource Manager-limieten voor 
 Als u zien van de resterende aanvragen wilt voor foutopsporing, kunt u opgeven de **-Debug** parameter op uw **PowerShell** cmdlet.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Die veel waarden, met inbegrip van de waarde van het volgende antwoord geretourneerd:
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Als u limieten voor schrijven, gebruikt u een schrijfbewerking: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Die veel waarden, met inbegrip van de volgende waarden geretourneerd:

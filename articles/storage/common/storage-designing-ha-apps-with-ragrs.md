@@ -1,20 +1,20 @@
 ---
-title: Het ontwerpen van maximaal beschikbare toepassingen met Azure Read-Access Geo-Redundant Storage (RA-GRS) | Microsoft Docs
+title: Het ontwerpen van maximaal beschikbare Aaplications met behulp van geo-redundante opslag met leestoegang (RA-GRS) | Microsoft Docs
 description: Het gebruik van Azure RA-GRS-opslag te ontwerpen van een maximaal beschikbare toepassing flexibel genoeg is voor het afhandelen van storingen.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454940"
+ms.locfileid: "55512241"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met RA-GRS ontwerpen
 
@@ -43,9 +43,7 @@ Houd rekening met deze sleutel bij het ontwerpen van uw toepassing voor RA-GRS:
 
 * U kunt de Storage-clientbibliotheek gebruiken om te communiceren met de gegevens in de primaire of secundaire regio. U kunt ook omleiden lezen aanvragen automatisch naar de secundaire regio als daarom wordt gevraagd naar de primaire regio een optreedt time-out.
 
-* Als er een groot probleem met betrekking tot de toegankelijkheid van de gegevens in de primaire regio, kan het Azure-team een geo-failover, waarna de DNS-vermeldingen die verwijst naar de primaire regio worden gewijzigd om te verwijzen naar de secundaire regio te activeren.
-
-* Als er een geo-failover optreedt, wordt Azure selecteert u een nieuwe secundaire locatie en de gegevens gerepliceerd naar die locatie en de secundaire DNS-vermeldingen wijs. Het secundaire eindpunt is niet beschikbaar totdat het opslagaccount dat replicatie is voltooid. Zie voor meer informatie, [wat te doen als een Azure Storage-storing](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* Als de primaire regio niet beschikbaar is, kunt u een account failover starten. Als u een failover naar de secundaire regio, worden de DNS-vermeldingen die verwijst naar de primaire regio gewijzigd om te verwijzen naar de secundaire regio. Nadat de failover voltooid is, wordt toegang voor schrijven is hersteld voor GRS en RA-GRS-accounts. Zie voor meer informatie, [Disaster recovery en storage-account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Ontwerpoverwegingen voor toepassingen bij het gebruik van RA-GRS
 

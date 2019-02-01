@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818507"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496958"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Toegang tot Azure IoT Hub Device Provisioning Service beheren
 
@@ -34,7 +34,7 @@ U kunt verlenen [machtigingen](#device-provisioning-service-permissions) in de v
 
 * **Gedeeld toegangsbeleid voor autorisatie**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#device-provisioning-service-permissions). U kunt beleid in definiëren de [Azure-portal][lnk-management-portal], of programmatisch met behulp van de [Device Provisioning Service REST-API's][lnk-resource-provider-apis]. Een nieuwe provisioning-service heeft het standaardbeleid voor het volgende:
 
-* **provisioningserviceowner**: beleid met alle machtigingen.
+* **provisioningserviceowner**: Beleid met alle machtigingen.
 
 > [!NOTE]
 > Zie [machtigingen](#device-provisioning-service-permissions) voor gedetailleerde informatie.
@@ -75,18 +75,18 @@ Het beveiligingstoken heeft de volgende indeling:
 
 Hier volgen de verwachte waarden:
 
-| Waarde | Beschrijving |
+| Value | Description |
 | --- | --- |
-| {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: de sleutel is gedecodeerd op basis van base64 en gebruikt als sleutel voor het uitvoeren van de HMAC-SHA256-berekening.|
+| {handtekening} |Een tekenreeks van de HMAC-SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: De sleutel is gedecodeerd op basis van base64 en gebruikt als sleutel voor het uitvoeren van de HMAC-SHA256-berekening.|
 | {expiry} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
 | {URL-encoded-resourceURI} | Lagere aanvraag-URL-codering van de resource-URI van de kleine letters. URI-voorvoegsel (per segment) van de eindpunten die toegankelijk zijn met dit token, beginnend met de hostnaam van de IoT Device Provisioning Service (Er is geen protocol). Bijvoorbeeld `mydps.azure-devices-provisioning.net`. |
 | {policyName} |De naam van het beleid voor gedeelde toegang waarvoor dit token verwijst. |
 
-**Houd er rekening mee op het voorvoegsel van**: de URI-voorvoegsel wordt berekend per segment en niet door het teken. Bijvoorbeeld `/a/b` is een voorvoegsel voor `/a/b/c` , maar niet voor `/a/bc`.
+**Houd er rekening mee op het voorvoegsel van**: Het URI-voorvoegsel wordt berekend per segment en niet door het teken. Bijvoorbeeld `/a/b` is een voorvoegsel voor `/a/b/c` , maar niet voor `/a/bc`.
 
 Het volgende Node.js-fragment toont een functie met de naam **generateSasToken** die het token van de invoer berekent `resourceUri, signingKey, policyName, expiresInMins`. De volgende secties bevatten informatie over het initialiseren van de verschillende soorten invoer voor de verschillende token use cases.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ Als u bijvoorbeeld een service die zijn gegenereerd met een vooraf gemaakte gede
 
 ![Maken van een gedeeld toegangsbeleid voor uw Device Provisioning service-exemplaar in de portal][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';

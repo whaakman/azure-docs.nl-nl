@@ -1,8 +1,21 @@
 ---
-Titel: Problemen oplossen opnieuw trainen van een Machine Learning Studio klassieke web service titleSuffix: Azure Machine Learning Studio description: Identificeren en te corrigeren van veelvoorkomende problemen wanneer u opnieuw het model voor een Azure Machine Learning Studio-webservice trainen bent.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 11/01/2017
+title: Oplossen van een Machine Learning Studio klassieke webservice opnieuw trainen
+titleSuffix: Azure Machine Learning Studio
+description: Identificeren en te corrigeren van veelvoorkomende problemen wanneer u opnieuw het model voor een Azure Machine Learning Studio-webservice trainen bent.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/01/2017
+ms.openlocfilehash: 6cde9d929c52984c95669554aa1153c2bdf21131
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512140"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Het oplossen van het opnieuw trainen van een klassieke webservice Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Overzicht opnieuw trainen

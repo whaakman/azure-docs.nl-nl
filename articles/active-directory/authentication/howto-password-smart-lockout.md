@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 101070dab80c69ea1d24dd11fe5e067947505d19
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 8364d09aa2d068e347199d104c069047aa24d7a4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077961"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511901"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory slimme accountvergrendeling
 
@@ -23,7 +23,7 @@ Slimme vergrendeling van het helpt bij het vergrendelen van ongewenste actoren d
 
 Standaard, slimme accountvergrendeling Hiermee vergrendelt u het account van aanmeldpogingen voor één minuut na 10 mislukte pogingen. Het account wordt vergrendeld opnieuw na elke latere mislukte aanmeldingspoging, voor één minuut bij de eerste en meer voor in de daaropvolgende pogingen worden gedaan.
 
-De laatste drie onjuist wachtwoord-hashes om te voorkomen dat de teller voor accountvergrendeling reincrementing, slimme accountvergrendeling worden bijgehouden. Als iemand op meerdere keren de dezelfde onjuist wachtwoord invoert, wordt dit gedrag niet leiden tot het account te vergrendelen.
+Slimme accountvergrendeling houdt de laatste drie onjuist wachtwoord-hashes om te voorkomen dat de teller voor accountvergrendeling voor hetzelfde wachtwoord te verhogen. Als iemand op meerdere keren de dezelfde onjuist wachtwoord invoert, wordt dit gedrag niet leiden tot het account te vergrendelen.
 
  > [!NOTE]
  > Hash voor het bijhouden van functionaliteit is niet beschikbaar voor klanten met Pass through-verificatie ingeschakeld als de verificatie on-premises niet in de cloud vindt.

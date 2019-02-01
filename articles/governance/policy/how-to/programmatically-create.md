@@ -4,17 +4,17 @@ description: Dit artikel helpt u bij het programmatisch beleid maken en beheren 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101784"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510823"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmatisch beleid maken en compatibiliteitsgegevens weergeven
 
@@ -96,8 +96,9 @@ De eerste stap voor beter inzicht in uw resources is het maken en toewijzen van 
    Vervang _ContosoRG_ met de naam van de beoogde resourcegroep.
 
    De **bereik** parameter op `New-AzPolicyAssignment` werkt ook met abonnementen en beheergroepen. De parameter maakt gebruik van een pad van de volledige resource, die de **ResourceId** eigenschap op `Get-AzResourceGroup` retourneert. Het patroon voor **bereik** voor elke container als volgt is.
-   Vervang `{rgName}`, `{subId}`, en `{mgName}` met de resource groepsnaam, abonnements-ID, en de naam van beheergroep, respectievelijk.
+   Vervang `{rName}`, `{rgName}`, `{subId}`, en `{mgName}` met de resourcenaam van uw, resourcegroep de naam, abonnements-ID en naam van beheergroep, respectievelijk. `{rType}` zou worden vervangen door de **resourcetype** van de resource, zoals `Microsoft.Compute/virtualMachines` voor een virtuele machine.
 
+   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resourcegroep: `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Abonnement: `/subscriptions/{subId}/`
    - Beheergroep- `/providers/Microsoft.Management/managementGroups/{mgName}`

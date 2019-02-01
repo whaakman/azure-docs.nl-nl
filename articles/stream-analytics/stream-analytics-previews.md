@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 70cc6210a0c047867980de67ac24701df29ce8bf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232121"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485174"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -45,7 +45,7 @@ Met .NET standard-door gebruiker gedefinieerde functies, kunt u de standaard .NE
 
 ## <a name="private-previews"></a>Private Preview-versies
 
-De volgende functies zijn in de beperkte Preview-versie. Voor toegang tot deze previews, gaat u naar de private preview van Azure Stream Analytics [aanmelden](https://aka.ms/ASApreview1) pagina.
+De volgende functies zijn in de beperkte Preview-versie.
 
 ### <a name="anomaly-detection"></a>Anomaliedetectie
 
@@ -59,7 +59,7 @@ Ontwikkelaars kunnen nu aangepaste deserializers in C# voor het deserialiseren v
 
 Het is nu mogelijk voor het partitioneren van de uitvoer van uw Azure Stream Analytics naar Blob-opslag op basis van een andere kolom in de query.
 
-### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Beheerde identiteiten Azure-resources te verifiëren bij Azure Data Lake Storage
+### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Beheerde identiteiten voor Azure-resource-verificatie met Azure Data Lake Storage
 
 U kunt nu uw realtime pijplijnen met beheerde identiteiten voor Azure-resources op basis van verificatie tijdens het schrijven naar Azure Data Lake Storage Gen1 uitvoeren zodat u kunt taken via een programma te maken. Ga voor meer informatie naar [identiteiten beheerde gebruiken voor Azure-resources te verifiëren Azure Stream Analytics-taken naar Azure Data Lake Storage-Gen1 uitvoer](stream-analytics-managed-identities-adls.md).
 
@@ -67,4 +67,4 @@ U kunt nu uw realtime pijplijnen met beheerde identiteiten voor Azure-resources 
 
 * [Acht nieuwe functies in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)
 
-* [4 nieuwe functies nu beschikbaar in Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)
+* [Vier nieuwe functies nu beschikbaar in Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

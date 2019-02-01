@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444612"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493428"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API Management in een intern VNET integreren met Application Gateway
 
@@ -59,13 +59,13 @@ Al uw API's worden in het eerste voorbeeld van de instellingen alleen van beheer
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Wat is vereist voor het maken van een integratie tussen de API Management en Application Gateway?
 
-* **Back-endserverpool:** dit is de interne virtuele IP-adres van de API Management-service.
-* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen worden toegepast op alle servers in de pool.
-* **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Te maken met het verkeer wordt omgeleid naar een van de back-endservers.
-* **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
-* **Regel:** de regel wordt een listener gebonden aan een back-end-servergroep.
-* **Aangepaste Statustest:** Application-Gateway gebruikt standaard IP-adres op basis van tests om te achterhalen welke servers in de BackendAddressPool actief zijn. De API Management-service alleen op aanvragen met de juiste host-header reageert, dus de tests standaard mislukken. Een aangepaste statustest moet worden gedefinieerd om te bepalen dat de service actief is en moet het doorsturen van aanvragen toepassingsgateway.
-* **Aangepast domeincertificaten:** voor toegang tot API Management vanaf het internet, moet u een CNAME-toewijzing van de hostnaam aan de front-end-DNS-naam van Application Gateway maken. Dit zorgt ervoor dat de koptekst van hostnaam en het certificaat verzonden naar Application Gateway die wordt doorgestuurd naar de API Management een APIM kunt herkennen als geldig is. In dit voorbeeld gebruiken we twee certificaten - voor de back-end en de portal voor ontwikkelaars.  
+* **Back-endserverpool:** Dit is de interne virtuele IP-adres van de API Management-service.
+* **Instellingen van back-endserverpool:** Elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen worden toegepast op alle servers in de pool.
+* **Front-endpoort:** Dit is de openbare poort die in de toepassingsgateway wordt geopend. Te maken met het verkeer wordt omgeleid naar een van de back-endservers.
+* **Listener:** De listener beschikt over een front-endpoort, een protocol (Http of Https, deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
+* **Regel:** De regel wordt een listener gebonden aan een back-end-servergroep.
+* **Aangepaste Statustest:** Application Gateway, standaard, maakt gebruik van IP-adres op basis van tests om te achterhalen welke servers in de BackendAddressPool actief zijn. De API Management-service alleen op aanvragen met de juiste host-header reageert, dus de tests standaard mislukken. Een aangepaste statustest moet worden gedefinieerd om te bepalen dat de service actief is en moet het doorsturen van aanvragen toepassingsgateway.
+* **Aangepast domeincertificaten:** Voor toegang tot API Management vanaf het internet, moet u een CNAME-toewijzing van de hostnaam aan de front-end-DNS-naam van Application Gateway maken. Dit zorgt ervoor dat de koptekst van hostnaam en het certificaat verzonden naar Application Gateway die wordt doorgestuurd naar de API Management een APIM kunt herkennen als geldig is. In dit voorbeeld gebruiken we twee certificaten - voor de back-end en de portal voor ontwikkelaars.  
 
 ## <a name="overview-steps"> </a> Stappen die nodig zijn voor het integreren van API Management en Application Gateway
 
@@ -82,7 +82,7 @@ Al uw API's worden in het eerste voorbeeld van de instellingen alleen van beheer
 In deze handleiding we ook wordt weergegeven de **ontwikkelaarsportal** naar een externe publiek via de Application Gateway. Hiervoor is aanvullende stappen voor het maken van de ontwikkelaarsportal listener, test, instellingen en regels. Alle details vindt u in de respectieve stappen.
 
 > [!WARNING]
-> In de beschreven installatie van de ontwikkelaarsportal wordt geopend via de Application Gateway kan u problemen met de verificatie met AAD en van derden.
+> Als u Azure AD gebruiken of verificatie van een derde partij, schakel [cookies gebaseerde sessieaffiniteit](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) functie in Application Gateway.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Een resourcegroep maken voor Resource Manager
 

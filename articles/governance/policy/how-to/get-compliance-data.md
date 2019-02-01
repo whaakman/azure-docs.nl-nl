@@ -4,17 +4,17 @@ description: Azure Policy-evaluaties en effecten bepaalt de naleving. Leer hoe u
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7925bc8a9f7cb65d0e92c943aa0a54d48611e286
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853626"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508983"
 ---
 # <a name="getting-compliance-data"></a>Nalevingsgegevens ophalen
 
@@ -45,6 +45,8 @@ Evaluatie van toegewezen beleid en de initiatieven gebeuren als gevolg van diver
 - Een resource wordt geïmplementeerd op een scope met een toewijzing via Resource Manager, REST, Azure CLI of Azure PowerShell. In dit scenario wordt de gebeurtenis effect (toevoegen, controleren, weigeren, implementeren) en informatie van de nalevingsstatus voor de afzonderlijke resource beschikbaar is in de portal en SDK's ongeveer 15 minuten later. Deze gebeurtenis niet leidt tot een evaluatie van andere bronnen.
 
 - Standard naleving evaluatiecyclus voor installatie. Elke 24 uur, toewijzingen worden automatisch opnieuw geëvalueerd. Een grote beleid of initiatief van veel bronnen kan tijd duren, zodat er geen vooraf gedefinieerde verwachting van wanneer de evaluatiecyclus voor de wordt voltooid. Zodra deze is voltooid, is bijgewerkt nalevingsresultaten zijn beschikbaar in de portal en SDK's.
+
+- De [Gast configuratie](../concepts/guest-configuration.md) resourceprovider is bijgewerkt met details naleving door een beheerde resourcegroep.
 
 - Scan op aanvraag
 

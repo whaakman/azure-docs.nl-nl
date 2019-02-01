@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486823"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>De StorSimple Device Manager-service gebruiken voor het beheren van uw opslagaccountreferenties
 
@@ -54,7 +54,7 @@ De meest algemene taken met betrekking tot de storage-accounts die kunnen worden
 
 Er zijn drie typen opslagaccounts die kunnen worden gebruikt met uw StorSimple-apparaat.
 
-* **Automatisch gegenereerde opslagaccounts** – zoals de naam al aangeeft, dit type opslagaccount wordt automatisch gegenereerd wanneer de service voor het eerst wordt gemaakt. Zie voor meer informatie over hoe dit storage-account is gemaakt, [stap 1: een nieuwe service maken](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [uw on-premises StorSimple-apparaat implementeren](storsimple-8000-deployment-walkthrough-u2.md). 
+* **Automatisch gegenereerde opslagaccounts** – zoals de naam al aangeeft, dit type opslagaccount wordt automatisch gegenereerd wanneer de service voor het eerst wordt gemaakt. Zie voor meer informatie over hoe dit storage-account is gemaakt, [stap 1: Een nieuwe service maken](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [uw on-premises StorSimple-apparaat implementeren](storsimple-8000-deployment-walkthrough-u2.md). 
 * **Storage-accounts in het service-abonnement** : dit zijn de Azure storage-accounts die gekoppeld aan hetzelfde abonnement als die van de service zijn. Zie voor meer informatie over hoe deze storage-accounts zijn gemaakt, [over Azure Storage-Accounts](../storage/common/storage-create-storage-account.md). 
 * **Storage-accounts buiten het serviceabonnement** : dit zijn de Azure storage-accounts die niet zijn gekoppeld aan uw service en waarschijnlijk aanwezig waren voordat de service is gemaakt.
 
@@ -165,7 +165,7 @@ Om te informeren over de StorSimple Device Manager-service van de wijziging, moe
       
       ![sleutels synchroniseren](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
-U krijgt bericht wanneer de sleutel nog niet is sycnhronized.
+U krijgt bericht wanneer de sleutel is gesynchroniseerd.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Om te synchroniseren van sleutels voor opslagaccounts buiten het service-abonnement
 1. Op de **Services** pagina, klikt u op de **configureren** tabblad.

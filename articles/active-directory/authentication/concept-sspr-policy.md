@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 45cd9188b420f9c6db3f1adaa4244b30cce0ccc6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 735bc2569436b99d3366d1ce5ff01f40ab7f587a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081888"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510456"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -86,7 +86,7 @@ De volgende tabel beschrijft de beschikbare wachtwoord-beleidsinstellingen die k
 | Wachtwoord verloopt |<ul><li>Standaardwaarde: **false** dagen (geeft aan dat wachtwoord-vervaldatum is ingeschakeld).</li><li>De waarde voor afzonderlijke gebruikersaccounts kan worden geconfigureerd met behulp van de `Set-MsolUser` cmdlet.</li></ul> |
 | Geschiedenis van apparaatwachtwoorden wijzigen |Het laatste wachtwoord *kan geen* opnieuw worden gebruikt wanneer de gebruiker een wachtwoord wijzigt. |
 | Geschiedenis voor wachtwoord opnieuw instellen | Het laatste wachtwoord *kunt* opnieuw worden gebruikt wanneer de gebruiker een vergeten wachtwoord opnieuw instellen. |
-| Accountvergrendeling |Na 10 mislukte aanmeldpogingen met een onjuist wachtwoord, kunnen de gebruiker is vergrendeld voor één minuut. Verder aanmeldingspogingen onjuiste uitsluiting van de gebruiker voor het verhogen van de duur van de tijd. |
+| Accountvergrendeling |Na 10 mislukte aanmeldpogingen met een onjuist wachtwoord, kunnen de gebruiker is vergrendeld voor één minuut. Verder aanmeldingspogingen onjuiste uitsluiting van de gebruiker voor het verhogen van de duur van de tijd. [Slimme accountvergrendeling](howto-password-smart-lockout.md) houdt de laatste drie onjuist wachtwoord-hashes om te voorkomen dat de teller voor accountvergrendeling voor hetzelfde wachtwoord te verhogen. Als iemand op meerdere keren de dezelfde onjuist wachtwoord invoert, wordt dit gedrag niet leiden tot het account te vergrendelen. |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Verloopbeleid voor wachtwoorden instellen in Azure AD
 

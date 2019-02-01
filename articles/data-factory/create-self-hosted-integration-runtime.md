@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331806"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493585"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -141,6 +141,9 @@ Hier volgen de vereisten voor het TLS/SSL-certificaat dat wordt gebruikt voor he
 - SAN Subject Alternative Name ()-certificaten wordt niet aanbevolen omdat alleen het laatste item SAN wordt gebruikt en alle andere worden genegeerd vanwege de huidige beperkingen. Als u een SAN-certificaat hebt waarvan de SAN's zijn bijvoorbeeld **node1.domain.contoso.com** en **node2.domain.contoso.com**, kunt u dit certificaat alleen op een computer met FQDN-naam  **Node2.domain.contoso.com**.
 - Het certificaat ondersteunt sleutelgrootte ondersteund door Windows Server 2012 R2 voor SSL-certificaten.
 - Certificaten met CNG-sleutels worden niet ondersteund.  
+
+> [!NOTE]
+> Dit certificaat wordt gebruikt voor het versleutelen van poorten op de zelf-hostende IR-knooppunt, die wordt gebruikt voor **knooppunt-naar-knooppunt communicatie** (voor de status synchronisatie) en tijdens het **met behulp van PowerShell-cmdlet voor het gekoppelde service referentie-instelling**van binnen het lokale netwerk. Het is raadzaam om dit certificaat te gebruiken als uw particuliere netwerkomgeving niet beveiligd is of als u wilt beveiligen de communicatie tussen knooppunten in uw particuliere netwerk ook. Verplaatsing van gegevens tijdens de overdracht van zelf-hostende IR naar andere gegevensarchieven gebeurt altijd versleuteld kanaal, ongeacht deze ingesteld of niet certificaat gebruiken. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Delen van de zelf-hostende integratieruntime met meerdere data factory 's
 

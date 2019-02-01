@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: fafc16bdf00f947d4ba8ffe56d7cf2ae3e0bc489
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 109c740ee92e82b6d18879da6839ce6341353cba
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344940"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495510"
 ---
 # <a name="resource-providers-and-types"></a>Resourceproviders en -typen
 
@@ -34,12 +34,14 @@ Bij het implementeren van resources, moet u vaak informatie ophalen over de reso
 
 U kunt deze stappen via de portal, PowerShell of Azure CLI uitvoeren.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="powershell"></a>PowerShell
 
 Als u wilt zien van alle resourceproviders in Azure en de status van de registratie voor uw abonnement, gebruikt u:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 Dit retourneert resultaten die vergelijkbaar is met:
@@ -57,7 +59,7 @@ Microsoft.CognitiveServices      Registered
 Een resourceprovider te registreren, configureert u uw abonnement om te werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Standaard worden veel providers van resources automatisch geregistreerd. Mogelijk moet u echter handmatig registreren door enkele resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Dit retourneert resultaten die vergelijkbaar is met:
@@ -74,7 +76,7 @@ Als u nog steeds resourcetypen van die resourceprovider in uw abonnement hebt ni
 Gebruik de volgende informatie voor een bepaalde resourceprovider:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Dit retourneert resultaten die vergelijkbaar is met:
@@ -91,7 +93,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 Als u wilt zien welke resourcetypen voor een resourceprovider, gebruikt u:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
+(Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
 Dat geeft als resultaat:
@@ -108,7 +110,7 @@ De API-versie komt overeen met een versie van de REST API-bewerkingen die worden
 Voor de beschikbare API-versies voor een resourcetype, gebruikt u:
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
 Dat geeft als resultaat:
@@ -126,7 +128,7 @@ Resource Manager wordt ondersteund in alle regio's, maar de bronnen die u implem
 Als u de ondersteunde locaties voor een resourcetype, gebruiken.
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
 Dat geeft als resultaat:

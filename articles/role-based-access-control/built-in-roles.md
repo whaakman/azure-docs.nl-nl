@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 23fab567fc2fdd5c5c8f3c5d173a5201d3322f81
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081225"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512547"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -149,8 +149,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Acties** |  |
 > | * | Maken en beheren van resources van alle typen |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Functies en roltoewijzingen verwijderen niet |
-> | Microsoft.Authorization/*/Write | Kan de rollen en roltoewijzingen niet maken |
+> | Microsoft.Authorization/*/Delete | Rollen en roltoewijzingen verwijderen |
+> | Microsoft.Authorization/*/Write | Rollen en roltoewijzingen maken |
 > | Microsoft.Authorization/elevateAccess/Action | Hiermee wordt oproepende functie de rechten van Administrator voor gebruikerstoegang gegeven voor het tenantbereik |
 > | Microsoft.Blueprint/blueprintAssignments/write | Alle blauwdrukartefacten maken of bijwerken |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
@@ -1600,15 +1600,15 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Auditbeleid kan niet worden bewerkt. |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Controle-instellingen bewerken niet |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Auditbeleid bewerken |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Controle-instellingen bewerken |
 > | Microsoft.Sql/servers/databases/auditRecords/read | De controlerecords voor database-blob ophalen |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Kan geen verbinding beleidsregels kunt bewerken |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Gegevens maskeren beleidsregels kunt bewerken |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Verbinding beleidsregels kunt bewerken |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Gegevens maskeren beleid bewerken |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Waarschuwing-beveiligingsbeleid kan niet worden bewerkt. |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Over de beveiliging kan niet worden bewerkt. |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Waarschuwing beveiligingsbeleid bewerken |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Over de beveiliging bewerken |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
@@ -1676,23 +1676,23 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | SQL server audit beleid kan niet worden bewerkt. |
-> | Microsoft.Sql/servers/auditingSettings/* | Instellingen voor SQL server audit kan niet worden bewerkt. |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Controlebeleid van de SQL server-database kan niet worden bewerkt. |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Kan geen SQL server-database controle-instellingen bewerken |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Kan de controlerecords niet lezen. |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Beleidsregels voor SQL server-database kan niet worden bewerkt. |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | SQL server-databasegegevens maskeren beleid kan niet worden bewerkt. |
+> | Microsoft.Sql/servers/auditingPolicies/* | SQL server-controlebeleid bewerken |
+> | Microsoft.Sql/servers/auditingSettings/* | SQL server-controle-instellingen bewerken |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL server-database controlebeleid bewerken |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | SQL server-database controle-instellingen bewerken |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Controlerecords lezen |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL server-database verbinding beleidsregels kunt bewerken |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | SQL server-databasegegevens maskeren beleid bewerken |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Waarschuwing beveiligingsbeleid van SQL server-database kan niet worden bewerkt. |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | SQL server-database over de beveiliging kan niet worden bewerkt. |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Waarschuwing beveiligingsbeleid van SQL server-database bewerken |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Metrische gegevens van SQL server-database security bewerken |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Waarschuwing beleidsregels voor de beveiliging van SQL server kan niet worden bewerkt. |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | SQL server waarschuwing beveiligingsbeleid bewerken |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Inzender voor opslagaccounts

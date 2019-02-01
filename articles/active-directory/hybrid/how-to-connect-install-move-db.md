@@ -6,16 +6,16 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3e7e1fb0941c62eb9f479368bcbb347c863fdb79
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 372470ffb1c296ee30702a2df0d8e9d00480a492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160556"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485225"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Azure AD Connect-database verplaatsen van SQL Server Express naar SQL Server 
 
@@ -59,7 +59,7 @@ Voer de volgende stappen uit om de Azure AD Connect-database te verplaatsen naar
 ![Welkom](./media/how-to-connect-install-move-db/db7.png)
  
  
-16. Zodra de referenties zijn opgegeven, verandert het rode kruis in een groen vinkje. Klik op **Volgende**.
+16. Zodra de referenties zijn opgegeven, verandert het rode kruis in een groen vinkje. Klik op **volgende**.
 ![Welkom](./media/how-to-connect-install-move-db/db8.png)
  
  

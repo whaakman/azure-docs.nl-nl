@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ffd10504d496d0a46b373451a0d0400fc16c2e8d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 15ecd594dea9251b64cdfcba3bf620bc101504ec
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186195"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486092"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die gebruikmaken van Azure AD Connect-synchronisatie als de integratieoplossing key. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -28,7 +28,7 @@ Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (A
 
 Hier volgt de legenda voor afbeeldingen in het artikel:
 
-| Beschrijving | Symbool |
+| Description | Symbool |
 | --- | --- |
 | On-premises Active Directory-forest |![On-premises Active Directory-forest](./media/plan-connect-topologies/LegendAD1.png) |
 | On-premises Active Directory met gefilterde importeren |![Active Directory met gefilterde importeren](./media/plan-connect-topologies/LegendAD2.png) |

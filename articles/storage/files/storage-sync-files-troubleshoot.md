@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 315a51f847920d4751d100f147bb5218676015c6
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471399"
+ms.locfileid: "55495663"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -370,7 +370,7 @@ Deze fout treedt op wanneer de limiet voor opslag van Azure file share is bereik
 
 5. Selecteer **bestanden** om de lijst met bestandsshares weer te geven.
 6. Klik op de drie puntjes aan het einde van de rij voor de Azure-bestandsshare waarnaar wordt verwezen door de cloudeindpunt.
-7. Controleer de **gebruik** lager is dan de **quotum**. Houd er rekening mee, tenzij een alternatieve quotum is opgegeven, kan het quotum, komt overeen met de [maximum grootte van de Azure-bestandsshare](storage-files-scale-targets.md).
+7. Controleer de **gebruik** lager is dan de **quotum**. Houd er rekening mee, tenzij een alternatieve quotum is opgegeven, kan het quotum, komt overeen met de [maximale grootte van de Azure-bestandsshare](storage-files-scale-targets.md).
 
     ![Een schermafbeelding van de Azure eigenschappen voor bestandsdeling.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 

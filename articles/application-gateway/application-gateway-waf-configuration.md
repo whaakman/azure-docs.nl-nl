@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353189"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492926"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web application firewall-aanvraaglimieten grootte en uitsluitingslijsten
 
@@ -45,7 +45,7 @@ De volgende kenmerken kunnen worden toegevoegd aan een lijst met uitgesloten:
    * XML
    * JSON
 
-U kunt opgeven van een exacte aanvraagheader body cookie of query-tekenreeksovereenkomst kenmerk of optioneel gedeeltelijke overeenkomsten kunt opgeven.
+U kunt een exacte aanvraagheader, hoofdtekst, cookie opgeven of kenmerk tekenreeksovereenkomst query.  Of u kunt optioneel gedeeltelijke overeenkomsten opgeven. De uitsluiting is altijd op een headerveld nooit op de waarde ervan. Uitsluitingsregels zijn van toepassing binnen het bereik en van toepassing op alle pagina's en alle regels.
 
 Hier volgen de ondersteunde overeenkomst criteria operators:
 

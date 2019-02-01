@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54378876ed3f8326a19aafa4d71347d17f1c4bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e01e28e304c02c05e233f1c83bdc906779f39a1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493527"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: Functieverwijzing
 In Azure AD Connect, worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -611,7 +611,7 @@ De resultaten in '2007-12-25'.
 Kan leiden tot "20140905081453.0Z"
 
 - - -
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **Beschrijving:**  
 De Guid van de functie genereert een nieuwe willekeurige GUID
 
@@ -1335,5 +1335,5 @@ Retourneert 'is'
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Inzicht in verklarende Inrichtingsexpressies](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect-synchronisatie: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync: Synchronisatieopties aanpassen](how-to-connect-sync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](whatis-hybrid-identity.md)

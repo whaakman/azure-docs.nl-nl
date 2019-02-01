@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884942"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509905"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tag-ondersteuning voor Azure-resources
 Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-group-using-tags.md).
@@ -666,6 +666,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 | logDefinitions | Nee | 
 | logprofiles | Nee | 
 | logboeken | Nee | 
+| metricAlerts | Ja |
 | migrateToNewPricingModel | Nee | 
 | myWorkbooks | Nee | 
 | query's | Nee | 
@@ -1108,7 +1109,7 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
 | managedInstances | Ja |
-| managedInstances/databases | Ja |
+| managedInstances/databases | Ja (Zie opmerking hieronder) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Nee |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Nee |
 | managedInstances/databases/vulnerabilityAssessments | Nee |
@@ -1120,12 +1121,16 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 | servers | Ja | 
 | servers/beheerders | Nee | 
 | servers/communicationLinks | Nee | 
-| servers/databases | Ja | 
+| servers/databases | Ja (Zie opmerking hieronder) | 
 | servers/encryptionProtector | Nee | 
 | servers/sleutels | Nee | 
 | servers/restorableDroppedDatabases | Nee | 
 | servers/serviceobjectives | Nee | 
 | servers/tdeCertificates | Nee | 
+
+> [!NOTE]
+> De Master database biedt geen ondersteuning voor labels, maar andere databases ondersteuning voor tags.
+
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Resourcetype | Ondersteunt tags |
@@ -1163,8 +1168,11 @@ Dit artikel wordt beschreven of een resourcetype ondersteunt [tags](resource-gro
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Resourcetype | Ondersteunt tags |
 | ------------- | ----------- |
-| streamingjobs | Ja | 
+| streamingjobs | Ja (Zie opmerking hieronder) | 
 | streamingjobs/diagnosticSettings | Nee | 
+
+> [!NOTE]
+> U kunt een label niet toevoegen als streamingjobs wordt uitgevoerd. Stop de resource als een tag wilt toevoegen.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Resourcetype | Ondersteunt tags |

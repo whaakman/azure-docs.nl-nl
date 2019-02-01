@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0341dda197f0950bfb3519e281a56eb99bc877b7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23ab8e60df81fc3c20068fe819e98216b16cad72
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179307"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490325"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Volgende stappen en over het beheren van Azure AD Connect
 Gebruik de operationele procedures in dit artikel om aan te passen van Azure Active Directory (Azure AD) Connect om te voldoen aan de behoeften en vereisten van uw organisatie.  
@@ -66,7 +66,7 @@ De volgende tabel bevat een overzicht van deze taken en een korte beschrijving v
 
 ![Lijst met extra taken](./media/how-to-connect-post-installation/addtasks.png)
 
-| Extra taken | Beschrijving |
+| Extra taken | Description |
 | --- | --- |
 | **Het geselecteerde scenario weergeven** |Bekijk uw huidige Azure AD Connect-oplossing.  Dit omvat algemene instellingen, gesynchroniseerd mappen en synchronisatie-instellingen. |
 | **Synchronisatieopties aanpassen** |De huidige configuratie, zoals aanvullende Active Directory-forests toevoegen aan de configuratie of het inschakelen van synchronisatie-opties, zoals gebruikers, groepen, apparaat of terugschrijven van wachtwoord wijzigen. |

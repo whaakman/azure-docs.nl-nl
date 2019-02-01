@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e0f305d8200a6b78eb138d5a3c6d9cd99a095dbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265206"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486518"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Lever een geïntegreerde ervaring meerdere Azure Monitor Application Insights-resources 
 In dit artikel wordt beschreven hoe u query's uitvoeren en Bekijk alle uw Application Insights toepassing logboekgegevens op één plek, zelfs wanneer ze zich in verschillende Azure-abonnementen, als vervanging voor de afschaffing van de Application Insights-Connector.  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >De operator parseren is optioneel in dit voorbeeld, naam van de toepassing van de eigenschap SourceApp worden uitgepakt. 
 
-U bent nu klaar voor gebruik van applicationsScoping-functie in de query meerdere bronnen. De functiealias retourneert de samenvoeging van de aanvragen van de gedefinieerde toepassingen. De query en filters voor mislukte aanvragen en de trends visualiseert door toepassing. ![Voorbeeld van de resultaten van cross-query](media/unify-app-resource-data/app-insights-query-results.png)
+U bent nu klaar voor gebruik van applicationsScoping-functie in de query meerdere bronnen:  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+De functiealias retourneert de samenvoeging van de aanvragen van de gedefinieerde toepassingen. De query en filters voor mislukte aanvragen en de trends visualiseert door toepassing.
+
+![Voorbeeld van de resultaten van cross-query](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Query's uitvoeren voor Application Insights-resources en werkruimte gegevens 
 Wanneer u stopt de Connector en moet u query's uitvoeren op een tijdsbereik dat is verkleind door Application Insights-Gegevensretentie (90 dagen), moet u uitvoeren [query's voor meerdere bronnen](../../azure-monitor/log-query/cross-workspace-query.md) in de werkruimte en het Application Insights resources voor een tussenliggende periode. Dit is totdat de gegevens van uw toepassingen worden bij elkaar opgeteld per de nieuwe Application Insights-gegevens bewaren die hierboven worden vermeld. De query is bepaalde bewerkingen vereist omdat de schema's in de werkruimte en Application Insights verschillend zijn. Zie de tabel verderop in deze sectie de schemaverschillen markeren. 

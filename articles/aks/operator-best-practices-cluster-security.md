@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d9ce2661fbdca0a28f917e27e27a3e3f954a9999
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717208"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488374"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor beveiliging van clusters en upgrades in Azure Kubernetes Service (AKS)
 
@@ -51,6 +51,9 @@ Zie voor meer informatie over Azure AD-integratie en RBAC [aanbevolen procedures
 Op dezelfde manier dat gebruikers of groepen de minste Verleen aantal bevoegdheden vereist, containers moeten ook worden beperkt tot alleen de acties en processen die ze nodig hebben. Niet configureren om te beperken het risico van aanvallen, toepassingen en containers die geëscaleerde bevoegdheden is vereist of de hoofd-toegang. Bijvoorbeeld, stel `allowPrivilegeEscalation: false` in het manifest schil. Deze *pod beveiligingscontext* zijn ingebouwd in Kubernetes en kunt u extra machtigingen, zoals de gebruiker of groep uit te voeren als, opgeven of de Linux-mogelijkheden om beschikbaar te stellen. Zie voor meer best practices, [pod beveiligde toegang tot resources][pod-security-contexts].
 
 Voor gedetailleerdere controle van de containeracties u kunt ook gebruiken ingebouwde Linux-beveiligingsfuncties, zoals *AppArmor* en *seccomp*. Deze functies zijn gedefinieerd op het knooppuntniveau van het en vervolgens is geïmplementeerd via een pod-manifest.
+
+> [!NOTE]
+> Kubernetes-omgevingen in AKS of ergens anders, zijn niet volledig veilig voor onveilig multitenant gebruik. Aanvullende beveiligingsfuncties zoals *AppArmor*, *seccomp*, *Pod beveiligingsbeleid*, of meer fijnmazig op rollen gebaseerd toegangsbeheer (RBAC) voor knooppunten aanvallen maken moeilijker. Voor de waarde true beveiliging bij het uitvoeren van workloads voor onveilig multitenant, is een hypervisor echter de enige niveau van beveiliging die u moet vertrouwen. Het beveiligingsdomein voor Kubernetes wordt het hele cluster, niet een afzonderlijke knooppunten. Voor deze typen werkbelastingen voor onveilig multitenant, moet u fysiek geïsoleerd clusters.
 
 ### <a name="app-armor"></a>App-chassis
 

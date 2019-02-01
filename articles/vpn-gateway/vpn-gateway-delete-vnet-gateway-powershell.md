@@ -1,6 +1,6 @@
 ---
 title: 'Een virtuele netwerkgateway verwijderen: PowerShell: Azure Resource Manager | Microsoft Docs'
-description: Verwijder de gateway van een virtueel netwerk met behulp van PowerShell in het Resource Manager-implementatiemodel.
+description: De gateway van een virtueel netwerk met behulp van PowerShell in het Resource Manager-implementatiemodel verwijderen.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: cherylmc
-ms.openlocfilehash: a23a969f1381e3a10c81a903793bad2870b436f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a0fc21c469658da637f15c820c105ec3ff31a04e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603637"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507923"
 ---
-# <a name="delete-a-virtual-network-gateway-using-powershell"></a>Verwijder de gateway van een virtueel netwerk met behulp van PowerShell
+# <a name="delete-a-virtual-network-gateway-using-powershell"></a>Verwijderen van de gateway van een virtueel netwerk met behulp van PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
@@ -30,17 +30,17 @@ ms.locfileid: "31603637"
 >
 >
 
-Er zijn verschillende manieren die kunt u uw als u wilt verwijderen van een virtuele netwerkgateway voor de configuratie van een VPN-gateway.
+Er zijn een aantal verschillende methoden die u kunt uitvoeren wanneer u wilt verwijderen van een virtuele netwerkgateway voor de configuratie van een VPN-gateway.
 
-- Als u wilt Alles verwijderen en opnieuw beginnen, zoals in het geval van een testomgeving kunt u de resourcegroep verwijderen. Wanneer u een resourcegroep verwijdert, worden alle resources binnen de groep verwijderd. Deze methode is wordt alleen aanbevolen als u niet wilt dat de bronnen in de resourcegroep. U kunt alleen een aantal bronnen met deze benadering selectief niet verwijderen.
+- Als u wilt Alles verwijderen en opnieuw beginnen, zoals in het geval van een testomgeving, kunt u de resourcegroep verwijderen. Wanneer u een resourcegroep verwijdert, worden alle resources binnen de groep verwijderd. Deze methode is wordt alleen aanbevolen als u niet wilt dat een van de resources in de resourcegroep. U kunt slechts een paar resources met behulp van deze benadering selectief niet verwijderen.
 
-- Als u wilt dat een aantal van de resources in de resourcegroep, verwijderen van een virtuele netwerkgateway enigszins iets gecompliceerder. Voordat u de virtuele netwerkgateway verwijderen kunt, moet u eerst alle bronnen die afhankelijk van de gateway zijn te verwijderen. De stappen die u volgt, is afhankelijk van het type van de verbindingen die u hebt gemaakt en de afhankelijke resources voor elke verbinding.
+- Als u wilt dat sommige van de resources in de resourcegroep, wordt het verwijderen van een virtuele netwerkgateway iets gecompliceerdere. Voordat u de virtuele netwerkgateway verwijderen kunt, moet u eerst alle resources die afhankelijk van de gateway zijn verwijderen. De stappen die u volgt, is afhankelijk van het type van de verbindingen die u hebt gemaakt en de afhankelijke resources voor elke verbinding.
 
 ## <a name="before-beginning"></a>Voordat u begint
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Download de nieuwste Azure Resource Manager PowerShell-cmdlets.
 
-Download en installeer de nieuwste versie van de Azure Resource Manager PowerShell-cmdlets. Zie voor meer informatie over het downloaden en installeren van PowerShell-cmdlets [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+Download en installeer de nieuwste versie van de Azure Resource Manager PowerShell-cmdlets. Zie voor meer informatie over het downloaden en installeren van PowerShell-cmdlets [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Verbinding maken met uw Azure-account.
 
@@ -62,23 +62,23 @@ Als u meer dan één abonnement hebt, geeft u het abonnement dat u wilt gebruike
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="S2S"></a>Verwijderen van een Site-naar-Site VPN-gateway
+## <a name="S2S"></a>Een Site-naar-Site VPN-gateway verwijderen
 
-Als u wilt verwijderen van een virtuele netwerkgateway voor een S2S-configuratie, moet u eerst elke bron die betrekking op de virtuele netwerkgateway hebben verwijderen. Resources moeten worden verwijderd in een bepaalde volgorde vanwege afhankelijkheden. Als u werkt met de voorbeelden hieronder enkele van moeten de waarden worden opgegeven, terwijl andere waarden een uitvoerresultaat zijn. We gebruiken de volgende specifieke waarden in de voorbeelden voor demonstratiedoeleinden:
+Als u wilt verwijderen van een virtuele netwerkgateway voor een S2S-configuratie, moet u eerst elke resource die betrekking hebben op de virtuele netwerkgateway verwijderen. Resources moeten worden verwijderd in een bepaalde volgorde vanwege afhankelijkheden. Als u werkt met de voorbeelden hieronder enkele van moeten de waarden worden opgegeven, terwijl andere waarden een resultaat van de uitvoer zijn. We gebruiken de volgende specifieke waarden in de voorbeelden voor demonstratiedoeleinden te gebruiken:
 
 VNet-naam: VNet1<br>
-De naam van resourcegroep: RG1<br>
-Naam van virtuele-netwerkgateway: GW1<br>
+Resourcegroepnaam: RG1<br>
+Gatewaynaam van het virtuele netwerk: GW1<br>
 
-De volgende stappen van toepassing op het Resource Manager-implementatiemodel.
+De volgende stappen gelden voor het Resource Manager-implementatiemodel.
 
-### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Haal de virtuele netwerkgateway die u wilt verwijderen.
+### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Ophalen van de virtuele netwerkgateway die u wilt verwijderen.
 
 ```powershell
 $GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Controleer of de virtuele netwerkgateway geen verbindingen heeft.
+### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Controleer of de gateway van het virtuele netwerk geen verbindingen heeft.
 
 ```powershell
 get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
@@ -87,7 +87,7 @@ $Conns=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | whe
 
 ### <a name="3-delete-all-connections"></a>3. Verwijder alle verbindingen.
 
-U wordt mogelijk gevraagd de verwijdering van elk van de verbindingen te bevestigen.
+U mogelijk gevraagd om de verwijdering van elk van de verbindingen te bevestigen.
 
 ```powershell
 $Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
@@ -95,85 +95,85 @@ $Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.
 
 ### <a name="4-delete-the-virtual-network-gateway"></a>4. Verwijder de virtuele netwerkgateway.
 
-U wordt mogelijk gevraagd de verwijdering van de gateway te bevestigen. Als u een P2S-configuratie in dit VNet naast de S2S-configuratie hebt, wordt er bij het verwijderen van de virtuele netwerkgateway automatisch alle P2S-clients zonder waarschuwing verbreekt.
+U mogelijk gevraagd om de verwijdering van de gateway te bevestigen. Als u een P2S-configuratie in dit VNet naast de S2S-configuratie hebt, wordt er bij het verwijderen van de gateway van virtueel netwerk automatisch alle P2S-clients zonder waarschuwing verbreekt.
 
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-Op dit moment is uw virtuele netwerkgateway verwijderd. De volgende stappen kunt u alle resources verwijderen die niet langer worden gebruikt.
+Op dit moment is uw virtuele netwerkgateway verwijderd. U kunt de volgende stappen gebruiken om alle resources die niet meer worden gebruikt te verwijderen.
 
-### <a name="5-delete-the-local-network-gateways"></a>5 verwijderen uit de lokale netwerkgateways.
+### <a name="5-delete-the-local-network-gateways"></a>5 verwijderen de lokale netwerkgateways.
 
-De lijst van de bijbehorende lokale netwerkgateways ophalen.
+De lijst met de bijbehorende lokale netwerkgateways ophalen.
 
 ```powershell
 $LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
 ```
 
-Verwijderen van de lokale netwerkgateways. U wordt mogelijk gevraagd de verwijdering van elk van de lokale netwerkgateway te bevestigen.
+De lokale netwerkgateways verwijderen. U mogelijk gevraagd om de verwijdering van elk van de lokale netwerkgateway te bevestigen.
 
 ```powershell
 $LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
 ```
 
-### <a name="6-delete-the-public-ip-address-resources"></a>6. Verwijder het openbare IP-adresbronnen.
+### <a name="6-delete-the-public-ip-address-resources"></a>6. De openbare IP-adres-resources verwijderen.
 
-De IP-configuraties van de virtuele netwerkgateway ophalen.
+Haal de IP-configuraties van de virtuele netwerkgateway.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-De lijst met openbare IP-adresbronnen gebruikt voor deze virtuele netwerkgateway ophalen. Als de virtuele netwerkgateway actief-actief is, ziet u twee openbare IP-adressen.
+De lijst met openbare IP-adres resources die worden gebruikt voor deze virtuele netwerkgateway ophalen. Als de virtuele netwerkgateway actief / actief is, ziet u twee openbare IP-adressen.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-Het openbare IP-resources verwijderen.
+Verwijder de resources voor openbaar IP-adres.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 ```
 
-### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Het gatewaysubnet verwijderen en de configuratie ingesteld.
+### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Het gatewaysubnet verwijderen en de configuratie instellen.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="v2v"></a>Verwijderen van een VNet-naar-VNet-VPN-gateway
+## <a name="v2v"></a>Een VNet-naar-VNet-VPN-gateway verwijderen
 
-Als u wilt verwijderen van een virtuele netwerkgateway voor een V2V-configuratie, moet u eerst elke bron die betrekking op de virtuele netwerkgateway hebben verwijderen. Resources moeten worden verwijderd in een bepaalde volgorde vanwege afhankelijkheden. Als u werkt met de voorbeelden hieronder enkele van moeten de waarden worden opgegeven, terwijl andere waarden een uitvoerresultaat zijn. We gebruiken de volgende specifieke waarden in de voorbeelden voor demonstratiedoeleinden:
+Als u wilt verwijderen van een virtuele netwerkgateway voor een V2V-configuratie, moet u eerst elke resource die betrekking hebben op de virtuele netwerkgateway verwijderen. Resources moeten worden verwijderd in een bepaalde volgorde vanwege afhankelijkheden. Als u werkt met de voorbeelden hieronder enkele van moeten de waarden worden opgegeven, terwijl andere waarden een resultaat van de uitvoer zijn. We gebruiken de volgende specifieke waarden in de voorbeelden voor demonstratiedoeleinden te gebruiken:
 
 VNet-naam: VNet1<br>
-De naam van resourcegroep: RG1<br>
-Naam van virtuele-netwerkgateway: GW1<br>
+Resourcegroepnaam: RG1<br>
+Gatewaynaam van het virtuele netwerk: GW1<br>
 
-De volgende stappen van toepassing op het Resource Manager-implementatiemodel.
+De volgende stappen gelden voor het Resource Manager-implementatiemodel.
 
-### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Haal de virtuele netwerkgateway die u wilt verwijderen.
+### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Ophalen van de virtuele netwerkgateway die u wilt verwijderen.
 
 ```powershell
 $GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Controleer of de virtuele netwerkgateway geen verbindingen heeft.
+### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2. Controleer of de gateway van het virtuele netwerk geen verbindingen heeft.
 
 ```powershell
 get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
-Mogelijk zijn er andere verbindingen met de virtuele netwerkgateway die deel van een andere resourcegroep uitmaken. Controleren op aanvullende verbindingen in elke extra resourcegroep. In dit voorbeeld zijn er voor de verbindingen van RG2 gezocht. Deze uitvoeren voor elke resourcegroep dat u hebt die een verbinding met de virtuele netwerkgateway kunnen hebben.
+Mogelijk zijn er andere verbindingen met de virtuele netwerkgateway die deel van een andere resourcegroep uitmaken. Controleer voor extra verbindingen in elke andere resourcegroep. In dit voorbeeld wordt gecontroleerd voor verbindingen van RG2. Deze uitvoeren voor elke resourcegroep die u hebt die een verbinding met de virtuele netwerkgateway kan hebben.
 
 ```powershell
 get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
 ```
 
-### <a name="3-get-the-list-of-connections-in-both-directions"></a>3. De lijst met verbindingen opgehaald in beide richtingen.
+### <a name="3-get-the-list-of-connections-in-both-directions"></a>3. De lijst met verbindingen in beide richtingen ophalen.
 
 Omdat dit een VNet-naar-VNet-configuratie, moet u de lijst met verbindingen in beide richtingen.
 
@@ -181,7 +181,7 @@ Omdat dit een VNet-naar-VNet-configuratie, moet u de lijst met verbindingen in b
 $ConnsL=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
  
-In dit voorbeeld zijn er voor de verbindingen van RG2 gezocht. Deze uitvoeren voor elke resourcegroep dat u hebt die een verbinding met de virtuele netwerkgateway kunnen hebben.
+In dit voorbeeld wordt gecontroleerd voor verbindingen van RG2. Deze uitvoeren voor elke resourcegroep die u hebt die een verbinding met de virtuele netwerkgateway kan hebben.
 
 ```powershell
  $ConnsR=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "<NameOfResourceGroup2>" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
@@ -189,7 +189,7 @@ In dit voorbeeld zijn er voor de verbindingen van RG2 gezocht. Deze uitvoeren vo
 
 ### <a name="4-delete-all-connections"></a>4. Verwijder alle verbindingen.
 
-U wordt mogelijk gevraagd de verwijdering van elk van de verbindingen te bevestigen.
+U mogelijk gevraagd om de verwijdering van elk van de verbindingen te bevestigen.
 
 ```powershell
 $ConnsL | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
@@ -198,50 +198,50 @@ $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_
 
 ### <a name="5-delete-the-virtual-network-gateway"></a>5. Verwijder de virtuele netwerkgateway.
 
-U wordt mogelijk gevraagd de verwijdering van de virtuele netwerkgateway te bevestigen. Als u P2S-configuraties naar uw vnet's naast de V2V-configuratie hebt, wordt er bij het verwijderen van de virtuele netwerkgateways automatisch alle P2S-clients zonder waarschuwing verbroken.
+U mogelijk gevraagd om de verwijdering van de virtuele netwerkgateway te bevestigen. Als u P2S-configuraties in uw VNets naast uw V2V-configuratie hebt, wordt er bij het verwijderen van de virtuele netwerkgateways automatisch alle P2S-clients zonder waarschuwing verbreekt.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-Op dit moment is uw virtuele netwerkgateway verwijderd. De volgende stappen kunt u alle resources verwijderen die niet langer worden gebruikt.
+Op dit moment is uw virtuele netwerkgateway verwijderd. U kunt de volgende stappen gebruiken om alle resources die niet meer worden gebruikt te verwijderen.
 
-### <a name="6-delete-the-public-ip-address-resources"></a>6. De resources van openbare IP-adres verwijderen
+### <a name="6-delete-the-public-ip-address-resources"></a>6. De openbare IP-adres-resources verwijderen
 
-De IP-configuraties van de virtuele netwerkgateway ophalen.
+Haal de IP-configuraties van de virtuele netwerkgateway.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-De lijst met openbare IP-adresbronnen gebruikt voor deze virtuele netwerkgateway ophalen. Als de virtuele netwerkgateway actief-actief is, ziet u twee openbare IP-adressen.
+De lijst met openbare IP-adres resources die worden gebruikt voor deze virtuele netwerkgateway ophalen. Als de virtuele netwerkgateway actief / actief is, ziet u twee openbare IP-adressen.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-Het openbare IP-resources verwijderen. U wordt mogelijk gevraagd de verwijdering van het openbare IP-adres te bevestigen.
+Verwijder de resources voor openbaar IP-adres. U mogelijk gevraagd om de verwijdering van het openbare IP-adres te bevestigen.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Het gatewaysubnet verwijderen en de configuratie ingesteld.
+### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Het gatewaysubnet verwijderen en de configuratie instellen.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="deletep2s"></a>Verwijderen van een punt-naar-Site VPN-gateway
+## <a name="deletep2s"></a>Een punt-naar-Site VPN-gateway verwijderen
 
-Als u wilt verwijderen van een virtuele netwerkgateway voor een P2S-configuratie, moet u eerst elke bron die betrekking op de virtuele netwerkgateway hebben verwijderen. Resources moeten worden verwijderd in een bepaalde volgorde vanwege afhankelijkheden. Als u werkt met de voorbeelden hieronder enkele van moeten de waarden worden opgegeven, terwijl andere waarden een uitvoerresultaat zijn. We gebruiken de volgende specifieke waarden in de voorbeelden voor demonstratiedoeleinden:
+Als u wilt verwijderen van een virtuele netwerkgateway voor een P2S-configuratie, moet u eerst elke resource die betrekking hebben op de virtuele netwerkgateway verwijderen. Resources moeten worden verwijderd in een bepaalde volgorde vanwege afhankelijkheden. Als u werkt met de voorbeelden hieronder enkele van moeten de waarden worden opgegeven, terwijl andere waarden een resultaat van de uitvoer zijn. We gebruiken de volgende specifieke waarden in de voorbeelden voor demonstratiedoeleinden te gebruiken:
 
 VNet-naam: VNet1<br>
-De naam van resourcegroep: RG1<br>
-Naam van virtuele-netwerkgateway: GW1<br>
+Resourcegroepnaam: RG1<br>
+Gatewaynaam van het virtuele netwerk: GW1<br>
 
-De volgende stappen van toepassing op het Resource Manager-implementatiemodel.
+De volgende stappen gelden voor het Resource Manager-implementatiemodel.
 
 
 >[!NOTE]
@@ -249,7 +249,7 @@ De volgende stappen van toepassing op het Resource Manager-implementatiemodel.
 >
 >
 
-### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Haal de virtuele netwerkgateway die u wilt verwijderen.
+### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1. Ophalen van de virtuele netwerkgateway die u wilt verwijderen.
 
 ```powershell
 $GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
@@ -257,46 +257,46 @@ $GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 
 ### <a name="2-delete-the-virtual-network-gateway"></a>2. Verwijder de virtuele netwerkgateway.
 
-U wordt mogelijk gevraagd de verwijdering van de virtuele netwerkgateway te bevestigen.
+U mogelijk gevraagd om de verwijdering van de virtuele netwerkgateway te bevestigen.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-Op dit moment is uw virtuele netwerkgateway verwijderd. De volgende stappen kunt u alle resources verwijderen die niet langer worden gebruikt.
+Op dit moment is uw virtuele netwerkgateway verwijderd. U kunt de volgende stappen gebruiken om alle resources die niet meer worden gebruikt te verwijderen.
 
-### <a name="3-delete-the-public-ip-address-resources"></a>3. De resources van openbare IP-adres verwijderen
+### <a name="3-delete-the-public-ip-address-resources"></a>3. De openbare IP-adres-resources verwijderen
 
-De IP-configuraties van de virtuele netwerkgateway ophalen.
+Haal de IP-configuraties van de virtuele netwerkgateway.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-De lijst met openbare IP-adressen gebruikt voor deze virtuele netwerkgateway ophalen. Als de virtuele netwerkgateway actief-actief is, ziet u twee openbare IP-adressen.
+De lijst met openbare IP-adressen die worden gebruikt voor deze virtuele netwerkgateway ophalen. Als de virtuele netwerkgateway actief / actief is, ziet u twee openbare IP-adressen.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-Verwijder het openbare IP-adressen. U wordt mogelijk gevraagd de verwijdering van het openbare IP-adres te bevestigen.
+Verwijder het openbare IP-adressen. U mogelijk gevraagd om de verwijdering van het openbare IP-adres te bevestigen.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### <a name="4-delete-the-gateway-subnet-and-set-the-configuration"></a>4. Het gatewaysubnet verwijderen en de configuratie ingesteld.
+### <a name="4-delete-the-gateway-subnet-and-set-the-configuration"></a>4. Het gatewaysubnet verwijderen en de configuratie instellen.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="delete"></a>Een VPN-gateway verwijderen door het verwijderen van de resourcegroep
+## <a name="delete"></a>Een VPN-gateway verwijderen door de resourcegroep te verwijderen
 
-Als u zich geen zorgen over het houden van uw resources in de resourcegroep en u wilt beginnen, kunt u een hele resourcegroep verwijderen. Dit is een snelle manier om alles verwijderen. De volgende stappen gelden alleen voor het Resource Manager-implementatiemodel.
+Als u zich geen zorgen over een van uw resources in de resourcegroep te blijven en u alleen wilt beginnen, kunt u een hele resourcegroep verwijderen. Dit is een snelle manier om alles te verwijderen. De volgende stappen gelden alleen voor de Resource Manager-implementatiemodel.
 
-### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. Een lijst met alle resourcegroepen in uw abonnement ophalen.
+### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. Haal een lijst van alle resourcegroepen in uw abonnement.
 
 ```powershell
 Get-AzureRmResourceGroup
@@ -304,19 +304,19 @@ Get-AzureRmResourceGroup
 
 ### <a name="2-locate-the-resource-group-that-you-want-to-delete"></a>2. Zoek de resourcegroep die u wilt verwijderen.
 
-Zoek de resourcegroep die u wilt verwijderen en de lijst met resources in die resourcegroep weergeven. In het voorbeeld is de naam van de resourcegroep RG1. Wijzig in het voorbeeld voor het ophalen van een lijst met alle bronnen.
+Zoek de resourcegroep die u wilt verwijderen en weergeven van de lijst met resources in die resourcegroep. In het voorbeeld is de naam van de resourcegroep RG1. Wijzig in het voorbeeld voor het ophalen van een lijst van alle resources.
 
 ```powershell
 Find-AzureRmResource -ResourceGroupNameContains RG1
 ```
 
-### <a name="3-verify-the-resources-in-the-list"></a>3. Controleer of de bronnen in de lijst.
+### <a name="3-verify-the-resources-in-the-list"></a>3. Controleer of de resources in de lijst.
 
-Als de lijst wordt geretourneerd, bekijken om te controleren dat u wilt verwijderen van alle resources in de resourcegroep, evenals de resourcegroep zelf. Als u wilt dat sommige van de resources in de resourcegroep, gebruikt u de stappen in de vorige secties van dit artikel uw gateway verwijderen.
+Als de lijst wordt geretourneerd, bekijken om te controleren dat u wilt verwijderen van alle resources in de resourcegroep, evenals de resourcegroep zelf. Als u wilt dat sommige van de resources in de resourcegroep, gebruikt u de stappen in de vorige secties van dit artikel uw gateway niet te verwijderen.
 
 ### <a name="4-delete-the-resource-group-and-resources"></a>4. Verwijder de resourcegroep en resources.
 
-Als u wilt verwijderen van de resourcegroep en de resource die zijn opgenomen in de resourcegroep, in het voorbeeld wijzigen en uitvoeren.
+Als u wilt verwijderen van de resourcegroep en alle resources die zijn opgenomen in de resourcegroep, het voorbeeld wijzigen en uitvoeren.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name RG1
@@ -324,13 +324,13 @@ Remove-AzureRmResourceGroup -Name RG1
 
 ### <a name="5-check-the-status"></a>5. Controleer de status.
 
-Het duurt enige tijd Azure alle resources verwijderd. U kunt de status van de resourcegroep controleren met behulp van deze cmdlet.
+Het duurt enige tijd voor Azure om alle resources te verwijderen. U kunt de status van uw resourcegroep controleren met behulp van deze cmdlet.
 
 ```powershell
 Get-AzureRmResourceGroup -ResourceGroupName RG1
 ```
 
-Het resultaat dat wordt geretourneerd toont 'Voltooid'.
+Het resultaat dat wordt geretourneerd ziet 'Geslaagd'.
 
 ```
 ResourceGroupName : RG1

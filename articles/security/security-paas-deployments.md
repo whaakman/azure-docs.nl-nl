@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728479"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488404"
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
 
@@ -109,10 +109,10 @@ De Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sd
 
 De volgende tabel geeft een lijst van de STRIDE-bedreigingen en enkele voorbeeld-oplossingen die gebruikmaken van Azure-functies biedt. Deze oplossingen werkt in elk geval niet.
 
-| Bedreiging | De beveiligingseigenschap | Mogelijke Azure-platform-migratie |
+| Bedreiging | De beveiligingseigenschap | Mogelijke oplossingen voor Azure-platform |
 | --- | --- | --- |
 | Adresvervalsing (spoofing) | Verificatie | HTTPS-verbindingen vereisen. |
-| Knoeien | Gegevensintegriteit | Valideer de SSL-certificaten. |
+| Tampering | Gegevensintegriteit | Valideer de SSL-certificaten. |
 | Afwijzing | Geen weerlegbaarheid | Inschakelen van Azure [controle en diagnose](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Openbaarmaking van informatie | Vertrouwelijkheid | Gevoelige gegevens in rust versleutelen met behulp van [service-certificaten](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Denial of service | Beschikbaarheid | Prestatiegegevens mogelijke situaties waarbij een denial-of-service controleren. Verbindingsfilters implementeren. |

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/31/2019
 ms.author: victorh
-ms.openlocfilehash: 0c8a600342e0240d435999b1b5ddabc0234c142f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d680634231b90e5d1cc036f43b96e05d66899e34
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461437"
+ms.locfileid: "55487044"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisch schalen en zoneredundante toepassingsgateway (openbare Preview)
 
@@ -34,7 +34,7 @@ Application Gateway en Web Application Firewall (WAF) zijn nu beschikbaar in ope
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-De automatische schaalaanpassing SKU is beschikbaar in de volgende regio's: eastus2, westus2, Europa-West, southeastasia, centralus, francecentral, VS-Oost, japaneast, northeurope, southcentralus, ukwest, northcentralus, VS West, VS-Oost (BL) centralus (DM), japanwest (OS ).
+De automatische schaalaanpassing SKU is beschikbaar in de volgende regio's: eastus2, westus2, Europa-West, southeastasia, centralus, francecentral, VS-Oost, japaneast, northeurope, southcentralus, ukwest, northcentralus, VS West, VS-Oost, centralus, japanwest.
 
 ## <a name="pricing"></a>Prijzen
 

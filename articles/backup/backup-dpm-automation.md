@@ -2,18 +2,18 @@
 title: Azure Backup - PowerShell gebruiken om te back-up van DPM-workloads
 description: Meer informatie over het implementeren en beheren van Azure Backup voor Data Protection Manager (DPM) met behulp van PowerShell
 services: backup
-author: NKolli1
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: d8241385cde61647222f85c29f45bdaabd621610
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ef9d61e880d3252eae2d8ef924ff39a5d2f6acf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242922"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497907"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor Data Protection Manager (DPM)-servers
 In dit artikel leest u hoe u PowerShell gebruikt tot het instellen van Azure Backup op een DPM-server en voor het beheren van back-up en herstel.
@@ -128,15 +128,15 @@ De beschikbare opties zijn onder andere:
 | Optie | Details | Standaard |
 | --- | --- | --- |
 | /q |Stille installatie |- |
-| / p: "locatie" |Pad naar de installatiemap voor de Azure backup-agent. |C:\Program Files\Microsoft Azure Recovery Services-Agent |
+| / p: "locatie" |Pad naar de installatiemap voor de Azure backup-agent. |C:\Program Files\Microsoft Azure Recovery Services Agent |
 | / s: "locatie" |Pad naar de cachemap voor de Azure backup-agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Aanmelden voor Microsoft Update |- |
 | /nu |Niet controleren op updates nadat de installatie is voltooid |- |
 | /d |Hiermee verwijdert u Microsoft Azure Recovery Services-Agent |- |
 | /pH |Proxyadres van Host |- |
-| /PO |Proxy-poortnummer voor Host |- |
-| /Pu |Gebruikersnaam voor proxy-Host |- |
-| /PW |Wachtwoord voor proxy |- |
+| /po |Proxy-poortnummer voor Host |- |
+| /pu |Gebruikersnaam voor proxy-Host |- |
+| /pw |Wachtwoord voor proxy |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registratie van DPM naar een Recovery Services-kluis
 Nadat u de Recovery Services-kluis gemaakt, de meest recente agent en de kluisreferenties downloaden en opslaan in een handige locatie zoals C:\Downloads.
@@ -318,7 +318,7 @@ Wanneer back-ups van een gegevensbron voor de eerste keer, moeten door DPM worde
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>De grootte van de DPM-Replica en herstelpuntvolume wijzigen
-U kunt ook de grootte van de DPM-replicavolume en het gebruik van de schaduwkopie-volume wijzigen [Set DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet zoals in het volgende voorbeeld: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - DataSource $DS - ProtectionGroup $MPG-handmatige - ReplicaArea (2 gb) - ShadowCopyArea (2 gb)
+U kunt ook de grootte van de DPM-replicavolume en het gebruik van de schaduwkopie-volume wijzigen [Set DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet zoals in het volgende voorbeeld: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - Datasource $DS - ProtectionGroup $MPG-handmatige - ReplicaArea (2 gb) - ShadowCopyArea (2 gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Doorvoeren van de wijzigingen aan de beveiligingsgroep
 Tot slot moeten de wijzigingen worden doorgevoerd voordat DPM duren de back-up per de nieuwe configuratie van de beveiligingsgroep voordat kan. Dit kan worden bereikt met behulp van de [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet.

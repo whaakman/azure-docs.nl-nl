@@ -2,18 +2,18 @@
 title: Resource Manager geïmplementeerde virtuele machine back-ups beheren
 description: Meer informatie over het beheren en controleren van de back-ups van virtuele machine geïmplementeerd met Resource Manager
 services: backup
-author: trinadhk
-manager: shreeshd
+author: sogup
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk
-ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.author: sogup
+ms.openlocfilehash: b51cf5611bf00c133378a7d90d1693e50b27f7b0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635762"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491567"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Back-ups van een virtuele Azure-machine beheren
 

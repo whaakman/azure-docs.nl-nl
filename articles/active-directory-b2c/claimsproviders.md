@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5a0774c69c074698383e9c6f7f7cf9331e8939f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5068692d5f12b5b6c8b0476a789123ef9fd1dc75
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164432"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508807"
 ---
-# <a name="claimsproviders"></a>ClaimsProviders 
+# <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -35,14 +35,13 @@ Een claimprovider bestaat uit een set [technische profielen](technicalprofiles.m
         ...
     </TechnicalProfiles>
   </ClaimsProvider>
-</ClaimsProvider>
   ...
 </ClaimsProviders>
 ```
 
 De **ClaimsProviders** element bevat het volgende element:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ----------- | ----------- |
 | ClaimsProvider | 1: n | Een erkende claimprovider die kan worden gebruikt in verschillende gebruikers reizen. |
 
@@ -50,13 +49,13 @@ De **ClaimsProviders** element bevat het volgende element:
 
 De **ClaimsProvider** element bevat de volgende onderliggende elementen:
 
-| Element | Gevallen | Beschrijving |
+| Element | Gevallen | Description |
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | Een tekenreeks zijn met de naam van de claimprovider. Bijvoorbeeld, als uw claimprovider het technische profiel Facebook bevat, is de domeinnaam Facebook.com. Deze domeinnaam wordt gebruikt voor alle technische profielen die zijn gedefinieerd in de claimprovider, tenzij deze overschreven door het technische profiel. Naam van het domein kan ook worden verwezen een **domain_hint**. Zie voor meer informatie de **aanmelden omleiden naar een provider voor sociale** sectie van [instellen direct aanmelden met behulp van Azure Active Directory B2C](direct-signin.md). |
 | DisplayName | 0:1 | Een tekenreeks zijn met de naam van de claimprovider die kan worden weergegeven aan gebruikers. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Een set technische profielen die worden ondersteund door de claimprovider |
 
-**ClaimsProvider** organiseert uw technische profielen betrekking hebben op de claimprovider. Het volgende voorbeeld ziet u de Azure Active Directory-claimprovider met de technische Azure Active Directory-profielen: 
+**ClaimsProvider** organiseert uw technische profielen betrekking hebben op de claimprovider. Het volgende voorbeeld ziet u de Azure Active Directory-claimprovider met de technische Azure Active Directory-profielen:
 
 ```XML
 <ClaimsProvider>
@@ -82,7 +81,7 @@ De **ClaimsProvider** element bevat de volgende onderliggende elementen:
       ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
-      ...    
+      ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
       ...
@@ -109,4 +108,3 @@ Het volgende voorbeeld ziet de Facebook-claimprovider met de **Facebook-OAUTH** 
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
- 

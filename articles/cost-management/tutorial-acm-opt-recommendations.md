@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 439b68edf1d50d5d5292542640793b8b526b5891
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077070"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485769"
 ---
-# <a name="tutorial-optimize-costs-from-recommendations"></a>Zelfstudie: Kosten van aanbevelingen optimaliseren
+# <a name="tutorial-optimize-costs-from-recommendations"></a>Zelfstudie: De kosten van aanbevelingen optimaliseren
 
 Kostenbeheer van Azure werkt met Azure Advisor, aanbevelingen voor kosten voor optimalisatie. Azure Advisor helpt u te optimaliseren en de efficiëntie door een niet-actieve en onderbenutte resources te identificeren. Deze zelfstudie leert u een voorbeeld waarin u weinig gebruikte Azure-resources identificeren en vervolgens het ondernemen van actie om kosten te verlagen.
 
@@ -53,7 +53,7 @@ De **Impact** categorie, samen met de **mogelijke jaarlijkse besparingen**, zijn
 
 Azure Advisor bewaakt uw gebruik van virtuele machines gedurende 14 dagen en identificeert het vervolgens weinig gebruikte virtuele machines. Virtuele machines waarvan CPU-gebruik is vijf procent of minder en netwerkgebruik is 7 MB of minder voor vier of meer dagen worden beschouwd als laag gebruik virtuele machines.
 
-De 5% of minder CPU-gebruik instelling is de standaardinstelling, maar u kunt de instellingen aanpassen. Zie voor meer informatie over het aanpassen van de instelling van de [configureren van de gemiddelde CPU-gebruik regel](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation) artikel [voor de aanbeveling van de virtuele machine beperkt gebruikte](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation).
+De 5% of minder CPU-gebruik instelling is de standaardinstelling, maar u kunt de instellingen aanpassen. Zie voor meer informatie over het aanpassen van de instelling van de [configureren van de gemiddelde CPU-gebruik regel of de aanbeveling van de virtuele machine beperkt gebruikte](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
 Hoewel sommige scenario's in laag gebruik standaard resulteren kunnen, kunt u vaak geld besparen door de grootte van uw virtuele machines te wijzigen naar minder dure grootten. De daadwerkelijke besparingen kunnen variëren als u ervoor een actie formaat wijzigen kiest. We nemen een voorbeeld van het formaat van een virtuele machine.
 

@@ -1,5 +1,5 @@
 ---
-title: Selfservice of proefversie registreren in Azure Active Directory | Microsoft Docs
+title: Toevoegen van gebruikers via selfservice of proefversie signup - Azure Active Directory | Microsoft Docs
 description: Aanmelding via selfservice gebruiken in een tenant Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,19 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f02a628a55969dfbb883f53f005733482499a42b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195814"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506767"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Wat is selfserviceregistratie voor Azure Active Directory?
+
 In dit artikel wordt uitgelegd Self-serviceregistratie en hoe u voor de ondersteuning in Azure Active Directory (Azure AD). Als u wilt een domeinnaam overnemen van een niet-beheerde Azure AD-tenant, Zie [overnemen van een niet-beheerde adreslijst als administrator](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Waarom Self-serviceregistratie gebruiken?

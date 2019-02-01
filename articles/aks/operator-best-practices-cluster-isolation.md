@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3a4b62fb16745a3b226bda6c0574812278a34456
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428730"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495000"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor het cluster isolatie in Azure Kubernetes Service (AKS)
 
@@ -43,6 +43,8 @@ Met logische isolatie, kan een AKS-cluster worden gebruikt voor meerdere werkbel
 ![Logische isolatie van een Kubernetes-cluster in AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 Logische scheiding van clusters bevat meestal een hogere dichtheid pod dan fysiek geïsoleerd clusters. Er is minder overtollige computercapaciteit die bevindt zich niet in het cluster actief. In combinatie met het Kubernetes-cluster automatisch schalen, kunt u het aantal knooppunten schaal omhoog of omlaag voldoen aan eisen. Deze best practice-benadering voor automatisch schalen kunt u alleen het aantal knooppunten die nodig zijn uitgevoerd en minimaliseert de kosten.
+
+Kubernetes-omgevingen in AKS of ergens anders, zijn niet volledig veilig voor onveilig multitenant gebruik. Aanvullende beveiligingsfuncties zoals *Pod beveiligingsbeleid* en meer fijnmazig op rollen gebaseerd toegangsbeheer (RBAC) voor knooppunten aanvallen lastiger zijn. Voor de waarde true beveiliging bij het uitvoeren van workloads voor onveilig multitenant, is een hypervisor echter de enige niveau van beveiliging die u moet vertrouwen. Het beveiligingsdomein voor Kubernetes wordt het hele cluster, niet een afzonderlijke knooppunten. Voor deze typen werkbelastingen voor onveilig multitenant, moet u fysiek geïsoleerd clusters.
 
 ## <a name="physically-isolate-clusters"></a>Fysiek geïsoleerd clusters
 

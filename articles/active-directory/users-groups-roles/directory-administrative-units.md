@@ -1,5 +1,5 @@
 ---
-title: Preview van beheer van beheereenheden in Azure Active Directory
+title: Beheer van beheereenheden (preview) - Azure Active Directory | Microsoft Docs
 description: Administratieve eenheden gebruik voor gedetailleerdere delegatie van machtigingen in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/17/2017
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: fe3f41e95cc3aa4f22ff2cdea24388f7e9974755
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 52b71e557ade54cdefd349b8981100210833185a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181194"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508450"
 ---
-# <a name="administrative-units-management-in-azure-ad---public-preview"></a>Administratieve eenheden beheren in Azure AD - openbare preview
-Dit artikel beschrijft administratieve eenheden: een nieuwe Azure Active Directory-container van resources die kunnen worden gebruikt voor het overdragen van machtigingen via subsets van gebruikers en -beleid toepassen op een subset van gebruikers. In Azure Active Directory kunnen administratieve eenheden centrale beheerders machtigingen delegeren naar regionale beheerders of gedetailleerde beleidsregels instellen.
+# <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Administratieve eenheden beheren in Azure Active Directory (openbare preview)
+
+Dit artikel beschrijft administratieve eenheden: een nieuwe Azure Active Directory (Azure AD)-container van resources die kunnen worden gebruikt voor het overdragen van beheerdersmachtigingen via subsets van gebruikers en beleidsregels toepassen op een subset van gebruikers. In Azure Active Directory kunnen administratieve eenheden centrale beheerders machtigingen delegeren naar regionale beheerders of gedetailleerde beleidsregels instellen.
 
 Dit is handig in organisaties met onafhankelijke divisies, bijvoorbeeld een grote universiteit die bestaat uit veel autonome scholen (Business school, school Engineering, enzovoort) die onafhankelijk van elkaar. Dergelijke afdelingen hebben hun eigen IT-beheerders die toegang beheren, gebruikers beheren en beleidsregels die specifiek voor hun afdeling in te stellen. Centrale beheerders wilt kunnen verlenen deze afdelingen beheerders machtigingen over de gebruikers in hun specifieke afdelingen. Meer specifiek, kunt met behulp van dit voorbeeld, de beheerder van een centrale, bijvoorbeeld een administratieve eenheid voor een bepaalde school (Business school) maken en deze vullen met alleen de zakelijke school-gebruikers. Een centrale beheerder kan de school zakelijke IT-afdeling toevoegen aan een rol binnen het bereik met andere woorden, Verleen de IT-personeel van zakelijke school-beheerdersmachtigingen alleen via het Business school administratieve eenheid.
 

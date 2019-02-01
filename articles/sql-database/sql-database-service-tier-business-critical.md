@@ -3,7 +3,7 @@ title: Kritieke-bedrijfslaag - Azure SQL Database-service | Microsoft Docs
 description: Meer informatie over de Azure SQL Database laag bedrijfskritiek
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: aecbc9415fc7fe93b5df355c97a1a51a74f01e97
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ca907e145067043b41dd6000248d44ecc1e3434f
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882736"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510439"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Kritieke-bedrijfslaag - Azure SQL Database
 
@@ -26,7 +26,7 @@ ms.locfileid: "52882736"
 
 Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn drie architectuur modellen die worden gebruikt in Azure SQL Database:
 - Algemeen doel/Standard 
-- Kritieke zakelijke/Premium
+- Business Critical/Premium
 - Hyperscale
 
 Model van de laag Premium/bedrijfskritiek service is gebaseerd op een cluster van database-engine verwerkt. Deze architectuur is gebaseerd op een feit dat er altijd een quorum met knooppunten voor beschikbare database-engine en heeft minimale prestatie-impact op de werkbelasting, zelfs tijdens onderhoudswerkzaamheden.

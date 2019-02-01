@@ -1,8 +1,21 @@
 ---
-Titel: Opnieuw trainen een bestaand Voorspellend Studio web service titleSuffix: Azure Machine Learning Studio description: Informatie over het opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning Studio.
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: ericlicoding ms.author: amlstudiodocs ms.custom: vorige ms.author=yahajiza, vorige auteur = YasinMSFT ms.date: 11/07/2017
+title: Een bestaand Voorspellend Studio-webservice opnieuw trainen
+titleSuffix: Azure Machine Learning Studio
+description: Informatie over het opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/07/2017
+ms.openlocfilehash: cb33b32be276c2deb61a1a718a609612c6a4989e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511952"
 ---
 # <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Een bestaand Voorspellend Azure Machine Learning Studio-webservice opnieuw trainen
 

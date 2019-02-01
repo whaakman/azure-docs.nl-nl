@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 32ca3fc87c91deba26e63a5938536d488e7dc5a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537644"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488735"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Aanbevelingen voor Azure Security Center resource begrijpen
 
@@ -43,27 +43,27 @@ Gebruik de onderstaande tabellen als referentie om te begrijpen van de beschikba
 | [Evaluatie van beveiligingsproblemen is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md) |Hiermee wordt aanbevolen dat een oplossing voor de beoordeling van beveiligingslekken wordt geïnstalleerd op de VM. |
 | [Beveiligingsproblemen herstellen](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Hiermee ziet u beveiligingsproblemen in het systeem en in de toepassing die zijn gedetecteerd met de oplossing voor beveiligingslekken die op de VM is geïnstalleerd. |
 
-### <a name="app-services"></a>App-services
+### App-services <a name="app-services"></a>
 | Aanbeveling | Description |
 | --- | --- |
 | App Service mag alleen toegankelijk zijn via HTTPS | Hiermee wordt aanbevolen dat u de toegang van App Service via HTTPS alleen beperken. |
-| Websockets moeten worden uitgeschakeld voor Web-App| Hiermee wordt aanbevolen dat u zorgvuldig door het gebruik van Websockets in webtoepassingen.  Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's. |
+| Websockets moeten zijn uitgeschakeld voor webtoepassing| Hiermee wordt aanbevolen dat u zorgvuldig door het gebruik van Websockets in webtoepassingen.  Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's. |
 | Aangepaste domeinen gebruiken voor uw Web-App | Hiermee wordt aanbevolen dat u aangepaste domeinen gebruiken voor een webtoepassing beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS. |
-| IP-beperkingen voor Web-App configureren | Hiermee wordt aanbevolen dat u een lijst met IP-adressen die zijn toegestaan voor toegang tot uw toepassing definiëren.  Gebruik van IP-beperkingen beschermt u webtoepassingen tegen algemene aanvallen. |
+| IP-beperkingen configureren voor webtoepassing | Hiermee wordt aanbevolen dat u een lijst met IP-adressen die zijn toegestaan voor toegang tot uw toepassing definiëren.  Gebruik van IP-beperkingen beschermt u webtoepassingen tegen algemene aanvallen. |
 | Niet alle toestaan ('* ') resources toegang tot uw toepassing | Hiermee wordt aanbevolen dat u de parameter WEBSITE_LOAD_CERTIFICATES niet ingesteld op '*'. Als u de parameter naar '*' betekent dat alle certificaten in de persoonlijke certificaatarchief van uw web-toepassingen worden geladen.  Dit kan leiden tot misbruik van het principe van minimale bevoegdheden als is het onwaarschijnlijk dat de site toegang hebben tot alle certificaten die tijdens runtime moet. |
 | CORS kunt u voorkomen dat elke resource toegang tot uw toepassing | Hiermee wordt aanbevolen dat u alleen vereiste domeinen om te communiceren met uw webtoepassing toestaan. Cross-origin resource sharing (CORS) kunt u voorkomen dat alle domeinen toegang tot uw webtoepassing. |
-| Gebruik de nieuwste ondersteunde .NET Framework voor webtoepassingen | Hiermee wordt aanbevolen dat u de meest recente versie van .NET Framework voor de nieuwste beveiligingsklassen gebruiken. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken. |
-| Gebruik de nieuwste ondersteunde Java-versie voor Web-App | Hiermee wordt aanbevolen dat u de meest recente versie van Java voor de nieuwste beveiligingsklassen gebruiken. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken. |
-| Gebruik de nieuwste ondersteunde PHP-versie voor Web-App | Hiermee wordt aanbevolen dat u de nieuwste PHP-versie voor de nieuwste beveiligingsklassen gebruiken. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken. |
+| De nieuwste ondersteunde .NET Framework-versie voor webtoepassing gebruiken | Hiermee wordt aanbevolen dat u de meest recente versie van .NET Framework voor de nieuwste beveiligingsklassen gebruiken. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken. |
+| De nieuwste ondersteunde Java-versie voor webtoepassing gebruiken | Hiermee wordt aanbevolen dat u de meest recente versie van Java voor de nieuwste beveiligingsklassen gebruiken. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken. |
+| De nieuwste ondersteunde PHP-versie voor webtoepassing gebruiken | Hiermee wordt aanbevolen dat u de nieuwste PHP-versie voor de nieuwste beveiligingsklassen gebruiken. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken. |
 | [Een firewall voor webtoepassingen toevoegen](security-center-add-web-application-firewall.md) |Hiermee wordt aanbevolen dat u een web application firewall (WAF) voor web-eindpunten te implementeren. Een WAF-aanbeveling wordt voor een openbaar IP-adres (Instance Level IP of Load Balanced IP) met een gekoppelde netwerkbeveiligingsgroep met open binnenkomende webpoorten (80,443) weergegeven.</br></br>Security Center raadt aan dat u een WAF om te helpen beschermen tegen aanvallen die gericht is op uw webtoepassingen op virtuele machines en op App Service-omgeving inrichten. Een App Service Environment (ASE) is een [Premium](https://azure.microsoft.com/pricing/details/app-service/) service-plan-optie van Azure App Service waarmee u een volledig geïsoleerde en toegewezen omgeving voor Azure App Service-apps veilig kunnen worden uitgevoerd. Zie voor meer informatie over het as-omgeving, de [documentatie over App Service-omgeving](../app-service/environment/intro.md).</br></br>U kunt meerdere webtoepassingen in Security Center beveiligen door toe te voegen deze toepassingen aan uw bestaande WAF-implementaties. |
 | [Toepassingsbeveiliging voltooien](security-center-add-web-application-firewall.md#finalize-application-protection) |Voor het voltooien van de configuratie van een WAF, moet verkeer worden omgeleid naar de WAF-apparaat. Deze aanbeveling te volgen, wordt de wijzigingen in de vereiste installatie voltooid. |
-| Gebruik de nieuwste ondersteunde Node.js versie voor Web-App | Hiermee wordt aanbevolen dat u de meest recente versie van Node.js voor de nieuwste beveiligingsklassen gebruiken. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken. |
-| CORS kunt u voorkomen dat elke resource toegang tot uw functie-App | Hiermee wordt aanbevolen dat u alleen vereiste domeinen om te communiceren met uw webtoepassing toestaan. Cross-origin resource sharing (CORS) kunt u voorkomen dat alle domeinen toegang tot uw functie-toepassing. |
-| Aangepaste domeinen voor functie-App gebruiken | Hiermee wordt aanbevolen dat u aangepaste domeinen gebruiken voor een functie-app beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS. |
-| IP-beperkingen voor functie-App configureren | Hiermee wordt aanbevolen dat u een lijst met IP-adressen die zijn toegestaan voor toegang tot uw toepassing definiëren. Een functie-app beschermt gebruik van IP-beperkingen tegen algemene aanvallen. |
-| Functie-App moet alleen toegankelijk zijn via HTTPS | Hiermee wordt aanbevolen dat u de toegang van de functie-apps via HTTPS alleen beperken. |
-| Foutopsporing op afstand moet worden uitgeschakeld voor functie-App | Hiermee wordt aanbevolen dat u als u niet meer nodig hebt om deze te gebruiken voor functie-App-foutopsporing uitschakelen. Externe foutopsporing moeten inkomende poorten op een functie-App moeten worden geopend. |
-| Websockets moeten worden uitgeschakeld voor functie-App | Hiermee wordt aanbevolen dat u zorgvuldig door het gebruik van Websockets in functie-Apps. Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's. |
+| De nieuwste ondersteunde Node.js-versie voor webtoepassing gebruiken | Hiermee wordt aanbevolen dat u de meest recente versie van Node.js voor de nieuwste beveiligingsklassen gebruiken. Met behulp van oudere klassen en typen kan uw toepassing kwetsbaar maken. |
+| CORS mag er niet toe leiden dat elke resource toegang tot uw functie-app heeft | Hiermee wordt aanbevolen dat u alleen vereiste domeinen om te communiceren met uw webtoepassing toestaan. Cross-origin resource sharing (CORS) kunt u voorkomen dat alle domeinen toegang tot uw functie-toepassing. |
+| Aangepaste domeinen gebruiken voor Functie-app | Hiermee wordt aanbevolen dat u aangepaste domeinen gebruiken voor een functie-app beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS. |
+| IP-beperkingen configureren voor functie-apps | Hiermee wordt aanbevolen dat u een lijst met IP-adressen die zijn toegestaan voor toegang tot uw toepassing definiëren. Een functie-app beschermt gebruik van IP-beperkingen tegen algemene aanvallen. |
+| Functie-app mag alleen toegankelijk zijn via HTTPS | Hiermee wordt aanbevolen dat u de toegang van de functie-apps via HTTPS alleen beperken. |
+| Externe foutopsporing moet worden uitgeschakeld voor functie-app | Hiermee wordt aanbevolen dat u als u niet meer nodig hebt om deze te gebruiken voor functie-App-foutopsporing uitschakelen. Externe foutopsporing moeten inkomende poorten op een functie-App moeten worden geopend. |
+| Websockets moeten zijn uitgeschakeld voor functie-app | Hiermee wordt aanbevolen dat u zorgvuldig door het gebruik van Websockets in functie-Apps. Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

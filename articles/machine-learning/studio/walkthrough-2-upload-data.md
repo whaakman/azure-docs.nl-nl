@@ -1,8 +1,21 @@
 ---
-Titel: ' Stap 2: Gegevens uploaden naar een Machine Learning Studio-experiment' titleSuffix: Azure Machine Learning Studio description: ' Stap 2 van het ontwikkelen van een overzicht van de voorspellende oplossing: Uploaden van openbare gegevens opgeslagen in Azure Machine Learning Studio.'
-Services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Auteur: garyericson ms.author: garye ms.custom: vorige auteur = heatherbshapiro, vorige ms.author=hshapiro ms.date: 03/23/2017
+title: 'Stap 2: Gegevens uploaden naar een Machine Learning Studio-experiment'
+titleSuffix: Azure Machine Learning Studio
+description: 'Stap 2 van het ontwikkelen van een overzicht van de voorspellende oplossing: Opgeslagen openbare gegevens uploaden naar Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/23/2017
+ms.openlocfilehash: 4b23286a5a86b8d2731a34f39755b4fd18bbd78d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507567"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Kennismaken, stap 2: Bestaande gegevens uploaden naar een Azure Machine Learning Studio-experiment
 Dit is de tweede stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)

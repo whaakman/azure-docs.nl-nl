@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 159f902326d76900e955c6488eb36e58f4b8f3dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6e5ca57eaa4a4a1975c0295933fc91e5726ae4c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167475"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487928"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan voor de levenscyclus van hybride identiteit
 Identiteit is een van de fundamenten van uw strategie voor enterprise mobility en de toepassing. Of u zich op uw mobiele apparaat of de SaaS-app, is uw identiteit de sleutel tot het verkrijgen van toegang tot alles. Op het hoogste niveau omvat een oplossing voor identiteitsbeheer werking en synchronisatie tussen uw opslagplaatsen voor identiteit, waaronder automatiseren en het proces van inrichting van resources te centraliseren. De oplossing voor identiteit moet de identiteit van een gecentraliseerde via on-premises en cloud en een vorm van identiteitsfederatie ook gebruiken om te onderhouden centrale verificatie en veilig delen en samenwerken met externe gebruikers en bedrijven. Bronnen variëren van besturingssystemen en toepassingen naar mensen in of gekoppeld aan een organisatie. Organisatiestructuur kan worden gewijzigd om te voldoen aan de inrichting beleidsregels en procedures.
