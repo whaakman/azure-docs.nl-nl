@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 800e41fe26cb58840c7371606ed746c149f7024d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304139"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247422"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Zelfstudie: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
 
@@ -246,7 +247,7 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 
 5.  In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker in de lijst van gebruikers.
 
-6.  Selecteer **wijzigingen opslaan**.
+6.  Selecteer **Save changes**.
 
 7.  In de **VSTS groepen** in de lijst met **eindpunt beheerders**.
 
@@ -254,7 +255,7 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 
 9.  In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker in de lijst van gebruikers.
 
-10. Selecteer **wijzigingen opslaan**.
+10. Selecteer **Save changes**.
 
 Nu informatie over het eindpunt bestaat, de Azure-pijplijnen op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van Azure-pijplijnen en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
 

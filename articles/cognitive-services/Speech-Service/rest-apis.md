@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 45af8f554bf38c65c886c4d101c78255f5671037
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218662"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247439"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API 's
 
@@ -439,6 +439,9 @@ De Text to Speech REST-API biedt ondersteuning voor neurale en standard-naar-spr
 
 * Zie voor een volledige lijst van stemmen, [taalondersteuning](language-support.md#text-to-speech).
 * Zie voor meer informatie over regionale beschikbaarheid [regio's](regions.md#text-to-speech).
+
+> [!IMPORTANT]
+> Kosten variëren voor standaard, aangepaste en neurale stemmen. Zie voor meer informatie, [prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="request-headers"></a>Aanvraagheaders
 

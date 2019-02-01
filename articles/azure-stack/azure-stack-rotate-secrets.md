@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e4131bc8f038957e52b914937b2d45e670be8f5f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157272"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251347"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
@@ -38,13 +39,13 @@ Infrastructuur voor service-certificaten voor extern gerichte-services die worde
 - Beheerdersportal
 - Openbare-Portal
 - Beheerder van Azure resourcemanager
-- Globale Azure Resource Manager
+- Global Azure Resource Manager
 - Beheerder Key Vault
 - KeyVault
 - Beheerdersuitbreiding Host
 - ACS (met inbegrip van de blob, table en queue storage)
-- AD FS *
-- Grafiek *
+- ADFS *
+- Graph *
 
 \* Alleen van toepassing als id-provider van de omgeving Active Directory Federated Services (AD FS is).
 
@@ -62,13 +63,13 @@ Azure Stack ondersteunt geheime rotatie van externe certificaten van een nieuwe 
 
 |Geïnstalleerde certificaat CA|Certificeringsinstantie voor het draaien|Ondersteund|Ondersteunde versies van Azure Stack|
 |-----|-----|-----|-----|
-|Van zelf-ondertekend|Naar de onderneming|Niet ondersteund||
+|Van zelf-ondertekend|To Enterprise|Niet ondersteund||
 |Van zelf-ondertekend|Voor zelf-ondertekend|Niet ondersteund||
 |Van zelf-ondertekend|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
-|Van onderneming|Naar de onderneming|Als klanten de dezelfde ondernemings-CA gebruiken zoals gebruikt bij de implementatie wordt ondersteund|1803 en hoger|
+|Van onderneming|To Enterprise|Als klanten de dezelfde ondernemings-CA gebruiken zoals gebruikt bij de implementatie wordt ondersteund|1803 en hoger|
 |Van onderneming|Voor zelf-ondertekend|Niet ondersteund||
 |Van onderneming|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
-|Van openbare<sup>*</sup>|Naar de onderneming|Niet ondersteund|1803 en hoger|
+|Van openbare<sup>*</sup>|To Enterprise|Niet ondersteund|1803 en hoger|
 |Van openbare<sup>*</sup>|Voor zelf-ondertekend|Niet ondersteund||
 |Van openbare<sup>*</sup>|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
 
@@ -203,7 +204,7 @@ Externe geheimen draaien:
 
 5. Een ogenblik geduld terwijl uw geheimen draaien. Externe geheime rotatie duurt normaal gesproken ongeveer één uur.
 
-    Wanneer deze geheime rotatie is voltooid, de console weergegeven **algemene actiestatus: Geslaagde**.
+    Wanneer deze geheime rotatie is voltooid, de console weergegeven **algemene actiestatus: Success**.
 
     > [!Note]
     > Als de geheime rotatie is mislukt, volg de instructies in het foutbericht en opnieuw uitvoeren **Start SecretRotation** met de **-opnieuw uitvoeren** Parameter.
@@ -251,7 +252,7 @@ Remove-PSSession -Session $PEPSession
 
 3. Een ogenblik geduld terwijl uw geheimen draaien.
 
-Wanneer deze geheime rotatie is voltooid, de console weergegeven **algemene actiestatus: Geslaagde**.
+Wanneer deze geheime rotatie is voltooid, de console weergegeven **algemene actiestatus: Success**.
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
@@ -291,19 +292,19 @@ Start-SecretRotation [-ReRun]
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beschrijving
 
 De **Start SecretRotation** cmdlet draait de geheimen van de infrastructuur van een Azure Stack-systeem. Standaard worden deze alleen de certificaten van alle externe network-infrastructuur-eindpunten. Als u gebruikt met de - interne vlag interne worden infrastructuur geheimen gedraaid. Wanneer u externe network-infrastructuur-eindpunten, **Start SecretRotation** moet worden uitgevoerd met een **Invoke-Command** scriptblok met de Azure Stack-omgeving in de beschermde modus eindpunt sessie doorgegeven als de **sessie** parameter.
 
 ### <a name="parameters"></a>Parameters
 
-| Parameter | Type | Vereist | Positie | Normaal | Description |
+| Parameter | Type | Vereist | Positie | Standaard | Beschrijving |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Reeks  | Onwaar  | met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen. Einde map moet **\Certificates**. |
-| CertificatePassword | SecureString | Onwaar  | met de naam  | Geen  | Het wachtwoord voor alle certificaten die zijn opgegeven in de - PfXFilesPath. Vereiste waarde als PfxFilesPath is opgegeven als externe geheimen worden gedraaid. |
-| Intern | Reeks | Onwaar | met de naam | Geen | Interne markering moet worden gebruikt op elk moment Azure Stack-operators wil de interne infrastructuur geheimen draaien. |
-| PathAccessCredential | PSCredential | Onwaar  | met de naam  | Geen  | De PowerShell-referentie voor de bestandsshare van de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen.  |
-| Opnieuw uitvoeren | SwitchParameter | Onwaar  | met de naam  | Geen  | Opnieuw uitvoeren moet worden gebruikt op elk moment geheime rotatie is nieuwe na een mislukte poging. |
+| PfxFilesPath | Reeks  | False  | met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen. Einde map moet **\Certificates**. |
+| CertificatePassword | SecureString | False  | met de naam  | Geen  | Het wachtwoord voor alle certificaten die zijn opgegeven in de - PfXFilesPath. Vereiste waarde als PfxFilesPath is opgegeven als externe geheimen worden gedraaid. |
+| Intern | Reeks | False | met de naam | Geen | Interne markering moet worden gebruikt op elk moment Azure Stack-operators wil de interne infrastructuur geheimen draaien. |
+| PathAccessCredential | PSCredential | False  | met de naam  | Geen  | De PowerShell-referentie voor de bestandsshare van de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen.  |
+| ReRun | SwitchParameter | False  | met de naam  | Geen  | Opnieuw uitvoeren moet worden gebruikt op elk moment geheime rotatie is nieuwe na een mislukte poging. |
 
 ### <a name="examples"></a>Voorbeelden
 
