@@ -75,10 +75,10 @@ De volgende tabellen tonen de verschillende domeinen-typen (onder resultaten uit
 | ConnectionIsMarkedDisconnected | De verbinding is gemarkeerd als 'verbinding verbroken' |Nee|
 | ConnectionNotConfiguredOnGateway | De onderliggende service beschikt niet over de verbinding is geconfigureerd. | Ja |
 | ConnectionMarkedStandby | De onderliggende service is gemarkeerd als stand-by.| Ja|
-| Verificatie | Vooraf gedeelde sleutel komt niet overeen | Ja|
+| Authentication | Vooraf gedeelde sleutel komt niet overeen | Ja|
 | PeerReachability | De peer-gateway is niet bereikbaar. | Ja|
 | IkePolicyMismatch | De peer-gateway heeft IKE-beleid die niet worden ondersteund door Azure. | Ja|
-| WfpParse fout | Er is een fout opgetreden bij het parseren van het logboek WPF. |Ja|
+| WfpParse Error | Er is een fout opgetreden bij het parseren van het logboek WPF. |Ja|
 
 ## <a name="supported-gateway-types"></a>Ondersteunde gatewaytypen
 
