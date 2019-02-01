@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 236a4e4f79e6da89154e1e52bb9f45daf3a54d59
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: files
+ms.openlocfilehash: 82d1a83dfd96dd6d4c2b37567c745998a6f0cbdb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632040"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473507"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Quickstart: Azure-bestandsshares maken en beheren met Azure CLI
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snelstart: Azure-bestandsshares maken en beheren met Azure CLI
 In deze handleiding worden de basisbeginselen besproken van het werken met [Azure-bestandsshares](storage-files-introduction.md) met behulp van Azure CLI. Azure-bestandsshares zijn net als andere bestandsshares, maar worden in de cloud opgeslagen en ondersteund door het Azure-platform. Azure-bestandsshares ondersteunen het SMB-protocol volgens de industriestandaard en bieden de mogelijkheid bestanden te delen tussen meerdere computers, toepassingen en exemplaren. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
