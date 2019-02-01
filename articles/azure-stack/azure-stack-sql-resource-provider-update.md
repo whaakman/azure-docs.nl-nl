@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: 00a7644663b4628d20dbe598def158bc120a7aee
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 7b94c53d8a084ae49b0b9f68d57c408ed10ac507
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245449"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247167"
 ---
 # <a name="update-the-sql-resource-provider"></a>Bijwerken van de SQL-resourceprovider
 
@@ -51,19 +52,19 @@ Na de *UpdateSQLProvider.ps1* script maakt u een nieuwe virtuele machine, het sc
 
 U kunt de volgende parameters vanaf de opdrachtregel opgeven tijdens het uitvoeren van de **UpdateSQLProvider.ps1** PowerShell-script. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven.
 
-| Parameternaam | Description | Opmerking of de standaardwaarde |
+| Parameternaam | Beschrijving | Opmerking of de standaardwaarde |
 | --- | --- | --- |
 | **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ |
 | **AzCredential** | De referenties voor het beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |
 | **VMLocalCredential** | De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ |
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ |
-| **Azure-omgeving** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure AD-China **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure AD-China **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | U moet uw certificaat-pfx-bestand ook plaatsen in deze map. | _Optioneel voor één knooppunt, maar verplicht voor meerdere knooppunten_ |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
 | **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 |
 | **RetryDuration** |De time-outinterval tussen nieuwe pogingen in seconden. | 120 |
 | **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources. | Nee |
-| **Fouten opsporen-modus** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee |
+| **DebugMode** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee |
 
 ## <a name="update-script-powershell-example"></a>Voorbeeld van PowerShell-script bijwerken
 Hier volgt een voorbeeld van het gebruik van de *UpdateSQLProvider.ps1* script dat u vanuit een PowerShell-console met verhoogde bevoegdheid uitvoeren kunt. Zorg ervoor dat de variabele informatie en wachtwoorden indien nodig wijzigen:  

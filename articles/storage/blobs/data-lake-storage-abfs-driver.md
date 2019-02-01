@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 71821b71e2e6ca524e38d0e1eb4fa11f557bd799
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: f50723fa494df0ff1490bf27451394a6e13da467
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974918"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240876"
 ---
-# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Het bestandssysteem van Azure Blob-stuurprogramma (ABFS): een speciale Azure Storage-stuurprogramma voor Hadoop
+# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Het stuurprogramma van het Azure Blob-bestandssysteem (ABFS): Een speciale Azure Storage-stuurprogramma voor Hadoop
 
 Een van de primaire methoden voor gegevens in de Preview van Azure Data Lake Storage Gen2 is via de [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 kunnen gebruikers van Azure Blob Storage-toegang tot een nieuw stuurprogramma, het bestandssysteem van Azure Blob-stuurprogramma of `ABFS`. ABFS maakt deel uit van Apache Hadoop en is opgenomen in veel van de commerciële distributies van Hadoop. Dit stuurprogramma gebruikt, veel toepassingen en frameworks toegang tot gegevens in Azure Blob-opslag zonder code expliciet verwijzen naar Data Lake Storage Gen2.
 
-## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Eerdere mogelijkheid: stuurprogramma voor de Windows Azure Storage-Blob
+## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Eerdere mogelijkheid: Het Windows Azure Storage-Blob-stuurprogramma
 
 Het Windows Azure Storage-Blob-stuurprogramma of [WASB-stuurprogramma](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) opgegeven van de oorspronkelijke ondersteuning voor Azure Blob Storage. Dit stuurprogramma uitgevoerd de moeilijke taak van het bestandssysteem toewijzing semantiek (zoals vereist door de interface Hadoop FileSystem) met die van het object opslaan stijlinterface beschikbaar is gemaakt door Azure Blob Storage. Dit stuurprogramma blijft ondersteuning bieden voor dit model, hoge prestaties toegang tot gegevens in Blobs, maar bevat een aanzienlijke hoeveelheid code voor het uitvoeren van deze toewijzing, waardoor het moeilijk te onderhouden. Bovendien enkele bewerkingen zoals [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) en [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) vereisen dat het stuurprogramma voor het uitvoeren van een groot aantal bewerkingen (vanwege een object winkels gebrek wanneer toegepast op mappen ondersteuning voor mappen) die vaak leiden tot slechtere prestaties. Het stuurprogramma ABFS is ontworpen om te strijden tegen de inherente tekortkomingen van WASB.
 
@@ -48,7 +48,7 @@ Het stuurprogramma ABFS ondersteunt twee soorten verificatie zodat de Hadoop-toe
 
 - **Gedeelde sleutel:** Hierdoor kunnen gebruikers toegang tot alle resources in het account. De sleutel is versleuteld en opgeslagen in de configuratie van Hadoop.
 
-- **Azure Active Directory OAuth Bearer-Token:** bearer-tokens van Azure AD worden verkregen en vernieuwd door het stuurprogramma met de identiteit van de eindgebruiker of via een geconfigureerde Service-Principal. Met dit verificatiemodel, is alle toegang geautoriseerd op basis van per aanroep met behulp van de identiteit die is gekoppeld aan het opgegeven token en geëvalueerd op basis van de toegewezen POSIX lijst met ACL (Access Control).
+- **OAuth-Bearer-Token van Azure Active Directory:** Azure AD-bearer-tokens worden verkregen en vernieuwd door het stuurprogramma met de identiteit van de eindgebruiker of via een geconfigureerde Service-Principal. Met dit verificatiemodel, is alle toegang geautoriseerd op basis van per aanroep met behulp van de identiteit die is gekoppeld aan het opgegeven token en geëvalueerd op basis van de toegewezen POSIX lijst met ACL (Access Control).
 
 ### <a name="configuration"></a>Configuratie
 

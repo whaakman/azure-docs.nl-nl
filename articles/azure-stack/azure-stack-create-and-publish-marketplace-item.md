@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104094"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243637"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Een Marketplace-item maken en publiceren
 
@@ -98,7 +99,7 @@ ms.locfileid: "54104094"
    https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    ```
 
-   | Parameter | Description |
+   | Parameter | Beschrijving |
    | --- | --- |
    | abonnements-id |Beheerder abonnements-ID. U kunt deze ophalen met behulp van PowerShell. Als u liever zodat deze in de portal, gaat u naar het providerabonnement en kopieer de abonnements-ID. |
    | GalleryItemUri |BLOB-URI voor de galerijpakket dat al is geüpload naar de opslag. |
@@ -128,7 +129,7 @@ ms.locfileid: "54104094"
 
 ### <a name="identity-information"></a>Gegevens van identiteit
 
-| Name | Vereist | Type | Beperkingen | Description |
+| Name | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
 | Name |X |Reeks |[A-Za-z0-9]+ | |
 | Uitgever |X |Reeks |[A-Za-z0-9]+ | |
@@ -136,14 +137,14 @@ ms.locfileid: "54104094"
 
 ### <a name="metadata"></a>Metagegevens
 
-| Name | Vereist | Type | Beperkingen | Description |
+| Name | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Reeks |Aanbeveling van 80 tekens |De portal kan de itemnaam van uw niet correct weergegeven als langer dan 80 tekens is. |
 | PublisherDisplayName |X |Reeks |Aanbeveling van 30 tekens bevatten |De portal mogelijk de naam van de uitgever niet zonder problemen weergegeven als het langer dan 30 tekens bevatten. |
 | PublisherLegalName |X |Reeks |Maximaal 256 tekens bestaan | |
 | Samenvatting |X |Reeks |60 tot 100 tekens | |
-| Onderliggend LongSummary |X |Reeks |140 tot 256 tekens |Niet nog van toepassing in Azure Stack. |
-| Description |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 tot 5000 tekens | |
+| LongSummary |X |Reeks |140 tot 256 tekens |Niet nog van toepassing in Azure Stack. |
+| Beschrijving |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 tot 5000 tekens | |
 
 ### <a name="images"></a>Installatiekopieën
 
@@ -165,7 +166,7 @@ Elke Marketplace-item moet worden gemarkeerd met een categorie die aangeeft waar
 
 Elke Marketplace-item kan verschillende koppelingen naar aanvullende inhoud bevatten. De koppelingen zijn opgegeven als een lijst met namen en URI's:
 
-| Name | Vereist | Type | Beperkingen | Description |
+| Name | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Reeks |Maximaal 64 tekens | |
 | URI |X |URI | | |
@@ -174,10 +175,10 @@ Elke Marketplace-item kan verschillende koppelingen naar aanvullende inhoud beva
 
 Naast de voorgaande metagegevens krijgt u Marketplace auteurs aangepaste sleutel/waarde-paar gegevens in de volgende notatie:
 
-| Name | Vereist | Type | Beperkingen | Description |
+| Name | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Reeks |Maximum van 25 tekens | |
-| Waarde |X |Reeks |Maximaal 30 tekens | |
+| Value |X |Reeks |Maximaal 30 tekens | |
 
 ### <a name="html-sanitization"></a>HTML-opschonen
 

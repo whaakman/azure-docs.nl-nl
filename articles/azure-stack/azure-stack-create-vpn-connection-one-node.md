@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078899"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247218"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Maken van een site-naar-site VPN-verbinding tussen twee virtuele netwerken in verschillende Azure Stack Development Kit-omgevingen
 ## <a name="overview"></a>Overzicht
@@ -35,7 +36,7 @@ Het volgende diagram toont hoe de verbindingsconfiguratie eruit moet zien wannee
 ### <a name="before-you-begin"></a>Voordat u begint
 Zorg ervoor dat u de volgende items hebt voordat u begint voor het voltooien van de configuratie van de verbinding:
 
-* Twee servers en andere vereisten die voldoen aan de hardwarevereisten voor Azure Stack Development Kit, zoals beschreven in [Quick Start: Azure Stack Development Kit evalueren](azure-stack-deploy-overview.md). 
+* Twee servers en andere vereisten die voldoen aan de hardwarevereisten voor Azure Stack Development Kit, zoals beschreven in [Quick Start: Evalueren van de Azure Stack Development Kit](azure-stack-deploy-overview.md). 
 * De [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/try/) implementatiepakket.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>De Azure Stack Development Kit-omgevingen implementeren
@@ -94,7 +95,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 1. Gebruik een tenantaccount aan te melden bij de gebruikersportal aanmeldt.
 2. Selecteer in de gebruikersportal **+ een resource maken**.
 3. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
-4. Selecteer **virtueel netwerk**.
+4. Selecteer **Virtueel netwerk**.
 5. Voor **naam**, **adresruimte**, **subnetnaam**, en **subnetadresbereik**, gebruikt u de waarden die eerder in het netwerk wordt weergegeven van de configuratietabel.
 6. In **abonnement**, het abonnement dat u eerder hebt gemaakt, wordt weergegeven.
 7. Voor **resourcegroep**, kunt u een resourcegroep maken of als u nog niet hebt, selecteert u **gebruik bestaande**.
@@ -157,14 +158,14 @@ Een manier om na te denken over dit meer algemeen, is dat de lokale netwerkgatew
 9. In **gedeelde sleutel (PSK)**, voer **12345**, en selecteer vervolgens **OK**.
 10. Op de **samenvatting** Selecteer **OK**.
 
-### <a name="create-a-vm"></a>Een VM maken
+### <a name="create-a-vm"></a>Een virtuele machine maken
 Voor het valideren van de gegevens die worden uitgewisseld via de VPN-verbinding, moet u de virtuele machines te verzenden en ontvangen van gegevens in elke Azure Stack Development Kit. Maak nu een virtuele machine in POC1, en deze vervolgens in het virtuele netwerk op uw VM-subnet.
 
 1. Selecteer in de Azure portal, **+ een resource maken**.
 2. Ga naar **Marketplace**, en selecteer vervolgens **Compute**.
 3. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Eval** installatiekopie.
 4. Op de **basisbeginselen** blade in **naam**, voer **VM01**.
-5. Voer een geldige gebruikersnaam en wachtwoord. Dit account kunt u zich aanmeldt bij de virtuele machine nadat deze gemaakt.
+5. Voer een geldige gebruikersnaam en geldig wachtwoord in. Dit account kunt u zich aanmeldt bij de virtuele machine nadat deze gemaakt.
 6. Geef een **abonnement**, **resourcegroep**, en **locatie**, en selecteer vervolgens **OK**.
 7. Op de **grootte** blade voor dit exemplaar, selecteer de grootte van een virtuele machine en selecteer vervolgens **Selecteer**.
 8. Op de **instellingen** blade, accepteer de standaardwaarden. Zorg ervoor dat de **VNET-01** virtueel netwerk is geselecteerd. Controleren of het subnet is ingesteld op **10.0.10.0/24**. Selecteer vervolgens **OK**.
@@ -184,7 +185,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 1. Meld u aan met behulp van een tenantaccount.
 2. Selecteer in de gebruikersportal **+ een resource maken**.
 3. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
-4. Selecteer **virtueel netwerk**.
+4. Selecteer **Virtueel netwerk**.
 5. Gebruik de informatie die eerder in de tabel van de configuratie van netwerk weergegeven voor het identificeren van de waarden voor de POC2 **naam**, **adresruimte**, **subnetnaam**, en **Subnetadresbereik**.
 6. In **abonnement**, het abonnement dat u eerder hebt gemaakt, wordt weergegeven.
 7. Voor **resourcegroep**, maak een nieuwe resourcegroep of, als u al een hebt, selecteert u **gebruik bestaande**.
@@ -207,7 +208,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 3. Selecteer in de lijst van netwerkbronnen **gateway van virtueel netwerk**.
 4. In **naam**, voer **GW2**.
 5. Als u een virtueel netwerk, selecteert u **virtueel netwerk**. Selecteer vervolgens **VNET-02** in de lijst.
-6. Selecteer **openbaar IP-adres**. Wanneer de **openbare IP-adres kiezen** blade wordt geopend, selecteer **nieuw**.
+6. Selecteer **Openbaar IP-adres**. Wanneer de **openbare IP-adres kiezen** blade wordt geopend, selecteer **nieuw**.
 7. In **naam**, voer **GW2-PiP**, en selecteer vervolgens **OK**.
 8. Standaard voor **VPN-type**, **op Route gebaseerde** is geselecteerd.
     Houd de **op Route gebaseerde** VPN-type.
@@ -242,7 +243,7 @@ Maak nu een virtuele machine in POC2 en plaats deze op uw VM-subnet in uw virtue
 2. Ga naar **Marketplace**, en selecteer vervolgens **Compute**.
 3. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Eval** installatiekopie.
 4. Op de **basisbeginselen** blade voor **naam**, voer **VM02**.
-5. Voer een geldige gebruikersnaam en wachtwoord. Dit account kunt u zich aanmeldt bij de virtuele machine nadat deze gemaakt.
+5. Voer een geldige gebruikersnaam en geldig wachtwoord in. Dit account kunt u zich aanmeldt bij de virtuele machine nadat deze gemaakt.
 6. Geef een **abonnement**, **resourcegroep**, en **locatie**, en selecteer vervolgens **OK**.
 7. Op de **grootte** blade, selecteer een virtuele machine grootte voor dit exemplaar en selecteer vervolgens **Selecteer**.
 8. Op de **instellingen** blade kunt u de standaardwaarden accepteren. Zorg ervoor dat de **VNET-02** virtueel netwerk is geselecteerd en controleer of dat het subnet is ingesteld op **10.0.20.0/24**. Selecteer **OK**.

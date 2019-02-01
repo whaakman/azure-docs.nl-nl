@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247569"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250636"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-verwijzing
 
@@ -163,7 +164,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-## <a name="description"></a>Description
+## <a name="description"></a>Beschrijving
 
 De **Start AzsReadinessChecker** cmdlet valideert certificaten, Azure-accounts, Azure-abonnementen en Azure Active Directory's. Validatie voordat u implementeert Azure Stack, of voor Azure Stack bewerkingen zoals het geheim rotatie onderhoud worden uitgevoerd. De cmdlet kan ook worden gebruikt voor het ondertekenen van certificaataanvragen genereren voor infrastructuur en eventueel PaaS certificaten.  Ten slotte de cmdlet opnieuw verpakken PFX-certificaten voor het oplossen van veelvoorkomende problemen met verpakking.
 
@@ -306,7 +307,7 @@ Hiermee geeft u de naam van de Azure Stack-implementatie de regio.
 |Pijpleidinginvoer accepteren:      |False         |
 |Jokertekens accepteren: |False         |
 
-> -FQDN-NAAM
+> -FQDN
 
 Hiermee geeft u de Azure Stack-implementatie externe FQDN, ook de alias als ExternalFQDN en ExternalDomainName.
 |  |  |
@@ -325,7 +326,7 @@ Hiermee geeft u de Azure Stack-implementatie Identiteitssysteem geldige waarden,
 |Type:                       |Reeks        |
 |Positie:                   |met de naam         |
 |Standaardwaarde:              |Geen          |
-|Geldige waarden:               |'AAD', 'ADFS'  |
+|Geldige waarden:               |'AAD','ADFS'  |
 |Pijpleidinginvoer accepteren:      |False         |
 |Jokertekens accepteren: |False         |
 
@@ -407,7 +408,7 @@ Hiermee geeft u de SAN-type van de certificaataanvraag. Geldige waarden Multiple
 |Type:                       |Reeks   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
-|Geldige waarden:               |'MultipleCSR', 'SingleCSR' |
+|Geldige waarden:               |'MultipleCSR','SingleCSR' |
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
@@ -444,7 +445,7 @@ Hiermee geeft u de Azure Active Directory-naam moet worden gebruikt voor Azure S
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
-> -Azure-omgeving
+> -AzureEnvironment
 
 Hiermee geeft u het exemplaar van Azure-Services met de accounts, mappen en abonnementen worden gebruikt voor Azure Stack-implementatie en de registratie.
 |  |  |
@@ -452,7 +453,7 @@ Hiermee geeft u het exemplaar van Azure-Services met de accounts, mappen en abon
 |Type:                       |Reeks   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Geen     |
-|Geldige waarden:               |'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
+|Geldige waarden:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
@@ -501,7 +502,7 @@ ACSBlob, ACSQueue, ACSTable, Admin-Portal, ARM-beheerder ARM publiek, KeyVault, 
 
 Map voor Azure Stack-implementatie met Active Directory Federation Services-identiteitssysteem zijn vereist:
 
-ACSBlob, ACSQueue, ACSTable, ADFS, -beheerportal, ARM-beheerder, ARM publiek, grafiek, KeyVault, KeyVaultInternal, openbare-Portal
+ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
 |  |  |
 |----------------------------|---------|
@@ -531,7 +532,7 @@ Hiermee geeft u op of het rapport alleen samenvatting weergeven Details weggelat
 |Type:                       |Reeks   |
 |Positie:                   |met de naam    |
 |Standaardwaarde:              |Alle      |
-|Geldige waarden:               |'Certificaat', 'AzureRegistration', 'Azure-identiteit', 'Taken', 'All' |
+|Geldige waarden:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |Pijpleidinginvoer accepteren:      |False    |
 |Jokertekens accepteren: |False    |
 
@@ -552,7 +553,7 @@ Hiermee verwijdert u de vorige uitvoering en validatie geschiedenis en validatie
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
-|Aliassen:                    |CF                |
+|Aliases:                    |cf                |
 |Positie:                   |met de naam             |
 |Standaardwaarde:              |False             |
 |Pijpleidinginvoer accepteren:      |False             |
@@ -566,7 +567,7 @@ Hiermee geeft u een aangepast pad om op te slaan van de gereedheid van de JSON-r
 |----------------------------|------------------|
 |Type:                       |Reeks            |
 |Positie:                   |met de naam             |
-|Standaardwaarde:              |$ENV: TEMP\AzsReadinessChecker  |
+|Standaardwaarde:              |$ENV:TEMP\AzsReadinessChecker  |
 |Pijpleidinginvoer accepteren:      |False             |
 |Jokertekens accepteren: |False             |
 
@@ -576,7 +577,7 @@ Als u wordt gevraagd om bevestiging voordat u de cmdlet uitvoert.
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
-|Aliassen:                    |CF                |
+|Aliases:                    |cf                |
 |Positie:                   |met de naam             |
 |Standaardwaarde:              |False             |
 |Pijpleidinginvoer accepteren:      |False             |
@@ -588,7 +589,7 @@ Geeft aan wat er gebeuren zou als de cmdlet wordt uitgevoerd. De cmdlet wordt ni
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
-|Aliassen:                    |Wi                |
+|Aliases:                    |wi                |
 |Positie:                   |met de naam             |
 |Standaardwaarde:              |False             |
 |Pijpleidinginvoer accepteren:      |False             |

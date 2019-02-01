@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0b1affb708a8d481a1378fa691b6547865b0b214
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: e0b830a8c785ecab7e8f0e90cf9b9a702cbf25db
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963586"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250677"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Starten en stoppen van de Azure Stack Development Kit (ASDK)
 Het verdient aanbeveling niet gewoon de hostcomputer ASDK opnieuw te starten. In plaats daarvan moet u de procedures in dit artikel voor het correct afsluiten en opnieuw opstarten van services ASDK volgen. 
 
-## <a name="stop-azure-stack"></a>Azure Stack stoppen 
+## <a name="stop-azure-stack"></a>Stop Azure Stack 
 Als u wilt op Azure Stack-services en de hostcomputer ASDK correct wordt afgesloten, gebruik de volgende PowerShell-opdrachten:
 
 1. Meld u als AzureStack\CloudAdmin op de hostcomputer ASDK.

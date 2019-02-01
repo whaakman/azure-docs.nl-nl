@@ -3,17 +3,17 @@ title: Gegevens kopiëren naar Azure Data Lake Storage Gen2 Preview met behulp v
 description: DistCp gebruiken om gegevens te kopiëren naar en van de Preview van Data Lake Storage Gen2
 services: storage
 author: seguler
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 6c231de0a37eda4f5593c9fbbfa5e611a97996a0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975562"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244144"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>DistCp gebruiken om gegevens tussen Azure Storage-Blobs en Gen2 Preview van Azure Data Lake-opslag te kopiëren
 
@@ -71,7 +71,7 @@ Omdat de laagste granulariteit van DistCp een enkel bestand is, is instellen van
 
 Hier volgen een aantal richtlijnen.
 
-* **Stap 1: Bepaal Totaal geheugen beschikbaar is voor de wachtrij 'default' YARN app** -de eerste stap is om te bepalen van het geheugen beschikbaar is voor de wachtrij 'default' YARN-app. Deze informatie is beschikbaar in de Ambari-portal die zijn gekoppeld aan het cluster. Navigeer naar YARN en weergeven van het tabblad configuraties om te zien van de YARN-geheugen beschikbaar is voor de wachtrij van de app 'default'. Dit is het totale beschikbare geheugen voor uw taak DistCp (dit is eigenlijk een MapReduce-taak).
+* **Stap 1: Totaal geheugen beschikbaar is voor de wachtrij 'default' YARN app bepalen** -de eerste stap is om te bepalen van het geheugen beschikbaar is voor de wachtrij 'default' YARN-app. Deze informatie is beschikbaar in de Ambari-portal die zijn gekoppeld aan het cluster. Navigeer naar YARN en weergeven van het tabblad configuraties om te zien van de YARN-geheugen beschikbaar is voor de wachtrij van de app 'default'. Dit is het totale beschikbare geheugen voor uw taak DistCp (dit is eigenlijk een MapReduce-taak).
 
 * **Stap 2: Bereken het aantal mappers** -de waarde van **m** is gelijk aan het quotiënt van de totale hoeveelheid geheugen voor YARN gedeeld door de grootte van de YARN-container. Informatie over de grootte van de YARN-container is beschikbaar in de Ambari-portal. Navigeer naar YARN en weergeven van het tabblad configuraties. De grootte van de YARN-container wordt weergegeven in dit venster. De vergelijking om naar het aantal mappers (**m**) is
 
@@ -81,11 +81,11 @@ Hier volgen een aantal richtlijnen.
 
 Stel dat u een cluster met 4 x D14v2s hebt en u probeert om over te dragen van 10 TB aan gegevens van 10 verschillende mappen. Elk van de mappen bevat verschillende hoeveelheden gegevens en de grootte in elke map verschillend zijn.
 
-* **Totaal geheugen YARN**: u hebt vastgesteld dat het geheugen YARN 96 GB voor een D14-knooppunt van de Ambari-portal. Totale YARN-geheugen voor cluster met vier knooppunten is dus: 
+* **Totaal geheugen YARN**: Vanuit de Ambari-portal kunt u bepalen dat het geheugen YARN 96 GB voor een D14-knooppunt is. Totale YARN-geheugen voor cluster met vier knooppunten is dus: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Aantal mappers**: u hebt vastgesteld dat de grootte van de container YARN 3,072 MB voor een clusterknooppunt D14 van de Ambari-portal. Aantal mappers is dus:
+* **Aantal mappers**: Vanuit de Ambari-portal kunt u bepalen dat de grootte van de container YARN 3,072 MB voor een D14-clusterknooppunt is. Aantal mappers is dus:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

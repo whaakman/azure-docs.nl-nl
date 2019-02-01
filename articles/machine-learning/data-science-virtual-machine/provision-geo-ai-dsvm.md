@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103945"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240468"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Een geografisch kunstmatige intelligentie-Machine in Azure inrichten 
 
@@ -49,24 +49,24 @@ Hier volgt de procedure voor het maken van een exemplaar van de Geo AI Data Scie
 
    - **Basisinstellingen**
 
-      1. **Naam**: naam van de data science-server die u maakt.
+      1. **Naam**: Naam van de data science-server die u maakt.
 
       2. **Gebruikersnaam**: Admin-account aanmeldings-id.
 
-      3. **Wachtwoord**: wachtwoord voor beheerdersaccount.
+      3. **Wachtwoord**: Wachtwoord voor beheerdersaccount.
 
-      4. **Abonnement**: als u meer dan één abonnement hebt, selecteert u het een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht.
+      4. **Abonnement**: Als u meer dan één abonnement hebt, selecteert u een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht.
 
       5. **Resourcegroep**: U kunt een nieuwe groep maken of gebruik een **leeg** bestaande Azure-resourcegroep in uw abonnement.
 
       6. **Locatie**: Selecteer het datacenter die het meest geschikt is. Dit is meestal het datacenter dat de meeste van uw gegevens of zich het dichtst bij uw fysieke locatie voor de snelste toegang tot het netwerk. Als u doen, deep learning op GPU wilt, moet u een van de locaties in Azure met de NC-serie GPU VM-exemplaren. De locaties waarvoor GPU VM's zijn momenteel: **VS-Oost, Noord-centraal VS, Zuid-centraal VS, VS-West 2, Noord-Europa, West-Europa**. Voor de meest recente lijst, Controleer de [Azure-producten per regio pagina](https://azure.microsoft.com/regions/services/) en zoek naar **NC-serie** onder **Compute**. 
 
 
-   - **Instellingen voor**: Selecteer een van de grootte van de NC-serie GPU-virtuele machine als u van plan bent om uit te voeren van deep learning op GPU op uw DSVM Geo. Anders kunt u een van de CPU op basis van exemplaar.  Maak een opslagaccount voor uw virtuele machine. 
+   - **Instellingen voor**: Selecteer een van de grootte van de NC-serie GPU-virtuele machine als u van plan bent om uit te voeren deep learning in de GPU op uw geografische DSVM. Anders kunt u een van de CPU op basis van exemplaar.  Maak een opslagaccount voor uw virtuele machine. 
    
-   - **Samenvatting**: Controleer of dat alle informatie die u hebt ingevoerd juist is.
+   - **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is.
 
-   - **Kopen**: klik op **kopen** om te beginnen met het inrichten. Een koppeling wordt met de voorwaarden van de service geleverd. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
+   - **Kopen**: Klik op **kopen** om te beginnen met het inrichten. Een koppeling wordt met de voorwaarden van de service geleverd. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 
 
 >[!NOTE]
 > De inrichting duurt ongeveer 20-30 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.

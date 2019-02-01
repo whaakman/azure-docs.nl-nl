@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.lastreviewed: 12/07/2018
+ms.openlocfilehash: e335f4cb112c0f029768ccf050f888e00a6efdc1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555010"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250611"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>API-versieprofielen gebruiken met .NET in Azure Stack
 
@@ -126,11 +127,11 @@ JSON-voorbeeldbestand:
 
 ## <a name="existing-api-profiles"></a>Bestaande API-profielen
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: Meest recente profiel die is gebouwd voor Azure Stack. Gebruik dit profiel voor services meest compatibel is met Azure Stack, zolang er op het stempel 1808 of verdere.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**: Meest recente profiel die is gebouwd voor Azure Stack. Gebruik dit profiel voor services meest compatibel is met Azure Stack, zolang er op het stempel 1808 of verdere.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: Als u van een tijdstempel die lager is dan de build 1808 gebruikmaakt, moet u dit profiel gebruiken.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**: Als u van een tijdstempel die lager is dan de build 1808 gebruikmaakt, moet u dit profiel gebruiken.
 
-3.  **Meest recente**: Profiel met de nieuwste versies van alle services. Gebruik de nieuwste versies van alle services. Dit profiel maakt deel uit van de **Microsoft.Azure.Management** NuGet-pakket.
+3.  **Laatste**: Profiel met de nieuwste versies van alle services. Gebruik de nieuwste versies van alle services. Dit profiel maakt deel uit van de **Microsoft.Azure.Management** NuGet-pakket.
 
 Zie voor meer informatie over Azure Stack- en API-profielen, een [Overzicht van de API-profielen][].
 

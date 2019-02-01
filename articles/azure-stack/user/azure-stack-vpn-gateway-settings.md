@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: ab82e604eb1af3d5e64571b115dc48d213466328
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: e7a22e6699a69bf89a9c3828433affa0a212116f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414827"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240774"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-gatewayconfiguratie-instellingen voor Azure Stack
 
@@ -169,7 +170,7 @@ In tegenstelling tot Azure, die ondersteuning biedt voor meerdere aanbiedingen a
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parameters voor IKE Phase 1 (Main Mode)
 
-| Eigenschap              | Waarde|
+| Eigenschap              | Value|
 |-|-|
 | IKE-versie           | IKEv2 |
 |Diffie-Hellman-groep   | Groep 2 (1024 bits) |
@@ -179,7 +180,7 @@ In tegenstelling tot Azure, die ondersteuning biedt voor meerdere aanbiedingen a
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parameters voor IKE Phase 2 (Quick Mode)
 
-| Eigenschap| Waarde|
+| Eigenschap| Value|
 |-|-|
 |IKE-versie |IKEv2 |
 |Versleuteling en hash-algoritmen (codering)     | GCMAES256|

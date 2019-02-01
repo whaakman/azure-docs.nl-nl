@@ -13,13 +13,14 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4107b18046b57d5b02fcd9d88be1752922735a08
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 04756481b676ed198120b67ca4368093ca8acead
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245579"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250871"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Controleren en beheren van tests in de portal VaaS
 
@@ -65,7 +66,7 @@ Voor de officiële wordt uitgevoerd (dat wil zeggen, de **validatie** werkstrome
 
 Elk exemplaar van de geplande test bevat de volgende informatie:
 
-| Kolom | Description |
+| Kolom | Beschrijving |
 | --- | --- |
 | Testnaam | De naam en versie van de test. |
 | Categorie | Het doel van de test. |
@@ -86,14 +87,14 @@ Het exemplaar van elke test een lijst met beschikbare acties die u uitvoeren kun
 
 Selecteer **informatie weergeven** in het contextmenu om algemene informatie over de definitie van de test weer te geven. Dit wordt gedeeld door elk exemplaar van de test met dezelfde naam en versie.
 
-| De eigenschap testen | Description |
+| De eigenschap testen | Beschrijving |
 | -- | -- |
 | Testnaam | De naam van de test. |
 | Testversie | De versie van de test. |
 | Uitgever | De uitgever van de test. |
 | Categorie |  Het doel van de test. |
 | Doelservices | De Azure Stack-services worden getest. |
-| Description | De beschrijving van de test. |
+| Beschrijving | De beschrijving van de test. |
 | Geschatte duur (minuten) | De verwachte runtime van de test. |
 | Koppelingen | Eventuele relevante informatie over de test of de punten van de contactpersoon. |
 
@@ -103,7 +104,7 @@ Selecteer **parameters weergeven** in het contextmenu om de opgegeven met het ex
 
 In dit venster bevat de volgende metagegevens voor alle exemplaren van de test:
 
-| Instantie-eigenschap testen | Description |
+| Instantie-eigenschap testen | Beschrijving |
 | -- | -- |
 | Testnaam | De naam van de test. |
 | Testversie | De versie van de test. |
