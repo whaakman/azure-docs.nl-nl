@@ -10,22 +10,22 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 17d8eff39eabb2f7b4968bf74d2482b980fe8060
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116616"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565952"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service-prestaties bewaken
-In de [Azure Portal](https://portal.azure.com) kunt u instellen prestatiebewaking van toepassingen voor uw web-apps, mobiele back-ends en API-apps in [Azure App Service](../../app-service/overview.md). Met [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
+In de [Azure-portal](https://portal.azure.com) kunt u instellen prestatiebewaking van toepassingen voor uw web-apps, mobiele back-ends en API-apps in [Azure App Service](../../app-service/overview.md). Met [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrumenteert u uw app om telemetrie over de eigen activiteiten te sturen naar de Application Insights-service, waar de gegevens worden opgeslagen en geanalyseerd. Daar kunnen metrische grafieken en zoekfuncties worden gebruikt om problemen vast te stellen, prestaties te verbeteren en het gebruik te beoordelen.
 
 ## <a name="run-time-or-build-time"></a>Runtime of buildtime
 U kunt de controle configureren door de app op twee manieren te instrumenteren:
 
-* **Runtime-** -kunt u een prestatiebewaking van de extensie wanneer uw appservice al gepubliceerd is. Het is niet nodig uw app opnieuw te bouwen of opnieuw te installeren. U ontvangt een standaardset aan pakketten voor het controleren van reactietijden, succespercentages, uitzonderingen, afhankelijkheden, enzovoort. 
+* **Runtime-** -kunt u een prestatiebewaking van de extensie wanneer uw appservice al gepubliceerd is. Het is niet nodig te bouwen of uw app opnieuw installeren. U ontvangt een standaardset aan pakketten voor het controleren van reactietijden, succespercentages, uitzonderingen, afhankelijkheden, enzovoort. 
 * **Buildtime**: u kunt een pakket installeren in uw app in ontwikkeling. Deze optie is veelzijdiger. Naast dezelfde standaardpakketten kunt u code schrijven voor het aanpassen van de telemetrie of voor het verzenden van uw eigen telemetrie. U kunt specifieke activiteiten of gebeurtenissen vastleggen volgens de semantiek van uw app-domein. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Runtime-instrumentatiesleutel met Application Insights
@@ -42,14 +42,27 @@ Als u al een appservice in Azure uitvoert, u al sprake van enige controle: tarie
 
     ![Uw web-app instrumenteren](./media/azure-web-apps/create-resource.png)
 
-2. Na het op te geven welke resource moet worden gebruikt, kunt u kiezen hoe application insights voor het verzamelen van gegevens per platform voor uw toepassing.
+2. Na het op te geven welke resource moet worden gebruikt, kunt u kiezen hoe application insights voor het verzamelen van gegevens per platform voor uw toepassing. (Op standaard ASP.NET-app-controle is met twee verschillende niveaus van de verzameling.)
 
-    ![Kies opties per platform](./media/azure-web-apps/choose-options.png)
+    ![Kies opties per platform](./media/azure-web-apps/choose-options-new.png)
+
+    * .NET **basic verzameling** niveau essentiële single instance APM mogelijkheden biedt.
+    
+    * .NET **verzameling aanbevolen** niveau:
+        * Voegt de CPU, geheugen en i/o trends in gebruik.
+        * Correleert microservices grenzen van de aanvraag/afhankelijkheid.
+        * Trends in gebruik worden verzameld, en kunt correlatie van resultaten van beschikbaarheid voor transacties.
+        * Verzamelt de uitzonderingen die niet is verwerkt door het hostproces.
+        * Verbetert de nauwkeurigheid van de APM-metrische gegevens onder belasting, wanneer steekproeven wordt gebruikt.
+    
+    .NET core biedt **verzameling aanbevolen** of is uitgeschakeld voor .NET Core 2.0 en 2.1.
 
 3. **Instrumenteer uw appservice** nadat Application Insights is geïnstalleerd.
 
-   **Schakel bewaking aan clientzijde in** voor paginaweergave- en gebruikerstelemetrie.
+   **Bewaking aan clientzijde inschakelen** voor pagina- en gebruikerstelemetrie.
 
+    (Dit is standaard ingeschakeld voor .NET Core-apps met **verzameling aanbevolen**, ongeacht of de app-instelling 'APPINSIGHTS_JAVASCRIPT_ENABLED' aanwezig is. Gedetailleerde gebruikersinterface op basis van ondersteuning voor het uitschakelen van de bewaking aan clientzijde is momenteel niet beschikbaar voor .NET Core.)
+    
    * Selecteer Instellingen > Toepassingsinstellingen
    * Voeg een nieuw sleutelwaardepaar toe bij App-instellingen:
 
@@ -57,6 +70,7 @@ Als u al een appservice in Azure uitvoert, u al sprake van enige controle: tarie
 
     Waarde:`true`
    * Sla de instellingen op met **Opslaan** en start de app opnieuw met **Opnieuw opstarten**.
+
 4. Controle van uw app-gegevens verkennen door te selecteren **instellingen** > **Application Insights** > **meer in Application Insights weergeven**.
 
 Desgewenst kunt u de app later bouwen met Application Insights.
@@ -78,23 +92,19 @@ Application Insights kan gedetailleerdere telemetrie verstrekken door een SDK in
 
     De bewerking zorgt voor twee effecten:
 
-   1. Maakt een Application Insights-resource in Azure, waarbij telemetrie wordt opgeslagen, geanalyseerd en weergegeven.
+   1. Een Application Insights-resource maakt in Azure, waarbij telemetrie is opgeslagen, geanalyseerd en weergegeven.
    2. Voegt het pakket Application Insights NuGet toe aan uw code (als die er nog niet is) en configureert deze zodanig dat telemetrie wordt verzonden naar de Azure-resource.
 2. **Test de telemetrie** door de app uit te voeren op uw ontwikkelcomputer (F5).
 3. **Publiceer de app** naar Azure op de gebruikelijke manier. 
 
 *Hoe schakel ik over om naar een andere Application Insights-resource te verzenden?*
 
-* Klik in Visual Studio met de rechtermuisknop op het project, kies **Application Insights configureren** en kies de gewenste resource. U krijgt de mogelijkheid om een nieuwe resource te maken. Opnieuw maken en implementeren
+* In Visual Studio met de rechtermuisknop op het project, kies **Application Insights configureren**, en kies de gewenste resource. U krijgt de mogelijkheid om een nieuwe resource te maken. Opnieuw maken en implementeren
 
 ## <a name="more-telemetry"></a>Meer telemetrie
 
 * [Gegevens voor laden van webpagina](../../azure-monitor/app/javascript.md)
 * [Aangepaste telemetrie](../../azure-monitor/app/api-custom-events-metrics.md)
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
@@ -102,10 +112,19 @@ Application Insights kan gedetailleerdere telemetrie verstrekken door een SDK in
 
 Inschakelen van Javascript via App Services kan leiden tot html-antwoorden worden afgekapt.
 
-- Tijdelijke oplossing 1: de toepassingsinstelling APPINSIGHTS_JAVASCRIPT_ENABLED ingesteld op false of volledig verwijderen en opnieuw opstarten
-- Tijdelijke oplossing 2: sdk doorgegeven via programmacode toevoegen en verwijderen van extensie (Profiler en Snapshot debugger wordt niet met deze configuratie)
+* Tijdelijke oplossing 1: de toepassingsinstelling APPINSIGHTS_JAVASCRIPT_ENABLED ingesteld op false of volledig verwijderen en opnieuw opstarten
+* Tijdelijke oplossing 2: sdk doorgegeven via programmacode toevoegen en verwijderen van extensie (Profiler en Snapshot debugger wordt niet met deze configuratie)
 
 We volgen dit probleem [hier](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+
+Voor .NET Core zijn de volgende momenteel **niet ondersteund**:
+
+* Onafhankelijke implementatie.
+* Apps die zijn gericht op het .NET Framework.
+* 2.2 voor .NET core-toepassingen.
+
+> [!NOTE]
+> .NET core 2.0 en .NET Core 2.1 worden ondersteund. In dit artikel wordt bijgewerkt wanneer 2.2 voor .NET Core-ondersteuning wordt toegevoegd.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voer de profiler uit in uw live app](../../azure-monitor/app/profiler.md).

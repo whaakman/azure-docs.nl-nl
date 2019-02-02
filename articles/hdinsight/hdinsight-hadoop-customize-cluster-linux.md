@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 20894a74bf0cc3911272385721da74871df95ade
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913216"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662904"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>HDInsight op basis van Linux-clusters aanpassen met behulp van scriptacties
 
@@ -182,7 +182,7 @@ Deze sectie wordt uitgelegd dat de verschillende manieren waarop u kunt scriptac
 
     De volgende tabel beschrijft de elementen in het formulier:
 
-    | Eigenschap | Waarde |
+    | Eigenschap | Value |
     | --- | --- |
     | Een script selecteren | Selecteer voor het gebruik van uw eigen script __aangepaste__. Anders selecteert u een van de geleverde scripts. |
     | Name |Geef een naam voor de scriptactie. |
@@ -224,7 +224,7 @@ Meer informatie over het implementeren van een sjabloon ophalen:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Een scriptactie tijdens het maken van Azure PowerShell gebruiken
 
-In deze sectie maakt u de [toevoegen AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet voor het aanroepen van scripts voor het aanpassen van een cluster. Voordat u begint, controleert u installeert en configureert u Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation voor het uitvoeren van HDInsight PowerShell-cmdlets [overzicht van Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+In deze sectie maakt u de [toevoegen AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet voor het aanroepen van scripts voor het aanpassen van een cluster. Voordat u begint, controleert u installeert en configureert u Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation voor het uitvoeren van HDInsight PowerShell-cmdlets [overzicht van Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 Het volgende script toont hoe u een scriptactie toepassen wanneer u een cluster maken met behulp van PowerShell:
 
@@ -262,7 +262,7 @@ Ga naar de [Azure-portal](https://portal.azure.com):
 
     De volgende tabel beschrijft de elementen in het formulier:
 
-    | Eigenschap | Waarde |
+    | Eigenschap | Value |
     | --- | --- |
     | Een script selecteren | Selecteer voor het gebruik van uw eigen script __aangepaste__. Selecteer anders een opgegeven script. |
     | Name |Geef een naam voor de scriptactie. |
@@ -276,7 +276,7 @@ Ga naar de [Azure-portal](https://portal.azure.com):
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Een scriptactie toepassen op een actief cluster van Azure PowerShell
 
-Voordat u begint, controleert u installeert en configureert u Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation voor het uitvoeren van HDInsight PowerShell-cmdlets [overzicht van Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Voordat u begint, controleert u installeert en configureert u Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation voor het uitvoeren van HDInsight PowerShell-cmdlets [overzicht van Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 Het volgende voorbeeld laat zien hoe een scriptactie toepassen op een actief cluster:
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229248"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567839"
 ---
-# <a name="how-traffic-manager-works"></a>Hoe Traffic Manager werkt
+# <a name="how-traffic-manager-works"></a>How Traffic Manager Works
 
 Met Azure Traffic Manager kunt u voor het beheren van de distributie van verkeer tussen de toepassingseindpunten van uw. Een eindpunt is een internetgerichte service die binnen of buiten Azure wordt gehost.
 
@@ -47,7 +47,7 @@ Voor het bereiken van deze configuratie, uitvoeren ze de volgende stappen:
 ![Traffic Manager-DNS-configuratie][1]
 
 > [!NOTE]
-> Wanneer u een aangepast domein met Azure Traffic Manager, moet u een CNAME uw aangepaste domeinnaam verwijzen naar de naam van uw Traffic Manager-domein. DNS-standaarden staan niet toe dat u een CNAME in de 'top' (of basiscertificaat) van een domein maken. U kunt geen dus een CNAME voor 'contoso.com' (ook wel een domein 'zonder voorvoegsel zijn' genoemd) maken. U kunt alleen een CNAME voor een domein 'contoso.com', zoals 'www.contoso.com' maken. U kunt deze beperking omzeilen, wordt u aangeraden een eenvoudige HTTP-omleiding op direct aanvragen voor 'contoso.com' naar een alternatieve naam, zoals 'www.contoso.com'.
+> Wanneer u een aangepast domein met Azure Traffic Manager, moet u een CNAME uw aangepaste domeinnaam verwijzen naar de naam van uw Traffic Manager-domein. DNS-standaarden staan niet toe dat u een CNAME in de 'top' (of basiscertificaat) van een domein maken. U kunt geen dus een CNAME voor 'contoso.com' (ook wel een domein 'zonder voorvoegsel zijn' genoemd) maken. U kunt alleen een CNAME voor een domein 'contoso.com', zoals 'www.contoso.com' maken. U kunt deze beperking omzeilen, wordt aangeraden uw DNS-domein hosten op [Azure DNS](../dns/dns-overview.md) en het gebruik van [aliasrecords](../dns/tutorial-alias-tm.md) om te verwijzen naar uw traffic manager-profiel. U kunt ook kunt u een eenvoudige HTTP-omleiding op direct aanvragen voor 'contoso.com' naar een alternatieve naam, zoals 'www.contoso.com'.
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Hoe clients verbinding maken met behulp van Traffic Manager
 

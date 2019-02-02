@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/20/2018
+ms.openlocfilehash: d9e1eee9ab45e9f3a74f296e555c8f91802f36ab
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723889"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563181"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Problemen oplossen met SQL Data Sync
 
@@ -26,7 +26,7 @@ In dit artikel wordt beschreven hoe u bekende problemen oplossen met Azure SQL D
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
 > [!IMPORTANT]
-> Azure SQL Data Sync is **niet** ondersteuning voor Azure SQL Database Managed Instance op dit moment.
+> Azure SQL Data Sync biedt op dit moment **geen** ondersteuning voor beheerde exemplaren voor Azure SQL Database.
 
 ## <a name="sync-issues"></a>Problemen met synchronisatie
 
@@ -60,14 +60,14 @@ Een van de volgende voorwaarden kan leiden tot een groep voor synchronisatie wor
 
 - **Oorzaak**. De clientagent is offline
 
-- **Resolutie**. Zorg ervoor dat de clientagent voor online is en probeer het opnieuw.
+- **Resolutie**. Zorg ervoor dat de clientagent online is en probeer het vervolgens opnieuw.
 
-- **Oorzaak**. De clientagent is geïnstalleerd of ontbreekt.
+- **Oorzaak**. De clientagent is verwijderd of ontbreekt.
 
-- **Resolutie**. Als de clientagent is verwijderd of anderszins ontbreekt:
+- **Resolutie**. Als de clientagent is verwijderd of om een andere reden ontbreekt:
 
-    1. Als het bestand bestaat, moet u de agent XML-bestand verwijderen uit de installatiemap van SQL Data Sync.
-    1. Installeer de agent op de lokale computer (het kan zijn hetzelfde of een andere computer). Vervolgens, verzendt de agentsleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.
+    1. Verwijder het XML-bestand voor de agent uit de SQL Data Sync-installatiemap, als dit bestand bestaat.
+    1. Installeer de agent op een on-premises computer. (Dit kan dezelfde computer zijn of een andere.) Verzend vervolgens de agentsleutel die in de portal is gegenereerd voor de agent die offline is.
 
 - **Oorzaak**. De SQL Data Sync-service is gestopt.
 
@@ -152,11 +152,11 @@ Uw poging om een synchronisatiegroep verwijderen is mislukt. Een van de volgende
 
 - **Resolutie**. Zorg ervoor dat de clientagent voor online is en probeer het opnieuw.
 
-- **Oorzaak**. De clientagent is geïnstalleerd of ontbreekt.
+- **Oorzaak**. De clientagent is verwijderd of ontbreekt.
 
-- **Resolutie**. Als de clientagent is verwijderd of anderszins ontbreekt:  
-    a. Als het bestand bestaat, moet u de agent XML-bestand verwijderen uit de installatiemap van SQL Data Sync.  
-    b. Installeer de agent op de lokale computer (het kan zijn hetzelfde of een andere computer). Vervolgens, verzendt de agentsleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.
+- **Resolutie**. Als de clientagent is verwijderd of om een andere reden ontbreekt:  
+    a. Verwijder het XML-bestand voor de agent uit de SQL Data Sync-installatiemap, als dit bestand bestaat.  
+    b. Installeer de agent op een on-premises computer. (Dit kan dezelfde computer zijn of een andere.) Verzend vervolgens de agentsleutel die in de portal is gegenereerd voor de agent die offline is.
 
 - **Oorzaak**. Een database is offline.
 
@@ -231,8 +231,8 @@ U kunt een synchronisatiegroep niet verwijderen binnen drie minuten na het verwi
   1. Een synchronisatiegroep verwijderen terwijl de bijbehorende synchronisatieagents online zijn (aanbevolen).
   1. Als de agent offline is, maar is geïnstalleerd, breng online op de lokale computer. Wacht totdat de status van de agent moet worden weergegeven als **Online** in de portal voor SQL Data Sync. Verwijder vervolgens de groep voor synchronisatie.
   1. Als de agent offline is, omdat deze is verwijderd:  
-    a.  Als het bestand bestaat, moet u de agent XML-bestand verwijderen uit de installatiemap van SQL Data Sync.  
-    b.  Installeer de agent op de lokale computer (het kan zijn hetzelfde of een andere computer). Vervolgens, verzendt de agentsleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.  
+    a.  Verwijder het XML-bestand voor de agent uit de SQL Data Sync-installatiemap, als dit bestand bestaat.  
+    b.  Installeer de agent op een on-premises computer. (Dit kan dezelfde computer zijn of een andere.) Verzend vervolgens de agentsleutel die in de portal is gegenereerd voor de agent die offline is.  
     c. Probeer te verwijderen van de groep voor synchronisatie.
 
 ### <a name="setup-restore"></a> Wat gebeurt er wanneer ik een verloren of beschadigd-database herstellen?
@@ -244,7 +244,7 @@ Zie voor meer informatie over SQL Data Sync:
 
 -   Overzicht: [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md)
 -   Data Sync instellen
-    - In de portal - [zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
+    - In de portal - [Zelfstudie: SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
     - Met PowerShell
         -  [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)

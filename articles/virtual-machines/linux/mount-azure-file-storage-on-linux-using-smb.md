@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: ee56f77ef6ed3c759573a5a96d854c54f297b2ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77b7e6aef4d0d38fa3ea9f9b9a740ffc25aff7f9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462355"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660014"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure File storage koppelen op virtuele Linux-machines met behulp van SMB
 
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 Wanneer u een opslagaccount maakt, worden de accountsleutels in paren gemaakt zodat ze zonder enige serviceonderbreking kunnen worden gedraaid. Wanneer u naar de tweede sleutel in het paar overschakelt, maakt u een nieuw sleutelpaar. Nieuwe storage-accountsleutels worden altijd aangemaakt in paren, zodat u altijd ten minste één niet-gebruikte opslagaccountsleutel gereed om te maken.
 
-Weergeven met behulp van sleutels voor de opslagaccount [az storage account sleutels lijst](/cli/azure/storage/account/keys#list). In dit voorbeeld wordt de waarde van sleutel 1 in de **STORAGEKEY** variabele.
+Weergeven met behulp van sleutels voor de opslagaccount [az storage account sleutels lijst](/cli/azure/storage/account/keys). In dit voorbeeld wordt de waarde van sleutel 1 in de **STORAGEKEY** variabele.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \

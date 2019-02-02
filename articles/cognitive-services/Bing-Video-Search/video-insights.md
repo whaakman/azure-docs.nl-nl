@@ -1,27 +1,25 @@
 ---
-title: Inzichten in video's - zoeken in Bing Video ophalen
+title: Verkrijgen van inzichten in video's met behulp van de Video zoeken-API voor Bing
 titlesuffix: Azure Cognitive Services
-description: Ziet u hoe u de Video zoeken-API van Bing voor meer informatie over een video.
+description: Informatie over het gebruik van de Bing webzoekopdrachten-API voor Video voor meer informatie over video's, zoals gerelateerde video's.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9c36208a35d66fcd6df6ac2ccd4a28c55ed92937
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5abc5ee96c503bed9509e3d35b442ea5e0330ac7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170775"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568206"
 ---
 # <a name="get-insights-about-a-video"></a>Inzicht verkijgen in een video
 
-Elke video bevat een video-ID die u gebruiken kunt voor meer informatie over de video, zoals gerelateerde video's.  
-  
-Vastleggen om inzichten te verkrijgen over een video, de [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token in het antwoord. 
+Elke video die wordt geretourneerd door de Bing Video zoeken-API bevat een video-ID die u gebruiken kunt voor meer informatie over het, zoals gerelateerde video's. Om inzichten te verkrijgen over een video, krijgen de [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token in de API-reactie. 
 
 ```json
     "value" : [
@@ -36,9 +34,9 @@ Vastleggen om inzichten te verkrijgen over een video, de [videoId](https://docs.
     ],
 ```
 
-Vervolgens de volgende GET-aanvraag verzenden naar het eindpunt van de Details van de Video. Stel de [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) queryparameter naar de `videoId` token. Als de inzichten die u wilt opgeven, stelt de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) queryparameter. Alle om inzichten te verkrijgen, stellen `modules` op alle. Het antwoord bevat alle inzichten die u hebt aangevraagd, indien beschikbaar.
+Daarna wordt een GET-aanvraag verzenden naar het eindpunt van de Video details met de ID. Stel de [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) queryparameter naar de `videoId` token. Als de inzichten die u wilt opgeven, stelt de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) queryparameter. Alle om inzichten te verkrijgen, stellen `modules` op alle. Het antwoord bevat de inzichten die u hebt aangevraagd, indien beschikbaar.
 
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -50,9 +48,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>Gerelateerde video's inzichten krijgen  
 
-Als u video's die zijn gerelateerd aan de opgegeven video, stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) parameter RelatedVideos query.
+Als u video's die zijn gerelateerd aan de opgegeven video, stel de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) parameter query `RelatedVideos`.
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -61,10 +59,10 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
+
+Het antwoord op deze aanvraag heeft een het hoogste niveau [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) object in plaats van een [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) object.  
   
-Hier volgt het antwoord op de vorige aanvraag. Het object op het hoogste niveau is een [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) object in plaats van een [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) object.  
-  
-```  
+```json
 {
     "_type" : "Api.VideoDetails.VideoDetails",
     "relatedVideos" : {
@@ -95,3 +93,9 @@ Hier volgt het antwoord op de vorige aanvraag. Het object op het hoogste niveau 
     }
 }
 ```
+
+## <a name="next-steps"></a>Volgende stappen
+
+> [!div class="nextstepaction"]
+> [Zoeken naar trending video 's](trending-videos.md)
+

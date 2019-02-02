@@ -11,25 +11,25 @@ author: bonova
 ms.author: bonova
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: cf5035d4dd1c58baff66bd5edbdac42c08d6baab
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/19/2018
+ms.openlocfilehash: 3ceb8569d952f2947870ce7314f869623b2d87f9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600169"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562943"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Besturingssysteem van de Query Store in Azure SQL-Database
+
 Query Store in Azure is een volledig beheerde database-functie die voortdurend worden verzameld en geeft gedetailleerde historische informatie over alle query's. U kunt zien over de Query Store vergelijken met van een vliegtuig flight data recorder die aanzienlijk eenvoudiger queryprestaties probleemoplossing voor cloud en on-premises-klanten. In dit artikel wordt uitgelegd dat specifieke aspecten van het besturingssysteem van de Query Store in Azure. Met deze vooraf verzamelde querygegevens, kunt u snel vaststellen en dus houd meer tijd te focussen op hun bedrijf en oplossen van problemen met prestaties. 
 
 Query Store is [wereldwijd beschikbaar](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database sinds November 2015. Query Store vormt de basis voor de analyse van prestaties en afstemmen van functies, zoals [SQL Database Advisor en Prestatiedashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Op het moment van publicatie van dit artikel wordt wordt Query Store uitgevoerd in meer dan 200.000 gebruikersdatabases in Azure, verzamelen van informatie met betrekking tot query voor enkele maanden, zonder onderbreking.
 
 > [!IMPORTANT]
 > Microsoft wordt momenteel Query Store activeren voor alle Azure SQL-databases (bestaande en nieuwe). 
-> 
-> 
 
 ## <a name="optimal-query-store-configuration"></a>Configuratie van de optimale Query Store
+
 Deze sectie wordt beschreven optimale standaardconfiguratie-instellingen die zijn ontworpen om ervoor te zorgen betrouwbare werking van de Query Store en afhankelijke onderdelen, zoals [SQL Database Advisor en Prestatiedashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Standaard-configuratie is geoptimaliseerd voor continu gegevens te verzamelen, die weinig tijd besteed in OFF/READ_ONLY Staten.
 
 | Configuratie | Description | Standaard | Opmerking |
@@ -44,19 +44,17 @@ Deze sectie wordt beschreven optimale standaardconfiguratie-instellingen die zij
 
 > [!IMPORTANT]
 > Deze standaardinstellingen worden automatisch toegepast in de laatste fase van de activering van de Query Store in alle Azure SQL-databases (Zie voorgaande belangrijke opmerking). Na deze licht van, wordt niet op Azure SQL Database,-configuratiewaarden die zijn ingesteld door klanten, tenzij ze een negatieve invloed zijn op primaire werkbelasting of betrouwbare bewerkingen van de Query Store worden gewijzigd.
-> 
-> 
 
 Als u blijven met uw aangepaste instellingen wilt, gebruikt u [ALTER DATABASE met opties voor Query Store](https://msdn.microsoft.com/library/bb522682.aspx) om terug te zetten van de configuratie van de vorige status. Bekijk [Best Practices met de Query Store](https://msdn.microsoft.com/library/mt604821.aspx) om te leren hoe boven gekozen optimale configuratieparameters.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 [SQL Database Performance Insight](sql-database-performance.md)
 
 ## <a name="additional-resources"></a>Aanvullende resources
+
 Meer informatie Bekijk voor de volgende artikelen:
 
-* [Een flight data recorder voor uw database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
-* [Prestaties controleren via de Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-* [Query Store-gebruiksscenario's](https://msdn.microsoft.com/library/mt614796.aspx)
- 
-
+- [Een flight data recorder voor uw database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
+- [Prestaties controleren via de Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Query Store-gebruiksscenario's](https://msdn.microsoft.com/library/mt614796.aspx)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236927"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661085"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Verifiëren en autoriseren met Power BI-Werkruimteverzamelingen
 
@@ -38,15 +38,15 @@ App-tokens zijn een JWT (JSON Web Token) die is ondertekend door een van uw sleu
 
 Uw app-token kan de volgende claims bevatten:
 
-| Claim | Beschrijving |    
+| Claim | Description |    
 | --- | --- |
 | **ver** |De versie van het app-token. 0.2.0 is de huidige versie. |
-| **AUD** |De beoogde ontvanger van het token. Voor Power BI Workspace Collections gebruiken: *https:\//analysis.windows.net/powerbi/api*. |
-| **ISS** |Een tekenreeks die aangeeft van de toepassing die het token is uitgegeven. |
+| **aud** |De beoogde ontvanger van het token. Voor Power BI Workspace Collections gebruiken: *https:\//analysis.windows.net/powerbi/api*. |
+| **iss** |Een tekenreeks die aangeeft van de toepassing die het token is uitgegeven. |
 | **type** |Het type van de app-token dat wordt gemaakt. Huidige aantal is het enige ondersteunde type **insluiten**. |
-| **draadloze** |Naam van werkruimteverzameling het token wordt uitgegeven. |
-| **WID** |Werkruimte-ID het token wordt uitgegeven. |
-| **verwijderen** |Rapport-ID van het token wordt uitgegeven. |
+| **wcn** |Naam van werkruimteverzameling het token wordt uitgegeven. |
+| **wid** |Werkruimte-ID het token wordt uitgegeven. |
+| **rid** |Rapport-ID van het token wordt uitgegeven. |
 | **gebruikersnaam** (optioneel) |Beveiliging op rijniveau gebruikt, de gebruikersnaam is een tekenreeks die kan helpen bij het identificeren van de gebruiker bij het toepassen van RLS-regels. |
 | **rollen** (optioneel) |Een tekenreeks met de rollen selecteren bij het toepassen van beveiliging op rijniveau regels. Als meer dan één rol wordt doorgegeven, moeten ze worden doorgegeven als een String-matrix. |
 | **SCP** (optioneel) |Een tekenreeks met de machtigingen bereiken. Als meer dan één rol wordt doorgegeven, moeten ze worden doorgegeven als een String-matrix. |
@@ -84,7 +84,7 @@ Body
 
 ```
 
-Er zijn methoden beschikbaar zijn in de SDK's die het maken van app-tokens te vereenvoudigen. Bijvoorbeeld, voor .NET kunt u bekijken de [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) klasse en de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methoden.
+Er zijn methoden beschikbaar zijn in de SDK's die het maken van app-tokens te vereenvoudigen. Bijvoorbeeld, voor .NET kunt u bekijken de [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) klasse en de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) methoden.
 
 Voor de .NET SDK, kunt u verwijzen naar [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -94,7 +94,7 @@ Wanneer u insluittokens gebruikt, kunt u slechts beperkt gebruik van de resource
 
 Hieronder vindt u de beschikbare bereiken voor Power BI Workspace Collections.
 
-|Bereik|Beschrijving|
+|Bereik|Description|
 |---|---|
 |Dataset.Read|Machtiging voor het lezen van de opgegeven gegevensset bevat.|
 |Dataset.Write|Machtigingen voor schrijven naar de opgegeven gegevensset bevat.|
@@ -176,7 +176,7 @@ Na **Power BI Workspace Collections** verzendt een rapport voor de gebruiker, de
 
 ## <a name="see-also"></a>Zie ook
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Aan de slag met Microsoft Power BI Workspace Collections-voorbeeld](get-started-sample.md)  
 [Algemene scenario's voor Microsoft Power BI-Werkruimteverzamelingen](scenarios.md)  
 [Aan de slag met Microsoft Power BI-Werkruimteverzamelingen](get-started.md)  

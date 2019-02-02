@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5088d1d4f5b80e4de3dca1d8d41ee48feea12a46
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b245a80967d91b793fcf360772c0dec758f8f252
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019738"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566056"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Gegevens kopiëren van Hive met Azure Data Factory 
 
@@ -45,8 +45,8 @@ De volgende eigenschappen worden ondersteund voor Hive gekoppelde service:
 | host | IP-adres of de hostnaam de naam van de Hive-server, gescheiden door ';' voor meerdere hosts (alleen bij serviceDiscoveryMode inschakelen is).  | Ja |
 | poort | De TCP-poort die gebruikmaakt van de Hive-server om te luisteren naar clientverbindingen. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Ja |
 | serverType | Het type van Hive-server. <br/>Toegestane waarden zijn: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nee |
-| thriftTransportProtocol | Het te gebruiken in de laag Thrift-transportprotocol. <br/>Toegestane waarden zijn: **Binaire**, **SASL**, **HTTP** | Nee |
-| authenticationType | De verificatiemethode die wordt gebruikt voor toegang tot de Hive-server. <br/>Toegestane waarden zijn: **Anonieme**, **gebruikersnaam**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| thriftTransportProtocol | Het te gebruiken in de laag Thrift-transportprotocol. <br/>Toegestane waarden zijn: **Binary**, **SASL**, **HTTP** | Nee |
+| authenticationType | De verificatiemethode die wordt gebruikt voor toegang tot de Hive-server. <br/>Toegestane waarden zijn: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | serviceDiscoveryMode | True om aan te geven met de ZooKeeper-service, ONWAAR niet.  | Nee |
 | zooKeeperNameSpace | De naamruimte op ZooKeeper onder welke Hive Server 2 knooppunten worden toegevoegd.  | Nee |
 | useNativeQuery | Geeft aan of het stuurprogramma maakt gebruik van systeemeigen HiveQL-query's, of deze naar een equivalente formulier in HiveQL converteert.  | Nee |
@@ -73,8 +73,8 @@ De volgende eigenschappen worden ondersteund voor Hive gekoppelde service:
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         }
     }

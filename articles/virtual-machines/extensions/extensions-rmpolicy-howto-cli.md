@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5054fdc08c7a0a1b3833ed95784f6018ac5c697e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451200"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659249"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy gebruiken voor het beperken van de installatie van de extensies op virtuele Linux-machines
 
@@ -115,7 +115,7 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Het beleid toewijzen
 
-In dit voorbeeld wordt het beleid voor toegewezen aan een resource-groep met [az beleidstoewijzing te maken](/cli/azure/policy/assignment#az_policy_assignment_create). Een virtuele machine hebt gemaakt in de **myResourceGroup** resourcegroep niet mogelijk de Linux-VM-toegang of de Custom Script-extensies voor Linux installeren. De resourcegroep moet bestaan voordat u het beleid kunt toewijzen.
+In dit voorbeeld wordt het beleid voor toegewezen aan een resource-groep met [az beleidstoewijzing te maken](/cli/azure/policy/assignment). Een virtuele machine hebt gemaakt in de **myResourceGroup** resourcegroep niet mogelijk de Linux-VM-toegang of de Custom Script-extensies voor Linux installeren. De resourcegroep moet bestaan voordat u het beleid kunt toewijzen.
 
 Gebruik [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) om op te halen van uw abonnements-ID in plaats van het certificaat in het voorbeeld.
 

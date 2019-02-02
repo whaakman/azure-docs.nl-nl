@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091343"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562183"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Eventhubs - Geo-noodherstel 
 
@@ -41,13 +41,13 @@ De functie van het herstel na noodgevallen noodherstel metagegevens geïmplement
 
 De volgende termen worden gebruikt in dit artikel:
 
--  *Alias*: de naam van een configuratie die u hebt ingesteld. De alias bevat een enkele stabiel volledig FULLY Qualified Domain Name ()-verbindingsreeks. Deze verbindingsreeks alias toepassingen gebruiken voor verbinding met een naamruimte. 
+-  *Alias*: De naam van een configuratie die u hebt ingesteld. De alias bevat een enkele stabiel volledig FULLY Qualified Domain Name ()-verbindingsreeks. Deze verbindingsreeks alias toepassingen gebruiken voor verbinding met een naamruimte. 
 
--  *Primaire/secundaire naamruimte*: de naamruimten die met de alias overeenkomen. De primaire naamruimte ' actief ' en ontvangt berichten (dit kan een bestaande of nieuwe naamruimte zijn). De secundaire naamruimte is 'passieve' en ontvangt geen berichten. De metagegevens tussen beide is synchroon, zodat beide berichten zonder toepassing code of connection string wijzigingen aan te kunnen naadloos worden geaccepteerd. Om ervoor te zorgen dat alleen de actieve naamruimte berichten ontvangt, moet u de alias. 
+-  *Primaire/secundaire naamruimte*: De naamruimten die met de alias overeenkomen. De primaire naamruimte ' actief ' en ontvangt berichten (dit kan een bestaande of nieuwe naamruimte zijn). De secundaire naamruimte is 'passieve' en ontvangt geen berichten. De metagegevens tussen beide is synchroon, zodat beide berichten zonder toepassing code of connection string wijzigingen aan te kunnen naadloos worden geaccepteerd. Om ervoor te zorgen dat alleen de actieve naamruimte berichten ontvangt, moet u de alias. 
 
--  *Metagegevens*: entiteiten zoals eventhubs en consumentengroepen; en hun eigenschappen van de service die gekoppeld aan de naamruimte zijn. Houd er rekening mee dat alleen de entiteiten en de bijbehorende instellingen automatisch worden gerepliceerd. Berichten en gebeurtenissen worden niet gerepliceerd. 
+-  *Metadata*: Entiteiten zoals eventhubs en consumentengroepen; en de bijbehorende eigenschappen van de service die gekoppeld aan de naamruimte zijn. Houd er rekening mee dat alleen de entiteiten en de bijbehorende instellingen automatisch worden gerepliceerd. Berichten en gebeurtenissen worden niet gerepliceerd. 
 
--  *Failover*: het proces van het activeren van de secundaire naamruimte.
+-  *Failover*: Het proces van het activeren van de secundaire naamruimte.
 
 ## <a name="setup-and-failover-flow"></a>Installatie en failover-stroom
 
@@ -102,12 +102,12 @@ Houd rekening met de volgende punten moet rekening houden met deze release:
 
 4. Synchroniseren van entiteiten kan enige tijd duren, ongeveer 50-100 entiteiten per minuut.
 
-## <a name="availability-zones-preview"></a>Beschikbaarheidszones (preview)
+## <a name="availability-zones"></a>Beschikbaarheidszones 
 
-De Event Hubs standaard-SKU biedt ook ondersteuning voor [Beschikbaarheidszones](../availability-zones/az-overview.md), bieden foutgeïsoleerde locaties binnen een Azure-regio. 
+Biedt ondersteuning voor de Event Hubs standaard-SKU [Beschikbaarheidszones](../availability-zones/az-overview.md), bieden foutgeïsoleerde locaties binnen een Azure-regio. 
 
 > [!NOTE]
-> De preview van Beschikbaarheidszones wordt alleen ondersteund in de **VS-midden**, **VS-Oost 2**, en **Frankrijk-centraal** regio's.
+> De ondersteuning voor Beschikbaarheidszones voor Azure Event Hubs standaard is alleen beschikbaar in [Azure-regio's](../availability-zones/az-overview.md#regions-that-support-availability-zones) waar beschikbaarheidszones aanwezig zijn.
 
 U kunt Beschikbaarheidszones inschakelen op nieuwe naamruimten, met behulp van de Azure portal. Eventhubs biedt geen ondersteuning voor migratie van bestaande naamruimten. U kunt zoneredundantie niet uitschakelen nadat deze is ingeschakeld op uw naamruimte.
 

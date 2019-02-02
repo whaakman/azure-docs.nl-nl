@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 44797227c0bff745575318fcb5c19cb187862ac0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 01/07/2019
+ms.openlocfilehash: 8f88579a5fcdb96622a32c5b55bf8fee744d916e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299398"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567176"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Langetermijnretentie voor Azure SQL Database beheren
 
@@ -27,6 +27,7 @@ In Azure SQL Database, kunt u één of een gegroepeerde database met een [langet
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) ondersteunt geen langetermijnretentie van back-up.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>De Azure portal gebruiken om te configureren op de lange termijn voor het bewaren en herstellen van back-ups
+
 De volgende secties laten zien hoe u de Azure portal gebruiken voor het configureren van de langetermijnretentie, back-ups langetermijnretentie weergeven en back-up herstellen vanuit een langetermijnretentie.
 
 ### <a name="configure-long-term-retention-policies"></a>Op de lange termijn bewaarbeleid configureren

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817819"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566149"
 ---
 # <a name="registration-management"></a>Registratiebeheer
 
@@ -33,7 +33,7 @@ Device Registration service met een Notification Hub wordt gerealiseerd met behu
 
 ### <a name="registrations"></a>Registraties
 
-Een registratie wordt gekoppeld aan de ingang Platform Notification Service (PNS) voor een apparaat met tags en mogelijk een sjabloon. De PNS-ingang is mogelijk een kanaal-URI, apparaattoken of GCM-registratie-id. Labels worden gebruikt voor het routeren van meldingen naar de juiste set apparaat verwerkt. Zie voor meer informatie, [Routering en code-expressies](notification-hubs-tags-segment-push-message.md). Sjablonen worden voor het implementeren van per-registratie-transformatie gebruikt. Zie [Sjablonen](notification-hubs-templates-cross-platform-push-messages.md) voor meer informatie.
+Een registratie wordt gekoppeld aan de ingang Platform Notification Service (PNS) voor een apparaat met tags en mogelijk een sjabloon. De PNS-ingang is mogelijk een kanaal-URI, apparaattoken of FCM registratie-id. Labels worden gebruikt voor het routeren van meldingen naar de juiste set apparaat verwerkt. Zie voor meer informatie, [Routering en code-expressies](notification-hubs-tags-segment-push-message.md). Sjablonen worden voor het implementeren van per-registratie-transformatie gebruikt. Zie [Sjablonen](notification-hubs-templates-cross-platform-push-messages.md) voor meer informatie.
 
 > [!NOTE]
 > Azure Notification Hubs ondersteunt maximaal 60 tags per registratie.
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

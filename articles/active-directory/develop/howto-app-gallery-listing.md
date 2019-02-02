@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 01/30/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f4caf0cde7225e2c93723f412c53259a5f5646a4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102031"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663278"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedure: Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -45,7 +45,7 @@ ms.locfileid: "55102031"
 
 - SSO-wachtwoord, zorg ervoor dat uw toepassing ondersteuning biedt voor formulierverificatie zodat wachtwoordkluis kan worden gedaan om op te halen van eenmalige aanmelding werken zoals verwacht.
 
-- Voor automatische inrichting van gebruikers aanvragen voor moet toepassing worden vermeld in de galerie met één functie aanmelding ingeschakeld met behulp van een van de federation-protocol die hierboven worden beschreven. U kunt aanvragen voor eenmalige aanmelding en gebruiker samen in de portal wordt ingericht als deze nog niet wordt weergegeven.
+- Voor automatische inrichting van gebruikers aanvragen voor moet toepassing worden vermeld in de galerie met eenmalige aanmelding ingeschakeld met behulp van SAML 2.0/WS-Federation. U kunt aanvragen voor eenmalige aanmelding en gebruiker samen in de portal wordt ingericht als deze nog niet wordt weergegeven.
 
 ## <a name="submit-the-request-in-the-portal"></a>Dien de aanvraag in de portal
 

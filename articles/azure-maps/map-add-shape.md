@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 583223ccfd30468c047fc77c3b6598ce7b0a1973
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214603"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658739"
 ---
 # <a name="add-a-shape-to-a-map"></a>Een vorm toevoegen aan een kaart
 
@@ -108,7 +108,7 @@ Het eerste vereiste blok van de bovenstaande code wordt een kaartobject. U kunt 
 
 Een punt is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van [wijst](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) de klasse. Het tweede codeblok initialiseert de radiuswaarde voor de schuifregelaar HTML-element en vervolgens en loopt van een point-object in een [vorm](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) klasse-object.
 
-Het derde codeblok maakt u een functie die wordt de waarde van het HTML-bereik schuifregelaar-element en wijzigt de radiuswaarde met behulp van de Shapeklasse [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#addproperty) methode.
+Het derde codeblok maakt u een functie die wordt de waarde van het HTML-bereik schuifregelaar-element en wijzigt de radiuswaarde met behulp van de Shapeklasse [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) methode.
 
 In het vierde blok van code, object voor een gegevensbron wordt gemaakt met behulp van de [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klasse. Het punt wordt vervolgens toegevoegd aan de gegevensbron.
 

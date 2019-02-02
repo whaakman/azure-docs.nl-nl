@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237848"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663411"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Problemen met uw Kubernetes-implementatie naar Azure Stack oplossen
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes in Azure Stack is in preview.
+> Kubernetes in Azure Stack is in preview. Azure Stack-niet-verbonden scenario wordt momenteel niet ondersteund door de Preview-versie.
 
 Het volgende artikel kijkt naar het oplossen van uw Kubernetes-cluster. U kunt de implementatie-waarschuwing bekijken en de status van uw implementatie controleren door de elementen die zijn vereist voor de implementatie. Mogelijk moet u de implementatielogboeken te verzamelen van Azure Stack of de Linux-VM's die als host fungeren voor Kubernetes. Mogelijk moet u ook samen met de beheerder van uw Azure Stack logboeken ophalen van een administratieve eindpunt.
 
@@ -110,7 +110,7 @@ Wanneer u uw Kubernetes-cluster implementeert, kunt u de status van de implement
 
 4.  Raadpleeg het venster voor het oplossen van problemen. Elke geïmplementeerde resources bevat de volgende informatie:
     
-    | Eigenschap | Beschrijving |
+    | Eigenschap | Description |
     | ----     | ----        |
     | Resource | De naam van de resource. |
     | Type | De resourceprovider en het type resource. |
@@ -152,7 +152,7 @@ Als u zich aanmeldt, moet u de volgende stappen uitvoeren:
     ```
 
 4. Controleer de parameters en stel de waarden op basis van uw omgeving.
-    | Parameter           | Beschrijving                                                                                                      | Voorbeeld                                                                       |
+    | Parameter           | Description                                                                                                      | Voorbeeld                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -i,-identiteits-bestand | De RSA bestand met persoonlijke sleutel om de Kubernetes hoofd-VM verbinding te maken. De sleutel moeten beginnen met `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
     | h-,--host          | Het openbare IP-adres of de volledig gekwalificeerde domeinnaam (FQDN) van de hoofd-VM's van de cluster in Kubernetes. De naam van de virtuele machine wordt gestart met `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |

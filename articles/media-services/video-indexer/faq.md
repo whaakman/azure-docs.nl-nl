@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402044"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567270"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -102,6 +102,10 @@ Uw video of audio-inhoud met openbare als de privacyinstelling zijn toegankelijk
 
 Per de [voorwaarden voor onlineservices Azure](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), volledig eigenaar van uw inhoud en Microsoft alleen toegang tot uw inhoud en de metagegevens en inzichten die Video Indexer uit uw inhoud op basis van het OST-bestand en de Microsoft ophaalt Privacyverklaring.
 
+### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Zijn de aangepaste modellen die ik bouw in mijn Video Indexer-account beschikbaar voor andere accounts?
+
+ Nee, de aangepaste modellen die u in uw account maakt zijn niet beschikbaar voor een ander account. Video Indexer op dit moment kunt u aangepaste [merken](customize-brands-model-overview.md), [taal](customize-language-model-overview.md), en [persoon](customize-person-model-overview.md) modellen in uw account. Deze modellen zijn alleen beschikbaar in het account waarin u de modellen hebt gemaakt.
+  
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>Is de inhoud geïndexeerd door Video Indexer binnen de Azure-regio waar ik Video Indexer gebruik gehouden?
 
 Ja, de inhoud en de inzichten worden bewaard in de Azure-regio, tenzij u een handmatige configuratie hebt in uw Azure-abonnement dat gebruikmaakt van meerdere Azure-regio's. 

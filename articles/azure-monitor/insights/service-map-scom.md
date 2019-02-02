@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 19e842fc3674536972327c3bc6d31641560e38db
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187208"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659181"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
-  > [!NOTE]
-  > Deze functie is beschikbaar voor openbare preview.
-  > 
-  
+
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Serviceoverzicht kunt u om de manier waarop u deze zien als onderling verbonden systemen die kritieke services verlenen voor de servers weer te geven. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur, zonder configuratie vereist naast de installatie van een agent. Zie voor meer informatie de [Serviceoverzicht documentatie]( service-map.md).
 
 Met deze integratie tussen Service Map- en System Center Operations Manager, kunt u automatisch diagrammen van de gedistribueerde toepassing maken in Operations Manager die zijn gebaseerd op de dynamische afhankelijkheid toewijzingen in Serviceoverzicht.
@@ -40,10 +37,10 @@ U kunt de integratie tussen Operations Manager en Service Map inschakelen door h
 * Microsoft Service Map-toepassing-weergaven
 * Microsoft System Center Service Map interne
 * Microsoft System Center Service kaart onderdrukkingen
-* Microsoft System Center-Serviceoverzicht
+* Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>De Serviceoverzicht-integratie configureren
-Nadat u het Serviceoverzicht management pack, een nieuw knooppunt **Serviceoverzicht**, wordt weergegeven onder **Operations Management Suite** in de **beheer** deelvenster. 
+Nadat u het Serviceoverzicht management pack, een nieuw knooppunt **Serviceoverzicht**, wordt weergegeven onder **Operations Management Suite** in de **beheer** deelvenster.
 
 >[!NOTE]
 >[Operations Management Suite is een verzameling van services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) die opgenomen Log Analytics, die nu deel uitmaakt van [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -63,11 +60,11 @@ Serviceoverzicht om integratie te configureren, het volgende doen:
     ![De werkruimte van Operations Manager-configuratie](media/service-map-scom/scom-config-workspace.png)
 
 4. In de **Machine groepsselectie** venster, kiest u welke kaart computergroepen u wilt synchroniseren met Operations Manager. Klik op **computergroepen toevoegen/verwijderen**, kiest u groepen uit de lijst met **beschikbare computergroepen**, en klikt u op **toevoegen**.  Wanneer u klaar bent met groepen te selecteren, klikt u op **Ok** om te voltooien.
-    
+
     ![De Operations Manager-configuratie computergroepen](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. In de **serverselectie** venster, u de groep Service Map-Servers configureren met de servers die u wilt synchroniseren tussen Operations Manager en Service Map. Klik op **Servers toevoegen/verwijderen**.   
-    
+
     Voor de integratie met het bouwen van een diagram van gedistribueerde toepassing voor een server, moet de server:
 
     * Beheerd door Operations Manager
@@ -91,7 +88,7 @@ Nadat de verbinding van de Log Analytics-werkruimte is gemaakt, een nieuwe map S
 ![Het deelvenster controle van Operations Manager](media/service-map-scom/scom-monitoring.png)
 
 De Serviceoverzicht-map bevat vier knooppunten:
-* **Actieve waarschuwingen**: Geeft een lijst van alle actieve waarschuwingen over de communicatie tussen Operations Manager en Service Map.  Houd er rekening mee dat deze waarschuwingen niet zijn van Log Analytics waarschuwingen gesynchroniseerd wordt met Operations Manager. 
+* **Actieve waarschuwingen**: Geeft een lijst van alle actieve waarschuwingen over de communicatie tussen Operations Manager en Service Map.  Houd er rekening mee dat deze waarschuwingen niet zijn van Log Analytics waarschuwingen gesynchroniseerd wordt met Operations Manager.
 
 * **Servers**: Geeft een lijst van de bewaakte servers die zijn geconfigureerd om te synchroniseren van Serviceoverzicht.
 
@@ -120,9 +117,9 @@ Een regel, _Microsoft.SystemCenter.ServiceMapImport.Rule_, om op te halen regelm
 
 ![Het eigenschappenvenster van Operations Manager-onderdrukkingen](media/service-map-scom/scom-overrides.png)
 
-* **Ingeschakeld**: In- of uitschakelen van automatische updates. 
+* **Ingeschakeld**: In- of uitschakelen van automatische updates.
 * **IntervalMinutes**: Opnieuw instellen van de tijd tussen de updates. Het standaardinterval is één uur. Als u synchroniseren server maps regelmatig wilt, kunt u de waarde wijzigen.
-* **TimeoutSeconds**: De hoeveelheid tijd voordat de time-out van de aanvraag opnieuw. 
+* **TimeoutSeconds**: De hoeveelheid tijd voordat de time-out van de aanvraag opnieuw.
 * **TimeWindowMinutes**: Opnieuw instellen van het tijdvenster voor het opvragen van gegevens. Standaard is een venster 60 minuten. De toegestane maximumwaarde door Serviceoverzicht is 60 minuten.
 
 ## <a name="known-issues-and-limitations"></a>Bekende problemen en beperkingen

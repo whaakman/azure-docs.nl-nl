@@ -11,33 +11,38 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599823"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563215"
 ---
 # <a name="split-merge-security-configuration"></a>Beveiligingsconfiguratie splitsen en samenvoegen
+
 Voor het gebruik van de service voor splitsen/samenvoegen, moet u goed beveiliging configureren. De service maakt deel uit van de functie Elastic Scale van Microsoft Azure SQL Database. Zie voor meer informatie, [elastische schaal splitsen en samenvoegen-Service-zelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Configureren van certificaten
+
 Certificaten zijn geconfigureerd op twee manieren. 
 
 1. [Het SSL-certificaat configureren](#to-configure-the-ssl-certificate)
 2. [Clientcertificaten configureren](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Om certificaten te verkrijgen
+
 Certificaten kunnen worden opgehaald van openbare certificeringsinstanties (CA's) of van de [Windows certificaatservice](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Dit zijn de meest geschikte methode om certificaten te verkrijgen.
 
 Als deze opties niet beschikbaar zijn, kunt u genereren **zelfondertekende certificaten**.
 
 ## <a name="tools-to-generate-certificates"></a>Hulpprogramma's voor het genereren van certificaten
+
 * [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Het hulpprogramma uitvoeren
+
 * Van een ontwikkelaar opdrachtprompt voor Visual Studio's, Zie [Visual Studio-opdrachtprompt](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Als u hebt geïnstalleerd, gaat u naar:
@@ -46,9 +51,11 @@ Als deze opties niet beschikbaar zijn, kunt u genereren **zelfondertekende certi
 * Ophalen van de WDK van [Windows 8.1: Download kits en hulpprogramma 's](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Het SSL-certificaat configureren
+
 Een SSL-certificaat is vereist voor het versleutelen van de communicatie en de server te verifiëren. Kies het meest van toepassing van de volgende drie scenario's en voer alle stappen uit:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Een nieuw zelfondertekend certificaat maken
+
 1. [Een zelfondertekend certificaat maken](#create-a-self-signed-certificate)
 2. [PFX-bestand voor zelfondertekende SSL-certificaat maken](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [Cloud Service SSL-certificaat uploaden](#upload-ssl-certificate-to-cloud-service)

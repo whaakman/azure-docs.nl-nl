@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/01/2019
+ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546909"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660721"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Prestaties bijhouden met de Query Store
 
@@ -81,15 +81,15 @@ Hier volgen enkele voorbeelden van hoe u krijgt meer inzicht in uw workload met 
 Als de Query Store is ingeschakeld worden gegevens opgeslagen in windows voor aggregatie van 15 minuten, maximaal 500 afzonderlijke query's per tijdvenster van. 
 
 De volgende opties zijn beschikbaar voor Query Store-parameters configureren.
-| **Parameter** | **Beschrijving** | **Standaard** | **Bereik**|
+| **Parameter** | **Beschrijving** | **Standaard** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Hiermee stelt u welke instructies worden bijgehouden. | Boven | None, top, alle |
+| pg_qs.query_capture_mode | Hiermee stelt u welke instructies worden bijgehouden. | geen | None, top, alle |
 | pg_qs.max_query_text_length | Hiermee stelt u de maximale lengte die kan worden opgeslagen. Meer query's worden afgekapt. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Hiermee stelt u de bewaarperiode. | 7 | 1 - 30 |
 | pg_qs.track_utility | Wordt ingesteld of hulpprogramma opdrachten worden bijgehouden | op | op uitgeschakeld |
 
 De volgende opties gelden specifiek voor het wachten van statistieken.
-| **Parameter** | **Beschrijving** | **Standaard** | **Bereik**|
+| **Parameter** | **Beschrijving** | **Standaard** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Sets die instructies worden bijgehouden voor wachten statistieken. | geen | geen, alle|
 | Pgms_wait_sampling.history_period | Stel de frequentie, in milliseconden, op welke wacht gebeurtenissen worden vastgelegd. | 100 | 1-600000 |
@@ -111,15 +111,15 @@ In deze weergave retourneert alle gegevens in Query Store. Er is één rij voor 
 |**Naam**   |**Type** | **Verwijzingen**  | **Beschrijving**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | ID van de tabel runtime_stats_entries|
-|USER_ID    |OID    |pg_authid.OID  |OID van de gebruiker heeft de instructie uitgevoerd|
-|%{db_id/  |OID    |pg_database.OID    |OID van database waarin de instructie is uitgevoerd|
-|ID   |bigint  || Interne hash-code, berekend vanaf parseringsstructuur van de instructie|
+|user_id    |OID    |pg_authid.oid  |OID van de gebruiker heeft de instructie uitgevoerd|
+|db_id  |OID    |pg_database.oid    |OID van database waarin de instructie is uitgevoerd|
+|query_id   |bigint  || Interne hash-code, berekend vanaf parseringsstructuur van de instructie|
 |query_sql_text |Varchar(10000)  || Tekst van een representatieve instructie. Verschillende query's met dezelfde structuur zijn samen; geclusterd Deze tekst is de tekst voor de eerste dag van de query's in het cluster.|
-|het queryplan    |bigint |   |ID van het abonnement nog overeenkomt met deze query is niet beschikbaar|
+|plan_id    |bigint |   |ID van het abonnement nog overeenkomt met deze query is niet beschikbaar|
 |start_time |tijdstempel  ||  Query's worden samengevoegd per keer buckets - de tijdsduur van een bucket is 15 minuten standaard. Dit is de begintijd die overeenkomt met het tijdsinterval voor deze vermelding.|
 |end_time   |tijdstempel  ||  De eindtijd die overeenkomt met het tijdsinterval voor deze vermelding.|
 |oproepen  |bigint  || Aantal keren dat de query wordt uitgevoerd|
-|TOTAL_TIME |dubbele precisie   ||  Totaal aantal query uitvoeringstijd, in milliseconden|
+|total_time |dubbele precisie   ||  Totaal aantal query uitvoeringstijd, in milliseconden|
 |min_time   |dubbele precisie   ||  Minimale query uitvoeringstijd, in milliseconden|
 |max_time   |dubbele precisie   ||  Maximale uitvoeringstijd, in milliseconden|
 |mean_time  |dubbele precisie   ||  Gemiddelde uitvoeringstijd van de query, in milliseconden|
@@ -151,20 +151,20 @@ In deze weergave retourneert gegevens van statuswijzigingsgebeurtenissen in Quer
 
 |**Naam**|  **Type**|   **Verwijzingen**| **Beschrijving**|
 |---|---|---|---|
-|USER_ID    |OID    |pg_authid.OID  |OID van de gebruiker heeft de instructie uitgevoerd|
-|%{db_id/  |OID    |pg_database.OID    |OID van database waarin de instructie is uitgevoerd|
-|ID   |bigint     ||Interne hash-code, berekend vanaf parseringsstructuur van de instructie|
+|user_id    |OID    |pg_authid.oid  |OID van de gebruiker heeft de instructie uitgevoerd|
+|db_id  |OID    |pg_database.oid    |OID van database waarin de instructie is uitgevoerd|
+|query_id   |bigint     ||Interne hash-code, berekend vanaf parseringsstructuur van de instructie|
 |event_type |tekst       ||Het type gebeurtenis waarvoor de back-end is in afwachting|
 |gebeurtenis  |tekst       ||De naam van de wachttijd als back-end is momenteel in afwachting|
 |oproepen  |Geheel getal        ||Aantal dezelfde gebeurtenis vastgelegd|
 
 
 ### <a name="functions"></a>Functions
-Query_store.qs_reset() geeft als resultaat void
+Query_store.qs_reset() returns void
 
 `qs_reset` Hiermee verwijdert alle statistische gegevens die tot nu toe door de Query Store worden verzameld. Deze functie kan alleen worden uitgevoerd door de rol van de server-beheerder.
 
-Query_store.staging_data_reset() geeft als resultaat void
+Query_store.staging_data_reset() returns void
 
 `staging_data_reset` Hiermee verwijdert alle statistische gegevens die in het geheugen worden verzameld door de Query Store (dat wil zeggen, de gegevens in het geheugen dat niet is verwijderd, maar met de database). Deze functie kan alleen worden uitgevoerd door de rol van de server-beheerder.
 

@@ -1,27 +1,31 @@
 ---
-title: Het web zoeken naar trending video's - Bing video's zoeken
+title: Het web zoeken naar trending video's met behulp van de Bing video's zoeken-API
 titlesuffix: Azure Cognitive Services
-description: Laat zien hoe de Bing video's zoeken-API gebruiken om te zoeken naar het web voor trending video's.
+description: Informatie over het gebruik van de Bing video's zoeken-API op het web zoeken naar trending video's.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 71dd888199e9e630835c4916d35f6308431bab62
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55f29a31a9574c7c32e6708565e961950520593f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203552"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566068"
 ---
-# <a name="get-trending-videos"></a>Trending video's ophalen  
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Trending video's met de Bing webzoekopdrachten-API voor Video ophalen 
 
-Om op te halen van vandaag trending video's, de volgende GET-aanvraag te verzenden:  
+De Bing video's zoeken-API kunt u zoeken naar hedendaagse trending video's van op Internet en in verschillende categorieën. 
+
+## <a name="get-request"></a>Aanvraag ophalen
+
+Voor vandaag trending video's van de Bing video's zoeken-API, de volgende GET-aanvraag te verzenden:  
   
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -30,6 +34,8 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```
+
+## <a name="market-support"></a>Market ondersteuning kennen
 
 De volgende markten ondersteuning voor trending video's.  
  
@@ -47,10 +53,11 @@ De volgende markten ondersteuning voor trending video's.
 -   NL-ZA-(Engels, Zuid-Afrika)  
 -   zh-CN (Chinees, China)
 
-  
-Het volgende voorbeeld ziet een antwoord met trending video's.  
+## <a name="example-json-response"></a>Voorbeeld van JSON-antwoord  
 
-```  
+Het volgende voorbeeld ziet een API-reactie die trending video's die worden vermeld op categorie en subcategorie bevat. Het antwoord bevat ook een banner video's, die het meest populaire trending video's en kunnen afkomstig zijn uit een of meer categorieën.  
+
+```json
 {  
     "_type" : "TrendingVideos",  
     "bannerTiles" : [
@@ -112,8 +119,9 @@ Het volgende voorbeeld ziet een antwoord met trending video's.
     ]  
 }  
   
-```  
-Het antwoord bevat een lijst met video's op categorie en subcategorie. Als de lijst met categorieën die een categorie muziek video's en een van de subcategorieën boven is, kan u bijvoorbeeld een categorie boven muziek-video's maken in uw gebruikerservaring. U kunt vervolgens de `thumbnailUrl`, `displayText`, en `webSearchUrl` velden op de tegel met een geklikt in elke categorie (bijvoorbeeld bovenste muziek video's) maken. Wanneer de gebruiker op de tegel, er ze wordt van de Bing video-browser waar de video wordt afgespeeld.
+```
 
-Het antwoord bevat ook een banner video's, die het meest populaire trending video's. De banner video's kunnen afkomstig zijn van een of meer van de categorieën.  
-  
+## <a name="next-steps"></a>Volgende stappen
+
+> [!div class="nextstepaction"]
+[Inzichten in video's ophalen](video-insights.md)

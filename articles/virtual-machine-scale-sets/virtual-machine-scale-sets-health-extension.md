@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 1ac7b5f41c0c941db08a63c516febabaf9f07b3e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491379"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565969"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uitbreiding met de virtuele-machineschaalset wordt ingesteld met behulp van de status van de toepassing
 Bewaking van de toepassingsstatus van uw is een belangrijk signaal voor het beheren en upgraden van uw implementatie. Virtuele Azure-machine-schaalsets bieden ondersteuning voor [rolling upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) inclusief [automatische upgrades van de installatiekopie van het besturingssysteem](virtual-machine-scale-sets-automatic-upgrade.md), die afhankelijk zijn van statuscontrole van de afzonderlijke exemplaren om te upgraden van uw implementatie .
 
 Dit artikel wordt beschreven hoe u de status van de toepassing-extensie voor het bewaken van de status van uw toepassingen die zijn geïmplementeerd op virtuele-machineschaalsets kunt gebruiken.
 
-## <a name="pre-requisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u bekend met bent:
 -   Virtuele Azure-machine [extensies](../virtual-machines/extensions/overview.md)
 -   [Wijzigen van](virtual-machine-scale-sets-upgrade-scale-set.md) virtuele-machineschaalsets

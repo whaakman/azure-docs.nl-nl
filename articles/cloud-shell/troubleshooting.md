@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334394"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568529"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Het oplossen van & beperkingen van Azure Cloud Shell
 
@@ -29,57 +29,57 @@ Bekende oplossingen voor het oplossen van problemen in Azure Cloud Shell zijn on
 
 ### <a name="early-timeouts-in-firefox"></a>Vroege time-outs in FireFox
 
-- **Details**: Cloud Shell gebruikmaakt van een open websocket invoer/uitvoer doorgeven aan de browser. FireFox is vooraf ingestelde beleidsregels die van de websocket voortijdig veroorzaakt vroege time-outs in Cloud Shell kunnen sluiten.
-- **Resolutie**: Open FireFox en navigeert u naar ' over: config ' in het vak URL. Zoeken naar 'network.websocket.timeout.ping.request' en wijzig de waarde van 0 tot en met 10.
+- **Details**: Cloudshell gebruikmaakt van een open websocket invoer/uitvoer doorgeven aan de browser. FireFox is vooraf ingestelde beleidsregels die van de websocket voortijdig veroorzaakt vroege time-outs in Cloud Shell kunnen sluiten.
+- **Oplossing**: FireFox opent en navigeert u naar ' over: config ' in het vak URL. Zoeken naar 'network.websocket.timeout.ping.request' en wijzig de waarde van 0 tot en met 10.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Cloud Shell uitschakelen in een vergrendelde netwerk omgeving
 
-- **Details**: beheerders mogelijk willen toegang tot Cloud Shell voor hun gebruikers uitschakelen. Cloudshell gebruikmaakt van toegang tot de `ux.console.azure.com` domein dat kan worden geweigerd, toegang heeft tot de Cloud Shell-toegangspunten, waaronder portal.azure.com, shell.azure.com, Visual Studio Code Azure-accountextensie en docs.microsoft.com stoppen.
-- **Resolutie**: beperken van toegang tot `ux.console.azure.com` via instellingen om uw omgeving. Het pictogram van Cloud Shell wordt nog steeds aanwezig zijn in portal.azure.com, maar wordt geen verbinding maken met de service.
+- **Details**: Beheerders willen mogelijk de toegang tot Cloud Shell voor hun gebruikers uitschakelen. Cloudshell gebruikmaakt van toegang tot de `ux.console.azure.com` domein dat kan worden geweigerd, toegang heeft tot de Cloud Shell-toegangspunten, waaronder portal.azure.com, shell.azure.com, Visual Studio Code Azure-accountextensie en docs.microsoft.com stoppen.
+- **Oplossing**: Toegang beperken tot `ux.console.azure.com` via instellingen om uw omgeving. Het pictogram van Cloud Shell wordt nog steeds aanwezig zijn in portal.azure.com, maar wordt geen verbinding maken met de service.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Opslag-dialoogvenster - fout: 403 RequestDisallowedByPolicy
 
-- **Details**: bij het maken van een storage-account via de Cloud Shell, is mislukt vanwege een Azure policy geplaatst door uw beheerder. Foutbericht omvat: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Resolutie**: Neem contact op met uw Azure-beheerder als u wilt verwijderen of bijwerken van de Azure policy weigeren opslag maken.
+- **Details**: Bij het maken van een storage-account via de Cloud Shell, is mislukt vanwege een Azure policy geplaatst door uw beheerder. Foutbericht omvat: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Oplossing**: Neem contact op met uw Azure-beheerder als u wilt verwijderen of bijwerken van de Azure policy weigeren opslag maken.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Opslag-dialoogvenster - fout: 400 DisallowedOperation
 
-- **Details**: wanneer u een Azure Active Directory-abonnement, kunt u opslag kan niet maken.
-- **Resolutie**: een Azure-abonnement geschikt is voor het maken van de storage-resources gebruiken. Azure AD-abonnementen zijn niet in staat om Azure-resources te maken.
+- **Details**: Wanneer u een Azure Active Directory-abonnement, kunt u de opslag niet maken.
+- **Oplossing**: Gebruik een Azure-abonnement geschikt is voor het maken van de storage-resources. Azure AD-abonnementen zijn niet in staat om Azure-resources te maken.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal uitvoer - fout: kan geen verbinding maken terminal: websocket kan niet tot stand worden gebracht. Druk op `Enter` verbinding te maken.
-- **Details**: Cloud Shell is de mogelijkheid tot stand brengen van een websocket-verbinding met de Cloud Shell-infrastructuur vereist.
-- **Resolutie**: Controleer u de netwerkinstellingen van uw om in te schakelen verzenden https-aanvragen en websocket-aanvragen voor domeinen op hebt geconfigureerd *. console.azure.com.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal uitvoer - fout: Kan geen verbinding maken terminal: websocket kan niet tot stand worden gebracht. Druk op `Enter` verbinding te maken.
+- **Details**: Cloudshell is de mogelijkheid om een websocket-verbinding met de Cloud Shell-infrastructuur vereist.
+- **Oplossing**: U hebt geconfigureerd dat de netwerkinstellingen om in te schakelen verzenden https-aanvragen en websocket-aanvragen voor domeinen op controleren *. console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Instellen van uw Cloud Shell-verbinding met de ondersteuning voor het gebruik van TLS 1.2
- - **Details**: voor het definiëren van de TLS-versie voor de verbinding naar Cloud Shell, moet u specifieke browserinstellingen instellen.
- - **Resolutie**: Ga naar de beveiligingsinstellingen van uw browser en schakel het selectievakje naast 'Gebruik TLS 1.2'.
+ - **Details**: Voor het definiëren van de TLS-versie voor de verbinding naar Cloud Shell, moet u specifieke browserinstellingen instellen.
+ - **Oplossing**: Navigeer naar de beveiligingsinstellingen van uw browser en schakel het selectievakje naast 'Gebruik TLS 1.2'.
 
 ## <a name="bash-troubleshooting"></a>Bash-problemen oplossen
 
 ### <a name="cannot-run-the-docker-daemon"></a>De docker-daemon kan niet worden uitgevoerd.
 
-- **Details**: Cloud Shell gebruikmaakt van een container voor het hosten van uw shell-omgeving, uitgevoerd als gevolg hiervan de daemon is niet toegestaan.
-- **Resolutie**: gebruikmaken van [docker-machine](https://docs.docker.com/machine/overview/), die standaard voor het beheren van docker-containers vanaf een externe dockerhost is geïnstalleerd.
+- **Details**: Cloudshell gebruikmaakt van een container voor het hosten van uw shell-omgeving, uitgevoerd als gevolg hiervan de daemon is niet toegestaan.
+- **Oplossing**: Gebruikmaken van [docker-machine](https://docs.docker.com/machine/overview/), die standaard voor het beheren van docker-containers vanaf een externe dockerhost is geïnstalleerd.
 
 ## <a name="powershell-troubleshooting"></a>Het oplossen van PowerShell
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-toepassingen worden niet ondersteund
 
-- **Details**: als een gebruiker wordt gestart met een GUI-toepassing, de prompt geen geretourneerd. Bijvoorbeeld, wanneer een kloon een persoonlijke GitHub-opslagplaats waarvoor tweeledige verificatie ingeschakeld, wordt een dialoogvenster weergegeven voor het voltooien van de verificatie met twee factoren.
-- **Resolutie**: sluit en Open de shell.
+- **Details**: Als een gebruiker de start een GUI-toepassing, geeft de prompt geen resultaat. Bijvoorbeeld, wanneer een kloon een persoonlijke GitHub-opslagplaats waarvoor tweeledige verificatie ingeschakeld, wordt een dialoogvenster weergegeven voor het voltooien van de verificatie met twee factoren.
+- **Oplossing**: Sluit en Heropen de shell.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Oplossen van problemen met extern beheer van virtuele Azure-machines
 > [!NOTE]
 > Azure VM's beschikken over een openbaar IP-adres gericht.
 
-- **Details**: vanwege de standaard Windows Firewall-instellingen voor WinRM ziet de gebruiker mogelijk de volgende fout: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolutie**: uitvoeren `Enable-AzureRmVMPSRemoting` om in te schakelen van alle aspecten van PowerShell voor externe toegang op de doelcomputer.
+- **Details**: Vanwege de standaard Windows Firewall-instellingen voor WinRM ziet de gebruiker mogelijk de volgende fout: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Oplossing**:  Voer `Enable-AzureRmVMPSRemoting` om in te schakelen van alle aspecten van PowerShell voor externe toegang op de doelcomputer.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` het resultaat in de Azure-station niet bijgewerkt
 
-- **Details**: standaard, om te optimaliseren voor de resultaten van de gebruikerservaring `dir` in de cache is opgeslagen in Azure-station.
-- **Resolutie**: nadat u maken, bijwerken of verwijderen van een Azure-resource, voert u `dir -force` om bij te werken van de resultaten in de Azure-station.
+- **Details**: Standaard, om te optimaliseren voor de resultaten van de gebruikerservaring `dir` in de cache is opgeslagen in Azure-station.
+- **Oplossing**: Nadat u maken, bijwerken of verwijderen van een Azure-resource, voert u `dir -force` om bij te werken van de resultaten in de Azure-station.
 
 ## <a name="general-limitations"></a>Algemene beperkingen
 
@@ -143,7 +143,7 @@ Met behulp van PowerShell-cmdlets, kunnen geen gebruikers bestanden in de Azure-
 
 ### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>Opdrachten die GUI pop-ups maakt worden niet ondersteund
 
-Als de gebruiker wordt uitgevoerd een opdracht die u een Windows-dialoogvenster, zoals maakt `Connect-AzureAD` of `Connect-AzureRmAccount`, een foutmelding zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Als de gebruiker wordt uitgevoerd een opdracht die u een Windows-dialoogvenster, zoals maakt `Connect-AzureAD`, `Connect-AzureRmAccount`, of `Connect-AzAccount`, een foutmelding zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>Tab-Aanvulling kunt PSReadline uitzondering genereren
 

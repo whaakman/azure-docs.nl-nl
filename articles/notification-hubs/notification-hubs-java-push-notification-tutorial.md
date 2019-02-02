@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 68c87b0fd892d5972e8c6b225c7c7bce3b3704db
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449959"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560801"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Hoe u Notification Hubs gebruiken vanuit Java
 
@@ -39,7 +39,7 @@ De SDK biedt momenteel ondersteuning:
 * Reguliere verzendt
 * Geplande verzendt
 * Asynchrone bewerkingen via Java NIO
-* Ondersteunde platforms: APNS (iOS), GCM (Android), WNS (Windows Store-apps), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android zonder Google-services)
+* Ondersteunde platforms: APNS (iOS), FCM (Android), WNS (Windows Store-apps), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android zonder Google-services)
 
 ## <a name="sdk-usage"></a>SDK Usage
 
@@ -120,7 +120,7 @@ Bouwen:
     hub.createRegistration(reg);
     ```
 
-Op deze manier kunt u rapporten maken voor Android (GCM), Windows Phone (MPNS) en Kindle Fire (ADM).
+Op deze manier kunt u rapporten maken voor Android (FCM), Windows Phone (MPNS) en Kindle Fire (ADM).
 
 **Sjabloonregistraties maken:**
 
@@ -318,7 +318,7 @@ Het object melding is gewoon een hoofdtekst met kopteksten, bepaalde hulpprogram
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-    Notification n = Notification.createGcmNotification(message);
+    Notification n = Notification.createFcmNotification(message);
     hub.sendNotification(n);
     ```
 

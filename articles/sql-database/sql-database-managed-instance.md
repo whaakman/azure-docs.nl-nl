@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 2582f7eff052968c4a08eefd0027f9785451a564
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465704"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562807"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL Database Managed Instance met virtuele netwerken en in de buurt van 100% compatibiliteit gebruiken
 
@@ -75,7 +75,7 @@ De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) in het b
 In het vCore-model, kunt u kiezen tussen verschillende hardwaregeneraties.
 
 - **Gen 4** logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors van 2,4 GHz, gekoppelde SSD, fysieke kernen, 7 GB RAM-geheugen per kern en compute-grootten tussen 8 en maximaal 24 vCores.
-- **Gen 5** logische CPU's zijn gebaseerd op Intel E5-2673 v4-processors 2,3 GHz (Broadwell) eNVM SSD, hyper-threaded logische core, een snelle en compute-grootten tussen 8 en 80 kernen.
+- **Gen 5** logische CPU's zijn gebaseerd op Intel E5-2673 v4-processors 2,3 GHz (Broadwell) NVMe SSD, hyper-threaded logische core, een snelle en compute-grootten tussen 8 en 80 kernen.
 
 Meer informatie over het verschil tussen hardwaregeneraties in [Managed Instance-bronlimieten](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -158,7 +158,7 @@ Een nieuwe syntaxis is geïntroduceerd voor het maken van AAD-aanmeldingen (**op
 
 Managed Instance kunt u centraal beheren van identiteiten van databasegebruikers en andere Microsoft-services met [Azure Active Directory-integratie](sql-database-aad-authentication.md). Deze mogelijkheid vereenvoudigt het beheer van machtigingen en verbetert de beveiliging. Azure Active Directory ondersteunt [Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md) (MFA) voor betere beveiliging van gegevens en toepassingen, en ondersteunt ook een proces voor eenmalige aanmelding (SSO).
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 Beheerd exemplaar verificatie verwijst naar hoe gebruikers hun identiteit bewijst bij het verbinden met de database. SQL Database ondersteunt twee typen verificatie:  
 

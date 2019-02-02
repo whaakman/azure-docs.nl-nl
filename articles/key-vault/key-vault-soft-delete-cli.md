@@ -1,20 +1,18 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault - functie voor voorlopig verwijderen gebruiken met CLI
 description: De aanvraag voorbeelden van voorlopig verwijderen gebruiken met CLI-codefragmenten
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: af2d480e84ca69c0ecd795e38371375e6a71542b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363636"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663941"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met CLI
 
@@ -33,7 +31,7 @@ Zie voor Key Vault specifieke naslaginformatie voor CLI, [Sleutelkluis voor Azur
 
 Key Vault-bewerkingen worden afzonderlijk beheerd via machtigingen voor op rollen gebaseerd toegangsbeheer (RBAC) als volgt:
 
-| Bewerking | Beschrijving | Machtigingen van gebruiker |
+| Bewerking | Description | Machtigingen van gebruiker |
 |:--|:--|:--|
 |Lijst|Een lijst met verwijderde sleutelkluizen.|Microsoft.KeyVault/deletedVaults/read|
 |Herstellen|Hiermee herstelt u een verwijderde key vault.|Microsoft.KeyVault/vaults/write|
@@ -72,7 +70,7 @@ Uitvoeren om te controleren of een key vault voorlopig verwijderen ingeschakeld 
 az keyvault show --name ContosoVault
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Verwijderen van een key vault beveiligd door de functie voor voorlopig verwijderen
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Sleutelkluis beveiligd verwijderen van een functie voor voorlopig verwijderen
 
 De opdracht voor het verwijderen van een sleutelkluis wijzigingen in werking, afhankelijk van of de functie voor voorlopig verwijderen is ingeschakeld.
 
@@ -89,7 +87,7 @@ Met de functie voor voorlopig verwijderen ingeschakeld:
 
 - Een verwijderde key vault wordt verwijderd uit de resourcegroep en geplaatst in een gereserveerde naamruimte, die zijn gekoppeld aan de locatie waar deze is gemaakt. 
 - Verwijderde objecten, zoals sleutels, geheimen en certificaten, niet toegankelijk zijn, zolang de betreffende sleutelkluis de status verwijderd heeft is. 
-- De DNS-naam voor een verwijderde key vault is gereserveerd, zo wordt voorkomen dat een nieuwe sleutelkluis met dezelfde naam wordt gemaakt.  
+- De DNS-naam voor een verwijderde key vault is gereserveerd, zo wordt voorkomen dat een nieuwe sleutelkluis met dezelfde naam wordt gemaakt.  
 
 U kunt verwijderde sleutelkluizen, dat wordt gekoppeld aan uw abonnement weergeven met de volgende opdracht:
 
@@ -110,9 +108,9 @@ az keyvault recover --location westus --resource-group ContosoRG --name ContosoV
 
 Wanneer een key vault is hersteld, wordt een nieuwe resource gemaakt met de key vault oorspronkelijke resource-ID. Als de oorspronkelijke resourcegroep wordt verwijderd, moet een met dezelfde naam worden gemaakt voordat wordt geprobeerd herstel.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Key Vault-objecten en de functie voor voorlopig verwijderen
+## <a name="deleting-and-purging-key-vault-objects"></a>Verwijderen en het verwijderen van key vault-objecten
 
-Voor een sleutel, 'ContosoFirstKey', in een key vault met de naam 'ContosoVault' met voorlopig verwijderen ingeschakeld, hier van verwijdert hoe u deze sleutel.
+De volgende opdracht wordt de sleutel 'ContosoFirstKey' in een key vault met de naam 'ContosoVault', die ingeschakeld voor voorlopig verwijderen is verwijderen:
 
 ```azurecli
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
@@ -192,17 +190,22 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
   az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
   ```
 
-## <a name="purging-and-key-vaults"></a>Hiervoor en key vaults
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Bezig met het verwijderen van een functie voor voorlopig verwijderen beveiligd sleutelkluis
 
-### <a name="key-vault-objects"></a>Key vault-objecten
+> [!IMPORTANT]
+> Een key vault of een van de daarin opgenomen objecten verwijderen, verwijderd definitief, wat betekent dat deze niet worden hersteld.
 
-Verwijderen van een sleutel, het geheim of het certificaat, zorgt ervoor dat de definitieve verwijdering en deze niet worden hersteld. De sleutelkluis die deel uitmaakt van het verwijderde object echter blijven behouden als alle andere objecten in de key vault. 
+De Today opschonen wordt gebruikt om een sleutelkluis-object of een hele sleutelkluis, die is eerder voorlopig verwijderde definitief te verwijderen. Zoals in de vorige sectie wordt gedemonstreerd, kunnen objecten die zijn opgeslagen in een key vault met de functie voor voorlopig verwijderen ingeschakeld, gaat u door meerdere statussen:
 
-### <a name="key-vaults-as-containers"></a>Sleutelkluizen als containers
-Wanneer een key vault wordt verwijderd, worden de volledige inhoud ervan definitief verwijderd, met inbegrip van sleutels, geheimen en certificaten. Als u wilt verwijderen van een key vault, gebruikt u de `az keyvault purge` opdracht. U kunt zoeken naar de locatie van uw abonnement verwijderde sleutelkluizen met de opdracht `az keyvault list-deleted`.
+- **Actieve**: voordat u deze verwijdert.
+- **Voorlopig verwijderde**: nadat u hebt verwijderd, kunnen worden weergegeven en hersteld op actieve status.
+- **Definitief verwijderd**: na het opschonen van Logboeken, kan niet worden hersteld.
 
->[!IMPORTANT]
->Bezig met het verwijderen van een key vault verwijderd definitief, wat betekent dat deze niet worden hersteld.
+Hetzelfde geldt voor de key vault. Als u wilt een voorlopig verwijderde sleutelkluis en de inhoud ervan permanent verwijderd, moet u de sleutelkluis zelf verwijderen.
+
+### <a name="purging-a-key-vault"></a>Een sleutelkluis verwijderen
+
+Wanneer een key vault wordt verwijderd, worden de volledige inhoud ervan definitief verwijderd, met inbegrip van sleutels, geheimen en certificaten. Als u wilt een voorlopig verwijderde sleutelkluis leegmaken, gebruikt u de `az keyvault purge` opdracht. U kunt zoeken naar de locatie van uw abonnement verwijderde sleutelkluizen met de opdracht `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault

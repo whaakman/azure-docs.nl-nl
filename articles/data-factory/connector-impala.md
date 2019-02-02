@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d0c887587028fe877cb7b5afd65968bde038d03
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f86931aad4eab697e4a0d2dfc47a6d4ff5bfc256
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014366"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565680"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Gegevens kopiëren van Impala met behulp van Azure Data Factory (Preview)
 
@@ -70,8 +70,8 @@ De volgende eigenschappen worden ondersteund voor Impala service gekoppelde.
             "authenticationType" : "UsernameAndPassword",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {

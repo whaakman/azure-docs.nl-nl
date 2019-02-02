@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794529"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663499"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
 
@@ -504,7 +504,7 @@ Bijvoorbeeld, Genereer een gebeurtenis om de vijf seconden die het meest recent 
 
 **Uitvoer (eerste 10 rijen)**:
 
-| windowend | lastevent.t | lastevent.Value |
+| windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -558,7 +558,7 @@ Bijvoorbeeld in een IoT-scenario voor thuis weerstaan, een waarschuwing moet wor
 
 **Uitvoer**:
 
-| eventTime | deviceId | TEMP | alertMessage | maxPowerDuringLast3mins |
+| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
 | "2018-01-01T16:05:00" | "Oven1" |30 | "Korte circuit verwarming elementen" |15 |
 | "2018-01-01T16:06:00" | "Oven1" |20 | "Korte circuit verwarming elementen" |15 |
@@ -648,7 +648,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Invoer**:  
 
-| DeviceId | Time | Kenmerk | Waarde |
+| DeviceId | Time | Kenmerk | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatuur |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatuur |50 |
@@ -687,7 +687,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Uitleg bij**: [AANTAL (uniek tijd)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) retourneert het aantal unieke waarden in de Time-kolom binnen een periode. U kunt vervolgens de uitvoer van deze stap gebruiken voor het berekenen van de gemiddelde per apparaat door het verwijderen van duplicaten.
+**Uitleg bij**: [AANTAL (uniek tijd)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) retourneert het aantal unieke waarden in de Time-kolom binnen een periode. U kunt vervolgens de uitvoer van deze stap gebruiken voor het berekenen van de gemiddelde per apparaat door het verwijderen van duplicaten.
 
 ## <a name="get-help"></a>Help opvragen
 Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

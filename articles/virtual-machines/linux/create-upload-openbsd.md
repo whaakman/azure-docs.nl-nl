@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: de5d3fcd7eff0042e912e164050f917a0070b2c3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b31425849eacc0b1f88e8dbd623804cefff9112f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164641"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662751"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Maken en een schijfinstallatiekopie OpenBSD uploaden naar Azure
 In dit artikel wordt beschreven hoe u maken en uploaden van een virtuele harde schijf (VHD) die het OpenBSD-besturingssysteem bevat. Nadat u deze uploadt, kunt u deze als uw eigen installatiekopie maken van een virtuele machine (VM) in Azure via Azure CLI.
@@ -127,7 +127,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-Als u wilt de VHD's die u uploadt logisch te scheiden, maken van een container in de storage-account met [az storage container maken](/cli/azure/storage/container#az_storage_container_create):
+Als u wilt de VHD's die u uploadt logisch te scheiden, maken van een container in de storage-account met [az storage container maken](/cli/azure/storage/container):
 
 ```azurecli
 az storage container create \

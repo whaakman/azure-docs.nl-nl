@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: cc322f44760ddf0a7cd28751c895a7c4938dbbc0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867237"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565476"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Overzicht van de taken van Elastic Database installeren
 
@@ -51,7 +51,7 @@ Als u al hebt geïnstalleerd **taken voor Elastic Database** via de Portal vanaf
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Installeer de onderdelen van Elastic Database-taken met behulp van PowerShell
-1. Start een Microsoft Azure PowerShell-opdrachtvenster en navigeer naar de onderliggende map \tools onder de map Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: Typ cd \tools
+1. Start een Microsoft Azure PowerShell-opdrachtvenster en navigeer naar de onderliggende map \tools onder de map Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: Type cd \tools
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -67,7 +67,7 @@ De parameters op voor dit voorbeeld-aanroepen die kunnen worden gewijzigd voor d
 <table style="width:100%">
   <tr>
     <th>Parameter</th>
-    <th>Beschrijving</th>
+    <th>Description</th>
   </tr>
 
 <tr>
@@ -128,7 +128,7 @@ Voer het volgende script met de parameters die zijn bijgewerkt met de waarden va
 <table style="width:100%">
   <tr>
   <th>Parameter</th>
-  <th>Beschrijving</th>
+  <th>Description</th>
 </tr>
 
   <tr>
@@ -156,7 +156,7 @@ Voer het volgende script met de parameters die zijn bijgewerkt met de waarden va
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Installeer de onderdelen van Elastic Database-taken met behulp van de Portal
 Als u eenmaal hebt [gemaakt van een elastische pool](sql-database-elastic-pool-manage-portal.md), u kunt installeren **taken voor Elastic Database** onderdelen voor het uitvoeren van beheertaken voor elke database in de elastische pool inschakelen. In tegenstelling tot wanneer met behulp van de **taken voor Elastic Database** PowerShell-APIs, de interface van de portal is momenteel beperkt tot alleen uitvoeren op basis van een bestaande pool.
 
-**Geschatte duur:** 10 minuten.
+**Geschatte tijdsduur:** tien minuten.
 
 1. In de dashboardweergave van de elastische groep via de [Azure-portal](https://portal.azure.com/#) , klikt u op **maken taak**.
 2. Als u een taak voor het eerst maakt, moet u installeren **taken voor Elastic Database** door te klikken op **voorwaarden voor PREVIEW**.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476393"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658383"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -136,7 +136,7 @@ In een omgeving met twee of meer onderdelen op meerdere virtuele machines onders
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Doel van de actie starten en stoppen van VM-lijst
 
-1. Voeg een **klikvolgorde** en een **sequencestop** code met een positief geheel getal op virtuele machines die u van plan bent om toe te voegen aan de **VMList** variabele. 
+1. Voeg een **klikvolgorde** en een **sequencestop** code met een positief geheel getal op virtuele machines die u van plan bent om toe te voegen aan de **VMList** parameter.
 1. Voer de **SequencedStartStop_Parent** runbook met de parameter ACTION is ingesteld op **start**, toevoegen van een door komma's gescheiden lijst met virtuele machines in de *VMList* parameter en stel vervolgens de Parameter WHATIF **waar**. Bekijk uw wijzigingen.
 1. Configureer de **External_ExcludeVMNames** parameter met een door komma's gescheiden lijst met virtuele machines (VM1, VM2, VM3).
 1. In dit scenario wordt niet voldoen aan de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupnames** variabelen. Voor dit scenario moet u uw eigen planning Automation maken. Zie voor meer informatie, [een runbook in Azure Automation plannen](../automation/automation-schedules.md).
@@ -285,8 +285,8 @@ De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords di
 
 |Query’s uitvoeren | Description|
 |----------|----------|
-|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | waar (ResultType == "Voltooid")  | samenvatten |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sorteren op TimeGenerated desc'' '|
-|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | waar (ResultType == "Voltooid") | samenvatten |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sorteren op TimeGenerated desc'' '|
+|Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>De oplossing bekijken
 
@@ -319,13 +319,29 @@ Hier volgt een voorbeeld van de e-mailbericht wordt verzonden wanneer de oplossi
 
 ![De pagina van de oplossing Update Management Automation](media/automation-solution-vm-management/email.png)
 
+## <a name="add-exclude-vms"></a>VM's toevoegen/uitsluiten
+
+De oplossing biedt de mogelijkheid om toe te voegen van virtuele machines voor het doel zijn van de oplossing of specifiek machines uitsluiten van de oplossing.
+
+### <a name="add-a-vm"></a>Een virtuele machine toevoegen
+
+Er zijn een aantal opties die u gebruiken kunt om ervoor te zorgen dat een virtuele machine wordt opgenomen in de oplossing starten/stoppen wanneer deze wordt uitgevoerd.
+
+* Elk van de bovenliggende [runbooks](#runbooks) van de oplossing hebt u een **VMList** parameter. U kunt een door komma's gescheiden lijst met namen van de virtuele machine voor deze parameter doorgeven bij het plannen van de juiste bovenliggend runbook voor uw situatie en deze VM's worden opgenomen wanneer de oplossing wordt uitgevoerd.
+
+* Om te selecteren van meerdere virtuele machines, stel de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames** met namen voor de resource met de virtuele machines die u wilt starten of stoppen. U kunt deze waarde ook instellen op `*`, hebben de oplossing uitvoeren op alle resourcegroepen in het abonnement.
+
+### <a name="exclude-a-vm"></a>Uitsluiten van een virtuele machine
+
+Als u wilt uitsluiten van een virtuele machine van de oplossing, u kunt deze toevoegen aan de **External_ExcludeVMNames** variabele. Deze variabele is een door komma's gescheiden lijst van specifieke virtuele machines moeten worden uitgesloten van de oplossing starten/stoppen.
+
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>De planning voor opstarten en afsluiten wijzigen
 
-Beheren van de planning voor opstarten en afsluiten in deze oplossing volgt u dezelfde stappen zoals wordt beschreven in [een runbook in Azure Automation plannen](automation-schedules.md).
+Beheren van de planning voor opstarten en afsluiten in deze oplossing volgt u dezelfde stappen zoals wordt beschreven in [een runbook in Azure Automation plannen](automation-schedules.md). Er moet een afzonderlijke schema te starten en stoppen van VM's.
 
-Configureren van de oplossing als u wilt stoppen alleen virtuele machines op een bepaalde periode wordt ondersteund. Hiervoor doet u het volgende:
+Configureren van de oplossing als u wilt stoppen alleen virtuele machines op een bepaalde periode wordt ondersteund. In dit scenario maakt u alleen een **stoppen** plannen en er geen bijbehorende **Start** geplande. Hiervoor doet u het volgende:
 
-1. Zorg ervoor dat u hebt toegevoegd de resourcegroepen voor de virtuele machines af te sluiten in de **External_Start_ResourceGroupNames** variabele.
+1. Zorg ervoor dat u hebt toegevoegd de resourcegroepen voor de virtuele machines af te sluiten in de **External_Stop_ResourceGroupNames** variabele.
 2. Maak uw eigen planning voor de tijd die u wilt afsluiten van de virtuele machines.
 3. Navigeer naar de **ScheduledStartStop_Parent** runbook en klik op **planning**. Hiermee kunt u om te selecteren van de planning die u in de vorige stap hebt gemaakt.
 4. Selecteer **Parameters en uitvoerinstellingen** en stel de parameter actie voor 'Stop'.

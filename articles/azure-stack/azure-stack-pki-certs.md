@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244246"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660116"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -49,7 +49,7 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - De certificaat-pfx-bestanden moeten de waarden "Serververificatie (1.3.6.1.5.5.7.3.1)" en 'Clientverificatie (1.3.6.1.5.5.7.3.2)' in het veld 'Enhanced Key Usage' hebben.
 - Van het certificaat "verleend aan:" veld mag niet zijn hetzelfde als de ' dat is uitgegeven door: "veld.
 - De wachtwoorden op alle certificaat-pfx-bestanden moet hetzelfde zijn op het moment van implementatie
-- Wachtwoord voor de certificaat-pfx is een complex wachtwoord in.
+- Wachtwoord voor de certificaat-pfx is een complex wachtwoord in. Maak een wachtwoord dat voldoet aan de volgende vereisten voor wachtwoordcomplexiteit. Een minimale lengte van acht tekens. Het wachtwoord bevat ten minste drie van de volgende opties: letter, kleine letters, getallen van 0-9, speciale tekens bevatten, een letter die is geen hoofdletters of kleine letters in hoofdletters. Noteer dit wachtwoord. U gebruikt dit als een implementatieparameter.
 - Zorg ervoor dat de namen van certificaathouders en alternatieve namen voor onderwerpen in de overeenkomst onderwerp alternatieve naam-extensie (x509v3_config). Het veld van de alternatieve naam voor onderwerp kunt u extra hostnamen (websites, IP-adressen, algemene namen) om te worden beveiligd met een enkel SSL-certificaat opgeven.
 
 > [!NOTE]  

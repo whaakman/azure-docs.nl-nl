@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576201"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566234"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planning voor de migratie van IaaS-resources van klassiek naar Azure Resource Manager
 Azure Resource Manager biedt veel geweldige functies, is het essentieel is voor het plannen van de migratie om ervoor zaken soepel verloopt. Tijd besteed aan het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van migratieactiviteiten.
@@ -88,7 +88,7 @@ Geslaagde klanten gedetailleerde plannen waar de voorgaande vragen zijn besproke
 
 De volgende zijn problemen gedetecteerd in veel van de grotere migraties. Dit is geen uitputtende lijst en u moet verwijzen naar de [niet-ondersteunde functies en configuraties](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) voor meer informatie.  U kan of kan niet deze technische problemen optreden, maar in dat geval het oplossen van deze vóór de migratie zorgt ervoor dat een soepeler ervaring.
 
-- **Een uitvoering van de testmodus valideren/voorbereiden/afbreken doen** -dit is misschien wel de belangrijkste stap om ervoor te zorgen van klassiek naar Azure Resource Manager migratie geslaagd. De migratie-API heeft drie belangrijke stappen: valideren, voorbereiden en vastleggen. Valideren van wordt de status van uw klassieke omgeving lezen en retourneert een resultaat van alle problemen. Echter, omdat sommige problemen in de Azure Resource Manager-stack voorkomen kunnen, valideren zal niet alles onderscheppen. De volgende stap in het migratieproces, voorbereiden kunt weergeven die problemen. Voorbereiden worden de metagegevens van klassiek naar Azure Resource Manager verplaatsen, maar wordt niet doorvoeren van de verplaatsing en wordt niet verwijderen of wijzigen iets aan de kant van het klassieke model. De uitvoering droge omvat het voorbereiden van de migratie en vervolgens wordt afgebroken (**niet doorvoeren**) voorbereiden van de migratie. Het doel van valideren/voorbereiden/afbreken droge uitvoering is om te zien van de metagegevens in de Azure Resource Manager-stack, onderzoekt het (*via programmacode of via de Portal*), en controleer of alles goed migreert en werken via technische problemen.  Ook krijgt u een idee van de duur van de migratie, zodat u dienovereenkomstig plannen voor uitvaltijd maken kan.  Een valideren/voorbereiden/afbreken niet leidt tot geen uitvaltijd gebruiker; Daarom is het niet-verstorend voor gebruik van de toepassing.
+- **Een uitvoering van de testmodus valideren/voorbereiden/afbreken doen** -dit is misschien wel de belangrijkste stap om ervoor te zorgen van klassiek naar Azure Resource Manager migratie geslaagd. De migratie-API heeft drie belangrijke stappen: Valideren, voorbereiden en vastleggen. Valideren van wordt de status van uw klassieke omgeving lezen en retourneert een resultaat van alle problemen. Echter, omdat sommige problemen in de Azure Resource Manager-stack voorkomen kunnen, valideren zal niet alles onderscheppen. De volgende stap in het migratieproces, voorbereiden kunt weergeven die problemen. Voorbereiden worden de metagegevens van klassiek naar Azure Resource Manager verplaatsen, maar wordt niet doorvoeren van de verplaatsing en wordt niet verwijderen of wijzigen iets aan de kant van het klassieke model. De uitvoering droge omvat het voorbereiden van de migratie en vervolgens wordt afgebroken (**niet doorvoeren**) voorbereiden van de migratie. Het doel van valideren/voorbereiden/afbreken droge uitvoering is om te zien van de metagegevens in de Azure Resource Manager-stack, onderzoekt het (*via programmacode of via de Portal*), en controleer of alles goed migreert en werken via technische problemen.  Ook krijgt u een idee van de duur van de migratie, zodat u dienovereenkomstig plannen voor uitvaltijd maken kan.  Een valideren/voorbereiden/afbreken niet leidt tot geen uitvaltijd gebruiker; Daarom is het niet-verstorend voor gebruik van de toepassing.
   - De volgende items moeten worden opgelost voordat het droge uitvoeren, maar een test testmodus wordt ook gewoon leegmaken van deze stappen voor gegevensvoorbereiding als ze zijn gemist. Tijdens de migratie van de onderneming, hebben we het droge uitvoeren op een veilige en waardevolle manier om te controleren of de gereedheid van de migratie worden ontdekt.
   - Als voorbereiding wordt uitgevoerd, het besturingselement vlak (Azure management-bewerkingen) wordt vergrendeld voor het hele virtuele netwerk, zodat er kunnen geen wijzigingen aangebracht in de metagegevens van de virtuele machine tijdens het valideren/voorbereiden/afbreken.  Maar anders een functie van de toepassing (extern bureaublad-Sessiehost, VM-gebruik, enzovoort), worden niet.  Gebruikers van de virtuele machines weet niet dat de uitvoering droge wordt uitgevoerd.
 
@@ -201,7 +201,7 @@ Dingen om te overwegen:
 
 Worden doelgericht op welke services u nu wilt inschakelen in Azure Resource Manager.  Veel klanten vinden het hieronder aantrekkelijk voor hun Azure-omgevingen:
 
-- [Op rollen gebaseerd toegangsbeheer](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Op rollen gebaseerd toegangsbeheer](../../role-based-access-control/overview.md).
 - [Azure Resource Manager-sjablonen voor de implementatie eenvoudiger en meer gecontroleerde](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Activiteit-besturingselement](../../azure-resource-manager/resource-group-audit.md)
