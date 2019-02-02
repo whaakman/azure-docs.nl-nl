@@ -4,7 +4,7 @@ description: Maak uw eerste Windows-containertoepassing in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jpconnock
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 01/25/2019
 ms.author: twhitney
-ms.openlocfilehash: 38979d80e25e0430082b7819d506b653c35697e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e1024fadf6a68307e42b57ee3c383977b7b4fb9b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172950"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562501"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. Dit artikel helpt u bij het maken van een Docker-installatiekopie met een Python [Flask](http://flask.pocoo.org/)-webtoepassing en het implementeren ervan in een Service Fabric-cluster. U gaat uw containertoepassing ook delen via [Azure Container Registry](/azure/container-registry/). In dit artikel wordt ervan uitgegaan dat u de basisbeginselen kent van Docker. Meer informatie over Docker kunt u lezen in het [Docker-overzicht](https://docs.docker.com/engine/understanding-docker/).
+Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. Dit artikel begeleidt u bij het maken van een Docker-installatiekopie met een Python [Flask](http://flask.pocoo.org/) web-toepassing en deze implementeert in een Service Fabric-cluster wordt uitgevoerd op uw lokale machine. U gaat uw containertoepassing ook delen via [Azure Container Registry](/azure/container-registry/). In dit artikel wordt ervan uitgegaan dat u de basisbeginselen kent van Docker. Meer informatie over Docker kunt u lezen in het [Docker-overzicht](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > In dit artikel is van toepassing op een Windows-ontwikkelomgeving.  De runtime Service Fabric-cluster en de Docker-runtime moeten worden uitgevoerd op het besturingssysteem dezelfde.  U kunt Windows-containers niet uitvoeren op een Linux-cluster.
 
 ## <a name="prerequisites"></a>Vereisten
+
 * Een ontwikkelcomputer waarop wordt uitgevoerd:
   * Visual Studio 2015 of Visual Studio 2017.
   * [Service Fabric SDK en hulpprogramma's](service-fabric-get-started.md).
@@ -41,10 +43,10 @@ Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in
 
   Voor dit artikel, de versie (build) van Windows Server met de Containers die worden uitgevoerd op de clusterknooppunten moet overeenkomen met die op uw ontwikkelcomputer. Dit is omdat u de docker-installatiekopie op uw computer ontwikkeling bouwen en er beperkingen voor compatibiliteit tussen versies van de container OS en het hostbesturingssysteem waarop het wordt geïmplementeerd. Zie voor meer informatie, [Windows Server-container OS en host besturingssysteemcompatibiliteit](#windows-server-container-os-and-host-os-compatibility). 
   
-  Uitvoeren om te bepalen welke versie van Windows Server met Containers die u nodig hebt voor uw cluster, de `ver` opdracht uit vanaf een Windows-opdrachtprompt op de ontwikkelcomputer:
+Uitvoeren om te bepalen welke versie van Windows Server met Containers die u nodig hebt voor uw cluster, de `ver` opdracht uit vanaf een Windows-opdrachtprompt op de ontwikkelcomputer:
 
-  * Als de versie bevat *x.x.14323.x*en selecteer vervolgens *WindowsServer 2016 Datacenter met Containers* voor het besturingssysteem als [het maken van een cluster](service-fabric-cluster-creation-via-portal.md). U kunt ook [Service Fabric gratis proberen](https://aka.ms/tryservicefabric) met een party-cluster.
-  * Als de versie bevat *x.x.16299.x*en selecteer vervolgens *WindowsServerSemiAnnual Datacenter-Core-1709-met-Containers* voor het besturingssysteem als [het maken van een cluster](service-fabric-cluster-creation-via-portal.md). U kunt een cluster van derden echter niet gebruiken.
+* Als de versie bevat *x.x.14323.x*en selecteer vervolgens *WindowsServer 2016 Datacenter met Containers* voor het besturingssysteem als [het maken van een cluster](service-fabric-cluster-creation-via-portal.md).
+  * Als de versie bevat *x.x.16299.x*en selecteer vervolgens *WindowsServerSemiAnnual Datacenter-Core-1709-met-Containers* voor het besturingssysteem als [het maken van een cluster](service-fabric-cluster-creation-via-portal.md).
 
 * Een register in Azure Container Registry - [Een containerregister maken](../container-registry/container-registry-get-started-portal.md) in uw Azure-abonnement.
 
@@ -57,6 +59,7 @@ Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in
 > 
 
 ## <a name="define-the-docker-container"></a>De Docker-container definiëren
+
 Bouw een installatiekopie op basis van de [Python-installatiekopie](https://hub.docker.com/_/python/) die zich in de Docker-hub bevindt.
 
 Geef uw Docker-container in een Dockerfile op. Het bestand Dockerfile bestaat uit instructies voor het instellen van de omgeving in de container, het laden van de toepassing die u wilt uitvoeren en het toewijzen van poorten. Het Dockerfile is de invoer van de opdracht `docker build` waarmee de installatiekopie wordt gemaakt.
@@ -166,6 +169,7 @@ docker rm my-web-site
 
 <a id="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>De installatiekopie naar het containerregister pushen
+
 Nadat u hebt gecontroleerd of de container actief is op de ontwikkelcomputer, pusht u de installatiekopie naar het register in Azure Container Registry.
 
 Voer ``docker login`` uit om u bij uw containerregister aan te melden met uw [registerreferenties](../container-registry/container-registry-authentication.md).
@@ -257,6 +261,7 @@ Configureer een hostpoort voor communicatie met de container. De poortbinding wi
 > Aanvullende PortBindings voor een service kunnen worden toegevoegd door op te geven aanvullende PortBinding elementen met die van toepassing zijn eigenschapswaarden.
 
 ## <a name="configure-container-registry-authentication"></a>Verificatie containerregister configureren
+
 Configureer de verificatie van het containerregister `RepositoryCredentials` door toe te voegen aan `ContainerHostPolicies` van het bestand ApplicationManifest.xml. Voeg het account en wachtwoord toe aan het containerregister myregistry.azurecr.io, waardoor de service voor de containerinstallatiekopie uit de opslagplaats kan downloaden.
 
 ```xml
@@ -448,7 +453,8 @@ De toepassing is gereed wanneer deze ```Ready``` status: ![Gereed][2]
 Open een browser en ga naar http://containercluster.westus2.cloudapp.azure.com:8081. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 ## <a name="clean-up"></a>Opruimen
-Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-cluster-delete.md). [Party-clusters](https://try.servicefabric.azure.com/) worden na een paar uur automatisch verwijderd.
+
+Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-cluster-delete.md).
 
 Nadat u de installatiekopie naar het containerregister hebt gepusht, kunt u de lokale installatiekopie op de ontwikkelcomputer verwijderen:
 

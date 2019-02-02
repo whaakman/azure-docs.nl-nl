@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 75caad2c183ba2d3c5442a3620705c6af8070755
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250704"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659589"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen
 
@@ -159,7 +159,7 @@ U kunt een systeem gebouwd conda-omgeving, een al bestaande Python-omgeving of e
 
 Gebruik de Azure Data Science Virtual Machine (DSVM) als de Azure-VM van keuze voor dit scenario. Deze virtuele machine is een vooraf geconfigureerde datatechnologie en AI-ontwikkelomgeving in Azure. De virtuele machine biedt een gecureerde ruime keuze aan hulpprogramma's en frameworks voor volledige-levenscyclus van machine learning-ontwikkeling. Zie voor meer informatie over het gebruik van de DSVM met Azure Machine Learning [een ontwikkelomgeving configureren](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Maak**: Maak een DSVM voordat u deze gebruikt met het trainen van uw model. Zie voor het maken van deze resource [inrichten van de virtuele Machine voor Datatechnologie voor Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Maak**: Maak een DSVM voordat u deze gebruikt met het trainen van uw model. Zie voor het maken van deze resource [inrichten van de virtuele Machine voor Datatechnologie voor Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > Azure Machine Learning biedt alleen ondersteuning voor virtuele machines met Ubuntu. Wanneer u een virtuele machine maken of kies een bestaande virtuele machine, moet u een virtuele machine die gebruikmaakt van Ubuntu.
@@ -384,5 +384,5 @@ Zie deze laptops voor voorbeelden van training met diverse compute-doelen:
 
 * [Zelfstudie: Een model te trainen](tutorial-train-models-with-aml.md) maakt gebruik van een beheerde compute-doel voor een model te trainen.
 * Zodra u een getraind model hebt, meer [hoe en waar u kunt modellen implementeren](how-to-deploy-and-where.md).
-* Weergave de [RunConfiguration klasse](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK-referentie.
+* Weergave de [RunConfiguration klasse](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK-referentie.
 * [Azure Machine Learning-service gebruiken met Azure Virtual Networks](how-to-enable-virtual-network.md)

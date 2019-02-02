@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 0847096674d446940ed3fed3390457e3d2e894bf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3b2bb76ff8fe8f9ac146dab2a721450bc0562fa6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248449"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662071"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -38,6 +38,16 @@ Deze pagina wordt maandelijks bijgewerkt, dus regelmatig bezoekt. Als u naar ite
 
 ---
 ## <a name="january-2019"></a>Januari 2019
+
+### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Active Directory B2B-samenwerking met behulp van verificatie eenmalige wachtwoordcode (openbare preview)
+
+**Type:** Nieuwe functie  
+**Categorie van de service:** B2B  
+**Product-mogelijkheid:** B2B/B2C
+
+Verificatie van de eenmalige wachtwoordcode (OTP) hebben we geïntroduceerd voor B2B-gastgebruikers die via andere middelen, zoals Azure AD, een Microsoft-account (MSA) of Google Federatie kunnen niet worden geverifieerd. Deze nieuwe methode voor netwerkverificatie betekent dat gebruikers hoeft te maken van een nieuw Microsoft-account Gast. In plaats daarvan, hoewel een uitnodiging inwisselen of toegang tot een gedeelde bron, kunt aanvragen een gastgebruiker een tijdelijke code moet worden verzonden naar een e-mailadres. Met deze tijdelijke code kunt de gastgebruiker aan te melden bij blijven.
+
+Zie voor meer informatie, [e eenmalige wachtwoordcode verificatie (preview)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) en de blog [Azure AD maakt delen en samenwerking naadloos voor elke gebruiker met een account](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949).
 
 ### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nieuwe Azure AD-toepassingsproxy cookie-instellingen
 

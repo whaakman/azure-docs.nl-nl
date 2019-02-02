@@ -11,23 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: f1aa037afd0fa1cbe37add24a354e4dc62c13b9a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 12/12/2018
+ms.openlocfilehash: 6ebef74cee6f919fe6b8cf666db06e0ab22cec73
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310127"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566921"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Verbinding maken met SQL Database met behulp van C en C++
+
 Dit bericht is gericht op C en C++-ontwikkelaars die verbinding maken met Azure SQL-database. Het is onderverdeeld in secties, zodat u kunt naar de sectie die het beste uw interesse legt gaan.
 
 ## <a name="prerequisites-for-the-cc-tutorial"></a>Vereisten voor de C/C++-zelfstudie
+
 Zorg ervoor dat u over de volgende zaken beschikt:
 
 * Een actief Azure-account. Als u nog geen abonnement hebt, kunt u zich registreren voor een [gratis Azure-proefversie](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). U kunt de C++-taalonderdelen om te bouwen en uitvoeren van dit voorbeeld moet installeren.
-* [Visual Studio ontwikkeling onder Linux](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). Als u op Linux ontwikkelt, moet u ook de Visual Studio-Linux-extensie installeren.
+* [Visual Studio Linux Development](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). Als u op Linux ontwikkelt, moet u ook de Visual Studio-Linux-extensie installeren.
 
 ## <a id="AzureSQL"></a>Azure SQL Database en SQL Server op virtuele machines
 SQL Azure is gebouwd op Microsoft SQL Server en is ontworpen voor een hoge beschikbaarheid, goed presterende en schaalbare service. Er zijn veel voordelen voor het gebruik van SQL Azure via uw eigen database dat on-premises. Met SQL Azure-hebt u geen te installeren, instellen, onderhouden of beheren van uw database, maar alleen de inhoud en de structuur van uw database. Dingen die we een zorgen maken over met databases zoals zijn alle fouttolerantie en redundantie ingebouwd in.
@@ -89,7 +91,7 @@ De volgende stappen uit installeren de bibliotheken die nodig zijn voor SQL en O
     apt-get install msodbcsql
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
-Start Visual Studio. Onder Tools -> Options -> Cross-Platform -> Connection Manager, een verbinding toevoegen aan uw box Linux:
+Launch Visual Studio. Onder Tools -> Options -> Cross-Platform -> Connection Manager, een verbinding toevoegen aan uw box Linux:
 
 ![Extra opties](./media/sql-database-develop-cplusplus-simple/tools.png)
 

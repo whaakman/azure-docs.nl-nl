@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 7ab8b66d516368bf866aa9d2a202ccd261394b93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4505dcf5d9407a609bcf97c56835ff186607127d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243144"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563728"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure voor on-demand Red Hat Enterprise Linux-machines in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kunt u cloudproviders, zoals Azure, voor het spiegelen van de inhoud van Red Hat gehoste opslagplaats, aangepaste opslagplaatsen maken met Azure-specifieke inhoud en het beschikbaar maken voor virtuele machines door eindgebruikers.
@@ -109,7 +109,7 @@ Als u een oudere RHEL VM-installatiekopie, bijvoorbeeld RHEL 7.4 (image-URN: `Re
 sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
-U kunt ook uitgevoerd `sudo yum update` werkt ook de certificaat-clientpakket ondanks fouten van 'verlopen SSL-certificaat' u voor andere opslagplaatsen ziet. Na de update, normale connectiviteit met andere opslagplaatsen RHUI dient te worden hersteld, zodat u kunt uitvoeren `sudo yum update` is.
+U kunt ook uitgevoerd `sudo yum update` het clientpakket certificaat (afhankelijk van de RHEL-versie), kan ook worden bijgewerkt ondanks fouten van 'verlopen SSL-certificaat' u voor andere opslagplaatsen ziet. Als deze update geslaagd is, normale connectiviteit met andere RHUI-opslagplaatsen moet worden hersteld, zodat u kunt uitvoeren `sudo yum update` is.
 
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Problemen met verbinding naar Azure RHUI

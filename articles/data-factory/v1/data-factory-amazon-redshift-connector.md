@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: eafc5dbd89d5727fac0040816785dbfcdf123b62
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022016"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563612"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens verplaatsen van Amazon Redshift, met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54022016"
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [Amazon Redshift-connector in V2](../connector-amazon-redshift.md).
 
-In dit artikel wordt uitgelegd hoe u van de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van Amazon Redshift. Het artikel is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft. 
+In dit artikel wordt uitgelegd hoe u van de Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen van Amazon Redshift. Het artikel is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit geeft.
 
 Data Factory ondersteunt momenteel alleen gegevens te verplaatsen van Amazon Redshift naar een [ondersteunde sink-gegevensopslag](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Verplaatsen van gegevens uit andere gegevensarchieven naar Amazon Redshift wordt niet ondersteund.
 
@@ -44,13 +44,13 @@ U kunt een pijplijn maken met een kopieeractiviteit om gegevens te verplaatsen v
 
 Er is de eenvoudigste manier om een pijplijn te maken met de Kopieerwizard van Azure Data Factory. Zie voor een snel overzicht over het maken van een pijplijn met behulp van de Wizard kopiëren, de [zelfstudie: Een pijplijn maken met behulp van de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
 
-U kunt ook een pijplijn maken met behulp van de Azure-portal, Visual Studio, Azure PowerShell of andere hulpprogramma's. Azure Resource Manager-sjablonen, de .NET-API of de REST-API kan ook worden gebruikt om de pijplijn te maken. Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+U kunt ook een pijplijn maken met behulp van de Azure-portal, Visual Studio, Azure PowerShell of andere hulpprogramma's. Azure Resource Manager-sjablonen, de .NET-API of de REST-API kan ook worden gebruikt om de pijplijn te maken. Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren: 
+Of u de hulpprogramma's of API's gebruikt, kunt u de volgende stappen uit voor het maken van een pijplijn die gegevens van een brongegevensarchief naar een sink-gegevensopslag verplaatst uitvoeren:
 
 1. Maak gekoppelde services om te koppelen van de invoer en uitvoer gegevensarchieven aan uw data factory.
-2. Gegevenssets vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking maken. 
-3. Een pijplijn maken met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
+2. Gegevenssets vertegenwoordigen invoer- en uitvoergegevens voor de kopieerbewerking maken.
+3. Een pijplijn maken met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer.
 
 Wanneer u de Wizard kopiëren hebt gebruikt, worden automatisch JSON-definities voor deze Data Factory-entiteiten gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API), kunt u de Data Factory-entiteiten definiëren met behulp van de JSON-indeling. De [JSON-voorbeeld: Gegevens kopiëren van Amazon Redshift naar Azure Blob-opslag](#json-example-copy-data-from-amazon-redshift-to-azure-blob) toont de JSON-definities voor de Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar een Amazon Redshift-gegevensarchief.
 
@@ -77,7 +77,7 @@ De **typeProperties** sectie verschilt voor elk type gegevensset en bevat inform
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| **Tabelnaam** |De naam van de tabel in de Amazon Redshift-database waarnaar de gekoppelde service verwijst. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
+| **tableName** |De naam van de tabel in de Amazon Redshift-database waarnaar de gekoppelde service verwijst. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
@@ -87,7 +87,7 @@ Voor de Kopieeractiviteit, wanneer de bron van het type **AmazonRedshiftSource**
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| **Query** | De aangepaste query gebruiken om de gegevens te lezen. |Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
+| **query** | De aangepaste query gebruiken om de gegevens te lezen. |Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
 | **redshiftUnloadSettings** | Bevat de eigenschapgroep bij het gebruik van de Redshift **UNLOAD** opdracht. | Nee |
 | **s3LinkedServiceName** | De Amazon S3 om te gebruiken als een tijdelijke opslag. De gekoppelde service is opgegeven met behulp van een Azure Data Factory-naam van het type **AwsAccessKey**. | Vereist als u de **redshiftUnloadSettings** eigenschap |
 | **bucketName** | Geeft aan dat de Amazon S3-bucket te gebruiken voor het opslaan van de tussentijdse gegevens. Als deze eigenschap niet is opgegeven, Copy Activity auto-genereert een bucket. | Vereist als u de **redshiftUnloadSettings** eigenschap |
@@ -96,7 +96,7 @@ U kunt ook kunt u de **RelationalSource** type, waaronder Amazon Redshift, met d
 
 | Eigenschap | Description | Vereist |
 | --- | --- | --- |
-| **Query** |De aangepaste query gebruiken om de gegevens te lezen. | Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
+| **query** |De aangepaste query gebruiken om de gegevens te lezen. | Nee (als de **tableName** eigenschap van een gegevensset is opgegeven) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Laden ongedaan maken om gegevens te kopiëren van Amazon Redshift gebruiken
 
@@ -139,7 +139,7 @@ Voor dit voorbeeld use-case Kopieeractiviteit eerst verwijdert de gegevens van A
 ```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>JSON-voorbeeld: Gegevens kopiëren van Amazon Redshift naar Azure Blob-opslag
-Dit voorbeeld laat zien hoe u gegevens kopiëren van een Amazon Redshift-database naar Azure Blob Storage. Gegevens kunnen worden gekopieerd naar een [ondersteund sink](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit.  
+Dit voorbeeld laat zien hoe u gegevens kopiëren van een Amazon Redshift-database naar Azure Blob Storage. Gegevens kunnen worden gekopieerd naar een [ondersteund sink](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van de Kopieeractiviteit.
 
 Het voorbeeld heeft de volgende data factory-entiteiten:
 
@@ -162,7 +162,7 @@ Het voorbeeld worden gegevens gekopieerd van de resultaten van een query in de A
         "typeProperties":
         {
             "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
             "database": "<The database name of the Amazon Redshift database>",
             "username": "<username>",
             "password": "<password>"
@@ -333,15 +333,15 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | SMALLINT |Int16 |
 | GEHEEL GETAL ZIJN |Int32 |
 | BIGINT |Int64 |
-| DECIMAAL |Decimaal |
-| ECHTE |Enkelvoudig |
-| DUBBELE PRECISIE |Double-waarde |
-| BOOLEAANSE WAARDE |Reeks |
-| CHAR |Reeks |
-| VARCHAR |Reeks |
+| DECIMAL |Decimal |
+| ECHTE |Single |
+| DUBBELE PRECISIE |Double |
+| BOOLEAANSE WAARDE |String |
+| CHAR |String |
+| VARCHAR |String |
 | DATE |DateTime |
-| TIJDSTEMPEL |DateTime |
-| TEKST |Reeks |
+| TIMESTAMP |DateTime |
+| TEKST |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kaartbron met sink-kolommen
 Zie voor informatie over het toewijzen van kolommen in de brongegevensset naar kolommen in de sink-gegevensset, [toewijzing van kolommen in Azure Data Factory](data-factory-map-columns.md).
@@ -350,7 +350,7 @@ Zie voor informatie over het toewijzen van kolommen in de brongegevensset naar k
 Wanneer u gegevens van een relationele gegevensopslag kopieert, houd u herhaalbaarheid in gedachten om te voorkomen dat ongewenste resultaten. In Azure Data Factory, kunt u een segment handmatig opnieuw. U kunt ook configureren met de nieuwe poging **beleid** voor een gegevensset naar een segment opnieuw uitgevoerd wanneer een fout optreedt. Zorg ervoor dat de dezelfde gegevens worden gelezen, ongeacht het aantal keren dat het segment wordt opnieuw uitgevoerd. Zorg ook dat de dezelfde gegevens worden gelezen, ongeacht hoe u het segment opnieuw uitvoeren. Zie voor meer informatie, [Repeatable leest van relationele bronnen](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Prestaties en afstemmen
-Meer informatie over de belangrijkste factoren die invloed hebben op de prestaties van Kopieeractiviteit en manieren om te optimaliseren van prestaties in de [en activiteit kopiëren Afstemmingshandleiding](data-factory-copy-activity-performance.md). 
+Meer informatie over de belangrijkste factoren die invloed hebben op de prestaties van Kopieeractiviteit en manieren om te optimaliseren van prestaties in de [en activiteit kopiëren Afstemmingshandleiding](data-factory-copy-activity-performance.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor stapsgewijze instructies voor het maken van een pijplijn met Copy Activity in de [zelfstudie Kopieeractiviteit](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

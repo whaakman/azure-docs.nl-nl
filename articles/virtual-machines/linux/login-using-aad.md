@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8a54ab9e45838a81a2ea4e2e425114e19a65ba76
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320924"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563844"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -105,7 +105,7 @@ Azure Role-Based Access Control (RBAC) beleid bepaalt wie zich kunt aanmelden bi
 > [!NOTE]
 > Als u wilt toestaan dat een gebruiker zich aanmelden bij de virtuele machine via SSH, moet u ofwel de *beheerdersaanmelding bij virtuele Machine* of *gebruikersaanmelding bij virtuele Machine* rol. Een Azure-gebruiker met de *eigenaar* of *Inzender* rollen toegewezen voor een virtuele machine automatisch geen bevoegdheden voor het aanmelden bij de virtuele machine via SSH.
 
-Het volgende voorbeeld wordt [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create) om toe te wijzen de *beheerdersaanmelding bij virtuele Machine* rol aan de virtuele machine voor uw huidige Azure-gebruiker. De gebruikersnaam van uw actieve Azure-account wordt verkregen met [az account show](/cli/azure/account#az-account-show), en de *bereik* is ingesteld op de virtuele machine gemaakt in de vorige stap met [az vm show](/cli/azure/vm#az-vm-show). Het bereik kan ook worden toegewezen op het niveau van een resource groep of abonnement, en er gelden normale RBAC overname van machtigingen. Zie voor meer informatie, [toegangsbeheer op basis van rollen](../../azure-resource-manager/resource-group-overview.md#access-control)
+Het volgende voorbeeld wordt [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create) om toe te wijzen de *beheerdersaanmelding bij virtuele Machine* rol aan de virtuele machine voor uw huidige Azure-gebruiker. De gebruikersnaam van uw actieve Azure-account wordt verkregen met [az account show](/cli/azure/account#az-account-show), en de *bereik* is ingesteld op de virtuele machine gemaakt in de vorige stap met [az vm show](/cli/azure/vm#az-vm-show). Het bereik kan ook worden toegewezen op het niveau van een resource groep of abonnement, en er gelden normale RBAC overname van machtigingen. Zie voor meer informatie, [toegangsbeheer op basis van rollen](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)

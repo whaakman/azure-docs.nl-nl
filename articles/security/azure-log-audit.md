@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 93370b927f825752b8ce2b5e9d4ca94b3a4e0536
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306247"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664179"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -194,7 +194,7 @@ Storage Analytics registreert de volgende soorten geverifieerde en anonieme aanv
 
 Netwerk logboekregistratie en bewaking in Azure is uitgebreid en omvat onderverdeeld in twee hoofdcategorieën:
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Scenario's gebaseerde netwerkbewaking is opgegeven met de functies van Network Watcher. Deze service omvat pakket vastleggen, volgende hop, IP-stroom controleren, weergave van de beveiligingsgroep, NSG-stroomlogboeken. Scenario niveau bewaking biedt een end-to-weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Scenario's gebaseerde netwerkbewaking is opgegeven met de functies van Network Watcher. Deze service omvat pakket vastleggen, volgende hop, IP-stroom controleren, weergave van de beveiligingsgroep, NSG-stroomlogboeken. Scenario niveau bewaking biedt een end-to-weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
 
 * [Controle van bronnen](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Resourcecontrole niveau bestaat uit vier functies, diagnostische logboeken, metrische gegevens, probleemoplossing en resource health. Al deze functies zijn gebouwd op het niveau van de netwerk-resource.
 
@@ -336,7 +336,7 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 |Cognitive Services|    Microsoft.CognitiveServices/<br>accounts|       Diagnostiek|||
 |Azure Data Lake Analytics| Microsoft.DataLakeAnalytics/<br>accounts|   Diagnostiek|||
 |Azure Data Lake Store| Microsoft.DataLakeStore/<br>accounts|   Diagnostiek|||
-|Azure Event Hub-naamruimte| Microsoft.EventHub/<br>Naamruimten|  Diagnostiek|    Diagnostiek||
+|Azure Event Hub-naamruimte| Microsoft.EventHub/<br>naamruimten|  Diagnostiek|    Diagnostiek||
 |Azure IoT Hub| Microsoft.Devices/<br>IotHubs||     Diagnostiek||
 |Azure Key Vault|   Microsoft.KeyVault/<br>Kluizen|  Diagnostiek  || [Key Vault-analyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnostiek|||
@@ -345,7 +345,7 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 |Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Azure Network Security Group analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Recovery-kluizen|   Microsoft.RecoveryServices/<br>Kluizen|||[Azure Recovery Services-analyse (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Services zoeken|   Microsoft.Search/<br>searchServices|    Diagnostiek|    Diagnostiek||
-|Service Bus-naamruimte| Microsoft.ServiceBus/<br>Naamruimten|    Diagnostiek|Diagnostiek|    [Service Bus-analyse (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Bus-naamruimte| Microsoft.ServiceBus/<br>naamruimten|    Diagnostiek|Diagnostiek|    [Service Bus-analyse (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Storage||    [Service Fabric-analyse (Preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servers /<br>databases||       Diagnostiek||
 ||Microsoft.Sql/<br>servers /<br>elasticPools||||

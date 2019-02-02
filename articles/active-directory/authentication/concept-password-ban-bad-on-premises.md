@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: b99c1b99fe87c755d6092876ccd598d926289192
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 816c459ca6edd7204ccdcdf9d402f2d4499d9116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077827"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662520"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Preview: Afdwingen van de beveiliging van Azure AD-wachtwoord voor Windows Server Active Directory
 
@@ -29,7 +29,7 @@ Beveiliging van Azure AD-wachtwoord is een nieuwe functie in openbare preview, m
 Er zijn drie softwareonderdelen die gezamenlijk protection voor Azure AD-wachtwoord:
 
 * De Azure AD wachtwoord protection proxy-service wordt uitgevoerd op elke machine domein in de huidige Active Directory-forest. Het aanvragen van domeincontrollers worden doorgestuurd naar Azure AD en het antwoord geretourneerd van Azure AD terug naar de domeincontroller.
-* De agent-service van Azure AD wachtwoord beveiliging DC ontvangt verzoeken van wachtwoord-validatie van het DLL-bestand van DC-Agent wachtwoord filter, verwerkt met behulp van het huidige lokaal beschikbaar wachtwoordbeleid en retourneert het resultaat (pass\fail). Deze service is verantwoordelijk voor het periodiek (één keer per uur) aanroepen van de Azure AD wachtwoord protection proxy-service om op te halen van nieuwe versies van het wachtwoordbeleid. Communicatie voor aanroepen naar en van de Azure AD wachtwoord protection proxy-service wordt verwerkt via RPC (Remote Procedure Call) via TCP. Bij het ophalen, wordt nieuwe beleid opgeslagen in een sysvol-map waar ze naar andere domeincontrollers repliceren kunnen. De DC-agent-service bewaakt ook de map sysvol voor wijzigingen in het geval er nieuwe wachtwoordbeleid door andere domeincontrollers hebt geschreven, de controle van de proxy-service van Azure AD wachtwoord beveiliging wordt overgeslagen als een voldoende recente beleid al beschikbaar is.
+* De agent-service van Azure AD wachtwoord beveiliging DC ontvangt verzoeken van wachtwoord-validatie van het DLL-bestand van DC-Agent wachtwoord filter, verwerkt met behulp van het huidige lokaal beschikbaar wachtwoordbeleid en retourneert het resultaat (pass\fail). Deze service is verantwoordelijk voor het periodiek (één keer per uur) aanroepen van de Azure AD wachtwoord protection proxy-service om op te halen van nieuwe versies van het wachtwoordbeleid. Communicatie tussen de agent-service van Azure AD wachtwoord DC-beveiliging en de proxy-service van Azure AD wachtwoord beveiliging wordt afgehandeld met behulp van RPC (Remote Procedure Call) via TCP. Bij het ophalen, wordt nieuwe beleid opgeslagen in een sysvol-map waar ze naar andere domeincontrollers repliceren kunnen. De DC-agent-service bewaakt ook de sysvol-map voor wijzigingen in het geval andere domeincontrollers hebt geschreven nieuwe wachtwoordbeleid. Als een voldoende recente beleid al beschikbaar is zal downloaden van nieuwe beleidsaanvragen worden overgeslagen.
 * Het DLL-bestand van DC-Agent wachtwoord filter ontvangt verzoeken van wachtwoord-validatie van het besturingssysteem en ze doorstuurt naar de Azure AD wachtwoord protection DC-agent-service lokaal wordt uitgevoerd op de domeincontroller.
 
 ![Hoe Azure AD wachtwoord beveiliging onderdelen samenwerken.](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
@@ -57,7 +57,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van de Azure AD-wac
 * Er is geen Active Directory-domein of Forest functionele niveau (DFL\FFL) minimumvereiste.
 * De software niet maken of vereisen dat alle accounts in Active Directory-domeinen die worden beschermd.
 * Stapsgewijze implementatie wordt ondersteund daar staat tegenover dat beleid van het wachtwoord alleen wordt afgedwongen waar de domain controller-agent is geïnstalleerd.
-* Het verdient aanbeveling de DC-agent installeren op alle DC's om te controleren of wachtwoord NAP-afdwinging. 
+* Het verdient aanbeveling de DC-agent installeren op alle DC's om te controleren of wachtwoord NAP-afdwinging.
 * Beveiliging van Azure AD-wachtwoord is niet een realtime toepassing beleidsengine. Mogelijk zijn er een vertraging in de tijd tussen een wachtwoordwijziging voor de configuratie van beleid en de tijd die het heeft bereikt en op alle domeincontrollers wordt afgedwongen.
 
 ## <a name="next-steps"></a>Volgende stappen

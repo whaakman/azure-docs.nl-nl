@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b203acefb962d5b3a782ba0ce1e667b6f18b7951
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: bc79379d1b893beffc085e79b7643fcb6e1dc26f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508926"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657311"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery en storage-account failover (preview) in Azure Storage
 
@@ -104,7 +104,7 @@ Nadat het opslagaccount dat is geconfigureerd voor geo-redundantie, is het mogel
 
 Een belangrijke om gegevensverlies te voorkomen, controleert u de waarde van de **tijd van laatste synchronisatie** eigenschap alvorens de failback. Vergelijk de tijd van laatste synchronisatie op de laatste keer dat de gegevens is geschreven naar de nieuwe primaire evalueren van de verwachte gegevens verloren gaan. 
 
-## <a name="initiate-an-account-failover"></a>Start de failover van een account
+## <a name="initiate-an-account-failover"></a>Een failover van account initiëren
 
 U kunt een failover van de account van de Azure-portal, PowerShell, Azure CLI of de Azure Storage resourceprovider API op te starten. Zie voor meer informatie over het starten van een failover [Start de failover van een account (preview)](storage-initiate-account-failover.md).
 
@@ -152,6 +152,7 @@ Niet-beheerde schijven worden opgeslagen als pagina-blobs in Azure Storage. Wann
 4. Wacht totdat de **tijd van laatste synchronisatie** is bijgewerkt en is hoger dan de tijd waarop u de virtuele machine verwijderd. Deze stap is belangrijk, omdat als het secundaire eindpunt niet volledig met de VHD-bestanden bijgewerkt is wanneer de failover is uitgevoerd, klikt u vervolgens de virtuele machine mogelijk niet goed in de nieuwe primaire regio.
 5. Start de failover van het account.
 6. Wacht totdat de account-failover voltooid is en de secundaire regio is de nieuwe primaire regio geworden.
+6. Maak een opslagaccount in de nieuwe primaire regio en uw niet-beheerde schijf te kopiëren.
 7. Een virtuele machine in de nieuwe primaire regio maken en koppelen van de VHD's.
 8. Start de nieuwe virtuele machine.
 

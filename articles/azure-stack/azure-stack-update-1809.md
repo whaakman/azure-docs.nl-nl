@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 81501c79f00c2c0f8ef81532f3b8e7f61fc9eba0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c4dcf34ff113c4f1a6d7dcacbe598c453dbd63c3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250603"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658229"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -50,7 +50,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack:
 
 - U kunt nu [Verplaats de resource registratie](azure-stack-registration.md#move-a-registration-resource) op Azure tussen resourcegroepen zonder dat u opnieuw wilt registreren. Cloud Solution Providers (CSP's) kunnen ook verplaatst u de registratie bron tussen abonnementen, zolang de nieuwe en het oude abonnementen worden toegewezen aan dezelfde CSP-partner-ID. Dit heeft geen invloed op de bestaande toewijzingen van de klant-tenant. 
 
-- Er is ondersteuning toegevoegd voor het toewijzen van meerdere IP-adressen per netwerkinterface.  Zie voor meer informatie [meerdere IP-adressen toewijzen aan virtuele machines met behulp van PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+- Er is ondersteuning toegevoegd voor het toewijzen van meerdere IP-adressen per netwerkinterface.  Zie voor meer informatie [meerdere IP-adressen toewijzen aan virtuele machines met behulp van PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Problemen opgelost
 

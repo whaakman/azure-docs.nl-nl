@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d17389af1129c63d2c0eadfac04c034669200620
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1b62bb6b00e1add93ee4215507d1b110dcf51424
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462729"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566955"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files implementeren
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol. Dit artikel wordt beschreven hoe u vrijwel Azure Files implementeren binnen uw organisatie.
@@ -77,7 +77,7 @@ De volgende stappen wordt naar uw Azure-bestandsshare gegevens importeren uit ee
     
     Zie [voorbereiden van het CSV-bestand driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) voor meer informatie.
 
-6. Gebruik de [WAImportExport hulpprogramma](https://www.microsoft.com/en-us/download/details.aspx?id=55280) uw gegevens kopiëren naar een of meer harde schijven.
+6. Gebruik de [WAImportExport hulpprogramma](https://www.microsoft.com/download/details.aspx?id=55280) uw gegevens kopiëren naar een of meer harde schijven.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>

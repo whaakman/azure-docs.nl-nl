@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 9ff66b386a6293c11ad67ec90e165b927ad6669b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d37245d7eed39ee9d219578db9e0a50d758ba9a2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870551"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660864"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Opmerkingen bij de release voor Microsoft Azure Backup Server
 Dit artikel vindt de bekende problemen en oplossingen voor Microsoft Azure Backup-Server (MABS) V3.
 
 ##  <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Back-up en herstel is mislukt voor geclusterde werkbelastingen
 
-**Beschrijving:** back-up/herstel is mislukt voor geclusterde gegevensbronnen zoals Hyper-V-cluster of SQL-cluster (SQL Always On) of Exchange in de database (groep met Databasebeschikbaarheid) na de upgrade van MABS V2 naar V3 MABS.
+**Beschrijving:** Back-up/herstel is mislukt voor geclusterde gegevensbronnen zoals Hyper-V-cluster of SQL-cluster (SQL Always On) of Exchange in de database (groep met Databasebeschikbaarheid) na de upgrade van MABS V2 naar V3 MABS.
 
-**Tijdelijke oplossing:** om dit te voorkomen, opent u SQL Server Management Studio (SSMS)) en voer de volgende SQL-script uit op de DPM-database:
+**Tijdelijke oplossing:** Open SQL Server Management Studio (SSMS) om dit te voorkomen,) en voer de volgende SQL-script uit op de DPM-database:
 
 
     IF EXISTS (SELECT * FROM dbo.sysobjects
@@ -56,7 +56,7 @@ Dit artikel vindt de bekende problemen en oplossingen voor Microsoft Azure Backu
 
 **Beschrijving:** Upgrade van MABS V2 naar V3 MABS in Rusland landinstelling is mislukt met foutcode **4387**.
 
-**Tijdelijke oplossing:** de volgende stappen uit om te upgraden naar MABS V3 met behulp van Russisch pakket installeren:
+**Tijdelijke oplossing:** De volgende stappen uit om te upgraden naar MABS V3 met behulp van Russisch pakket installeren:
 
 1.  [Back-up](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) uw SQL-database en het verwijderen van MABS V2 (Kies de beveiligde gegevens behouden tijdens de installatie ongedaan maken).
 2.  Een upgrade uitvoert naar SQL 2017 (Enterprise) en reporting als onderdeel van de upgrade verwijderen.
@@ -64,7 +64,7 @@ Dit artikel vindt de bekende problemen en oplossingen voor Microsoft Azure Backu
 4.  [Installeer](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017#ssms-installation-tips-and-issues-ssms-1791) SQL Server Management Studio (SSMS).
 5.  Configureren van rapportage met behulp van de parameters zoals beschreven in [SSRS-configuratie met SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Installeer](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Herstellen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL met behulp van SSMS en voer DPM-Sync-hulpprogramma, zoals beschreven [hier](https://docs.microsoft.com/it-it/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
+7. [Herstellen](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL met behulp van SSMS en voer DPM-Sync-hulpprogramma, zoals beschreven [hier](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Werk de eigenschap 'DataBaseVersion' in dbo.tbl_DLS_GlobalSetting tabel met de volgende opdracht:
 
         UPDATE dbo.tbl_DLS_GlobalSetting

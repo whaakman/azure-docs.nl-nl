@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cc0521f1f27ddfc1fc44b9f24212393d11177d70
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296160"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660966"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
 **V: Kan ik het apparaat recent geregistreerd. Waarom zie ik het apparaat niet onder Mijn gebruikersgegevens in Azure portal? Of waarom is de eigenaar van het apparaat gemarkeerd als N.V.T. voor hybride Azure Active Directory (Azure AD) apparaten gekoppelde?**
 
 **A:** Windows 10-apparaten die zijn toegevoegd aan hybrid Azure AD niet worden weergegeven onder **Gebruikersapparaten**.
-Gebruik de **alle apparaten** weergeven in Azure portal. U kunt ook een PowerShell [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Gebruik de **alle apparaten** weergeven in Azure portal. U kunt ook een PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Alleen de volgende apparaten worden vermeld in **Gebruikersapparaten**:
 
@@ -176,7 +176,7 @@ Dit gedrag is niet van toepassing op een andere gebruiker die zich aanmeldt op d
 
 **V: Waarom zie ik de *Oeps... is een fout opgetreden!* dialoogvenster wanneer ik Azure AD wil deelnemen aan mijn PC?**
 
-**A:** Deze fout treedt op bij het instellen van Azure Active Directory-inschrijving met Intune. Zorg ervoor dat de gebruiker die te koppelen aan Azure AD probeert de juiste Intune-licentie toegewezen heeft. Zie voor meer informatie, [instellen van inschrijving voor Windows-apparaten](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
+**A:** Deze fout treedt op bij het instellen van Azure Active Directory-inschrijving met Intune. Zorg ervoor dat de gebruiker die te koppelen aan Azure AD probeert de juiste Intune-licentie toegewezen heeft. Zie voor meer informatie, [instellen van inschrijving voor Windows-apparaten](https://docs.microsoft.com/intune/windows-enroll).  
 
 ---
 

@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7dffa1480be73f1dbf5e99d11fd8d33eb2ab9038
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196409"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562182"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>De resource-eigenaar wachtwoord referentiestroom in Azure Active Directory B2C met een aangepast beleid configureren
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory (Azure AD) B2C is de stroom voor referenties (ROPC) de resource-eigenaar wachtwoord een standaard OAuth-verificatiestroom. In deze stroom uitwisselt een toepassing, ook wel bekend als de relying party, geldige referenties voor tokens. De referenties bestaan uit een gebruikers-ID en het wachtwoord. De tokens die zijn geretourneerd, zijn een ID-token, toegangstoken en een vernieuwingstoken. 
+In Azure Active Directory (Azure AD) B2C is de stroom voor referenties (ROPC) de resource-eigenaar wachtwoord een standaard OAuth-verificatiestroom. In deze stroom uitwisselt een toepassing, ook wel bekend als de relying party, geldige referenties voor tokens. De referenties bestaan uit een gebruikers-ID en het wachtwoord. De tokens die zijn geretourneerd, zijn een ID-token, toegangstoken en een vernieuwingstoken.
 
 De volgende opties worden ondersteund in de stroom ROPC:
 
 - **Native Client** -tussenkomst van de gebruiker tijdens de verificatie gebeurt wanneer de code wordt uitgevoerd op een apparaat van de gebruiker aan clientzijde.
 - **Openbare clientstroom** -alleen de gebruiker referenties die worden verzameld door een toepassing, zijn verzonden in de API-aanroep. De referenties van de toepassing worden niet verzonden.
-- **Toevoegen van nieuwe claims** -inhoud van de ID-tokens kunnen worden gewijzigd om toe te voegen nieuwe claims. 
+- **Toevoegen van nieuwe claims** -inhoud van de ID-tokens kunnen worden gewijzigd om toe te voegen nieuwe claims.
 
 De volgende stromen worden niet ondersteund:
 
@@ -43,7 +43,7 @@ Voer de stappen in [aan de slag met aangepaste beleidsregels in Azure Active Dir
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
-3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**. 
+3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
 4. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
 5. Voer een naam voor de toepassing, zoals *ROPC_Auth_app*.
 6. Selecteer **Nee** voor **Web App of Web-API**, en selecteer vervolgens **Ja** voor **Native client**.
@@ -193,7 +193,7 @@ Voer de stappen in [aan de slag met aangepaste beleidsregels in Azure Active Dir
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
-    </ClaimsProvider>    
+    </ClaimsProvider>
     ```
 
 6. Voeg een **UserJourneys** -element en de onderliggende elementen aan de **TrustFrameworkPolicy** element:
@@ -201,7 +201,7 @@ Voer de stappen in [aan de slag met aangepaste beleidsregels in Azure Active Dir
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
-        <OrchestrationSteps>
+      <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="ResourceOwnerFlow" TechnicalProfileReferenceId="ResourceOwnerPasswordCredentials-OAUTH2" />
@@ -278,7 +278,7 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 
 - Vervang `user-account` met de naam van een gebruikersaccount in uw tenant.
 - Vervang `password1` met het wachtwoord van het gebruikersaccount.
-- Vervang `application-id` met toepassings-ID van de *ROPC_Auth_app* registratie. 
+- Vervang `application-id` met toepassings-ID van de *ROPC_Auth_app* registratie.
 - *Offline_access* is optioneel als u wilt een vernieuwingstoken ontvangen.
 
 De werkelijke POST-aanvraag ziet eruit als in het volgende voorbeeld:
@@ -291,17 +291,16 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-
 Een geslaagde respons met offline toegang ziet eruit als in het volgende voorbeeld:
 
 ```JSON
-{ 
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...", 
-    "token_type": "Bearer", 
-    "expires_in": "3600", 
-    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...", 
-    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..." 
-} 
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
+    "token_type": "Bearer",
+    "expires_in": "3600",
+    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..."
+}
 ```
 
 ## <a name="redeem-a-refresh-token"></a>Een vernieuwingstoken inwisselen
@@ -322,7 +321,7 @@ Maken van een POST-aanroep zoals hier weergegeven. Gebruik de informatie in de v
 | refresh_token | `refresh-token` |
 
 - Vervang `application-id` met toepassings-ID van de *ROPC_Auth_app* registratie.
-- Vervang `refresh-token` met de **refresh_token** die in het vorige antwoord is verzonden. 
+- Vervang `refresh-token` met de **refresh_token** die in het vorige antwoord is verzonden.
 
 Een geslaagde respons ziet eruit als in het volgende voorbeeld:
 
@@ -350,5 +349,3 @@ Azure AD B2C voldoet aan de OAuth 2.0-standaarden voor openbare client-referenti
 
 - Een volledig voorbeeld van dit scenario in de [beginnerspakket voor Azure Active Directory B2C-beleid voor aangepaste](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
 - Meer informatie over de tokens die worden gebruikt door Azure Active Directory B2C in de [Token verwijzing](active-directory-b2c-reference-tokens.md).
-
-

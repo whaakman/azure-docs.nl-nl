@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0937ad12ad74209e84ee1316a090af8a6469a044
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f74dc441016a0064aca388ce4881eeae9e7bc6d0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151614"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657855"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Beveiligingsoverwegingen voor het openen van apps op afstand met Azure AD-toepassingsproxy
 
@@ -48,7 +48,7 @@ Besturingselementen voor uitgebreidere beleid van toepassing voordat verbindinge
 
 Met [voorwaardelijke toegang](../conditional-access/overview.md), kunt u beperkingen op welk verkeer is toegestaan voor toegang tot uw back-end-toepassingen. U kunt beleidsregels maken die aanmeldingen op basis van locatie, sterkte van verificatie- en gebruikersprofiel van het risico te beperken.
 
-U kunt ook gebruik van voorwaardelijke toegang configureren van multi-factor Authentication-beleid, nog een beveiligingslaag toe te voegen aan uw gebruikersverificaties. Bovendien uw toepassingen kunnen ook worden doorgestuurd naar Microsoft Cloud App Security via de Azure AD voor voorwaardelijke toegang om realtime-controle en besturingselementen, via [toegang](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) en [sessie](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) beleid
+U kunt ook gebruik van voorwaardelijke toegang configureren van multi-factor Authentication-beleid, nog een beveiligingslaag toe te voegen aan uw gebruikersverificaties. Bovendien uw toepassingen kunnen ook worden doorgestuurd naar Microsoft Cloud App Security via de Azure AD voor voorwaardelijke toegang om realtime-controle en besturingselementen, via [toegang](https://docs.microsoft.com/cloud-app-security/access-policy-aad) en [sessie](https://docs.microsoft.com/cloud-app-security/session-policy-aad) beleid
 
 ### <a name="traffic-termination"></a>Beëindiging van verkeer
 

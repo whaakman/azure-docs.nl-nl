@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ramamill
-ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0ab2105e00836d3f844f58ce41487a50d1bf9348
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468400"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664009"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -122,7 +122,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 
 ## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
 
-Als u de configuratieserver bijwerken naar de nieuwste versie, volgt u deze [stappen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Klik voor gedetailleerde instructies voor het upgraden van alle onderdelen van Site Recovery op [hier](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+Als u de configuratieserver bijwerken naar de nieuwste versie, volgt u deze [stappen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Klik voor gedetailleerde instructies voor het upgraden van alle onderdelen van Site Recovery op [hier](https://docs.microsoft.com/azure/site-recovery/service%20updates-how-to).
 
 ## <a name="manage-the-configuration-server"></a>De configuratieserver beheren
 

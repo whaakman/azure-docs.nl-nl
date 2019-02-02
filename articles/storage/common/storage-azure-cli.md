@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 707ee508b0615ab873b60b45eb1d9f0294313367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d815bae2478d8853c63cd773cbfeaf5d3e90458c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464565"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659760"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>De Azure CLI gebruiken met Azure Storage
 
@@ -38,7 +38,7 @@ Deze handleiding wordt ervan uitgegaan dat u inzicht in de basisbeginselen van A
 Download en installeer de Azure CLI door de instructies die worden beschreven in [Azure CLI installeren](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> Als u problemen ondervindt met de installatie, bekijk de [installatieproblemen oplossen](/cli/azure/install-az-cli2#installation-troubleshooting) gedeelte van het artikel en de [installeren probleemoplossing](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) handleiding op GitHub.
+> Als u problemen ondervindt met de installatie, bekijk de [installatieproblemen oplossen](/cli/azure/install-az-cli2) gedeelte van het artikel en de [installeren probleemoplossing](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) handleiding op GitHub.
 >
 
 ## <a name="working-with-the-cli"></a>Werken met de CLI

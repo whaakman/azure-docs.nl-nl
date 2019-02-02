@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: deb72bcc41e20057b6e7b214c6a8c93655894a12
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: fe575a79fe2f47729e7c7fe039989b2c08af1282
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628269"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657821"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Een aangepaste vaardigheden toevoegen aan een pijplijn cognitief zoeken
 
@@ -27,7 +27,14 @@ Het bouwen van een aangepaste vaardigheden kunt u een manier om in te voegen tra
 
 ## <a name="web-api-custom-skill-interface"></a>Web-API-interface voor aangepaste vaardigheden
 
-Aangepaste WebAPI vaardigheid eindpunten moeten een antwoord binnen een tijdsbestek van 5 minuten. De pijplijn voor indexering is synchroon en indexeren produceert een time-outfout als een antwoord wordt ontvangen in dit venster."
+Aangepaste eindpunten door WebAPI-vaardigheden door de standaardtime-out als ze een reactie binnen een tijdvenster van 30 seconden niet retourneren. De pijplijn voor indexering is synchroon en indexeren produceert een time-outfout als een antwoord wordt ontvangen in dit venster.  Het is mogelijk te configureren van de time-out voor het tot 90 seconden, worden door het instellen van de time-out voor de parameter:
+
+```json
+        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "description": "This skill has a 90 second timeout",
+        "uri": "https://[your custom skill uri goes here]",
+        "timeout": "PT90S",
+```
 
 Op dit moment is het enige mechanisme voor interactie met een aangepaste vaardigheden via een Web-API-interface. De Web-API moet moet voldoen aan de vereisten die worden beschreven in deze sectie.
 

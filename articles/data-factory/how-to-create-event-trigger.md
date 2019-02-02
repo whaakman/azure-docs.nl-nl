@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 3fb9f98e94191c019b78c5666d2ff5336cc895eb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021863"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561090"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd
 
@@ -30,7 +30,7 @@ Bekijk de volgende video voor een inleiding van tien minuten en demonstratie van
 
 
 > [!NOTE]
-> Afhankelijk van de integratie in dit artikel beschreven [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Zorg ervoor dat uw abonnement is geregistreerd bij de resourceprovider van Event Grid. Zie voor meer informatie, [resourceproviders en typen](../azure-resource-manager/resource-manager-supported-services.md#portal).
+> Afhankelijk van de integratie in dit artikel beschreven [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Zorg ervoor dat uw abonnement is geregistreerd bij de resourceprovider van Event Grid. Zie voor meer informatie, [resourceproviders en typen](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>Gebruikersinterface van Data Factory
 
@@ -69,10 +69,10 @@ De volgende tabel bevat een overzicht van de schema-elementen die betrekking op 
 
 | **JSON-Element** | **Beschrijving** | **Type** | **Toegestane waarden** | **Vereist** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **Bereik** | De Azure Resource Manager-resource-ID van het Opslagaccount. | Reeks | Azure Resource Manager-ID | Ja |
+| **scope** | De Azure Resource Manager-resource-ID van het Opslagaccount. | String | Azure Resource Manager ID | Ja |
 | **gebeurtenissen** | Het type gebeurtenissen die ervoor zorgen dat deze trigger wordt geactiveerd. | Matrix    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Ja, een combinatie van deze waarden. |
-| **blobPathBeginsWith** | De blobpad moet beginnen met het patroon dat is opgegeven voor de trigger wordt geactiveerd. Bijvoorbeeld, `/records/blobs/december/` alleen wordt gegeven van de trigger voor blobs in de `december` map onder de `records` container. | Reeks   | | U moet een waarde opgeven voor ten minste één van deze eigenschappen: `blobPathBeginsWith` of `blobPathEndsWith`. |
-| **blobPathEndsWith** | De blobpad moet eindigen met het patroon dat is opgegeven voor de trigger wordt geactiveerd. Bijvoorbeeld, `december/boxes.csv` alleen wordt gegeven van de trigger voor blobs met de naam `boxes` in een `december` map. | Reeks   | | U moet een waarde opgeven voor ten minste één van deze eigenschappen: `blobPathBeginsWith` of `blobPathEndsWith`. |
+| **blobPathBeginsWith** | De blobpad moet beginnen met het patroon dat is opgegeven voor de trigger wordt geactiveerd. Bijvoorbeeld, `/records/blobs/december/` alleen wordt gegeven van de trigger voor blobs in de `december` map onder de `records` container. | String   | | U moet een waarde opgeven voor ten minste één van deze eigenschappen: `blobPathBeginsWith` of `blobPathEndsWith`. |
+| **blobPathEndsWith** | De blobpad moet eindigen met het patroon dat is opgegeven voor de trigger wordt geactiveerd. Bijvoorbeeld, `december/boxes.csv` alleen wordt gegeven van de trigger voor blobs met de naam `boxes` in een `december` map. | String   | | U moet een waarde opgeven voor ten minste één van deze eigenschappen: `blobPathBeginsWith` of `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Voorbeelden van triggers op basis van gebeurtenissen
 

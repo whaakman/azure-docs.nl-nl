@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 61bc9da45ac420e5683be1ea3ad253eae9c0ba5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158938"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657736"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
@@ -39,6 +39,8 @@ Met deze sjabloon apparaat een operator kunt maken en verbinding maken met echte
 
 > [!NOTE]
 > Alleen builders en beheerders kunnen maken, bewerken en verwijderen van apparaatsjablonen. Elke gebruiker apparaten kunt maken op de **Device Explorer** pagina vanuit bestaande apparaatsjablonen.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="create-a-device-template"></a>Een apparaat-sjabloon maken
 
@@ -71,7 +73,7 @@ Selecteren om toe te voegen een nieuwe meting met telemetrie, **sjabloon bewerke
 U kunt bijvoorbeeld een nieuwe meting van de temperatuur-telemetrie toevoegen:
 | Weergavenaam        | Veldnaam    |  Eenheden    | Min.   |Max.|
 | --------------------| ------------- |-----------|-------|---|
-| Temperatuur         | TEMP          |  degC     |  0    |100|
+| Temperatuur         | temp          |  degC     |  0    |100|
 
 ![Formulier met details voor de temperatuurmeting 'Telemetrie maken'](./media/howto-set-up-template/measurementsform.png)
 
@@ -84,11 +86,11 @@ Nadat u hebt geselecteerd **gedaan**, wordt de **temperatuur** meting wordt weer
 ### <a name="create-an-event-measurement"></a>Een gebeurtenis meting maken
 Selecteer om een nieuwe meting van de gebeurtenis toe **sjabloon bewerken**, en klik vervolgens op de **+ nieuwe meting** knop. Selecteer **gebeurtenis** als de meting, te typen en de details op de **gebeurtenis maken** formulier.
 
-Geef de **weergavenaam**, **veldnaam**, en **ernst** details voor de gebeurtenis. U kunt kiezen uit de drie beschikbare niveaus van ernst: **fout**, **waarschuwing**, en **informatie**.  
+Geef de **weergavenaam**, **veldnaam**, en **ernst** details voor de gebeurtenis. U kunt kiezen uit de drie beschikbare niveaus van ernst: **Fout**, **waarschuwing**, en **informatie**.  
 
 Bijvoorbeeld, u kunt toevoegen van een nieuwe **ventilator Motor fout** gebeurtenis.
 
-| Weergavenaam        | Veldnaam    |  Standaard ernst | 
+| Weergavenaam        | Veldnaam    |  Standaardurgentie | 
 | --------------------| ------------- |-----------|
 | Storing ventilatormotor     | fanmotorerror |  Fout    | 
 
@@ -134,11 +136,11 @@ Instellingen voor beheren een apparaat. Deze operators van uw toepassing voor in
 
 Instellingen kunnen zich in een van drie statussen. Het apparaat meldt deze statussen.
 
-- **Gesynchroniseerd**: het apparaat is gewijzigd om de waarde van de instelling weer te geven.
+- **Gesynchroniseerd**: Het apparaat is gewijzigd om de waarde van de instelling weer te geven.
 
-- **In behandeling**: het apparaat wordt momenteel gewijzigd in de waarde van de instelling.
+- **In behandeling**: Het apparaat wordt momenteel gewijzigd naar de waarde van de instelling.
 
-- **Fout**: het apparaat heeft een fout geretourneerd.
+- **Fout**: Het apparaat heeft een fout geretourneerd.
 
 U kunt bijvoorbeeld een nieuwe ventilator snelheid-instelling toevoegen door te selecteren **sjabloon bewerken** en in te voeren in de nieuwe **getal** instelling:
 
@@ -154,7 +156,7 @@ Nadat u een tegel maakt, selecteert u **gedaan** in de rechterbovenhoek van het 
 
 ![Tabblad 'Instellingen' met de "Ontwerpmodus" switch voor de tegel](./media/howto-set-up-template/settingstile.png)
 
-## <a name="properties"></a>Eigenschappen
+## <a name="properties"></a>Properties
 
 Eigenschappen zijn de metagegevens van apparaten die is gekoppeld aan het apparaat, zoals de locatie van het apparaat en het serienummer. U kunt meerdere eigenschappen toevoegen aan de sjabloon voor apparaten die worden weergegeven als tegels op de **eigenschappen** tabblad. U kunt veel soorten eigenschappen toevoegen: getal, tekst, datum, in-/ uitschakelen, apparaateigenschappen, label en locatie. Een operator kunt de waarden van eigenschappen opgeven wanneer ze een apparaat maken en ze kunnen deze waarden op elk gewenst moment bewerken. Echter apparaateigenschappen zijn alleen-lezen van het apparaat worden verzonden naar de toepassing en kunnen niet worden gewijzigd door de operator. Wanneer het echt apparaat is verbonden, wordt de eigenschap tegel in de toepassing worden bijgewerkt. 
 
@@ -165,9 +167,9 @@ Er zijn twee categorieën eigenschappen:
 
 U kunt bijvoorbeeld locatie van het apparaat toevoegen als een nieuwe **tekst** eigenschap (een eigenschap van de toepassing) door te selecteren **sjabloon bewerken** en in te voeren in de nieuwe eigenschap:
 
-| Weergavenaam  | Veldnaam | Trim voorloopspaties  | Trim afsluitende spaties  | Hoofdlettergevoeligheid| Minimumlengte | Maximumlengte |
+| Weergavenaam  | Veldnaam | Voorloopspaties verwijderen  | Volgspaties verwijderen  | Hoofdlettergevoeligheid| Minimumlengte | Maximumlengte |
 | --------------| -----------|---------| ---------|---- |----|----|
-| Locatie      | LOC        | Uit     |  Uit     | Gemengde modus  | 0 | 100|
+| Locatie      | loc        | Uit     |  Uit     | Gemengde modus  | 0 | 100|
 
 ![Het formulier 'Tekst configureren' op het tabblad 'Eigenschappen'](./media/howto-set-up-template/propertiesform.png)
 
@@ -234,9 +236,9 @@ Opdrachten worden gebruikt om een apparaat extern kunt beheren. Deze operators v
 
 Wat is een opdracht verschil met een instelling? 
 
-* **Instellen van**: een instelling is een configuratie die u wilt toepassen op een apparaat, en u wilt dat het apparaat aan dat de configuratie van blijft actief totdat u deze wijzigt. Bijvoorbeeld, u wilt de temperatuur van de vriezer instellen en u wilt dat deze instelling, zelfs wanneer de vriesvaartuigen opnieuw wordt opgestart. 
+* **Instellen van**: Een instelling is een configuratie die u wilt toepassen op een apparaat en u wilt dat het apparaat aan dat de configuratie van blijft actief totdat u deze wijzigt. Bijvoorbeeld, u wilt de temperatuur van de vriezer instellen en u wilt dat deze instelling, zelfs wanneer de vriesvaartuigen opnieuw wordt opgestart. 
 
-* **Opdracht**: U opdrachten gebruiken voor het direct uitvoeren op het apparaat op afstand van IoT Central. Als een apparaat niet is verbonden, wordt de opdracht een time-out optreedt en mislukt. U wilt bijvoorbeeld een apparaat opnieuw start.  
+* **Opdracht**: Opdrachten kunt u direct een opdracht uitvoeren op het apparaat op afstand van IoT Central. Als een apparaat niet is verbonden, wordt de opdracht een time-out optreedt en mislukt. U wilt bijvoorbeeld een apparaat opnieuw start.  
 
 
 Bijvoorbeeld, u kunt toevoegen van een nieuwe **Echo** opdracht door het selecteren van **sjabloon bewerken**, vervolgens te klikken op **+ nieuwe opdracht**, en in te voeren in de nieuwe opdracht:

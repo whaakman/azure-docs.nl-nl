@@ -4,17 +4,17 @@ description: Meer informatie over de levenscyclus van een blauwdruk doorloopt en
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309803"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563708"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Informatie over de levenscyclus van een Azure-blauwdruk
 
@@ -33,8 +33,7 @@ Om volledig te begrijpen een blauwdruk en fasen, aan bod de levensduur van een s
 
 ## <a name="creating-and-editing-a-blueprint"></a>Het maken en bewerken van een blauwdruk
 
-Bij het maken van een blauwdruk, artefacten, opslaan in een beheergroep en een unieke naam en een unieke versie opgegeven toevoegen. De blauwdruk is nu in een **Draft** modus en nog kan niet worden toegewezen.
-Terwijl de **Draft** modus, die u kunt doorgaan moet worden bijgewerkt en gewijzigd.
+Wanneer het maken van een blauwdruk toevoegen artefacten, opslaan in een beheergroep of het abonnement en een unieke naam en een unieke versie opgegeven. De blauwdruk is nu in een **Draft** modus en nog kan niet worden toegewezen. Terwijl de **Draft** modus, die u kunt doorgaan moet worden bijgewerkt en gewijzigd.
 
 Een blauwdruk in nooit gepubliceerd **Draft** modus wordt een ander pictogram weergegeven op de **Blauwdrukdefinities** pagina dan de wijzigingsaanvragen die zijn **gepubliceerd**. De **meest recente versie** wordt ook weergegeven als **Draft** voor deze blauwdrukken nooit gepubliceerd.
 

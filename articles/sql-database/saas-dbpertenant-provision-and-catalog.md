@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 1f2539ed7ea407e2a1931ab2eb5951e61e4c7b03
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056264"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565210"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Leer hoe u nieuwe tenants inrichten en deze in de catalogus registreren
 
@@ -34,7 +34,7 @@ In deze zelfstudie leert u het volgende:
 U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt voldaan:
 
 * De Wingtip Tickets SaaS-database-per-tenant-app wordt geïmplementeerd. Als u wilt implementeren in minder dan vijf minuten, Zie [implementeren en verkennen van de toepassing Wingtip Tickets SaaS-database-per-tenant](saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell is geïnstalleerd. Zie voor meer informatie, [aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell is geïnstalleerd. Zie [Aan de slag met Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) voor meer informatie.
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Inleiding tot de SaaS-cataloguspatroon
 
@@ -155,9 +155,9 @@ Met het script worden verschillende tenants tegelijk ingericht. Hierbij een [Azu
 
 Andere inrichtingspatronen die niet zijn opgenomen in deze zelfstudie:
 
-**Vooraf inrichten van databases**: het vooraf inrichten patroon vloeit voort uit het feit dat databases in een elastische pool toevoegen geen extra kosten. Hiermee geeft u de kosten zijn voor de elastische pool, niet voor de databases. Niet-actieve databases verbruiken geen resources. U kunt de tijd voor het toevoegen van tenants beperken door vooraf inrichten databases in een pool en het toewijzen van wanneer dit nodig is. Het aantal databases dat vooraf wordt ingericht kan worden aangepast, indien nodig om te beschikken over een buffer geschikt is voor de verwachte frequentie van de inrichting.
+**Vooraf inrichten van databases**: Het vooraf inrichten patroon vloeit voort uit het feit dat databases in een elastische pool toevoegen geen extra kosten. Hiermee geeft u de kosten zijn voor de elastische pool, niet voor de databases. Niet-actieve databases verbruiken geen resources. U kunt de tijd voor het toevoegen van tenants beperken door vooraf inrichten databases in een pool en het toewijzen van wanneer dit nodig is. Het aantal databases dat vooraf wordt ingericht kan worden aangepast, indien nodig om te beschikken over een buffer geschikt is voor de verwachte frequentie van de inrichting.
 
-**Automatische inrichting**: In het patroon voor automatische inrichting, een inrichtingsservice bepalingen servers, pools en databases automatisch nodig. Als u wilt, kunt u vooraf inrichten van databases in elastische pools kunt opnemen. Als databases buiten gebruik gesteld en verwijderd, kunnen de hiaten in elastische pools worden ingevuld met de inrichtingsservice. Een dergelijke service kan worden eenvoudig of complex zijn, zoals het verwerken van inrichting voor verschillende geografische locaties en het instellen van geo-replicatie voor herstel na noodgevallen. 
+**Automatische inrichting**: In het patroon voor automatische inrichting bepalingen een inrichtingsservice servers, pools en databases automatisch nodig. Als u wilt, kunt u vooraf inrichten van databases in elastische pools kunt opnemen. Als databases buiten gebruik gesteld en verwijderd, kunnen de hiaten in elastische pools worden ingevuld met de inrichtingsservice. Een dergelijke service kan worden eenvoudig of complex zijn, zoals het verwerken van inrichting voor verschillende geografische locaties en het instellen van geo-replicatie voor herstel na noodgevallen. 
 
 Met het patroon voor automatische inrichting verzendt een clienttoepassing of -script een aanvraag voor inrichting in een wachtrij om te worden verwerkt door de provisioning-service. Vervolgens de service om te bepalen van de voltooiing worden opgevraagd. Als inrichting vooraf wordt gebruikt, worden aanvragen snel verwerkt. De service voorziet een vervangende database op de achtergrond.
 

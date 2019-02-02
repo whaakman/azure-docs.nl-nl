@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b032dea67bba6f78b8172e772ab2f8fe492f39f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fa95915615efdd8832a983d03a600beec23d1247
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250432"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658943"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes op Azure Stack met behulp van Active Directory Federated Services implementeren
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes in Azure Stack is in preview.
+> Kubernetes in Azure Stack is in preview. Azure Stack-niet-verbonden scenario wordt momenteel niet ondersteund door de Preview-versie.
 
 U kunt de stappen in dit artikel om te implementeren en instellen van de resources voor Kubernetes. Volg deze stappen als Active Directory Federated Services (AD FS) de identity management-service is.
 
@@ -66,7 +66,7 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
 
     - U hebt de volgende soorten informatie nodig:
 
-        | Value | Beschrijving |
+        | Value | Description |
         | ---   | ---         |
         | Azure Resource Manager Endpoint | De Microsoft Azure Resource Manager is een raamwerk waarmee beheerders te implementeren, beheren en bewaken van Azure-resources. Deze taken kunnen worden verwerkt in Azure Resource Manager als een groep, in plaats van afzonderlijk, in één bewerking.<br>Het eindpunt in de Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`<br>Het eindpunt in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Uw abonnements-ID | De [abonnements-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack. |
@@ -107,7 +107,7 @@ U moet samenwerken met uw Azure Stack-beheerder om het instellen van uw service-
 
     - U hebt de volgende soorten informatie nodig:
 
-        | Value | Beschrijving |
+        | Value | Description |
         | ---   | ---         |
         | Pad naar het certificaat | De FQDN-naam of het bestand pad naar het certificaat. |
         | Certificaatwachtwoord | Wachtwoord voor het certificaat. |

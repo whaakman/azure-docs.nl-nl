@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 65de1279c47f5992dd82e9f4634b3de52925769c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157204"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568376"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor dubbels voor apparaat- en -module, taken en berichtroutering
 
@@ -207,7 +207,7 @@ De queryfunctionaliteit van de wordt weergegeven door de [Azure IoT service SDK 
 
 Hier volgt een voorbeeld van een eenvoudige query:
 
-```nodejs
+```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
@@ -445,7 +445,7 @@ Om te begrijpen wat elke symbool in de syntaxis van de expressies voor staat, ra
 ### <a name="operators"></a>Operators
 De volgende operators worden ondersteund:
 
-| Familie | Operators |
+| Gezin | Operators |
 | --- | --- |
 | Rekenkundig |+, -, *, /, % |
 | Logisch |EN, OF, NIET |
@@ -494,7 +494,7 @@ In situaties, routes, worden de volgende reeks functies ondersteund:
 | LOWER(x) | Retourneert een tekenreeksexpressie na het converteren van tekens in hoofdletters naar kleine letters. |
 | UPPER(x) | Retourneert een tekenreeksexpressie na het converteren van tekens in kleine letters naar hoofdletters. |
 | De SUBTEKENREEKS (tekenreeks, start [, lengte]) | Onderdeel van een tekenreeksexpressie vanaf de op nul gebaseerde positie van het opgegeven teken geretourneerd en blijft aan de opgegeven lengte of aan het einde van de tekenreeks. |
-| INDEX_OF (tekenreeks, fragment) | Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste opgegeven tekenreeksexpressie, of -1 als de tekenreeks niet is gevonden.|
+| INDEX_OF(string, fragment) | Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste opgegeven tekenreeksexpressie, of -1 als de tekenreeks niet is gevonden.|
 | STARTS_WITH (x, y) | Retourneert een Booleaanse waarde die aangeeft of de eerste expressie tekenreeks begint met de tweede. |
 | ENDS_WITH (x, y) | Retourneert een Booleaanse waarde die aangeeft of de eerste expressie tekenreeks eindigt met de tweede. |
 | CONTAINS(x,y) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie de tweede bevat. |

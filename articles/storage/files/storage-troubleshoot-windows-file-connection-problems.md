@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c8d34ecb46721a8dd8dc1b1ad9f73c9f2ca2b3a2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507396"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564439"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -265,11 +265,11 @@ U kunt bijvoorbeeld instellen op 0x100000 en controleren of de prestaties beter 
 
 ### <a name="cause"></a>Oorzaak
 
-Fout AadDsTenantNotFound gebeurt er wanneer u te probeert [Azure Active Directory (AAD)-verificatie inschakelen voor Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) op een storage-account waar [AAD-domein Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) is niet gemaakt op de AAD de tenant van het gekoppelde abonnement.  
+Fout AadDsTenantNotFound gebeurt er wanneer u te probeert [Azure Active Directory (AAD)-verificatie inschakelen voor Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) op een storage-account waar [AAD-domein Service(AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is niet gemaakt op de AAD de tenant van het gekoppelde abonnement.  
 
 ### <a name="solution"></a>Oplossing
 
-AAD DS inschakelen op de AAD-tenant van het abonnement dat is geïmplementeerd voor uw storage-account. U hebt beheerdersbevoegdheden van de AAD-tenant te maken van een beheerd domein nodig. Als u niet de beheerder van de Azure AD-tenant, neem contact op met de beheerder en volg de stapsgewijze instructies voor het [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
+AAD DS inschakelen op de AAD-tenant van het abonnement dat is geïmplementeerd voor uw storage-account. U hebt beheerdersbevoegdheden van de AAD-tenant te maken van een beheerd domein nodig. Als u niet de beheerder van de Azure AD-tenant, neem contact op met de beheerder en volg de stapsgewijze instructies voor het [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen snel.

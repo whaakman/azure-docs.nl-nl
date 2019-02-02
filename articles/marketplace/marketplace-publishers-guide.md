@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43badaada3de352ec7bafeb422965a047261a1e4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753962"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656831"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace en AppSource publicatiehandleiding voor
 
 De Marketplace publicatiehandleiding voor is ontworpen om u te helpen nieuwe en bestaande uitgevers informatie over het gebruik van storefronts in de [Azure Marketplace](https://azuremarketplace.microsoft.com) en [Microsoft AppSource](https://appsource.microsoft.com) hun bedrijfsactiviteiten in samenwerking met Microsoft door toepassingen en services weer te geven.
 
 >[!Note]
->De Marketplace hier verwijst naar zowel Azure Marketplace en AppSource.  Zie [Marketplace een, twee storefronts](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) voor meer informatie.
+>De Marketplace hier verwijst naar zowel Azure Marketplace en AppSource.  Zie [Marketplace een, twee storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) voor meer informatie.
 
 Deze handleiding wordt ingegaan op de volgende onderwerpen: 
 *   Wat de Marketplace is en hoe het werkt 
@@ -65,7 +65,7 @@ Nieuwe aanbiedingen op Marketplace komen in aanmerking voor een groot aantal gra
 
 *   Technische: Alles wat die u nodig hebt om uw toepassing gereed is voor implementatie. Technische ondersteuning van ontwerp van toepassingen en -architectuur te ontwerpen, op Azure-tegoed voor ontwikkeling en testen. 
 
-*   Voor gezamenlijke marketing: Alles wat die u nodig hebt om te starten van uw aanbieding. Toegang tot gratis Microsoft Go-To-Market Fundamentals starten om te starten en stuur uw oplossing. U zich mogelijk ook in aanmerking komen voor aanvullende Microsoft marketing campagne insluitings- en kansen om te worden aanbevolen in de Marketplace.
+*   Co-marketing: Alles wat die u nodig hebt om te starten van uw aanbieding. Toegang tot gratis Microsoft Go-To-Market Fundamentals starten om te starten en stuur uw oplossing. U zich mogelijk ook in aanmerking komen voor aanvullende Microsoft marketing campagne insluitings- en kansen om te worden aanbevolen in de Marketplace.
 
 *   Verkoopactiviteiten: Beginnen met of versnel uw overstap naar uw verkopen met Microsoft via de Marketplace. Toegang tot programma's en ondersteuning om het gezamenlijke verkoop met Microsoft-teams te stimuleren.
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 90cd6f640188408771b3a64a31aadf89cfefcaae
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487860"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563334"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Meer informatie over de status van uw Azure virtual machines met Azure Monitor voor virtuele machines (preview)
 Azure bevat meerdere services die afzonderlijk uitvoeren van een specifieke rol of de taak in de ruimte bewaking, maar biedt een perspectief gedetailleerde status van het besturingssysteem die worden gehost op Azure virtual machines niet beschikbaar was.  Terwijl u verschillende voorwaarden met behulp van Log Analytics of Azure Monitor controleren kan, zijn ze niet ontworpen om te modelleren en status van de belangrijkste onderdelen of algemene status van de virtuele machine vertegenwoordigen.  Met Azure Monitor voor virtuele machines de gezondheid van functie bewaakt het proactief de beschikbaarheid en prestaties van de Windows- of Linux Gast-OS met een model met daarin belangrijke onderdelen en hun relaties, criteria waarmee wordt aangegeven hoe u voor het meten van de status van deze onderdelen, en u waarschuwen wanneer een slechte status voorwaarde wordt gedetecteerd.  
@@ -142,13 +142,6 @@ Hier kunt u snel identificeren van de bovenste kritieke problemen gedetecteerd d
 De **VM distributie per besturingssysteem** lijst ziet u VM's die door de editie van Windows of Linux-distributie, samen met hun versie weergegeven. In elke categorie besturingssysteem, de virtuele machines zijn uitgesplitst op basis van de status van de virtuele machine. 
 
 ![VM-inzichten virtuele machine distributie perspectief](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
-
-De statussen die is gedefinieerd voor een virtuele machine zijn: 
-
-* **In orde** : Er zijn geen problemen gedetecteerd voor de virtuele machine en deze werkt zoals vereist.  
-* **Kritieke** : een of meer kritieke problemen worden ontdekt, die moeten worden opgelost als u wilt herstellen van de normale functionaliteit, zoals verwacht. 
-* **Waarschuwing** -worden een of meer problemen gedetecteerd die moeten worden opgelost of de voorwaarde van de status kritiek kan worden.  
-* **Onbekende** : als de service kan niet een verbinding met de virtuele machine, de status is gewijzigd in een onbekende status te maken.  
 
 U kunt klikken op een willekeurig kolomvelditem - **aantal VM's**, **kritieke**, **waarschuwing**, **orde** of **onbekende** naar Inzoomen op de **virtuele Machines** pagina voor een overzicht van de gefilterde resultaten die overeenkomen met de geselecteerde kolom. Bijvoorbeeld, als we willen bekijken van alle virtuele machines met **Red Hat Enterprise Linux-release 7.5**, klikt u op de **aantal VM's** voor dat besturingssysteem en de volgende pagina wordt geopend met de virtuele machines die overeenkomt met de waarde met het filter en hun bekende status.  
 

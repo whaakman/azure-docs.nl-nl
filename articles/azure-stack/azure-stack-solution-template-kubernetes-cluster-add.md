@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7e293018f2dc248fae8de8bd9e82943606f4ead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d2d7297ea5978687ef6dc791d5a333016060da7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239499"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659929"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
 *Van toepassing op: Geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!note]  
-> Kubernetes in Azure Stack is in preview.
+> Kubernetes in Azure Stack is in preview. Azure Stack-niet-verbonden scenario wordt momenteel niet ondersteund door de Preview-versie.
 
 Als een Marketplace-item kunt u Kubernetes aanbieden aan uw gebruikers. Uw gebruikers kunnen vervolgens Kubernetes implementeert in een enkele, gecoördineerde bewerking.
 
@@ -69,7 +69,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
 
     - U hebt de volgende soorten informatie nodig:
 
-       | Value | Beschrijving |
+       | Value | Description |
        | ---   | ---         |
        | Wachtwoord | Wachtwoord voor het certificaat. |
        | Pad naar het lokale certificaat | Het pad en de naam van het certificaat. Bijvoorbeeld: `path\certfilename.pfx` |
@@ -109,7 +109,7 @@ Als u Active Directory Federated Services (AD FS) voor uw identity management-se
 
     - U hebt de volgende soorten informatie nodig:
 
-       | Value | Beschrijving                     |
+       | Value | Description                     |
        | ---   | ---                             |
        | ERCS IP | In de ASDK, is het eindpunt van de bevoegde normaal gesproken `AzS-ERCS01`. |
        | De naam van de toepassing | Een eenvoudige naam voor de service-principal van toepassing. |

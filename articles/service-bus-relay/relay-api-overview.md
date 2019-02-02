@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c7aec700a1077bc1a1b56afb5d8d07f47f4c6e8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700369"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663091"
 ---
 # <a name="available-relay-apis"></a>Beschikbare Relay-API 's
 
@@ -29,7 +29,7 @@ De volgende tabel bevat alle beschikbare Relay runtime-clients.
 
 De [aanvullende informatie](#additional-information) sectie vindt u meer informatie over de status van elke wisselaar runtime.
 
-| Taal/Platform | Beschikbare functie | Client-pakket | Opslagplaats |
+| Language/Platform | Beschikbare functie | Client-pakket | Opslagplaats |
 | --- | --- | --- | --- |
 | .NET Standard | Hybride verbindingen | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | WCF-relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
@@ -39,7 +39,7 @@ De [aanvullende informatie](#additional-information) sectie vindt u meer informa
 
 #### <a name="net"></a>.NET
 
-Het .NET-ecosysteem heeft meerdere runtimes, dus er zijn meerdere .NET-bibliotheken voor de Relay. De standaard .NET-bibliotheek kan worden uitgevoerd met behulp van .NET Core of .NET Framework, terwijl de .NET Framework-bibliotheek kan alleen worden uitgevoerd in een omgeving met .NET Framework. Zie voor meer informatie over .NET Frameworks [frameworkversies](/dotnet/articles/standard/frameworks#framework-versions).
+Het .NET-ecosysteem heeft meerdere runtimes, dus er zijn meerdere .NET-bibliotheken voor de Relay. De standaard .NET-bibliotheek kan worden uitgevoerd met behulp van .NET Core of .NET Framework, terwijl de .NET Framework-bibliotheek kan alleen worden uitgevoerd in een omgeving met .NET Framework. Zie voor meer informatie over .NET Frameworks [frameworkversies](/dotnet/articles/standard/frameworks).
 
 De .NET Framework-bibliotheek alleen ondersteuning biedt voor de WCF-programmeermodel en maakt gebruik van een eigen binaire protocol op basis van de WCF `net.tcp` transport. Dit protocol en de bibliotheek wordt bijgehouden voor achterwaartse compatibiliteit met bestaande toepassingen.
 

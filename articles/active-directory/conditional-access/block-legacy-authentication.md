@@ -1,6 +1,6 @@
 ---
 title: Het blokkeren van verouderde verificatie met Azure Active Directory (Azure AD) met voorwaardelijke toegang | Microsoft Docs
-description: Informatie over het configureren van beleid voor voorwaardelijke toegang in Azure Active Directory (Azure AD) voor toegang tot pogingen uitgevoerd vanaf niet-vertrouwde netwerken.
+description: Leer hoe u uw beveiligingspostuur verbeteren door verouderde verificatie met behulp van Azure AD voor voorwaardelijke toegang blokkeren.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076840"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562977"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedure: Verouderde verificatie met Azure AD met voorwaardelijke toegang blokkeren   
 
 Als u wilt uw gebruikers eenvoudig toegang geven tot uw cloud-apps, Azure Active Directory (Azure AD) biedt ondersteuning voor tal van verificatieprotocollen, waaronder oudere authentication. Echter, verouderde protocollen bieden geen ondersteuning voor multi-factor authentication (MFA). MFA is in veel omgevingen een algemene vereiste op identiteitsdiefstal adres. 
+
 
 Als uw omgeving klaar voor de verouderde verificatie blok is voor het verbeteren van de beveiliging van uw tenant, kunt u dit doel met voorwaardelijke toegang kunt uitvoeren. In dit artikel wordt uitgelegd hoe u kunt beleid voor voorwaardelijke toegang dat blok verouderde verificatie configureren voor uw tenant.
 
@@ -119,8 +120,7 @@ Duurt maximaal 24 uur voor het beleid van kracht.
 
 U kunt besturingselementen voor alle beschikbare verlenen voor de andere clients-voorwaarde; selecteren de eindgebruikerservaring is echter altijd hetzelfde - toegang geblokkeerd.
 
-U kunt alle andere voorwaarden naast de andere clients voorwaarde configureren.
-Bijvoorbeeld, als u wilt dat alleen verouderde verificatie voor mobiele apparaten blokkeren, stel de **apparaatplatformen** voorwaarde door te selecteren:
+Als u verouderde verificatie met behulp van de andere clients condition blokkeert, kunt u ook de apparaat-platform en de locatie-voorwaarde instellen. Bijvoorbeeld, als u wilt dat alleen verouderde verificatie voor mobiele apparaten blokkeren, stel de **apparaatplatformen** voorwaarde door te selecteren:
 
 - Android
 

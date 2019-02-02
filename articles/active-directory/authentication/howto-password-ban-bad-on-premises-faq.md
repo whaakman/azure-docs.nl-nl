@@ -1,23 +1,23 @@
 ---
-title: On-premises Azure AD-wachtwoordbeveiliging Veelgestelde vragen over
-description: On-premises Azure AD-wachtwoordbeveiliging Veelgestelde vragen over
+title: On-premises bescherming van Azure AD-wachtwoord Veelgestelde vragen
+description: On-premises bescherming van Azure AD-wachtwoord Veelgestelde vragen
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 62bda3a1c9cb9d53578c2d471b9e63d1f0873234
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078692"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663295"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Preview: Azure AD-beveiliging on-premises wachtwoord - Veelgestelde vragen
+# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Preview: Azure AD wachtwoordbeveiliging on-premises - Veelgestelde vragen over
 
 |     |
 | --- |
@@ -26,25 +26,25 @@ ms.locfileid: "55078692"
 
 ## <a name="general-questions"></a>Algemene vragen
 
-**V: Wanneer wordt Azure AD-wachtwoordbeveiliging algemene beschikbaarheid (GA) bereikt?**
+**V: Wanneer wordt Azure AD-wachtwoord beveiliging algemene beschikbaarheid (GA) bereikt?**
 
-We hebben een datum GA nog niet aangekondigd.
+Algemene beschikbaarheid is gepland voor Q1 CY2019 (vóór het einde van maart 2019). Hartelijk dank aan iedereen die is opgegeven feedback over de functie op datum - we stellen het op prijs!
 
-**V: Kan on-premises beveiliging met Azure AD wachtwoorden in niet-openbare clouds worden ondersteund?**
+**V: Kan on-premises bescherming van Azure AD-wachtwoord in niet-openbare clouds worden ondersteund?**
 
-Nee, on-premises Azure AD wachtwoordbeveiliging wordt alleen ondersteund in de openbare cloud.
+Nee, on-premises Azure AD-wachtwoord beveiliging wordt alleen ondersteund in de openbare cloud.
 
-**V: Hoe kan ik de voordelen van Azure AD wachtwoord beveiliging toepassen op een subset van mijn on-premises gebruikers?**
+**V: Hoe kan ik voordelen van Azure AD-wachtwoord beveiliging toepassen op een subset van mijn on-premises gebruikers?**
 
-Wordt niet ondersteund. Eenmaal geïmplementeerd en ingeschakeld, Azure AD-wachtwoordbeveiliging geen onderscheid - ontvangen gelijk beveiligingsvoordelen van alle gebruikers.
+Wordt niet ondersteund. Zodra de geïmplementeerd en ingeschakeld, beveiliging van Azure AD-wachtwoord geen onderscheid - ontvangen gelijk beveiligingsvoordelen van alle gebruikers.
 
-**V: Is dit dan ondersteund voor het installeren van Azure AD-wachtwoordbeveiliging naast andere producten op basis van wachtwoord-filter?**
+**V: Is dit dan ondersteund voor het installeren van Azure AD-wachtwoord bescherming naast andere producten op basis van wachtwoord-filter?**
 
-Ja. Ondersteuning voor meerdere geregistreerde wachtwoord filter-dll's een functie van de Windows core is en niet specifiek voor Azure AD-wachtwoordbeveiliging. Alle geregistreerde wachtwoord filter dll-bestanden moet accepteren voordat een wachtwoord wordt geaccepteerd.
+Ja. Ondersteuning voor meerdere geregistreerde wachtwoord filter-dll's een functie van de Windows core is en niet specifiek voor Azure AD-wachtwoord beveiliging. Alle geregistreerde wachtwoord filter dll-bestanden moet accepteren voordat een wachtwoord wordt geaccepteerd.
 
 **V: Waarom is de DFS-replicatie voor sysvol-replicatie vereist?**
 
-FRS (de voorafgaande-technologie DFSR) heeft tal van bekende problemen en wordt volledig ondersteund in nieuwere versies van Windows Server Active Directory. Nul testen van Azure AD-wachtwoordbeveiliging wordt uitgevoerd op domeinen FRS geconfigureerd.
+FRS (de voorafgaande-technologie DFSR) heeft tal van bekende problemen en wordt volledig ondersteund in nieuwere versies van Windows Server Active Directory. Nul testen van de beveiliging van Azure AD-wachtwoord wordt uitgevoerd op domeinen FRS geconfigureerd.
 
 Zie de volgende artikelen voor meer informatie:
 
@@ -62,6 +62,6 @@ Nee.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u een on-premises Azure AD wachtwoord beveiliging vraag die hier niet wordt beantwoord hebt, dienen een feedbackitem hieronder - Hartelijk dank!
+Als u een on-premises bescherming van Azure AD-wachtwoord-vraag die hier niet wordt beantwoord hebt, dienen een feedbackitem hieronder - Hartelijk dank!
 
 [Wachtwoordbeveiliging in Azure AD implementeren](howto-password-ban-bad-on-premises-deploy.md)

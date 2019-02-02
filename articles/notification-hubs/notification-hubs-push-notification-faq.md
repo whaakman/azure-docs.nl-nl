@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888155"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563980"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen verzenden met Azure Notification Hubs: Veelgestelde vragen
 
@@ -80,7 +80,7 @@ Server SDK's zijn beschikbaar voor .NET, Java, Node.js, PHP en Python. Notificat
 
 ### <a name="which-client-platforms-do-you-support"></a>Welke clientplatforms ondersteund?
 
-Pushmeldingen worden ondersteund voor [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via de Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) en [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome-Apps](notification-hubs-chrome-push-notifications-get-started.md), en [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Voor meer informatie gaat u naar de [Notification Hubs aan de slag-zelfstudies] pagina.
+Pushmeldingen worden ondersteund voor [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via de Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) en Android, [Chrome-Apps](notification-hubs-chrome-push-notifications-get-started.md), en [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Voor meer informatie gaat u naar de [Notification Hubs aan de slag-zelfstudies] pagina.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Ondersteund SMS-bericht, e-mail of web meldingen?
 
@@ -144,7 +144,7 @@ Naamruimten kan worden gebruikt voor het groeperen van de implementatie. Ze kunn
 
 #### <a name="geo-distribution"></a>Geo-distributie
 
-Geo-distributie is niet altijd kritieke in scenario's voor pushmeldingen. Verschillende PNSes (bijvoorbeeld APNS of GCM) die het leveren van pushmeldingen naar apparaten worden niet gelijkmatig verdeeld.
+Geo-distributie is niet altijd kritieke in scenario's voor pushmeldingen. Verschillende PNSes (bijvoorbeeld APNS of FCM) die het leveren van pushmeldingen naar apparaten worden niet gelijkmatig verdeeld.
 
 Hebt u een toepassing die wereldwijd wordt gebruikt, kunt u hubs in verschillende naamruimten maken met behulp van de Notification Hubs-service in verschillende Azure-regio's over de hele wereld.
 
@@ -207,7 +207,7 @@ Azure Notification Hubs biedt verschillende functies voor het oplossen van probl
 Met Azure Notification Hubs kunnen weergeven van telemetriegegevens in de [Azure Portal]. Details van de metrische gegevens zijn beschikbaar op de [Notification Hubs metrische gegevens] pagina.
 
 > [!NOTE]
-> Meldingen over voltooide betekent alleen dat pushmeldingen zijn geleverd op de externe PNS (bijvoorbeeld, APNS van Apple) of GCM van Google. Het is de verantwoordelijkheid van de PNS om te leveren van de meldingen aan doelapparaten. De PNS maakt normaal gesproken niet beschikbaar voor levering van metrische gegevens aan derden.  
+> Meldingen over voltooide betekent alleen dat pushmeldingen te verzenden naar de externe PNS (bijvoorbeeld, APNS van Apple) of FCM voor Google zijn geleverd. Het is de verantwoordelijkheid van de PNS om te leveren van de meldingen aan doelapparaten. De PNS maakt normaal gesproken niet beschikbaar voor levering van metrische gegevens aan derden.  
 
 We bieden ook de mogelijkheid voor het exporteren van de telemetrische gegevens via een programma (in de Standard-laag). Zie voor meer informatie, de [Voorbeeld van Notification Hubs metrische gegevens].
 

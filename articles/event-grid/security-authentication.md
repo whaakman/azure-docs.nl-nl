@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 1761dafd04a4b8d27a16af4a5e1b0034b90c51a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382925"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656869"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -29,7 +29,7 @@ Webhooks vormen een van de vele manieren voor het ontvangen van gebeurtenissen u
 
 Net als vele andere services die webhooks ondersteunen, moet u eigenaar van de Webhook-eindpunt bewijzen voordat er begonnen wordt met het leveren van gebeurtenissen naar dit eindpunt Event Grid. Deze vereiste voorkomt dat een kwaadwillende gebruiker overbelasting van uw eindpunt met gebeurtenissen. Wanneer u een van de drie Azure-services die hieronder worden vermeld, wordt deze validatie automatisch verwerkt door de Azure-infrastructuur:
 
-* Azure Logic Apps met [Event Grid-Connector](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Logic Apps met [Event Grid-Connector](https://docs.microsoft.com/connectors/azureeventgrid/)
 * Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Azure Functions met [Trigger Gebeurtenisraster](../azure-functions/functions-bindings-event-grid.md)
 

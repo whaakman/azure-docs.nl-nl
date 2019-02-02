@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2018
+ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841408"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648602"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -347,7 +347,7 @@ De schijfdoorvoer van Standard-SSD en HDD Standard grote schijfgrootten bereiken
 
 **Welke regio's zijn groter is dan 4 TiB ondersteund in de grootte van de beheerde schijven?**
 
-Op dit moment in de Preview-versie, worden grootte van de beheerde schijven ondersteund in West VS centraal alleen.
+Grootte van de beheerde schijven worden op dit moment in de Preview-versie ondersteund in West-Centraal VS, Noord-Europa, West-Europa, VS West 2, VS Oost 2, VS Oost.
 
 **Ondersteunen we Host opslaan in cache inschakelen op de nieuwere schijfgrootten?**
 

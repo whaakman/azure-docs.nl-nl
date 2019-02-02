@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4be3de8de4332e8ffb0e88e612a3041829ccd606
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267127"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658569"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-uitvoer naar Azure Cosmos DB  
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, gegevens archiveren en lage latentie-query's voor niet-gestructureerde JSON-gegevens. In dit document staan enkele aanbevolen procedures voor het implementeren van deze configuratie.
@@ -29,7 +29,7 @@ Voor gebruikers die niet bekend met Cosmos DB bent, kijk eens [leertraject voor 
 De Azure Cosmos DB-uitvoer in Stream Analytics kunt u uw stream resultaten verwerken als JSON-uitvoer in uw Cosmos DB-verzameling(en) schrijven. Stream Analytics biedt geen verzamelingen maken in uw database in plaats daarvan vereist dat u deze vooraf te maken. Dit is zodat de factureringskosten van Cosmos DB-verzamelingen door u worden beheerd en zodat u kunt afstemmen de prestaties, consistentie en capaciteit van de verzamelingen die rechtstreeks met behulp van de [Cosmos DB-API's](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 > [!Note]
-> U moet 0.0.0.0 toevoegen aan de lijst met toegestane IP-adressen van u Azure Cosmos DB-firewall.
+> U moet 0.0.0.0 toevoegen aan de lijst met toegestane IP-adressen van uw Azure Cosmos DB-firewall.
 
 Enkele van de opties voor het verzamelen van Cosmos DB worden hieronder beschreven.
 
@@ -49,7 +49,7 @@ Als het binnenkomende JSON-document een bestaande id-veld heeft, dat veld automa
 Als u wilt opslaan <i>alle</i> documenten met inbegrip van de items met een dubbele ID, wijzig de naam van het ID-veld in de query (met het sleutelwoord AS) en laat Cosmos DB maakt het ID-veld of de ID vervangen door een andere kolom-waarde (met behulp van de AS-trefwoord of door met behulp van de instelling 'Document-ID').
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Partitioneren van gegevens in Cosmos DB
-Azure Cosmos DB [onbeperkte](../cosmos-db/partition-data.md) zijn de aanbevolen aanpak voor uw gegevens automatisch partitioneren als Azure Cosmos DB kan worden geschaald op basis van uw werkbelasting partities. Bij het schrijven naar het onbeperkt aantal containers, Stream Analytics maakt gebruik van zo veel parallelle schrijvers als de vorige querystap of invoer partitieschema.
+Azure Cosmos DB [onbeperkte](../cosmos-db/partition-data.md) containers zijn de aanbevolen aanpak voor het partitioneren van uw gegevens, als de Azure Cosmos DB automatisch wordt geschaald partities op basis van uw werkbelasting. Bij het schrijven naar het onbeperkt aantal containers, Stream Analytics maakt gebruik van zo veel parallelle schrijvers als de vorige query stap of invoer partitieschema.
 > [!Note]
 > Op dit moment ondersteunt Azure Stream Analytics alleen onbeperkte verzamelingen met partitiesleutels op het hoogste niveau. Bijvoorbeeld, `/region` wordt ondersteund. Geneste partitiesleutels (bijvoorbeeld `/region/name`) worden niet ondersteund. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301251"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564949"
 ---
 # <a name="log-analytics-faq"></a>Veelgestelde vragen over Log Analytics
 Dit Microsoft-FAQ is een lijst met veelgestelde vragen over Log Analytics in Microsoft Azure. Als u aanvullende vragen over Log Analytics hebt, gaat u naar de [discussieforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) en plaats uw vraag. Wanneer u een vraag is vaak wordt gevraagd, toevoegen we deze aan dit artikel zodat snel en eenvoudig kunnen worden gevonden.
@@ -55,7 +55,7 @@ A: Klik op 'Filters' op de links pannen om te zien van een Preview-versie van de
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>V. Waarom krijg ik de fout: "De resourceprovider registreren 'Microsoft.Insights' voor dit abonnement om in te schakelen van deze query' in Logboeken na analyseren in VM? 
 
-A: Standaard veel providers van resources automatisch worden geregistreerd, u moet echter handmatig registreren door enkele resourceproviders. Hiermee configureert u uw abonnement om te werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Zie [Resourceproviders en -typen](../../azure-resource-manager/resource-manager-supported-services.md#portal) voor meer informatie.
+A: Standaard veel providers van resources automatisch worden geregistreerd, u moet echter handmatig registreren door enkele resourceproviders. Hiermee configureert u uw abonnement om te werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Zie [Resourceproviders en -typen](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) voor meer informatie.
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>V. Waarom kan ik krijg geen toegang tot foutbericht bij het openen van Logboeken op de pagina van een virtuele machine? 
 

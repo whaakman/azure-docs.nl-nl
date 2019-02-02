@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913565"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660235"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -60,17 +60,17 @@ Wanneer in dat geval, zorg ervoor dat de volgende items:
 * AMQP retourneert fouten voor veel voorwaarden, terwijl MQTT de verbinding verbreekt. Als gevolg hiervan de logica van afhandelingsservice voor uitzondering mogelijk bepaalde zaken moeten wijzigen.
 * MQTT biedt geen ondersteuning voor de *afwijzen* operations bij de ontvangst van [cloud-naar-apparaatberichten][lnk-messaging]. Als uw back-end-app een reactie ontvangen van de apparaat-app moet, kunt u overwegen [directe methoden][lnk-methods].
 
-## <a name="using-the-mqtt-protocol-directly"></a>Via het MQTT-protocol rechtstreeks
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Via het MQTT-protocol rechtstreeks (als een apparaat)
 
 Als een apparaat de apparaat-SDK's gebruiken kan, kan deze nog steeds verbinding maken met de eindpunten van de openbare apparaat via het MQTT-protocol op poort 8883. In de **CONNECT** pakket het apparaat moet de volgende waarden gebruiken:
 
 * Voor de **ClientId** veld, gebruikt u de **deviceId**.
 
-* Voor de **gebruikersnaam** veld, gebruikt u `{iothubhostname}/{device_id}/api-version=2018-06-30`, waarbij `{iothubhostname}` is de volledige CName van de IoT-hub.
+* Voor de **gebruikersnaam** veld, gebruikt u `{iothubhostname}/{device_id}/?api-version=2018-06-30`, waarbij `{iothubhostname}` is de volledige CName van de IoT-hub.
 
     Bijvoorbeeld, als de naam van uw IoT-hub is **contoso.azure devices.net** en als de naam van uw apparaat is **MyDevice01**, de volledige **gebruikersnaam** veld moet bevatten:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
 * Voor de **wachtwoord** veld, gebruikt u een SAS-token. De indeling van de SAS-token is dezelfde als die voor de HTTPS- en het AMQP-protocollen:
 
@@ -108,6 +108,16 @@ Voor Device Explorer:
 MQTT verbinding maken met en pakketten verbreken, problemen met IoT Hub een gebeurtenis op de **bewerkingen controleren** kanaal. Deze gebeurtenis heeft aanvullende informatie die kan helpen bij het oplossen van problemen met de netwerkverbinding.
 
 De apparaat-app kunt opgeven een **wordt** bericht de **CONNECT** pakket. De apparaat-app moet gebruiken `devices/{device_id}/messages/events/` of `devices/{device_id}/messages/events/{property_bag}` als de **wordt** onderwerpnaam voor het definiëren van **wordt** berichten moeten worden doorgestuurd als een telemetrie-bericht. In dit geval als de netwerkverbinding is gesloten, maar een **verbinding VERBREKEN** pakket niet eerder is ontvangen van het apparaat en IoT Hub verzendt de **wordt** bericht opgegeven de **CONNECT** pakket naar het kanaal telemetrie. Het kanaal telemetrie mag ofwel de standaard **gebeurtenissen** eindpunt of een aangepast eindpunt dat is gedefinieerd door de IoT Hub-routering. Het bericht heeft de **iothub-MessageType** eigenschap met de waarde **wordt** zijn toegewezen.
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Via het MQTT-protocol rechtstreeks (als een module)
+
+Verbinding maken met IoT Hub via MQTT met behulp van de identiteit van een module is vergelijkbaar met het apparaat (beschreven [hierboven](#using-the-mqtt-protocol-directly-as-a-device)), maar u moet het volgende gebruiken:
+* De client-id ingesteld op `{device_id}/{module_id}`.
+* Als de gebruikersnaam om te verifiëren met gebruikersnaam en wachtwoord, ingesteld `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` en de SAS-token dat is gekoppeld aan de identiteit van de module als uw wachtwoord gebruiken.
+* Gebruik `devices/{device_id}/modules/{module_id}/messages/events/` als onderwerp voor het publiceren van telemetrie.
+* Gebruik `devices/{device_id}/modules/{module_id}/messages/events/` als wordt onderwerp.
+* De dubbele GET en PATCH onderwerpen zijn identiek voor modules en -apparaten.
+* Het onderwerp van de status van dubbele is vrijwel identiek voor modules en -apparaten.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL-configuratie
 

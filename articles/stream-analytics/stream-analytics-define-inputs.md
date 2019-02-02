@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 98a4d0ace2113c3936e13d357d0d8b641982d7c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099729"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567941"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -75,7 +75,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> Als u Event Hub als een eindpunt voor IoT Hub-Routes, u kunt toegang tot de IoT Hub medadata met behulp van de [functie GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> Als u Event Hub als een eindpunt voor IoT Hub-Routes, u kunt toegang tot de IoT Hub metagegevens via de [functie GetMetadataPropertyValue](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Stream-gegevens van IoT Hub
@@ -171,7 +171,7 @@ FROM Input
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Snelstart: Een Stream Analytics-taak maken met behulp van de Azure-portal](stream-analytics-quick-create-portal.md)
+> [Snelstart: Een Stream Analytics-taak maken met behulp van Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

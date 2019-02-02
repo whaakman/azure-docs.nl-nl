@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016645"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661238"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Store-referentie in Azure Key Vault
 
@@ -27,9 +27,6 @@ Deze functie wordt op dit moment ondersteund door alle activiteitstypen, met uit
 ## <a name="prerequisites"></a>Vereisten
 
 Deze functie is afhankelijk van de data factory-service-identiteit. Ontdek hoe het werkt vanuit [Data factory-service-identiteit](data-factory-service-identity.md) en zorg ervoor dat uw data factory hebben een gekoppeld.
-
->[!TIP]
->In Azure Key Vault, bij het maken van een geheim **put de gehele waarde van een geheime eigenschap dat ADF service gekoppelde vraagt om (bijvoorbeeld connection string/wachtwoord/service principal sleutel/enz.)**. Bijvoorbeeld, voor Azure Storage gekoppelde service plaatsen `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` plaatsen als AKV geheim, en vervolgens een verwijzing naar in "connectionString"-veld van ADF; voor de gekoppelde service van Dynamics, `myPassword` als AKV geheim, vervolgens verwijzen naar 'wachtwoord'-veld in ADF. Verwijzen naar elk artikel connector/rekenservices er bij de eigenschapdetails van de ondersteunde.
 
 ## <a name="steps"></a>Stappen
 

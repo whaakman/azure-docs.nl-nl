@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 366a38951363d52df3d52d3a670943dc41211c8a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493997"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564201"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migreren van de PostgreSQL-database met behulp van dumpen en terugzetten
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) om op te halen van een PostgreSQL-database naar een dumpbestand en [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) de PostgreSQL-database herstellen vanuit een archiefbestand die zijn gemaakt door pg_dump.
@@ -83,7 +83,7 @@ Een manier om uw bestaande PostgreSQL-database migreren naar Azure Database for 
 - Op de doel-Azure Database for PostgreSQL-server, Stel desgewenst het volgende voordat u de terugzetbewerking:
     - Uitschakelen query bijhouden van prestaties, omdat deze statistische gegevens niet nodig zijn tijdens de migratie. U kunt dit doen door in te stellen pg_stat_statements.track pg_qs.query_capture_mode en pgms_wait_sampling.query_capture_mode op NONE.
 
-    - Een hoge Computing en geheugen sku, zoals 32 vCore geoptimaliseerd voor geheugen, gebruiken om de migratie te versnellen. U kunt gemakkelijk schalen omlaag naar de gewenste sku nadat het herstel voltooid is. Hoe hoger de sku, de meer paralellism u kunt bereiken met het verhogen van de bijbehorende `-j` parameter in de opdracht pg_restore. 
+    - Een grote reken- en high-memory-sku, zoals 32 vCore geoptimaliseerd voor geheugen, gebruiken om de migratie te versnellen. U kunt gemakkelijk schalen omlaag naar de gewenste sku nadat het herstel voltooid is. Hoe hoger de sku, de meer parallelle uitvoering u kunt bereiken met het verhogen van de bijbehorende `-j` parameter in de opdracht pg_restore. 
 
     - Meer IOPS op de doelserver kan de herstel-prestaties verbeteren. U kunt meer IOPS inrichten door de opslaggrootte van de server. Deze instelling is niet ongedaan worden gemaakt, maar houd rekening met of een hogere IOPS voordeel uw huidige workload in de toekomst hebben veel.
 

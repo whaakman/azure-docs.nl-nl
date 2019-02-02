@@ -3,7 +3,7 @@ title: Azure Service Fabric-patch orchestration-toepassing | Microsoft Docs
 description: De toepassing voor het automatiseren van besturingssysteem toepassen van patches op een Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
-ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 2/01/2019
+ms.author: brkhande
+ms.openlocfilehash: 646a64435ba02877d2588b8debbb3920a32a5cf1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155303"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563079"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -413,3 +413,6 @@ Een beheerder moet waarbij en te bepalen waarom de toepassing of het cluster is 
 - Regressie oplossen waar POA 1.3.0 werkt niet op Windows Server 2012 R2 of lager vanwege een fout bij het uitschakelen van automatische updates. 
 - Bug opgelost waarbij InstallWindowsOSOnlyUpdates configuratie altijd wordt opgehaald als de waarde True.
 - De standaardwaarde van InstallWindowsOSOnlyUpdates wijzigen in False.
+
+### <a name="version-132"></a>Versie 1.3.2
+- Een probleem dat het toepassen van patches lifecyle op een knooppunt heeft in het geval er knooppunten zijn met de naam subset van de naam van het huidige knooppunt is opgelost. Voor dergelijke knooppunten, de mogelijke patches ontbreekt of opnieuw opstarten in behandeling is. 

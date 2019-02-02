@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158814"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660911"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster met Enterprise Security Package configureren met behulp van Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ In dit artikel leert u hoe u een HDInsight-cluster met ESP configureren met behu
 ## <a name="enable-azure-ad-ds"></a>Inschakelen van Azure AD DS
 
 > [!NOTE]  
-> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 en Gen2 moet u multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster met behulp van basisauthenticaties Kerberose moet uitschakelen. U kunt [vertrouwde IP-adressen](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) of [voorwaardelijke toegang](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) MFA uitschakelen voor specifieke gebruikers alleen wanneer ze toegang hebben tot het HDInsight-cluster VNET IP-adresbereik. Als u voorwaardelijke toegang Zorg ervoor dat AD-service-eindpunt in ingeschakeld op het HDInsight VNET.
+> Alleen tenantbeheerders hebben de bevoegdheid om in te schakelen van Azure AD DS. Als de clusteropslag is het Azure Data Lake Storage (ADLS) Gen1 en Gen2 moet u multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster met behulp van basisauthenticaties Kerberose moet uitschakelen. U kunt [vertrouwde IP-adressen](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) of [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) MFA uitschakelen voor specifieke gebruikers alleen wanneer ze toegang hebben tot het HDInsight-cluster VNET IP-adresbereik. Als u voorwaardelijke toegang Zorg ervoor dat AD-service-eindpunt in ingeschakeld op het HDInsight VNET.
 >
 >Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
 
@@ -87,7 +87,7 @@ Nadat de VNETs zijn gekoppeld, configureert u het HDInsight VNET voor het gebrui
 
 ![Aangepaste DNS-Servers configureren voor het gekoppelde VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Als u regels voor Netwerkbeveiligingsgroep groepen (NSG) in uw HDInsight-subnet gebruikt, moet u toestaan de [IP-adressen vereist](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) voor zowel inkomend als uitgaand verkeer. 
+Als u regels voor Netwerkbeveiligingsgroep groepen (NSG) in uw HDInsight-subnet gebruikt, moet u toestaan de [IP-adressen vereist](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) voor zowel inkomend als uitgaand verkeer. 
 
 **Voor het testen van** als uw netwerk juist is ingesteld, lid worden van een windows-VM naar het HDInsight VNET/Subnet en de naam van het domein (dit moet worden omgezet naar een IP-adres) te pingen en voer vervolgens **ldp.exe** voor toegang tot Azure AD DS-domein. Vervolgens **deze windows-VM toevoegen aan het domein om te bevestigen** die alle vereiste RPC-aanroepen tussen de client en server mislukt. U kunt ook **nslookup** netwerken toegang tot uw storage-account of een externe database (voor bijvoorbeeld externe Hive-metastore of Ranger DB) kunt u te bevestigen.
 Moet u ervoor zorgen dat alle van de [poorten vereist](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) zijn opgenomen in de whitelist in het AAD-DS-subnet als AAD-DS wordt beveiligd door een NSG regels voor Network Security Group. Als de toevoegen aan het domein van de windows-VM geslaagd is, kunt u doorgaan met de volgende stap en maken van ESP-clusters.

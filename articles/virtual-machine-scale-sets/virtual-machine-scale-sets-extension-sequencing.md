@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: aa6ba07168e86b2163324c62f8bb32ca330551f3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501380"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563997"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Hiermee stelt u reeks extensie wordt ingericht in virtuele-machineschaalset
 Extensies voor Azure-machines bieden mogelijkheden, zoals configuratie na implementatie en beheer, bewaking, beveiliging en meer. Productie-implementaties gebruiken vaak een combinatie van meerdere extensies die zijn geconfigureerd voor de VM-exemplaren om gewenste resultaten te behalen.
@@ -29,7 +29,7 @@ Wanneer u meerdere extensies op een virtuele machine, is het belangrijk om ervoo
 
 Dit artikel wordt uitgelegd hoe u kunt de sequencer gebruikt extensies voor de VM-exemplaren in schaalsets voor virtuele machines moet worden geconfigureerd.
 
-## <a name="pre-requisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u bekend met bent:
 -   Virtuele Azure-machine [extensies](../virtual-machines/extensions/overview.md)
 -   [Wijzigen van](virtual-machine-scale-sets-upgrade-scale-set.md) virtuele-machineschaalsets

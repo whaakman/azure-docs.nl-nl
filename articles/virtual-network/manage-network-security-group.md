@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 28b73a70ef9ffd4e73117d599448434823747eca
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438912"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567397"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -66,7 +66,7 @@ Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer *
 2. Selecteer de netwerkbeveiligingsgroep in de lijst die u wilt weergeven van details voor. Onder **instellingen** vindt u de **inkomende beveiligingsregels** en **uitgaande beveiligingsregels**, wordt de **netwerkinterfaces** en  **Subnetten** de netwerkbeveiligingsgroep is gekoppeld aan. U kunt ook inschakelen of uitschakelen **diagnostische logboeken** en **effectieve beveiligingsregels**. Zie voor meer informatie, [diagnostische logboeken](virtual-network-nsg-manage-log.md) en [effectieve beveiligingsregels bekijken](diagnose-network-traffic-filter-problem.md).
 3. Zie voor meer informatie over de algemene instellingen voor Azure die worden vermeld, de volgende artikelen:
     *   [Activiteitenlogboek](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Toegangsbeheer (IAM)](../role-based-access-control/overview.md)
     *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -116,7 +116,7 @@ Er is een limiet aan het aantal regels per netwerkbeveiligingsgroep per Azure-lo
 3. Selecteer **inkomende beveiligingsregels** onder **instellingen**. Meerdere bestaande regels worden weergegeven. Sommige van de regels die u niet hebt toegevoegd. Wanneer een netwerkbeveiligingsgroep wordt gemaakt, worden in deze verschillende standaardbeveiligingsregels gemaakt. Zie voor meer informatie, [standaard beveiligingsregels](security-overview.md#default-security-rules).  Standaardregels voor beveiliging kan niet worden verwijderd, maar u kunt ze wel negeren met regels die een hogere prioriteit hebben.
 4. <a name = "security-rule-settings"></a>Selecteer **+ toevoegen**.  Selecteer of voeg waarden toe voor de volgende instellingen en selecteer vervolgens **OK**:
     
-    |Instelling  |Waarde  |Details  |
+    |Instelling  |Value  |Details  |
     |---------|---------|---------|
     |Bron     | Selecteer **eventuele**, **toepassingsbeveiligingsgroep**, **IP-adressen**, of **servicetag** voor inkomende beveiligingsregels. Als u een beveiligingsregel voor uitgaand maakt, de opties zijn hetzelfde als de opties die worden weergegeven voor **bestemming**.       | Als u selecteert **toepassingsbeveiligingsgroep**, selecteert u vervolgens een of meer bestaande toepassing beveiligingsgroepen die aanwezig zijn in dezelfde regio als de netwerkinterface. Meer informatie over het [Maak een toepassingsbeveiligingsgroep](#create-an-application-security-group). Als u selecteert **toepassingsbeveiligingsgroep** voor zowel de **bron** en **bestemming**, de netwerkinterfaces in beide toepassingsbeveiligingsgroepen moeten zich in dezelfde virtueel netwerk. Als u selecteert **IP-adressen**, geeft u **bron-IP-adressen/CIDR-bereiken**. U kunt een enkele waarde of een door komma's gescheiden lijst met meerdere waarden opgeven. Een voorbeeld van meerdere waarden is 10.0.0.0/16, 192.188.1.1. Er gelden beperkingen voor het aantal waarden die u kunt opgeven. Zie [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie. Als u selecteert **servicetag**, selecteer vervolgens een servicetag. Een servicetag is een vooraf gedefinieerde id voor een bepaalde categorie IP-adressen. Zie voor meer informatie over de beschikbare service-tags en wat elke tag vertegenwoordigt, [servicetags](security-overview.md#service-tags). Als het IP-adres dat u opgeeft is toegewezen aan een virtuele machine van Azure, zorg ervoor dat u de privé IP-adres, niet het openbare IP-adres toegewezen aan de virtuele machine opgeven. Beveiligingsregels worden verwerkt nadat Azure vertaalt het openbare IP-adres op een privé IP-adres voor inkomende beveiligingsregels en voordat Azure zet een privé IP-adres een openbaar IP-adres voor regels voor uitgaand verkeer. Zie voor meer informatie over openbare en persoonlijke IP-adressen in Azure, [IP-adrestypen](virtual-network-ip-addresses-overview-arm.md).        |
     |Poortbereiken van bron     | Geef één poort zijn, zoals 80, een poortbereik, bijvoorbeeld 1024-65535, of een door komma's gescheiden lijst met losse poorten en/of poortbereiken, zoals 80, 1024-65535. Voer een sterretje voor verkeer op een willekeurige poort. | De poorten en adresbereiken opgeven welke poorten verkeer wordt toegestaan of geweigerd door de regel. Er gelden beperkingen voor het aantal poorten die u kunt opgeven. Zie [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.  |

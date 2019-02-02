@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 78746324c240e0a1bfab81ca1e45f231909328c0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321401"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661187"
 ---
 # <a name="application-architecture-on-azure"></a>Toepassingsarchitectuur in Azure
 Om u te helpen beveiligen van uw cloud-gebaseerde oplossingen op Microsoft Azure, een solide basis van de architectuur is essentieel. Architecten, ontwerpers en uitvoerders profiteren van een sterke kennis van de architectuur van toepassingen en services. Deze fundamentele kennis helpt u inzicht in de onderdelen van uw cloud-gebaseerde oplossingen en het eenvoudiger is om te integreren beveiliging in alle aspecten van uw ontwerp en de implementatie.
@@ -42,10 +42,10 @@ Elke blauwdruk omvat a:
 [De Visio en symbolen training video bekijken](https://aka.ms/CnESymbolsVideo) en vervolgens [downloaden van de Cloud en Enterprise-symbool instellen](https://aka.ms/CnESymbols) voor het maken van technische materialen die worden beschreven van Azure, Windows Server, SQL Server en meer. U kunt de symbolen in architectuurdiagrammen, trainingsmateriaal, presentaties, gegevensbladen, infographics, technische documenten en zelfs van derden boeken kunt gebruiken als het boek mensen traint te gebruiken Microsoft-producten. Ze zijn echter niet bedoeld voor gebruik in gebruikersinterfaces.
 
 ## <a name="3d-blueprint-visio-template"></a>3D-blauwdruk Visio-sjabloon
-De 3D-versies van de [Microsoft Architectuurblauwdrukken](https://aka.ms/azblueprints) in eerste instantie zijn gemaakt in een niet-Microsoft-programma. Een nieuwe Visio 2013 (en hoger)-sjabloon op 5 augustus 2015 worden verzonden als onderdeel van een [Microsoft Architecture-certificering cursus gedistribueerd op EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
+De 3D-versies van de [Microsoft Architectuurblauwdrukken](https://aka.ms/azblueprints) in eerste instantie zijn gemaakt in een niet-Microsoft-programma. Een nieuwe Visio 2013 (en hoger)-sjabloon op 5 augustus 2015 worden verzonden als onderdeel van een [Microsoft Architecture-certificering cursus gedistribueerd op EDX.ORG](https://docs.microsoft.com/azure/architecture/).
 
 De sjabloon is ook beschikbaar buiten de cursus.
 
 * [Bekijk de trainingsvideo](https://aka.ms/3dBlueprintTemplateVideo) eerst, zodat u weet wat u ermee kunt doen
 * Download de [Microsoft Visio-sjabloon voor 3D-blauwdruk](https://aka.ms/3DBlueprintTemplate)
-* Download de [Cloud en Enterprise-symbolen](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) voor gebruik met de 3D-sjabloon
+* Download de [Cloud en Enterprise-symbolen](https://docs.microsoft.com/azure/architecture/) voor gebruik met de 3D-sjabloon

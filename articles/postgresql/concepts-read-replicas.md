@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 017abd72b3aa1547844f977c3efda69e59901a6f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/01/2019
+ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487945"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657872"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Lezen-replica's in Azure Database for PostgreSQL
 
@@ -21,6 +21,8 @@ ms.locfileid: "55487945"
 De replica voor lezen-functie kunt u voor het repliceren van gegevens uit een Azure Database for PostgreSQL-server (master) op maximaal vijf alleen-lezen-servers (lezen replica's) binnen dezelfde Azure-regio. Lezen-replica's worden asynchroon bijgewerkt met de PostgreSQL-engine systeemeigen Replicatietechnologie.
 
 Replica's zijn nieuwe servers die kunnen worden beheerd op vergelijkbare wijze als normale zelfstandige Azure Database for PostgreSQL-servers. Voor elke leesreplica worden kosten in rekening gebracht voor de ingerichte compute in vCores en ingerichte opslag in GB/maand.
+
+Ga naar de [procedures pagina voor informatie over het maken en beheren van replica's](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-read-replicas"></a>Wanneer u meer replica 's
 De functie lezen replica is gericht op helpen verbeteren de prestaties en schaal van lees-intensieve werkbelastingen. Bijvoorbeeld, kunnen de lees-workloads worden geïsoleerd in de replica's, terwijl schrijven workloads kunnen worden omgeleid naar het hoofdniveau.
@@ -56,7 +58,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 en bij de prompt voert u het wachtwoord voor het gebruikersaccount.
 
 ## <a name="monitoring-replication"></a>Controleren van de replicatie
-Er is een **Max Lag voor replica's** metrische gegevens beschikbaar zijn in Azure Monitor. Met deze metriek is beschikbaar op de hoofdserver. De metrische gegevens ziet u de vertraging tussen het model en de meeste achtergebleven-replica. 
+Er is een **Max Lag voor replica's** metrische gegevens beschikbaar zijn in Azure Monitor. Met deze metriek is beschikbaar op de hoofdserver. De metrische gegevens geeft de vertraging in bytes tussen de hoofd- en de meeste achtergebleven replica. 
 
 We bieden ook een **Replica Lag** metrische gegevens in Azure Monitor. Met deze metriek is beschikbaar voor alleen replica's. 
 

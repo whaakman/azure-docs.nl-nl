@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157700"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664026"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Eenmalige aanmelding voor toepassingen in Azure Active Directory
 Eenmalige aanmelding (SSO) voegt beveiliging en gemak wanneer gebruikers zich aanmelden bij toepassingen in Azure Active Directory (Azure AD). Dit artikel beschrijft de methoden voor eenmalige aanmelding en helpt u bij het kiezen van de meest geschikte methode voor eenmalige aanmelding bij het configureren van uw toepassingen.
@@ -49,9 +49,7 @@ De volgende tabel geeft een overzicht van de methoden voor eenmalige aanmelding,
 | [Op basis van koptekst](#header-based-sso) | alleen on-premises | Gebruik op basis van een koptekst van eenmalige aanmelding wanneer de toepassing headers voor verificatie gebruikt. Headers gebaseerde eenmalige aanmelding moet PingAccess voor Azure AD. Application Proxy maakt gebruik van Azure AD de gebruiker te verifiëren en vervolgens doorgegeven verkeer via de connector-service.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect en OAuth
-Met OpenID Connect en OAuth, moet u een eenmalige aanmelding mogelijk die het proces vereenvoudigt van het toevoegen van een zakelijke toepassing naar Azure AD inschakelen. De beheerder van de toepassing hoeft niet te configureren van eenmalige aanmelding. In plaats daarvan wordt de toepassing in Azure AD worden toegevoegd wanneer de beheerder [verleent toestemming van de gebruiker](configure-user-consent.md). 
-
-De [SDK's](../develop/reference-v2-libraries.md) voor OpenID Connect en OAuth eenvoudig vast te stellen, en uw toepassing klaar zijn zullen voor gebruik van MS Graph. 
+Bij het ontwikkelen van nieuwe toepassingen, kunt u de moderne protocollen, zoals OpenID Connect en OAuth gebruiken om te bereiken het beste eenmalige aanmelding mogelijk voor uw app voor meerdere apparaten. OAuth kan gebruikers of beheerders [toestemming verlenen](configure-user-consent.md) voor beveiligde bronnen zoals [MS Graph](/graph/overview). We bieden eenvoudig vast te stellen [SDK's](../develop/reference-v2-libraries.md) voor uw app, en daarnaast uw app is klaar voor gebruik [MS Graph](/graph/overview).
 
 Zie voor meer informatie:
 

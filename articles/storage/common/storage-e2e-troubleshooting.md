@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 73073d5240f29906ade5f9b92cf81fec2f99a3d4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473201"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661969"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end problemen oplossen met behulp van Azure Storage metrische gegevens en logboekregistratie, AzCopy en Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ Het configureren van logboekregistratie en metrische gegevens voor uw storage ac
 
 Als u wilt aan de slag met PowerShell voor Azure, Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
-1. Gebruik de [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet aan uw account Azure-gebruiker toevoegen aan het PowerShell-venster:
+1. Gebruik de [toevoegen AzAccount](/powershell/module/az.account/add-azaccount) cmdlet aan uw account Azure-gebruiker toevoegen aan het PowerShell-venster:
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. In de **aanmelden bij Microsoft Azure** venster, typt u het e-mailadres en wachtwoord die zijn gekoppeld aan uw account. Azure verifieert de referentiegegevens en slaat deze op. Vervolgens wordt het venster gesloten.
@@ -110,7 +110,7 @@ Als u wilt aan de slag met PowerShell voor Azure, Zie [hoe u Azure PowerShell in
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. Logboekregistratie van opslag voor de Blob-service inschakelen:

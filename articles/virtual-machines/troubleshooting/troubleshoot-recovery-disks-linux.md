@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9e3177b9df41a1612435dddadafd5c7e291e0e35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462009"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663584"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Een Linux-VM oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met de Azure CLI voor herstel
 Als uw Linux-machine (VM) een fout opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab` dat voorkomt dat de virtuele machine wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf met een andere Linux-VM op eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met de Azure CLI. 
@@ -43,7 +43,7 @@ In de volgende voorbeelden kunt u namen van parameters vervangen door uw eigen w
 ## <a name="determine-boot-issues"></a>Opstartproblemen met bepalen
 Bekijk de seriële uitvoer om te bepalen waarom de virtuele machine niet staat zijn om correct is. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab`, of de onderliggende virtuele harde schijf wordt verwijderd of verplaatst.
 
-Ophalen van de opstartlogboeken met [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log). Het volgende voorbeeld wordt de seriële uitvoer van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
+Ophalen van de opstartlogboeken met [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics). Het volgende voorbeeld wordt de seriële uitvoer van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM

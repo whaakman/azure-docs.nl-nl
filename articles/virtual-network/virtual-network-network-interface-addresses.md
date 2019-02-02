@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 64aa936dc1dbb1d2a700a31253cf7a3caee6b66f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4fae4486e6cf47892ba2133885ec864969f66001
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436770"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663601"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Toevoegen, wijzigen of verwijderen van IP-adressen voor een Azure-netwerk-interface
 
@@ -61,7 +61,7 @@ U kunt toevoegen als veel [persoonlijke](#private) en [openbare](#public) [IPv4]
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>Instellingen voor IP-adres wijzigen
@@ -82,7 +82,7 @@ U mogelijk nodig om te wijzigen van de methode voor het toewijzen van een IPv4-a
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>IP-adressen verwijderen
@@ -98,7 +98,7 @@ U kunt verwijderen [persoonlijke](#private) en [openbare](#public) IP-adressen u
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP-configuraties
@@ -144,7 +144,7 @@ Er zijn scenario's waarin het nodig het IP-adres van een netwerkinterface in het
 4. Hiermee wordt de virtuele machine gestart.
 5. [Handmatig configureren](virtual-network-multiple-ip-addresses-portal.md#os-config) de secundaire IP-adressen binnen het besturingssysteem (en ook de primaire IP-adres binnen Windows) zodat deze overeenkomt met wat u in Azure instellen.
 
-Door de vorige stappen hebt uitgevoerd, het privé IP-adres toegewezen aan de netwerkinterface in Azure, en binnen het besturingssysteem van een virtuele machine, moet u hetzelfde blijven. Overweeg om bij te houden welke virtuele machines binnen uw abonnement die u handmatig IP-adressen binnen een besturingssysteem voor hebt ingesteld, het toevoegen van een Azure [tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) aan de virtuele machines. U kunt "IP-adrestoewijzing: Statische', bijvoorbeeld. Op deze manier kunt u eenvoudig vinden de virtuele machines binnen uw abonnement die u hebt het IP-adres voor het besturingssysteem handmatig ingesteld.
+Door de vorige stappen hebt uitgevoerd, het privé IP-adres toegewezen aan de netwerkinterface in Azure, en binnen het besturingssysteem van een virtuele machine, moet u hetzelfde blijven. Overweeg om bij te houden welke virtuele machines binnen uw abonnement die u handmatig IP-adressen binnen een besturingssysteem voor hebt ingesteld, het toevoegen van een Azure [tag](../azure-resource-manager/resource-group-using-tags.md) aan de virtuele machines. U kunt "IP-adrestoewijzing: Statische', bijvoorbeeld. Op deze manier kunt u eenvoudig vinden de virtuele machines binnen uw abonnement die u hebt het IP-adres voor het besturingssysteem handmatig ingesteld.
 
 Naast het inschakelen van een virtuele machine om te communiceren met andere resources binnen de dezelfde of verbonden virtuele netwerken kan een privé IP-adres ook een virtuele machine naar de uitgaande communicatie met Internet. Uitgaande verbindingen zijn de bron-netwerkadres vertaald door Azure op een onvoorspelbare openbare IP-adres. Lees voor meer informatie over Azure uitgaande verbinding met Internet heeft, de [Azure uitgaande internetverbinding](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel. U kunt geen inkomend communiceren met privé IP-adres van een virtuele machine vanaf het Internet. Als uw uitgaande verbindingen een voorspelbare openbare IP-adres vereist, koppelt u een openbare IP-adresresource aan een netwerkinterface.
 

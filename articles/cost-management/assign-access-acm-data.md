@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a64a1e35811b8bcdf721425580fe66641cb8ebe2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052135"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661000"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Toegang tot gegevens van kostenbeheer toewijzen
 
@@ -43,6 +43,10 @@ Als u wilt weergeven van gegevens van cost, een gebruiker moet ten minste lezen 
 Het volgende diagram illustreert de relatie tussen bereiken met behulp van Cost Management en de instellingen voor EA.
 
 ![Diagram van de relatie tussen bereiken met behulp van Cost Management en EA-portal-instellingen](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+
+Wanneer **DA weergave kosten** zijn uitgeschakeld in de EA-portal, ziet u een bericht weergegeven dat *kosten uitgeschakeld voor uw organisatie* wanneer u probeert om de kosten voor afdelingen en accounts weer te geven.
+
+Op dezelfde manier als **kosten weergeven die door de AO** zijn uitgeschakeld in de EA-portal, ziet u een bericht weergegeven dat *kosten uitgeschakeld voor uw organisatie* wanneer u probeert om kosten voor inschrijvingsaccounts,-beheergroepen, weer te geven abonnementen en resourcegroepen.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Toegang tot de kosten van de EA-portal inschakelen
 

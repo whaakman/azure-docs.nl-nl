@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 12c71086509b0c7017b8326c46ed4a31270ef261
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102119"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657379"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -117,7 +117,7 @@ Als u een URL-gebaseerde firewallproxy voor het beheren van uitgaande connectivi
 
 **De collector kan geen verbinding met internet maken vanwege een fout bij de validatie van het servercertificaat**
 
-Dit kan gebeuren als u een onderschept proxy verbinding maken met Internet, en als u de proxy-certificaat u aan bij de collector-VM niet geïmporteerd. U kunt de proxycertificaat met behulp van de stappen die worden beschreven importeren [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+Dit kan gebeuren als u een onderschept proxy verbinding maken met Internet, en als u de proxy-certificaat u aan bij de collector-VM niet geïmporteerd. U kunt de proxycertificaat met behulp van de stappen die worden beschreven importeren [hier](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 **De collector geen verbinding maken met het project met behulp van de project-ID en sleutel ik gekopieerd vanuit de portal.**
 

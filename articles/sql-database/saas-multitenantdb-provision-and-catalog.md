@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055302"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562892"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Nieuwe tenants inrichten en catalogiseren in een SaaS-toepassing met behulp van een shard Azure SQL database voor meerdere tenants
 
@@ -28,7 +28,7 @@ In dit artikel heeft twee hoofdonderdelen:
 - [Algemene discussie](#goto_2_conceptual) van het inrichten en catalogiseren van nieuwe tenants.
 
 - [Zelfstudie](#goto_1_tutorial) die de code van het PowerShell-script waarmee het inrichten en catalogiseren worden gemarkeerd.
-    - De zelfstudie maakt gebruik van de Wingtip Tickets SaaS-toepassing, aangepast aan het patroon voor multitenant shard-database.
+  - De zelfstudie maakt gebruik van de Wingtip Tickets SaaS-toepassing, aangepast aan het patroon voor multitenant shard-database.
 
 <a name="goto_2_conceptual"/>
 
@@ -143,12 +143,12 @@ In deze sectie ziet u een lijst van de belangrijke acties voor het inrichten van
 
 Hier volgen de belangrijkste elementen van de inrichting werkstroom doorlopen:
 
-- **Berekenen van de nieuwe tenantsleutel**: een hash-functie wordt gebruikt om u te maken van de tenant-sleutel van de naam van de tenant.
-- **Controleren of de tenant-sleutel al bestaat**: de catalogus wordt gecontroleerd om te controleren of de sleutel nog niet is geregistreerd.
-- **Initialiseren van de tenant in de database van de tenant standaard**: de tenant-database wordt bijgewerkt om toe te voegen van de informatie over de nieuwe tenant.  
-- **Tenant registreren in de catalogus**: de toewijzing tussen de nieuwe tenant-sleutel en de bestaande tenants1-database wordt toegevoegd aan de catalogus. 
-- **De naam van de tenant toevoegen aan een tabel van de extensie catalogus**: de naam van de venue wordt toegevoegd aan de tabel Tenants in de catalogus.  Deze toevoeging laat zien hoe de catalogusdatabase kan worden uitgebreid ter ondersteuning van aanvullende toepassingsspecifieke gegevens.
-- **Open gebeurtenissen-pagina voor de nieuwe tenant**: de *Bushwillow Blues* pagina gebeurtenissen in de browser wordt geopend.
+- **Berekenen van de nieuwe tenantsleutel**: Er wordt een hash-functie gebruikt om de tenant-sleutel te maken op basis van de naam van de tenant.
+- **Controleren of de tenant-sleutel al bestaat**: De catalogus wordt gecontroleerd om te controleren of dat de sleutel nog niet is geregistreerd.
+- **Initialiseren van de tenant in de database van de tenant standaard**: De tenant-database wordt bijgewerkt om toe te voegen van de informatie over de nieuwe tenant.  
+- **Tenant registreren in de catalogus**: De toewijzing tussen de nieuwe tenant-sleutel en de bestaande tenants1-database wordt toegevoegd aan de catalogus. 
+- **De naam van de tenant toevoegen aan een tabel van de extensie catalogus**: De naam van de venue wordt toegevoegd aan de tabel Tenants in de catalogus.  Deze toevoeging laat zien hoe de catalogusdatabase kan worden uitgebreid ter ondersteuning van aanvullende toepassingsspecifieke gegevens.
+- **Open gebeurtenissen-pagina voor de nieuwe tenant**: De *Bushwillow Blues* pagina gebeurtenissen in de browser wordt geopend.
 
    ![events](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -161,7 +161,7 @@ Om te begrijpen hoe de Wingtip-app voor nieuwe tenants worden ingericht in een g
    - **$VenueType** = **blues**, een van de vooraf gedefinieerde typen venues: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (kleine letters, zonder spaties).
    - **$DemoScenario** = **1**, voor het inrichten van een tenant in een gedeelde database met andere tenants.
 
-2. Voeg een onderbrekingspunt toe door op te nemen de cursor ergens op regel 38, de regel met de tekst: *New-Tenant '*, en druk vervolgens op **F9**.
+2. Voeg een onderbrekingspunt toe door de cursor ergens in de regel 38, de regel met de tekst plaatsen: *Nieuwe Tenant '*, en druk vervolgens op **F9**.
 
    ![onderbrekingspunt](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -181,14 +181,14 @@ Zie voor meer informatie over het opsporen van fouten in PowerShell-scripts, [Ti
 
 Hier volgen de belangrijkste elementen van de werkstroom die u stapsgewijs bij het traceren van het script:
 
-- **Berekenen van de nieuwe tenantsleutel**: een hash-functie wordt gebruikt om u te maken van de tenant-sleutel van de naam van de tenant.
-- **Controleren of de tenant-sleutel al bestaat**: de catalogus wordt gecontroleerd om te controleren of de sleutel nog niet is geregistreerd.
-- **Maak een nieuwe tenantdatabase**: de database is gemaakt met het kopiëren van de *basetenantdb* database met behulp van Resource Manager-sjabloon.  De naam van de nieuwe database is gebaseerd op de naam van de tenant.
-- **Database toevoegen aan de catalogus**: de database van de nieuwe tenant is geregistreerd als een shard in de catalogus.
-- **Initialiseren van de tenant in de database van de tenant standaard**: de tenant-database wordt bijgewerkt om toe te voegen van de informatie over de nieuwe tenant.  
-- **Tenant registreren in de catalogus**: de toewijzing tussen de nieuwe tenant-sleutel en de *sequoiasoccer* database is toegevoegd aan de catalogus.
-- **De naam van tenant is toegevoegd aan de catalogus**: de naam van de venue wordt toegevoegd aan de tabel van de extensie Tenants in de catalogus.
-- **Open gebeurtenissen-pagina voor de nieuwe tenant**: de *Sequoia voetbal* pagina gebeurtenissen in de browser wordt geopend.
+- **Berekenen van de nieuwe tenantsleutel**: Er wordt een hash-functie gebruikt om de tenant-sleutel te maken op basis van de naam van de tenant.
+- **Controleren of de tenant-sleutel al bestaat**: De catalogus wordt gecontroleerd om te controleren of dat de sleutel nog niet is geregistreerd.
+- **Maak een nieuwe tenantdatabase**: De database is gemaakt met het kopiëren van de *basetenantdb* database met behulp van Resource Manager-sjabloon.  De naam van de nieuwe database is gebaseerd op de naam van de tenant.
+- **Database toevoegen aan de catalogus**: De database van de nieuwe tenant is geregistreerd als een shard in de catalogus.
+- **Initialiseren van de tenant in de database van de tenant standaard**: De tenant-database wordt bijgewerkt om toe te voegen van de informatie over de nieuwe tenant.  
+- **Tenant registreren in de catalogus**: De toewijzing tussen de nieuwe tenant-sleutel en de *sequoiasoccer* database is toegevoegd aan de catalogus.
+- **De naam van tenant is toegevoegd aan de catalogus**: De naam van de venue wordt toegevoegd aan de tabel van de extensie Tenants in de catalogus.
+- **Open gebeurtenissen-pagina voor de nieuwe tenant**: De *Sequoia voetbal* pagina gebeurtenissen in de browser wordt geopend.
 
    ![events](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

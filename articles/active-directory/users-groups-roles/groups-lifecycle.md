@@ -14,12 +14,12 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 98ed7ce3eb58aa870a3cb06864631cd108410195
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508739"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658246"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
@@ -53,15 +53,16 @@ Zie voor meer informatie over machtigingen om terug te zetten van een verwijderd
   
   ![Verlopen-blade](./media/groups-lifecycle/expiration-settings.png)
 
-4. Op de **verlopen** blade kunt u:
+3. Op de **verlopen** blade kunt u:
 
   * De Groepslevensduur van de in dagen instellen. U kunt een van de vooraf gedefinieerde waarden, of een aangepaste waarde (moet 31 dagen of meer) selecteren. 
   * Geef een e-mailadres waar de vernieuwing en verlopen-meldingen moeten worden verzonden wanneer een groep geen eigenaar heeft. 
   * Selecteer welke Office 365-groepen is verlopen. U kunt vervaldatum inschakelen voor **alle** Office 365-groepen die u kunt kiezen om in te schakelen alleen **geselecteerde** Selecteer Office 365-groepen, of u **geen**  om uit te schakelen verlopen voor alle groepen.
   * Uw instellingen opslaan wanneer u klaar bent met het selecteren van **opslaan**.
 
+## <a name="email-notifications"></a>E-mailmeldingen
 
-E-mailmeldingen zoals deze worden verzonden naar de Office 365-groepseigenaren 30 dagen, 15 dagen en 1 dag vóór de vervaldatum van de groep.
+E-mailmeldingen zoals deze worden verzonden naar de Office 365-groepseigenaren 30 dagen, 15 dagen en 1 dag vóór de vervaldatum van de groep. De taal van het e-mailbericht wordt bepaald door de voorkeurstaal of de taal van de tenant van de eigenaar van de groepen. Als de eigenaar van de groep een voorkeurstaal is gedefinieerd, of meerdere eigenaars de dezelfde voorkeurstaal hebben, wordt die taal gebruikt. Voor alle andere gevallen wordt tenant taal gebruikt.
 
 ![Melding over verlopen e-mailadres](./media/groups-lifecycle/expiration-notification.png)
 

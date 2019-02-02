@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 75869de67d006b2053e9c3f9eed2fd8166a0e8e1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: af269085550f71323c8098b4cdf3c88ec8035dfe
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200986"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563300"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Uw Raspberry Pi-apparaat verbinden met de Remote Monitoring solution accelerator (Node.js)
 
@@ -96,7 +96,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. In de **remote_monitoring.js** bestand, voeg de volgende `require` instructies:
 
-    ```nodejs
+    ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
@@ -105,13 +105,13 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende variabelendeclaraties achter de `require`-instructies toe. Vervang de tijdelijke aanduidingswaarde `{device connection string}` met de waarde die u hebt genoteerd voor het apparaat dat u hebt ingericht in de oplossing voor externe controle:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{device connection string}';
     ```
 
 1. Sommige base om telemetriegegevens te definiëren, voeg de volgende variabelen:
 
-    ```nodejs
+    ```javascript
     var temperature = 50;
     var temperatureUnit = 'F';
     var humidity = 50;
@@ -122,7 +122,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voor het definiëren van sommige eigenschapswaarden, voeg de volgende variabelen:
 
-    ```nodejs
+    ```javascript
     var schema = "real-chiller;v1";
     var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
@@ -135,7 +135,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende variabele voor het definiëren van de gerapporteerde eigenschappen om te verzenden naar de oplossing. Deze eigenschappen zijn onder andere metagegevens om weer te geven in de Web-UI:
 
-    ```nodejs
+    ```javascript
     var reportedProperties = {
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
@@ -153,7 +153,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende Help-functie resultaten van de bewerking om af te drukken:
 
-    ```nodejs
+    ```javascript
     function printErrorFor(op) {
         return function printError(err) {
             if (err) console.log(op + ' error: ' + err.toString());
@@ -163,7 +163,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende helperfunctie te gebruiken op een willekeurige kleur geven de telemetriewaarden:
 
-    ```nodejs
+    ```javascript
     function generateRandomIncrement() {
         return ((Math.random() * 2) - 1);
     }
@@ -171,7 +171,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende algemene functie voor het afhandelen van rechtstreekse methodeaanroepen van de oplossing. De functie geeft informatie weer over de directe methode die is aangeroepen, maar in dit voorbeeld het apparaat op geen enkele manier niet wijzigen. De oplossing maakt gebruik van directe methoden om te reageren op apparaten:
 
-    ```nodejs
+    ```javascript
     function onDirectMethod(request, response) {
       // Implement logic asynchronously here.
       console.log('Simulated ' + request.methodName);
@@ -186,7 +186,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende functie voor het afhandelen van de **FirmwareUpdate** rechtstreekse methodeaanroepen van de oplossing. De functie controleert of de parameters die worden doorgegeven in de nettolading van directe methode en de simulatie van een firmware-update wordt asynchroon uitgevoerd:
 
-    ```nodejs
+    ```javascript
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -215,7 +215,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende functie voor het simuleren van een stroom langlopende firmware bijwerken die wordt uitgevoerd aan de oplossing doorgegeven:
 
-    ```nodejs
+    ```javascript
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -293,7 +293,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende code voor het verzenden van telemetriegegevens naar de oplossing. Eigenschappen van de client-app toegevoegd aan het bericht om te identificeren van het berichtschema:
 
-    ```nodejs
+    ```javascript
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
@@ -312,7 +312,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
 
 1. Voeg de volgende code voor het maken van een clientexemplaar:
 
-    ```nodejs
+    ```javascript
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -324,7 +324,7 @@ De volgende stappen met behulp van de `ssh` verbinding met uw Raspberry Pi:
     * Registreer handlers voor de directe methoden. Het voorbeeld wordt een afzonderlijke handler voor de directe methode die firmware-update.
     * Beginnen met het verzenden van telemetrie.
 
-    ```nodejs
+    ```javascript
     client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);

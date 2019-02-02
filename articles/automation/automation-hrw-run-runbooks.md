@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/17/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d622f6f03f9d132f3c57910d8a60c5731ad7c94
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425777"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657413"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks uitvoeren op een Hybrid Runbook Worker
 
 Er is geen verschil in de structuur van runbooks die worden uitgevoerd in Azure Automation en runbooks die worden uitgevoerd op een Hybrid Runbook Worker. Runbooks die u met elke gebruikt waarschijnlijk aanzienlijk verschillen. Dit verschil is, omdat de runbooks die zijn gericht op een Hybrid Runbook Worker doorgaans beheren van resources op de lokale computer zelf of op basis van resources in de lokale omgeving waarop deze wordt geïmplementeerd. Runbooks in Azure Automation beheren meestal resources in de Azure-cloud.
 
-U moet bij het ontwerpen van runbooks om uit te voeren op een Hybrid Runbook Worker, bewerken en testen van de runbooks in de computer die als host fungeert voor de Hybrid worker. De hostmachine heeft alle van de PowerShell-modules en toegang tot het netwerk die u wilt beheren en toegang tot de lokale bronnen. Zodra van een runbook op de Hybrid worker-machine getest, kunt u deze vervolgens uploaden naar de Azure Automation-omgeving waar deze worden uitgevoerd in de Hybrid worker beschikbaar is. Het is belangrijk te weten dat taken die uitvoeren onder het lokale systeemaccount gebruikt voor Windows of een speciaal gebruikersaccount **nxautomation** op Linux. Dit gedrag kunt subtiele verschillen introduceren bij het ontwerpen van runbooks voor Hybrid Runbook Worker. Deze wijzigingen moeten worden gecontroleerd bij het schrijven van uw runbooks.
+U moet bij het ontwerpen van runbooks om uit te voeren op een Hybrid Runbook Worker, bewerken en testen van de runbooks in de computer die als host fungeert voor de Hybrid worker. De hostmachine heeft alle van de PowerShell-modules en toegang tot het netwerk die u wilt beheren en toegang tot de lokale bronnen. Wanneer een runbook wordt getest op de Hybrid worker-machine, kunt u deze vervolgens uploaden naar de Azure Automation-omgeving waar deze worden uitgevoerd in de Hybrid worker beschikbaar is. Het is belangrijk te weten dat taken die uitvoeren onder het lokale systeemaccount gebruikt voor Windows of een speciaal gebruikersaccount **nxautomation** op Linux. Dit gedrag kunt subtiele verschillen introduceren bij het ontwerpen van runbooks voor Hybrid Runbook Worker. Deze wijzigingen moeten worden gecontroleerd bij het schrijven van uw runbooks.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Een runbook starten op Hybrid Runbook Worker
 
@@ -106,7 +106,7 @@ Get-AzureRmVm | Select Name
 
 Als onderdeel van uw geautomatiseerde build-proces voor het implementeren van resources in Azure, hebt u toegang tot on-premises systemen ter ondersteuning van een taak of een reeks stappen in de volgorde van de implementatie mogelijk nodig. Ter ondersteuning van verificatie op basis van Azure met behulp van de uitvoeren als-account, moet u het Run As-account-certificaat installeren.
 
-De volgende PowerShell-runbook **Export-RunAsCertificateToHybridWorker**, exporteert u het Run As-certificaat van uw Azure Automation-account en downloadt en importeert deze in het certificaatarchief van lokale computer op een hybride de werknemer die is verbonden met hetzelfde account. Als deze stap is voltooid, controleert u of dat de werknemer op Azure met behulp van de uitvoeren als-account kunt verifiëren.
+De volgende PowerShell-runbook **Export-RunAsCertificateToHybridWorker**, exporteert u het Run As-certificaat van uw Azure Automation-account en downloadt en importeert deze in het certificaatarchief van lokale computer op een hybride worker, dat is verbonden met hetzelfde account. Als deze stap is voltooid, controleert u of dat de werknemer op Azure met behulp van de uitvoeren als-account kunt verifiëren.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -181,20 +181,22 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 > [!IMPORTANT]
 > **Add-AzureRmAccount** is nu een alias voor **Connect-AzureRMAccount**. Wanneer uw bibliotheek zoeken items, als u niet ziet **Connect-AzureRMAccount**, kunt u **Add-AzureRmAccount**, of u kunt uw modules bijwerken in uw Automation-Account.
 
-Sla de *Export-RunAsCertificateToHybridWorker* runbook op de computer met een `.ps1` extensie. Importeren in uw Automation-account en het bewerken van het runbook, wijzigen van de waarde van de variabele `$Password` met uw eigen wachtwoord. Publiceren en voert u het runbook. De Hybrid Worker-groep die wordt uitgevoerd en verifiëren van runbooks met behulp van de uitvoeren als-account als doel. De taakstroom rapporteert de poging om het certificaat importeren in het archief van de lokale computer, en volgt met meerdere regels. Dit gedrag is afhankelijk van hoeveel Automation-accounts die u definieert in uw abonnement en als verificatie geslaagd is.
+Sla de *Export-RunAsCertificateToHybridWorker* runbook op de computer met een `.ps1` extensie. Importeren in uw Automation-account en het bewerken van het runbook, wijzigen van de waarde van de variabele `$Password` met uw eigen wachtwoord. Publiceren en voert u het runbook. De Hybrid Worker-groep die worden uitgevoerd en verifiëren van runbooks met behulp van de uitvoeren als-account als doel. De taakstroom rapporteert de poging om het certificaat importeren in het archief van de lokale computer, en volgt met meerdere regels. Dit gedrag is afhankelijk van hoeveel Automation-accounts die u definieert in uw abonnement en als verificatie geslaagd is.
 
 ## <a name="job-behavior"></a>Gedrag van de taak
 
-Taken worden verwerkt op Hybrid Runbook Workers iets anders dan ze wanneer ze worden uitgevoerd op Azure-sandboxes geladen. Één belangrijk verschil is dat er geen limiet voor de duur van de taak op Hybrid Runbook Workers. Runbooks in Azure uitgevoerd sandboxes zijn beperkt tot drie uur vanwege [evenredige deel](automation-runbook-execution.md#fair-share). U wilt voor een runbook langlopende om ervoor te zorgen dat het bestand tegen mogelijk opnieuw opstarten is. Bijvoorbeeld, als de computer die als host fungeert voor de Hybrid worker opnieuw wordt opgestart. Als de machine van de Hybrid worker-host opnieuw is opgestart, klikt u vervolgens een actief runbooktaak opnieuw wordt opgestart vanaf het begin of vanaf het laatste controlepunt voor PowerShell Workflow-runbooks. Nadat een runbook taak opnieuw wordt gestart meer dan 3 keer, en vervolgens is onderbroken.
+Taken worden verwerkt op Hybrid Runbook Workers iets anders dan ze wanneer ze worden uitgevoerd op Azure-sandboxes geladen. Één belangrijk verschil is dat er geen limiet voor de duur van de taak op Hybrid Runbook Workers. Runbooks in Azure uitgevoerd sandboxes zijn beperkt tot drie uur vanwege [evenredige deel](automation-runbook-execution.md#fair-share). Voor een runbook langlopende wilt u om ervoor te zorgen dat het bestand tegen mogelijk opnieuw opstarten is. Bijvoorbeeld, als de computer die als host fungeert voor de Hybrid worker opnieuw wordt opgestart. Als de machine van de Hybrid worker-host opnieuw is opgestart, klikt u vervolgens een actief runbooktaak opnieuw wordt opgestart vanaf het begin of vanaf het laatste controlepunt voor PowerShell Workflow-runbooks. Nadat een runbook taak opnieuw wordt gestart meer dan 3 keer, en vervolgens onderbroken.
 
 ## <a name="run-only-signed-runbooks"></a>Alleen ondertekende Runbooks worden uitgevoerd
 
-Hybrid Runbook Workers kunnen worden geconfigureerd om alleen ondertekende runbooks worden uitgevoerd met bepaalde configuratie. De volgende sectie wordt beschreven hoe u voor het instellen van de Hybrid Runbook Workers ondertekende runbooks uitvoeren en het ondertekenen van uw runbooks.
+Hybrid Runbook Workers kunnen worden geconfigureerd om alleen ondertekende runbooks worden uitgevoerd met bepaalde configuratie. De volgende sectie wordt beschreven hoe u het instellen van de Hybrid Runbook Workers om uit te voeren ondertekende [Windows Hybrid Runbook Worker](#windows-hybrid-runbook-worker) en [Hybrid Runbook Worker in Linux](#linux-hybrid-runbook-worker)
 
 > [!NOTE]
 > Nadat u een Hybrid Runbook Worker voor het uitvoeren van alleen ondertekende runbooks hebt geconfigureerd, worden runbooks hebt **niet** is worden ondertekend om uit te voeren op de worker mislukken.
 
-### <a name="create-signing-certificate"></a>Certificaat voor ondertekening maken
+### <a name="windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker
+
+#### <a name="create-signing-certificate"></a>Certificaat voor ondertekening maken
 
 Het volgende voorbeeld wordt een zelfondertekend certificaat dat kan worden gebruikt voor het ondertekenen van runbooks. Het voorbeeld maakt het certificaat en exporteert het. Het certificaat wordt geïmporteerd in de Hybrid Runbook Workers later opnieuw. De vingerafdruk wordt ook geretourneerd deze waarde wordt later gebruikt om te verwijzen naar het certificaat.
 
@@ -220,7 +222,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 $SigningCert.Thumbprint
 ```
 
-### <a name="configure-the-hybrid-runbook-workers"></a>De Hybrid Runbook Workers configureren
+#### <a name="configure-the-hybrid-runbook-workers"></a>De Hybrid Runbook Workers configureren
 
 Kopieer het certificaat dat is gemaakt voor elke Hybrid Runbook Worker in een groep. Voer het volgende script om het certificaat importeren en configureren van de Hybrid Worker voor het gebruik van handtekeningvalidatie op runbooks.
 
@@ -236,7 +238,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
 ```
 
-### <a name="sign-your-runbooks-using-the-certificate"></a>Meld u aan uw Runbooks met behulp van het certificaat
+#### <a name="sign-your-runbooks-using-the-certificate"></a>Meld u aan uw Runbooks met behulp van het certificaat
 
 Met de Hybrid Runbook workers geconfigureerd voor het gebruik van alleen runbooks ondertekend, moet u zich aanmelden met runbooks die moeten worden gebruikt op de Hybrid Runbook Worker. Gebruik het volgende voorbeeld PowerShell aan te melden van uw runbooks.
 
@@ -246,6 +248,64 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 Wanneer het runbook is ondertekend, moet deze worden geïmporteerd in uw Automation-Account en gepubliceerd met het handtekeningblok. Zie voor informatie over het importeren van runbooks, [een runbook uit een bestand importeren in Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+### <a name="linux-hybrid-runbook-worker"></a>Hybrid Runbook Worker in Linux
+
+Het tekenen van runbooks op een Hybrid Runbook Worker in Linux, uw Hybrid Runbook Worker moet beschikken over de [GPG](https://gnupg.org/index.html) uitvoerbare aanwezig op de machine.
+
+#### <a name="create-a-gpg-keyring-and-keypair"></a>Een GPG-sleutelhanger en -sleutelpaar maken
+
+De sleutelhanger en -sleutelpaar gemaakt, moet u gebruikmaken van de Hybrid Runbook Worker-account maken `nxautomation`.
+
+Gebruik `sudo` aan te melden als de `nxautomation` account.
+
+```bash
+sudo su – nxautomation
+```
+
+Eenmaal met behulp van de `nxautomation` account, het gpg-sleutelpaar genereren.
+
+```bash
+sudo gpg --generate-key
+```
+
+GPG leidt u door de stappen voor het maken van het sleutelpaar. U moet een naam, een e-mailadres, de verlooptijd van, wachtwoordzin en wacht onvoldoende entropie opgeven op de computer voor de sleutel moet worden gegenereerd.
+
+Omdat de GPG-map met sudo is gegenereerd, moet u de eigenaar wijzigen in nxautomation. 
+
+Voer de volgende opdracht om de eigenaar niet wijzigen.
+
+```bash
+sudo chown -R nxautomation ~/.gnupg
+```
+
+#### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Beschikbaar maken voor de sleutelhanger de Hybrid Runbook Worker
+
+Zodra de sleutelhanger is gemaakt, moet u het beschikbaar maken voor de Hybrid Runbook Worker. Wijzigen van het bestand met instellingen `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` om op te nemen in het volgende voorbeeld onder de sectie `[worker-optional]`
+
+```bash
+gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+```
+
+#### <a name="verify-signature-validation-is-on"></a>Controleer of handtekeningvalidatie is ingeschakeld
+
+Als handtekeningvalidatie is uitgeschakeld op de machine, moet u deze in te schakelen. Voer de volgende opdracht om in te schakelen handtekeningvalidatie. Vervangen van `<LogAnalyticsworkspaceId>` met uw werkruimte-id.
+
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
+```
+
+#### <a name="sign-a-runbook"></a>Meld u aan een runbook
+
+Nadat de handtekeningvalidatie van de is geconfigureerd, kunt u de volgende opdracht uit om te ondertekenen van een runbook:
+
+```bash
+gpg –clear-sign <runbook name>
+```
+
+De ondertekende runbook heeft de naam `<runbook name>.asc`.
+
+De ondertekende runbook kan nu worden geüpload naar Azure Automation en kan worden uitgevoerd als een reguliere runbook.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

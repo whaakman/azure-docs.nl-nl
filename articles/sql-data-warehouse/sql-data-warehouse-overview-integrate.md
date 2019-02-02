@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 08e144022c79182a63fd99dbce48a5e505aba3f2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c1bc4265c44f007e794b873d732a06d1e30f324f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477995"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661935"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Andere services integreren met SQL Data Warehouse
 Naast de kernfunctionaliteit kunnen SQL Data Warehouse gebruikers om te integreren met veel van de andere services in Azure. Enkele van deze services zijn onder andere:
@@ -41,7 +41,7 @@ Azure Data Factory biedt gebruikers een beheerd platform voor het maken van comp
 * **Opgeslagen Procedures**: Coördineer de uitvoering van opgeslagen procedures voor SQL Data Warehouse.
 * **Kopie**: Met ADF kunt verplaatsen van gegevens in SQL Data Warehouse. Met deze bewerking kunt ADF standaardgegevens verkeer mechanisme of PolyBase gebruiken op de achtergrond. 
 
-Zie voor meer informatie, [integreren met Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
+Zie voor meer informatie, [integreren met Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning is een volledig beheerde Analyseservice waarmee u complexe modellen met behulp van een groot aantal hulpprogramma's voor voorspellende maken. SQL Data Warehouse wordt ondersteund als een bron- en doel voor deze modellen met de volgende functionaliteit:

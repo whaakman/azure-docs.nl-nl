@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247116"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658331"
 ---
 # <a name="marketplace-faqs"></a>Veelgestelde vragen over Marketplace
 
@@ -358,7 +358,7 @@ Uitgevers die publiceert Transact met typen: Virtuele machine, Azure-apps, oplos
 
 **Wat zijn leads en waarom zijn ze belangrijk voor mij als uitgever op Marketplace?**
 
-Leads zijn klanten die uw producten uit de Marketplace implementeert. Of het product wordt vermeld op [Azure Marketplace](https://azuremarketplace.microsoft.com) of [AppSource](https://appsource.microsoft.com), kunt u zich ontvangt leads van klanten die geïnteresseerd in uw product zijn.  U kunt de lead bestemming instellen op uw aanbieding. Zie voor meer informatie, [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher).
+Leads zijn klanten die uw producten uit de Marketplace implementeert. Of het product wordt vermeld op [Azure Marketplace](https://azuremarketplace.microsoft.com) of [AppSource](https://appsource.microsoft.com), kunt u zich ontvangt leads van klanten die geïnteresseerd in uw product zijn.  U kunt de lead bestemming instellen op uw aanbieding. Zie voor meer informatie, [geworden van een Cloud-Marketplace-uitgever](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Waar vind ik help bij het instellen van mijn lead bestemming?**
 

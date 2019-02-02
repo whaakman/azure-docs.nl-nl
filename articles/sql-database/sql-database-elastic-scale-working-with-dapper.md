@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866301"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565578"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Clientbibliotheek voor elastic database gebruiken met Dapper
 Dit document is bedoeld voor ontwikkelaars die afhankelijk zijn van Dapper om toepassingen te bouwen, maar ook wilt Profiteer [elastische database tooling](sql-database-elastic-scale-introduction.md) om toepassingen te maken die sharding implementeren om uit de gegevenslaag te schalen.  Dit document ziet u de wijzigingen in Dapper gebaseerde toepassingen die nodig zijn om te integreren met hulpmiddelen voor elastic database. Onze focus ligt op het samenstellen van de elastische database shard management en gegevensafhankelijke routering met Dapper. 
 
-**Voorbeeldcode**: [hulpmiddelen voor Elastic database voor Azure SQL Database - Dapper integratie](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Voorbeeldcode**: [Hulpmiddelen voor elastic database voor Azure SQL Database - Dapper integratie](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 Integratie van **Dapper** en **DapperExtensions** met het elastic database-clientbibliotheek voor Azure SQL Database is eenvoudig. Uw toepassingen kunnen gebruikmaken van gegevensafhankelijke routering door het wijzigen van het maken en openen van nieuwe [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objecten die u wilt gebruiken de [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) aanroepen vanuit de [-clientbibliotheek ](https://msdn.microsoft.com/library/azure/dn765902.aspx). Dit beperkt de wijzigingen in uw toepassing alleen wanneer nieuwe verbindingen worden gemaakt en geopend. 
 
@@ -50,8 +50,8 @@ In plaats van de traditionele manier om te maken van verbindingen voor Dapper, d
 Als u werkt met zowel de elastische database-clientbibliotheek en Dapper-API's, die u wilt behouden van de volgende eigenschappen:
 
 * **Uitschalen**: We willen toevoegen of verwijderen van databases uit de gegevenslaag van de shard-toepassing die nodig zijn voor de behoeften van de capaciteit van de toepassing. 
-* **Consistentie**: Aangezien met behulp van sharding is de toepassing geschaald, moet u om uit te voeren gegevensafhankelijke routering. We willen de gegevensafhankelijke routering mogelijkheden van de bibliotheek gebruiken om dit te doen. In het bijzonder, u wilt behouden van de validatie en consistentie gegarandeerd geleverd door de verbindingen die worden geleverd door de shard-Toewijzingsbeheer om te voorkomen, beschadigd of verkeerd queryresultaten. Dit zorgt ervoor dat de verbindingen met een bepaalde shardlet geweigerd of gestopt als (bijvoorbeeld) de shardlet op dit moment wordt verplaatst naar een andere shard met behulp van splitsen en samenvoegen/API's.
-* **Objecttoewijzing**: We willen het gemak van de toewijzingen geleverd door Dapper voor de omzetting tussen klassen in de toepassing en de onderliggende databasestructuren behouden. 
+* **Consistentie**: Omdat de toepassing geschaald met behulp van sharding, moet u uitvoeren gegevensafhankelijke routering. We willen de gegevensafhankelijke routering mogelijkheden van de bibliotheek gebruiken om dit te doen. In het bijzonder, u wilt behouden van de validatie en consistentie gegarandeerd geleverd door de verbindingen die worden geleverd door de shard-Toewijzingsbeheer om te voorkomen, beschadigd of verkeerd queryresultaten. Dit zorgt ervoor dat de verbindingen met een bepaalde shardlet geweigerd of gestopt als (bijvoorbeeld) de shardlet op dit moment wordt verplaatst naar een andere shard met behulp van splitsen en samenvoegen/API's.
+* **Mapping-object**: We willen het gemak van de toewijzingen geleverd door Dapper voor de omzetting tussen klassen in de toepassing en de onderliggende databasestructuren behouden. 
 
 De volgende sectie bevat richtlijnen voor deze vereisten voor toepassingen op basis van **Dapper** en **DapperExtensions**.
 
@@ -137,7 +137,7 @@ En het codevoorbeeld voor de query als volgt:
     }
 
 ### <a name="handling-transient-faults"></a>Afhandeling van tijdelijke fouten
-Het team Microsoft Patterns & Practices gepubliceerd de [verwerken Toepassingsblok fouten](https://msdn.microsoft.com/library/hh680934.aspx) om toepassingsontwikkelaars die verhelpen algemene tijdelijke storingen opgetreden bij het uitvoeren van in de cloud te helpen. Zie voor meer informatie, [Perseverance, geheim van alle successen: met behulp van het verwerken van Toepassingsblok fouten](https://msdn.microsoft.com/library/dn440719.aspx).
+Het team Microsoft Patterns & Practices gepubliceerd de [verwerken Toepassingsblok fouten](https://msdn.microsoft.com/library/hh680934.aspx) om toepassingsontwikkelaars die verhelpen algemene tijdelijke storingen opgetreden bij het uitvoeren van in de cloud te helpen. Zie voor meer informatie, [Perseverance, geheim van alle successen: Met behulp van het Toepassingsblok voor afhandeling van tijdelijke fouten](https://msdn.microsoft.com/library/dn440719.aspx).
 
 De voorbeeldcode is afhankelijk van de bibliotheek tijdelijke fouten om te beveiligen tegen tijdelijke fouten. 
 

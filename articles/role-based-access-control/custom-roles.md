@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 494826701431ee397b468c6ddfcef664c015861d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412045"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661477"
 ---
 # <a name="custom-roles-in-azure"></a>Aangepaste rollen in Azure
 
@@ -32,36 +32,36 @@ Hieronder ziet u een aangepaste rol eruit zoals weergegeven in de JSON-indeling.
 
 ```json
 {
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
+  "Name": "Virtual Machine Operator",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
   ],
-  "NotActions":  [
+  "NotActions": [
 
-                 ],
-  "DataActions":  [
+  ],
+  "DataActions": [
 
-                  ],
-  "NotDataActions":  [
+  ],
+  "NotDataActions": [
 
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
+  ],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/subscriptions/{subscriptionId3}"
+  ]
 }
 ```
 
@@ -92,10 +92,10 @@ Een aangepaste rol heeft de volgende eigenschappen.
 
 | Eigenschap | Vereist | Type | Description |
 | --- | --- | --- | --- |
-| `Name` | Ja | Reeks | De weergavenaam van de aangepaste rol. De roldefinitie van een is een resource op abonnementsniveau, kan een roldefinitie kan worden gebruikt in meerdere abonnementen die de dezelfde Azure AD-directory delen. Deze weergavenaam moet uniek zijn in het bereik van de Azure AD-directory. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 128. |
-| `Id` | Ja | Reeks | De unieke ID van de aangepaste rol. Voor Azure PowerShell en Azure CLI, worden deze ID wordt automatisch gegenereerd bij het maken van een nieuwe rol. |
-| `IsCustom` | Ja | Reeks | Geeft aan of dit een aangepaste rol. Ingesteld op `true` voor aangepaste rollen. |
-| `Description` | Ja | Reeks | De beschrijving van de aangepaste rol. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 1024. |
+| `Name` | Ja | String | De weergavenaam van de aangepaste rol. De roldefinitie van een is een resource op abonnementsniveau, kan een roldefinitie kan worden gebruikt in meerdere abonnementen die de dezelfde Azure AD-directory delen. Deze weergavenaam moet uniek zijn in het bereik van de Azure AD-directory. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 128. |
+| `Id` | Ja | String | De unieke ID van de aangepaste rol. Voor Azure PowerShell en Azure CLI, worden deze ID wordt automatisch gegenereerd bij het maken van een nieuwe rol. |
+| `IsCustom` | Ja | String | Geeft aan of dit een aangepaste rol. Ingesteld op `true` voor aangepaste rollen. |
+| `Description` | Ja | String | De beschrijving van de aangepaste rol. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 1024. |
 | `Actions` | Ja | String[] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die de rol kan worden uitgevoerd. Zie voor meer informatie, [acties](role-definitions.md#actions). |
 | `NotActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de beheerbewerkingen die zijn uitgesloten van het toegestane aantal `Actions`. Zie voor meer informatie, [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Nee | String[] | Een matrix met tekenreeksen die Hiermee geeft u de bewerkingen die de rol kan worden uitgevoerd met uw gegevens binnen dat object. Zie voor meer informatie, [DataActions (Preview)](role-definitions.md#dataactions-preview). |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e3e60a7ee435cb23bd6a7f78d409691c94d6c49e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153263"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562433"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Leeftijdsbeperking in Azure Active Directory B2C inschakelen
 
@@ -103,7 +103,7 @@ Nadat uw tenant ingesteld voor leeftijdsbeperking gebruikt is, kunt u vervolgens
 1. Maak de gebruikersstroom van een met leeftijdsbeperking ingeschakeld.
 2. Nadat u de gebruikersstroom maakt, selecteert u **eigenschappen** in het menu.
 3. In de **leeftijdsbeperking** sectie, selecteer **ingeschakeld**.
-4. U kunt vervolgens bepalen hoe u gebruikers wilt beheren die als minderjarigen identificeren. Voor **registreren of aanmelden**, selecteert u `Allow minors to access your application` of `Block minors from accessing your application`. Als minderjarigen blokkeren is ingeschakeld, selecteert u `Send a JSON bcak to the application` of `Show an error message`. 
+4. U kunt vervolgens bepalen hoe u gebruikers wilt beheren die als minderjarigen identificeren. Voor **registreren of aanmelden**, selecteert u `Allow minors to access your application` of `Block minors from accessing your application`. Als minderjarigen blokkeren is ingeschakeld, selecteert u `Send a JSON back to the application` of `Show an error message`. 
 
 
 

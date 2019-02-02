@@ -11,18 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/21/2018
-ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 09/25/2018
+ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196647"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567125"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Aan de slag met tijdelijke tabellen in Azure SQL-Database
+
 Tijdelijke tabellen zijn een nieuwe functie van het programmeren van Azure SQL Database waarmee u kunt bijhouden en analyseren van de volledige geschiedenis van wijzigingen in uw gegevens, zonder de noodzaak voor aangepaste codering. Tijdelijke tabellen houden gegevens die nauw verwant aan de context van de tijd dat opgeslagen gegevens kunnen worden geïnterpreteerd als geldig alleen binnen de bepaalde periode. Deze eigenschap van tijdelijke tabellen kan efficiënt analyse op basis van tijd en verkrijgen van inzichten van de ontwikkeling van gegevens.
 
 ## <a name="temporal-scenario"></a>Tijdelijke Scenario
+
 In dit artikel ziet u de stappen voor het gebruik van tijdelijke tabellen in een toepassingsscenario. Stel dat u wilt bijhouden van gebruikersactiviteit op een nieuwe website die volledig is ontwikkeld of op een bestaande website die u wilt uitbreiden met analyse van activiteit-gebruikers. In dit eenvoudige voorbeeld veronderstellen we dat het aantal bezochte webpagina's tijdens een bepaalde periode is een indicator die moet worden vastgelegd en bewaakt in de database van de website die wordt gehost op Azure SQL Database. Het doel van de historische analyse van gebruikersactiviteit is om op te halen van invoer voor het ontwerpen van de website en betere ervaring bieden voor de bezoekers.
 
 Het databasemodel voor dit scenario is heel eenvoudig - gebruiker activiteit metrische waarde wordt weergegeven met een veld afzonderlijke gehele getallen **PageVisited**, en wordt vastgelegd, samen met algemene informatie voor het gebruikersprofiel. Bovendien voor analyse op basis van tijd houdt u een reeks rijen voor elke gebruiker, waarbij elke rij vertegenwoordigt het aantal pagina's die een bepaalde gebruiker binnen een bepaalde periode bezocht.

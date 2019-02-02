@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 2523db3d817b4281b6435374ef0cca4e1d2da695
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 432f2495dd1b4c8aeb761d12904adf26f3c24c0b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005854"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660694"
 ---
 # <a name="available-event-hubs-apis"></a>Beschikbare Event Hubs-API 's
 
@@ -31,7 +31,7 @@ Het volgende gedeelte bevat alle beschikbare Azure Event Hubs runtime-clients. S
 
 Zie voor meer informatie over de huidige status van elke wisselaar runtime [aanvullende informatie](#additional-information).
 
-| Taal/Platform | Client-pakket | EventProcessorHost-pakket | Opslagplaats |
+| Language/Platform | Client-pakket | EventProcessorHost-pakket | Opslagplaats |
 | --- | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/A |
@@ -43,17 +43,17 @@ Zie voor meer informatie over de huidige status van elke wisselaar runtime [aanv
 
 #### <a name="net"></a>.NET
 
-Het .NET-ecosysteem heeft meerdere runtimes, dus er meerdere .NET-bibliotheken voor Event Hubs zijn. De standaard .NET-bibliotheek kan worden uitgevoerd met behulp van .NET Core of .NET Framework, terwijl de .NET Framework-bibliotheek kan alleen worden uitgevoerd in een omgeving met .NET Framework. Zie voor meer informatie over de versies van .NET Framework, [frameworkversies](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+Het .NET-ecosysteem heeft meerdere runtimes, dus er meerdere .NET-bibliotheken voor Event Hubs zijn. De standaard .NET-bibliotheek kan worden uitgevoerd met behulp van .NET Core of .NET Framework, terwijl de .NET Framework-bibliotheek kan alleen worden uitgevoerd in een omgeving met .NET Framework. Zie voor meer informatie over de versies van .NET Framework, [frameworkversies](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
 #### <a name="node"></a>Knooppunt
 
 De [Node.js-bibliotheek](https://github.com/Azure/azure-event-hubs-node) is momenteel in preview en als een project aan clientzijde wordt onderhouden door Microsoft-werknemers en externe inzenders. Alle bijdragen, met inbegrip van broncode vrij en wordt gecontroleerd.
 
-## <a name="management-apis"></a>Management-API 's
+## <a name="management-apis"></a>Beheer API’s
 
 De volgende tabel bevat alle beschikbare management-specifieke-bibliotheken. Geen van deze bibliotheken runtime-bewerkingen bevatten, en zijn voor het enige doel van het beheren van Event Hubs-entiteiten.
 
-| Taal/Platform | Management Pack | Opslagplaats |
+| Language/Platform | Management Pack | Opslagplaats |
 | --- | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 

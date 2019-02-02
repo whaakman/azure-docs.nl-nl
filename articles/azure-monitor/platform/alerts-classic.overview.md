@@ -7,17 +7,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 9a12ca5deeadfb7272532f404cc9cf7c030fb6c0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994348"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661714"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
 
 > [!NOTE]
-> In dit artikel wordt beschreven hoe u oudere klassieke metrische waarschuwingen maken. Azure Monitor nu ondersteunt [nieuwere bijna realtime metrische waarschuwingen en een nieuwe ervaring voor waarschuwingen](../../azure-monitor/platform/alerts-overview.md). Klassieke waarschuwingen zijn [gepland om te worden buiten gebruik gesteld](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> In dit artikel wordt beschreven hoe u oudere klassieke metrische waarschuwingen maken. Azure Monitor nu ondersteunt [nieuwere bijna realtime metrische waarschuwingen en een nieuwe ervaring voor waarschuwingen](../../azure-monitor/platform/alerts-overview.md). Klassieke waarschuwingen zijn [gepland om te worden buiten gebruik gesteld](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
 >
 
 Waarschuwingen kunnen u voorwaarden configureren voor gegevens en een melding te ontvangen als de voorwaarden die overeenkomen met de meest recente gegevens.
@@ -82,7 +82,7 @@ De oudere metrische waarschuwingen wordt actiegroepen echter niet gebruiken. In 
 Webhooks maakt het mogelijk om automatisering en herstel, bijvoorbeeld:
     - Azure Automation Runbook
     - Azure Functions
-    - Logische App van Azure
+    - Azure Logic App
     - Een service van derden
 
 ## <a name="next-steps"></a>Volgende stappen

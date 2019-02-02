@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 938aadaa1d17135808cbeb34adac5139bd61f833
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2ebba9a66e55cf82f42773276e36a952264eeee2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545019"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656308"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configureren en serverlogboeken openen met behulp van Azure CLI
 U kunt de foutenlogboeken van de PostgreSQL-server downloaden via de opdrachtregelinterface (Azure CLI). Echter, toegang tot de transactielogboeken wordt niet ondersteund. 
@@ -38,7 +38,7 @@ U kunt een lijst de logboekbestanden voor server **mydemoserver.postgres.databas
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Logboeken van de server lokaal downloaden
-Met de [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) opdracht, kunt u afzonderlijke logboekbestanden voor de server downloaden. 
+Met de [az postgres server-logs download](/cli/azure/postgres/server-logs) opdracht, kunt u afzonderlijke logboekbestanden voor de server downloaden. 
 
 Gebruik het volgende voorbeeld voor het downloaden van het specifieke logboekbestand voor de server **mydemoserver.postgres.database.azure.com** onder de resourcegroep **myresourcegroup** op uw lokale omgeving.
 ```azurecli-interactive

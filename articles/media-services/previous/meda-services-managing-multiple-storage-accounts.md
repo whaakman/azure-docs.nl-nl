@@ -1,27 +1,28 @@
 ---
-title: Assets beheren van Media Services voor meerdere Opslagaccounts | Microsoft Docs
-description: In dit artikel geeft u informatie over het beheren van media services-elementen voor meerdere opslagaccounts.
+title: Media Services-activa beheren voor meerdere opslagaccounts | Microsoft Docs
+description: In dit artikel geeft u informatie over het beheren van Media Services-activa voor meerdere opslagaccounts.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 01/31/2018
 ms.author: juliako
-ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886336"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565901"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Assets Services beheren van Media voor meerdere Opslagaccounts
-Beginnen met Microsoft Azure Media Services 2.2, kunt u meerdere opslagaccounts koppelen aan een enkel Media Services-account. Mogelijkheid om meerdere opslagaccounts koppelen aan een Media Services-account biedt de volgende voordelen:
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Media Services-activa beheren voor meerdere opslagaccounts
+
+U kunt meerdere opslagaccounts koppelen aan een enkel Media Services-account. Mogelijkheid om meerdere opslagaccounts koppelen aan een Media Services-account biedt de volgende voordelen:
 
 * De taakverdeling van uw activa voor meerdere opslagaccounts.
 * Vergroten/verkleinen Media Services voor grote hoeveelheden inhoud verwerken (zoals een enkel opslagaccount heeft een maximale limiet van 500 TB). 
@@ -29,12 +30,13 @@ Beginnen met Microsoft Azure Media Services 2.2, kunt u meerdere opslagaccounts 
 In dit artikel ziet u hoe u meerdere opslagaccounts koppelen aan een Media Services-account met [Azure Resource Manager-API's](/rest/api/media/operations/azure-media-services-rest-api-reference) en [Powershell](/powershell/module/azurerm.media). U ziet ook hoe u kunt verschillende opslagaccounts opgeven bij het maken van assets met behulp van de Media Services SDK. 
 
 ## <a name="considerations"></a>Overwegingen
+
 Meerdere opslagaccounts aan Media Services-account koppelt, gelden de volgende overwegingen:
 
-* Alle opslagaccounts die zijn gekoppeld aan een Media Services-account moeten zich in hetzelfde Datacenter als het Media Services-account.
-* Worden op dit moment zodra een storage-account is gekoppeld aan het opgegeven Media Services-account, het kan niet losgekoppeld.
+* De Media Services-account en alle gekoppelde opslagaccounts moeten zich in hetzelfde Azure-abonnement. Het verdient aanbeveling gebruik van storage-accounts op dezelfde locatie bevinden als het Media Services-account.
+* Zodra een storage-account is gekoppeld aan het opgegeven Media Services-account, kan niet worden losgekoppeld.
 * Primaire storage-account is opgegeven tijdens het aanmaken van Media Services-account. U kunt het standaardopslagaccount op dit moment niet wijzigen. 
-* Op dit moment als u een Cool Storage-account toevoegen aan de AMS-account wilt, moet het storage-account een blobtype en ingesteld op niet-primaire.
+* Als u een Cool Storage-account toevoegen aan de AMS-account wilt, moet het opslagaccount een Blob-type en ingesteld op niet-primaire.
 
 Andere overwegingen:
 

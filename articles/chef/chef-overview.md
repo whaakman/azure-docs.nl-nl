@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: be1e7ab953c55581645a9702fc4759cb603e7ecc
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c0ec8b98ff711f8e5746d6d4731266ed4b09cc8f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54357858"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658841"
 ---
 # <a name="using-chef-with-azure"></a>Met behulp van Chef met Azure
 [Chef](http://www.chef.io) is een krachtige automatisering-platform waarmee VM-infrastructuur in Azure worden getransformeerd in code. Chef automatiseert hoe infrastructuur is geconfigureerd, geïmplementeerd en beheerd via het netwerk, ongeacht de grootte ervan.
@@ -21,7 +21,7 @@ ms.locfileid: "54357858"
 Dit artikel beschrijft de voordelen van het gebruik van Chef voor het beheren van Azure-infrastructuur.
 
 ## <a name="chef-extension-on-azure"></a>Chef-extensie op Azure
-Een virtuele machine inrichten met Chef-Client die wordt uitgevoerd als een achtergrondservice met de [Chef extensie](https://docs.microsoft.com/en-us/azure/chef/chef-extension-portal) in de Azure Portal. Eenmaal ingericht, worden deze virtuele machines kunnen worden beheerd door een Chef-server.
+Een virtuele machine inrichten met Chef-Client die wordt uitgevoerd als een achtergrondservice met de [Chef extensie](https://docs.microsoft.com/azure/chef/chef-extension-portal) in de Azure Portal. Eenmaal ingericht, worden deze virtuele machines kunnen worden beheerd door een Chef-server.
 
 ## <a name="chef-cloud-shell"></a>Chef Cloud Shell
 Gebruik Chef werkstation rechtstreeks in Azure Cloudshell. Uitvoeren van al uw Chef-hulpprogramma's en InSpec rechts van Cloud Shell. U kunt gebruikmaken van de Chef-opdrachten uit:

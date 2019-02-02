@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249265"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566037"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatisch herstel na noodgevallen oplossing met behulp van Azure Site Recovery voor bestandsshares die worden gehost op StorSimple
 ## <a name="overview"></a>Overzicht
@@ -88,7 +88,7 @@ Deze stap is vereist dat u de on-premises bestand server-omgeving voorbereiden, 
          > [!NOTE]
          > Naam van het bestand veranderen, afhankelijk van de versie.
       
-1. Klik op **Volgende**.
+1. Klik op **volgende**.
 1. Accepteer de **van voorwaarden** en klik vervolgens op **volgende**.
 1. Klik op **Voltooien**.
 1. Bestandsshares met behulp van volumes oppervlaktevariaties buiten het StorSimple-opslag maken. Zie voor meer informatie, [de StorSimple Manager-service gebruiken voor het beheren van volumes](storsimple-manage-volumes.md).
@@ -167,17 +167,17 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
    
 1. Klik in het automation-account op **variabelen** &gt; **toevoegen van een variabele** en voeg de volgende variabelen. U kunt kiezen voor het versleutelen van deze elementen. Deze variabelen zijn specifiek plan voor herstel. Als uw herstelplan, die in de volgende stap maakt u de naam is TestPlan, en vervolgens uw variabelen moeten worden TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, enzovoort.
 
-   - **BaseUrl**: de Resource Manager-url voor de Azure-cloud. Met behulp van ophalen **Get-AzureRmEnvironment | De naam van de Select-Object, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName* **- ResourceGroupName**: de Resource Manager-groep met de StorSimple-resource.
-   - *RecoveryPlanName* **- ManagerName**: het StorSimple-resource met de StorSimple-apparaat.
-   - *RecoveryPlanName* **- DeviceName**: het StorSimple-apparaat met failover.
-   - *RecoveryPlanName* **- DeviceIpAddress**: het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **Netwerk** &gt; **DNS-instellingen** groep).
-   - *RecoveryPlanName* **- VolumeContainers**: een tekenreeks met door komma's gescheiden van de volumecontainers die aanwezig zijn op het apparaat dat moet worden kan niet meer dan, bijvoorbeeld: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName* **- TargetDeviceName**: het StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
-   - *RecoveryPlanName* **- TargetDeviceIpAddress**: het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
-   - *RecoveryPlanName* **- StorageAccountName**: naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
-   - *RecoveryPlanName* **- StorageAccountKey**: de toegangssleutel voor de bovenstaande storage-account.
-   - *RecoveryPlanName* **- VMGUIDS**: bij het beveiligen van een virtuele machine, Azure Site Recovery wijst elke virtuele machine een unieke ID waarmee de details van de mislukte uitvoert voor virtuele machine. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
+   - **BaseUrl**: De Resource Manager-url voor de Azure-cloud. Met behulp van ophalen **Get-AzureRmEnvironment | De naam van de Select-Object, ResourceManagerUrl** cmdlet.
+   - *RecoveryPlanName***-ResourceGroupName**: De Resource Manager-groep met de StorSimple-resource.
+   - * RecoveryPlanName ***- ManagerName**: De StorSimple-resource met de StorSimple-apparaat.
+   - * RecoveryPlanName ***- DeviceName**: Het StorSimple-apparaat dat is failover mogelijk is.
+   - *RecoveryPlanName***-DeviceIpAddress**: Het IP-adres van het apparaat (dit kan worden gevonden in de **apparaten** tabblad onder de sectie van de StorSimple Device Manager &gt; **instellingen** &gt; **netwerk** &gt; **DNS-instellingen** groep).
+   - * RecoveryPlanName ***- VolumeContainers**: Een door komma's gescheiden tekenreeks op het apparaat waarvoor failover; volumecontainers bijvoorbeeld: volcon1, volcon2, volcon3.
+   - *RecoveryPlanName***-TargetDeviceName**: De StorSimple-Cloudapparaat waarop de containers zijn failover mogelijk is.
+   - *RecoveryPlanName***-TargetDeviceIpAddress**: Het IP-adres van het doelapparaat (dit kan worden gevonden in de **virtuele Machine** sectie &gt; **instellingen** groep &gt; **netwerken** tabblad).
+   - *RecoveryPlanName***-StorageAccountName**: Naam van het opslagaccount waarin het script (die worden gebruikt op de via virtuele machine) worden opgeslagen. Dit kan een storage-account dat de ruimte vrij voor het opslaan van het script tijdelijk is zijn.
+   - *RecoveryPlanName***-StorageAccountKey**: De toegangssleutel voor de bovenstaande storage-account.
+   - *RecoveryPlanName***-VMGUIDS**: Bij het beveiligen van een virtuele machine, wordt elke virtuele machine een unieke ID waarmee de details van de mislukte via VM Azure Site Recovery toegewezen. Als u wilt de VMGUID, selecteer de **herstelservices** tabblad en klik op **beveiligde Item** &gt; **beveiligingsgroepen** &gt;  **Machines** &gt; **eigenschappen**. Als u meerdere virtuele machines hebt, kunt u vervolgens de GUID's als een door komma's gescheiden tekenreeks op toevoegen.
 
     Bijvoorbeeld, als de naam van het herstelplan is fileServerpredayRP, vervolgens uw **variabelen**, **verbindingen** en **certificaten** tabblad moet als volgt worden weergegeven nadat u hebt toegevoegd alle assets.
 
@@ -208,7 +208,7 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
       
    1. Maak een Azure Automation-Runbook-Module voor het beheer van StorSimple 8000-serie-apparaten. Gebruik de onderstaande opdrachten voor het maken van een Automation-module-zip-bestand.
          
-      ```
+      ```powershell
             # set path variables
             $downloadDir = "C:\scripts\StorSimpleSDKTools"
             $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
@@ -259,14 +259,14 @@ U kunt een plan voor herstel in ASR voor het automatiseren van het failoverproce
       - Runbook koppelen volumes na failover  
       - Runbook verwijderen---extensie voor aangepaste scripts  
         
-   - Toevoegen van een handmatige actie na de bovenstaande 4 scripts in dezelfde **groep 1: stappen na** sectie. Deze actie is het punt waarop u controleren kunt of alles goed werkt. Deze actie moet worden toegevoegd als onderdeel van de failovertest alleen (alleen, dus selecteer de **Testfailover** selectievakje).
+   - Toevoegen van een handmatige actie na de bovenstaande 4 scripts in dezelfde **groep 1: Stappen na** sectie. Deze actie is het punt waarop u controleren kunt of alles goed werkt. Deze actie moet worden toegevoegd als onderdeel van de failovertest alleen (alleen, dus selecteer de **Testfailover** selectievakje).
     
    - Na de handmatige actie toevoegen de **opschonen** script met behulp van dezelfde procedure die u hebt gebruikt voor de andere runbooks. **Sla** het herstelplan te gaan.
     
    > [!NOTE]
    > Wanneer u een failovertest uitvoert, moet u controleren of alles bij de stap van de handmatige actie omdat de StorSimple-volumes die was op het doelapparaat is gekloond als onderdeel van opschoning worden verwijderd nadat de handmatige actie is voltooid.
        
-      ![Recoery plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
+      ![Herstelplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
 ## <a name="perform-a-test-failover"></a>Een testfailover uitvoeren
 Raadpleeg de [Active Directory-DR-oplossing](../site-recovery/site-recovery-active-directory.md) handleiding voor overwegingen met betrekking tot specifieke naar Active Directory tijdens de testfailover. Het instellen van de lokale is niet helemaal wordt verstoord wanneer de testfailover plaatsvindt. De StorSimple-volumes die zijn gekoppeld aan de on-premises VM worden gekloond naar de StorSimple-Cloudapparaat in Azure. Een virtuele machine voor testdoeleinden wordt opgeroepen in Azure en de gekloonde volumes zijn gekoppeld aan de virtuele machine.
@@ -291,7 +291,7 @@ Raadpleeg de [Active Directory-DR-oplossing](../site-recovery/site-recovery-acti
 1. Selecteer in de Azure portal, **herstelservices** kluis &gt; **herstelplannen (Site Recovery)** &gt; **recoveryplan_name** gemaakt voor de VM-bestandsserver.
 1. Klik op de blade Recovery plan **meer** &gt; **geplande failover**.
 
-   ![Plan voor herstel](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Herstelplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Op de **geplande Failover bevestigen** blade, kiest u de bron- en doellocaties voor- en doel selecteren, netwerk en klik op het vinkje ✓ om de failoverproces te starten.
 1. Nadat de replica virtuele machines zijn gemaakt nog in behandeling staat. Klik op **doorvoeren** om door te voeren van de failover.
 1. Nadat de replicatie is voltooid, starten de virtuele machines op de secundaire locatie.
@@ -340,19 +340,19 @@ Capaciteitsplanning is opgebouwd uit ten minste twee belangrijke processen:
    - Als de geplande/niet-geplande failover is mislukt en de virtuele machines in Azure worden gemaakt, klikt u vervolgens verwijdert u niet de virtuele machines. In plaats daarvan een failback uitvoeren. Worden als u de virtuele machines verwijdert vervolgens de on-premises VM's kunnen niet ingeschakeld op het opnieuw.
    - Na een failover, als u niet kunnen zien van de volumes, gaat u naar de virtuele machines, opent u Schijfbeheer Scan de schijven opnieuw en ze online brengt.
    - In sommige gevallen de stationsletters in de DR-site mogelijk anders dan de letters on-premises. Als dit gebeurt, moet u handmatig het probleem te verhelpen nadat de failover is voltooid.
-   - De time-out van de failover-taak: het StorSimple-script wordt een time-out als de failover van de volumecontainers langer duurt dan de Azure Site Recovery-limiet per script (momenteel 120 minuten).
-   - Back-uptaak time-out: het StorSimple-script een time-out optreedt als de back-up van volumes langer dan de Azure Site Recovery-limiet per script (momenteel 120 minuten duurt).
+   - Time-out van de taak failover: Als de failover van de volumecontainers kost meer tijd dan de Azure Site Recovery-limiet per script (momenteel 120 minuten), wordt het script StorSimple time-out.
+   - Back-uptaak time-out: Het StorSimple-script een time-out optreedt als de back-up van volumes langer dan de Azure Site Recovery-limiet per script (momenteel 120 minuten duurt).
    
    > [!IMPORTANT]
    > De back-up handmatig uitvoeren vanuit de Azure-portal en voer vervolgens het herstelplan opnieuw uit.
    
-   - Klonen van de time-out van taak: het StorSimple-script een time-out optreedt als het klonen van volumes meer tijd dan de Azure Site Recovery-limiet per script (momenteel 120 minuten kost).
-   - Tijd synchronisatiefout: het StorSimple-scripts fouten uit waarin wordt gemeld dat de back-ups mislukt, zijn zelfs als de back-up voltooid in de portal is. Een mogelijke oorzaak voor dit kan zijn dat de tijd van het StorSimple-apparaat mogelijk niet gesynchroniseerd met de huidige tijd in de tijdzone.
+   - Kloon de time-out van taak: Het script StorSimple verloopt als het klonen van volumes meer tijd dan de Azure Site Recovery-limiet per script (momenteel 120 minuten kost).
+   - Tijd synchronisatie-fout: De StorSimple-scripts fouten uit waarin wordt gemeld dat de back-ups mislukt, zijn zelfs als de back-up voltooid in de portal is. Een mogelijke oorzaak voor dit kan zijn dat de tijd van het StorSimple-apparaat mogelijk niet gesynchroniseerd met de huidige tijd in de tijdzone.
    
    > [!IMPORTANT]
    > Synchroniseer de tijd van het apparaat met de huidige tijd in de tijdzone.
    
-   - Apparaat failover-fout: het StorSimple-script kan mislukken als er een failover van het apparaat wanneer het herstelplan wordt uitgevoerd.
+   - Fout bij failover van apparaat: Het StorSimple-script kan mislukken als er een failover van het apparaat wanneer het herstelplan wordt uitgevoerd.
    
    > [!IMPORTANT]
    > Nadat de failover van het apparaat voltooid is, voert u het herstelplan opnieuw uit.

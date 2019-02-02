@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d6879c6b9be06af4bb289761cc8f26b7e56d18e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355563"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658705"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure en AppSource-Marketplace-aanbiedingen
 
@@ -47,6 +47,7 @@ De volgende tabel bevat de huidige aanbieding die worden ondersteund door de [Cl
 | [Dynamics 365 voor Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Een pakket dat de klant is een uitbreiding resource klantrelatiebeheer (CRM) systeem, via de sales, service, project-service en veld-servicemodules.  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Een pakket dat deze enterprise resource planning (ERP-)-service die ondersteuning biedt voor geavanceerde is een uitbreiding voor Financiën, bewerkingen, productie en toeleveringsbeheer. |
 | [IoT Edge-module](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Een compatibel is met Docker-container die wordt uitgevoerd op een IoT Edge-apparaat.  Het bevat kleine rekenkundige modules die gebruikmaken van een combinatie van aangepaste code, andere Azure-services en services 3rd derden. |
+| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | Een pakket die gebruikmaakt van gegevensstromen verbinding te maken van rapporten en dashboards met gegevens in de opslag van veelgebruikte gegevens. |
 | [SaaS-app](./saas-app/cpp-saas-offer.md) | Azure | Oplossing is een software-as-a-service-abonnement, beheerd door de uitgever, welke gebruikers zich aanmelden via een aangepaste interface die gebruikmaakt van Azure Active Directory. |
 | [Virtuele machine](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Oplossing is opgenomen in een enkele virtuele machine is geïmplementeerd op van de klant-abonnement.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

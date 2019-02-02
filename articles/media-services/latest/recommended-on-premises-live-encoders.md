@@ -6,26 +6,26 @@ keywords: codering; coderingsprogramma's; media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4d25e4cd94fec35f31594544b619aa054a35d58d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: c3e42ba9fe84ded8c60fc71f19de785945852116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302337"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656665"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Aanbevolen live streaming-coderingsprogramma 's
 
-In Media Services, een [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) (kanaal) vertegenwoordigt een pijplijn voor het verwerken van live-streaming-inhoud. Een LiveEvent ontvangt live invoerstromen op twee manieren:
+In Media Services, een [Live gebeurtenis](https://docs.microsoft.com/rest/api/media/liveevents) (kanaal) vertegenwoordigt een pijplijn voor het verwerken van live-streaming-inhoud. De Live gebeurtenis ontvangt live invoerstromen op twee manieren:
 
-* Een on-premises live codering verzendt een multi-bitrate RTMP of Smooth Streaming (gefragmenteerde MP4) naar de LiveEvent dat niet is ingeschakeld voor live coderen met Media Services streamen. De opgenomen streams passeren LiveEvents zonder verdere verwerking. Deze methode wordt aangeroepen **pass-through**. Een live coderingsprogramma kan een single-bitrate stream naar een pass through-kanaal verzenden, maar deze configuratie wordt niet aanbevolen omdat deze niet is toegestaan voor adaptive bitrate streaming aan de client.
+* Een on-premises live codering verzendt een multi-bitrate RTMP of Smooth Streaming (gefragmenteerde MP4) naar de Live gebeurtenis dat niet is ingeschakeld voor live coderen met Media Services streamen. De opgenomen streams doorgegeven via Live-gebeurtenissen zonder verdere verwerking. Deze methode wordt aangeroepen **pass-through**. Een live coderingsprogramma kan een single-bitrate stream naar een pass through-kanaal verzenden, maar deze configuratie wordt niet aanbevolen omdat deze niet is toegestaan voor adaptive bitrate streaming aan de client.
 
   > [!NOTE]
   > Met behulp van een passthrough-methode is de meest voordelige manier om live te streamen.
 
-* Een on-premises live codering verzendt een single-bitrate stream naar het LiveEvent dat is ingeschakeld voor live coderen met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). De LiveEvent voert live codering van de binnenkomende single-bitrate stream naar een multi-bitrate (adaptieve) videostream.
+* Een on-premises live codering verzendt een single-bitrate stream naar de Live gebeurtenis dat is ingeschakeld voor live coderen met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). De Live gebeurtenis voert live codering van de binnenkomende single-bitrate stream naar een multi-bitrate (adaptieve) videostream.
 
 Zie voor gedetailleerde informatie over live coderen met Media Services, [Live streamen met Media Services v3](live-streaming-overview.md).
 
@@ -61,46 +61,69 @@ Media Services raadt het gebruik van een van de volgende live coderingsprogramma
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live en Hero 4K (UHD/HEVC)
 
+## <a name="configuring-on-premises-live-encoder-settings"></a>Configureren on-premises live coderingsprogramma instellingen
+
+Zie voor meer informatie over welke instellingen geldig voor uw live-gebeurtenistype zijn [Live gebeurtenis van het type vergelijking](live-event-types-comparison.md).
+
+### <a name="playback-requirements"></a>Vereisten voor afspelen
+
+Zowel een stream audio en video moet aanwezig zijn in volgorde voor het afspelen van inhoud. Het afspelen van de video alleen-lezen stroom wordt niet ondersteund.
+
+### <a name="configuration-tips"></a>Tips voor de configuratie
+
+- Gebruik indien mogelijk een internetverbinding ' hardwired '.
+- Een goede vuistregel bij het bepalen van de bandbreedtevereisten voor, is het dubbele van de streaming bitsnelheden. Terwijl dit niet verplicht is, helpt het beperken van de impact van opstoppingen in het netwerk.
+- Bij het gebruik van software gebaseerd coderingsprogramma's, sluit u alle onnodige programma's.
+- De configuratie van het coderingsprogramma niet wijzigen nadat deze is gestart pushen. Negatieve gevolgen voor de gebeurtenis is en kan leiden tot de gebeurtenis instabiel is. 
+- Zorg ervoor dat u kunt uzelf voldoende tijd voor het instellen van de gebeurtenis. Voor grote schaalgebeurtenissen, het is raadzaam om de setup een uur voordat de gebeurtenis te starten.
+
 ## <a name="how-to-become-an-on-premises-encoder-partner"></a>Hoe u een on-premises coderingsprogramma partner
 
 Als een Azure Media Services on-premises coderingsprogramma partner verhogen Media Services uw product door uw encoder aanbeveelt voor zakelijke klanten. Een on-premises coderingsprogramma als partner wilt worden, moet u controleren of de compatibiliteit van uw on-premises-codering met Media Services. Voer de volgende verificaties om dit te doen:
 
-### <a name="pass-through-liveevent-verification"></a>Pass Through-LiveEvent verificatie
+### <a name="pass-through-live-event-verification"></a>Pass through-verificatie voor Live gebeurtenis
 
-1. Maak of Ga naar uw Azure Media Services-account.
-2. Maak en start een **pass-through** LiveEvent.
-3. Configureer uw encoder als u wilt een multi-bitrate live stream pushen.
-4. Een gepubliceerde live gebeurtenis maken.
-5. Voer het live coderingsprogramma voor ongeveer 10 minuten.
-6. Stop de live-gebeurtenis.
-7. Maken, een Streaming-eindpunt starten, gebruikt u een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen haperingen zichtbaar voor alle kwaliteitsniveaus (of u kunt ook bekijken en valideren via de voorbeeld-URL tijdens de live-sessie vóór stap 6).
-8. Noteer de Asset-ID, streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma gepubliceerd.
-9. De LiveEvent-status opnieuw instellen na het maken van elk voorbeeld.
-10. Herhaal stap 3 t/m 9 voor alle configuraties ondersteund door uw encoder (met en zonder ad-signalering/bijschriften/verschillende snelheden codering).
+1. In Media Services-account, zorg ervoor dat de **Streaming-eindpunt** wordt uitgevoerd. 
+2. Maak en start de **pass-through** Live gebeurtenis. <br/> Zie voor meer informatie, [Live gebeurtenis Staten en facturering](live-event-states-billing.md).
+3. De opname-URL's ophalen en configureren uw on-premises coderingsprogramma voor het gebruik van de URL voor het verzenden van de een multi-bitrate live stream met Media Services.
+4. De voorbeeld-URL ophalen en deze gebruiken om te controleren dat de invoer van het coderingsprogramma daadwerkelijk worden ontvangen.
+5. Maak een nieuwe **Asset** object.
+6. Maak een **uitvoer Live** en gebruikt u de assetnaam van de die u hebt gemaakt.
+7. Maak een **Streaming-Locator gemaakt** met de ingebouwde **beleid Streaming** typen.
+8. Lijst van de paden op de **Streaming-Locator gemaakt** om terug te gaan de URL's te gebruiken.
+9. Ophalen van de hostnaam voor de **Streaming-eindpunt** u wilt streamen uit.
+10. De URL in stap 8 worden gecombineerd met de hostnaam in stap 9 om op te halen van de volledige URL.
+11. Voer het live coderingsprogramma voor ongeveer 10 minuten.
+12. Stop de Live-gebeurtenis. 
+13. Gebruik een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen haperingen zichtbaar voor alle kwaliteitsniveaus (of u kunt ook bekijken en valideren via de voorbeeld-URL tijdens de sessie voor live).
+14. Noteer de Asset-ID, streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma gepubliceerd.
+15. De status van de Live gebeurtenis opnieuw instellen na het maken van elk voorbeeld.
+16. Herhaal de stappen 5 tot en met 15 voor alle configuraties ondersteund door uw encoder (met en zonder ad-signalering/bijschriften/verschillende snelheden codering).
 
-### <a name="live-encoding-liveevent-verification"></a>LiveEvent verificatie van realtime codering
+### <a name="live-encoding-live-event-verification"></a>Live encoding Live gebeurtenis-verificatie
 
-1. Maak of Ga naar uw Azure Media Services-account.
-2. Maak en start een **van realtime codering** LiveEvent.
-3. Configureer uw encoder als u wilt een single-bitrate live stream pushen.
-4. Een gepubliceerde live gebeurtenis maken.
-5. Voer het live coderingsprogramma voor ongeveer 10 minuten.
-6. Stop de live-gebeurtenis.
-7. Maken, een Streaming-eindpunt starten, gebruikt u een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen haperingen zichtbaar voor alle kwaliteitsniveaus (of u kunt ook bekijken en valideren via de voorbeeld-URL tijdens de live-sessie vóór stap 6).
-8. Noteer de Asset-ID, streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma gepubliceerd.
-9. De LiveEvent-status opnieuw instellen na het maken van elk voorbeeld.
-10. Herhaal stap 3 t/m 9 voor alle configuraties ondersteund door uw encoder (met en zonder ad-signalering/bijschriften/verschillende snelheden codering).
+1. In Media Services-account, zorg ervoor dat de **Streaming-eindpunt** wordt uitgevoerd. 
+2. Maak en start de **van realtime codering** Live gebeurtenis. <br/> Zie voor meer informatie, [Live gebeurtenis Staten en facturering](live-event-states-billing.md).
+3. De opname-URL's ophalen en configureren uw encoder als u wilt een single-bitrate live stream pushen met Media Services.
+4. De voorbeeld-URL ophalen en deze gebruiken om te controleren dat de invoer van het coderingsprogramma daadwerkelijk worden ontvangen.
+5. Maak een nieuwe **Asset** object.
+6. Maak een **uitvoer Live** en gebruikt u de assetnaam van de die u hebt gemaakt.
+7. Maak een **Streaming-Locator gemaakt** met de ingebouwde **beleid Streaming** typen.
+8. Lijst van de paden op de **Streaming-Locator gemaakt** om terug te gaan de URL's te gebruiken.
+9. Ophalen van de hostnaam voor de **Streaming-eindpunt** u wilt streamen uit.
+10. De URL in stap 8 worden gecombineerd met de hostnaam in stap 9 om op te halen van de volledige URL.
+11. Voer het live coderingsprogramma voor ongeveer 10 minuten.
+12. Stop de Live-gebeurtenis.
+13. Gebruik een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) bekijken van de gearchiveerde asset om ervoor te zorgen dat afspelen heeft geen haperingen zichtbaar voor alle kwaliteitsniveaus (of u kunt ook bekijken en valideren via de voorbeeld-URL tijdens de sessie voor live).
+14. Noteer de Asset-ID, streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma gepubliceerd.
+15. De status van de Live gebeurtenis opnieuw instellen na het maken van elk voorbeeld.
+16. Herhaal de stappen 5 tot en met 15 voor alle configuraties ondersteund door uw encoder (met en zonder ad-signalering/bijschriften/verschillende snelheden codering).
 
 ### <a name="longevity-verification"></a>Duurzaamheid verificatie
 
-1. Maak of Ga naar uw Azure Media Services-account.
-2. Maak en start een **pass-through** kanaal.
-3. Configureer uw encoder als u wilt een multi-bitrate live stream pushen.
-4. Een gepubliceerde live gebeurtenis maken.
-5. Voer het live coderingsprogramma 1 week voor een of meer.
-6. Gebruik een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) om te bekijken van de live streaming van tijd naar een keer (of gearchiveerde asset) om ervoor te zorgen dat afspelen heeft geen zichtbare storingen.
-7. Stop de live-gebeurtenis.
-8. Noteer de Asset-ID, streaming-URL voor het livearchief en de instellingen en de versie die wordt gebruikt vanuit uw live coderingsprogramma gepubliceerd.
+Dezelfde stappen als in [Live gebeurtenis van Pass through-verificatie](#pass-through-live-event-verification) , met uitzondering van de stap 11. <br/>In plaats van 10 minuten, het live coderingsprogramma 1 week voor een of meer worden uitgevoerd. Gebruik een speler zoals [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) om te bekijken van de live streaming van tijd naar een keer (of gearchiveerde asset) om ervoor te zorgen dat afspelen heeft geen zichtbare storingen.
+
+### <a name="email-your-recorded-settings"></a>E-instellingen van uw opgenomen
 
 Ten slotte, e-instellingen van uw opgenomen en archive-parameters voor Azure Media Services op live amsstreaming@microsoft.com als een melding dat alle zelf verificatiecontroles is verstreken. Ook uw contactgegevens voor elke volgende-ups. U kunt contact opnemen met het Azure Media Services-team met vragen met betrekking tot dit proces.
 

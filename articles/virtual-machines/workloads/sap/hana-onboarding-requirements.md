@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477846"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563827"
 ---
 # <a name="onboarding-requirements"></a>Voorbereidingsvereisten
 
@@ -33,7 +33,7 @@ Deze lijst ophaalprotocol vereisten voor het uitvoeren van SAP HANA op Azure (gr
 
 **Verbinding met het netwerk**
 
-- ExpressRoute tussen on-premises naar Azure: Als u wilt verbinding maken met uw on-premises Datacenter naar Azure, zorg om ten minste 1 Gbps-verbinding via uw Internetprovider. Connectiviteit tussen HANA grote instantie eenheden en Azure maakt gebruik van ExpressRoute technologie ook. Dit ExpressRoute-verbinding tussen de HANA grote instantie eenheden en Azure is opgenomen in de prijs van de eenheden HANA grote instantie. Daarom u als klant van ondervinden extra kosten buiten uw ExpressRoute-verbinding tussen on-premises en Azure.
+- ExpressRoute tussen on-premises naar Azure: Als u wilt verbinding maken met uw on-premises Datacenter naar Azure, zorg om ten minste 1 Gbps-verbinding via uw Internetprovider. Connectiviteit tussen HANA grote instantie eenheden en Azure maakt gebruik van ExpressRoute technologie ook. Dit ExpressRoute-verbinding tussen de HANA grote instantie eenheden en Azure is opgenomen in de prijs van de eenheden HANA grote instantie, met inbegrip van alle inkomende en uitgaande kosten voor gegevens voor deze specifieke ExpressRoute-circuit. Daarom u als klant van ondervinden extra kosten buiten uw ExpressRoute-verbinding tussen on-premises en Azure.
 
 **Besturingssysteem**
 

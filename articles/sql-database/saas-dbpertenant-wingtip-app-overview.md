@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: dd67e49a80c403e807b24276cf14b9e8c47037b9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: bbebfca1684cad600d7ef0cc1a4cff2201fdc07e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055506"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566141"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Inleiding tot een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database
 
@@ -40,14 +40,14 @@ Als u de zelfstudies doorlopen en met de app werken, zich richten op de SaaS-pat
 Nadat u de app hebt geïmplementeerd, bekijk de volgende zelfstudies die op de eerste implementatie voortbouwen. Deze zelfstudies verkennen veelvoorkomende SaaS-patronen die van ingebouwde functies van SQL Database, Azure SQL Data Warehouse en andere Azure-services gebruikmaken. Zelfstudies zijn PowerShell-scripts met gedetailleerde uitleg. De uitleg vereenvoudigen begrijpen en de implementatie van de dezelfde SaaS-beheerpatronen in uw toepassingen.
 
 
-| Zelfstudie | Beschrijving |
+| Zelfstudie | Description |
 |:--|:--|
 | [Richtlijnen en tips voor het SQL-Database multitenant SaaS-app-voorbeeld](saas-tenancy-wingtip-app-guidance-tips.md) | Downloaden en uitvoeren van PowerShell-scripts om voor te bereiden van onderdelen van de toepassing. |
 |[De Wingtip SaaS-toepassing implementeren en verkennen](saas-dbpertenant-get-started-deploy.md)|  Implementeren en verkennen van de Wingtip SaaS-toepassing met uw Azure-abonnement. |
 |[Tenants inrichten en catalogiseren](saas-dbpertenant-provision-and-catalog.md)| Meer informatie over hoe de toepassing verbinding maakt met tenants met behulp van een catalogusdatabase, en hoe tenants in de catalogus worden toegewezen aan hun gegevens. |
 |[Prestaties controleren en beheren](saas-dbpertenant-performance-monitoring.md)| Informatie over het gebruik controlefuncties van SQL-Database en waarschuwingen kunt instellen wanneer drempelwaarden worden overschreden. |
 |[Bewaken met Azure Log Analytics](saas-dbpertenant-log-analytics.md) | Meer informatie over het gebruik van [Log Analytics](../log-analytics/log-analytics-overview.md) voor het bewaken van grote hoeveelheden van resources in meerdere pools. |
-|[Een individuele tenant terugzetten](saas-dbpertenant-restore-single-tenant.md)| Leer hoe u een tenantdatabase herstellen naar een eerdere in-time. U leert ook hoe u herstellen met een parallelle database, die de database van de bestaande tenant online verlaat. |
+|[Een enkele tenant herstellen](saas-dbpertenant-restore-single-tenant.md)| Leer hoe u een tenantdatabase herstellen naar een eerdere in-time. U leert ook hoe u herstellen met een parallelle database, die de database van de bestaande tenant online verlaat. |
 |[Database-tenantschema beheren](saas-tenancy-schema-management.md)| Informatie over het schema en het bijwerken van referentiegegevens in alle tenantdatabases. |
 |[Cross-tenant gedistribueerde query's uitvoeren](saas-tenancy-cross-tenant-reporting.md) | Maken van een ad-hoc analytics-database, en realtime gedistribueerde query's uitvoeren voor alle tenants.  |
 |[Analyses uitvoeren op gegevens van de uitgepakte tenant](saas-tenancy-tenant-analytics.md) | Extraheer de gegevens van de tenant naar een analytics-database of het datawarehouse voor offline analysequery's. |

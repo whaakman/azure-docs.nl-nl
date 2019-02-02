@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: b5bd08219c6e48f07e93d7704216e813d75dcd72
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099914"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659504"
 ---
 # <a name="live-events-and-live-outputs"></a>Live gebeurtenissen en live uitvoer
 
@@ -67,8 +67,8 @@ U kunt de bijdrage op maximaal 1080 p oplossing tegen een tarief van het kader v
 Bij het maken van een Live-gebeurtenis, kunt u de volgende opties opgeven:
 
 * De streaming-protocol voor de Live-gebeurtenis (het RTMP- en Smooth Streaming-protocollen worden momenteel ondersteund).<br/>U kunt de protocoloptie niet wijzigen terwijl de Live gebeurtenis of de bijbehorende Live-uitvoer worden uitgevoerd. Als u verschillende protocollen nodig hebt, maakt u afzonderlijke Live gebeurtenis voor elke streaming-protocol.  
-* IP-beperkingen voor de opname en voorbeeldweergave. U kunt de IP-adressen die zijn toegestaan voor het opnemen van een video naar dit Live gebeurtenis definiëren. Toegestane IP-adressen kunnen worden opgegeven als één IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld , ' 10.0.0.1(255.255.252.0)').<br/>Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.<br/>De IP-adressen moeten zich in een van de volgende indelingen: IpV4-adres met 4 cijfers, CIDR-adresbereik.
-* Bij het maken van de gebeurtenis kunt u opgeven dat deze automatisch wordt gestart. <br/>Wanneer autostart is ingesteld op true, wordt de Live gebeurtenis wordt gestart na het maken. Dit betekent dat, de facturering begint zodra de Live gebeurtenis wordt gestart. U moet stoppen expliciet aanroepen op de bron van de Live gebeurtenis verder facturering is gestopt. U kunt ook kun u de gebeurtenis wanneer u klaar bent om te streamen. 
+* IP-beperkingen voor de opname en voorbeeldweergave. U kunt de IP-adressen die zijn toegestaan voor het opnemen van een video naar dit Live gebeurtenis definiëren. Toegestane IP-adressen kunnen worden opgegeven als één IP-adres (bijvoorbeeld 10.0.0.1), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22) of een IP-adresbereik met een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld , ' 10.0.0.1(255.255.252.0)').<br/>Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, zijn er geen IP-adressen toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.<br/>De IP-adressen moeten een van de volgende indelingen hebben: IpV4-adres met 4 cijfers, CIDR-adresbereik.
+* Bij het maken van de gebeurtenis kunt u opgeven dat deze automatisch wordt gestart. <br/>Wanneer autostart is ingesteld op True, wordt de Live gebeurtenis gestart na het maken ervan. De facturering begint zodra de Live gebeurtenis wordt gestart. U moet stoppen expliciet aanroepen op de bron van de Live gebeurtenis verder facturering is gestopt. U kunt ook kun u de gebeurtenis wanneer u klaar bent om te streamen. 
 
     Zie voor meer informatie, [Live gebeurtenis Staten en facturering](live-event-states-billing.md).
 

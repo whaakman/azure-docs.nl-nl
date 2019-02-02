@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 113ed80910e396361396a9c1298fc04a55ac4800
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 13495107aff24b868a4188c25768868945e70db8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852472"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658212"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-reactie-bewerkingen
 
@@ -505,7 +505,7 @@ De **correlatiefilter** kaart moet ten minste één van de volgende items bevatt
 |sessie-id|string|Nee||  
 |antwoord-naar-sessie-id|string|Nee||  
 |inhoudstype|string|Nee||  
-|properties|map|Nee|Toegewezen aan Servicebus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+|properties|map|Nee|Toegewezen aan Servicebus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
   
 De **sql regelactie** kaart moet de volgende items bevatten:  
   
@@ -591,7 +591,7 @@ Elke kaart vermelding in de matrix bevat de volgende eigenschappen:
 
 `filter` kan zijn van een van de volgende typen:
 
-| De naam van de descriptor | Descriptor code | Waarde |
+| De naam van de descriptor | Descriptor code | Value |
 | --- | --- | ---|
 | `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL-filter |
 | `com.microsoft:correlation-filter:list` | 0x000001370000009 | Correlatiefilter |
@@ -620,7 +620,7 @@ Elke kaart vermelding in de matrix bevat de volgende eigenschappen:
 
 `ruleAction` kan bestaan uit een van de volgende typen:
 
-| De naam van de descriptor | Descriptor code | Waarde |
+| De naam van de descriptor | Descriptor code | Value |
 | --- | --- | ---|
 | `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Lege regelactie - er is geen regelactie aanwezig |
 | `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL-regelactie |

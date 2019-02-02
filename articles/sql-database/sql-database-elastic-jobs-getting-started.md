@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863530"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567006"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Aan de slag met taken voor Elastic Database
 
@@ -260,19 +260,19 @@ Uitvoeringsbeleidsregels toestaan op dit moment voor het definiëren van:
 
 * Naam: De id voor het uitvoeringsbeleid.
 * De time-out van de taak: Totale tijd voordat een taak is geannuleerd door de taken voor Elastic Database.
-* Eerste Interval voor opnieuw proberen: Interval moet worden gewacht voordat de eerste poging.
-* Maximaal Interval voor opnieuw proberen: De limiet van interval tussen nieuwe pogingen te gebruiken.
-* Interval voor uitstel coëfficiënt voor opnieuw proberen: Coëfficiënt die wordt gebruikt voor het berekenen van de volgende interval tussen nieuwe pogingen.  De volgende formule wordt gebruikt: (eerste Interval voor opnieuw proberen) * Math.pow ((Interval uitstel coëfficiënt) (nummer van de nieuwe pogingen) - 2).
+* Interval voor eerste opnieuw proberen: Het interval moet worden gewacht voordat de eerste poging.
+* Interval voor maximale aantal nieuwe pogingen: De limiet van interval tussen nieuwe pogingen te gebruiken.
+* Interval voor uitstel coëfficiënt voor opnieuw proberen: De coëfficiënt gebruikt voor het berekenen van de volgende interval tussen nieuwe pogingen.  De volgende formule wordt gebruikt: (De eerste Interval voor opnieuw proberen) * Math.pow ((Interval uitstel coëfficiënt) (aantal nieuwe pogingen) - 2).
 * Maximum aantal pogingen: Het maximale aantal nieuwe pogingen om uit te voeren in een job.
 
 Het standaard-uitvoeringsbeleid maakt gebruik van de volgende waarden:
 
 * Naam: Standaard-uitvoeringsbeleid
 * De time-out van de taak: 1 week
-* Eerste Interval voor opnieuw proberen: 100 milliseconden
-* Maximaal Interval voor opnieuw proberen: 30 minuten
-* De coëfficiënt Interval opnieuw proberen: 2
-* Maximum aantal pogingen: 2.147.483.647
+* Interval voor eerste opnieuw proberen:  100 milliseconden
+* Interval voor maximale aantal nieuwe pogingen: 30 minuten
+* De coëfficiënt Interval voor opnieuw proberen: 2
+* Maximum aantal pogingen: 2,147,483,647
 
 Maak de gewenste uitvoeringsbeleid:
 
@@ -307,8 +307,8 @@ Taken voor elastic Database ondersteunt jobs annulering aanvragen.  Als taken vo
 
 Er zijn twee verschillende manieren dat taken voor Elastic Database een annulering kan uitvoeren:
 
-1. Annuleren momenteel actieve taken: als een annulering wordt gedetecteerd, terwijl een taak wordt momenteel uitgevoerd, een annulering wordt uitgevoerd binnen het momenteel wordt uitgevoerd aspect van de taak.  Bijvoorbeeld: als er een langlopende query's die momenteel wordt uitgevoerd wanneer een annulering wordt uitgevoerd, er is een poging tot annuleren van de query.
-2. Annuleren nieuwe pogingen: Als een annulering wordt gedetecteerd door de besturingselement-thread voordat een taak wordt gestart voor de uitvoering, de besturingselement-thread vermijdt u de taak starten en de aanvraag worden gedeclareerd als geannuleerd.
+1. Annuleren van taken die momenteel wordt uitgevoerd: Als een annulering wordt gedetecteerd, terwijl een taak wordt momenteel uitgevoerd, wordt bij een annulering wordt uitgevoerd binnen het momenteel wordt uitgevoerd aspect van de taak.  Bijvoorbeeld: Als er een langlopende query's die momenteel wordt uitgevoerd wanneer een annulering wordt uitgevoerd, is er een poging tot annuleren van de query.
+2. Taak annuleren pogingen: Als een annulering wordt gedetecteerd door de besturingselement-thread voordat een taak voor uitvoering is gestart, wordt de besturingselement-thread vermijdt u de taak starten en de aanvraag worden gedeclareerd als geannuleerd.
 
 Als een geannuleerde taken voor een bovenliggende taak is aangevraagd, wordt de aanvraag voor annulering herkend voor de bovenliggende taak en alle bijbehorende onderliggende taken.
 

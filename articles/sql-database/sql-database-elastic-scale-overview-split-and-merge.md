@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 0f5dc5cc7d981eb162ba101671b1e967ddf4bfff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 1d350cae379c5ec790413775138225b60b9c5e32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868460"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564932"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Gegevens verplaatsen tussen uitgeschaalde clouddatabases
 
@@ -190,7 +190,7 @@ De Service voor splitsen en samenvoegen biedt de **RequestStatus** tabel in de d
 
   De datum en tijd waarop de aanvraag is gestart.
 
-- **bewerkings-id**
+- **OperationId**
 
   De GUID die de aanvraag wordt aangeduid. Deze aanvraag kan ook worden gebruikt om de bewerking annuleert, terwijl deze wordt nog steeds momenteel is.
 
@@ -212,7 +212,7 @@ De Service voor splitsen en samenvoegen biedt de **RequestStatus** tabel in de d
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-De service voor splitsen en samenvoegen maakt gebruik van Azure Diagnostics op basis van de Azure SDK 2.5 voor controle en diagnostische gegevens. U bepaalt de configuratie van de diagnostische gegevens, zoals hier wordt beschreven: [diagnostische gegevens inschakelen in Azure Cloud Services en Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). Het downloadpakket bevat twee configuraties voor diagnostische gegevens: één voor de Webserverrol en één voor de werkrol. Het bevat de definities voor logboekregistratie van prestatiemeteritems, IIS-logboeken, Windows-gebeurtenislogboeken en logboeken voor splitsen en samenvoegen-toepassing.
+De service voor splitsen en samenvoegen maakt gebruik van Azure Diagnostics op basis van de Azure SDK 2.5 voor controle en diagnostische gegevens. U kunt de configuratie van de diagnostische gegevens beheren, zoals hier wordt beschreven: [Inschakelen van diagnostische gegevens in Azure Cloudservices en Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). Het downloadpakket bevat twee configuraties voor diagnostische gegevens: één voor de Webserverrol en één voor de werkrol. Het bevat de definities voor logboekregistratie van prestatiemeteritems, IIS-logboeken, Windows-gebeurtenislogboeken en logboeken voor splitsen en samenvoegen-toepassing.
 
 ## <a name="deploy-diagnostics"></a>Diagnostische gegevens implementeren
 
@@ -230,7 +230,7 @@ Als u controle en diagnostische gegevens met behulp van de diagnostische configu
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-U kunt meer informatie over het configureren en implementeren van de diagnostische instellingen hier vinden: [diagnostische gegevens inschakelen in Azure Cloud Services en Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
+U kunt meer informatie over het configureren en implementeren van de diagnostische instellingen hier vinden: [Inschakelen van diagnostische gegevens in Azure Cloudservices en Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Diagnostische gegevens ophalen
 

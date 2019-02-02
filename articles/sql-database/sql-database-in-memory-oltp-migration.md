@@ -11,15 +11,16 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: fbe05186b317d3c24dca55197c2989155b5543bd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228042"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565918"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Gebruik In-Memory OLTP voor het verbeteren van de prestaties van uw toepassing in SQL-Database
+
 [In-Memory OLTP](sql-database-in-memory.md) kan worden gebruikt voor het verbeteren van de prestaties van transactieverwerking en gegevensopname scenario's voor tijdelijke gegevens, in [Premium en bedrijfskritiek laag](sql-database-service-tiers-vcore.md) databases zonder dat de prijscategorie toeneemt. 
 
 > [!NOTE] 
@@ -29,6 +30,7 @@ ms.locfileid: "51228042"
 Volg deze stappen voor het vaststellen van In-Memory OLTP in uw bestaande database.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Stap 1: Zorg ervoor dat u gebruikmaakt van een database van de laag Premium en bedrijfskritiek
+
 In-Memory OLTP wordt alleen ondersteund in databases van de laag Premium en bedrijfskritiek. In het geheugen wordt ondersteund als de geretourneerde resultaten 1 is (niet 0):
 
 ```
@@ -65,7 +67,7 @@ Om de testen, moet u uw testdatabase als volgt aanpassen:
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>Stap 4: Tabellen migreren
+## <a name="step-4-migrate-tables"></a>Stap 4: Migreren van tabellen
 U moet maken en vullen van een geoptimaliseerd voor geheugen kopie van de tabel die u wilt testen. U kunt deze maken met behulp van:
 
 * De handige geheugen optimalisatie Wizard in SSMS.
@@ -105,7 +107,7 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## <a name="step-5-optional-migrate-stored-procedures"></a>Stap 5 (optioneel): migreren van opgeslagen procedures
+## <a name="step-5-optional-migrate-stored-procedures"></a>Stap 5 (optioneel): Migreren van opgeslagen procedures
 Een opgeslagen procedure voor betere prestaties kan ook wijzigen door de In-Memory-functie.
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>Overwegingen met systeemeigen, gecompileerde, opgeslagen procedures
@@ -149,7 +151,7 @@ De migratiestappen zijn:
 4. Wijzig de naam van de oude opgeslagen procedure met behulp van SP_RENAME. Of u gewoon.
 5. Voer uw bewerkte CREATE PROCEDURE T-SQL-script uit.
 
-## <a name="step-6-run-your-workload-in-test"></a>Stap 6: Uw workload in test uitvoeren
+## <a name="step-6-run-your-workload-in-test"></a>Stap 6: Uw workload wordt uitgevoerd in de test
 Een workload in de testdatabase die vergelijkbaar is met de werkbelasting die wordt uitgevoerd in de productiedatabase uitvoeren. Dit zou moeten uitwijzen de prestatieverbetering te bereiken bereikt door uw gebruik van de In-Memory-functie voor tabellen en opgeslagen procedures.
 
 Belangrijke kenmerken van de werkbelasting zijn:

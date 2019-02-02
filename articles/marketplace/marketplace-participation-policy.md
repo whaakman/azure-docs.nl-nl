@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 1/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: ef7b4377da541068cef7cdd2de5a98d33c3b80ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 88ffa70f7ac21a2c28af994f1e2ed3b6939f6ad9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199004"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567414"
 ---
 # <a name="azure-marketplace-participation-policies"></a>Deelnamebeleid voor Azure Marketplace
 
@@ -35,7 +35,7 @@ Dit deelnamebeleid voor Microsoft Azure Marketplace is van toepassing op alle ui
 
 1. Uitgevers moeten zijn gevestigd in een land/regio waarvoor verkopen via de Azure Marketplace wordt ondersteund. Momenteel wordt verkopen via de Azure Marketplace ondersteund voor de volgende landen/regio's:  Afghanistan, Albanië, Algerije, Angola, Antigua en Barbuda, Argentinië, Armenië, Australië, Azerbeidzjan, Bahrein, Bangladesh, Belarus, België, Benin, Bolivia, Bosnië en Herzegovina, Botswana, Brazilië, Bulgarije, Burkina Faso, Burundi, Cambodja, Canada, Centraal Afrikaanse Republiek, Chili, Colombia, Comoren, Congo (DRC), Costa Rica, Cyprus, Denemarken, Dominica, Dominicaanse Republiek, Duitsland, Ecuador, Egypte, El Salvador, Eritrea, Estland, Ethiopië, Fiji, Filipijnen, Finland, Frankrijk, Georgië, Ghana, Griekenland, Guatemala, Guinee, Haïti, Honduras, Hongarije, Hongkong SAR, Ierland, IJsland, India, Indonesië, Irak, Israël, Italië, Jamaica, Japan, Jordanië, Kameroen, Kazachstan, Kenia, Koeweit, Korea (Zuid), Kroatië, Laos, Letland, Libanon, Liberia, Liechtenstein, Litouwen, Luxemburg, Madagascar, Malawi, Maleisië, Mali, Malta, Marokko, Mauritius, Mexico, Monaco, Mongolië, Montenegro, Mozambique, Nederland, Nepal, Nicaragua, Nieuw-Zeeland, Niger, Nigeria, Noorwegen, Oeganda, Oekraïne, Oezbekistan, Oman, Oostenrijk, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Qatar, Republiek Congo, Republiek Ivoorkust (Côte d’Ivoire), Roemenië, Rusland, Rwanda, Saoedi-Arabië, Senegal, Servië, Sierra Leone, Singapore, Slovenië, Slowakije, Somalië, Spanje, Sri Lanka, Tadzjikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad en Tobago, Tsjaad, Tsjechië, Tunesië, Turkije, Turkmenistan, Uruguay, Venezuela, Verenigd Koninkrijk, Verenigde Arabische Emiraten, Verenigde Staten, Vietnam, Zambia, Zimbabwe, Zuid-Afrika, Zweden, Zwitserland.
 
-1. Voor elke aanbieding geldt dat uitgevers de aanbieding beschikbaar moeten maken in ten minste één land/regio waarvoor verkopen via de Azure Marketplace wordt ondersteund. Momenteel wordt aankopen via de Azure Marketplace ondersteund voor de volgende landen/regio's:  Algerije, Argentinië, Australië, Bahrein, Belarus, België, Brazilië, Bulgarije, Canada, Chili, Colombia, Costa Rica, Cyprus, Denemarken, Dominicaanse Republiek, Duitsland, Ecuador, Egypte, El Salvador, Estland, Filipijnen, Finland, Frankrijk, Griekenland, Guatemala, Hongkong SAR, Hongarije, Ierland, IJsland, India, Indonesië, Israël, Italië, Japan, Jordanië, Kazachstan, Kenia, Koeweit, Kroatië, Letland, Liechtenstein, Litouwen, Luxemburg, Voormalige Joegoslavische Republiek Macedonië, Maleisië, Malta, Marokko, Mexico, Montenegro, Nederland, Nieuw Zeeland, Nigeria, Noorwegen, Oekraïne, Oman, Oostenrijk, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Singapore, Slovenië, Slowakije, Spanje, Sri Lanka, Taiwan, Thailand, Trinidad en Tobago, Tsjechische Republiek, Tunesië, Turkije, Uruguay, Verenigde Arabische Emiraten, Verenigde Staten, Verenigd Koninkrijk, Venezuela, Zweden, Zwitserland, Zuid-Afrika, Zuid-Korea. 
+1. Voor elke aanbieding geldt dat uitgevers de aanbieding beschikbaar moeten maken in ten minste één land/regio waarvoor verkopen via de Azure Marketplace wordt ondersteund. Momenteel wordt aankopen via de Azure Marketplace ondersteund voor de volgende landen/regio's: Algerije, Argentinië, Australië, Bahrein, Belarus, België, Brazilië, Bulgarije, Canada, Chili, Colombia, Costa Rica, Cyprus, Denemarken, Dominicaanse Republiek, Duitsland, Ecuador, Egypte, El Salvador, Estland, Filipijnen, Finland, Frankrijk, Griekenland, Guatemala, Hongkong SAR, Hongarije, Ierland, IJsland, India, Indonesië, Israël, Italië, Japan, Jordanië, Kazachstan, Kenia, Koeweit, Kroatië, Letland, Liechtenstein, Litouwen, Luxemburg, Voormalige Joegoslavische Republiek Macedonië, Maleisië, Malta, Marokko, Mexico, Montenegro, Nederland, Nieuw Zeeland, Nigeria, Noorwegen, Oekraïne, Oman, Oostenrijk, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico, Qatar, Roemenië, Rusland, Saoedi-Arabië, Servië, Singapore, Slovenië, Slowakije, Spanje, Sri Lanka, Taiwan, Thailand, Trinidad en Tobago, Tsjechische Republiek, Tunesië, Turkije, Uruguay, Verenigde Arabische Emiraten, Verenigde Staten, Verenigd Koninkrijk, Venezuela, Zweden, Zwitserland, Zuid-Afrika, Zuid-Korea.
 
 1. Uitgevers moeten een goede kredietstatus hebben.
 
@@ -47,7 +47,7 @@ Dit deelnamebeleid voor Microsoft Azure Marketplace is van toepassing op alle ui
 
 1. Uitgevers moeten kondigen de beschikbaarheid van hun aanbieding op Azure Marketplace op hun openbare website en hyperlinks naar pagina's opnemen in hun aanbiedingen moet opnemen [ https://azuremarketplace.microsoft.com/marketplace/ ](https://azuremarketplace.microsoft.com/marketplace/).
 
-1. Uitgevers moeten elke aanbieding op basis van een of meer classificatietaxonomieën door Microsoft, waaronder de categorieën die worden beschreven in sectie 4 van dit document te classificeren. Als Microsoft van oordeel een uitgever geselecteerde classificatie onjuist is, behoudt deze zich het recht voor elke aanbieding classificeren.
+1. Uitgevers moeten elke aanbieding op basis van een of meer classificatietaxonomieën door Microsoft, met inbegrip van de categorieën die worden beschreven classificeren de **definities voor classificatie van aanbieding** sectie van dit document. Als Microsoft van oordeel een uitgever geselecteerde classificatie onjuist is, behoudt deze zich het recht voor elke aanbieding classificeren.
 
 1. Als een aanbieding van een uitgever Microsoft Azure Certified is en niet voornamelijk op Microsoft Azure wordt uitgevoerd, controleert de uitgever een betaalde versie van de aanbieding beschikbaar in de Marketplace binnen 90 dagen na de publicatie van een gratis of BYOL-versie van de aanbieding.
 
@@ -122,7 +122,7 @@ Na het publiceren van een serviceaanbieding op Marketplace, moeten uitgevers hun
     * De aanbieding heeft consequent veel ondersteuningstickets; of
     * De uitgever heeft zich niet gehouden aan de voorwaarden van de Microsoft Marketplace-overeenkomst voor uitgevers, de publicatierichtlijnen voor Marketplace of dit document.
 
-1. Er kunnen diverse redenen zijn waarom u besluit uw aanbieding uit de Marketplace te verwijderen. Met Aanbieding verwijderen zorgt u ervoor dat nieuwe klanten uw aanbieding niet meer kunnen kopen of implementeren. Dit geldt niet voor bestaande klanten. Aanbieding beëindigen is het proces van beëindiging van de service en/of licentieovereenkomst tussen u en uw bestaande klanten. Voor richtlijnen en beleidsregels met betrekking tot het verwijderen en beëindigen van aanbiedingen is de Microsoft Marketplace-overeenkomst voor uitgevers van toepassing (zie Sectie 7). U kunt het verwijderen of beëindigen van een aanbieding aanvragen door een ondersteuningsticket in te dienen.
+1. Er kunnen diverse redenen zijn waarom u besluit uw aanbieding uit de Marketplace te verwijderen. Met Aanbieding verwijderen zorgt u ervoor dat nieuwe klanten uw aanbieding niet meer kunnen kopen of implementeren. Dit geldt niet voor bestaande klanten. Aanbieding beëindigen is het proces van beëindiging van de service en/of licentieovereenkomst tussen u en uw bestaande klanten. Richtlijnen en beleidsregels met betrekking tot de aanbieding verwijderen en beëindigen worden bepaald door de Microsoft Marketplace-overeenkomst voor uitgevers (Zie de sectie 'Betalingsvoorwaarden'). U kunt het verwijderen of beëindigen van een aanbieding aanvragen door een ondersteuningsticket in te dienen.
 
 ## <a name="payment-terms"></a>Betalingsvoorwaarden
 
@@ -138,19 +138,35 @@ Microsoft geeft uitgevers toestemming om de volgende Microsoft-softwareproducten
 
 ## <a name="taxes"></a>Belastingen
 
-1. **Landen waarin btw.**
+1. **De verantwoordelijkheid voor belastingen op End klant omzet.**
 
-    1. De volgende landen wordt btw berekend, zoals gedefinieerd in de Microsoft Marketplace overeenkomst voor uitgevers: Europese Unie, Canada, India, Ierland, Liechtenstein, Monaco, Nieuw-Zeeland, Noorwegen, Puerto Rico, Zuid-Korea, Zwitserland, Verenigde Staten. Australië, Saoedi-Arabië, Taiwan en Verenigde Arabische Emiraten zijn landen waarin Remittance alleen voor Web Direct-verkopen.
+    1. In het algemeen van belastingen op end klant omzet van Microsoft en van de uitgever van verantwoordelijkheden zijn afhankelijk van het land/regio en het aankoop-scenario waarbij aanbiedingen worden verkocht.
 
-    1. Binnen Ierland berekent Microsoft Ierse btw aan alle Ierse klanten (tenzij Ierse klanten een geldig VAT 56B-certificaat kunnen overleggen). Voor zakelijke klanten binnen de Europese Unie en Noorwegen (die zich buiten Ierland bevinden) past Microsoft het btw-nultarief toe wanneer een geldig btw-nummer wordt verstrekt. Als er geen geldig btw-nummer wordt verstrekt, wordt klanten btw in rekening gebracht tegen het tarief dat geldt voor het land of de jurisdictie van de klant.
+    1. In bepaalde landen (**Microsoft beheerd landen**) Microsoft de verantwoordelijkheid voor het beheren van end klant belastingen, waaronder de status van het bedrijf van klanten door het verkrijgen van belasting registratienummer valideren of certificaten van vrijstelling, beter beheerd relaties met klanten en berekenen, verzamelen en/of remitteren belastingen.  In gevallen waarbij de verkoop worden gedaan via partners, Microsoft wordt ervan uitgegaan dat alle partners zijn bedrijven en hun belastingverplichtingen op de juiste wijze worden gebruik.  Als u meer informatie vindt u de [Veelgestelde vragen over](https://automaticbillingspec.blob.core.windows.net/spec/FAQ%20for%20ISV%20Azure%20Marketplace%20Updates%20March%202019.pdf).
 
-    1. Microsoft brengt Zwitserse BTW in rekening voor alle klanten in Zwitserland of Liechtenstein.
+    1. Voor alle landen die niet Microsoft beheerd landen (**ISV beheerd landen**), uitgevers en stemt ermee in dat uitgevers zijn eigen verantwoordelijkheid om te bepalen en end klant belastingen, zoals registratie beheren belasting berekenen, de verzameling en waarin btw wordt berekend en validatie van business-status van klanten en de levering van Belastingfacturen aan klanten, alle aanbiedingen die moeten kiezen beschikbaar te maken in landen door ISV's worden beheerd.  Uitgevers erkent dat met betrekking tot een verkoop in een ISV beheerd land, Microsoft momenteel mogelijk niet kunnen bieden.
 
-1. **Landen waarin btw wordt berekend door ISV.**
+    1. Eindgebruikers kunnen aanbiedingen rechtstreeks van Microsoft of van Microsoft-partners aan wie licenties uitgever van het product.  Bovendien zijn er verschillende licentieverlening programma's.  In sommige gevallen mogelijk Microsoft beheerd landen ISV beheerd landen en vice versa mogelijk (Zie de sectie over **Microsoft beheerd landen**hieronder). Informatie met betrekking tot aankoop klantscenario kan worden gevonden [Veelgestelde vragen over Azure-Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide).
 
-    1. Landen waarin btw wordt berekend door ISV's zijn alle landen waarvoor verkopen zoals gedefinieerd in sectie 1 (3) van dit beleid die geen landen waarin btw wordt Microsoft. Bovendien worden verkopen voor Australië, Saoedi-Arabië, Taiwan en Verenigde Arabische Emiraten via de Enterprise-kanaal beschouwd als verkopen van de ISV waarin btw wordt berekend. Met betrekking tot uitgevers in Taiwan, niet kan Microsoft echter bevestigen dat dergelijke Taiwanese uitgevers zijn verzamelen en van toepassing zijnde belastingen remitteren.
+1. **Landen worden beheerd door Microsoft.**
 
-    1. Als uitgevers aanbiedingen beschikbaar te maken in een ISV-Afdrachtsland, hebben deze uitgevers eigen verantwoordelijkheid om te bepalen belastingplicht geldt in een dergelijke ISV-Afdrachtsland, indien van toepassing.  Ze moeten erkent dat Microsoft momenteel mogelijk niet om aan te geven die nodig is voor uitgevers aan klanten moeten leveren Belastingfacturen.
+    1. De volgende landen wordt Microsoft beheerd landen voor verkoop via alle aankoop klantscenario: Armenië, Wit-Rusland, Europese Unie, Canada, India, Ierland, Liechtenstein, Monaco, Nieuw-Zeeland, Noorwegen, Puerto Rico, Rusland, Saoedi-Arabië, Servië, Zuid-Korea, Zwitserland, Taiwan, Turkije, Verenigde Arabische Emiraten en Verenigde Staten. 
+
+    1. Australië is een Microsoft beheerd land voor de verkoop via alle klant aankoop-scenario's met uitzondering van de Enterprise Agreement customer purchase scenario.
+
+    1. Microsoft beheert end klant belasting voor de publisher uw gemak en is ervan uitgegaan dat de meest voorkomende scenario's voor het bepalen van de landen en strategieën voor het beheren van de belasting van end-klant.
+
+    1. Microsoft biedt geen garanties acties van Microsoft, volledig voldoen aan uitgevers verplichtingen van Microsoft beheerd landen.  Voor alle Microsoft beheerd landen is het raadzaam uitgevers werken met hun eigen adviseurs belasting om na te gaan of Microsoft Managed belastingafdracht voldoende nalevingsvereisten voor de uitgevers-adressen.  Dit is essentieel voor elke Microsoft beheerd landen waarin uitgevers hun producten verkopen.  Bijvoorbeeld, een uitgever in tot stand gebracht en verkopen van aanbiedingen in Saudi-Arabië besluiten dat afhankelijkheid van Microsoft voor het beheren van belasting mogelijk niet voldoende om te voldoen aan verplichtingen van de uitgever.
+
+1. **ISV beheerd landen.**
+
+    1. ISV beheerd landen Australië, bevatten voor het kopen van alle verkopen via de Enterprise overeenkomst-klant scenario en alle landen niet waarnaar wordt verwezen in de sectie op **Microsoft beheerd landen**.
+
+1. **Speciale gevallen.**
+
+    1. *Brazilië*.  Verkoop in Brazilië via alle klanten kopen in scenario's met uitzondering van de CSP, Brazilië is een Microsoft beheerd land/regio en Microsoft fungeert als een wederverkoper, in plaats van de uitgevers-agent.  Kopen scenario, Microsoft fungeert als de uitgevers-agent en verkoopt van een entiteit Brazilië aan Braziliaans CSP's die door Microsoft wordt ervan uitgegaan dat zijn exclusief btw voldoen aan het beleid voor de verkoop in Brazilië via de CSP-klant. 
+
+    1. *Mexico*.  Voor de verkoop in Mexico via de Enterprise Agreement customer purchase scenario, Mexico is een Microsoft beheerd land/regio en Microsoft fungeert als een wederverkoper, in plaats van de uitgevers-agent.  Voor de verkoop in Mexico via alle klant aankoop-scenario's met uitzondering van Enterprise Agreement, Mexico is een ISV beheerd land en Microsoft fungeert als de uitgevers-agent.
 
 ## <a name="security-events"></a>Beveiligingsgebeurtenissen
 

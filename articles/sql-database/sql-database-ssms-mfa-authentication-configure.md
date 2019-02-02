@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 06/13/2018
-ms.openlocfilehash: 1761c7040becf0bfe63caf12d8f5ea7b15e9b88b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/25/2018
+ms.openlocfilehash: 98d48659225d89f476ca1e3cc437245bc9e9f753
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162930"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564813"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Multi-factor authentication voor SQL Server Management Studio en Azure AD configureren
 
@@ -38,7 +38,7 @@ Dit onderwerp ziet u hoe u Azure Active Directory multi-factor authentication (M
 De volgende stappen laten zien hoe u verbinding maakt met SQL Database of SQL Data Warehouse met behulp van de nieuwste SSMS.
 
 1. Verbinding maken met behulp van universele authenticatie op de **verbinding maken met Server** in het dialoogvenster, selecteer **Active Directory - Universal met ondersteuning voor MFA**. (Als er **Universal verificatie van Active Directory** u zich niet op de meest recente versie van SSMS.)  
-   ![1mfa-universal-verbinding][1]  
+   ![1mfa-universal-connect][1]  
 2. Voltooi de **gebruikersnaam** vak met de Azure Active Directory-referenties, in de indeling `user_name@domain.com`.  
    ![1mfa-universal-connect-user](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
 3. Als u verbinding als een gastgebruiker maakt, klikt u op **opties**, en klik op de **verbindingseigenschap** in het dialoogvenster voltooid de **AD-domein of tenant-ID** vak. Zie voor meer informatie, [universele authenticatie met SQL-Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)](sql-database-ssms-mfa-authentication.md).
@@ -54,7 +54,7 @@ De volgende stappen laten zien hoe u verbinding maakt met SQL Database of SQL Da
 6. Twee dialoogvensters voor MFA-instellingen mogelijk weergegeven. Deze één keer-bewerking is afhankelijk van de beheerder van de MFA instellen en daarom optioneel zijn. Voor een domein MFA is ingeschakeld in deze stap is het soms vooraf gedefinieerde (bijvoorbeeld, het domein vereist voor gebruikers met een smartcard en de pincode).  
    ![3mfa-setup][3]  
 7. De tweede mogelijke één keer in het dialoogvenster kunt u de details van de verificatiemethode selecteren. De mogelijke opties zijn geconfigureerd door uw beheerder.  
-   ![4mfa-Controleer of-1][4]  
+   ![4mfa-verify-1][4]  
 8. De Azure Active Directory verzendt de bevestigende informatie voor u. Wanneer u de verificatiecode ontvangt, voert u deze in de **Voer de verificatiecode** vak en klikt u op **aanmelden**.  
    ![5mfa-verify-2][5]  
 
@@ -63,8 +63,8 @@ Als verificatie voltooid is, maakt SSMS verbinding normaal ervan uit geldige ref
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor een overzicht van Azure SQL Database multi-factor authentication, universele authenticatie met [SQL-Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)](sql-database-ssms-mfa-authentication.md).  
-- Anderen toegang verlenen tot uw database: [SQL Database-verificatie en autorisatie: toegang verlenen tot](sql-database-manage-logins.md)  
-- Zorg ervoor dat anderen verbinding kunnen maken via de firewall: [configureren van een Azure SQL Database-firewallregel op serverniveau met de Azure portal](sql-database-configure-firewall-settings.md)  
+- Anderen toegang verlenen tot uw database: [SQL Database-verificatie en autorisatie: Het verlenen van toegang](sql-database-manage-logins.md)  
+- Zorg ervoor dat anderen verbinding kunnen maken via de firewall: [Een Azure SQL Database-firewallregel op serverniveau met de Azure-portal configureren](sql-database-configure-firewall-settings.md)  
 - Bij het gebruik van **Active Directory - Universal met MFA** verificatie ADAL tracering is beschikbaar in [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Uitgeschakeld standaard, kunt u ADAL tracering met behulp van de **extra**, **opties** menu onder **Azure Services**, **Azure-Cloud**,  **ADAL-venster uitvoer het traceringsniveau**, gevolgd door in te schakelen **uitvoer** in de **weergave** menu. De traceringen zijn beschikbaar in het uitvoervenster weergegeven bij het selecteren van **Azure Active Directory-optie**.   
 
 

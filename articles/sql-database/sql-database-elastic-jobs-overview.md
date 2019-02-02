@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865519"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565238"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Uitgeschaalde clouddatabases beheren
 
@@ -67,7 +67,7 @@ Definieer aangepaste groepen van Azure SQL-databases en definieer schema's voor 
 > [!NOTE]
 > Alleen een beperkte set functies voor elastische pools voor SQL Azure beperkt is in de Azure-portal beschikbaar. Gebruik de PowerShell-APIs voor toegang tot de volledige set van huidige functionaliteit.
 
-## <a name="applications"></a>Toepassingen
+## <a name="applications"></a>Applicaties
 
 - Uitvoeren van beheertaken, zoals het implementeren van een nieuw schema.
 - Naslaginformatie over data-productinformatie algemene bijwerken voor alle databases. Of planningen automatische updates elke weekdag, uur.
@@ -81,8 +81,8 @@ Definieer aangepaste groepen van Azure SQL-databases en definieer schema's voor 
 2. Gebruik de PowerShell-APIs voor toegang tot meer functionaliteit, zoals het maken van aangepaste database verzamelingen, schema's toevoegen en/of resultatensets verzamelen. De portal te gebruiken voor eenvoudige installatie en het maken/beheren van taken die zijn beperkt tot uitvoering op basis van een **elastische pool**.
 3. Versleutelde referenties voor het uitvoeren van taak maken en [de gebruiker (of de rol) toevoegen aan elke database in de groep](sql-database-security-overview.md).
 4. Maak een idempotent T-SQL-script dat kan worden uitgevoerd op elke database in de groep.
-5. Volg deze stappen voor het maken van taken met behulp van de Azure-portal: [maken en beheren van taken voor Elastic Database](sql-database-elastic-jobs-create-and-manage.md).
-6. Of gebruik PowerShell-scripts: [maken en beheren van een SQL Database elastische databasetaken met behulp van PowerShell (preview)](sql-database-elastic-jobs-powershell.md).
+5. Volg deze stappen voor het maken van taken met behulp van de Azure-portal: [Het maken en beheren van taken voor Elastic Database](sql-database-elastic-jobs-create-and-manage.md).
+6. Of PowerShell-scripts gebruiken: [Een SQL Database elastic database-taken met behulp van PowerShell (preview) maken en beheren](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Idempotente scripts
 
@@ -116,7 +116,7 @@ Aangepaste groepen, worden aan de andere kant streng gedefinieerd. U moet explic
 
 De volgende onderdelen werken samen om u te maken van een Azure-Cloud-service waarmee ad-hoc uitvoeren van administratieve taken. De onderdelen zijn geïnstalleerd en wordt automatisch geconfigureerd tijdens de installatie in uw abonnement. Als ze allemaal dezelfde automatisch gegenereerde naam hebben, kunt u de services identificeren. De naam uniek is en bestaat uit het voorvoegsel "edj" gevolgd door 21 willekeurige tekens.
 
-- Azure-Cloudservice
+- Azure Cloud Service
 
   Taken voor elastic database (preview) wordt geleverd als een Azure-Cloud klant gehoste service uit te voeren van de aangevraagde taken. De service is geïmplementeerd en die worden gehost in uw Microsoft Azure-abonnement vanuit de portal. De standaardwaarde geïmplementeerd met het minimum van twee werkrollen voor hoge beschikbaarheid van de service wordt uitgevoerd. De standaardgrootte van elke worker-rol (ElasticDatabaseJobWorker) wordt uitgevoerd op een A0-exemplaar. Zie voor informatie over prijzen [prijsinformatie voor cloudservices](https://azure.microsoft.com/pricing/details/cloud-services/).
 
@@ -137,8 +137,8 @@ De volgende onderdelen werken samen om u te maken van een Azure-Cloud-service wa
 1. Een Azure SQL Database is aangewezen een **control database** waarin alle gegevens in de metagegevens en status wordt opgeslagen.
 2. De database wordt gebruikt door de **taak service** om te starten en bijhouden van taken om uit te voeren.
 3. Twee verschillende rollen communiceren met de database:
-   - Domeincontroller: Hiermee bepaalt u welke taken uit te voeren van de aangevraagde taak en mislukte taken voor nieuwe pogingen door het maken van nieuwe taken taken vereisen.
-   - Taak uitvoeren van taak: Hiermee voert de taken van jobs.
+   - Controller: Hiermee bepaalt u welke taken uit te voeren van de aangevraagde taak en mislukte taken voor nieuwe pogingen door het maken van nieuwe taken taken vereisen.
+   - Taak uitvoeren van taak: De taken uitgevoerd.
 
 ### <a name="job-task-types"></a>Taak taaktypen
 

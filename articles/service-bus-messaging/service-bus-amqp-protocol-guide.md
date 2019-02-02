@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: cf06be778fb1bd251b55adcc503db63a2adf3f8b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197922"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658263"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocolhandleiding
 
@@ -134,7 +134,7 @@ Een aanroep 'ontvangen' op het niveau van de API wordt omgezet in een *stroom* p
 
 De vergrendeling op een bericht wordt weer vrijgegeven wanneer de overdracht wordt verrekend in een van de terminal statussen *geaccepteerd*, *geweigerd*, of *die zijn uitgebracht*. Het bericht is verwijderd uit de Service Bus wanneer de definitieve status *geaccepteerd*. Het blijft in Service Bus en aan de volgende ontvanger wordt geleverd wanneer de overdracht een van de andere Staten bereikt. Het bericht verplaatst Service Bus automatisch naar de wachtrij voor onbestelbare transactieberichten van de entiteit wanneer het bereikt het maximumaantal leveringen toegestaan voor de entiteit vanwege herhaalde weigeringen of versies.
 
-Zelfs als de Service Bus-API's die een optie vandaag nog niet rechtstreeks blootstellen, kunt een lager niveau AMQP-protocol-client het link-tegoed-model gebruiken om in te schakelen van de interactie 'pull-stijl' van het uitgeven van één eenheid van tegoed voor elke aanvraag ontvangen in een model "push-stijl" door uitgifte van een groot aantal credits koppelen en vervolgens berichten ontvangen zodra deze beschikbaar zonder verdere tussenkomst. Push is alleen beschikbaar via de [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) of [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) eigenschapsinstellingen. Wanneer ze dan nul zijn, de AMQP-client wordt gebruikt als de koppeling-tegoed.
+Zelfs als de Service Bus-API's die een optie vandaag nog niet rechtstreeks blootstellen, kunt een lager niveau AMQP-protocol-client het link-tegoed-model gebruiken om in te schakelen van de interactie 'pull-stijl' van het uitgeven van één eenheid van tegoed voor elke aanvraag ontvangen in een model "push-stijl" door uitgifte van een groot aantal credits koppelen en vervolgens berichten ontvangen zodra deze beschikbaar zonder verdere tussenkomst. Push is alleen beschikbaar via de [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) of [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) eigenschapsinstellingen. Wanneer ze dan nul zijn, de AMQP-client wordt gebruikt als de koppeling-tegoed.
 
 In deze context is het belangrijk om te weten dat de klok voor de vervaldatum van de vergrendeling van het bericht in de entiteit wordt gestart wanneer het bericht is afkomstig uit de entiteit niet wanneer het bericht wordt geplaatst op de kabel. Wanneer de client aangeeft dat de gereedheid voor het ontvangen van berichten met behulp van de koppeling tegoed, is het daarom waarschijnlijk worden actief binnenhalen van berichten via het netwerk en klaar om deze te verwerken. Anders kan de vergrendeling van het bericht verlopen voordat het bericht zelfs wordt geleverd. Het gebruik van koppeling tegoed datatransportbesturing moet rechtstreeks vergelijkbaar zijn met direct gereed is om op te lossen met beschikbare berichten verzonden naar de ontvanger.
 
@@ -214,7 +214,7 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 | --- | --- | --- |
 | duurzame |- |- |
 | priority |- |- |
-| ttl |Time to live voor dit bericht |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |Time to live voor dit bericht |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | aantal bezorgingspogingen |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,17 +222,17 @@ Elke eigenschap die nodig is om definieert toepassing moet worden toegewezen aan
 
 | Veldnaam | Gebruik | API-naam |
 | --- | --- | --- |
-| bericht-id |Toepassingsspecifieke, vrije-id voor dit bericht. Gebruikt voor detectie van duplicaten. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| bericht-id |Toepassingsspecifieke, vrije-id voor dit bericht. Gebruikt voor detectie van duplicaten. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | gebruikers-id |Id van gebruiker toepassingsspecifieke, niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
-| tot |Toepassingsspecifieke doel-id niet geïnterpreteerd door Service Bus. |[Aan](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| onderwerp |Bericht toepassingsspecifieke doel-id, niet geïnterpreteerd door Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| Antwoordadres |Antwoord-path toepassingsspecifieke indicator niet geïnterpreteerd door Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| tot |Toepassingsspecifieke doel-id niet geïnterpreteerd door Service Bus. |[Aan](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| onderwerp |Bericht toepassingsspecifieke doel-id, niet geïnterpreteerd door Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| Antwoordadres |Antwoord-path toepassingsspecifieke indicator niet geïnterpreteerd door Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlatie-id |Toepassingsspecifieke correlatie-id niet geïnterpreteerd door Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | inhoudstype |Toepassingsspecifieke inhoudstype indicator voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Toepassingsspecifieke indicator codering van inhoud voor de hoofdtekst van het niet geïnterpreteerd door Service Bus. |Niet toegankelijk zijn via de Service Bus-API. |
-| absolute-expiry-time |Geeft aan op welke absolute instant het bericht is verlopen. Op de invoer (koptekst TTL wordt waargenomen), genegeerd gezaghebbende op uitvoer. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |Geeft aan op welke absolute instant het bericht is verlopen. Op de invoer (koptekst TTL wordt waargenomen), genegeerd gezaghebbende op uitvoer. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | creation-time |Verklaart op dat moment het bericht is gemaakt. Niet gebruikt door Service Bus |Niet toegankelijk zijn via de Service Bus-API. |
-| groep-id |Toepassingsspecifieke id voor een gerelateerde set berichten. Gebruikt voor Service Bus-sessies. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| groep-id |Toepassingsspecifieke id voor een gerelateerde set berichten. Gebruikt voor Service Bus-sessies. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | volgorde van de groep |Teller voor het identificeren van de relatieve volgnummer van het bericht in een sessie. Genegeerd door Servicebus. |Niet toegankelijk zijn via de Service Bus-API. |
 | antwoord-naar-groep-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 

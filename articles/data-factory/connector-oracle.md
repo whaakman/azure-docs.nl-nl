@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016904"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658026"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van de Data Factory-service die u gebruikt:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1:](v1/data-factory-onprem-oracle-connector.md)
 > * [Huidige versie](connector-oracle.md)
 
@@ -58,7 +58,7 @@ De volgende eigenschappen worden ondersteund voor de Oracle gekoppelde service.
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **Oracle**. | Ja |
-| connectionString | Hiermee geeft u de informatie die nodig zijn voor het verbinding maken met de Oracle-Database-exemplaar. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Verbindingstype ondersteund**: U kunt **Oracle-SID** of **Oracle-servicenaam** voor het identificeren van uw database:<br>-Als u beveiligings-id: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Als u de naam van de Service: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
+| connectionString | Hiermee geeft u de informatie die nodig zijn voor het verbinding maken met de Oracle-Database-exemplaar. <br/>Dit veld markeert als een SecureString Bewaar deze zorgvuldig in Data Factory. U kunt ook wachtwoord plaatsen in Azure Key Vault en pull de `password` configuratie buiten de verbindingsreeks. Raadpleeg de volgende voorbeelden en [referenties Store in Azure Key Vault](store-credentials-in-key-vault.md) artikel met meer informatie. <br><br>**Verbindingstype ondersteund**: U kunt **Oracle-SID** of **Oracle-servicenaam** voor het identificeren van uw database:<br>-Als u beveiligings-id: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Als u de naam van de Service: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!TIP]
@@ -126,6 +126,34 @@ De volgende eigenschappen worden ondersteund voor de Oracle gekoppelde service.
 }
 ```
 
+**Voorbeeld: wachtwoord opslaan in Azure Key Vault**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
 Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund voor de Oracle-gegevensset.
@@ -253,25 +281,25 @@ Wanneer u gegevens van en naar Oracle kopiëren, worden de volgende toewijzingen
 |:--- |:--- |
 | BBESTAND |Byte[] |
 | BLOB |Byte[]<br/>(alleen ondersteund op Oracle 10g en hoger) |
-| CHAR |Reeks |
-| CLOB |Reeks |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
-| DRIJVENDE KOMMA |Decimaal getal, tekenreeks (als precisie > 28) |
+| FLOAT |Decimaal getal, tekenreeks (als precisie > 28) |
 | GEHEEL GETAL ZIJN |Decimaal getal, tekenreeks (als precisie > 28) |
-| LANG |Reeks |
+| LONG |String |
 | LANGE ONBEWERKTE |Byte[] |
-| NCHAR |Reeks |
-| NCLOB |Reeks |
+| NCHAR |String |
+| NCLOB |String |
 | AANTAL |Decimaal getal, tekenreeks (als precisie > 28) |
-| NVARCHAR2 |Reeks |
-| ONBEWERKTE |Byte[] |
-| ROWID |Reeks |
-| TIJDSTEMPEL |DateTime |
-| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Reeks |
-| TIJDSTEMPEL MET TIJDZONE |Reeks |
+| NVARCHAR2 |String |
+| RAW |Byte[] |
+| ROWID |String |
+| TIMESTAMP |DateTime |
+| TIJDSTEMPEL MET DE LOKALE TIJDZONE |String |
+| TIJDSTEMPEL MET TIJDZONE |String |
 | GEHEEL GETAL ZONDER TEKEN |Aantal |
-| VARCHAR2 |Reeks |
-| XML |Reeks |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > De gegevenstypen INTERVAL jaar aan maand en het INTERVAL dag aan worden niet ten tweede ondersteund.

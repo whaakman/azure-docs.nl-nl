@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 35c5731d260fb63dece3d2b8ae4f4a4522fb91b8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153401"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564783"
 ---
 # <a name="date-claims-transformations"></a>Datum claims transformaties
 
@@ -23,7 +23,7 @@ ms.locfileid: "55153401"
 
 In dit artikel biedt voorbeelden voor het gebruik van de gegevenstransformaties claims van het schema Identiteitservaring-Framework in Azure Active Directory (Azure AD) B2C. Zie voor meer informatie, [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
+## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
 Controleert of een datum en tijd claim (tekenreeksgegevenstype) is hoger dan een tweede datum en tijd claim (gegevenstype string) en een uitzondering genereert.
 
@@ -85,7 +85,6 @@ De zelf-gecontroleerde technisch profiel roept de validatie **aanmelding niet-in
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
 - Resultaat: Fout opgetreden
 
-
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
 Converteert een **datum** ClaimType naar een **datum-/** ClaimType. De claimtransformatie converteert de tijdnotatie en 12:00:00 AM toegevoegd aan de datum.
@@ -98,7 +97,7 @@ Converteert een **datum** ClaimType naar een **datum-/** ClaimType. De claimtran
 Het volgende voorbeeld ziet u de conversie van de claim `dateOfBirth` (gegevenstype datum) op een andere claim `dateOfBirthWithTime` (gegevenstype datum/tijd).
 
 ```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -163,7 +162,7 @@ Als u wilt de claimtransformatie uitvoeren, moet u eerst om op te halen van de h
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -175,6 +174,5 @@ Als u wilt de claimtransformatie uitvoeren, moet u eerst om op te halen van de h
 - Invoerparameters die zijn opgegeven:
     - **operator**: later zijn dan
     - **timeSpanInSeconds**: 7776000 (90 dagen)
-- Uitvoerclaims: 
+- Uitvoerclaims:
     - **resultaat**: true
-

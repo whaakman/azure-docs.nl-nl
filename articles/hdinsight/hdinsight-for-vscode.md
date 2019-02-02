@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/15/2018
-ms.openlocfilehash: cd7c4014752fb5fa014fd8b5204206cd4efbfdce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 230c5a50efe762b8f27e6a0a84c36c74403b8ecc
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818520"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663873"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken
 
@@ -31,6 +31,7 @@ De volgende items zijn vereist voor de stappen in dit artikel:
 - Een HDInsight-cluster. Zie voor het maken van een cluster, [aan de slag met HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is alleen vereist voor Linux en macOS.
+- De VSCode [Azure-accountextensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ## <a name="install-the-hdinsight-tools"></a>De HDInsight-hulpprogramma's installeren
    
@@ -331,7 +332,7 @@ U kunt ook een bestand verzenden, wordt u ziet dat de map .vscode automatisch to
     | naam | description | type | 
     | :- | :- | :- | 
     | id | De sessie-id | int | 
-    | appId | De toepassings-id van deze sessie |  Reeks |
+    | appId | De toepassings-id van deze sessie |  String |
     | appInfo | De gedetailleerde toepassingsinfo | Kaart van sleutel = val |
     | log | De regels van het logboek | lijst met tekenreeksen |
     | state |   De batch-status | string |

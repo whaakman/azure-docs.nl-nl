@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: aa38fe3da118515b20d9b743a9a22b54e338051a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fcd8f4f8408c7c51265802fde057146e6cdbb090
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463702"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657617"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Een schijf toevoegen aan een virtuele Linux-machine
 Dit artikel ziet u hoe u een permanente schijf koppelen aan uw virtuele machine zodat u kunt uw gegevens - behouden, zelfs als uw virtuele machine is ingericht vanwege onderhoud vergroten of verkleinen. 
@@ -29,7 +29,7 @@ Dit artikel ziet u hoe u een permanente schijf koppelen aan uw virtuele machine 
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Een nieuwe schijf koppelen aan een virtuele machine
 
-Als u een nieuwe, lege gegevensschijf toevoegen op de virtuele machine wilt, gebruikt u de [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) opdracht met de `--new` parameter. Als uw virtuele machine in een Beschikbaarheidszone is, wordt de schijf wordt automatisch gemaakt in dezelfde regio bevindt als de virtuele machine. Zie voor meer informatie, [overzicht van Beschikbaarheidszones](../../availability-zones/az-overview.md). Het volgende voorbeeld wordt een schijf met de naam *myDataDisk* dat wil zeggen 50 Gb in grootte:
+Als u een nieuwe, lege gegevensschijf toevoegen op de virtuele machine wilt, gebruikt u de [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) opdracht met de `--new` parameter. Als uw virtuele machine in een Beschikbaarheidszone is, wordt de schijf wordt automatisch gemaakt in dezelfde regio bevindt als de virtuele machine. Zie voor meer informatie, [overzicht van Beschikbaarheidszones](../../availability-zones/az-overview.md). Het volgende voorbeeld wordt een schijf met de naam *myDataDisk* dat wil zeggen 50 Gb in grootte:
 
 ```azurecli
 az vm disk attach \
@@ -42,7 +42,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Een bestaande schijf koppelen 
 
-Als u wilt een bestaande schijf koppelen, de schijf-ID zoeken en geef de ID op door de [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) opdracht. De volgende voorbeeldquery's voor een schijf met de naam *myDataDisk* in *myResourceGroup*, koppelt u deze aan de virtuele machine met de naam *myVM*:
+Als u wilt een bestaande schijf koppelen, de schijf-ID zoeken en geef de ID op door de [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) opdracht. De volgende voorbeeldquery's voor een schijf met de naam *myDataDisk* in *myResourceGroup*, koppelt u deze aan de virtuele machine met de naam *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)

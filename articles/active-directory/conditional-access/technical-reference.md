@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9677f6e7f78f241c863fdd9cc88fcfb7298d9164
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302101"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563731"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -177,24 +177,27 @@ In het beleid voor voorwaardelijke toegang, kunt u **mobiele apps en bureaubladc
 Deze instelling heeft een invloed op een poging toegang van de volgende mobiele apps en bureaublad-clients: 
 
 
-|Client-apps|Target-Service|Platform|
-|---|---|---|
-|Azure RemoteApp|Azure RemoteApp-service|Windows 10, Windows 8.1, Windows 7, iOS, Android, en Mac OS X|
-|Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, iOS en Android|
-|Outlook 2016, agenda-e-mail/mensen app Outlook 2013 |Office 365 Exchange Online|Windows 10|
-|Beleid voor meervoudige verificatie en locatiebeleid voor apps. Op basis van apparaatbeleid wordt niet ondersteund. |Elke mijn Apps van appservice|Android en iOS|
-|Microsoft Teams-Services: Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android en macOS |
-|Office 2016-apps, Office 2013, OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Apps van Office 2016, universele Office-apps, Office 2013, OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), ondersteuning voor Office-groepen is gepland voor de toekomst, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
-|Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland|Office 365 SharePoint Online|Mac OS X|
-|Mobiele Office-apps|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer-app|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office voor Mac OS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013, Skype voor bedrijven|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Mobiele app van Outlook|Office 365 Exchange Online|Android, iOS|
-|Power BI-app|Power BI-service|Windows 10, Windows 8.1, Windows 7, Android en iOS|
-|Skype voor Bedrijven|Office 365 Exchange Online|Android, IOS |
-|Azure DevOps-app|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS en Android|
+| Client-apps| Target-Service| Platform |
+| --- | --- | --- |
+| Azure RemoteApp| Azure RemoteApp-service| Windows 10, Windows 8.1, Windows 7, iOS, Android en macOS|
+| Dynamics CRM-app| Dynamics CRM| Windows 10, Windows 8.1, iOS en Android|
+| Agenda-e-mail/mensen app, Outlook 2016, Outlook 2013 (met moderne verificatie)| Office 365 Exchange Online| Windows 10|
+| Beleid voor meervoudige verificatie en locatiebeleid voor apps. Op basis van apparaatbeleid wordt niet ondersteund.| Elke mijn Apps van appservice| Android en iOS|
+| Microsoft Teams-Services: Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android en macOS|
+| Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [opmerkingen bij de](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Apps van Office 2016, universele Office-apps, Office 2013 (met moderne verificatie), OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), ondersteuning voor Office-groepen is gepland voor de toekomst, ondersteuning voor SharePoint-app is gepland voor de toekomst| Office 365 SharePoint Online| Windows 10|
+| Office 2016 (Word, Excel, PowerPoint en OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland| Office 365 SharePoint Online| macOS|
+| Office 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Mobiele Office-apps| Office 365 SharePoint Online| Android, iOS|
+| Office Yammer-app| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Outlook 2016 (Office voor Mac OS)| Office 365 Exchange Online| macOS|
+| Outlook 2016, Outlook 2013 (met moderne verificatie), Skype voor bedrijven (met moderne verificatie)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Mobiele app van Outlook| Office 365 Exchange Online| Android, iOS|
+| Power BI-app| Power BI-service| Windows 10, Windows 8.1, Windows 7, Android en iOS|
+| Skype voor Bedrijven| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services-app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS en Android|
+
 
 
 ## <a name="support-for-legacy-authentication"></a>Ondersteuning voor legacy-verificatie
@@ -214,28 +217,33 @@ U kunt vereisen dat een toegang willen de geselecteerde cloud-apps moet worden u
 Deze instelling geldt voor de volgende client-apps:
 
 
-- Microsoft Intune Managed Browser
-- Microsoft PowerBI
-- Microsoft Invoicing
-- Microsoft Launcher
+
 - Microsoft Azure Information Protection
+- Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
 - Microsoft Kaizala 
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
-- Microsoft PowerPoint
 - Microsoft PowerApps
+- Microsoft PowerBI
+- Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype voor Bedrijven
 - Microsoft StaffHub
+- Microsoft Stream
 - Microsoft Teams
+- Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
-- Microsoft To-Do
-- Microsoft Stream
-- Microsoft Edge
+- Microsoft Yammer
+
+
 
 
 

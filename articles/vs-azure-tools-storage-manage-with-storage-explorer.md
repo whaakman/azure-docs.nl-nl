@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: cdfb1e11a2eb468e390546d69617ff4cadd17a7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422725"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658873"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Storage Explorer
 
@@ -63,7 +63,7 @@ Azure Storage Explorer werkt in een andere distributie, maar de enige die hierbo
 
 U moet ook de volgende afhankelijkheden/bibliotheken geïnstalleerd voor uitvoering van Azure Storage Explorer op Linux hebben:
 
-* [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * libsecret (Opmerking: libsecret 1.so.0 moet beschikbaar zijn op uw computer. Als u een andere versie van libsecret geïnstalleerd hebt, kunt u proberen voorlopig de .so-bestand te koppelen aan libsecret 1.so.0)
 * libgconf-2-4
 * Recente GCC
@@ -84,12 +84,12 @@ Storage Explorer biedt verschillende manieren om verbinding te maken met opslaga
 
 Bovendien kunt u wereldwijd en nationaal werken met opslagaccounts in Azure:
 
-* [Verbinding maken met een Azure-abonnement](#connect-to-an-azure-subscription): beheer opslagresources die deel uitmaken van uw Azure-abonnement.
-* [Verbinding maken met lokale opslag](#work-with-local-development-storage): beheer lokale opslag met de Azure-opslagemulator.
-* [Koppelen aan externe opslag](#attach-or-detach-an-external-storage-account): beheer de opslagresources die deel uitmaken van een ander Azure-abonnement of landelijke Azure-clouds, via de naam, sleutel en eindpunten van het opslagaccount.
-* [Een opslagaccount koppelen met behulp van een SAS](#attach-storage-account-using-sas): beheer de opslagresources die deel uitmaken van een ander Azure-abonnement via een handtekening voor gedeelde toegang (SAS).
-* [Een service koppelen met behulp van een SAS](#attach-service-using-sas): beheer een specifieke opslagservice (blobcontainer, wachtrij of tabel) die deel uitmaakt van een ander Azure-abonnement via een handtekening voor gedeelde toegang (SAS).
-* [Verbinding maken met een Azure Cosmos DB-account met behulp van een verbindingsreeks](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): beheren Cosmos DB-account met behulp van een verbindingsreeks.
+* [Verbinding maken met een Azure-abonnement](#connect-to-an-azure-subscription): Beheer de opslagresources die deel uitmaken van uw Azure-abonnement.
+* [Werken met lokale opslag](#work-with-local-development-storage): Lokale opslag beheren met behulp van de Azure-Opslagemulator.
+* [Koppelen aan externe opslag](#attach-or-detach-an-external-storage-account): Beheer de opslagresources die deel uitmaken van een ander Azure-abonnement of die zijn landelijke Azure-Clouds met behulp van de naam, sleutel en eindpunten van het storage-account.
+* [Een opslagaccount koppelen met behulp van een SAS](): Beheer de opslagresources die deel uitmaken van een andere Azure-abonnement met behulp van een shared access signature (SAS).
+* [Een service koppelen via SAS](#attach-service-using-sas): Beheer een specifieke opslagservice (blobcontainer, wachtrij of tabel) die deel uitmaakt van een andere Azure-abonnement met behulp van een SAS.
+* [Verbinding maken met een Azure Cosmos DB-account met behulp van een verbindingsreeks](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Cosmos DB-account beheren met behulp van een verbindingsreeks.
 
 ## <a name="connect-to-an-azure-subscription"></a>Verbinding maken met een Azure-abonnement
 
@@ -243,7 +243,7 @@ Een voorbeeld van dit scenario: stel gebruiker A is beheerder van een Azure-abon
 
     ![Verbinding maken met het dialoogvenster Azure Storage][16]
 
-3. Kies **gebruik een verbindingsreeks** en plak de verbindingsreeks in de **verbindingsreeks:** veld. Klik op de **volgende** knop.
+3. Kies **gebruik een verbindingsreeks** en plak de verbindingsreeks in de **verbindingsreeks:** veld. Klik op de knop **Next**
 
     ![Verbinding maken met het dialoogvenster Azure Storage][17]
 
@@ -275,7 +275,7 @@ In deze context is een service een blobcontainer, wachtrij, tabel, of bestandssh
 
     ![Verbinding maken met het dialoogvenster Azure Storage][16]
 
-3. Kies **gebruik van een SAS-URI** en plak de URI in de **URI:** veld. Klik op de **volgende** knop.
+3. Kies **gebruik van een SAS-URI** en plak de URI in de **URI:** veld. Klik op de knop **Next**
 
     ![Verbinding maken met het dialoogvenster Azure Storage][19]
 

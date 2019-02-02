@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e2aa82143b8e58e36509ee5d3adf99b34be89c69
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f6d5f2d7df483e0884779c3eac6a77f976e173c3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076607"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567029"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Bijwerken van Azure Machine Learning-modellen met behulp van de activiteit resources bijwerken
 In dit artikel is een aanvulling op de belangrijkste versie van Azure Data Factory - artikel voor Azure Machine Learning-integratie: [Voorspellende pijplijnen maken met Azure Machine Learning en Azure Data Factory](transform-data-using-machine-learning.md). Als u dit nog niet hebt gedaan, lees dan het belangrijkste artikel voordat u lezen in dit artikel.
@@ -57,9 +57,6 @@ De volgende JSON-fragment definieert een Azure Machine Learning Batch Execution-
 }
 ```
 
-
-
-
 | Eigenschap                      | Description                              | Vereist |
 | :---------------------------- | :--------------------------------------- | :------- |
 | naam                          | Naam van de activiteit in de pijplijn     | Ja      |
@@ -69,7 +66,6 @@ De volgende JSON-fragment definieert een Azure Machine Learning Batch Execution-
 | trainedModelName              | Naam van de Trained Model-module in het webservice-experiment worden bijgewerkt | Ja      |
 | trainedModelLinkedServiceName | De naam van gekoppelde Azure Storage-service beschikt over het ilearner-bestand dat is geüpload door de updatebewerking | Ja      |
 | trainedModelFilePath          | Het relatieve bestandspad in trainedModelLinkedService om weer te geven van het ilearner-bestand dat is geüpload door de updatebewerking | Ja      |
-
 
 ## <a name="end-to-end-workflow"></a>End-to-end werkstroom
 
@@ -114,14 +110,14 @@ Hier volgt een voorbeelddefinitie voor gekoppelde service:
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000  000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint1"
+                "type": "SecureString",
+                "value": "APIKeyOfEndpoint1"
             },
             "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
-            "type": "SecureString",
-            "value": "servicePrincipalKey"
+                "type": "SecureString",
+                "value": "servicePrincipalKey"
             },
             "tenant": "mycompany.com"
         }
@@ -147,7 +143,7 @@ Hier volgt de voorbeeld-JSON-definitie van de gekoppelde service:
 ```JSON
 {
     "name": "StorageLinkedService",
-      "properties": {
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
@@ -162,13 +158,13 @@ De volgende JSON-fragment definieert een Azure Machine Learning gekoppelde servi
 ```JSON
 {
     "name": "trainingEndpoint",
-      "properties": {
+    "properties": {
         "type": "AzureML",
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-              "apiKey": "myKey"
+            "apiKey": "myKey"
         }
-      }
+    }
 }
 ```
 
@@ -255,9 +251,9 @@ De pijplijn heeft twee activiteiten: **AzureMLBatchExecution** en **AzureMLUpdat
                 "typeProperties": {
                     "trainedModelName": "ADFV2Sample Model [trained model]",
                     "trainedModelLinkedServiceName": {
-                                "type": "LinkedServiceReference",
-                                "referenceName": "StorageLinkedService"
-                            },
+                        "type": "LinkedServiceReference",
+                        "referenceName": "StorageLinkedService"
+                    },
                     "trainedModelFilePath": "azuremltesting/output/newModelForArm.ilearner"
                 },
                 "dependsOn": [
@@ -265,8 +261,7 @@ De pijplijn heeft twee activiteiten: **AzureMLBatchExecution** en **AzureMLUpdat
                         "activity": "amlbeGetilearner",
                         "dependencyConditions": [ "Succeeded" ]
                     }
-                 ]
-
+                ]
             }
         ]
     }

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195586"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663635"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: Afhandeling van LargeObject-fouten die zijn veroorzaakt door userCertificate kenmerk
 
@@ -33,7 +33,7 @@ De LargeObject-fout kan worden veroorzaakt door andere AD-kenmerken. Om te beves
 
 Gebruik een van de volgende methoden om de lijst van objecten in uw tenant met LargeObject-fouten:
 
- * Als uw tenant is ingeschakeld voor Azure AD Connect Health voor synchroniseren, kunt u verwijzen naar de [synchronisatie foutenrapport](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) opgegeven.
+ * Als uw tenant is ingeschakeld voor Azure AD Connect Health voor synchroniseren, kunt u verwijzen naar de [synchronisatie foutenrapport](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) opgegeven.
  
  * De e-mailmelding voor directory synchronisatiefouten die wordt verzonden aan het einde van elke synchronisatiecyclus heeft de lijst met objecten met LargeObject-fouten. 
  * De [Synchronization Service Manager Operations-tabblad](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) wordt de lijst met objecten met LargeObject-fouten weergegeven als u klikt op de meest recente exporteren naar Azure AD-bewerking.
@@ -117,7 +117,7 @@ De nieuwe synchronisatieregel moet hebben dezelfde **bereikfilter** en **hogere 
     | Kenmerk | Value | Details |
     | --- | --- | --- |
     | Name | *Geef een naam* | Bijvoorbeeld, *"Uit voor AAD-aangepaste onderdrukking voor userCertificate"* |
-    | Beschrijving | *Geef een beschrijving* | Bijvoorbeeld, *"Als kenmerk userCertificate meer dan 15 waarden heeft, exporteren null zijn."* |
+    | Description | *Geef een beschrijving* | Bijvoorbeeld, *"Als kenmerk userCertificate meer dan 15 waarden heeft, exporteren null zijn."* |
     | Verbonden systeem | *Selecteer de Azure AD-Connector* |
     | Verbonden systeem objecttype | **user** | |
     | Metaverse-objecttype | **person** | |

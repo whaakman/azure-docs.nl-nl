@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 9837316cab503e6ade623e91a41176e6f4bfc84a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/08/2018
+ms.openlocfilehash: 1f26fb101c9940a51ffb4fb7e1b48a51b943599a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867647"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663737"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Universele authenticatie met SQL-Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)
 Azure SQL Database en Azure SQL Data Warehouse ondersteunt verbindingen van het gebruik van SQL Server Management Studio (SSMS) *Universal verificatie van Active Directory*. 
-**Download de nieuwste SSMS** : op de clientcomputer, de meest recente versie van SSMS, downloaden van [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Gebruik ten minste juli 2017, versie 17,2 voor de functies in dit artikel.  De meest recente verbinding in het dialoogvenster ziet er zo: ![1mfa-universal-verbinding](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "het gebruikersnaamveld is voltooid.")  
+**Download de nieuwste SSMS** : op de clientcomputer, de meest recente versie van SSMS, downloaden van [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Gebruik ten minste juli 2017, versie 17,2 voor de functies in dit artikel.  De meest recente verbinding in het dialoogvenster ziet er als volgt: ![1mfa-universal-verbinding](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "het gebruikersnaamveld is voltooid.")  
 
 ## <a name="the-five-authentication-options"></a>De vijf verificatie-opties  
 - De twee niet-interactieve verificatiemethoden biedt ondersteuning voor universele verificatie van Active Directory (`Active Directory - Password` verificatie en `Active Directory - Integrated` verificatie). Niet-interactieve `Active Directory - Password` en `Active Directory - Integrated` verificatiemethoden kunnen worden gebruikt in veel verschillende toepassingen (ADO.NET, JDBC, ODBC, enz.). Deze twee methoden worden nooit pop-dialoogvensters leiden.
@@ -52,8 +52,8 @@ Azure AD-gebruikers ondersteund voor Azure AD B2B-scenario's als gastgebruikers 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor de configuratiestappen, [Azure SQL-Database configureren multi-factor authentication voor SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
-- Anderen toegang verlenen tot uw database: [SQL Database-verificatie en autorisatie: toegang verlenen tot](sql-database-manage-logins.md)  
-- Zorg ervoor dat anderen verbinding kunnen maken via de firewall: [configureren van een Azure SQL Database-firewallregel op serverniveau met de Azure portal](sql-database-configure-firewall-settings.md)  
+- Anderen toegang verlenen tot uw database: [SQL Database-verificatie en autorisatie: Het verlenen van toegang](sql-database-manage-logins.md)  
+- Zorg ervoor dat anderen verbinding kunnen maken via de firewall: [Een Azure SQL Database-firewallregel op serverniveau met de Azure-portal configureren](sql-database-configure-firewall-settings.md)  
 - [Azure Active Directory-verificatie configureren en beheren met SQL Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
 - [Framework voor Microsoft SQL Server-Gegevenslaagtoepassingen (17.0.0 algemene beschikbaarheid)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  

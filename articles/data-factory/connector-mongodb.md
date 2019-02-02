@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0d6fe79d23f3d3d0679445f5120a3ec17ddd67
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013771"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562205"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Gegevens kopiëren van MongoDB met Azure Data Factory
 
@@ -88,7 +88,7 @@ Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het def
 
 ```json
 {
-     "name":  "MongoDbDataset",
+    "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbV2Collection",
         "linkedServiceName": {
@@ -116,7 +116,7 @@ De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** se
 | filter | Hiermee geeft u een selectie filteren met behulp van de standaardoperators voor query's. Als u wilt alle documenten in een verzameling, deze parameter weglaat of een leeg document doorgeven ({}). | Nee |
 | cursorMethods.project | Hiermee geeft u de velden weer in de documenten voor projectie. Als u wilt alle velden in de overeenkomende documenten retourneren, moet u deze parameter weglaat. | Nee |
 | cursorMethods.sort | Hiermee geeft u de volgorde waarin de query overeenkomende documenten retourneert. Raadpleeg [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nee |
-| cursorMethods.limit | Hiermee geeft u het maximum aantal documenten de server retourneert. Raadpleeg [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nee | 
+| cursorMethods.limit | Hiermee geeft u het maximum aantal documenten de server retourneert. Raadpleeg [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nee |
 | cursorMethods.skip | Hiermee geeft u het aantal documenten om over te slaan en uit waar MongoDB begint om resultaten te retourneren. Raadpleeg [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Nee |
 | batchSize | Hiermee geeft u het aantal documenten te retourneren in elke batch van het antwoord van de MongoDB-exemplaar. In de meeste gevallen de batchgrootte wijzigen heeft geen invloed op de gebruiker of de toepassing. Cosmos DB-limieten elke batch mag niet meer dan 40MB in grootte, die de som van het aantal batchSize van de grootte van documenten, verlaag zodat deze waarde als de documentgrootte van uw groot wordt. | Nee<br/>(de standaardwaarde is **100**) |
 

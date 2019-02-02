@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723141"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663560"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Verwijzingen van de Key Vault gebruiken voor App Service en Azure Functions (preview)
 
@@ -37,7 +37,7 @@ Om te kunnen lezen geheimen uit Key Vault, moet u een kluis hebt gemaakt en uw a
    > [!NOTE] 
    > Key Vault verwijst momenteel naar beheerde identiteiten alleen ondersteuning door het systeem toegewezen. Gebruiker toegewezen identiteiten kunnen niet worden gebruikt.
 
-1. Maak een [toegangsbeleid in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) voor de toepassingsidentiteit die u eerder hebt gemaakt. De geheime 'Get'-machtiging voor dit beleid inschakelen.
+1. Maak een [toegangsbeleid in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) voor de toepassingsidentiteit die u eerder hebt gemaakt. De geheime 'Get'-machtiging voor dit beleid inschakelen. De 'geautoriseerd toepassing' niet configureert of `appliationId` instellingen, als dit is niet compatibel met een beheerde identiteit.
 
 ## <a name="reference-syntax"></a>De syntaxis
 
@@ -46,7 +46,7 @@ De verwijzing naar een Key Vault heeft de vorm `@Microsoft.KeyVault({referenceSt
 > [!div class="mx-tdBreakAll"]
 > | Referentie-tekenreeks                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri =_secretUri_                                                       | De **SecretUri** moet de volledige data plane-URI van een geheim in Key Vault, met inbegrip van een versie, bijvoorbeeld https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | SecretUri=_secretUri_                                                       | De **SecretUri** moet de volledige data plane-URI van een geheim in Key Vault, met inbegrip van een versie, bijvoorbeeld https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName =_vaultName_; SecretName =_secretName_; SecretVersion =_secretVersion_ | De **VaultName** moet de naam van uw Key Vault-resource. De **SecretName** moet de naam van het geheim van het doel. De **SecretVersion** moet de versie van het geheim te gebruiken. |
 
 > [!NOTE] 

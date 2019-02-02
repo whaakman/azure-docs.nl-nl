@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: b46539758d88fe7a0e27799b5da581255fa5f075
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229329"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657022"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Het gebruik van beheerde identiteiten met Azure Container Instances
 
@@ -134,7 +134,7 @@ De `identity` sectie in de uitvoer lijkt op het volgende, waarin de identiteit i
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>De gebruiker toegewezen identiteit toegang verlenen tot de Key Vault
 
-Voer de volgende [az keyvault-beleid instellen](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) -opdracht uit om een beleid voor toegang in de Key Vault. Het volgende voorbeeld laat de gebruiker toegewezen identiteit geheimen ophalen uit de Key Vault:
+Voer de volgende [az keyvault-beleid instellen](/cli/azure/keyvault?view=azure-cli-latest) -opdracht uit om een beleid voor toegang in de Key Vault. Het volgende voorbeeld laat de gebruiker toegewezen identiteit geheimen ophalen uit de Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Container groepstoegang verlenen tot de Key Vault
 
-Voer de volgende [az keyvault-beleid instellen](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) -opdracht uit om een beleid voor toegang in de Key Vault. Het volgende voorbeeld kunt de identiteit systeem beheerde geheimen ophalen uit de Key Vault:
+Voer de volgende [az keyvault-beleid instellen](/cli/azure/keyvault?view=azure-cli-latest) -opdracht uit om een beleid voor toegang in de Key Vault. Het volgende voorbeeld kunt de identiteit systeem beheerde geheimen ophalen uit de Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

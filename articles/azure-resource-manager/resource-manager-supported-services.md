@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 109c740ee92e82b6d18879da6839ce6341353cba
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: aa61b88bb0a944a048bc4b2db9c542efe3e30ddf
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495510"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564116"
 ---
-# <a name="resource-providers-and-types"></a>Resourceproviders en -typen
+# <a name="azure-resource-providers-and-types"></a>Azure resourceproviders en typen
 
-Bij het implementeren van resources, moet u vaak informatie ophalen over de resourceproviders en -typen. In dit artikel leert u naar:
+Bij het implementeren van resources, moet u vaak informatie ophalen over de resourceproviders en -typen. In dit artikel leert u het volgende:
 
 * Alle resourceproviders bekijken in Azure
 * Controleer de status van de registratie van een resourceprovider
@@ -32,11 +32,53 @@ Bij het implementeren van resources, moet u vaak informatie ophalen over de reso
 * Geldige locaties voor een resourcetype weergeven
 * Ongeldig API-versies voor een resourcetype weergeven
 
-U kunt deze stappen via de portal, PowerShell of Azure CLI uitvoeren.
+U kunt deze stappen via de Azure portal, Azure PowerShell of Azure CLI uitvoeren.
+
+## <a name="azure-portal"></a>Azure-portal
+
+Om te zien van alle resourceproviders en de registratiestatus voor uw abonnement:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer **Alle services**.
+
+    ![abonnementen selecteren](./media/resource-manager-supported-services/select-subscriptions.png)
+3. In de **alle services** Voer **abonnement**, en selecteer vervolgens **abonnementen**.
+4. Selecteer het abonnement in de lijst met abonnementen om weer te geven.
+5. Selecteer **resourceproviders** en de lijst met beschikbare resourceproviders bekijken.
+
+    ![Resourceproviders weergeven](./media/resource-manager-supported-services/show-resource-providers.png)
+
+6. Een resourceprovider te registreren, configureert u uw abonnement om te werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Standaard worden veel providers van resources automatisch geregistreerd. Mogelijk moet u echter handmatig registreren door enkele resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Selecteer voor het registreren van een resourceprovider, **registreren**. In de vorige schermafbeelding, de **registreren** koppeling is gemarkeerd voor **Microsoft.Blueprint**.
+
+    Als u nog steeds resourcetypen van die resourceprovider in uw abonnement hebt niet kan u een resourceprovider registratie ongedaan maken.
+
+Om informatie te bekijken voor een bepaalde resourceprovider:
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer **alle services**...
+
+    ![Alle services selecteren](./media/resource-manager-supported-services/more-services.png)
+
+3. In de **alle services** Voer **resourceverkenner**, en selecteer vervolgens **Resource Explorer**.
+4. Vouw **Providers** door de pijl-rechts te selecteren.
+
+    ![Providers selecteren](./media/resource-manager-supported-services/select-providers.png)
+
+5. Vouw een resourceprovider en het resourcetype dat u wilt weergeven.
+
+    ![Resourcetype selecteren](./media/resource-manager-supported-services/select-resource-type.png)
+
+6. Resource Manager wordt ondersteund in alle regio's, maar de bronnen die u implementeert wordt mogelijk niet ondersteund in alle regio's. Bovendien kunnen er beperkingen met betrekking tot uw abonnement die verhinderen dat u met behulp van sommige regio's die ondersteuning bieden voor de resource. De resource explorer geeft geldige locaties voor het brontype.
+
+    ![Locaties weergeven](./media/resource-manager-supported-services/show-locations.png)
+
+7. De API-versie komt overeen met een versie van de REST API-bewerkingen die worden uitgegeven door de resourceprovider. Een resourceprovider nieuwe functies is ingeschakeld, geeft deze een nieuwe versie van de REST-API. De resource explorer geeft geldige API-versies voor het brontype.
+
+    ![API-versies weergeven](./media/resource-manager-supported-services/show-api-versions.png)
+
+## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="powershell"></a>PowerShell
 
 Als u wilt zien van alle resourceproviders in Azure en de status van de registratie voor uw abonnement, gebruikt u:
 
@@ -247,52 +289,9 @@ West US
 ...
 ```
 
-## <a name="portal"></a>Portal
-
-Als u wilt zien van alle resourceproviders in Azure en de status van de registratie voor uw abonnement, selecteer **abonnementen**.
-
-![abonnementen selecteren](./media/resource-manager-supported-services/select-subscriptions.png)
-
-Kies het abonnement om weer te geven.
-
-![abonnement opgeven](./media/resource-manager-supported-services/subscription.png)
-
-Selecteer **resourceproviders** en de lijst met beschikbare resourceproviders bekijken.
-
-![Resourceproviders weergeven](./media/resource-manager-supported-services/show-resource-providers.png)
-
-Een resourceprovider te registreren, configureert u uw abonnement om te werken met de resourceprovider. Het bereik voor de registratie is altijd het abonnement. Standaard worden veel providers van resources automatisch geregistreerd. Mogelijk moet u echter handmatig registreren door enkele resourceproviders. Als u wilt een resourceprovider registreren, moet u gemachtigd om uit te voeren de `/register/action` bewerking voor de resourceprovider. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Selecteer voor het registreren van een resourceprovider, **registreren**.
-
-![De resourceprovider registreren](./media/resource-manager-supported-services/register-provider.png)
-
-Als u nog steeds resourcetypen van die resourceprovider in uw abonnement hebt niet kan u een resourceprovider registratie ongedaan maken.
-
-Gegevens voor een bepaalde resourceprovider wilt bekijken, selecteert u **alle services**.
-
-![Alle services selecteren](./media/resource-manager-supported-services/more-services.png)
-
-Zoeken naar **Resource Explorer** en selecteert u deze uit de beschikbare opties.
-
-![Selecteer resource explorer](./media/resource-manager-supported-services/select-resource-explorer.png)
-
-Selecteer **Providers**.
-
-![Providers selecteren](./media/resource-manager-supported-services/select-providers.png)
-
-Selecteer de resourceprovider en het resourcetype dat u wilt weergeven.
-
-![Resourcetype selecteren](./media/resource-manager-supported-services/select-resource-type.png)
-
-Resource Manager wordt ondersteund in alle regio's, maar de bronnen die u implementeert wordt mogelijk niet ondersteund in alle regio's. Bovendien kunnen er beperkingen met betrekking tot uw abonnement die verhinderen dat u met behulp van sommige regio's die ondersteuning bieden voor de resource. De resource explorer geeft geldige locaties voor het brontype.
-
-![Locaties weergeven](./media/resource-manager-supported-services/show-locations.png)
-
-De API-versie komt overeen met een versie van de REST API-bewerkingen die worden uitgegeven door de resourceprovider. Een resourceprovider nieuwe functies is ingeschakeld, geeft deze een nieuwe versie van de REST-API. De resource explorer geeft geldige API-versies voor het brontype.
-
-![API-versies weergeven](./media/resource-manager-supported-services/show-api-versions.png)
-
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het maken van Resource Manager-sjablonen, [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
+* Zie voor meer informatie over het maken van Resource Manager-sjablonen, [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md). 
+* Het sjabloonschema resource provider, Zie [sjabloonverwijzing](/azure/templates/).
 * Zie voor meer informatie over het implementeren van resources, [een toepassing implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 * Als u de bewerkingen voor een resourceprovider, Zie [REST API van Azure](/rest/api/).

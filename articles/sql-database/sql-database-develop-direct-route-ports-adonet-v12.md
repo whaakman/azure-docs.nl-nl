@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260020"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560886"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Poorten boven 1433 voor ADO.NET 4.5
+
 Dit onderwerp beschrijft het gedrag van de Azure SQL Database-verbindingen voor clients die gebruikmaken van ADO.NET 4.5 of hoger. 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ Dit onderwerp beschrijft het gedrag van de Azure SQL Database-verbindingen voor 
 >
 
 ## <a name="outside-vs-inside"></a>Buiten vs binnen
+
 Voor verbindingen met Azure SQL Database, moet eerst vragen we uw clientprogramma wordt uitgevoerd of *buiten* of *binnen* de grens van de Azure-cloud. De subsecties worden twee algemene scenario's besproken.
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*Buiten:* Client wordt uitgevoerd op uw desktopcomputer
+
 Poort 1433 is de enige poort die moet worden geopend op uw computer die als host fungeert voor de clienttoepassing van uw SQL-Database.
 
-#### <a name="inside-client-runs-on-azure"></a>*Binnen:* Client wordt uitgevoerd op Azure
+#### <a name="inside-client-runs-on-azure"></a>*In:* Client wordt uitgevoerd op Azure
+
 Wanneer de client wordt uitgevoerd binnen de grenzen van de Azure-cloud, gebruikt deze kunt zogeheten een *direct route* om te communiceren met de SQL Database-server. Nadat een verbinding tot stand is gebracht, verdere interactie tussen de client en de database hebben betrekking op geen Azure SQL Database-Gateway.
 
 De volgorde is als volgt:
@@ -76,6 +80,6 @@ In deze sectie wordt uitleg gegeven over de monikers die naar versies van het pr
 * [Lijst met de versie van de TDS-protocol](http://www.freetds.org/userguide/tdshistory.htm)
 * [Overzicht van de ontwikkeling van de SQL Database](sql-database-develop-overview.md)
 * [Azure SQL Database-firewall](sql-database-firewall-configure.md)
-* [Hoe: firewallinstellingen voor SQL-Database configureren](sql-database-configure-firewall-settings.md)
+* [Procedure: Firewallinstellingen voor SQL Database configureren](sql-database-configure-firewall-settings.md)
 
 

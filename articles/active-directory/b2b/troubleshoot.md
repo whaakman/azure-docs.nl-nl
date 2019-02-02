@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 764b5defd2fb647fd52e1e93441b68ffe492d0c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a525bdf422c61526e092c84ac9916dad6b68dd1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181262"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656376"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Oplossen van problemen met Azure Active Directory B2B-samenwerking
 
@@ -79,7 +79,7 @@ Als dit scenario voor u belangrijk is, kunt u onze API uitnodigingse-mail onderd
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Een gastgebruiker met een just-in-time- of 'viraal'-tenant is kan niet hun wachtwoord opnieuw instellen
 
-Als de tenant-identiteit een just-in-time (JIT) of een virale tenant is (wat betekent dat het een afzonderlijke, niet-beheerde Azure-tenant), alleen de gastgebruiker kan hun wachtwoord opnieuw instellen. Soms een organisatie wordt [neemt het beheer van virale tenants](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) die worden gemaakt wanneer werknemers hun werk-e-mailadressen gebruiken om u te registreren voor services. Nadat de organisatie ten opzichte van een virale tenant heeft, kunt alleen een beheerder in die organisatie van de gebruiker-wachtwoord opnieuw instellen of SSPR inschakelen. Indien nodig, als de organisatie, kunt u het gastgebruikersaccount verwijderen uit uw directory en een uitnodiging opnieuw verzenden.
+Als de tenant-identiteit een just-in-time (JIT) of een virale tenant is (wat betekent dat het een afzonderlijke, niet-beheerde Azure-tenant), alleen de gastgebruiker kan hun wachtwoord opnieuw instellen. Soms een organisatie wordt [neemt het beheer van virale tenants](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) die worden gemaakt wanneer werknemers hun werk-e-mailadressen gebruiken om u te registreren voor services. Nadat de organisatie ten opzichte van een virale tenant heeft, kunt alleen een beheerder in die organisatie van de gebruiker-wachtwoord opnieuw instellen of SSPR inschakelen. Indien nodig, als de organisatie, kunt u het gastgebruikersaccount verwijderen uit uw directory en een uitnodiging opnieuw verzenden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

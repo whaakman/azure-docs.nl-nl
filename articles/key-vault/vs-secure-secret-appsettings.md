@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 8f3cdf366830549c3ebb9c5680ecf36d1053d1d9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075291"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662281"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Geheime toepassingsinstellingen voor een webtoepassing veilig opslaan
 
@@ -32,7 +32,7 @@ Hulpprogramma's en framework-bibliotheken worden om er zeker van te zijn ontwikk
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET en .NET core-toepassingen
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Geheime instellingen opslaan in archief geheim van de gebruiker die buiten de bron-versiebeheermap
-Als u een snelle prototype uitvoert of u geen toegang tot internet hebt, kunt u beginnen met het verplaatsen van de geheime instellingen buiten de bron-versiebeheermap naar gebruiker geheim store. Geheime archief van de gebruiker is een bestand opgeslagen onder de map gebruiker profiler, zodat de geheimen zijn niet ingecheckt met resourcebeheer. Het volgende diagram laat zien hoe [gebruiker geheim](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) werkt.
+Als u een snelle prototype uitvoert of u geen toegang tot internet hebt, kunt u beginnen met het verplaatsen van de geheime instellingen buiten de bron-versiebeheermap naar gebruiker geheim store. Geheime archief van de gebruiker is een bestand opgeslagen onder de map gebruiker profiler, zodat de geheimen zijn niet ingecheckt met resourcebeheer. Het volgende diagram laat zien hoe [gebruiker geheim](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) werkt.
 
 ![Geheim van de gebruiker blijft geheime instellingen buiten het besturingselement](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 

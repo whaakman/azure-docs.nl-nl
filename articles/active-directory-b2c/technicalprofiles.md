@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c197ead3a7b0f61b9dd5f1e3ea0bd197c23a2778
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180761"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568172"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -97,7 +97,7 @@ De **TechnicalProfile** bevat de volgende elementen:
 | OutputClaimsTransformations | 0:1 | Een lijst met vooraf gedefinieerde verwijzingen naar claimtransformaties die moeten worden uitgevoerd nadat de claims worden ontvangen van de claimprovider. |
 | ValidationTechnicalProfiles | 0: n | Een lijst met verwijzingen naar andere technische profielen die gebruikmaakt van het technische profiel ter validatie. Zie voor meer informatie, [validatie technisch profiel](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Hiermee bepaalt u de productie van de onderwerpnaam in tokens waarbij de naam van het onderwerp op een afzonderlijk van claims is opgegeven. Bijvoorbeeld, OAuth of SAML.  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | Een id van een technisch profiel van waaruit u wilt dat alle van de invoer- en claims moeten worden toegevoegd aan het technische profiel. De waarnaar wordt verwezen, technisch profiel moet worden gedefinieerd in hetzelfde beleidsbestand. | 
+| IncludeClaimsFromTechnicalProfile | 0:1 | Een id van een technisch profiel van waaruit u wilt dat alle van de invoer- en claims moeten worden toegevoegd aan het technische profiel. De waarnaar wordt verwezen, technisch profiel moet worden gedefinieerd in hetzelfde beleidsbestand. |
 | IncludeTechnicalProfile |0:1 | Een id van een technisch profiel van waaruit u wilt dat alle gegevens moeten worden toegevoegd aan het technische profiel. De waarnaar wordt verwezen, technisch profiel moet zich in hetzelfde beleidsbestand. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Een ander technisch profiel moet worden gebruikt voor het sessiebeheer van de. |
 |EnabledForUserJourneys| 0:1 |Bepaalt of het technische profiel wordt uitgevoerd in een gebruikersbeleving.  |
@@ -168,7 +168,7 @@ De **InputClaims** element bevat het volgende element:
 | ------- | ----------- | ----------- |
 | InputClaim | 1: n | Een verwachte invoer claimtype. |
 
-#### <a name="inputclaim"></a>InputClaim 
+#### <a name="inputclaim"></a>InputClaim
 
 De **InputClaim** element bevat de volgende kenmerken:
 
@@ -186,7 +186,7 @@ De **PersistedClaims** element bevat de volgende elementen:
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1: n | Het claimtype om vast te leggen. |
 
-#### <a name="persistedclaim"></a>PersistedClaim 
+#### <a name="persistedclaim"></a>PersistedClaim
 
 De **PersistedClaim** element bevat de volgende kenmerken:
 
@@ -204,7 +204,7 @@ De **OutputClaims** element bevat het volgende element:
 | ------- | ----------- | ----------- |
 | OutputClaim | 1: n | Verwachte uitvoer claimtype. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 De **OutputClaim** element bevat de volgende kenmerken:
 
@@ -275,9 +275,9 @@ De **UseTechnicalProfileForSessionManagement** element bevat het volgende kenmer
 De **ClaimsProviderSelections** in een gebruiker reis definieert u de lijst met opties voor de selectie van claims-provider en de volgorde daarvan. Met de **EnabledForUserJourneys** element dat u hebt gefilterd, welke claimprovider beschikbaar voor de gebruiker is. De **EnabledForUserJourneys** element bevat een van de volgende waarden:
 
 - **Altijd**, uitvoeren van het technische profiel.
-- **Nooit**, het technische profiel overslaan. 
-- **OnClaimsExistence** uitvoeren alleen wanneer een bepaalde claim, opgegeven in het technische profiel bestaat. 
-- **OnItemExistenceInStringCollectionClaim**, alleen wanneer een item bestaat in een tekenreeks verzameling claim worden uitgevoerd. 
+- **Nooit**, het technische profiel overslaan.
+- **OnClaimsExistence** uitvoeren alleen wanneer een bepaalde claim, opgegeven in het technische profiel bestaat.
+- **OnItemExistenceInStringCollectionClaim**, alleen wanneer een item bestaat in een tekenreeks verzameling claim worden uitgevoerd.
 - **OnItemAbsenceInStringCollectionClaim** alleen wanneer een item bestaat niet in een tekenreeks verzameling claim worden uitgevoerd.
 
 Met behulp van **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** of **OnItemAbsenceInStringCollectionClaim**, moet u het volgende opgeven metagegevens: **ClaimTypeOnWhichToEnable** Hiermee geeft u het claimtype moet worden geëvalueerd, **ClaimValueOnWhichToEnable** Hiermee geeft u de waarde die moet worden vergeleken.
@@ -289,22 +289,10 @@ De volgende technische profiel wordt alleen uitgevoerd als de **identityProvider
   <DisplayName>Unlink Facebook</DisplayName>
 ...
     <Metadata>
-        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
-        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
-    </Metadata>        
+      <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+      <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>
 ...
   <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

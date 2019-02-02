@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4b9c57785b9b3176def495af6bc5956d70fa5c35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971117"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657906"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de Apache Hadoop-onderdelen en versies die beschikbaar met HDInsight?
 
@@ -31,7 +31,7 @@ De component-versies die zijn gekoppeld aan de versies van HDInsight-cluster wor
 > [!NOTE]  
 > De standaardversie voor de HDInsight-service kan zonder kennisgeving worden gewijzigd. Als u een afhankelijkheid versie hebt, geeft u de HDInsight-versie wanneer u uw clusters met de .NET-SDK met Azure PowerShell en de klassieke Azure-CLI maken.
 
-| Onderdeel | HDInsight 4.0 (Preview) | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | 3.2 voor HDInsight | HDInsight 3.1 | HDInsight 3.0 |
+| Onderdeel | HDInsight 4.0 (Preview) | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop en YARN |3.1.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -49,7 +49,7 @@ De component-versies die zijn gekoppeld aan de versies van HDInsight-cluster wor
 | Apache Mahout |-|0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (alleen Windows) |-|-|
-| Apache Livy |0.5 |0.4 |0,3 |0,3 |0.2 |-|-|-|
+| Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
 | Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
@@ -93,10 +93,10 @@ De volgende tabel bevat de versies van HDInsight die **niet** beschikbaar in de 
 | HDInsight-versie | HDP-versie | VM OS | Releasedatum | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 <br> (Niet-Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |En met 30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nee |
-| HDInsight 3.4 |HDP 2.4 |14.0.4 Ubuntu LTS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nee |
-| HDInsight 3.3 |HDP 2.3 |14.0.4 Ubuntu LTS |2 december 2015 |27 juni 2016 |En met 31 juli 2017 |Ja |Nee |
-| 3.2 voor HDInsight |HDP 2.2 |Ubuntu 12.04 LTS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |Vanaf 1 april 2017 |Ja |Nee |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 december 2015 |27 juni 2016 |En met 31 juli 2017 |Ja |Nee |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |Vanaf 1 april 2017 |Ja |Nee |
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 mei 2015 |Tot 30 juni 2016 |Ja |Nee |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Op 11 februari 2014 |17 september 2014 |En met 30 juni 2015 |Ja |Nee |
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 oktober 2013 |Vanaf 12 mei 2014 |En met 31 mei 2015 |Ja |Nee |
@@ -139,7 +139,7 @@ Op dit moment ondersteunen alleen de volgende clustertypen de Enterprise-beveili
 - Spark
 - Interactive Query
 
-### <a name="support-for-azure-data-lake-storage"></a>Ondersteuning voor Azure Data Lake-opslag
+### <a name="support-for-azure-data-lake-storage"></a>Ondersteuning voor Azure Data Lake Storage
 
 De Enterprise-beveiligingspakket ondersteunt het gebruik van Azure Data Lake Storage als zowel de primaire opslag en de extra opslag.
 
@@ -228,26 +228,56 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
 
 * Alle ondersteunde regio's met uitzondering van Brazilië-Zuid en Japan (West):
 
-  | Clustertype | Hadoop | HBase | Interactive Query | Storm | Spark  | ML-Server |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: standaard VM-grootte |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
-  | HEAD: aanbevolen VM-grootten |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |A4 versie 2,<br/> A8 versie 2,<br/> A2m v2 |D12 v2<br/> D13 v2,<br/> D14 v2 |D12 v2<br/> D13 v2,<br/> D14 v2 |
-  | Werknemer: standaard VM-grootte |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
-  | Werknemer: aanbevolen VM-grootten |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |D3 v2<br/> D4 v2<br/> D12 v2 |D4 v2<br/> D12 v2<br/> D13 v2,<br/> D14 v2 |D4 v2<br/> D12 v2<br/> D13 v2,<br/> D14 v2 |
-  | ZooKeeper: standaard VM-grootte | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
-  | ZooKeeper: aanbevolen VM-grootten | |A4 versie 2,<br/> A8 versie 2,<br/> A2m v2 | | A2 versie 2,<br/> A4 versie 2,<br/> A8 v2 | | |
-  | Edge: standaard VM-grootte | | | | | |D4 v2 |
-  | Edge: aanbevolen VM-grootte | | | | | |D4 v2<br/> D12 v2<br/> D13 v2,<br/> D14 v2 |
+<html><body><table width="100%">
+<tr align="left"><th>Clustertype</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>ML Server&nbsp;</th><th>Kafka&nbsp;</th></tr>
+
+<tr><td>HEAD: standaard VM-grootte</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="4" valign="top">HEAD: aanbevolen VM-grootten</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
+
+<tr><td>Werknemer: standaard VM-grootte</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>4 D12v2 met 2 S30 schijven per broker</td></tr>
+
+<tr><td rowspan="8" valign="top">Werknemer: aanbevolen VM-grootten</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
+<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
+<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
+
+<tr><td>ZooKeeper: standaard VM-grootte</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="3" valign="top">ZooKeeper: aanbevolen VM-grootten</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
+<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
+<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
+
+<tr align="left"><td>Edge: standaard VM-grootte</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+
+<tr><td rowspan="8" valign="top">Edge: aanbevolen VM-grootte</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
+
+</table></body></html>
+
 * Brazilië-Zuid en Japan-West alleen (geen v2-grootte):
 
   | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: standaard VM-grootte |D12 |D12  | D13 |A3 |D12 |D12 |
-  | HEAD: aanbevolen VM-grootten |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | HEAD: aanbevolen VM-grootten |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
   | Werknemer: standaard VM-grootte |D4 |D4  |  D14 |D3 |D13 |D4 |
   | Werknemer: aanbevolen VM-grootten |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: standaard VM-grootte | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
-  | ZooKeeper: aanbevolen VM-grootten | |A2,<br/> A3<br/> A4 | |A2,<br/> A3<br/> A4 | | |
+  | ZooKeeper: aanbevolen VM-grootten | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
   | Edge: standaard VM-grootten | | | | | |D4 |
   | Edge: aanbevolen VM-grootten | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 

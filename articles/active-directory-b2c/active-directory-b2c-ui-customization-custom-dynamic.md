@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7c17b873daf3cf77760f934b6c8a591f232b0c7b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187076"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658195"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: De gebruikersinterface met dynamische inhoud configureren met behulp van aangepaste beleidsregels
 
@@ -39,7 +39,7 @@ In een aangepast beleid definieert een inhoudsdefinitie de HTML5-pagina URI die 
 
 De `ContentDefinitions` sectie bevat een reeks `ContentDefinition` XML-elementen. Het kenmerk ID van de `ContentDefinition` element Hiermee geeft u het type van de pagina die is gekoppeld aan de definitie van de inhoud. Het element bepaalt dat wil zeggen, de context die u een aangepaste HTML5/CSS-sjabloon wilt toepassen. De volgende tabel beschrijft de set met inhoud definitie-id's die worden herkend door de engine IEF en de typen van de pagina's die betrekking hebben op deze.
 
-| De definitie van de inhoud-ID | Standaardsjabloon voor HTML5| Beschrijving | 
+| De definitie van de inhoud-ID | Standaardsjabloon voor HTML5| Description | 
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Foutpagina**. Deze pagina wordt weergegeven wanneer er een uitzondering of een fout is opgetreden. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina voor het id-provider selecteren**. Deze pagina geeft een lijst met id-providers die gebruikers uit tijdens het aanmelden kiezen kunnen. De opties zijn meestal enterprise id-providers, sociale id-providers, zoals Facebook en Google + of lokale accounts. |
@@ -155,7 +155,7 @@ Zoek de `<img>` -element waarin de `ID` waarde *background_background_image*, en
     De **Create App Service** venster wordt geopend. In deze kunt u beginnen met het maken van alle benodigde Azure-resources voor het uitvoeren van de ASP.NET-web-app in Azure.
 
     > [!NOTE]
-    > Zie voor meer informatie over publicatie [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Zie voor meer informatie over publicatie [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. In de **Web-Appnaam** typt u een unieke app-naam (geldige tekens zijn a-z, A-Z, 0-9 en het koppelteken (-). De URL van de web-app is `http://<app_name>.azurewebsites.NET`, waarbij `<app_name>` de naam van uw web-app is. U kunt de automatisch gegenereerde naam accepteren, die uiteraard uniek is.
 

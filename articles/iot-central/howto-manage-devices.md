@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004880"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658111"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Beheer van apparaten in uw Azure IoT Central-toepassing
 
@@ -23,6 +23,8 @@ Dit artikel wordt beschreven hoe u, als operator voor het beheren van apparaten 
 - Onderhouden een actuele inventaris van uw apparaten.
 - De metagegevens van uw apparaten up-to-date houden door de waarden die zijn opgeslagen in de apparaateigenschappen te wijzigen.
 - De werking van uw apparaten beheren door het bijwerken van een instelling op een specifiek apparaat uit de **instellingen** pagina.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>Uw apparaten weergeven
 
@@ -116,7 +118,7 @@ Bulksgewijs export-apparaten van uw toepassing:
 
     [![Exporteren geslaagd](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. Het geëxporteerde CSV-bestand heeft de volgende informatie in de kolommen: **thumbrpints van apparaat-Id, de naam van apparaat, apparaat Priamry/secundaire sleutels en primair/secundair certificaat**
+1. Het geëxporteerde CSV-bestand heeft de volgende informatie in de kolommen: **Apparaat-Id, de naam van apparaat, apparaat Priamry/secundaire sleutels en primair/secundair certificaat thumbrpints**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

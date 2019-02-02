@@ -4,17 +4,17 @@ description: Azure Policy definition hebben verschillende effecten die bepalen h
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: cf30d5dd8648a2b1da3f4a40399376182bf342c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912506"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562297"
 ---
 # <a name="understand-policy-effects"></a>Inzicht in de effecten van het beleid
 
@@ -50,7 +50,7 @@ Toevoeg-wordt gebruikt voor het toevoegen van extra velden naar de aangevraagde 
 
 ### <a name="append-evaluation"></a>Toevoeg-evaluatie
 
-Toevoeg-evalueert voordat de aanvraag wordt verwerkt door een Resourceprovider tijdens het maken of bijwerken van een resource. Toevoeg-velden toevoegt aan de resource als de **als** wordt voldaan aan de voorwaarde van de beleidsregel. Als het effect append een waarde in de oorspronkelijke aanvraag met een andere waarde overschrijven zou, klikt u vervolgens deze fungeert als een weigeractie en weigert de aanvraag.
+Toevoeg-evalueert voordat de aanvraag wordt verwerkt door een Resourceprovider tijdens het maken of bijwerken van een resource. Toevoeg-velden toevoegt aan de resource als de **als** wordt voldaan aan de voorwaarde van de beleidsregel. Als het effect append een waarde in de oorspronkelijke aanvraag met een andere waarde overschrijven zou, klikt u vervolgens deze fungeert als een weigeractie en weigert de aanvraag. Als u wilt een nieuwe waarde aan een bestaande matrix toevoegen, gebruikt u de **[\*]** versie van de alias.
 
 Wanneer de beleidsdefinitie van een met behulp van het effect toevoegen wordt uitgevoerd als onderdeel van een evaluatiecyclus van een, aanbrengen niet het wijzigingen in resources die al bestaan. In plaats daarvan het markeert een resource die voldoet aan de **als** voorwaarde als niet-compatibel.
 
@@ -89,7 +89,8 @@ Voorbeeld 2: Twee **veld/waarde** paren toe te voegen een set van labels.
 }
 ```
 
-Voorbeeld 3: Één **veld/waarde** worden gekoppeld met behulp van een [alias](definition-structure.md#aliases) met een matrix **waarde** IP-regels instellen op een storage-account.
+Voorbeeld 3: Één **veld/waarde** worden gekoppeld met behulp van een niet -**[\*]**
+[alias](definition-structure.md#aliases) met een matrix **waarde** IP-regels instellen op een Storage-account. Wanneer het niet -**[\*]** alias is een matrix, het effect voegt de **waarde** als de volledige matrix. Als de matrix al bestaat, treedt een gebeurtenis weigeren op van het conflict.
 
 ```json
 "then": {
@@ -100,6 +101,21 @@ Voorbeeld 3: Één **veld/waarde** worden gekoppeld met behulp van een [alias](d
             "action": "Allow",
             "value": "134.5.0.0/21"
         }]
+    }]
+}
+```
+
+Voorbeeld 4: Één **veld/waarde** worden gekoppeld met behulp van een **[\*]** [alias](definition-structure.md#aliases) met een matrix **waarde** IP-regels instellen op een storage-account. Met behulp van de **[\*]** alias, het effect voegt de **waarde** op een mogelijk reeds bestaande matrix. Als de matrix niet nog bestaat, wordt deze gemaakt.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
     }]
 }
 ```
@@ -259,7 +275,7 @@ De **details** eigenschap van het DeployIfNotExists-effect heeft de subeigenscha
   - Deze eigenschap moet een matrix met tekenreeksen die overeenkomen met toegankelijk is op basis van de rol beheer rol-ID van het abonnement zijn. Zie voor meer informatie, [herstel - beleidsdefinitie configureren](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (optioneel)
   - Toegestane waarden zijn _abonnement_ en _ResourceGroup_.
-  - Hiermee stelt u het type van de implementatie die moet worden uitgevoerd. _Abonnement_ geeft aan dat een [implementatie op abonnementsniveau](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ geeft aan dat een implementatie naar een resourcegroep.
+  - Hiermee stelt u het type van de implementatie wordt geactiveerd. _Abonnement_ geeft aan dat een [implementatie op abonnementsniveau](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ geeft aan dat een implementatie naar een resourcegroep.
   - Een _locatie_ eigenschap moet worden opgegeven in de _implementatie_ bij het gebruik van abonnement niveau implementaties.
   - De standaardwaarde is _ResourceGroup_.
 - **Implementatie** (vereist)

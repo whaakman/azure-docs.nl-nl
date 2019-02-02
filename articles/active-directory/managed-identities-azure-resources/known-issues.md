@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbe6d04dfcf9174b15cde71f7becbb371eaee4b2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189456"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662465"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Veelgestelde vragen en bekende problemen met beheerde identiteiten voor Azure-resources
 
@@ -154,8 +154,8 @@ Als tijdelijke oplossing nadat het abonnement is verplaatst, kunt u uitschakelen
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>Bekende problemen met beheerde identiteiten gebruiker toegewezen
 
-- Het maken van een gebruiker toegewezen beheerde identiteit met speciale tekens (dat wil zeggen onderstrepingstekens) in de naam, wordt niet ondersteund.
-- Identiteitsnamen van de gebruiker toegewezen zijn beperkt tot 24 tekens bestaan. Als de naam langer dan 24 tekens is, de identiteit niet worden toegewezen aan een resource (dat wil zeggen virtuele Machine.)
+- Identiteitsnamen van de gebruiker toegewezen zijn beperkt tot een minimum van 3 tekens en maximaal 128 tekens. Als de naam langer dan 128 tekens is, de identiteit niet worden toegewezen aan een resource (dat wil zeggen virtuele Machine.)
+- Identiteitsnamen van de gebruiker toegewezen kunnen de volgende tekens bevatten: a-z, A - Z,-, \_, 0-9. Het maken van een gebruiker toegewezen beheerde identiteit met tekens buiten deze tekenset (dat wil zeggen sterretje) in de naam, wordt niet ondersteund.
 - Als u de extensie van de beheerde identiteit-virtuele machine (gepland voor de afschaffing in januari 2019) gebruikt, is de ondersteunde limiet van 32 gebruiker toegewezen beheerde identiteiten. De ondersteunde limiet is zonder de extensie van de virtuele machine beheerde identiteit 512.  
 - Een gebruiker toegewezen beheerde identiteit verplaatsen naar een andere resourcegroep zorgt ervoor dat de identiteit te kraken. Als gevolg hiervan niet mogelijk op aanvragen van tokens voor die identiteit. 
 - Een abonnement overbrengen naar een andere map, wordt geen bestaande gebruiker toegewezen beheerde identiteiten verbroken. 

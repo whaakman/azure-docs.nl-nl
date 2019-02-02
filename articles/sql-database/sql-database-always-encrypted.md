@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: de8bb0adf45a7cdaf9cc0d9a451af203e01e87da
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231716"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564868"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Altijd versleuteld: Bescherming van gevoelige gegevens en opslag van versleutelingssleutels in het Windows-certificaatarchief
 
@@ -98,14 +98,14 @@ SSMS bevat een wizard voor het configureren van eenvoudig altijd versleuteld doo
    
     ![Versleutelen van kolommen](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-De wizard Always Encrypted bevat de volgende secties: **kolomselectie**, **hoofdsleutel configuratie** (CMK), **validatie**, en **samenvatting** .
+De wizard Always Encrypted bevat de volgende secties: **Kolom selecteren**, **hoofdsleutel configuratie** (CMK), **validatie**, en **samenvatting**.
 
 ### <a name="column-selection"></a>Kolom selecteren
 Klik op **volgende** op de **inleiding** pagina wordt geopend de **kolomselectie** pagina. Op deze pagina, selecteert u welke kolommen u versleutelen wilt, [het type versleuteling, en welke kolomversleutelingssleutel (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) te gebruiken.
 
 Versleutelen **SSN** en **geboortedatum** informatie voor elke patiënt. De **SSN** kolom gebruikt deterministische versleuteling, die ondersteuning biedt voor gelijkheid zoekacties, joins en groeperen op. De **geboortedatum** kolom willekeurige versleuteling, die geen ondersteuning biedt voor bewerkingen wordt gebruikt.
 
-Instellen de **versleutelingstype** voor de **SSN** kolom **Deterministic** en de **geboortedatum** kolom **Randomized** . Klik op **Volgende**.
+Instellen de **versleutelingstype** voor de **SSN** kolom **Deterministic** en de **geboortedatum** kolom **Randomized** . Klik op **volgende**.
 
 ![Versleutelen van kolommen](./media/sql-database-always-encrypted/column-selection.png)
 
