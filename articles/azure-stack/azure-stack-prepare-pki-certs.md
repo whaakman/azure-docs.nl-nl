@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247201"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656716"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI-certificaten voorbereiden voor gebruik in de implementatie of de rotatie
+
 De certificaatbestanden [verkregen van uw Certificeringsinstantie keuze](azure-stack-get-pki-certs.md) moet worden geïmporteerd en geëxporteerd met eigenschappen die overeenkomen met de Azure Stack-certificaatvereisten.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>Certificaten voorbereiden voor implementatie
+
 Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-certificaten die worden gebruikt voor het implementeren van een nieuwe Azure Stack-omgeving of voor het omwisselen van geheimen in een bestaande Azure Stack-omgeving: 
 
 ### <a name="import-the-certificate"></a>Het certificaat importeren
@@ -83,7 +84,9 @@ Open MMC Certificate Manager-console en maak verbinding met het certificaatarchi
     
     ![De wizard Certificaat exporteren met de opties geselecteerd](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Selecteer **wachtwoord** en een wachtwoord opgeven voor de certificaten. Onthoud dit wachtwoord omdat deze wordt gebruikt als een implementatieparameter. Selecteer **Volgende**.
+1. Selecteer **wachtwoord** en een wachtwoord opgeven voor de certificaten. Maak een wachtwoord dat voldoet aan de volgende vereisten voor wachtwoordcomplexiteit. Een minimale lengte van acht tekens. Het wachtwoord bevat ten minste drie van de volgende opties: letter, kleine letters, getallen van 0-9, speciale tekens bevatten, een letter die is geen hoofdletters of kleine letters in hoofdletters. Noteer dit wachtwoord. U gebruikt dit als een implementatieparameter.
+
+1. Selecteer **Volgende**.
 
 1. Kies een bestandsnaam en locatie voor het pfx-bestand te exporteren. Selecteer **Volgende**.
 
