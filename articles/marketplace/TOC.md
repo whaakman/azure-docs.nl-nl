@@ -67,7 +67,7 @@
 
 ### [Aanbiedingen beheren](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Aanbieding creëren](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [Aanbieding publiceren](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Aanbiedingsstatus bekijken](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Aanbieding bijwerken](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Aanbieding verwijderen](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [Technische assets voor IoT Edge-module maken](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [Aanbieding voor IoT Edge-module publiceren](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [Bestaande aanbieding bijwerken](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Power BI App-aanbieding](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [Vereisten](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Power BI App-aanbieding maken](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [Tabblad voor aanbiedingsinstellingen](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [Tabblad Technische gegevens](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [Tabblad Details van webwinkel](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [Tabblad Contactpersonen](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Technische assets van Power BI App maken](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Power BI App-aanbieding publiceren](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [Bestaande aanbieding bijwerken](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [Aanbieding voor SaaS-toepassing](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [Vereisten](./cloud-partner-portal/saas-app/cpp-prerequisites.md)

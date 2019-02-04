@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ff0b711e2c839f81f7f3b68603c2b9e46092316
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7f462bf635eeec0e7a7eba4467aa2567fc09cb83
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152957"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562399"
 documentType: LandingData
-title: Documentatie voor Bing Video's zoeken
+title: Documentatie voor Bing Video's zoeken-API
 metadata:
-  title: Documentatie voor Bing Video's zoeken -zelfstudies, snelstarts, API-verwijzingen | Microsoft Docs
-  description: Informatie over het gebruik van de Bing Video's zoeken-API om resultaten te verkrijgen van het Web die relevant zijn voor query's van gebruikers. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de service.
+  title: Documentatie voor Bing Video's zoeken-API - zelfstudies, quickstarts, API-verwijzingen | Microsoft Docs
+  description: Informatie over het gebruik van de Bing Video's zoeken-API en het zoeken van video's op internet.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -18,48 +18,69 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/31/2019
   ms.author: v-gedod
 abstract:
-  description: De Bing Video's zoeken-API biedt een ervaring die vergelijkbaar is met die van Bing Video's door video’s te retourneren die volgens Bing relevant zijn voor de query van een gebruiker.
+  description: Met de Bing Video's zoeken-API kunt u de zoekfunctionaliteit voor video's van Bing in uw toepassingen gebruiken. Door zoekquery's te verzenden naar de API kunt u relevante en hoogwaardige video's ophalen en weergeven die vergelijkbaar zijn met bing.com/videos.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-video-search/overview
+      html: <p>Meer informatie over de Bing Video's zoeken-API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is de Bing Video's zoeken-API?
+    - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
+      html: <p>Uitleg over het verzenden van query's naar Bing voor Video's zoeken</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Zoekquery's verzenden
+    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+      html: <p>Meer informatie over het filteren van zoekresultaten, ophalen van videominiaturen en het uitbreiden van zoekquery's</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Video's ophalen van het web
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: "Ga aan de slag met de Bing Video's zoeken-API door een query te maken en het JSON-antwoord te bekijken:"
+    text: "Doorzoek internet voor video's met behulp van:"
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: quickstarts/sdk-csharp-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: quickstarts/sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: quickstarts/nodejs
       text: Node.js
     - image:
         src: media/index/logo_php.svg
-      href: php
+      href: quickstarts/php
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: quickstarts/sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
-      href: ruby
+      href: quickstarts/ruby
       text: Ruby
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
     text: "Apps ontwikkelen die gebruikmaken van de Bing Video's zoeken-API:"
   - type: paragraph
-    text: <a href="tutorial-bing-video-search-single-page-app">Web-app van één pagina</a> &#124; <a href="tutorial-bing-video-search-single-page-app-source">Broncode</a>
+    text: <a href="tutorial-bing-video-search-single-page-app">Web-app van één pagina</a>
 - title: Voorbeelden
   items:
   - type: paragraph
