@@ -12,17 +12,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/23/2017
+ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97dcde4cd3597262b49000f2330e487e4fa48188
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e4fde75aeaf86219518daf92b67434fe9fd63f86
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241885"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297395"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Snelstart: een Java Spring Boot-toepassing in Azure implementeren
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Quickstart: Een Java Spring Boot-toepassing implementeren in Service Fabric
 
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers.
 
@@ -34,7 +34,6 @@ In deze snelstart leert u de volgende zaken:
 
 * Een Spring Boot-toepassing implementeren in Service Fabric
 * De toepassing implementeren in het lokale cluster
-* De toepassing implementeren in een cluster in Azure
 * De toepassing uitschalen over meerdere knooppunten
 * Failover van de service uitvoeren met geen beschikbaarheid
 
@@ -168,68 +167,6 @@ In dit stadium hebt u een Service Fabric-toepassing voor het Spring Boot Aan de 
 
 U hebt nu toegang tot de Spring Boot-toepassing die werd geïmplementeerd in een Service Fabric-cluster.
 
-## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
-
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Het Azure Service Fabric-cluster instellen
-
-Maak uw eigen cluster om de toepassing te implementeren in een cluster in Azure.
-
-Party-clusters zijn kosteloze, tijdelijke Service Fabric-clusters die worden gehost in Azure en worden uitgevoerd door het Service Fabric-team. U kunt party-clusters gebruiken om toepassingen te implementeren en meer te weten te komen over het platform. Het cluster gebruikt één zelfondertekend certificaat voor beveiliging van knooppunt-naar-knooppunt en client-naar-knooppunt.
-
-Meld u aan en neem deel aan een [Linux-cluster](https://aka.ms/tryservicefabric). Download het PFX-certificaat naar uw computer door op de koppeling **PFX** te klikken. Klik op de koppeling **Leesmij** om het certificaatwachtwoord te vinden en instructies te krijgen over het configureren van verschillende omgevingen voor gebruik van het certificaat. Laat de pagina's **Welkom** en **Leesmij** geopend, want u hebt enkele instructies in de volgende stappen nodig.
-
-> [!Note]
-> Er zijn per uur een beperkt aantal party-clusters beschikbaar. Als er een fout optreedt wanneer u zich probeert aan te melden voor een party-cluster, kunt u een bepaalde tijd wachten en het opnieuw proberen, maar u kunt ook deze stappen in [Een Service Fabric-cluster in Azure maken](service-fabric-tutorial-create-vnet-and-linux-cluster.md) volgen om een cluster in uw abonnement te maken.
->
-> De Spring Boot-service is geconfigureerd om naar binnenkomend verkeer te luisteren op poort 8080. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
->
-
-Service Fabric biedt verschillende hulpmiddelen waarmee u een cluster en de bijbehorende toepassingen kunt beheren:
-
-* Service Fabric Explorer, een op een browser gebaseerd hulpprogramma.
-* Service Fabric Command Line Interface (CLI), die wordt uitgevoerd boven op Azure CLI.
-* PowerShell-opdrachten.
-
-In deze snelstart gebruikt u de Service Fabric CLI en Service Fabric Explorer.
-
-Om de CLI te kunnen gebruiken, moet u een PEM-bestand maken op basis van het PFX-bestand dat u hebt gedownload. Als u het bestand wilt converteren, gebruikt u de volgende opdracht. (Voor party-clusters kunt u een voor uw PFX-bestand specifieke opdracht uit de instructies op de pagina **Leesmij** kopiëren.)
-
-```bash
-openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-``` 
-
-Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-certificaatbestand dat u hebt gedownload van de Party Cluster-website importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). U hebt het wachtwoord voor uw persoonlijke PFX-sleutel nodig, die te vinden is op-de pagina **Leesmij**.
-
-Gebruik de methode die u het handigst vindt om het certificaat naar uw systeem te importeren. Bijvoorbeeld:
-
-* Voor Windows: dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw persoonlijke archief, `Certificates - Current User\Personal\Certificates`, te installeren. U kunt ook de PowerShell-opdracht in de **Leesmij**-instructies gebruiken.
-* Voor Mac: dubbelklik op het PFX-bestand en volg de aanwijzingen om het certificaat in uw Sleutelhanger te installeren.
-* Voor Ubuntu: Mozilla Firefox is de standaardbrowser in Ubuntu 16.04. U kunt het certificaat importeren in Firefox door te klikken op de menuknop in de rechterbovenhoek van uw browser en te klikken op **Opties**. Op de pagina **Voorkeuren** gebruikt u het zoekvak om te zoeken naar 'certificaten'. Klik op **Certificaten bekijken**, selecteer het tabblad **Uw certificaten**, klik op **Importeren** en volg de aanwijzingen om het certificaat te importeren.
-
-   ![Certificaat installeren in Firefox](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png)
-
-### <a name="deploy-the-application-using-cli"></a>De toepassing implementeren met behulp van CLI
-
-Nu de toepassing en het cluster gereed zijn, kunt u deze rechtstreeks vanuit de opdrachtregel implementeren in het cluster.
-
-1. Navigeer naar de map `gs-spring-boot/SpringServiceFabric`.
-1. Voer de volgende opdracht uit om verbinding te maken met het Azure-cluster.
-
-    ```bash
-    sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
-    ```
-1. Voer het `install.sh`-script uit.
-
-    ```bash
-    ./install.sh
-    ```
-
-1. Open uw webbrowser en open de toepassing op **http://\<ConnectionIPOrUrl>:8080**.
-
-    ![Front-end van de toepassing voor Local](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
-
-U kunt de Spring Boot-toepassing die wordt uitgevoerd in een Service Fabric-cluster op Azure nu benaderen.
-
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Toepassingen en services voor schalen in een cluster
 
 Services kunnen eenvoudig worden geschaald in een cluster om een wijziging in de belasting voor de services aan te kunnen. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster. Er zijn veel manieren waarop u services kunt schalen. U kunt bijvoorbeeld scripts of opdrachten van Service Fabric CLI (sfctl) gebruiken. In de volgende stappen wordt Service Fabric Explorer gebruikt.
@@ -283,7 +220,6 @@ In deze snelstart hebt u de volgende zaken geleerd:
 
 * Een Spring Boot-toepassing implementeren in Service Fabric
 * De toepassing implementeren in het lokale cluster
-* De toepassing implementeren in een cluster in Azure
 * De toepassing uitschalen over meerdere knooppunten
 * Failover van de service uitvoeren met geen beschikbaarheid
 

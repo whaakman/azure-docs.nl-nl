@@ -1,24 +1,24 @@
 ---
-title: 'Voorbeeld: de Emotion-API voor video aanroepen'
+title: 'Voorbeeld: De Emotion-API voor video aanroepen'
 titlesuffix: Azure Cognitive Services
 description: Ontdek hoe u in Cognitive Services de Emotion-API voor video aanroept.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd2df32ed43fd540a0516b7d5c1debc6a4f49f4f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026259"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211165"
 ---
-# <a name="example-call-emotion-api-for-video"></a>De Emotion-API voor video aanroepen
+# <a name="example-call-emotion-api-for-video"></a>Voorbeeld: Emotion-API voor video aanroepen
 
 > [!IMPORTANT]
 > De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/). 
@@ -28,7 +28,7 @@ In deze gids leest u hoe u de Emotion-API voor video aanroept. De voorbeelden zi
 ### <a name="Prep">Voorbereiding</a>
 Als u de Emotion-API voor video wilt gebruiken, hebt u een video nodig met daarin mensen, bij voorkeur mensen die in de richting van de camera kijken.
 
-### <a name="Step1">Stap 1: de API-aanroep autoriseren</a>
+### <a name="Step1">Stap 1: De API-aanroep autoriseren</a>
 Voor elke aanroep naar de Emotion-API voor video is een abonnementssleutel vereist. Deze sleutel moet worden doorgegeven via een tekenreeksparameter, of zijn opgegeven in de aanvraagheader. Als u de abonnementssleutel via een querytekenreeks wilt doorgeven, raadpleegt u de aanvraag-URL hieronder voor de Emotion-API voor video als voorbeeld:
 
 ```
@@ -48,7 +48,7 @@ var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
 Als u een abonnementssleutel wilt ontvangen, gaat u naar [Abonnementen](https://azure.microsoft.com/try/cognitive-services/).
 
-### <a name="Step2">Stap 2: een video uploaden naar de service en de status controleren</a>
+### <a name="Step2">Stap 2: Een video uploaden naar de service en de status controleren</a>
 U kunt de Emotion-API voor video eenvoudig aanroepen door rechtstreeks een video te uploaden. Dit wordt gedaan door de aanvraag POST te verzenden met het inhoudstype toepassing/octet-stream in combinatie met de gegevens die uit een videobestand zijn gelezen. De maximale grootte van de video is 100 MB.
 
 Met behulp van de clientbibliotheek wordt stabilisatie met behulp van uploaden uitgevoerd door het doorgeven in een stream-object. Zie het voorbeeld hieronder:
@@ -107,7 +107,7 @@ Als de status van VideoOperationResult Voltooid is, kunt u het resultaat ophalen
 var emotionRecognitionJsonString = ((VideoOperationInfoResult<VideoAggregateRecognitionResult>)operationResult).ProcessingResult;
 ```
 
-### <a name="Step3">Stap 3: emotieherkenning begrijpen, emoties ophalen en de JSON-uitvoer bijhouden</a>
+### <a name="Step3">Stap 3: Emotieherkenning begrijpen, emoties ophalen en de JSON-uitvoer bijhouden</a>
 
 Het uitgevoerde resultaat bevat de metagegevens van de gezichten in het bestand, in JSON-indeling.
 

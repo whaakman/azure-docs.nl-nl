@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Tekst omzetten, Node.js - Translator Text-API'
+title: 'Quickstart: Tekst omzetten, Node.js - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze snelstart leert u hoe u tekst omzet van het ene script naar een ander met behulp van Node.js en de REST API van Translator Text. In dit voorbeeld wordt Japans omgezet voor gebruik van het Latijnse alfabet.
+description: In deze snelstart leert u hoe u tekst omzet van het ene script naar een ander met behulp van Node.js en de REST API van Translator Text. In dit voorbeeld is sprake van transliteratie van Japans voor gebruik van het Latijnse alfabet.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a9de1375e024bf4e74eafa3442e2cb818ad9c61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035812"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207918"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Snelstart: De Text API van Translator Text gebruiken om tekst om te zetten met Node.js
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Snelstart: De Translator Text-API gebruiken om tekst om te zetten met Node.js
 
 In deze snelstart leert u hoe u tekst omzet van het ene script naar een ander met behulp van Node.js en de REST API van Translator Text. In het gegeven voorbeeld is sprake van transliteratie van Japans voor gebruik van het Latijnse alfabet.
 
@@ -65,10 +65,10 @@ if (!subscriptionKey) {
 
 ## <a name="configure-the-request"></a>Aanvraag configureren
 
-Met de methode `request()`, beschikbaar gesteld via de aanvraagmodule, kunt u de HTTP-methode, URL, aanvraagparameters, headers en de JSON-hoofdtekst doorgeven als een `options`-object. In dit codefragment configureert de aanvraag:
+Met de methode `request()`, beschikbaar gesteld via de aanvraagmodule, kunt u de HTTP-methode, URL, aanvraagparameters, headers en de JSON-hoofdtekst doorgeven als een `options`-object. In dit codefragment configureert u de aanvraag:
 
 >[!NOTE]
-> Zie [Translator Text-API 3.0: transliteratie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate) voor meer informatie over eindpunten, routes en aanvraagparameters.
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: Transliteratie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```javascript
 let options = {

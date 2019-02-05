@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716409"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297086"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Zelfstudie: Zelfstudie: Gebruikers eind-tot-eind verifiëren en autoriseren in Azure App Service
 
@@ -293,7 +293,7 @@ Sla de instellingen op door op **PUT** te klikken.
 
 Uw apps zijn nu geconfigureerd. De front-end is nu gereed voor toegang tot de back-end met het juiste toegangstoken.
 
-Zie [Toegangstokens vernieuwen](app-service-authentication-how-to.md#refresh-access-tokens) voor informatie over het configureren hiervan voor andere providers.
+Zie [Toegangstokens van id-providers vernieuwen](app-service-authentication-how-to.md#refresh-identity-provider-tokens) voor informatie over het configureren hiervan voor andere providers.
 
 ## <a name="call-api-securely-from-server-code"></a>API veilig aanroepen vanuit servercode
 
@@ -417,7 +417,7 @@ Gefeliciteerd! De clientcode heeft nu toegang tot de gegevens van de back-end na
 
 ## <a name="when-access-tokens-expire"></a>Wanneer de toegangstokens verlopen
 
-Uw toegangstoken verloopt na bepaalde tijd. Voor meer informatie over het vernieuwen van uw toegangstokens zonder dat gebruikers zich opnieuw moeten verifiëren bij uw app raadpleegt u [Toegangstokens vernieuwen](app-service-authentication-how-to.md#refresh-access-tokens).
+Uw toegangstoken verloopt na bepaalde tijd. Voor meer informatie over het vernieuwen van uw toegangstokens zonder dat gebruikers zich opnieuw moeten verifiëren bij uw app raadpleegt u [Toegangstokens van id-providers vernieuwen](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

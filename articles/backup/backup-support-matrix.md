@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b1fa723863e6485e977e075986c3779efed1e689
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360630"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883701"
 ---
 # <a name="azure-backup-support-matrix"></a>Ondersteuningsmatrix voor Azure Backup
 
@@ -30,13 +30,13 @@ Aantal kluizen | Maximaal 500 Recovery Services-kluizen in één abonnement.
 Machines in een kluis | Maximaal 1000 virtuele Azure-machines in een enkele kluis.<br/><br/> Maximaal 50 on-premises machines waarop de Azure Backup-agent (Microsoft Azure Recovery Services-agent (MABS)) wordt uitgevoerd, kunnen in een enkele kluis worden geregistreerd.
 Gegevensbron in kluisopslag | Maximaal 54400 GB. Er is geen limiet voor back-ups van virtuele Azure-machines.
 Back-ups naar kluis | Azure VM's: één keer per dag; machines die zijn beveiligd met DPM/MABS: twee keer per dag; machines waarvan een back-up direct met MARS-agent wordt gemaakt: drie keer per dag.  
-Kluis verplaatsen | U kunt Recovery Services-kluizen voor back-ups verplaatsen tussen abonnementen en resourcegroepen. [Meer informatie](backup-azure-move-recovery-services-vault.md).
+Kluis verplaatsen | Voor het verplaatsen van een Recovery Services-kluis, moet u zich inschrijven voor een beperkte preview. Schrijf naar AskAzureBackupTeam@microsoft.com als u dit wilt uitproberen.
 Gegevens verplaatsen tussen kluizen | Het verplaatsen van back-upgegevens tussen kluizen wordt niet ondersteund.
 Type opslagreplicatie | U kunt het type opslagreplicatie (GRS/LRS) voor een kluis wijzigen voordat back-ups worden opgeslagen. Nadat een back-ups in de kluis is begonnen, kan het replicatietype niet meer worden gewijzigd.
 
 
 
-## <a name="on-premises-backup-support"></a>On-premises ondersteuning voor back-ups 
+## <a name="on-premises-backup-support"></a>On-premises ondersteuning voor back-ups
 
 Dit wordt ondersteund als u een back-up wilt maken van on-premises machines.
 
@@ -77,8 +77,8 @@ Dit wordt ondersteund als u een back-up wilt maken van Azure VM's.
 Dit wordt ondersteund als u een back-up wilt maken van Linux-machines.
 
 **Een back-up maken** | **Linux (goedgekeurd door Azure)**
---- | --- 
-**On-premises Linux-machine (zonder DPM of MABS)**. | Nee. De MARS-agent kan alleen worden geïnstalleerd op Windows-machines. 
+--- | ---
+**On-premises Linux-machine (zonder DPM of MABS)**. | Nee. De MARS-agent kan alleen worden geïnstalleerd op Windows-machines.
 **Azure VM (zonder DPM of MABS)** | App-consistente back-up met behulp van [aangepaste scripts](backup-azure-linux-app-consistent.md).<br/><br/> Herstel op bestandsniveau.<br/><br/> Herstellen door het maken van een VM vanaf een herstelpunt of schijf.
 **On-premises machine/Azure VM met DPM** | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines
 **On-premises machine/Azure VM met MABS** | Bestandsconsistente back-up van Linux-gast-VM's op Hyper-V en VMware<br/><br/> Linux-gast-VM's herstellen op Hyper-V- en VMware</br></br> Bestandsconsistente back-up is niet beschikbaar voor virtuele Azure-machines.
@@ -110,7 +110,7 @@ Gegevensbeveiliging:
 **Machine** | **In-transit** | **Inactief**
 --- | --- | ---
 On-premises Windows-machines zonder DPM/MABS | ![Ja][green] | ![Ja][green]
-Azure-VM's | ![Ja][green] | ![Ja][green] 
+Azure-VM's | ![Ja][green] | ![Ja][green]
 On-premises/Azure VM's met DPM | ![Ja][green] | ![Ja][green]
 On-premises/Azure VM's met MABS | ![Ja][green] | ![Ja][green]
 
@@ -121,7 +121,7 @@ On-premises/Azure VM's met MABS | ![Ja][green] | ![Ja][green]
 Backup biedt ondersteuning voor de compressie van back-upverkeer, zoals samengevat in de onderstaande tabel. Houd rekening met het volgende:
 
 - Voor Azure VM's leest de VM-extensie de gegevens rechtstreeks vanuit het Azure Storage-account via het opslagnetwerk. Dit verkeer hoeft daarom niet te worden gecomprimeerd.
-- Als u DPM of MABS gebruikt, kunt u de gegevens comprimeren voordat er een back-up van wordt gemaakt in DPM/MABS, om bandbreedte te besparen. 
+- Als u DPM of MABS gebruikt, kunt u de gegevens comprimeren voordat er een back-up van wordt gemaakt in DPM/MABS, om bandbreedte te besparen.
 
 **Machine** | **Comprimeren naar MABS/DPM (TCP)** | **Comprimeren (HTTPS) naar kluis**
 --- | --- | ---
@@ -134,8 +134,8 @@ On-premises/Azure VM's met MABS | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Bewaarlimieten
 
-**Instelling** | **Limieten** 
---- | --- 
+**Instelling** | **Limieten**
+--- | ---
 Maximum aantal herstelpunten per beveiligde instantie (machine/workload) | 9999
 Maximale verlooptijd voor een herstelpunt | Geen limiet
 Maximale back-upfrequentie naar DPM/MABS | Om de 15 minuten voor SQL Server<br/><br/> Eenmaal per uur voor andere workloads.

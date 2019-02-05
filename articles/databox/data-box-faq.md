@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449568"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077451"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Veelgestelde vragen
 
@@ -58,6 +58,9 @@ A. Data Box wordt ondersteund in alle regio's binnen de VS, West- en Noord-Europ
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>V. Met wie moet ik contact opnemen als ik een probleem krijg met Data Box?
 A. Neem bij problemen met Data Box contact op met [Microsoft Ondersteuning](data-box-disk-contact-microsoft-support.md).
 
+### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>V. Ik heb geen verbinding meer met mijn Data Box. Zijn er kosten voor een verloren apparaat?
+A. Ja. Er zijn kosten voor een verloren of beschadigd apparaat. Deze kosten wordt beschreven op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/databox/) en in de [servicevoorwaarden bij het product](https://www.microsoft.com/licensing/product-licensing/products).
+
 
 ## <a name="order-device"></a>Apparaat bestellen
 
@@ -72,16 +75,16 @@ Raadpleeg uw abonnement. Data Box is alleen beschikbaar voor Enterprise Agreemen
 Controleer het toegangsniveau van uw abonnement als u een ondersteund type aanbieding voor het abonnement hebt. U moet inzender of eigenaar van een abonnement zijn om een bestelling te kunnen maken.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-am-not-able-to-create-any-additional-orders-why-would-this-be"></a>V. Ik heb een aantal Data Box-apparaten besteld. Ik kan geen extra bestellingen maken. Waarom is dit?
-A. We staan maximaal 5 actieve bestellingen per abonnement per handelsgrens (combinatie van geselecteerd land en geselecteerde regio) toe. Neem contact op met Microsoft Ondersteuning om de limiet voor uw abonnement te verhogen als u een extra apparaat moet bestellen.
+A. We staan maximaal vijf actieve bestellingen per abonnement per handelsgrens (combinatie van geselecteerd land en geselecteerde regio) toe. Neem contact op met Microsoft Ondersteuning om de limiet voor uw abonnement te verhogen als u een extra apparaat moet bestellen.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>V. Als ik een bestelling probeer te maken, ontvang ik een melding dat de Data Box-service niet beschikbaar is. Wat betekent dit?
 A. Dit betekent dat de Data Box-service niet beschikbaar is voor de combinatie van het land en de regio die u hebt geselecteerd. Waarschijnlijk is de Data Box-service wel beschikbaar als u deze combinatie wijzigt. Ga naar [Regionale beschikbaarheid voor Data Box](data-box-overview.md#region-availability) voor een overzicht van de regio's waarin de service beschikbaar is.
 
 ### <a name="q-i-placed-my-data-box-order-few-days-back-when-will-i-receive-my-data-box"></a>V. Ik heb mijn Data Box-bestelling een paar dagen geleden geplaatst. Wanneer ontvang ik mijn Data Box?
-A. Als u een bestelling plaatst, controleren we of er een apparaat beschikbaar is voor uw bestelling. Als het apparaat beschikbaar is, verzenden we het binnen 10 dagen. Mogelijk is er in bepaalde perioden een hogere vraag. Als dat het geval is, wordt uw bestelling in de wachtrij geplaatst en kunt u de statuswijziging volgen in de Azure-portal. De bestelling wordt automatisch geannuleerd als uw bestelling niet binnen 90 dagen wordt geleverd. 
+A. Als u een bestelling plaatst, controleren we of er een apparaat beschikbaar is voor uw bestelling. Als het apparaat beschikbaar is, verzenden we het binnen 10 dagen. Mogelijk is er in bepaalde perioden een hogere vraag. Als dat het geval is, wordt uw bestelling in de wachtrij geplaatst en kunt u de statuswijziging volgen in de Azure-portal. De bestelling wordt automatisch geannuleerd als uw bestelling niet binnen 90 dagen wordt geleverd.
 
 ### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>V. Ik heb mijn Data Box gevuld met gegevens en moet er nog een bestellen. Kan ik dat op een snelle manier doen?
-A. U kunt een kloon maken van uw vorige bestelling. Hierdoor maakt u dezelfde bestelling als eerst en kunt u de details van de bestelling bewerken zonder dat u opnieuw uw adres, contactgegevens en meldingsinformatie hoeft te typen. 
+A. U kunt een kloon maken van uw vorige bestelling. Hierdoor maakt u dezelfde bestelling als eerst en kunt u de details van de bestelling bewerken zonder dat u opnieuw uw adres, contactgegevens en meldingsinformatie hoeft te typen.
 
 ## <a name="configure-and-connect"></a>Configureren en verbinding maken
 
@@ -96,6 +99,9 @@ A.  U kunt de bestelling alleen annuleren nadat de Data Box is besteld en voorda
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>V. Kan ik een Data Box met meerdere hostcomputers tegelijk verbinden om gegevens over te dragen?
 A. Ja. Er kunnen meerdere hostcomputers verbinding met een Data Box maken om gegevens over te dragen en er kunnen meerdere kopieertaken parallel worden uitgevoerd. Voor meer informatie gaat u naar [Zelfstudie: Gegevens naar Azure Data Box kopiëren](data-box-deploy-copy-data.md).
+
+### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>V. Kan ik verbinding maken met beide 10 GbE-interfaces op de Data Box om gegevens over te dragen ?
+A. Ja. Beide 10 GbE-interfaces kunnen worden aangesloten op de Data Box om gegevens tegelijkertijd te kopiëren. Ga voor meer informatie over het kopiëren van gegevens naar [Zelfstudie: Gegevens naar Azure Data Box kopiëren](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -202,19 +208,19 @@ A. Als u uw apparaat niet kunt opstarten, gaat u terug naar uw bestelling in de 
 A.  U hebt weer toegang tot uw gegevens zodra de bestellingsstatus voor **Gegevens kopiëren** als **Voltooid** wordt weergegeven.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>V. Waar bevinden zich mijn gegevens in Azure na het uploaden?
-A.  Als u de gegevens naar Data Box kopieert, worden de gegevens naar een van deze locaties in uw Azure Storage-account geüpload, afhankelijk van of de gegevens bestaan uit een blok-blob, een pagina-blob of Azure-bestanden.
+A.  Als u de gegevens naar Data Box kopieert, worden de gegevens naar een van deze locaties in uw Azure Storage-account geüpload, afhankelijk van het feit of de gegevens bestaan uit een blok-blob, een pagina-blob of Azure-bestanden.
  - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
  -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
  U kunt ook naar uw Azure-opslagaccount in de Azure-portal gaan en van daaruit navigeren.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>V. Ik heb gemerkt dat ik de naamgevingsvereisten voor Azure niet voor mijn containers heb gevolgd. Worden mijn gegevens niet naar Azure geüpload?
-A.  Als de containernamen hoofdletters bevatten, worden deze automatisch naar kleine letters omgezet. Als de namen anderszins niet aan de vereisten voldoen (speciale tekens, andere taal, enzovoort), dan worden er geen gegevens geüpload. Ga voor meer informatie over beproefde methoden voor de naamgeving van shares, containers en bestanden naar: 
+A.  Als de containernamen hoofdletters bevatten, worden die namen automatisch naar kleine letters omgezet. Als de namen anderszins niet aan de vereisten voldoen (speciale tekens, andere taal, enzovoort), dan worden er geen gegevens geüpload. Ga voor meer informatie over beproefde methoden voor de naamgeving van shares, containers en bestanden naar:
 - [Naamgeving van en verwijzing naar shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Conventies voor blok-blobs en pagina-blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>V. Hoe kan ik de gegevens controleren die naar Data Box zijn gekopieerd?
-A.  Uw gegevens worden gevalideerd als u **Voorbereiding voor verzending** uitvoert nadat het kopiëren van gegevens is voltooid. Data Box genereert tijdens het validatieproces een lijst met bestanden en controlesommen voor de gegevens. U kunt de lijst met bestanden downloaden en deze verifiëren met de bestanden in de brongegevens. Ga voor meer informatie naar [Voorbereiding voor verzending](data-box-deploy-copy-data.md#prepare-to-ship).
+A.  Uw gegevens worden gevalideerd als u **Voorbereiding voor verzending** uitvoert nadat het kopiëren van gegevens is voltooid. Data Box genereert tijdens het validatieproces een lijst met bestanden en controlesommen voor de gegevens. U kunt de lijst met bestanden downloaden en de lijst verifiëren met de bestanden in de brongegevens. Ga voor meer informatie naar [Voorbereiding voor verzending](data-box-deploy-picked-up.md#prepare-to-ship).
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-data-box"></a>V. Wat gebeurt er met de gegevens nadat ik de Data Box heb teruggestuurd?
 A.  Als de gegevens naar Azure zijn gekopieerd, worden de gegevens van op de Data Box veilig gewist volgens de richtlijnen van NIST SP 800-88 Revision 1. Ga voor meer informatie naar [Gegevens verwijderen uit de Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).

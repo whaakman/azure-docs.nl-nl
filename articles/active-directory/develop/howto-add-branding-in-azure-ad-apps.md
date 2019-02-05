@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 37d61b89dfe6c38124894ed286b67c4724f4efcd
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47068727"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093467"
 ---
 # <a name="branding-guidelines-for-applications"></a>Huisstijlrichtlijnen voor apps
 
@@ -59,7 +59,7 @@ In een eerdere versie van deze richtlijnen raadden we aan een pictogram van een 
 
 Uw app heeft misschien aparte paden voor registratie en aanmelding, en de volgende secties bieden visuele begeleiding voor beide scenario’s.
 
-**Als uw app eindgebruikersregistratie ondersteunt (bijvoorbeeld voor een gratis proefversie of freemium-model)**: U kunt een knop **Aanmelden** tonen waarmee gebruikers toegang tot uw app kunnen verkrijgen met hun werkaccount of persoonlijke account. De eerste keer dat ze toegang tot uw app verkrijgen, toont Azure AD een instemmingsprompt.
+**Als uw app registratie door eindgebruikers ondersteunt (bijvoorbeeld voor een gratis proefversie of freemium-model)**: U ziet een knop **Aanmelden** waarmee gebruikers via hun werkaccount of persoonlijk account toegang krijgen tot uw app. De eerste keer dat ze toegang tot uw app verkrijgen, toont Azure AD een instemmingsprompt.
 
 **Als uw app toestemmingen nodig heeft die alleen beheerders kunnen verlenen, of als uw app organisatielicenties nodig heeft**: Scheid beheerdersdownload van gebruikersaanmelding. Met de knop **Download deze app** worden beheerders naar de aanmeldingspagina geleid, waarna ze worden gevraagd toestemming te verlenen namens gebruikers in hun organisatie. Dit heeft het extra voordeel dat instemmingsprompts voor eindgebruikers naar uw app worden onderdrukt.
 

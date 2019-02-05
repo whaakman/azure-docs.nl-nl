@@ -6,15 +6,15 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469845"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297103"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Kiezen tussen berichtenservices van Azure - Event Grid, Event Hubs en Service Bus
 
@@ -97,9 +97,10 @@ In andere gevallen kunt u ze koppelen om een gebeurtenis- en gegevenspijplijn te
 ![Overzicht van gegevensstroom](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+Zie de volgende artikelen: 
 
-* Voor meer informatie over de berichtenservices van Azure leest u het blogbericht [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Gebeurtenissen, gegevenspunten en berichten - De juiste Azure-berichtenservice kiezen voor uw gegevens).
-* Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
-* Zie [Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid](custom-event-quickstart.md) om aan de slag te gaan met Event Grid.
-* Zie [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md) (Een Event Hubs-naamruimte en een Event Hub maken met Azure Portal) om aan de slag te gaan met Event Hubs.
-* Zie [Een Service Bus-naamruimte maken met Azure Portal](../service-bus-messaging/service-bus-create-namespace-portal.md) om aan de slag te gaan met Service Bus.
+- [Gebeurtenissen, gegevenspunten en berichten - De juiste Azure-berichtenservice voor uw gegevens kiezen](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
+- [Storage Queues and Service Bus Queues - Compared and Contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md) (Storage-wachtrijen en Service Bus-wachtrijen: overeenkomsten en verschillen)
+- Zie [Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid](custom-event-quickstart.md) om aan de slag te gaan met Event Grid.
+- Zie [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md) (Een Event Hubs-naamruimte en een Event Hub maken met Azure Portal) om aan de slag te gaan met Event Hubs.
+- Zie [Een Service Bus-naamruimte maken met Azure Portal](../service-bus-messaging/service-bus-create-namespace-portal.md) om aan de slag te gaan met Service Bus.

@@ -1,21 +1,21 @@
 ---
-title: 'Snelstart: Zinlengtes ophalen, Java - Translator Text-API'
+title: 'Quickstart: Zinlengtes ophalen, Java - Translator Text-API'
 titleSuffix: Azure Cognitive Services
 description: In deze quickstart leert u hoe u zinlengtes bepaalt met behulp van Java en de Translator Text-API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 941467e7756faa4fd06220bafbf733f42b43e8d9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 26c1d8c703f8bb03d06e742d52d639cf3dd24634
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888576"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208394"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Quickstart: De Translator Text-API gebruiken om de zinlengte te bepalen met Java
 
@@ -25,7 +25,7 @@ Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.micro
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [JDK 7 of later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [JDK 7 of hoger](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
 * Een Azure-abonnementssleutel voor Translator Text
 
@@ -38,7 +38,7 @@ mkdir break-sentence-sample
 cd break-sentence-sample
 ```
 
-Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, die tijdens runtime wordt gebruikt om de toepassing te maken en te configureren. Voer de volgende opdracht uit vanuit uw werkmap:
+Vervolgens gaat u een Gradle-project initialiseren. Met deze opdracht maakt u essentiële buildbestanden voor Gradle, maar nog belangrijker is dat ook `build.gradle.kts` wordt gemaakt, dat tijdens runtime wordt gebruikt om de toepassing te maken en te configureren. Voer de volgende opdracht uit vanuit uw werkmap:
 
 ```console
 gradle init --type basic
@@ -111,7 +111,7 @@ String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-ve
 
 ## <a name="create-a-client-and-build-a-request"></a>Een client maken en een aanvraag samenstellen
 
-Voeg deze regel toe aan de klasse `BreakSentence` om `OkHttpClient` te instantiëren:
+Voeg deze regel toe aan de klasse `BreakSentence` om de `OkHttpClient` te instantiëren:
 
 ```java
 // Instantiates the OkHttpClient.
@@ -151,7 +151,7 @@ public static String prettify(String json_text) {
 
 ## <a name="put-it-all-together"></a>Alles samenvoegen
 
-De laatste stap bestaat eruit om een aanvraag te maken en een antwoord te ontvangen. Voeg deze regels toe aan het project:
+De laatste stap bestaat uit het maken van een aanvraag en het ontvangen van een antwoord. Voeg deze regels toe aan het project:
 
 ```java
 public static void main(String[] args) {

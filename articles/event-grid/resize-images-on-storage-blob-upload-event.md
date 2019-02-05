@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/19/2019
+ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 4a7e6189914728fac24e51f3b2dee66cc0bd8a05
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463708"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301455"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Zelfstudie: Formaat van geüploade afbeeldingen automatisch wijzigen met Event Grid
 
@@ -68,11 +68,21 @@ Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen 
 
 Vervang in de volgende opdracht de tijdelijke aanduiding `<general_storage_account>` door uw eigen unieke naam voor het algemene opslagaccount. 
 
-```azurecli-interactive
-az storage account create --name <general_storage_account> \
---location westcentralus --resource-group myResourceGroup \
---sku Standard_LRS --kind storage
-```
+1. Stel een variabele in om daarin de naam op te nemen van de resourcegroep die u in de vorige zelfstudie hebt gemaakt. 
+
+    ```azurecli-interactive
+    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    ```
+2. Stel een variabele voor de naam van het opslagaccount dat door de Azure-functie wordt vereist. 
+
+    ```azurecli-interactive
+    functionstorage=<name of the storage account to be used by function>
+    ```
+3. Maak het opslagaccount voor de Azure-functie. Dit wijkt af van de opslag die de installatiekopieën bevat. 
+
+    ```azurecli-interactive
+    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    ```
 
 ## <a name="create-a-function-app"></a>Een functie-app maken  
 
@@ -80,10 +90,16 @@ U moet een functie-app hebben die als host fungeert voor de uitvoering van uw fu
 
 Vervang in de volgende opdracht de tijdelijke aanduiding `<function_app>` door de unieke naam van uw eigen functie-app. De naam van de functie-app wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. Verander voor `<general_storage_account>` de naam van het algemene opslagaccount dat u hebt gemaakt.
 
-```azurecli-interactive
-az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
---resource-group myResourceGroup --consumption-plan-location westcentralus
-```
+1. Geef een naam op voor de functie-app die moet worden gemaakt. 
+
+    ```azurecli-interactive
+    functionapp=<name of the function app>
+    ```
+2. Maak de Azure-functie. 
+
+    ```azurecli-interactive
+    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    ```
 
 Nu moet u de functie-app configureren om verbinding te maken met het Blob-opslagaccount dat u in de [vorige zelfstudie][previous-tutorial] hebt gemaakt.
 
@@ -93,18 +109,18 @@ De functie heeft de verbindingsreeks nodig om verbinding te maken met het Blob-o
 
 In de volgende CLI-opdrachten is `<blob_storage_account>` de naam van het Blob-opslagaccount dat u hebt gemaakt in de vorige zelfstudie.
 
-```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <blob_storage_account> \
---query connectionString --output tsv)
+1. Haal de verbindingsreeks op voor het opslagaccount dat de installatiekopieën bevat. 
 
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
-```
+    ```azurecli-interactive
+    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
+    ```
+2. Configureer de functie-app. 
 
-De instelling `FUNCTIONS_EXTENSION_VERSION=~2` zorgt ervoor dat de functie-app wordt uitgevoerd met versie 2.x van de runtime van Azure Functions.
+    ```azurecli-interactive
+    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+    ```
+
+    De instelling `FUNCTIONS_EXTENSION_VERSION=~2` zorgt ervoor dat de functie-app wordt uitgevoerd met versie 2.x van de runtime van Azure Functions.
 
 U kunt nu een codeproject van Functions implementeren naar deze functie-app.
 
@@ -117,9 +133,7 @@ Het voorbeeldscript voor C# (.csx) is beschikbaar op [GitHub](https://github.com
 In de volgende opdracht is `<function_app>` de naam van de functie-app die u eerder hebt gemaakt.
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/function-image-upload-resize
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
@@ -148,11 +162,11 @@ Het codeproject van Functions wordt rechtstreeks vanuit de openbare opslagplaats
 
 Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurtenissen u naar een bepaald eindpunt wilt versturen. In dit geval wordt het eindpunt bepaald door de functie. Gebruik de volgende stappen om in Azure Portal een gebeurtenisabonnement te maken die meldingen aan uw functie verzendt: 
 
-1. Klik in [Azure Portal](https://portal.azure.com) op de pijl linksonder om alle services uit te vouwen, typ *functies* in het veld **Filter** en kies vervolgens **Functie-apps**. 
+1. Selecteer in de [Azure-portal](https://portal.azure.com) de optie **Alle services** in het menu aan de linkerkant en selecteer vervolgens **Functie-apps**. 
 
     ![Naar Functie-apps bladeren in Azure Portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-2. Vouw de functie-app uit, kies de functie **imageresizerfunc** en selecteer vervolgens **Event Grid-abonnement toevoegen**.
+2. Vouw de functie-app uit, kies de functie **Miniatuur** en selecteer vervolgens **Event Grid-abonnement toevoegen**.
 
     ![Naar Functie-apps bladeren in Azure Portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
@@ -162,6 +176,7 @@ Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurte
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **Naam** | imageresizersub | De naam voor het nieuwe gebeurtenisabonnement. | 
     | **Onderwerptype** |  Opslagaccounts | Kies de provider voor de gebeurtenissen van het opslagaccount. | 
     | **Abonnement** | Uw Azure-abonnement | Uw huidige Azure-abonnement is standaard geselecteerd.   |
     | **Resourcegroep** | myResourceGroup | Selecteer **Bestaande gebruiken** en kies de resourcegroep die u in deze zelfstudie hebt gebruikt.  |
@@ -169,9 +184,8 @@ Een gebeurtenisabonnement geeft aan welke door de provider gegenereerde gebeurte
     | **Gebeurtenistypen** | BlobCreated | Schakel alle typen uit behalve **BlobCreated**. Alleen gebeurtenistypen van `Microsoft.Storage.BlobCreated` worden doorgegeven aan de functie.| 
     | **Abonneetype** |  automatisch gegenereerd |  Vooraf gedefinieerd als webhook. |
     | **Eindpunt abonnee** | automatisch gegenereerd | Gebruik de eindpunt-URL die voor u wordt gegenereerd. | 
-    | **Naam** | imageresizersub | De naam voor het nieuwe gebeurtenisabonnement. | 
 4. *Optioneel:* Als u in de toekomst meer containers in dezelfde blob-opslag wilt maken voor andere doeleinden, kunt u **Filteren van onderwerpen** op het tabblad **Filters** gebruiken om blob-gebeurtenissen nauwkeuriger te targeten om er zeker van te zijn dat uw functie-app alleen wordt aangeroepen wanneer blobs specifiek worden toegevoegd aan de container **images**. 
-5. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die `imageresizerfunc` activeert op het moment dat er een blob wordt toegevoegd aan de container *images*. De functie past de afbeelding in grootte aan en voegt deze toe aan de container *thumbnails*.
+5. Klik op **Maken** om het gebeurtenisabonnement toe te voegen. Er wordt een gebeurtenisabonnement gemaakt die `Thumbnail` activeert op het moment dat er een blob wordt toegevoegd aan de container *images*. De functie past de afbeelding in grootte aan en voegt deze toe aan de container *thumbnails*.
 
 De services in de back-end zijn nu geconfigureerd. Dit betekent dat u de functionaliteit voor het aanpassen van het formaat van afbeeldingen kunt gaan testen in de voorbeeld-web-app. 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1085be57583762e8f1d419e2aacc699032340d90
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054551"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169311"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -72,6 +72,8 @@ Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden
 Om de peering op een virtueel netwerk te bevestigen, kunt u de [effectieve routes controleren](diagnose-network-routing-problem.md) voor een netwerkinterface in een subnet van een virtueel netwerk. Als een peering op een virtueel netwerk bestaat, hebben alle subnets binnen het virtuele netwerk routes met het volgende hoptype *VNet-peering* voor elke adresruimte in elk gekoppeld virtueel netwerk.
 
 U kunt problemen met de verbinding met een virtuele machine in een gekoppeld virtueel netwerk ook oplossen met behulp van de [connectiviteitscontrole](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) van Network Watcher. Met connectiviteitscontrole kunt u zien hoe verkeer wordt doorgestuurd van de netwerkinterface van een virtuele bronmachine naar de netwerkinterface van een virtuele doelmachine.
+
+U kunt ook de [Probleemoplosser voor virtueel netwerk peering problemen](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues) proberen.
 
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 

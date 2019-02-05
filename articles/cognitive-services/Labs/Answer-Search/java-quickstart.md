@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Project Answer Search, Java'
+title: 'Quickstart: Project Answer Search, Java'
 titlesuffix: Azure Cognitive Services
 description: Aan de slag met Project Answer Search in Java.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0353736b3b66c58288dbd3d351b3b3dd53f467d6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469092"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226873"
 ---
-# <a name="quickstart-project-answer-search-query-in-java"></a>Snelstart: Project Answer Search-query in Java
+# <a name="quickstart-project-answer-search-query-in-java"></a>Quickstart: Project Answer Search-query in Java
 In dit artikel wordt Java gebruikt om te laten zien hoe u de Bing Answer Search-API gebruikt, die onderdeel is van Microsoft Cognitive Services in Azure. De API is een REST-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren.
  
 De voorbeeldcode maakt gebruik van Java met minimale externe afhankelijkheden.  U kunt deze ook uitvoeren op Linux of Mac OS X met Mono.
@@ -30,7 +30,7 @@ Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services
 
 Met de volgende code wordt een `WebRequest` gemaakt, de koptekst van de toegangssleutel ingesteld en een query-tekenreeks toegevoegd voor 'Gibraltar'.  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -46,7 +46,7 @@ Met de volgende code wordt een `WebRequest` gemaakt, de koptekst van de toegangs
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Volledige code
 
@@ -57,7 +57,7 @@ Met de Bing Answer Search-API worden resultaten geretourneerd uit de Bing-zoekma
 4. Vervang de waarde van subscriptionKey door een geldige toegangssleutel voor uw abonnement.
 5. Voer het programma uit.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -148,9 +148,9 @@ public class KnowledgeSrch {
         }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstart voor C#](c-sharp-quickstart.md)
-- [Snelstart voor Java](java-quickstart.md)
-- [Snelstart voor Node](node-quickstart.md)
+- [Quickstart voor C#](c-sharp-quickstart.md)
+- [Quickstart voor Java](java-quickstart.md)
+- [Quickstart voor Node](node-quickstart.md)

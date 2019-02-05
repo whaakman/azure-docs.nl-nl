@@ -6,22 +6,22 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869583"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226057"
 ---
 # <a name="tutorial-featurization-and-feature-specification"></a>Zelfstudie: Functionalisatie en functiespecificatie
 
 In deze zelfstudie wordt de geavanceerde machine learning-functionaliteit in Custom Decision Service besproken. De zelfstudie bestaat uit twee delen: [functionalisatie](#featurization-concepts-and-implementation) en [functiespecificatie](#feature-specification-format-and-apis). Functionalisatie verwijst naar de representatie van uw gegevens als 'functies' voor machine learning. Functiespecificatie omvat de JSON-indeling en de aanvullende API's voor het opgeven van functies.
 
-Machine learning in Custom Decision Service is standaard transparant voor de klant. Functies worden automatisch opgehaald uit uw inhoud en er wordt een standaardalgoritme voor bekrachtigend of versterkend leren gebruikt. Ook worden er verschillende andere Azure Cognitive Services gebruikt, zoals [Entity Linking](../text-analytics/overview.md), [Text Analytics](../emotion/home.md), [Emotion](../computer-vision/home.md) en [Computer Vision](../entitylinking/home.md). U kunt deze zelfstudie overslaan als u alleen de standaardfunctionaliteit gebruikt.
+Machine learning in Custom Decision Service is standaard transparant voor de klant. Functies worden automatisch opgehaald uit uw inhoud en er wordt een standaardalgoritme voor bekrachtigend of versterkend leren gebruikt. Bij het ophalen van functies wordt gebruikgemaakt van verschillende andere Azure Cognitive Services: [Entity Linking](../entitylinking/home.md), [Text Analytics](../text-analytics/overview.md), [Emotion](../emotion/home.md) en [Computer Vision](../computer-vision/home.md). U kunt deze zelfstudie overslaan als u alleen de standaardfunctionaliteit gebruikt.
 
 ## <a name="featurization-concepts-and-implementation"></a>Functionalisatie: concepten en implementatie
 

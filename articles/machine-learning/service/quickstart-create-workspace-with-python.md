@@ -4,29 +4,32 @@ titleSuffix: Azure Machine Learning service
 description: Aan de slag met de Azure Machine Learning Service in Python. Gebruik de Python-SDK om een werkruimte te maken, het basisblok in de cloud dat u gebruikt voor het experimenteren, trainen en het implementeren van machine learning-modellen.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8d45ca0f55b373970bfc0b1d146d5b3e2d6d66fa
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e0c235a9fd3898fa4525651d514c77432627603c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823399"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238955"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Quickstart: de Python-SDK gebruiken om aan de slag te gaan met Azure Machine Learning
 
-In dit artikel gebruikt u de Azure Machine Learning-SDK voor Python om een [werkruimte](concept-azure-machine-learning-architecture.md) voor de Azure Machine Learning-service te maken en te gebruiken. De werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning. 
+In dit artikel gebruikt u de Azure Machine Learning SDK voor Python 3 om een [werkruimte](concept-azure-machine-learning-architecture.md) voor de Azure Machine Learning Service te maken en te gebruiken. De werkruimte is het basisblok in de cloud dat u gebruikt voor het experimenteren met en trainen en implementeren van machine learning-modellen met Machine Learning.
 
-U begint met het configureren van uw eigen Python-omgeving en Jupyter Notebook-server. Als u zonder installatie aan de slag wilt, ziet u [Snelstart: Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-get-started.md).
+U begint met het configureren van uw eigen Python-omgeving en Jupyter Notebook-server. Als u zonder installatie aan de slag wilt, ziet u [Snelstart: Azure Portal gebruiken om aan de slag te gaan met Azure Machine Learning](quickstart-get-started.md). 
+
+Een videoversie van deze quickstart bekijken:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
-In dit artikel leert u het volgende:
+In deze snelstart, gaat u het volgende doen:
+
 * De Python-SDK installeren.
 * Een werkruimte maken in uw Azure-abonnement.
 * Een configuratiebestand voor die werkruimte maken voor later gebruik in andere notitieblokken en scripts.
@@ -42,25 +45,28 @@ De volgende Azure-resources worden automatisch toegevoegd aan uw werkruimte wann
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
+>[!NOTE]
+> Voor de code in dit artikel is Azure Machine Learning SDK-versie 1.0.2 of hoger vereist. De code is getest met versie 1.0.8.
+
+
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 ## <a name="install-the-sdk"></a>De SDK installeren
 
 > [!IMPORTANT]
-> Sla deze sectie over als u een virtuele machine voor datatechnologie gebruikt die is gemaakt na 27 september 2018.
-> Op virtuele machines voor datatechnologie die na deze datum zijn gemaakt, is de Python-SDK al vooraf geïnstalleerd.
-
-Voor de code in dit artikel is Azure Machine Learning SDK-versie 1.0.2 of hoger vereist.
+> Sla deze sectie over als u Azure Data Science Virtual Machine of Azure Databricks gebruikt.
+> * Op Data Science Virtual Machines die zijn gemaakt na 27 september 2018 is de Python SDK al geïnstalleerd.
+> * Gebruik in de Azure Databricks-omgeving in plaats daarvan de [Databricks-installatiestappen](how-to-configure-environment.md#azure-databricks).
 
 Voordat u de SDK installeert, raden we u aan om een geïsoleerde omgeving voor Python te maken. In dit artikel wordt [Miniconda](https://docs.conda.io/en/latest/miniconda.html) gebruikt, maar u kunt ook gebruikmaken van volledig geïnstalleerde [Anaconda](https://www.anaconda.com/) of [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 ### <a name="install-miniconda"></a>Miniconda installeren
 
-[Download en installeer Miniconda](https://conda.io/miniconda.html). Selecteer Python 3.7 of hoger. Selecteer niet Python 2.x.
+[Download en installeer Miniconda](https://docs.conda.io/en/latest/miniconda.html). Selecteer Python versie 3.7 of een latere versie om te installeren. Selecteer niet Python 2.x.  
 
-### <a name="create-an-isolated-python-environment"></a>Een geïsoleerde omgeving voor Python maken 
+### <a name="create-an-isolated-python-environment"></a>Een geïsoleerde omgeving voor Python maken
 
-1. Open een opdrachtregelvenster en maak een nieuwe conda-omgeving met de naam *myenv* met Python 3.6.
+1. Open een opdrachtregelvenster, maak een nieuwe conda-omgeving met de naam *myenv* en installeer Python 3.6. Azure Machine Learning SDK werkt met Python 3.5.2 of hoger, maar de geautomatiseerde Machine Learning-onderdelen zijn niet volledig functioneel in Python 3.7.
 
     ```shell
     conda create -n myenv -y Python=3.6
@@ -74,34 +80,35 @@ Voordat u de SDK installeert, raden we u aan om een geïsoleerde omgeving voor P
 
 ### <a name="install-the-sdk"></a>De SDK installeren
 
-Installeer de SDK in de geactiveerde conda-omgeving. Met deze code worden de belangrijkste onderdelen van de Machine Learning SDK geïnstalleerd. Er wordt ook een Jupyter Notebook-server in de conda-omgeving geïnstalleerd. Afhankelijk van de configuratie van de computer duurt het enkele minuten voordat de installatie is voltooid.
+1. Installeer de kernonderdelen van de Machine Learning SDK met Jupyter-notebookmogelijkheden in de geactiveerde conda-omgeving.  Afhankelijk van de configuratie van de computer duurt het enkele minuten voordat de installatie is voltooid.
 
-```shell
-# Install Jupyter
-conda install nb_conda
+  ```shell
+    pip install --upgrade azureml-sdk[notebooks]
+    ```
 
-# Install the base SDK and Jupyter Notebook
-pip install azureml-sdk[notebooks]
-```
+1. Installeer een Jupyter Notebook-server in de conda-omgeving.
 
-U kunt extra sleutelwoorden gebruiken om andere onderdelen van de SDK te installeren:
+  ```shell
+    conda install nb_conda
+    ```
 
-```shell
-# Install the base SDK and auto ml components
-pip install azureml-sdk[automl]
+1. Installeer deze pakketten als u deze omgeving wilt gebruiken voor de zelfstudies van Azure Machine Learning.
 
-# Install the base SDK and the model explainability component
-pip install azureml-sdk[explain]
+    ```shell
+    conda install -y cython matplotlib pandas
+    ```
 
-# Install the base SDK and experimental components
-pip install azureml-sdk[contrib]
-```
+1. Installeer de geautomatiseerde Machine Learning-onderdelen als u deze omgeving wilt gebruiken voor de zelfstudies van Azure Machine Learning.
 
-Gebruik in de Azure Databricks-omgeving in plaats daarvan de [Databricks-installatiestappen](how-to-configure-environment.md#azure-databricks
-).
-
+    ```shell
+    pip install --upgrade azureml-sdk[automl]
+    ```
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken
+
+Maak uw werkruimte in een Jupyter Notebook met behulp van de Python SDK.
+
+1. Maak en/of schakel naar de map die u wilt gebruiken voor de quickstart en zelfstudies.
 
 1. Als u Jupyter Notebook wilt starten, voert u de volgende opdracht in:
 
@@ -123,7 +130,7 @@ Gebruik in de Azure Databricks-omgeving in plaats daarvan de [Databricks-install
                          subscription_id='<azure-subscription-id>', 
                          resource_group='myresourcegroup',
                          create_resource_group=True,
-                         location='eastus2' # Or other supported Azure region   
+                         location='eastus2' 
                         )
    ```
 
@@ -138,7 +145,11 @@ Gebruik in de Azure Databricks-omgeving in plaats daarvan de [Databricks-install
 
 Sla de details van uw werkruimte in een configuratiebestand op in de huidige map. Dit bestand heet *aml_config\config.json*.  
 
-Door de `write_config()`-API aan te roepen wordt het configuratiebestand in de huidige map gemaakt. Het bestand *config.json* bevat het volgende:
+Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt het samen met andere notitieblokken en scripts in dezelfde map of submap laden.  
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+Door deze `write_config()`-API aan te roepen, wordt het configuratiebestand in de huidige map gemaakt. Het bestand *config.json* bevat het volgende:
 
 ```json
 {
@@ -148,15 +159,13 @@ Door de `write_config()`-API aan te roepen wordt het configuratiebestand in de h
 }
 ```
 
-Dit configuratiebestand van de werkruimte maakt het eenvoudig om dezelfde werkruimte later te laden. U kunt het samen met andere notitieblokken en scripts in dezelfde map of submap laden. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-
-
 ## <a name="use-the-workspace"></a>De werkruimte gebruiken
 
-Schrijf code die gebruikmaakt van de basis-API's van de SDK om de experimentele uitvoering te volgen.
+Voer code uit die gebruikmaakt van de basis-API's van de SDK om experimentele uitvoeringen te volgen:
+
+1. Maak een experiment in de werkruimte.
+1. Leg één waarde vast in het experiment.
+1. Leg een lijst met waarden vast in het experiment.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
@@ -182,19 +191,6 @@ Als u niet van plan bent om de resources te gebruiken die u in dit artikel hebt 
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit artikel hebt u de resources gemaakt die u nodig hebt om mee te experimenteren en om modellen te implementeren. U hebt code in een notebook uitgevoerd en de uitvoeringsgeschiedenis voor de code in uw werkruimte in de cloud onderzocht.
-
-Als u de code wilt gebruiken met de Machine Learning-zelfstudies, hebt u nog enkele pakketten in uw omgeving nodig.
-
-1. Sluit het notitieblok in uw browser.
-1. Selecteer Ctrl+C in het opdrachtregelvenster om de Jupyter Notebook-server te stoppen.
-1. Installeer de extra pakketten.  Als u `azureml-sdk[automl]` hierboven niet hebt geïnstalleerd, dient u dit nu te doen.
-
-    ```shell
-    conda install -y cython matplotlib scikit-learn pandas numpy
-    pip install azureml-sdk[automl]
-    ```
-
-Nadat u deze pakketten hebt geïnstalleerd, volgt u de zelfstudies om een model te trainen en implementeren. 
 
 > [!div class="nextstepaction"]
 > [Zelfstudie: Een model trainen voor de classificatie van afbeeldingen](tutorial-train-models-with-aml.md)

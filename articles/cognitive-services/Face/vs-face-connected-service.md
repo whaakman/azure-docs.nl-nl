@@ -1,41 +1,41 @@
 ---
-title: 'Zelfstudie: Face API C#'
+title: 'Zelfstudie: Face-API C#'
 titleSuffix: Azure Cognitive Services
 description: Maak een eenvoudige Windows-app die gebruikmaakt van de service Cognitive Services Face-API waarmee gezichtskenmerken kunnen worden herkend.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129519"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209431"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Verbinding maken met de Cognitive Service Face-API met behulp van Connected Services in Visual Studio
 
 Met behulp van de Cognitive Services Face-API, kunt u gezichten in foto's detecteren, analyseren, organiseren en taggen.
 
-Dit artikel en de bijbehorende artikelen bieden details voor het gebruik van de Visual Studio Connected Service-functie voor de Cognitive Services Face-API. De mogelijkheid is beschikbaar in Visual Studio 2017 15.7 of hoger, met de Cognitive Services-extensie geïnstalleerd.
+Dit artikel en de bijbehorende artikelen bieden details voor het gebruik van de Visual Studio Connected Service-functie voor de Cognitive Services Face-API. De mogelijkheid is beschikbaar in Visual Studio 2017 15.7 of hoger wanneer de Cognitive Services-extensie is geïnstalleerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - **Een Azure-abonnement**. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 versie 15.7** waarbij de workload **Webontwikkeling** is geïnstalleerd. [Nu downloaden](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2017 versie 15.7** met de workload **Webontwikkeling** geïnstalleerd. [Nu downloaden](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Maak een project en voeg ondersteuning toe voor Cognitive Services Face-API
 
-1. Maak een nieuw ASP.NET Core-webproject. Gebruik de sjabloon leeg project. 
+1. Maak een nieuw ASP.NET Core-webproject. Gebruik de sjabloon Leeg project. 
 
-1. In **Solution Explorer**, kiest u **Toevoegen** > **Connected Service**.
-   De Connected Service-pagina wordt weergegeven met services die u aan uw project toevoegen kunt.
+1. In **Solution Explorer** kiest u **Connected Service** > **Toevoegen**.
+   De Connected Service-pagina wordt weergegeven met services die u aan uw project kunt toevoegen.
 
    ![Voeg een Connected Service menu-item toe](./media/vs-face-connected-service/Connected-Service-Menu.PNG)
 
@@ -83,7 +83,7 @@ Dit artikel en de bijbehorende artikelen bieden details voor het gebruik van de 
  
    ![afbeeldingenmap met afbeeldingsbestand](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
-1. Klik met de rechtermuisknop op het afbeeldingsbestand, kies u eigenschappen en kies vervolgens **Kopiëren indien nieuwer**.
+1. Klik met de rechtermuisknop op het afbeeldingsbestand, kies Eigenschappen en kies vervolgens **Kopiëren indien nieuwer**.
 
    ![Kopiëren indien nieuwer](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  

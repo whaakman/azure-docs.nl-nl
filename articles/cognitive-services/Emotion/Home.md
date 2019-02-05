@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: overview
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: abf94e0ab6ebb3df649b1958503c086feb4fa19e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 555b03be679b0d1ea61371d22ec9865e0e72b558
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237123"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215789"
 ---
 # <a name="what-is-the-emotion-api"></a>Wat is de Emotion-API?
 
@@ -34,7 +34,7 @@ De bètaversie van de Emotion-API gebruikt een afbeelding als invoer en retourne
 Bij het interpreteren van de resultaten van de Emotion-API zou de emotie met de hoogste score als de gedetecteerde emotie moeten worden geïnterpreteerd, aangezien de scores worden genormaliseerd. Gebruikers kunnen een hogere drempelwaarde voor betrouwbaarheid instellen in de toepassing, afhankelijk van hun behoeften.
 
 Zie de API-naslaginformatie voor meer informatie over het detecteren van emoties:
-  * Basic: als gebruikers al over de Face-API beschikken, kunnen ze de gezichtsrechthoek als invoer verzenden en de categorie Basic gebruiken. [API-naslaginformatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
-  * Standaard: als gebruikers geen gezichtsrechthoek verzenden, moeten ze de standaardmodus gebruiken.  [API-naslaginformatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
+  * Basic: Als gebruikers al over de Face-API beschikken, kunnen ze de gezichtsrechthoek als invoer verzenden en de categorie Basic gebruiken. [API-naslaginformatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
+  * Standard: Als gebruikers geen gezichtsrechthoek verzenden, moeten ze de standaardmodus gebruiken.  [API-naslaginformatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
 
 Zie [How to Analyze Videos in Real Time](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion) (Video's in realtime analyseren) voor een voorbeeld van het interpreteren van streaming video met de Emotion-API.

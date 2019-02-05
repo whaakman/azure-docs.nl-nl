@@ -1,31 +1,31 @@
 ---
-title: 'Snelstartgids: Zinlengtes ophalen, Node.js - Translator Text-API'
+title: 'Quickstart: Zinslengtes ophalen, Node.js - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Node.js en de Translator Text-API.
+description: In deze quickstart leert u hoe u zinslengtes kunt bepalen (in tekens) met behulp van Node.js en de Translator Text-API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b27bad7b3e34353ec7e2d33cab3614affc31322b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998985"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215551"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Snelstartgids: De Translator Text-API gebruiken om de zinlengte te bepalen met Node.js
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Quickstart: De Translator Text-API gebruiken om de zinslengte te bepalen met Node.js
 
-In deze quickstart leert u hoe u zinlengtes kunt bepalen (in tekens) met behulp van Node.js en de Translator Text-API.
+In deze quickstart leert u hoe u zinslengtes kunt bepalen (in tekens) met behulp van Node.js en de Translator Text-API.
 
-Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Voor deze quickstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze snelstart zijn de volgende zaken vereist:
+Voor deze quickstart zijn de volgende zaken vereist:
 
 * [Node 8.12.x of hoger](https://nodejs.org/en/)
 * Een Azure-abonnementssleutel voor Translator Text
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 Met de methode `request()`, beschikbaar gesteld via de aanvraagmodule, kunt u de HTTP-methode, URL, aanvraagparameters, headers en de JSON-hoofdtekst doorgeven als een `options`-object. In dit codefragment configureert u de aanvraag:
 
 >[!NOTE]
-> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: Einde van de zin](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Meer informatie over eindpunten, routes en aanvraagparameters vindt u in [Translator Text-API 3.0: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {
@@ -133,7 +133,7 @@ Als u uw code graag wilt vergelijken met de onze, kunt u het volledige voorbeeld
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze sleutel wanneer u klaar bent met de snelstart.
+Als u uw abonnementssleutel hebt vastgelegd in het programma, verwijdert u deze sleutel wanneer u klaar bent met de quickstart.
 
 ## <a name="next-steps"></a>Volgende stappen
 

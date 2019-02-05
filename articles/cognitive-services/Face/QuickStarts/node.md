@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: Gezichten in een afbeelding detecteren met de Azure REST API en Node.js'
+title: 'Quickstart: Gezichten in een afbeelding detecteren met de Azure REST API en Node.js'
 titleSuffix: Azure Cognitive Services
 description: In deze snelstart gebruikt u de Azure Face REST API met Node.js om gezichten in een afbeelding te detecteren.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ba42cc7ede2ab790e5f50f3db525e48ebd21f522
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 3b0eefb7471061e7e3547898b2edf02ed0f94ccf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852500"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210077"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snelstart: Gezichten in een afbeelding detecteren met de Face REST API en Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Quickstart: Gezichten in een afbeelding detecteren met de Face REST API en Node.js
 
 In deze snelstart gebruikt u de Azure Face REST API met Node.js om menselijke gezichten in een afbeelding te detecteren.
 

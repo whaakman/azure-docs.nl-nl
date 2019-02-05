@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: 2966683c086cfcd122c364dd6808f841a85bbee9
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.subservice: blobs
+ms.openlocfilehash: 180e38146911b15e95828bf033cbcaefae22d094
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704712"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241386"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Grote hoeveelheden willekeurige gegevens downloaden uit Azure Storage
 
@@ -30,7 +30,7 @@ In deel drie van de serie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het volgen van deze zelfstudie moet u de vorige zelfstudie over opslag: [Upload large amounts of random data in parallel to Azure storage][previous-tutorial] (Grote hoeveelheden willekeurige gegevens parallel uploaden naar Azure Storage).
+U moet de vorige zelfstudie over opslag hebben voltooid: [Grote hoeveelheden willekeurige gegevens gelijktijdig uploaden naar Azure Storage][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Extern verbinding maken met uw virtuele machine
 

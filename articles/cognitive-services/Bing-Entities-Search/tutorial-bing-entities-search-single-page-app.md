@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: aahi
-ms.openlocfilehash: 6bf3944017075ee04fe6ed3472a0cbe12d7f8ba0
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f8aa6733748bbdf9ffff069126f6481c8b6788c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162004"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197429"
 ---
 # <a name="tutorial-single-page-web-app"></a>Zelfstudie: Web-app van één pagina
 
@@ -67,7 +67,7 @@ Net zoals elke andere web-app met één pagina, bestaat de toepassing in deze ze
 
 In deze zelfstudie wordt niet uitvoerig ingegaan op het merendeel van de HTML of CSS, aangezien deze heel duidelijk zijn.
 
-De HTML bevat het zoekformulier waarop de gebruiker een query invoert en zoekopties kiest. Het formulier is via het kenmerk `onsubmit` van de tag `<form>` van het formulier verbonden met de JavaScript:
+De HTML bevat het zoekformulier waarin de gebruiker een query invoert en zoekopties kiest. Het formulier is via het kenmerk `onsubmit` van de tag `<form>` van het formulier verbonden met de JavaScript:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">
@@ -77,7 +77,7 @@ Met de handler `onsubmit` wordt `false` geretourneerd, waardoor het formulier ni
 
 De zoekopdracht wordt in twee fasen uitgevoerd. Als de gebruiker heeft een locatiebeperking heeft ingevoerd, wordt er eerst een Bing Kaarten-query uitgevoerd om de locatie om te zetten in coördinaten. De callback voor deze query activeert vervolgens de Bing Entiteiten zoeken-query.
 
-De HTML bevat ook de verdelingen (HTML-`<div>`-codes) waar de zoekresultaten worden weergegeven.
+De HTML bevat ook de delen (HTML-`<div>`-tags) waar de zoekresultaten worden weergegeven.
 
 ## <a name="managing-subscription-keys"></a>Abonnementssleutels beheren
 
@@ -382,9 +382,9 @@ Een groot deel van de code in beide voorgaande functies is toegewezen aan foutaf
 
 |Fase|Potentiële fout(en)|Verwerkt met|
 |-|-|-|
-|JavaScript-aanvraagobject samenstellen|Ongeldige URL|`try`/`catch` blokkeren|
+|JavaScript-aanvraagobject samenstellen|Ongeldige URL|`try`/`catch`-blok|
 |De aanvraag indienen|Netwerkfouten, afgebroken verbindingen|Gebeurtenis-handlers `error` en `abort`|
-|De zoekopdracht uitvoeren|Ongeldige aanvraag, ongeldige JSON, geldende beperkingen|tests in gebeurtenis-handler van `load`|
+|De zoekopdracht uitvoeren|Ongeldige aanvraag, ongeldige JSON, geldende beperkingen|Tests in gebeurtenis-handler van `load`|
 
 Fouten worden afgehandeld door `renderErrorMessage()` aan te roepen met eventuele bekende details over de fout. Als het antwoord de volledige set met fouttests doorgeeft, wordt `renderSearchResults()` aangeroepen om de zoekresultaten op de pagina weer te geven.
 
@@ -514,9 +514,9 @@ Met onze rendererfunctie worden de volgende handelingen uitgevoerd:
 
 ## <a name="persisting-client-id"></a>Permanente client-id
 
-Antwoorden van de Bing Zoeken-API’s kunnen een `X-MSEdge-ClientID`-header omvatten die bij volgende aanvragen moet worden teruggestuurd naar de API. Als er meerdere Bing Zoeken-API’s worden gebruikt, moet voor al deze API’s, indien mogelijk, dezelfde client-id worden gebruikt.
+Antwoorden van de Bing Zoeken-API’s kunnen een `X-MSEdge-ClientID`-header omvatten die bij volgende aanvragen moet worden teruggestuurd naar de API. Als er meerdere Bing Search-API's worden gebruikt, moet voor al deze API's, indien mogelijk, dezelfde client-id worden gebruikt.
 
-Door de `X-MSEdge-ClientID`-header op te geven kunnen met Bing-API’s alle zoekopdrachten van een gebruiker worden gekoppeld. Dit heeft twee belangrijke voordelen.
+Door de `X-MSEdge-ClientID`-header op te geven kunnen met Bing-API's alle zoekopdrachten van een gebruiker worden gekoppeld. Dit heeft twee belangrijke voordelen.
 
 Ten eerste kan met de Bing-zoekmachine vroegere context worden toegepast op zoekopdrachten om beter kloppende resultaten te vinden voor de gebruiker. Als een gebruiker bijvoorbeeld eerder heeft gezocht naar termen die zijn gerelateerd aan zeilen, kan bij een latere zoekopdracht naar ‘knopen’ de voorkeur worden gegeven aan informatie over knopen die worden gebruikt bij zeilen.
 
@@ -527,13 +527,13 @@ Beveiligingsbeleid voor browsers (CORS) kan ervoor zorgen dat de `X-MSEdge-Clien
 > [!NOTE]
 > In een webtoepassing die bedoeld is voor productie, moet u de aanvraag toch aan de serverzijde uitvoeren. Anders moet de sleutel voor de Bing Zoeken-API worden opgenomen op de webpagina, waar deze beschikbaar is voor iedereen die de bron weergeeft. Al uw gebruik van de API-abonnementssleutel wordt in rekening gebracht, zelfs aanvragen die zijn gedaan door partijen die niet zijn gemachtigd. Het is daarom van groot belang dat u uw sleutel niet algemeen beschikbaar maakt.
 
-Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Webzoekopdrachten-API via een CORS-proxy doen. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
+Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Web Search-API via een CORS-proxy doen. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
 
 U kunt eenvoudig een CORS-proxy installeren zodat de zelfstudie-app toegang krijgt tot de client-id-header. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht uit in een opdrachtvenster:
 
     npm install -g cors-proxy-server
 
-Wijzig vervolgens het Bing Webzoekopdrachten-eindpunt in het HTML-bestand in:
+Wijzig vervolgens het Bing Web Search-eindpunt in het HTML-bestand in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 

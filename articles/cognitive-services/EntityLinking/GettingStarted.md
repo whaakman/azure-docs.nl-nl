@@ -6,16 +6,16 @@ services: cognitive-services
 author: DavidLiCIG
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 883d566fd3a6089eb9e72498089f995697a318f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365635"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216809"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>Zelfstudie: Een Entity Linking-app bouwen met C#
 
@@ -74,7 +74,7 @@ Als tekstservice kunt u de functionaliteit het beste visualiseren door een tekst
 </Grid>
  ```
  
-### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">Stap 5: Doorgaan naar Entity Linking Intelligence Service toevoegen</a>
+### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">Stap 5: Entity Linking Intelligence Service toevoegen</a>
  
 De gebruikersinterface is nu gemaakt. Voordat u de Entity Linking-service gaat gebruiken, moeten we de handler voor klikken op de knop toevoegen. Open **MainPage.xaml** vanuit **Solution Explorer**. Voeg een handler voor klikken op de knop toe aan het einde van de knop.
  

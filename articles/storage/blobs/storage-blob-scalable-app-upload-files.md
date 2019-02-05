@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.subservice: blobs
+ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565731"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240077"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Grote hoeveelheden willekeurige gegevens gelijktijdig uploaden naar Azure Storage
 
@@ -35,7 +35,7 @@ Azure Blob-opslag biedt een schaalbare service voor het opslaan van gegevens. Om
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van deze zelfstudie, moet u de vorige zelfstudie over opslag hebben voltooid: [Create a virtual machine and storage account for a scalable application][previous-tutorial] (Een virtuele machine en opslagaccount voor een schaalbare toepassing maken).
+Voor het voltooien van deze zelfstudie, moet u de vorige zelfstudie over opslag hebben voltooid: [Een virtuele machine en een opslagaccount maken voor een schaalbare toepassing][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Extern verbinding maken met uw virtuele machine
 

@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: In deze zelfstudie leert u hoe u met de service Azure Machine Learning een model voor het classificeren van afbeeldingen traint met scikit-learn in een Python Jupyter-notebook. Deze zelfstudie is deel één van een serie van twee.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6811888b5113a2cf5a06811f0e1b1bcee57d864b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828247"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298055"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Zelfstudie: een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service
 
-In deze zelfstudie gaat u een machine learning-model zowel lokaal als op externe rekenresources trainen. U gebruikt de werkstroom voor training en implementatie voor de Azure Machine Learning-service in een Python Jupyter-notebook. Vervolgens kunt u het notebook gebruiken als een sjabloon voor het trainen van uw eigen machine learning-model met uw eigen gegevens. Deze zelfstudie is **deel één van een serie van twee**.  
+In deze zelfstudie gaat u een machine learning-model trainen op externe rekenresources. U gebruikt de werkstroom voor training en implementatie voor de Azure Machine Learning-service (preview) in een Python Jupyter-notebook.  Vervolgens kunt u het notebook gebruiken als een sjabloon voor het trainen van uw eigen machine learning-model met uw eigen gegevens. Deze zelfstudie is **deel één van een serie van twee**.  
 
 In deze zelfstudie traint u een eenvoudig logistiek regressiemodel met de gegevensset [MNIST](http://yann.lecun.com/exdb/mnist/) en [scikit-learn](https://scikit-learn.org) met behulp van Azure Machine Learning Service. MNIST is een populaire gegevensset die bestaat uit 70.000 afbeeldingen in grijstinten. Elke afbeelding is een handgeschreven cijfer van 28 x 28 pixels, dat een getal tussen 0-9 vertegenwoordigt. Het doel is om een classificatiemechanisme met meerdere klassen te maken om het cijfer te identificeren dat een bepaalde afbeelding vertegenwoordigt. 
 
@@ -38,16 +38,40 @@ In [deel twee van deze zelfstudie](tutorial-deploy-models-with-aml.md) leert u h
 Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begint. Probeer nog vandaag de [gratis of betaalde versie van de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 >[!NOTE]
-> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.2.
+> Code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.8.
 
-## <a name="get-the-notebook"></a>De notebook ophalen
+## <a name="prerequisites"></a>Vereisten
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Voer het `tutorials/img-classification-part1-training.ipynb`-notebook uit in [Azure Notebooks](https://notebooks.azure.com/) of op uw eigen Jupyter Notebook-server.
+Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorlopen, of gebruik de onderstaande instructies om het notebook op te halen en uit te voeren op Azure Notebooks of uw eigen notebookserver.  U hebt het volgende nodig om het notebook uit te voeren:
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* Een Python 3.6 notebook-server met het volgende geïnstalleerd:
+    * De Azure Machine Learning-SDK voor Python
+    * `matplotlib` en `scikit-learn`
+* Het zelfstudienotebook en het bestand utils.py
+* Een machine learning-werkruimte 
+* Het configuratiebestand voor de werkruimte in dezelfde directory als het notebook 
+
+Haal al deze vereisten op uit een van de secties hieronder.
+ 
+* [Azure Notebooks](#azure) gebruiken 
+* [Uw eigen Notebook-server](#server) gebruiken
+
+### <a name="azure"></a>Azure Notebooks gebruiken: Gratis Jupyter-notebooks in de cloud
+
+U kunt eenvoudig aan de slag met Azure Notebooks. De [Azure Machine Learning SDK voor Python](https://aka.ms/aml-sdk) is al voor u geïnstalleerd en geconfigureerd in [Azure Notebooks](https://notebooks.azure.com/). De installatie en toekomstige updates worden automatisch beheerd via Azure-services.
+
+Nadat u de onderstaande stappen hebt uitgevoerd, voert u het notebook **tutorials/img-classification-part1-training.ipynb** in uw **Aan de slag**-project uit.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
-## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
+### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
+
+Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u het notebook **tutorials/img-classification-part1-training.ipynb** uit.
+
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+## <a name="start"></a>De ontwikkelomgeving instellen
 
 De configuratie van uw ontwikkelomgeving kan worden uitgevoerd met een Python-notebook. De configuratie bestaat uit de volgende acties:
 
@@ -63,11 +87,10 @@ Importeer de Python-pakketten die u nodig hebt in deze sessie. Controleer ook wa
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
+from azureml.core import Workspace
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -94,11 +117,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-amlcompute"></a>Een bestaande AMlCompute maken of koppelen
+### <a name="create-or-attach-an-existing-compute-resource"></a>Een bestaande rekenresource maken of koppelen
 
-Met Azure Machine Learning Compute (AmlCompute), een beheerde service, kunnen gegevenswetenschappers Machine Learning-modellen trainen op clusters met virtuele Azure-machines. Voorbeelden hiervan zijn virtuele machines met GPU-ondersteuning. In deze zelfstudie stelt u AmlCompute in als uw trainingsomgeving. Met deze code wordt het rekencluster voor u gemaakt als dat nog niet in uw werkruimte bestaat.
+Met Azure Machine Learning Compute, een beheerde service, kunnen gegevenswetenschappers Machine Learning-modellen trainen op clusters met virtuele Azure-machines. Voorbeelden hiervan zijn virtuele machines met GPU-ondersteuning. In deze zelfstudie maakt u Azure Machine Learning Compute als uw trainingsomgeving. Met de onderstaande code wordt het rekencluster voor u gemaakt als dat nog niet in uw werkruimte bestaat.
 
- **Het maken van het rekencluster duurt ongeveer vijf minuten.** Als het rekencluster al aanwezig is in de werkruimte, wordt het cluster gebruikt door deze code en wordt er geen nieuw cluster gemaakt:
+ **Het maken van het rekencluster duurt ongeveer vijf minuten.** Als het rekencluster al aanwezig is in de werkruimte, wordt het cluster door de code gebruikt en wordt er geen nieuw cluster gemaakt.
 
 
 ```python
@@ -132,8 +155,8 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current AmlCompute status, use the 'status' property    
-    print(compute_target.status.serialize())
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 U beschikt nu over de vereiste pakketten en rekenresources voor het trainen van een model in de cloud. 
@@ -155,13 +178,15 @@ Download de MNIST-gegevensset en sla de bestanden op in een lokale map `data`. E
 import os
 import urllib.request
 
-os.makedirs('./data', exist_ok = True)
+data_path = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_path, exist_ok = True)
 
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
 ```
+U ziet uitvoer die lijkt op de volgende: ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### <a name="display-some-sample-images"></a>Enkele voorbeeldafbeeldingen weergeven
 
@@ -210,60 +235,32 @@ De MNIST-bestanden worden geüpload naar een map met de naam `mnist` in de hoofd
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
 ```
 U hebt nu alles wat u nodig hebt om een model te gaan trainen. 
 
-## <a name="train-a-local-model"></a>Een lokaal model trainen
-
-U gaat een eenvoudig logistiek regressiemodel lokaal trainen met scikit-learn.
-
-**Lokaal trainen duurt een minuut of twee**, afhankelijk van de configuratie van uw computer:
-
-```python
-%%time
-from sklearn.linear_model import LogisticRegression
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-```
-
-Vervolgens doet u voorspellingen aan de hand van de testset en berekent u de nauwkeurigheid: 
-
-```python
-y_hat = clf.predict(X_test)
-print(np.average(y_hat == y_test))
-```
-
-De nauwkeurigheid van het lokale model wordt weergegeven:
-
-`0.9202`
-
-Met slechts een paar regels code hebt u een nauwkeurigheid van 92 procent.
 
 ## <a name="train-on-a-remote-cluster"></a>Trainen op een extern cluster
 
-U kunt dit eenvoudige model uitbreiden door een model met een andere regularisatiefrequentie te bouwen. Dit keer traint u het model op een externe resource.  
-
-Voor deze taak verstuurt u de taak naar het cluster voor externe training dat u eerder hebt ingesteld. Voer de volgende stappen uit om een taak te verzenden:
-* Maak een map.
-* Maak een trainingsscript.
-* Maak een estimator-object.
-* Verzend de taak.
+Voor deze taak verstuurt u de taak naar het cluster voor externe training dat u eerder hebt ingesteld.  Om een taak te verzenden, moet u het volgende doen:
+* Een map maken
+* Een trainingsscript maken
+* Een estimator-object maken
+* De taak verzenden 
 
 ### <a name="create-a-directory"></a>Een map maken
 
-Maak een map om de benodigde code vanaf uw computer aan te bieden aan de externe resource:
+Maak een map om de benodigde code vanaf uw computer aan te bieden aan de externe resource.
 
 ```python
 import os
-script_folder = './sklearn-mnist'
+script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### <a name="create-a-training-script"></a>Een trainingsscript maken
 
-Als u de taak naar het cluster wilt verzenden, moet u eerst een trainingsscript maken. Voer de volgende code uit om in de map die u hebt gemaakt een trainingsscript te maken met de naam `train.py`. In deze training wordt een regularisatiefrequentie toegevoegd aan het trainingsalgoritme. Hierdoor is het model iets anders dan de lokale versie:
+Als u de taak naar het cluster wilt verzenden, moet u eerst een trainingsscript maken. Voer de volgende code uit om in de map die u net hebt gemaakt een trainingsscript te maken met de naam `train.py`.
 
 ```python
 %%writefile $script_folder/train.py
@@ -406,6 +403,8 @@ Deze momentopname is de widget die aan het einde van de training wordt weergegev
 
 ![Notebook-widget](./media/tutorial-train-models-with-aml/widget.png)
 
+Als u een uitvoering wilt annuleren, kunt u [deze instructies](https://aka.ms/aml-docs-cancel-run) volgen.
+
 ### <a name="get-log-results-upon-completion"></a>Resultaten van logboeken weergeven bij voltooiing
 
 Het trainen en controleren van het model gebeurt op de achtergrond. Wacht totdat het trainen van het model is voltooid voordat u andere code uitvoert. Gebruik `wait_for_completion` om weer te geven wanneer het trainen van het model is voltooid: 
@@ -422,7 +421,7 @@ U hebt nu een model dat is getraind op een extern cluster. De nauwkeurigheid van
 ```python
 print(run.get_metrics())
 ```
-De uitvoer laat zien dat het externe model een nauwkeurigheid heeft die iets hoger is dan die van het lokale model vanwege het toevoegen van de regularisatiefrequentie tijdens het trainen:  
+De uitvoer toont dat het externe model een nauwkeurigheid van 0,9204 heeft:
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
@@ -465,8 +464,7 @@ In deze zelfstudie over de Azure Machine Learning-service hebt u Python gebruikt
 > [!div class="checklist"]
 > * De ontwikkelomgeving instellen.
 > * De gegevens downloaden en controleren.
-> * Een eenvoudig logistiek regressiemodel lokaal trainen met behulp van de populaire bibliotheek voor machine learning scikit-learn.
-> * Meerdere modellen trainen op een extern cluster.
+> * Meerdere modellen trainen op een extern cluster met behulp van de populaire scikit-learn machine learning-bibliotheek
 > * Trainingsgegevens bekijken en het beste model registreren.
 
 U kunt dit geregistreerde model nu implementeren aan de hand van de instructies in het volgende deel van de reeks zelfstudies:

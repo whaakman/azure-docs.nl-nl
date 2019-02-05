@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901155"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174258"
 ---
 # <a name="unity-sample-walkthrough"></a>Handleiding voor het Unity-voorbeeld
 Dit is een handleiding voor het Project Acoustics-voorbeeld. Voor meer informatie over wat Acoustics Project is, bekijkt u de [Inleiding op Project Acoustics](what-is-acoustics.md). Als u hulp nodig hebt bij het toevoegen van het Project Acoustics-pakket aan een bestaand Unity-project, bekijkt u de handleiding [Aan de slag](getting-started.md).
@@ -36,7 +36,7 @@ Het voorbeeld bevat een voorbeeldscène **Assets/AcousticsDemo/ProjectAcousticsD
 
 Dit scène is al voltooid en er is een ACE-bestand gekoppeld aan de **MicrosoftAcoustics**-prefab in de **hiërarchie**. 
 
-Luister naar het geluid van de scène door te klikken op de knop Afspelen in de Unity-editor. Gebruik op het bureaublad W, A, S, D en de muis om te navigeren. Als u wilt vergelijken hoe de scène met en zonder Acoustics klinkt, drukt u op **R** totdat de overlaytekst rood wordt en zegt "Acoustics: Disabled". Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Alle besturingselementen zijn ook bruikbaar door met de rechtermuisknop te klikken om de actie te selecteren die u wilt uitvoeren. Vervolgens klikt u met de linkermuisknop om de actie uit te voeren.
+Luister naar het geluid van de scène door te klikken op de knop Afspelen in de Unity-editor. Gebruik op het bureaublad W, A, S, D en de muis om te navigeren. Als u wilt vergelijken hoe de scène met en zonder Acoustics klinkt, drukt u op **R** totdat de overlaytekst rood wordt en zegt "Acoustics: Disabled." Als u sneltoetsen wilt zien voor meer besturingselementen, drukt u op **F1**. Alle besturingselementen zijn ook bruikbaar door met de rechtermuisknop te klikken om de actie te selecteren die u wilt uitvoeren. Vervolgens klikt u met de linkermuisknop om de actie uit te voeren.
 
 ## <a name="targeting-other-platforms"></a>Scenario voor andere platformen
 Het voorbeeld bevat instellingen om uit te voeren op Windows-bureaublad, UWP, Windows Mixed Reality, Android en Oculus Go. Het project is standaard geconfigureerd voor Windows-bureaublad. Als u een VR-platform als doel hebt, gaat u naar de player-instellingen (**Bewerken > Projectinstellingen > Player**), zoekt u **XR-instellingen** en schakelt u het selectievakje **Virtual Reality ondersteund** in.

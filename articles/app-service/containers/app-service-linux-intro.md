@@ -16,16 +16,16 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 898d663f3ef9a71944d96b0978947d10a3e26b06
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232784"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903720"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
-[Web App](../overview.md) is een volledig beheerd rekenplatform dat is geoptimaliseerd voor het hosten van websites en webtoepassingen. Klanten kunnen App Service onder Linux gebruiken voor het systeemeigen hosten van web-apps op Linux voor ondersteunde toepassingsstacks. In de volgende secties worden de toepassingsstacks vermeld die momenteel worden ondersteund.
+[Azure App Service](../overview.md) is een volledig beheerd rekenplatform dat is geoptimaliseerd voor het hosten van websites en web-apps. Klanten kunnen App Service onder Linux gebruiken voor het systeemeigen hosten van web-apps op Linux voor ondersteunde toepassingsstacks. In de sectie [Talen](#languages) worden de toepassingsstacks vermeld die momenteel worden ondersteund.
 
 ## <a name="languages"></a>Talen
 
@@ -39,8 +39,6 @@ App Service onder Linux ondersteunt een aantal ingebouwde installatiekopieën om
 | Python (Preview) | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
-
-Zie [Een Java-web-app maken in Azure App Service op Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) voor meer informatie.
 
 ## <a name="deployments"></a>Implementaties
 
@@ -75,7 +73,9 @@ In Azure Portal worden alleen functies getoond die momenteel werken voor Web App
 
 Sommige functies, zoals de integratie van virtuele netwerken, verificatie van derden van Azure Active Directory of Kudu-site-extensies, zijn nog niet beschikbaar. Zodra deze functies beschikbaar zijn, worden de documentatie en de blog over de wijzigingen bijgewerkt.
 
-App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic, Standard en Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. U kunt Web App for Containers niet maken met een App Service-plan waarvoor al non-Linux Web Apps wordt gehost. Verder geldt er een beperking waardoor Windows- en Linux-apps niet kunnen worden gecombineerd in dezelfde resourcegroep.
+App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic, Standard en Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. U kunt Web App for Containers niet maken met een App Service-plan waarvoor al non-Linux Web Apps wordt gehost. 
+
+Vanwege een huidige beperking kunt u ook geen Windows- en Linux-apps door elkaar gebruiken in dezelfde resourcegroep.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
@@ -84,9 +84,11 @@ Als u `stdout` en `stderr` in het logboek wilt registreren in de container, moet
 
 ![Logboekregistratie inschakelen][2]
 
-![Kudu gebruiken om Docker-logboeken weer te geven][1]
+De instelling wordt onmiddellijk van kracht. App Service detecteert de wijziging van de instellingen en start de container automatisch opnieuw.
 
 U hebt toegang tot de SCM-site via **Geavanceerde hulpmiddelen** in het menu **Ontwikkelprogramma's**.
+
+![Kudu gebruiken om Docker-logboeken weer te geven][1]
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -101,7 +103,7 @@ De volgende artikelen helpen u om aan de slag te gaan met App Service op Linux m
 * [Go](quickstart-docker-go.md)
 * [App met meerdere containers](quickstart-multi-container.md)
 
-Zie ook de volgende artikelen voor meer informatie over App Service op Linux:
+Zie voor meer informatie over App Service op Linux:
 
 * [Veelgestelde vragen over App Service voor Linux](app-service-linux-faq.md)
 * [SSH-ondersteuning voor App Service op Linux](app-service-linux-ssh-support.md)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790161"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224238"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Een back-up van SQL Server-databases maken in Azure
 
@@ -483,7 +483,14 @@ Deze procedure begeleidt u bij het herstellen van gegevens naar een alternatieve
 > U kunt de database herstellen naar een exemplaar van SQL Server in dezelfde Azure-regio. De doelserver moet bij de Recovery Services-kluis zijn geregistreerd.
 >
 
-In het menu **Configuratie herstellen** worden in de vervolgkeuzelijst **Server** alleen de SQL Server-exemplaren weergegeven die zijn geregistreerd bij de Recovery Services-kluis. Als de gewenste server niet in de lijst voorkomt, raadpleegt u [SQL Server-databases detecteren](backup-azure-sql-database.md#discover-sql-server-databases) om de server te vinden. Tijdens het detectieproces worden nieuwe servers geregistreerd bij de Recovery Services-kluis.
+In het menu **Configuratie herstellen** worden in de vervolgkeuzelijst **Server** alleen de SQL Server-exemplaren weergegeven die zijn geregistreerd bij de Recovery Services-kluis. Als de gewenste server niet in de lijst voorkomt, raadpleegt u [SQL Server-databases detecteren](backup-azure-sql-database.md#discover-sql-server-databases) om de server te vinden. Tijdens het detectieproces worden nieuwe servers geregistreerd bij de Recovery Services-kluis.<br>
+Als u een SQL-database wilt herstellen, hebt u de volgende machtigingen nodig:
+
+* **Back-upoperator** -machtigingen voor Recovery Services **Vault** waarin u de herstelbewerking uitvoert.
+* Toegang als **Inzender (schrijven)** tot de **bron-SQL-VM** (de virtuele machine waarvan een back-up is gemaakt en van waaruit u probeert te herstellen).
+* Toegang als **Inzender (schrijven)** tot de doel-SQL-VM (de virtuele machine waarvoor u de herstelbewerking uitvoert; dit is dezelfde virtuele machine als de bron-VM in geval van herstel naar de oorspronkelijke locatie).
+
+Herstellen naar een alternatieve locatie:
 
 1. Ga als volgt te werk in het menu **Configuratie herstellen**:
 

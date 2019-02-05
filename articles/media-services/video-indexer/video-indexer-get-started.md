@@ -1,5 +1,5 @@
 ---
-title: Registreren voor Video Indexer en uw eerste video uploaden
+title: Registreren voor Video Indexer en uw eerste video uploaden - Azure
 titlesuffix: Azure Media Services
 description: Leer hoe u zich registreert en uw eerste video met behulp van de Video Indexer-portal uploadt.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 72412956d231ea2696c05ba250302faf5f90c91d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1e3ba1e12a8b058429f75b1d2aab3942cd843778
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823280"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55090504"
 ---
-# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Zelfstudie: Registreren en uw eerste video uploaden
+# <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snelstart: Registreren en uw eerste video uploaden
 
 In deze zelfstudie ziet u hoe u zich registreert bij de Video Indexer-website en hoe u uw eerste video uploadt.
 

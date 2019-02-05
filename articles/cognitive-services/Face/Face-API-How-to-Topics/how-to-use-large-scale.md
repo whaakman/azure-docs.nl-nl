@@ -1,23 +1,23 @@
 ---
-title: 'Voorbeeld: De functie Grootschalig gebruiken - Face-API'
+title: 'Voorbeeld: De functie voor grootschalige verwerking gebruiken - Face-API'
 titleSuffix: Azure Cognitive Services
 description: Gebruik de functie Grootschalig in de Face-API.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123076"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222895"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>Voorbeeld: De functie Grootschalig gebruiken
+# <a name="example-how-to-use-the-large-scale-feature"></a>Voorbeeld: De functie voor grootschalige verwerking gebruiken
 
 Deze handleiding is een geavanceerd artikel over de migratie van code om een bestaande PersonGroup en FaceList omhoog te schalen naar LargePersonGroup en LargeFaceList.
 Deze handleiding toont u het migratieproces, waarbij ervan wordt uitgegaan dat u basiskennis hebt van het gebruik van PersonGroup en FaceList.

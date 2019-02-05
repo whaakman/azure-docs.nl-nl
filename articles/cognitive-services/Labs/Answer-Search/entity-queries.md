@@ -1,23 +1,23 @@
 ---
-title: 'Snelstartgids: Project Answer Search en zoeken naar entiteiten'
+title: 'Quickstart: Zoeken naar entiteiten met Project Answer Search'
 titlesuffix: Azure Cognitive Services
 description: Zoeken naar entiteiten met behulp van Project Answer Search
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2ec11412b5b0e713742029f05c91a6ecbe78c344
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467409"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210689"
 ---
-# <a name="quickstart-query-for-entities"></a>Snelstartgids: Zoeken naar entiteiten
+# <a name="quickstart-query-for-entities"></a>Quickstart: Zoeken naar entiteiten
 
 Als de query informatie opvraagt over een persoon, plaats of ding, kan de respons een `entities`-antwoord bevatten.  Query's retourneren altijd webpagina's, waarbij [feiten](fact-queries.md) en/of [entiteiten](entity-queries.md) afhankelijk van de query zijn.
 
@@ -33,7 +33,7 @@ U bepaalt het queryscenario via het veld `queryScenario` van het object `entitie
 -   Attraction 
  
 Om het type entiteit te bepalen dat de respons bevat, gebruikt u het veld `entityTypeHints` zoals wordt weergegeven in de query voor Bill Gates.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -44,13 +44,13 @@ Om het type entiteit te bepalen dat de respons bevat, gebruikt u het veld `entit
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 Hieronder volgt een query voor Space Needle:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 De respons bevat het antwoord `entities`. Let ook op de velden `entityScenario` en `entityTypeHints`. 
-````
+```
   "entities": {
     "value": [
       {
@@ -108,19 +108,19 @@ De respons bevat het antwoord `entities`. Let ook op de velden `entityScenario` 
       }
     ]
   },
-````
+```
 
 Een query kan een lijst retourneren als deze relevant is.
 
-**Query:** met de volgende query vindt u een lijst met bedreigde diersoorten:
+**Query:** Met de volgende query vindt u een lijst met bedreigde diersoorten:
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
-**Respons:** de respons bevat een lijst die is opgemaakt om te worden weergegeven als tabelwaarden:
-````
+**Antwoord:** Het antwoord bevat een lijst die is opgemaakt om te worden weergegeven als tabelwaarden:
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -217,11 +217,11 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
     ]
   },
 
-````
+```
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstart voor C#](c-sharp-quickstart.md)
-- [Snelstart voor Java](java-quickstart.md)
-- [Snelstart voor Node](node-quickstart.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Quickstart voor C#](c-sharp-quickstart.md)
+- [Quickstart voor Java](java-quickstart.md)
+- [Quickstart voor Node](node-quickstart.md)
+- [Quickstart voor Python](python-quickstart.md)

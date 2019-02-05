@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a0b4301177fa1307244a784031ec890b9a20f01a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316179"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099105"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Zelfstudie: Automatisch aanvullen aan het zoekvak toevoegen met Azure Search
 
@@ -60,7 +60,7 @@ Volg de stappen in deze sectie als u de gegevens voor de voorbeeldtoepassing NYC
 
 ### <a name="running-the-sample"></a>Het voorbeeld uitvoeren
 
-U kunt nu de voorbeeldtoepassingen van de zelfstudie gaan uitvoeren.  Open het oplossingsbestand AutocompleteTutorial.sln in Visual Studio om de zelfstudie uit te voeren.  De oplossing bevat een ASP.NET MVC-project.  Druk op F5 om het project uit te voeren en de pagina in de door u gewenste browser te laden.  Bovenaan ziet u een optie voor het selecteren van C# of JavaScript.  De optie C# roept de HomeController aan vanuit de browser en gebruikt de Azure Search .Net SDK om resultaten op te halen.  Met de JavaScript-optie wordt de Azure Search REST-API rechtstreeks vanuit de browser aangeroepen.  Deze optie worden doorgaans opmerkelijk betere prestaties gehaald omdat controller ertussenuit wordt gehaald.  U kunt de optie kiezen die bij uw behoeften en taalvoorkeuren past.  Er bevinden zich voorbeelden voor automatisch aanvullen op de pagina, met enkele richtlijnen voor elk.  Elk voorbeeld heeft een aanbevolen voorbeeldtekst die u kunt proberen.  Typ een paar letters in elk zoekvak om te zien wat er gebeurt.
+U kunt nu de voorbeeldtoepassingen van de zelfstudie gaan uitvoeren.  Open het oplossingsbestand AutocompleteTutorial.sln in Visual Studio om de zelfstudie uit te voeren.  De oplossing bevat een ASP.NET MVC-project.  Druk op F5 om het project uit te voeren en de pagina in de door u gewenste browser te laden.  Bovenaan ziet u een optie voor het selecteren van C# of JavaScript.  De optie C# roept de HomeController aan vanuit de browser en gebruikt de Azure Search .Net SDK om resultaten op te halen.  Met de JavaScript-optie wordt de Azure Search REST-API rechtstreeks vanuit de browser aangeroepen.  Met deze optie worden doorgaans opmerkelijk betere prestaties gehaald, omdat de controller ertussenuit wordt gehaald.  U kunt de optie kiezen die bij uw behoeften en taalvoorkeuren past.  Er bevinden zich voorbeelden voor automatisch aanvullen op de pagina, met enkele richtlijnen voor elk.  Elk voorbeeld heeft een aanbevolen voorbeeldtekst die u kunt proberen.  Typ een paar letters in elk zoekvak om te zien wat er gebeurt.
 
 ## <a name="how-this-works-in-code"></a>Hoe dit met code werkt
 

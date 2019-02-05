@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1411d9b4a199685315587cb642842286da575c63
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911861"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098524"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Snelstart: Een app registreren bij het Azure Active Directory v1.0-eindpunt
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Quickstart: Een app registreren met het Azure Active Directory v1.0-eindpunt
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -51,12 +51,12 @@ Zorg om te beginnen dat u een Azure Active Directory-tenant hebt die u kunt gebr
 
 1. Voer op de pagina **Maken** die wordt weergegeven de registratiegegevens voor uw toepassing in: 
 
-    - **Naam:** voer een nuttige naam in voor de toepassing
+    - **Naam:** Voer een nuttige naam in voor de toepassing
     - **Toepassingstype:**
       - Selecteer **Systeemeigen** voor [clienttoepassingen](developer-glossary.md#client-application) die lokaal op een apparaat zijn geïnstalleerd. Deze instelling wordt gebruikt voor openbare [systeemeigen clients](developer-glossary.md#native-client) met OAuth.
       - Selecteer **Web-app/API** voor [Clienttoepassingen](developer-glossary.md#client-application) en [Resource/API-toepassingen](developer-glossary.md#resource-server) die op een beveiligde server zijn geïnstalleerd. Deze instelling wordt gebruikt voor vertrouwelijke [webclients](developer-glossary.md#web-client) en openbare [clients die op gebruikersagents zijn gebaseerd](developer-glossary.md#user-agent-based-client) die OAuth gebruiken. Dezelfde toepassing kan zowel een client als resource/API beschikbaar maken.
-    - **Aanmeldings-URL:** geef voor 'Web-app/API'-toepassingen de basis-URL van uw app op. `http://localhost:31544` kan bijvoorbeeld de URL zijn van een web-app die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden. 
-    - **Omleidings-URI**: geef voor systeemeigen toepassingen de URI op die door Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, bijvoorbeeld `http://MyFirstAADApp`
+    - **Aanmeldings-URL:** Geef voor web-app/-API-toepassingen de basis-URL van de toepassing op. `http://localhost:31544` kan bijvoorbeeld de URL zijn van een web-app die op uw lokale machine wordt uitgevoerd. Gebruikers moeten deze URL gebruiken om zich bij een webclienttoepassing aan te melden. 
+    - **Omleidings-URI:** Geef voor systeemeigen toepassingen de URI op die door Azure Active Directory wordt gebruikt om tokenantwoorden te retourneren. Voer een waarde in die specifiek is voor uw toepassing, bijvoorbeeld `http://MyFirstAADApp`
 
       ![Een nieuwe toepassing registreren - maken](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 

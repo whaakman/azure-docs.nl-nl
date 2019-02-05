@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167151"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099155"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in VMware (preview)
 
 ## <a name="overview"></a>Overzicht
 
-In deze zelfstudie wordt beschreven hoe u een Data Box Gateway op een hostsysteem met VMware ESXi 6.0 of 6.5 kunt inrichten. 
+In deze zelfstudie wordt beschreven hoe u een Data Box Gateway op een hostsysteem met VMware ESXi 6.0, 6.5 of 6.7 kunt inrichten. 
 
 U hebt beheerdersmachtigingen nodig voor het inrichten van een virtueel apparaat en om er verbinding mee te maken. De inrichting en de initiële installatie kan circa tien minuten duren.
 
@@ -37,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-De vereisten voor het inrichten van een virtueel apparaat op een hostsysteem met VMware ESXi 6.0 of 6.5 zijn als volgt.
+De vereisten voor het inrichten van een virtueel apparaat op een hostsysteem met VMware ESXi 6.0, 6.5 of 6.7 zijn als volgt.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Voor de Data Box Gateway-resource
 
@@ -53,8 +53,8 @@ Zorg voordat u begint voor het volgende:
 
 Voordat u een virtueel apparaat implementeert, controleert u of:
 
-* U toegang hebt tot een hostsysteem met VMware (ESXi 6.0 of 6.5) dat kan worden gebruikt voor het inrichten van een apparaat.
-* Het hostsysteem kan de volgende resources volledig toewijzen aan het inrichten van uw virtuele apparaat:
+* U toegang hebt tot een hostsysteem met VMware (ESXi 6.0, 6.5 of 6.7) dat kan worden gebruikt voor het inrichten van een apparaat.
+* Het hostsysteem kan de volgende resources reserveren voor het inrichten van uw virtuele apparaat:
 
   * Minimaal 4 kerngeheugens.
   * Ten minste 8 GB RAM-geheugen.
@@ -73,7 +73,7 @@ Voordat u begint:
 
 Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 
-* Toegang tot een hostsysteem met VMware ESXi Server 6.0 of 6.5. Het hostsysteem kan de volgende resources volledig toewijzen aan uw virtuele apparaat:
+* Toegang tot een hostsysteem met VMware ESXi Server 6.0, 6.5 of 6.7. Het hostsysteem kan de volgende resources volledig toewijzen aan uw virtuele apparaat:
  
   * Minimaal 4 kerngeheugens.
   * Ten minste 8 GB RAM-geheugen. 
@@ -89,7 +89,7 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 
 1. Kopieer de installatiekopie van het virtuele apparaat naar uw systeem. U hebt deze virtuele-installatiekopie (twee bestanden) via de Azure-portal gedownload. Noteer de locatie waar u de installatiekopie naartoe hebt gekopieerd, want u hebt deze installatiekopie verderop in de procedure nodig.
 
-2. Meld u aan bij de ESXi-server met behulp van de vSphere-client. U moet beheerdersbevoegdheden hebben om een virtuele machine te kunnen maken.
+2. Meld u aan bij de ESXi-server met behulp van de vSphere-webclient. U moet beheerdersbevoegdheden hebben om een virtuele machine te kunnen maken.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -192,7 +192,7 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. De stappen 5 - 7 gelden alleen als het opstarten in een niet-DHCP-omgeving gebeurt. Als u zich in een DHCP-omgeving bevindt, kunt u deze stappen overslaan en gaat u naar stap 8. Als u uw apparaat in een niet-DHCP-omgeving hebt opgestart, ziet u als resultaat een bericht: **De cmdlet Set-HcsIPAddress gebruiken om het netwerk te configureren**. 
+6. De stappen 5 - 7 gelden alleen als het opstarten in een niet-DHCP-omgeving gebeurt. Als u zich in een DHCP-omgeving bevindt, kunt u deze stappen overslaan en gaat u naar stap 8. Als u uw apparaat hebt opgestart in een niet-DHCP-omgeving wordt er een bericht van deze strekking weergegeven: **Gebruik de cmdlet Set-HcsIPAddress om het netwerk te configureren**. 
    
 7. Gebruik voor het configureren van het netwerk bij de opdrachtprompt de opdracht `Get-HcsIpAddress` om een lijst met netwerkinterfaces weer te geven die zijn ingeschakeld op uw virtuele apparaat. Als voor uw apparaat één netwerkinterface is ingeschakeld, wordt `Ethernet` als standaardnaam aan deze interface toegewezen.
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868545"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092765"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een virtuele Linux-machine bewaken en bijwerken in Azure
 
@@ -153,7 +153,7 @@ In het volgende voorbeeld wordt een waarschuwing gemaakt voor het gemiddelde CPU
 5. Schakel desgewenst het selectievakje voor *E-mailadressen van eigenaren, bijdragers en lezers* in om een e-mailmelding te verzenden. Standaard wordt een melding in de portal weergegeven.
 6. Selecteer de knop **OK**.
 
-## <a name="manage-package-updates"></a>Pakketupdates beheren
+## <a name="manage-software-updates"></a>Software-updates beheren
 
 Met Updatebeheer kunt u updates en patches beheren voor een Azure Linux-VM.
 U kunt rechtstreeks vanuit uw VM de status van de beschikbare updates beoordelen, de installatie van vereiste updates plannen en de implementatieresultaten bekijken om te controleren of updates correct zijn toegepast op de VM.
@@ -175,15 +175,14 @@ Een [Log Analytics](../../log-analytics/log-analytics-overview.md)-werkruimte wo
 De werkruimte biedt één locatie om gegevens uit meerdere bronnen te bekijken en te analyseren.
 Als u aanvullende bewerkingen wilt uitvoeren op virtuele machines die updates vereisen, biedt Azure Automation de mogelijkheid runbooks uit te voeren met VM's, zoals updates downloaden en toepassen.
 
-Tijdens het validatieproces wordt ook gecontroleerd of de virtuele machine is ingericht met Microsoft Monitoring Agent (MMA) en Automation Hybrid Runbook Worker.
-Deze agent wordt gebruikt om te communiceren met de VM en om informatie op te vragen over de status van de update.
+Tijdens het validatieproces wordt ook gecontroleerd of de virtuele machine is ingericht met de Log Analytics-agent en Automation Hybrid Runbook Worker. Deze agent wordt gebruikt om te communiceren met de VM en om informatie op te vragen over de status van de update.
 
 Kies de Log Analytics-werkruimte en het Automation-account en selecteer **Inschakelen** om de oplossing in te schakelen. Het duurt maximaal 15 minuten om de oplossing in te schakelen.
 
 Als een van de volgende vereiste onderdelen ontbreekt na de onboarding, wordt dit automatisch toegevoegd:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md)-werkruimte
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Automation-account](../../automation/automation-offering-get-started.md)
 * Een [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) wordt ingeschakeld op de virtuele machine.
 
 Het scherm **Updatebeheer** wordt geopend. Configureer de locatie, de Log Analytics-werkruimte en het Automation-account dat moet worden gebruikt, en selecteer **Inschakelen**. Als de velden lichtgrijs zijn, betekent dit dat een andere automatiseringsoplossing is ingeschakeld voor de virtuele machine en dat dezelfde werkruimte en hetzelfde Automation-account moeten worden gebruikt.
@@ -291,22 +290,9 @@ De grafiek toont wijzigingen die in de loop der tijd hebben plaatsgevonden. Nada
 
 ## <a name="advanced-monitoring"></a>Geavanceerde controle
 
-U kunt geavanceerdere bewaking van de VM uitvoeren met behulp van de oplossingen zoals Updatebeheer en Wijzigingen en inventaris bewaken, mogelijk gemaakt met [Azure Automation](../../automation/automation-intro.md).
+U kunt uw VM uitgebreider bewaken met een oplossing zoals [Azure Monitor voor VM's](../../azure-monitor/insights/vminsights-overview.md). Deze oplossing controleert uw virtuele Azure-machines (VM's) op schaal door de prestaties en status van uw Windows- en Linux-VM's te analyseren, inclusief hun verschillende processen en onderling verbonden afhankelijkheden van andere resources en externe processen. Met de oplossing voor wijzigingen bijhouden en inventaris in [Azure Automation](../../automation/automation-intro.md) kunt u configuratiebeheer uitvoeren voor uw Azure-VM's om eenvoudig wijzigingen in uw omgeving te identificeren. Met de oplossing Updatebeheer van Azure Automation kunt u de updatenaleving beheren.   
 
-Wanneer u toegang hebt tot de Log Analytics-werkruimte, kunt u de werkruimtesleutel en werkruimte-id vinden door onder **INSTELLINGEN** de optie **Geavanceerde instellingen** te selecteren. Vervang \<werkruimtesleutel \> en \< werkruimte-id\> door de waarden van uw Log Analytics-werkruimte. U kunt dan **az vm extension set** gebruiken om de extensie toe te voegen aan de VM:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-Na enkele minuten ziet u de nieuwe VM in de Log Analytics-werkruimte.
+Vanuit de Log Analytics-werkruimte waarmee de VM is verbonden, kunt u ook verzamelde gegevens ophalen, consolideren en analyseren met de [uitgebreide querytaal](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

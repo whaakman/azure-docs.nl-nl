@@ -1,5 +1,5 @@
 ---
-title: Video's analyseren met Media Services - Azure | Microsoft Docs
+title: Video's analyseren met Media Services met behulp van .NET - Azure | Microsoft Docs
 description: Volg de stappen van deze zelfstudie om video’s te analyseren met Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,26 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 12/08/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133890"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150390"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Zelfstudie: Video's analyseren met Media Services v3 met behulp van API's
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Zelfstudie: Video's analyseren met Media Services v3 met behulp van .NET
 
 In deze zelfstudie ziet u hoe u video's kunt analyseren met Azure Media Services. Er zijn veel scenario's waarin u misschien inzicht wilt krijgen in opgenomen video's of audio-inhoud. Voor het bereiken van een hogere klanttevredenheid kunnen organisaties bijvoorbeeld spraak-naar-tekstverwerking uitvoeren om opnamen van de klantenondersteuning om te zetten in een catalogus van zoekmachines, met indexen en dashboards. Vervolgens kunnen zij inzicht verkrijgen in hun bedrijf, zoals een lijst met veelvoorkomende klachten, bronnen van dergelijke klachten, en andere nuttige informatie.
 
 In deze zelfstudie ontdekt u hoe u:    
 
 > [!div class="checklist"]
-> * Een Media Services-account kunt maken
-> * Toegang kunt krijgen tot de Media Services API
-> * De voorbeeld-app kunt configureren
+> * Downloaden van de voorbeeld-app zoals beschreven in het onderwerp
 > * De code kunt onderzoeken die de opgegeven video analyseert
 > * De app kunt uitvoeren
 > * De uitvoer kunt controleren
@@ -39,15 +37,10 @@ In deze zelfstudie ontdekt u hoe u:
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u niet beschikt over Visual Studio, kunt u [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15) downloaden.
-- Installeer en gebruik de CLI lokaal. Voor dit artikel dient u gebruik te maken van Azure CLI, versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
+- [Maak een Azure Media Services-account](create-account-cli-how-to.md).<br/>Zorg ervoor dat u de waarden onthoudt die u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account.
+- Volg de stappen in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Toegang tot de Azure Media Services-API met de Azure CLI) en sla de referenties op. U hebt deze nodig voor toegang tot de API.
 
-    Momenteel werken niet alle [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-opdrachten in Azure Cloud Shell. U wordt aangeraden de CLI lokaal te gebruiken.
-
-- [Een Azure Media Services-account maken](create-account-cli-how-to.md).
-
-    Vergeet niet de waarden die u hebt gebruikt voor de namen van de resourcegroep en het Media Services-account.
-
-## <a name="download-the-sample"></a>Het voorbeeld downloaden
+## <a name="download-and-configure-the-sample"></a>Het voorbeeld downloaden en configureren
 
 Kloon met de volgende opdracht een GitHub-opslagplaats met het .NET-voorbeeld op de computer:  
 
@@ -57,7 +50,7 @@ Kloon met de volgende opdracht een GitHub-opslagplaats met het .NET-voorbeeld op
 
 Het voorbeeld bevindt zich in de map [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) in het project dat u hebt gedownload. Vervang de waarden door referenties die u hebt verkregen via [toegang tot API's](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>De code onderzoeken die de opgegeven video analyseert
 
@@ -65,8 +58,8 @@ In dit gedeelte worden de functies bekeken die zijn gedefinieerd in het bestand 
 
 In het voorbeeld worden de volgende acties uitgevoerd:
 
-1. Een transformatie en een taak maken voor het analyseren van de video.
-2. Een invoerasset maken en de video uploaden naar deze asset. De asset wordt gebruikt als de invoer voor de taak.
+1. Een **Transformatie** en een **Taak** maken voor het analyseren van de video.
+2. Een invoer**asset** maken en de video uploaden naar deze asset. De asset wordt gebruikt als de invoer voor de taak.
 3. Een uitvoerasset maken waarin de uitvoer van de taak wordt opgeslagen. 
 4. De taak verzenden.
 5. De status van de taak controleren.

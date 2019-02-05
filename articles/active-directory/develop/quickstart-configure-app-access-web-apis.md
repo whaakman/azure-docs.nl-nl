@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: a0082be25ec4ad326e4473cbe69f9ff029898f5b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a2f0d97d6b7040f874fc03ffe19f247cdc742c77
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988725"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103646"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Snelstart: Een clienttoepassing configureren voor toegang tot web-API's (preview)
+# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Quickstart: Een clienttoepassing configureren voor toegang tot web-API's (preview)
 
 Voordat een web-/vertrouwelijke clienttoepassing kan deelnemen aan een werkstroom voor autorisatieverlening die verificatie (en het verkrijgen van een toegangstoken) vereist, moeten beveiligde referenties worden vastgesteld. De standaardmethode voor verificatie die wordt ondersteund door Azure Portal is de client-ID + geheime sleutel.
 
@@ -43,20 +43,20 @@ In deze snelstart leert u hoe u uw toepassing kunt configureren voor het volgend
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u voordat u aan de slag gaat aan deze vereisten voldoet:
+Zorg ervoor dat u, voordat u aan de slag gaat, aan deze vereisten voldoet:
 
-* Meer hebben gelezen over de ondersteunde [machtigingen en toestemming](v2-permissions-and-consent.md). Een goed begrip hiervan is belangrijk bij het bouwen van toepassingen die moeten worden gebruikt door andere gebruikers of toepassingen.
-* Een tenant hebben waarvoor toepassingen zijn geregistreerd.
-  * Als u geen geregistreerde apps hebt, [kunt u hier lezen hoe u toepassingen registreert met het Microsoft Identity Platform](quickstart-register-app.md).
-* U hebben aangemeld voor de preview-versie voor app-registraties in de Azure-portal. De stappen in deze snelstart komen overeen met de nieuwe gebruikersinterface en werken alleen als zich hebt aangemeld voor de preview-versie.
+* Lees de informatie over de ondersteunde [machtigingen en toestemming](v2-permissions-and-consent.md). Een goed begrip hiervan is belangrijk bij het bouwen van toepassingen die moeten worden gebruikt door andere gebruikers of met andere toepassingen.
+* U moet een tenant hebben waarvoor toepassingen zijn geregistreerd.
+  * Als u uw apps niet hebt geregistreerd, [kunt u hier lezen hoe u toepassingen registreert bij het Microsoft Identity Platform](quickstart-register-app.md).
+* U hebben aangemeld voor de preview-versie voor app-registraties in de Azure-portal. De stappen in deze snelstart zijn compatibel met de nieuwe gebruikersinterface en werken alleen als u zich hebt aangemeld voor de preview-versie.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Aanmelden bij de Azure-portal en de app selecteren
 
 Voordat u de app kunt configureren, volgt u deze stappen:
 
 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
-1. Als u via uw account toegang tot meer dan één tenant hebt, selecteert u uw account in de rechterbovenhoek en stelt u uw portalsessie in op de gewenste Azure Active Directory-tenant.
-1. Selecteer in het navigatiedeelvenster aan de linkerkant de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview-versie)**.
+1. Als u via uw account toegang hebt tot meer dan één tenant, selecteert u uw account in de rechterbovenhoek en stelt u de portalsessie in op de gewenste Azure Active Directory-tenant.
+1. Selecteer in het linkernavigatiedeelvenster de **Azure Active Directory**-service en selecteer vervolgens **App-registraties (preview)**.
 1. Zoek en selecteer de toepassing die u wilt configureren. Wanneer u de app hebt geselecteerd, ziet u het **Overzicht** of de hoofdregistratiepagina van de toepassing.
 1. Volg de stappen om uw toepassing te configureren voor toegang tot web-API's: 
     * [Omleidings-URI's toevoegen aan uw toepassing](#add-redirect-uris-to-your-application)
@@ -125,12 +125,12 @@ Ga als volgt te werk om machtiging(en) voor toegang tot resource-API's van uw cl
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees meer over andere gerelateerde snelstarts voor app-beheer:
+Lees meer in deze andere gerelateerde snelstarts voor app-beheer:
 
 * [Een toepassing registreren met het Microsoft Identity Platform](quickstart-register-app.md)
 * [Een toepassing configureren voor het beschikbaar maken van web-API's](quickstart-configure-app-expose-web-apis.md)
 * [De accounts wijzigen die worden ondersteund door een toepassing](quickstart-modify-supported-accounts.md)
-* [Een geregistreerde toepassing verwijderen met het Microsoft Identity Platform](quickstart-remove-app.md)
+* [Een geregistreerde toepassing verwijderen uit het Microsoft Identity Platform](quickstart-remove-app.md)
 
 Zie [Toepassingsobjecten en service-principal-objecten](app-objects-and-service-principals.md) voor meer informatie over de twee Azure Active Directory-objecten die een geregistreerde toepassing vertegenwoordigen en de relatie ertussen.
 

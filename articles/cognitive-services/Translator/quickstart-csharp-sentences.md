@@ -1,27 +1,27 @@
 ---
-title: 'Snelstart: Zinlengtes ophalen, C# - Translator Text-API'
+title: 'Quickstart: Zinslengtes ophalen, C# - Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: In deze quickstart leert u hoe u zinlengtes bepaalt met behulp van .NET Core en de Translator Text-API.
+description: In deze quickstart leert u hoe u zinslengtes bepaalt met behulp van .NET Core en de Translator Text-API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 868c19f8c9e42bcd4a03aa2c766dff185f6319a7
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: daa1afd2caf5d5bfa2452858501f550e4c7e387b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888338"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212015"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Quickstart: De Translator Text-API gebruiken om de zinlengte te bepalen met C#
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Quickstart: De Translator Text-API gebruiken om de zinslengte te bepalen met C#
 
-In deze quickstart leert u hoe u zinlengtes bepaalt met behulp van .NET Core en de Translator Text-API.
+In deze quickstart leert u hoe u zinslengtes bepaalt met behulp van .NET Core en de Translator Text-API.
 
-Voor deze snelstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
+Voor deze quickstart is een [Azure Cognitive Services-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met een Translator Text-resource vereist. Als u geen account hebt, kunt u de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/) gebruiken om een abonnementssleutel op te halen.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -58,7 +58,7 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="create-a-function-to-determine-sentence-length"></a>Een functie maken om de zinlengte te bepalen
+## <a name="create-a-function-to-determine-sentence-length"></a>Een functie maken om de zinslengte te bepalen
 
 Maak in de klasse `Program` een functie met de naam `BreakSentence`. Deze klasse bevat de code die wordt gebruikt om de resource BreakSentence aan te roepen en het resultaat weer te geven op de console.
 
@@ -173,7 +173,7 @@ Denk eraan dat u eventuele vertrouwelijke informatie, zoals abonnementssleutels,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze quickstart en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [C#-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)
@@ -185,4 +185,4 @@ Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegri
 * [Een taal identificeren op basis van de invoer](quickstart-csharp-detect.md)
 * [Alternatieve vertalingen verkrijgen](quickstart-csharp-dictionary.md)
 * [Een lijst ophalen van ondersteunde talen](quickstart-csharp-languages.md)
-* [De zinlengte in invoer bepalen](quickstart-csharp-sentences.md)
+* [De zinslengte in invoer bepalen](quickstart-csharp-sentences.md)

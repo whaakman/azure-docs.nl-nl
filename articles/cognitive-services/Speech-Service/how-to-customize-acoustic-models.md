@@ -1,23 +1,23 @@
 ---
-title: 'Zelfstudie: een akoestisch model maken met Speech Service'
+title: 'Zelfstudie: Een akoestisch model maken met Speech Service'
 titlesuffix: Azure Cognitive Services
 description: Leer hoe u een akoestisch model maakt met de Speech Service in Azure Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215239"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217625"
 ---
-# <a name="tutorial-create-a-custom-acoustic-model"></a>Zelfstudie: een aangepast akoestisch model maken
+# <a name="tutorial-create-a-custom-acoustic-model"></a>Zelfstudie: Een aangepast akoestisch model maken
 
 Het maken van een aangepast akoestisch model is handig als uw toepassing is bedoeld voor gebruik in een bepaalde omgeving, zoals een auto, met specifieke opnameapparaten of omstandigheden, of door een bepaalde gebruikerspopulatie. Voorbeelden zijn spraak met een accent, specifieke achtergrondgeluiden of het gebruik van een specifieke microfoon voor opname.
 
@@ -46,7 +46,7 @@ Bijvoorbeeld:
 * Als u spraak beter wilt herkennen in een lawaaierige fabrieksomgeving, moeten de audiobestanden bestaan ​​uit mensen die in een luidruchtige fabriek praten.
 * Als u bijvoorbeeld de prestaties van een bepaalde spreker wilt optimaliseren&mdash;bijvoorbeeld als u alle gesprekken van president Roosevelt bij de open haard wilt transcriberen&mdash;moeten de audiobestanden alleen uit veel voorbeelden van die spreker bestaan.
 
-Een akoestische-gegevensset voor het aanpassen van het akoestische model bestaat uit twee delen: (1) een set audiobestanden die de spraakgegevens bevatten en (2) een bestand dat de transcripties van alle audiobestanden bevat.
+Een set akoestische gegevens voor het aanpassen van het akoestisch model bestaat uit twee onderdelen: (1) een set met audiobestanden met de spraakgegevens en (2) een bestand met de transcripties van alle audiobestanden.
 
 ### <a name="audio-data-recommendations"></a>Aanbevelingen voor audiogegevens
 
@@ -112,7 +112,7 @@ Geef de gewenste gegevens op voor **Name** en **Description**. Gebruikersvriende
 
 Selecteer **Browse** in de vakken **Transcriptions file (.txt)** en **Audio files (.zip)**, en selecteer vervolgens het transcriptiebestand met tekst zonder opmaak en het zip-archief met WAV-bestanden. Wanneer de voorbereiding is voltooid, selecteert u **Import** om uw gegevens te uploaden. Uw gegevens worden geüpload. Bij grotere gegevenssets kan het importproces enkele minuten duren.
 
-Wanneer het uploaden is voltooid, gaat u terug naar de tabel **Acoustic Datasets**. Hier ziet u een vermelding die overeenkomt met uw akoestische-gegevensset. U ziet dat er een unieke id (GUID) aan is toegewezen. De status is *NotStarted* als de gegevens in de wachtrij staan voor verwerking, *Running* als ze worden gevalideerd en *Complete* wanneer ze klaar zijn voor gebruik.
+Wanneer het uploaden is voltooid, gaat u terug naar de tabel **Acoustic Datasets**. Hier ziet u een vermelding die overeenkomt met uw akoestische-gegevensset. U ziet dat er een unieke id (GUID) aan is toegewezen. De huidige status van de gegevens wordt weergegeven: *NotStarted* als de gegevens in de wachtrij staan voor verwerking, *Running* als ze worden gevalideerd en *Complete* wanneer ze klaar zijn voor gebruik.
 
 Gegevensvalidatie omvat een reeks controles op de audiobestanden om de bestandsindeling, lengte en samplingfrequentie te verifiëren, en op de transcriptiebestanden om de bestandsindeling te verifiëren en enige tekstnormalisatie uit te voeren.
 
@@ -141,13 +141,13 @@ Selecteer vervolgens in de vervolgkeuzelijst **Acoustic Data** de akoestische ge
 
 ![De pagina Create Acoustic Model](media/stt/speech-acoustic-models-create2.png)
 
-Wanneer de verwerking is voltooid, kunt u er desgewenst voor kiezen een nauwkeurigheidstest van uw nieuwe model uit te voeren. Er wordt dan met behulp van het aangepaste akoestische model een evaluatie van spraak-naar-tekst gedaan op een opgegeven akoestische-gegevensset, waarna de resultaten worden gerapporteerd. Schakel het selectievakje **Accuracy Testing** in als u deze test wilt uitvoeren. Selecteer vervolgens een taalmodel in de vervolgkeuzelijst. Als u geen aangepaste taalmodellen hebt gemaakt, staan ​​alleen de basistaalmodellen in de vervolgkeuzelijst. Zie de zelfstudie [Een aangepast taalmodel maken](how-to-customize-language-model.md) voor het selecteren van het meest geschikte taalmodel.
+Wanneer de verwerking is voltooid, kunt u er desgewenst voor kiezen een nauwkeurigheidstest van uw nieuwe model uit te voeren. Er wordt dan met behulp van het aangepaste akoestische model een evaluatie van spraak-naar-tekst gedaan op een opgegeven akoestische-gegevensset, waarna de resultaten worden gerapporteerd. Schakel het selectievakje **Accuracy Testing** in als u deze test wilt uitvoeren. Selecteer vervolgens een taalmodel in de vervolgkeuzelijst. Als u geen aangepaste taalmodellen hebt gemaakt, staan ​​alleen de basistaalmodellen in de vervolgkeuzelijst. Voor het selecteren van het meest geschikte taalmodel, zie [Zelfstudie: Een aangepast taalmodel maken](how-to-customize-language-model.md).
 
 Selecteer ten slotte de akoestische-gegevensset die u wilt gebruiken voor het evalueren van het aangepaste model. Als u een nauwkeurigheidstest uitvoert, is het voor een ​​realistisch beeld van de prestaties van het model belangrijk om een andere akoestische-gegevensset te selecteren dan de set die u hebt gebruikt voor het maken van het model. Door de nauwkeurigheid te testen op de trainingsgegevens, kunt u niet evalueren hoe het aangepaste model presteert onder echte omstandigheden. Het resultaat zal te optimistisch zijn. Ook is het zo dat nauwkeurigheidstests beperkt zijn tot 1.000 utterances. Als de akoestische-gegevensset voor het testen groter is, worden alleen de eerste 1.000 utterances geëvalueerd.
 
 Wanneer u klaar bent om het aanpassingsproces te starten, selecteert u **Create**.
 
-De tabel Acoustic Models bevat een nieuwe vermelding die overeenkomt met dit nieuwe model. De tabel geeft ook de status van het proces aan: *Waiting*, *Processing* of *Complete*.
+De tabel Acoustic Models bevat een nieuwe vermelding die overeenkomt met dit nieuwe model. De tabel geeft ook de status van het proces aan: *Wachten*, *Verwerken* of *Voltooid*.
 
 ![De pagina Acoustic Models](media/stt/speech-acoustic-models-creating.png)
 
