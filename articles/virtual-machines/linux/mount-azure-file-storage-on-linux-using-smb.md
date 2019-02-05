@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: 77b7e6aef4d0d38fa3ea9f9b9a740ffc25aff7f9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0aa291c3334af35ec90648cfbcbb7de7015deb99
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660014"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731441"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure File storage koppelen op virtuele Linux-machines met behulp van SMB
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Maak een nieuw opslagaccount, binnen de resourcegroep die u hebt gemaakt, met behulp van [az storage-account maken](/cli/azure/storage/account#create). Dit voorbeeld maakt u een opslagaccount met de naam *mySTORAGEACCT<random number>*  en plaatst u de naam van dat opslagaccount in de variabele **STORAGEACCT**. Namen van opslagaccounts moeten uniek zijn, met behulp van `$RANDOM` enkele toegevoegd aan het einde uniek te maken.
+Maak een nieuw opslagaccount, binnen de resourcegroep die u hebt gemaakt, met behulp van [az storage-account maken](/cli/azure/storage/account). Dit voorbeeld maakt u een opslagaccount met de naam *mySTORAGEACCT<random number>*  en plaatst u de naam van dat opslagaccount in de variabele **STORAGEACCT**. Namen van opslagaccounts moeten uniek zijn, met behulp van `$RANDOM` enkele toegevoegd aan het einde uniek te maken.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -69,7 +69,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>Een bestandsshare maken
 
-Maak het bestand met de opslag delen met [az storage share maken](/cli/azure/storage/share#create). 
+Maak het bestand met de opslag delen met [az storage share maken](/cli/azure/storage/share). 
 
 De namen van shares moeten worden alle kleine letters, cijfers en afbreekstreepjes maar mag niet beginnen met een afbreekstreepje. Zie [Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) voor meer informatie over de naamgeving van bestandsshares en bestanden.
 

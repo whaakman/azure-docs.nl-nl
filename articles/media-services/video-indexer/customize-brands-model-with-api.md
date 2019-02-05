@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6c6f2890cf9bd3c8cb412b3fa2f28d8ea3b6f72
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827581"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734314"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Aanpassen van een model merken met Video Indexer-API
 
@@ -26,17 +26,17 @@ U kunt de Video Indexer-API's gebruiken om te maken, gebruiken en bewerken van a
 
 ## <a name="create-a-brand"></a>Maken van een merk
 
-Hiermee maakt u een nieuwe aangepaste merk en voegt deze toe aan het aangepaste merken model voor het opgegeven account. 
+Hiermee maakt u een nieuwe aangepaste merk en voegt deze toe aan het aangepaste merken model voor het opgegeven account.
 
 ### <a name="request-url"></a>Aanvraag-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### <a name="request-parameters"></a>Aanvraagparameters 
+### <a name="request-parameters"></a>Aanvraagparameters
 
 |**Naam**|**Type**|**Vereist**|**Beschrijving**|
 |---|---|---|---|
@@ -95,7 +95,7 @@ Hiermee verwijdert u een onderdeel van het aangepaste merken model voor het opge
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
 ### <a name="request-parameters"></a>Aanvraagparameters
@@ -117,17 +117,17 @@ Er is geen geretourneerde inhoud wanneer het merk is verwijderd.
 
 ## <a name="get-a-specific-brand"></a>Een specifiek merk ophalen
 
-Hiermee kunt u zoeken naar de details van een merk in de aangepaste merken model voor het opgegeven account met behulp van het merk-id. 
+Hiermee kunt u zoeken naar de details van een merk in de aangepaste merken model voor het opgegeven account met behulp van het merk-id.
 
 ### <a name="request-url"></a>Aanvraag-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### <a name="request-parameters"></a>Aanvraagparameters 
+### <a name="request-parameters"></a>Aanvraagparameters
 
 |**Naam**|**Type**|**Vereist**|**Beschrijving**|
 |---|---|---|---|
@@ -167,14 +167,14 @@ Het antwoord bevat informatie over het merk dat u hebt gezocht (met behulp van m
 
 ## <a name="update-a-specific-brand"></a>Bijwerken van een specifiek merk
 
-Hiermee kunt u zoeken naar de details van een merk in de aangepaste merken model voor het opgegeven account met behulp van het merk-ID. 
+Hiermee kunt u zoeken naar de details van een merk in de aangepaste merken model voor het opgegeven account met behulp van het merk-ID.
 
 ### <a name="request-url"></a>Aanvraag-URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
 ### <a name="request-parameters"></a>Aanvraagparameters
@@ -237,7 +237,7 @@ Dit retourneert alle van de merken die in het aangepaste merken model voor het o
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
 ### <a name="request-parameters"></a>Aanvraagparameters
@@ -270,7 +270,7 @@ Het antwoord bevat een lijst van alle de merken die in uw account en elk van de 
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -297,7 +297,7 @@ Hiermee wordt de modelinstellingen merken in het opgegeven account. Instellingen
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
 ### <a name="request-parameters"></a>Aanvraagparameters
@@ -330,14 +330,14 @@ Het antwoord geeft aan of Bing merken zijn ingeschakeld op de volgende de indeli
 
 Hiermee wordt de instellingen voor het merken-model in het opgegeven account bijgewerkt. Instellingen voor het model merken vertegenwoordigen of detectie uit de database van Bing merken of niet is ingeschakeld. Als u Bing merken niet zijn ingeschakeld, detecteert Video Indexer alleen merken uit de aangepaste merken model van het opgegeven account.
 
-### <a name="request-url"></a>Aanvraag-URL: 
+### <a name="request-url"></a>Aanvraag-URL:
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [Zie de vereiste parameters en testen met behulp van de Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### <a name="request-parameters"></a>Aanvraagparameters 
+### <a name="request-parameters"></a>Aanvraagparameters
 
 |**Naam**|**Type**|**Vereist**|**Beschrijving**|
 |---|---|---|---|

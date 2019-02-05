@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970481"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730744"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure beheerde Service-identiteit gebruiken in Azure API Management
 
@@ -38,7 +38,7 @@ Als u een beheerde service-identiteit in de portal instelt, wordt u maakt eerst 
 
 ### <a name="using-the-azure-resource-manager-template"></a>Met behulp van de Azure Resource Manager-sjabloon
 
-U kunt een exemplaar van API Management met een identiteit maken door de volgende eigenschap te nemen in de resourcedefinitie: 
+U kunt een exemplaar van API Management met een identiteit maken door de volgende eigenschap te nemen in de resourcedefinitie:
 
 ```json
 "identity" : {
@@ -46,7 +46,7 @@ U kunt een exemplaar van API Management met een identiteit maken door de volgend
 }
 ```
 
-Hiermee wordt aangegeven voor Azure maken en beheren van de identiteit voor uw exemplaar van API Management. 
+Hiermee wordt aangegeven voor Azure maken en beheren van de identiteit voor uw exemplaar van API Management.
 
 Bijvoorbeeld, uitzien een volledige Azure Resource Manager-sjabloon als volgt:
 
@@ -70,8 +70,8 @@ Bijvoorbeeld, uitzien een volledige Azure Resource Manager-sjabloon als volgt:
                 "publisherEmail": "admin@contoso.com",
                 "publisherName": "Contoso"
             },
-            "identity": { 
-                "type": "systemAssigned" 
+            "identity": {
+                "type": "systemAssigned"
             }
         }
     ]
@@ -81,14 +81,14 @@ Bijvoorbeeld, uitzien een volledige Azure Resource Manager-sjabloon als volgt:
 
 > [!NOTE]
 > Beheerde service-identiteit kan op dit moment worden gebruikt om certificaten te verkrijgen uit Azure Key Vault voor aangepaste domeinnamen voor API Management. Meer scenario's zal binnenkort worden ondersteund.
-> 
+>
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Een certificaat verkrijgen van Azure Key Vault
 
 #### <a name="prerequisites"></a>Vereisten
-1. De Key Vault met het pfx-certificaat moet zich in hetzelfde Azure-abonnement en dezelfde resourcegroep bevinden als de API Management-service. Dit is een vereiste van het Azure Resource Manager-sjabloon. 
+1. De Key Vault met het pfx-certificaat moet zich in hetzelfde Azure-abonnement en dezelfde resourcegroep bevinden als de API Management-service. Dit is een vereiste van het Azure Resource Manager-sjabloon.
 2. Het inhoudstype van de geheime sleutel moet *application/x-pkcs12*. U kunt het volgende script gebruiken om het certificaat te uploaden:
 
 ```powershell
@@ -106,7 +106,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 ```
 
 > [!Important]
-> Als de Objectversie van het certificaat niet opgegeven is, wordt API Management de nieuwere versie van het certificaat automatisch verkrijgen nadat deze is geüpload naar Key Vault. 
+> Als de Objectversie van het certificaat niet opgegeven is, wordt API Management de nieuwere versie van het certificaat automatisch verkrijgen nadat deze is geüpload naar Key Vault.
 
 Het volgende voorbeeld ziet u een Azure Resource Manager-sjabloon met de volgende stappen uit:
 
@@ -180,7 +180,6 @@ Het volgende voorbeeld ziet u een Azure Resource Manager-sjabloon met de volgend
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
         "tags": {
-            
         },
         "sku": {
             "name": "[parameters('sku')]",
@@ -197,10 +196,10 @@ Het volgende voorbeeld ziet u een Azure Resource Manager-sjabloon met de volgend
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2015-06-01",        
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
+        "apiVersion": "2015-06-01",
+        "dependsOn": [
+            "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+        ],
         "properties": {
             "accessPolicies": [{
                 "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
@@ -211,28 +210,28 @@ Het volgende voorbeeld ziet u een Azure Resource Manager-sjabloon met de volgend
             }]
         }
     },
-    { 
-      "apiVersion": "2017-05-10", 
-      "name": "apimWithKeyVault", 
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "apimWithKeyVault",
+        "type": "Microsoft.Resources/deployments",
+        "dependsOn": [
         "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
-      "properties": { 
-        "mode": "incremental", 
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-          "contentVersion": "1.0.0.0"
-        }, 
-        "parameters": {
-            "publisherEmail": { "value": "[parameters('publisherEmail')]"},
-            "publisherName": { "value": "[parameters('publisherName')]"},
-            "sku": { "value": "[parameters('sku')]"},
-            "skuCount": { "value": "[parameters('skuCount')]"},
-            "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-            "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+        ],
+        "properties": {
+            "mode": "incremental",
+            "templateLink": {
+                "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "publisherEmail": { "value": "[parameters('publisherEmail')]"},
+                "publisherName": { "value": "[parameters('publisherName')]"},
+                "sku": { "value": "[parameters('sku')]"},
+                "skuCount": { "value": "[parameters('skuCount')]"},
+                "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+                "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+            }
         }
-      } 
     }]
 }
 ```
@@ -243,4 +242,3 @@ Meer informatie over Azure Managed Service Identity:
 
 * [Beheerde Service-identiteit voor Azure-resources](../active-directory/msi-overview.md)
 * [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-quickstart-templates)
-

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2448d941db7f27a87fbb5e2267847165f84ede3d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881695"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733131"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementeer uw toepassing op virtuele-machineschaalsets
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. Dit artikel bevat manieren voor het maken van een aangepaste VM-installatiekopie voor exemplaren in een schaalset instellen of installatiescripts op bestaande VM-exemplaren automatisch wordt uitgevoerd. U leert ook hoe u voor het beheren van toepassingen of updates van het besturingssysteem in een schaalset.
@@ -97,7 +97,7 @@ Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get ins
 
 Voor meer informatie, met inbegrip van een voorbeeld *cloud-init.txt* bestand, Zie [cloud-init gebruiken voor het aanpassen van virtuele Azure-machines](../virtual-machines/linux/using-cloud-init.md).
 
-Een schaalset maken en gebruiken van een cloud-init-bestand, voeg de `--custom-data` parameter voor de [az vmss maken](/cli/azure/vmss#az_vmss_create) opdracht en geeft u de naam van een cloud-init-bestand. Het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* in *myResourceGroup* en VM-exemplaren configureert met een bestand met de naam *cloud-init.txt*. Voer uw eigen namen als volgt in:
+Een schaalset maken en gebruiken van een cloud-init-bestand, voeg de `--custom-data` parameter voor de [az vmss maken](/cli/azure/vmss) opdracht en geeft u de naam van een cloud-init-bestand. Het volgende voorbeeld wordt een schaalset met de naam *myScaleSet* in *myResourceGroup* en VM-exemplaren configureert met een bestand met de naam *cloud-init.txt*. Voer uw eigen namen als volgt in:
 
 ```azurecli
 az vmss create \

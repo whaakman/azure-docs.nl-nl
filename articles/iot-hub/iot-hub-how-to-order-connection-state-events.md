@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 06b917c956507de3eb3b1536356285d7a954fb8b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184046"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730073"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Order apparaat connection-gebeurtenissen van Azure IoT Hub met behulp van Azure Cosmos DB
 
@@ -250,11 +250,11 @@ In deze sectie configureert u de IoT-hub voor het publiceren van gebeurtenissen 
 
    * **Gebeurtenistype**: Schakel het selectievakje abonneren op alle gebeurtenistypen en selecteer **apparaat aangesloten** en **apparaat losgekoppeld** in het menu.
 
-   * **Details van eindpunt**: Selecteer Eindpunttype als **Webhook** en klik op selecteren eindpunt en plak de URL die u hebt gekopieerd uit uw logische app en Bevestig de selectie.
+   * **Eindpuntdetails**: Selecteer Eindpunttype als **Webhook**, klik op Eindpunt selecteren, plak de URL die u hebt gekopieerd in uw logische app en bevestig uw selectie.
 
        ![eindpunt-URL selecteren](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Details van gebeurtenis abonnement**: Geef een beschrijvende naam op en selecteer **gebeurtenisschema in het raster**.
+   * **Gebeurtenisabonnementdetails**: Geef een beschrijvende naam op en selecteer **gebeurtenisschema in het raster**.
    Het formulier lijkt op het volgende voorbeeld: 
 
        ![Voorbeeld van formulier voor gebeurtenisabonnement](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
@@ -341,7 +341,7 @@ Zelfs als u uw IoT-hub wilt behouden, kunt u het gebeurtenisabonnement verwijder
 
 3. Selecteer **Verwijderen**. 
 
-Als u wilt verwijderen van een Azure Cosmos DB-account vanuit Azure portal, met de rechtermuisknop op de accountnaam en klik op **-account verwijderen**. Zie voor gedetailleerde instructies [verwijderen van een Azure Cosmos DB-account](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
+Als u wilt verwijderen van een Azure Cosmos DB-account vanuit Azure portal, met de rechtermuisknop op de accountnaam en klik op **-account verwijderen**. Zie voor gedetailleerde instructies [verwijderen van een Azure Cosmos DB-account](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437467"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695577"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Toegangsrechten voor het beheren van alle Azure-abonnementen en beheergroepen
 
@@ -83,12 +83,14 @@ Volg deze stappen om de toegangsrechten voor een globale beheerder met behulp va
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### <a name="list-role-assignment-at-the-root-scope-"></a>Lijst met roltoewijzing bij het root-bereik (/)
 
-Om de toewijzing van de rol Administrator voor gebruikerstoegang voor een gebruiker bij het bereik van de hoofdmap weer te geven (`/`), gebruikt u de [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) opdracht.
+Om de toewijzing van de rol Administrator voor gebruikerstoegang voor een gebruiker bij het bereik van de hoofdmap weer te geven (`/`), gebruikt u de [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) opdracht.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -111,10 +113,10 @@ Verwijderen van een roltoewijzing Administrator voor gebruikerstoegang voor een 
 1. Meld u aan als een gebruiker die toegang met verhoogde bevoegdheid kunt verwijderen. Dit kan dezelfde gebruiker is die is gebruikt voor het verhogen van toegang of een andere globale beheerder met verhoogde toegang bij het root-bereik zijn.
 
 
-1. Gebruik de [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) opdracht om te verwijderen van de toewijzing van de rol Administrator voor gebruikerstoegang.
+1. Gebruik de [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) opdracht om te verwijderen van de toewijzing van de rol Administrator voor gebruikerstoegang.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223354"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733464"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>De Cognitive Services spraak apparaten SDK ophalen
 
@@ -46,7 +46,7 @@ Subject: You're invited to the Microsoft organization
 
 De volgende stappen als u wilt deelnemen aan Azure AD met het e-mailadres dat u hebt opgegeven tijdens de registratie. Hierbij verleent u toegang tot de SDK van de apparaten spraak [downloadsite](https://shares.datatransfer.microsoft.com/).
 
-1. Selecteer in het e-mailbericht dat u hebt ontvangen, **aan de slag**. Als uw organisatie al een Office 365-klant bent, wordt u gevraagd om aan te melden bij en gaat u verder naar stap 8.
+1. Selecteer in het e-mailbericht dat u hebt ontvangen, **aan de slag**. Als uw organisatie al een Office 365-klant bent, wordt u gevraagd om aan te melden bij en gaat u verder met stap 7.
 
 2. Selecteer in het browservenster dat wordt geopend, **volgende**.
 

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413835"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731305"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Beheren van gebruikers met beheerdersrechten, SSH en controleer of het herstellen van schijven op virtuele Linux-machines met behulp van de VMAccess-extensie met de Azure CLI
 ## <a name="overview"></a>Overzicht
@@ -110,7 +110,7 @@ az vm user delete \
 ```
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>JSON-bestanden en de VMAccess-extensie gebruiken
-De volgende voorbeelden gebruiken de onbewerkte JSON-bestanden. Gebruik [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) om aan te roepen vervolgens uw JSON-bestanden. Deze JSON-bestanden kunnen ook worden aangeroepen vanuit de Azure-sjablonen. 
+De volgende voorbeelden gebruiken de onbewerkte JSON-bestanden. Gebruik [az vm extension set](/cli/azure/vm/extension) om aan te roepen vervolgens uw JSON-bestanden. Deze JSON-bestanden kunnen ook worden aangeroepen vanuit de Azure-sjablonen. 
 
 ### <a name="reset-user-access"></a>Gebruikerstoegang opnieuw instellen
 Als u hebt niet langer toegang tot de hoofdmap van uw Linux-VM, kunt u een VMAccess-script voor het bijwerken van de SSH-sleutel of het wachtwoord van een gebruiker kunt starten.

@@ -6,20 +6,23 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2efc0b76c8556894119ed3f6dd216234414cf313
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312020"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732349"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configureren van een verbinding tussen een Azure Search-indexeerfunctie en SQL Server op een Azure VM
 Zoals aangegeven [Azure SQL-Database verbinding te maken in Azure Search met indexeerfuncties](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), het maken van indexeerfuncties tegen **SQL Server op Azure Virtual machines** (of **SQL Azure-VM's** voor korte) wordt ondersteund Azure Search, maar er zijn enkele beveiliging gerelateerde vereisten voor het eerste regelt. 
 
-**De duur van de taak:** Circa 30 minuten, ervan uitgaande dat u al een certificaat geïnstalleerd op de virtuele machine.
+Verbindingen van Azure Search met SQL Server op een virtuele machine is een openbare internetverbinding. Alle van de beveiligingsmaatregelen die u normaal gesproken voor deze verbindingen volgen ook van toepassing zijn hier:
+
++ Verkrijgen van een certificaat van een [certificeringsinstantie provider](https://en.wikipedia.org/wiki/Certificate_authority#Providers) voor de volledig gekwalificeerde domeinnaam van de Azure-VM.
++ Het certificaat installeren op de virtuele machine, inschakelen en configureren van versleutelde verbindingen op de virtuele machine met behulp van de instructies in dit artikel.
 
 ## <a name="enable-encrypted-connections"></a>Versleutelde verbindingen inschakelen
 Azure Search is een versleuteld kanaal vereist voor alle indexeerfunctie aanvragen via een openbare internetverbinding. Deze sectie vindt u de stappen uit om dit werk.

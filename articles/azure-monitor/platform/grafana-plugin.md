@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466982"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730897"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Bewaken van uw Azure-services in Grafana
 U kunt nu Azure-services en toepassingen van bewaken [Grafana](https://grafana.com/) met behulp van de [Azure Monitor-gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing verzamelt prestatiegegevens van toepassingen die door Azure Monitor, met inbegrip van verschillende logboeken en metrische gegevens worden verzameld. U kunt deze gegevens vervolgens weergeven in het Grafana-dashboard.
@@ -66,7 +66,7 @@ Wanneer is aangemeld, ziet u de Azure Monitor data source-invoegtoepassing is al
 
 3. Een service-principal maken - Grafana maakt gebruik van een Azure Active Directory-service-principal verbinding maken met Azure Monitor-API's en verzamelen van gegevens. U moet maken of een bestaande service-principal gebruiken voor het beheren van toegang tot uw Azure-resources.
     * Zie [deze instructies](../../azure-resource-manager/resource-group-create-service-principal-portal.md) om een serviceprincipal te maken. Kopiëren en opslaan van uw tenant-ID (Directory-ID), client-ID (toepassings-ID) en het clientgeheim (sleutelwaarde van toepassing).
-    * Zie [toepassing toewijzen aan rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) om toe te wijzen met de rol lezer in de Azure Active Directory-toepassing op het abonnement, resourcegroep of resource u wilt bewaken. 
+    * Zie [toepassing toewijzen aan rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) om toe te wijzen met de rol lezer in de Azure Active Directory-toepassing op het abonnement, resourcegroep of resource u wilt bewaken. 
     De Log Analytics-API is vereist de [rol van lezer van Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), die de rol Lezer machtigingen bevat en wordt toegevoegd aan het.
 
 4. Geef de verbindingsdetails naar de API's die u wilt gebruiken. U kunt verbinding maken met alle of enkele ervan. 

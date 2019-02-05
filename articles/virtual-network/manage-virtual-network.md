@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 10717ccbfa05f204e60eb6d8cde5a83e9714b197
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 34dc6fbd1cca30f86b3fa825932983a01c4c8250
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562603"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730183"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 
@@ -94,7 +94,7 @@ Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
 
 **Opdrachten**
 
-- Azure CLI: [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show)
+- Azure CLI: [az network vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)
 
 ## <a name="add-or-remove-an-address-range"></a>Toevoegen of verwijderen van een adresbereik in
@@ -162,7 +162,7 @@ U kunt een virtueel netwerk alleen verwijderen als er geen bronnen die zijn verb
 
 **Opdrachten**
 
-- Azure CLI: [azure network vnet verwijderen](/cli/azure/network/vnet#az_network_vnet_delete)
+- Azure CLI: [azure network vnet verwijderen](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
 
 ## <a name="permissions"></a>Machtigingen

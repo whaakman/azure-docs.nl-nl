@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823348"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694496"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migratie van Contoso: Een on-premises app opnieuw hosten op Azure-VM's
 
@@ -460,7 +460,7 @@ Het Contoso security team controleert de Azure-VM's, om te bepalen van alle beve
 - Voor het beheren van toegang, controleert het team de Netwerkbeveiligingsgroepen (nsg's) voor de virtuele machines. Nsg's worden gebruikt om ervoor te zorgen dat alleen verkeer dat is toegestaan naar de app deze kan bereiken.
 - Het team is ook rekening houden met de beveiliging van de gegevens op de schijf met behulp van Azure Disk Encryption en Key Vault.
 
-[Lees meer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) over procedures voor beveiliging voor virtuele machines.
+[Lees meer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) over procedures voor beveiliging voor virtuele machines.
 
 ## <a name="bcdr"></a>BCDR
 

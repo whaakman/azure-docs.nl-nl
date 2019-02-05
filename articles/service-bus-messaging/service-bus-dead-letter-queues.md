@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856107"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733311"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Overzicht van Service Bus-wachtrijen voor onbestelbare berichten
 
@@ -60,13 +60,13 @@ Dit gedrag kan niet worden uitgeschakeld, maar u kunt instellen [MaxDeliveryCoun
 
 ## <a name="exceeding-timetolive"></a>Exceeding TimeToLive
 
-Wanneer de [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) of [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) eigenschap is ingesteld op **waar** (de standaardwaarde is **false**), alle verlopende berichten worden verplaatst naar de DLQ op te geven de `TTLExpiredException` redencode.
+Wanneer de [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) of [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) eigenschap is ingesteld op **waar** (de standaardwaarde is **false**), alle verlopende berichten worden verplaatst naar de DLQ op te geven de `TTLExpiredException` redencode.
 
 Houd er rekening mee dat verlopen berichten alleen worden opgeschoond en naar de DLQ verplaatst wanneer er ten minste één actieve ontvanger binnenhalen van de belangrijkste wachtrij of abonnement. Dit gedrag is standaard.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Fouten tijdens het verwerken van abonnementsregels voor
 
-Wanneer de [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) eigenschap voor een abonnement is ingeschakeld, worden eventuele fouten die zich voordoen tijdens de SQL-filterregel van een abonnement wordt uitgevoerd, worden vastgelegd in de DLQ langs met de strijdige bericht.
+Wanneer de [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) eigenschap voor een abonnement is ingeschakeld, worden eventuele fouten die zich voordoen tijdens de SQL-filterregel van een abonnement wordt uitgevoerd, worden vastgelegd in de DLQ langs met de strijdige bericht.
 
 ## <a name="application-level-dead-lettering"></a>Onbestelbare op toepassingsniveau
 
@@ -84,7 +84,7 @@ Als u wilt deze berichten dead lettered ophalen, kunt u een ontvanger met behulp
 
 ## <a name="example"></a>Voorbeeld
 
-Het volgende codefragment wordt een bericht ontvanger gemaakt. Op de hoogte van de ontvangen voor de hoofdwachtrij, haalt de code het bericht met [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), waarin wordt gevraagd de broker om terug te keren direct bericht direct beschikbaar, of om te retourneren met geen resultaat. Als de code wordt een bericht ontvangt, het onmiddellijk verwijdert deze, welke stappen van de `DeliveryCount`. Nadat het systeem wordt het bericht naar de DLQ verplaatst, de belangrijkste wachtrij leeg is en de lus wordt afgesloten, als [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) retourneert **null**.
+Het volgende codefragment wordt een bericht ontvanger gemaakt. Op de hoogte van de ontvangen voor de hoofdwachtrij, haalt de code het bericht met [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), waarin wordt gevraagd de broker om terug te keren direct bericht direct beschikbaar, of om te retourneren met geen resultaat. Als de code wordt een bericht ontvangt, het onmiddellijk verwijdert deze, welke stappen van de `DeliveryCount`. Nadat het systeem wordt het bericht naar de DLQ verplaatst, de belangrijkste wachtrij leeg is en de lus wordt afgesloten, als [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) retourneert **null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

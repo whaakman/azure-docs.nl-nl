@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541554"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692734"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Activiteitenlogboeken bekijken om wijzigingen van RBAC
 
@@ -43,7 +43,7 @@ De eenvoudigste manier om te beginnen is om de activiteitenlogboeken met de Azur
 
 Het activiteitenlogboek in de portal heeft verschillende filters. Hier volgen de RBAC-gerelateerde filters:
 
-|Filteren  |Waarde  |
+|Filteren  |Value  |
 |---------|---------|
 |Gebeurteniscategorie     | <ul><li>Administratief</li></ul>         |
 |Bewerking     | <ul><li>Roltoewijzing maken</li> <li>Roltoewijzing verwijderen</li> <li>Een aangepaste roldefinitie maken of bijwerken</li> <li>De aangepaste roldefinitie verwijderen</li></ul>      |
@@ -53,24 +53,26 @@ Zie voor meer informatie over activiteitenlogboeken [gebeurtenissen weergeven in
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Als u wilt weergeven van activiteitenlogboeken met Azure PowerShell, gebruikt u de [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) opdracht.
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+Als u wilt weergeven van activiteitenlogboeken met Azure PowerShell, gebruikt u de [Get-AzLog](/powershell/module/az.insights/get-azlog) opdracht.
 
 Met deze opdracht worden de wijzigingen aan toewijzingen van alle rollen in een abonnement voor de afgelopen zeven dagen:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
 Met deze opdracht worden alle rollen de definitie van wijzigingen in een resourcegroep voor de afgelopen zeven dagen:
 
 ```azurepowershell
-Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 Met deze opdracht geeft een lijst van alle roltoewijzing en wijzigingen in het definitie rol in een abonnement voor de afgelopen zeven dagen en de resultaten in een lijst weergegeven:
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
 ```Example

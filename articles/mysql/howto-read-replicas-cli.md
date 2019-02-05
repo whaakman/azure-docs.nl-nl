@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 9992d93f689663e859315dd55d248866d88b4a25
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 67cfa45d602b6bf9de27a0b559c58e28b79d1c84
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903597"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732818"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Over het maken en beheren lezen-replica's in Azure Database for MySQL met behulp van de Azure CLI
 
@@ -67,7 +67,7 @@ De `az mysql server replica stop` opdracht moet de volgende parameters:
 
 ## <a name="delete-a-replica-server"></a>Een replica-server verwijderen
 
-Verwijderen van een lezen-replica-server kan worden gedaan door het uitvoeren van de **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** opdracht.
+Verwijderen van een lezen-replica-server kan worden gedaan door het uitvoeren van de **[az mysql server delete](/cli/azure/mysql/server)** opdracht.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -78,7 +78,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserv
 > [!IMPORTANT]
 > Verwijderen van een hoofd-server-replicatie naar alle replicaservers stopt en Hiermee verwijdert u de hoofd-server zelf. Replica-servers worden zelfstandige servers die bieden nu ondersteuning voor zowel lees- en schrijfbewerkingen.
 
-Als u wilt verwijderen een hoofd-server, kunt u uitvoeren de **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** opdracht.
+Als u wilt verwijderen een hoofd-server, kunt u uitvoeren de **[az mysql server delete](/cli/azure/mysql/server)** opdracht.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

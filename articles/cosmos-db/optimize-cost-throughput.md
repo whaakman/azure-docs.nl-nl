@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 443bf5694515720b1b865c310e70ca9c45add262
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465585"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733117"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Kosten van de ingerichte doorvoer in Azure Cosmos DB optimaliseren
 
@@ -79,7 +79,7 @@ De systeemeigen SDK's (.NET/.NET Core, Java, Node.js en Python) impliciet catch 
 
 Hebt u meer dan één client cumulatief werken consistent boven de snelheid van aanvragen, het standaardaantal nieuwe pogingen op dit moment die momenteel is ingesteld op 9 mogelijk niet voldoende. In dit geval is, de client genereert een `DocumentClientException` met de status code 429 naar de toepassing. Het standaardaantal-nieuwe pogingen kan worden gewijzigd door in te stellen de `RetryOptions` op de ConnectionPolicy-instantie. Standaard wordt de DocumentClientException met de statuscode 429 geretourneerd na een cumulatieve wachttijd van 30 seconden als de aanvraag worden voortgezet boven de snelheid van aanvragen. Dit gebeurt zelfs als het huidige aantal nieuwe pogingen is kleiner dan het maximale aantal, worden deze de standaardwaarde van 9 of een door de gebruiker gedefinieerde waarde. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte) is ingesteld op 3, dus in dit geval als een aanvraagbewerking frequentielimieten zijn van de gereserveerde doorvoer voor de verzameling van meer dan de aanvraagbewerking pogingen drie keer voordat genereren de uitzondering voor de toepassing.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) is ingesteld op 60, dus in dit geval als de cumulatieve nieuwe poging wacht tijd in seconden sinds de eerste aanvraag groter is dan 60 seconden, de uitzondering is opgetreden.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) is ingesteld op 3, dus in dit geval als een aanvraagbewerking frequentielimieten zijn van de gereserveerde doorvoer voor de verzameling van meer dan de aanvraagbewerking pogingen drie keer voordat genereren de uitzondering voor de toepassing.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) is ingesteld op 60, dus in dit geval als de cumulatieve nieuwe poging wacht tijd in seconden sinds de eerste aanvraag groter is dan 60 seconden, de uitzondering is opgetreden.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 

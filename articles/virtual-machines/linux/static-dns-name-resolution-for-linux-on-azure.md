@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5e893d597c2193676cb350fc80d7baa694ad6fd1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466088"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734119"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Maken van virtuele netwerkinterfacekaarten en interne DNS gebruiken voor VM-naamomzetting in Azure
 
@@ -32,12 +32,12 @@ De vereisten zijn:
 * [bestanden voor openbare en persoonlijke SSH-sleutels](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-Als u snel uitvoeren van de taak wilt, de volgende sectie wordt beschreven de opdrachten die nodig zijn. Meer gedetailleerde informatie en -context voor elke stap u in de rest van het document vindt [Hier beginnen](#detailed-walkthrough). Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Als u snel uitvoeren van de taak wilt, de volgende sectie wordt beschreven de opdrachten die nodig zijn. Meer gedetailleerde informatie en -context voor elke stap u in de rest van het document vindt [Hier beginnen](#detailed-walkthrough). Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
 Randvoorwaarden voor: Resourcegroep, virtueel netwerk en subnet, Netwerkbeveiligingsgroep met SSH-verkeer.
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Maken van een virtuele netwerkinterfacekaart met een statische interne DNS-naam
-Maken van de vNic met [az network nic maken](/cli/azure/network/nic#az_network_nic_create). De `--internal-dns-name` CLI-vlag is voor het instellen van het DNS-label, waarmee u de statische DNS-naam voor de virtuele netwerkinterfacekaart (vNic). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbindt u deze naar de `myVnet` virtueel netwerk, en maakt een interne DNS-naam-record met de naam `jenkins`:
+Maken van de vNic met [az network nic maken](/cli/azure/network/nic). De `--internal-dns-name` CLI-vlag is voor het instellen van het DNS-label, waarmee u de statische DNS-naam voor de virtuele netwerkinterfacekaart (vNic). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbindt u deze naar de `myVnet` virtueel netwerk, en maakt een interne DNS-naam-record met de naam `jenkins`:
 
 ```azurecli
 az network nic create \
@@ -70,7 +70,7 @@ Interne DNS-namen zijn alleen omgezet in een Azure-netwerk. Omdat de DNS-namen i
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten `myResourceGroup`, `myNic`, en `myVM`.
 
 ## <a name="create-the-resource-group"></a>De resourcegroep maken
-Maak eerst de resourcegroep met [az-groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`:
+Maak eerst de resourcegroep met [az-groep maken](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -94,7 +94,7 @@ az network vnet create \
 ## <a name="create-the-network-security-group"></a>De Netwerkbeveiligingsgroep maken
 Azure Network Security Groups komen overeen met een firewall op het niveau van het netwerk. Zie voor meer informatie over Netwerkbeveiligingsgroepen [nsg's maken in de Azure CLI](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Maken van de netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg#az_network_nsg_create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+Maken van de netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create \
@@ -121,7 +121,7 @@ az network nsg rule create \
 ```
 
 ## <a name="associate-the-subnet-with-the-network-security-group"></a>Het subnet koppelen aan de Netwerkbeveiligingsgroep
-Als u wilt het subnet koppelen aan de Netwerkbeveiligingsgroep, gebruikt u [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). Het volgende voorbeeld wordt gekoppeld aan de naam van het subnet `mySubnet` met de Netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+Als u wilt het subnet koppelen aan de Netwerkbeveiligingsgroep, gebruikt u [az network vnet subnet update](/cli/azure/network/vnet/subnet). Het volgende voorbeeld wordt gekoppeld aan de naam van het subnet `mySubnet` met de Netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
 
 ```azurecli
 az network vnet subnet update \
@@ -135,7 +135,7 @@ az network vnet subnet update \
 ## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>Maak de virtuele netwerkinterfacekaart en statische DNS-namen
 Azure is zeer flexibel, maar voor het gebruik van DNS-namen voor VM-naamomzetting, moet u netwerkinterfacekaarten (vNics) met een DNS-label voor virtueel netwerk maken. vnic's zijn belangrijk als u opnieuw kan worden gebruikt door deze verbinding maken met verschillende virtuele machines gedurende de levenscyclus van infrastructuur. Deze aanpak blijft de vNic als statische resource terwijl de virtuele machines kunnen tijdelijk zijn. Met behulp van DNS-labels op de vNic, kunnen we om in te schakelen van eenvoudige naamomzetting van andere virtuele machines in het VNet. Andere VM's toegang tot de automatiseringsserver door de DNS-naam met omgezette namen kan `Jenkins` of de Git-server als `gitrepo`.  
 
-Maken van de vNic met [az network nic maken](/cli/azure/network/nic#az_network_nic_create). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbindt u deze naar de `myVnet` virtueel netwerk met de naam `myVnet`, en maakt een interne DNS-naam-record met de naam `jenkins`:
+Maken van de vNic met [az network nic maken](/cli/azure/network/nic). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbindt u deze naar de `myVnet` virtueel netwerk met de naam `myVnet`, en maakt een interne DNS-naam-record met de naam `jenkins`:
 
 ```azurecli
 az network nic create \

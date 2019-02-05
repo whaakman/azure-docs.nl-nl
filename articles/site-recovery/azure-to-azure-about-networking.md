@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992120"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693986"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure naar Azure-replicatie
 
@@ -68,7 +68,7 @@ Als u gebruikmaakt van een IP-gebaseerde firewallproxy of NSG-regels voor het be
 
 Site Recovery-IP-adresbereiken zijn als volgt:
 
-   **Doel** | **Site Recovery IP** |  **Site Recovery IP bewaken**
+   **Target** | **Site Recovery IP** |  **Site Recovery IP bewaken**
    --- | --- | ---
    Azië - oost | 52.175.17.132 | 13.94.47.61
    Azië - zuidoost | 52.187.58.193 | 13.76.179.223
@@ -99,7 +99,8 @@ Site Recovery-IP-adresbereiken zijn als volgt:
    Korea - zuid | 52.231.298.185 | 52.231.200.144
    Frankrijk - centraal | 52.143.138.106 | 52.143.136.55
    Frankrijk - zuid | 52.136.139.227 |52.136.136.62
-
+   Australië-centraal| 20.36.34.70 | 20.36.46.142
+   Australië - centraal 2| 20.36.69.62 | 20.36.74.130
 
 ## <a name="example-nsg-configuration"></a>Voorbeeld van de NSG-configuratie
 

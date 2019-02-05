@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559039"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698216"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Overzicht van bedrijfscontinuïteit met Azure Database for PostgreSQL
 
@@ -49,6 +49,6 @@ De andere optie is het gebruik van de Azure Database voor PostgreSQL van geo-res
 > Geo-herstel is alleen mogelijk als u de server met geografisch redundante back-upopslag hebt ingericht. Als u overschakelen van lokaal redundante naar geografisch redundante back-ups voor een bestaande server wilt, moet u een dump pg_dump van uw bestaande server met nemen en terug te zetten een nieuw gemaakte geconfigureerd met geografisch redundante back-ups.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor meer informatie over de automatische back-ups, [back-ups in Azure Database for PostgreSQL](concepts-backup.md). 
-- Als u wilt herstellen naar een eerder tijdstip met behulp van de Azure-portal, Zie [database herstellen naar een eerder tijdstip met behulp van de Azure-portal](howto-restore-server-portal.md).
-- Als u wilt herstellen naar een eerder tijdstip met behulp van Azure CLI, Zie [database herstellen naar een eerder tijdstip met behulp van CLI](howto-restore-server-cli.md).
+- Meer informatie over de [automatische back-ups in Azure Database voor PostgreSQL](concepts-backup.md). 
+- Meer informatie over het herstellen met behulp van [de Azure-portal](howto-restore-server-portal.md) of [de Azure CLI](howto-restore-server-cli.md).
+- Meer informatie over [lezen-replica's in Azure Database for PostgreSQL](concepts-read-replicas.md).

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 8be3156aaeb9651b97999b7b06fec8034e902c36
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663890"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700618"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Een Linux-machine maken in een beschikbaarheidszone met Azure CLI
 
@@ -29,13 +29,13 @@ In dit artikel wordt stapsgewijs uitgelegd met de Azure CLI een Linux-VM maken i
 
 Als u een beschikbaarheidszone wilt gebruiken, maakt u een virtuele machine in een [ondersteunde Azure-regio](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
-Zorg ervoor dat u de meest recente hebt geïnstalleerd [Azure CLI](/cli/azure/install-az-cli2) en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Zorg ervoor dat u de meest recente hebt geïnstalleerd [Azure CLI](/cli/azure/install-az-cli2) en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
 
 ## <a name="check-vm-sku-availability"></a>Beschikbaarheid van VM-SKU controleren
 De beschikbaarheid van VM-grootten, of SKU's, kan verschillen per regio en zone. Als hulp bij de planning voor het gebruik van de beschikbaarheidszones kunt u een overzicht maken van de beschikbare VM-SKU's per Azure-regio en zone. Hiermee zorgt u ervoor dat u een correcte VM-grootte kiest en de gewenste tolerantie in zones verkrijgt. Voor meer informatie over de verschillende VM-typen en -grootten raadpleegt u het [Overzicht van de VM-grootten](sizes.md).
 
-U vindt de beschikbare VM-SKU's met de [az vm list-skus](/cli/azure/vm#az_vm_list_skus) opdracht. Met het volgende voorbeeld wordt een lijst weergegeven van de beschikbare VM-SKU's in de regio *eastus2*:
+U vindt de beschikbare VM-SKU's met de [az vm list-skus](/cli/azure/vm) opdracht. Met het volgende voorbeeld wordt een lijst weergegeven van de beschikbare VM-SKU's in de regio *eastus2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
@@ -74,7 +74,7 @@ De resourcegroep wordt opgegeven bij het maken of wijzigen van een virtuele mach
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een virtuele machine met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
+Maak een virtuele machine met de opdracht [az vm create](/cli/azure/vm). 
 
 Wanneer u een virtuele machine maakt, zijn er diverse opties beschikbaar zoals besturingssysteeminstallatiekopie, schijfgrootte en beheerdersreferenties. In dit voorbeeld wordt een virtuele machine gemaakt met de naam *myVM* waarop Ubuntu-server wordt uitgevoerd. De virtuele machine wordt gemaakt in de beschikbaarheidszone *1*. De virtuele machine wordt standaard gemaakt in de *Standard_DS1_v2* grootte.
 
@@ -102,7 +102,7 @@ Het maken van de virtuele machine kan een paar minuten duren. Wanneer de virtuel
 
 Wanneer de virtuele machine in een beschikbaarheidszone is geïmplementeerd, wordt een beheerde schijf voor de virtuele machine in dezelfde beschikbaarheidszone gemaakt. Een openbaar IP-adres wordt standaard ook gemaakt in de zone. De volgende voorbeelden krijg informatie over deze resources.
 
-Om te bevestigen dat de beheerde schijf van de virtuele machine in de beschikbaarheidszone bevindt, gebruikt u de [az vm show](/cli/azure/vm#az_vm_show) opdracht om de schijf-id. In dit voorbeeld wordt de schijf-id opgeslagen in een variabele die wordt gebruikt in een latere stap. 
+Om te bevestigen dat de beheerde schijf van de virtuele machine in de beschikbaarheidszone bevindt, gebruikt u de [az vm show](/cli/azure/vm) opdracht om de schijf-id. In dit voorbeeld wordt de schijf-id opgeslagen in een variabele die wordt gebruikt in een latere stap. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -149,7 +149,7 @@ In de uitvoer ziet u dat de beheerde schijf zich in dezelfde beschikbaarheidszon
 }
 ```
 
-Gebruik de [az vm list-ip-adressen](/cli/azure/vm#az_vm_list_ip_addresses) opdracht om de naam van openbare IP-adresresource in *myVM*. In dit voorbeeld wordt de naam van de opgeslagen in een variabele die wordt gebruikt in een latere stap.
+Gebruik de [az vm list-ip-adressen](/cli/azure/vm) opdracht om de naam van openbare IP-adresresource in *myVM*. In dit voorbeeld wordt de naam van de opgeslagen in een variabele die wordt gebruikt in een latere stap.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)

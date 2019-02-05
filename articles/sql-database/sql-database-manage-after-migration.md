@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: a7b091fa02c7ab6eb56826ebc7487d7ca0691610
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: 79a7aad8cd747c3fdadcd0f7eec12d861f31fcc0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510871"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730506"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -134,7 +134,7 @@ Met SQL Database, kunt u controleren voor het bijhouden van databasegebeurteniss
 
 #### <a name="threat-detection"></a>Detectie van bedreigingen
 
-Met [detectie van bedreigingen](sql-database-threat-detection.md), krijgt u de mogelijkheid om te reageren op beveiligings- of beleid schendingen die zijn gedetecteerd door te controleren heel eenvoudig. U hoeft niet te worden van een beveiligingsexpert om potentiële bedreigingen of schendingen in uw systeem. Detectie van bedreigingen heeft ook enkele ingebouwde mogelijkheden, zoals SQL-injectie detectie. SQL-injectie is een poging te wijzigen of de gegevens en een gebruikelijk manier om in het algemeen is een aanval op een databasetoepassing in gevaar brengen. SQL Database Threat Detection uitgevoerd meerdere sets met algoritmen om mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals afwijkende patronen voor databasetoegang (zoals toegang vanaf een ongewone locatie of door een ongebruikelijke) te detecteren. Security officers of andere aangewezen beheerders ontvangen een e-mailbericht als een bedreiging wordt gedetecteerd op de database. Elke melding bevat informatie over de verdachte activiteiten en aanbevelingen voor het verder te onderzoeken en tegenhouden. Voor informatie over het inschakelen van detectie van bedreigingen, Zie: [Inschakelen van SQL Database Threat Detection](sql-database-security-tutorial.md#enable-security-features).
+Met [detectie van bedreigingen](sql-database-threat-detection.md), krijgt u de mogelijkheid om te reageren op beveiligings- of beleid schendingen die zijn gedetecteerd door te controleren heel eenvoudig. U hoeft niet te worden van een beveiligingsexpert om potentiële bedreigingen of schendingen in uw systeem. Detectie van bedreigingen heeft ook enkele ingebouwde mogelijkheden, zoals SQL-injectie detectie. SQL-injectie is een poging te wijzigen of de gegevens en een gebruikelijk manier om in het algemeen is een aanval op een databasetoepassing in gevaar brengen. Detectie van bedreigingen wordt uitgevoerd voor meerdere sets met algoritmen om mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals afwijkende patronen voor databasetoegang (zoals toegang vanaf een ongewone locatie of door een ongebruikelijke) te detecteren. Security officers of andere aangewezen beheerders ontvangen een e-mailbericht als een bedreiging wordt gedetecteerd op de database. Elke melding bevat informatie over de verdachte activiteiten en aanbevelingen voor het verder te onderzoeken en tegenhouden. Voor informatie over het inschakelen van detectie van bedreigingen, Zie: [Detectie van bedreigingen inschakelen](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Hoe kan ik beveiligen mijn gegevens in het algemeen op SQL-Database
 
@@ -220,7 +220,7 @@ Met Query prestatie-inzichten, kunt u op maat gemaakte aanbevelingen krijgen voo
 
 ### <a name="security-optimization"></a>Beveiliging-optimalisatie
 
-SQL Database biedt praktische beveiligingsaanbevelingen aan bij het beveiligen van uw gegevens en detectie van bedreigingen voor het identificeren en onderzoeken van verdachte databaseactiviteiten, die een mogelijke thread naar de database kunnen opleveren. [Evaluatie van beveiligingsproblemen SQL](sql-vulnerability-assessment.md) is een scannen en -service waarmee u de beveiligingsstatus van uw databases op schaal controleren en Identificeer veiligheidsrisico en drift uit door u gedefinieerde basisbeveiliging reporting-database. Na elke scan is een aangepaste lijst met stappen en herstelscripts opgegeven, evenals een evaluatierapport die kan worden gebruikt om te voldoen aan nalevingsvereisten.
+SQL Database biedt praktische beveiligingsaanbevelingen aan bij het beveiligen van uw gegevens en detectie van bedreigingen voor het identificeren en onderzoeken van verdachte databaseactiviteiten, die een mogelijke thread naar de database kunnen opleveren. [Evaluatie van beveiligingsproblemen](sql-vulnerability-assessment.md) is een scannen en -service waarmee u de beveiligingsstatus van uw databases op schaal controleren en Identificeer veiligheidsrisico en drift uit door u gedefinieerde basisbeveiliging reporting-database. Na elke scan is een aangepaste lijst met stappen en herstelscripts opgegeven, evenals een evaluatierapport die kan worden gebruikt om te voldoen aan nalevingsvereisten.
 
 Met Azure Security Center, moet u de aanbevelingen voor beveiliging op het bord identificeren en ze toepassen met één klik.
 

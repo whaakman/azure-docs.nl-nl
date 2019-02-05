@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446956"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733056"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Over het aanpassen van de Azure API Management-ontwikkelaarsportal met behulp van sjablonen
 
@@ -45,15 +45,15 @@ De lijst met sjablonen worden verschillende categorieën met sjablonen die betre
 
 ![Sjablonen voor ontwikkelaarsportals][api-management-templates-menu]
 
-Een sjabloon op te klikken gaat u naar de developer portal-pagina die kan worden aangepast door deze sjabloon. In dit voorbeeld wordt de **lijst met producten** sjabloon wordt weergegeven. De **lijst met producten** sjabloon bepaalt het gebied van het scherm aangegeven door de rode rechthoek. 
+Een sjabloon op te klikken gaat u naar de developer portal-pagina die kan worden aangepast door deze sjabloon. In dit voorbeeld wordt de **lijst met producten** sjabloon wordt weergegeven. De **lijst met producten** sjabloon bepaalt het gebied van het scherm aangegeven door de rode rechthoek.
 
 ![De sjabloon lijst met producten][api-management-developer-portal-templates-overview]
 
-Sommige sjablonen, zoals de **gebruikersprofiel** sjablonen, verschillende onderdelen van dezelfde pagina aanpassen. 
+Sommige sjablonen, zoals de **gebruikersprofiel** sjablonen, verschillende onderdelen van dezelfde pagina aanpassen.
 
 ![Gebruiker-profielsjablonen][api-management-user-profile-templates]
 
-De editor voor elke ontwikkelaar sjabloon heeft twee secties weergegeven aan de onderkant van de pagina. Aan de linkerkant geeft het deelvenster bewerken voor de sjabloon, en de rechterkant wordt weergegeven het gegevensmodel voor de sjabloon. 
+De editor voor elke ontwikkelaar sjabloon heeft twee secties weergegeven aan de onderkant van de pagina. Aan de linkerkant geeft het deelvenster bewerken voor de sjabloon, en de rechterkant wordt weergegeven het gegevensmodel voor de sjabloon.
 
 De sjabloon bewerken deelvenster bevat de opmaak die Hiermee bepaalt u het uiterlijk en gedrag van de bijbehorende pagina in de portal voor ontwikkelaars. De opmaak van de sjabloon maakt gebruik van de [DotLiquid](http://dotliquidmarkup.org/) syntaxis. Is een populaire editor voor DotLiquid [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Alle wijzigingen aan de sjabloon tijdens het bewerken in realtime worden weergegeven in de browser, maar zijn niet zichtbaar voor uw klanten totdat u [opslaan](#to-save-a-template) en [publiceren](#to-publish-a-template) de sjabloon.
 
@@ -118,7 +118,7 @@ De opmaak van de **lijst met producten** sjabloon verwerkt de gegevens voor de g
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -209,10 +209,3 @@ Zie voor informatie over sjablonen voor ontwikkelaarsportals, tekenreeksresource
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

@@ -10,18 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 923ce9b5840ec8d99234b9a3b869005ff59848e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494611"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697497"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Batch-service voor Azure Machine Learning Studio-taken
 
 Verwerking van machine Learning Batch-Pool voorziet schalen door de klant beheerde in de Service Azure Machine Learning Batch kan worden uitgevoerd. Klassieke batchverwerking voor machine learning vindt plaats in een omgeving met meerdere tenants, waardoor het aantal gelijktijdige taken die u kunt indienen en taken in de wachtrij op basis van first in first out. Deze onzekerheid betekent dat u kunt geen nauwkeurig te voorspellen wanneer de taak wordt uitgevoerd.
 
 Batchverwerking van toepassingen kunt u maken van groepen waarop u kunt indienen batchtaken. U bepaalt de grootte van de groep en aan welke toepassingen de taak is verzonden. De BES-taak wordt uitgevoerd in een eigen verwerking ruimte bieden voorspelbare verwerkingsprestaties verbeteren en de mogelijkheid om te maken van resourcegroepen die overeenkomen met de verwerkingsbelasting dat u verzendt.
+
+> [!NOTE]
+> Hebt u een nieuwe Resource Manager op basis van Machine Learning webservice voor het maken van een groep. Eenmaal gemaakt, kunt u een BES-webservice, zowel nieuwe Resource Manager gebaseerde en klassieke, uitvoeren in de pool.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Het gebruik van de verwerking van de Batch-Pool
 
@@ -36,7 +39,7 @@ Nadat uw account is gemaakt, kunt u de URL van groep van toepassingen en -autori
 
 ![Batch-pool servicearchitectuur.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-U maken groepen door de bewerking-adresgroep maken op de URL van de groep van toepassingen die CSS aan u verstrekt aan te roepen. Wanneer u een pool maakt, geeft u het aantal virtuele machines en de URL van de swagger.json van een nieuwe Resource Manager op basis van Machine Learning-webservice. Deze webservice wordt geboden tot stand brengen van de koppeling met de facturering. De service Batch-Pool gebruikt de swagger.json naar deze pool koppelen aan een abonnement. Kunt u een BES-webservice, zowel op basis van nieuwe Resource Manager uitvoeren en klassieke, die u kiest voor de pool.
+U maken groepen door de bewerking-adresgroep maken op de URL van de groep van toepassingen die CSS aan u verstrekt aan te roepen. Wanneer u een pool maakt, geeft u het aantal virtuele machines en de URL van de swagger.json van een nieuwe Resource Manager op basis van Machine Learning-webservice. Deze webservice wordt geboden tot stand brengen van de koppeling met de facturering. De service Batch-Pool gebruikt de swagger.json naar deze pool koppelen aan een abonnement. U kunt een BES-webservice, zowel nieuwe Resource Manager gebaseerde en klassieke, uitvoeren op de groep.
 
 U kunt een nieuwe Resource Manager gebaseerde webservice gebruiken, maar houd er rekening mee dat de facturering voor de taken worden in rekening gebracht op basis van het abonnement dat is gekoppeld aan die service. U wilt maken van een web-service en een nieuw abonnement specifiek voor het uitvoeren van Batch-Pool-jobs.
 

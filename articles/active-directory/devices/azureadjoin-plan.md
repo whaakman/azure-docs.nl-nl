@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bb8ab22db18bbe170a20d253e601eb78855aafa7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102733"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697617"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedure: Uw implementatie van Azure AD-deelname plannen
 
@@ -126,6 +126,8 @@ Azure AD join:
 - Is alleen van toepassing op Windows 10-apparaten. 
 
 - Is niet van toepassing op eerdere versies van Windows en andere besturingssystemen. Als u Windows 7/8.1-apparaten hebt, moet u upgraden naar Windows 10 voor het implementeren van Azure AD join.
+
+- Wordt niet ondersteund op apparaten met TPM in de FIPS-modus.
  
 **Aanbeveling:** Gebruik altijd de nieuwste versie van Windows 10 om te profiteren van de bijgewerkte functies.
 

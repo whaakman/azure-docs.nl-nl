@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094715"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728619"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Gebeurtenissen op een HTTP-eindpunt ontvangen
 
@@ -51,8 +51,6 @@ Klik op de koppeling 'Bestanden weergeven' in uw Azure-functie (de meeste rechte
 ## <a name="endpoint-validation"></a>De eindpuntvalidatie
 
 Het eerste wat u wilt doen is verwerkt `Microsoft.EventGrid.SubscriptionValidationEvent` gebeurtenissen. Telkens wanneer iemand zich op een gebeurtenis abonneert, Event Grid een validatiegebeurtenis verzonden naar het eindpunt met een `validationCode` in de nettolading van de gegevens. Het eindpunt is vereist voor het echo dit terug in de hoofdtekst van het antwoord op [het eindpunt geldig is en u eigendom bewijzen](security-authentication.md#webhook-event-delivery). Als u een [Trigger Gebeurtenisraster](../azure-functions/functions-bindings-event-grid.md) in plaats van een WebHook geactiveerde functie, wordt de eindpuntvalidatie voor u afgehandeld. Als u een API-service van derden (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via een programma echo de code voor validatie. U kunt handmatig het abonnement met behulp van een validatie-URL die wordt verzonden in de gebeurtenis van de validatie van abonnement voor deze services valideren. Kopieer de URL in de `validationUrl` eigenschap en verzendt een GET-aanvragen via een REST-client of uw webbrowser.
-
-Handmatige validatie is in preview. Als u de functie wilt gebruiken, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor de [Azure CLI](/cli/azure/install-azure-cli) installeren. U kunt deze installeren met `az extension add --name eventgrid`. Als u de REST-API, zorg ervoor dat u `api-version=2018-05-01-preview`.
 
 In C#, de `DeserializeEventGridEvents()` functie gedeserialiseerd de Event Grid-gebeurtenissen. Deze gegevens van de gebeurtenis in het juiste type, zoals StorageBlobCreatedEventData gedeserialiseerd. Gebruik de `Microsoft.Azure.EventGrid.EventTypes` klasse om ondersteunde gebeurtenistypen en namen te verkrijgen.
 

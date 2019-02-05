@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422912"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699674"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Hoe u een telefonische oproep met behulp van Twilio in een Webrol in Azure
 Deze handleiding laat zien hoe u Twilio gebruiken om een aanroep van een webpagina die wordt gehost in Azure te maken. De resulterende toepassing vraagt de gebruiker aanroepen met de gegeven getal en het bericht, zoals wordt weergegeven in de volgende schermafbeelding.
@@ -34,7 +34,7 @@ U moet doen het volgende voor het gebruik van de code in dit onderwerp:
 
 U moet bekend bent met het maken van een eenvoudige [Webrol op Azure][azure_webroles_get_started].
 
-## <a name="howtocreateform"></a>Hoe: een webformulier voor het maken van een aanroep maken
+## <a name="howtocreateform"></a>Procedures: Maken van een webformulier voor het maken van een aanroep
 <a id="use_nuget"></a>De Twilio-bibliotheken toevoegen aan uw webproject rol:
 
 1. Open uw oplossing in Visual Studio.
@@ -70,7 +70,7 @@ De volgende code toont het maken van een webformulier om op te halen gebruikersg
 </asp:Content>
 ```
 
-## <a id="howtocreatecode"></a>Hoe: de code voor het maken van de aanroep maken
+## <a id="howtocreatecode"></a>Procedures: De code voor het maken van de aanroep maken
 De volgende code, die wordt aangeroepen wanneer de gebruiker het formulier is voltooid, maakt de aanroep-bericht en de oproep wordt gegenereerd. In dit voorbeeld wordt de code in de gebeurtenis-handler onclick van de knop uitvoeren op het formulier. (Gebruik in plaats van de tijdelijke aanduiding voor waarden die zijn toegewezen aan uw Twilio-account en de verificatie-token `accountSID` en `authToken` in de onderstaande code.)
 
 ```csharp
@@ -96,7 +96,7 @@ namespace WebRole1
 
         protected void callpage_Click(object sender, EventArgs e)
         {
-            // Call porcessing happens here.
+            // Call processing happens here.
 
             // Use your account SID and authentication token instead of
             // the placeholders shown here.

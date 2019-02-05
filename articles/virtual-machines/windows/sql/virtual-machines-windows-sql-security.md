@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 61cfc458ed965fd4f1446ff8cfb5e9a6e244f246
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332384"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731713"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Veiligheidsoverwegingen voor SQL Server in Azure Virtual Machines
 
@@ -54,7 +54,7 @@ De geselecteerde opties in de portal voor gebruik van inkomende beveiligingsrege
 
 Naast de NSG-regels om netwerkverkeer te beperken, kunt u ook de Windows Firewall op de virtuele machine gebruiken.
 
-Als u van eindpunten met het klassieke implementatiemodel gebruikmaakt, verwijdert u alle eindpunten op de virtuele machine als u ze niet gebruikt. Zie voor instructies over het gebruik van ACL's met eindpunten [beheren de ACL voor een eindpunt](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint). Dit is niet nodig zijn voor virtuele machines die gebruikmaken van de Resource Manager.
+Als u van eindpunten met het klassieke implementatiemodel gebruikmaakt, verwijdert u alle eindpunten op de virtuele machine als u ze niet gebruikt. Zie voor instructies over het gebruik van ACL's met eindpunten [beheren de ACL voor een eindpunt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Dit is niet nodig zijn voor virtuele machines die gebruikmaken van de Resource Manager.
 
 Ten slotte, overweeg in te schakelen versleutelde verbindingen voor het exemplaar van SQL Server Database Engine in uw virtuele machine van Azure. Configureer SQL server-exemplaar met een ondertekend certificaat. Zie voor meer informatie, [versleutelde verbindingen met de Database-Engine inschakelen](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) en [syntaxis verbindingsreeks](https://msdn.microsoft.com/library/ms254500.aspx).
 

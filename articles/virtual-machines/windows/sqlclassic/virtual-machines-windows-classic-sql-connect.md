@@ -16,12 +16,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: d766465f8319b83cd614bfcf24018ef901923429
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b8994d4c1eabf4381bf8364c76f7328d225f7e1a
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329682"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732053"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Verbinding maken met een virtuele SQL Server-machine op Azure (klassieke implementatie)
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ De manier waarop die een client verbinding maakt met SQL Server op een virtuele 
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Verbinding maken met SQL Server in dezelfde cloudservice
-Meerdere virtuele machines kunnen worden gemaakt in dezelfde cloudservice. Zie voor meer informatie over dit scenario virtuele machines, [verbinding maken tussen virtuele machines met een virtueel netwerk of cloudservice](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). In dit scenario is wanneer een client op een virtuele machine verbinding maken met SQL Server die wordt uitgevoerd op een andere virtuele machine in dezelfde cloudservice.
+Meerdere virtuele machines kunnen worden gemaakt in dezelfde cloudservice. Zie voor meer informatie over dit scenario virtuele machines, [verbinding maken tussen virtuele machines met een virtueel netwerk of cloudservice](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). In dit scenario is wanneer een client op een virtuele machine verbinding maken met SQL Server die wordt uitgevoerd op een andere virtuele machine in dezelfde cloudservice.
 
 In dit scenario kunt u verbinding maken met behulp van de virtuele machine **naam** (ook weergegeven als **computernaam** of **hostnaam** in de portal). Dit is de naam die u hebt opgegeven voor de virtuele machine tijdens het maken van. Bijvoorbeeld, als u de naam van uw SQL-VM **mysqlvm**, een VM-client in dezelfde cloudservice kan de volgende verbindingsreeks gebruiken om verbinding te maken:
 
@@ -64,7 +64,7 @@ Neem bijvoorbeeld een klassieke virtuele machine met de naam **mysqlvm** met een
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Hoewel het hierdoor connectiviteit mogelijk voor clients via internet, betekent dit niet dat iedereen verbinding kan maken met uw SQL-Server. Buiten hebben clients op de juiste gebruikersnaam en wachtwoord. Voor extra beveiliging, gebruik niet de bekende poort 1433 voor het eindpunt openbare virtuele machine. En, indien mogelijk, overweegt u het toevoegen van een ACL op uw eindpunt te verkeer beperken tot de clients die u mogelijk maken. Zie voor instructies over het gebruik van ACL's met eindpunten [beheren de ACL voor een eindpunt](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Hoewel het hierdoor connectiviteit mogelijk voor clients via internet, betekent dit niet dat iedereen verbinding kan maken met uw SQL-Server. Buiten hebben clients op de juiste gebruikersnaam en wachtwoord. Voor extra beveiliging, gebruik niet de bekende poort 1433 voor het eindpunt openbare virtuele machine. En, indien mogelijk, overweegt u het toevoegen van een ACL op uw eindpunt te verkeer beperken tot de clients die u mogelijk maken. Zie voor instructies over het gebruik van ACL's met eindpunten [beheren de ACL voor een eindpunt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
 > Het is belangrijk te weten dat wanneer u deze techniek gebruiken om te communiceren met SQL Server, alle uitgaande gegevens van het Azure-datacenter is onderhevig aan normaal [prijzen voor uitgaande gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/).

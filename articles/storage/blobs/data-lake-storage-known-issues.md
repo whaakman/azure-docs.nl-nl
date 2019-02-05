@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: cbd58c0873a4a46d175c6d7cbdf2d004da304c06
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247235"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731543"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ In dit artikel bevat bekende problemen en tijdelijke beperkingen met Azure Data 
 
 BLOB Storage-API's en Azure Data Lake Gen2 API's zijn niet compatibel met elkaar uit.
 
-Als u hetzelfde hulpprogramma gebruiken om te werken met alle van de inhoud die u naar uw account moet uploadt, klikt u vervolgens niet inschakelt hiërarchische naamruimten op uw Blob storage-account tot deze API's gebruikt in combinatie met elkaar worden. Met behulp van een opslagaccount zonder de hiërarchische naamruimte toegangsbeheerlijsten betekent dat u geen toegang tot specifieke functies van Data Lake Storage Gen2, zoals de directory en bestandssysteem vervolgens hebt.
+Als u aangepaste hulpprogramma's, toepassingen of scripts die gebruikmaken van Blob-API's hebt en u wilt gebruiken voor het werken met alle inhoud die u naar uw account uploadt, klikt u vervolgens niet inschakelt hiërarchische naamruimten op uw Blob storage-account tot de Blob-API's worden interoperabele met Azure Data Lake Gen2 API's. Met behulp van een opslagaccount zonder de hiërarchische naamruimte toegangsbeheerlijsten betekent dat u geen toegang tot specifieke functies van Data Lake Storage Gen2, zoals de directory en bestandssysteem vervolgens hebt.
 
 ## <a name="blob-storage-apis"></a>BLOB storage-API 's
 
@@ -79,16 +79,14 @@ Alle versiebeheer functies, waaronder [momentopnamen](https://docs.microsoft.com
 
 ## <a name="object-level-storage-tiers"></a>Object niveau opslaglagen
 
-Object niveau opslaglagen (warm, koud en archief) zijn nog niet beschikbaar voor Azure Data Lake Storage Gen 2-accounts, maar ze zijn beschikbaar voor opslagaccounts waarvoor geen hiërarchische spaties ingeschakeld.
+Object niveau opslaglagen (warm, koud en archief) zijn nog niet beschikbaar voor Azure Data Lake Storage Gen 2-accounts, maar ze zijn beschikbaar voor opslagaccounts waarvoor geen hiërarchische ingeschakelde naamruimten.
 
 ## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Azure Blob-opslag lifecycle management (Preview)-beleid
 
 Azure Blob-opslag lifecycle management (Preview)-beleid zijn nog niet beschikbaar voor Azure Data Lake Storage Gen2-accounts.
 
-Deze beleidsregels zijn beschikbaar voor opslagaccounts waarvoor geen hiërarchische spaties ingeschakeld.
+Deze beleidsregels zijn beschikbaar voor opslagaccounts waarvoor geen hiërarchische ingeschakelde naamruimten.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
 Logboeken met diagnostische gegevens zijn niet beschikbaar voor Azure Data Lake Storage Gen2 accounts.
-
-Om aan te vragen de logboeken met diagnostische gegevens, neem contact op met ondersteuning voor Azure. Geef ze met de accountnaam van uw en de periode waarvoor u Logboeken nodig hebt.

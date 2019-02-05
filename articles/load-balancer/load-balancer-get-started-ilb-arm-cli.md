@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 746d0f51a876f24afc731486412eca0277b76d22
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659793"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732087"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Een interne load balancer maken met Azure CLI om taken te verdelen over VM's
 
@@ -128,7 +128,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 ### <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
 
-Een beschikbaarheidsset maken met [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Een beschikbaarheidsset maken met [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -215,7 +215,7 @@ Als u de load balancer wilt testen, maakt u een virtuele machine, *myVMTest*, en
 
 Als u de load balancer wilt testen, moet u eerst het privé-IP-adres van de load balancer opvragen. Vervolgens meldt u zich aan bij de virtuele machine myVMTest en typt u het privé-IP-adres in de adresbalk van de webbrowser.
 
-Gebruik [az network lb show](/cli/azure/network/public-ip##az-network-lb-show) om het privé-IP-adres van de load balancer op te vragen. Kopieer het privé-IP-adres en plak het in de adresbalk van een webbrowser op uw virtuele machine - *myVMTest*.
+Gebruik [az network lb show](/cli/azure/network/public-ip) om het privé-IP-adres van de load balancer op te vragen. Kopieer het privé-IP-adres en plak het in de adresbalk van een webbrowser op uw virtuele machine - *myVMTest*.
 
 ```azurecli-interactive
   az network lb show \

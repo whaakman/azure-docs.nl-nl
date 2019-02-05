@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f0f4d160b9e9d5e556813115aa39c60ea8f4edb2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184373"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733328"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor een toepassing buiten de galerie
 
@@ -23,7 +23,7 @@ Naast de opties in de Azure AD-Toepassingsgalerie gevonden, hebt u ook de mogeli
 
 Als u een toepassing buiten de galerie toevoegt, kunt u configureren de methode voor eenmalige aanmelding in deze toepassing worden gebruikt door het selecteren van de **Single Sign-on** navigatie-item op een Enterprise-toepassing in de [vanAzureportal](https://portal.azure.com/).
 
-Een van de eenmalige aanmelding methoden beschikbaar voor u is de [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) optie. Met de **toevoegen van een toepassing buiten de galerie** ervaring, kunt u een toepassing die Hiermee maakt u een gebruikersnaam op HTML gebaseerde integreren en wachtwoord invoeren veld, zelfs als deze zich niet in de verzameling van vooraf geïntegreerde toepassingen.
+Een van de eenmalige aanmelding methoden beschikbaar voor u is de [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) optie. Met de **toevoegen van een toepassing buiten de galerie** ervaring, kunt u een toepassing die Hiermee maakt u een gebruikersnaam op HTML gebaseerde integreren en wachtwoord invoeren veld, zelfs als deze zich niet in de verzameling van vooraf geïntegreerde toepassingen.
 
 De manier waarop die dit werkt, is door een pagina slijmen technologie die deel uitmaakt van het toegangsvenster-extensie waarmee we gebruikersnaam en wachtwoord invoervelden automatisch te detecteren, sla ze veilig op voor uw exemplaar van de specifieke toepassing. Vervolgens veilig opnieuw afspelen gebruikersnamen en wachtwoorden die velden wanneer een gebruiker bij die toepassing in het toegangsvenster toepassing navigeert.
 
@@ -47,7 +47,7 @@ Dit is een uitstekende manier om aan de slag voor het integreren van welke aard 
 
 -   Toestaan dat een **beheerder** om op te geven de gedeelde gebruikersnaam of het wachtwoord dat wordt gebruikt door een groep personen met de referenties van de Update als functie [een groep toewijzen aan een toepassing](#assign-an-application-to-a-group-directly)
 
-De volgende sectie wordt beschreven hoe u kunt inschakelen [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) voor elke toepassing die u toevoegt met behulp van de **toevoegen van een toepassing buiten de galerie** optreden.
+De volgende sectie wordt beschreven hoe u kunt inschakelen [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) voor elke toepassing die u toevoegt met behulp van de **toevoegen van een toepassing buiten de galerie** optreden.
 
 ## <a name="overview-of-steps-required"></a>Overzicht van stappen die nodig zijn
 

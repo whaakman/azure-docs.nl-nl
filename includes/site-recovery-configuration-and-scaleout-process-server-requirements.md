@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: ade53ba29d165b3b33ef25dabda25c4e60022608
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133355"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701213"
 ---
 **Configuratieproces/server-vereisten**
 
@@ -36,19 +36,30 @@ IIS | -Er zijn geen bestaande standaardwebsite <br> -Er zijn geen bestaande webs
 | 
 **NETWERKINSTELLINGEN** | 
 Type IP-adres | Statisch 
-Toegang tot het internet | De server moet toegang hebben tot deze URL's (rechtstreeks of via proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> -https:\//management.azure.com <br> -*. services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF moet ook toegang hebben tot de volgende URL's: <br> -https:\//login.microsoftonline.com <br> -https:\//secure.aadcdn.microsoftonline-p.com <br> -https:\//login.live.com  <br> -https:\//auth.gfx.ms <br> -https:\//graph.windows.net <br> -https:\//login.windows.net <br> -https:\//www.live.com <br> -https:\//www.microsoft.com <br> -https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Poorten | 443 (Orchestration-besturingselement)<br>9443 (Gegevenstransport) 
 Type NIC | VMXNET3 (als de configuratieserver een VMware-VM is)
- | 
+ |
+**Toegang tot Internet** (de server moet toegang hebben tot de volgende URL's - rechtstreeks of via proxy):|
+\*.backup.windowsazure.com | Gebruikt voor gerepliceerde gegevensoverdracht en coördinatie
+\*.store.core.windows.net | Gebruikt voor gerepliceerde gegevensoverdracht en coördinatie
+\*.blob.core.windows.net | Gebruikt voor toegang tot opslagaccount waarin de gerepliceerde gegevens
+\*.hypervrecoverymanager.windowsazure.com | Gebruikt voor bewerkingen en coördinatie
+https:\//management.azure.com | Gebruikt voor bewerkingen en coördinatie 
+*.services.visualstudio.com | Gebruikt voor andere doeleinden telemetrie (dit is optioneel)
+time.nist.gov | Wordt gebruikt om de tijdsynchronisatie tussen de systeemtijd en de algemene tijd te controleren.
+time.windows.com | Wordt gebruikt om de tijdsynchronisatie tussen de systeemtijd en de algemene tijd te controleren.
+-https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> -https:\//login.live.com  <br> -https:\//graph.windows.net <br> -https:\//login.windows.net <br> -https:\//www.live.com <br> -https:\//www.microsoft.com | OVF instellen moet toegang hebben tot deze URL's. Ze worden gebruikt voor toegangsbeheer en identiteitsbeheer door Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Om MySQL downloaden te voltooien
+|
 **SOFTWARE TE INSTALLEREN** | 
 VMware vSphere PowerCLI | [PowerCLI versie 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) moet worden geïnstalleerd als de configuratieserver wordt uitgevoerd op een VMware-VM.
-MYSQL | MySQL moet worden geïnstalleerd. U kunt ook handmatig installeren of Site Recovery kunt u deze installeren.
+MYSQL | MySQL moet worden geïnstalleerd. U kunt ook handmatig installeren of Site Recovery kunt u deze installeren. (Raadpleeg [-instellingen configureren](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) voor meer informatie)
 
 **Configuratie-/ processerver formaat vereisten**
 
 **CPU** | **Geheugen** | **Cacheschijf** | **Veranderingssnelheid van gegevens** | **Gerepliceerde machines**
 --- | --- | --- | --- | ---
 8 vcpu 's<br/><br/> 2-sockets * 4 kernen \@ 2,5 GHz | 16GB | 300 GB | 500 GB of minder | < 100 machines
-12 vcpu 's<br/><br/> 2 socks * 6 kernen \@ 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | 100-150-machines
+12 vcpu 's<br/><br/> 2 socks * 6 kernen \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100-150-machines
 16 vcpu 's<br/><br/> socks 2 * 8 kernen \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200-machines
 

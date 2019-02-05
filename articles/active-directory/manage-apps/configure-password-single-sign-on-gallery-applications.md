@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: dac7e458339e24e0bb6663f4ff0d5e98bc814aad
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 02c25490ba19521715b48dc7ec92861078332a48
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658637"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731781"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor een toepassing in Azure AD-galerie
 
 Wanneer u een toepassing van toevoegt de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), u hebt de keuze van hoe u wilt dat uw gebruikers zich aanmeldt bij die toepassing. U kunt deze keuze op elk gewenst moment configureren door het selecteren van de **Single Sign-on** navigatie-item op een Enterprise-toepassing in de [Azure-portal](https://portal.azure.com/).
 
-Een van de eenmalige aanmelding methoden beschikbaar voor u is de [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) optie. Dit is een uitstekende manier om aan de slag snel toepassingen integreren met Azure AD en kunt u naar:
+Een van de eenmalige aanmelding methoden beschikbaar voor u is de [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) optie. Dit is een uitstekende manier om aan de slag snel toepassingen integreren met Azure AD en kunt u naar:
 
 -   Schakel **eenmalige aanmelding voor uw gebruikers** door veilig op te slaan en spelen gebruikersnamen en wachtwoorden voor de toepassing die u hebt geïntegreerd met Azure AD
 
@@ -41,7 +41,7 @@ Een van de eenmalige aanmelding methoden beschikbaar voor u is de [wachtwoord ge
 
 -   Toestaan dat een **beheerder** om op te geven de gedeelde gebruikersnaam of het wachtwoord dat wordt gebruikt door een groep personen met de referenties van de Update als functie [een groep toewijzen aan een toepassing](#assign-an-application-to-a-group-directly)
 
-De volgende sectie wordt beschreven hoe u kunt inschakelen [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) tot een toepassing die zich al in de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+De volgende sectie wordt beschreven hoe u kunt inschakelen [wachtwoord gebaseerde Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) tot een toepassing die zich al in de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="overview-of-steps-required"></a>Overzicht van stappen die nodig zijn
 Een toepassing uit de Azure AD-galerie die u wilt configureren:

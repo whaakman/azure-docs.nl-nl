@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 061987105eac976e40a003a8108921ed0008630d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169158"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733685"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Uw RESTful-services beveiligen met behulp van HTTP-basisverificatie
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In een [gerelateerde Azure AD B2C-artikel](active-directory-b2c-custom-rest-api-netfw.md), maken van een RESTful-service (web-API) die kan worden geïntegreerd met Azure Active Directory B2C (Azure AD B2C) gebruiker reizen zonder verificatie. 
+In een [gerelateerde Azure AD B2C-artikel](active-directory-b2c-custom-rest-api-netfw.md), maken van een RESTful-service (web-API) die kan worden geïntegreerd met Azure Active Directory B2C (Azure AD B2C) gebruiker reizen zonder verificatie.
 
-In dit artikel, voegt u HTTP-verificatie toe aan uw RESTful-service zodat alleen geverifieerde gebruikers, met inbegrip van B2C, hebben toegang tot uw API. Met HTTP-basisverificatie, kunt u de referenties van de gebruiker (app-ID en app-geheim) instellen in uw aangepast beleid. 
+In dit artikel, voegt u HTTP-verificatie toe aan uw RESTful-service zodat alleen geverifieerde gebruikers, met inbegrip van B2C, hebben toegang tot uw API. Met HTTP-basisverificatie, kunt u de referenties van de gebruiker (app-ID en app-geheim) instellen in uw aangepast beleid.
 
 Zie voor meer informatie, [basisverificatie in ASP.NET web-API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
@@ -33,7 +33,7 @@ Voer de stappen in de [REST-API integreren claims worden uitgewisseld in uw Azur
 ## <a name="step-1-add-authentication-support"></a>Stap 1: Verificatie-ondersteuning toevoegen
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Stap 1.1: Voeg toepassingsinstellingen toe aan het web.config-bestand van uw project
-1. Open het Visual Studio-project dat u eerder hebt gemaakt. 
+1. Open het Visual Studio-project dat u eerder hebt gemaakt.
 
 2. De volgende toepassingsinstellingen toevoegen aan het bestand web.config in de `appSettings` element:
 
@@ -205,7 +205,7 @@ Voeg een OWIN-Opstartklasse met de naam toe `Startup.cs` naar de API. Dit doet u
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
@@ -220,7 +220,7 @@ Open Controllers\IdentityController.cs en voeg de `[Authorize]` code aan de cont
 Voor het publiceren van uw project in Solution Explorer, met de rechtermuisknop op de **Contoso.AADB2C.API** project en selecteer vervolgens **publiceren**.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Stap 3: De RESTful-services-app-ID en app-geheim toevoegen aan Azure AD B2C
-Als uw RESTful-service wordt beveiligd door de client-ID (gebruikersnaam) en -geheim, moet u de referenties opslaan in uw Azure AD B2C-tenant. Uw aangepaste beleid bevat de referenties wanneer deze de RESTful-services roept. 
+Als uw RESTful-service wordt beveiligd door de client-ID (gebruikersnaam) en -geheim, moet u de referenties opslaan in uw Azure AD B2C-tenant. Uw aangepaste beleid bevat de referenties wanneer deze de RESTful-services roept.
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Stap 3.1: Toevoegen van een RESTful-services-client-ID
 1. Selecteer in uw Azure AD B2C-tenant, **B2C-instellingen** > **Identity-Ervaringsframework**.
@@ -275,7 +275,7 @@ Als uw RESTful-service wordt beveiligd door de client-ID (gebruikersnaam) en -ge
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Onmiddellijk na de afsluitende `<Metadata>` -element, Voeg het volgende XML-fragment toe: 
+5. Onmiddellijk na de afsluitende `<Metadata>` -element, Voeg het volgende XML-fragment toe:
 
     ```xml
     <CryptographicKeys>

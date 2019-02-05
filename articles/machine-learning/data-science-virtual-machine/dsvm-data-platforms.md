@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478080"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733430"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Gegevensplatforms die worden ondersteund op de Data Science Virtual Machine
 
@@ -105,5 +105,5 @@ U kunt de Hadoop stoppen gerelateerde services wanneer u ze niet door het uitvoe
 |Linux   | /dsvm/Tools/Spark-X.X.X-bin-hadoopX.X|
 
 
-Bibliotheken om toegang te krijgen tot gegevens uit Azure BLOB Storage of Azure Data Lake-opslag (ADLS) en met behulp van Microsoft MMLSpark machine learning-bibliotheken zijn vooraf geïnstalleerd in $SPARK_HOME/JAR-bestanden. Deze JAR-bestanden worden automatisch geladen wanneer Spark wordt gestart. Spark maakt standaard gebruik van gegevens op de lokale schijf. Opdat de Spark-instantie op de DSVM voor toegang tot gegevens die zijn opgeslagen in Azure blob of ADLS die u wilt maken/configureren de `core-site.xml` bestand op basis van sjabloon gevonden in $SPARK_HOME/conf/core-site.xml.template (indien er tijdelijke aanduidingen voor Blob en ADLS zijn configuraties) met de juiste referenties voor Azure-blob en Azure Data Lake-opslag. U vindt meer gedetailleerde stappen voor het maken van de referenties van de service ADLS [hier](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Zodra de referenties voor Azure blob of ADLS worden ingevoerd in het bestand core-site.xml, kunt u verwijzen naar de gegevens die zijn opgeslagen in de bronnen met het URI-voorvoegsel van wasb: / / of adl: / /. 
+Bibliotheken om toegang te krijgen tot gegevens uit Azure BLOB Storage of Azure Data Lake-opslag (ADLS) en met behulp van Microsoft MMLSpark machine learning-bibliotheken zijn vooraf geïnstalleerd in $SPARK_HOME/JAR-bestanden. Deze JAR-bestanden worden automatisch geladen wanneer Spark wordt gestart. Spark maakt standaard gebruik van gegevens op de lokale schijf. Opdat de Spark-instantie op de DSVM voor toegang tot gegevens die zijn opgeslagen in Azure blob of ADLS die u wilt maken/configureren de `core-site.xml` bestand op basis van sjabloon gevonden in $SPARK_HOME/conf/core-site.xml.template (indien er tijdelijke aanduidingen voor Blob en ADLS zijn configuraties) met de juiste referenties voor Azure-blob en Azure Data Lake-opslag. U vindt meer gedetailleerde stappen voor het maken van de referenties van de service ADLS [hier](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Zodra de referenties voor Azure blob of ADLS worden ingevoerd in het bestand core-site.xml, kunt u verwijzen naar de gegevens die zijn opgeslagen in de bronnen met het URI-voorvoegsel van wasb: / / of adl: / /. 
 

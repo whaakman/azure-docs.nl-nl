@@ -4,21 +4,19 @@ description: Hierin wordt beschreven in de parametersectie van Azure Resource Ma
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722139"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695628"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>De parametersectie van Azure Resource Manager-sjablonen
 U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in de parametersectie van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft te bieden van parameters in de sjabloon, maar zonder parameters de sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen wilt implementeren.
@@ -89,11 +87,11 @@ Het vorige voorbeeld hebt u slechts een deel van de eigenschappen die u in de se
 | type |Ja |Het type van de waarde van parameter. De toegestane typen en de waarden zijn **tekenreeks**, **securestring**, **int**, **bool**, **object**, **secureObject**, en **matrix**. |
 | defaultValue |Nee |De standaardwaarde voor de parameter, als er geen waarde is opgegeven voor de parameter. |
 | allowedValues |Nee |Matrix van toegestane waarden voor de parameter om ervoor te zorgen dat de juiste waarde is opgegeven. |
-| Minimumwaarde |Nee |De minimumwaarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
-| Maximumwaarde |Nee |De maximale waarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
+| minValue |Nee |De minimumwaarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
+| maxValue |Nee |De maximale waarde voor de parameters van het type int, deze waarde wordt ook meegerekend. |
 | minLength |Nee |De minimale lengte van tekenreeks, een beveiligde tekenreeks en parameters van het type matrix, deze waarde wordt ook meegerekend. |
 | maxLength |Nee |De maximale lengte voor string, beveiligde tekenreeks en parameters van het type matrix, deze waarde wordt ook meegerekend. |
-| description |Nee |Beschrijving van de parameter die wordt weergegeven voor gebruikers via de portal. |
+| description |Nee |Beschrijving van de parameter die wordt weergegeven voor gebruikers via de portal. Zie voor meer informatie, [opmerkingen in sjablonen](resource-group-authoring-templates.md#comments). |
 
 ## <a name="template-functions-with-parameters"></a>Sjabloonfuncties met parameters
 

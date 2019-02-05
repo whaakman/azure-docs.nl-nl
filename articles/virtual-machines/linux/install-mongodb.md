@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 8a9b14423566e631ddb41b42048104c8ee085486
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: cc786b97c38c115fb288a5b9a0f73f566777e7df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886693"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734416"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Installeren en configureren van MongoDB op een Linux VM
 
@@ -39,7 +39,7 @@ Maak een resourcegroep maken met [az group create](/cli/azure/group). In het vol
 az group create --name myResourceGroup --location eastus
 ```
 
-Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met een gebruiker met de naam *azureuser* met behulp van SSH-verificatie voor openbare sleutel
+Maak een VM met [az vm create](/cli/azure/vm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met een gebruiker met de naam *azureuser* met behulp van SSH-verificatie voor openbare sleutel
 
 ```azurecli
 az vm create \
@@ -127,7 +127,7 @@ Voor het maken van deze omgeving, moet u de meest recente [Azure CLI](/cli/azure
 az group create --name myResourceGroup --location eastus
 ```
 
-Vervolgens implementeert u de sjabloon MongoDB met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create). Wanneer u wordt gevraagd, voert u uw eigen unieke waarden voor *newStorageAccountName*, *dnsNameForPublicIP*, en gebruikersnaam van beheerder en het wachtwoord:
+Vervolgens implementeert u de sjabloon MongoDB met [az group deployment maken](/cli/azure/group/deployment). Wanneer u wordt gevraagd, voert u uw eigen unieke waarden voor *newStorageAccountName*, *dnsNameForPublicIP*, en gebruikersnaam van beheerder en het wachtwoord:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -178,7 +178,7 @@ Voor het maken van deze omgeving, moet u de meest recente [Azure CLI](/cli/azure
 az group create --name myResourceGroup --location eastus
 ```
 
-Vervolgens implementeert u de sjabloon MongoDB met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create). Definieer uw eigen resource computernamen en waar nodig deze als voor de grootte *mongoAdminUsername*, *sizeOfDataDiskInGB*, en *configNodeVmSize*:
+Vervolgens implementeert u de sjabloon MongoDB met [az group deployment maken](/cli/azure/group/deployment). Definieer uw eigen resource computernamen en waar nodig deze als voor de grootte *mongoAdminUsername*, *sizeOfDataDiskInGB*, en *configNodeVmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -200,7 +200,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Deze implementatie kan overnemen van een uur om te implementeren en configureren van alle VM-exemplaren. De `--no-wait` vlag aan het einde van de voorgaande opdracht wordt gebruikt om terug te keren besturingselement naar de opdrachtprompt zodra de sjabloonimplementatie is geaccepteerd door de Azure-platform. Vervolgens kunt u de status van de implementatie met bekijken [az group deployment show](/cli/azure/group/deployment#az_group_deployment_show). Het volgende voorbeeld bekijkt de status van de *myMongoDBCluster* implementatie in de *myResourceGroup* resourcegroep:
+Deze implementatie kan overnemen van een uur om te implementeren en configureren van alle VM-exemplaren. De `--no-wait` vlag aan het einde van de voorgaande opdracht wordt gebruikt om terug te keren besturingselement naar de opdrachtprompt zodra de sjabloonimplementatie is geaccepteerd door de Azure-platform. Vervolgens kunt u de status van de implementatie met bekijken [az group deployment show](/cli/azure/group/deployment). Het volgende voorbeeld bekijkt de status van de *myMongoDBCluster* implementatie in de *myResourceGroup* resourcegroep:
 
 ```azurecli
 az group deployment show \

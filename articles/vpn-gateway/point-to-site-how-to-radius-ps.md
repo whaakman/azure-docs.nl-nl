@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 01ce4bb7b48e2f1331ebb57dc503c79b31bcc8b0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510116"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700023"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Een punt-naar-Site-verbinding met een VNet met behulp van RADIUS-verificatie configureren: PowerShell
 
@@ -148,7 +148,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
  
 * De RadiusServer - kan worden opgegeven door de naam of IP-adres. Als u de naam en de server bevindt zich on-premises, kan de VPN-gateway kan niet worden de naam kunnen omzetten. Als dit het geval is, is het beter om op te geven van het IP-adres van de server. 
 * De RadiusSecret - moet overeenkomen met wat er op uw RADIUS-server is geconfigureerd.
-* De VpnCientAddressPool - is het bereik van waaruit de verbindende VPN-clients een IP-adres ontvangen. Gebruik een privé-IP-adresbereik dat niet overlapt met de on-premises locatie waarvanaf u verbinding maakt of met het VNet waarmee u verbinding wilt maken. Zorg ervoor dat u een groot genoeg adresgroep geconfigureerd hebt.  
+* Het VpnClientAddressPool - is het bereik van waaruit de verbindende VPN-clients een IP-adres ontvangen. Gebruik een privé-IP-adresbereik dat niet overlapt met de on-premises locatie waarvanaf u verbinding maakt of met het VNet waarmee u verbinding wilt maken. Zorg ervoor dat u een groot genoeg adresgroep geconfigureerd hebt.  
 
 1. Maak een beveiligde tekenreeks voor de RADIUS geheim.
 
@@ -243,4 +243,4 @@ Deze Veelgestelde vragen is van toepassing op P2S met behulp van RADIUS-verifica
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie. Zie [Azure and Linux VM Network Overview](../virtual-machines/linux/azure-vm-network-overview.md) (Overzicht van Azure- en Linux-VM-netwerken) voor meer informatie over netwerken en virtuele machines.
+Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/) voor meer informatie. Zie [Azure and Linux VM Network Overview](../virtual-machines/linux/azure-vm-network-overview.md) (Overzicht van Azure- en Linux-VM-netwerken) voor meer informatie over netwerken en virtuele machines.

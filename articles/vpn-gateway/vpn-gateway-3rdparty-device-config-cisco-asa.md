@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f51a97e1493803998cfbdd81523e4e479b50346d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467222"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697102"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Voorbeeldconfiguratie van: Cisco ASA apparaat (IKEv2/geen BGP)
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Voorbeeldconfiguratie: Cisco ASA-apparaat (IKEv2/geen BGP)
 Dit artikel bevat voorbeelden van configuraties voor netwerkapparaten Cisco Adaptive Security toestel (ASA) met Azure VPN-gateways. Het voorbeeld geldt voor Cisco ASA-apparaten die worden uitgevoerd zonder de Border Gateway Protocol (BGP) IKEv2. 
 
 ## <a name="device-at-a-glance"></a>Apparaat in een oogopslag
@@ -61,7 +61,7 @@ Deze sectie vindt u de parameters voor het voorbeeld.
 | On-premises VPN-apparaat IP    | OnPrem_Device_Public_IP     |
 | * Virtuele netwerk ASN van BGP                | 65010                        |
 | * Azure BGP-peer-IP           | 10.12.255.30                 |
-| * On-premises BGP-ASN         | 65050                        |
+| * On-premises BGP ASN         | 65050                        |
 | * On-premises BGP-peer-IP     | 10.52.255.254                |
 |                              |                              |
 
@@ -248,7 +248,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use

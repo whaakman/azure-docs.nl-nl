@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473626"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699173"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-firewalls en virtuele netwerken configureren
 
@@ -241,7 +241,7 @@ Elk opslagaccount biedt ondersteuning voor maximaal 100 IP-netwerkregels, die ku
 
 Om toegang te verlenen vanaf uw on-premises netwerken met uw opslagaccount met een regel voor IP-netwerk, moet u het internetgerichte IP-adressen die worden gebruikt door uw netwerk te identificeren. Neem contact op met de netwerkbeheerder voor hulp.
 
-U kunt [ExpressRoute](/azure/expressroute/expressroute-introduction) uw netwerk verbinden met het Azure-netwerk. Elk circuit is hier, geconfigureerd met twee openbare IP-adressen. Ze kan worden gevonden op de Microsoft Edge en gebruiken [openbare Azure-Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) verbinding maken met Microsoft-Services zoals Azure Storage. Als u wilt toestaan dat communicatie met Azure Storage, IP-netwerkregels voor het openbare IP-adressen van uw circuits te maken. Om te vinden van openbare IP-adressen van uw ExpressRoute-circuit, [open een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
+U kunt [ExpressRoute](/azure/expressroute/expressroute-introduction) uw netwerk verbinden met het Azure-netwerk. Elk circuit is hier, geconfigureerd met twee openbare IP-adressen. Ze kan worden gevonden op de Microsoft Edge en gebruiken [openbare Azure-Peering](/azure/expressroute/expressroute-circuit-peerings) verbinding maken met Microsoft-Services zoals Azure Storage. Als u wilt toestaan dat communicatie met Azure Storage, IP-netwerkregels voor het openbare IP-adressen van uw circuits te maken. Om te vinden van openbare IP-adressen van uw ExpressRoute-circuit, [open een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
 
 ### <a name="managing-ip-network-rules"></a>IP-netwerkregels beheren
 
@@ -355,7 +355,7 @@ Als u inschakelt de **vertrouwde Microsoft-services toestaan...**  uitzondering,
 |Azure Event Grid|Microsoft.EventGrid|Gebeurtenispublicatie Blob-opslag inschakelen en toestaan van Event Grid om te publiceren naar storage-wachtrijen. Meer informatie over [blob-opslaggebeurtenissen](/azure/event-grid/event-sources) en [publiceren naar wachtrijen](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Gegevens met Event Hubs Capture archiveren. [Meer informatie](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure-netwerken|Microsoft.Networking|Store en netwerk-verkeerslogboeken te analyseren. [Meer informatie](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights|Kan het schrijven van gegevens naar een beveiligde storage-account te controleren [meer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights|Kan het schrijven van gegevens naar een beveiligde storage-account te controleren [meer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Hiermee kunt importeren en exporteren van scenario's met behulp van PolyBase. [Meer informatie](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Toegang tot gegevens van Storage analytics

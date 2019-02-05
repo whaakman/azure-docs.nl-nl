@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: c4dcf34ff113c4f1a6d7dcacbe598c453dbd63c3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658229"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694377"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 update
 
@@ -135,7 +135,7 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 
 ### <a name="prerequisites"></a>Vereisten
 
-- De meest recente Azure Stack-Hotfix voor 1808 installeren voordat u 1809 toepast. Zie voor meer informatie, [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). Microsoft raadt aan om de meest recente hotfixes beschikbaar, is de vereiste voor het installeren van 1809 minimun versie 1.1808.5.110.
+- De meest recente Azure Stack-Hotfix voor 1808 installeren voordat u 1809 toepast. Zie voor meer informatie, [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). Microsoft raadt aan om de meest recente hotfixes beschikbaar, is de minimaal vereiste versie voor installatie van 1809 1.1808.5.110.
 
   > [!TIP]  
   > Abonneer u op de volgende *RRS* of *Atom* feeds, blijven van het Azure Stack Hotfixes:

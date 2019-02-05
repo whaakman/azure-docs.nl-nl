@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289699"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734331"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Met behulp van REST-API van Azure Recovery Services-kluis maken
 
@@ -29,11 +29,11 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Een aanvraag maken
 
-Maakt de *plaatsen* aanvraag, de `{subscription-id}` parameter is vereist. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). U definieert een `{resourceGroupName}` en `{vaultName}` voor uw resources samen met de `api-version` parameter. In dit artikel wordt gebruikgemaakt van `api-version=2016-06-01`.
+Maakt de *plaatsen* aanvraag, de `{subscription-id}` parameter is vereist. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). U definieert een `{resourceGroupName}` en `{vaultName}` voor uw resources samen met de `api-version` parameter. In dit artikel wordt gebruikgemaakt van `api-version=2016-06-01`.
 
 De volgende headers zijn vereist:
 
-| Aanvraagheader   | Beschrijving |
+| Aanvraagheader   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | Vereist. Ingesteld op `application/json`. |
 | *Autorisatie:* | Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
@@ -44,10 +44,10 @@ Zie voor meer informatie over het maken van de aanvraag [onderdelen van een REST
 
 De volgende algemene definities worden gebruikt voor het bouwen van een aanvraagtekst:
 
-|Naam  |Vereist  |Type  |Beschrijving  |
+|Name  |Vereist  |Type  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   Reeks      |  Optionele eTag       |
-|location     |  true       |Reeks         |   Resourcelocatie      |
+|eTag     |         |   String      |  Optionele eTag       |
+|location     |  true       |String         |   Resourcelocatie      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Eigenschappen van de kluis       |
 |sku     |         |  [SKU](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    De unieke systeem-id voor elke Azure-resource     |
 |tags     |         | Object        |     Resourcetags    |
@@ -72,7 +72,7 @@ De hoofdtekst van het volgende voorbeeld wordt gebruikt voor het maken van een k
 
 Er zijn twee gelukt-antwoorden voor de bewerking voor het maken of bijwerken van een Recovery Services-kluis:
 
-|Naam  |Type  |Beschrijving  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |   [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201-gemaakt     | [Vault](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Gemaakt      |

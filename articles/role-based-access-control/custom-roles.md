@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 494826701431ee397b468c6ddfcef664c015861d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661477"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697126"
 ---
 # <a name="custom-roles-in-azure"></a>Aangepaste rollen in Azure
 
@@ -48,15 +48,9 @@ Hieronder ziet u een aangepaste rol eruit zoals weergegeven in de JSON-indeling.
     "Microsoft.Insights/diagnosticSettings/*",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-
-  ],
-  "DataActions": [
-
-  ],
-  "NotDataActions": [
-
-  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
   "AssignableScopes": [
     "/subscriptions/{subscriptionId1}",
     "/subscriptions/{subscriptionId2}",
@@ -73,12 +67,12 @@ Wanneer u een aangepaste rol maakt, wordt deze weergegeven in de Azure-portal me
 
 1. De machtigingen die u moet bepalen
 
-    Wanneer u een aangepaste rol maakt, moet u weten de resource provider-bewerkingen die beschikbaar zijn voor het definiëren van uw machtigingen. Als u wilt weergeven in de lijst met bewerkingen, kunt u de [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) of [az provider Bewerkingslijst](/cli/azure/provider/operation#az-provider-operation-list) opdrachten.
+    Wanneer u een aangepaste rol maakt, moet u weten de resource provider-bewerkingen die beschikbaar zijn voor het definiëren van uw machtigingen. Als u wilt weergeven in de lijst met bewerkingen, kunt u de [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) of [az provider Bewerkingslijst](/cli/azure/provider/operation#az-provider-operation-list) opdrachten.
     Als u de machtigingen voor uw aangepaste rol, u de bewerkingen zijn toevoegen de `Actions` of `NotActions` eigenschappen van de [roldefinitie](role-definitions.md). Hebt u gegevensbewerkingen, u deze toevoegen aan de `DataActions` of `NotDataActions` eigenschappen.
 
 2. De aangepaste rol maken
 
-    U kunt Azure PowerShell of Azure CLI gebruiken om de aangepaste rol te maken. Normaal gesproken u beginnen met een bestaande ingebouwde rol en wijzig vervolgens het voor uw behoeften. Vervolgens u gebruikt de [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) of [az roldefinitie maken](/cli/azure/role/definition#az-role-definition-create) opdrachten voor het maken van de aangepaste rol. Voor het maken van een aangepaste rol, moet u de `Microsoft.Authorization/roleDefinitions/write` machtiging op alle `AssignableScopes`, zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator).
+    U kunt Azure PowerShell of Azure CLI gebruiken om de aangepaste rol te maken. Normaal gesproken u beginnen met een bestaande ingebouwde rol en wijzig vervolgens het voor uw behoeften. Vervolgens u gebruikt de [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) of [az roldefinitie maken](/cli/azure/role/definition#az-role-definition-create) opdrachten voor het maken van de aangepaste rol. Voor het maken van een aangepaste rol, moet u de `Microsoft.Authorization/roleDefinitions/write` machtiging op alle `AssignableScopes`, zoals [eigenaar](built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](built-in-roles.md#user-access-administrator).
 
 3. De aangepaste rol testen
 

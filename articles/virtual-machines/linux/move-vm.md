@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: c451377d6274c50f22e3b1d4cd32fb0f3edd9d9e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2d3f36c9b4ee0557f9e060bec762877a94ea637
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220389"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734178"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Een Linux-VM verplaatsen naar een ander abonnement of resourcegroep groep
 In dit artikel leert u hoe u een Linux virtuele machine (VM) verplaatsen tussen resourcegroepen of abonnementen. Een virtuele machine verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine in een persoonlijke abonnement hebt gemaakt en nu wilt verplaatsen naar een abonnement van uw bedrijf.
@@ -35,7 +35,7 @@ In dit artikel leert u hoe u een Linux virtuele machine (VM) verplaatsen tussen 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>De Azure CLI gebruiken voor een virtuele machine verplaatsen
 
 
-Voordat u uw virtuele machine verplaatsen kunt met behulp van de Azure CLI, moet u om te controleren of dat de bron- en -abonnementen bestaan binnen dezelfde tenant. Gebruik om te controleren dat beide abonnementen de dezelfde tenant-ID hebben, [az account show](/cli/azure/account#az_account_show).
+Voordat u uw virtuele machine verplaatsen kunt met behulp van de Azure CLI, moet u om te controleren of dat de bron- en -abonnementen bestaan binnen dezelfde tenant. Gebruik om te controleren dat beide abonnementen de dezelfde tenant-ID hebben, [az account show](/cli/azure/account).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -43,13 +43,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 Als de tenant-id's voor de bron- en -abonnementen niet hetzelfde zijn zijn, moet u contact opnemen [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) de resources verplaatsen naar een nieuwe tenant.
 
-Als u wilt een virtuele machine is verplaatst, moet u de virtuele machine en alle ondersteunende resources verplaatsen. Gebruik de [az resource list](/cli/azure/resource#az_resource_list) opdracht om alle resources in een resourcegroep en de id's weer te geven. Zo kunt u de uitvoer van deze opdracht doorsluizen naar een bestand, zodat u kunt kopiëren en plakken van de id's in latere opdrachten.
+Als u wilt een virtuele machine is verplaatst, moet u de virtuele machine en alle ondersteunende resources verplaatsen. Gebruik de [az resource list](/cli/azure/resource) opdracht om alle resources in een resourcegroep en de id's weer te geven. Zo kunt u de uitvoer van deze opdracht doorsluizen naar een bestand, zodat u kunt kopiëren en plakken van de id's in latere opdrachten.
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-Gebruiken om een virtuele machine en de daarbij behorende bronnen naar een andere resourcegroep verplaatsen, [verplaatsen van de az resource](/cli/azure/resource#az_resource_move). Het volgende voorbeeld ziet hoe u een virtuele machine en de meest voorkomende bronnen hiervoor te verplaatsen. Gebruik de **-id's** parameter en geeft u een lijst met door komma's gescheiden (zonder spaties) met id's voor de resources te verplaatsen.
+Gebruiken om een virtuele machine en de daarbij behorende bronnen naar een andere resourcegroep verplaatsen, [verplaatsen van de az resource](/cli/azure/resource). Het volgende voorbeeld ziet hoe u een virtuele machine en de meest voorkomende bronnen hiervoor te verplaatsen. Gebruik de **-id's** parameter en geeft u een lijst met door komma's gescheiden (zonder spaties) met id's voor de resources te verplaatsen.
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM

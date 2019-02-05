@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2a0fc7cc4e76c4a93f6ff71767d3074ea8ac6564
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168206"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729265"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-voorbeelden voor gebruik in Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ U de uitvoering van script inschakelen door toe te voegen de **ScriptExecution**
 
 Volg deze richtlijnen wanneer u de interface van uw toepassing met behulp van JavaScript aanpast:
 
-- Een gebeurtenis niet binden op `<a>` HTML-elementen. 
+- Een gebeurtenis niet binden op `<a>` HTML-elementen.
 - Geen duren voordat een afhankelijkheid van Azure AD B2C-code of opmerkingen hebt.
 - De volgorde of de hiërarchie van Azure AD B2C-HTML-elementen worden niet gewijzigd. Azure AD B2C-beleid gebruiken voor het beheren van de volgorde van de UI-elementen.
 - U kunt een RESTful-service met deze overwegingen aanroepen:
@@ -113,9 +113,9 @@ function setupPwdTogglers(){
 setupPwdTogglers();
 ```
 
-### <a name="add-terms-of-use"></a>Gebruiksrechtovereenkomst toevoegen 
+### <a name="add-terms-of-use"></a>Gebruiksrechtovereenkomst toevoegen
 
-De volgende code opnemen in uw pagina waar u wilt opnemen in een **gebruiksvoorwaarden** selectievakje. Dit selectievakje is meestal nodig in uw lokale account aanmelden en sociale account aanmeldingspagina's.  
+De volgende code opnemen in uw pagina waar u wilt opnemen in een **gebruiksvoorwaarden** selectievakje. Dit selectievakje is meestal nodig in uw lokale account aanmelden en sociale account aanmeldingspagina's.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -124,18 +124,18 @@ function addTermsOfUseLink() {
     if (!termsOfUseLabel) {
         return;
     }
-      
+
     // get the label text
     var termsLabelText = termsOfUseLabel.innerHTML;
-      
-    // create a new <a> element with the same inner text 
+
+    // create a new <a> element with the same inner text
     var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
     termsOfUseLink.appendChild(document.createTextNode(termsLabelText));
 
-    // replace the label text with the new element 
+    // replace the label text with the new element
     termsOfUseLabel.replaceChild(termsOfUseLink, termsOfUseLabel.firstChild);
 }
 ```
@@ -145,4 +145,3 @@ In de code, Vervang `terms-of-use-url` met de koppeling naar de voorwaarden van 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over hoe u de gebruikersinterface van uw toepassingen kunt aanpassen [aanpassen van de gebruikersinterface van uw toepassing met behulp van een aangepast beleid in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
-

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 82dd448bb408e7c4bb3576feee17aef66ee6d01d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085864"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730710"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>OpenShift Containerplatform in Azure implementeren
 
@@ -264,15 +264,15 @@ De eenvoudigste manier voor het implementeren van OpenShift Container Platform i
 
 Dit is de eenvoudigste optie, maar deze ook beperkte aanpassingsmogelijkheden. De aanbieding van Marketplace bevat de volgende configuratieopties:
 
-- **Master knooppunten**: drie (3) Master knooppunten met configureerbare Instantietype.
-- **Infra knooppunten**: drie (3) Infra knooppunten met configureerbare exemplaartype.
-- **Knooppunten**: het aantal knooppunten kan worden geconfigureerd (tussen 2 en 9) en het Instantietype.
-- **Schijftype**: beheerde schijven worden gebruikt.
-- **Netwerken**: ondersteuning voor nieuwe of bestaande netwerk, evenals aangepaste CIDR-bereik.
+- **Master knooppunten**: Drie (3) Master knooppunten met configureerbare exemplaar typt.
+- **Infra knooppunten**: Drie (3) Infra knooppunten met configureerbare exemplaar typt.
+- **Knooppunten**: Het aantal knooppunten kan worden geconfigureerd (tussen 2 en 9) en het Instantietype.
+- **Schijftype**: Beheerde schijven worden gebruikt.
+- **Netwerken**: Ondersteuning voor nieuwe of bestaande netwerk, evenals aangepaste CIDR-bereik.
 - **CNS**: CNS kan worden ingeschakeld.
-- **Metrische gegevens**: metrische gegevens kan worden ingeschakeld.
-- **Logboekregistratie**: logboekregistratie kan worden ingeschakeld.
-- **Azure Cloud Provider**: kan worden ingeschakeld.
+- **Metrische gegevens**: Metrische gegevens kan worden ingeschakeld.
+- **Logboekregistratie**: Logboekregistratie kan worden ingeschakeld.
+- **Azure Cloud Provider**: Kan worden ingeschakeld.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Verbinding maken met het cluster OpenShift
 
@@ -284,7 +284,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Gebruik de [az group delete](/cli/azure/group#az_group_delete) opdracht voor het verwijderen van de resourcegroep, OpenShift-cluster en alle gerelateerde resources wanneer ze niet meer nodig zijn.
+Gebruik de [az group delete](/cli/azure/group) opdracht voor het verwijderen van de resourcegroep, OpenShift-cluster en alle gerelateerde resources wanneer ze niet meer nodig zijn.
 
 ```azurecli 
 az group delete --name openshiftrg

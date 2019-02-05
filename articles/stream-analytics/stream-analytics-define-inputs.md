@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 98a4d0ace2113c3936e13d357d0d8b641982d7c4
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567941"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694632"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics is een uitstekende integratie met Azure-gegevensstromen als inv
 Deze invoer resources kunnen bevinden zich in hetzelfde Azure-abonnement als uw Stream Analytics-taak of een ander abonnement.
 
 ### <a name="compression"></a>Compressie
-Stream Analytics biedt ondersteuning voor compressie voor alle stream input gegevensbronnen. Momenteel ondersteunde verwijzingstypen zijn: None, GZip, en Deflate-compressie. Ondersteuning voor compressie is niet beschikbaar voor referentiegegevens. Als de invoerindeling Avro-gegevens die zijn gecomprimeerd is, wordt dit transparant verwerkt. U hoeft niet te geven van compressietype met Avro-serialisatie. 
+Stream Analytics biedt ondersteuning voor compressie voor alle stream input gegevensbronnen. Van de momenteel ondersteunde compressietypen zijn: None, GZip, en Deflate-compressie. Ondersteuning voor compressie is niet beschikbaar voor referentiegegevens. Als de invoerindeling Avro-gegevens die zijn gecomprimeerd is, wordt dit transparant verwerkt. U hoeft niet te geven van compressietype met Avro-serialisatie. 
 
 ## <a name="create-edit-or-test-inputs"></a>Maken, bewerken of invoer testen
 U kunt de [Azure-portal](https://portal.azure.com) naar [nieuwe invoer maken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) en weergeven of bewerken van bestaande invoer op uw streaming-taak. U kunt ook de invoer-verbindingen testen en [query's testen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) van voorbeeldgegevens. Wanneer u een query schrijven, wordt een lijst van de invoer in de component FROM. U krijgt de lijst met beschikbare invoer van de **Query** pagina in de portal. Als u gebruiken van meerdere invoergegevens wilt, kunt u `JOIN` ze of meerdere schrijven `SELECT` query's.

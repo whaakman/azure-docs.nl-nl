@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462015"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728399"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -35,19 +35,19 @@ IP-firewallregels verlenen toegang tot databases op basis van het oorspronkelijk
 
 ### <a name="virtual-network-firewall-rules"></a>Virtual network-firewallregels
 
-[Virtual Network-service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) uitbreiden van uw verbinding met het virtuele netwerk via de Azure-backbone en Azure SQL Database om te identificeren van het virtuele netwerksubnet dat verkeer van afkomstig is uit te schakelen. Als u wilt dat verkeer bereiken van Azure SQL Database, gebruikt u de SQL [servicetags](../virtual-network/security-overview.md) waarmee uitgaand verkeer via Netwerkbeveiligingsgroepen.
+[Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) uitbreiden van uw verbinding met het virtuele netwerk via de Azure-backbone en Azure SQL Database om te identificeren van het virtuele netwerksubnet dat verkeer van afkomstig is uit te schakelen. Als u wilt dat verkeer bereiken van Azure SQL Database, gebruikt u de SQL [servicetags](../virtual-network/security-overview.md) waarmee uitgaand verkeer via Netwerkbeveiligingsgroepen.
 
-[Virtuele netwerkregels](sql-database-vnet-service-endpoint-rule-overview.md) inschakelen van Azure SQL Database om alleen communicatie die zijn verzonden vanaf de geselecteerde subnetten binnen een virtueel netwerk te accepteren.
+[Regels voor virtueel netwerk](sql-database-vnet-service-endpoint-rule-overview.md) inschakelen van Azure SQL Database om alleen communicatie die zijn verzonden vanaf de geselecteerde subnetten binnen een virtueel netwerk te accepteren.
 
 > [!NOTE]
-> Beheren van toegang met firewallregels heeft *niet* zijn van toepassing op **Azure SQL Database Managed Instance**. Zie voor meer informatie over de netwerkconfiguratie die nodig zijn, [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md)
+> Beheren van toegang met firewallregels heeft *niet* zijn van toepassing op **een beheerd exemplaar**. Zie voor meer informatie over de netwerkconfiguratie die nodig zijn, [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>Toegangsbeheer
 
 > [!IMPORTANT]
 > Beheer van databases en database-servers in Azure wordt bepaald door de roltoewijzingen van de account van uw portal-gebruiker. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authentication
 
 Verificatie is het proces van de gebruiker aan te tonen die zij beweren te zijn. Azure SQL Database ondersteunt twee typen verificatie:
 
@@ -64,7 +64,7 @@ Verificatie is het proces van de gebruiker aan te tonen die zij beweren te zijn.
     Extra Azure AD-verificatie-opties die beschikbaar zijn [Universal verificatie van Active Directory voor SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) verbindingen met inbegrip van [multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) en [ Voorwaardelijke toegang](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> Beheer van databases en servers in Azure wordt bepaald door de roltoewijzingen van de account van uw portal-gebruiker. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md). Beheren van toegang met firewallregels heeft *niet* zijn van toepassing op **Azure SQL Database Managed Instance**. Raadpleeg het volgende artikel over [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie over welke netwerkconfiguratie is vereist.
+> Beheer van databases en servers in Azure wordt bepaald door de roltoewijzingen van de account van uw portal-gebruiker. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md). Beheren van toegang met firewallregels heeft *niet* zijn van toepassing op **een beheerd exemplaar**. Raadpleeg het volgende artikel over [verbinding te maken met een beheerd exemplaar](sql-database-managed-instance-connect-app.md) voor meer informatie over welke netwerkconfiguratie is vereist.
 
 Autorisatie verwijst naar de machtigingen worden toegewezen aan een gebruiker binnen een Azure SQL Database, en bepaalt wat de gebruiker mag doen. Machtigingen worden bepaald door het toevoegen van gebruikersaccounts aan [databaserollen](/sql/relational-databases/security/authentication-access/database-level-roles) waarmee u de machtigingen op databaseniveau of het verlenen van de gebruiker bepaalde [objectmachtigingen](/sql/relational-databases/security/permissions-database-engine). Zie voor meer informatie, [aanmeldingen en gebruikers](sql-database-manage-logins.md)
 
@@ -86,11 +86,11 @@ SQL-Database voor beveiliging van gegevens van de klant door de mogelijkheden vo
 
 ### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>SQL-controle in Log Analytics en Event Hubs
 
-SQL Database Auditing houdt databaseactiviteiten bij en zorgt voor naleving van beveiligingsstandaarden door databasegebeurtenissen naar een auditlogboek in een Azure Storage-account met klanten. Controle, kunnen gebruikers actieve bewaken, evenals analyseren en onderzoeken van de historische activiteit voor het identificeren van mogelijke bedreigingen of vermoedelijke schendingen van misbruik en beveiliging. Voor meer informatie, Zie het Engelstalige artikel [SQL Database Auditing](sql-database-auditing.md).  
+SQL Database auditing houdt databaseactiviteiten bij en zorgt voor naleving van beveiligingsstandaarden door databasegebeurtenissen naar een auditlogboek in een klanten van Azure storage-account. Controle, kunnen gebruikers actieve bewaken, evenals analyseren en onderzoeken van de historische activiteit voor het identificeren van mogelijke bedreigingen of vermoedelijke schendingen van misbruik en beveiliging. Voor meer informatie, Zie het Engelstalige artikel [SQL Database Auditing](sql-database-auditing.md).  
 
-### <a name="sql-threat-detection"></a>SQL Threat Detection
+### <a name="threat-detection"></a>Detectie van bedreigingen
 
-Threat dat Detection verbetert de controle door een analyse van controlelogboeken voor het gedrag van ongebruikelijke en potentieel schadelijke probeert te openen of misbruik te maken van databases. Waarschuwingen worden voor verdachte activiteiten of afwijkende toegangspatronen, zoals SQL-injectieaanvallen, potentiële gegevens is binnengedrongen en wachtwoord beveiligingsaanvallen gemaakt. Meldingen voor geconstateerde bedreigingen worden weergegeven in de [Azure Security Center](https://azure.microsoft.com/services/security-center/), waarbij de details van de verdachte activiteiten zijn opgegeven en aanbevelingen voor nader onderzoek samen met de acties die aan het oplossen van de bedreiging. Detectie van bedreigingen kost $15/server/maand. Het is gratis voor de eerste 60 dagen. Zie [Aan de slag met SQL Database Threat Detection](sql-database-threat-detection.md) voor meer informatie.
+Threat detection verbetert de controle door een analyse van controlelogboeken voor het gedrag van ongebruikelijke en potentieel schadelijke probeert te openen of misbruik te maken van databases. Waarschuwingen worden voor verdachte activiteiten of afwijkende toegangspatronen, zoals SQL-injectieaanvallen, potentiële gegevens is binnengedrongen en wachtwoord beveiligingsaanvallen gemaakt. Meldingen voor geconstateerde bedreigingen worden weergegeven in de [Azure Security Center](https://azure.microsoft.com/services/security-center/), waarbij de details van de verdachte activiteiten zijn opgegeven en aanbevelingen voor nader onderzoek samen met de acties die aan het oplossen van de bedreiging. Detectie van bedreigingen kost $15/server/maand. Het is gratis voor de eerste 60 dagen. Zie voor meer informatie, [aan de slag met SQL Database Threat detection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,11 +137,11 @@ SQL Database dynamische gegevensmaskering blootstelling van gevoelige gegevens d
 
 ## <a name="security-management"></a>Beveiligingsbeheer
 
-### <a name="sql-vulnerability-assessment"></a>Evaluatie van SQL-beveiligingsproblemen
+### <a name="vulnerability-assessment"></a>Evaluatie van beveiligingsproblemen
 
-[Evaluatie van beveiligingsproblemen SQL](sql-vulnerability-assessment.md) is een eenvoudig te configureren van de service die u kunt detecteren, volgen en te herstellen van potentiële databaseproblemen met het doel proactief algemene om databasebeveiliging te verbeteren. Beveiligingslek met betrekking tot Assessment (VA) maakt deel uit van de aanbieding SQL geavanceerde gegevens beveiliging (AD), dit een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL is. Evaluatie van beveiligingsproblemen kan worden geopend en worden beheerd via de centrale SQL AD-portal.
+[Evaluatie van beveiligingsproblemen](sql-vulnerability-assessment.md) is een eenvoudig te configureren van de service die u kunt detecteren, volgen en te herstellen van potentiële databaseproblemen met het doel proactief algemene om databasebeveiliging te verbeteren. Evaluatie van beveiligingsproblemen (VA) maakt deel uit van de geavanceerde beveiliging (AD)-aanbieding, dit een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL is. Evaluatie van beveiligingsproblemen kan worden geopend en worden beheerd via de centrale SQL AD-portal.
 
-### <a name="data-discovery--classification"></a>Gegevensdetectie en classificatie
+### <a name="data-discovery--classification"></a>Gegevensdetectie en -classificatie
 
 Gegevensdetectie en -classificatie (momenteel in preview) biedt geavanceerde mogelijkheden van ingebouwd in Azure SQL Database voor het detecteren, classificeren, labelen en beveiligen van de gevoelige gegevens in uw databases. Detecteren en classificeren van uw zoveel mogelijk gevoelige gegevens (business/financiële, gezondheidszorg, persoonlijke gegevens, enzovoort) kunnen een cruciale rol spelen in uw organisatie Information protection waarmee kan worden voldaan. Deze kan dienen als infrastructuur voor:
 
@@ -149,7 +149,7 @@ Gegevensdetectie en -classificatie (momenteel in preview) biedt geavanceerde mog
 - Toegang tot beheren en beperken van de beveiliging van databases met uiterst gevoelige gegevens.
 - Helpen voldoen aan de privacystandaarden en wettelijke vereisten.
 
-Zie voor meer informatie, [aan de slag met SQL DB-gegevensdetectie en classificatie](sql-database-data-discovery-and-classification.md).
+Zie voor meer informatie, [aan de slag met gegevensdetectie en classificatie](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Naleving
 

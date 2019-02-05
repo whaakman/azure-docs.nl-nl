@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 5a646f83d3bd6a2c2824aef679f8a46e352f2263
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5609661bd49d44693c129547d99fc0b805b4dc41
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246929"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700295"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Veelgestelde vragen over Microsoft Authenticator-app
 
@@ -47,7 +47,8 @@ De Microsoft Authenticator-app de app Azure Authenticator vervangen en is de aan
 |Krijg ik een communicatiefout tussen de Apple Watch en mijn telefoon. Wat kan ik doen om op te lossen?|Deze fout treedt op wanneer het scherm volgen gaat u naar de slaapstand voordat het communiceren met uw telefoon is.<br><br><b>Als dit tijdens de installatie gebeurt:</b><br>Probeer te Voer setup opnieuw uit, zorg ervoor dat uw Watch actief houden totdat het proces is voltooid. Open de app op uw telefoon op hetzelfde moment, en reageren op prompts die worden weergegeven.<br><br>Als uw telefoon en bekijk nog steeds worden niet communiceren, kunt u het volgende proberen:<ol><li>Geforceerd de Microsoft Authenticator-telefoon-app sluit en opnieuw openen op uw iPhone.</li><li>Force sluit de companion-app op uw Apple Watch.<ol><li> Open de Microsoft Authenticator companion-app op uw horloge</li><li>Houd de knop naast totdat de **afsluiten** scherm wordt weergegeven.</li><li>De knop naast de release en houdt u de digitale kroon sluiten om af te dwingen de actieve app.</li></ol></li><li>Zowel Bluetooth- en Wi-Fi uit te schakelen voor uw telefoon en uw Watch en vervolgens weer terug.</li><li>Start opnieuw op uw iPhone en uw Watch.</li></ol><b>Als dit gebeurt wanneer u probeert een melding goed te keuren:</b><br>De volgende keer dat u wilt een melding op uw Apple Watch goed te keuren houden het scherm actief totdat de aanvraag voltooid is en u het geluid die aangeeft dat goed is verlopen.|
 |Waarom is niet de bijbehorende Microsoft Authenticator-app voor Apple Watch synchroniseren of weergegeven op mijn watch?|Als de app wordt niet op uw horloge weergegeven, probeert u het volgende: <ol><li>Zorg ervoor dat uw Watch watchOS 4.0 of hoger is uitgevoerd.</li><li>Uw Watch opnieuw gesynchroniseerd.</li></ol>|
 |Mijn Apple Watch companion-app is vastgelopen. Kan ik u Mijn crash logboeken verzenden, zodat u kunt onderzoeken? |U moet eerst Zorg ervoor dat u hebt gekozen voor het delen van uw analyses met ons. Als u een TestFlight-gebruiker bent, bent u al aangemeld. Anders gaat u naar **instellingen > Privacy > Analytics** en selecteert u zowel de **delen iPhone & Watch analytics** en de **delen met App-ontwikkelaars** opties.<br><br>Nadat u bent aangemeld, kunt u proberen om het te reproduceren uw crashes, zodat uw crash-logboeken automatisch naar ons voor onderzoek verzonden worden. Echter, als u uw probleem niet reproduceren, kunt u handmatig kopiëren van uw logboekbestanden en verzend dit naar ons.<ol><li>Open de Watch-app op uw telefoon, gaat u naar **instellingen > Algemeen**, en klik vervolgens op **kopie Watch Analytics**.</li><li>Vinden van de bijbehorende crash onder **instellingen > Privacy > Analytics > Analytics-gegevens**, en kopieert u handmatig de volledige tekst.</li><li>Open de Microsoft Authenticator-app op uw telefoon en plakken die de gekopieerde tekst in de **delen met App-ontwikkelaars** tekstvak op de **logboeken verzenden** pagina.</li></ol>|
-|Wat is de App-Lock-functie en waarvoor dient het me meer om veilig te houden?|Uw wachtwoordcodes eenmalig, app-gegevens en app-instellingen om veiliger te houden, kunt u de App-Lock-functie in de Microsoft Authenticator-app inschakelen. Inschakelen van App-vergrendeling van het **instellingen** scherm van de Microsoft Authenticator-app betekent dat u wordt gevraagd om te verifiëren met behulp van uw PINCODE of biometrische telkens wanneer u de Microsoft Authenticator-app opent. Deze functie biedt extra beveiliging, de manier waarop u de meldingen in de Microsoft Authenticator-app goedkeuren worden niet gewijzigd.<br><br>**Opmerking**<br>Als u naar de Microsoft Authenticator-app uitgevoerd op een Android-apparaat in minder dan 30 seconden terugkeert, wordt u niet gevraagd opnieuw te verifiëren.| 
+|Wat is de App-Lock-functie en waarvoor dient het me meer om veilig te houden?|Uw wachtwoordcodes eenmalig, app-gegevens en app-instellingen om veiliger te houden, kunt u de App-Lock-functie in de Microsoft Authenticator-app inschakelen. Inschakelen van App-vergrendeling van het **instellingen** scherm van de Microsoft Authenticator-app betekent dat u wordt gevraagd om te verifiëren met behulp van uw PINCODE of biometrische telkens wanneer u de Microsoft Authenticator-app opent. Deze functie biedt extra beveiliging, de manier waarop u de meldingen in de Microsoft Authenticator-app goedkeuren worden niet gewijzigd.<br><br>**Opmerking**<br>Als u naar de Microsoft Authenticator-app uitgevoerd op een Android-apparaat in minder dan 30 seconden terugkeert, wordt u niet gevraagd opnieuw te verifiëren.|
+|Waarom krijg ik meldingen over de accountactiviteit van mijn?|Om te voorkomen dat u meer op de hoogte van wat met uw persoonlijke Microsoft-account gebeurt er, zijn we activiteit meldingen verzenden naar de Microsoft Authenticator-app. Deze meldingen weergegeven onmiddellijk nadat er iets verandert, mogelijk te maken zodat u beter te beveiligen. We eerder verzonden deze meldingen via e-mail en SMS-berichten en zijn nu uitgebreid naar de app. Zie voor meer informatie over deze activiteit meldingen [wat er gebeurt als er een ongewone aanmelding bij uw account](https://support.microsoft.com/en-us/help/13967/microsoft-account-unusual-sign-in). Als u wilt wijzigen waar u uw meldingen ontvangen, moet u zich aanmelden bij https://account.live.com/SecurityNotifications/Update.|
 
 
 ## <a name="next-steps"></a>Volgende stappen
