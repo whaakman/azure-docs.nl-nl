@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285803"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736230"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra SSD (preview) Managed Disks voor Azure Virtual Machine-werkbelasting
 
@@ -21,11 +21,11 @@ Azure Ultra SSD (preview) biedt hoge doorvoer, een hoge IOPS en consistente lage
 
 ## <a name="ultra-ssd-features"></a>Ultra SSD-functies
 
-**Beheerde schijven**: Ultra SSD's zijn alleen beschikbaar als beheerde schijven. Ultra SSD's kunnen niet worden geïmplementeerd als een niet-beheerde schijf of een pagina-blobs. Tijdens het maken van een beheerde schijf maken, geeft u de sku van de schijf als UltraSSD_LRS en geven van de grootte van de schijf, de IOPS en doorvoer die u nodig en Azure maakt en beheert de schijf voor u.  
+**Managed Disks**: Ultra SSD's zijn alleen beschikbaar als beheerde schijven. Ultra SSD's kunnen niet worden geïmplementeerd als een niet-beheerde schijf of een pagina-blobs. Tijdens het maken van een beheerde schijf maken, geeft u de sku van de schijf als UltraSSD_LRS en geven van de grootte van de schijf, de IOPS en doorvoer die u nodig en Azure maakt en beheert de schijf voor u.  
 
-**Virtuele Machines**: Ultra SSD's zijn ontworpen om te werken met alle voorraadeenheden voor virtuele Azure-Machine Premium SSD ingeschakeld; echter, omdat deze zich momenteel in Preview-versie, de virtuele machines-grootte ES/DS v3.
+**Virtuele Machines**: Ultra SSD's zijn ontworpen voor gebruik met alle Premium SSD ingeschakelde Azure VM-SKU 's omdat deze zich momenteel in Preview-versie, worden de virtuele machines echter grootte als ES/DS v3.
 
-**Dynamische Prestatieconfiguratie**: Ultra SSD's kunt u de prestaties van de schijf, samen met de behoeften van uw werkbelasting (IOPS en doorvoer) dynamisch wijzigen zonder te hoeven starten van uw virtuele machines.
+**Dynamische Prestatieconfiguratie**: Ultra SSD's kunnen u de prestaties van de schijf, samen met de behoeften van uw werkbelasting (IOPS en doorvoer) dynamisch wijzigen zonder te hoeven starten van uw virtuele machines.
 
 ## <a name="scalability-and-performance-targets"></a>Schaalbaarheids- en prestatiedoelen
 
@@ -33,25 +33,25 @@ Als u een Ultra SSD inricht, hebt u de optie voor de capaciteit en de prestaties
 
 Er zijn enkele kernfuncties van Ultra SSD:
 
-- Schijfcapaciteit: Ultra SSD biedt u tal van verschillende schijfgrootten van 4 GiB maximaal 64 TiB.
-- IOPS-schijven: Ultra SSD's ondersteuning IOPS-limieten van 300 IOPS/GiB, tot een maximum van 160 kB IOPS per schijf. Zorg ervoor dat de geselecteerde schijf-IOPS kleiner dan de IOPS VM zijn voor het bereiken van de IOPS-waarde die u hebt ingericht. De minimale IOPS-schijf is 100 IOPS.
+- Capaciteit van de schijf: Ultra SSD biedt u tal van verschillende schijfgrootten van 4 GiB maximaal 64 TiB.
+- Schijf-IOPS: Ultra SSD's bieden ondersteuning voor IOPS-limieten van 300 IOPS/GiB, tot een maximum van 160 kB IOPS per schijf. Zorg ervoor dat de geselecteerde schijf-IOPS kleiner dan de IOPS VM zijn voor het bereiken van de IOPS-waarde die u hebt ingericht. De minimale IOPS-schijf is 100 IOPS.
 - Schijfdoorvoer: Met de Ultra SSD's, de doorvoerlimiet van één schijf is 256 KiB/s voor elke IOP's, tot een maximum van 2000 MBps per schijf ingericht (waarbij MBps = 10 ^ 6 Bytes per seconde). De schijfdoorvoer, met minimale is 1 MiB.
 
 De volgende tabel geeft een kort overzicht van verschillende configuraties die voor de verschillende schijfgroottes worden ondersteund:  
 
 ### <a name="ultra-ssd-managed-disk-offerings"></a>Aanbiedingen Ultra SSD Managed Disks
 
-|Schijfgrootte (GiB)  |IOPS-limieten  |Bovengrens voor doorvoer (MBps)  |
+|Schijfgrootte (GiB)  |IOPS Caps  |Bovengrens voor doorvoer (MBps)  |
 |---------|---------|---------|
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9600         |2,000         |
+|32     |9,600         |2,000         |
 |64     |19,200         |2,000         |
-|128     |38.400         |2,000         |
+|128     |38,400         |2,000         |
 |256     |76,800         |2,000         |
 |512     |80,000         |2,000         |
-|1024-65.536 (grootten die in dit bereik verhogen in stappen van 1 TiB)     |160.000         |2,000         |
+|1024-65.536 (grootten die in dit bereik verhogen in stappen van 1 TiB)     |160,000         |2,000         |
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 
@@ -64,7 +64,7 @@ Wanneer u uiterst SSD's, worden de volgende factureringsvoorwaarden toegepast:
 
 ### <a name="managed-disk-size"></a>Beheerde schijfgrootte
 
-Beheerde schijven worden in rekening gebracht op de VM-grootten die u choosed tijdens provisionning een nieuwe virtuele machine van Azure. Azure wijst de ingerichte grootte (omhoog afgerond) toe aan de aanbieding voor schrijfgrootte die het dichtst in de buurt komt. Zie de tabel in Scalability and Performance Targets sectie hierboven voor meer informatie van de grootte van de schijven die worden aangeboden. Elke schijf wordt toegewezen aan een grootte van de ondersteunde ingerichte schijf en worden kosten in rekening gebracht dienovereenkomstig op uurbasis. Bijvoorbeeld, als u een schijf 200 GiB Ultra SSD ingericht en deze na 20 uur, deze wordt toegewezen aan de aanbieding van de schijf grootte van 256 GB en u wordt gefactureerd voor de 256 GB voor 20 uur. Deze facturering is gebaseerd op verbruik van de compute-uur, ongeacht de hoeveelheid gegevens daadwerkelijk worden geschreven naar de schijf.
+Beheerde schijven worden in rekening gebracht op de VM-grootten die u kiest tijdens het inrichten van een nieuwe virtuele machine van Azure. Azure wijst de ingerichte grootte (omhoog afgerond) toe aan de aanbieding voor schrijfgrootte die het dichtst in de buurt komt. Zie de tabel in Scalability and Performance Targets sectie hierboven voor meer informatie van de grootte van de schijven die worden aangeboden. Elke schijf wordt toegewezen aan een grootte van de ondersteunde ingerichte schijf en worden kosten in rekening gebracht dienovereenkomstig op uurbasis. Bijvoorbeeld, als u een schijf 200 GiB Ultra SSD ingericht en deze na 20 uur, deze wordt toegewezen aan de aanbieding van de schijf grootte van 256 GB en u wordt gefactureerd voor de 256 GB voor 20 uur. Deze facturering is gebaseerd op verbruik van de compute-uur, ongeacht de hoeveelheid gegevens daadwerkelijk worden geschreven naar de schijf.
 
 ### <a name="managed-disk-provisioned-iops"></a>Beheerde schijf ingerichte IOPS
 
@@ -74,7 +74,7 @@ IOP's zijn het aantal aanvragen dat uw toepassing verzendt naar de schijven per 
 
 Doorvoer is de hoeveelheid gegevens die uw toepassing naar de schijven in een opgegeven interval verzendt, gemeten in bytes per seconde. Als uw toepassing grote i/o-bewerkingen uitvoert, is er een hoge doorvoer vereist.  
 
-Er is een relatie tussen de doorvoer en IOPS zoals wordt weergegeven in de volgende formule: IOPS x de grootte van de i/o-doorvoer =
+Er is een relatie tussen de doorvoer en IOPS, zoals wordt weergegeven in de volgende formule:  IOPS x de grootte van de i/o-doorvoer =
 
 Daarom is het belangrijk om te bepalen van de optimale doorvoer en IOPS-waarden die uw toepassing vereist. Als u een optimaliseren probeert, wordt de andere ook beïnvloed. U wordt aangeraden beginnen met een doorvoer die overeenkomt met 16 KiB i/o-grootte en aan te passen als er meer doorvoer nodig is.
 

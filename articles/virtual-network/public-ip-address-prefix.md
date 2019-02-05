@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5bbe0709f89ca198b0571526291f700c99e9e59f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966772"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700737"
 ---
 # <a name="public-ip-address-prefix"></a>Openbare IP-adresvoorvoegsel
 
@@ -53,7 +53,7 @@ U kunt de volgende resources koppelen aan een statisch openbaar IP-adres uit een
 |---|---|---|
 |Virtuele machines| Koppelen van openbare IP-adressen uit een voorvoegsel aan uw virtuele machines in Azure verminderd als het gaat om opname in de whitelist IP-adressen in een firewall. U kunt gewoon een hele voorvoegsel met één firewallregel whitelist. Wanneer u met virtuele machines in Azure schaalt, kunt u IP-adressen uit hetzelfde voorvoegsel zodat kosten, tijd en beheeroverhead koppelen.| IP-adressen uit een voorvoegsel koppelen aan uw virtuele machine: 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. [De IP-adres aan de netwerkinterface van de virtuele machine koppelen.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Load balancers | Koppelen van openbare IP-adressen uit een voorvoegsel aan uw frontend-IP-configuratie of de regel voor uitgaande van een Load Balancer zorgt ervoor dat vereenvoudiging van uw Azure openbare IP-adresruimte. U kunt uw scenario vereenvoudigen door het opschonen van de uitgaande verbindingen naar worden afkomstig is van een reeks aaneengesloten IP-adressen die zijn gedefinieerd met het openbare IP-voorvoegsel. | IP-adressen uit een voorvoegsel koppelen aan uw Load balancer: 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Bij het maken van de Load Balancer, selecteert u of het IP-adres gemaakt in stap 2 hierboven als de front-end-IP-adres van de Load Balancer bijwerken. |
-| Azure Firewall | U kunt een openbaar IP-adres uit een voorvoegsel voor uitgaande SNAT. Dit betekent dat alle uitgaande virtuele netwerkverkeer wordt omgezet naar de [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) openbaar IP-adres. Omdat deze IP afkomstig zijn uit een vooraf vastgestelde voorvoegsel, is het heel eenvoudig tevoren weten wat uw openbare IP-voetafdruk in Azure eruit. | 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Wanneer u [implementeren van de Azure-firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), moet u het IP-adres u previosuly toegewezen selecteren uit het voorvoegsel.|
+| Azure Firewall | U kunt een openbaar IP-adres uit een voorvoegsel voor uitgaande SNAT. Dit betekent dat alle uitgaande virtuele netwerkverkeer wordt omgezet naar de [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) openbaar IP-adres. Omdat deze IP afkomstig zijn uit een vooraf vastgestelde voorvoegsel, is het heel eenvoudig tevoren weten wat uw openbare IP-voetafdruk in Azure eruit. | 1. [Maak een voorvoegsel.](manage-public-ip-address-prefix.md) 2. [Maak een IP-adres van het voorvoegsel.](manage-public-ip-address-prefix.md) 3. Wanneer u [implementeren van de Azure-firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), moet u het eerder toegewezen IP-adres uit het voorvoegsel selecteren.|
 
 ## <a name="constraints"></a>Beperkingen
 

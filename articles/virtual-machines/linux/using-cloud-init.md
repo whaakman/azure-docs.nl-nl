@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188870"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700091"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init-ondersteuning voor virtuele machines in Azure
 Dit artikel wordt uitgelegd voor de ondersteuning die er bestaat voor [cloud-init](https://cloudinit.readthedocs.io) het configureren van een virtuele machine (VM) of de virtuele machine-schaalsets (VMSS) inrichtingstijd in Azure. Deze cloud-init-scripts uitvoeren op de eerste keer opstarten nadat de resources zijn ingericht met Azure.  
@@ -54,7 +54,7 @@ WALA configuraties van virtuele machines zijn tijd beperkt tot het werk binnen d
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Virtuele Machine implementeren van een cloud-init ingeschakeld
 Implementeren van een cloud-init ingeschakeld virtuele machine is net zo eenvoudig als die verwijst naar een cloud-init-ingeschakeld distributiepunt tijdens de implementatie.  Linux-distributie instaan hebben om te kiezen om te schakelen en cloud-init integreren in hun gepubliceerde basisinstallatiekopieën in Azure. Nadat u hebt vastgesteld dat de installatiekopie die u wilt implementeren cloud-init ingeschakeld is, kunt u de Azure CLI de installatiekopie te implementeren. 
 
-De eerste stap bij het implementeren van deze afbeelding is het maken van een resourcegroep met de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+De eerste stap bij het implementeren van deze afbeelding is het maken van een resourcegroep met de [az-groep maken](/cli/azure/group) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
@@ -71,7 +71,7 @@ packages:
 ```
 Druk op `ctrl-X` om af te sluiten van het bestand, typ `y` om op te slaan van het bestand en druk op `enter` ter bevestiging de naam van het bestand bij het afsluiten.
 
-De laatste stap is het maken van een virtuele machine met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. 
+De laatste stap is het maken van een virtuele machine met de [az vm maken](/cli/azure/vm) opdracht. 
 
 Het volgende voorbeeld wordt een virtuele machine met de naam *centos74* en SSH-sleutels gemaakt als deze niet al bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  Gebruik de `--custom-data`-parameter om door te geven in uw cloud-init-configuratiebestand. Geef het volledige pad naar *cloud-init.txt* op als u het bestand buiten uw huidige werkmap hebt opgeslagen. Het volgende voorbeeld wordt een virtuele machine met de naam *centos74*:
 

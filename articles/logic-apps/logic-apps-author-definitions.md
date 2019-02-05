@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128657"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732920"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Maken, bewerken of JSON voor de logische app-definities in Azure Logic Apps uitbreiden
 
@@ -24,7 +24,8 @@ Bij het maken van zakelijke oplossingen voor integratie met geautomatiseerde wer
 Open de weergave van Code-editor wanneer u werkt in Azure portal of in Visual Studio om te werken met definities voor logische apps in JSON, of de definitie in een editor die u wilt kopiëren. Als u geen ervaring met logische apps, raadpleegt u [over het maken van uw eerste logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Sommige Azure Logic Apps-mogelijkheden, zoals het definiëren van parameters en meerdere triggers in de definities voor logische Apps, zijn alleen beschikbaar in JSON, niet de ontwerper van logische Apps. Daarom moet u voor deze taken ook werken in de Code of een andere editor.
+> Sommige Azure Logic Apps-mogelijkheden, zoals het definiëren van parameters en meerdere triggers in de definities voor logische Apps, zijn alleen beschikbaar in JSON, niet de ontwerper van logische Apps.
+> Daarom moet u voor deze taken ook werken in de Code of een andere editor.
 
 ## <a name="edit-json---azure-portal"></a>JSON - Azure-portal bewerken
 
@@ -38,7 +39,7 @@ Open de weergave van Code-editor wanneer u werkt in Azure portal of in Visual St
 
 ## <a name="edit-json---visual-studio"></a>JSON - Visual Studio bewerken
 
-Voordat u aan de definitie van uw logische app in Visual Studio werken kunt, zorgt u ervoor dat u hebt [de benodigde hulpprogramma's geïnstalleerd](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Voor het maken van een logische app met Visual Studio, Bekijk [Quick Start: automatiseren van taken en processen met Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Voordat u aan de definitie van uw logische app in Visual Studio werken kunt, zorgt u ervoor dat u hebt [de benodigde hulpprogramma's geïnstalleerd](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Voor het maken van een logische app met Visual Studio, Bekijk [Quick Start: Automatiseren van taken en processen met Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 U kunt logische apps die zijn gemaakt en geïmplementeerd hetzij rechtstreeks vanuit Azure portal of Azure Resource Manager-projecten vanuit Visual Studio openen in Visual Studio.
 
@@ -58,7 +59,7 @@ U kunt logische apps die zijn gemaakt en geïmplementeerd hetzij rechtstreeks va
 
 ## <a name="parameters"></a>Parameters
 
-Parameters kunnen u waarden in uw logische app opnieuw kunt gebruiken als geschikt zijn voor het vervangen van waarden die u vaak veranderen. Hebt u een e-mailadres dat u gebruiken op meerdere plaatsen wilt, moet u dat e-mailadres bijvoorbeeld, als een parameter definiëren. 
+Parameters kunnen u waarden in uw logische app opnieuw kunt gebruiken als geschikt zijn voor het vervangen van waarden die u vaak veranderen. Hebt u een e-mailadres dat u gebruiken op meerdere plaatsen wilt, moet u dat e-mailadres bijvoorbeeld, als een parameter definiëren.
 
 Parameters zijn ook handig als u wilt overschrijven van de parameters in verschillende omgevingen, meer informatie over [parameters voor de implementatie van](#deployment-parameters) en de [REST-API voor Azure Logic Apps-documentatie](https://docs.microsoft.com/rest/api/logic).
 
@@ -70,13 +71,13 @@ In de [eerste voorbeeld van de logische app](../logic-apps/quickstart-create-fir
 1. In de weergave van code, vinden de `parameters : {}` -object en voeg een `currentFeedUrl` object:
 
    ``` json
-     "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
-2. In de `When_a_feed-item_is_published` actie, vinden de `queries` uit en vervang de querywaarde met `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+2. In de `When_a_feed-item_is_published` actie, vinden de `queries` uit en vervang de querywaarde met `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
 
    **Voordat u**
    ``` json
@@ -84,7 +85,7 @@ In de [eerste voorbeeld van de logische app](../logic-apps/quickstart-create-fir
       "queries": {
           "feedUrl": "https://s.ch9.ms/Feeds/RSS"
        }
-   },   
+   },
    ```
 
    **Na**
@@ -93,13 +94,13 @@ In de [eerste voorbeeld van de logische app](../logic-apps/quickstart-create-fir
       "queries": {
           "feedUrl": "#@{parameters('currentFeedUrl')}"
        }
-   },   
+   },
    ```
 
    Als u wilt deelnemen aan twee of meer tekenreeksen, u kunt ook de `concat` functie. 
    Bijvoorbeeld, `"@concat('#',parameters('currentFeedUrl'))"` werkt op dezelfde manier als het vorige voorbeeld.
 
-3.  Als u bent klaar, kiest u **Opslaan**. 
+3.  Als u bent klaar, kiest u **Opslaan**.
 
 Nu kunt u de website van de RSS-feed door een andere URL via de `currentFeedURL` object.
 
@@ -107,9 +108,9 @@ Nu kunt u de website van de RSS-feed door een andere URL via de `currentFeedURL`
 
 ## <a name="deployment-parameters-for-different-environments"></a>Implementatieparameters voor verschillende omgevingen
 
-Levenscycli van implementatie hebben doorgaans, ontwikkeling, fasering en productie-omgevingen. Bijvoorbeeld, u mogelijk dezelfde definitie voor de logische app in alle omgevingen met deze maar verschillende databases gebruikt. Op dezelfde manier kunt u gebruikmaken van dezelfde definitie in verschillende regio's voor maximale beschikbaarheid, waarbij elk exemplaar van de logische app het gebruik van de database van die regio. 
+Levenscycli van implementatie hebben doorgaans, ontwikkeling, fasering en productie-omgevingen. Bijvoorbeeld, u mogelijk dezelfde definitie voor de logische app in alle omgevingen met deze maar verschillende databases gebruikt. Op dezelfde manier kunt u gebruikmaken van dezelfde definitie in verschillende regio's voor maximale beschikbaarheid, waarbij elk exemplaar van de logische app het gebruik van de database van die regio.
 
-> [!NOTE] 
+> [!NOTE]
 > In dit scenario verschilt van de parameters op te nemen *runtime* waar moet u de `trigger()` werken in plaats daarvan.
 
 Hier volgt de definitie van een basic:
@@ -157,13 +158,13 @@ In de werkelijke `PUT` aanvragen voor de logic apps, kunt u de parameter bieden 
     },
     "location": "westus"
 }
-``` 
+```
 
 Zie voor meer informatie, de [REST-API voor Azure Logic Apps-documentatie](https://docs.microsoft.com/rest/api/logic/).
 
 ## <a name="process-strings-with-functions"></a>Proces-tekenreeksen met functions
 
-Logic Apps heeft diverse functies voor het werken met tekenreeksen. Stel bijvoorbeeld dat u wilt de naam van een bedrijf van een order doorgeven aan een ander systeem. Echter, u niet zeker weet over het afhandelen van de juiste voor tekencodering. Base64-codering op deze tekenreeks kan worden uitgevoerd, maar om te voorkomen dat Hiermee heft u in de URL, kunt u verschillende tekens in plaats daarvan vervangen. Bovendien hoeft u alleen een subtekenreeks voor naam van het bedrijf omdat de eerste vijf tekens worden niet gebruikt. 
+Logic Apps heeft diverse functies voor het werken met tekenreeksen. Stel bijvoorbeeld dat u wilt de naam van een bedrijf van een order doorgeven aan een ander systeem. Echter, u niet zeker weet over het afhandelen van de juiste voor tekencodering. Base64-codering op deze tekenreeks kan worden uitgevoerd, maar om te voorkomen dat Hiermee heft u in de URL, kunt u verschillende tekens in plaats daarvan vervangen. Bovendien hoeft u alleen een subtekenreeks voor naam van het bedrijf omdat de eerste vijf tekens worden niet gebruikt.
 
 ``` json
 {
@@ -200,7 +201,7 @@ Logic Apps heeft diverse functies voor het werken met tekenreeksen. Stel bijvoor
 
 Deze stappen wordt beschreven hoe deze tekenreeks, werken op basis van binnen naar buiten in dit voorbeeld worden verwerkt:
 
-``` 
+```
 "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
@@ -218,7 +219,7 @@ Deze stappen wordt beschreven hoe deze tekenreeks, werken op basis van binnen na
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Items in de lijst worden toegewezen aan de waarden van eigenschappen en vervolgens de kaarten gebruiken als parameters
 
-Als u verschillende resultaten op basis van de waarde van een eigenschap, kunt u een map die overeenkomt met de eigenschapswaarde van elke een resultaat maken en vervolgens gebruiken die zijn toegewezen als een parameter. 
+Als u verschillende resultaten op basis van de waarde van een eigenschap, kunt u een map die overeenkomt met de eigenschapswaarde van elke een resultaat maken en vervolgens gebruiken die zijn toegewezen als een parameter.
 
 Deze werkstroom wordt bijvoorbeeld sommige categorieën gedefinieerd als parameters en een kaart die overeenkomt met deze categorieën met een specifieke URL. De werkstroom wordt eerst een lijst met artikelen. De werkstroom gebruikt vervolgens de kaart om te vinden van de URL die overeenkomt met de categorie voor elk artikel.
 
@@ -302,13 +303,13 @@ Gegevens ophalen uit een gegevensbron die geen systeemeigen ondersteuning bieden
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. Uit de `order` actie, extraheren de `startTime`. 
+1. Uit de `order` actie, extraheren de `startTime`.
 2. Ophalen van de huidige tijd met `utcNow()`.
 3. Aftrekken van één seconde:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   U kunt andere tijdseenheden, zoals `minutes` of `hours`. 
+   U kunt andere tijdseenheden, zoals `minutes` of `hours`.
 
 3. U kunt nu deze twee waarden vergelijken. 
 
@@ -365,7 +366,6 @@ Als u wilt opmaken datums, kunt u tekenreeks bevatten. Bijvoorbeeld, als u de RF
   "outputs": {}
 }
 ```
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

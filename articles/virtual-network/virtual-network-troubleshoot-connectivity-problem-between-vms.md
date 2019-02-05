@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 7574ac1a5937fbe963ef764d42f04d00f6c02d69
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241766"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732512"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Het oplossen van problemen met connectiviteit tussen virtuele Azure-machines
 
@@ -65,15 +65,15 @@ Zie voor meer informatie, [netwerkinterfaces toevoegen of verwijderen van virtue
 - [Windows virtuele machine opnieuw implementeren](../virtual-machines/windows/redeploy-to-new-node.md)
 - [Linux virtuele machine opnieuw implementeren](../virtual-machines/linux/redeploy-to-new-node.md)
 
-### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Stap 2: Controleer of het netwerkverkeer wordt geblokkeerd door NSG- of UDR
+### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Stap 2: Controleert of het netwerkverkeer wordt geblokkeerd door NSG- of UDR
 
 Gebruik [Network Watcher IP-stroom controleren](../network-watcher/network-watcher-ip-flow-verify-overview.md) en [NSG Stroomregistratie](../network-watcher/network-watcher-nsg-flow-logging-overview.md) om te bepalen of er een Netwerkbeveiligingsgroep (NSG) of door de gebruiker gedefinieerde Route (UDR) waarmee netwerkverkeer verstoort.
 
-### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Stap 3: Controleren of het netwerkverkeer wordt geblokkeerd door de firewall-VM
+### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Stap 3: Controleer of het netwerkverkeer wordt geblokkeerd door de firewall-VM
 
 De firewall uitschakelen en vervolgens het resultaat te testen. Als het probleem is opgelost, Controleer of de firewall-instellingen en de firewall opnieuw inschakelt.
 
-### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Stap 4: Controleren of VM-app of service op poort luistert
+### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Stap 4: Controleer of app van de virtuele machine of service op poort luistert
 
 U kunt een van de volgende methoden gebruiken om te controleren of de VM-app of service op de poort luistert.
 
@@ -95,17 +95,17 @@ De virtuele machine wordt geplaatst in sommige scenario's achter een load saldo-
 
 ### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Stap 6: Controleren of verkeer wordt geblokkeerd door de ACL's voor de klassieke virtuele machine
 
-Een toegangsbeheerlijst (ACL) biedt de mogelijkheid selectief toestaan of weigeren van verkeer voor het eindpunt van een virtuele machine. Zie voor meer informatie, [beheren de ACL voor een eindpunt](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Een toegangsbeheerlijst (ACL) biedt de mogelijkheid selectief toestaan of weigeren van verkeer voor het eindpunt van een virtuele machine. Zie voor meer informatie, [beheren de ACL voor een eindpunt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Stap 7: Controleer of het eindpunt voor de klassieke virtuele machine is gemaakt
 
 Alle virtuele machines die u in Azure maakt met behulp van het klassieke implementatiemodel kunnen automatisch communiceren via een privénetwerkkanaal met andere virtuele machines in de dezelfde cloudservice of een virtueel netwerk. Computers op andere virtuele netwerken moeten echter eindpunten om te leiden van het binnenkomende netwerkverkeer op een virtuele machine. Zie voor meer informatie, [over het instellen van eindpunten](../virtual-machines/windows/classic/setup-endpoints.md).
 
-### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Stap 8: Verbinding maken met een VM-netwerkshare proberen
+### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Stap 8: Verbinding gemaakt met een VM-netwerkshare
 
 Als u geen verbinding naar een netwerkshare voor de virtuele machine maken, kan het probleem worden veroorzaakt door niet beschikbaar NIC's in de virtuele machine. Als u wilt verwijderen van de niet beschikbaar NIC's, Zie [de niet beschikbaar NIC's verwijderen](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>Stap 9: Selectievakje Inter-Vnet-connectiviteit
+### <a name="step-9-check-inter-vnet-connectivity"></a>Stap 9: Inter-Vnet-connectiviteit controleren
 
 Gebruik [Network Watcher IP-stroom controleren](../network-watcher/network-watcher-ip-flow-verify-overview.md) en [NSG Stroomregistratie](../network-watcher/network-watcher-nsg-flow-logging-overview.md) om te bepalen of er een NSG of een UDR die netwerkverkeer verstoort. U kunt ook uw Inter-Vnet-configuratie controleren [hier](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 

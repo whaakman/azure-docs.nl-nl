@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 5447bcb0dc37cb3c923c4e6bbff4d69d987b6df6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244365"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691164"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Implementatie van Azure verbroken planningsbeslissingen voor Azure Stack-geïntegreerde systemen
 Nadat u hebt besloten [hoe u Azure Stack wordt integreren in uw hybride cloudomgeving](azure-stack-connection-models.md), kunt u vervolgens uw beslissingen voor de Azure Stack-implementatie te voltooien.
@@ -47,7 +47,7 @@ Azure Stack is ontworpen om te werken het beste wanneer verbonden met Azure, dus
 |VM-implementatie met Docker-extensie om uit te voeren Docker-opdrachten|Mensen met een handicap: Docker controleert Internet voor de meest recente versie en deze controle mislukt.|
 |Documentatie voor koppelingen in de Azure Stack-Portal|Niet-beschikbaar: koppelingen zoals Feedback geven, Help, Snelstart, enz. die gebruikmaken van een Internet-URL werkt niet.|
 |Waarschuwing herbemiddeling/risicobeperking die verwijst naar een online herstel-handleiding|Niet beschikbaar: een herstel van waarschuwing is gekoppeld die gebruikmaken van die een Internet-URL werkt niet.|
-|Marketplace, de mogelijkheid om te selecteren en toevoegen van galerie-pakketten rechtstreeks vanuit de Azure Marketplace|Mensen met een handicap: wanneer u Azure Stack in een niet-verbonden modus (zonder een verbinding met Internet) implementeert, kunt u items voor de marketplace niet downloaden met behulp van de Azure Stack-portal. Echter, kunt u de [marketplace syndication hulpprogramma](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) voor de marketplace-items downloaden op een computer die verbinding heeft met internet en deze vervolgens overbrengen naar uw Azure Stack-omgeving.|
+|Marketplace, de mogelijkheid om te selecteren en toevoegen van galerie-pakketten rechtstreeks vanuit de Azure Marketplace|Mensen met een handicap: wanneer u Azure Stack in een niet-verbonden modus (zonder een verbinding met Internet) implementeert, kunt u items voor de marketplace niet downloaden met behulp van de Azure Stack-portal. Echter, kunt u de [marketplace syndication hulpprogramma](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) voor de marketplace-items downloaden op een computer die verbinding heeft met internet en deze vervolgens overbrengen naar uw Azure Stack-omgeving.|
 |Met behulp van Azure Active Directory federation-accounts voor het beheren van een Azure Stack-implementatie|Niet beschikbaar: deze functie vereist een verbinding met Azure. AD FS met een lokale Active Directory-exemplaar moet in plaats daarvan worden gebruikt.|
 |App-services|Mensen met een handicap - Web-Apps mogelijk toegang tot Internet voor bijgewerkte inhoud.|
 |Opdrachtregelinterface (CLI)|Mensen met een handicap: CLI heeft beperkte wat betreft verificatie en de inrichting van Service-principals.|

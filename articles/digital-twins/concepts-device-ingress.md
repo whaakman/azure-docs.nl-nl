@@ -8,18 +8,18 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117415"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729520"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Apparaatconnectiviteit en inkomende telemetriegegevens
 
 De telemetriegegevens die zijn verzonden door apparaten en sensoren vormen de ruggengraat van een IoT-oplossing. Hoe u deze verschillende resources geven en deze beheren via de context van een locatie zijn chief opmerkingen kunnen in de ontwikkeling van IoT-Apps. Azure van digitale dubbels vereenvoudigt het proces van het ontwikkelen van IoT-oplossingen door samenvoeging van apparaten en sensoren met een ruimtelijke intelligence-grafiek.
 
-Om te beginnen, maakt u een Azure IoT Hub-resource in de hoofdmap van de ruimtelijke grafiek. De resource van de IoT Hub kunt u alle apparaten onder de hoofdmap ruimte om berichten te verzenden. Nadat de IoT-Hub is gemaakt, kunt u apparaten registreren met sensoren binnen het digitale Twins-exemplaar. De apparaten gegevens kunnen verzenden naar een digitale Twins-service via de [Azure IoT device-SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+Om te beginnen, maakt u een Azure IoT Hub-resource in de hoofdmap van de ruimtelijke grafiek. De resource van de IoT Hub kunt u alle apparaten onder de hoofdmap ruimte om berichten te verzenden. Nadat de IoT-Hub is gemaakt, kunt u apparaten registreren met sensoren binnen het digitale Twins-exemplaar. De apparaten gegevens kunnen verzenden naar een digitale Twins-service via de [Azure IoT device-SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
 Zie voor een stapsgewijze handleiding voor het toevoegen van apparaten onboarden, de [zelfstudie om te implementeren en configureren van digitale dubbels](tutorial-facilities-setup.md). In een oogopslag zijn de stappen:
 
@@ -67,12 +67,12 @@ U kunt aanpassen van uw apparaat berichtindeling en -nettolading aanpassen aan d
 
  De nettolading van de inhoud van een **bericht** willekeurige gegevens mag maximaal 256 KB groot. Er zijn enkele vereisten verwacht voor eigenschappen van de [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) type. De tabel bevat de vereiste en optionele eigenschappen die worden ondersteund door het systeem.
 
-| Naam van eigenschap | Waarde | Vereist | Description |
+| Naam van eigenschap | Value | Vereist | Description |
 |---|---|---|---|
-| **DigitalTwins-telemetrie** | 1.0 | Ja | Een constante waarde die een bericht op het systeem wordt geïdentificeerd. |
-| **DigitalTwins SensorHardwareId** | `string(72)` | Ja | Een unieke id van de sensor die verzendt de **bericht**. Deze waarde moet overeenkomen met een object **HardwareId** eigenschap voor het systeem te verwerken. Bijvoorbeeld `00FF0643BE88-CO2`. |
+| **DigitalTwins-Telemetry** | 1.0 | Ja | Een constante waarde die een bericht op het systeem wordt geïdentificeerd. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | Ja | Een unieke id van de sensor die verzendt de **bericht**. Deze waarde moet overeenkomen met een object **HardwareId** eigenschap voor het systeem te verwerken. Bijvoorbeeld `00FF0643BE88-CO2`. |
 | **CreationTimeUtc** | `string` | Nee | Een [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) opgemaakt datumtekenreeks waarmee de steekproeven tijd van de nettolading. Bijvoorbeeld `2018-09-20T07:35:00.8587882-07:00`. |
-| **correlationId** | `string` | Nee | Een UUID die is gebruikt om te traceringsgebeurtenissen in het systeem. Bijvoorbeeld `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **CorrelationId** | `string` | Nee | Een UUID die is gebruikt om te traceringsgebeurtenissen in het systeem. Bijvoorbeeld `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Uw bericht verzenden naar digitale dubbels
 

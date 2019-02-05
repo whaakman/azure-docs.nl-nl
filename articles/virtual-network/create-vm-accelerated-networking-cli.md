@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 6ab0a7b6204da4eca6c2b844228cf39e51cde220
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214484"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700244"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Een Linux-machine maken met versnelde netwerken
 
@@ -76,9 +76,9 @@ Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met ver
 
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Installeer de meest recente [Azure CLI](/cli/azure/install-azure-cli) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login). In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *myNic*, en *myVm*.
+Installeer de meest recente [Azure CLI](/cli/azure/install-azure-cli) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index). In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *myNic*, en *myVm*.
 
-Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *centralus* locatie:
+Maak een resourcegroep maken met [az group create](/cli/azure/group). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *centralus* locatie:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -86,7 +86,7 @@ az group create --name myResourceGroup --location centralus
 
 Selecteer een ondersteunde Linux-regio die worden vermeld in [Linux versnelde netwerken](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Maak een virtueel netwerk met [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Het volgende voorbeeld wordt een virtueel netwerk met de naam *myVnet* met één subnet:
+Maak een virtueel netwerk met [az network vnet create](/cli/azure/network/vnet). Het volgende voorbeeld wordt een virtueel netwerk met de naam *myVnet* met één subnet:
 
 ```azurecli
 az network vnet create \
@@ -98,7 +98,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
-Maak een netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg#az_network_nsg_create). In het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* gemaakt:
+Maak een netwerkbeveiligingsgroep met [az network nsg maken](/cli/azure/network/nsg). In het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* gemaakt:
 
 ```azurecli
 az network nsg create \
@@ -106,7 +106,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-De netwerkbeveiligingsgroep bevat verschillende standaardregels, waarbij een van alle binnenkomende toegang via Internet wordt uitgeschakeld. Open een poort voor SSH-toegang tot de virtuele machine met [az network nsg-regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
+De netwerkbeveiligingsgroep bevat verschillende standaardregels, waarbij een van alle binnenkomende toegang via Internet wordt uitgeschakeld. Open een poort voor SSH-toegang tot de virtuele machine met [az network nsg-regel maken](/cli/azure/network/nsg/rule):
 
 ```azurecli
 az network nsg rule create \
@@ -125,7 +125,7 @@ az network nsg rule create \
 
 ### <a name="create-a-network-interface-with-accelerated-networking"></a>Maak een netwerkinterface met versneld netwerken
 
-Maak een openbaar IP-adres met [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). Een openbaar IP-adres is niet vereist als u niet van plan voor toegang tot de virtuele machine via Internet, maar om de stappen in dit artikel te voltooien, het is vereist.
+Maak een openbaar IP-adres met [az network public-ip create](/cli/azure/network/public-ip). Een openbaar IP-adres is niet vereist als u niet van plan voor toegang tot de virtuele machine via Internet, maar om de stappen in dit artikel te voltooien, het is vereist.
 
 ```azurecli
 az network public-ip create \
@@ -133,7 +133,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Maken van een netwerkinterface met [az network nic maken](/cli/azure/network/nic#az_network_nic_create) met versneld netwerkondersteuning ingeschakeld. Het volgende voorbeeld wordt een netwerkinterface met de naam *myNic* in de *mySubnet* subnet van de *myVnet* virtueel netwerk en wordt de  *myNetworkSecurityGroup* netwerkbeveiligingsgroep aan de netwerkinterface:
+Maken van een netwerkinterface met [az network nic maken](/cli/azure/network/nic) met versneld netwerkondersteuning ingeschakeld. Het volgende voorbeeld wordt een netwerkinterface met de naam *myNic* in de *mySubnet* subnet van de *myVnet* virtueel netwerk en wordt de  *myNetworkSecurityGroup* netwerkbeveiligingsgroep aan de netwerkinterface:
 
 ```azurecli
 az network nic create \
@@ -149,7 +149,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>Een virtuele machine maken en koppelen van de NIC
 Wanneer u de virtuele machine, maakt de NIC geven u hebt gemaakt met `--nics`. Selecteer een grootte en de distributie die worden vermeld in [Linux versnelde netwerken](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met de UbuntuLTS-installatiekopie en een grootte die ondersteuning biedt voor versnelde netwerken (*Standard_DS4_v2*):
+Maak een VM met [az vm create](/cli/azure/vm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met de UbuntuLTS-installatiekopie en een grootte die ondersteuning biedt voor versnelde netwerken (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

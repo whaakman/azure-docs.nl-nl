@@ -4,17 +4,17 @@ description: Hierin wordt beschreven hoe resourcedefinitie beleid wordt gebruikt
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296653"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698289"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -46,7 +46,8 @@ De volgende JSON ziet u bijvoorbeeld een beleid dat beperkt welke resources zijn
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ Parameters helpen uw beleidsbeheer te vereenvoudigen door het aantal beleidsdefi
 Parameters werken op dezelfde manier als het samenstellen van beleid. Door parameters te nemen in de beleidsdefinitie van een, kunt u beleid voor verschillende scenario's met behulp van verschillende waarden gebruiken.
 
 > [!NOTE]
-> De definitie van de parameters voor een beleid of initiatiefdefinitie kan alleen worden geconfigureerd tijdens het maken van het beleid of initiatief. De definitie van de parameters kan niet later worden gewijzigd.
-> Dit voorkomt dat bestaande toewijzingen van het beleid of initiatief indirect wordt ongeldig gemaakt.
+> Parameters kunnen worden toegevoegd aan de definitie van een bestaande en toegewezen. De nieuwe parameter moet bevatten de **defaultValue** eigenschap. Dit voorkomt dat bestaande toewijzingen van het beleid of initiatief indirect wordt ongeldig gemaakt.
 
 U kunt bijvoorbeeld een beleid om te beperken van de locaties waar resources kunnen worden geïmplementeerd definiëren.
 Wanneer u uw beleid maakt, zou u de volgende parameters declareren:
@@ -101,7 +101,8 @@ Wanneer u uw beleid maakt, zou u de volgende parameters declareren:
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```

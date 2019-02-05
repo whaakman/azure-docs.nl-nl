@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451662"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729401"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Een importtaak voor de Azure Import/Export-service maken
 
@@ -61,14 +61,14 @@ Voordat u een import-taak maakt, moet u eerst een verzending locatienaam en adre
 
  Volg de stappen hieronder om de locatie van de verzending verkrijgen:
 
--   Geef de naam van de locatie van uw opslagaccount. Deze waarde kunt u vinden onder de **locatie** veld in de storage-account **Dashboard** in Azure portal of opgevraagde voor met behulp van de service management API-bewerking [Opslagaccount ophalen Eigenschappen van](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Geef de naam van de locatie van uw opslagaccount. Deze waarde kunt u vinden onder de **locatie** veld in de storage-account **Dashboard** in Azure portal of opgevraagde voor met behulp van de service management API-bewerking [Opslagaccount ophalen Eigenschappen van](/rest/api/storagerp/storageaccounts).
 
 -   Ophalen van de locatie die beschikbaar is voor het verwerken van dit opslagaccount wordt gebruikt door het aanroepen van de `Get Location` bewerking.
 
 -   Als de `AlternateLocations` eigenschap van de locatie van de locatie zelf bevat, wordt dit klopt om deze locatie te gebruiken. Anders aanroepen de `Get Location` bewerking opnieuw uit met een van de alternatieve locaties. De oorspronkelijke locatie mogelijk tijdelijk worden gesloten voor onderhoud.
 
 ## <a name="creating-the-import-job"></a>Het maken van de import-taak
-Aanroepen voor het maken van de import-taak, de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking. U moet de volgende informatie:
+Aanroepen voor het maken van de import-taak, de [plaatsen taak](/rest/api/storageimportexport/jobs) bewerking. U moet de volgende informatie:
 
 -   Een naam voor de taak.
 

@@ -10,19 +10,19 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 51d76e16e93ccffc1a069e64808563d62f428dbf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9d8ae3a95262b1554e7e97fac8375a44743bf4df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476346"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731458"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Datatechnologietaken uitvoeren: gegevensonderzoek, modelleren en implementatie
 
 Datatechnologietaken doorgaans bevatten gegevens gegevensonderzoek, modelleren en implementatie. In dit artikel ziet u hoe u de **interactieve Gegevensverkenning, analyse en rapportage (IDEAR)** en **geautomatiseerde modelleren en rapportage (AMAR)** hulpprogramma's voor verschillende algemene datatechnologietaken uitvoeren zoals interactieve gegevensverkenning, gegevensanalyse, rapportage en model maken. Ook biedt opties voor het implementeren van een model in een productieomgeving met behulp van een aantal gegevens en toolkits platformen, zoals het volgende:
 
 - [Azure Machine Learning](../service/index.yml)
-- [SQL-Server met ML-services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
+- [SQL-Server met ML-services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 

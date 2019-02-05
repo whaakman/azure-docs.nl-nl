@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000016"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732155"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Problemen oplossen met "functions-runtime is niet bereikbaar"
 
@@ -71,7 +71,7 @@ In de vorige stap, als u geen verbindingsreeks voor opslag account zijn ze waars
 
 ## <a name="storage-account-credentials-invalid"></a>Opslagaccountreferenties is ongeldig
 
-De bovenstaande verbindingsreeksen voor Storage-Account moeten worden bijgewerkt als u opslagsleutels opnieuw genereert. [Meer informatie over storage Sleutelbeheer hier](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+De bovenstaande verbindingsreeksen voor Storage-Account moeten worden bijgewerkt als u opslagsleutels opnieuw genereert. [Meer informatie over storage Sleutelbeheer hier](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## <a name="storage-account-inaccessible"></a>Storage-account is niet toegankelijk
 

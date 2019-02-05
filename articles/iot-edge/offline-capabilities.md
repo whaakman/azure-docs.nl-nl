@@ -4,17 +4,17 @@ description: Begrijp hoe IoT Edge-apparaten en -modules kunnen werken zonder int
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/20/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4c4713bade487ba46f1abdc6d0a76db3e81e38b1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096941"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699343"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Meer informatie over uitgebreide offline mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten (preview)
 
@@ -25,7 +25,7 @@ Azure IoT Edge biedt ondersteuning voor uitgebreide offline bewerkingen op uw Io
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Wanneer een IoT Edge-apparaat in de offlinemodus bevindt gaat, neemt de Edge hub drie rollen. Eerst worden opgeslagen berichten die heengaat upstream en slaat ze op totdat het apparaat opnieuw verbinding maakt. Ten tweede, fungeert deze namens IoT Hub voor verificatie van modules en onderliggende apparaten zodat ze kunnen blijven functioneren. Ten slotte maakt communicatie tussen de apparaten van de onderliggende die normaal zou gaan via IoT Hub mogelijk. 
+Wanneer een IoT Edge-apparaat in de offlinemodus bevindt gaat, neemt de IoT Edge hub drie rollen. Eerst worden opgeslagen berichten die heengaat upstream en slaat ze op totdat het apparaat opnieuw verbinding maakt. Ten tweede, fungeert deze namens IoT Hub voor verificatie van modules en onderliggende apparaten zodat ze kunnen blijven functioneren. Ten slotte maakt communicatie tussen de apparaten van de onderliggende die normaal zou gaan via IoT Hub mogelijk. 
 
 Het volgende voorbeeld ziet u de werking van een IoT Edge-scenario in de offlinemodus:
 
@@ -39,9 +39,9 @@ Het volgende voorbeeld ziet u de werking van een IoT Edge-scenario in de offline
 
 3. **Offline gaan.**
 
-   Terwijl niet verbonden met IoT Hub, kunnen de IoT Edge-apparaat, de geïmplementeerde modules en alle onderliggende items IoT-apparaten werken voor onbepaalde tijd. Modules en onderliggende apparaten kunnen starten en opnieuw opstarten door te verifiëren bij de Edge hub tijdens offline. Telemetrie upstream gebonden aan IoT Hub worden lokaal opgeslagen. Communicatie tussen modules of onderliggende IoT-apparaten wordt onderhouden door directe methoden of berichten. 
+   Terwijl niet verbonden met IoT Hub, kunnen de IoT Edge-apparaat, de geïmplementeerde modules en alle onderliggende items IoT-apparaten werken voor onbepaalde tijd. Modules en onderliggende apparaten kunnen starten en opnieuw opstarten door te verifiëren bij de IoT Edge hub tijdens offline. Telemetrie upstream gebonden aan IoT Hub worden lokaal opgeslagen. Communicatie tussen modules of onderliggende IoT-apparaten wordt onderhouden door directe methoden of berichten. 
 
-4. **Sluit en opnieuw synchroniseren met IoT Hub.**
+4. **Opnieuw verbinding maken met en synchroniseren met IoT Hub.**
 
    Zodra de verbinding met IoT Hub is hersteld, wordt de IoT Edge-apparaat weer wordt gesynchroniseerd. Lokaal opgeslagen berichten worden bezorgd in dezelfde volgorde als waarin ze zijn opgeslagen. Eventuele verschillen tussen de gewenste en gerapporteerde eigenschappen van de modules en -apparaten zijn afgestemd. De IoT Edge-apparaat bijwerken eventuele wijzigingen in een set toegewezen onderliggende IoT-apparaten.
 
@@ -55,7 +55,7 @@ Alleen niet - Microsoft Edge-IoT-apparaten kunnen worden toegevoegd als onderlig
 
 IoT Edge-apparaten en hun apparaten toegewezen onderliggende kunnen worden gebruikt voor onbepaalde tijd offline na de initiële, eenmalige-synchronisatie. Opslag van berichten is afhankelijk van time to live (TTL) instelling en de beschikbare schijfruimte voor het opslaan van de berichten. 
 
-## <a name="set-up-an-edge-device"></a>Een Edge-apparaat instellen
+## <a name="set-up-an-iot-edge-device"></a>Een IoT Edge-apparaat instellen
 
 Voor een IoT Edge-apparaat uit te breiden zijn uitgebreide offline mogelijkheden voor het onderliggende IoT-apparaten, moet u op te geven van de bovenliggende / onderliggende relatie in Azure portal.
 
@@ -71,7 +71,7 @@ Bovenliggende apparaten kunnen meerdere onderliggende apparaten hebben, maar een
 
 Het verdient ter verbetering van robuustheid biedt u de adressen van de DNS-server in uw omgeving gebruikt. Bijvoorbeeld: in Linux, werken **/etc/docker/daemon.json** (mogelijk moet u het bestand maken) om op te nemen:
 
-```
+```json
 {
     "dns": [“1.1.1.1”]
 }
@@ -82,13 +82,13 @@ Als u een lokale DNS-server gebruikt, vervangt u de 1.1.1.1 met het IP-adres van
 
 ## <a name="optional-offline-settings"></a>Optionele offline-instellingen
 
-Als u uw apparaten om lange offline perioden, waarna u wenst te verzamelen van alle berichten die zijn gegenereerd, verwacht dat de Edge hub configureren zodat deze alle berichten kunt opslaan. Er zijn twee wijzigingen die u Edge hub aanbrengen kunt om in te schakelen van langdurige berichtopslag. Eerst het time to live-instelling en voegt u extra schijfruimte voor de berichtopslag. 
+Als u verwacht voor het verzamelen van alle berichten die uw apparaten tijdens lange offline perioden genereren, de IoT Edge hub configureren zodat deze alle berichten kunt opslaan. Er zijn twee wijzigingen die u kunt aanbrengen op IoT Edge hub langetermijnopslag bericht inschakelt. Eerst, het time to live van instelling. Vervolgens voegt u extra schijfruimte voor de berichtopslag. 
 
 ### <a name="time-to-live"></a>Time To Live
 
 Time to live-instelling is de hoeveelheid tijd (in seconden) die een bericht wachten kunt moet worden geleverd voordat deze verloopt. De standaardwaarde is 7200 seconden (twee uur). 
 
-Deze instelling is een gewenste eigenschap van de Edge hub die is opgeslagen in de moduledubbel. U kunt deze configureren in Azure portal, in de **geavanceerde instellingen voor Edge-Runtime configureren** sectie of rechtstreeks in de implementatie van het manifest. 
+Deze instelling is een gewenste eigenschap van de IoT Edge-hub die is opgeslagen in de moduledubbel. U kunt deze configureren in Azure portal, in de **geavanceerde instellingen voor Edge-Runtime configureren** sectie of rechtstreeks in de implementatie van het manifest. 
 
 ```json
 "$edgeHub": {
@@ -104,16 +104,25 @@ Deze instelling is een gewenste eigenschap van de Edge hub die is opgeslagen in 
 
 ### <a name="additional-offline-storage"></a>Extra offline opslag
 
-Berichten worden standaard opgeslagen in de Edge hub container bestandssysteem. Als deze hoeveelheid opslag niet voldoende voor de behoeften van uw offline is, kunt u speciaal aan lokale opslag op het IoT Edge-apparaat. U moet maken van een omgevingsvariabele voor de Edge hub die naar een opslagmap in de container verwijst. Vervolgens gebruikt u de opties voor het maken die opslagmap binden aan een map op de hostcomputer. 
+Berichten worden opgeslagen in een van de IoT Edge hub container bestandssysteem standaard. Als deze hoeveelheid opslag niet voldoende voor de behoeften van uw offline is, kunt u speciaal aan lokale opslag op het IoT Edge-apparaat. Maak een omgevingsvariabele voor de IoT Edge hub die naar een opslagmap in de container verwijst. Vervolgens gebruikt u de opties voor het maken die opslagmap binden aan een map op de hostcomputer. 
 
-U kunt omgevingsvariabelen en de opties voor het maken van de Edge hub-module configureren in Azure portal in de **geavanceerde instellingen voor Edge-Runtime configureren** sectie. Of u kunt deze rechtstreeks in het manifest van de implementatie configureren. 
+U kunt omgevingsvariabelen en de opties voor het maken van de IoT Edge hub-module configureren in Azure portal in de **geavanceerde instellingen voor Edge-Runtime configureren** sectie. Of u kunt deze rechtstreeks in het manifest van de implementatie configureren. 
 
 ```json
 "edgeHub": {
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": {
+            "HostConfig": {
+                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
+                "PortBindings": {
+                    "8883/tcp": [{"HostPort":"8883"}],
+                    "443/tcp": [{"HostPort":"443"}],
+                    "5671/tcp": [{"HostPort":"5671"}]
+                }
+            }
+        }
     },
     "env": {
         "storageFolder": {
@@ -125,7 +134,11 @@ U kunt omgevingsvariabelen en de opties voor het maken van de Edge hub-module co
 }
 ```
 
-Vervang `<HostStoragePath>` en `<ModuleStoragePath>` opslagpad pad; de host en de module moet met uw storage-host en de module een absoluut pad zijn.  Bijvoorbeeld, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` betekent hosten pad `/etc/iotedge/storage` is toegewezen aan containerpad `/iotedge/storage/`.  U vindt ook meer informatie over createOptions van [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Vervang `<HostStoragePath>` en `<ModuleStoragePath>` opslagpad pad; de host en de module moet met uw storage-host en de module een absoluut pad zijn. In de opties voor het maken, de host en de module opslagpaden samen te binden. Vervolgens maakt u een omgevingsvariabele die naar het opslagpad van de module verwijst.  
+
+Bijvoorbeeld, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` betekent dat de map **/etc/iotedge/storage** op uw host systeem is gekoppeld aan de map **/iotedge/opslag/** voor de container. Of een ander voorbeeld voor Windows-systemen, `"Binds":["C:\\temp:C:\\contemp]"` betekent dat de map **C:\\temp** op uw host systeem is gekoppeld aan de map **C:\\contemp** voor de container. 
+
+U vindt ook meer informatie over het maken van opties van [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Volgende stappen
 

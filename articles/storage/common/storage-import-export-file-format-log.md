@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454841"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697829"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Logboekbestandindeling van Azure Import/Export-service
 Wanneer de Microsoft Azure Import/Export-service een actie op een station dat als onderdeel van een import-taak of een exporttaak bekijken uitvoert, worden de logboeken geschreven naar het blok-blobs in de storage-account dat is gekoppeld aan die taak.  
@@ -22,7 +22,7 @@ Er zijn twee logboeken die door de Import/Export-service kunnen worden geschreve
   
 -   Het foutenlogboek wordt altijd in het geval van een fout gegenereerd.  
   
--   Het uitgebreide logboek is standaard niet ingeschakeld, maar kan worden ingeschakeld door in te stellen de `EnableVerboseLog` eigenschap op een [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) bewerking.  
+-   Het uitgebreide logboek is standaard niet ingeschakeld, maar kan worden ingeschakeld door in te stellen de `EnableVerboseLog` eigenschap op een [taak plaatsen](/rest/api/storageimportexport/jobs) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs) bewerking.  
   
 ## <a name="log-file-location"></a>De locatie van logboekbestand  
 De logboeken worden geschreven naar het blok-blobs in de container of de virtuele map die is opgegeven door de `ImportExportStatesPath` instelling, die u kunt instellen voor een `Put Job` bewerking. De locatie waar de logboeken worden geschreven is afhankelijk van hoe verificatie wordt opgegeven voor de taak, samen met de opgegeven waarde voor `ImportExportStatesPath`. Verificatie voor de taak kan worden opgegeven via een opslagaccountsleutel of een container SAS (shared access signature).  
@@ -38,7 +38,7 @@ De onderstaande tabel ziet u de mogelijke opties:
 |Container SAS|Standaardwaarde|Een virtuele map met de naam `waimportexport`, dit is de standaardnaam, onder de container die is opgegeven in de SAS.<br /><br /> Bijvoorbeeld, als de SAS die is opgegeven voor de taak is `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, bedragen de Logboeklocatie `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |Container SAS|Door gebruiker opgegeven waarde|Een virtuele map met de naam van de gebruiker, onder de container die is opgegeven in de SAS.<br /><br /> Bijvoorbeeld, als de SAS die is opgegeven voor de taak is `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, en de opgegeven virtuele map heet `mylogblobs`, bedragen de Logboeklocatie `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-U kunt de URL voor de fout en uitgebreide logboeken ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking. De logboeken zijn beschikbaar nadat de verwerking van het station is voltooid.  
+U kunt de URL voor de fout en uitgebreide logboeken ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs) bewerking. De logboeken zijn beschikbaar nadat de verwerking van het station is voltooid.  
   
 ## <a name="log-file-format"></a>Logboekbestandindeling  
 De indeling voor beide logboeken is hetzelfde: een blob met XML-beschrijvingen van de gebeurtenissen die zijn opgetreden tijdens het kopiëren van BLOB's tussen de harde schijf en het account van de klant.  

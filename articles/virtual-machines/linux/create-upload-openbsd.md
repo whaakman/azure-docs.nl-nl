@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: b31425849eacc0b1f88e8dbd623804cefff9112f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 332382282c2b55b52bb23f278a25868c09360619
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662751"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729350"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Maken en een schijfinstallatiekopie OpenBSD uploaden naar Azure
 In dit artikel wordt beschreven hoe u maken en uploaden van een virtuele harde schijf (VHD) die het OpenBSD-besturingssysteem bevat. Nadat u deze uploadt, kunt u deze als uw eigen installatiekopie maken van een virtuele machine (VM) in Azure via Azure CLI.
@@ -30,7 +30,7 @@ In dit artikel wordt beschreven hoe u maken en uploaden van een virtuele harde s
 In dit artikel wordt ervan uitgegaan dat u de volgende items hebt:
 
 * **Een Azure-abonnement** -als u geen account hebt, kunt u maken in een paar minuten. Als u een MSDN-abonnement hebt, raadpleegt u [maandelijkse Azure-tegoed voor Visual Studio-abonnees](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Anders wordt informatie over hoe u [maken van een gratis proefaccount](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI** -Zorg ervoor dat u hebt de meest recente [Azure CLI](/cli/azure/install-azure-cli) geïnstalleerd en aangemeld bij uw Azure-account met [az login](/cli/azure/reference-index#az_login).
+* **Azure CLI** -Zorg ervoor dat u hebt de meest recente [Azure CLI](/cli/azure/install-azure-cli) geïnstalleerd en aangemeld bij uw Azure-account met [az login](/cli/azure/reference-index).
 * **OpenBSD-besturingssysteem die is geïnstalleerd in een VHD-bestand** - een ondersteunde OpenBSD besturingssysteem ([6.1 versie AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)) moet worden geïnstalleerd op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het maken van VHD-bestanden. Bijvoorbeeld, kunt u een virtualisatieoplossing zoals Hyper-V te maken van het VHD-bestand en het besturingssysteem te installeren. Zie voor instructies over het installeren en gebruiken van Hyper-V [Hyper-V installeren en maken van een virtuele machine](https://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -103,13 +103,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Storage-resources maken en uploaden
-Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Maak eerst een resourcegroep met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Als u wilt uw VHD uploaden, maak een opslagaccount met [az storage-account maken](/cli/azure/storage/account#az_storage_account_create). Namen van opslagaccounts moeten uniek zijn, dus Geef uw eigen naam op. Het volgende voorbeeld wordt een opslagaccount met de naam *mystorageaccount*:
+Als u wilt uw VHD uploaden, maak een opslagaccount met [az storage-account maken](/cli/azure/storage/account). Namen van opslagaccounts moeten uniek zijn, dus Geef uw eigen naam op. Het volgende voorbeeld wordt een opslagaccount met de naam *mystorageaccount*:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -118,7 +118,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-Verkrijgen voor het beheren van toegang tot het opslagaccount, de opslagsleutel met [az storage account sleutels lijst](/cli/azure/storage/account/keys#az_storage_account_keys_list) als volgt:
+Verkrijgen voor het beheren van toegang tot het opslagaccount, de opslagsleutel met [az storage account sleutels lijst](/cli/azure/storage/account/keys) als volgt:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -136,7 +136,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-Ten slotte upload u de VHD met [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) als volgt:
+Ten slotte upload u de VHD met [az storage blob upload](/cli/azure/storage/blob) als volgt:
 
 ```azurecli
 az storage blob upload \
@@ -149,7 +149,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Virtuele machine maken vanaf uw VHD
-Kunt u een virtuele machine met een [voorbeeldscript](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) of rechtstreeks met [az vm maken](/cli/azure/vm#az_vm_create). Als u wilt opgeven van het OpenBSD VHD u hebt geüpload, gebruikt u de `--image` parameter als volgt te werk:
+Kunt u een virtuele machine met een [voorbeeldscript](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) of rechtstreeks met [az vm maken](/cli/azure/vm). Als u wilt opgeven van het OpenBSD VHD u hebt geüpload, gebruikt u de `--image` parameter als volgt te werk:
 
 ```azurecli
 az vm create \
@@ -161,7 +161,7 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-Het IP-adres verkrijgen voor uw VM OpenBSD met [az vm list-ip-adressen](/cli/azure/vm#list-ip-addresses) als volgt:
+Het IP-adres verkrijgen voor uw VM OpenBSD met [az vm list-ip-adressen](/cli/azure/vm) als volgt:
 
 ```azurecli
 az vm list-ip-addresses --resource-group myResourceGroup --name myOpenBSD61

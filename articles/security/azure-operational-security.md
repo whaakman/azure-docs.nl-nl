@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aafa1acdf6cca58ea0cfbc968f73ce13eb65bf91
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256218"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700499"
 ---
 # <a name="azure-operational-security"></a>Azure operationele beveiliging
 ## <a name="introduction"></a>Inleiding
@@ -29,7 +29,7 @@ We weten dat de beveiliging is taak in de cloud en hoe belangrijk is dat u nauwk
 
 Biedt een uitgebreide zodat klanten beter begrip van de matrix van beveiligingsmechanismen geïmplementeerd in Microsoft Azure van zowel de klant en Microsoft operationele perspectieven, deze whitepaper, 'Azure operationele beveiliging', die is geschreven. Bekijk de operationele beveiliging die beschikbaar zijn in Windows Azure.
 
-### <a name="azure-platform"></a>Azure-Platform
+### <a name="azure-platform"></a>Azure Platform
 Azure is een openbare cloud service-platform die ondersteuning biedt voor een breed scala aan besturingssystemen, programmeertalen programmeertalen, frameworks, tools, databases en apparaten. Het kunt Linux-containers uitvoeren met Docker-integratie; Bouw apps met JavaScript, Python, .NET, PHP, Java en Node.js; Bouw back-ends voor iOS, Android en Windows apparaten. Azure cloudservice ondersteunt dezelfde technologieën waar miljoenen ontwikkelaars en IT-professionals die al afhankelijk zijn van en vertrouwen.
 
 Wanneer u baseren of IT-activa te migreren, een openbare cloud serviceprovider u, vertrouwen al op de beveiligingmogelijkheden die aan uw toepassingen en gegevens beschermen met de services en de besturingselementen deze opgeven voor het beheren van de beveiliging van uw cloud-gebaseerde activa.
@@ -53,7 +53,7 @@ Dit technische document geeft een overzicht van de Microsoft-benadering tot oper
 6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure-logboekanalyse
+## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
 
 Microsoft Azure Log Analytics is de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of om uit te breiden van uw bestaande System Center-implementatie, Log Analytics, zodat u de maximale flexibiliteit en controle voor cloud-gebaseerd beheer van uw infrastructuur.
 
@@ -65,7 +65,7 @@ Met Log Analytics, kunt u een instantie in elke cloud, met inbegrip van on-premi
 
 De kernfunctionaliteit van Log Analytics wordt geboden door een set met services die worden uitgevoerd in Azure. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen.
 
-| Service  | Beschrijving|
+| Service  | Description|
 | :------------- | :-------------|
 | Log Analytics | Bewaak en analyseer de beschikbaarheid en prestaties van verschillende resources, met inbegrip van fysieke en virtuele machines. |
 |Automation | Automatiseer handmatige processen en dwing configuraties af voor fysieke en virtuele machines. |
@@ -135,31 +135,31 @@ Met Security Center worden gegevens van uw virtuele machines (VM's) verzameld om
 
 - Azure Security Center analyseert gegevens uit de volgende bronnen om inzicht in uw beveiligingsstatus te geven, beveiligingsproblemen te identificeren, oplossingen aan te raden en actieve bedreigingen te detecteren:
 
--   Azure Services: gebruikt informatie over de configuratie van de Azure-services die u hebt geïmplementeerd door te communiceren met de resourceprovider van die service.
+-   Azure Services: Maakt gebruik van informatie over de configuratie van Azure-services die u hebt geïmplementeerd door te communiceren met de resourceprovider van de service.
 
-- Netwerkverkeer: gebruikt steekproefgewijs netwerkverkeermetagegevens uit de infrastructuur van Microsoft, zoals bron-/doel-IP/poort, pakketgrootte en netwerkprotocol.
+- Netwerkverkeer: Gebruikt steekproefgewijs netwerkverkeermetagegevens uit de infrastructuur van Microsoft, zoals bron-/ doel-IP/poort, pakketgrootte en netwerkprotocol.
 
--   Oplossingen van partners: gebruikt beveiligingswaarschuwingen van geïntegreerde partneroplossingen, zoals firewalls en antimalwareoplossingen.
+-   Oplossingen van partners: Gebruikt beveiligingswaarschuwingen van geïntegreerde partneroplossingen, zoals firewalls en antimalware-oplossingen.
 
--   Uw virtuele machines: gebruikt configuratie-informatie en informatie over beveiligingsgebeurtenissen, zoals Windows-gebeurtenis- en auditlogboeken, IIS-logboeken, syslog-berichten en crashdumpbestanden van uw virtuele machines.
+-   Uw virtuele Machines: Maakt gebruik van configuratie-informatie en informatie over beveiligingsgebeurtenissen, zoals Logboeken voor Windows-gebeurtenis- en auditlogboeken, IIS-logboeken, syslog-berichten en crashdumpbestanden van uw virtuele machines.
 
 ### <a name="data-protection"></a>Gegevensbeveiliging
 
 Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reageren, verzamelt en verwerkt Azure Security Center gegevens over beveiliging, zoals configuratie-informatie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en nog veel meer. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service.
 
--   **Scheiding van gegevens**: gegevens worden op een logische manier apart van elkaar gehouden, in elk onderdeel van de service. Alle gegevens worden gemarkeerd per organisatie. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service.
+-   **Gegevensscheiding**: Gegevens worden bewaard logische manier apart op elk onderdeel van de service. Alle gegevens worden gemarkeerd per organisatie. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service.
 
--   **Toegang tot gegevens**: om aanbevelingen voor beveiliging bieden en mogelijke bedreigingen te onderzoeken, Microsoft-personeel kunnen toegang krijgen tot gegevens die worden verzameld of geanalyseerd door Azure-services, met inbegrip van crashdumpbestanden, procesgebeurtenissen, VM-schijf verwerken momentopnamen en artefacten, waaronder per ongeluk klantgegevens of persoonlijke gegevens van uw virtuele machines. We voldoen aan de [privacyverklaring voor Microsoft Online Services-voorwaarden en](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), waarin staat dat Microsoft geen maakt gebruik van klantgegevens of afleidt voor reclame- of vergelijkbare commerciële doeleinden.
+-   **Gegevenstoegang**: Aanbevelingen voor beveiliging te bieden en mogelijke bedreigingen te onderzoeken, Microsoft-personeel kunnen toegang krijgen tot gegevens die worden verzameld of geanalyseerd door Azure-services, waaronder crashdumpbestanden, procesgebeurtenissen, momentopnamen van de VM-schijf en verwerken artefacten, die procesgebeurtenissen omvatten mogelijk klantgegevens of persoonlijke gegevens van uw virtuele machines. We voldoen aan de [privacyverklaring voor Microsoft Online Services-voorwaarden en](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), waarin staat dat Microsoft geen maakt gebruik van klantgegevens of afleidt voor reclame- of vergelijkbare commerciële doeleinden.
 
--   **Gegevensgebruik**: Microsoft gebruikt informatie over patronen en bedreigingen die worden gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; wij doen dit in overeenstemming met de privacyverplichtingen beschreven in onze [Privacyverklaring](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **Gegevensgebruik**: Microsoft maakt gebruik van patronen en bedreigingsinformatie gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; We doen in overeenstemming met de privacyverplichtingen beschreven in onze [privacyverklaring](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Gegevenslocatie
 
 Azure Security Center verzamelt tijdelijke kopieën van uw crashdumpbestanden en analyseert deze op bewijs van pogingen tot misbruik en geslaagde aanvallen. Azure Security Center voert deze analyse uit binnen hetzelfde geografische gebied als de werkruimte en verwijdert de tijdelijke kopieën wanneer de analyse is voltooid. Machine-artefacten worden centraal opgeslagen in dezelfde regio als de virtuele machine.
 
--   **Uw Opslagaccounts**: een storage-account is opgegeven voor elke regio waarin de virtuele machines worden uitgevoerd. Hierdoor kunt u gegevens in dezelfde regio opslaan als de virtuele machine waarvan de gegevens worden verzameld.
+-   **Uw Opslagaccounts**: Een storage-account is opgegeven voor elke regio waarin de virtuele machines worden uitgevoerd. Hierdoor kunt u gegevens in dezelfde regio opslaan als de virtuele machine waarvan de gegevens worden verzameld.
 
--   **Azure Security Center-opslag**: informatie over beveiligingswaarschuwingen, waaronder waarschuwingen van partners, aanbevelingen en de status van de beveiliging, worden centraal opgeslagen, momenteel in de Verenigde Staten. Deze informatie omvat mogelijk gerelateerde configuratie-informatie en beveiligingsgebeurtenissen die indien nodig zijn verzameld van uw virtuele machines om u de beveiligingswaarschuwing, aanbeveling of de beveiligingsstatus door te geven.
+-   **Azure Security Center-opslag**: Informatie over beveiligingswaarschuwingen, met inbegrip van waarschuwingen van partners, aanbevelingen en status van de beveiliging wordt centraal, momenteel in de Verenigde Staten worden opgeslagen. Deze informatie omvat mogelijk gerelateerde configuratie-informatie en beveiligingsgebeurtenissen die indien nodig zijn verzameld van uw virtuele machines om u de beveiligingswaarschuwing, aanbeveling of de beveiligingsstatus door te geven.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -218,7 +218,7 @@ Het is de mogelijkheid in Azure waarmee u het verzamelen van diagnostische gegev
 
 Controle van de netwerkbeveiliging van uw is het essentieel is voor het netwerk beveiligingsproblemen detecteren en ervoor te zorgen dat voldoet aan uw IT-beveiliging- en regelgeving governance-model. Met de weergave van de beveiligingsgroep, kunt u de geconfigureerde Netwerkbeveiligingsgroep en beveiligingsregels voor verbindingen en de effectieve beveiligingsregels ophalen. Met de lijst met regels die worden toegepast, kunt u de poorten die zijn geopend en beoordeling van beveiligingslek in netwerk bepalen.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) is een regionale service waarmee u kunt bewaken en diagnosticeren op het niveau van een netwerk in, naar en van Azure. Diagnose en visualisatie hulpprogramma's die beschikbaar zijn met Network Watcher kunnen u begrijpen, diagnosticeren en inzicht verkrijgen in uw netwerk in Azure. Deze service omvat pakket vastleggen, volgende hop, IP-stroom controleren, weergave van de beveiligingsgroep, NSG-stroomlogboeken. Scenario niveau bewaking biedt een end-to-weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) is een regionale service waarmee u kunt bewaken en diagnosticeren op het niveau van een netwerk in, naar en van Azure. Diagnose en visualisatie hulpprogramma's die beschikbaar zijn met Network Watcher kunnen u begrijpen, diagnosticeren en inzicht verkrijgen in uw netwerk in Azure. Deze service omvat pakket vastleggen, volgende hop, IP-stroom controleren, weergave van de beveiligingsgroep, NSG-stroomlogboeken. Scenario niveau bewaking biedt een end-to-weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
 
 ![Azure Network Watcher](./media/azure-operational-security/azure-operational-security-fig8.png)
 

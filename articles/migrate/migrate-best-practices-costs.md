@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995040"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700635"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Aanbevolen procedures voor workloads met kosten en sizing gemigreerd naar Azure
 
@@ -154,7 +154,7 @@ Een geïntegreerde Microsoft on-premises/Azure-productaanbod genereert concurrer
 
 - [Kijk eens](https://azure.microsoft.com/pricing/hybrid-benefit/) de Besparingscalculator Hybrid Benefit.
 - [Meer informatie](https://azure.microsoft.com/pricing/hybrid-benefit/) over Hybrid Benefit voor Windows Server.
-- [Beoordeling](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) prijsinformatie voor SQL Server Azure VM's.
+- [Beoordeling](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) prijsinformatie voor SQL Server Azure VM's.
 
 
 ## <a name="best-practice-use-reserved-vm-instances"></a>Aanbevolen: Gebruik van gereserveerde VM-instanties
@@ -174,7 +174,7 @@ Met behulp van Azure gereserveerde VM-instanties, betaalt u vooraf voor een of d
 **Meer informatie:**
 - [Meer informatie over](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) Azure reserveringen.
 - [Lezen](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq) de gereserveerde instanties Veelgestelde vragen over.
-- [Richtlijnen voor prijzen](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) voor SQL Server Azure VM's.
+- [Richtlijnen voor prijzen](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) voor SQL Server Azure VM's.
 
 
 ## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>Aanbevolen: Cumulatieve clouduitgaven voor abonnementen

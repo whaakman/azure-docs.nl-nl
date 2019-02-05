@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973125"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694265"
 ---
 # <a name="azure-storage-security-overview"></a>Overzicht van beveiliging van Azure Storage
 
@@ -47,7 +47,7 @@ Meer informatie:
 
 ## <a name="delegated-access-to-storage-objects"></a>Gedelegeerde toegang tot opslagobjecten
 
-Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. De SAS betekent dat u een client beperkte machtigingen voor objecten in uw storage-account voor een opgegeven periode en met een opgegeven set machtigingen kunt verlenen. U kunt deze beperkte rechten verlenen zonder dat u hoeft voor het delen van de toegangssleutels van uw account. 
+Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. De SAS betekent dat u een client beperkte machtigingen voor objecten in uw storage-account voor een opgegeven periode en met een opgegeven set machtigingen kunt verlenen. U kunt deze beperkte rechten verlenen zonder dat u hoeft voor het delen van de toegangssleutels van uw account.
 
 De SAS is een URI die in de queryparameters alle informatie die nodig zijn voor geverifieerde toegang tot een opslagresource omvat. Voor toegang tot de storage-resources met de SAS, moet de client alleen voor de SAS is de juiste constructor of de methode.
 
@@ -73,7 +73,7 @@ Meer informatie over client-side-versleuteling:
 
 Voor veel organisaties [gegevensversleuteling in rust](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is een verplichte stap voor privacy, naleving en onafhankelijkheid van gegevens. Drie Azure-functies bieden versleuteling van gegevens die zich in rust:
 
-* [Storage-Serviceversleuteling](../storage/common/storage-security-guide.md#encryption-at-rest) kunt u om aan te vragen die de storage-service gegevens automatisch versleuteld bij het schrijven van deze naar Azure Storage.
+* [Storage-Serviceversleuteling](../storage/common/storage-security-guide.md#encryption-at-rest) is altijd ingeschakeld en storage-servicegegevens automatisch versleuteld bij het schrijven van deze naar Azure Storage.
 * [Clientversleuteling](../storage/common/storage-security-guide.md#client-side-encryption) biedt ook de functie van versleuteling-at-rest.
 * [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) kunt u de besturingssysteemschijven en gegevensschijven die gebruikmaakt van een IaaS-machine versleutelen.
 
@@ -110,13 +110,13 @@ Meer informatie:
 
 * [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
 * [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
-* [Azure Data Box-Gateway](..//databox-online/data-box-gateway-overview.md)
+* [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
 
 ## <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Azure Storage biedt Advanced Threat Protection voor een extra laag met beveiligingsinformatie die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van uw storage-account wordt gedetecteerd. Advanced Threat Protection monitoren diagnostische logboeken van Azure Storage voor verdachte lezen, schrijven of te verwijderen van aanvragen naar Blob-opslag. 
+Azure Storage biedt Advanced Threat Protection voor een extra laag met beveiligingsinformatie die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van uw storage-account wordt gedetecteerd. Advanced Threat Protection monitoren diagnostische logboeken van Azure Storage voor verdachte lezen, schrijven of te verwijderen van aanvragen naar Blob-opslag.
 
-Geavanceerde Threat Protection-waarschuwingen kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center biedt meer informatie over elke verdachte activiteit gedetecteerd en ontvangt u aanbevelingen om te onderzoeken en oplossen van de mogelijke bedreiging. 
+Geavanceerde Threat Protection-waarschuwingen kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center biedt meer informatie over elke verdachte activiteit gedetecteerd en ontvangt u aanbevelingen om te onderzoeken en oplossen van de mogelijke bedreiging.
 
 Meer informatie:
 

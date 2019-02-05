@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468390"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694083"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
@@ -87,7 +87,8 @@ Wanneer verbinding wordt beperkt door een firewall of proxy vereiste netwerkinst
 Network security groepsinstellingen die worden toegepast moeten wel wilt toestaan dat het eindpunt om te voldoen aan de configuratie van de gedocumenteerde [vereisten](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) voor schijfversleuteling.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault achter een firewall
-Als versleuteling wordt ingeschakeld met [Azure AD-referenties](azure-security-disk-encryption-prerequisites-aad.md), de doel-VM, moet toegangsrechten hebben voor de Azure AD-verificatie-eindpunten, evenals de Key Vault-eindpunten.  Raadpleeg voor meer informatie over dit proces, hulp bij het toegang tot key vault achter een firewall die de [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) team houdt. 
+
+Als versleuteling wordt ingeschakeld met [Azure AD-referenties](azure-security-disk-encryption-prerequisites-aad.md), de doel-VM moet een verbinding met Azure Active Directory-eindpunten én Key Vault-eindpunten toestaan. Huidige eindpunten voor Azure Active Directory-verificatie worden bijgehouden in secties 56 en 59 van de [Office 365-URL's en IP-adresbereiken](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentatie. Key Vault-instructies vindt u in de documentatie over hoe u [toegang tot Azure Key Vault achter een firewall](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 De virtuele machine moet toegang hebben tot de [Azure Instance Metadata service](../virtual-machines/windows/instance-metadata-service.md) eindpunt dat gebruikmaakt van een bekende niet-routeerbare IP-adres (`169.254.169.254`) die kunnen worden gebruikt alleen de virtuele machine.

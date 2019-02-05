@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a37b069d533dc51067aba4f9d9bd87608b116ae6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bafe2d92a6c0176f1bcd9e56b067b5bf90a36007
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466452"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693952"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3.0: Transliterate
 
@@ -158,6 +158,8 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
     <td>De server is tijdelijk niet beschikbaar. De aanvraag opnieuw. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourneren. De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statuscode gevolgd door een getal 3 cijfers en verder categoriseren van de fout. Veelvoorkomende foutcodes kunnen u vinden op de [v3 Translator Text-API-verwijzingspagina](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Voorbeelden
 

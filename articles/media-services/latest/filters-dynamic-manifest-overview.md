@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 139f6283c2b59aee53afa3f0dd52e06e2b0eff4c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912030"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695216"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
 
@@ -34,7 +34,7 @@ Filters zijn serverzijde regels waarmee uw klanten voor handelingen zoals:
 - Lever alleen de opgegeven voorinstelling en/of opgegeven taal nummers die worden ondersteund door het apparaat dat wordt gebruikt voor het afspelen van de inhoud ("weergavefiltering"). 
 - Presentatie venster (DVR) aanpassen om te voorzien van een beperkt de lengte van de DVR-venster in de speler ("aanpassen presentatievenster").
 
-Dit onderwerp wordt beschreven [concepten](#concepts) en [bevat definities filters](#definitions). Vervolgens krijgt informatie over [algemene scenario's](#common-scenarios). Aan het einde van het artikel vindt u koppelingen die laten zien hoe u filters maken via een programma.  
+Dit onderwerp wordt beschreven [concepten](#concepts) en [bevat definities filters](#definitions). Vervolgens krijgt informatie over algemene scenario's. Aan het einde van het artikel vindt u koppelingen die laten zien hoe u filters maken via een programma.  
 
 ## <a name="concepts"></a>Concepten
 

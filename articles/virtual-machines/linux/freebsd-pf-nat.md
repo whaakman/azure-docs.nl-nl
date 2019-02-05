@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 8400fa12e8776834f71740f809df18753291601f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8cfa1696a18925e9e9e8b96299f1255875e85aa8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992302"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727260"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Pakketfilter van FreeBSD gebruiken om u te maken van een beveiligde firewall in Azure
 In dit artikel maakt u kennis over het implementeren van een NAT-firewall met behulp van FreeBSD Packer Filter via Azure Resource Manager-sjabloon voor algemene web server-scenario.
@@ -35,13 +35,13 @@ De Azure Resource Manager-sjabloon instellen van een FreeBSD virtuele machine di
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Implementeren via Azure CLI
-U moet de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login). Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een Resourcegroepnaam `myResourceGroup` in de `West US` locatie.
+U moet de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index). Maak een resourcegroep maken met [az group create](/cli/azure/group). Het volgende voorbeeld wordt een Resourcegroepnaam `myResourceGroup` in de `West US` locatie.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Vervolgens implementeert u de sjabloon [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create). Download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) onder hetzelfde pad en definieer uw eigen waarden resource, zoals `adminPassword`, `networkPrefix`, en `domainNamePrefix`. 
+Vervolgens implementeert u de sjabloon [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) met [az group deployment maken](/cli/azure/group/deployment). Download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) onder hetzelfde pad en definieer uw eigen waarden resource, zoals `adminPassword`, `networkPrefix`, en `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

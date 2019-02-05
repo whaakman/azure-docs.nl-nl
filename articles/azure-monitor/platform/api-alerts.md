@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 295b03a8d61a7f83605a3badcafc7a4d6b59fdbd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 61dd4930d7c34b30a4cedb34a4d815aa553d001e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497346"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697621"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API
 De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
@@ -219,7 +219,7 @@ Log Analytics op basis van query waarschuwingen geactiveerd telkens als drempelw
 
 Onderdrukken van eigenschap van Log Analytics waarschuwingsregel is opgegeven met behulp van de *beperking* waarde en de onderdrukking periode via *DurationInMinutes* waarde.
 
-Volgende is een voorbeeldantwoord voor een actie met alleen een drempelwaarde, ernst en de eigenschap onderdrukken
+Volgende is een voorbeeldantwoord voor een actie met alleen een drempelwaarde, ernst, en de eigenschap onderdrukken
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {

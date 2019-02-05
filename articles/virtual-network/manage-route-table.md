@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ddf789dc6a1bf6c76643e9b5478ede75f865f4eb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 75040cb8769b1d5d1dd6af758ed03be4a39d01e1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563011"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731866"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
@@ -44,7 +44,7 @@ Er kan maar een beperkt aantal routetabellen worden gemaakt voor elke Azure-loca
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table maken](/cli/azure/network/route-table/route#az_network_route_table_create)
+- Azure CLI: [az network route-table maken](/cli/azure/network/route-table/route)
 - PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Routetabellen weergeven
@@ -53,7 +53,7 @@ Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wann
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table list](/cli/azure/network/route-table/route#az_network_route_table_list)
+- Azure CLI: [az network route-table list](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>Details van een routetabel weergeven
@@ -69,7 +69,7 @@ Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wann
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table show](/cli/azure/network/route-table/route#az_network_route_table_show)
+- Azure CLI: [az network route-table show](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="change-a-route-table"></a>Een routetabel wijzigen
@@ -79,7 +79,7 @@ Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wann
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table update](/cli/azure/network/route-table/route#az_network_route_table_update)
+- Azure CLI: [az network route-table update](/cli/azure/network/route-table/route)
 - PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Een routetabel aan een subnet koppelen
@@ -124,7 +124,7 @@ Als er een routetabel is gekoppeld aan subnetten, kan deze niet worden verwijder
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table verwijderen](/cli/azure/network/route-table/route#az_network_route_table_delete)
+- Azure CLI: [az network route-table verwijderen](/cli/azure/network/route-table/route)
 - PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>Een route maken
@@ -143,7 +143,7 @@ Er is een limiet aan het aantal routes per routetabel per Azure-locatie en abonn
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table route maken](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
+- Azure CLI: [az network route-table route maken](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Routes weergeven
@@ -168,7 +168,7 @@ Een routetabel bevat nul of meerdere routes. Zie voor meer informatie over de ge
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
+- Azure CLI: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="change-a-route"></a>Een route wijzigen
@@ -194,7 +194,7 @@ Een routetabel bevat nul of meerdere routes. Zie voor meer informatie over de ge
 
 **Opdrachten**
 
-- Azure CLI: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
+- Azure CLI: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>Effectieve routes weergeven
@@ -209,7 +209,7 @@ De effectieve routes voor elke netwerkinterface die is gekoppeld aan een virtuel
 
 **Opdrachten**
 
-- Azure CLI: [az network nic show-effectief-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
+- Azure CLI: [az network nic show-effectief-route-table](/cli/azure/network/nic?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Routering tussen de twee eindpunten valideren
@@ -226,7 +226,7 @@ Het volgende hoptype tussen een virtuele machine en het IP-adres van een andere 
 
 **Opdrachten**
 
-- Azure CLI: [az network watcher show volgende hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
+- Azure CLI: [az network watcher show volgende hop](/cli/azure/network/watcher?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
 
 ## <a name="permissions"></a>Machtigingen

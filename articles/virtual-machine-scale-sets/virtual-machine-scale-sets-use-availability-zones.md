@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b80ee059459d4c1f4d90d14ee62dcead57596571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886234"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697039"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Maken van een virtuele-machineschaalset die gebruikmaakt van Beschikbaarheidszones
 
@@ -81,7 +81,7 @@ De schaalset en ondersteunende resources, zoals de Azure load balancer en het op
 
 Het proces voor het maken van een schaalset die gebruikmaakt van een Beschikbaarheidszone is hetzelfde als beschreven in de [aan de slag artikel](quick-create-cli.md). Als u wilt gebruiken voor Beschikbaarheidszones, moet u de schaalset in een ondersteunde Azure-regio maken.
 
-Toevoegen de `--zones` parameter voor de [az vmss maken](/cli/azure/vmss#az_vmss_create) opdracht en geeft u welke zone te gebruiken (zoals zone *1*, *2*, of *3*). Het volgende voorbeeld wordt een één zone schaalset met de naam *myScaleSet* in zone *1*:
+Toevoegen de `--zones` parameter voor de [az vmss maken](/cli/azure/vmss) opdracht en geeft u welke zone te gebruiken (zoals zone *1*, *2*, of *3*). Het volgende voorbeeld wordt een één zone schaalset met de naam *myScaleSet* in zone *1*:
 
 ```azurecli
 az vmss create \

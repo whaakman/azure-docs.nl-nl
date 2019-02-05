@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239227"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697468"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Een netwerk Ethereum blockchain in Azure Stack implementeren
 
@@ -25,7 +25,7 @@ De sjabloon van de Ethereum-oplossing is ontworpen voor u gemakkelijker en snell
 
 Met een aantal van de invoer van gebruikers en een implementatie met één klik via de portal van Azure Stack-tenant inrichten elk lid van de netwerk-footprint. Netwerk-voetafdruk van elk lid bestaat uit een set met load balancing transactie knooppunten met die een toepassing of de gebruiker communiceren kan om in te dienen transacties, een set knooppunten van de analysestructuur voor vastleggen van transacties en een Network Virtual Appliance (NVA). Een stap van de volgende verbinding maakt verbinding met de NVA's voor het maken van een volledig geconfigureerde meerdere leden blockchain-netwerk.
 
-Hiermee kunt u instellen:
+Om in te stellen:
 
 - Kies een implementatiearchitectuur
 - Een zelfstandige, consortium leider of consortium lid netwerk implementeren
@@ -68,7 +68,7 @@ De sjabloon van de leider consortium Hiermee configureert u het eerste lid footp
     
     ![Leider Sjabloonparameters bewerken](./media/azure-stack-ethereum/edit-leader-parameters.png)
 
-    Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
+    Parameternaam | Description | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | De tekenreeks die wordt gebruikt als basis voor de naam van de geïmplementeerde resources. | Alfanumerieke tekens met lengte 1 tot en met 6 | Eth
     AUTHTYPE | De methode voor verificatie bij de virtuele machine. | Wachtwoord of SSH de openbare sleutel | Wachtwoord
@@ -93,7 +93,7 @@ De sjabloon van de leider consortium Hiermee configureert u het eerste lid footp
     
     ![Leider implementatieparameters](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
-    Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
+    Parameternaam | Description | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
     Abonnement | Het abonnement waaraan het implementeren van het netwerk consortium | | Gebruik-abonnement
     Resourcegroep | De resourcegroep waaraan de consortium network implementeren. | | EthereumResources
@@ -118,7 +118,7 @@ Bladeren om te controleren of de implementatie van de leider, beheer-site van de
 5. Selecteer **Opslaan**.
 6. Selecteer **parameters bewerken** en de parameters van de sjabloon voor uw implementatie te voltooien.
 
-    Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
+    Parameternaam | Description | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | De tekenreeks die wordt gebruikt als basis voor de naam van de geïmplementeerde resources. | Alfanumerieke tekens met lengte 1 tot en met 6 | Eth
     AUTHTYPE | De methode voor verificatie bij de virtuele machine. | Wachtwoord of SSH de openbare sleutel | Wachtwoord
@@ -141,7 +141,7 @@ Bladeren om te controleren of de implementatie van de leider, beheer-site van de
 7. Selecteer **OK**.
 8. In **aangepaste implementatie**, geef **abonnement**, **resourcegroep**, en **resourcegroeplocatie**.
 
-    Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
+    Parameternaam | Description | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
     Abonnement | Het abonnement waaraan het implementeren van het netwerk consortium | | Gebruik-abonnement
     Resourcegroep | De resourcegroep waaraan de consortium network implementeren. | | MemberResources
@@ -157,7 +157,7 @@ Blader om te controleren of de implementatie van het lid, van het lid beheerder 
 
 ![Implementatieoverzicht lid](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-Zoals weergegeven in de afbeelding, de status van de knooppunten van het lid is **niet actief**. Dit is omdat de verbinding tussen lid en leider is niet gemaakt. De verbinding tussen lid en leider is een tweerichtingenverbinding. Wanneer u lid implementeert, maakt sjabloon automatisch de verbinding van lid aan de leider. Voor het maken van de verbinding van de leider aan lid, gaat u naar de volgende stap.
+Zoals weergegeven in de afbeelding, de status van de knooppunten van het lid is **niet actief**. Deze status is omdat de verbinding tussen lid en leider is niet gemaakt. De verbinding tussen lid en leider is een tweerichtingenverbinding. Wanneer u lid implementeert, maakt sjabloon automatisch de verbinding van lid aan de leider. Voor het maken van de verbinding van de leider aan lid, gaat u naar de volgende stap.
 
 ### <a name="connect-member-and-leader"></a>Verbinding maken met het lid en leader
 
@@ -175,7 +175,7 @@ Deze sjabloon maakt een verbinding van de leider aan een extern lid.
     
     ![Bewerken verbinding maken met Sjabloonparameters](./media/azure-stack-ethereum/edit-connect-parameters.png)
 
-    Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
+    Parameternaam | Description | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
     MEMBERNAMEPREFIX | Het voorvoegsel van de leider. Deze waarde kan worden gevonden op implementatie-uitvoer van de leider.  | Alfanumerieke tekens met lengte 1 tot en met 6 | |
     MEMBERROUTETABLENAME | De naam van de routetabel van de leider. Deze waarde kan worden gevonden op implementatie-uitvoer van de leider. |  | 
@@ -191,7 +191,7 @@ Deze sjabloon maakt een verbinding van de leider aan een extern lid.
     
     ![Verbinding maken met implementatieparameters](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 
-    Parameternaam | Beschrijving | Toegestane waarden | Voorbeeldwaarde
+    Parameternaam | Description | Toegestane waarden | Voorbeeldwaarde
     ---------------|-------------|----------------|-------------
     Abonnement | Abonnement van de leider. | | Gebruik-abonnement
     Resourcegroep | De resourcegroep van de leider. | | EthereumResources

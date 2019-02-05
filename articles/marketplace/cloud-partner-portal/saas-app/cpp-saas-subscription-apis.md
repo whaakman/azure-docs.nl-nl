@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a778723093b226ee0e681c2a95ce4db597a310e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199057"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695369"
 ---
 # <a name="saas-sell-through-azure---apis"></a>SaaS-verkopen via Azure - API 's
 
@@ -31,7 +31,7 @@ In dit artikel wordt uitgelegd hoe u een SaaS-aanbieding maken met API's. De API
 De volgende API's zijn bedoeld om u uw SaaS-service te integreren met Azure:
 
 -   Oplossen
--   Aanmelden
+-   Abonneer u nu
 -   Converteren
 -   Afmelden
 
@@ -176,21 +176,21 @@ Actie na de op oplossen eindpunt kan gebruikers een token omzetten in een perman
 
 *De hoofdtekst van antwoord*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **Parameternaam** | **Gegevenstype** | **Beschrijving**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | Reeks        | ID van de SaaS-abonnement.          |
-| subscriptionName| Reeks| De naam van de SaaS-abonnement instellen door de gebruiker in Azure terwijl u zich abonneert op de SaaS-service.|
-| OfferId            | Reeks        | Aanbiedings-ID die de gebruiker een abonnement op. |
-| planId             | Reeks        | Plan-ID die de gebruiker een abonnement op.  |
+| id                 | String        | ID van de SaaS-abonnement.          |
+| subscriptionName| String| De naam van de SaaS-abonnement instellen door de gebruiker in Azure terwijl u zich abonneert op de SaaS-service.|
+| OfferId            | String        | Aanbiedings-ID die de gebruiker een abonnement op. |
+| planId             | String        | Plan-ID die de gebruiker een abonnement op.  |
 |  |  |  |
 
 
@@ -217,7 +217,7 @@ Actie na de op oplossen eindpunt kan gebruikers een token omzetten in een perman
 |  |  |  |
 
 
-### <a name="subscribe"></a>Aanmelden
+### <a name="subscribe"></a>Abonneer u nu
 
 Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor een bepaald abonnement te starten en inschakelen van facturering in het commerce-systeem.
 
@@ -246,9 +246,9 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 *Hoofdtekst*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **De naam van element** | **Gegevenstype** | **Beschrijving**                      |
@@ -307,15 +307,13 @@ Het eindpunt van de wijziging kan de gebruiker van een plan op dat moment geabon
 | Autorisatie           | Ja          | De JSON web token (JWT) bearer-token.                    |
 |  |  |  |
 
-
 *Hoofdtekst*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **De naam van element** |  **Gegevenstype**  | **Beschrijving**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -370,7 +368,6 @@ De Delete-bewerking op het eindpunt abonneren kan een gebruiker verwijderen van 
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze waarde is voor het correleren van alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als dit niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 | Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
 |  |  |  |
- 
 
 *Responscodes*
 
@@ -413,7 +410,6 @@ Dit eindpunt kan een gebruiker voor het bijhouden van de status van een geactive
 | API-versie         | De versie van de bewerking te gebruiken voor deze aanvraag. |
 |  |  |
 
-
 *Headers*
 
 | **Header-sleutel**     | **Vereist** | **Beschrijving**                                                                                                                                                                                                                  |
@@ -422,25 +418,24 @@ Dit eindpunt kan een gebruiker voor het bijhouden van de status van een geactive
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Deze waarde is voor het correleren van alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders.  |
 | Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
 |  |  |  | 
-  
 
 *De hoofdtekst van antwoord*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Parameternaam** | **Gegevenstype** | **Beschrijving**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | Reeks        | ID van de bewerking.                                                                      |
+| id                 | String        | ID van de bewerking.                                                                      |
 | status             | Enum          | Status van de bewerking, een van de volgende: `In Progress`, `Succeeded`, of `Failed`.          |
-| resourceLocation   | Reeks        | Koppelen aan het abonnement dat is gemaakt of gewijzigd. Hiermee wordt de client om op te halen van de geüpdate toestand post-bewerking. Deze waarde is niet ingesteld voor `Unsubscribe` bewerkingen. |
+| resourceLocation   | String        | Koppelen aan het abonnement dat is gemaakt of gewijzigd. Hiermee wordt de client om op te halen van de geüpdate toestand post-bewerking. Deze waarde is niet ingesteld voor `Unsubscribe` bewerkingen. |
 | gemaakt            | DateTime      | Bewerking maken van de tijd in UTC.                                                           |
 | lastModified       | DateTime      | Laatste update voor de bewerking die wordt in UTC.                                                      |
 |  |  |  |
@@ -494,23 +489,23 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
 
 *De hoofdtekst van antwoord*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **Parameternaam**     | **Gegevenstype** | **Beschrijving**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Reeks        | Abonnement-resource-ID van SaaS in Azure.    |
-| offerId                | Reeks        | Aanbiedings-ID die de gebruiker een abonnement op.         |
-| planId                 | Reeks        | Plan-ID die de gebruiker een abonnement op.          |
-| saasSubscriptionName   | Reeks        | De naam van de SaaS-abonnement.                |
+| id                     | String        | Abonnement-resource-ID van SaaS in Azure.    |
+| offerId                | String        | Aanbiedings-ID die de gebruiker een abonnement op.         |
+| planId                 | String        | Plan-ID die de gebruiker een abonnement op.          |
+| saasSubscriptionName   | String        | De naam van de SaaS-abonnement.                |
 | saasSubscriptionStatus | Enum          | Status van de bewerking.  Een van de volgende:  <br/> - `Subscribed`: Abonnement is actief.  <br/> - `Pending`: Gebruiker maken van de resource, maar deze niet is geactiveerd door de ISV.   <br/> - `Unsubscribed`: Gebruiker heeft zich afgemeld.   <br/> - `Suspended`: Gebruiker heeft het abonnement onderbroken.   <br/> - `Deactivated`:  Azure-abonnement is onderbroken.  |
 | gemaakt                | DateTime      | Abonnement maken van de waarde van het tijdstempel in UTC. |
 | lastModified           | DateTime      | Abonnement gewijzigd tijdstempelwaarde in UTC. |
@@ -539,7 +534,6 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
 | eTag               | Ja          | Koppelen aan een resource om op te halen van de status van de bewerking.                                                        |
 |  |  |  |
 
-
 ### <a name="get-subscriptions"></a>Abonnementen ophalen
 
 De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle abonnementen voor alle aanbiedingen in de ISV.
@@ -564,27 +558,26 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
 | Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
 |  |  |  |
 
-
 *De hoofdtekst van antwoord*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Parameternaam**     | **Gegevenstype** | **Beschrijving**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Reeks        | Abonnement-resource-ID van SaaS in Azure.    |
-| offerId                | Reeks        | Aanbiedings-ID die de gebruiker een abonnement op.         |
-| planId                 | Reeks        | Plan-ID die de gebruiker een abonnement op.          |
-| saasSubscriptionName   | Reeks        | De naam van de SaaS-abonnement.                |
+| id                     | String        | Abonnement-resource-ID van SaaS in Azure.    |
+| offerId                | String        | Aanbiedings-ID die de gebruiker een abonnement op.         |
+| planId                 | String        | Plan-ID die de gebruiker een abonnement op.          |
+| saasSubscriptionName   | String        | De naam van de SaaS-abonnement.                |
 | saasSubscriptionStatus | Enum          | Status van de bewerking.  Een van de volgende:  <br/> - `Subscribed`: Abonnement is actief.  <br/> - `Pending`: Gebruiker maken van de resource, maar deze niet is geactiveerd door de ISV.   <br/> - `Unsubscribed`: Gebruiker heeft zich afgemeld.   <br/> - `Suspended`: Gebruiker heeft het abonnement onderbroken.   <br/> - `Deactivated`:  Azure-abonnement is onderbroken.  |
 | gemaakt                | DateTime      | Abonnement maken van de waarde van het tijdstempel in UTC. |
 | lastModified           | DateTime      | Abonnement gewijzigd tijdstempelwaarde in UTC. |
@@ -616,7 +609,6 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
 
 Een SaaS-webhook wordt gebruikt voor het melden van wijzigingen proactief in de SaaS-service. Deze POST-API wordt verwacht dat deze worden niet-geverifieerde en wordt aangeroepen door de Microsoft-service. De SaaS-service wordt verwacht voor het aanroepen van de operations-API om te verifiëren en autoriseren voordat actie wordt ondernomen op de webhook-melding. 
 
-
 *Hoofdtekst*
 
 ``` json
@@ -634,12 +626,12 @@ Een SaaS-webhook wordt gebruikt voor het melden van wijzigingen proactief in de 
 
 | **Parameternaam**     | **Gegevenstype** | **Beschrijving**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | Reeks       | Unieke ID voor de bewerking die wordt geactiveerd.                |
-| activityId   | Reeks        | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de service. Dit wordt gebruikt voor alle aansluitingen.               |
-| subscriptionId                     | Reeks        | Abonnement-resource-ID van SaaS in Azure.    |
-| offerId                | Reeks        | Aanbiedings-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.        |
-| publisherId                | Reeks        | Uitgevers-ID van de SaaS-aanbieding         |
-| planId                 | Reeks        | Plan-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.          |
-| action                 | Reeks        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
-| timeStamp                 | Reeks        | De waarde van de tijdstempel in UTC waarop deze melding is geactiveerd.          |
+| id  | String       | Unieke ID voor de bewerking die wordt geactiveerd.                |
+| activityId   | String        | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de service. Dit wordt gebruikt voor alle aansluitingen.               |
+| subscriptionId                     | String        | Abonnement-resource-ID van SaaS in Azure.    |
+| offerId                | String        | Aanbiedings-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.        |
+| publisherId                | String        | Uitgevers-ID van de SaaS-aanbieding         |
+| planId                 | String        | Plan-ID die de gebruiker een abonnement op. Alleen beschikbaar in de actie 'Update'.          |
+| action                 | String        | De actie die is deze melding wordt geactiveerd. Mogelijke waarden zijn: activeren, verwijderen, onderbreken, reactiveren, bijwerken          |
+| timeStamp                 | String        | De waarde van de tijdstempel in UTC waarop deze melding is geactiveerd.          |
 |  |  |  |

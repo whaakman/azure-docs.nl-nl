@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 800c6d3441e75f428f58fe76ea653f04353064bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470872"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699717"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text-API 3.0: Translate
 
@@ -54,7 +54,7 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
   </tr>
   <tr>
     <td>category</td>
-    <td>*Optionele parameter*.<br/>Een tekenreeks op te geven de categorie (domein) van de vertaling. Deze parameter wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met [aangepaste Translator](../customization.md). Standaardwaarde: `general`.</td>
+    <td>*Optionele parameter*.<br/>Een tekenreeks op te geven de categorie (domein) van de vertaling. Deze parameter wordt gebruikt om op te halen van vertalingen van een aangepast systeem die zijn gebouwd met [aangepaste Translator](../customization.md). De categorie-ID van uw aangepaste Translator-project toevoegen aan deze parameter om het gebruik van uw geïmplementeerde aangepaste systeem. Standaardwaarde: `general`.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
@@ -126,7 +126,7 @@ De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-
 
 Er gelden de volgende beperkingen:
 
-* De matrix kan maximaal 25 elementen hebben.
+* De matrix kan maximaal 100 elementen hebben.
 * De volledige tekst is opgenomen in de aanvraag kan niet langer zijn dan 5000 tekens inclusief spaties.
 
 ## <a name="response-body"></a>De hoofdtekst van antwoord
@@ -224,6 +224,8 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert.
     <td>De server is tijdelijk niet beschikbaar. De aanvraag opnieuw. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Als er een fout optreedt, wordt de aanvraag ook een JSON-fout antwoord retourneren. De foutcode is een 6-cijferige numerieke combineren het 3-cijferige HTTP-statuscode gevolgd door een getal 3 cijfers en verder categoriseren van de fout. Veelvoorkomende foutcodes kunnen u vinden op de [v3 Translator Text-API-verwijzingspagina](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Voorbeelden
 

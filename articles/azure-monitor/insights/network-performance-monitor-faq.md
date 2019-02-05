@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232339"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734552"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Veelgestelde vragen over het netwerk Prestatiemeter-oplossing
 
@@ -134,7 +134,7 @@ NPM kunt Controleer de connectiviteit tussen netwerken in een deel van de hele w
 NPM kunt connectiviteit controleren naar services in een deel van de hele wereld, uit een werkruimte die wordt gehost in een van de [ondersteunde regio's](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Welke regio's worden ondersteund voor ExpressRoute-bewaking van NPM?
-NPM kunt bewaken van uw ExpressRoute-circuits die zich in een Azure-regio. Voor Onboarding van NPM, moet u een Log Analytics-werkruimte die moet worden gehost in een van de [ondersteunde regio's](/azure/expressroute/how-to-npm#regions)
+NPM kunt bewaken van uw ExpressRoute-circuits die zich in een Azure-regio. Voor Onboarding van NPM, moet u een Log Analytics-werkruimte die moet worden gehost in een van de [ondersteunde regio's](/azure/expressroute/how-to-npm)
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

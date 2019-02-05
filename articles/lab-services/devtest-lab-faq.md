@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 23066339ffcb0b8b3c7885ad24c6c3d136629ab2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262026"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700015"
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -58,14 +58,14 @@ DevTest Labs is een gratis service. Labs maken en configureren van beleid, sjabl
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Wat zijn de verschillende beveiligingsniveaus in DevTest Labs?
 Toegang wordt bepaald door [Role-Based Access Control (RBAC)](../role-based-access-control/built-in-roles.md). Meer informatie over de werking van toegang, kunt zo u informatie over de verschillen tussen een machtiging, een rol en een bereik, zoals gedefinieerd door RBAC.
 
-* **Machtiging**: een machtiging is een gedefinieerde toegang tot een specifieke actie. Een machtiging kan bijvoorbeeld leestoegang tot alle virtuele machines.
-* **Rol**: een rol is een reeks machtigingen die kunnen worden gegroepeerd en toegewezen aan een gebruiker. Bijvoorbeeld, heeft een gebruiker met een abonnement de eigenaarsrol toegang tot alle resources binnen een abonnement.
-* **Bereik**: een scope is een niveau binnen de hiërarchie van een Azure-resource. Een bereik kan bijvoorbeeld een resourcegroep, een enkel lab of het hele abonnement.
+* **Machtiging**: Een machtiging is een gedefinieerde toegang tot een specifieke actie. Een machtiging kan bijvoorbeeld leestoegang tot alle virtuele machines.
+* **Rol**: Een rol is een reeks machtigingen die kunnen worden gegroepeerd en toegewezen aan een gebruiker. Bijvoorbeeld, heeft een gebruiker met een abonnement de eigenaarsrol toegang tot alle resources binnen een abonnement.
+* **Bereik**: Een scope is een niveau binnen de hiërarchie van een Azure-resource. Een bereik kan bijvoorbeeld een resourcegroep, een enkel lab of het hele abonnement.
 
 Binnen het bereik van DevTest Labs zijn er twee soorten rollen die de gebruikersmachtigingen definiëren:
 
-* **Lab-eigenaar**: lab-eigenaar heeft toegang tot alle resources in het lab. Een lab-eigenaar kan beleid wijzigen, lezen en schrijven naar virtuele machines, wijzigen van het virtuele netwerk, enzovoort.
-* **Lab-gebruiker**: een lab-gebruiker kan zien alle labresources, zoals virtuele machines, beleidsregels en virtuele netwerken. Maar de gebruiker van een lab-beleid of virtuele machines die zijn gemaakt door andere gebruikers niet wijzigen. 
+* **Lab-eigenaar**: Een lab-eigenaar heeft toegang tot alle resources in het lab. Een lab-eigenaar kan beleid wijzigen, lezen en schrijven naar virtuele machines, wijzigen van het virtuele netwerk, enzovoort.
+* **Lab-gebruiker**: Een lab-gebruiker kunt weergeven van alle labresources, zoals virtuele machines, beleidsregels en virtuele netwerken. Maar de gebruiker van een lab-beleid of virtuele machines die zijn gemaakt door andere gebruikers niet wijzigen. 
 
 U kunt ook aangepaste rollen maken in DevTest Labs. Zie voor meer informatie over het maken van aangepaste rollen in DevTest Labs, [gebruikersmachtigingen verlenen voor specifieke lab beleid](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -227,7 +227,7 @@ Een mogelijkheid is dat de naam van uw virtuele netwerk punten bevat. Als dit he
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Waarom krijg ik een foutbericht "Bovenliggende resource is niet gevonden" wanneer ik een virtuele machine vanuit PowerShell inrichten?
 Wanneer een resource een bovenliggend item naar een andere resource is, moet de bovenliggende resource aanwezig zijn voordat u de onderliggende resource maakt. Als de bovenliggende resource niet bestaat, ziet u een **ParentResourceNotFound** bericht. Als u een afhankelijkheid op de bovenliggende resource niet opgeeft, kan de onderliggende bron worden geïmplementeerd voordat het bovenliggende item.
 
-Virtuele machines zijn onderliggende resources onder een lab in een resourcegroep. Wanneer u virtuele machines implementeren met behulp van PowerShell met Resource Manager-sjablonen, moet de naam van de resourcegroep opgegeven in het PowerShell-script de naam van de resourcegroep van het testlab. Zie voor meer informatie, [algemene Azure-implementatie oplossen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Virtuele machines zijn onderliggende resources onder een lab in een resourcegroep. Wanneer u virtuele machines implementeren met behulp van PowerShell met Resource Manager-sjablonen, moet de naam van de resourcegroep opgegeven in het PowerShell-script de naam van de resourcegroep van het testlab. Zie voor meer informatie, [algemene Azure-implementatie oplossen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Waar vind ik meer foutinformatie uitval van een VM-implementatie?
 Fouten bij de implementatie van de virtuele machine worden vastgelegd in de activiteitenlogboeken. U vindt lab VM activiteitenlogboeken onder **auditlogboeken** of **diagnostische gegevens van virtuele machine** in het resourcemenu op de VM-blade van de testomgeving (de blade wordt weergegeven nadat u de virtuele machine van de **mijn virtuele machines** lijst).

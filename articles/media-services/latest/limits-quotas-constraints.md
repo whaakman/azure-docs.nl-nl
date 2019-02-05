@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 5c0fbf396faa0e07ecca4ae16c775a39404c6fc9
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376513"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700312"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quota en beperkingen in Azure Media Services v3
 
@@ -33,14 +33,14 @@ Dit artikel wordt beschreven, quota en beperkingen in Azure Media Services v3.
 | Taken per Media Services-account | 500.000 <sup>(2)</sup> (vast)|
 | Aanbieding transformaties|Het antwoord, met 1000 transformaties per pagina pagineren|
 | Taken weergeven|Het antwoord, met 500 taken per pagina pagineren|
-| LiveEvents per Media Services-account |5|
+| Live gebeurtenissen per Media Services-account |5|
 | Media Services-accounts in één abonnement | 25 (vast) |
-| LiveOutputs status per LiveEvent actief |3|
+| Live uitvoer met de status per LiveEvent wordt uitgevoerd |3|
 | Opslagaccounts | 100<sup>(4)</sup> (vast) |
 | Streaming-eindpunten met de status per Media Services-account wordt uitgevoerd|2|
-| StreamingPolicies | 100 <sup>(3)</sup> |
+| Beleid voor streaming | 100 <sup>(3)</sup> |
 | Transformaties per Media Services-account | 100 (vast)|
-| De unieke StreamingLocators die tegelijk zijn gekoppeld aan een Asset | 100<sup>(5)</sup> (vast) |
+| De unieke Streaming-Locators die tegelijk zijn gekoppeld aan een Asset | 100<sup>(5)</sup> (vast) |
 
 <sup>1</sup> de maximale grootte voor één blob momenteel maximaal 5 TB in Azure Blob Storage wordt wordt ondersteund. Aanvullende beperkingen gelden echter in Azure Media Services op basis van de VM-grootten die worden gebruikt door de service. Als het bronbestand groter dan 260 GB is, wordt waarschijnlijk uw taak mislukt. Als u 4K-inhoud die groter is dan de limiet van 260 GB hebt, contact met ons op amshelp@microsoft.com voor mogelijke oplossingen ter ondersteuning van uw scenario.
 
@@ -48,11 +48,11 @@ Dit artikel wordt beschreven, quota en beperkingen in Azure Media Services v3.
 
 Elke taakrecord in uw account die ouder is dan 90 dagen, automatisch verwijderd, zelfs als het totale aantal records lager dan het maximale quotum is. 
 
-<sup>3</sup> bij het gebruik van een aangepaste [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), moet u een beperkte set van dergelijk beleid ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw StreamingLocators wanneer dezelfde versleuteling opties en protocollen nodig zijn. U dient geen nieuw StreamingPolicy voor elke StreamingLocator te maken.
+<sup>3</sup> bij het gebruik van een aangepaste [beleid Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies), moet u een beperkte set van dergelijk beleid ontwerpen voor uw Media Service-account en opnieuw gebruiken voor uw StreamingLocators wanneer dezelfde versleuteling opties en protocollen nodig zijn. U moet niet worden het maken van een nieuw beleid voor Streaming voor elke Streaming-Locator gemaakt.
 
 <sup>4</sup> de storage-accounts moeten afkomstig zijn van hetzelfde Azure-abonnement.
 
-<sup>5</sup> StreamingLocators zijn niet ontworpen om toegangsbeheer per gebruiker beheren. Gebruik DRM-oplossingen (Digital Rights Management) als u afzonderlijke gebruikers verschillende toegangsrechten wilt geven.
+<sup>5</sup> streaming-Locators zijn niet ontworpen om toegangsbeheer per gebruiker beheren. Gebruik DRM-oplossingen (Digital Rights Management) als u afzonderlijke gebruikers verschillende toegangsrechten wilt geven.
 
 ## <a name="support-ticket"></a>Ondersteuningsticket
 

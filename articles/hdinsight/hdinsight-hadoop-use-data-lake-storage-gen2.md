@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fae92f8e09cc2ad6b63cb15599e0b1ab72588ed8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464786"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728840"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake Storage Gen2 gebruiken met Azure HDInsight-clusters
 
@@ -40,7 +40,7 @@ Voor het maken van een HDInsight-cluster, wat een Data Lake Storage Gen2 voor op
 
     ![Schermafbeelding van de opslagaccount is gemaakt in Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Toewijzen van de beheerde identiteit op de **Gegevensbijdrager voor Blob (Preview)** -rol op het storage-account. Zie [beheren toegangsrechten tot Azure BLOB Storage en Queue gegevens met RBAC (Preview)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
+1. Toewijzen van de beheerde identiteit op de **Gegevenseigenaar opslag-Blob (Preview)** -rol op het storage-account. Zie [beheren toegangsrechten tot Azure BLOB Storage en Queue gegevens met RBAC (Preview)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
 
     1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw storage-account.
     1. Selecteer uw storage-account en selecteer vervolgens **toegangsbeheer (IAM)** om instellingen voor toegangsbeheer voor het account weer te geven. Selecteer de **roltoewijzingen** tabblad om te bekijken van de lijst van roltoewijzingen.
@@ -48,9 +48,9 @@ Voor het maken van een HDInsight-cluster, wat een Data Lake Storage Gen2 voor op
         ![Schermafbeelding van de instellingen voor toegangsbeheer opslag](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. Klik op de **roltoewijzing toevoegen** knop een nieuwe rol toe te voegen.
-    1. In de **roltoewijzing toevoegen** venster de **Gegevensbijdrager voor Blob (Preview)** rol. Selecteer het abonnement dat de beheerde identiteits- en storage-account is. Vervolgens zoekt u naar de gebruiker toegewezen beheerde identiteit die u eerder hebt gemaakt. Selecteer ten slotte de beheerde identiteit en wordt weergegeven onder **geselecteerde leden**.
+    1. In de **roltoewijzing toevoegen** venster de **eigenaar van gegevens (Preview) voor Blob Storage** rol. Selecteer het abonnement dat de beheerde identiteits- en storage-account is. Vervolgens zoekt u naar de gebruiker toegewezen beheerde identiteit die u eerder hebt gemaakt. Selecteer ten slotte de beheerde identiteit en wordt weergegeven onder **geselecteerde leden**.
     
-        ![Schermopname die laat zien hoe u een RBAC-rol toewijzen](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![Schermopname die laat zien hoe u een RBAC-rol toewijzen](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
     1. Klik op **Opslaan**. De gebruiker toegewezen identiteit die u hebt geselecteerd, wordt nu weergegeven onder de **Inzender** rol.
 

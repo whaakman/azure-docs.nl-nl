@@ -13,25 +13,25 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fa17b2bb440f574f63349c5bb51573725aa45876
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ede3d6eb35935e3fec32e8fd4bb71d6c698486
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191530"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697046"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
 Dit artikel worden de bewerkingen die beschikbaar zijn voor elke Azure Resource Manager-resourceprovider. Deze bewerkingen kunnen worden gebruikt in [aangepaste rollen](custom-roles.md) voor gedetailleerde [op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) tot resources in Azure. Bewerking tekenreeksen hebben de volgende indeling: `{Company}.{ProviderName}/{resourceType}/{action}`
 
-De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest recente bewerkingen, gebruikt [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) of [az provider Bewerkingslijst](/cli/azure/provider/operation#az-provider-operation-list).
+De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest recente bewerkingen, gebruikt [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) of [az provider Bewerkingslijst](/cli/azure/provider/operation#az-provider-operation-list).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AAD/domainServices/delete | Delete Domain Service |
 > | Bewerking | Microsoft.AAD/domainServices/oucontainer/delete | Organisatie-eenheid Container verwijderen |
@@ -47,7 +47,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | microsoft.aadiam/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
 > | Bewerking | microsoft.aadiam/diagnosticsettings/read | Een diagnostische instelling lezen |
@@ -57,7 +57,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Addons/operations/read | Haalt ondersteund RP-bewerkingen. |
 > | Bewerking | Microsoft.Addons/register/action | Het opgegeven abonnement registreren bij Microsoft.Addons |
@@ -69,7 +69,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ADHybridHealthService/addsservices/action | Een nieuw forest maken voor de tenant. |
 > | Bewerking | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | Hiermee haalt alle servers voor de opgegeven naam. |
@@ -142,7 +142,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Advisor/configurations/read | Configuraties ophalen |
 > | Bewerking | Microsoft.Advisor/configurations/write | Bijgewerkte configuratie |
@@ -163,7 +163,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AlertsManagement/actionRules/delete | Actieregel in een bepaald abonnement verwijderen. |
 > | Bewerking | Microsoft.AlertsManagement/actionRules/read | Alle actieregels voor de voor de invoer filters ophalen. |
@@ -184,7 +184,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AnalysisServices/locations/checkNameAvailability/action | Hiermee wordt gecontroleerd of de opgegeven Analysis Server naam geldig is en niet wordt gebruikt. |
 > | Bewerking | Microsoft.AnalysisServices/locations/operationresults/read | Haalt de informatie van het opgegeven bewerkingsresultaat. |
@@ -203,7 +203,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ApiManagement/checkNameAvailability/read | Controleert of de opgegeven servicenaam is beschikbaar |
 > | Bewerking | Microsoft.ApiManagement/operations/read | Alle API-bewerkingen beschikbaar voor Microsoft.ApiManagement resource lezen |
@@ -396,7 +396,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Authorization/checkAccess/action | Hiermee wordt gecontroleerd of de aanroeper is gemachtigd een bepaalde actie uit te voeren |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/delete | Hiermee wordt de beheerder verwijderd uit het abonnement. |
@@ -432,7 +432,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Automation/automationAccounts/agentRegistrationInformation/read | Een Azure Automation DSC-registratiegegevens lezen |
 > | Bewerking | Microsoft.Automation/automationAccounts/agentRegistrationInformation/regenerateKey/action | Schrijft een aanvraag voor Azure Automation DSC-sleutels opnieuw genereren |
@@ -549,7 +549,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AzureActiveDirectory/b2cDirectories/delete | B2C-mapresource verwijderen |
 > | Bewerking | Microsoft.AzureActiveDirectory/b2cDirectories/read | B2C-mapresource weergeven |
@@ -560,7 +560,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AzureStack/Operations/read | De eigenschappen van een resource provider-bewerking opgehaald |
 > | Bewerking | Microsoft.AzureStack/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.AzureStack |
@@ -577,7 +577,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Batch/batchAccounts/applications/delete | Hiermee verwijdert u een toepassing |
 > | Bewerking | Microsoft.Batch/batchAccounts/applications/read | Een lijst met toepassingen of haalt u de eigenschappen van een toepassing |
@@ -614,7 +614,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Billing/billingAccounts/departments/read | Lijst van alle afdelingen onder een facturering accountbereik |
 > | Bewerking | Microsoft.Billing/billingAccounts/enrollmentAccounts/read | Lijst van alle inschrijvingsaccounts onder een facturering accountbereik |
@@ -627,7 +627,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.BingMaps/mapApis/Delete | Verwijderbewerking |
 > | Bewerking | Microsoft.BingMaps/mapApis/listSecrets/action | Lijst met geheimen weergeven |
@@ -640,7 +640,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Alle blauwdrukartefacten lezen |
 > | Bewerking | Microsoft.Blueprint/blueprintAssignments/delete | Alle blauwdrukartefacten verwijderen |
@@ -661,7 +661,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.BotService/botServices/channels/delete | Verwijderen van een Bot-Service |
 > | Bewerking | Microsoft.BotService/botServices/channels/read | Lees een Botservice |
@@ -678,7 +678,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Cache/checknameavailability/action | Controleert of een naam beschikbaar voor gebruik met een nieuwe Azure-Cache voor Redis is |
 > | Bewerking | Microsoft.Cache/locations/operationresults/read | Hiermee wordt het resultaat van een langdurige bewerking opgehaald waarvoor de header 'Location' eerder is geretourneerd naar de client |
@@ -710,7 +710,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Capacity/appliedreservations/read | Alle reserveringen lezen |
 > | Bewerking | Microsoft.Capacity/calculateprice/action | De prijs van een reservering berekenen |
@@ -741,7 +741,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Cdn/CheckNameAvailability/action |  |
 > | Bewerking | Microsoft.Cdn/CheckResourceUsage/action |  |
@@ -804,7 +804,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.CertificateRegistration/certificateOrders/certificates/Delete | Een bestaand certificaat verwijderen |
 > | Bewerking | Microsoft.CertificateRegistration/certificateOrders/certificates/Read | De lijst met certificaten ophalen |
@@ -828,7 +828,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ClassicCompute/capabilities/read | Hiermee worden de mogelijkheden weergegeven |
 > | Bewerking | Microsoft.ClassicCompute/checkDomainNameAvailability/action | Hiermee wordt gecontroleerd of een bepaald domeinnaam beschikbaar is. |
@@ -943,7 +943,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/operationstatuses/read | De bewerkingsstatus van een ExpressRoute-kruisverbinding ophalen. |
 > | Bewerking | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/delete | Peering van ExpressRoute-kruisverbinding verwijderen. |
@@ -1020,7 +1020,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ClassicStorage/capabilities/read | Hiermee worden de mogelijkheden weergegeven |
 > | Bewerking | Microsoft.ClassicStorage/checkStorageAccountAvailability/action | Hiermee wordt gecontroleerd of een opslagaccount beschikbaar is. |
@@ -1068,7 +1068,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.CognitiveServices/accounts/delete | API-accounts verwijderen |
 > | Bewerking | Microsoft.CognitiveServices/accounts/listKeys/action | Een lijst met sleutels maken |
@@ -1084,7 +1084,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Commerce/RateCard/read | Retourneert bieden gegevens, metagegevens van de resource/meter en tarieven voor het betreffende abonnement. |
 > | Bewerking | Microsoft.Commerce/UsageAggregates/read | Hiermee haalt u van Microsoft Azure-verbruik door een abonnement. Het resultaat bevat statistische gegevens over gebruik, abonnement en de resourcegroep verwante gegevens, op een bepaalde periode. |
@@ -1092,7 +1092,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Compute/availabilitySets/delete | Hiermee wordt de beschikbaarheidsset verwijderd |
 > | Bewerking | Microsoft.Compute/availabilitySets/read | Hiermee worden de eigenschappen van een beschikbaarheidsset opgehaald |
@@ -1218,7 +1218,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Consumption/balances/read | Lijst met het gebruik van de samenvatting voor een factureringsperiode van een beheergroep. |
 > | Bewerking | Microsoft.Consumption/budgets/delete | Verwijder de budgetten door een abonnement of een beheergroep. |
@@ -1247,7 +1247,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/containers/exec/action | Uitvoeren in een specifieke container. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/containers/logs/read | Logbestanden voor een specifieke container ophalen. |
@@ -1269,7 +1269,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerRegistry/checkNameAvailability/read | Controleert of de naam van het containerregister beschikbaar voor gebruik is. |
 > | Bewerking | Microsoft.ContainerRegistry/locations/deleteVirtualNetworkOrSubnets/action | Microsoft.ContainerRegistry meldt dat virtuele netwerk of subnet wordt verwijderd |
@@ -1333,7 +1333,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContainerService/containerServices/delete | Hiermee wordt een containerservice verwijderd |
 > | Bewerking | Microsoft.ContainerService/containerServices/read | Een containerservice ophalen |
@@ -1364,7 +1364,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ContentModerator/applications/delete | Verwijderbewerking |
 > | Bewerking | Microsoft.ContentModerator/applications/listSecrets/action | Geheimen vermelden |
@@ -1379,7 +1379,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.CostManagement/dimensions/read | Lijst met alle ondersteunde dimensies door een bereik. |
 > | Bewerking | Microsoft.CostManagement/exports/action | De opgegeven uitvoer worden uitgevoerd. |
@@ -1394,7 +1394,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.CustomerInsights/hubs/adobemetadata/action | Maken of bijwerken van alle Azure-klant Insights Adobe-metagegevens |
 > | Bewerking | Microsoft.CustomerInsights/hubs/adobemetadata/read | Alle Azure-klant Insights Adobe metagegevens lezen |
@@ -1499,7 +1499,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Hiermee kan het ophalen van retourzendingen worden geboekt. |
 > | Bewerking | Microsoft.DataBox/jobs/cancel/action | Hiermee wordt een order in uitvoering geannuleerd. |
@@ -1515,7 +1515,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataboxEdge
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Geeft een lijst of opgehaald van de waarschuwingen |
 > | Bewerking | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Geeft een lijst of opgehaald van de waarschuwingen |
@@ -1560,7 +1560,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Databricks/register/action | Registreren bij Databricks. |
 > | Bewerking | Microsoft.Databricks/workspaces/delete | Hiermee wordt een Databricks-werkruimte verwijderd. |
@@ -1573,7 +1573,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataCatalog/catalogs/delete | Hiermee verwijdert u de catalogus. |
 > | Bewerking | Microsoft.DataCatalog/catalogs/read | Hiermee worden eigenschappen voor catalogi onder het abonnement of resourcegroep. |
@@ -1586,7 +1586,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataFactory/checkazuredatafactorynameavailability/read | Controleert of de naam van de Data Factory beschikbaar is voor gebruik. |
 > | Bewerking | Microsoft.DataFactory/datafactories/activitywindows/read | Activiteit Windows in de Data Factory met de opgegeven parameters worden gelezen. |
@@ -1687,7 +1687,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataLakeAnalytics/accounts/computePolicies/delete | Een compute-beleid niet verwijderen. |
 > | Bewerking | Microsoft.DataLakeAnalytics/accounts/computePolicies/read | Informatie ophalen over een compute-beleid. |
@@ -1719,7 +1719,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataLakeStore/accounts/delete | Een DataLakeStore-account verwijderen. |
 > | Bewerking | Microsoft.DataLakeStore/accounts/enableKeyVault/action | Key Vault voor een DataLakeStore-account kunt inschakelen. |
@@ -1746,7 +1746,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DataMigration/locations/operationResults/read | De status ophalen van een langdurige bewerking die betrekking heeft op een 202-antwoord (Geaccepteerd) |
 > | Bewerking | Microsoft.DataMigration/locations/operationStatuses/read | De status ophalen van een langdurige bewerking die betrekking heeft op een 202-antwoord (Geaccepteerd) |
@@ -1778,7 +1778,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DBforMariaDB/locations/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
 > | Bewerking | Microsoft.DBforMariaDB/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
@@ -1805,7 +1805,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DBforMySQL/locations/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
 > | Bewerking | Microsoft.DBforMySQL/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
@@ -1832,7 +1832,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
 > | Bewerking | Microsoft.DBforPostgreSQL/performanceTiers/read | Retourneert de lijst met beschikbare Prestatielagen. |
@@ -1865,7 +1865,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Devices/checkNameAvailability/Action | Controleer als IotHub-naam beschikbaar is |
 > | Bewerking | Microsoft.Devices/checkProvisioningServiceNameAvailability/Action | Controleer de servicenaam als inrichting is beschikbaar |
@@ -1953,7 +1953,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DevSpaces/controllers/delete | Azure Dev spaties Controller en dataplane-services verwijderen |
 > | Bewerking | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Lijst met verbindingsgegevens voor de Azure Dev spaties Controller-infrastructuur |
@@ -1964,7 +1964,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DevTestLab/labCenters/delete | Lab centers verwijderen. |
 > | Bewerking | Microsoft.DevTestLab/labCenters/read | Lab-datacenters worden gelezen. |
@@ -2071,7 +2071,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DocumentDB/databaseAccountNames/read | Controleert op beschikbaarheid van de naam. |
 > | Bewerking | Microsoft.DocumentDB/databaseAccounts/backup/action | Een aanvraag indient bij de back-up configureren |
@@ -2120,7 +2120,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DomainRegistration/checkDomainAvailability/Action | Controleer of een domein beschikbaar voor aankoop is |
 > | Bewerking | Microsoft.DomainRegistration/domains/Delete | Een bestaand domein verwijdert. |
@@ -2145,7 +2145,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.DynamicsLcs/lcsprojects/clouddeployments/read | Microsoft Dynamics AX 2012 R3 evaluatie implementaties in een Microsoft Dynamics Lifecycle Services-project die deel uitmaken van een gebruiker weergeven |
 > | Bewerking | Microsoft.DynamicsLcs/lcsprojects/clouddeployments/write | Microsoft Dynamics AX 2012 R3 evaluatie-implementatie in een project voor Microsoft Dynamics Lifecycle Services die deel uitmaken van een gebruiker maken. Implementaties kunnen worden beheerd in Azure management portal |
@@ -2158,7 +2158,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.EventGrid/eventSubscriptions/delete | Een eventSubscription verwijderen |
 > | Bewerking | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Volledige url voor het gebeurtenisabonnement ophalen |
@@ -2195,7 +2195,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.EventHub/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.EventHub/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is gedeprecieerd in plaats daarvan gebruik CheckNameAvailability. |
@@ -2255,7 +2255,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Features/features/read | Hiermee kunt u de functies van een abonnement ophalen. |
 > | Bewerking | Microsoft.Features/operations/read | Hiermee haalt u de lijst met bewerkingen op. |
@@ -2267,7 +2267,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Get Gast configuration toewijzing. |
 > | Bewerking | Microsoft.GuestConfiguration/guestConfigurationAssignments/reports/read | Get Gast configuratierapport toewijzing. |
@@ -2276,7 +2276,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.HDInsight/clusters/applications/delete | Toepassing voor HDInsight-Cluster verwijderen |
 > | Bewerking | Microsoft.HDInsight/clusters/applications/read | Toepassing voor HDInsight-Cluster |
@@ -2297,7 +2297,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ImportExport/jobs/delete | Hiermee verwijdert u een bestaande taak. |
 > | Bewerking | Microsoft.ImportExport/jobs/listBitLockerKeys/action | Hiermee haalt u de BitLocker-sleutels voor de gespecificeerde taak. |
@@ -2309,7 +2309,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Insights/ActionGroups/Delete | Een actiegroep verwijderen |
 > | Bewerking | Microsoft.Insights/ActionGroups/Read | Een actiegroep lezen |
@@ -2581,7 +2581,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Intune/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
 > | Bewerking | Microsoft.Intune/diagnosticsettings/read | Een diagnostische instelling lezen |
@@ -2591,7 +2591,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.IoTCentral/checkNameAvailability/action | Controleert of de naam van een IoT Central-toepassing beschikbaar is |
 > | Bewerking | Microsoft.IoTCentral/checkSubdomainAvailability/action | Controleert of een subdomein IoT Central-toepassing beschikbaar is |
@@ -2604,7 +2604,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.IoTSpaces/Graph/delete | Hiermee verwijdert u Microsoft.IoTSpaces Graph-resource |
 > | Bewerking | Microsoft.IoTSpaces/Graph/read | Haalt de Microsoft.IoTSpaces Graph-resource (s) |
@@ -2614,33 +2614,33 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.KeyVault/checkNameAvailability/read | Controleert of een key vault-naam geldig is en niet wordt gebruikt |
+> | Bewerking | Microsoft.KeyVault/checkNameAvailability/read | Hiermee wordt gecontroleerd of de opgegeven sleutelkluisnaam geldig is en niet wordt gebruikt |
 > | Bewerking | Microsoft.KeyVault/deletedVaults/read | De eigenschappen van voorlopig verwijderde sleutelkluizen weergeven |
 > | Bewerking | Microsoft.KeyVault/hsmPools/delete | Een HSM-groep verwijderen |
-> | Bewerking | Microsoft.KeyVault/hsmPools/joinVault/action | Lid van een sleutelkluis te maken van een HSM-groep |
+> | Bewerking | Microsoft.KeyVault/hsmPools/joinVault/action | Deelnemen aan een sleutelkluis voor een HSM-groep |
 > | Bewerking | Microsoft.KeyVault/hsmPools/read | De eigenschappen van een HSM-groep weergeven |
-> | Bewerking | Microsoft.KeyVault/hsmPools/write | Een nieuwe HSM-pool van update de eigenschappen van een bestaande HSM-groep maken |
-> | Bewerking | Microsoft.KeyVault/locations/deletedVaults/purge/action | Een voorlopig verwijderde sleutelkluis leegmaken |
-> | Bewerking | Microsoft.KeyVault/locations/deletedVaults/read | De eigenschappen van een voorlopig verwijderde sleutelkluis weergeven |
-> | Bewerking | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | Microsoft.KeyVault waarschuwt dat een virtueel netwerk of subnet wordt verwijderd |
+> | Bewerking | Microsoft.KeyVault/hsmPools/write | Een nieuwe HSM-groep maken of de eigenschappen van een bestaande HSM-groep bijwerken |
+> | Bewerking | Microsoft.KeyVault/locations/deletedVaults/purge/action | Een voorlopig verwijderde sluitelkluis leegmaken |
+> | Bewerking | Microsoft.KeyVault/locations/deletedVaults/read | De eigenschappen van voorlopig verwijderde sleutelkluis weergeven |
+> | Bewerking | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | Hiermee wordt aan Microsoft.KeyVault doorgegeven dat een virtueel netwerk of subnet wordt verwijderd |
 > | Bewerking | Microsoft.KeyVault/locations/operationResults/read | Het resultaat van een langdurige uitvoeringsbewerking controleren |
-> | Bewerking | Microsoft.KeyVault/operations/read | Een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.KeyVault-resourceprovider |
+> | Bewerking | Microsoft.KeyVault/operations/read | Hiermee wordt een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.KeyVault-resourceprovider |
 > | Bewerking | Microsoft.KeyVault/register/action | Hiermee wordt een abonnement geregistreerd |
-> | Bewerking | Microsoft.KeyVault/unregister/action | De registratie van een abonnement |
+> | Bewerking | Microsoft.KeyVault/unregister/action | Hiermee wordt de registratie van een abonnement opgeheven |
 > | Bewerking | Microsoft.KeyVault/vaults/accessPolicies/write | Een bestaand toegangsbeleid bijwerken door samenvoegen of vervangen, of een nieuw toegangsbeleid toevoegen aan een kluis. |
 > | Bewerking | Microsoft.KeyVault/vaults/delete | Een sleutelkluis verwijderen |
-> | Bewerking | Microsoft.KeyVault/vaults/deploy/action | Hiermee wordt toegang tot de geheimen in een key vault bij het implementeren van Azure-resources |
+> | Bewerking | Microsoft.KeyVault/vaults/deploy/action | Hiermee wordt toegang tot de geheimen in een sleutelkluis ingeschakeld tijdens het implementeren van Azure-resources |
 > | Bewerking | Microsoft.KeyVault/vaults/read | De eigenschappen van een sleutelkluis weergeven |
-> | Bewerking | Microsoft.KeyVault/vaults/secrets/read | De eigenschappen van een geheim, maar niet de waarde weergeven |
+> | Bewerking | Microsoft.KeyVault/vaults/secrets/read | De eigenschappen van een geheim weergeven, maar niet de waarde |
 > | Bewerking | Microsoft.KeyVault/vaults/secrets/write | Een nieuw geheim maken of de waarde van een bestaand geheim bijwerken |
-> | Bewerking | Microsoft.KeyVault/vaults/write | Een nieuwe sleutelkluis maken of bijwerken van de eigenschappen van een bestaande sleutelkluis |
+> | Bewerking | Microsoft.KeyVault/vaults/write | Een nieuwe sleutelkluis maken of de eigenschappen van een bestaande sleutelkluis bijwerken |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Hiermee verwijdert u de resource van een gegevens-verbindingen. |
 > | Bewerking | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Hiermee verwijdert u de resource van een gegevens-verbindingen. |
@@ -2661,7 +2661,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LabServices/labAccounts/CreateLab/action | Een lab maken in een lab-account. |
 > | Bewerking | Microsoft.LabServices/labAccounts/delete | Lab-accounts verwijderen. |
@@ -2720,7 +2720,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LocationBasedServices/accounts/delete | (Afgeschaft: Gebruik /providers/Microsoft.Maps) verwijderen van een Location Based Services-Account. |
 > | Bewerking | Microsoft.LocationBasedServices/accounts/listKeys/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps)List Location Based Services-Account sleutels |
@@ -2732,7 +2732,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.LocationServices/accounts/delete | (Afgeschaft: Gebruik /providers/Microsoft.Maps) verwijderen van een locatie-Services-Account. |
 > | Bewerking | Microsoft.LocationServices/accounts/listKeys/action | (Afgeschaft: Gebruik /providers/Microsoft.Maps)List Location Based Services-Account sleutels |
@@ -2744,7 +2744,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | Gegevens lezen uit de tabel ADAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | Gegevens lezen uit de tabel ADReplicationResult |
@@ -2907,7 +2907,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Logic/integrationAccounts/agreements/delete | Hiermee verwijdert u de overeenkomst in het integratieaccount. |
 > | Bewerking | Microsoft.Logic/integrationAccounts/agreements/listContentCallbackUrl/action | Hiermee haalt u de URL voor terugbellen voor overeenkomstinhoud in het integratieaccount op. |
@@ -3003,7 +3003,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Verplaatsen van een Machine Learning-toezegging Plan koppeling |
 > | Bewerking | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Een Machine Learning-toezegging Plan koppeling lezen |
@@ -3030,7 +3030,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | Controleer of er updates beschikbaar voor systeemservices voor het cluster uitoefening zijn |
 > | Bewerking | Microsoft.MachineLearningCompute/operationalizationClusters/delete | Hosting-account verwijderen |
@@ -3043,7 +3043,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearningModelManagement/accounts/delete | Hosting-account verwijderen |
 > | Bewerking | Microsoft.MachineLearningModelManagement/accounts/read | Hosting-account lezen |
@@ -3053,7 +3053,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MachineLearningServices/locations/computeoperationstatus/read | Hiermee wordt de status van een bepaalde compute-bewerking opgehaald |
 > | Bewerking | Microsoft.MachineLearningServices/locations/usages/read | Gebruiksrapport voor aml compute-resources in een abonnement |
@@ -3073,7 +3073,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ManagedIdentity/register/action | Hiermee wordt het abonnement voor de beheerde identiteit-resourceprovider geregistreerd |
 > | Bewerking | Microsoft.ManagedIdentity/userAssignedIdentities/assign/action | RBAC-actie voor het toewijzen van een bestaande gebruiker toegewezen identiteit aan een resource |
@@ -3084,7 +3084,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmanagedlab"></a>Microsoft.ManagedLab
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ManagedLab/labAccounts/CreateLab/action | Een lab maken in een lab-account. |
 > | Bewerking | Microsoft.ManagedLab/labAccounts/delete | Lab-accounts verwijderen. |
@@ -3108,7 +3108,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Management/checkNameAvailability/action | Controleert of de naam van de opgegeven beheergroep geldig en uniek is. |
 > | Bewerking | Microsoft.Management/getEntities/action | Lijst met alle entiteiten (beheergroepen, abonnementen, enzovoort) voor de geverifieerde gebruiker. |
@@ -3122,7 +3122,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | DataAction | Microsoft.Maps/accounts/data/read | Verleent toegang tot het lezen van gegevens naar een maps-account. |
 > | Bewerking | Microsoft.Maps/accounts/delete | Een Maps-Account verwijderen. |
@@ -3138,7 +3138,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Hiermee wordt een overeenkomst geretourneerd. |
 > | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Hiermee wordt een ondertekende overeenkomst geaccepteerd. |
@@ -3150,7 +3150,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MarketplaceApps/ClassicDevServices/delete | Biedt een DELETE-bewerking op de bron van een klassieke dev-service. |
 > | Bewerking | Microsoft.MarketplaceApps/ClassicDevServices/listSecrets/action | Hiermee haalt u een klassieke dev servicesleutels resource management. |
@@ -3162,7 +3162,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.MarketplaceOrdering/agreements/offers/plans/cancel/action | Annuleren van een overeenkomst voor een bepaalde marketplace-item |
 > | Bewerking | Microsoft.MarketplaceOrdering/agreements/offers/plans/read | Retourneert een overeenkomst voor een bepaalde marketplace-item |
@@ -3174,7 +3174,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Media/checknameavailability/action | Controleert of de naam van een Media Services-account beschikbaar is |
 > | Bewerking | Microsoft.Media/locations/checkNameAvailability/action | Controleert of de naam van een Media Services-account beschikbaar is |
@@ -3241,7 +3241,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Migrate/locations/assessmentOptions/read | Hiermee worden de evaluatieopties opgehaald die op de opgegeven locatie beschikbaar zijn |
 > | Bewerking | Microsoft.Migrate/locations/checknameavailability/action | Controleert de beschikbaarheid van de naam van de resource voor het betreffende abonnement op de opgegeven locatie |
@@ -3268,7 +3268,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.NetApp/activeDirectories/delete |  |
 > | Bewerking | Microsoft.NetApp/activeDirectories/read |  |
@@ -3293,7 +3293,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | Application Gateway beschikbaar aanvraagheaders ophalen |
 > | Bewerking | Microsoft.Network/applicationGatewayAvailableResponseHeaders/read | Application Gateway beschikbaar Response-Header ophalen |
@@ -3673,7 +3673,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | Hiermee wordt gecontroleerd of de resourcenaam voor de naamruimte beschikbaar is binnen de NotificationHub-service. |
 > | Bewerking | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen. |
@@ -3706,7 +3706,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OffAzure/HyperVSites/clusters/read | Haalt u de eigenschappen van een Hyper-V-cluster |
 > | Bewerking | Microsoft.OffAzure/HyperVSites/clusters/read | Haalt u de eigenschappen van een Hyper-V-cluster |
@@ -3771,7 +3771,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OperationalInsights/linkTargets/read | Een lijst met bestaande accounts die niet gekoppeld aan een Azure-abonnement zijn. Als u wilt dit Azure-abonnement koppelen aan een werkruimte, gebruikt u een klant-id die is geretourneerd door deze bewerking in de eigenschap van de klant-id van de bewerking werkruimte maken. |
 > | Bewerking | microsoft.operationalinsights/operations/read | Een lijst met alle van de beschikbare OperationalInsights Rest-API-bewerkingen. |
@@ -3990,7 +3990,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.OperationsManagement/managementAssociations/delete | Bestaande beheerkoppeling verwijderen |
 > | Bewerking | Microsoft.OperationsManagement/managementAssociations/read | Bestaande beheerkoppeling ophalen |
@@ -4006,7 +4006,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.PolicyInsights/asyncOperationResults/read | Hiermee wordt het resultaat van de asynchrone bewerking opgehaald. |
 > | Bewerking | Microsoft.PolicyInsights/policyEvents/queryResults/action | Informatie over beleidsgebeurtenissen opvragen. |
@@ -4027,7 +4027,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Portal/consoles/delete | Hiermee wordt de Cloud Shell-instantie verwijderd. |
 > | Bewerking | Microsoft.Portal/consoles/write | Een Cloud Shell-instantie maken of bijwerken. |
@@ -4042,7 +4042,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/checkNameAvailability/action | Hiermee wordt gecontroleerd of de opgegeven toegewezen capaciteit van Power BI naam geldig is en niet wordt gebruikt. |
 > | Bewerking | Microsoft.PowerBIDedicated/capacities/delete | Verwijdert de Power BI toegewezen capaciteit. |
@@ -4060,7 +4060,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
 > | Bewerking | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is een interne bewerking die wordt gebruikt door de service |
@@ -4230,7 +4230,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Relay/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.Relay/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is gedeprecieerd in plaats daarvan gebruik CheckNameAvailability. |
@@ -4281,7 +4281,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | De beschikbaarheidsstatus ophalen voor de opgegeven resource |
 > | Bewerking | Microsoft.ResourceHealth/AvailabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
@@ -4300,7 +4300,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Resources/checkPolicyCompliance/action | Controleer de nalevingsstatus van een bepaalde resource aan de hand van het beleid voor resources. |
 > | Bewerking | Microsoft.Resources/checkResourceName/action | Controleer of de resourcenaam geldig is. |
@@ -4342,7 +4342,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Scheduler/jobcollections/delete | Hiermee verwijdert u de taakverzameling. |
 > | Bewerking | Microsoft.Scheduler/jobcollections/disable/action | Hiermee schakelt u de taakverzameling uit. |
@@ -4359,7 +4359,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Search/checkNameAvailability/action | Controleert de beschikbaarheid van de naam van de service. |
 > | Bewerking | Microsoft.Search/operations/read | Een lijst met alle beschikbare bewerkingen van de provider Microsoft.Search. |
@@ -4378,7 +4378,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Security/advancedThreatProtectionSettings/read | Hiermee haalt u de Advanced Threat Protection instellingen voor de resource |
 > | Bewerking | Microsoft.Security/advancedThreatProtectionSettings/write | De instellingen Advanced Threat Protection voor de resource-updates |
@@ -4431,7 +4431,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.SecurityGraph/diagnosticsettings/delete | Een diagnostische instelling verwijderen |
 > | Bewerking | Microsoft.SecurityGraph/diagnosticsettings/read | Een diagnostische instelling lezen |
@@ -4441,7 +4441,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ServiceBus/checkNameAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. |
 > | Bewerking | Microsoft.ServiceBus/checkNamespaceAvailability/action | Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd. Deze API is gedeprecieerd in plaats daarvan gebruik CheckNameAvailability. |
@@ -4520,7 +4520,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.ServiceFabric/clusters/applications/delete | Een toepassing verwijderen |
 > | Bewerking | Microsoft.ServiceFabric/clusters/applications/read | Een toepassing lezen |
@@ -4552,7 +4552,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.SignalRService/locations/checknameavailability/action | Controleert of een naam beschikbaar voor gebruik met een nieuwe SignalR-service is |
 > | Bewerking | Microsoft.SignalRService/locations/operationresults/signalr/read | De status van een bewerking asynchorous opvragen |
@@ -4572,7 +4572,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Solutions/applicationDefinitions/delete | Hiermee wordt een toepassingsdefinitie verwijderd. |
 > | Bewerking | Microsoft.Solutions/applicationDefinitions/read | Hiermee wordt een lijst met toepassingsdefinities opgehaald. |
@@ -4589,7 +4589,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Sql/checkNameAvailability/action | Controleer of de opgegeven server naam beschikbaar is voor het inrichten van over de hele wereld voor een bepaald abonnement. |
 > | Bewerking | Microsoft.Sql/instancePools/delete | Hiermee verwijdert u een exemplaar van toepassingen |
@@ -4912,7 +4912,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Storage/checknameavailability/read | Hiermee controleert u of een accountnaam geldig is en niet wordt gebruikt. |
 > | Bewerking | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | Hiermee wordt aan Microsoft.Storage doorgegeven dat het virtuele netwerk of subnet wordt verwijderd |
@@ -4970,7 +4970,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | microsoft.storagesync/locations/checkNameAvailability/action | Controleert dat Opslagnaam van de synchronisatieservice is geldig en niet wordt gebruikt. |
 > | Bewerking | Microsoft.storagesync/Locations/workflows/Operations/Read | Hiermee wordt de status van een asynchrone bewerking opgehaald |
@@ -5007,7 +5007,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/delete | Hiermee verwijdert u de Access Control Records |
 > | Bewerking | Microsoft.StorSimple/managers/accessControlRecords/operationResults/read | Geeft een lijst of de resultaten van de bewerking opgehaald |
@@ -5182,7 +5182,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.StreamAnalytics/locations/quotas/Read | Lezen Stream Analytics-Abonnementquotum |
 > | Bewerking | Microsoft.StreamAnalytics/operations/Read | Stream Analytics-bewerkingen lezen |
@@ -5222,7 +5222,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Subscription/CreateSubscription/action | Maak een Azure-abonnement |
 > | Bewerking | Microsoft.Subscription/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.Subscription |
@@ -5232,7 +5232,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftsupport"></a>Microsoft.Support
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Support/register/action | Hiermee wordt het item geregistreerd bij de resourceprovider voor ondersteuning |
 > | Bewerking | Microsoft.Support/supportTickets/read | Hiermee worden gegevens over het ondersteuningsticket opgehaald (inclusief status, ernst, contactgegevens en communicatie) of wordt de lijst met ondersteuningstickets voor de verschillende abonnementen opgehaald. |
@@ -5241,7 +5241,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.TimeSeriesInsights/environments/accesspolicies/delete | Hiermee verwijdert u het toegangsbeleid. |
 > | Bewerking | Microsoft.TimeSeriesInsights/environments/accesspolicies/read | Hiermee worden de eigenschappen van een toegangsbeleid. |
@@ -5261,7 +5261,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftvisualstudio"></a>Microsoft.VisualStudio
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.VisualStudio/Account/Delete | Account verwijderen |
 > | Bewerking | Microsoft.VisualStudio/Account/Extension/Read | Lees-/ Accountextensie |
@@ -5280,7 +5280,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftweb"></a>microsoft.web
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | microsoft.web/apimanagementaccounts/apiacls/read | Api Management-Accounts Apiacls ophalen. |
 > | Bewerking | microsoft.web/apimanagementaccounts/apis/apiacls/delete | Api Management Accounts API's Apiacls verwijderen. |
@@ -5675,7 +5675,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tdCol2BreakAll"]
-> | Actietype | Bewerking | Beschrijving |
+> | Actietype | Bewerking | Description |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.WorkloadMonitor/components/read | Hiermee haalt u onderdelen voor de resource |
 > | Bewerking | Microsoft.WorkloadMonitor/componentsSummary/read | Overzicht van onderdelen opgehaald |

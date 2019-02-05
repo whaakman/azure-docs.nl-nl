@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1387e5c1efd85ab0b944f7cffc4fe215eb73f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102152"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734484"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Machtigingen en toestemming in het eindpunt van de Azure Active Directory v1.0
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) maakt uitgebreid gebruik van machtigingen voor
 
 Azure AD definieert twee soorten machtigingen:
 
-* **Gedelegeerde machtigingen** - Deze worden gebruikt door apps met een aangemelde gebruiker. Voor deze apps geeft de gebruiker of een beheerder toestemming voor de machtigingen die de app aanvraagt. De app krijgt vervolgens machtigingen om als de aangemelde gebruiker te handelen wanneer een API wordt aangeroepen. Afhankelijk van de API, de gebruiker wellicht geen toestemming geven voor de API rechtstreeks en in plaats daarvan zou [vereisen dat een beheerder voor 'beheerder toestemming geven'](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Gedelegeerde machtigingen** - Deze worden gebruikt door apps met een aangemelde gebruiker. Voor deze apps geeft de gebruiker of een beheerder toestemming voor de machtigingen die de app aanvraagt. De app krijgt vervolgens machtigingen om als de aangemelde gebruiker te handelen wanneer een API wordt aangeroepen. Afhankelijk van de API, de gebruiker wellicht geen toestemming geven voor de API rechtstreeks en in plaats daarvan zou [vereisen dat een beheerder voor 'beheerder toestemming geven'](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 * **Toepassingsmachtigingen** - Deze worden gebruikt door apps die worden uitgevoerd zonder aangemelde gebruiker, zoals apps die als achtergrondservices of daemons worden uitgevoerd. Toepassingsmachtigingen kunnen alleen worden [verleend door een beheerder](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) omdat ze meestal krachtig zijn en toegang geven tot gegevens die buiten de grenzen van de gebruiker gaan of tot gegevens die anders door beheerders zouden worden beperkt.
 
 Effectieve machtigingen zijn de machtigingen die uw app zal hebben wanneer deze aanvragen bij een API indient. 

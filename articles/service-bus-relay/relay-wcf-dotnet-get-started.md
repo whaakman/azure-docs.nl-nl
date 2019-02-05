@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854113"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728309"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Het gebruik van Azure Relay WCF relays met .NET
 In dit artikel wordt beschreven hoe u de Azure Relay-service gebruiken. De voorbeelden zijn geschreven in C# en maken gebruik van de WCF-API (Windows Communication Foundation) met extensies die deel uitmaken van de Service Bus-assembly. Zie voor meer informatie over Azure relay, de [overzicht van Azure Relay](relay-what-is-it.md).
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-In het voorbeeld maakt u twee eindpunten die deel uitmaken van dezelfde contractimplementatie. Een lokale is en een is geprojecteerd via Azure Relay. De belangrijkste verschillen tussen deze zijn de bindingen; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) voor het lokale eindpunt en [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) voor de relay-eindpunt en de adressen. Het lokale eindpunt heeft een lokaal netwerkadres met een afzonderlijke poort. De relay-eindpunt heeft een eindpuntadres dat bestaat uit de tekenreeks `sb`, naam van uw naamruimte en het pad 'solver'. Dit resulteert in de URI `sb://[serviceNamespace].servicebus.windows.net/solver`, het service-eindpunt te identificeren als een Service Bus (relais) TCP-eindpunt met een volledig gekwalificeerde externe DNS-naam. Als u de code in de `Main`-functie van de **Service**-toepassing plaatst en de tijdelijke aanduidingen vervangt, hebt u een functionele service. Als u uw uitsluitend luisteren naar de relay-service wilt, verwijdert u de declaratie van het lokale eindpunt.
+In het voorbeeld maakt u twee eindpunten die deel uitmaken van dezelfde contractimplementatie. Een lokale is en een is geprojecteerd via Azure Relay. De belangrijkste verschillen tussen deze zijn de bindingen; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) voor het lokale eindpunt en [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) voor de relay-eindpunt en de adressen. Het lokale eindpunt heeft een lokaal netwerkadres met een afzonderlijke poort. De relay-eindpunt heeft een eindpuntadres dat bestaat uit de tekenreeks `sb`, naam van uw naamruimte en het pad 'solver'. Dit resulteert in de URI `sb://[serviceNamespace].servicebus.windows.net/solver`, het service-eindpunt te identificeren als een Service Bus (relais) TCP-eindpunt met een volledig gekwalificeerde externe DNS-naam. Als u de code in de `Main`-functie van de **Service**-toepassing plaatst en de tijdelijke aanduidingen vervangt, hebt u een functionele service. Als u uw uitsluitend luisteren naar de relay-service wilt, verwijdert u de declaratie van het lokale eindpunt.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Een servicehost configureren in het bestand App.config
 U kunt de host ook configureren met het bestand App.config. De servicehostingcode in dit geval wordt weergegeven in het volgende voorbeeld.
@@ -161,7 +161,7 @@ Nadat u deze wijzigingen hebt aangebracht, start de service als voorheen maar me
 
 ### <a name="create-the-client"></a>De client maken
 #### <a name="configure-a-client-programmatically"></a>Een client via een programma configureren
-U kunt voor het verbruik van de service een WCF-client maken met een [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx)-object. Service Bus maakt gebruik van een beveiligingsmodel op basis van tokens dat wordt geïmplementeerd met SAS. De klasse [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) vertegenwoordigt een beveiligingstokenprovider met ingebouwde factorymethoden waarmee een aantal bekende tokenproviders wordt geretourneerd. In het volgende voorbeeld wordt de methode [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) gebruikt voor het verwerken van het ophalen van het juiste SAS-token. De naam en de sleutel zijn verkregen via de portal, zoals beschreven in de vorige sectie.
+U kunt voor het verbruik van de service een WCF-client maken met een [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx)-object. Service Bus maakt gebruik van een beveiligingsmodel op basis van tokens dat wordt geïmplementeerd met SAS. De klasse [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) vertegenwoordigt een beveiligingstokenprovider met ingebouwde factorymethoden waarmee een aantal bekende tokenproviders wordt geretourneerd. In het volgende voorbeeld wordt de methode [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) gebruikt voor het verwerken van het ophalen van het juiste SAS-token. De naam en de sleutel zijn verkregen via de portal, zoals beschreven in de vorige sectie.
 
 Verwijs eerst naar de `IProblemSolver`-contractcode van de service in uw clientproject of kopieer deze.
 

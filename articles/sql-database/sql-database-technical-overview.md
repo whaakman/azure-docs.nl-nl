@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: db5e833ea8ee265053b650433562690194b88771
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: 2711e2ade0e6a7d385f8a3a2adae336e96fbccf3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509062"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729843"
 ---
 # <a name="the-azure-sql-database-service"></a>De service Azure SQL Database
 
@@ -53,7 +53,7 @@ SQL Database biedt voorspelbare prestaties met meerdere resourcetypen, service-l
 
 Met SQL Database, elke database is geïsoleerd van elkaar en draagbaar, elk met een eigen service tier binnen de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) en een gegarandeerde COMPUTE-grootte. SQL Database biedt verschillende grootten voor verschillende behoeften en mogelijkheid om databasepools te maken het gebruik van resources maximaliseren en geld te besparen.
 
-- Met [SQL Database Managed Instance](sql-database-managed-instance.md), elk exemplaar is geïsoleerd van andere exemplaren om zo gegarandeerde resources. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie.
+- Met [instanties die worden beheerd](sql-database-managed-instance.md), elk exemplaar is geïsoleerd van andere exemplaren om zo gegarandeerde resources. Zie voor meer informatie, [SQL-Database beheerd exemplaar](sql-database-managed-instance.md).
 - Met de [grootschalige servicelaag](sql-database-service-tier-hyperscale.md) (preview) in de vCore model aanschaffen, kunt u schalen tot 100 TB met snelle back-up en herstellen van de mogelijkheden.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Prestaties en schaal aanpassen zonder uitvaltijd
@@ -81,7 +81,7 @@ Met elastische pools hoeft u zich niet bezig te houden met het verhogen en verla
 Scripts kunnen helpen bij het bewaken en schalen van elastische pools. Zie [PowerShell gebruiken voor het controleren en schalen van een elastische SQL-pool in Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md) voor een voorbeeld
 
 > [!IMPORTANT]
-> SQL Database Managed Instance biedt geen ondersteuning voor elastische pools.
+> Een beheerd exemplaar biedt geen ondersteuning voor elastische pools. In plaats daarvan wordt een beheerd exemplaar van een verzameling van exemplaar-databases met beheerd exemplaar resources delen.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Individuele databases combineren met gepoolde databases
 
@@ -148,7 +148,7 @@ SQL Database biedt een reeks [ingebouwde functies voor beveiliging en naleving](
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
-Geavanceerde gegevensbeveiliging SQL is een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Het bevat functionaliteit voor het detecteren en classificeren van gevoelige gegevens, het beheren van beveiligingsproblemen in uw database, en het detecteren van afwijkende activiteiten die kunnen duiden op een bedreiging van de database. Het is tevens een centraal punt voor het inschakelen en beheren van deze mogelijkheden.
+Geavanceerde beveiliging is een geïntegreerde-pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Het bevat functionaliteit voor het detecteren en classificeren van gevoelige gegevens, het beheren van beveiligingsproblemen in uw database, en het detecteren van afwijkende activiteiten die kunnen duiden op een bedreiging van de database. Het is tevens een centraal punt voor het inschakelen en beheren van deze mogelijkheden.
 
 - [Gegevensdetectie en classificatie](sql-database-data-discovery-and-classification.md):
 
@@ -158,15 +158,15 @@ Geavanceerde gegevensbeveiliging SQL is een geïntegreerde-pakket voor geavancee
   Deze service kunt detecteren, bijhouden, en kunt u potentiële databaseproblemen oplossen. Deze service biedt u inzicht in de status van de beveiliging en bruikbare stappen om beveiligingsproblemen op te lossen en de beveiliging van uw database te verbeteren.
 - [Detectie van bedreigingen](sql-database-threat-detection.md):
 
-  Deze functie detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van uw database aangeeft. Hiermee wordt uw database continu gecontroleerd op verdachte activiteiten en wordt u onmiddellijk gewaarschuwd bij mogelijke beveiligingsproblemen, SQL-injectieaanvallen en afwijkende databasetoegangspatronen. De waarschuwingen bevatten detailinformatie over verdachte activiteiten en aanbevelingen voor het onderzoeken en tegenhouden ervan.
+  Deze functie detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van uw database aangeeft. Hiermee wordt uw database continu gecontroleerd op verdachte activiteiten en wordt u onmiddellijk gewaarschuwd bij mogelijke beveiligingsproblemen, SQL-injectieaanvallen en afwijkende databasetoegangspatronen. Meldingen voor geconstateerde bedreigingen Geef details op van de verdachte activiteit en geven aanbevelingen voor het onderzoeken en tegenhouden.
 
 ### <a name="auditing-for-compliance-and-security"></a>Controles voor naleving en beveiliging
 
-Met [Azure SQL Database Auditing](sql-database-auditing.md) worden databasegebeurtenissen bijgehouden en naar een auditlogboek in uw Azure Storage-account geschreven. Dankzij controles kunt u zorgen voor naleving van wet- en regelgeving, krijgt u inzicht in de activiteit in uw database en in de afwijkingen en discrepanties die kunnen wijzen op problemen voor het bedrijf of vermoedelijke schendingen van de beveiliging.
+[Controle](sql-database-auditing.md) databasegebeurtenissen bijgehouden en geschreven naar een auditlogboek in uw Azure storage-account. Dankzij controles kunt u zorgen voor naleving van wet- en regelgeving, krijgt u inzicht in de activiteit in uw database en in de afwijkingen en discrepanties die kunnen wijzen op problemen voor het bedrijf of vermoedelijke schendingen van de beveiliging.
 
 ### <a name="data-encryption"></a>Gegevensversleuteling
 
-Uw gegevens worden beveiligd met SQL Database via gegevensversleuteling. Voor gegevens die in beweging zijn, wordt [Transport Layer Security](https://support.microsoft.com/kb/3135244) gebruikt, voor data-at-rest [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) en voor gebruikte gegevens [Altijd versleuteld](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+SQL-Database beveiligt uw gegevens door te geven van versleuteling voor gegevens in beweging met [transport layer security](https://support.microsoft.com/kb/3135244), voor data-at-rest met [transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), en voor gegevens die in gebruik met [ altijd versleuteld](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integratie en meervoudige verificatie
 

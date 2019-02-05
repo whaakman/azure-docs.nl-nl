@@ -15,17 +15,17 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 23fab567fc2fdd5c5c8f3c5d173a5201d3322f81
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512547"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699258"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
 
-De ingebouwde rollen zijn altijd nog in ontwikkeling. Als u de meest recente definities van gebruikersrollen, gebruikt [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) of [az role definitielijst](/cli/azure/role/definition#az-role-definition-list).
+De ingebouwde rollen zijn altijd nog in ontwikkeling. Als u de meest recente definities van gebruikersrollen, gebruikt [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) of [az role definitielijst](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Beschrijvingen van de ingebouwde functies
 De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op de naam van de rol voor een overzicht van `Actions`, `NotActions`, `DataActions`, en `NotDataActions` voor elke rol.

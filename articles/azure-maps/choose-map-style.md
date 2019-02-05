@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 78e3f6a5f4a55fd4bf1925672205eb490e7c6b24
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317106"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695686"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Kies een stijl kaart op Azure-kaarten
 
@@ -33,7 +33,7 @@ Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt een kaa
 
 Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt u een kaartobject zonder vooraf instellen van de stijl. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
-Het tweede codeblok maakt gebruik van de kaart [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) methode om in te stellen van de stijl van de kaart naar satelliet.
+Het tweede codeblok maakt gebruik van de kaart [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) methode om in te stellen van de stijl van de kaart naar satelliet.
 
 ## <a name="add-the-style-picker"></a>De Stijlkiezer toevoegen
 
@@ -44,7 +44,7 @@ Het eerste codeblok in de bovenstaande code stelt de abonnementssleutel en maakt
 
 Het tweede codeblok vormt een stijl selector met behulp van de atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) constructor.
 
-Een stijl kiezen kunt stijl selectie voor de kaart. Het derde codeblok wordt de Stijlkiezer toegevoegd aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. De stijl selector is binnen de kaart **gebeurtenislistener** om ervoor te zorgen dat deze wordt geladen nadat de kaart volledig is geladen.
+Een stijl kiezen kunt stijl selectie voor de kaart. Het derde codeblok wordt de Stijlkiezer toegevoegd aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) methode. De stijl selector is binnen de kaart **gebeurtenislistener** om ervoor te zorgen dat deze wordt geladen nadat de kaart volledig is geladen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

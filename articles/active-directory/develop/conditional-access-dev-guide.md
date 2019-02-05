@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c5df6d1b3480a93a0667aaec0bcf0e171d4a0fe6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b84d7a6f266ffae062d861c53a229225403e07c5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101750"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727990"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Richtlijnen voor ontwikkelaars voor voorwaardelijke toegang van Azure Active Directory
 
@@ -77,7 +77,7 @@ Ontwikkelaars kunnen nemen deze uitdaging en voegt u deze naar een nieuwe aanvra
 
 ### <a name="prerequisites"></a>Vereisten
 
-Voorwaardelijke toegang van Azure AD is een functie die is opgenomen [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). U kunt meer informatie over de licentievereisten in de [rapport met niet-gelicentieerde gebruik](../active-directory-conditional-access-unlicensed-usage-report.md). Ontwikkelaars kunnen deelnemen aan de [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), waaronder een gratis abonnement voor Enterprise Mobility Suite, waaronder Azure AD Premium.
+Voorwaardelijke toegang van Azure AD is een functie die is opgenomen [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). U kunt meer informatie over de licentievereisten in de [rapport met niet-gelicentieerde gebruik](../active-directory-conditional-access-unlicensed-usage-report.md). Ontwikkelaars kunnen deelnemen aan de [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), waaronder een gratis abonnement voor Enterprise Mobility Suite, waaronder Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Overwegingen voor het specifieke scenario 's
 

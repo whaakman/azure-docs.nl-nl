@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 1761dafd04a4b8d27a16af4a5e1b0034b90c51a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656869"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730931"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -50,7 +50,7 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 * De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere Event Grid-gebeurtenissen.
 * De eigenschap type gebeurtenis van de gebeurtenis is `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * De eigenschap gegevens van de gebeurtenis bevat een `validationCode` eigenschap met een willekeurige tekenreeks. Bijvoorbeeld, "validationCode: acb13... '.
-* Als u API-versie 2018-05-01-preview gebruikt, bevat gegevens van de gebeurtenis ook een `validationUrl` eigenschap met een URL voor het handmatig valideren van het abonnement.
+* Gegevens van de gebeurtenis bevat ook een `validationUrl` eigenschap met een URL voor het handmatig valideren van het abonnement.
 * De matrix bevat alleen de validatiegebeurtenis. Andere gebeurtenissen worden verzonden in een afzonderlijke aanvraag nadat u echo terug van de code voor validatie.
 * De EventGrid DataPlane-SDK's zijn klassen die overeenkomt met de abonnement-validatie-gebeurtenisgegevens en abonnement validatie-antwoord.
 

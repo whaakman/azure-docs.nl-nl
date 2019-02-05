@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227017"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735555"
 ---
 Afhankelijk van uw omgeving en de opties, kunt het script alle de clusterinfrastructuur, met inbegrip van het virtuele netwerk van Azure storage-accounts, cloudservices, domeincontroller, lokale of externe SQL-databases, hoofdknooppunt en extra clusterknooppunten maken. U kunt ook het script vooraf bestaande Azure-infrastructuur gebruiken en alleen de knooppunten in de HPC-cluster maken.
 
 Zie voor achtergrondinformatie over het plannen van een HPC Pack-cluster, de [productevaluatie en Planning](https://technet.microsoft.com/library/jj899596.aspx) en [aan de slag](https://technet.microsoft.com/library/jj899590.aspx) inhoud in de TechNet Library voor HPC Pack 2012 R2.
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure-abonnement**: kunt u een abonnement in de globale Azure of Azure China-service. Limieten voor uw abonnement van invloed zijn op het aantal en type van de clusterknooppunten die u kunt implementeren. Zie voor meer informatie, [Azure-abonnement en Servicelimieten, quotums en beperkingen](../articles/azure-subscription-service-limits.md).
+* **Azure-abonnement**: In de globale Azure of Azure China-service kunt u een abonnement. Limieten voor uw abonnement van invloed zijn op het aantal en type van de clusterknooppunten die u kunt implementeren. Zie voor meer informatie, [Azure-abonnement en Servicelimieten, quotums en beperkingen](../articles/azure-subscription-service-limits.md).
 * **Windows-clientcomputer met Azure PowerShell 0.8.10 of hoger is geïnstalleerd en geconfigureerd**: Zie [aan de slag met Azure PowerShell](/powershell/azureps-cmdlets-docs) voor installatie-instructies en stappen om te verbinden met uw Azure-abonnement.
-* **HPC Pack IaaS-implementatiescript**: downloaden en uitpakken van de meest recente versie van het script uit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Controleer de versie van het script door uit te voeren `New-HPCIaaSCluster.ps1 –Version`. In dit artikel is gebaseerd op versie 4.5.2 van het script.
-* **Configuratie van scriptbestand**: maken van een XML-bestand dat het script wordt gebruikt om de HPC-cluster te configureren. Zie voor informatie over en voorbeelden, secties verderop in dit artikel en het bestand Manual.rtf die wordt meegestuurd met het implementatiescript.
+* **HPC Pack IaaS-implementatiescript**: Downloaden en uitpakken van de meest recente versie van het script uit de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Controleer de versie van het script door uit te voeren `New-HPCIaaSCluster.ps1 –Version`. In dit artikel is gebaseerd op versie 4.5.2 van het script.
+* **Configuratie van scriptbestand**: Maak een XML-bestand dat het script wordt gebruikt om de HPC-cluster te configureren. Zie voor informatie over en voorbeelden, secties verderop in dit artikel en het bestand Manual.rtf die wordt meegestuurd met het implementatiescript.
 
 ## <a name="syntax"></a>Syntaxis
 ```PowerShell
@@ -41,9 +41,9 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
   > 
   > 
 * **Het logboekbestand** (optioneel): Hiermee geeft u het pad van het logboek van de implementatie. Indien niet opgegeven, wordt in het script wordt een logboekbestand gemaakt in de map temp van de computer die het script is uitgevoerd.
-* **Force** (optioneel): onderdrukt alle bevestigingspromts.
+* **Force** (optioneel): Onderdrukt de bevestigingspromts.
 * **NoCleanOnFailure** (optioneel): Hiermee geeft u de Azure-VM's die worden niet geïmplementeerd worden niet verwijderd. Deze virtuele machines handmatig verwijderen voordat u het script om door te gaan met de implementatie of de implementatie kan mislukken.
-* **PSSessionSkipCACheck** (optioneel): voor elke cloudservice met virtuele machines die door dit script worden geïmplementeerd, wordt automatisch een zelfondertekend certificaat gegenereerd door Azure en alle virtuele machines in de cloudservice gebruikt dit certificaat als de standaard Windows Extern Certificate Management (WinRM). Voor het implementeren van HPC-functies in deze Azure-VM's, het script wordt standaard tijdelijk installeert u deze certificaten in de lokale Computer\\vertrouwde basiscertificeringsinstanties van de clientcomputer moet worden onderdrukt de fout 'niet-vertrouwde Certificeringsinstantie'-beveiliging tijdens het uitvoeren van script. De certificaten worden verwijderd wanneer het script is voltooid. Als deze parameter is opgegeven, de certificaten zijn niet geïnstalleerd op de clientcomputer en de beveiligingswaarschuwing wordt onderdrukt.
+* **PSSessionSkipCACheck** (optioneel): Een zelfondertekend certificaat wordt automatisch gegenereerd door Azure voor elke cloudservice met virtuele machines die door dit script worden geïmplementeerd, en alle virtuele machines in de cloudservice gebruikt dit certificaat als het certificaat voor standaard Windows Remote Management (WinRM). Voor het implementeren van HPC-functies in deze Azure-VM's, het script wordt standaard tijdelijk installeert u deze certificaten in de lokale Computer\\vertrouwde basiscertificeringsinstanties van de clientcomputer moet worden onderdrukt de fout 'niet-vertrouwde Certificeringsinstantie'-beveiliging tijdens het uitvoeren van script. De certificaten worden verwijderd wanneer het script is voltooid. Als deze parameter is opgegeven, de certificaten zijn niet geïnstalleerd op de clientcomputer en de beveiligingswaarschuwing wordt onderdrukt.
   
   > [!IMPORTANT]
   > Deze parameter wordt niet aanbevolen voor productie-implementaties.

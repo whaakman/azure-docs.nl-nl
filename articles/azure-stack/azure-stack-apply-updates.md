@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ff70b1f8eda7bd48f0fba25aa66db42c15acab54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252129"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729931"
 ---
 # <a name="apply-updates-in-azure-stack"></a>In Azure Stack-updates toepassen
 
@@ -37,6 +37,9 @@ Als een Microsoft- of OEM-updatepakket voor Azure Stack beschikbaar is, het pakk
 - Bijbehorende `<PackageName>.bin` bestanden. Deze bestanden vindt u compressie voor de nettolading die gekoppeld aan de *PackageName*.exe-bestand.
 
 - Een `Metadata.xml` bestand. Dit bestand bevat essentiële informatie over de update, bijvoorbeeld de uitgever, de naam, de vereiste, de grootte en het pad-URL voor ondersteuning.
+
+> [!IMPORTANT]  
+> Nadat de Azure Stack 1901 update-pakket is toegepast, wordt de verpakkingsindeling voor Azure Stack update pacakges worden verplaatst van .exe, .bin(s), en XML-indeling naar een .zip(s) en XML-indeling. Geen invloed op de Azure Stack-operators die verbinding hebben gemaakt van stempels. Azure Stack-operators die niet zijn verbonden wordt de XML- en ZIP-bestanden te importeren met behulp van dezelfde procedure die hieronder worden beschreven.
 
 ## <a name="import-and-install-updates"></a>Importeren en updates installeren
 

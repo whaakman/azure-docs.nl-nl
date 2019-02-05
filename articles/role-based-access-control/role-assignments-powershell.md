@@ -11,35 +11,37 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 31fa2b670b6492b7496c147ef72688c3c0121fa5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4c9bdbcfe07eeee39733b39c074001f5caaa98ba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429715"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700669"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>Toegang met RBAC en Azure PowerShell beheren
 
 [Op rollen gebaseerde toegangsbeheer (RBAC)](overview.md) is de manier waarop u de toegang tot resources in Azure beheert. Dit artikel wordt beschreven hoe u de toegang voor gebruikers, groepen en toepassingen die gebruikmaken van RBAC en Azure PowerShell beheren.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het beheren van toegang, moet u een van de volgende:
 
 * [PowerShell in Azure Cloudshell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-roles"></a>Rollen opvragen
 
 ### <a name="list-all-available-roles"></a>Lijst met alle beschikbare rollen
 
-Aan de lijst met RBAC-rollen die beschikbaar zijn voor toewijzing en gebruiken om te controleren van de bewerkingen die zij toegang verlenen [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Aan de lijst met RBAC-rollen die beschikbaar zijn voor toewijzing en gebruiken om te controleren van de bewerkingen die zij toegang verlenen [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzureRmRoleDefinition | FT Name, Description
+Get-AzRoleDefinition | FT Name, Description
 ```
 
 ```Example
@@ -58,14 +60,14 @@ Automation Operator                               Automation Operators are able 
 
 ### <a name="list-a-specific-role"></a>Lijst met een specifieke rol
 
-U kunt een specifieke rol gebruiken [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+U kunt een specifieke rol gebruiken [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzureRmRoleDefinition <role name>
+Get-AzRoleDefinition <role name>
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleDefinition "Contributor"
+PS C:\> Get-AzRoleDefinition "Contributor"
 
 Name             : Contributor
 Id               : b24988ac-6180-42a0-ab88-20f7382dd24c
@@ -74,61 +76,68 @@ Description      : Lets you manage everything except access to resources.
 Actions          : {*}
 NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
                    Microsoft.Authorization/elevateAccess/Action}
+DataActions      : {}
+NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
 ### <a name="list-a-specific-role-in-json-format"></a>Lijst met een specifieke functie in JSON-indeling
 
-U kunt een specifieke functie in JSON-indeling gebruiken [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+U kunt een specifieke functie in JSON-indeling gebruiken [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzureRmRoleDefinition <role name> | ConvertTo-Json
+Get-AzRoleDefinition <role name> | ConvertTo-Json
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleDefinition "Contributor" | ConvertTo-Json
+PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 
 {
-    "Name":  "Contributor",
-    "Id":  "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "IsCustom":  false,
-    "Description":  "Lets you manage everything except access to resources.",
-    "Actions":  [
-                    "*"
-                ],
-    "NotActions":  [
-                       "Microsoft.Authorization/*/Delete",
-                       "Microsoft.Authorization/*/Write",
-                       "Microsoft.Authorization/elevateAccess/Action"
-                   ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+  "Name": "Contributor",
+  "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "IsCustom": false,
+  "Description": "Lets you manage everything except access to resources.",
+  "Actions": [
+    "*"
+  ],
+  "NotActions": [
+    "Microsoft.Authorization/*/Delete",
+    "Microsoft.Authorization/*/Write",
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"
+  ],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
 }
 ```
 
 ### <a name="list-actions-of-a-role"></a>Lijst met acties van een rol
 
-U kunt de acties voor een specifieke rol gebruiken [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+U kunt de acties voor een specifieke rol gebruiken [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzureRmRoleDefinition <role name> | FL Actions, NotActions
+Get-AzRoleDefinition <role name> | FL Actions, NotActions
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleDefinition "Contributor" | FL Actions, NotActions
+PS C:\> Get-AzRoleDefinition "Contributor" | FL Actions, NotActions
 
 Actions    : {*}
 NotActions : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
-             Microsoft.Authorization/elevateAccess/Action}
+             Microsoft.Authorization/elevateAccess/Action,
+             Microsoft.Blueprint/blueprintAssignments/write...}
 ```
 
 ```azurepowershell
-(Get-AzureRmRoleDefinition <role name>).Actions
+(Get-AzRoleDefinition <role name>).Actions
 ```
 
 ```Example
-PS C:\> (Get-AzureRmRoleDefinition "Virtual Machine Contributor").Actions
+PS C:\> (Get-AzRoleDefinition "Virtual Machine Contributor").Actions
 
 Microsoft.Authorization/*/read
 Microsoft.Compute/availabilitySets/*
@@ -148,14 +157,14 @@ In RBAC, de toegang van de lijst, u lijst maken met de roltoewijzingen.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Lijst-roltoewijzingen voor een bepaald bereik
 
-Hier ziet u alle roltoewijzingen voor een opgegeven abonnement, resourcegroep of resource. Bijvoorbeeld, als alle actieve toewijzingen voor een resourcegroep weergeven, gebruikt [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Hier ziet u alle roltoewijzingen voor een opgegeven abonnement, resourcegroep of resource. Bijvoorbeeld, als alle actieve toewijzingen voor een resourcegroep weergeven, gebruikt [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
+Get-AzRoleAssignment -ResourceGroupName <resource group name>
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleAssignment -ResourceGroupName pharma-sales-projectforecast | FL DisplayName, RoleDefinitionName, Scope
+PS C:\> Get-AzRoleAssignment -ResourceGroupName pharma-sales-projectforecast | FL DisplayName, RoleDefinitionName, Scope
 
 DisplayName        : Alain Charon
 RoleDefinitionName : Backup Operator
@@ -172,36 +181,36 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 
 ### <a name="list-role-assignments-for-a-user"></a>Roltoewijzingen voor een gebruiker weergeven
 
-U kunt alle functies die zijn toegewezen aan een opgegeven gebruiker gebruiken [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+U kunt alle functies die zijn toegewezen aan een opgegeven gebruiker gebruiken [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <email, userprincipalname>
+Get-AzRoleAssignment -SignInName <email, userprincipalname>
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleAssignment -SignInName isabella@example.com | FL DisplayName, RoleDefinitionName, Scope
+PS C:\> Get-AzRoleAssignment -SignInName isabella@example.com | FL DisplayName, RoleDefinitionName, Scope
 
 DisplayName        : Isabella Simonsen
 RoleDefinitionName : BizTalk Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-U kunt alle functies die zijn toegewezen aan een opgegeven gebruiker en de functies die zijn toegewezen aan de groepen waartoe de gebruiker behoort, gebruiken [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+U kunt alle functies die zijn toegewezen aan een opgegeven gebruiker en de functies die zijn toegewezen aan de groepen waartoe de gebruiker behoort, gebruiken [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <email, userprincipalname> -ExpandPrincipalGroups
+Get-AzRoleAssignment -SignInName <email, userprincipalname> -ExpandPrincipalGroups
 ```
 
 ```Example
-Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
+Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
 ### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Lijst-roltoewijzingen voor klassieke servicebeheerder en medebeheerders
 
-Gebruiken om de roltoewijzing voor de klassiek abonnementsbeheerder en medebeheerders te geven [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Gebruiken om de roltoewijzing voor de klassiek abonnementsbeheerder en medebeheerders te geven [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -IncludeClassicAdministrators
+Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
 ## <a name="grant-access"></a>Toegang verlenen
@@ -212,30 +221,30 @@ In RBAC verleent u toegang door een roltoewijzing te maken.
 
 Als u wilt een rol toewijzen, moet u zowel het object (gebruiker, groep of toepassing) en het bereik bepalen.
 
-Als u de abonnements-ID niet weet, kunt u vinden in de **abonnementen** blade in Azure portal of u kunt [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Als u de abonnements-ID niet weet, kunt u vinden in de **abonnementen** blade in Azure portal of u kunt [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
-Als u de object-ID voor een Azure AD-groep, gebruikt [Get-AzureRmADGroup](/powershell/module/azurerm.resources/get-azurermadgroup):
+Als u de object-ID voor een Azure AD-groep, gebruikt [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup):
 
 ```azurepowershell
-Get-AzureRmADGroup -SearchString <group name in quotes>
+Get-AzADGroup -SearchString <group name in quotes>
 ```
 
-Als u de object-ID voor een Azure AD-service-principal of toepassing, gebruikt [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
+Als u de object-ID voor een Azure AD-service-principal of toepassing, gebruikt [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
 ```azurepowershell
-Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
+Get-AzADServicePrincipal -SearchString <service name in quotes>
 ```
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Een roltoewijzing voor een toepassing op het bereik van een abonnement maken
 
-Gebruiken om toegang te verlenen tot een toepassing op het abonnementsbereik, [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Gebruiken om toegang te verlenen tot een toepassing op het abonnementsbereik, [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
+New-AzRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
 ```
 
 ```Example
-PS C:\> New-AzureRmRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
+PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
@@ -250,14 +259,14 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Een roltoewijzing voor een gebruiker met een bereik van de groep resource maken
 
-Gebruiken om toegang te verlenen aan een gebruiker op het groepsbereik resource, [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Gebruiken om toegang te verlenen aan een gebruiker op het groepsbereik resource, [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -SignInName <email, userprincipalname> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
+New-AzRoleAssignment -SignInName <email, userprincipalname> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 ```
 
 ```Example
-PS C:\> New-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
+PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
 
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast/pr
@@ -274,20 +283,20 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Een roltoewijzing voor een groep maken met een resource-bereik
 
-Gebruiken om toegang te verlenen aan een groep in het bereik van de resource, [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Gebruiken om toegang te verlenen aan een groep in het bereik van de resource, [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
+New-AzRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 ```
 
 ```Example
-PS C:\> Get-AzureRmADGroup -SearchString "Pharma"
+PS C:\> Get-AzADGroup -SearchString "Pharma"
 
 SecurityEnabled DisplayName         Id                                   Type
 --------------- -----------         --                                   ----
            True Pharma Sales Admins aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa Group
 
-PS C:\> New-AzureRmRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa -RoleDefinitionName "Virtual Machine Contributor" -ResourceName RobertVirtualNetwork -ResourceType Microsoft.Network/virtualNetworks -ResourceGroupName RobertVirtualNetworkResourceGroup
+PS C:\> New-AzRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa -RoleDefinitionName "Virtual Machine Contributor" -ResourceName RobertVirtualNetwork -ResourceType Microsoft.Network/virtualNetworks -ResourceGroupName RobertVirtualNetworkResourceGroup
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyVirtualNetworkResourceGroup
                      /providers/Microsoft.Network/virtualNetworks/RobertVirtualNetwork/providers/Microsoft.Authorizat
@@ -305,14 +314,14 @@ CanDelegate        : False
 
 ## <a name="remove-access"></a>Toegang intrekken
 
-In RBAC, als u wilt verwijderen van toegang, verwijdert u een roltoewijzing met behulp van [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+In RBAC, als u wilt verwijderen van toegang, verwijdert u een roltoewijzing met behulp van [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
 ```azurepowershell
-Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
+Remove-AzRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 ```
 
 ```Example
-PS C:\> Remove-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
+PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

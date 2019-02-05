@@ -1,6 +1,6 @@
 ---
-title: Gegevens uit een Azure SQL Database-detectie en -classificatie | Microsoft Docs
-description: Gegevens uit een Azure SQL Database-detectie en -classificatie
+title: Azure SQL Database-gegevensdetectie en classificatie | Microsoft Docs
+description: Azure SQL Database-gegevensdetectie en classificatie
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466589"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731849"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasegegevens detectie en classificatie
+# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database-gegevensdetectie en classificatie
 
 Gegevensdetectie en -classificatie (momenteel in preview) biedt geavanceerde mogelijkheden van ingebouwd in Azure SQL Database voor **detecteren**, **classificeren**, **labels**  &  **beveiligen** de gevoelige gegevens in uw databases.
 Detecteren en classificeren van uw meest gevoelige gegevens (business, financiële, gezondheidszorg, persoonlijke gegevens (PII) en enz.) kunnen een cruciale rol spelen in uw organisatie informatie protection-status. Deze kan dienen als infrastructuur voor:
@@ -28,7 +28,7 @@ Detecteren en classificeren van uw meest gevoelige gegevens (business, financië
 - Verschillende security-scenario's, zoals bewaking (controle) en waarschuwingen voor afwijkende toegang tot gevoelige gegevens.
 - Toegang tot beheren en beperken van de beveiliging van databases met zeer gevoelige gegevens.
 
-Gegevensdetectie en classificatie maakt deel uit van de [SQL geavanceerde gegevensbeveiliging](sql-advanced-threat-protection.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. Gegevensdetectie en classificatie kan worden geopend en worden beheerd via de centrale SQL AD-portal.
+Gegevensdetectie en classificatie maakt deel uit van de [geavanceerde gegevensbeveiliging](sql-database-advanced-data-security.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. gegevensdetectie en classificatie kunnen worden geopend en worden beheerd via de centrale SQL AD-portal.
 
 > [!NOTE]
 > Dit document heeft alleen betrekking op Azure SQL Database. Zie voor SQL Server (on-premises) [SQL-gegevensdetectie en classificatie](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -77,7 +77,7 @@ Zodra de tenant-brede, door het beleid is gedefinieerd, kunt u doorgaan met de c
 
 1. Ga naar de [Azure Portal](https://portal.azure.com).
 
-2. Navigeer naar **gegevensbeveiliging geavanceerde** onder de kop van de beveiliging in uw Azure SQL Database-deelvenster. Klik om te schakelen van geavanceerde gegevensbeveiliging, en klik vervolgens op de **gegevensdetectie en -classificatie (preview)** kaart.
+2. Navigeer naar **gegevensbeveiliging geavanceerde** onder de kop van de beveiliging in uw Azure SQL Database-deelvenster. Klik om te schakelen geavanceerde gegevensbeveiliging en klik vervolgens op de **gegevensdetectie en -classificatie (preview)** kaart.
 
    ![Een database controleren](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -147,11 +147,11 @@ U kunt ook REST-API's gebruiken voor het programmatisch beheren van classificati
 
 ## <a id="subheading-5"></a>Volgende stappen
 
-- Meer informatie over [SQL Advanced gegevensbeveiliging](sql-advanced-threat-protection.md).
+- Meer informatie over [geavanceerde beveiliging van gegevens](sql-database-advanced-data-security.md).
 - Overweeg de configuratie van [Azure SQL Database Auditing](sql-database-auditing.md) voor bewaking en controle van toegang tot uw geclassificeerde gevoelige gegevens.
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

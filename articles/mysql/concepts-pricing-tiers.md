@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.openlocfilehash: 145273d48060955005f1d93f30e79014244cf4ba
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 02/01/2019
+ms.openlocfilehash: ff5890dcaf642d51c53b054e986689290be773ca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321378"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699241"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -126,5 +126,5 @@ Zie de service voor de meest recente prijsinformatie [pagina met prijzen](https:
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over het [een MySQL-server maken in de portal](howto-create-manage-server-portal.md).
-- Meer informatie over het [controleren en schalen van een Azure Database for MySQL-server met behulp van Azure CLI](scripts/sample-scale-server.md).
-- Meer informatie over de [service beperkingen](concepts-limits.md).
+- Meer informatie over [Servicelimieten](concepts-limits.md).
+- Meer informatie over het [uitschalen met meer replica's](howto-read-replicas-portal.md).

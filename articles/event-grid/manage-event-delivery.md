@@ -7,20 +7,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: 8660f09c41cf6226f2ffb173508d37c260522b80
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a15797e9b181aa877b6dfa3350e69b210af5885e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474241"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731764"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Dead-letter en beleid voor opnieuw proberen
 
 Bij het maken van een gebeurtenisabonnement, kunt u de instellingen voor de bezorging van gebeurtenissen kunt aanpassen. Dit artikel leest u hoe een dead-letter-locatie instellen en aanpassen van de instellingen voor opnieuw proberen. Zie voor meer informatie over deze functies [bezorging van berichten van Event Grid en probeer het opnieuw](delivery-and-retry.md).
-
-## <a name="install-preview-feature"></a>Preview-functie installeren
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="set-dead-letter-location"></a>Dead-letter uitvoeren voor locatie instellen
 
@@ -29,10 +25,6 @@ Als u wilt een dead-letter-locatie instellen, moet u een opslagaccount voor de o
 ### <a name="azure-cli"></a>Azure-CLI
 
 ```azurecli-interactive
-# If you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 containername=testcontainer
 
 topicid=$(az eventgrid topic show --name demoTopic -g gridResourceGroup --query id --output tsv)
@@ -47,13 +39,12 @@ az eventgrid event-subscription create \
 
 Als u wilt uitschakelen onbestelbare, opnieuw de opdracht om het gebeurtenisabonnement te maken, maar geen waarde opgeeft voor `deadletter-endpoint`. U hoeft niet te verwijderen van het gebeurtenisabonnement.
 
+> [!NOTE]
+> Als u van Azure CLI op uw lokale computer gebruikmaakt, gebruikt u Azure CLI versie 2.0.56 of hoger. Zie voor instructies over het installeren van de meest recente versie van Azure CLI [Azure CLI installeren](/cli/azure/install-azure-cli).
+
 ### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 $containername = "testcontainer"
 
 $topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
@@ -68,6 +59,9 @@ New-AzureRmEventGridSubscription `
 
 Als u wilt uitschakelen onbestelbare, opnieuw de opdracht om het gebeurtenisabonnement te maken, maar geen waarde opgeeft voor `DeadLetterEndpoint`. U hoeft niet te verwijderen van het gebeurtenisabonnement.
 
+> [!NOTE]
+> Als u van Azure PowerShell op uw lokale computer gebruikmaakt, gebruikt u Azure PowerShell versie 1.1.0 of hoger. Download en installeer de nieuwste Azure PowerShell via [Azure downloads](https://azure.microsoft.com/downloads/).
+
 ## <a name="set-retry-policy"></a>Set-beleid voor opnieuw proberen
 
 Bij het maken van een Event Grid-abonnement, kunt u waarden voor hoe lang Event Grid proberen moet te leveren van de gebeurtenis instellen. Standaard probeert Event Grid voor 24 uur (1440 minuten) of 30 keer beter. U kunt een van deze waarden instellen voor uw event grid-abonnement. De waarde voor time-to-live-gebeurtenis moet een geheel getal tussen 1 en 1440 liggen. De waarde voor maximale aantal pogingen moet een geheel getal tussen 1 en 30.
@@ -79,10 +73,6 @@ U kunt geen configureren de [opnieuw plannen](delivery-and-retry.md#retry-schedu
 Om in te stellen de gebeurtenis time-to-live naar een andere waarde dan 1440 minuten, gebruikt u:
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
@@ -109,10 +99,6 @@ Als u zowel `event-ttl` en `max-deliver-attempts`, Event Grid maakt gebruik van 
 Om in te stellen de gebeurtenis time-to-live naar een andere waarde dan 1440 minuten, gebruikt u:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 $topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
 
 New-AzureRmEventGridSubscription `

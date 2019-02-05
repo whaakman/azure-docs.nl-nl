@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554534"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692711"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Overzicht van bedrijfscontinuïteit met Azure Database for MySQL
 
@@ -50,6 +50,6 @@ De andere optie is het gebruik van de Azure Database voor MySQL van geo-restore-
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over de automatische back-ups, [back-ups in Azure Database for MySQL](concepts-backup.md).
-- Als u wilt herstellen naar een eerder tijdstip met behulp van de Azure-portal, Zie [database herstellen naar een eerder tijdstip met behulp van de Azure-portal](howto-restore-server-portal.md).
-- Als u wilt herstellen naar een eerder tijdstip met behulp van Azure CLI, Zie [database herstellen naar een eerder tijdstip met behulp van CLI](howto-restore-server-cli.md).
+- Meer informatie over de [automatische back-ups in Azure Database voor MySQL](concepts-backup.md).
+- Meer informatie over het herstellen met behulp van [de Azure-portal](howto-restore-server-portal.md) of [de Azure CLI](howto-restore-server-cli.md).
+- Meer informatie over [lezen-replica's in Azure Database for MySQL](concepts-read-replicas.md).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 694999048d2f1df92e6b8631953f124c4009d46c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151801"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Zelfstudie: Azure Active Directory-integratie met oneindige Campus
 
@@ -111,7 +111,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](common/editconfigure.png)
 
-5. Op de **SAML-basisconfiguratie** sectie, hebt u **Service Provider-bestand met metagegevens** (gaat u naar stap **11.c**), voer de volgende stappen uit:
+4. Op de **SAML-basisconfiguratie** sectie, hebt u een **Service Provider-bestand met metagegevens**volledige 4. via 4.d stappen en ga vervolgens verder 11.c stap wilt uitvoeren. Als u een bestand met metagegevens voor Service Provider geen hebt, gaat u naar stap 5.
 
     a. Klik op **metagegevensbestand uploaden**.
 
@@ -127,10 +127,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     d. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon (het domein kan verschillen met het Model die als host fungeert): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    > [!NOTE]
-    > U krijgt de **Service Provider-bestand met metagegevens** op de pagina oneindige Campus SSO-configuratie van serviceprovider die later in de zelfstudie wordt uitgelegd. Als u met een nieuwe serviceprovider SAML-configuratie in oneindige Campus begint, gaat u naar **stap 11** om uit te voeren van de uitvoer van het metagegevensbestand van de serviceprovider.
-
-6. Als u geen **Service Provider-bestand met metagegevens**, voer de volgende stappen uit (Let erop dat het domein naargelang het Model die als host fungeert verschillen):
+5. Als u nog geen **Service Provider-bestand met metagegevens**, voer de volgende stappen uit (Let erop dat het domein naargelang het Model die als host fungeert verschillen):
 
     a. Typ in het tekstvak **Aanmeldings-URL** een URL met het volgende patroon: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 

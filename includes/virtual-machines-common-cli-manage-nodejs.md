@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226739"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736219"
 ---
 U hebt een account van Azure nodig als u Azure CLI wilt gebruiken met opdrachten en sjablonen van Resource Manager voor het implementeren van Azure-resources en -werkbelastingen met behulp van resourcegroepen. Als u geen account hebt, kunt u [hier een gratis proefversie starten](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -44,7 +44,7 @@ In dit artikel bevat informatie over eenvoudige opdrachten die u wilt gebruiken 
 | Een VM verwijderen |`azure vm delete [options] <resource_group> <name>` |
 | Een virtuele machine vastleggen |`azure vm capture [options] <resource_group> <name>` |
 | Een VM maken van een gebruikersinstallatiekopie |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Een VM maken van een gespecialiseerde schijf |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Een VM maken van een gespecialiseerde schijf |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | Een gegevensschijf toevoegen aan een VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | Een gegevensschijf verwijderen van een VM |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Een algemene extensie toevoegen aan een VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

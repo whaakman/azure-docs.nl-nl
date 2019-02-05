@@ -1,5 +1,5 @@
 ---
-title: 'Maken van een op route gebaseerde Azure VPN-gateway: CLI | Microsoft Docs'
+title: 'Maak een route gebaseerde Azure VPN-gateway: CLI | Microsoft Docs'
 description: Snel informatie over het maken van een VPN-Gateway met behulp van CLI
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: b8ca2d74012418dbd8ca9e878f133a250ebb5991
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465097"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698187"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Een op route gebaseerde VPN-gateway maken met behulp van CLI
 
@@ -26,7 +26,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een resource-groep met de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Maak een resource-groep met de [az-groep maken](/cli/azure/group) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 
 ```azurecli-interactive 
@@ -35,7 +35,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Een virtueel netwerk maken
 
-Maak een virtueel netwerk met de [az network vnet maken](/cli/azure/network/vnet#az_network_vnet_create) opdracht. Het volgende voorbeeld wordt een virtueel netwerk met de naam **VNet1** in de **EastUS** locatie:
+Maak een virtueel netwerk met de [az network vnet maken](/cli/azure/network/vnet) opdracht. Het volgende voorbeeld wordt een virtueel netwerk met de naam **VNet1** in de **EastUS** locatie:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -56,7 +56,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="PublicIP"></a>Vraag een openbaar IP-adres
@@ -67,12 +67,12 @@ Een VPN-gateway moet een dynamisch toegewezen openbare IP-adres hebben. Het open
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="CreateGateway"></a>De VPN-gateway maken
 
-Maak de VPN Gateway met behulp van de opdracht [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create).
+Maak de VPN Gateway met behulp van de opdracht [az network vnet-gateway create](/cli/azure/group).
 
 Als u deze opdracht met behulp van uitvoert de `--no-wait` parameter, u kunt geen feedback of uitvoer niet ziet. De `--no-wait` parameter zorgt ervoor dat de gateway moet worden gemaakt op de achtergrond. Dit betekent niet dat de VPN-gateway onmiddellijk wordt gemaakt.
 
@@ -172,7 +172,7 @@ Voorbeeld van een reactie:
 ```
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u de resources die u hebt gemaakt niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group#az_group_delete) om de resourcegroep te verwijderen. Hiermee verwijdert u de resourcegroep en alle resources die deze bevat.
+Wanneer u de resources die u hebt gemaakt niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group) om de resourcegroep te verwijderen. Hiermee verwijdert u de resourcegroep en alle resources die deze bevat.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

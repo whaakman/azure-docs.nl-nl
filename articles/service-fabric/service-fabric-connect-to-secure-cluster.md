@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
 ms.author: ryanwi
-ms.openlocfilehash: 55564de4a3c5ff2d3ba3ddc5e68fa3d1b2d51e71
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d4760995d6bcc75bcfb974e4be6d202581828a7e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296389"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694090"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster
 
@@ -174,7 +174,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Verbinding maken met een beveiligd cluster met behulp van een clientcertificaat
 
-De knooppunten in het cluster moeten geldige certificaten waarvan de algemene naam of DNS-naam in het SAN wordt weergegeven in de [RemoteCommonNames eigenschap](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) instellen op [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Deze stappen te volgen, kunt wederzijdse verificatie tussen de client en de clusterknooppunten.
+De knooppunten in het cluster moeten geldige certificaten waarvan de algemene naam of DNS-naam in het SAN wordt weergegeven in de [RemoteCommonNames eigenschap](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) instellen op [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Deze stappen te volgen, kunt wederzijdse verificatie tussen de client en de clusterknooppunten.
 
 ```csharp
 using System.Fabric;

@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462797"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734620"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens
 
-Azure SQL Database, elastische pools Managed Instance en databases in Managed Instance kunnen stream metrische gegevens en diagnostische logboeken voor prestatiebewaking van eenvoudiger. U kunt een database om te verzenden, Resourcegebruik, werkrollen en sessies en connectiviteit met een van de volgende Azure-resources configureren:
+Individuele databases, gepoolde databases in elastische pools en databases van de instantie in een beheerd exemplaar kunnen stream metrische gegevens en diagnostische logboeken voor prestatiebewaking van eenvoudiger. U kunt een database om te verzenden, Resourcegebruik, werkrollen en sessies en connectiviteit met een van de volgende Azure-resources configureren:
 
 - **Azure SQL Analytics**: aan de intelligente bewaking van uw Azure SQL-databases met rapporten, waarschuwingen en risicobeperking aanbevelingen.
 - **Azure Event Hubs**: SQL Database-telemetrie integreren met uw aangepaste bewakingsoplossingen of actieve pijplijnen.
@@ -34,7 +34,7 @@ Zie voor meer informatie over de metrische gegevens en logboekbestanden categori
 - [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Overzicht van diagnostische logboeken van Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
-Dit artikel bevat richtlijnen om u te helpen u bij het inschakelen van diagnostische gegevens telemetrie voor databases, elastische pools en Managed Instance. Ook kunt u informatie over het configureren van Azure SQL Analytics als een hulpprogramma voor bewaking voor het weergeven van database-telemetrie voor diagnostische gegevens.
+Dit artikel bevat richtlijnen om u te helpen u bij het inschakelen van diagnostische gegevens telemetrie voor Azure SQL-databases, elastische pools en beheerde exemplaren. Ook kunt u informatie over het configureren van Azure SQL Analytics als een hulpprogramma voor bewaking voor het weergeven van database-telemetrie voor diagnostische gegevens.
 
 ## <a name="enable-logging-of-diagnostics-telemetry"></a>Logboekregistratie van diagnostische gegevens telemetrie inschakelen
 
@@ -55,15 +55,15 @@ Wanneer u metrische gegevens en logboekregistratie van diagnostische gegevens in
 U kunt inrichten van een nieuwe Azure-resource of Selecteer een bestaande resource. Nadat u een resource met behulp van de **diagnostische instellingen** optie, Geef op welke gegevens te verzamelen.
 
 > [!NOTE]
-> Als u ook van elastische pools of Managed Instance gebruikmaakt, raden wij u diagnostische gegevens telemetrie voor deze resources ook inschakelen. Database-containers in elastische pools en Managed Instance hebben hun eigen afzonderlijke diagnostische gegevens telemetrie.
+> Als u ook van elastische pools of een beheerd exemplaar gebruikmaakt, wordt u aangeraden dat u diagnostische gegevens telemetrie voor deze resources ook inschakelen. Database-containers in elastische pools en een beheerd exemplaar hebben hun eigen afzonderlijke diagnostische gegevens telemetrie.
 
-## <a name="enable-logging-for-azure-sql-database-or-databases-in-managed-instance"></a>Logboekregistratie inschakelen voor Azure SQL Database of databases in het beheerde exemplaar
+## <a name="enable-logging-for-azure-sql-databases"></a>Logboekregistratie inschakelen voor Azure SQL-databases
 
-De metrische gegevens en logboekregistratie van diagnostische gegevens over SQL-Database en databases in het beheerde exemplaar; inschakelen ze zijn niet standaard ingeschakeld.
+De metrische gegevens en diagnostische gegevens van logboekregistratie voor SQL-databases inschakelen: deze zijn niet standaard ingeschakeld.
 
-U kunt Azure SQL-Databases en databases in het beheerde exemplaar instellen om de volgende diagnostische gegevens telemetrie te verzamelen:
+U kunt Azure SQL-databases voor het verzamelen van de volgende diagnostische gegevens telemetrie instellen:
 
-| Telemetrie voor databases bewaken | Ondersteuning van Azure SQL-Database | Database in de Managed Instance-ondersteuning |
+| Telemetrie voor databases bewaken | Individuele databases en gepoolde database-ondersteuning | Ondersteuning voor instance beheerd |
 | :------------------- | ------------------- | ------------------- |
 | [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics): Bevat DTU/CPU-percentage, DTU/CPU-limiet, fysieke logboek schrijven gegevens gelezen percentage, percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage en XTP-opslagpercentage. | Ja | Nee |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Bevat informatie over de query duur statistieken en de query-runtime-statistieken, zoals CPU-gebruik. | Ja | Ja |
@@ -76,61 +76,61 @@ U kunt Azure SQL-Databases en databases in het beheerde exemplaar instellen om d
 
 ### <a name="azure-portal"></a>Azure Portal
 
-U gebruikt de **diagnostische instellingen** menu voor elk van de databases in de Azure portal voor het configureren van het streamen van diagnostische gegevens telemetrie voor Azure SQL-Databases en databases in het beheerde exemplaar. U kunt de volgende bestemmingen instellen: Azure Storage, Azure Eventhubs en Azure Log Analytics.
+U gebruikt de **diagnostische instellingen** menu voor elk één, gegroepeerd, of het exemplaar van de database in de Azure portal voor het configureren van het streamen van diagnostische gegevens telemetrie voor Azure SQL-databases. U kunt de volgende bestemmingen instellen: Azure Storage, Azure Eventhubs en Azure Log Analytics.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-azure-sql-database"></a>Streaming van diagnostische gegevens telemetrie voor Azure SQL Database configureren
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-pooled-or-instance-databases"></a>Configureren van diagnostische gegevens telemetrie voor één streamen, gepoold of databases-exemplaar
 
    ![Pictogram van een SQL-Database](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor Azure SQL Database, de volgende stappen uit:
+Voor het inschakelen van diagnostische gegevens telemetrie voor één streaming gegroepeerd, of databases-exemplaar, als volgt te werk:
 
-1. Ga naar uw Azure SQL Database-resource.
+1. Ga naar uw Azure SQL database-resource.
 1. Selecteer **diagnostische instellingen**.
 1. Selecteer **diagnostische gegevens inschakelen** als er geen vorige instellingen bestaat, of selecteer **instelling bewerken** bewerken van een vorige instelling.
    - U kunt maximaal drie parallelle verbindingen met diagnostische telemetrie van stroom maken.
    - Selecteer **+ diagnostische instelling toevoegen** parallelle streaming van diagnostische gegevens naar meerdere resources configureren.
 
-   ![Diagnostische gegevens inschakelen voor SQL-Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+   ![Inschakelen van diagnostische gegevens voor één, gepoold of databases-exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. Voer een instellingnaam in voor uw eigen referentie.
 1. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
 1. Voor de standaard, op basis van gebeurtenissen bewakingservaring, selecteert u de volgende selectievakjes uit voor databasetelemetrie diagnostische gegevens over log: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **fouten** , **DatabaseWaitStatistics**, **time-outs**, **blokken**, en **impassen**.
 1. Voor een geavanceerde, op basis van een-minuut bewakingservaring, schakel het selectievakje voor **AllMetrics**.
 1. Selecteer **Opslaan**.
 
-   ![Diagnostische gegevens voor SQL Database configureren](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![Configureren van diagnostische gegevens voor één, gepoold of databases-exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Auditlogboeken voor beveiliging kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [SQL Audit-Logboeken in Azure Log Analytics en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Auditlogboeken voor beveiliging kunnen niet worden ingeschakeld vanuit de database-instellingen voor diagnostische gegevens. Inschakelen van controle logboekstreaming [controle voor uw database instellen](sql-database-auditing.md#subheading-2), en [controlelogboeken in Azure Log Analytics en Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Herhaal deze stappen voor elke Azure SQL-Database die u wilt bewaken.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-databases-in-managed-instance"></a>Configureer streaming van diagnostische gegevens telemetrie voor databases in het beheerde exemplaar
+### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases-in-managed-instance"></a>Configureer streaming van diagnostische gegevens telemetrie bijvoorbeeld databases in een beheerd exemplaar
 
-   ![Database in de Managed Instance-pictogram](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+   ![Exemplaar in de database in het beheerde exemplaar pictogram](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
 
-Volg deze stappen zodat streaming van diagnostische gegevens telemetrie voor databases in het beheerde exemplaar:
+Volg deze stappen zodat streaming van diagnostische gegevens telemetrie bijvoorbeeld databases in het beheerde exemplaar:
 
-1. Ga naar de database in het beheerde exemplaar.
+1. Ga naar uw exemplaar in de database in het beheerde exemplaar.
 2. Selecteer **diagnostische instellingen**.
 3. Selecteer **diagnostische gegevens inschakelen** als er geen vorige instellingen bestaat, of selecteer **instelling bewerken** bewerken van een vorige instelling.
    - U kunt maximaal drie (3) parallelle verbindingen met stream diagnostische gegevens telemetrie kunt maken.
    - Selecteer **+ diagnostische instelling toevoegen** parallelle streaming van diagnostische gegevens naar meerdere resources configureren.
 
-   ![Diagnostische gegevens voor beheerd exemplaar van database inschakelen](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Diagnostische gegevens over bijvoorbeeld databases inschakelen](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
 4. Voer een instellingnaam in voor uw eigen referentie.
 5. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
 6. Schakel de selectievakjes voor databasetelemetrie diagnostische gegevens: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** en **fouten**.
 7. Selecteer **Opslaan**.
 
-   ![Diagnostische gegevens voor beheerd exemplaar in de database configureren](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Diagnostische gegevens over bijvoorbeeld databases configureren](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
 > [!TIP]
-> Herhaal deze stappen voor elke database in het beheerde exemplaar u wilt bewaken.
+> Herhaal deze stappen voor elk exemplaar dat u wilt bewaken.
 
-## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>Logboekregistratie inschakelen voor elastische pools of Managed Instance
+## <a name="enable-logging-for-elastic-pools-or-managed-instances"></a>Logboekregistratie inschakelen voor elastische pools of beheerde exemplaren
 
-Schakel diagnostische telemetrie voor elastische pools en beheerd exemplaar als database containers. Ze hebben hun eigen diagnostische gegevens telemetrie die standaard is niet ingeschakeld.
+Schakel diagnostische telemetrie voor elastische pools en beheerde exemplaren als database containers. Ze hebben hun eigen diagnostische gegevens telemetrie die standaard is niet ingeschakeld.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Streaming van diagnostische gegevens telemetrie voor elastische pools configureren
 
@@ -161,23 +161,23 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 > [!TIP]
 > Herhaal deze stappen voor elke elastische groep die u wilt bewaken.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instance"></a>Configureer streaming van diagnostische gegevens telemetrie voor beheerd exemplaar
+### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Configureer streaming van diagnostische gegevens telemetrie voor beheerde exemplaren
 
-   ![Pictogram van het beheerde exemplaar](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
+   ![Pictogram voor beheerd exemplaar](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
 
-U kunt een Managed Instance-resource instellen om de volgende diagnostische gegevens telemetrie te verzamelen:
+U kunt de resource van een beheerd exemplaar voor het verzamelen van de volgende diagnostische gegevens telemetrie instellen:
 
 | Resource | Bewaking van telemetrie |
 | :------------------- | ------------------- |
 | **Beheerd exemplaar** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) bevat het aantal vCores, gemiddelde CPU-percentage, i/o-aanvragen, bytes gelezen of weggeschreven, gereserveerde opslagruimte en opslagruimte gebruikt. |
 
-Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor een Managed Instance-resource, de volgende stappen uit:
+Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor de resource van een beheerd exemplaar, de volgende stappen uit:
 
-1. Ga naar de Managed Instance-resource in Azure portal.
+1. Ga naar de resource beheerd exemplaar in Azure portal.
 1. Selecteer **diagnostische instellingen**.
 1. Selecteer **diagnostische gegevens inschakelen** als er geen vorige instellingen bestaat, of selecteer **instelling bewerken** bewerken van een vorige instelling.
 
-   ![Diagnostische gegevens inschakelen voor beheerd exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
+   ![Diagnostische gegevens voor het beheerde exemplaar inschakelen](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 1. Voer een instellingnaam in voor uw eigen referentie.
 1. Selecteer een doelresource voor de streaminggegevens van diagnostische gegevens: **Archiveren naar opslagaccount**, **Stream naar een event hub**, of **verzenden naar Log Analytics**.
@@ -185,10 +185,10 @@ Als u wilt inschakelen voor streaming van diagnostische gegevens telemetrie voor
 1. Schakel het selectievakje bijvoorbeeld diagnostische gegevens telemetrie: **ResourceUsageStats**.
 1. Selecteer **Opslaan**.
 
-   ![Diagnostische gegevens configureren voor Managed Instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+   ![Configureren van diagnostische gegevens voor het beheerde exemplaar](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
-> Herhaal deze stappen voor elk beheerd exemplaar u wilt bewaken.
+> Herhaal deze stappen voor elke beheerde instantie die u wilt bewaken.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -284,7 +284,7 @@ Meer informatie over hoe u [diagnostische instellingen bij het maken van resourc
 
 ## <a name="stream-into-azure-sql-analytics"></a>Stream in Azure SQL-analyse
 
-Azure SQL Analytics is een cloudoplossing waarmee de prestaties van Azure SQL-databases, elastische pools en beheerd exemplaar voor meerdere abonnementen op schaal worden gecontroleerd. Kunt u het verzamelen en visualiseren van Azure SQL Database-maatstaven voor prestaties en het beschikt over ingebouwde intelligentie voor het oplossen van prestaties.
+Azure SQL Analytics is een cloudoplossing waarmee de prestaties van Azure SQL-databases, elastische pools en beheerde exemplaren op schaal en voor meerdere abonnementen worden gecontroleerd. Kunt u het verzamelen en visualiseren van Azure SQL Database-maatstaven voor prestaties en het beschikt over ingebouwde intelligentie voor het oplossen van prestaties.
 
 ![Overzicht van Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
@@ -298,7 +298,7 @@ U kunt een vloot SQL-Database met Azure SQL Analytics controleren. Voer de volge
 2. Maak een werkruimte voor bewaking in de oplossing.
 3. Configureer databases naar stream diagnostische gegevens telemetrie in de werkruimte.
 
-Als u van elastische pools of Managed Instance gebruikmaakt, moet u ook het configureren van diagnostische gegevens telemetrie streaming van deze resources.
+Als u van elastische pools gebruikmaakt of instanties die worden beheerd, moet u ook het configureren van diagnostische gegevens telemetrie streaming van deze resources.
 
 ### <a name="create-azure-sql-analytics-resource"></a>Azure SQL Analytics-resource maken
 
@@ -318,7 +318,7 @@ Als u van elastische pools of Managed Instance gebruikmaakt, moet u ook het conf
 
 De eenvoudigste manier om te configureren waarin de metrische gegevens voor het registreren van databases is met behulp van de Azure-portal. Zoals eerder beschreven, gaat u naar de resource van uw SQL-Database in Azure portal en selecteer **diagnostische instellingen**.
 
-Als u van elastische pools of Managed Instance gebruikmaakt, moet u ook het configureren van instellingen voor diagnostische gegevens in de volgende bronnen voor het inschakelen van de telemetrie van Azure diagnostics streamen naar de werkruimte.
+Als u van elastische pools gebruikmaakt of instanties die worden beheerd, moet u ook de diagnostische instellingen configureren in de volgende bronnen voor het inschakelen van de telemetrie van Azure diagnostics streamen naar de werkruimte.
 
 ### <a name="use-the-sql-analytics-solution"></a>De oplossing SQL Analytics gebruiken
 
@@ -403,9 +403,9 @@ Raadpleeg de volgende tabellen voor meer informatie over alle metrische gegevens
 |---|---|
 |Azure SQL Database|DTU-percentage, DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, percentage van XTP-opslag, en impassen |
 
-## <a name="logs-for-managed-instance"></a>Logboeken voor het beheerde exemplaar
+## <a name="logs-for-managed-instances"></a>Logboeken voor beheerde exemplaren
 
-Raadpleeg de volgende tabel voor meer informatie over de logboeken voor beheerd exemplaar.
+Raadpleeg de volgende tabel voor meer informatie over de logboeken voor beheerde exemplaren.
 
 ### <a name="resource-usage-statistics"></a>Statistieken voor het gebruik van resource
 
@@ -423,18 +423,18 @@ Raadpleeg de volgende tabel voor meer informatie over de logboeken voor beheerd 
 |ResourceGroup|Naam van de resourcegroep voor de database |
 |LogicalServerName_s|Naam van het beheerde exemplaar |
 |ResourceId|Resource-URI |
-|SKU_s|Beheerde exemplaar product-SKU |
+|SKU_s|Beheerd exemplaar product-SKU |
 |virtual_core_count_s|Het aantal vCores beschikbaar |
 |avg_cpu_percent_s|Gemiddelde CPU-percentage |
-|reserved_storage_mb_s|Gereserveerde opslagcapaciteit op Managed Instance |
-|storage_space_used_mb_s|Gebruikte opslag op Managed Instance |
+|reserved_storage_mb_s|Gereserveerde capaciteit op het beheerde exemplaar |
+|storage_space_used_mb_s|Gebruikte opslag op het beheerde exemplaar |
 |io_requests_s|Aantal IOPS |
 |io_bytes_read_s|Gelezen IOP's bytes |
 |io_bytes_written_s|Aantal geschreven bytes van IOPS |
 
-## <a name="logs-for-azure-sql-databases-and-managed-instance-databases"></a>Logboeken voor Azure SQL-Databases en Managed Instance-databases
+## <a name="logs-for-single-pooled-and-instance-databases"></a>Logboeken voor één, samengevoegd, en het exemplaar van databases
 
-Raadpleeg de volgende tabellen voor meer informatie over de logboeken voor Azure SQL- en Managed Instance-databases.
+Raadpleeg de volgende tabellen voor meer informatie over de logboeken voor Azure SQL-één, samengevoegd, en het exemplaar van databases.
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
 

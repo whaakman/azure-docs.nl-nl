@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285643"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701179"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>De onderdelen van het schema van het Apparaatmodel
 
@@ -46,7 +46,7 @@ U vindt de schema-bestanden voor de gesimuleerde standaardapparaten in de [devic
 
 De volgende tabel beschrijft de vermeldingen op het hoogste niveau schema:
 
-| Schema-item | Beschrijving |
+| Schema-item | Description |
 | -- | --- |
 | `SchemaVersion` | De schemaversie is altijd `1.0.0` en specifiek is voor de indeling van dit bestand. |
 | `Id` | Een unieke ID voor dit Apparaatmodel. |
@@ -92,7 +92,7 @@ Het volgende voorbeeld bevat de definitie van het apparaat staat-object voor een
 
 De simulatie van de service wordt uitgevoerd de **Koelunit-01-state.js** bestand om de vijf seconden voor het bijwerken van de apparaatstatus. U ziet de JavaScript-bestanden voor de gesimuleerde standaardapparaten in de [scriptmap](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) op GitHub. Volgens de conventies wordt deze JavaScript-bestanden hebben het achtervoegsel **-status** ze te onderscheiden van de bestanden die het gedrag van de methode worden geïmplementeerd.
 
-## <a name="properties"></a>Eigenschappen
+## <a name="properties"></a>Properties
 
 De `Properties` sectie van het schema worden gedefinieerd de eigenschapswaarden die het apparaat aan de oplossing rapporteert. Bijvoorbeeld:
 
@@ -105,7 +105,7 @@ De `Properties` sectie van het schema worden gedefinieerd de eigenschapswaarden 
 }
 ```
 
-Wanneer de oplossing wordt gestart, vraagt de gesimuleerde apparaten voor het bouwen van een lijst met `Type` waarden worden gebruikt in de gebruikersinterface. De oplossing maakt gebruik van de `Latitiude` en `Longitude` eigenschappen van de locatie van het apparaat toevoegen aan de kaart op het dashboard.
+Wanneer de oplossing wordt gestart, vraagt de gesimuleerde apparaten voor het bouwen van een lijst met `Type` waarden worden gebruikt in de gebruikersinterface. De oplossing maakt gebruik van de `Latitude` en `Longitude` eigenschappen van de locatie van het apparaat toevoegen aan de kaart op het dashboard.
 
 ## <a name="telemetry"></a>Telemetrie
 
@@ -140,11 +140,11 @@ Het volgende voorbeeld wordt een JSON-telemetrie-bericht verzonden elke tien sec
 U kunt op dit moment alleen JSON berichtschema's gebruiken. De velden die worden vermeld in het schema kunnen van de volgende typen zijn:
 
 * Object - geserialiseerd met de JSON
-* Binair - geserialiseerd met de met base64
+* Binary - serialized using base64
 * Tekst
 * Booleaans
 * Geheel getal
-* Double-waarde
+* Double
 * DateTime
 
 Toevoegen voor het verzenden van berichten over telemetrie met verschillende intervallen, meerdere telemetrietypen voor de `Telemetry` matrix. Het volgende voorbeeld temperatuur en vochtigheid gegevens verzendt elke 10 seconden en de status van het licht elke minuut:

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 817e95dc8f00fd791079a6ae3521f312c4c1822b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 86a00eddb9951af26120d260fa0e755aaa72295d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094849"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731832"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Verschillen tussen de machtigingen voor gedelegeerde en toepassing herkennen
 
 ## <a name="recommended-documents"></a>Aanbevolen documenten
 
 - Meer informatie over het gebruik van clienttoepassingen [gedelegeerd en toepassing machtigingsaanvragen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) voor toegang tot resources.
-- Zie de stapsgewijze instructies over het [machtigingsaanvragen een clienttoepassing configureren](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-a-client-application-to-access-web-apis)
+- Zie de stapsgewijze instructies over het [machtigingsaanvragen een clienttoepassing configureren](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 - Informatie over hoe resource toepassingen beschikbaar maakt voor meer diepgang [scopes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) en [toepassingsrollen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) clienttoepassingen, zoals overgedragen manifest en de machtigingen van de toepassing respectievelijk in Azure Portal. 
 
 ## <a name="next-steps"></a>Volgende stappen

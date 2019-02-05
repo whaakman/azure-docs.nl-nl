@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712055"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701009"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Bouw geavanceerde schema's en herhalingen voor taken in Azure Scheduler
 
@@ -26,11 +26,11 @@ Binnen een [Azure Scheduler](../scheduler/scheduler-intro.md) taak, de planning 
 
 * **Opschonen van gegevens regelmatig**: Maak een dagelijkse taak die wordt verwijderd van alle tweets die ouder is dan drie maanden.
 
-* **Gegevens archiveren**: maken van een maandelijkse taak dat pushes Geschiedenis om een back-upservice te factureren.
+* **Gegevens archiveren**: Maak een maandelijkse taak dat pushes Geschiedenis om een back-upservice te factureren.
 
-* **Externe gegevens opvraagt**: maken van een taak die wordt uitgevoerd om de 15 minuten en haalt een nieuwe weerrapport van NOAA.
+* **Externe gegevens opvraagt**: Maak een taak die wordt uitgevoerd om de 15 minuten en haalt een nieuwe weerrapport van NOAA.
 
-* **Afbeeldingen verwerken**: maken van een weekdag-taak die wordt uitgevoerd tijdens de daluren en maakt gebruik van cloudcomputing voor het comprimeren van afbeeldingen geüpload gedurende de dag.
+* **Afbeeldingen verwerken**: Maak een weekdag-taak die wordt uitgevoerd tijdens de daluren en maakt gebruik van cloudcomputing voor het comprimeren van afbeeldingen geüpload gedurende de dag.
 
 Dit artikel wordt beschreven voorbeeld van de taken die u maken kunt met behulp van Scheduler en de [Azure Scheduler REST API](/rest/api/scheduler), en bevat de definitie van de JavaScript Object Notation (JSON) voor elke planning. 
 
@@ -53,9 +53,9 @@ Dit artikel beschrijft later deze scenario's in meer detail.
 
 Het maken van een eenvoudige planning met de [Azure Scheduler REST API](/rest/api/scheduler), als volgt te werk:
 
-1. Uw Azure-abonnement met een resourceprovider registreren met behulp van de [bewerking - Resource Manager REST-API registreren](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). De naam van de provider voor de Azure Scheduler-service is **Microsoft.Scheduler**. 
+1. Uw Azure-abonnement met een resourceprovider registreren met behulp van de [bewerking - Resource Manager REST-API registreren](https://docs.microsoft.com/rest/api/resources/providers). De naam van de provider voor de Azure Scheduler-service is **Microsoft.Scheduler**. 
 
-1. Een jobverzameling maken met behulp van de [bewerking voor maken of bijwerken voor taakverzamelingen](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) in de Scheduler REST API. 
+1. Een jobverzameling maken met behulp van de [bewerking voor maken of bijwerken voor taakverzamelingen](https://docs.microsoft.com/rest/api/scheduler/jobcollections) in de Scheduler REST API. 
 
 1. Een taak maken met behulp van de [bewerking voor maken of bijwerken voor taken](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
@@ -63,7 +63,7 @@ Het maken van een eenvoudige planning met de [Azure Scheduler REST API](/rest/ap
 
 Deze tabel bevat een overzicht op hoog niveau voor de belangrijkste JSON-elementen die u gebruiken kunt bij het instellen van het terugkeerpatroon en schema's voor taken. 
 
-| Element | Vereist | Beschrijving | 
+| Element | Vereist | Description | 
 |---------|----------|-------------|
 | **startTime** | Nee | Een datum/tijd-tekenreeks-waarde in [ISO 8601-notatie](http://en.wikipedia.org/wiki/ISO_8601) die aangeeft wanneer de taak eerst wordt gestart in een eenvoudige planning. <p>In complexe planningen begint de taak niet eerder dan **startTime**. | 
 | **recurrence** | Nee | Het terugkeerpatroon van de regels voor wanneer de taak wordt uitgevoerd. De **terugkeerpatroon** object ondersteunt deze elementen: **frequentie**, **interval**, **planning**, **aantal**, en **endTime**. <p>Als u de **terugkeerpatroon** -element, moet u ook gebruiken de **frequentie** -element, terwijl andere **terugkeerpatroon** elementen zijn optioneel. |
@@ -159,7 +159,7 @@ Als u meer dan één schema-element worden opgegeven, de volgorde van de evaluat
 
 In de volgende tabel worden de schedule-elementen in detail beschreven:
 
-| JSON-naam | Beschrijving | Geldige waarden |
+| JSON-naam | Description | Geldige waarden |
 |:--- |:--- |:--- |
 | **minutes** |Minuten van het uur waarop de taak wordt uitgevoerd. |Een matrix met gehele getallen. |
 | **hours** |Uur van de dag waarop de taak wordt uitgevoerd. |Een matrix met gehele getallen. |
@@ -173,7 +173,7 @@ De volgende voorbeelden tonen verschillende schema's voor uitvoeringen. De voorb
 
 Deze schema's wordt ervan uitgegaan dat **interval** is ingesteld op 1\. De voorbeelden ook wordt ervan uitgegaan dat de juiste **frequentie** waarden voor de waarden in **planning**. Bijvoorbeeld, u kunt niet gebruiken een **frequentie** 'dag' en hebben een **monthDays** wijziging in **planning**. Deze beperkingen eerder in dit artikel wordt beschreven.
 
-| Voorbeeld | Beschrijving |
+| Voorbeeld | Description |
 |:--- |:--- |
 | `{"hours":[5]}` |Elke dag om 5 uur worden uitgevoerd.<br /><br />Scheduler komt overeen met elke waarde in 'uur' met elke waarde in 'minuten', één voor één, maakt u een lijst van de tijden waarop de taak wordt uitgevoerd. |
 | `{"minutes":[15], "hours":[5]}` |Wordt elke dag om 5:15 uur uitgevoerd. |

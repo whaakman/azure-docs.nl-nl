@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 15beebb3ef6fda098c3f540f945fc3d6b836e517
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246244"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697953"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -65,7 +65,7 @@ Grafiek biedt alleen ondersteuning voor integratie met één Active Directory-fo
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN-naam van het doel van Active Directory-forest<br>dat u integreren wilt met|Contoso.com|
 |CustomADAdminCredentials|Een gebruiker met de machtiging lezen voor LDAP|YOURDOMAIN\graphservice|
@@ -130,7 +130,7 @@ Graph-service in Azure Stack maakt gebruik van de volgende protocollen en poorte
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
 |CustomAdfsName|De naam van de claimprovider.<br>Op die manier op de startpagina van de AD FS wordt deze weergegeven.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Federatieve metagegevens van koppeling|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
@@ -169,7 +169,7 @@ Vanaf versie 1807, gebruik deze methode als een van de volgende voorwaarden vold
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
 
-|Parameter|Beschrijving|Voorbeeld|
+|Parameter|Description|Voorbeeld|
 |---------|---------|---------|
 |CustomAdfsName|De naam van de claimprovider. Op die manier op de startpagina van de AD FS wordt deze weergegeven.|Contoso|
 |CustomADFSFederationMetadataFileContent|De metagegevens van inhoud|$using:federationMetadataFileContent|
@@ -306,7 +306,7 @@ Er zijn veel scenario's waarvoor het gebruik van een service principal name (SPN
 > [!Important]  
 > AD FS ondersteunt alleen interactief aanmeldingssessies. Als u een niet-interactieve aanmelding voor een geautomatiseerde scenario vereist, moet u een SPN-naam gebruiken.
 
-Zie voor meer informatie over het maken van een SPN [service-principal maken voor AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Zie voor meer informatie over het maken van een SPN [service-principal maken voor AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen

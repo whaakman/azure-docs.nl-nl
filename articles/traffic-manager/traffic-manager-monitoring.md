@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 40852b9457e703334350402489feb68ac92832a0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199627"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693784"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -27,7 +27,7 @@ Als u wilt controleren-eindpunt configureren, moet u de volgende instellingen op
 
 * **Protocol**. Kies HTTP, HTTPS of TCP als protocol gebruikt bij het scannen van het eindpunt van Traffic Manager, om te controleren of de status. Bewaking van HTTPS wordt niet gecontroleerd dat of uw SSL-certificaat geldig is--er alleen wordt gecontroleerd of het certificaat aanwezig is.
 * **Poort**. Kies de poort die wordt gebruikt voor de aanvraag.
-* **Pad**. Deze configuratie-instelling is alleen geldig voor de protocollen HTTP en HTTPS, voor welke opgeven van het pad naar de instelling vereist is. Het leveren van deze instelling voor de TCP-protocol resulteert in een fout bewaking. Geef het relatieve pad en de naam van de webpagina of het bestand dat gebruikmaakt van de bewaking voor HTTP en HTTPS-protocol. Een slash (/) is een geldige vermelding voor het relatieve pad. Deze waarde geeft aan dat het bestand in de hoofdmap (standaard is).
+* **Path**. Deze configuratie-instelling is alleen geldig voor de protocollen HTTP en HTTPS, voor welke opgeven van het pad naar de instelling vereist is. Het leveren van deze instelling voor de TCP-protocol resulteert in een fout bewaking. Geef het relatieve pad en de naam van de webpagina of het bestand dat gebruikmaakt van de bewaking voor HTTP en HTTPS-protocol. Een slash (/) is een geldige vermelding voor het relatieve pad. Deze waarde geeft aan dat het bestand in de hoofdmap (standaard is).
 * **Instellingen voor aangepaste header** deze configuratie-instelling kunt u specifieke HTTP-headers voor de status controleert Traffic Manager verzendt naar eindpunten onder een profiel. De aangepaste kopteksten kunnen worden opgegeven op het niveau van een profiel van toepassing zijn voor alle eindpunten in dit profiel en/of op het niveau van een eindpunt alleen van toepassing op dit eindpunt. U kunt aangepaste headers gebruiken voor het met statuscontroles naar eindpunten in een omgeving met meerdere tenants correct worden doorgestuurd naar de bestemming door een host-header op te geven. U kunt deze instelling ook gebruiken door toe te voegen unieke kopteksten die kunnen worden gebruikt voor het identificeren van Traffic Manager afkomstig is van HTTP (S)-aanvragen en ze anders verwerkt.
 * **Verwachte status code bereiken** deze instelling kunt u meerdere succes code bereiken in de indeling 200 299, 301 301 opgeven. Als deze statuscodes zijn ontvangen als antwoord van een eindpunt als een controle van gatewayservicestatus is gestart, worden deze eindpunten als in orde gemarkeerd in Traffic Manager. U kunt maximaal 8 statusbereik code opgeven. Deze instelling geldt alleen voor HTTP en HTTPS-protocol en voor alle eindpunten. Deze instelling is op het niveau van het Traffic Manager-profiel en wordt standaard de waarde 200 is gedefinieerd als de code van de status geslaagd.
 * **Testinterval**. Deze waarde wordt bepaald hoe vaak een eindpunt is ingeschakeld voor de status van een testinterval Traffic Manager-agent. U kunt hier de twee waarden opgeven: 30 seconden (normaal zoeken) en 10 seconden (snelle probing). Als er geen waarden zijn opgegeven, wordt het profiel wordt ingesteld op een standaardwaarde van 30 seconden. Ga naar de [prijzen van Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) pagina voor meer informatie over de prijzen voor snelle testinterval.
@@ -132,8 +132,8 @@ De tijdlijn van de volgende afbeelding is een gedetailleerde beschrijving van he
 Wanneer een eindpunt de status gedegradeerd heeft, is het niet meer in reactie op DNS-query's geretourneerd. In plaats daarvan is een alternatieve eindpunt gekozen en geretourneerd. De verkeersrouteringsmethode geconfigureerd in het profiel bepaalt hoe het andere eindpunt is gekozen.
 
 * **Prioriteit**. Eindpunten vormen een gerangschikte lijst geopend. De eerste beschikbare eindpunt in de lijst wordt altijd geretourneerd. Als de Eindpuntstatus van een is verminderd, wordt het eindpunt van de volgende beschikbare geretourneerd.
-* **Gewogen**. Elk willekeurig eindpunt dat beschikbaar wordt gekozen in willekeurige volgorde op basis van hun toegewezen gewicht en het gewicht van de andere beschikbare eindpunten.
-* **Prestaties**. Het eindpunt die het dichtst bij de eindgebruiker wordt geretourneerd. Als dit eindpunt niet beschikbaar is, wordt verkeer in Traffic Manager verplaatst naar de eindpunten in de volgende dichtstbijzijnde Azure-regio. U kunt alternatieve failover plannen voor verkeer routeren configureren met behulp van [geneste Traffic Manager-profielen](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
+* **Weighted**. Elk willekeurig eindpunt dat beschikbaar wordt gekozen in willekeurige volgorde op basis van hun toegewezen gewicht en het gewicht van de andere beschikbare eindpunten.
+* **Performance**. Het eindpunt die het dichtst bij de eindgebruiker wordt geretourneerd. Als dit eindpunt niet beschikbaar is, wordt verkeer in Traffic Manager verplaatst naar de eindpunten in de volgende dichtstbijzijnde Azure-regio. U kunt alternatieve failover plannen voor verkeer routeren configureren met behulp van [geneste Traffic Manager-profielen](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geografische**. Het eindpunt dat is toegewezen aan het leveren van de geografische locatie op basis van de queryaanvraag van IP wordt geretourneerd. Als dit eindpunt niet beschikbaar is, een ander eindpunt kan niet worden geselecteerd voor failover, omdat een geografische locatie kan worden toegewezen aan één eindpunt in een profiel alleen (meer informatie vindt u in de [Veelgestelde vragen over](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Als een best practice bij het gebruik van de geografische routering, raden we onze klanten geneste Traffic Manager-profielen met meer dan één eindpunt gebruiken als de eindpunten van het profiel.
 * **Meerdere waarden** meerdere eindpunten die zijn toegewezen aan IPv4/IPv6-adressen worden geretourneerd. Wanneer een query wordt ontvangen voor dit profiel, gezonde eindpunten worden geretourneerd op basis van de **Maximum record aantal werkers** waarde die u hebt opgegeven. Het aantal antwoorden is twee eindpunten.
 * **Subnet** het eindpunt dat is toegewezen aan een reeks IP-adresbereiken wordt geretourneerd. Wanneer een aanvraag wordt ontvangen van IP-adres, het eindpunt heeft geretourneerd die voor dat IP-adres is toegewezen. 

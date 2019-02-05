@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079201"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693881"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
 
@@ -105,98 +105,98 @@ Ga naar het Microsoft Download Center en [download de Azure Key Vault BYOK-hulpm
 - - -
 **Verenigde Staten:**
 
-KeyVault-BYOK-hulpprogramma's-Verenigde States.zip
+KeyVault-BYOK-Tools-UnitedStates.zip
 
 2E8C00320400430106366A4E8C67B79015524E4EC24A2D3A6DC513CA1823B0D4
 
 - - -
 **Europa:**
 
-KeyVault-BYOK-hulpprogramma's-Europe.zip
+KeyVault-BYOK-Tools-Europe.zip
 
 9AAA63E2E7F20CF9BB62485868754203721D2F88D300910634A32DFA1FB19E4A
 
 - - -
 **Azië:**
 
-KeyVault-BYOK-hulpprogramma's-AsiaPacific.zip
+KeyVault-BYOK-Tools-AsiaPacific.zip
 
 4BC14059BF0FEC562CA927AF621DF665328F8A13616F44C977388EC7121EF6B5
 
 - - -
 **Latijns-Amerika:**
 
-KeyVault-BYOK-hulpprogramma's-LatinAmerica.zip
+KeyVault-BYOK-Tools-LatinAmerica.zip
 
 E7DFAFF579AFE1B9732C30D6FD80C4D03756642F25A538922DD1B01A4FACB619
 
 - - -
 **Japan:**
 
-KeyVault-BYOK-hulpprogramma's-Japan.zip
+KeyVault-BYOK-Tools-Japan.zip
 
 3933C13CC6DC06651295ADC482B027AF923A76F1F6BF98B4D4B8E94632DEC7DF
 
 - - -
 **Korea:**
 
-KeyVault-BYOK-hulpprogramma's-Korea.zip
+KeyVault-BYOK-Tools-Korea.zip
 
 71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
 
 - - -
 **Australië:**
 
-KeyVault-BYOK-hulpprogramma's-Australia.zip
+KeyVault-BYOK-Tools-Australia.zip
 
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
 [**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
-KeyVault-BYOK-hulpprogramma's-USGovCloud.zip
+KeyVault-BYOK-Tools-USGovCloud.zip
 
 F8DB2FC914A7360650922391D9AA79FF030FD3048B5795EC83ADC59DB018621A
 
 - - -
 **Amerikaanse overheid DOD:**
 
-KeyVault-BYOK-hulpprogramma's-USGovernmentDoD.zip
+KeyVault-BYOK-Tools-USGovernmentDoD.zip
 
 A79DD8C6DFFF1B00B91D1812280207A205442B3DDF861B79B8B991BB55C35263
 
 - - -
 **Canada:**
 
-KeyVault-BYOK-hulpprogramma's-Canada.zip
+KeyVault-BYOK-Tools-Canada.zip
 
 61BE1A1F80AC79912A42DEBBCC42CF87C88C2CE249E271934630885799717C7B
 
 - - -
 **Duitsland:**
 
-KeyVault-BYOK-hulpprogramma's-Germany.zip
+KeyVault-BYOK-Tools-Germany.zip
 
 5385E615880AAFC02AFD9841F7BADD025D7EE819894AA29ED3C71C3F844C45D6
 
 - - -
 **India:**
 
-KeyVault-BYOK-hulpprogramma's-India.zip
+KeyVault-BYOK-Tools-India.zip
 
 49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
 - - -
 **Frankrijk:**
 
-KeyVault-BYOK-hulpprogramma's-France.zip
+KeyVault-BYOK-Tools-France.zip
 
 5C9D1F3E4125B0C09E9F60897C9AE3A8B4CB0E7D13A14F3EDBD280128F8FE7DF
 
 - - -
 **Verenigd Koninkrijk:**
 
-KeyVault-BYOK-hulpprogramma's-UnitedKingdom.zip
+KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 432746BD0D3176B708672CCFF19D6144FCAA9E5EB29BB056489D3782B3B80849
 
@@ -260,6 +260,9 @@ Start een opdrachtprompt en voer het nieuwe-wereld-programma van Thales.
    ```
 
 Dit programma maakt een **Beveiligingswereld** bestand op % NFAST_KMDATA%\local\world, wat overeenkomt met de map C:\ProgramData\nCipher\Key Management Settings\User. U kunt andere waarden gebruiken voor het quorum, maar in ons voorbeeld u gevraagd drie lege kaarten en pincodes voor elk adres invoeren. Klik, twee kaarten volledige toegang geven tot de beveiligingswereld. Deze kaarten worden de **Beheerderskaartenset** voor de nieuwe beveiligingswereld.
+
+> [!NOTE]
+> Als uw HSM biedt ondersteuning voor nieuwere ineens suite DLf3072s256mRijndael, kunt u vervangen--coderingssuite DLf1024s160mRijndael = met--coderingssuite DLf3072s256mRijndael =
 
 Ga daarna als volgt te werk:
 
@@ -421,7 +424,7 @@ Wanneer de opdracht is voltooid, ziet u **resultaat: SUCCES** en de kopie van uw
 
 U kunt inspecteert de ACL's van de volgende opdrachten met de Thales-hulpprogramma's:
 
-* aclprint.PY:
+* aclprint.py:
 
         "%nfast_home%\bin\preload.exe" -m 1 -A xferacld -K contosokey "%nfast_home%\python\bin\python" "%nfast_home%\python\examples\aclprint.py"
 * kmfile-dump.exe:
@@ -482,7 +485,7 @@ Wanneer u deze opdracht uitvoert, gebruikt u deze instructies:
 * Vervang *SubscriptionID* met de ID van de Azure-abonnement met uw key vault. U hebt deze waarde hebt opgehaald in **stap 1.2: Uw Azure-abonnement-ID ophalen** uit de [uw met Internet verbonden werkstation voorbereiden](#step-1-prepare-your-internet-connected-workstation) stap.
 * Vervang *ContosoFirstHSMKey* met een label dat wordt gebruikt voor de naam van uw uitvoerbestand.
 
-Wanneer dit voltooid is, wordt de pagina **resultaat: SUCCES** en er is een nieuw bestand in de huidige map met de volgende naam: KeyTransferPackage -*ContosoFirstHSMkey*.byok
+Wanneer dit voltooid is, wordt de pagina **resultaat: SUCCES** en er is een nieuw bestand in de huidige map met de volgende naam: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Stap 4.3: De overdracht van de sleutel-pakket kopiëren naar het met Internet verbonden werkstation
 

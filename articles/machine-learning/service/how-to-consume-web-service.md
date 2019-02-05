@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: b83542a11ce2351214ac8f15a6902d1a90f871ee
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c5cb5a821d9bae6841c3229155c69fd2aa20e13
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242260"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698306"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
@@ -53,7 +53,7 @@ Er zijn een drie manieren om op te halen van deze informatie voor de geïmplemen
     print(service.scoring_uri)
     ```
 
-* U kunt `Webservice.list` geïmplementeerd om op te halen een lijst van webservices voor modellen in uw werkruimte. U kunt filters toevoegen om te beperken van de lijst met geretourneerde informatie. Zie voor meer informatie over wat kan worden gefilterd op, de [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) referentiedocumentatie.
+* U kunt `Webservice.list` geïmplementeerd om op te halen een lijst van webservices voor modellen in uw werkruimte. U kunt filters toevoegen om te beperken van de lijst met geretourneerde informatie. Zie voor meer informatie over wat kan worden gefilterd op, de [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) referentiedocumentatie.
 
     ```python
     services = Webservice.list(ws)

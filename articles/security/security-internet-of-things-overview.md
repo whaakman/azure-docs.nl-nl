@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 345a7994f5a117b7aff320edf7b7c79d9b30a2f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35758617"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695250"
 ---
 # <a name="internet-of-things-security-overview"></a>Overzicht van de beveiliging van Internet of Things
 Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkheden. Met deze hoogwaardige services kunt u het volgende doen:
@@ -45,7 +45,7 @@ Dit artikel wordt beschreven in de volgende onderwerpen:
 
 * [Beveiliging begint met een risicomodel](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
 * [Beveiliging in IoT](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
-* [Threat Modeling van de Azure IoT Reference Architecture](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
+* [Threat Modeling van de Azure IoT Reference Architecture](/azure/iot-fundamentals/iot-security-architecture)
 
 ## <a name="security-from-the-ground-up"></a>Fundamentele beveiliging
 De IoT vormt unieke uitdagingen voor de beveiliging, privacy en naleving voor bedrijven over de hele wereld. In tegenstelling tot traditionele cyber-technologie waar deze problemen draaien om software en hoe deze is geïmplementeerd, IoT heeft betrekking op wat er gebeurt wanneer de cyberaanvallen en de fysieke werelden geconvergeerd. IoT-oplossingen beveiligen, moet ervoor te zorgen dat beveiligde inrichting van apparaten, veilige connectiviteit tussen deze apparaten en de cloud en de bescherming van de beveiligde gegevens in de cloud tijdens verwerking en opslag. Deze functionaliteit werkt, zijn echter apparaten resource beperkt, geografische verdeling van implementaties en veel apparaten binnen een oplossing.

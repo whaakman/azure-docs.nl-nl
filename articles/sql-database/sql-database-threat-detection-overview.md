@@ -1,6 +1,6 @@
 ---
 title: Detectie van bedreigingen - Azure SQL Database | Microsoft Docs
-description: Threat Detection detecteert afwijkende activiteiten die wijzen op mogelijke beveiligingsrisico's met de Azure SQL-database.
+description: Threat detection detecteert afwijkende activiteiten die wijzen op mogelijke beveiligingsrisico's in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,34 +11,34 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451713"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729503"
 ---
-# <a name="azure-sql-database-threat-detection"></a>Azure SQL Database Threat Detection
+# <a name="azure-sql-database-threat-detection"></a>Azure SQL-Database voor de detectie van bedreigingen
 
-Azure SQL-Bedreigingsdetectie voor [Azure SQL Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven.
+Bedreigingen voor [Azure SQL Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven.
 
-Detectie van bedreigingen maakt deel uit van de [SQL geavanceerde gegevensbeveiliging](sql-advanced-threat-protection.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. Detectie van bedreigingen kan worden geopend en worden beheerd via de centrale SQL AD-portal.
+Detectie van bedreigingen maakt deel uit van de [geavanceerde gegevensbeveiliging](sql-database-advanced-data-security.md) (AD) aanbieding waarmee een uniforme-voor geavanceerde mogelijkheden voor de beveiliging van SQL pakket. Detectie van bedreigingen kan worden geopend en worden beheerd via de centrale SQL AD-portal.
 
 > [!NOTE]
 > Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 
 ## <a name="what-is-threat-detection"></a>Wat is de detectie van bedreigingen
 
-SQL-Bedreigingsdetectie biedt een nieuwe beveiligingslaag, waarmee klanten een om te detecteren en op mogelijke bedreigingen reageert zodra ze zich voordoen, dankzij beveiligingswaarschuwingen over afwijkende activiteiten. Gebruikers ontvangen een waarschuwing bij verdachte databaseactiviteiten, potentiële kwetsbaarheden, en SQL-injectie, evenals de toegang tot de afwijkende database-aanvallen en patronen-query's. SQL Threat Detection integreert waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/), waaronder de details van de verdachte activiteit en de aanbevolen actie voor het onderzoeken en tegenhouden. SQL-Bedreigingsdetectie is het eenvoudig om potentiële bedreigingen voor de database zonder de noodzaak om te worden van een beveiligingsexpert of bewakingssystemen geavanceerde beveiliging te beheren.
+Bedreigingsdetectie biedt een nieuwe beveiligingslaag, waarmee klanten een om te detecteren en op mogelijke bedreigingen reageert zodra ze zich voordoen, dankzij beveiligingswaarschuwingen over afwijkende activiteiten. Gebruikers ontvangen een waarschuwing bij verdachte databaseactiviteiten, potentiële kwetsbaarheden, en SQL-injectie, evenals de toegang tot de afwijkende database-aanvallen en patronen-query's. Threat detection integreert waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/), waaronder de details van de verdachte activiteit en de aanbevolen actie voor het onderzoeken en tegenhouden. Met bedreigingsdetectie is het eenvoudig om potentiële bedreigingen voor de database weg te nemen zonder de hulp van een beveiligingsexpert of het moeten beheren van geavanceerde bewakingssystemen.
 
 Voor een volledige onderzoeksmethode, is het raadzaam om in te schakelen [SQL Database Auditing](sql-database-auditing.md), waarnaar databasegebeurtenissen naar een auditlogboek in uw Azure storage-account aanmelden worden geschreven.  
 
-## <a name="azure-sql-database-threat-detection-alerts"></a>Azure SQL Database Threat Detection-waarschuwingen
+## <a name="threat-detection-alerts"></a>Meldingen voor geconstateerde bedreigingen
 
 Detectie van bedreigingen voor Azure SQL Database detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases waarmee wordt aangegeven en deze kan de volgende waarschuwing is geactiveerd:
 
-- **Vulnerability to SQL Injection**: Deze waarschuwing wordt geactiveerd wanneer een toepassing een foutieve SQL-instructie in de database genereert. Deze waarschuwing kan duiden op een mogelijk beveiligingsprobleem met SQL-injectieaanvallen. Er zijn twee mogelijke redenen voor het genereren van een foutieve instructie:
+- **Kwetsbaarheid voor SQL-injectie**: Deze waarschuwing wordt geactiveerd wanneer een toepassing een foutieve SQL-instructie in de database genereert. Deze waarschuwing kan duiden op een mogelijk beveiligingsprobleem met SQL-injectieaanvallen. Er zijn twee mogelijke redenen voor het genereren van een foutieve instructie:
 
   - Een fout in de toepassingscode die de foutieve SQL-instructie maakt
   - Toepassingscode of opgeslagen procedures schonen gebruikersinvoer niet op tijdens het construeren van de foutieve SQL-instructie, dit kan worden misbruikt voor SQL-injectie
@@ -67,7 +67,7 @@ U ontvangt een e-mailmelding bij detectie van afwijkende activiteiten. Het e-mai
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Meldingen voor geconstateerde bedreigingen voor uw database in Azure portal verkennen
 
-SQL Database Threat Detection integreert de waarschuwingen met [Azure Security Center](https://azure.microsoft.com/services/security-center/). Live SQL threat detection-tegels in de database en SQL-ADVERTENTIES blades in Azure portal de status van actieve bedreigingen bijhouden.
+Threat detection integreert de waarschuwingen met [Azure security center](https://azure.microsoft.com/services/security-center/). Live SQL threat detection-tegels in de database en SQL-ADVERTENTIES blades in Azure portal de status van actieve bedreigingen bijhouden.
 
 Klik op **Threat detection waarschuwing** naar de Azure Security Center start waarschuwingen pagina en krijg een overzicht van actieve SQL-bedreigingen gedetecteerd op de database of het datawarehouse.
 
@@ -77,9 +77,9 @@ Klik op **Threat detection waarschuwing** naar de Azure Security Center start wa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [detectie van bedreigingen in de zelfstandige en gepoolde databases](sql-database-threat-detection.md).
-- Meer informatie over [detectie van bedreigingen in het beheerde exemplaar](sql-database-managed-instance-threat-detection.md).
-- Meer informatie over [SQL Advanced gegevensbeveiliging](sql-advanced-threat-protection.md).
-- Meer informatie over [Azure SQL Database Auditing](sql-database-auditing.md)
-- Meer informatie over [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Meer informatie over [bedreigingen in de zelfstandige en gepoolde databases](sql-database-threat-detection.md).
+- Meer informatie over [detectie van bedreigingen in beheerd exemplaar](sql-database-managed-instance-threat-detection.md).
+- Meer informatie over [geavanceerde beveiliging van gegevens](sql-database-advanced-data-security.md).
+- Meer informatie over [Azure SQL Database auditing](sql-database-auditing.md)
+- Meer informatie over [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Zie voor meer informatie over prijzen voor de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/)  

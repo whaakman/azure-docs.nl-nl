@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 105ed999fc7122fb1c99e2c380b26a8c4d8d9f62
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659516"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696860"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Preview: Azure AD-wachtwoord beveiliging implementeren
 
@@ -40,7 +40,7 @@ Zodra de functie is voor een redelijke termijn in de controlemodus is uitgevoerd
 
 ## <a name="deployment-requirements"></a>Vereisten voor de implementatie
 
-* Alle domeincontrollers waarop de agent-service van Azure AD-wachtwoord beveiliging DC wordt geïnstalleerd moeten worden uitgevoerd worden WindowsServer 2012 of hoger.
+* Alle domeincontrollers waarop de service Azure AD wachtwoord beveiliging DC-Agent wordt geïnstalleerd moeten worden uitgevoerd worden WindowsServer 2012 of hoger.
 * Alle computers waarop de Azure AD-wachtwoord beveiliging Proxy-service wordt geïnstalleerd moeten worden uitgevoerd op Windows Server 2012 R2 of hoger.
 * Alle computers waarop wachtwoordbeveiliging van Azure AD-onderdelen zijn geïnstalleerd met inbegrip van domeincontrollers moeten de Universal C-runtime geïnstalleerd hebben.
 Dit gebeurt bij voorkeur volledig patches voor de machine via Windows Update. Anders een juiste specifieke update-pakket kan worden geïnstalleerd: Zie [bijwerken voor universele C tijdens Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
@@ -168,17 +168,17 @@ Er zijn twee vereist installatieprogramma's voor Azure AD-wachtwoord beveiliging
 
       De bovenstaande voorbeelden slaagt alleen als de momenteel aangemelde gebruiker ook een beheerder van Active Directory-domein voor het hoofddomein is. Als dit niet het geval is, kunt u alternatieve domeinreferenties via de parameter - ForestCredential opgeven.
 
-      > [!NOTE]
-      > Als meerdere proxy-servers zijn geïnstalleerd in uw omgeving, het maakt niet uit welke proxyserver wordt gebruikt voor het registreren van het forest.
+   > [!NOTE]
+   > Als meerdere proxy-servers zijn geïnstalleerd in uw omgeving, het maakt niet uit welke proxyserver wordt gebruikt voor het registreren van het forest.
 
-      > [!TIP]
-      > Mogelijk zijn er een aanzienlijke vertraging (op hoeveel seconden) de eerste keer dat deze cmdlet wordt uitgevoerd voor een bepaalde Azure-tenant voordat de cmdlet is voltooid. Tenzij een verzendfouten deze vertraging mogen niet worden beschouwd als verontrustend.
+   > [!TIP]
+   > Mogelijk zijn er een aanzienlijke vertraging (op hoeveel seconden) de eerste keer dat deze cmdlet wordt uitgevoerd voor een bepaalde Azure-tenant voordat de cmdlet is voltooid. Tenzij een verzendfouten deze vertraging mogen niet worden beschouwd als verontrustend.
 
-      > [!NOTE]
-      > Registratie van het Active Directory-forest is een eenmalige stap verwacht in de levensduur van het forest. De domain controller agents die worden uitgevoerd in het forest zal automatisch eventuele andere benodigde maintainenance uitvoeren vanaf dit punt en hoger. Zodra deze is voltooid voor een opgegeven forest, extra aanroepen van `Register-AzureADPasswordProtectionForest` voortgezet, maar zijn niet nodig.
+   > [!NOTE]
+   > Registratie van het Active Directory-forest is een eenmalige stap verwacht in de levensduur van het forest. De domain controller agents die worden uitgevoerd in het forest zal automatisch eventuele andere benodigde maintainenance uitvoeren vanaf dit punt en hoger. Zodra deze is voltooid voor een opgegeven forest, extra aanroepen van `Register-AzureADPasswordProtectionForest` voortgezet, maar zijn niet nodig.
 
-      > [!NOTE]
-      > Opdat `Register-AzureADPasswordProtectionForest` te voltooien ten minste één Windows Server 2012 of hoger domain controller moet beschikbaar zijn in het domein van de proxyserver. Er is echter geen vereiste dat de DC-agentsoftware worden geïnstalleerd op een domeincontroller voordat u deze stap.
+   > [!NOTE]
+   > Opdat `Register-AzureADPasswordProtectionForest` te voltooien ten minste één Windows Server 2012 of hoger domain controller moet beschikbaar zijn in het domein van de proxyserver. Er is echter geen vereiste dat de DC-agentsoftware worden geïnstalleerd op een domeincontroller voordat u deze stap.
 
 6. De Azure AD-wachtwoord beveiliging Proxy-service om te communiceren via een HTTP-proxy configureren
 

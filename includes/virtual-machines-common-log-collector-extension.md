@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226953"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736170"
 ---
 Oplossen van problemen met een cloudservice van Microsoft Azure, moet de logboekbestanden van de service op virtuele machines verzamelen als de problemen optreden. U kunt de AzureLogCollector-extensie op aanvraag voor het uitvoeren van eenmalige verzamelen van Logboeken van een of meer Cloud-Service-VM's (van webrollen en werkrollen) en de verzamelde bestanden overbrengen naar Azure storage-account – zonder extern aanmelden bij een van de virtuele machines.
 
@@ -31,9 +31,9 @@ Er zijn twee modi van verzameling afhankelijk van de typen bestanden die worden 
 
 In beide modi verzameling kunnen aanvullende gegevens verzamelingsmappen worden opgegeven met behulp van een verzameling van de volgende structuur:
 
-* **Naam**: de naam van de verzameling, die wordt gebruikt als de naam van de submap in het zip-bestand met de verzamelde bestanden.
-* **Locatie**: het pad naar de map op de virtuele machine waar de bestanden moeten worden verzameld zich bevinden.
-* **SearchPattern**: het patroon van de namen van bestanden moeten worden verzameld. De standaardwaarde is "\*"
+* **Naam**: De naam van de verzameling, die wordt gebruikt als de naam van de submap in het zip-bestand met de verzamelde bestanden.
+* **Locatie**: Het pad naar de map op de virtuele machine waar de bestanden moeten worden verzameld zich bevinden.
+* **SearchPattern**: Het patroon van de namen van bestanden moeten worden verzameld. De standaardwaarde is "\*"
 * **Recursieve**: als de bestanden moeten worden verzameld bevindt recursief onder de opgegeven locatie.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -174,14 +174,14 @@ param (
 )
 ```
 
-* **ServiceName**: de naam van uw cloud-service.
-* **Rollen**: een lijst met functies, zoals 'WebRole1' of 'WorkerRole1'.
-* **Exemplaren**: een lijst met de namen van de rolinstanties gescheiden door komma's, gebruikt u de jokerteken-tekenreeks ("*") voor alle rolinstanties.
-* **Sleuf**: de naam van de site. 'Productie' of "" Staging".
-* **Modus**: Verzamelmodus. 'Volledige' of 'GA'.
-* **StorageAccountName**: de naam van de Azure storage-account voor het opslaan van verzamelde gegevens.
-* **StorageAccountKey**: de naam van de Azure storage-accountsleutel.
-* **AdditionalDataLocationList**: een lijst van de volgende structuur:
+* **ServiceName**: De naam van uw cloud-service.
+* **rollen**: Een lijst met functies, zoals 'WebRole1' of 'WorkerRole1'.
+* **Exemplaren**: Een lijst met de namen van de rolinstanties gescheiden door komma's, gebruikt u de jokerteken-tekenreeks ("*") voor alle rolinstanties.
+* **Sleuf**: Naam van de site. 'Productie' of "" Staging".
+* **Modus**: Modus voor het verzamelen. 'Volledige' of 'GA'.
+* **StorageAccountName**: De naam van Azure storage-account voor het opslaan van verzamelde gegevens.
+* **StorageAccountKey**: De naam van Azure storage-accountsleutel.
+* **AdditionalDataLocationList**: Een lijst van de volgende structuur:
 
   ```powershell
   {
@@ -256,12 +256,12 @@ param (
 )
 ```
 
-* **ServiceName**: de naam van uw cloud-service.
-* **VMName**: de naam van de virtuele machine.
-* **Modus**: Verzamelmodus. 'Volledige' of 'GA'.
-* **StorageAccountName**: de naam van de Azure storage-account voor het opslaan van verzamelde gegevens.
-* **StorageAccountKey**: de naam van de Azure storage-accountsleutel.
-* **AdditionalDataLocationList**: een lijst van de volgende structuur:
+* **ServiceName**: De naam van uw cloud-service.
+* **VMName**: De naam van de virtuele machine.
+* **Modus**: Modus voor het verzamelen. 'Volledige' of 'GA'.
+* **StorageAccountName**: De naam van Azure storage-account voor het opslaan van verzamelde gegevens.
+* **StorageAccountKey**: De naam van Azure storage-accountsleutel.
+* **AdditionalDataLocationList**: Een lijst van de volgende structuur:
 
   ```
   {
@@ -374,7 +374,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -449,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

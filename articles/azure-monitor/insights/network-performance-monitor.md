@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 0a364724c72a7bd6dd75dd9720e2e966d07ff297
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496332"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729792"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -52,7 +52,7 @@ NPM kunt Controleer de connectiviteit tussen netwerken en toepassingen in een de
 * Zuid-groot-Brittannië
 * US Government Virginia
 
-De lijst met ondersteunde regio's voor ExpressRoute-bewaking is beschikbaar in de [documentatie](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
+De lijst met ondersteunde regio's voor ExpressRoute-bewaking is beschikbaar in de [documentatie](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Instellen en configureren

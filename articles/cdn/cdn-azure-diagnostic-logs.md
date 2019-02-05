@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6fca764c191c801cbca86c573339b397e61ead07
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256723"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700227"
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
@@ -147,7 +147,7 @@ Het volgende voorbeeld ziet het inschakelen van diagnostische logboeken via de A
 
     Connect-AzureRmAccount 
 
-    SELECT-AzureSubscription - abonnements-id 
+    Select-AzureSubscription -SubscriptionId 
 
 2. Om in te schakelen logboeken met diagnostische gegevens in een Storage-account, voer de volgende opdracht:
 
@@ -185,14 +185,14 @@ Core analytics logboeken worden elk uur gegenereerd en de gegevens worden verzam
 
 **Beschrijving van de velden:**
 
-|Waarde|Description|
+|Value|Description|
 |-------|---------|
 |Abonnements-id    |ID van de Azure-abonnement in Guid-indeling.|
 |Naam van brongroep |De naam van de resourcegroep waartoe de CDN-resources behoren.|
 |Profielnaam |Naam van het CDN-profiel|
 |De naam van eindpunt |Naam van het CDN-eindpunt|
 |Jaar|  Weergave van vier cijfers van het jaar, bijvoorbeeld 2017|
-|Maand| De weergave van de twee cijfers van het maandnummer. 01 januari =... 12 December =|
+|Maand| De weergave van de twee cijfers van het maandnummer. 01 januari =... 12=December|
 |Dag|   Twee cijfers weergave van de dag van de maand|
 |PT1H.json| Werkelijke JSON-bestand waarin de analytics-gegevens is opgeslagen|
 
@@ -290,7 +290,7 @@ Volg deze stappen voor het toevoegen van een beheeroplossing voor Log Analytics:
 
 ### <a name="offers-and-pricing-tiers"></a>Aanbiedingen en Prijscategorieën
 
-U kunt zien, aanbiedingen en Prijscategorieën voor oplossingen voor het beheer [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+U kunt zien, aanbiedingen en Prijscategorieën voor oplossingen voor het beheer [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
 
 ### <a name="customizing-views"></a>Weergaven aanpassen
 
@@ -442,7 +442,7 @@ Van de Voorbeeldeigenschappen:
 * [Diagnostische logboeken in Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core analytics via de aanvullende portal van Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 * [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST-API](https://docs.microsoft.com/rest/api/loganalytics)
+* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

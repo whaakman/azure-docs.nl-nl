@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413223"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730336"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hoe u Linux-installatiekopieën voor virtuele machines maken in Azure met Packer
 Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie die u de Linux-distributie en de versie van het besturingssysteem definieert. Installatiekopieën kunnen bevatten vooraf geïnstalleerde toepassingen en configuraties. De Azure Marketplace bevat vele installatiekopieën die eerste en derde partij voor de meest voorkomende distributies en omgevingen met toepassingen, of kunt u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u met het open-source-hulpprogramma [Packer](https://www.packer.io/) om te definiëren en maken van aangepaste installatiekopieën in Azure.
@@ -29,7 +29,7 @@ Elke virtuele machine (VM) in Azure is gemaakt op basis van een installatiekopie
 ## <a name="create-azure-resource-group"></a>Azure-resourcegroep maken
 Tijdens het bouwproces maakt Packer tijdelijke Azure-resources zoals het samenstellen van de bron-VM. Om vast te leggen die bron-VM voor gebruik als een installatiekopie, moet u een resourcegroep definiëren. De uitvoer van het bouwproces Packer wordt opgeslagen in deze resourcegroep.
 
-Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Maak een resourcegroep maken met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -39,7 +39,7 @@ az group create -n myResourceGroup -l eastus
 ## <a name="create-azure-credentials"></a>Azure-referenties maken
 Packer verifieert met Azure met behulp van een service-principal. Een Azure service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's, zoals Packer gebruiken kunt. U bepaalt en definiëren van de machtigingen over welke bewerkingen die de service-principal in Azure uitvoeren kunt.
 
-Een service-principal met maken [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) en de uitvoer van de referenties die Packer moet:
+Een service-principal met maken [az ad sp create-for-rbac](/cli/azure/ad/sp) en de uitvoer van de referenties die Packer moet:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -55,7 +55,7 @@ Een voorbeeld van de uitvoer in de voorgaande opdrachten is als volgt:
 }
 ```
 
-Om te worden geverifieerd bij Azure, moet u ook uw Azure-abonnement-id met [az account show](/cli/azure/account#az_account_show):
+Om te worden geverifieerd bij Azure, moet u ook uw Azure-abonnement-id met [az account show](/cli/azure/account):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -216,7 +216,7 @@ Als u maken van virtuele machines in een andere resourcegroep of een andere regi
 
 Het duurt een paar minuten om de VM te maken. Nadat de virtuele machine is gemaakt, noteer de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de NGINX-site via een webbrowser.
 
-Open poort 80 via internet met [az vm open-port](/cli/azure/vm#open-port) zodat beveiligd webverkeer uw virtuele machine kan bereiken:
+Open poort 80 via internet met [az vm open-port](/cli/azure/vm) zodat beveiligd webverkeer uw virtuele machine kan bereiken:
 
 ```azurecli
 az vm open-port \

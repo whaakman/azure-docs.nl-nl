@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: f30305374b1fcaabfb36533195a098073d33b6c3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1bc250ac70e48a548d393c3bc6025868948dc022
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197599"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699156"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Een Docker-omgeving maken in Azure met behulp van de Docker VM-extensie
 
@@ -39,15 +39,15 @@ Zie de volgende artikelen voor meer informatie over de verschillende implementat
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implementeren van een sjabloon met de Azure Docker VM-extensie
-We gaan een bestaande quickstart-sjabloon gebruiken om een Ubuntu-VM die gebruikmaakt van de Azure Docker VM-extensie installeren en configureren van de Docker-host te maken. Hier vindt u de sjabloon hier: [Eenvoudige implementatie van een Ubuntu-VM met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+We gaan een bestaande quickstart-sjabloon gebruiken om een Ubuntu-VM die gebruikmaakt van de Azure Docker VM-extensie installeren en configureren van de Docker-host te maken. Hier vindt u de sjabloon hier: [Eenvoudige implementatie van een Ubuntu-VM met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
-Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Maak eerst een resourcegroep met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Vervolgens implementeert u een virtuele machine met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create) waarin de Azure Docker VM-extensie van [deze Azure Resource Manager-sjabloon op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Geef desgevraagd uw eigen unieke waarden voor *newStorageAccountName*, *adminUsername*, *adminPassword*, en *dnsNameForPublicIP*:
+Vervolgens implementeert u een virtuele machine met [az group deployment maken](/cli/azure/group/deployment) waarin de Azure Docker VM-extensie van [deze Azure Resource Manager-sjabloon op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Geef desgevraagd uw eigen unieke waarden voor *newStorageAccountName*, *adminUsername*, *adminPassword*, en *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \

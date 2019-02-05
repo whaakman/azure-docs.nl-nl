@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: d9800ff3fc82636c5cae12167738667ec84326ee
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856154"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696730"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>Een functie-app in Linux maken in een Azure App Service-abonnement (preview)
 
@@ -50,7 +50,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 U moet beschikken over een functie-app om de uitvoering van uw functies in Linux te hosten. De functie-app biedt een omgeving waarin uw functiecode kan worden uitgevoerd. U kunt er functies mee groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. Maak een functie-app door de opdracht [az functionapp create](/cli/azure/functionapp#az-functionapp-create) te gebruiken met een Linux App Service-abonnement.
 
-Vervang in de volgende opdracht de plaatsaanduiding `<app_name>` door een unieke functie-appnaam en gebruik de naam van het opslagaccount voor `<storage_name>`. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. U moet ook ingesteld de `<language>` -runtime voor uw functie-app van `dotnet` (C#), `node` (JavaScript), of `python`.
+Vervang in de volgende opdracht de plaatsaanduiding `<app_name>` door een unieke functie-appnaam en gebruik de naam van het opslagaccount voor `<storage_name>`. De `<app_name>` wordt gebruikt als het standaard DNS-domein voor de functie-app. Om die reden moet de naam uniek zijn in alle apps in Azure. U moet ook de `<language>`-runtime voor uw functie-app instellen, vanuit `dotnet` (C#), `node` (JavaScript) of `python`.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
@@ -84,7 +84,7 @@ Omdat `myAppServicePlan` een Linux-abonnement is, wordt de ingebouwde docker-ins
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel wordt beschreven hoe u een functie-app voor Linux die worden gehost in Azure maakt. U kunt nu [implementeren een functieproject](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) aan deze functie-app. U kunt de Azure Functions Core Tools te gebruiken [een Functions-project maken](functions-run-local.md#create-a-local-functions-project) op uw lokale computer en deze implementeren in uw nieuwe functie-app voor Linux.  
+In dit artikel wordt beschreven hoe u een functie-app voor Linux die worden gehost in Azure maakt. U kunt nu [implementeren een functieproject](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) aan deze functie-app. U kunt de Azure Functions Core Tools te gebruiken [een Functions-project maken](functions-run-local.md) op uw lokale computer en deze implementeren in uw nieuwe functie-app voor Linux.  
 
 > [!div class="nextstepaction"] 
 > [Azure-functies lokaal programmeren en testen](functions-run-local.md)

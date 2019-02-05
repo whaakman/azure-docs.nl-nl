@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2f850c25250c59a5fd62964d53b6b9d37ff4cf49
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 01aacf8815ce4150eb1c243d4337f52c4e0b03e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491396"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697038"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sectie met resources van Azure Resource Manager-sjablonen
 
 In de sectie resources definieert u de resources die worden geïmplementeerd of bijgewerkt. In deze sectie krijgt ingewikkeld omdat u de typen die u implementeert zodat de juiste waarden moet begrijpen.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="available-properties"></a>Beschikbare eigenschappen
 
@@ -91,7 +89,7 @@ Definieert u resources met de volgende structuur:
 | naam |Ja |Naam van de resource De naam moet URI-onderdeel beperkingen gedefinieerd in RFC3986 volgen. Azure-services die beschikbaar maken van de naam van de resource buiten partijen valideren de naam om te controleren of het is bovendien een poging tot het vervalsen van een andere identiteit niet. |
 | location |Varieert |Geografische locaties van de opgegeven resource wordt ondersteund. U kunt een van de beschikbare locaties selecteren, maar meestal is het zinvol om te kiezen die zich in de buurt van uw gebruikers. Meestal is het ook verstandig om de resources die met elkaar in dezelfde regio communiceren te plaatsen. De meeste resourcetypen een locatie vereist, maar sommige typen (zoals een roltoewijzing) vereisen een locatie. |
 | tags |Nee |Tags die gekoppeld aan de resource zijn. Labels toevoegen om in te delen logisch resources in uw abonnement. |
-| opmerkingen |Nee |Uw notities voor het documenteren van de resources in uw sjabloon |
+| opmerkingen |Nee |Uw notities voor het documenteren van de resources in uw sjabloon. Zie voor meer informatie, [opmerkingen in sjablonen](resource-group-authoring-templates.md#comments). |
 | kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources om te implementeren op hetzelfde moment opgeven. Zie voor meer informatie, [verschillende exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat deze resource is geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze implementeert in de juiste volgorde. Als resources niet van elkaar afhankelijk zijn, zijn ze parallel geïmplementeerd. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of resource-id's uniek. Alleen lijst met resources die in deze sjabloon zijn geïmplementeerd. Resources die niet zijn gedefinieerd in deze sjabloon moeten al bestaan. Vermijd onnodige afhankelijkheden toevoegen als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor meer informatie over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
 | properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de hoofdtekst van de aanvraag voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. |
@@ -186,48 +184,60 @@ Voor de resourcetypen die voornamelijk toegankelijk zijn via een andere resource
 ```
 
 ## <a name="location"></a>Locatie
-Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Andere resource-typen worden ondersteund op verschillende locaties. Een lijst met locaties die beschikbaar voor uw abonnement voor een bepaald brontype zijn wilt bekijken, gebruikt u Azure PowerShell of Azure CLI. 
+Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Andere resource-typen worden ondersteund op verschillende locaties. Als u de ondersteunde locaties voor een resourcetype, Zie [Azure resourceproviders en typen](resource-manager-supported-services.md).
 
-Het volgende voorbeeld wordt PowerShell gebruikt om op te halen van de locaties voor de `Microsoft.Web\sites` resourcetype:
+Gebruik een parameter om op te geven van de locatie voor resources en de standaardwaarde ingesteld op `resourceGroup().location`.
 
-```powershell
-((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-```
-
-Het volgende voorbeeld maakt gebruik van Azure CLI om op te halen van de locaties voor de `Microsoft.Web\sites` resourcetype:
-
-```azurecli
-az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
-```
-
-Na het vaststellen van de ondersteunde locaties voor uw resources, die locatie in uw sjabloon is ingesteld. De eenvoudigste manier om deze waarde hebt ingesteld, wordt een resourcegroep maken op een locatie die ondersteuning biedt voor de resourcetypen en elke locatie ingesteld op `[resourceGroup().location]`. U kunt opnieuw implementeren van de sjabloon aan resourcegroepen op verschillende locaties en alle waarden in de sjabloon of parameters niet te wijzigen. 
-
-Het volgende voorbeeld ziet u een opslagaccount dat wordt geïmplementeerd op dezelfde locatie als de resourcegroep:
+Het volgende voorbeeld ziet u een opslagaccount dat wordt geïmplementeerd op een locatie die is opgegeven als parameter:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
-      "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
     },
-    "resources": [
-    {
-      "apiVersion": "2016-01-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "Dept": "Finance",
-        "Environment": "Production"
-      },
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": { }
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
-    ]
+  },
+  "variables": {
+    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
 }
 ```
 

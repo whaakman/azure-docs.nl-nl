@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ad6ab27a51cf082be71262b887a459f6c7cc906
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101969"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699122"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Aanbevolen procedures voor verbinding met het netwerk en beveiliging in Azure Kubernetes Service (AKS)
 
@@ -21,44 +21,44 @@ Bij het maken en beheren van clusters in Azure Kubernetes Service (AKS), kunt u 
 Deze aanbevolen procedures voor richt zich op de verbinding met het netwerk en beveiliging voor clusteroperators. In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
-> * Vergelijk de basiseigenschappen en geavanceerde netwerk modi in AKS
+> * Vergelijk de kubenet en Azure CNI netwerk modi in AKS
 > * Plannen voor de vereiste IP-adressering en connectiviteit
 > * Distribueren van netwerkverkeer met load balancers, controllers voor inkomend verkeer of een web application Firewall (WAF)
 > * Veilig verbinding maken met de clusterknooppunten
 
 ## <a name="choose-the-appropriate-network-model"></a>Kies het juiste netwerk-model
 
-**Aanbevolen procedurerichtlijn** : voor integratie met bestaande virtuele netwerken of on-premises netwerken, geavanceerde gebruiken networking in AKS. Dit model netwerk kunt ook meer scheiding van resources en besturingselementen in een bedrijfsomgeving.
+**Aanbevolen procedurerichtlijn** : voor integratie met bestaande virtuele netwerken of on-premises netwerken, Azure CNI netwerken gebruiken in AKS. Dit model netwerk kunt ook meer scheiding van resources en besturingselementen in een bedrijfsomgeving.
 
 Virtuele netwerken bieden de basisconnectiviteit voor AKS-knooppunten en klanten toegang krijgen tot uw toepassingen. Er zijn twee verschillende manieren het implementeren van clusters van AKS in virtuele netwerken:
 
-* **Netwerkgebruik** -Azure beheert de resources van het virtuele netwerk als het cluster is geïmplementeerd en maakt gebruik van de [kubenet] [ kubenet] Kubernetes-invoegtoepassing.
-* **Geavanceerde netwerken** - implementeert in een bestaand virtueel netwerk en maakt gebruik van de [Azure Container netwerken Interface (CNI)] [ cni-networking] Kubernetes-invoegtoepassing. Schillen ontvangen afzonderlijke IP-adressen die naar andere netwerkservices of on-premises bronnen doorsturen kunt.
+* **Kubenet netwerken** -Azure beheert de resources van het virtuele netwerk als het cluster is geïmplementeerd en maakt gebruik van de [kubenet] [ kubenet] Kubernetes-invoegtoepassing.
+* **Netwerken van Azure CNI** - implementeert in een bestaand virtueel netwerk en maakt gebruik van de [Azure Container netwerken Interface (CNI)] [ cni-networking] Kubernetes-invoegtoepassing. Schillen ontvangen afzonderlijke IP-adressen die naar andere netwerkservices of on-premises bronnen doorsturen kunt.
 
 De Container netwerken Interface (CNI) is een neutrale-protocol waarmee de container-runtime-aanvragen versturen naar de provider van een netwerk. De Azure CNI IP-adressen toewijst aan schillen en knooppunten, en biedt IP-adres management (IPAM)-functies als u verbinding met bestaande virtuele Azure-netwerken maken. Elke resource-knooppunt en pod ontvangt een IP-adres in de Azure-netwerk en geen extra routering is nodig om te communiceren met andere resources of services.
 
 ![Diagram van twee knooppunten met bruggen, elk met een enkel Azure-VNet verbinding maken](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-Voor de meeste implementaties van de productie, moet u geavanceerde netwerken. Dit model netwerk kunnen voor scheiding van controle en beheer van resources. Vanuit het beveiligingsoogpunt wilt u vaak verschillende teams beheren en beveiligen van deze resources. Geavanceerde netwerken kunt die u verbinding met bestaande Azure-resources, on-premises bronnen of andere services rechtstreeks via IP-adressen toegewezen aan elke schil maken.
+Voor de meeste implementaties van de productie, moet u Azure CNI netwerken. Dit model netwerk kunnen voor scheiding van controle en beheer van resources. Vanuit het beveiligingsoogpunt wilt u vaak verschillende teams beheren en beveiligen van deze resources. Azure CNI netwerken kunt die u verbinding met bestaande Azure-resources, on-premises bronnen of andere services rechtstreeks via IP-adressen toegewezen aan elke schil maken.
 
-Wanneer u geavanceerde netwerken gebruikt, is de VM-resource in een afzonderlijke resource die u wilt het AKS-cluster. Overdragen van machtigingen voor de AKS-service-principal te openen en beheren van deze resources. De service-principal die worden gebruikt door het AKS-cluster moet minimaal beschikken over [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) machtigingen op het subnet binnen uw virtuele netwerk. Als u wilt definiëren een [aangepaste rol](../role-based-access-control/custom-roles.md) in plaats van de ingebouwde rol van inzender voor netwerken, de volgende machtigingen zijn vereist:
+Wanneer u Azure CNI netwerken gebruikt, is de VM-resource in een afzonderlijke resource die u wilt het AKS-cluster. Overdragen van machtigingen voor de AKS-service-principal te openen en beheren van deze resources. De service-principal die worden gebruikt door het AKS-cluster moet minimaal beschikken over [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) machtigingen op het subnet binnen uw virtuele netwerk. Als u wilt definiëren een [aangepaste rol](../role-based-access-control/custom-roles.md) in plaats van de ingebouwde rol van inzender voor netwerken, de volgende machtigingen zijn vereist:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 Zie voor meer informatie over AKS-service-principal overdracht [toegang tot andere Azure-resources delegeren][sp-delegation].
 
-Als elk knooppunt en een schil ontvangt een eigen IP-adres, plant de adresbereiken voor de AKS-subnetten. Het subnet moet groot genoeg is voor IP-adressen voor elk knooppunt, schillen en netwerkbronnen die u implementeert. Een AKS-cluster moet worden geplaatst in een eigen subnet. Als u wilt toestaan dat de verbinding met on-premises of gekoppelde netwerken in Azure, gebruik geen IP-adresbereiken die overlappen met bestaande netwerkbronnen. Er gelden standaard beperkingen voor het aantal schillen dat elk knooppunt wordt uitgevoerd met de basisfuncties en geavanceerde netwerken. Voor het afhandelen van schaal van gebeurtenissen of upgraden van clusters, moet u ook extra IP-adressen beschikbaar voor gebruik in het toegewezen subnet.
+Als elk knooppunt en een schil ontvangt een eigen IP-adres, plant de adresbereiken voor de AKS-subnetten. Het subnet moet groot genoeg is voor IP-adressen voor elk knooppunt, schillen en netwerkbronnen die u implementeert. Een AKS-cluster moet worden geplaatst in een eigen subnet. Als u wilt toestaan dat de verbinding met on-premises of gekoppelde netwerken in Azure, gebruik geen IP-adresbereiken die overlappen met bestaande netwerkbronnen. Er gelden standaard beperkingen voor het aantal schillen dat elk knooppunt wordt uitgevoerd met kubenet zowel Azure CNI netwerken. Voor het afhandelen van schaal van gebeurtenissen of upgraden van clusters, moet u ook extra IP-adressen beschikbaar voor gebruik in het toegewezen subnet.
 
-Voor het berekenen van het IP-adres vereist, Zie [configureren geavanceerde netwerken in AKS][advanced-networking].
+Voor het berekenen van het IP-adres vereist, Zie [netwerken van Azure CNI configureren in AKS][advanced-networking].
 
-### <a name="basic-networking-with-kubenet"></a>Netwerkgebruik met Kubenet
+### <a name="kubenet-networking"></a>Kubenet netwerken
 
-Hoewel het netwerkgebruik, hoeft u voor het instellen van de virtuele netwerken voordat het cluster wordt geïmplementeerd, kunnen er zijn nadelen:
+Hoewel kubenet, u hoeft voor het instellen van de virtuele netwerken voordat het cluster wordt geïmplementeerd, kunnen er zijn nadelen:
 
-* Knooppunten en schillen worden geplaatst op verschillende IP-subnetten. De gebruiker gedefinieerde routering (UDR) en IP-doorsturen wordt gebruikt voor het routeren van verkeer tussen schillen en knooppunten. Deze extra routering vermindert prestaties van het netwerk.
-* Verbindingen met bestaande on-premises netwerken of andere Azure-netwerk-peering is ingewikkeld.
+* Knooppunten en schillen worden geplaatst op verschillende IP-subnetten. De gebruiker gedefinieerde routering (UDR) en IP-doorsturen wordt gebruikt voor het routeren van verkeer tussen schillen en knooppunten. Deze extra routering kan de prestaties verminderen.
+* Verbindingen met bestaande on-premises netwerken of andere Azure-netwerk-peering kunnen lastig zijn.
 
-Netwerkgebruik is geschikt voor kleine ontwikkelings- of -werkbelastingen, zoals u hoeft te maken van het virtuele netwerk en subnetten afzonderlijk van het AKS-cluster. Eenvoudige websites met weinig verkeer, of tot het lift- and -shift-workloads in containers, kunnen ook profiteren van de eenvoud van AKS-clusters die zijn geïmplementeerd met eenvoudige netwerken. Voor de meeste productie-implementaties, plannen en geavanceerde netwerken gebruiken.
+Kubenet is geschikt voor kleine ontwikkelings- of -werkbelastingen, zoals u hoeft te maken van het virtuele netwerk en subnetten afzonderlijk van het AKS-cluster. Eenvoudige websites met weinig verkeer, of tot het lift- and -shift-workloads in containers, kunnen ook profiteren van de eenvoud van AKS-clusters die zijn geïmplementeerd met kubenet netwerken. Voor de meeste implementaties van de productie, moet u plannen en gebruiken van Azure CNI netwerken. U kunt ook [configureren van uw eigen IP-adresbereiken en virtuele netwerken met behulp van kubenet][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Inkomend verkeer verdelen
 
@@ -138,7 +138,7 @@ In dit artikel gericht op de verbinding met het netwerk en beveiliging. Zie voor
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [app-gateway-ingress]: https://github.com/Azure/application-gateway-kubernetes-ingress
-[Nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
+[nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
 [contour]: https://github.com/heptio/contour
 [haproxy]: https://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
@@ -155,4 +155,5 @@ In dit artikel gericht op de verbinding met het netwerk en beveiliging. Zie voor
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md
+[aks-configure-kubenet-networking]: configure-kubenet.md

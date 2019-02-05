@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 37150f67e29dae0357c978cfaea9abeebeef428c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902652"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691402"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Over het maken en beheren lezen-replica's in Azure portal
 
@@ -141,7 +141,7 @@ U kunt ook kunt u deze verwijderen uit de replicatie-venster.
 
 ## <a name="monitor-a-replica"></a>Een replica bewaken
 ### <a name="max-lag-across-replicas"></a>Maximale vertraging voor replica 's
-De **maximale vertraging voor replica's** ziet u de vertraging tussen het model en de meeste achtergebleven replica. 
+De **maximale vertraging voor replica's** ziet u de vertraging in bytes tussen de hoofd- en de meeste achtergebleven replica. 
 
 1.  Selecteer in de Azure portal, de **master** Azure Database for PostgreSQL-server.
 

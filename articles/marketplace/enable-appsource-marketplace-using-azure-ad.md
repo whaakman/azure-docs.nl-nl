@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351946"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732325"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Een AppSource en Marketplace-aanbieding inschakelen met behulp van Azure Active Directory
 
@@ -46,7 +46,7 @@ De verschillende [aanbiedingsopties en typen bieden](https://docs.microsoft.com/
 | Beheerde Apps  | N/A | N/A | N/A | Nee |
 | SaaS  | Nee | Ja | Ja | Ja |
 | Containers  | N/A | N/A | N/A | Nee |
-| Adviesservices  | Nee | N/A | N/A | N/A |
+| Adviesdiensten  | Nee | N/A | N/A | N/A |
 
 Zie voor meer informatie over de technische vereisten voor SaaS [SaaS-toepassingen bieden Publicatiehandleiding voor](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
@@ -59,7 +59,7 @@ Zie voor meer informatie over de technische vereisten voor SaaS [SaaS-toepassing
 
 Geautomatiseerde klanten kunt vergroot de kans van de conversie. Als uw klant uw proefversie aanbieding selecteert en wordt omgeleid naar uw proefversie omgeving, kunt u de klant instellen zonder extra stappen voor aanmelden.
 
-Tijdens de verificatie stuurt Azure AD een token aan uw app of de aanbieding. De gebruikersinformatie geleverd door het token wordt het maken van een gebruikersaccount in uw app of de aanbieding. Zie voor meer informatie, [voorbeeld tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+Tijdens de verificatie stuurt Azure AD een token aan uw app of de aanbieding. De gebruikersinformatie geleverd door het token wordt het maken van een gebruikersaccount in uw app of de aanbieding. Zie voor meer informatie, [voorbeeld tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Als u Azure AD met één muisklik verificatie inschakelen in uw app of proefversie aanbieding u:
 

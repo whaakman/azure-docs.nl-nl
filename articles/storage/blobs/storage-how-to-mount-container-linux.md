@@ -5,19 +5,19 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 2374875512bba55409ef43906acb20238c77158f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268458"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697999"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Over het koppelen van Blob-opslag als een bestandssysteem met blobfuse
 
 ## <a name="overview"></a>Overzicht
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is een stuurprogramma van het virtuele bestandssysteem voor Azure Blob-opslag. Blobfuse kunt u uw bestaande blok-blobgegevens in uw storage-account via het bestandssysteem van Linux. Azure Blob-opslag heeft is een object storage-service en een hiërarchische naamruimte. Blobfuse biedt deze naamruimte met behulp van het schema van de virtuele map met de slashes (/) als scheidingsteken.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is een stuurprogramma voor het virtuele bestandssysteem voor Azure Blob Storage. Blobfuse kunt u uw bestaande blok-blobgegevens in uw storage-account via het bestandssysteem van Linux. Azure Blob-opslag heeft is een object storage-service en een hiërarchische naamruimte. Blobfuse biedt deze naamruimte met behulp van het schema van de virtuele map met de slashes (/) als scheidingsteken.  
 
 Deze handleiding wordt beschreven hoe u blobfuse gebruikt, en het koppelen van een Blob storage-container op Linux- en toegang tot gegevens. Lees de details in voor meer informatie over blobfuse [de opslagplaats blobfuse](https://github.com/Azure/azure-storage-fuse).
 
@@ -100,7 +100,7 @@ containerName mycontainer
 
 Als u dit bestand hebt gemaakt, zorg ervoor dat de toegang beperken, zodat er geen andere gebruiker kan worden gelezen.
 ```bash
-chmod 700 fuse_connection.cfg
+chmod 600 fuse_connection.cfg
 ```
 
 > [!NOTE]

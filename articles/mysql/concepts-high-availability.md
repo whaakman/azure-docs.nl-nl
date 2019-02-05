@@ -5,13 +5,13 @@ author: jasonwhowell
 ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 70577f32debc526aaccbd79b62dd35e82119e3f9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: 3f541357d3d45ada694a821b3a3b1474185b6b00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548389"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691351"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Concepten van hoge beschikbaarheid in Azure Database for MySQL
 De Azure Database for MySQL-service biedt een gegarandeerde hoge mate van beschikbaarheid. De met financiële garantie service level agreement (SLA) is 99,99% bij algemene beschikbaarheid. Er is bijna geen toepassing uitvaltijd wanneer u deze service.
@@ -32,5 +32,5 @@ Net als bij de HA-model, wanneer een Azure Database for MySQL omhoog of omlaag w
 Tijdens de schaalbewerking is een onderbreking van de databaseverbindingen vindt plaats. De clienttoepassingen die niet zijn verbonden en open niet-doorgevoerde transacties worden geannuleerd. Nadat u de clienttoepassing probeert opnieuw verbinding of een nieuwe verbinding maakt, is de gateway zorgt ervoor dat de verbinding met de nieuwe grootte-exemplaar. 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor een overzicht van de service, [Azure Database for MySQL-overzicht](overview.md)
-- Zie voor een overzicht van de logica voor opnieuw proberen, [afhandeling van tijdelijke connectiviteitsfouten voor Azure Database voor MySQL](concepts-connectivity.md)
+- Meer informatie over [afhandeling van tijdelijke connectiviteitsfouten](concepts-connectivity.md)
+- Meer informatie over het [repliceert uw gegevens met meer replica's](howto-read-replicas-portal.md)

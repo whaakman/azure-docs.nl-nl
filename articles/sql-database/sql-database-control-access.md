@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6153fbdb6e085d1c817fac5db5eddb5e2c6ae7fa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 8cb044397cf439e97f3630b5c1c3f53fbf3f356d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465436"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729916"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Toegangsbeheer voor Azure SQL Database en SQL Data Warehouse
 
@@ -34,7 +34,7 @@ De Azure SQL Database-service is alleen beschikbaar via TCP-poort 1433. Zorg voo
 
 Als onderdeel van het verbindingsproces worden verbindingen van virtuele Azure-machines omgeleid naar een ander IP-adres en poort, die uniek zijn voor elke werkrol. Het poortnummer ligt in het bereik van 11000 tot 11999. Zie voor meer informatie over TCP-poorten, [poorten boven 1433 voor ADO.NET 4.5 en SQL Database2](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authentication
 
 SQL Database ondersteunt twee typen verificatie:
 
@@ -69,5 +69,5 @@ Zorg ervoor dat u de volgende functies kunt gebruiken voor het beperken of het v
 - Zie [SQL security overview](sql-database-security-overview.md) (SQL-beveiligingsoverzicht) voor een overzicht van de beveiligingsfuncties van SQL Database.
 - Zie voor meer informatie over firewall-regels, [Firewall-regels](sql-database-firewall-configure.md).
 - Zie [Aanmeldingen beheren](sql-database-manage-logins.md) voor meer informatie over gebruikers en aanmeldingen. 
-- Zie voor een discussie over proactieve controle [Databasecontrole](sql-database-auditing.md) en [SQL Database Threat Detection](sql-database-threat-detection.md).
+- Zie voor een discussie over proactieve controle [Databasecontrole](sql-database-auditing.md) en [SQL Database threat detection](sql-database-threat-detection.md).
 - Zie voor een zelfstudie [beveiligen van uw Azure SQL Database](sql-database-security-tutorial.md).

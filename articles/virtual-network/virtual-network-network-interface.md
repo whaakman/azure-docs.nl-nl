@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 6011defcea54a26aa25877aeace6a1a8a629fdf6
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 93534cf80a007dbb848a515ec4ec165c67e3b456
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567516"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730693"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -68,7 +68,7 @@ De portal biedt niet de optie voor het toewijzen van de netwerkinterface aan bev
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Netwerkinterface-instellingen weergeven
@@ -93,7 +93,7 @@ Als een IPv6-adres is toegewezen aan een netwerkinterface, retourneert de PowerS
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[lijst met AZ network nic](/cli/azure/network/nic#az_network_nic_list) netwerkinterfaces in het abonnement; weergeven [az network nic show](/cli/azure/network/nic#az_network_nic_show) voor een netwerkinterface-instellingen te bekijken|
+|CLI|[lijst met AZ network nic](/cli/azure/network/nic) netwerkinterfaces in het abonnement; weergeven [az network nic show](/cli/azure/network/nic) voor een netwerkinterface-instellingen te bekijken|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) netwerkinterfaces in het abonnement of de weergave-instellingen voor een netwerkinterface weergeven|
 
 ## <a name="change-dns-servers"></a>DNS-servers wijzigen
@@ -153,7 +153,7 @@ U kunt het subnet, maar niet het virtuele netwerk, dat een netwerkinterface word
 
 |Hulpprogramma|Opdracht|
 |---|---|
-|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Toevoegen aan of verwijderen van beveiligingsgroepen voor toepassing

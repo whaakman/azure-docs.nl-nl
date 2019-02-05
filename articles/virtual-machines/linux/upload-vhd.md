@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 47227b1f9ceb4ba9e35180aa0cb171d1edd5bb9a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638102"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696843"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Een Linux-VM maken van een aangepaste schijf met de Azure CLI
 
@@ -73,7 +73,7 @@ Azure biedt ondersteuning voor verschillende Linux-distributies (Zie [onderschre
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Anderen: Niet-goedgekeurde distributies](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Overige: Niet-goedgekeurde distributies](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Zie ook de [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer algemene tips voor het maken van Linux-installatiekopieën voor Azure.
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Create a storage account
 
-Maak een opslagaccount voor uw aangepaste schijf en VM's met [az storage-account maken](/cli/azure/storage/account#az-storageaccount-create). Het volgende voorbeeld wordt een opslagaccount met de naam *mystorageaccount* in de resourcegroep die eerder hebt gemaakt:
+Maak een opslagaccount voor uw aangepaste schijf en VM's met [az storage-account maken](/cli/azure/storage/account). Het volgende voorbeeld wordt een opslagaccount met de naam *mystorageaccount* in de resourcegroep die eerder hebt gemaakt:
 
 ```azurecli
 az storage account create \

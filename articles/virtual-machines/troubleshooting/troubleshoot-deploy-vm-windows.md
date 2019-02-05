@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6362b243bff91233c3cd08f26904866dd7be9ebd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9610256ac68b6c1be12ca22220e317752c068b85
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248874"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730830"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Problemen met implementatie Windows virtuele machine in Azure
 
@@ -87,7 +87,7 @@ Activeer uw maandelijkse tegoed, ziet deze [artikel](https://azure.microsoft.com
 
 ## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Hoe kan Enterprise Dev/Test toevoegen aan mijn Enterprise Agreement (EA) toegang te krijgen tot venster-clientinstallatiekopieën?
 
-De mogelijkheid om te maken van abonnementen op basis van de Enterprise Dev/Test-aanbieding is beperkt tot Accounteigenaren die is gemachtigd om dit te doen door een Enterprise-beheerder. De accounteigenaar maakt abonnementen via de Azure Account Portal en vervolgens als medebeheerders Visual Studio-abonnees moet toevoegen. Zodat ze kunnen beheren en gebruiken van de benodigde bronnen voor ontwikkelen en testen. Zie voor meer informatie, [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Alleen accounteigenaren die hiervoor zijn gemachtigd door een Enterprise-beheerder, kunnen abonnementen maken op basis van de Enterprise Dev/Test-aanbieding. De accounteigenaar maakt abonnementen via de Azure Account Portal en vervolgens als medebeheerders Visual Studio-abonnees moet toevoegen. Zodat ze kunnen beheren en gebruiken van de benodigde bronnen voor ontwikkelen en testen. Zie voor meer informatie, [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>De stuurprogramma's ontbreken voor mijn VM Windows-N-serie
 
@@ -124,7 +124,7 @@ Kies een grootte die wordt ondersteund op de beschikbaarheidsset cluster. Het ve
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Kan ik een bestaande klassieke virtuele machine toevoegen aan een beschikbaarheidsset?
 
-Ja. U kunt een bestaande klassieke virtuele machine toevoegen aan een nieuwe of bestaande Beschikbaarheidsset. Zie voor meer informatie [een bestaande virtuele machine toevoegen aan een beschikbaarheidsset](../windows/classic/configure-availability-classic.md#addmachine).
+Ja. U kunt een bestaande klassieke virtuele machine toevoegen aan een nieuwe of bestaande Beschikbaarheidsset. Zie voor meer informatie [een bestaande virtuele machine toevoegen aan een beschikbaarheidsset](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Volgende stappen

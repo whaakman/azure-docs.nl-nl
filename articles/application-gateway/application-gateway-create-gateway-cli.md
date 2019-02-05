@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: 66a9ea5abcff4609288e9ce7c93912313db6e163
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cde06aaf149785f464cd354c95c8f39575bad73b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850600"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698214"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Maak een toepassingsgateway met behulp van de Azure CLI
 
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-U kunt met de opdracht [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) een toepassingsgateway maken. Als u een toepassingsgateway maakt met Azure CLI, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De particuliere IP-adressen van de netwerkinterfaces worden toegevoegd als servers in de back-endpool van de toepassingsgateway.
+U kunt met de opdracht [az network application-gateway create](/cli/azure/network/application-gateway) een toepassingsgateway maken. Als u een toepassingsgateway maakt met Azure CLI, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. De particuliere IP-adressen van de netwerkinterfaces worden toegevoegd als servers in de back-endpool van de toepassingsgateway.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

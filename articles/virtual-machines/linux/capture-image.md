@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32cd3b9eb60a6d12c71be047740fa96ffdd56310
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094153"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731934"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Hoe u een installatiekopie van een virtuele machine of een VHD maken
 
@@ -43,7 +43,7 @@ U moet de volgende items voordat u een installatiekopie maakt:
 Voor een vereenvoudigde versie van dit artikel, en voor het testen, evalueren, of bij het leren over virtuele machines in Azure, Zie [een aangepaste installatiekopie van een Azure-VM maken met behulp van de CLI](tutorial-custom-images.md).
 
 
-## <a name="step-1-deprovision-the-vm"></a>Stap 1: Inrichting van de virtuele machine ongedaan maken
+## <a name="step-1-deprovision-the-vm"></a>Stap 1: De inrichting van de virtuele machine ongedaan maken
 Eerst moet u de inrichting ongedaan de virtuele machine maken met behulp van de Azure VM-agent verwijderen van machine-specifieke bestanden en gegevens. Gebruik de `waagent` opdracht met de `-deprovision+user` parameter op de bron-Linux-VM. Zie de [Gebruikershandleiding voor Azure Linux Agent](../extensions/agent-linux.md) voor meer informatie.
 
 1. Verbinding maken met uw Linux-VM met een SSH-client.
@@ -61,7 +61,7 @@ Eerst moet u de inrichting ongedaan de virtuele machine maken met behulp van de 
 ## <a name="step-2-create-vm-image"></a>Stap 2: VM-installatiekopie maken
 De Azure-CLI gebruiken voor de virtuele machine markeren als gegeneraliseerd en vastleggen van de installatiekopie. In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myVnet*, en *myVM*.
 
-1. Wijs de virtuele machine die u met de inrichting ongedaan gemaakt [az vm deallocate](/cli/azure/vm#deallocate). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM* in de resourcegroep met de naam *myResourceGroup*.
+1. Wijs de virtuele machine die u met de inrichting ongedaan gemaakt [az vm deallocate](/cli/azure/vm). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM* in de resourcegroep met de naam *myResourceGroup*.
    
     ```azurecli
     az vm deallocate \
@@ -69,7 +69,7 @@ De Azure-CLI gebruiken voor de virtuele machine markeren als gegeneraliseerd en 
       --name myVM
     ```
 
-2. De virtuele machine markeren als gegeneraliseerd met [az vm generalize](/cli/azure/vm#generalize). Het volgende voorbeeld wordt de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup* als gegeneraliseerd.
+2. De virtuele machine markeren als gegeneraliseerd met [az vm generalize](/cli/azure/vm). Het volgende voorbeeld wordt de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup* als gegeneraliseerd.
    
     ```azurecli
     az vm generalize \
@@ -91,7 +91,7 @@ De Azure-CLI gebruiken voor de virtuele machine markeren als gegeneraliseerd en 
    > Als u wilt voor het opslaan van uw installatiekopie in de zone-robuuste opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheidszones](../../availability-zones/az-overview.md) en bevatten de `--zone-resilient true` parameter.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Stap 3: Een virtuele machine maken van de vastgelegde installatiekopie
-Een virtuele machine maken met behulp van de installatiekopie die u hebt gemaakt met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMDeployed* van de installatiekopie met de naam *myImage*.
+Een virtuele machine maken met behulp van de installatiekopie die u hebt gemaakt met [az vm maken](/cli/azure/vm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMDeployed* van de installatiekopie met de naam *myImage*.
 
 ```azurecli
 az vm create \

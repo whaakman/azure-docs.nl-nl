@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226780"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735723"
 ---
 ## <a name="multi-and-single-instance-vms"></a>Multi- en virtuele machines van één exemplaar
 Veel klanten uitvoeren op Azure aantal kritieke dat ze plannen kunnen wanneer hun VM's ondergaan gepland onderhoud vanwege de downtime--ongeveer 15 minuten, dat wordt uitgevoerd tijdens het onderhoud. Beschikbaarheidssets kunt u helpen bepalen wanneer ingerichte virtuele machines gepland onderhoud wordt.

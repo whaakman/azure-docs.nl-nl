@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9aff828dcb9dfea6d5f35ad92bb09ba7cd802fea
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c0017d0b0255f5b585f9d8e6f6ec2f3a12752625
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53711853"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691484"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Herstellen van een Apache Hive fout door onvoldoende geheugen in Azure HDInsight
 
@@ -85,19 +85,21 @@ De fout blijft bij het gebruik van een grotere virtuele machine (bijvoorbeeld, D
 
 De ondersteuning en de engineering-teams samen te vinden was een van de problemen waardoor de out-of geheugenfout een [bekend probleem dat wordt beschreven in het Apache-JIRA](https://issues.apache.org/jira/browse/HIVE-8306):
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
+    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesn't take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
 De **hive.auto.convert.join.noconditionaltask** in de hive-site.xml bestand is ingesteld op **waar**:
 
-    <property>
-        <name>hive.auto.convert.join.noconditionaltask</name>
-        <value>true</value>
-        <description>
-              Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
-              If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
-              specified size, the join is directly converted to a mapjoin (there is no conditional task).
-        </description>
-      </property>
+```xml
+<property>
+    <name>hive.auto.convert.join.noconditionaltask</name>
+    <value>true</value>
+    <description>
+            Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
+            If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
+            specified size, the join is directly converted to a mapjoin (there is no conditional task).
+    </description>
+</property>
+```
 
 Is het waarschijnlijk kaart join is de oorzaak van de Java-Heap-ruimte onze van geheugen. Zoals uitgelegd in het blogbericht [Hadoop Yarn-geheugeninstellingen in HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)wanneer Tez-uitvoeringsengine wordt gebruikt de heap gebruikte ruimte daadwerkelijk behoort tot de Tez-container. Zie de volgende afbeelding met een beschrijving van het geheugen van de container Tez.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 646a64435ba02877d2588b8debbb3920a32a5cf1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563079"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732308"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -131,7 +131,7 @@ De reparatie manager-service inschakelen:
     ],
     ```
 
-3. Het clustermanifest van uw bijwerken met deze wijzigingen, met behulp van de bijgewerkte clustermanifest [Maak een nieuw cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) of [upgrade van de clusterconfiguratie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Zodra het cluster wordt uitgevoerd met bijgewerkte clustermanifest, kunt u nu de reparatie manager systeemservice uitgevoerd in het cluster, met de naam zien `fabric:/System/RepairManagerService`onder system services-punt in de Service Fabric explorer.
+3. Het clustermanifest van uw bijwerken met deze wijzigingen, met behulp van de bijgewerkte clustermanifest [Maak een nieuw cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) of [upgrade van de clusterconfiguratie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Zodra het cluster wordt uitgevoerd met bijgewerkte clustermanifest, kunt u nu de reparatie manager systeemservice uitgevoerd in het cluster, met de naam zien `fabric:/System/RepairManagerService`onder system services-punt in de Service Fabric explorer.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Automatische Update van Windows op alle knooppunten uitschakelen
 

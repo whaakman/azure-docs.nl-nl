@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6986a5c40b51300b631f3fdce6c3a88b43fb5b11
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434066"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730880"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Node.js
 
@@ -49,7 +49,7 @@ Download of kloon de [voorbeeld](https://github.com/Azure/azure-event-hubs-node/
 ## <a name="install-the-eventprocessorhost"></a>Installeren van de EventProcessorHost
 Installeer de EventProcessorHost voor Event Hubs-module. 
 
-```nodejs
+```shell
 npm install @azure/event-processor-host
 ```
 
@@ -61,20 +61,20 @@ De SDK die u hebt gekloond bevat meerdere voorbeelden die laten zien u hoe gebeu
 3. Uw event hub-verbindingsreeks, de event hub-naam en de storage-eindpunt configureren. U kunt de verbindingsreeks kopiëren voor uw event hub uit **verbinding verbindingsreeks-primaire** key onder **RootManageSharedAccessKey** op de Event Hub-pagina in de Azure-portal. Zie voor gedetailleerde stappen [-verbindingsreeks ophalen](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Op uw Azure-CLI, gaat u naar de **processor** mappad. Knooppunt-pakketten installeren en bouw het project door het uitvoeren van de volgende opdrachten:
 
-    ```nodejs
+    ```shell
     npm i
     npm run build
     ```
 5. Gebeurtenissen ontvangen met de event processor host met de volgende opdracht:
 
-    ```nodejs
+    ```shell
     node dist/examples/singleEph.js
     ```
 
 ## <a name="review-the-sample-code"></a>De voorbeeldcode controleren 
 Hier volgt de voorbeeldcode voor het ontvangen van gebeurtenissen van een event hub met behulp van node.js. U kunt handmatig een sampleEph.js-bestand maken en uitvoeren om te ontvangen van gebeurtenissen naar een event hub. 
 
-  ```nodejs
+  ```javascript
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
   const path = process.env.EVENTHUB_NAME;
@@ -127,7 +127,7 @@ Hier volgt de voorbeeldcode voor het ontvangen van gebeurtenissen van een event 
 
 Houd er rekening mee aan de omgevingsvariabelen worden ingesteld voordat het script is uitgevoerd. U kunt dit configureren op de opdrachtregel als in het volgende voorbeeld wordt weergegeven, of gebruik de [dotenv pakket](https://www.npmjs.com/package/dotenv#dotenv). 
 
-```
+```shell
 // For windows
 set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
 set EVENTHUB_NAME="<your-event-hub-name>"

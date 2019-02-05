@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85e250f3dee3dbfc9e09524d5f3977a143ee8bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5bd631bf31ba4e6a840c3e4e818062d322da0158
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213256"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727922"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK van de apparaten spraak
 
@@ -47,7 +47,7 @@ Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de
 
 ## <a name="set-up-the-development-kit"></a>Instellen van de development kit
 
-1. Verbinding maken met de development kit op een PC of het samenstellen van de adapter met behulp van een miniwerkbalk USB-kabel. Wanneer de kit is verbonden, beschikbaar een groene power-indicator onder het bovenste bord.
+1. Verbinding maken met de development kit op een PC of het samenstellen van de adapter met behulp van een hoge kwaliteit micro USB-kabel. Een indicator groen power licht op onder de bovenste kaart.
 
 1. De development kit verbinden met een computer met behulp van een tweede mini USB-kabel.
 

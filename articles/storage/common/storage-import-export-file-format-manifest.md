@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463239"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692473"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export-service manifest-bestand-indeling
 Het manifestbestand van het station beschrijving van de toewijzing tussen de blobs in Azure Blob-opslag en bestanden op schijf die bestaat uit een taak importeren of exporteren. Het manifestbestand is gemaakt als onderdeel van het voorbereidingsproces station en is opgeslagen op de schijf voordat het station wordt verzonden naar de Azure-Datacenter voor een importbewerking. Tijdens een exportbewerking, het manifest gemaakt en opgeslagen op de schijf met de Azure Import/Export-service.  
@@ -97,7 +97,7 @@ De gegevenselementen en kenmerken van het station manifest XML-indeling zijn opg
 |`Drive`|Geneste XML-element|Bevat het manifest voor elk station.|  
 |`DriveId`|String|De unieke stations-id voor het station. De stations-id is gevonden door het opvragen van het station voor het serienummer. Het serienummer van het station wordt meestal aan de buitenkant van het station ook weergegeven. De `DriveID` element moet worden weergegeven voordat een `BlobList` element in het manifestbestand.|  
 |`StorageAccountKey`|String|Vereist voor het importeren van taken als en alleen als `ContainerSas` is niet opgegeven. De accountsleutel voor de Azure storage-account die is gekoppeld aan de taak.<br /><br /> Dit element wordt weggelaten uit het manifest voor een bewerking voor exporteren.|  
-|`ContainerSas`|String|Vereist voor het importeren van taken als en alleen als `StorageAccountKey` is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak. Zie [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) voor de indeling. Dit element wordt weggelaten uit het manifest voor een bewerking voor exporteren.|  
+|`ContainerSas`|String|Vereist voor het importeren van taken als en alleen als `StorageAccountKey` is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak. Zie [plaatsen taak](/rest/api/storageimportexport/jobs) voor de indeling. Dit element wordt weggelaten uit het manifest voor een bewerking voor exporteren.|  
 |`ClientCreator`|String|Hiermee geeft u de client die het XML-bestand gemaakt. Deze waarde wordt niet geïnterpreteerd door de Import/Export-service.|  
 |`BlobList`|Geneste XML-element|Bevat een lijst met blobs die deel uitmaken van het importeren of exporteren van de taak. Elke blob in een blob-lijst deelt dezelfde metagegevens en eigenschappen.|  
 |`BlobList/MetadataPath`|String|Optioneel. Hiermee geeft u het relatieve pad van een bestand op de schijf die de metagegevens van de standaard die worden ingesteld op blobs in de blob-lijst voor een importbewerking bevat. Deze metagegevens kan eventueel worden genegeerd op basis van de blob-van-blob.<br /><br /> Dit element wordt weggelaten uit het manifest voor een bewerking voor exporteren.|  

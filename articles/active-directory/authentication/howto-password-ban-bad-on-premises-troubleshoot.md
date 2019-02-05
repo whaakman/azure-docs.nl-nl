@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: a1d06919ae0a76647fafeb9c8499476e533bfebf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7474027368949d5ad2202881ac68096fac2b8bd2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656393"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693901"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Preview: Azure AD-wachtwoordbeveiliging oplossen
 
@@ -26,8 +26,6 @@ ms.locfileid: "55656393"
 
 Na de implementatie van Azure AD-wachtwoord beveiliging, probleemoplossing mogelijk zijn vereist. In dit artikel gaat gedetailleerd inzicht in bepaalde algemene stappen voor probleemoplossing.
 
-## 
-
 ## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Zwakke wachtwoorden zijn niet ophalen van geweigerd zoals verwacht
 
 Dit kan verschillende oorzaken hebben:
@@ -35,12 +33,16 @@ Dit kan verschillende oorzaken hebben:
 1. De DC-agent (s) nog niet een beleid gedownload. De als gevolg hiervan is 30001 gebeurtenissen in het gebeurtenislogboek van DC-agent-beheerder.
 
     Mogelijke oorzaken voor dit probleem zijn:
+
     1. Forest nog niet is geregistreerd
     2. Proxy nog niet is geregistreerd
     3. Problemen met de netwerkverbinding zijn zo wordt voorkomen dat de Proxy-service communiceert met Azure (vereisten controleren HTTP-Proxy)
 
-2. De modus wachtwoord beleid afdwingen is nog steeds ingesteld op Audit. Als dit het geval is, hoeft deze opnieuw configureren op afdwingen met behulp van de portal van de beveiliging van Azure AD-wachtwoord.
-3. Het algoritme voor gegevensvalidatie gebruikt wachtwoord werkt zoals verwacht.  Raadpleeg [hoe wachtwoorden worden geëvalueerd](concept-password-ban-bad.md#how-are-passwords-evaluated).
+2. De modus wachtwoord beleid afdwingen is nog steeds ingesteld op Audit. Als dit het geval is, deze opnieuw configureren op afdwingen met behulp van de portal van de beveiliging van Azure AD-wachtwoord. Raadpleeg [inschakelen wachtwoordbeveiliging](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+3. Het wachtwoordbeleid is uitgeschakeld. Als dit het geval is, moet opnieuw worden ingeschakeld met behulp van de portal voor Azure AD-wachtwoord beveiliging configureren. Raadpleeg [inschakelen wachtwoordbeveiliging](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+4. Het algoritme voor gegevensvalidatie gebruikt wachtwoord werkt zoals verwacht. Raadpleeg [hoe wachtwoorden worden geëvalueerd](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Directory Services Repair Mode
 
@@ -50,7 +52,7 @@ Als de domeincontroller wordt opgestart naar Directory Services Repair Mode, wor
 
 Als een situatie zich waar de DC-agentservice problemen veroorzaakt voordoet, kan de DC-agent-service worden onmiddellijk afgesloten. Filter-dll voor de DC-agent-wachtwoord nog steeds roept de service niet actief en waarschuwing gebeurtenissen (10012, 10013), maar alle binnenkomende wachtwoorden gedurende die tijd worden geaccepteerd. De DC-agent-service kan vervolgens ook worden geconfigureerd via de Windows-Service Control Manager met een opstarttype 'Uitgeschakeld' indien nodig.
 
-Een andere meting voor herstel zou worden omgezet naar de modus inschakelen ingesteld op Nee in de portal voor Azure AD-wachtwoord beveiliging. Zodra het bijgewerkte beleid is gedownload, elke service DC-agents op een quiescent modus wanneer alle wachtwoorden worden geaccepteerd als gaat-is. Zie voor meer informatie, [modus afdwingen](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Een andere meting voor herstel zou worden omgezet naar de modus inschakelen ingesteld op Nee in de portal voor Azure AD-wachtwoord beveiliging. Zodra het bijgewerkte beleid is gedownload, elke DC agent-service op een quiescent modus wanneer alle wachtwoorden worden geaccepteerd als gaat-is. Zie voor meer informatie, [modus afdwingen](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
 ## <a name="domain-controller-demotion"></a>Degradatie van domeincontrollers
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118759"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700907"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Aantal van mijn telemetrie ontbreekt
@@ -160,7 +160,7 @@ Prestatiegegevens (CPU, IO-snelheid, enzovoort) is beschikbaar voor [Java-web-se
 * Controleer dat u daadwerkelijk alle Microsoft gekopieerd. Application Insights-dll-bestanden naar de server, samen met Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * In de firewall, u mogelijk [bepaalde TCP-poorten openen](../../azure-monitor/app/ip-addresses.md).
 * Hebt u een proxyserver gebruikt voor het verzenden van buiten uw bedrijfsnetwerk, stelt u de [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
-* WindowsServer 2008: Zorg ervoor dat u de volgende updates hebt geïnstalleerd: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: Zorg ervoor dat u de volgende updates hebt geïnstalleerd: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Ik gebruikt om gegevens te bekijken, maar deze is gestopt
 * Controleer de [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
@@ -185,6 +185,52 @@ De plaats, regio en land dimensies zijn afgeleid van IP-adressen en niet altijd 
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Uitzondering Methode niet gevonden bij het uitvoeren van uw app in Azure Cloud Services
 Hebt u uw app ontwikkeld voor .NET 4.6? 4.6 wordt niet automatisch ondersteund in Azure Cloud Services-rollen. [Installeer 4.6 voor elke rol](../../cloud-services/cloud-services-dotnet-install-dotnet.md) voordat u uw app uitvoert.
+
+## <a name="troubleshooting-logs"></a>Logboeken met probleemoplossing
+
+Volg deze instructies voor het vastleggen van logboeken met probleemoplossing voor uw framework.
+
+### <a name="net-framework"></a>.Net Framework
+
+1. Installeer de [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) pakket van NuGet. De versie die u installeert, moet overeenkomen met de huidige geïnstalleerde versie van `Microsoft.ApplicationInsighs`
+
+2. Wijzig het bestand applicationinsights.config zodanig dat het volgende:
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   Uw toepassing moet schrijfmachtigingen hebben op de geconfigureerde locatie
+ 
+ 3. Het proces opnieuw starten zodat deze nieuwe instellingen worden bemerkt door SDK
+ 
+ 4. Wanneer u klaar bent, kunt u deze wijzigingen ongedaan maken.
+  
+### <a name="net-core"></a>.NET core
+
+1. Installeer de [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) pakket van NuGet. De versie die u installeert, moet overeenkomen met de huidige geïnstalleerde versie van `Microsoft.ApplicationInsighs`
+
+2. Wijzigen `ConfigureServices` methode in uw `Startup.cs` klasse.:
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   Uw toepassing moet schrijfmachtigingen hebben op de geconfigureerde locatie
+ 
+ 3. Het proces opnieuw starten zodat deze nieuwe instellingen worden bemerkt door SDK
+ 
+ 4. Wanneer u klaar bent, kunt u deze wijzigingen ongedaan maken.
+  
 
 ## <a name="still-not-working"></a>Nog steeds werkt niet...
 * [Application Insights-forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

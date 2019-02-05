@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 46fc0202fe8e04cd7caefeeca948ebef251822fc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8a78abd7f3eea1493ef3f6e8cf3053720ba47478
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562280"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695437"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen met behulp van Azure Monitor  
 
@@ -61,21 +61,17 @@ Gedetailleerde volgende is een stapsgewijze handleiding voor het gebruik van waa
 
 1.  *Waarschuwingen voor activiteitenlogboeken*: Nadat u hebt geselecteerd, query voor waarschuwingen kan worden vermeld in de **zoekquery** veld; als de query-syntaxis is onjuist fout wordt in het veld in het rood weergegeven. Als de querysyntaxis juist - ter referentie wordt historische gegevens van de opgegeven query weergegeven als een grafiek met de optie voor het aanpassen van het tijdvenster van afgelopen zes uur voor de afgelopen week.
 
- ![Waarschuwingsregel configureren](media/alerts-log/AlertsPreviewAlertLog.png)
+    ![Waarschuwingsregel configureren](media/alerts-log/AlertsPreviewAlertLog.png)
 
- > [!NOTE]
-
+    > [!NOTE]
+    
     > Historische gegevensvisualisatie kan alleen worden weergegeven als de queryresultaten details van de tijd hebt. Als uw query in waarden van de specifieke kolom- of samengevatte gegevens resulteert is hetzelfde als een enkelvoudige diagram weergegeven.
-
-    >  Het type van de meting van metrische gegevens van waarschuwingen met Application insights, kunt u opgeven welke specifieke variabele als u wilt de gegevens groeperen met behulp van de **cumulatieve op** optie; als de hieronder weergegeven:
-
+    >  Voor het type van de meting van metrische gegevens van waarschuwingen met behulp van Application Insights of [overgeschakeld naar de nieuwe API](alerts-log-api-switch.md), kunt u opgeven welke specifieke variabele als u wilt de gegevens groeperen met behulp van de **cumulatieve op** optie, zoals wordt geïllustreerd in hieronder:    
     ![statistische optie](media/alerts-log/aggregate-on.png)
 
-1.  *Waarschuwingen voor activiteitenlogboeken*: Met de visualisatie aanwezig is, **Alert Logic** kunnen worden geselecteerd in de weergegeven opties van de voorwaarde, aggregatie en ten slotte drempelwaarde. Ten slotte opgeven in de logica, de tijd om te beoordelen voor de opgegeven voorwaarde, met behulp van **periode** optie. Samen met hoe vaak waarschuwing moet worden uitgevoerd door het selecteren van **frequentie**.
-
-Voor **Logboekwaarschuwingen** waarschuwingen kunnen worden gebaseerd op:
-   - *Aantal Records*: Een waarschuwing wordt gemaakt als het aantal records dat wordt geretourneerd door de query is groter dan of kleiner is dan de waarde die is opgegeven.
-   - *Meting van metrische gegevens*: Een waarschuwing gemaakt als elke *statistische waarde* overschrijdt de drempelwaarde die is opgegeven in de resultaten en is *gegroepeerd op* gekozen waarde. Het aantal schendingen voor een waarschuwing is het aantal keren dat die de drempelwaarde is overschreden in de geselecteerde tijdsperiode. Totaal aantal schendingen voor elke combinatie van schendingen kunt u opgeven via de resultatenset of achtereenvolgende schendingen om te vereisen dat de schendingen in opeenvolgende steekproeven plaatsvinden moeten. Meer informatie over [waarschuwingen en het bijhorende type](../../azure-monitor/platform/alerts-unified-log.md).
+1.  *Waarschuwingen voor activiteitenlogboeken*: Met de visualisatie aanwezig is, **Alert Logic** kunnen worden geselecteerd in de weergegeven opties van de voorwaarde, aggregatie en ten slotte drempelwaarde. Ten slotte opgeven in de logica, de tijd om te beoordelen voor de opgegeven voorwaarde, met behulp van **periode** optie. Samen met hoe vaak waarschuwing moet worden uitgevoerd door het selecteren van **frequentie**. **Waarschuwingen voor activiteitenlogboeken** kan zijn gebaseerd op:
+    - [Aantal Records](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): Een waarschuwing wordt gemaakt als het aantal records dat wordt geretourneerd door de query is groter dan of kleiner is dan de waarde die is opgegeven.
+    - [Meting van metrische gegevens](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): Een waarschuwing gemaakt als elke *statistische waarde* overschrijdt de drempelwaarde die is opgegeven in de resultaten en is *gegroepeerd op* gekozen waarde. Het aantal schendingen voor een waarschuwing is het aantal keren dat die de drempelwaarde is overschreden in de geselecteerde tijdsperiode. Totaal aantal schendingen voor elke combinatie van schendingen kunt u opgeven via de resultatenset of achtereenvolgende schendingen om te vereisen dat de schendingen in opeenvolgende steekproeven plaatsvinden moeten.
 
 
 1. Als de tweede stap definieert u een naam voor de waarschuwing in de **naam waarschuwingsregel** veld samen met een **beschrijving** met gedetailleerde informatie over specificaties voor de waarschuwing en **ernst** waarde uit de opties opgegeven. Deze gegevens opnieuw worden gebruikt in alle e-mails met waarschuwingen, meldingen of push uitgevoerd door Azure Monitor. Bovendien gebruiker kan kiezen bij het maken van waarschuwingsregel onmiddellijk geactiveerd door het omschakelen van op de juiste wijze **regel inschakelen bij het maken van** optie.
@@ -132,9 +128,95 @@ Waarschuwingen in Azure Monitor zijn gekoppeld aan dit resourcetype `Microsoft.I
 > [!NOTE]
 > Waarschuwingen voor logboeken voor Log Analytics kunnen ook worden beheerd met behulp van legacy [Log Analytics-waarschuwing API](../../azure-monitor/platform/api-alerts.md) en verouderde sjablonen van [met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../../azure-monitor/insights/solutions-resources-searches-alerts.md) ook. Zie voor meer informatie over het gebruik van de nieuwe ScheduledQueryRules API hier gedetailleerde standaard [overschakelen naar de nieuwe API voor Log Analytics-waarschuwingen](alerts-log-api-switch.md).
 
-Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) op basis van resource-sjabloon met de voorbeeld-gegevensset als variabelen.
+
+### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Voorbeeld van een waarschuwing logboek is gemaakt met behulp van Azure Resource-sjabloon
+
+Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) op basis van resource-sjabloon met behulp van de zoekquery standaardlogboek van [aantal resultaten type waarschuwing](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules), met de voorbeeld-gegevensset als variabelen.
 
 ```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0", 
+    "parameters": {      
+    },   
+    "variables": {
+    "alertLocation": "southcentralus",
+    "alertName": "samplelogalert",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+    "alertDescription": "Sample log search alert",
+    "alertStatus": "true",
+    "alertSource":{
+        "Query":"requests",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Type":"ResultCount"
+         },
+     "alertSchedule":{
+         "Frequency": 15,
+         "Time": 60
+         },
+     "alertActions":{
+         "SeverityLevel": "4"
+         },
+      "alertTrigger":{
+        "Operator":"GreaterThan",
+        "Threshold":"1"
+         },
+       "actionGrp":{
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "Subject": "Customized Email Header",
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
+         }
+  },
+  "resources":[ {
+    "name":"[variables('alertName')]",
+    "type":"Microsoft.Insights/scheduledQueryRules",
+    "apiVersion": "2018-04-16",
+    "location": "[variables('alertLocation')]",
+    "tags":{"[variables('alertTag')]": "Resource"},
+    "properties":{
+       "description": "[variables('alertDescription')]",
+       "enabled": "[variables('alertStatus')]",
+       "source": {
+           "query": "[variables('alertSource').Query]",
+           "dataSourceId": "[variables('alertSource').SourceId]",
+           "queryType":"[variables('alertSource').Type]"
+       },
+      "schedule":{
+           "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+       },
+      "action":{
+           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+           "severity":"[variables('alertActions').SeverityLevel]",
+           "aznsAction":{
+               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "emailSubject":"[variables('actionGrp').Subject]",
+               "customWebhookPayload":"[variables('actionGrp').Webhook]"
+           },
+       "trigger":{
+               "thresholdOperator":"[variables('alertTrigger').Operator]",
+               "threshold":"[variables('alertTrigger').Threshold]"
+           }
+       }
+     }
+   }
+ ]
+}
+
+```
+
+> [!IMPORTANT]
+> Label-veld met verborgen-koppeling naar de doelresource is verplicht in het gebruik van [queryregels gepland ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) sjabloon voor API-oproep of een resource. 
+
+Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleScheduledQueryRule.json ten behoeve van deze walkthrough kunnen worden opgeslagen en kunnen worden geïmplementeerd met [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+
+
+### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Waarschuwing met meerdere bronnen query met behulp van Azure Resource-sjabloon
+
+Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) op basis van sjabloon met behulp van resource [zoekquery van meerdere bronnen log](../../azure-monitor/log-query/cross-workspace-query.md) van [meting van metrische gegevens type waarschuwing](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules), met de voorbeeld-gegevensset als variabelen.
+
+```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
@@ -220,9 +302,11 @@ Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.micro
    }
  ]
 }
+
 ```
+
 > [!IMPORTANT]
-> Label-veld met verborgen-koppeling naar de doelresource is verplicht in het gebruik van [queryregels gepland ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) sjabloon voor API-oproep of een resource. 
+> Label-veld met verborgen-koppeling naar de doelresource is verplicht in het gebruik van [queryregels gepland ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) sjabloon voor API-oproep of een resource. Bij het gebruik van meerdere bronnen query in logboek waarschuwen, is het gebruik van [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) is verplicht en de gebruiker moet toegang hebben tot de lijst met resources die zijn vermeld
 
 Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleScheduledQueryRule.json ten behoeve van deze walkthrough kunnen worden opgeslagen en kunnen worden geïmplementeerd met [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

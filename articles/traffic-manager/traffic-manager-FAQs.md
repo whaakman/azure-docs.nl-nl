@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200044"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696792"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -285,7 +285,7 @@ Ja. Cloudservice 'staging' sleuven kan in Traffic Manager worden geconfigureerd 
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Traffic Manager biedt ondersteuning voor IPv6-eindpunten?
 
-Traffic Manager biedt momenteel geen IPv6-addressible naamservers. Traffic Manager kan echter nog steeds worden gebruikt door de IPv6-clients verbinding maken met IPv6-eindpunten. Een client maakt DNS-aanvragen niet rechtstreeks aan Traffic Manager. De client gebruikt in plaats daarvan een recursieve DNS-service. Een IPv6-client verzendt aanvragen naar de recursieve DNS-service via IPv6. De recursieve-service moet vervolgens verbinding kunnen maken met de naamservers van Traffic Manager met behulp van IPv4.
+Traffic Manager biedt momenteel geen IPv6-adres van de naamservers. Traffic Manager kan echter nog steeds worden gebruikt door de IPv6-clients verbinding maken met IPv6-eindpunten. Een client maakt DNS-aanvragen niet rechtstreeks aan Traffic Manager. De client gebruikt in plaats daarvan een recursieve DNS-service. Een IPv6-client verzendt aanvragen naar de recursieve DNS-service via IPv6. De recursieve-service moet vervolgens verbinding kunnen maken met de naamservers van Traffic Manager met behulp van IPv4.
 
 Traffic Manager reageert met de DNS-naam of IP-adres van het eindpunt. Ter ondersteuning van een IPv6-eindpunt, zijn er twee opties. U kunt het eindpunt toevoegen als een DNS-naam met een gekoppelde AAAA-record en Traffic Manager wordt controle van gatewayservicestatus dat eindpunt en als een CNAME-record typt in het query-antwoord geretourneerd. U kunt ook een eindpunt toevoegen direct met behulp van de IPv6-adres en Traffic Manager een AAAA-record type in het queryantwoord wordt geretourneerd. 
 

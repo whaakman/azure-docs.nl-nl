@@ -5,19 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 4b58a95ed149886cb987d316b7738c4a2d778864
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: d43647b57469efa4581dc1c74a842a51e9d54ad7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540672"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699813"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Concepten van hoge beschikbaarheid in Azure Database for PostgreSQL
 De Azure Database for PostgreSQL-service biedt een gegarandeerde hoge mate van beschikbaarheid. De met financiële garantie service level agreement (SLA) is 99,99% bij algemene beschikbaarheid. Er is bijna geen toepassing uitvaltijd wanneer u deze service.
 
 ## <a name="high-availability"></a>Hoge beschikbaarheid
-Het model met hoge beschikbaarheid (HA) is gebaseerd op ingebouwde mechanismen voor failover als een knooppunt op serverniveau onderbreking optreedt. Een onderbreking knooppunt op serverniveau kan zich voordoen vanwege een hardwarestoring optreedt of als reactie op een service-implementatie.
+Het model met hoge beschikbaarheid (HA) is gebaseerd op ingebouwde failover mechanismen wanneer er een knooppunt op serverniveau onderbreking optreedt. Een onderbreking knooppunt op serverniveau kan zich voordoen vanwege een hardwarestoring optreedt of als reactie op een service-implementatie.
 
 Allen tijde optreden wijzigingen aangebracht in een Azure Database for PostgreSQL-databaseserver in de context van een transactie. Wijzigingen worden synchroon geregistreerd in Azure storage als de transactie doorgevoerd wordt. Als een knooppunt op serverniveau onderbreking optreedt, wordt de database-server automatisch maakt u een nieuw knooppunt en de opslag van gegevens is gekoppeld aan het nieuwe knooppunt. Alle actieve verbindingen verbroken en eventuele actieve transacties zijn niet doorgevoerd.
 
@@ -32,5 +32,5 @@ Net als bij de HA-model, wanneer een Azure Database for PostgreSQL omhoog of oml
 Tijdens de schaalbewerking is een onderbreking van de databaseverbindingen vindt plaats. De clienttoepassingen die niet zijn verbonden en open niet-doorgevoerde transacties worden geannuleerd. Nadat u de clienttoepassing probeert opnieuw verbinding of een nieuwe verbinding maakt, is de gateway zorgt ervoor dat de verbinding met de nieuwe grootte-exemplaar. 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor een overzicht van de service, [Azure Database for PostgreSQL-overzicht](overview.md)
-- Zie voor een overzicht van de logica voor opnieuw proberen, [afhandeling van tijdelijke connectiviteitsfouten voor Azure Database for PostgreSQL](concepts-connectivity.md)
+- Meer informatie over [afhandeling van tijdelijke connectiviteitsfouten](concepts-connectivity.md)
+- Meer informatie over het [repliceert uw gegevens met meer replica's](howto-read-replicas-portal.md)

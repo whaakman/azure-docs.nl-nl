@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826612"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694479"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migratie van Contoso: Opnieuw hosten van een on-premises-app op een Azure-VM en het beheerde exemplaar van SQL Database
 
@@ -173,7 +173,7 @@ Als u een Azure SQL Database Managed Instance instelt, moet Contoso een subnet d
 - Het subnet moet een gebruiker gedefinieerde routering (UDR) routeringstabel hebben. De enige route toegewezen moet 0.0.0.0/0 van volgende hop internet. 
 - Optionele aangepaste DNS: Als aangepaste DNS is opgegeven in de Azure-netwerk, moet de recursieve resolvers IP-adres (zoals 168.63.129.16) van Azure worden toegevoegd aan de lijst. Meer informatie over het [aangepaste DNS configureren voor een beheerd exemplaar](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - Het subnet kan niet beschikken over een service-eindpunt dat is gekoppeld aan deze (storage of SQL). Service-eindpunten moeten worden uitgeschakeld op het virtuele netwerk.
-- Het subnet moet minimaal 16 IP-adressen hebben. Meer informatie over het [het formaat van de Managed Instance-subnet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- Het subnet moet minimaal 16 IP-adressen hebben. Meer informatie over het [het formaat van de Managed Instance-subnet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - In de omgeving van Contoso hybride zijn aangepaste DNS-instellingen vereist. Contoso configureert de DNS-instellingen voor het gebruik van een of meer van de Azure DNS-servers van het bedrijf. Meer informatie over [DNS aanpassing](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Instellen van een virtueel netwerk voor het beheerde exemplaar
@@ -207,7 +207,7 @@ Contoso-beheerders instellen van het virtuele netwerk als volgt:
 *Meer hulp nodig?*
 
 - Bekijk een overzicht van [SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
-- Meer informatie over het [een virtueel netwerk maken voor een SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Meer informatie over het [een virtueel netwerk maken voor een SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Meer informatie over het [peering instellen](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Meer informatie over het [Azure Active Directory DNS-instellingen bijwerken](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
@@ -609,7 +609,7 @@ Het Contoso security team controleert de Azure-VM's en SQL Database Managed Inst
 
      ![Beheerd exemplaar beveiliging - detectie van bedreigingen](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-Zie voor meer informatie over procedures voor beveiliging voor virtuele machines, [aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+Zie voor meer informatie over procedures voor beveiliging voor virtuele machines, [aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 ### <a name="bcdr"></a>BCDR
 

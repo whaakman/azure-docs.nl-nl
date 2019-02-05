@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0d915592053c256d3640d0f0de7bb94bf109f2c8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510150"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700159"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Maken en VPN-clientconfiguratiebestanden voor P2S-RADIUS-verificatie installeren
 
@@ -98,10 +98,10 @@ Gebruik de volgende stappen uit om te configureren van de systeemeigen Windows V
 
 2. Zoek de **mobileconfig** -bestand op de Mac.
 
-   ![Locatie van het bestand mobilconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+   ![Locatie van het bestand mobileconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Optionele stap - als u wilt opgeven van een aangepaste DNS-server, voeg de volgende regels aan de **mobileconfig** bestand:
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -262,15 +262,15 @@ Gebruik een ander verificatietype (bijvoorbeeld voor eenmalig gebruik), of een a
 
 1. Gebruik de `Get-AzureRmVpnClientConfiguration` cmdlet voor het genereren van de configuratie van de VPN-client voor EapMSChapv2. Zie voor instructies [in deze sectie](#ccradius) van het artikel.
 
-2. Pak het bestand VpnClientConfiguration.zip uit en zoek naar de **GenenericDevice** map. De mappen met de Windows-installatieprogramma's voor 64-bits en 32-bits architectuur negeren.
+2. Pak het bestand VpnClientConfiguration.zip uit en zoek naar de **GenericDevice** map. De mappen met de Windows-installatieprogramma's voor 64-bits en 32-bits architectuur negeren.
  
-3. De **GenenericDevice** map bevat een XML-bestand met de naam **VpnSettings**. Dit bestand bevat de vereiste gegevens:
+3. De **GenericDevice** map bevat een XML-bestand met de naam **VpnSettings**. Dit bestand bevat de vereiste gegevens:
 
    * **VpnServer**: FQDN-naam van de Azure VPN-gateway. Dit is het adres waarmee de client verbinding maakt.
    * **VpnType**: Tunneltype die u gebruikt om verbinding te maken.
    * **Routes**: Routes die u configureren in uw profiel moet zodat alleen het verkeer dat gekoppeld aan het Azure-netwerk wordt verzonden via de P2S-tunnel.
    
-   De **GenenericDevice** map bevat ook een cer-bestand met de naam **VpnServerRoot**. Dit bestand bevat het basiscertificaat dat is vereist voor het valideren van de Azure VPN-gateway tijdens de installatie van de P2S-verbinding. Het certificaat installeren op alle apparaten die verbinding met de Azure-netwerk maken.
+   De **GenericDevice** map bevat ook een cer-bestand met de naam **VpnServerRoot**. Dit bestand bevat het basiscertificaat dat is vereist voor het valideren van de Azure VPN-gateway tijdens de installatie van de P2S-verbinding. Het certificaat installeren op alle apparaten die verbinding met de Azure-netwerk maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

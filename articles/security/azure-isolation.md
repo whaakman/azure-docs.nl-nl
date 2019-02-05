@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4d9a6b8bf2b6a9a50ee315d5150c15a18f37462d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974706"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696045"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie in de openbare Cloud van Azure
 ##  <a name="introduction"></a>Inleiding
@@ -27,7 +27,7 @@ ms.locfileid: "53974706"
 Bij de huidige en toekomstige Azure klanten te begrijpen en gebruikmaken van de verschillende beveiligingsgerelateerde mogelijkheden die beschikbaar zijn in en rondom het Azure-platform, Microsoft heeft ontwikkeld die een reeks White Papers, overzichten van de beveiliging, aanbevolen procedures en Controlelijsten voor.
 De onderwerpen in termen van diepgaande en brede toepassing variëren en worden regelmatig bijgewerkt. Dit document is onderdeel van de reeks zoals samengevat in de volgende sectie Abstract.
 
-### <a name="azure-platform"></a>Azure-Platform
+### <a name="azure-platform"></a>Azure Platform
 Azure is een open en flexibel cloudserviceplatform die ondersteuning biedt voor het breedste arsenaal aan besturingssystemen, programmeertalen programmeertalen, frameworks, tools, databases en apparaten. U kunt bijvoorbeeld:
 - Voer Linux-containers met Docker-integratie;
 - Bouw apps met JavaScript, Python, .NET, PHP, Java en Node.js; en
@@ -52,14 +52,14 @@ Met betrekking tot werklocaties in de cloud kan een tenant worden gedefinieerd a
 
 Elke Azure AD-directory is uniek en werkt afzonderlijk van andere Azure AD-directory’s. Net zoals een kantoorgebouw een beveiligd bedrijfsmiddel is van uw organisatie, is ook een Azure AD-directory ontworpen als een beveiligd bedrijfsmiddel dat alleen door uw organisatie kan worden gebruikt. De Azure AD-architectuur isoleert klant- en identiteitsgegevens, zodat deze niet door elkaar worden gehaald. Dit betekent dat gebruikers en beheerders van een Azure AD-directory niet per ongeluk of opzettelijk gegevens in een andere directory kunnen openen.
 
-### <a name="azure-tenancy"></a>Azure-Tenants
+### <a name="azure-tenancy"></a>Azure Tenancy
 Azure tenants (Azure-abonnement) verwijst naar een ' klant/facturering'-relatie en moet een uniek [tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) in [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Niveau isolatie van tenants in Microsoft Azure wordt bereikt met Azure Active Directory en [besturingselementen op basis van rollen](https://docs.microsoft.com/azure/role-based-access-control/overview) die worden aangeboden door het. Elk Azure-abonnement is gekoppeld aan een directory van Azure Active Directory (AD).
 
 Gebruikers, groepen en toepassingen uit die map kunnen resources in het Azure-abonnement te beheren. U kunt deze toegangsrechten met behulp van de Azure portal, opdrachtregelprogramma's van Azure en Azure Management-API's. Een Azure AD-tenant wordt logisch geïsoleerd met beveiligingsgrenzen zodat klanten geen toegang tot of inbreuk CO-tenants, per ongeluk of opzettelijk. Azure AD wordt uitgevoerd op 'bare-metalcomputers' servers geïsoleerd in een gescheiden netwerksegment waar filteren van netwerkpakketten hostniveau en Windows Firewall blokkeert ongewenste verbindingen en het verkeer.
 
 - Toegang tot gegevens in Azure AD is vereist verificatie van de gebruiker via een beveiligingstokenservice (STS). Informatie over het bestaan van de gebruiker, de ingeschakelde status en de rol wordt gebruikt door het autorisatiesysteem om te bepalen of de aangevraagde toegang tot de doel-tenant voor deze gebruiker is toegestaan in deze sessie.
 
-![Azure-Tenants](./media/azure-isolation/azure-isolation-fig1.png)
+![Azure Tenancy](./media/azure-isolation/azure-isolation-fig1.png)
 
 
 - Tenants zijn afzonderlijke containers en er is geen relatie tussen deze.
@@ -344,7 +344,7 @@ Azure-implementatie heeft meerdere lagen van netwerkisolatie. Het volgende diagr
 
 **Isolatie van verkeer:** Een [virtueel netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) is de verkeersisolatiegrens op het Azure-platform. Virtuele machines (VM's) in één virtueel netwerk kan niet communiceren rechtstreeks op virtuele machines in een ander virtueel netwerk, zelfs als beide virtuele netwerken worden gemaakt van dezelfde klant. Isolatie is een belangrijke eigenschap die ervoor zorgt dat de klant-VM's en communicatie blijft privé binnen een virtueel netwerk.
 
-[Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) biedt een extra isolatielaag met in het virtuele netwerk op basis van IP-bereik. IP-adressen in het virtuele netwerk, kunt u een virtueel netwerk verdelen in meerdere subnetten voor organisatie- en beveiligingsdoeleinden. Tussen VM's en PaaS-rolexemplaren die in (dezelfde of verschillende) subnetten in een VNET zijn geïmplementeerd, is communicatie mogelijk zonder extra configuratie. U kunt ook configureren [netwerkbeveiligingsgroep (nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) wilt toestaan of weigeren van netwerkverkeer naar een VM-exemplaar op basis van regels die zijn geconfigureerd in de toegangsbeheerlijst (ACL) van de NSG. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet.
+[Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) biedt een extra isolatielaag met in het virtuele netwerk op basis van IP-bereik. IP-adressen in het virtuele netwerk, kunt u een virtueel netwerk verdelen in meerdere subnetten voor organisatie- en beveiligingsdoeleinden. Tussen VM's en PaaS-rolexemplaren die in (dezelfde of verschillende) subnetten in een VNET zijn geïmplementeerd, is communicatie mogelijk zonder extra configuratie. U kunt ook configureren [netwerkbeveiligingsgroep (nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) wilt toestaan of weigeren van netwerkverkeer naar een VM-exemplaar op basis van regels die zijn geconfigureerd in de toegangsbeheerlijst (ACL) van de NSG. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet.
 
 ## <a name="next-steps"></a>Volgende stappen
 

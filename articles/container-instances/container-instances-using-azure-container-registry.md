@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064641"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727905"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementeren in Azure Container Instances vanuit Azure Container Registry
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064641"
 
 In productiescenario's, toegang tot een Azure container registry moet worden opgegeven met behulp van [service-principals](../container-registry/container-registry-auth-service-principal.md). Service-principals kunnen u [op rollen gebaseerd toegangsbeheer](../container-registry/container-registry-roles.md) aan uw containerinstallatiekopieën. U kunt bijvoorbeeld een service-principal configureren met alleen pull-toegang tot een register.
 
-In deze sectie maakt u een Azure-sleutelkluis en een service-principal maken en opslaan van de service-principal-referenties in de kluis.
+In de volgende sectie, kunt u een Azure-sleutelkluis en een service-principal maken en opslaan van de service-principal-referenties in de kluis. 
 
 ### <a name="create-key-vault"></a>Sleutelkluis maken
 
@@ -64,7 +64,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-De `--role` argument in de voorgaande opdracht configureert u de service-principal met de *acrpull* rol, die deze alleen pull toegang tot het register verleent. Als u wilt zowel push als pull toegang verlenen, wijzigt de `--role` argument voor *acrpush*.
+Het argument `--role` in de voorgaande opdracht configureert de service-principal met de rol *acrpull*, die de principal alleen-push-toegang tot het register geeft. Als u zowel push-als pull-toegang wilt geven, wijzigt u het argument `--role` in *acrpush*.
 
 Vervolgens opslaan van de service-principal *appId* in de kluis, dit is de **gebruikersnaam** u doorgeven naar Azure Container Registry voor verificatie.
 
@@ -134,9 +134,11 @@ Zie voor meer informatie over het verwijzen naar Azure Key Vault-geheimen in een
 
 ## <a name="deploy-with-azure-portal"></a>Implementeren met Azure portal
 
-Als u beheer van containerinstallatiekopieën in Azure Container Registry, kunt u eenvoudig een container maken in Azure Container Instances met behulp van de Azure-portal.
+Als u beheer van containerinstallatiekopieën in een Azure container registry, kunt u eenvoudig een container maken in Azure Container Instances met behulp van de Azure-portal. Wanneer u de portal gebruikt om een containerexemplaar van een containerregister te implementeren, moet u van het register inschakelen [beheerdersaccount](../container-registry/container-registry-authentication.md#admin-account). Het beheerdersaccount dat is ontworpen voor één gebruiker toegang tot het register, hoofdzakelijk voor testdoeleinden. 
 
 1. Ga naar het containerregister in Azure portal.
+
+1. Selecteer om te bevestigen dat het beheerdersaccount dat is ingeschakeld, **toegangssleutels**, en klikt u onder **gebruiker met beheerdersrechten** Selecteer **inschakelen**.
 
 1. Selecteer **opslagplaatsen**, en selecteer vervolgens de opslagplaats die u wilt implementeren, met de rechtermuisknop op de tag voor de installatiekopie van de container die u wilt implementeren, en selecteer **uitvoeringsinstantie**.
 

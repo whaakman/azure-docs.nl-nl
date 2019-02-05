@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678437"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700567"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Virtueel apparaat netwerkproblemen in Azure
 
@@ -40,7 +40,7 @@ Technische ondersteuning voor NVA's van derden en de integratie met de Azure-pla
 - Udr's op subnetten van het virtuele netwerk dat verkeer van de NVA leiden
 - Routering tabellen en regels binnen het NVA (bijvoorbeeld van NIC1 naar NIC2)
 - Tracering op NVA-NIC's om te controleren of ontvangen en verzenden van netwerkverkeer
-- Wanneer u een standaard-SKU en openbare IP-moet er een NSG die is gemaakt en een expliciete regel het verkeer toe te staan om te worden gerouteerd naar de NVA.
+- Wanneer u een standaard-SKU en openbare IP-adressen moet er een NSG die is gemaakt en een expliciete regel het verkeer toe te staan om te worden gerouteerd naar de NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Basisstappen voor het oplossen van problemen
 
@@ -78,7 +78,7 @@ PowerShell gebruiken
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
 
-**Controleer voor NSG bij het gebruik van standaard SKU Pubilc IP** bij gebruik van een standaard-SKU en openbare IP-moet er een NSG die is gemaakt en een expliciete regel het verkeer naar de NVA toe te staan.
+**Controleer voor NSG bij het gebruik van standaard SKU en openbare IP** bij gebruik van een standaard-SKU en openbare IP-adressen moet er een NSG die is gemaakt en een expliciete regel het verkeer naar de NVA toe te staan.
 
 **Controleer of het verkeer kan worden gerouteerd naar de NVA**
 

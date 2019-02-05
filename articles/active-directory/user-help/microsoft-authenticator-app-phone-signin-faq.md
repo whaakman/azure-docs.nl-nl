@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 201487c9052ce8df9734e7e11e604cbae9102aab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d0da7e19934123534bf063deecb5bff584dbc317
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155830"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699276"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Aanmelden bij uw accounts met behulp van de Microsoft Authenticator-app
 De Microsoft Authenticator-app kunt u aanmelden bij uw accounts als u tweeledige verificatie. Tweeledige verificatie helpt u bij de toegang tot uw account veiliger, met name tijdens het bekijken van gevoelige informatie. Omdat wachtwoorden kunnen worden vergeten, gestolen of waarmee is geknoeid, tweeledige verificatie een extra beveiligingsstap waarmee de beveiliging van uw account is door waardoor het moeilijker is voor anderen in breken.
@@ -28,7 +28,7 @@ U kunt de Microsoft Authenticator-app gebruiken op verschillende manieren, met i
 - Het leveren van aanmelden zonder een wachtwoord vereisen, het gebruik van uw gebruikersnaam en het mobiele apparaat met uw vingerafdruk, vlak of PINCODE.
 
  >[!Important]
- >Deze telefoon aanmelden methode werkt alleen met uw persoonlijke Microsoft-accounts. Uw werk of school-account en niet-Microsoft-accounts moeten u het proces voor de standard tweeledige verificatie gebruiken.
+ >Deze telefoon aanmelden methode werkt alleen met uw werk of school en persoonlijke Microsoft-accounts. Uw niet-Microsoft-accounts moeten u het proces voor de standard tweeledige verificatie gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u de Microsoft Authenticator-app gebruiken kunt, moet u het volgende doen:

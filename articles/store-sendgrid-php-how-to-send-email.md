@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: ee338e2011a7b86a069bd42a028d65b23a123037
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427094"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693021"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Het gebruik van de SendGrid-e-mailservice via PHP
 
@@ -46,7 +46,7 @@ Zie voor meer informatie, [ https://sendgrid.com ] [ https://sendgrid.com].
 
 SendGrid gebruiken in een Azure PHP-toepassing vereist geen speciale configuratie of coderen. Omdat SendGrid een service is, kunnen deze worden geopend op exact dezelfde manier uit een cloudtoepassing zoals kan vanuit een on-premises toepassing.
 
-## <a name="how-to-send-an-email"></a>Hoe: een e-mailbericht verzenden
+## <a name="how-to-send-an-email"></a>Procedure: Een E-mail verzenden
 
 U kunt e-mailadres van de SMTP- of de Web-API die is geleverd door SendGrid verzenden.
 
@@ -161,7 +161,7 @@ Gebruik van PHP [curl functie] [ curl function] e-mail verzenden via de Web-API 
 
 Web-API van SendGrid is vergelijkbaar met een REST-API, maar het is niet echt een RESTful-API omdat, in de meeste aanroepen beide ophalen en POST-bewerkingen door elkaar kunnen worden gebruikt.
 
-## <a name="how-to-add-an-attachment"></a>Hoe: een bijlage toevoegen
+## <a name="how-to-add-an-attachment"></a>Procedure: Voeg een bijlage toe
 
 ### <a name="smtp-api"></a>SMTP-API
 
@@ -296,7 +296,7 @@ Verzenden van een bijlage met behulp van de Web-API is vergelijkbaar met het ver
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Hoe: Filters gebruiken om in te schakelen voetteksten, tracering en Analytics
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Procedure: Filters gebruiken om in te schakelen voetteksten, tracering en Analytics
 
 SendGrid zorgt voor extra e-mailfunctionaliteit via het gebruik van *filters*. Dit zijn de instellingen die kunnen worden toegevoegd aan een e-mailbericht om in te schakelen specifieke functionaliteit, zoals het inschakelen van klikken traceren in, Google analytics en abonnement bijhouden.
 
@@ -349,7 +349,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  // support@yourcompany.com, info@yourcompany.com
  $from = 'someone@example.com';
 
- // If you do not specify a sender list above, you can specifiy the user here. If
+ // If you do not specify a sender list above, you can specify the user here. If
  // a sender list IS specified above, this email address becomes irrelevant.
  $to = 'john@contoso.com';
 

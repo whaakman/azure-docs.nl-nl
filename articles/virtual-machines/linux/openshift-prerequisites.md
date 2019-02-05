@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d4b706a088769530e3994d8813b28f99d5a56df5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 25ec82c923ebe322194d868159332ef145727999
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411965"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692988"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Algemene vereisten voor het implementeren van OpenShift in Azure
 
@@ -53,14 +53,14 @@ Deze handleiding beschrijft het maken van de artefacten die zijn gekoppeld aan d
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
-Aanmelden bij uw Azure-abonnement met de [az login](/cli/azure/reference-index#az_login) opdracht en volgt u de op het scherm richtingen, of klik op **uitproberen** Cloud Shell gebruiken.
+Aanmelden bij uw Azure-abonnement met de [az login](/cli/azure/reference-index) opdracht en volgt u de op het scherm richtingen, of klik op **uitproberen** Cloud Shell gebruiken.
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Het verdient een speciale resourcegroep gebruiken voor het hosten van de key vault. Deze groep is gescheiden van de resourcegroep waarin de clusterbronnen OpenShift implementeren.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Het verdient een speciale resourcegroep gebruiken voor het hosten van de key vault. Deze groep is gescheiden van de resourcegroep waarin de clusterbronnen OpenShift implementeren.
 
 Het volgende voorbeeld wordt een resourcegroep met de naam *keyvaultrg* in de *eastus* locatie:
 
@@ -69,7 +69,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
-Maken van een key vault voor het opslaan van de SSH-sleutels voor het cluster met de [az keyvault maken](/cli/azure/keyvault#az_keyvault_create) opdracht. De key vault-naam moet wereldwijd uniek zijn.
+Maken van een key vault voor het opslaan van de SSH-sleutels voor het cluster met de [az keyvault maken](/cli/azure/keyvault) opdracht. De key vault-naam moet wereldwijd uniek zijn.
 
 Het volgende voorbeeld wordt een key vault met de naam *keyvault* in de *keyvaultrg* resourcegroep:
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f5dfd9488e6017acfdf66cdb7d4cee3aedd1ab3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227774"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699921"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text-API V2 naar V3-migratie
 
@@ -109,7 +109,7 @@ Wereldwijd
 
 Microsoft Translator V3 maakt standaard gebruik van neurale machinevertalingen. Deze kunnen daarom niet worden gebruikt met de Microsoft Translator-Hub. De Translator-Hub biedt alleen ondersteuning voor verouderde statistische machinevertalingen. Aanpassing voor neurale vertalingen is nu beschikbaar met de aangepaste Translator. [Meer informatie over het aanpassen van neurale machinevertalingen](custom-translator/overview.md)
 
-Neurale vertalingen met de tekst van V3 API biedt geen ondersteuning voor het gebruik van standard categorieën (SMT, spraak, tekst, generalnn).
+Neurale vertalingen met de tekst van V3 API biedt geen ondersteuning voor het gebruik van standard categorieën (SMT, spraak, technische, generalnn).
 
 | |Eindpunt|    GDPR-naleving voor Processor|  Translator Hub gebruiken| Gebruik aangepaste Translator (Preview)|
 |:-----|:-----|:-----|:-----|:-----|

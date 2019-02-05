@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4400bdf9a88c492a08c7eeafb074af89dee8abb1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6af1a7c1cf140ba8ff4710c0cc90559e3df55135
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661765"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734161"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Het uploaden, downloaden en met behulp van Node.js-SDK v2 blobs te vermelden
 
@@ -108,7 +108,7 @@ In de volgende implementatie wordt elk van de *blobService*-functies verpakt in 
 
 ### <a name="list-containers"></a>Containers weergeven
 
-De *listContainers*-functie roept [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listcontainerssegmented) aan die een verzameling van containers in groepen retourneert.
+De *listContainers*-functie roept [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) aan die een verzameling van containers in groepen retourneert.
 
 ```javascript
 const listContainers = async () => {
@@ -150,7 +150,7 @@ Door **createContainerIfNotExists** kan de toepassing de opdracht *createContain
 
 ### <a name="upload-text"></a>Tekst uploaden
 
-De *uploadString*-functie roept [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) aan om een willekeurige tekenreeks naar de blobcontainer te schrijven of die te overschrijven.
+De *uploadString*-functie roept [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) aan om een willekeurige tekenreeks naar de blobcontainer te schrijven of die te overschrijven.
 
 ```javascript
 const uploadString = async (containerName, blobName, text) => {
@@ -184,7 +184,7 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-Andere methoden voor het uploaden van inhoud naar blobs zijn werken met [tekst](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) en [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Om te controleren of het bestand is geüpload naar de blob-opslag, kunt u met de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) de gegevens in uw account bekijken.
+Andere methoden voor het uploaden van inhoud naar blobs zijn werken met [tekst](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest-string--string--string---buffer--errororresult-blobresult--) en [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Om te controleren of het bestand is geüpload naar de blob-opslag, kunt u met de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) de gegevens in uw account bekijken.
 
 ### <a name="list-the-blobs"></a>Blobs weergeven
 
@@ -208,7 +208,7 @@ Het aanroepen van *listBlobsSegmented* retourneert blob-metagegevens als een mat
 
 ### <a name="download-a-blob"></a>Een blob downloaden
 
-De *downloadBlob*-functie maakt gebruik van [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtotext) om de inhoud van de blob te downloaden naar het opgegeven absolute bestandspad.
+De *downloadBlob*-functie maakt gebruik van [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) om de inhoud van de blob te downloaden naar het opgegeven absolute bestandspad.
 
 ```javascript
 const downloadBlob = async (containerName, blobName) => {
@@ -224,7 +224,7 @@ const downloadBlob = async (containerName, blobName) => {
     });
 };
 ```
-De hier getoonde implementatie verandert de bron en retourneert de inhoud van de blob als tekenreeks. U kunt de blob ook als [stream](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream) downloaden en ook rechtstreeks naar een [lokaal bestand](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
+De hier getoonde implementatie verandert de bron en retourneert de inhoud van de blob als tekenreeks. U kunt de blob ook als [stream](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) downloaden en ook rechtstreeks naar een [lokaal bestand](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
 
 ### <a name="delete-a-blob"></a>Een blob verwijderen
 

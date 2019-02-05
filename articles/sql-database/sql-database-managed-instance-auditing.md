@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance-controle | Microsoft Docs
-description: Leer hoe u aan de slag met Azure SQL Database Managed Instance Auditing met T-SQL
+title: Azure SQL Database managed instance-controle | Microsoft Docs
+description: Leer hoe u aan de slag met Azure SQL Database managed instance auditing met T-SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,22 +13,22 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456031"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728994"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Aan de slag met Azure SQL Database Managed Instance Auditing
+# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Aan de slag met Azure SQL Database managed instance-controle
 
-[Azure SQL Database Managed Instance](sql-database-managed-instance.md) databasegebeurtenissen controleren en geschreven naar een auditlogboek in uw Azure storage-account. Ook controle:
+[Beheerd exemplaar](sql-database-managed-instance.md) auditing worden databasegebeurtenissen bijgehouden en schrijft deze naar een auditlogboek in uw Azure storage-account. Ook controle:
 
 - Helpt u naleving van regelgeving, inzicht in de databaseactiviteiten en inzicht krijgen in discrepanties en afwijkingen die kunnen wijzen op problemen voor het bedrijf of vermoedelijke beveiligingsschendingen.
 - Hiermee wordt en vergemakkelijkt de naleving van standaarden voor compliance, hoewel het nalevingsbeleid geen garantie. Zie voor meer informatie over Azure-programma's die ondersteuning voor standaarden naleving, de [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
-## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Instellen van de controle voor uw server naar Azure Storage
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Instellen van de controle voor uw server naar Azure storage
 
 Het volgende gedeelte bevat de configuratie van de controle op uw beheerde exemplaar.
 
@@ -38,7 +38,7 @@ Het volgende gedeelte bevat de configuratie van de controle op uw beheerde exemp
    1. Navigeer naar de Azure-opslag waar u wilt voor het opslaan van uw auditlogboeken.
 
       > [!IMPORTANT]
-      > Een opslagaccount in dezelfde regio als de Managed Instance-server gebruiken om te voorkomen dat de regio-overschrijdende lees-/ schrijfbewerkingen.
+      > Een opslagaccount in dezelfde regio als het beheerde exemplaar gebruiken om te voorkomen dat de regio-overschrijdende lees-/ schrijfbewerkingen.
 
    1. In de storage-account, gaat u naar **overzicht** en klikt u op **Blobs**.
 
@@ -64,7 +64,7 @@ Het volgende gedeelte bevat de configuratie van de controle op uw beheerde exemp
 
         ![De URL van het exemplaar voor BLOB-container](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-     1. Genereren van een Azure Storage **SAS-Token** beheerd exemplaar controle toegangsrechten tot het opslagaccount te verlenen:
+     1. Genereren van een Azure Storage **SAS-Token** verlenen beheerd exemplaar controle toegangsrechten tot het opslagaccount:
 
         - Navigeer naar de Azure Storage-account waar u de container in de vorige stap hebt gemaakt.
 
@@ -154,7 +154,7 @@ Het volgende gedeelte bevat de configuratie van de controle op uw beheerde exemp
 
 Meer informatie:
 
-- [Controle van de verschillen tussen de Managed Instance, Azure SQL-database en SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Controle van de verschillen tussen individuele databases, elastische pool, s en beheerde exemplaren in Azure SQL Database en de databases in SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
 - [SERVERAUDIT MAKEN](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVERAUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -162,7 +162,7 @@ Meer informatie:
 
 Controlelogboeken van een beheerd exemplaar kunnen worden verzonden naar zelfs Hubs of Log Analytics met Azure Monitor. Deze sectie wordt beschreven hoe u dit wilt configureren:
 
-1. Navigeer de [Azure-Portal](https://portal.azure.com/) SQL beheerd exemplaar.
+1. Navigeer de [Azure Portal](https://portal.azure.com/) met het beheerde exemplaar.
 
 2. Klik op **diagnostische instellingen**.
 
@@ -176,7 +176,7 @@ Controlelogboeken van een beheerd exemplaar kunnen worden verzonden naar zelfs H
 
     ![Diagnostische instellingen configureren](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
-7. Verbinding maken met de Managed Instance via **SQL Server Management Studio (SSMS)** of een andere ondersteunde client.
+7. Verbinding maken met het beheerde exemplaar via **SQL Server Management Studio (SSMS)** of een andere ondersteunde client.
 
 8. Voer de volgende T-SQL-instructie voor het maken van een serveraudit:
 
@@ -209,9 +209,6 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
 - Voor een volledige lijst van audit log verbruikmethoden, raadpleegt u de [aan de slag met SQL database auditing](sql-database-auditing.md).
 
-  > [!IMPORTANT]
-  > Voor het weergeven van controlerecords in Azure portal (in het deelvenster 'Controlerecords') is momenteel niet beschikbaar voor Managed Instance.
-
 ### <a name="consume-logs-stored-in-event-hub"></a>Logboeken die zijn opgeslagen in de Event Hub gebruiken
 
 Als u wilt controleren Logboeken gegevens uit Event Hub gebruiken, moet u voor het instellen van een stroom gebeurtenissen gebruiken en te schrijven naar een doel. Zie voor meer informatie de documentatie over Azure Event Hubs.
@@ -222,21 +219,21 @@ Als u auditlogboeken naar Log Analytics worden geschreven, zijn ze beschikbaar i
 
 Log Analytics biedt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en Log Analytics-zoektaal, [Log Analytics zoeken verwijzing](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Controle van de verschillen tussen de Managed Instance, Azure SQL Database en SQL Server
+## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Controle van de verschillen tussen databases in Azure SQL Database en -databases in SQL Server
 
-De belangrijkste verschillen tussen de SQL-controle in de Managed Instance, Azure SQL Database en SQL Server on-premises zijn:
+De belangrijkste verschillen tussen de controle van databases in Azure SQL Database en de databases in SQL Server zijn:
 
-- In het beheerde exemplaar SQL Audit werkt op het serverniveau en de winkels `.xel` -logboekbestanden op Azure blob storage-account.
-- In Azure SQL Database werkt SQL-controle op het databaseniveau van de.
-- In on-premises SQL Server / virtuele niveau machines, SQL-controle werkt op de server, maar winkels gebeurtenissen op bestanden system/windows-gebeurtenislogboeken.
+- Met de implementatie-optie voor het beheerde exemplaar in Azure SQL Database, controle werkt op het serverniveau en de winkels `.xel` -logboekbestanden op Azure blob storage-account.
+- Met de individuele databases en elastische pool implementatie-opties in Azure SQL Database auditing werkt op het databaseniveau van de.
+- In on-premises SQL Server / virtuele machines, audit werkt op de server niveau, maar gebeurtenissen worden opgeslagen in bestanden system/windows-gebeurtenislogboeken.
 
-XEvent-controle in het beheerde exemplaar biedt ondersteuning voor Azure blob storage-doelen. Bestands- en windows logboeken zijn **niet ondersteund**.
+XEvent-controle voor beheerd exemplaar biedt ondersteuning voor prestatiedoelen voor Azure blob storage. Bestands- en windows logboeken zijn **niet ondersteund**.
 
-De sleutel verschillen de `CREATE AUDIT` syntaxis voor controle naar Azure blob-opslag zijn:
+De sleutel verschillen de `CREATE AUDIT` syntaxis voor het controleren van Azure blob-opslag zijn:
 
 - Een nieuwe syntaxis `TO URL` wordt geleverd en kunt u de URL van de Azure blob Storage-container op te geven waar de `.xel` bestanden worden geplaatst.
 - Een nieuwe syntaxis `TO EXTERNAL MONITOR` is opgegeven voor het inschakelen van zelfs Hub en de Log Analytics-doelen.
-- De syntaxis van de `TO FILE` is **niet ondersteund** omdat het beheerde exemplaar heeft geen toegang tot Windows-bestandsshares.
+- De syntaxis van de `TO FILE` is **niet ondersteund** omdat SQL Database heeft geen toegang Windows-bestandsshares tot.
 - Optie voor afsluiten is **niet ondersteund**.
 - `queue_delay` 0 is **niet ondersteund**.
 

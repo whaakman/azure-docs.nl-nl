@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 93370b927f825752b8ce2b5e9d4ca94b3a4e0536
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664179"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697914"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -196,7 +196,7 @@ Netwerk logboekregistratie en bewaking in Azure is uitgebreid en omvat onderverd
 
 * [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Scenario's gebaseerde netwerkbewaking is opgegeven met de functies van Network Watcher. Deze service omvat pakket vastleggen, volgende hop, IP-stroom controleren, weergave van de beveiligingsgroep, NSG-stroomlogboeken. Scenario niveau bewaking biedt een end-to-weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
 
-* [Controle van bronnen](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Resourcecontrole niveau bestaat uit vier functies, diagnostische logboeken, metrische gegevens, probleemoplossing en resource health. Al deze functies zijn gebouwd op het niveau van de netwerk-resource.
+* [Controle van bronnen](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Resourcecontrole niveau bestaat uit vier functies, diagnostische logboeken, metrische gegevens, probleemoplossing en resource health. Al deze functies zijn gebouwd op het niveau van de netwerk-resource.
 
 ![Azure-netwerklogboeken](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Naast de logboekregistratiemogelijkheden van het eerder genoemde heeft Network W
 
 * [Virtuele netwerkgateway en verbinding probleemoplossing](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helpt u problemen oplossen met virtuele netwerkgateways en verbindingen.
 
-* [De abonnementslimieten netwerk](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Hiermee kunt u weergeven van Resourcegebruik netwerk op basis van limieten.
+* [De abonnementslimieten netwerk](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Hiermee kunt u weergeven van Resourcegebruik netwerk op basis van limieten.
 
 ### <a name="application-insights"></a>Application Insights
 

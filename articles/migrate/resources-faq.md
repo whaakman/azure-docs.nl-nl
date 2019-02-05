@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2c89780722e1f3038f99ab0a4c85cd2d2ecbe624
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079253"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699482"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -108,7 +108,7 @@ De op agents gebaseerde detectie is een optie die beschikbaar is naast de op app
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Zou er prestatie-invloed op de geanalyseerde ESXi-host-omgeving?
 
-In het geval van de [benadering van de detectie één keer](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), de prestatiegegevens worden verzameld het statistiekniveau van de voor de vCenter-server zelf zou moeten zijn ingesteld op 3. Instellen op dit niveau verzamelen over een grote hoeveelheid gegevens die in de vCenter-Server-database zouden worden opgeslagen voor probleemoplossing verzameld. Het kan dus leiden tot prestatieproblemen op de vCenter-Server. Er is minimaal effect heeft op de ESXi-host.
+In het geval van de [benadering van de detectie één keer](https://docs.microsoft.com/azure/migrate/concepts-collector), de prestatiegegevens worden verzameld het statistiekniveau van de voor de vCenter-server zelf zou moeten zijn ingesteld op 3. Instellen op dit niveau verzamelen over een grote hoeveelheid gegevens die in de vCenter-Server-database zouden worden opgeslagen voor probleemoplossing verzameld. Het kan dus leiden tot prestatieproblemen op de vCenter-Server. Er is minimaal effect heeft op de ESXi-host.
 
 Geïntroduceerd continue profileren van prestatiegegevens (dat zich in preview). Met continue-profilering, is er niet langer een hoeft te wijzigen van de vCenter Server statistiekniveau een analyse op basis van prestaties uit te voeren. Het collector-apparaat wordt nu de on-premises computers om te meten van de prestatiegegevens van de virtuele machines profileren. Dit zou bijna nul prestatie-invloed hebben op de ESXi-hosts, maar ook op de vCenter-Server.
 

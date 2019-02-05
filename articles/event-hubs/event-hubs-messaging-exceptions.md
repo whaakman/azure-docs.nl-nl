@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e5c81a172c99ea6e2591a25f53705ab9cd30fd83
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 97c7af9eb86b1c2e904e2253933b2b01c9e38cf5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660626"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729333"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs-berichtuitzonderingen
 
@@ -38,8 +38,8 @@ De volgende tabel bevat de uitzonderingstypen berichten, en hun oorzaken en opme
 
 | Type uitzondering | Beschrijving/oorzaak/voorbeelden | Voorgestelde actie | Houd er rekening mee automatisch/direct opnieuw proberen |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |De server reageert niet op de aangevraagde bewerking binnen de opgegeven periode, die wordt beheerd door [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout). De server kan de aangevraagde bewerking hebt voltooid. Deze uitzondering kan gebeuren vanwege netwerk- of andere infrastructuur vertragingen. |Controleer de status voor de consistentie en probeer indien nodig.<br /> Zie [TimeoutException](#timeoutexception). | Opnieuw proberen kan helpen in sommige gevallen; Voeg logica voor opnieuw proberen toe aan code. |
-| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |De aangevraagde gebruiker-bewerking is niet toegestaan in de server of -service. Zie het bericht van uitzondering voor meer informatie. Bijvoorbeeld, [voltooid](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) deze uitzondering wordt gegenereerd als het bericht is ontvangen [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modus. | Controleer de code en de documentatie. Zorg ervoor dat de aangevraagde bewerking is ongeldig. | Er kunnen niet opnieuw proberen. |
+| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |De server reageert niet op de aangevraagde bewerking binnen de opgegeven periode, die wordt beheerd door [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). De server kan de aangevraagde bewerking hebt voltooid. Deze uitzondering kan gebeuren vanwege netwerk- of andere infrastructuur vertragingen. |Controleer de status voor de consistentie en probeer indien nodig.<br /> Zie [TimeoutException](#timeoutexception). | Opnieuw proberen kan helpen in sommige gevallen; Voeg logica voor opnieuw proberen toe aan code. |
+| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |De aangevraagde gebruiker-bewerking is niet toegestaan in de server of -service. Zie het bericht van uitzondering voor meer informatie. Bijvoorbeeld, [voltooid](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) deze uitzondering wordt gegenereerd als het bericht is ontvangen [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modus. | Controleer de code en de documentatie. Zorg ervoor dat de aangevraagde bewerking is ongeldig. | Er kunnen niet opnieuw proberen. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | Er is een poging gedaan om aan te roepen een bewerking op een object dat al is gesloten, is afgebroken, of verwijderd. In zeldzame gevallen is de ambient transactie al verwijderd. | Controleer de code en zorg ervoor dat deze bewerkingen op een verwijderd object niet gestart. | Er kunnen niet opnieuw proberen. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) | De [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) object kan niet een token verkrijgen, het token is ongeldig of het token bevat niet de claims die de bewerking moet worden uitgevoerd. | Zorg ervoor dat de tokenprovider wordt gemaakt met de juiste waarden. Controleer de configuratie van de Access Control-service. | Opnieuw proberen kan helpen in sommige gevallen; Voeg logica voor opnieuw proberen toe aan code. |
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | Een of meer argumenten doorgegeven aan de methode zijn ongeldig. De URI opgegeven [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) of [maken](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) pad segmenten betreffende bedrijfsactiviteit bevat. Het URI-schema opgegeven [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) of [maken](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) is ongeldig. De eigenschapswaarde is groter dan 32 KB. | Controleer de aanroepende code en controleer of dat de argumenten juist zijn. | Er kunnen niet opnieuw proberen. |
@@ -81,7 +81,7 @@ Deze fout kan optreden voor een van twee redenen:
 
 1. De belasting niet gelijkmatig is verdeeld over alle partities in de event hub en één partitie komt binnen via de lokale doorvoer eenheid beperking.
     
-    Oplossing: Wijzigen van de partitie distributiestrategie of probeert [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) kan helpen.
+    Oplossing: Wijzigen van de partitie distributiestrategie of probeert [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) kan helpen.
 
 2. De Event Hubs-naamruimte beschikt niet over voldoende doorvoereenheden (u kunt controleren de **metrische gegevens** scherm in de Event Hubs-naamruimte venster in de [Azure-portal](https://portal.azure.com) om te bevestigen). De portal bevat samengevoegde (1 minuut) informatie, maar we de doorvoer in realtime – meten, zodat u alleen een schatting te maken.
 

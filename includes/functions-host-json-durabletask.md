@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 92eb13165326f44432f09322ea97f3cee5ccec2b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a3af711503445000d9613feb2eec7967442fe538
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251240"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736045"
 ---
 Configuratie-instellingen voor [duurzame functies](../articles/azure-functions/durable-functions-overview.md).
 
@@ -41,9 +41,9 @@ Configuratie-instellingen voor [duurzame functies](../articles/azure-functions/d
 
 Namen van taken hub moeten beginnen met een letter en bestaan uit alleen letters en cijfers. Indien niet opgegeven, wordt de standaardnaam voor het hub van taak voor een functie-app is **DurableFunctionsHub**. Zie voor meer informatie, [taak hubs](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Eigenschap  |Standaard | Beschrijving |
+|Eigenschap  |Standaard | Description |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternatieve [taak hub](../articles/azure-functions/durable-functions-task-hubs.md) namen kunnen worden gebruikt voor het isoleren van meerdere duurzame functies toepassingen van elkaar worden verbonden, zelfs als theyre met behulp van de dezelfde opslag back-end.|
+|HubName|DurableFunctionsHub|Alternatieve [taak hub](../articles/azure-functions/durable-functions-task-hubs.md) namen kunnen worden gebruikt voor het isoleren van meerdere duurzame functies toepassingen van elkaar worden verbonden, zelfs als ze de dezelfde opslag back-end gebruiken.|
 |ControlQueueBatchSize|32|Het aantal berichten om op te halen vanuit de besturingselement-wachtrij op een tijdstip.|
 |PartitionCount |4|Het aantal partities voor de wachtrij van het besturingselement. Een positief geheel getal tussen 1 en 16 mogelijk.|
 |ControlQueueVisibilityTimeout |5 minuten|De time-out voor zichtbaarheid van besturingselement voor uit wachtrij geplaatste berichten in wachtrij plaatsen.|

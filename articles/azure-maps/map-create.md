@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 97b94cf54454a83510c5be2cf0d71281dbf5b004
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 222fc5e9083c03ff0d4e31927363c5f517cf32a9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424236"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699361"
 ---
 # <a name="create-a-map"></a>Een kaart maken
 
@@ -40,16 +40,16 @@ In de bovenstaande code een [toewijzingsobject](https://docs.microsoft.com/javas
 <iframe height='500' scrolling='no' title='Een kaart via CameraBoundsOptions maken' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>maken van een kaart via `CameraBoundsOptions` </a>Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code een [toewijzingsobject](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is samengesteld `new atlas.Map()`. Eigenschappen van kaart zoals `CameraBoundsOptions` kunnen worden gedefinieerd [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) functie van de kaart-klasse. Grenzen en opvulling eigenschappen zijn ingesteld met behulp van `setCamera`.
+In de bovenstaande code een [toewijzingsobject](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is samengesteld `new atlas.Map()`. Eigenschappen van kaart zoals `CameraBoundsOptions` kunnen worden gedefinieerd [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) functie van de kaart-klasse. Grenzen en opvulling eigenschappen zijn ingesteld met behulp van `setCamera`.
 
 ### <a name="animate-map-view"></a>Elk afzonderlijk Animate kaartweergave
 
 <iframe height='500' scrolling='no' title='Elk afzonderlijk Animate kaartweergave' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>laten bewegen kaartweergave</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste codeblok maakt een [toewijzingsobject](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) via `new atlas.Map()`. Eigenschappen van de kaart zoals centreren en zoomen niveau maken deel uit van [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions). `CameraOptions` kunnen worden gedefinieerd in de constructor kaart of via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) functie van de kaart-klasse. De [toewijzen stijl](https://docs.microsoft.com/azure/azure-maps/supported-map-styles) is ingesteld op `road`.
+In de bovenstaande code wordt het eerste codeblok maakt een [toewijzingsobject](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) via `new atlas.Map()`. Eigenschappen van de kaart zoals centreren en zoomen niveau maken deel uit van [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions). `CameraOptions` kunnen worden gedefinieerd in de constructor kaart of via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) functie van de kaart-klasse. De [toewijzen stijl](https://docs.microsoft.com/azure/azure-maps/supported-map-styles) is ingesteld op `road`.
 
-Het tweede codeblok maakt u een kaart voor elk afzonderlijk animate-functie, die wijziging in de overzichtsweergave van animatie door te definiëren voorzien [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions) via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) functie. De functie wordt geactiveerd door de knop 'Laten bewegen kaart' voor het genereren van een willekeurige zoomniveau van telkens wanneer u klikt.
+Het tweede codeblok maakt u een kaart voor elk afzonderlijk animate-functie, die wijziging in de overzichtsweergave van animatie door te definiëren voorzien [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions) via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) functie. De functie wordt geactiveerd door de knop 'Laten bewegen kaart' voor het genereren van een willekeurige zoomniveau van telkens wanneer u klikt.
 
 ## <a name="try-out-the-code"></a>De code uitproberen
 

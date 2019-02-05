@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047738"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736245"
 ---
-Als u problemen ondervindt tijdens het uitvoeren van bewerkingen op gedeelde installatiekopie galerieën, definities van de installatiekopie en versies van een installatiekopie, voert u de failover-opdracht opnieuw uit in de foutopsporingsmodus. Foutopsporingsmodus is geactiveerd door door te geven de **-debug** overschakelen met CLI en de **-Debug** overschakelen met PowerShell. Nadat u de fout hebt gevonden, gaat u als volgt dit document om op te lossen de fouten.
+Als u problemen ondervindt tijdens het uitvoeren van bewerkingen op galerieën met gedeelde installatiekopieën, definities van installatiekopieën en versies van installatiekopieën, voert u de mislukte opdracht opnieuw uit in de foutopsporingsmodus. Foutopsporingsmodus is geactiveerd door door te geven de **-debug** overschakelen met CLI en de **-Debug** overschakelen met PowerShell. Nadat u de fout hebt gevonden, gaat u als volgt dit document om op te lossen de fouten.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Kan niet worden gemaakt van een gedeelde Afbeeldingengalerie
@@ -67,7 +67,7 @@ Zorg ervoor dat de Inrichtingsstatus van de beheerde bronafbeelding is **geslaag
 Gebruik de onderstaande tabel om te zien of de beoogde bronregio wordt ondersteund:
 <br>
 
-| Galerie in of 'bronregio' maken   | Repliceren rersion op of "doelregio" |
+| Galerie in of 'bronregio' maken   | Versie of "doelregio" repliceren |
 |----------------------------------------|-------------------------------------------|
 | US - west-centraal                        | Alle openbare Azure-Cloud-regio 's            |
 | US - zuid-centraal                       |                                           |

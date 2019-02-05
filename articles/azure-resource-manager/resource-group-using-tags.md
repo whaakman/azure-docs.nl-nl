@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d7f84e188324bcdb9fb1a26d701805978f1fd625
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489390"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734433"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Tags gebruiken om uw Azure-resources te organiseren
 
@@ -29,11 +29,15 @@ U kunt tags toepassen op resources, moet de gebruiker schrijftoegang heeft tot d
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="policies"></a>Beleidsregels
+
+U kunt [Azure Policy](../governance/policy/overview.md) om af te dwingen tagging regels en conventies. Als u een beleid maakt, moet u het scenario van resources die op uw abonnement worden geïmplementeerd en die niet aan de verwachte labels voor uw organisatie voldoen voorkomen. In plaats van handmatig toepassen van codes of zoeken naar resources die niet compatibel zijn, kunt u een beleid dat de benodigde codes automatisch tijdens de implementatie toegepast. De volgende sectie bevat voorbeelden van beleidsregels voor tags.
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 
-Voor de voorbeelden in dit artikel hebt u versie 6.0 of hoger van Azure PowerShell nodig. Als u geen versie 6.0 of hoger, [werk uw versie bij](/powershell/azure/install-az-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Gebruik het volgende om de bestaande tags van een *resourcegroep* te bekijken:
 
@@ -275,5 +279,4 @@ Zie voor REST API-bewerkingen, [Azure Billing REST API-verwijzing](/rest/api/bil
 ## <a name="next-steps"></a>Volgende stappen
 
 * Niet alle resourcetypen ondersteunen tags. Om te bepalen als u een label op een resourcetype toepassen kunt, Zie [ondersteuning voor Azure-resources taggen](tag-support.md).
-* U kunt beperkingen en conventies met behulp van aangepaste beleidsregels toepassen voor uw abonnement. Een beleid dat u definieert mogelijk dat alle resources een waarde hebben voor een bepaalde tag. Zie voor meer informatie, [wat is Azure Policy?](../azure-policy/azure-policy-introduction.md)
 * Zie voor een inleiding tot het gebruik van de portal, [met behulp van de Azure-portal voor het beheren van uw Azure-resources](resource-group-portal.md).  

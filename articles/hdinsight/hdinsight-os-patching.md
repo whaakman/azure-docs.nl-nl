@@ -8,25 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 402a4d59b57803b8a9c0094799ceee6a92df43f9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911350"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694615"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-patches voor HDInsight 
 
 > [!IMPORTANT]
-> Ubuntu-installatiekopieën beschikbaar voor nieuwe HDInsight-cluster maken binnen drie maanden van het worden gepubliceerd. Vanaf januari 2019, actieve clusters zijn **niet** automatisch gevuld. Klanten moeten scriptacties of andere methoden gebruiken voor het vullen van een actief cluster.
+> Ubuntu-installatiekopieën beschikbaar voor nieuwe HDInsight-cluster maken binnen drie maanden van het worden gepubliceerd. Vanaf januari 2019, actieve clusters zijn **niet** automatisch gevuld. Klanten moeten scriptacties of andere methoden gebruiken voor het vullen van een actief cluster. Nieuwe clusters hebben altijd de meest recente updates, met inbegrip van de meest recente beveiligingspatches.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Het configureren van de OS-patches plannen voor Linux gebaseerde HDInsight-clusters
-De virtuele machines in een HDInsight-cluster moet opnieuw worden opgestart af en toe zodat belangrijke beveiligingspatches kunnen worden geïnstalleerd. Vanaf 1 augustus 2016 krijgen nieuwe Linux gebaseerde HDInsight-clusters (versie 3.4 of hoger) opnieuw moeten worden opgestart met behulp van het volgende schema:
-
-1. Een virtuele machine in het cluster kan alleen opnieuw opstarten voor patches hoogstens één keer binnen een periode van 30 dagen.
-2. Het opnieuw opstarten optreedt vanaf 12: 00 uur UTC.
-3. Het proces opnieuw opstarten is gespreid over virtuele machines in het cluster, zodat het cluster nog steeds beschikbaar tijdens het opnieuw opstarten is.
-4. De eerste keer opnieuw opstarten voor een nieuw cluster gebeurt niet eerder dan 30 dagen na de aanmaakdatum van het cluster.
+De virtuele machines in een HDInsight-cluster moet opnieuw worden opgestart af en toe zodat belangrijke beveiligingspatches kunnen worden geïnstalleerd. 
 
 Met behulp van de scriptactie die wordt beschreven in dit artikel, kunt u de OS-patches schema als volgt wijzigen:
 1. In- of uitschakelen van automatisch opnieuw wordt opgestart

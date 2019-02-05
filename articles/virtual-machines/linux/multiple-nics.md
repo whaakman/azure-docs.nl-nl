@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 02b70909e701dbeffaec0aa6bdc39e449bdfad08
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660349"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732835"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Over het maken van een virtuele Linux-machine in Azure met meerdere netwerkinterfacekaarten
 
@@ -27,7 +27,7 @@ ms.locfileid: "55660349"
 Dit artikel wordt uitgelegd hoe u een virtuele machine maken met meerdere NIC's met de Azure CLI.
 
 ## <a name="create-supporting-resources"></a>Ondersteunende resources maken
-Installeer de meest recente [Azure CLI](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Installeer de meest recente [Azure CLI](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *mystorageaccount*, en *myVM*.
 
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 10.0.1.0/24
 ```
 
-Maak een subnet voor de back-end-verkeer met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Het volgende voorbeeld wordt een subnet met de naam *mySubnetBackEnd*:
+Maak een subnet voor de back-end-verkeer met [az network vnet subnet maken](/cli/azure/network/vnet/subnet). Het volgende voorbeeld wordt een subnet met de naam *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -116,14 +116,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Een NIC toevoegen aan een bestaande virtuele machine, moet u eerst de virtuele machine met toewijzing [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM*:
+Een NIC toevoegen aan een bestaande virtuele machine, moet u eerst de virtuele machine met toewijzing [az vm deallocate](/cli/azure/vm). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Toevoegen van de NIC met [az vm nic toevoegen](/cli/azure/vm/nic#az_vm_nic_add). Het volgende voorbeeld voegt *myNic3* naar *myVM*:
+Toevoegen van de NIC met [az vm nic toevoegen](/cli/azure/vm/nic). Het volgende voorbeeld voegt *myNic3* naar *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -141,13 +141,13 @@ az vm start --resource-group myResourceGroup --name myVM
 Routering tabellen toevoegen aan het gastbesturingssysteem te installeren via de stappen in [configureren van het gastbesturingssysteem te installeren voor meerdere NIC's](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Een NIC van een virtuele machine verwijderen
-Als u wilt verwijderen een NIC van een bestaande virtuele machine, moet u eerst de virtuele machine met toewijzing [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM*:
+Als u wilt verwijderen een NIC van een bestaande virtuele machine, moet u eerst de virtuele machine met toewijzing [az vm deallocate](/cli/azure/vm). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Verwijderen van de NIC met [az vm nic verwijderen](/cli/azure/vm/nic#az_vm_nic_remove). Het volgende voorbeeld verwijdert u *myNic3* van *myVM*:
+Verwijderen van de NIC met [az vm nic verwijderen](/cli/azure/vm/nic). Het volgende voorbeeld verwijdert u *myNic3* van *myVM*:
 
 ```azurecli
 az vm nic remove \

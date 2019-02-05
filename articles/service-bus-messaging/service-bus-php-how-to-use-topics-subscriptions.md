@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: efcc5b1f05cb2065d4cc9a3fda64e78dd6d5957b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a8d9ea841aee21531ccb0379fbbc9b10ccf25303
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849308"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727310"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Service Bus-onderwerpen en abonnementen gebruiken met PHP
 
@@ -157,7 +157,7 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Abonnementen met filters maken
-U kunt ook filters instellen waarmee u kunt opgeven welke berichten die naar een onderwerp worden verzonden, moeten worden weergegeven in een bepaald onderwerpabonnement. Het meest flexibele type filter dat wordt ondersteund door abonnementen is de [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter), die wordt geïmplementeerd met een subset van SQL92 wordt geïmplementeerd. SQL-filters worden uitgevoerd voor de eigenschappen van de berichten die worden gepubliceerd naar het onderwerp. Zie voor meer informatie over SqlFilters [SqlFilter.SqlExpression eigenschap][sqlfilter].
+U kunt ook filters instellen waarmee u kunt opgeven welke berichten die naar een onderwerp worden verzonden, moeten worden weergegeven in een bepaald onderwerpabonnement. Het meest flexibele type filter dat wordt ondersteund door abonnementen is de [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), die wordt geïmplementeerd met een subset van SQL92 wordt geïmplementeerd. SQL-filters worden uitgevoerd voor de eigenschappen van de berichten die worden gepubliceerd naar het onderwerp. Zie voor meer informatie over SqlFilters [SqlFilter.SqlExpression eigenschap][sqlfilter].
 
 > [!NOTE]
 > Elke regel op een abonnement verwerkt binnenkomende berichten onafhankelijk van elkaar, hun Resultaatberichten toe te voegen aan het abonnement. Bovendien elk nieuw abonnement heeft standaard **regel** object met een filter dat hiermee alle berichten van het onderwerp toegevoegd aan het abonnement. U ontvangt alleen berichten die overeenkomen met uw filter, moet u de standaardregel verwijderen. U kunt de standaardregel verwijderen met behulp van de `ServiceBusRestProxy->deleteRule` methode.
@@ -338,6 +338,6 @@ Zie voor meer informatie, [wachtrijen, onderwerpen en abonnementen][Queues, topi
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter
+[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [require-once]: http://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md

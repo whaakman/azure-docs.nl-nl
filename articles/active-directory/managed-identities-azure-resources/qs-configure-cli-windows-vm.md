@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
-ms.openlocfilehash: a2e42b165596d26672ee22813e53d02ca0e3a7e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4c17128f07475b6aeaef9ae15a13bc4863d7e663
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195661"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699887"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van Azure CLI
 
@@ -82,7 +82,7 @@ Om in te schakelen door het systeem toegewezen beheerde identiteit op een virtue
    az login
    ```
 
-2. Gebruik [az vm identiteit toewijzen](/cli/azure/vm/identity/#az-vm-identity-assign) met de `identity assign` opdracht de identiteit van de door het systeem is toegewezen aan een bestaande virtuele machine inschakelen:
+2. Gebruik [az vm identiteit toewijzen](/cli/azure/vm/identity/) met de `identity assign` opdracht de identiteit van de door het systeem is toegewezen aan een bestaande virtuele machine inschakelen:
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -107,7 +107,7 @@ Als u een virtuele machine die door het systeem toegewezen identiteit niet meer 
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Verwijderen van de beheerde identiteit voor Azure-resources VM-extensie (gepland voor de afschaffing in januari 2019), gebruiker `-n ManagedIdentityExtensionForWindows` of `-n ManagedIdentityExtensionForLinux` overschakelen (afhankelijk van het type virtuele machine) met [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Verwijderen van de beheerde identiteit voor Azure-resources VM-extensie (gepland voor de afschaffing in januari 2019), gebruiker `-n ManagedIdentityExtensionForWindows` of `-n ManagedIdentityExtensionForLinux` overschakelen (afhankelijk van het type virtuele machine) met [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -186,7 +186,7 @@ Als u wilt een gebruiker toegewezen identiteit toewijzen aan een virtuele machin
    }
    ```
 
-2. De gebruiker toegewezen identiteit voor het gebruik van uw virtuele machine toewijzen [az vm identiteit toewijzen](/cli/azure/vm#az-vm-identity-assign). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VM NAME>` door uw eigen waarden. De `<USER ASSIGNED IDENTITY NAME>` is van de gebruiker toegewezen beheerde identiteit van resource `name` eigenschap, zoals in de vorige stap hebt gemaakt:
+2. De gebruiker toegewezen identiteit voor het gebruik van uw virtuele machine toewijzen [az vm identiteit toewijzen](/cli/azure/vm). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VM NAME>` door uw eigen waarden. De `<USER ASSIGNED IDENTITY NAME>` is van de gebruiker toegewezen beheerde identiteit van resource `name` eigenschap, zoals in de vorige stap hebt gemaakt:
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

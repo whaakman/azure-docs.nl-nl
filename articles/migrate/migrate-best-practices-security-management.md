@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: f9f4d544a407a75231302b0eb53c27904585250f
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510677"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700074"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Aanbevolen procedures voor het beveiligen en beheren van werkbelastingen naar Azure gemigreerd
 
@@ -516,7 +516,7 @@ U kunt failover-groepen en actieve geo-replicatie gebruiken om te bieden toleran
 - [Lezen](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) 101 van Azure SQL-Databases voor herstel na noodgevallen.
 - [Bekijk een overzicht](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) van actieve geo-replicatie en failover-groepen.
 - [Meer informatie over](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) ontwerpen voor herstel na noodgevallen.
-- [Aanbevolen procedures ophalen](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) voor failover-groepen.
+- [Aanbevolen procedures ophalen](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) voor failover-groepen.
 - [Aanbevolen procedures ophalen](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) voor beveiliging na geografisch herstel en failover.
 - [Meer informatie over](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) zone redundantie
 - [Meer informatie over het](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) een Dr-herstelanalyse uitvoeren voor SQL-database.

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227208"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735842"
 ---
 Een beschikbaarheidsset helpt houden van uw virtuele machines die beschikbaar zijn tijdens de downtime, zoals tijdens onderhoud. Als u twee of meer op soortgelijke wijze geconfigureerde virtuele machines in een beschikbaarheidsset plaatst, maakt u de redundantie die nodig is voor de beschikbaarheid van de toepassingen of services die uw virtuele machine wordt uitgevoerd. Zie voor meer informatie over hoe dit werkt [de beschikbaarheid van virtuele machines beheren][Manage the availability of virtual machines].
 
@@ -17,7 +17,7 @@ Er is een aanbevolen procedure zowel beschikbaarheidssets en eindpunten van load
 
 U kunt klassieke virtuele machines toevoegen aan een beschikbaarheidsset met behulp van een van twee opties:
 
-* [Optie 1: Maak een virtuele machine en een beschikbaarheidsset op hetzelfde moment][Option 1: Create a virtual machine and an availability set at the same time]. Vervolgens nieuwe virtuele machines toevoegen aan de set bij het maken van deze virtuele machines.
+* [Optie 1: Maken van een virtuele machine en een beschikbaarheidsset op hetzelfde moment][Option 1: Create a virtual machine and an availability set at the same time]. Vervolgens nieuwe virtuele machines toevoegen aan de set bij het maken van deze virtuele machines.
 * [Optie 2: Een bestaande virtuele machine toevoegen aan een beschikbaarheidsset][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
@@ -25,7 +25,7 @@ U kunt klassieke virtuele machines toevoegen aan een beschikbaarheidsset met beh
 > 
 > 
 
-## <a id="createset"> </a>Optie 1: Maak een virtuele machine en een beschikbaarheidsset op hetzelfde moment
+## <a id="createset"> </a>Optie 1: Maken van een virtuele machine en een beschikbaarheidsset op hetzelfde moment
 U kunt de Azure portal of Azure PowerShell-opdrachten gebruiken om dit te doen.
 
 Het gebruik van Azure portal:

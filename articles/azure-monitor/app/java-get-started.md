@@ -10,19 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/31/2019
 ms.author: lagayhar
-ms.openlocfilehash: e16432022c8c8525c95fab46bc61197f67fb8f37
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7ad8b96efeef2a5bb5543ee08150376862abb27f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260054"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699315"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik Application Insights om [prestatieproblemen en uitzonderingen te detecteren en te onderzoeken](../../azure-monitor/app/detect-triage-diagnose.md) en om [code te schrijven][api] om bij te houden wat gebruikers met uw app doen.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is een uitbreidbare analyseservice voor webontwikkelaars die u helpt de prestaties en het gebruik van uw live-toepassing te begrijpen. Gebruik dit [automatisch instrument aanvragen, afhankelijkheden bijhouden en verzamelen van prestatiemeteritems](auto-collect-dependencies.md#java), [onderzoeken van prestatieproblemen en uitzonderingen](../../azure-monitor/app/detect-triage-diagnose.md), en [code schrijven] [ api] om bij te houden wat gebruikers doen met uw app. 
 
 ![Schermafbeelding van de voorbeeldgegevens overzicht](./media/java-get-started/overview-graphs.png)
 

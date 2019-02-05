@@ -8,19 +8,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ebe362b89eb6ffcde006ff824fbee40b1a9175d3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394575"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733396"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Voorbeeldgegevens worden opgenomen in Azure Data Explorer
 
 Dit artikel ziet u hoe u voorbeeldgegevens (load) opnemen in de database van een Azure Data Explorer. Er zijn [verschillende manieren voor opname van gegevens](ingest-data-overview.md); in dit artikel is gericht op een eenvoudige benadering die geschikt is voor testdoeleinden.
 
 > [!NOTE]
-> U hebt al deze gegevens als u voltooid [Quick Start: opnemen van gegevens met behulp van de Azure Data Explorer Python-clientbibliotheek](python-ingest-data.md).
+> U hebt al deze gegevens als u voltooid [Quick Start: Opname van gegevens met behulp van de Azure Data Explorer Python-clientbibliotheek](python-ingest-data.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -57,6 +57,11 @@ De set met voorbeeldgegevens **StormEvents** bevat gegevens van het weer afkomst
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Query's schrijven](write-queries.md)
+> [!div class="nextstepaction"]
+> [Snelstart: query's uitvoeren op gegevens in Azure Data Explorer](web-query-data.md)
 
-[Gegevensopname met Azure Data Explorer](ingest-data-overview.md)
+> [!div class="nextstepaction"]
+> [Query's schrijven](write-queries.md)
+
+> [!div class="nextstepaction"]
+> [Gegevensopname met Azure Data Explorer](ingest-data-overview.md)

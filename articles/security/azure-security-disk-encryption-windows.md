@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 1/31/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9cf926dc31f449398f756320aa2cb343ff47144
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: bfd90b3a8fc72bbb261f05e445ce543228d9fb83
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511119"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728159"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Schakel Azure Disk Encryption voor virtuele Windows IaaS-machines
 
@@ -73,10 +73,10 @@ Gebruik de [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.com
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
     
-- **Schijfversleuteling uitschakelen:** Als u wilt de versleuteling uitschakelen, gebruikt u de [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. Gegevens-schijfversleuteling voor de Windows-VM uit te schakelen wanneer zowel besturingssysteem en gegevensschijven zijn gecodeerd werkt niet zoals verwacht. Schakel versleuteling uit op alle schijven in plaats daarvan.
+- **Schijfversleuteling uitschakelen:** Als u wilt de versleuteling uitschakelen, gebruikt u de [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. Gegevens-schijfversleuteling voor de Windows-VM uit te schakelen wanneer zowel besturingssysteem en gegevensschijven zijn gecodeerd werkt niet zoals verwacht. Schakel versleuteling uit op alle schijven die met behulp van het VolumeType in-parameter 'All' voor PowerShell, anders mislukt de opdracht uitschakelen.
 
      ```azurepowershell-interactive
-     Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
+      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' -VolumeType "all"
      ```
 
 ### <a name="bkmk_RunningWinVMCLI"></a>Schakelt u versleuteling op bestaande of virtuele machines uitvoeren met Azure CLI
@@ -103,10 +103,10 @@ Gebruik de [az vm encryption inschakelen](/cli/azure/vm/encryption#az-vm-encrypt
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Schakel versleuteling uit:** Als u wilt uitschakelen versleuteling, gebruikt u de [az vm encryption uitschakelen](/cli/azure/vm/encryption#az-vm-encryption-disable) opdracht. Gegevens-schijfversleuteling voor de Windows-VM uit te schakelen wanneer zowel besturingssysteem en gegevensschijven zijn gecodeerd werkt niet zoals verwacht. Schakel versleuteling uit op alle schijven in plaats daarvan.
+- **Schakel versleuteling uit:** Als u wilt uitschakelen versleuteling, gebruikt u de [az vm encryption uitschakelen](/cli/azure/vm/encryption#az-vm-encryption-disable) opdracht. Gegevens-schijfversleuteling voor de Windows-VM uit te schakelen wanneer zowel besturingssysteem en gegevensschijven zijn gecodeerd werkt niet zoals verwacht. Schakel versleuteling uit op alle schijven met de--volumetype 'All'-parameter voor de CLI, anders de opdracht uitschakelen mislukt.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
+     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type "ALL"
      ```
  
  > [!NOTE]
@@ -338,7 +338,7 @@ U kunt [een nieuwe schijf toevoegen aan een Windows-VM met behulp van PowerShell
 
 
 ## <a name="disable-encryption"></a>Schakel versleuteling uit
-U kunt versleuteling met Azure PowerShell, de Azure CLI, uitschakelen of met een Resource Manager-sjabloon. Gegevens-schijfversleuteling voor de Windows-VM uit te schakelen wanneer zowel besturingssysteem en gegevensschijven zijn gecodeerd werkt niet zoals verwacht. Schakel versleuteling uit op alle schijven in plaats daarvan.
+U kunt versleuteling met Azure PowerShell, de Azure CLI, uitschakelen of met een Resource Manager-sjabloon. Gegevens-schijfversleuteling voor de Windows-VM uit te schakelen wanneer zowel besturingssysteem en gegevensschijven zijn gecodeerd werkt niet zoals verwacht. Uitschakelen versleuteling op alle schijven die met behulp van de - VolumeType parameter 'All' voor PowerShell of--volume van het type 'All' voor de CLI, anders de opdracht uitschakelen mislukt. 
 
 - **Schijfversleuteling met Azure PowerShell uitschakelen:** Als u wilt de versleuteling uitschakelen, gebruikt u de [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ac3e01756ad66dcb44869556bb103eb20bc2658c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221482"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699613"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seriële Console gebruiken voor SysRq en NMI aanroepen
 
@@ -52,7 +52,7 @@ Als u de configuratie van de SysReq permanente, u kunt als volgt als u wilt alle
 ### <a name="command-keys"></a>Opdracht sleutels 
 In de beheerdershandleiding SysRq hierboven is:
 
-|Opdracht| Functie
+|Opdracht| Function
 | ------| ----------- |
 |``b``  |   Wordt onmiddellijk het systeem opnieuw opstarten zonder synchroniseren of de schijven ontkoppelen.
 |``c``  |   Een systeem vastlopen wordt uitgevoerd door een NULL-aanwijzer voor referentie ongedaan maken. Een crashdump worden uitgevoerd als geconfigureerd.
@@ -63,7 +63,7 @@ In de beheerdershandleiding SysRq hierboven is:
 |``h``  |   Help-informatie wordt weergegeven (een andere sleutel dan de hier vermelde gegevens worden ook weergegeven voor Help-informatie, maar ``h`` gemakkelijk te onthouden :-)
 |``i``  |    Een SIGKILL verzenden naar alle processen, met uitzondering van init.
 |``j``  |    Geforceerd 'Net ontdooien deze' - bestandssystemen geblokkeerd met de ioctl FIFREEZE.
-|``k``  |    Veilige toegang sleutel (SAK) beëindigt alle programma's op de huidige virtuele-console. Opmerking: Belangrijke opmerkingen hieronder in de sectie SAK zien.
+|``k``  |    Veilige toegang sleutel (SAK) beëindigt alle programma's op de huidige virtuele-console. OPMERKING: Belangrijke opmerkingen hieronder in de sectie SAK zien.
 |``l``  |    Toont een stack-backtrace voor alle actieve CPU's.
 |``m``  |    Huidige geheugen informatie die u kunt de console zal worden dump.
 |``n``  |    Gebruikt voor het RT taken goed te kunnen maken
@@ -76,7 +76,7 @@ In de beheerdershandleiding SysRq hierboven is:
 |``u``  |    Probeert te koppelen van alle gekoppelde bestandssystemen alleen-lezen.
 |``v``  |    Geforceerd worden hersteld framebuffer-console
 |``v``  |    Zorgt ervoor dat ETM buffer dump [ARM-specifieke]
-|``w``  |    Dumpbestanden voor foutopsporing taken die ononderbroken (geblokkeerd) status hebben.
+|``w``  |    Dumpbestanden voor foutopsporing taken die noodvoeding (geblokkeerd) status hebben.
 |``x``  |    Gebruikt door de interface xmon op ppc/powerpc platforms. Globale PMU registreert op sparc64 weergeven. Alle TLB vermeldingen op MIPS dump.
 |``y``  |    Algemene CPU-Registers [SPARC-64-specifieke] weergeven
 |``z``  |    De buffer ftrace dump
@@ -111,7 +111,7 @@ Voor Linux-systemen die ondersteuning bieden voor sysctl voor het configureren v
 1. Opnieuw opstarten of sysctl bijwerken door te voeren <br>
     `sysctl -p`
 
-Voor meer informatie over Linux-kernel-configuraties, met inbegrip van `unknown_nmi_panic`, `panic_on_io_nmi`, en `panic_on_unrecovered_nmi`, Zie: [documentatie voor/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Voor distributie-specifieke documentatie over NMI en stappen voor het configureren van Linux te maken van een crashdump wanneer deze een NMI ontvangt, Zie de onderstaande koppelingen:
+Voor meer informatie over Linux-kernel-configuraties, met inbegrip van `unknown_nmi_panic`, `panic_on_io_nmi`, en `panic_on_unrecovered_nmi`, Zie: [Documentatie voor/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Voor distributie-specifieke documentatie over NMI en stappen voor het configureren van Linux te maken van een crashdump wanneer deze een NMI ontvangt, Zie de onderstaande koppelingen:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Kernel-crashdump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 4f4c52bd217bf67206fe1208c1d5402216bd8178
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879448"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698323"
 ---
-# <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migratie van Contoso: een Linux-app van de on-premises naar Azure VM's opnieuw hosten
+# <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migratie van Contoso: Een on-premises Linux-app op Azure VM's opnieuw hosten
 
 In dit artikel leest u hoe Contoso opnieuw hosten een on-premises service op basis van Linux helpdesk-app (**osTicket**), naar Azure IaaS VM's.
 
@@ -23,20 +23,20 @@ Dit document is een in een reeks artikelen waarin hoe het fictieve bedrijf Conto
 
 **Artikel** | **Details** | **Status**
 --- | --- | ---
-[Artikel 1: overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
+[Artikel 1: Overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
 [Artikel 2: Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Contoso bereidt u de on-premises infrastructuur en de Azure-infrastructuur voor migratie. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen in de reeks. | Beschikbaar
-[Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure](contoso-migration-assessment.md)  | Contoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel360-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | Beschikbaar
+[Artikel 3: On-premises resources voor migratie naar Azure evalueren](contoso-migration-assessment.md)  | Contoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel360-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | Beschikbaar
 [Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar van SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso wordt een lift-and-shift-migratie naar Azure voor de on-premises SmartHotel360-app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso de app-database migreert naar een Azure SQL Database Managed Instance met de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar   
 [Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | De VM's van de SmartHotel360-app migreert Contoso naar Azure-VM's met behulp van de Site Recovery-service. | Beschikbaar
-[Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep opnieuw hosten](contoso-migration-rehost-vm-sql-ag.md) | Contoso migreert de SmartHotel360-app. Contoso maakt gebruik van Site Recovery voor het migreren van de VM's van de app. De Database Migration Service wordt gebruikt voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar 
-Artikel 7: Een Linux-app op Azure VM's opnieuw hosten | Contoso een lift-and-shift-migratie van de app van de osTicket Linux Azure-virtuele machines, met behulp van Azure Site Recovery is voltooid | In dit artikel
-[Artikel 8: Een Linux-app op Azure VM's en Azure MySQL Rehost](contoso-migration-rehost-linux-vm-mysql.md) | Contoso de osTicket Linux app overzet naar virtuele Azure-machines met Azure Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL Workbench. | Beschikbaar
-[Artikel 9: Een app op Azure Web Apps en Azure SQL database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso de SmartHotel360-app is gemigreerd naar een Azure-Web-App en de app-database migreert naar een Azure SQL Server-exemplaar met Database Migration Assistant | Beschikbaar
+[Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep rehost](contoso-migration-rehost-vm-sql-ag.md) | Contoso migreert de SmartHotel360-app. Contoso maakt gebruik van Site Recovery voor het migreren van de VM's van de app. De Database Migration Service wordt gebruikt voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar 
+7-artikel: Een Linux-app op Azure VM's opnieuw hosten | Contoso een lift-and-shift-migratie van de app van de osTicket Linux Azure-virtuele machines, met behulp van Azure Site Recovery is voltooid | In dit artikel
+[8-artikel: Een Linux-app op Azure VM's en Azure MySQL rehost](contoso-migration-rehost-linux-vm-mysql.md) | Contoso de osTicket Linux app overzet naar virtuele Azure-machines met Azure Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL Workbench. | Beschikbaar
+[9-artikel: Een app op Azure Web Apps en Azure SQL database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso de SmartHotel360-app is gemigreerd naar een Azure-Web-App en de app-database migreert naar een Azure SQL Server-exemplaar met Database Migration Assistant | Beschikbaar
 [Artikel 10: Een Linux-app op Azure-Web-Apps en Azure MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere Azure-regio's met behulp van Azure Traffic Manager, geïntegreerd met GitHub voor continue levering. Contoso migreert de app-database naar een Azure Database for MySQL-exemplaar. | Beschikbaar 
-[Artikel 11: Herstructureren TFS op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
-[Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
-[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
-[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
+[11-artikel: Herstructureren van TFS op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
+[12-artikel: Een app op Azure-containers en Azure SQL Database opnieuw modelleren](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
+[13-artikel: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+[14-artikel: Schalen van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 
 
@@ -46,12 +46,12 @@ In dit artikel, Contoso de twee lagen worden gemigreerd **osTicket** app, die wo
 
 Het team voor IT-leidinggevenden heeft nauw samengewerkt met zakelijke partners om te begrijpen wat ze willen bereiken bij deze migratie:
 
-- **Adres van de groei van het bedrijf**: Contoso groeit en er is als gevolg hiervan druk op de on-premises systemen en de infrastructuur.
-- **Beperk risico**: de service-app helpdesk is essentieel voor het bedrijf Contoso. Contoso wil verplaatsen naar Azure met nul risico.
-- **Uitbreiden**: Contoso niet wilt dat de app nu wijzigen. Het gewoon wil om ervoor te zorgen dat de app stabiel is.
+- **Adres van de groei van het bedrijf**: Contoso groeit, en er is als gevolg hiervan druk op de on-premises systemen en de infrastructuur.
+- **Beperk risico**: De service-app helpdesk is essentieel voor het bedrijf Contoso. Contoso wil verplaatsen naar Azure met nul risico.
+- **Uitbreiden**:  Contoso wil de app nu wijzigen. Het gewoon wil om ervoor te zorgen dat de app stabiel is.
 
 
-## <a name="migration-goals"></a>Migratie-doelen
+## <a name="migration-goals"></a>Migratiedoelen
 
 Het Contoso-cloud-team heeft vastgemaakt omlaag doelstellingen voor deze migratie, om te bepalen van de beste migratiemethode:
 
@@ -89,7 +89,7 @@ Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een 
 
 **Overweging** | **Details**
 --- | ---
-**Professionals** | Zowel de virtuele machines van app worden verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> Omdat Contoso lift-and-shift voor zowel virtuele machines van de app gebruikt is, zijn geen speciale configuratie of de migratie van hulpprogramma's voor de database van de app nodig.<br/><br/> Contoso, behouden die volledige controle over de virtuele machines in Azure-app. </br>/br > Ubuntu 16.04-TLS, dit is een onderschreven Linux-distributie van de app virtuele machines worden uitgevoerd. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+**Pros** | Zowel de virtuele machines van app worden verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> Omdat Contoso lift-and-shift voor zowel virtuele machines van de app gebruikt is, zijn geen speciale configuratie of de migratie van hulpprogramma's voor de database van de app nodig.<br/><br/> Contoso, behouden die volledige controle over de virtuele machines in Azure-app. </br>/br > Ubuntu 16.04-TLS, dit is een onderschreven Linux-distributie van de app virtuele machines worden uitgevoerd. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 **Nadelen** | De lagen web en gegevens van de app blijft een single point of failover. <br/><br/> Contoso moet doorgaan met ondersteuning van de app als Azure-VM's in plaats van verplaatsen naar een beheerde service zoals Azure App Service en Azure Database voor MySQL.<br/><br/> Contoso is op de hoogte dat houdt dingen eenvoudig met een virtuele machine lift-and-shift-migratie, ze niet u maximaal van de functies van profiteert zijn [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) (ingebouwde hoge beschikbaarheid, voorspelbare prestaties eenvoudig schalen, automatische back-ups en ingebouwde beveiliging).
 
 ### <a name="migration-process"></a>Migratieproces
@@ -126,10 +126,10 @@ Hier volgt wat Contoso nodig heeft voor dit scenario.
 Hier ziet u hoe Contoso de migratie wordt voltooid:
 
 > [!div class="checklist"]
-> * **Stap 1: Azure voorbereiden voor Site Recovery**: Contoso-maakt een Azure storage-account voor het opslaan van gerepliceerde gegevens en maakt u een Recovery Services-kluis.
+> * **Stap 1: Azure voorbereiden voor Site Recovery**: Contoso maakt een Azure storage-account voor het opslaan van gerepliceerde gegevens en maakt u een Recovery Services-kluis.
 > * **Stap 2: On-premises VMware voorbereiden voor Site Recovery**: Contoso-accounts moet worden gebruikt voor VM-detectie- en agent-installatie wordt voorbereid en verbinding maken met virtuele Azure-machines na een failover wordt voorbereid.
-> * **Stap 3:-Machines repliceren**: Contoso stelt u de bron- en migratie-omgeving, maakt u een replicatiebeleid en start virtuele machines te repliceren naar Azure storage.
-> * **Stap 4: Migreer de virtuele machines met Site Recovery**: Contoso een testfailover uit om te controleren of alles werkt en voert vervolgens een volledige failover voor de virtuele machines migreren naar Azure wordt uitgevoerd.
+> * **Stap 3: Virtuele machines repliceren**: Contoso stelt u de bron- en migratie-omgeving, maakt u een replicatiebeleid en start virtuele machines te repliceren naar Azure storage.
+> * **Stap 4: Migreren van de virtuele machines met Site Recovery**: Contoso voert een testfailover uit om te controleren of alles werkt en voert vervolgens een volledige failover voor de virtuele machines migreren naar Azure.
 
 
 ## <a name="step-1-prepare-azure-for-the-site-recovery-service"></a>Stap 1: Azure voorbereiden voor de Site Recovery-service
@@ -194,7 +194,7 @@ De Mobility-service moet worden geïnstalleerd op de Linux-VM's die worden gemig
 
 Na een failover naar Azure wil Contoso kunnen verbinding maken met de gerepliceerde virtuele machines in Azure. Om dit te doen, is er een aantal dingen die de Contoso-beheerders moet uitvoeren:
 
-- Voor toegang tot Azure-VM's via internet, kunnen SSH in Linux on-premises virtuele machine vóór de migratie.  Voor Ubuntu dit kan worden voltooid met de volgende opdracht: **Sudo apt-get ssh in installeren -y**.
+- Voor toegang tot Azure-VM's via internet, kunnen SSH in Linux on-premises virtuele machine vóór de migratie.  Voor Ubuntu kan dit worden voltooid met de volgende opdracht: **Sudo apt-get ssh in installeren -y**.
 - Nadat ze de migratie (failover) worden uitgevoerd, kunnen ze controleren **diagnostische gegevens over opstarten** om een schermopname van de virtuele machine weer te geven.
 - Als dit niet werkt, moet ze om te controleren dat de virtuele machine wordt uitgevoerd, en bekijk deze [tips voor probleemoplossing](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
@@ -275,7 +275,7 @@ Nadat de bron en het doel zijn ingesteld, zijn ze klaar om te maken van een repl
 
 1. In **infrastructuur voorbereiden** > **replicatie-instellingen** > **replicatiebeleid** >  **maken en Koppelen**, maken van een beleid **ContosoMigrationPolicy**.
 2. Ze gebruiken de standaard-instellingen:
-    - **RPO-drempelwaarde**: standaardwaarde van 60 minuten. Deze waarde bepaalt hoe vaak herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
+    - **RPO-drempelwaarde**: De standaardwaarde van 60 minuten. Deze waarde bepaalt hoe vaak herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
     - **Bewaarperiode voor herstelpunten**. De standaardwaarde van 24 uur. Deze waarde wordt bepaald hoe lang de bewaarperiode is voor elk herstelpunt. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster.
     - **Frequentie App-consistente momentopname**. De standaardwaarde van één uur. Deze waarde bepaalt de frequentie waarmee App-consistente momentopnamen worden gemaakt.
  
@@ -371,7 +371,7 @@ Een testfailover uitvoeren om te controleren of alles werkt zoals verwacht vóó
 
 1. In **herstelplannen (Site Recovery)** > **+ herstelplan**, ze een plan maken en de virtuele machines aan toe te voegen.
 
-    ![Plan voor herstel](./media/contoso-migration-rehost-linux-vm/recovery-plan.png)
+    ![Herstelplan](./media/contoso-migration-rehost-linux-vm/recovery-plan.png)
 
 2. Na het maken van het abonnement, ze selecteert u deze voor aanpassing (**herstelplannen** > **OsTicketMigrationPlan** > **aanpassen**.
 3.  Ze verwijderen **OSTICKETWEB** van **groep 1: Start**.  Dit zorgt ervoor dat de eerste startactie is van invloed op **OSTICKETMYSQL** alleen.
@@ -465,7 +465,7 @@ Het Contoso security team Bekijk de OSTICKETWEB en OSTICKETMYSQLVMs om beveiligi
 - Het team controleert de Netwerkbeveiligingsgroepen (nsg's) voor de virtuele machines om toegang te beheren. Nsg's worden gebruikt om ervoor te zorgen dat alleen verkeer dat is toegestaan voor de toepassing kan worden doorgegeven.
 - Het team is ook rekening gehouden met de beveiliging van de gegevens op de VM-schijven met behulp van versleuteling van schijf en Azure Key Vault.
 
-[Lees meer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) over procedures voor beveiliging voor virtuele machines.
+[Lees meer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) over procedures voor beveiliging voor virtuele machines.
 
 ### <a name="bcdr"></a>BCDR
 

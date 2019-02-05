@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: f2fe9efd7d75c95d6cd13cb65e196723c9953716
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658824"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729316"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -132,7 +132,7 @@ We ondersteunen momenteel geen meer dan één poort.
 
 **Kan ik mijn eigen opslag overbrengen?**
 
-We ondersteunen momenteel geen brengen van uw eigen opslag.
+Ja, [toevoegen van uw eigen opslag](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) is beschikbaar als preview.
 
 **Waarom kan ik mijn aangepaste container bestand system of met processen van de SCM-site niet doorzoeken?**
 

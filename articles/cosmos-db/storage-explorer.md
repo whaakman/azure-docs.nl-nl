@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: c99b22a5dad1e64525b2b2ebcd214c3dc5bfb28f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8700d0988927b221ace82a492e9902f1f36a562b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473592"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731367"
 ---
-# <a name="work-with-data-using-azure-storage-explorer"></a>Werken met gegevens met behulp van Azure Storage Explorer
+# <a name="work-with-data-using-azure-storage-explorer"></a>Werken met gegevens in Azure Storage Explorer
 
 Het gebruik van Azure Cosmos DB in Azure Storage Explorer stelt gebruikers in staat om Azure Cosmos DB entiteiten te beheren, gegevens te manipuleren, en opgeslagen procedures en triggers bij te werken samen met andere Azure entiteiten zoals opslagblobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken om uw verschillende Azure entiteiten op één plek te beheren. Op dit moment ondersteunt Azure Storage Explorer Cosmos-accounts die zijn geconfigureerd voor SQL, MongoDB, grafiek en tabel-API's.
 
@@ -59,7 +59,7 @@ Een andere manier van verbinding maken met een Azure Cosmos DB is het gebruik va
 
     ![Verbinding maken met Cosmos DB met een verbindingsreeks](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Momenteel is er alleen ondersteuning voor de SQL- en Table-API. Kies een API, plak uw **verbindingsreeks**, voer het **accountlabel** in, klik op **Volgende** om het overzicht te controleren en klik vervolgens op **Verbinden** om verbinding te maken met de Azure Cosmos DB-account. Zie [De verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string) voor informatie over het ophalen van de verbindingsreeks.
+2. Momenteel is er alleen ondersteuning voor de SQL- en Table-API. Kies een API, plak uw **verbindingsreeks**, voer het **accountlabel** in, klik op **Volgende** om het overzicht te controleren en klik vervolgens op **Verbinden** om verbinding te maken met de Azure Cosmos DB-account. Zie [De verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account) voor informatie over het ophalen van de verbindingsreeks.
 
     ![Verbindingsreeks](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Gebruik de volgende stappen uit om verbinding te maken met een Cosmos Azure DB v
 
     ![Verbinding maken met Cosmos DB Emulator](./media/storage-explorer/emulator-entry.png)
 
-3. Momenteel is er alleen ondersteuning voor de SQL-API. Plak uw **verbindingsreeks**, voer het **accountlabel** in, klik op **Volgende** om het overzicht te controleren en klik vervolgens op **Verbinden** om verbinding te maken met de Azure Cosmos DB-account. Zie [De verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string) voor informatie over het ophalen van de verbindingsreeks.
+3. Momenteel is er alleen ondersteuning voor de SQL-API. Plak uw **verbindingsreeks**, voer het **accountlabel** in, klik op **Volgende** om het overzicht te controleren en klik vervolgens op **Verbinden** om verbinding te maken met de Azure Cosmos DB-account. Zie [De verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account) voor informatie over het ophalen van de verbindingsreeks.
 
     ![Het dialoogvenster Verbinding maken met Cosmos DB Emulator](./media/storage-explorer/emulator-dialog.png)
 

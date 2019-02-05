@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849359"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733923"
 ---
 # <a name="messages-payloads-and-serialization"></a>Berichten, nettoladingen en serialisatie
 
@@ -28,7 +28,7 @@ Het objectmodel van de officiële Service Bus-clients voor .NET, Java, weerspieg
  
 Een Service Bus-bericht bestaat uit een binaire nettoladingsectie van die Service Bus nooit in een formulier aan de servicezijde en twee sets van eigenschappen verwerkt. De *eigenschappen broker* zijn vooraf gedefinieerd door het systeem. Deze vooraf gedefinieerde eigenschappen bepalen de functionaliteit van de bericht-niveau binnen de broker of deze worden toegewezen aan de metagegevens voor de algemene en gestandaardiseerde items. De *gebruikerseigenschappen* zijn een verzameling van sleutel / waarde-paren die kunnen worden gedefinieerd en ingesteld door de toepassing.
  
-Eigenschappen van de vooraf gedefinieerde broker worden in de volgende tabel weergegeven. De namen worden gebruikt met alle officiële client-API's en ook in de [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON-object van de toewijzing van het HTTP-protocol.
+Eigenschappen van de vooraf gedefinieerde broker worden in de volgende tabel weergegeven. De namen worden gebruikt met alle officiële client-API's en ook in de [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON-object van de toewijzing van het HTTP-protocol.
  
 De equivalente namen gebruikt op het niveau van het AMQP-protocol worden weergegeven tussen haakjes. 
 

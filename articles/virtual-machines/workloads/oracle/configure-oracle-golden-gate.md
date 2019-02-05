@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 5d7e21661d7ee905ff77a4856544d358924cd9ea
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413818"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700873"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Oracle Golden Gate implementeren op een Azure Linux-VM 
 
@@ -51,7 +51,7 @@ Hier volgt een samenvatting van de configuratie van de omgeving:
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
-Aanmelden bij uw Azure-abonnement met de [az login](/cli/azure/reference-index#az_login) opdracht. Volg de aanwijzingen op het scherm aanwijzingen.
+Aanmelden bij uw Azure-abonnement met de [az login](/cli/azure/reference-index) opdracht. Volg de aanwijzingen op het scherm aanwijzingen.
 
 ```azurecli
 az login
@@ -81,7 +81,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-Maak een VM met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
+Maak een VM met de opdracht [az vm create](/cli/azure/vm). 
 
 Het volgende voorbeeld maakt u twee virtuele machines met de naam `myVM1` en `myVM2`. SSH-sleutels maken als ze niet al bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 

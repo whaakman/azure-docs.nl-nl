@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164383"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736277"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "50164383"
 11. Uit veiligheidsoverwegingen is het beheerderswachtwoord van het apparaat na de eerste sessie verlopen en moet u het nu wijzigen. Als daarom wordt gevraagd, geeft u een beheerderswachtwoord voor het apparaat op. Een geldig beheerderswachtwoord voor een apparaat moet 8 tot 15 tekens bevatten. Het wachtwoord moet drie van de volgende elementen bevatten: kleine letters, hoofdletters, cijfers en speciale tekens.
     
     <br/>![Apparaat 5 registreren met StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. Bij de laatste stap in de instellingenwizard wordt uw apparaat geregistreerd met de StorSimple-apparaatbeheerfunctie. Hiervoor moet u de serviceregistratiesleutel die u hebt verkregen in [stap 2: de serviceregistratiesleutel ophalen](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Nadat u de registratiesleutel hebt opgegeven, moet u mogelijk twee tot drie minuten wachten voordat het apparaat is geregistreerd.
+12. Bij de laatste stap in de instellingenwizard wordt uw apparaat geregistreerd met de StorSimple-apparaatbeheerfunctie. Hiervoor moet u de serviceregistratiesleutel die u hebt verkregen in [stap 2: De serviceregistratiesleutel ophalen](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Nadat u de registratiesleutel hebt opgegeven, moet u mogelijk twee tot drie minuten wachten voordat het apparaat is geregistreerd.
     
     > [!NOTE]
     > U kunt op elk gewenst moment op Ctrl+C drukken om de instellingenwizard af te sluiten. Als u alle netwerkinstellingen (IP-adres voor Data 0, subnetmasker en gateway) hebt ingevoerd, blijven uw gegevens behouden.
@@ -81,7 +81,7 @@ ms.locfileid: "50164383"
 15. Ga terug naar de Azure Government-Portal en voer de volgende stappen uit:
     
     1. Ga naar uw StorSimple-apparaatbeheerservice.
-    2. Klik op **Apparaten**. In de lijst van apparaten, door het apparaat dat u ddeploying bent te identificeren. Controleer of dat het apparaat is verbonden met de service door het opzoeken van de status. Het apparaat moet de status **Online** hebben.
+    2. Klik op **Apparaten**. In de lijst van apparaten, het apparaat die u implementeert te identificeren. Controleer of dat het apparaat is verbonden met de service door het opzoeken van de status. Het apparaat moet de status **Online** hebben.
             
         Als de status van het apparaat **Offline** is, moet u een paar minuten wachten totdat het apparaat online is.
        

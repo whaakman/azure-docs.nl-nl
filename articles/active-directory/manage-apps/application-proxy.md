@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: af605f4ad7c4167936a07f2ae8ffd3d2850cda75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185199"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692699"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Externe toegang tot on-premises toepassingen via de toepassingsproxy van Azure Active Directory 
 
@@ -28,7 +28,7 @@ Azure AD Application Proxy is:
 
 - **Secure**. On-premises toepassingen kunnen gebruiken voor de besturingselementen voor autorisatie en de beveiligingsanalyses van Azure. On-premises toepassingen kunnen bijvoorbeeld gebruiken voor voorwaardelijke toegang en verificatie in twee stappen. Application Proxy, hoeft u binnenkomende verbindingen via de firewall te openen.
  
-- **Cost-effective**. On-premises oplossingen normaal gesproken moeten u instellen en onderhouden van gedemilitariseerde zones (DMV's), randservers of andere ingewikkelde infrastructuren. Application Proxy wordt uitgevoerd in de cloud, waardoor het eenvoudig te gebruiken. Voor het gebruik van Application Proxy, moet u niet wijzigen van de netwerkinfrastructuur of meer apparaten in uw on-premises omgeving installeren.
+- **Cost-effective**. On-premises oplossingen normaal gesproken moeten u instellen en onderhouden van gedemilitariseerde zones (DMZ's), randservers of andere ingewikkelde infrastructuren. Application Proxy wordt uitgevoerd in de cloud, waardoor het eenvoudig te gebruiken. Voor het gebruik van Application Proxy, moet u niet wijzigen van de netwerkinfrastructuur of meer apparaten in uw on-premises omgeving installeren.
 
 ## <a name="what-is-application-proxy"></a>Wat is Application Proxy?
 Application Proxy is een functie van Azure AD waarmee gebruikers toegang krijgen tot on-premises webtoepassingen vanaf een externe client. Application Proxy bevat zowel de Application Proxy-service die wordt uitgevoerd in de cloud en de Application Proxy-connector die wordt uitgevoerd op een on-premises server. Azure AD de Application Proxy-service en de Application Proxy connector werken samen om veilig het gebruiker aanmeldings-token van Azure AD naar de webtoepassing.
@@ -56,7 +56,7 @@ Het volgende diagram laat zien hoe Azure AD en Application Proxy werken samen vo
 5. De connector stuurt de aanvraag naar de on-premises toepassing.  
 6. Het antwoord is verzonden via de connector en de service voor toepassingsproxy voor de gebruiker.
 
-| Onderdeel | Beschrijving |
+| Onderdeel | Description |
 | --------- | ----------- |
 | Eindpunt  | Het eindpunt is een URL of een [eindgebruikersportal](end-user-experiences.md). Gebruikers kunnen toepassingen terwijl buiten uw netwerk bereiken door het openen van een externe URL. Gebruikers in uw netwerk kunnen de toepassing openen via een URL of een eindgebruikersportal. Wanneer gebruikers naar een van deze eindpunten gaat, worden ze verifiëren in Azure AD en vervolgens worden gerouteerd via de connector op de on-premises toepassing.|
 | Azure AD | Azure AD voert de verificatie met behulp van de tenant-directory die zijn opgeslagen in de cloud. |

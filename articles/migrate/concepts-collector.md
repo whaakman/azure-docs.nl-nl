@@ -4,15 +4,15 @@ description: Bevat informatie over het Collector-apparaat in Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 9890f68ff61d822f505c4403eb2f1f61e396fd01
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7a17bed165a5a8ff15a122a1376d1a3a5e17d45f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488703"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700924"
 ---
 # <a name="about-the-collector-appliance"></a>Over het Collector-apparaat
 
@@ -103,8 +103,6 @@ De Collector moet slagen voor een aantal controles om ervoor te zorgen deze verb
     7. Controleer of het certificaat wordt geïmporteerd zoals verwacht en controleer dat het internet connectiviteit controle werkt zoals verwacht.
 
 
-
-
 ### <a name="urls-for-connectivity"></a>URL's voor connectiviteit
 
 De connectiviteitscontrole is gevalideerd door verbinding te maken met een lijst met URL's.
@@ -150,6 +148,79 @@ De collector communiceert zoals in het volgende diagram en de volgende tabel wor
 Azure Migrate-service | TCP 443 | Collector communiceert met Azure Migrate-service via SSL 443.
 vCenter Server | TCP 443 | De Collector moet in staat om te communiceren met de vCenter-Server zijn.<br/><br/> Standaard maakt deze verbinding met vCenter op 443.<br/><br/> Als de vCenter-Server op een andere poort luistert, moet deze poort beschikbaar als uitgaande poort in de Collector zijn.
 RDP | TCP 3389 |
+
+## <a name="collected-metadata"></a>Verzamelde metagegevens
+
+Het collector-apparaat wordt de volgende metagegevens van de configuratie voor elke virtuele machine gedetecteerd. De configuratiegegevens voor de virtuele machines zijn beschikbaar een uur nadat u de detectie begint.
+
+- Naam van de virtuele machine weergegeven (op de vCenter-Server)
+- Pad van de inventaris van de virtuele machine (de host/map op de vCenter-Server)
+- IP-adres
+- MAC-adres
+- Besturingssysteem
+- Aantal kernen, schijven, NIC 's
+- Grootte van geheugen, schijf-grootten
+- Prestatiemeteritems van de VM, schijf en netwerk.
+
+### <a name="performance-counters"></a>Prestatiemeteritems
+
+ Het collector-apparaat verzamelt de volgende prestatiemeteritems voor elke virtuele machine van de ESXi-host met een interval van 20 seconden. Deze items zijn prestatiemeteritems van vCenter en hoewel de terminologie aangeeft dat deze gemiddelde, de voorbeelden 20 seconden real-time-prestatiemeteritems zijn. De prestatiegegevens voor de virtuele machines wordt gestart steeds beschikbaar in de portal twee uur nadat u de detectie hebt gestart. Het is raadzaam om te wachten op ten minste een dag voor het maken van beoordelingen op basis van prestaties om nauwkeurige juiste formaat aanbevelingen te krijgen. Als u direct resultaat zoekt, kunt u evaluaties maken met het criterium voor het instellen als *zoals on-premises* die wordt geen rekening gehouden met de prestatiegegevens voor de juiste grootte.
+
+**Teller** |  **Gevolgen voor de evaluatie**
+--- | ---
+cpu.usage.average | Aanbevolen VM-grootte en kosten  
+mem.usage.average | Aanbevolen VM-grootte en kosten  
+virtualDisk.read.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
+virtualDisk.write.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
+virtualDisk.numberReadAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
+virtualDisk.numberWriteAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
+NET.Received.Average | Berekent de VM-grootte                          
+net.transmitted.average | Berekent de VM-grootte     
+
+De volledige lijst met items van VMware die zijn verzameld door Azure Migrate vindt u hieronder:
+
+**Categorie** |  **Metadata** | **vCenter datapoint**
+--- | --- | ---
+MachineDetails | Id van de VM | vm.Config.InstanceUuid
+MachineDetails | VM-naam | vm.Config.Name
+MachineDetails | vCenter Server-ID | VMwareClient.InstanceUuid
+MachineDetails |  Beschrijving van de virtuele machine |  vm.Summary.Config.Annotation
+MachineDetails | De naam van de licentie-product | vm.Client.ServiceContent.About.LicenseProductName
+MachineDetails | Besturingssysteemtype | virtuele machine. Summary.Config.GuestFullName
+MachineDetails | Besturingssysteem | virtuele machine. Summary.Config.GuestFullName
+MachineDetails | Opstarttype | vm.Config.Firmware
+MachineDetails | Aantal kerngeheugens | vm.Config.Hardware.NumCPU
+MachineDetails | Geheugen (MB) | vm.Config.Hardware.MemoryMB
+MachineDetails | Aantal schijven | virtuele machine. Config.Hardware.Device.ToList(). FindAll(x => x is VirtualDisk).count
+MachineDetails | Lijst met schijven grootte | virtuele machine. Config.Hardware.Device.ToList(). FindAll (x = > x is VirtualDisk)
+MachineDetails | Lijst met netwerkadapters | virtuele machine. Config.Hardware.Device.ToList(). FindAll (x = > x is VirtualEthernetCard)
+MachineDetails | CPU-gebruik | cpu.usage.average
+MachineDetails | Geheugengebruik | mem.usage.average
+Details van schijf (per schijf) | De sleutelwaarde schijf | schijf. Sleutel
+Details van schijf (per schijf) | Eenheid schijfnummer | schijf. UnitNumber
+Details van schijf (per schijf) | Schijf-controller-sleutelwaarde | disk.ControllerKey.Value
+Details van schijf (per schijf) | Gigabytes ingericht | virtualDisk.DeviceInfo.Summary
+Details van schijf (per schijf) | Schijfnaam | Deze waarde wordt gegenereerd op basis van de schijf. UnitNumber, schijf. Sleutel en de schijf. ControllerKey.Value
+Details van schijf (per schijf) | Aantal leesbewerkingen per seconde | virtualDisk.numberReadAveraged.average
+Details van schijf (per schijf) | Aantal schrijfbewerkingen per seconde | virtualDisk.numberWriteAveraged.average
+Details van schijf (per schijf) | MB per seconde gelezen doorvoer | virtualDisk.read.average
+Details van schijf (per schijf) | MB per seconde van de doorvoer van schrijfbewerkingen | virtualDisk.write.average
+Details van netwerkadapter (per NIC) | Naam van de netwerkadapter | nic.Key
+Details van netwerkadapter (per NIC) | MAC-adres | ((VirtualEthernetCard)nic).MacAddress
+Details van netwerkadapter (per NIC) | IPv4-adressen | vm.Guest.Net
+Details van netwerkadapter (per NIC) | IPv6-adressen | vm.Guest.Net
+Details van netwerkadapter (per NIC) | MB per seconde gelezen doorvoer | NET.Received.Average
+Details van netwerkadapter (per NIC) | MB per seconde van de doorvoer van schrijfbewerkingen | net.transmitted.average
+Inventarisgegevens van pad | Name | container.GetType().Name
+Inventarisgegevens van pad | Het type onderliggend object | container.ChildType
+Inventarisgegevens van pad | Details van verwijzing | container.MoRef
+Inventarisgegevens van pad | Pad van de volledige inventarisatie | de container. Geef de naam met het volledige pad
+Inventarisgegevens van pad | Details van de bovenliggende | Container.Parent
+Inventarisgegevens van pad | Details van een map voor elke virtuele machine | ((Folder)container).ChildEntity.Type
+Inventarisgegevens van pad | Datacenter-details voor elke VM-map | ((Datacenter)container).VmFolder
+Inventarisgegevens van pad | Datacenter-details voor elke Host-map | ((Datacenter)container).HostFolder
+Inventarisgegevens van pad | Clusterdetails voor elke Host | ((ClusterComputeResource)container).Host)
+Inventarisgegevens van pad | Host-details voor elke virtuele machine | ((HostSystem)container).Vm
 
 
 ## <a name="securing-the-collector-appliance"></a>Het Collector-apparaat beveiligen
@@ -200,34 +271,6 @@ Nadat het apparaat is ingesteld, kunt u de detectie kunt uitvoeren. Dit is hoe h
 - Virtuele machines zijn gedetecteerd en hun metagegevens en prestaties worden verzonden naar Azure. Deze acties zijn onderdeel van een taak.
     - Het Collector-apparaat wordt een specifieke Collector-ID die is permanent voor een bepaalde virtuele machine, ook detecties gegeven.
     - Een actieve taak krijgt een bepaalde sessie-ID. De ID voor elke taak wordt gewijzigd, en kan worden gebruikt voor het oplossen van problemen.
-
-### <a name="collected-metadata"></a>Verzamelde metagegevens
-
-Het collector-apparaat wordt de volgende metagegevens van de configuratie voor elke virtuele machine gedetecteerd. De configuratiegegevens voor de virtuele machines zijn beschikbaar een uur nadat u de detectie begint.
-
-- Naam van de virtuele machine weergegeven (op de vCenter-Server)
-- Pad van de inventaris van de virtuele machine (de host/map op de vCenter-Server)
-- IP-adres
-- MAC-adres
-- Besturingssysteem
-- Aantal kernen, schijven, NIC 's
-- Grootte van geheugen, schijf-grootten
-- Prestatiemeteritems van de VM, schijf en netwerk.
-
-#### <a name="performance-counters"></a>Prestatiemeteritems
-
- Het collector-apparaat verzamelt de volgende prestatiemeteritems voor elke virtuele machine van de ESXi-host met een interval van 20 seconden. Deze items zijn prestatiemeteritems van vCenter en hoewel de terminologie aangeeft dat deze gemiddelde, de voorbeelden 20 seconden real-time-prestatiemeteritems zijn. De prestatiegegevens voor de virtuele machines wordt gestart steeds beschikbaar in de portal twee uur nadat u de detectie hebt gestart. Het is raadzaam om te wachten op ten minste een dag voor het maken van beoordelingen op basis van prestaties om nauwkeurige juiste formaat aanbevelingen te krijgen. Als u direct resultaat zoekt, kunt u evaluaties maken met het criterium voor het instellen als *zoals on-premises* die wordt geen rekening gehouden met de prestatiegegevens voor de juiste grootte.
-
-**Teller** |  **Gevolgen voor de evaluatie**
---- | ---
-cpu.usage.average | Aanbevolen VM-grootte en kosten  
-mem.usage.average | Aanbevolen VM-grootte en kosten  
-virtualDisk.read.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-virtualDisk.write.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-virtualDisk.numberReadAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-virtualDisk.numberWriteAveraged.average | Berekent de grootte van de schijf, de kosten voor gegevensopslag, VM-grootte
-NET.Received.Average | Berekent de VM-grootte                          
-net.transmitted.average | Berekent de VM-grootte     
 
 ## <a name="next-steps"></a>Volgende stappen
 

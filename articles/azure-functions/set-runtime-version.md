@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e8142e391dd02e78be42e1f16ae2626b74c41c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498402"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734467"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Het doel-Azure Functions runtime-versies
 
@@ -49,7 +49,7 @@ U kunt ook bekijken en stel de `FUNCTIONS_EXTENSION_VERSION` vanuit de Azure CLI
 >[!NOTE]
 >Omdat andere instellingen wordt mogelijk beïnvloed door de runtimeversie, moet u de versie in de portal wijzigen. De portal maakt automatisch de andere vereiste updates, zoals Node.js-versie en runtime-stack, wanneer u runtimeversies wijzigt.  
 
-Met de Azure CLI, de huidige runtimeversie met weer de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) opdracht.
+Met de Azure CLI, de huidige runtimeversie met weer de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) opdracht.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -83,7 +83,7 @@ U ziet de `FUNCTIONS_EXTENSION_VERSION` in de volgende uitvoer, die is afgekapt 
 ]
 ```
 
-U kunt bijwerken de `FUNCTIONS_EXTENSION_VERSION` instellen in de functie-app met de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) opdracht.
+U kunt bijwerken de `FUNCTIONS_EXTENSION_VERSION` instellen in de functie-app met de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) opdracht.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

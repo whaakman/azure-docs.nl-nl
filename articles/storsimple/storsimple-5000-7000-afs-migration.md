@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729160"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730166"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Gegevens van de StorSimple 5000-7000-serie migreren naar Azure File Sync
 
@@ -56,8 +56,8 @@ Hier vindt u de vereisten voor uw verouderde 5000 of 7000 serie apparaat van de 
 - StorSimple-volumes op de host zijn gekoppeld en bestandsshares bevatten.
 - De host heeft onvoldoende lokale opslag om uw lokaal in cache opgeslagen gegevens te bevatten.
 - De eigenaar van niveau toegang tot de Azure-abonnement dat u gebruiken wilt voor Azure File Sync implementeren. U ondervindt mogelijk problemen bij het maken van een cloudeindpunt om daar de synchronisatiegroep als u geen eigenaar of beheerdersmachtigingen.
-- Toegang tot een [voor algemeen gebruik v2-opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-account-overview) met een Azure-bestandsshare die u wilt synchroniseren. Zie voor meer informatie, [een opslagaccount maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
- - Hoe u [maken van een Azure-bestandsshare](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
+- Toegang tot een [voor algemeen gebruik v2-opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-account-overview) met een Azure-bestandsshare die u wilt synchroniseren. Zie [Een opslagaccount maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) voor meer informatie.
+ - Hoe u [maken van een Azure-bestandsshare](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Migratieproces
 
@@ -87,7 +87,7 @@ Voer de volgende stappen uit voor het migreren van de Windows-bestandsshare die 
     Sla deze stap over en gaat u naar de volgende stap als u een andere Windows Server-host. Als u de dezelfde Windows-bestandsserver voor AFS, wordt u nu een paar minuten uitvaltijd ondervindt. 
     - **Downtime Start** -verwijderen van het eindpunt van de server die u hebt gemaakt in *1F stap*. 
     - Maak een nieuw servereindpunt met het pad waar u de gegevens zich bevinden vooruit gaan.
-    - Wanneer het servereindpunt wordt weergegeven als in orde (dit kan enkele minuten duren), ziet u de gegevens in deze nieuwe locatie. U kunt nu uw Windows Server-host om van dienst van bestanden van dit nieuwe locatie te configureren.\ -  **Downtime eindigt**.
+    - Wanneer het servereindpunt wordt weergegeven als in orde (dit kan enkele minuten duren), ziet u de gegevens in deze nieuwe locatie. U kunt nu uw Windows Server-host om van dienst van bestanden van dit nieuwe locatie te configureren. -  **Downtime eindigt**.
 5.  Als u een andere Windows-bestandsserver voor Azure File Sync gebruikt, wordt u niet uitvaltijd ondervindt. 
     - Een andere servereindpunt met het pad van de lokale opslag die u bereid bent te gebruiken als een cache in plaats van het StorSimple-apparaat toevoegen. 
     - U kunt zich de bestanden in de nieuwe server te zien in enkele minuten. U bent om de overschakeling van uw StorSimple-apparaat naar deze nieuwe locatie op de host op elk gewenst moment.

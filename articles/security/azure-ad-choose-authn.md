@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 0238c8f9c7a7e571ab23b3147381d7fa22c4d8d4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413308"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694683"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selecteer de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
@@ -184,7 +184,7 @@ De architectuur op hoog niveau onderdelen die vereist zijn voor elke methode voo
 |Wat zijn de opties voor meervoudige verificatie?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Aangepaste besturingselementen met voorwaardelijke toegang *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Aangepaste besturingselementen met voorwaardelijke toegang *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Third-party MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Aangepaste besturingselementen met voorwaardelijke toegang *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
 |De status van de gebruiker-account worden ondersteund?|Uitgeschakelde accounts<br>(maximaal 30 minuten vertraging)|Uitgeschakelde accounts<br><br>Account vergrendeld<br><br>Het account is verlopen<br><br>Wachtwoord is verlopen<br><br>Aanmelden-uren|Uitgeschakelde accounts<br><br>Account vergrendeld<br><br>Het account is verlopen<br><br>Wachtwoord is verlopen<br><br>Aanmelden-uren|
 |Wat zijn de opties voor voorwaardelijke toegang?|[Azure AD voor voorwaardelijke toegang, met Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD voor voorwaardelijke toegang, met Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD voor voorwaardelijke toegang, met Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS claimregels](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Blokkeert verouderde protocollen die worden ondersteund?|[Ja](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Blokkeert verouderde protocollen die worden ondersteund?|[Ja](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[Ja](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[Ja](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Kunt u het logo, afbeelding en beschrijving op de aanmeldingspagina's aanpassen?|[Ja, met Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Ja, met Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Ja](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |Welke geavanceerde scenario's worden ondersteund?|[Slimme wachtwoord vergrendelen](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Gelekte referenties rapporten, met Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Slimme wachtwoord vergrendelen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Meerdere locaties met lage latentie verificatiesysteem<br><br>[AD FS-extranetvergrendeling](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integratie met derden identiteitssystemen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

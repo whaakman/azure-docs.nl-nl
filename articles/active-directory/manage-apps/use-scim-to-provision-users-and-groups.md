@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161763"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732580"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -120,7 +120,7 @@ Om dit proces eenvoudiger [codevoorbeelden](https://github.com/Azure/AzureAD-BYO
 ### <a name="getting-started"></a>Aan de slag
 De eenvoudigste manier voor het implementeren van een eindpunt SCIM inrichting aanvragen van Azure AD kan accepteren, is te bouwen en implementeren van de voorbeeldcode die uitvoer van de ingerichte gebruikers naar een bestand met door komma's gescheiden waarden (CSV).
 
-**Een voorbeeld SCIM-eindpunt maken:**
+#### <a name="to-create-a-sample-scim-endpoint"></a>Een voorbeeld SCIM-eindpunt maken
 
 1. Download het pakket voor het voorbeeld van code op [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Pak het pakket en plaats deze op uw Windows-machine op een locatie zoals C:\AzureAD-BYOA-Provisioning-Samples\.
@@ -142,7 +142,7 @@ De eenvoudigste manier voor het implementeren van een eindpunt SCIM inrichting a
 8. In Windows onder **Windows-instellingen > netwerk & instellingen voor Internet**, selecteer de **Windows Firewall > Geavanceerde instellingen**, en maak een **regel voor binnenkomende verbindingen** die biedt binnenkomende toegang tot poort 9000.
 9. Als de Windows-machine achter een router is, moet de router worden geconfigureerd voor het uitvoeren van Network Access Translation tussen de poort 9000 die wordt blootgesteld aan internet en 9000-poort op de Windows-machine. Deze configuratie is vereist voor Azure AD kunnen toegang hebben tot dit eindpunt in de cloud.
 
-**Het voorbeeld SCIM-eindpunt registreren in Azure AD:**
+#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Het voorbeeld SCIM-eindpunt in Azure AD registreren
 
 1. Aanmelden bij [de Azure-portal](https://portal.azure.com). 
 2. Blader naar **Azure Active Directory > bedrijfstoepassingen**, en selecteer **nieuwe toepassing > alle > niet in de galerij toepassing**.

@@ -14,25 +14,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: dd254f0640e17bdc055171dde69b04103f389354
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a12952c73863d10c4fffd013ab594a83ab1b6433
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659827"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729452"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Poorten en eindpunten openen voor een Linux-VM met de Azure CLI
 
 U een poort openen of maken van een eindpunt dat aan een virtuele machine (VM) in Azure met het maken van een netwerk-filter op een subnet of VM-netwerkinterface. U plaatst deze filters, die binnenkomend en uitgaand verkeer worden beheerd, op een Netwerkbeveiligingsgroep die is gekoppeld aan de resource die het verkeer ontvangt. We gebruiken een algemeen voorbeeld van webverkeer op poort 80. In dit artikel wordt beschreven hoe u een poort openen voor een virtuele machine met de Azure CLI. 
 
 
-Het maken van een Netwerkbeveiligingsgroep en regels moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Het maken van een Netwerkbeveiligingsgroep en regels moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myNetworkSecurityGroup*, en *myVnet*.
 
 
 ## <a name="quickly-open-a-port-for-a-vm"></a>Snel een poort voor een virtuele machine openen
-Als u snel een poort openen voor een virtuele machine in een scenario voor het ontwikkelen en testen wilt, kunt u de [az vm open-port](/cli/azure/vm#az_vm_open_port) opdracht. Met deze opdracht maakt u een Netwerkbeveiligingsgroep, voegt een regel en toegepast op een virtuele machine of het subnet. Het volgende voorbeeld wordt poort geopend *80* op de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*.
+Als u snel een poort openen voor een virtuele machine in een scenario voor het ontwikkelen en testen wilt, kunt u de [az vm open-port](/cli/azure/vm) opdracht. Met deze opdracht maakt u een Netwerkbeveiligingsgroep, voegt een regel en toegepast op een virtuele machine of het subnet. Het volgende voorbeeld wordt poort geopend *80* op de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*.
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
@@ -51,7 +51,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Toevoegen van een regel met [az network nsg-regel maken](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) naar HTTP-verkeer naar uw webserver (of aanpassen voor uw eigen scenario, zoals SSH-toegang of database connectivity). Het volgende voorbeeld wordt een regel met de naam *myNetworkSecurityGroupRule* TCP-verkeer op poort 80 toe te staan:
+Toevoegen van een regel met [az network nsg-regel maken](/cli/azure/network/nsg/rule) naar HTTP-verkeer naar uw webserver (of aanpassen voor uw eigen scenario, zoals SSH-toegang of database connectivity). Het volgende voorbeeld wordt een regel met de naam *myNetworkSecurityGroupRule* TCP-verkeer op poort 80 toe te staan:
 
 ```azurecli
 az network nsg rule create \
@@ -65,7 +65,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>Netwerkbeveiligingsgroep van toepassing op virtuele machine
-De Netwerkbeveiligingsgroep koppelen aan van de virtuele machine-netwerkinterface (NIC) met [az network nic update](/cli/azure/network/nic#az_network_nic_update). Het volgende voorbeeld wordt gekoppeld aan een bestaande NIC met de naam *myNic* met de Netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
+De Netwerkbeveiligingsgroep koppelen aan van de virtuele machine-netwerkinterface (NIC) met [az network nic update](/cli/azure/network/nic). Het volgende voorbeeld wordt gekoppeld aan een bestaande NIC met de naam *myNic* met de Netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \

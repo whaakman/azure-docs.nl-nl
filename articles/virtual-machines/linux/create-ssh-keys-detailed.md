@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7167e31261ce029a6a0a6fe070232d1086942162
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3784dd701b3ac44971e134f1b160fcfe2de2d9b3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297698"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731798"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Gedetailleerde stappen: SSH-sleutels voor verificatie met een Linux-VM in Azure maken en beheren 
 Met de combinatie van een secure shell (SSH), kunt u een virtuele Linux-machine maken in Azure die standaard gebruik van SSH-sleutels voor verificatie, hoeft u de wachtwoorden aan te melden. VM's gemaakt met de Azure portal, Azure CLI, Resource Manager-sjablonen of andere hulpprogramma's kunnen uw openbare SSH-sleutel opnemen als onderdeel van de implementatie, u verificatie met SSH-sleutel voor SSH-verbindingen stelt. 
@@ -130,11 +130,11 @@ Het is *sterk* aanbevolen een wachtwoordzin toevoegen aan uw persoonlijke sleute
 
 ## <a name="generate-keys-automatically-during-deployment"></a>Het automatisch genereren van sleutels tijdens de implementatie
 
-Als u de [Azure CLI](/cli/azure) voor het maken van uw virtuele machine, kunt u eventueel SSH openbare en persoonlijke sleutelbestanden genereren door het uitvoeren van de [az vm maken](/cli/azure/vm#az_vm_create) opdracht met de `--generate-ssh-keys` optie. De sleutels worden opgeslagen in de map ~/.ssh. Houd er rekening mee dat deze optie niet sleutels overschreven als deze al bestaan op die locatie.
+Als u de [Azure CLI](/cli/azure) voor het maken van uw virtuele machine, kunt u eventueel SSH openbare en persoonlijke sleutelbestanden genereren door het uitvoeren van de [az vm maken](/cli/azure/vm) opdracht met de `--generate-ssh-keys` optie. De sleutels worden opgeslagen in de map ~/.ssh. Houd er rekening mee dat deze optie niet sleutels overschreven als deze al bestaan op die locatie.
 
 ## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>Openbare SSH-sleutel opgeven bij het implementeren van een virtuele machine
 
-Geef uw openbare SSH-sleutel voor het maken van een Linux-VM die gebruikmaakt van SSH-sleutels voor verificatie bij het maken van de virtuele machine met behulp van Azure portal, CLI, Resource Manager-sjablonen of andere methoden. Wanneer u de portal gebruikt, voert u de openbare sleutel zelf. Als u de [Azure CLI](/cli/azure) opgeven voor het maken van uw virtuele machine met een bestaande openbare sleutel, de waarde of de locatie van deze openbare sleutel door het uitvoeren van de [az vm maken](/cli/azure/vm#az_vm_create) opdracht met de `--ssh-key-value` optie. 
+Geef uw openbare SSH-sleutel voor het maken van een Linux-VM die gebruikmaakt van SSH-sleutels voor verificatie bij het maken van de virtuele machine met behulp van Azure portal, CLI, Resource Manager-sjablonen of andere methoden. Wanneer u de portal gebruikt, voert u de openbare sleutel zelf. Als u de [Azure CLI](/cli/azure) opgeven voor het maken van uw virtuele machine met een bestaande openbare sleutel, de waarde of de locatie van deze openbare sleutel door het uitvoeren van de [az vm maken](/cli/azure/vm) opdracht met de `--ssh-key-value` optie. 
 
 Als u niet bekend met de indeling van een openbare SSH-sleutel bent, kunt u de openbare sleutel bekijken door te voeren `cat` als volgt vervangen `~/.ssh/id_rsa.pub` met de locatie van uw eigen openbare-sleutelbestand:
 

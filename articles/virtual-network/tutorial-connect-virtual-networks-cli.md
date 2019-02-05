@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e690ae8cd8f6b2ae52c0c8a9dae12c51f8921531
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470712"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694564"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Virtuele netwerken verbinden met virtueel-netwerkpeering met behulp van de Azure CLI
 
@@ -41,7 +41,7 @@ Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel m
 
 ## <a name="create-virtual-networks"></a>Virtuele netwerken maken
 
-Voordat u een virtueel netwerk maakt, moet u maken van een resourcegroep voor het virtuele netwerk en alle andere resources in dit artikel hebt gemaakt. Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
+Voordat u een virtueel netwerk maakt, moet u maken van een resourcegroep voor het virtuele netwerk en alle andere resources in dit artikel hebt gemaakt. Maak een resourcegroep maken met [az group create](/cli/azure/group). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -71,7 +71,7 @@ az network vnet create \
 
 ## <a name="peer-virtual-networks"></a>Peering van virtuele netwerken
 
-Peerings zijn tot stand gebracht tussen virtuele netwerk-id's, zodat u moet eerst de ID van elk virtueel netwerk met [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show) en sla de ID in een variabele.
+Peerings zijn tot stand gebracht tussen virtuele netwerk-id's, zodat u moet eerst de ID van elk virtueel netwerk met [az network vnet show](/cli/azure/network/vnet) en sla de ID in een variabele.
 
 ```azurecli-interactive
 # Get the id for myVirtualNetwork1.
@@ -110,7 +110,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-In de uitvoer die wordt geretourneerd na de vorige opdracht is uitgevoerd, ziet u dat de **peeringState** is *verbonden*. Azure heeft ook gewijzigd voor de status van de peering van het *myVirtualNetwork1 myVirtualNetwork2* peering aan *verbonden*. Controleer de status van de peering voor het *myVirtualNetwork1 myVirtualNetwork2* peering gewijzigd in *verbonden* met [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show).
+In de uitvoer die wordt geretourneerd na de vorige opdracht is uitgevoerd, ziet u dat de **peeringState** is *verbonden*. Azure heeft ook gewijzigd voor de status van de peering van het *myVirtualNetwork1 myVirtualNetwork2* peering aan *verbonden*. Controleer de status van de peering voor het *myVirtualNetwork1 myVirtualNetwork2* peering gewijzigd in *verbonden* met [az network vnet peering show](/cli/azure/network/vnet/peering).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -128,7 +128,7 @@ Maak een VM in elk virtueel netwerk, zodat u er in een latere stap tussen kunt c
 
 ### <a name="create-the-first-vm"></a>De eerste VM maken
 
-Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVm1* in de *myVirtualNetwork1* virtueel netwerk. Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. De `--no-wait` optie maakt de virtuele machine op de achtergrond, zodat u kunt doorgaan met de volgende stap.
+Maak een VM met [az vm create](/cli/azure/vm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVm1* in de *myVirtualNetwork1* virtueel netwerk. Als SSH-sleutels niet al bestaan op de standaardlocatie van de sleutel, worden ze met deze opdracht gemaakt. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. De `--no-wait` optie maakt de virtuele machine op de achtergrond, zodat u kunt doorgaan met de volgende stap.
 
 ```azurecli-interactive
 az vm create \
@@ -192,7 +192,7 @@ Sluit de SSH-sessie op de *myVm2* VM.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group#az_group_delete) om de resourcegroep en alle resources die deze bevat te verwijderen.
+Wanneer u niet meer nodig hebt, gebruikt u [az group delete](/cli/azure/group) om de resourcegroep en alle resources die deze bevat te verwijderen.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

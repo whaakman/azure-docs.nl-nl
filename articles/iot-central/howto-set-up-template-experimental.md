@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ad506e81f6fe9cdb4604aa9bfc7870ce0bafb294
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b5ec8df9ff08aace69680c188f9ab05e944ce891
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667120"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734569"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Instellen van een apparaat-sjabloon (nieuwe gebruikersinterface ontwerp)
 
@@ -245,7 +245,7 @@ Nadat u hebt geselecteerd **opslaan**, wordt de **Echo** opdracht wordt weergege
 
 Regels zorgen ervoor dat operators voor het bewaken van apparaten in bijna realtime. Regels voor aanroepen automatisch van acties zoals het verzenden van een e-mail wanneer de regel wordt geactiveerd. Een type regel is nu beschikbaar:
 
-- **Telemetrie-regel**, die wordt geactiveerd wanneer de telemetrie van de geselecteerde apparaten een opgegeven drempelwaarde overschrijdt. [Meer informatie over telemetrie regels](howto-create-telemetry-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+- **Telemetrie-regel**, die wordt geactiveerd wanneer de telemetrie van de geselecteerde apparaten een opgegeven drempelwaarde overschrijdt. [Meer informatie over telemetrie regels](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="dashboard"></a>Dashboard
 

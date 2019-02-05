@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f4da0f992914037f5c95050324af5762e90a2ca4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015284"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696819"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Maken, wijzigen of verwijderen van een openbare IP-adresvoorvoegsel
 
@@ -60,13 +60,13 @@ Openbare IP-adresvoorvoegsels hebben een kosten in rekening gebracht. Zie voor m
 |Hulpprogramma|Opdracht|
 |---|---|
 |CLI|[AZ network public-IP-voorvoegsel maken](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
-|PowerShell|[Nieuwe AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
+|PowerShell|[New-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Maken van een statisch openbaar IP-adres uit een voorvoegsel
 Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. Volg hiervoor de onderstaande stappen.
 
 1. In het vak met de tekst *zoeken naar resources* aan de bovenkant van de Azure-portal, typt u *openbare ip-adresvoorvoegsel*. Wanneer **openbare IP-adresvoorvoegsels** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
-2. Selecteer de prefx die u wilt maken van openbare IP-adressen.
+2. Selecteer het voorvoegsel dat u wilt maken van openbare IP-adressen.
 3. Wanneer deze wordt weergegeven in de lijst met zoekresultaten, selecteert u deze en klikt u op **+ IP-adres toevoegen** in de sectie overzicht. Als u dit niet ziet, Controleer of u de juiste koppeling voor de Preview-versie: https://aka.ms/publicipprefixportal
 4. Typ of Selecteer waarden voor de volgende instellingen onder **openbare IP-adres maken**. Aangezien een voorvoegsel voor standaard-SKU, IPv4- en statische is, moet u alleen de volgende informatie:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: abd69e27cf95a882ae7c299cbe19e2c30c35a918
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7ecae6711950ac180d8126060e9bc5a8e71e71d6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096822"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696095"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Maken van een Premium Azure Cache voor Redis met clustering
 
@@ -40,8 +40,8 @@ Dit script worden de volgende opdrachten gebruikt om een resourcegroep te maken 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ redis maken](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Azure Cache voor Redis-exemplaar maken. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [AZ redis maken](https://docs.microsoft.com/cli/azure/redis) | Azure Cache voor Redis-exemplaar maken. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

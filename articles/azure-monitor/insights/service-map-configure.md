@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 492e7cf466dd8019efe8617b67e9fa6b14f5b3c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8457334e00f7c8dfbaee75a12d6bb71b760e60d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661660"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696990"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -385,7 +385,7 @@ Als uw agent-installatie van afhankelijkheid is voltooid, maar u kunt uw server 
 **Windows**: Zoek naar de service met de naam 'Microsoft Dependency agent'.<br>
 **Linux**: Zoek naar het proces dat wordt uitgevoerd "microsoft--agent voor afhankelijkheden."
 
-* Weet u op de [gratis prijscategorie van Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Het gratis abonnement kunt u maximaal vijf unieke Service Map-servers. Alle volgende servers zijn weergegeven niet in het Serviceoverzicht, zelfs als de voorafgaande vijf niet meer gegevens worden verzonden.
+* Weet u op de [gratis prijscategorie van Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Het gratis abonnement kunt u maximaal vijf unieke Service Map-servers. Alle volgende servers zijn weergegeven niet in het Serviceoverzicht, zelfs als de voorafgaande vijf niet meer gegevens worden verzonden.
 
 * Is uw server verzenden logboek- en prestatiegegevens naar Log Analytics? Ga naar zoeken in Logboeken en voer de volgende query uit voor uw computer: 
 

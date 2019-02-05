@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: e10784957365df62e64c306c97ea17fb6a5e7c49
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d5ff6b05df74cd73fb374bbd7cf27b8fc7d69493
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55202923"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697968"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Het toepassingstype kiezen bij het toevoegen van een toepassing in Azure Active Directory
 Meer informatie over de vier typen toepassingen die u aan Azure Active Directory (Azure AD toevoegen kunt). Wanneer u een toepassing in Azure Active Directory toevoegt, wordt u gevraagd om een van de vier toepassingstype. 
@@ -42,7 +42,7 @@ De volgende functies worden ondersteund door een van de voorgaande vier typen in
 
 -   **Quick start-** – snel aan de slag met een toepassing door [eenvoudige implementatiestappen](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
--   **Algemene eigenschappen management** – krijgen een [direct deeplink](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users) aan een toepassing, [de huisstijl aanpassen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) van een toepassing, of [uitschakelen van de toepassing](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) voor alle gebruikers.
+-   **Algemene eigenschappen management** – krijgen een [direct deeplink](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) aan een toepassing, [de huisstijl aanpassen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) van een toepassing, of [uitschakelen van de toepassing](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) voor alle gebruikers.
 
 -   **Beheer van gebruikers en groepen** – [toewijzen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) of [verwijderen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) gebruikers en groepen met een toepassing, en kunt u de specifieke toepassingsrollen toewijzen deze gebruikers en groepen toegang hebben tot
 
@@ -134,7 +134,7 @@ Om in te stellen van een toepassing **eenmalige aanmelding** modus, volgt u deze
 -   **Automatische inrichting** : Kies de [automatische](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) **inrichtingsmodus** als u wilt inschakelen van automatische inrichting op basis van API en/of ongedaan maken inrichting van gebruikersaccounts aan deze toepassing 
 
    >[!NOTE]
-   >Deze optie is alleen beschikbaar voor toepassingen binnen de **aanbevolen** categorie van de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).
+   >Deze optie is alleen beschikbaar voor toepassingen binnen de **aanbevolen** categorie van de [Azure AD-Toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
    >
    >
 

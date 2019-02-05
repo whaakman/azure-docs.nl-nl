@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885f4da5ec9b360605a3e46ee8be8d338a638ede
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102666"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696180"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Gedistribueerde traceringen verzamelen van Python (Preview)
 
@@ -24,7 +24,7 @@ Application Insights nu ondersteunt tracering van Python-toepassingen door de in
 
 - U hebt een Azure-abonnement nodig.
 - Python moet worden geïnstalleerd, in dit artikel wordt gebruikgemaakt van [Python 3.7.0](https://www.python.org/downloads/), hoewel eerdere versies waarschijnlijk met kleine aanpassing werkt.
-- Volg de instructies voor het installeren van de [lokale doorstuurserver als een Windows-service](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service)
+- Volg de instructies voor het installeren van de [lokale doorstuurserver als een Windows-service](./../../azure-monitor/app/opencensus-local-forwarder.md)
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -57,7 +57,7 @@ U moet eerst maken van een Application Insights-resource die een key(ikey) instr
 
    ![Schermafbeelding van de instrumentatiesleutel](./media/opencensus-python/0003-instrumentation-key.png)
 
-2. Bewerk uw `LocalForwarder.config` bestand en voeg de instrumentatiesleutel toe. Als u de instructies in de gevolgd de [vereiste](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service) het bestand bevindt zich in `C:\LF-WindowsServiceHost`
+2. Bewerk uw `LocalForwarder.config` bestand en voeg de instrumentatiesleutel toe. Als u de instructies in de gevolgd de [vereiste](./../../azure-monitor/app/opencensus-local-forwarder.md) het bestand bevindt zich in `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -158,7 +158,7 @@ U moet eerst maken van een Application Insights-resource die een key(ikey) instr
 
 6. Nu tijdens het uitvoeren van de Python-script van bovenstaande u moet nog steeds gevraagd waarden op te geven, maar nu alleen de waarde in de shell wordt afgedrukt.
 
-7. Om te bevestigen dat de **lokale doorstuurserver** ophaalt van de controle traceringen het `LocalForwarder.config` bestand. Als u de stappen in de [vereiste](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), deze bevindt zich `C:\LF-WindowsServiceHost`.
+7. Om te bevestigen dat de **lokale doorstuurserver** ophaalt van de controle traceringen het `LocalForwarder.config` bestand. Als u de stappen in de [vereiste](https://docs.microsoft.com/azure/application-insights/local-forwarder), deze bevindt zich `C:\LF-WindowsServiceHost`.
 
     In onderstaande afbeelding van het logboekbestand, kunt u zien dat vóór het uitvoeren van het tweede script waar we een uitvoerder toegevoegd `OpenCensus input BatchesReceived` is 0. Zodra we begonnen met het bijgewerkte script is uitgevoerd `BatchesReceived` verhoogd gelijk is aan het aantal waarden dat we ingevoerd:
     

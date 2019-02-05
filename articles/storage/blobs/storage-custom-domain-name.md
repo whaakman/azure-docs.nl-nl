@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbbb7f96ebf14781e2f461f5ffbb3e1172595928
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241284"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694581"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domeinnaam voor uw Azure storage-account configureren
 
@@ -154,7 +154,7 @@ Nadat u het aangepaste domein hebt verwijderd, ziet u een portalmelding dat uw s
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-U kunt de registratie van een aangepast domein verwijderen met de [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI opdracht in en geef vervolgens een lege tekenreeks (`""`) voor de `--custom-domain` argumentwaarde.
+U kunt de registratie van een aangepast domein verwijderen met de [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI opdracht in en geef vervolgens een lege tekenreeks (`""`) voor de `--custom-domain` argumentwaarde.
 
 * De opdrachtindeling van de:
 

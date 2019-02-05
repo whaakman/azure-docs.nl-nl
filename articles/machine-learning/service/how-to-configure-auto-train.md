@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242328"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734654"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Geautomatiseerde machine learning-experimenten configureren
 
@@ -174,7 +174,7 @@ Vervolgens kunt u bepalen waar u het model wordt getraind. Een geautomatiseerde 
 
 Zie de [GitHub-site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) bijvoorbeeld-notebooks met lokale en externe compute-doelen.
 
-<a name='configure-experiment'/>
+<a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>Uw experiment-instellingen configureren
 
@@ -207,36 +207,48 @@ Voorbeelden zijn:
         n_cross_validations=5)
     ```
 
-Deze tabel bevat de parameterinstellingen die beschikbaar zijn voor uw experiment en hun standaardwaarden.
+Er zijn drie verschillende `task` parameterwaarden die bepalen van de lijst met algoritmen om toe te passen.  Gebruik de `whitelist` of `blacklist` parameters voor het verder aanpassen iteraties met de beschikbare algoritmen wilt opnemen of uitsluiten.
+* Classificatie
+    * LogisticRegression
+    * SGD
+    * MultinomialNaiveBayes
+    * BernoulliNaiveBayes
+    * SVM
+    * LinearSVM
+    * KNN
+    * DecisionTree
+    * RandomForest
+    * ExtremeRandomTrees
+    * LightGBM
+    * GradientBoosting
+    * TensorFlowDNN
+    * TensorFlowLinearClassifier
+* Regressie
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
+* Prognose
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
 
-Eigenschap |  Description | Standaardwaarde
---|--|--
-`task`  |Geef het type van machine learning-probleem. Toegestane waarden zijn <li>Classificatie</li><li>Regressie</li><li>Prognose</li>    | Geen |
-`primary_metric` |Metrische gegevens die u optimaliseren wilt bij het bouwen van uw model. Bijvoorbeeld, als u de nauwkeurigheid van de gegevens als de primary_metric opgeeft, geautomatiseerde machine learning ziet er als u wilt zoeken van een model met maximale nauwkeurigheid. U kunt slechts één primary_metric per experiment opgeven. Toegestane waarden zijn <br/>**Classificatie**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regressie**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score  </li> | Voor classificatie: nauwkeurigheid <br/>Voor regressie: spearman_correlation <br/> |
-`experiment_exit_score` |   U kunt een doelwaarde instellen voor uw primary_metric. Nadat een model wordt gevonden die voldoet aan het doel primary_metric, geautomatiseerde machine learning wordt stoppen doorlopen en het experiment wordt beëindigd. Als deze waarde is niet ingesteld (standaard), wordt automatisch machine learning-experiment blijft om uit te voeren van het aantal iteraties opgegeven in de herhalingen. Neemt een double-waarde. Als het doel is nooit bereikt, klikt u vervolgens blijven automatisch machine learning totdat het aantal iteraties opgegeven in de herhalingen wordt bereikt.| Geen
-`iterations` |Maximum aantal iteraties. Elke herhaling is gelijk aan een trainingstaak die in een pijplijn resulteert. Pijplijn is voorverwerking van gegevens en het model. Als u een hoge kwaliteit-model, gebruikt u 250 of meer    | 100
-`max_concurrent_iterations`|    Maximumaantal iteraties om parallel uit voeren. Deze instelling werkt alleen voor externe compute.|   1
-`max_cores_per_iteration`   | Geeft het aantal kernen op de compute-doel moeten worden gebruikt met het trainen van één pijplijn. Als het algoritme kan gebruikmaken van meerdere kernen, verhoogt dit de prestaties op een computer meerdere kernen. U kunt dit instellen op-1 voor het gebruik van de beschikbare cores op de machine.|  1
-`iteration_timeout_minutes` |   Beperkt de hoeveelheid tijd (minuten) een bepaalde iteratie nodig. Als een iteratie hoger is dan de opgegeven hoeveelheid, wordt die iteratie wordt geannuleerd. Als dat niet ingesteld, worden de iteratie blijft actief totdat deze is voltooid. |   Geen
-`n_cross_validations`   |Aantal cross-validatie splitsingen.| Geen
-`validation_size`   |Grootte van de validatie is ingesteld als percentage van alle training-voorbeeld.|  Geen
-`preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: De ontbrekende gegevens-numerieke met gemiddelde, tekst met de meeste exemplaar imputes </li><li>Categorische waarden: Als gegevens van het type Numeriek en het aantal unieke waarden is minder dan 5 procent, omgezet in een hot-codering </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true |  False |
-`enable_cache`  | Waar/onwaar <br/>Instelling die met deze waarde True schakelt voorverwerken slechts een keer en hergebruik van dezelfde voorverwerkte gegevens voor alle herhalingen. | True |
-`blacklist_models`  | Geautomatiseerde machine learning-experiment heeft veel verschillende algoritmen die er wordt geprobeerd. Configureren als u wilt uitsluiten van bepaalde algoritmen van het experiment. Dit is handig als u zich bewust bent verifiëringsalgoritme (s) werken niet goed voor uw gegevensset. Met uitzondering van de algoritmen kunt bespaart u compute-resources en trainingstijd.<br/>Toegestane waarden voor classificatie<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Toegestane waarden voor regressie<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Toegestane waarden voor de prognose<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Geen
-`whitelist_models`  | Geautomatiseerde machine learning-experiment heeft veel verschillende algoritmen die er wordt geprobeerd. Configureren om op te nemen van bepaalde algoritmen voor het experiment. Dit is handig als u zich bewust bent dat verifiëringsalgoritme (s) voor uw gegevensset werken. <br/>Toegestane waarden voor classificatie<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Toegestane waarden voor regressie<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Toegestane waarden voor de prognose<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Geen
-`verbosity` |Hiermee bepaalt u het niveau van logboekregistratie met gegevens wordt de meest uitgebreide en kritieke die de minste. Uitbreidingsniveau heeft dezelfde waarden, zoals gedefinieerd in de python-pakket voor logboekregistratie. Toegestane waarden zijn:<br/><li>logging.INFO</li><li>logboekregistratie. WAARSCHUWING</li><li>logboekregistratie. FOUT</li><li>logboekregistratie. KRITIEKE</li>  | logging.INFO</li>
-`X` | Alle functies te trainen met |  Geen
-`y` |   Voeg een label te trainen met gegevens. Voor de classificatie moet een matrix van gehele getallen zijn.|  Geen
-`X_valid`|_Optionele_ alle functies waarmee moet worden gevalideerd. Indien niet opgegeven, X wordt verdeeld tussen train en valideren |   Geen
-`y_valid`   |_Optionele_ de labelgegevens te valideren met. Indien niet opgegeven, y wordt verdeeld tussen train en valideren    | Geen
-`sample_weight` |   _Optionele_ een gewicht voor elk voorbeeld. Gebruik deze sjabloon wanneer u wilt toewijzen van verschillende gewichten voor uw data-punten |   Geen
-`sample_weight_valid`   |   _Optionele_ een gewicht voor elk Validatievoorbeeld. Indien niet opgegeven, sample_weight wordt verdeeld tussen train en valideren   | Geen
-`run_configuration` |   RunConfiguration-object.  Gebruikt voor extern worden uitgevoerd. |Geen
-`data_script`  |    Pad naar een bestand met de methode get_data.  Vereist voor extern worden uitgevoerd.   |Geen
-`model_explainability` | _Optionele_ True/False <br/>  De waarde True schakelt experimenteren om uit te voeren van belang van de functie voor elke iteratie. U kunt explain_model() methode ook gebruiken op een specifieke versie op de functie belang op aanvraag inschakelen voor deze herhaling nadat experiment voltooid is. | False
-`enable_ensembling`|Vlag waarmee een iteratie ensembling inschakelen nadat de iteraties hebt voltooid.| True
-`ensemble_iterations`|Het aantal iteraties waarin we een gemonteerd pijplijn moet deel uitmaken van de laatste ensembles kiezen.| 15
-`experiment_timeout_minutes`| De hoeveelheid tijd (minuten) die de hele experiment uitvoeren kunt nemen | Geen
+Zie de [AutoMLConfig klasse](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) voor een volledige lijst met parameters.  
 
 ## <a name="data-pre-processing-and-featurization"></a>Gegevens vooraf verwerken en parametrisatie
 

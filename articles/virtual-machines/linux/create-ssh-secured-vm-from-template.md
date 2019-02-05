@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6e4e142025e40e77afee01d70de9cef68eca1f0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62ef6cad2f1c8f8f871043a8d1f70cbd08ccd65f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013193"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729384"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Een virtuele Linux-machine maken met Azure Resource Manager-sjablonen
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Het volgende voorbeeld wordt een virtuele machine via [deze Azure Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) met [az group deployment maken](/cli/azure/group/deployment#az_group_deployment_create). Alleen SSH-verificatie is toegestaan. Als u hierom wordt gevraagd, geeft u de waarde van uw eigen openbare SSH-sleutel, zoals de inhoud van *~/.ssh/id_rsa.pub*. Als u een SSH-sleutelpaar maken wilt, Zie [maken en gebruiken van een SSH-sleutelpaar voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md).
+Het volgende voorbeeld wordt een virtuele machine via [deze Azure Resource Manager-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) met [az group deployment maken](/cli/azure/group/deployment). Alleen SSH-verificatie is toegestaan. Als u hierom wordt gevraagd, geeft u de waarde van uw eigen openbare SSH-sleutel, zoals de inhoud van *~/.ssh/id_rsa.pub*. Als u een SSH-sleutelpaar maken wilt, Zie [maken en gebruiken van een SSH-sleutelpaar voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create \

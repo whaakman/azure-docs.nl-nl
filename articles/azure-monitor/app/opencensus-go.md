@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 935119f2efe40ee22d2d11005fa79b12c712b7c2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104564"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694101"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Gedistribueerde traceringen verzameld vanuit Go (Preview)
 
@@ -24,7 +24,7 @@ Application Insights nu ondersteunt tracering van Go-toepassingen door de integr
 
 - U hebt een Azure-abonnement nodig.
 - Ga naar moet worden geïnstalleerd, in dit artikel wordt de versie 1.11 [gaat downloaden](https://golang.org/dl/).
-- Volg de instructies voor het installeren van de [lokale doorstuurserver als een Windows-service](./opencensus-local-forwarder.md#windows-service).
+- Volg de instructies voor het installeren van de [lokale doorstuurserver als een Windows-service](./opencensus-local-forwarder.md).
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -57,7 +57,7 @@ U moet eerst maken van een Application Insights-resource die een instrumentaties
 
    ![Schermafbeelding van de instrumentatiesleutel](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. Bewerk uw `LocalForwarder.config` bestand en voeg de instrumentatiesleutel toe. Als u de instructies in de gevolgd de [vereiste](./opencensus-local-forwarder.md#windows-service) het bestand bevindt zich in `C:\LF-WindowsServiceHost`
+2. Bewerk uw `LocalForwarder.config` bestand en voeg de instrumentatiesleutel toe. Als u de instructies in de gevolgd de [vereiste](./opencensus-local-forwarder.md) het bestand bevindt zich in `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -186,7 +186,7 @@ U moet eerst maken van een Application Insights-resource die een instrumentaties
 
 3. Wanneer de eenvoudige go-app wordt uitgevoerd navigeert u naar `http://localhost:50030`. Elke vernieuwing van de browser wordt de tekst "Hallo wereld" vergezeld gaan van overeenkomende reeks gegevens die wordt voortgezet op de lokale doorstuurserver gegenereerd.
 
-4. Om te bevestigen dat de **lokale doorstuurserver** ophaalt van de controle traceringen het `LocalForwarder.config` bestand. Als u de stappen in de [vereiste](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), deze bevindt zich `C:\LF-WindowsServiceHost`.
+4. Om te bevestigen dat de **lokale doorstuurserver** ophaalt van de controle traceringen het `LocalForwarder.config` bestand. Als u de stappen in de [vereiste](https://docs.microsoft.com/azure/application-insights/local-forwarder), deze bevindt zich `C:\LF-WindowsServiceHost`.
 
     In onderstaande afbeelding van het logboekbestand, kunt u zien dat vóór het uitvoeren van het tweede script waar we een uitvoerder toegevoegd `OpenCensus input BatchesReceived` is 0. Zodra we begonnen met het bijgewerkte script is uitgevoerd `BatchesReceived` verhoogd gelijk is aan het aantal waarden dat we ingevoerd:
     

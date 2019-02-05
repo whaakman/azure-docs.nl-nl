@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 63182657e7c5793a2102efecabeb7d51fa1086a9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636673"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729486"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Tijdseries analyseren in Azure Data Explorer
 
@@ -35,7 +35,7 @@ De resulterende tabel bevat een timestamp-kolom, drie dimensiekolommen van conte
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Tijdstempel | BrowserVer | OsVer | Land |
+|   | Tijdstempel | BrowserVer | OsVer | Land/regio |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51,0 | Windows 7 | Verenigd Koninkrijk |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Verenigd Koninkrijk |
@@ -64,7 +64,7 @@ demo_make_series1
     - `byOsVer`: partitie door besturingssysteem
 - De gegevensstructuur van de werkelijke tijd-serie is een numerieke matrix van de geaggregeerde waarde per elke bin tijd. We gebruiken `render timechart` voor visualisatie.
 
-We hebben drie partities in de bovenstaande tabel. Kunnen we een afzonderlijke tijdreeks maken: Windows 10 (rood), 7 (blauw) en 8.1 (groen) voor elke versie van het besturingssysteem zoals te zien is in de grafiek:
+We hebben drie partities in de bovenstaande tabel. We kunnen een afzonderlijke tijdreeks maken: Windows 10 (rood), 7 (blauw) en 8.1 (groen) voor elke versie van het besturingssysteem zoals te zien is in de grafiek:
 
 ![Time series partitie](media/time-series-analysis/time-series-partition.png)
 
@@ -103,6 +103,7 @@ Voorbeeld van `series_fit_line()` en `series_fit_2lines()` functies in een time 
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
+| project x, y, series_fit_2lines_y_line_fit, series_fit_line_y_line_fit 
 | render linechart
 ```
 
@@ -143,7 +144,7 @@ demo_series3
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | perioden | Scores | dagen |
+|   | perioden | scores | dagen |
 |   | 84 | 0.820622786055595 | 7 |
 |   | 12 | 0.764601405803502 | 1 |
 
@@ -181,11 +182,11 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | TIJDSTEMPEL | LOC | anonOp | DB | DataRead |
-|   | 2016-09-11-21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
-|   | 2016-09-11-21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
-|   | 2016-09-11-21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |
-|   | 2016-09-11-21:00:00.0000000 | Loc 9 | 371921734563783410 | 255 | 0 |
+|   | TIMESTAMP | Loc | anonOp | DB | DataRead |
+|   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
+|   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
+|   | 2016-09-11 21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |
+|   | 2016-09-11 21:00:00.0000000 | Loc 9 | 371921734563783410 | 255 | 0 |
 
 En eenvoudige statistische gegevens:
 
@@ -196,8 +197,8 @@ demo_many_series1
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | NUM | min\_t | maximale\_t |
-|   | 2177472 | 2016-09-08-00:00:00.0000000 | 2016-09-11-23:00:00.0000000 |
+|   | num | min\_t | max\_t |
+|   | 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
 
 Het bouwen van een tijdreeks in bins van 1 uur van de gelezen metrische gegevens (in totaal vier dagen * 24 uur = 96 punten), resulteert in het normale patroon fluctuatie:
 
@@ -254,7 +255,7 @@ demo_many_series1
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | LOC | anonOp | DB | helling |
+|   | Loc | anonOp | DB | helling |
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 

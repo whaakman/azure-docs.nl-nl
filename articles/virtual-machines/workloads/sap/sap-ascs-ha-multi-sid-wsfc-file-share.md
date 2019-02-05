@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 4d7caec3fc1b8bf74098a7b0a211ec2ada8280a3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189630"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732903"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -199,7 +199,7 @@ ms.locfileid: "43189630"
 > ![Windows][Logo_Windows] Windows
 >
 
-In September 2016, bracht Microsoft een functie waar u meerdere virtuele IP-adressen beheren met behulp van kunt een [interne Azure load balancer][load-balancer-multivip-overview]. Deze functionaliteit bestaat al in de externe load balancer van Azure.
+U kunt meerdere virtuele IP-adressen beheren met behulp van een [interne Azure load balancer][load-balancer-multivip-overview]. 
 
 Als u een SAP-implementatie hebt, kunt u een interne load balancer om de configuratie van een Windows-cluster voor SAP Central Services (ASCS/SCS)-exemplaren te maken.
 
@@ -213,8 +213,10 @@ In dit artikel richt zich op het verplaatsen van een enkele ASCS/SCS-installatie
 >
 >Het maximum aantal SAP ASCS/SCS-exemplaren in een WSFC-cluster is gelijk aan het maximum aantal privé front-end-IP-adressen voor elke Azure interne load balancer.
 >
+> De configuratie die is geïntroduceerd in deze documentatie wordt nog niet ondersteund om te worden gebruikt voor [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> 
 
-Zie de sectie 'privé front-end-IP per load balancer in voor meer informatie over de limieten van de load balancer [netwerklimieten: Azure Resource Manager][networking-limits-azure-resource-manager].
+Zie de sectie 'privé front-end-IP per load balancer in voor meer informatie over de limieten van de load balancer [netwerklimieten: Azure Resource Manager][networking-limits-azure-resource-manager]. Ook kunt u overwegen de [Azure Standard Load Balancer-SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) in plaats van de basis-SKU van de Azure load balancer.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -222,7 +224,7 @@ U hebt al een WSFC-cluster moet worden gebruikt voor een SAP ASCS/SCS-exemplaar 
 
 ![Afbeelding 1: Een SAP ASCS/SCS-exemplaar en een scale-out Bestandsserver geïmplementeerd in twee clusters][sap-ha-guide-figure-8007]
 
-_**Afbeelding 1:** een SAP ASCS/SCS-exemplaar en een scale-out Bestandsserver geïmplementeerd in twee clusters_
+_**Afbeelding 1:** Een SAP ASCS/SCS-exemplaar en een scale-out Bestandsserver geïmplementeerd in twee clusters_
 
 > [!IMPORTANT]
 > De instelling moet voldoen aan de volgende voorwaarden:
@@ -235,9 +237,9 @@ _**Afbeelding 1:** een SAP ASCS/SCS-exemplaar en een scale-out Bestandsserver ge
 
 Het doel is het installeren van meerdere SAP Advanced Business Application Programming (ASCS) of SAP Java (SCS) geclusterde exemplaren in de dezelfde WSFC-cluster, zoals hier wordt geïllustreerd: 
 
-![Afbeelding 2: SAP multi-SID-configuratie in twee clusters][sap-ha-guide-figure-8008]
+![Afbeelding 2: SAP-multi-SID-configuratie in twee clusters][sap-ha-guide-figure-8008]
 
-_**Afbeelding 2:** SAP multi-SID-configuratie in twee clusters_
+_**Afbeelding 2:** SAP-multi-SID-configuratie in twee clusters_
 
 De installatie van een extra **SAP \<SID2 >** system is vrijwel identiek aan de installatie van een <SID> system. Twee aanvullende voorbereidende stappen zijn vereist in de ASCS/SCS-cluster, maar ook op het bestandsshare SOFS-cluster.
 
@@ -261,7 +263,7 @@ Deze stappen worden beschreven in [infrastructuur is voorbereid voor een multi-S
 
 U kunt opnieuw gebruiken de bestaande \<SAPGlobalHost > en Volume1 van de eerste SAP <SID1> system.
 
-![Afbeelding 3: Scale-out Bestandsserver Multi-SID is hetzelfde als de naam van de globale SAP-Host][sap-ha-guide-figure-8014]
+![Afbeelding 3: Multi-SID scale-out Bestandsserver is hetzelfde als de naam van de globale SAP-Host][sap-ha-guide-figure-8014]
 
 _**Afbeelding 3:** Multi-SID scale-out Bestandsserver is hetzelfde als de naam van de globale SAP-Host_
 
@@ -327,7 +329,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 U kunt de tweede scale-out Bestandsserver configureren (bijvoorbeeld, de tweede SOFS cluster-rol met  **\<SAPGlobalHost2 >** en een andere **Volume2** voor de tweede  **\< SID2 >**).
 
-![Afbeelding 4: Scale-out Bestandsserver Multi-SID is hetzelfde als de naam van de globale SAP host 2][sap-ha-guide-figure-8015]
+![Afbeelding 4: Multi-SID scale-out Bestandsserver is hetzelfde als de naam van de globale SAP host 2][sap-ha-guide-figure-8015]
 
 _**Afbeelding 4:** Multi-SID scale-out Bestandsserver is hetzelfde als SAP globale hostnaam 2_
 
@@ -345,9 +347,9 @@ Maken van de tweede **Volume2**. Voer deze PowerShell-script:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Afbeelding 5: Scale-out Bestandsserver Multi-SID is hetzelfde als de naam van de globale SAP host 2][sap-ha-guide-figure-8016]
+![Afbeelding 5: Multi-SID scale-out Bestandsserver is hetzelfde als de naam van de globale SAP host 2][sap-ha-guide-figure-8016]
 
-_**Afbeelding 5:** tweede Volume2 in Failoverclusterbeheer_
+_**Afbeelding 5:** Tweede Volume2 in Failoverclusterbeheer_
 
 Globale SAP-map maken voor de tweede \<SID2 >, en bestandsbeveiliging instellen.
 
@@ -398,27 +400,27 @@ Met de rechtermuisknop op de **saoglobal2** scale-out Bestandsserver, cluster-gr
 
 ![Afbeelding 6: Start de wizard 'Bestandsshare toevoegen'][sap-ha-guide-figure-8017]
 
-_**Afbeelding 6:** 'Bestandsshare toevoegen' Start-wizard_
+_**Afbeelding 6:** 'Bestandsshare toevoegen' wizard starten_
 
 <br>
-![Afbeelding 7: ' Select SMB-Share – snel"][sap-ha-guide-figure-8018]
+![Afbeelding 7: "Selecteer SMB-Share – snel"][sap-ha-guide-figure-8018]
 
-_**Afbeelding 7:** 'SMB-Share – snel' selecteren_
-
-<br>
-![Afbeelding 8: "Sapglobalhost2" Selecteer en pad op Volume2 opgeven][sap-ha-guide-figure-8019]
-
-_**Afbeelding 8:** "sapglobalhost2" selecteren en het pad op Volume2 opgeven_
+_**Afbeelding 7:** Selecteer "SMB-Share – snel"_
 
 <br>
-![Afbeelding 9: Ingesteld op 'sapmnt' naam van bestandsshare][sap-ha-guide-figure-8020]
+![Afbeelding 8: Selecteer 'sapglobalhost2' en pad op Volume2 opgeven][sap-ha-guide-figure-8019]
 
-_**Afbeelding 9:** bestandssharenaam ingesteld op "sapmnt"_
+_**Afbeelding 8:** Selecteer 'sapglobalhost2' en pad op Volume2 opgeven_
+
+<br>
+![Afbeelding 9: Naam van bestandsshare instellen op "sapmnt"][sap-ha-guide-figure-8020]
+
+_**Afbeelding 9:** Naam van bestandsshare instellen op "sapmnt"_
 
 <br>
 ![Afbeelding 10: Alle instellingen uitschakelen][sap-ha-guide-figure-8021]
 
-_**Afbeelding 10:** alle instellingen uitschakelen_
+_**Afbeelding 10:** Alle instellingen uitschakelen_
 
 <br>
 Toewijzen *volledig beheer* machtigingen voor bestanden en sapmnt voor delen:
@@ -427,17 +429,17 @@ Toewijzen *volledig beheer* machtigingen voor bestanden en sapmnt voor delen:
 
 ![Afbeelding 11: Machtigingen voor volledig beheer toewijzen aan gebruikersaccounts groep en computer][sap-ha-guide-figure-8022]
 
-_**Afbeelding 11:** 'Volledig beheer' aan groep en computer gebruikersaccounts toewijzen_
+_**Afbeelding 11:** 'Volledig beheer' toewijzen aan gebruikersaccounts groep en computer_
 
 <br>
 ![Afbeelding 12: Selecteer 'Maken'][sap-ha-guide-figure-8023]
 
-_**Afbeelding 12:** selecteren 'Maken'_
+_**Afbeelding 12:** Selecteer 'Maken'_
 
 <br>
-![Afbeelding 13: Afhankelijk van de tweede sapmnt sapglobal2 host en Volume2 is gemaakt][sap-ha-guide-figure-8024]
+![Afbeelding 13: De tweede sapmnt gekoppeld aan host sapglobal2 en Volume2 wordt gemaakt][sap-ha-guide-figure-8024]
 
-_**Afbeelding 13:** sapglobal2 host afhankelijk van de tweede sapmnt en Volume2 is gemaakt_
+_**Afbeelding 13:** De tweede sapmnt gekoppeld aan host sapglobal2 en Volume2 wordt gemaakt_
 
 <br>
 ## <a name="install-sap-netweaver-multi-sid"></a>Installeren van SAP NetWeaver multi-SID
@@ -451,7 +453,7 @@ Installeer DBMS-systemen en SAP-toepassingsservers, zoals eerder beschreven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een ASCS/SCS-exemplaar installeren op een failovercluster zonder gedeelde schijven][sap-official-ha-file-share-document]: officiële SAP-richtlijnen voor een HA-bestandsshare
+* [Een ASCS/SCS-exemplaar installeren op een failovercluster zonder gedeelde schijven][sap-official-ha-file-share-document]: Officiële SAP-richtlijnen voor een HA-bestand delen
 
 * [Opslagruimten direct in Windows Server 2016][s2d-in-win-2016]
 
